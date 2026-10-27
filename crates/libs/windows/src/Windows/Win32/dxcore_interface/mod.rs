@@ -8,23 +8,26 @@ pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_GPU: windows_core::GUID = windows_core:
 pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_MEDIA_ACCELERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x66bdb96a_050b_44c7_a4fd_d144ce0ab443);
 pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_NPU: windows_core::GUID = windows_core::GUID::from_u128(0xd46140c4_add7_451b_9e56_06fe8c3b58ed);
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterEngineIndex {
-    pub physicalAdapterIndex: u32,
-    pub engineIndex: u32,
+    pub physicalAdapterIndex: super::uint32_t,
+    pub engineIndex: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterMemoryBudget {
-    pub budget: u64,
-    pub currentUsage: u64,
-    pub availableForReservation: u64,
-    pub currentReservation: u64,
+    pub budget: super::uint64_t,
+    pub currentUsage: super::uint64_t,
+    pub availableForReservation: super::uint64_t,
+    pub currentReservation: super::uint64_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    pub nodeIndex: u32,
+    pub nodeIndex: super::uint32_t,
     pub segmentGroup: DXCoreSegmentGroup,
 }
 #[repr(transparent)]
@@ -36,16 +39,18 @@ impl DXCoreAdapterPreference {
     pub const HighPerformance: Self = Self(2);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterProcessSetQueryInput {
-    pub arraySize: u32,
-    pub processIds: *mut u32,
+    pub arraySize: super::uint32_t,
+    pub processIds: *mut super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterProcessSetQueryOutput {
-    pub processesWritten: u32,
-    pub processesTotal: u32,
+    pub processesWritten: super::uint32_t,
+    pub processesTotal: super::uint32_t,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -88,52 +93,59 @@ impl DXCoreAdapterState {
     pub const SingleAdapterHybridMode: Self = Self(11);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineNamePropertyInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
-    pub engineNameLength: u32,
+    pub engineNameLength: super::uint32_t,
     pub engineName: *mut u16,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineNamePropertyOutput {
-    pub engineNameLength: u32,
+    pub engineNameLength: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineQueryInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
-    pub processId: u32,
+    pub processId: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineQueryOutput {
-    pub runningTime: u64,
+    pub runningTime: super::uint64_t,
     pub processQuerySucceeded: bool,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreFrequencyQueryOutput {
-    pub frequency: u64,
-    pub maxFrequency: u64,
-    pub maxOverclockedFrequency: u64,
+    pub frequency: super::uint64_t,
+    pub maxFrequency: super::uint64_t,
+    pub maxOverclockedFrequency: super::uint64_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreHardwareID {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSysID: u32,
-    pub revision: u32,
+    pub vendorID: super::uint32_t,
+    pub deviceID: super::uint32_t,
+    pub subSysID: super::uint32_t,
+    pub revision: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreHardwareIDParts {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSystemID: u32,
-    pub subVendorID: u32,
-    pub revisionID: u32,
+    pub vendorID: super::uint32_t,
+    pub deviceID: super::uint32_t,
+    pub subSystemID: super::uint32_t,
+    pub subVendorID: super::uint32_t,
+    pub revisionID: super::uint32_t,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -179,9 +191,10 @@ impl core::ops::Not for DXCoreHardwareTypeFilterFlags {
     }
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreMemoryQueryInput {
-    pub physicalAdapterIndex: u32,
+    pub physicalAdapterIndex: super::uint32_t,
     pub memoryType: DXCoreMemoryType,
 }
 #[repr(transparent)]
@@ -192,10 +205,11 @@ impl DXCoreMemoryType {
     pub const Shared: Self = Self(1);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreMemoryUsage {
-    pub committed: u64,
-    pub resident: u64,
+    pub committed: super::uint64_t,
+    pub resident: super::uint64_t,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -207,13 +221,15 @@ impl DXCoreNotificationType {
     pub const AdapterHardwareContentProtectionTeardown: Self = Self(3);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreProcessMemoryQueryInput {
-    pub physicalAdapterIndex: u32,
+    pub physicalAdapterIndex: super::uint32_t,
     pub memoryType: DXCoreMemoryType,
-    pub processId: u32,
+    pub processId: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreProcessMemoryQueryOutput {
     pub memoryUsage: DXCoreMemoryUsage,
@@ -296,10 +312,12 @@ impl IDXCoreAdapter {
     pub unsafe fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsPropertySupported)(windows_core::Interface::as_raw(self), property) }
     }
-    pub unsafe fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: super::size_t, propertydata: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), property, buffersize, propertydata as _) }
     }
-    pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<usize> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<super::size_t> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropertySize)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| result__)
@@ -308,15 +326,18 @@ impl IDXCoreAdapter {
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsQueryStateSupported)(windows_core::Interface::as_raw(self), property) }
     }
-    pub unsafe fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: super::size_t, inputstatedetails: Option<*const core::ffi::c_void>, outputbuffersize: super::size_t, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, inputstatedetails.unwrap_or(core::mem::zeroed()) as _, outputbuffersize, outputbuffer as _) }
     }
     pub unsafe fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsSetStateSupported)(windows_core::Interface::as_raw(self), property) }
     }
-    pub unsafe fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: Option<*const core::ffi::c_void>, inputdatasize: usize, inputdata: *const core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: super::size_t, inputstatedetails: Option<*const core::ffi::c_void>, inputdatasize: super::size_t, inputdata: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, inputstatedetails.unwrap_or(core::mem::zeroed()) as _, inputdatasize, inputdata) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetFactory<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -332,26 +353,43 @@ pub struct IDXCoreAdapter_Vtbl {
     pub IsValid: unsafe extern "system" fn(*mut core::ffi::c_void) -> bool,
     pub IsAttributeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> bool,
     pub IsPropertySupported: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterProperty) -> bool,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterProperty, usize, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetPropertySize: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterProperty, *mut usize) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterProperty, super::size_t, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetProperty: usize,
+    #[cfg(feature = "shared")]
+    pub GetPropertySize: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterProperty, *mut super::size_t) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPropertySize: usize,
     pub IsQueryStateSupported: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterState) -> bool,
-    pub QueryState: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterState, usize, *const core::ffi::c_void, usize, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub QueryState: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterState, super::size_t, *const core::ffi::c_void, super::size_t, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    QueryState: usize,
     pub IsSetStateSupported: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterState) -> bool,
-    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterState, usize, *const core::ffi::c_void, usize, *const core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterState, super::size_t, *const core::ffi::c_void, super::size_t, *const core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetState: usize,
+    #[cfg(feature = "guiddef")]
+    pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetFactory: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IDXCoreAdapter_Impl: windows_core::IUnknownImpl {
     fn IsValid(&self) -> bool;
     fn IsAttributeSupported(&self, attributeguid: *const windows_core::GUID) -> bool;
     fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool;
-    fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<usize>;
+    fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: super::size_t, propertydata: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> windows_core::Result<super::size_t>;
     fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool;
-    fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: super::size_t, inputstatedetails: *const core::ffi::c_void, outputbuffersize: super::size_t, outputbuffer: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool;
-    fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const core::ffi::c_void, inputdatasize: usize, inputdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetFactory(&self, riid: *const windows_core::GUID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: super::size_t, inputstatedetails: *const core::ffi::c_void, inputdatasize: super::size_t, inputdata: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetFactory(&self, riid: *const super::IID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IDXCoreAdapter_Vtbl {
     pub const fn new<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsValid<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool {
@@ -372,13 +410,13 @@ impl IDXCoreAdapter_Vtbl {
                 IDXCoreAdapter_Impl::IsPropertySupported(this, core::mem::transmute_copy(&property))
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: super::size_t, propertydata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapter_Impl::GetProperty(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&propertydata)).into()
             }
         }
-        unsafe extern "system" fn GetPropertySize<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertySize<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: *mut super::size_t) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXCoreAdapter_Impl::GetPropertySize(this, core::mem::transmute_copy(&property)) {
@@ -396,7 +434,7 @@ impl IDXCoreAdapter_Vtbl {
                 IDXCoreAdapter_Impl::IsQueryStateSupported(this, core::mem::transmute_copy(&property))
             }
         }
-        unsafe extern "system" fn QueryState<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryState<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: super::size_t, inputstatedetails: *const core::ffi::c_void, outputbuffersize: super::size_t, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapter_Impl::QueryState(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&inputstatedetailssize), core::mem::transmute_copy(&inputstatedetails), core::mem::transmute_copy(&outputbuffersize), core::mem::transmute_copy(&outputbuffer)).into()
@@ -408,13 +446,13 @@ impl IDXCoreAdapter_Vtbl {
                 IDXCoreAdapter_Impl::IsSetStateSupported(this, core::mem::transmute_copy(&property))
             }
         }
-        unsafe extern "system" fn SetState<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const core::ffi::c_void, inputdatasize: usize, inputdata: *const core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetState<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: super::size_t, inputstatedetails: *const core::ffi::c_void, inputdatasize: super::size_t, inputdata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapter_Impl::SetState(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&inputstatedetailssize), core::mem::transmute_copy(&inputstatedetails), core::mem::transmute_copy(&inputdatasize), core::mem::transmute_copy(&inputdata)).into()
             }
         }
-        unsafe extern "system" fn GetFactory<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFactory<Identity: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapter_Impl::GetFactory(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvfactory)).into()
@@ -438,6 +476,7 @@ impl IDXCoreAdapter_Vtbl {
         iid == &<IDXCoreAdapter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IDXCoreAdapter {}
 windows_core::imp::define_interface!(IDXCoreAdapter1, IDXCoreAdapter1_Vtbl, 0xa0783366_cfa3_43be_9d79_55b2da97c63c);
 impl core::ops::Deref for IDXCoreAdapter1 {
@@ -448,7 +487,8 @@ impl core::ops::Deref for IDXCoreAdapter1 {
 }
 windows_core::imp::interface_hierarchy!(IDXCoreAdapter1, windows_core::IUnknown, IDXCoreAdapter);
 impl IDXCoreAdapter1 {
-    pub unsafe fn GetPropertyWithInput(&self, property: DXCoreAdapterProperty, inputpropertydetailssize: usize, inputpropertydetails: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPropertyWithInput(&self, property: DXCoreAdapterProperty, inputpropertydetailssize: super::size_t, inputpropertydetails: Option<*const core::ffi::c_void>, outputbuffersize: super::size_t, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyWithInput)(windows_core::Interface::as_raw(self), property, inputpropertydetailssize, inputpropertydetails.unwrap_or(core::mem::zeroed()) as _, outputbuffersize, outputbuffer as _) }
     }
 }
@@ -456,14 +496,19 @@ impl IDXCoreAdapter1 {
 #[doc(hidden)]
 pub struct IDXCoreAdapter1_Vtbl {
     pub base__: IDXCoreAdapter_Vtbl,
-    pub GetPropertyWithInput: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterProperty, usize, *const core::ffi::c_void, usize, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetPropertyWithInput: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterProperty, super::size_t, *const core::ffi::c_void, super::size_t, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPropertyWithInput: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IDXCoreAdapter1_Impl: IDXCoreAdapter_Impl {
-    fn GetPropertyWithInput(&self, property: DXCoreAdapterProperty, inputpropertydetailssize: usize, inputpropertydetails: *const core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetPropertyWithInput(&self, property: DXCoreAdapterProperty, inputpropertydetailssize: super::size_t, inputpropertydetails: *const core::ffi::c_void, outputbuffersize: super::size_t, outputbuffer: *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IDXCoreAdapter1_Vtbl {
     pub const fn new<Identity: IDXCoreAdapter1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPropertyWithInput<Identity: IDXCoreAdapter1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterProperty, inputpropertydetailssize: usize, inputpropertydetails: *const core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyWithInput<Identity: IDXCoreAdapter1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: DXCoreAdapterProperty, inputpropertydetailssize: super::size_t, inputpropertydetails: *const core::ffi::c_void, outputbuffersize: super::size_t, outputbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapter1_Impl::GetPropertyWithInput(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&inputpropertydetailssize), core::mem::transmute_copy(&inputpropertydetails), core::mem::transmute_copy(&outputbuffersize), core::mem::transmute_copy(&outputbuffer)).into()
@@ -475,10 +520,12 @@ impl IDXCoreAdapter1_Vtbl {
         iid == &<IDXCoreAdapter1 as windows_core::Interface>::IID || iid == &<IDXCoreAdapter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IDXCoreAdapter1 {}
 windows_core::imp::define_interface!(IDXCoreAdapterFactory, IDXCoreAdapterFactory_Vtbl, 0x78ee5945_c36e_4b13_a669_005dd11c0f06);
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterFactory, windows_core::IUnknown);
 impl IDXCoreAdapterFactory {
+    #[cfg(all(feature = "guiddef", feature = "stdint"))]
     pub unsafe fn CreateAdapterList<T>(&self, filterattributes: &[windows_core::GUID]) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -486,7 +533,7 @@ impl IDXCoreAdapterFactory {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), filterattributes.as_ptr(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
     pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::LUID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -497,7 +544,8 @@ impl IDXCoreAdapterFactory {
     pub unsafe fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsNotificationTypeSupported)(windows_core::Interface::as_raw(self), notificationtype) }
     }
-    pub unsafe fn RegisterEventNotification<P0>(&self, dxcoreobject: P0, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<u32>
+    #[cfg(feature = "stdint")]
+    pub unsafe fn RegisterEventNotification<P0>(&self, dxcoreobject: P0, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<super::uint32_t>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -506,7 +554,8 @@ impl IDXCoreAdapterFactory {
             (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), notificationtype, callbackfunction, callbackcontext.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "stdint")]
+    pub unsafe fn UnregisterEventNotification(&self, eventcookie: super::uint32_t) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnregisterEventNotification)(windows_core::Interface::as_raw(self), eventcookie) }
     }
 }
@@ -514,33 +563,42 @@ impl IDXCoreAdapterFactory {
 #[doc(hidden)]
 pub struct IDXCoreAdapterFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateAdapterList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub GetAdapterByLuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::LUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "guiddef", feature = "stdint"))]
+    pub CreateAdapterList: unsafe extern "system" fn(*mut core::ffi::c_void, super::uint32_t, *const windows_core::GUID, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "stdint")))]
+    CreateAdapterList: usize,
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+    pub GetAdapterByLuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::LUID, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared", feature = "winnt")))]
     GetAdapterByLuid: usize,
     pub IsNotificationTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreNotificationType) -> bool,
-    pub RegisterEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DXCoreNotificationType, PFN_DXCORE_NOTIFICATION_CALLBACK, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub UnregisterEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "stdint")]
+    pub RegisterEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DXCoreNotificationType, PFN_DXCORE_NOTIFICATION_CALLBACK, *const core::ffi::c_void, *mut super::uint32_t) -> windows_core::HRESULT,
+    #[cfg(not(feature = "stdint"))]
+    RegisterEventNotification: usize,
+    #[cfg(feature = "stdint")]
+    pub UnregisterEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::uint32_t) -> windows_core::HRESULT,
+    #[cfg(not(feature = "stdint"))]
+    UnregisterEventNotification: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
 pub trait IDXCoreAdapterFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const windows_core::GUID, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetAdapterByLuid(&self, adapterluid: *const super::LUID, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateAdapterList(&self, numattributes: super::uint32_t, filterattributes: *const windows_core::GUID, riid: *const super::IID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetAdapterByLuid(&self, adapterluid: *const super::LUID, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool;
-    fn RegisterEventNotification(&self, dxcoreobject: windows_core::Ref<windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::Result<u32>;
-    fn UnregisterEventNotification(&self, eventcookie: u32) -> windows_core::Result<()>;
+    fn RegisterEventNotification(&self, dxcoreobject: windows_core::Ref<windows_core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::Result<super::uint32_t>;
+    fn UnregisterEventNotification(&self, eventcookie: super::uint32_t) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
 impl IDXCoreAdapterFactory_Vtbl {
     pub const fn new<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateAdapterList<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numattributes: u32, filterattributes: *const windows_core::GUID, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateAdapterList<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numattributes: super::uint32_t, filterattributes: *const windows_core::GUID, riid: *const super::IID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterFactory_Impl::CreateAdapterList(this, core::mem::transmute_copy(&numattributes), core::mem::transmute_copy(&filterattributes), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvadapterlist)).into()
             }
         }
-        unsafe extern "system" fn GetAdapterByLuid<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapterluid: *const super::LUID, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapterByLuid<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapterluid: *const super::LUID, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterFactory_Impl::GetAdapterByLuid(this, core::mem::transmute_copy(&adapterluid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvadapter)).into()
@@ -552,7 +610,7 @@ impl IDXCoreAdapterFactory_Vtbl {
                 IDXCoreAdapterFactory_Impl::IsNotificationTypeSupported(this, core::mem::transmute_copy(&notificationtype))
             }
         }
-        unsafe extern "system" fn RegisterEventNotification<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxcoreobject: *mut core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void, eventcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterEventNotification<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxcoreobject: *mut core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const core::ffi::c_void, eventcookie: *mut super::uint32_t) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXCoreAdapterFactory_Impl::RegisterEventNotification(this, core::mem::transmute_copy(&dxcoreobject), core::mem::transmute_copy(&notificationtype), core::mem::transmute_copy(&callbackfunction), core::mem::transmute_copy(&callbackcontext)) {
@@ -564,7 +622,7 @@ impl IDXCoreAdapterFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterEventNotification<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterEventNotification<Identity: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::uint32_t) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterFactory_Impl::UnregisterEventNotification(this, core::mem::transmute_copy(&eventcookie)).into()
@@ -583,7 +641,7 @@ impl IDXCoreAdapterFactory_Vtbl {
         iid == &<IDXCoreAdapterFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXCoreAdapterFactory {}
 windows_core::imp::define_interface!(IDXCoreAdapterFactory1, IDXCoreAdapterFactory1_Vtbl, 0xd5682e19_6d21_401c_827a_9a51a4ea35d7);
 impl core::ops::Deref for IDXCoreAdapterFactory1 {
@@ -594,6 +652,7 @@ impl core::ops::Deref for IDXCoreAdapterFactory1 {
 }
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterFactory1, windows_core::IUnknown, IDXCoreAdapterFactory);
 impl IDXCoreAdapterFactory1 {
+    #[cfg(feature = "guiddef")]
     pub unsafe fn CreateAdapterListByWorkload<T>(&self, workload: DXCoreWorkload, runtimefilter: DXCoreRuntimeFilterFlags, hardwaretypefilter: DXCoreHardwareTypeFilterFlags) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -606,16 +665,19 @@ impl IDXCoreAdapterFactory1 {
 #[doc(hidden)]
 pub struct IDXCoreAdapterFactory1_Vtbl {
     pub base__: IDXCoreAdapterFactory_Vtbl,
-    pub CreateAdapterListByWorkload: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreWorkload, DXCoreRuntimeFilterFlags, DXCoreHardwareTypeFilterFlags, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub CreateAdapterListByWorkload: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreWorkload, DXCoreRuntimeFilterFlags, DXCoreHardwareTypeFilterFlags, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    CreateAdapterListByWorkload: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
 pub trait IDXCoreAdapterFactory1_Impl: IDXCoreAdapterFactory_Impl {
-    fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimefilter: DXCoreRuntimeFilterFlags, hardwaretypefilter: DXCoreHardwareTypeFilterFlags, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimefilter: DXCoreRuntimeFilterFlags, hardwaretypefilter: DXCoreHardwareTypeFilterFlags, riid: *const super::IID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
 impl IDXCoreAdapterFactory1_Vtbl {
     pub const fn new<Identity: IDXCoreAdapterFactory1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateAdapterListByWorkload<Identity: IDXCoreAdapterFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workload: DXCoreWorkload, runtimefilter: DXCoreRuntimeFilterFlags, hardwaretypefilter: DXCoreHardwareTypeFilterFlags, riid: *const windows_core::GUID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateAdapterListByWorkload<Identity: IDXCoreAdapterFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workload: DXCoreWorkload, runtimefilter: DXCoreRuntimeFilterFlags, hardwaretypefilter: DXCoreHardwareTypeFilterFlags, riid: *const super::IID, ppvadapterlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterFactory1_Impl::CreateAdapterListByWorkload(this, core::mem::transmute_copy(&workload), core::mem::transmute_copy(&runtimefilter), core::mem::transmute_copy(&hardwaretypefilter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvadapterlist)).into()
@@ -627,24 +689,27 @@ impl IDXCoreAdapterFactory1_Vtbl {
         iid == &<IDXCoreAdapterFactory1 as windows_core::Interface>::IID || iid == &<IDXCoreAdapterFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "stdint", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXCoreAdapterFactory1 {}
 windows_core::imp::define_interface!(IDXCoreAdapterList, IDXCoreAdapterList_Vtbl, 0x526c7776_40e9_459b_b711_f32ad76dfc28);
 windows_core::imp::interface_hierarchy!(IDXCoreAdapterList, windows_core::IUnknown);
 impl IDXCoreAdapterList {
-    pub unsafe fn GetAdapter<T>(&self, index: u32) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "stdint"))]
+    pub unsafe fn GetAdapter<T>(&self, index: super::uint32_t) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetAdapter)(windows_core::Interface::as_raw(self), index, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetAdapterCount(&self) -> u32 {
+    #[cfg(feature = "stdint")]
+    pub unsafe fn GetAdapterCount(&self) -> super::uint32_t {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterCount)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn IsStale(&self) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsStale)(windows_core::Interface::as_raw(self)) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetFactory<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -652,6 +717,7 @@ impl IDXCoreAdapterList {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetFactory)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
+    #[cfg(feature = "stdint")]
     pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), preferences.as_ptr()) }
     }
@@ -663,30 +729,44 @@ impl IDXCoreAdapterList {
 #[doc(hidden)]
 pub struct IDXCoreAdapterList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetAdapterCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(all(feature = "guiddef", feature = "stdint"))]
+    pub GetAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, super::uint32_t, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "stdint")))]
+    GetAdapter: usize,
+    #[cfg(feature = "stdint")]
+    pub GetAdapterCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::uint32_t,
+    #[cfg(not(feature = "stdint"))]
+    GetAdapterCount: usize,
     pub IsStale: unsafe extern "system" fn(*mut core::ffi::c_void) -> bool,
-    pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Sort: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DXCoreAdapterPreference) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetFactory: usize,
+    #[cfg(feature = "stdint")]
+    pub Sort: unsafe extern "system" fn(*mut core::ffi::c_void, super::uint32_t, *const DXCoreAdapterPreference) -> windows_core::HRESULT,
+    #[cfg(not(feature = "stdint"))]
+    Sort: usize,
     pub IsAdapterPreferenceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, DXCoreAdapterPreference) -> bool,
 }
+#[cfg(all(feature = "guiddef", feature = "stdint"))]
 pub trait IDXCoreAdapterList_Impl: windows_core::IUnknownImpl {
-    fn GetAdapter(&self, index: u32, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetAdapterCount(&self) -> u32;
+    fn GetAdapter(&self, index: super::uint32_t, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetAdapterCount(&self) -> super::uint32_t;
     fn IsStale(&self) -> bool;
-    fn GetFactory(&self, riid: *const windows_core::GUID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Sort(&self, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> windows_core::Result<()>;
+    fn GetFactory(&self, riid: *const super::IID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Sort(&self, numpreferences: super::uint32_t, preferences: *const DXCoreAdapterPreference) -> windows_core::Result<()>;
     fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool;
 }
+#[cfg(all(feature = "guiddef", feature = "stdint"))]
 impl IDXCoreAdapterList_Vtbl {
     pub const fn new<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAdapter<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapter<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::uint32_t, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterList_Impl::GetAdapter(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvadapter)).into()
             }
         }
-        unsafe extern "system" fn GetAdapterCount<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetAdapterCount<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::uint32_t {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterList_Impl::GetAdapterCount(this)
@@ -698,13 +778,13 @@ impl IDXCoreAdapterList_Vtbl {
                 IDXCoreAdapterList_Impl::IsStale(this)
             }
         }
-        unsafe extern "system" fn GetFactory<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFactory<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterList_Impl::GetFactory(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvfactory)).into()
             }
         }
-        unsafe extern "system" fn Sort<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> windows_core::HRESULT {
+        unsafe extern "system" fn Sort<Identity: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numpreferences: super::uint32_t, preferences: *const DXCoreAdapterPreference) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXCoreAdapterList_Impl::Sort(this, core::mem::transmute_copy(&numpreferences), core::mem::transmute_copy(&preferences)).into()
@@ -730,6 +810,12 @@ impl IDXCoreAdapterList_Vtbl {
         iid == &<IDXCoreAdapterList as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "stdint"))]
 impl windows_core::RuntimeName for IDXCoreAdapterList {}
+pub const IID_IDXCoreAdapter: windows_core::GUID = windows_core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
+pub const IID_IDXCoreAdapter1: windows_core::GUID = windows_core::GUID::from_u128(0xa0783366_cfa3_43be_9d79_55b2da97c63c);
+pub const IID_IDXCoreAdapterFactory: windows_core::GUID = windows_core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
+pub const IID_IDXCoreAdapterFactory1: windows_core::GUID = windows_core::GUID::from_u128(0xd5682e19_6d21_401c_827a_9a51a4ea35d7);
+pub const IID_IDXCoreAdapterList: windows_core::GUID = windows_core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: windows_core::Ref<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
 pub const _FACDXCORE: i32 = 2176;

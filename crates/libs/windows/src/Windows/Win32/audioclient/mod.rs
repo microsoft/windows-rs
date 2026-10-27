@@ -4,16 +4,17 @@ pub type AMBISONICS_NORMALIZATION = i32;
 pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1;
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMBISONICS_PARAMS {
-    pub u32Size: u32,
-    pub u32Version: u32,
+    pub u32Size: super::UINT32,
+    pub u32Version: super::UINT32,
     pub u32Type: AMBISONICS_TYPE,
     pub u32ChannelOrdering: AMBISONICS_CHANNEL_ORDERING,
     pub u32Normalization: AMBISONICS_NORMALIZATION,
-    pub u32Order: u32,
-    pub u32NumChannels: u32,
-    pub pu32ChannelMap: *mut u32,
+    pub u32Order: super::UINT32,
+    pub u32NumChannels: super::UINT32,
+    pub pu32ChannelMap: *mut super::UINT32,
 }
 pub const AMBISONICS_PARAM_VERSION_1: i32 = 1;
 pub type AMBISONICS_TYPE = i32;
@@ -60,7 +61,7 @@ pub const AUDCLNT_E_SERVICE_NOT_RUNNING: windows_core::HRESULT = windows_core::H
 pub const AUDCLNT_E_THREAD_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x8889000C_u32 as _);
 pub const AUDCLNT_E_UNSUPPORTED_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x88890008_u32 as _);
 pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x88890003_u32 as _);
-pub type AUDCLNT_STREAMOPTIONS = u32;
+pub type AUDCLNT_STREAMOPTIONS = i32;
 pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = 4;
 pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = 2;
 pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = 0;
@@ -73,7 +74,7 @@ pub const AUDCLNT_S_POSITION_STALLED: super::SCODE = 0x8890003_u32 as _;
 #[cfg(feature = "wtypesbase")]
 pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: super::SCODE = 0x8890002_u32 as _;
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: i32 = 1;
-pub type AUDIO_DUCKING_OPTIONS = u32;
+pub type AUDIO_DUCKING_OPTIONS = i32;
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = 0;
 pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = 1;
 #[repr(C)]
@@ -92,10 +93,10 @@ pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "audiosessiontypes")]
+#[cfg(all(feature = "audiosessiontypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioClientProperties {
-    pub cbSize: u32,
+    pub cbSize: super::UINT32,
     pub bIsOffload: windows_core::BOOL,
     pub eCategory: super::AUDIO_STREAM_CATEGORY,
     pub Options: AUDCLNT_STREAMOPTIONS,
@@ -140,8 +141,9 @@ impl windows_core::RuntimeName for IAcousticEchoCancellationControl {}
 windows_core::imp::define_interface!(IAudioAmbisonicsControl, IAudioAmbisonicsControl_Vtbl, 0x28724c91_df35_4856_9f76_d6a26413f3df);
 windows_core::imp::interface_hierarchy!(IAudioAmbisonicsControl, windows_core::IUnknown);
 impl IAudioAmbisonicsControl {
-    pub unsafe fn SetData(&self, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pambisonicsparams, cbambisonicsparams) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetData(&self, pambisonicsparams: &[AMBISONICS_PARAMS]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pambisonicsparams.as_ptr(), pambisonicsparams.len().try_into().unwrap()) }
     }
     pub unsafe fn SetHeadTracking(&self, benableheadtracking: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHeadTracking)(windows_core::Interface::as_raw(self), benableheadtracking.into()) }
@@ -160,20 +162,25 @@ impl IAudioAmbisonicsControl {
 #[doc(hidden)]
 pub struct IAudioAmbisonicsControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const AMBISONICS_PARAMS, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const AMBISONICS_PARAMS, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetData: usize,
     pub SetHeadTracking: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetHeadTracking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioAmbisonicsControl_Impl: windows_core::IUnknownImpl {
-    fn SetData(&self, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> windows_core::Result<()>;
+    fn SetData(&self, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: super::UINT32) -> windows_core::Result<()>;
     fn SetHeadTracking(&self, benableheadtracking: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetHeadTracking(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetRotation(&self, x: f32, y: f32, z: f32, w: f32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAudioAmbisonicsControl_Vtbl {
     pub const fn new<Identity: IAudioAmbisonicsControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetData<Identity: IAudioAmbisonicsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: IAudioAmbisonicsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioAmbisonicsControl_Impl::SetData(this, core::mem::transmute_copy(&pambisonicsparams), core::mem::transmute_copy(&cbambisonicsparams)).into()
@@ -215,17 +222,21 @@ impl IAudioAmbisonicsControl_Vtbl {
         iid == &<IAudioAmbisonicsControl as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioAmbisonicsControl {}
 windows_core::imp::define_interface!(IAudioCaptureClient, IAudioCaptureClient_Vtbl, 0xc8adbd64_e71e_48a0_a4de_185c395cd317);
 windows_core::imp::interface_hierarchy!(IAudioCaptureClient, windows_core::IUnknown);
 impl IAudioCaptureClient {
-    pub unsafe fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: Option<*mut u64>, pu64qpcposition: Option<*mut u64>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBuffer(&self, ppdata: *mut *mut super::BYTE, pnumframestoread: *mut super::UINT32, pdwflags: *mut super::DWORD, pu64deviceposition: Option<*mut super::UINT64>, pu64qpcposition: Option<*mut super::UINT64>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), ppdata as _, pnumframestoread as _, pdwflags as _, pu64deviceposition.unwrap_or(core::mem::zeroed()) as _, pu64qpcposition.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn ReleaseBuffer(&self, numframesread: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReleaseBuffer(&self, numframesread: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseBuffer)(windows_core::Interface::as_raw(self), numframesread) }
     }
-    pub unsafe fn GetNextPacketSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNextPacketSize(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextPacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -236,30 +247,41 @@ impl IAudioCaptureClient {
 #[doc(hidden)]
 pub struct IAudioCaptureClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, *mut u32, *mut u64, *mut u64) -> windows_core::HRESULT,
-    pub ReleaseBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetNextPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::BYTE, *mut super::UINT32, *mut super::DWORD, *mut super::UINT64, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBuffer: usize,
+    #[cfg(feature = "shared")]
+    pub ReleaseBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReleaseBuffer: usize,
+    #[cfg(feature = "shared")]
+    pub GetNextPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetNextPacketSize: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioCaptureClient_Impl: windows_core::IUnknownImpl {
-    fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: *mut u64, pu64qpcposition: *mut u64) -> windows_core::Result<()>;
-    fn ReleaseBuffer(&self, numframesread: u32) -> windows_core::Result<()>;
-    fn GetNextPacketSize(&self) -> windows_core::Result<u32>;
+    fn GetBuffer(&self, ppdata: *mut *mut super::BYTE, pnumframestoread: *mut super::UINT32, pdwflags: *mut super::DWORD, pu64deviceposition: *mut super::UINT64, pu64qpcposition: *mut super::UINT64) -> windows_core::Result<()>;
+    fn ReleaseBuffer(&self, numframesread: super::UINT32) -> windows_core::Result<()>;
+    fn GetNextPacketSize(&self) -> windows_core::Result<super::UINT32>;
 }
+#[cfg(feature = "shared")]
 impl IAudioCaptureClient_Vtbl {
     pub const fn new<Identity: IAudioCaptureClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetBuffer<Identity: IAudioCaptureClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: *mut u64, pu64qpcposition: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBuffer<Identity: IAudioCaptureClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdata: *mut *mut super::BYTE, pnumframestoread: *mut super::UINT32, pdwflags: *mut super::DWORD, pu64deviceposition: *mut super::UINT64, pu64qpcposition: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioCaptureClient_Impl::GetBuffer(this, core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pnumframestoread), core::mem::transmute_copy(&pdwflags), core::mem::transmute_copy(&pu64deviceposition), core::mem::transmute_copy(&pu64qpcposition)).into()
             }
         }
-        unsafe extern "system" fn ReleaseBuffer<Identity: IAudioCaptureClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numframesread: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseBuffer<Identity: IAudioCaptureClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numframesread: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioCaptureClient_Impl::ReleaseBuffer(this, core::mem::transmute_copy(&numframesread)).into()
             }
         }
-        unsafe extern "system" fn GetNextPacketSize<Identity: IAudioCaptureClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnumframesinnextpacket: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNextPacketSize<Identity: IAudioCaptureClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnumframesinnextpacket: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioCaptureClient_Impl::GetNextPacketSize(this) {
@@ -282,45 +304,48 @@ impl IAudioCaptureClient_Vtbl {
         iid == &<IAudioCaptureClient as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioCaptureClient {}
 windows_core::imp::define_interface!(IAudioClient, IAudioClient_Vtbl, 0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
 windows_core::imp::interface_hierarchy!(IAudioClient, windows_core::IUnknown);
 impl IAudioClient {
-    #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi"))]
-    pub unsafe fn Initialize(&self, sharemode: super::AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: super::REFERENCE_TIME, hnsperiodicity: super::REFERENCE_TIME, pformat: *const super::WAVEFORMATEX, audiosessionguid: Option<super::LPCGUID>) -> windows_core::HRESULT {
+    #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared"))]
+    pub unsafe fn Initialize(&self, sharemode: super::AUDCLNT_SHAREMODE, streamflags: super::DWORD, hnsbufferduration: super::REFERENCE_TIME, hnsperiodicity: super::REFERENCE_TIME, pformat: *const super::WAVEFORMATEX, audiosessionguid: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), sharemode, streamflags, hnsbufferduration, hnsperiodicity, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetBufferSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBufferSize(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBufferSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "mediaobj")]
+    #[cfg(feature = "shared")]
     pub unsafe fn GetStreamLatency(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStreamLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCurrentPadding(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCurrentPadding(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPadding)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "shared"))]
     pub unsafe fn IsFormatSupported(&self, sharemode: super::AUDCLNT_SHAREMODE, pformat: *const super::WAVEFORMATEX, ppclosestmatch: Option<*mut *mut super::WAVEFORMATEX>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsFormatSupported)(windows_core::Interface::as_raw(self), sharemode, pformat, ppclosestmatch.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn GetMixFormat(&self) -> windows_core::Result<*mut super::WAVEFORMATEX> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMixFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "mediaobj")]
+    #[cfg(feature = "shared")]
     pub unsafe fn GetDevicePeriod(&self, phnsdefaultdeviceperiod: Option<*mut super::REFERENCE_TIME>, phnsminimumdeviceperiod: Option<*mut super::REFERENCE_TIME>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDevicePeriod)(windows_core::Interface::as_raw(self), phnsdefaultdeviceperiod.unwrap_or(core::mem::zeroed()) as _, phnsminimumdeviceperiod.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -337,6 +362,7 @@ impl IAudioClient {
     pub unsafe fn SetEventHandle(&self, eventhandle: super::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEventHandle)(windows_core::Interface::as_raw(self), eventhandle) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetService<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -349,27 +375,33 @@ impl IAudioClient {
 #[doc(hidden)]
 pub struct IAudioClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi"))]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::AUDCLNT_SHAREMODE, u32, super::REFERENCE_TIME, super::REFERENCE_TIME, *const super::WAVEFORMATEX, super::LPCGUID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi")))]
+    #[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared"))]
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::AUDCLNT_SHAREMODE, super::DWORD, super::REFERENCE_TIME, super::REFERENCE_TIME, *const super::WAVEFORMATEX, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared")))]
     Initialize: usize,
-    pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "mediaobj")]
+    #[cfg(feature = "shared")]
+    pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBufferSize: usize,
+    #[cfg(feature = "shared")]
     pub GetStreamLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(not(feature = "shared"))]
     GetStreamLatency: usize,
-    pub GetCurrentPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
+    #[cfg(feature = "shared")]
+    pub GetCurrentPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCurrentPadding: usize,
+    #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "shared"))]
     pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::AUDCLNT_SHAREMODE, *const super::WAVEFORMATEX, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "audiosessiontypes", feature = "mmeapi")))]
+    #[cfg(not(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "shared")))]
     IsFormatSupported: usize,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub GetMixFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetMixFormat: usize,
-    #[cfg(feature = "mediaobj")]
+    #[cfg(feature = "shared")]
     pub GetDevicePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(not(feature = "shared"))]
     GetDevicePeriod: usize,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -378,14 +410,17 @@ pub struct IAudioClient_Vtbl {
     pub SetEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     SetEventHandle: usize,
-    pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetService: usize,
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 pub trait IAudioClient_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, sharemode: super::AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: super::REFERENCE_TIME, hnsperiodicity: super::REFERENCE_TIME, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::Result<()>;
-    fn GetBufferSize(&self) -> windows_core::Result<u32>;
+    fn Initialize(&self, sharemode: super::AUDCLNT_SHAREMODE, streamflags: super::DWORD, hnsbufferduration: super::REFERENCE_TIME, hnsperiodicity: super::REFERENCE_TIME, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetBufferSize(&self) -> windows_core::Result<super::UINT32>;
     fn GetStreamLatency(&self) -> windows_core::Result<super::REFERENCE_TIME>;
-    fn GetCurrentPadding(&self) -> windows_core::Result<u32>;
+    fn GetCurrentPadding(&self) -> windows_core::Result<super::UINT32>;
     fn IsFormatSupported(&self, sharemode: super::AUDCLNT_SHAREMODE, pformat: *const super::WAVEFORMATEX, ppclosestmatch: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn GetMixFormat(&self) -> windows_core::Result<*mut super::WAVEFORMATEX>;
     fn GetDevicePeriod(&self, phnsdefaultdeviceperiod: *mut super::REFERENCE_TIME, phnsminimumdeviceperiod: *mut super::REFERENCE_TIME) -> windows_core::Result<()>;
@@ -393,18 +428,18 @@ pub trait IAudioClient_Impl: windows_core::IUnknownImpl {
     fn Stop(&self) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn SetEventHandle(&self, eventhandle: super::HANDLE) -> windows_core::Result<()>;
-    fn GetService(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetService(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 impl IAudioClient_Vtbl {
     pub const fn new<Identity: IAudioClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sharemode: super::AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: super::REFERENCE_TIME, hnsperiodicity: super::REFERENCE_TIME, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sharemode: super::AUDCLNT_SHAREMODE, streamflags: super::DWORD, hnsbufferduration: super::REFERENCE_TIME, hnsperiodicity: super::REFERENCE_TIME, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClient_Impl::Initialize(this, core::mem::transmute_copy(&sharemode), core::mem::transmute_copy(&streamflags), core::mem::transmute_copy(&hnsbufferduration), core::mem::transmute_copy(&hnsperiodicity), core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&audiosessionguid)).into()
             }
         }
-        unsafe extern "system" fn GetBufferSize<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnumbufferframes: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBufferSize<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnumbufferframes: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioClient_Impl::GetBufferSize(this) {
@@ -428,7 +463,7 @@ impl IAudioClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCurrentPadding<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnumpaddingframes: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentPadding<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnumpaddingframes: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioClient_Impl::GetCurrentPadding(this) {
@@ -488,7 +523,7 @@ impl IAudioClient_Vtbl {
                 IAudioClient_Impl::SetEventHandle(this, core::mem::transmute_copy(&eventhandle)).into()
             }
         }
-        unsafe extern "system" fn GetService<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetService<Identity: IAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClient_Impl::GetService(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -514,7 +549,7 @@ impl IAudioClient_Vtbl {
         iid == &<IAudioClient as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IAudioClient {}
 windows_core::imp::define_interface!(IAudioClient2, IAudioClient2_Vtbl, 0x726778cd_f60a_4eda_82de_e47610cd78aa);
 impl core::ops::Deref for IAudioClient2 {
@@ -532,11 +567,11 @@ impl IAudioClient2 {
             (windows_core::Interface::vtable(self).IsOffloadCapable)(windows_core::Interface::as_raw(self), category, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "audiosessiontypes")]
+    #[cfg(all(feature = "audiosessiontypes", feature = "shared"))]
     pub unsafe fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClientProperties)(windows_core::Interface::as_raw(self), pproperties) }
     }
-    #[cfg(all(feature = "mediaobj", feature = "mmeapi"))]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn GetBufferSizeLimits(&self, pformat: *const super::WAVEFORMATEX, beventdriven: bool, phnsminbufferduration: *mut super::REFERENCE_TIME, phnsmaxbufferduration: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBufferSizeLimits)(windows_core::Interface::as_raw(self), pformat, beventdriven.into(), phnsminbufferduration as _, phnsmaxbufferduration as _) }
     }
@@ -549,22 +584,22 @@ pub struct IAudioClient2_Vtbl {
     pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, super::AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "audiosessiontypes"))]
     IsOffloadCapable: usize,
-    #[cfg(feature = "audiosessiontypes")]
+    #[cfg(all(feature = "audiosessiontypes", feature = "shared"))]
     pub SetClientProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const AudioClientProperties) -> windows_core::HRESULT,
-    #[cfg(not(feature = "audiosessiontypes"))]
+    #[cfg(not(all(feature = "audiosessiontypes", feature = "shared")))]
     SetClientProperties: usize,
-    #[cfg(all(feature = "mediaobj", feature = "mmeapi"))]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub GetBufferSizeLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::WAVEFORMATEX, windows_core::BOOL, *mut super::REFERENCE_TIME, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "mediaobj", feature = "mmeapi")))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetBufferSizeLimits: usize,
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 pub trait IAudioClient2_Impl: IAudioClient_Impl {
     fn IsOffloadCapable(&self, category: super::AUDIO_STREAM_CATEGORY) -> windows_core::Result<windows_core::BOOL>;
     fn SetClientProperties(&self, pproperties: *const AudioClientProperties) -> windows_core::Result<()>;
     fn GetBufferSizeLimits(&self, pformat: *const super::WAVEFORMATEX, beventdriven: windows_core::BOOL, phnsminbufferduration: *mut super::REFERENCE_TIME, phnsmaxbufferduration: *mut super::REFERENCE_TIME) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 impl IAudioClient2_Vtbl {
     pub const fn new<Identity: IAudioClient2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsOffloadCapable<Identity: IAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: super::AUDIO_STREAM_CATEGORY, pboffloadcapable: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -602,7 +637,7 @@ impl IAudioClient2_Vtbl {
         iid == &<IAudioClient2 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IAudioClient2 {}
 windows_core::imp::define_interface!(IAudioClient3, IAudioClient3_Vtbl, 0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
 impl core::ops::Deref for IAudioClient3 {
@@ -613,16 +648,16 @@ impl core::ops::Deref for IAudioClient3 {
 }
 windows_core::imp::interface_hierarchy!(IAudioClient3, windows_core::IUnknown, IAudioClient, IAudioClient2);
 impl IAudioClient3 {
-    #[cfg(feature = "mmeapi")]
-    pub unsafe fn GetSharedModeEnginePeriod(&self, pformat: *const super::WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
+    pub unsafe fn GetSharedModeEnginePeriod(&self, pformat: *const super::WAVEFORMATEX, pdefaultperiodinframes: *mut super::UINT32, pfundamentalperiodinframes: *mut super::UINT32, pminperiodinframes: *mut super::UINT32, pmaxperiodinframes: *mut super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), pformat, pdefaultperiodinframes as _, pfundamentalperiodinframes as _, pminperiodinframes as _, pmaxperiodinframes as _) }
     }
-    #[cfg(feature = "mmeapi")]
-    pub unsafe fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut super::WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
+    pub unsafe fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut super::WAVEFORMATEX, pcurrentperiodinframes: *mut super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentSharedModeEnginePeriod)(windows_core::Interface::as_raw(self), ppformat as _, pcurrentperiodinframes as _) }
     }
-    #[cfg(all(feature = "guiddef", feature = "mmeapi"))]
-    pub unsafe fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const super::WAVEFORMATEX, audiosessionguid: Option<super::LPCGUID>) -> windows_core::HRESULT {
+    #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "shared"))]
+    pub unsafe fn InitializeSharedAudioStream(&self, streamflags: super::DWORD, periodinframes: super::UINT32, pformat: *const super::WAVEFORMATEX, audiosessionguid: Option<super::LPCGUID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeSharedAudioStream)(windows_core::Interface::as_raw(self), streamflags, periodinframes, pformat, audiosessionguid.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -630,41 +665,41 @@ impl IAudioClient3 {
 #[doc(hidden)]
 pub struct IAudioClient3_Vtbl {
     pub base__: IAudioClient2_Vtbl,
-    #[cfg(feature = "mmeapi")]
-    pub GetSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::WAVEFORMATEX, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
+    pub GetSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::WAVEFORMATEX, *mut super::UINT32, *mut super::UINT32, *mut super::UINT32, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetSharedModeEnginePeriod: usize,
-    #[cfg(feature = "mmeapi")]
-    pub GetCurrentSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
+    pub GetCurrentSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::WAVEFORMATEX, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetCurrentSharedModeEnginePeriod: usize,
-    #[cfg(all(feature = "guiddef", feature = "mmeapi"))]
-    pub InitializeSharedAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const super::WAVEFORMATEX, super::LPCGUID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "guiddef", feature = "mmeapi")))]
+    #[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "shared"))]
+    pub InitializeSharedAudioStream: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, super::UINT32, *const super::WAVEFORMATEX, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "mmeapi", feature = "shared")))]
     InitializeSharedAudioStream: usize,
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 pub trait IAudioClient3_Impl: IAudioClient2_Impl {
-    fn GetSharedModeEnginePeriod(&self, pformat: *const super::WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::Result<()>;
-    fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut super::WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> windows_core::Result<()>;
-    fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetSharedModeEnginePeriod(&self, pformat: *const super::WAVEFORMATEX, pdefaultperiodinframes: *mut super::UINT32, pfundamentalperiodinframes: *mut super::UINT32, pminperiodinframes: *mut super::UINT32, pmaxperiodinframes: *mut super::UINT32) -> windows_core::Result<()>;
+    fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut super::WAVEFORMATEX, pcurrentperiodinframes: *mut super::UINT32) -> windows_core::Result<()>;
+    fn InitializeSharedAudioStream(&self, streamflags: super::DWORD, periodinframes: super::UINT32, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 impl IAudioClient3_Vtbl {
     pub const fn new<Identity: IAudioClient3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSharedModeEnginePeriod<Identity: IAudioClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformat: *const super::WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSharedModeEnginePeriod<Identity: IAudioClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformat: *const super::WAVEFORMATEX, pdefaultperiodinframes: *mut super::UINT32, pfundamentalperiodinframes: *mut super::UINT32, pminperiodinframes: *mut super::UINT32, pmaxperiodinframes: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClient3_Impl::GetSharedModeEnginePeriod(this, core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&pdefaultperiodinframes), core::mem::transmute_copy(&pfundamentalperiodinframes), core::mem::transmute_copy(&pminperiodinframes), core::mem::transmute_copy(&pmaxperiodinframes)).into()
             }
         }
-        unsafe extern "system" fn GetCurrentSharedModeEnginePeriod<Identity: IAudioClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppformat: *mut *mut super::WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentSharedModeEnginePeriod<Identity: IAudioClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppformat: *mut *mut super::WAVEFORMATEX, pcurrentperiodinframes: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClient3_Impl::GetCurrentSharedModeEnginePeriod(this, core::mem::transmute_copy(&ppformat), core::mem::transmute_copy(&pcurrentperiodinframes)).into()
             }
         }
-        unsafe extern "system" fn InitializeSharedAudioStream<Identity: IAudioClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamflags: u32, periodinframes: u32, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeSharedAudioStream<Identity: IAudioClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamflags: super::DWORD, periodinframes: super::UINT32, pformat: *const super::WAVEFORMATEX, audiosessionguid: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClient3_Impl::InitializeSharedAudioStream(this, core::mem::transmute_copy(&streamflags), core::mem::transmute_copy(&periodinframes), core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&audiosessionguid)).into()
@@ -681,7 +716,7 @@ impl IAudioClient3_Vtbl {
         iid == &<IAudioClient3 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID || iid == &<IAudioClient2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mediaobj", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IAudioClient3 {}
 windows_core::imp::define_interface!(IAudioClientDuckingControl, IAudioClientDuckingControl_Vtbl, 0xc789d381_a28c_4168_b28f_d3a837924dc3);
 windows_core::imp::interface_hierarchy!(IAudioClientDuckingControl, windows_core::IUnknown);
@@ -720,16 +755,19 @@ impl windows_core::RuntimeName for IAudioClientDuckingControl {}
 windows_core::imp::define_interface!(IAudioClock, IAudioClock_Vtbl, 0xcd63314f_3fba_4a1b_812c_ef96358728e7);
 windows_core::imp::interface_hierarchy!(IAudioClock, windows_core::IUnknown);
 impl IAudioClock {
-    pub unsafe fn GetFrequency(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFrequency(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPosition(&self, pu64position: *mut u64, pu64qpcposition: Option<*mut u64>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPosition(&self, pu64position: *mut super::UINT64, pu64qpcposition: Option<*mut super::UINT64>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), pu64position as _, pu64qpcposition.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetCharacteristics(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCharacteristics(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCharacteristics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -740,18 +778,29 @@ impl IAudioClock {
 #[doc(hidden)]
 pub struct IAudioClock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub GetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
-    pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFrequency: usize,
+    #[cfg(feature = "shared")]
+    pub GetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPosition: usize,
+    #[cfg(feature = "shared")]
+    pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCharacteristics: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioClock_Impl: windows_core::IUnknownImpl {
-    fn GetFrequency(&self) -> windows_core::Result<u64>;
-    fn GetPosition(&self, pu64position: *mut u64, pu64qpcposition: *mut u64) -> windows_core::Result<()>;
-    fn GetCharacteristics(&self) -> windows_core::Result<u32>;
+    fn GetFrequency(&self) -> windows_core::Result<super::UINT64>;
+    fn GetPosition(&self, pu64position: *mut super::UINT64, pu64qpcposition: *mut super::UINT64) -> windows_core::Result<()>;
+    fn GetCharacteristics(&self) -> windows_core::Result<super::DWORD>;
 }
+#[cfg(feature = "shared")]
 impl IAudioClock_Vtbl {
     pub const fn new<Identity: IAudioClock_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetFrequency<Identity: IAudioClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pu64frequency: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFrequency<Identity: IAudioClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pu64frequency: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioClock_Impl::GetFrequency(this) {
@@ -763,13 +812,13 @@ impl IAudioClock_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPosition<Identity: IAudioClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pu64position: *mut u64, pu64qpcposition: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPosition<Identity: IAudioClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pu64position: *mut super::UINT64, pu64qpcposition: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClock_Impl::GetPosition(this, core::mem::transmute_copy(&pu64position), core::mem::transmute_copy(&pu64qpcposition)).into()
             }
         }
-        unsafe extern "system" fn GetCharacteristics<Identity: IAudioClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcharacteristics: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCharacteristics<Identity: IAudioClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcharacteristics: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioClock_Impl::GetCharacteristics(this) {
@@ -792,11 +841,13 @@ impl IAudioClock_Vtbl {
         iid == &<IAudioClock as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioClock {}
 windows_core::imp::define_interface!(IAudioClock2, IAudioClock2_Vtbl, 0x6f49ff73_6727_49ac_a008_d98cf5e70048);
 windows_core::imp::interface_hierarchy!(IAudioClock2, windows_core::IUnknown);
 impl IAudioClock2 {
-    pub unsafe fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: Option<*mut u64>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDevicePosition(&self, deviceposition: *mut super::UINT64, qpcposition: Option<*mut super::UINT64>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDevicePosition)(windows_core::Interface::as_raw(self), deviceposition as _, qpcposition.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -804,14 +855,19 @@ impl IAudioClock2 {
 #[doc(hidden)]
 pub struct IAudioClock2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDevicePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetDevicePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDevicePosition: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioClock2_Impl: windows_core::IUnknownImpl {
-    fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: *mut u64) -> windows_core::Result<()>;
+    fn GetDevicePosition(&self, deviceposition: *mut super::UINT64, qpcposition: *mut super::UINT64) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAudioClock2_Vtbl {
     pub const fn new<Identity: IAudioClock2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDevicePosition<Identity: IAudioClock2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceposition: *mut u64, qpcposition: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDevicePosition<Identity: IAudioClock2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceposition: *mut super::UINT64, qpcposition: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioClock2_Impl::GetDevicePosition(this, core::mem::transmute_copy(&deviceposition), core::mem::transmute_copy(&qpcposition)).into()
@@ -823,6 +879,7 @@ impl IAudioClock2_Vtbl {
         iid == &<IAudioClock2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioClock2 {}
 windows_core::imp::define_interface!(IAudioClockAdjustment, IAudioClockAdjustment_Vtbl, 0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
 windows_core::imp::interface_hierarchy!(IAudioClockAdjustment, windows_core::IUnknown);
@@ -901,7 +958,8 @@ impl IAudioEffectsManager {
     {
         unsafe { (windows_core::Interface::vtable(self).UnregisterAudioEffectsChangedNotificationCallback)(windows_core::Interface::as_raw(self), client.param().abi()) }
     }
-    pub unsafe fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAudioEffects)(windows_core::Interface::as_raw(self), effects as _, numeffects as _) }
     }
     pub unsafe fn SetAudioEffectState(&self, effectid: windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::HRESULT {
@@ -914,15 +972,20 @@ pub struct IAudioEffectsManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterAudioEffectsChangedNotificationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterAudioEffectsChangedNotificationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetAudioEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut AUDIO_EFFECT, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetAudioEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut AUDIO_EFFECT, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetAudioEffects: usize,
     pub SetAudioEffectState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, AUDIO_EFFECT_STATE) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioEffectsManager_Impl: windows_core::IUnknownImpl {
     fn RegisterAudioEffectsChangedNotificationCallback(&self, client: windows_core::Ref<IAudioEffectsChangedNotificationClient>) -> windows_core::Result<()>;
     fn UnregisterAudioEffectsChangedNotificationCallback(&self, client: windows_core::Ref<IAudioEffectsChangedNotificationClient>) -> windows_core::Result<()>;
-    fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> windows_core::Result<()>;
+    fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut super::UINT32) -> windows_core::Result<()>;
     fn SetAudioEffectState(&self, effectid: &windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAudioEffectsManager_Vtbl {
     pub const fn new<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterAudioEffectsChangedNotificationCallback<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, client: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -937,7 +1000,7 @@ impl IAudioEffectsManager_Vtbl {
                 IAudioEffectsManager_Impl::UnregisterAudioEffectsChangedNotificationCallback(this, core::mem::transmute_copy(&client)).into()
             }
         }
-        unsafe extern "system" fn GetAudioEffects<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAudioEffects<Identity: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioEffectsManager_Impl::GetAudioEffects(this, core::mem::transmute_copy(&effects), core::mem::transmute_copy(&numeffects)).into()
@@ -961,17 +1024,17 @@ impl IAudioEffectsManager_Vtbl {
         iid == &<IAudioEffectsManager as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioEffectsManager {}
 windows_core::imp::define_interface!(IAudioRenderClient, IAudioRenderClient_Vtbl, 0xf294acfc_3146_4483_a7bf_addca7c260e2);
 windows_core::imp::interface_hierarchy!(IAudioRenderClient, windows_core::IUnknown);
 impl IAudioRenderClient {
-    pub unsafe fn GetBuffer(&self, numframesrequested: u32) -> windows_core::Result<*mut u8> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), numframesrequested, &mut result__).map(|| result__)
-        }
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBuffer(&self, numframesrequested: super::UINT32, ppdata: *mut *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), numframesrequested, ppdata as _) }
     }
-    pub unsafe fn ReleaseBuffer(&self, numframeswritten: u32, dwflags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReleaseBuffer(&self, numframeswritten: super::UINT32, dwflags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseBuffer)(windows_core::Interface::as_raw(self), numframeswritten, dwflags) }
     }
 }
@@ -979,28 +1042,30 @@ impl IAudioRenderClient {
 #[doc(hidden)]
 pub struct IAudioRenderClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8) -> windows_core::HRESULT,
-    pub ReleaseBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *mut *mut super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBuffer: usize,
+    #[cfg(feature = "shared")]
+    pub ReleaseBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReleaseBuffer: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioRenderClient_Impl: windows_core::IUnknownImpl {
-    fn GetBuffer(&self, numframesrequested: u32) -> windows_core::Result<*mut u8>;
-    fn ReleaseBuffer(&self, numframeswritten: u32, dwflags: u32) -> windows_core::Result<()>;
+    fn GetBuffer(&self, numframesrequested: super::UINT32, ppdata: *mut *mut super::BYTE) -> windows_core::Result<()>;
+    fn ReleaseBuffer(&self, numframeswritten: super::UINT32, dwflags: super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAudioRenderClient_Vtbl {
     pub const fn new<Identity: IAudioRenderClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetBuffer<Identity: IAudioRenderClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numframesrequested: u32, ppdata: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBuffer<Identity: IAudioRenderClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numframesrequested: super::UINT32, ppdata: *mut *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioRenderClient_Impl::GetBuffer(this, core::mem::transmute_copy(&numframesrequested)) {
-                    Ok(ok__) => {
-                        ppdata.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAudioRenderClient_Impl::GetBuffer(this, core::mem::transmute_copy(&numframesrequested), core::mem::transmute_copy(&ppdata)).into()
             }
         }
-        unsafe extern "system" fn ReleaseBuffer<Identity: IAudioRenderClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numframeswritten: u32, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseBuffer<Identity: IAudioRenderClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numframeswritten: super::UINT32, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioRenderClient_Impl::ReleaseBuffer(this, core::mem::transmute_copy(&numframeswritten), core::mem::transmute_copy(&dwflags)).into()
@@ -1016,29 +1081,35 @@ impl IAudioRenderClient_Vtbl {
         iid == &<IAudioRenderClient as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioRenderClient {}
 windows_core::imp::define_interface!(IAudioStreamVolume, IAudioStreamVolume_Vtbl, 0x93014887_242d_4068_8a15_cf5e93b90fe3);
 windows_core::imp::interface_hierarchy!(IAudioStreamVolume, windows_core::IUnknown);
 impl IAudioStreamVolume {
-    pub unsafe fn GetChannelCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetChannelCount(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetChannelVolume(&self, dwindex: super::UINT32, flevel: f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, flevel) }
     }
-    pub unsafe fn GetChannelVolume(&self, dwindex: u32) -> windows_core::Result<f32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetChannelVolume(&self, dwindex: super::UINT32) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr()) }
     }
-    pub unsafe fn GetAllVolumes(&self, dwcount: u32, pfvolumes: *mut f32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), dwcount, pfvolumes as _) }
     }
 }
@@ -1046,22 +1117,39 @@ impl IAudioStreamVolume {
 #[doc(hidden)]
 pub struct IAudioStreamVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32) -> windows_core::HRESULT,
-    pub GetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
-    pub SetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32) -> windows_core::HRESULT,
-    pub GetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetChannelCount: usize,
+    #[cfg(feature = "shared")]
+    pub SetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetChannelVolume: usize,
+    #[cfg(feature = "shared")]
+    pub GetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *mut f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetChannelVolume: usize,
+    #[cfg(feature = "shared")]
+    pub SetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *const f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetAllVolumes: usize,
+    #[cfg(feature = "shared")]
+    pub GetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *mut f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetAllVolumes: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioStreamVolume_Impl: windows_core::IUnknownImpl {
-    fn GetChannelCount(&self) -> windows_core::Result<u32>;
-    fn SetChannelVolume(&self, dwindex: u32, flevel: f32) -> windows_core::Result<()>;
-    fn GetChannelVolume(&self, dwindex: u32) -> windows_core::Result<f32>;
-    fn SetAllVolumes(&self, dwcount: u32, pfvolumes: *const f32) -> windows_core::Result<()>;
-    fn GetAllVolumes(&self, dwcount: u32, pfvolumes: *mut f32) -> windows_core::Result<()>;
+    fn GetChannelCount(&self) -> windows_core::Result<super::UINT32>;
+    fn SetChannelVolume(&self, dwindex: super::UINT32, flevel: f32) -> windows_core::Result<()>;
+    fn GetChannelVolume(&self, dwindex: super::UINT32) -> windows_core::Result<f32>;
+    fn SetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *const f32) -> windows_core::Result<()>;
+    fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAudioStreamVolume_Vtbl {
     pub const fn new<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetChannelCount<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetChannelCount<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioStreamVolume_Impl::GetChannelCount(this) {
@@ -1073,13 +1161,13 @@ impl IAudioStreamVolume_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetChannelVolume<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, flevel: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetChannelVolume<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::UINT32, flevel: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioStreamVolume_Impl::SetChannelVolume(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&flevel)).into()
             }
         }
-        unsafe extern "system" fn GetChannelVolume<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pflevel: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetChannelVolume<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::UINT32, pflevel: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioStreamVolume_Impl::GetChannelVolume(this, core::mem::transmute_copy(&dwindex)) {
@@ -1091,13 +1179,13 @@ impl IAudioStreamVolume_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAllVolumes<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: u32, pfvolumes: *const f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllVolumes<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: super::UINT32, pfvolumes: *const f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioStreamVolume_Impl::SetAllVolumes(this, core::mem::transmute_copy(&dwcount), core::mem::transmute_copy(&pfvolumes)).into()
             }
         }
-        unsafe extern "system" fn GetAllVolumes<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: u32, pfvolumes: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAllVolumes<Identity: IAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioStreamVolume_Impl::GetAllVolumes(this, core::mem::transmute_copy(&dwcount), core::mem::transmute_copy(&pfvolumes)).into()
@@ -1116,6 +1204,7 @@ impl IAudioStreamVolume_Vtbl {
         iid == &<IAudioStreamVolume as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioStreamVolume {}
 windows_core::imp::define_interface!(IAudioViewManagerService, IAudioViewManagerService_Vtbl, 0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
 windows_core::imp::interface_hierarchy!(IAudioViewManagerService, windows_core::IUnknown);
@@ -1158,27 +1247,30 @@ impl windows_core::RuntimeName for IAudioViewManagerService {}
 windows_core::imp::define_interface!(IChannelAudioVolume, IChannelAudioVolume_Vtbl, 0x1c158861_b533_4b30_b1cf_e853e51c59b8);
 windows_core::imp::interface_hierarchy!(IChannelAudioVolume, windows_core::IUnknown);
 impl IChannelAudioVolume {
-    pub unsafe fn GetChannelCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetChannelCount(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "guiddef")]
-    pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn SetChannelVolume(&self, dwindex: super::UINT32, flevel: f32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, flevel, eventcontext) }
     }
-    pub unsafe fn GetChannelVolume(&self, dwindex: u32) -> windows_core::Result<f32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetChannelVolume(&self, dwindex: super::UINT32) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChannelVolume)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "guiddef")]
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: super::LPCGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr(), eventcontext) }
     }
-    pub unsafe fn GetAllVolumes(&self, dwcount: u32, pfvolumes: *mut f32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), dwcount, pfvolumes as _) }
     }
 }
@@ -1186,30 +1278,39 @@ impl IChannelAudioVolume {
 #[doc(hidden)]
 pub struct IChannelAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "guiddef")]
-    pub SetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, super::LPCGUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "guiddef"))]
+    #[cfg(feature = "shared")]
+    pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetChannelCount: usize,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub SetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, f32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
     SetChannelVolume: usize,
-    pub GetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
-    #[cfg(feature = "guiddef")]
-    pub SetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, super::LPCGUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "guiddef"))]
+    #[cfg(feature = "shared")]
+    pub GetChannelVolume: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *mut f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetChannelVolume: usize,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub SetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *const f32, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
     SetAllVolumes: usize,
-    pub GetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetAllVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *mut f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetAllVolumes: usize,
 }
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IChannelAudioVolume_Impl: windows_core::IUnknownImpl {
-    fn GetChannelCount(&self) -> windows_core::Result<u32>;
-    fn SetChannelVolume(&self, dwindex: u32, flevel: f32, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn GetChannelVolume(&self, dwindex: u32) -> windows_core::Result<f32>;
-    fn SetAllVolumes(&self, dwcount: u32, pfvolumes: *const f32, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn GetAllVolumes(&self, dwcount: u32, pfvolumes: *mut f32) -> windows_core::Result<()>;
+    fn GetChannelCount(&self) -> windows_core::Result<super::UINT32>;
+    fn SetChannelVolume(&self, dwindex: super::UINT32, flevel: f32, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetChannelVolume(&self, dwindex: super::UINT32) -> windows_core::Result<f32>;
+    fn SetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *const f32, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn GetAllVolumes(&self, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IChannelAudioVolume_Vtbl {
     pub const fn new<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetChannelCount<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetChannelCount<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IChannelAudioVolume_Impl::GetChannelCount(this) {
@@ -1221,13 +1322,13 @@ impl IChannelAudioVolume_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetChannelVolume<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, flevel: f32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetChannelVolume<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::UINT32, flevel: f32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IChannelAudioVolume_Impl::SetChannelVolume(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&flevel), core::mem::transmute_copy(&eventcontext)).into()
             }
         }
-        unsafe extern "system" fn GetChannelVolume<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pflevel: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetChannelVolume<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::UINT32, pflevel: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IChannelAudioVolume_Impl::GetChannelVolume(this, core::mem::transmute_copy(&dwindex)) {
@@ -1239,13 +1340,13 @@ impl IChannelAudioVolume_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAllVolumes<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: u32, pfvolumes: *const f32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllVolumes<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: super::UINT32, pfvolumes: *const f32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IChannelAudioVolume_Impl::SetAllVolumes(this, core::mem::transmute_copy(&dwcount), core::mem::transmute_copy(&pfvolumes), core::mem::transmute_copy(&eventcontext)).into()
             }
         }
-        unsafe extern "system" fn GetAllVolumes<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: u32, pfvolumes: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAllVolumes<Identity: IChannelAudioVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcount: super::UINT32, pfvolumes: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IChannelAudioVolume_Impl::GetAllVolumes(this, core::mem::transmute_copy(&dwcount), core::mem::transmute_copy(&pfvolumes)).into()
@@ -1264,7 +1365,7 @@ impl IChannelAudioVolume_Vtbl {
         iid == &<IChannelAudioVolume as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IChannelAudioVolume {}
 windows_core::imp::define_interface!(ISimpleAudioVolume, ISimpleAudioVolume_Vtbl, 0x87ce5498_68d6_44e5_9215_6da47ef883d8);
 windows_core::imp::interface_hierarchy!(ISimpleAudioVolume, windows_core::IUnknown);

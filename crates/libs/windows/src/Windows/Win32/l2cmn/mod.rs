@@ -2,13 +2,14 @@ pub const L2_NOTIFICATION_CODE_GROUP_SIZE: i32 = 4096;
 pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: i32 = 0;
 pub const L2_NOTIFICATION_CODE_V2_BEGIN: i32 = 4096;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct L2_NOTIFICATION_DATA {
-    pub NotificationSource: u32,
-    pub NotificationCode: u32,
+    pub NotificationSource: super::DWORD,
+    pub NotificationCode: super::DWORD,
     pub InterfaceGuid: windows_core::GUID,
-    pub dwDataSize: u32,
-    pub pData: *mut core::ffi::c_void,
+    pub dwDataSize: super::DWORD,
+    pub pData: super::PVOID,
 }
 pub const L2_NOTIFICATION_SOURCE_ALL: i32 = 65535;
 pub const L2_NOTIFICATION_SOURCE_DOT3_AUTO_CONFIG: i32 = 1;
@@ -40,4 +41,5 @@ pub const L2_REASON_CODE_RESERVED_BASE: i32 = 720896;
 pub const L2_REASON_CODE_SUCCESS: i32 = 0;
 pub const L2_REASON_CODE_UNKNOWN: i32 = 65537;
 pub const L2_REASON_CODE_WIMAX_BASE: i32 = 655360;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PL2_NOTIFICATION_DATA = *mut L2_NOTIFICATION_DATA;

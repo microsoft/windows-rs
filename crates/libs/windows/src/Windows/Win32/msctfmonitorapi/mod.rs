@@ -1,12 +1,13 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::HANDLE) -> windows_core::BOOL {
-    windows_core::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::HANDLE) -> windows_core::BOOL);
-    unsafe { DoMsCtfMonitor(dwflags, heventforservicestop) }
+pub unsafe fn DoMsCtfMonitor(dwflags: super::DWORD, heventforservicestop: super::HANDLE) -> windows_core::BOOL {
+    windows_core::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : super::DWORD, heventforservicestop : super::HANDLE) -> windows_core::BOOL);
+    unsafe { DoMsCtfMonitor(dwflags, heventforservicestop as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> windows_core::HRESULT {
-    windows_core::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> windows_core::HRESULT);
+pub unsafe fn InitLocalMsCtfMonitor(dwflags: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : super::DWORD) -> windows_core::HRESULT);
     unsafe { InitLocalMsCtfMonitor(dwflags) }
 }
 #[inline]

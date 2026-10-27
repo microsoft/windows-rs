@@ -1,8 +1,10 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APP_LOCAL_DEVICE_ID {
-    pub value: [u8; 32],
+    pub value: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for APP_LOCAL_DEVICE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10,32 +12,6 @@ impl Default for APP_LOCAL_DEVICE_ID {
 }
 pub const APP_LOCAL_DEVICE_ID_SIZE: i32 = 32;
 pub type COLORREF = u32;
-pub const DC_BINNAMES: i32 = 12;
-pub const DC_BINS: i32 = 6;
-pub const DC_COPIES: i32 = 18;
-pub const DC_DRIVER: i32 = 11;
-pub const DC_DUPLEX: i32 = 7;
-pub const DC_ENUMRESOLUTIONS: i32 = 13;
-pub const DC_EXTRA: i32 = 9;
-pub const DC_FIELDS: i32 = 1;
-pub const DC_FILEDEPENDENCIES: i32 = 14;
-pub const DC_MAXEXTENT: i32 = 5;
-pub const DC_MINEXTENT: i32 = 4;
-pub const DC_ORIENTATION: i32 = 17;
-pub const DC_PAPERNAMES: i32 = 16;
-pub const DC_PAPERS: i32 = 2;
-pub const DC_PAPERSIZE: i32 = 3;
-pub const DC_SIZE: i32 = 8;
-pub const DC_TRUETYPE: i32 = 15;
-pub const DC_VERSION: i32 = 10;
-pub const DM_COPY: i32 = 2;
-pub const DM_IN_BUFFER: i32 = 8;
-pub const DM_IN_PROMPT: i32 = 4;
-pub const DM_MODIFY: i32 = 8;
-pub const DM_OUT_BUFFER: i32 = 2;
-pub const DM_OUT_DEFAULT: i32 = 1;
-pub const DM_PROMPT: i32 = 4;
-pub const DM_UPDATE: i32 = 1;
 pub type DPI_AWARENESS = i32;
 pub type DPI_AWARENESS_CONTEXT = *mut DPI_AWARENESS_CONTEXT__;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = -3 as _;
@@ -80,7 +56,7 @@ pub type HCOLORSPACE = *mut HCOLORSPACE__;
 pub struct HCOLORSPACE__ {
     pub unused: i32,
 }
-pub type HCURSOR = HICON;
+pub type HCURSOR = *mut HICON__;
 pub type HDC = *mut HDC__;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -169,61 +145,85 @@ pub struct HWND__ {
     pub unused: i32,
 }
 pub type LPCOLORREF = *mut u32;
+#[cfg(feature = "shared")]
 pub type LPCRECT = *const RECT;
+#[cfg(feature = "shared")]
 pub type LPCRECTL = *const RECTL;
+#[cfg(feature = "shared")]
 pub type LPPOINT = *mut POINT;
+#[cfg(feature = "shared")]
 pub type LPPOINTS = *mut POINTS;
+#[cfg(feature = "shared")]
 pub type LPRECT = *mut RECT;
+#[cfg(feature = "shared")]
 pub type LPRECTL = *mut RECTL;
+#[cfg(feature = "shared")]
 pub type LPSIZE = *mut SIZE;
+#[cfg(feature = "shared")]
 pub type LPSIZEL = *mut SIZE;
+#[cfg(feature = "shared")]
 pub type NPPOINT = *mut POINT;
+#[cfg(feature = "shared")]
 pub type NPRECT = *mut RECT;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
-    pub x: i32,
-    pub y: i32,
+    pub x: super::LONG,
+    pub y: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTL {
-    pub x: i32,
-    pub y: i32,
+    pub x: super::LONG,
+    pub y: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTS {
-    pub x: i16,
-    pub y: i16,
+    pub x: super::SHORT,
+    pub y: super::SHORT,
 }
+#[cfg(feature = "shared")]
 pub type PPOINT = *mut POINT;
+#[cfg(feature = "shared")]
 pub type PPOINTL = *mut POINTL;
+#[cfg(feature = "shared")]
 pub type PPOINTS = *mut POINTS;
+#[cfg(feature = "shared")]
 pub type PRECT = *mut RECT;
+#[cfg(feature = "shared")]
 pub type PRECTL = *mut RECTL;
+#[cfg(feature = "shared")]
 pub type PSIZE = *mut SIZE;
+#[cfg(feature = "shared")]
 pub type PSIZEL = *mut SIZE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: super::LONG,
+    pub top: super::LONG,
+    pub right: super::LONG,
+    pub bottom: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECTL {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: super::LONG,
+    pub top: super::LONG,
+    pub right: super::LONG,
+    pub bottom: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIZE {
-    pub cx: i32,
-    pub cy: i32,
+    pub cx: super::LONG,
+    pub cy: super::LONG,
 }
+#[cfg(feature = "shared")]
 pub type SIZEL = SIZE;

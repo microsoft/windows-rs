@@ -1,48 +1,58 @@
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PlaySoundA<P0>(pszsound: P0, hmod: Option<super::HMODULE>, fdwsound: u32) -> windows_core::BOOL
+pub unsafe fn PlaySoundA<P0>(pszsound: P0, hmod: Option<super::HMODULE>, fdwsound: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::HMODULE, fdwsound : u32) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::HMODULE, fdwsound : super::DWORD) -> windows_core::BOOL);
     unsafe { PlaySoundA(pszsound.param().abi(), hmod.unwrap_or(core::mem::zeroed()) as _, fdwsound) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PlaySoundW<P0>(pszsound: P0, hmod: Option<super::HMODULE>, fdwsound: u32) -> windows_core::BOOL
+pub unsafe fn PlaySoundW<P0>(pszsound: P0, hmod: Option<super::HMODULE>, fdwsound: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_core::PCWSTR, hmod : super::HMODULE, fdwsound : u32) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_core::PCWSTR, hmod : super::HMODULE, fdwsound : super::DWORD) -> windows_core::BOOL);
     unsafe { PlaySoundW(pszsound.param().abi(), hmod.unwrap_or(core::mem::zeroed()) as _, fdwsound) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: u32) -> windows_core::BOOL
+pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: super::UINT) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_core::PCSTR, fusound : u32) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_core::PCSTR, fusound : super::UINT) -> windows_core::BOOL);
     unsafe { sndPlaySoundA(pszsound.param().abi(), fusound) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn sndPlaySoundW<P0>(pszsound: P0, fusound: u32) -> windows_core::BOOL
+pub unsafe fn sndPlaySoundW<P0>(pszsound: P0, fusound: super::UINT) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_core::PCWSTR, fusound : u32) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_core::PCWSTR, fusound : super::UINT) -> windows_core::BOOL);
     unsafe { sndPlaySoundW(pszsound.param().abi(), fusound) }
 }
 pub const SND_ALIAS: i32 = 65536;
 pub const SND_ALIAS_ID: i32 = 1114112;
 pub const SND_ALIAS_START: i32 = 0;
-pub const SND_ALIAS_SYSTEMASTERISK: u32 = 10835;
-pub const SND_ALIAS_SYSTEMDEFAULT: u32 = 17491;
-pub const SND_ALIAS_SYSTEMEXCLAMATION: u32 = 8531;
-pub const SND_ALIAS_SYSTEMEXIT: u32 = 17747;
-pub const SND_ALIAS_SYSTEMHAND: u32 = 18515;
-pub const SND_ALIAS_SYSTEMQUESTION: u32 = 16211;
-pub const SND_ALIAS_SYSTEMSTART: u32 = 21331;
-pub const SND_ALIAS_SYSTEMWELCOME: u32 = 22355;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMASTERISK: super::DWORD = 10835;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMDEFAULT: super::DWORD = 17491;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMEXCLAMATION: super::DWORD = 8531;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMEXIT: super::DWORD = 17747;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMHAND: super::DWORD = 18515;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMQUESTION: super::DWORD = 16211;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMSTART: super::DWORD = 21331;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMWELCOME: super::DWORD = 22355;
 pub const SND_APPLICATION: i32 = 128;
 pub const SND_ASYNC: i32 = 1;
 pub const SND_FILENAME: i32 = 131072;

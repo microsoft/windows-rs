@@ -1,110 +1,112 @@
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn CanUserWritePwrScheme() -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn CanUserWritePwrScheme() -> super::BOOLEAN);
     unsafe { CanUserWritePwrScheme() }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeletePwrScheme(uiid: u32) -> super::BOOLEAN {
-    windows_core::link!("powrprof.dll" "system" fn DeletePwrScheme(uiid : u32) -> super::BOOLEAN);
+pub unsafe fn DeletePwrScheme(uiid: super::UINT) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn DeletePwrScheme(uiid : super::UINT) -> super::BOOLEAN);
     unsafe { DeletePwrScheme(uiid) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn DevicePowerClose() -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn DevicePowerClose() -> super::BOOLEAN);
     unsafe { DevicePowerClose() }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: Option<super::PBYTE>, pbuffersize: super::PULONG) -> super::BOOLEAN {
-    windows_core::link!("powrprof.dll" "system" fn DevicePowerEnumDevices(queryindex : u32, queryinterpretationflags : u32, queryflags : u32, preturnbuffer : super::PBYTE, pbuffersize : super::PULONG) -> super::BOOLEAN);
+pub unsafe fn DevicePowerEnumDevices(queryindex: super::ULONG, queryinterpretationflags: super::ULONG, queryflags: super::ULONG, preturnbuffer: Option<super::PBYTE>, pbuffersize: super::PULONG) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn DevicePowerEnumDevices(queryindex : super::ULONG, queryinterpretationflags : super::ULONG, queryflags : super::ULONG, preturnbuffer : super::PBYTE, pbuffersize : super::PULONG) -> super::BOOLEAN);
     unsafe { DevicePowerEnumDevices(queryindex, queryinterpretationflags, queryflags, preturnbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DevicePowerOpen(debugmask: Option<u32>) -> super::BOOLEAN {
-    windows_core::link!("powrprof.dll" "system" fn DevicePowerOpen(debugmask : u32) -> super::BOOLEAN);
+pub unsafe fn DevicePowerOpen(debugmask: Option<super::ULONG>) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn DevicePowerOpen(debugmask : super::ULONG) -> super::BOOLEAN);
     unsafe { DevicePowerOpen(debugmask.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DevicePowerSetDeviceState<P0>(devicedescription: P0, setflags: u32, setdata: Option<*const core::ffi::c_void>) -> u32
+pub unsafe fn DevicePowerSetDeviceState<P0>(devicedescription: P0, setflags: super::ULONG, setdata: Option<super::PVOID>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : windows_core::PCWSTR, setflags : u32, setdata : *const core::ffi::c_void) -> u32);
+    windows_core::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : windows_core::PCWSTR, setflags : super::ULONG, setdata : super::PVOID) -> super::DWORD);
     unsafe { DevicePowerSetDeviceState(devicedescription.param().abi(), setflags, setdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::LPARAM) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn EnumPwrSchemes(lpfn : PWRSCHEMESENUMPROC, lparam : super::LPARAM) -> super::BOOLEAN);
     unsafe { EnumPwrSchemes(lpfn, lparam) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn GetActivePwrScheme(puiid: super::PUINT) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn GetActivePwrScheme(puiid : super::PUINT) -> super::BOOLEAN);
     unsafe { GetActivePwrScheme(puiid as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: PGLOBAL_POWER_POLICY, ppowerpolicy: PPOWER_POLICY) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn GetCurrentPowerPolicies(pglobalpowerpolicy : PGLOBAL_POWER_POLICY, ppowerpolicy : PPOWER_POLICY) -> super::BOOLEAN);
     unsafe { GetCurrentPowerPolicies(pglobalpowerpolicy as _, ppowerpolicy as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn GetPwrDiskSpindownRange(puimax: super::PUINT, puimin: super::PUINT) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn GetPwrDiskSpindownRange(puimax : super::PUINT, puimin : super::PUINT) -> super::BOOLEAN);
     unsafe { GetPwrDiskSpindownRange(puimax as _, puimin as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn IsAdminOverrideActive(papp: super::PADMINISTRATOR_POWER_POLICY) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn IsAdminOverrideActive(papp : super::PADMINISTRATOR_POWER_POLICY) -> super::BOOLEAN);
     unsafe { IsAdminOverrideActive(papp) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn IsPwrHibernateAllowed() -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn IsPwrHibernateAllowed() -> super::BOOLEAN);
     unsafe { IsPwrHibernateAllowed() }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn IsPwrShutdownAllowed() -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn IsPwrShutdownAllowed() -> super::BOOLEAN);
     unsafe { IsPwrShutdownAllowed() }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn IsPwrSuspendAllowed() -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn IsPwrSuspendAllowed() -> super::BOOLEAN);
     unsafe { IsPwrSuspendAllowed() }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerCanRestoreIndividualDefaultPowerScheme(schemeguid) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerCreatePossibleSetting(rootsystempowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerCreatePossibleSetting(rootsystempowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32) -> u32);
+pub unsafe fn PowerCreatePossibleSetting(rootsystempowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: super::ULONG) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerCreatePossibleSetting(rootsystempowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : super::ULONG) -> super::DWORD);
     unsafe { PowerCreatePossibleSetting(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerCreateSetting(rootsystempowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerCreateSetting(rootsystempowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerCreateSetting(rootsystempowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerCreateSetting(rootsystempowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerCreateSetting(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid, powersettingguid) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerDeleteScheme(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerDeleteScheme(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerDeleteScheme(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerDeleteScheme(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerDeleteScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid) }
 }
 #[cfg(feature = "winnt")]
@@ -113,316 +115,328 @@ pub unsafe fn PowerDeterminePlatformRole() -> super::POWER_PLATFORM_ROLE {
     windows_core::link!("powrprof.dll" "system" fn PowerDeterminePlatformRole() -> super::POWER_PLATFORM_ROLE);
     unsafe { PowerDeterminePlatformRole() }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerDuplicateScheme(rootpowerkey: Option<super::HKEY>, sourceschemeguid: *const windows_core::GUID, destinationschemeguid: *mut *mut windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerDuplicateScheme(rootpowerkey : super::HKEY, sourceschemeguid : *const windows_core::GUID, destinationschemeguid : *mut *mut windows_core::GUID) -> u32);
+pub unsafe fn PowerDuplicateScheme(rootpowerkey: Option<super::HKEY>, sourceschemeguid: *const windows_core::GUID, destinationschemeguid: *mut *mut windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerDuplicateScheme(rootpowerkey : super::HKEY, sourceschemeguid : *const windows_core::GUID, destinationschemeguid : *mut *mut windows_core::GUID) -> super::DWORD);
     unsafe { PowerDuplicateScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, sourceschemeguid, destinationschemeguid as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerEnumerate(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: Option<*mut u8>, buffersize: *mut u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerEnumerate(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, accessflags : POWER_DATA_ACCESSOR, index : u32, buffer : *mut u8, buffersize : *mut u32) -> u32);
+pub unsafe fn PowerEnumerate(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, accessflags: POWER_DATA_ACCESSOR, index: super::ULONG, buffer: Option<*mut super::UCHAR>, buffersize: *mut super::DWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerEnumerate(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, accessflags : POWER_DATA_ACCESSOR, index : super::ULONG, buffer : *mut super::UCHAR, buffersize : *mut super::DWORD) -> super::DWORD);
     unsafe { PowerEnumerate(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, accessflags, index, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerGetUserConfiguredACPowerMode(powermodeguid: *mut windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerGetUserConfiguredACPowerMode(powermodeguid : *mut windows_core::GUID) -> u32);
+pub unsafe fn PowerGetUserConfiguredACPowerMode(powermodeguid: *mut windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerGetUserConfiguredACPowerMode(powermodeguid : *mut windows_core::GUID) -> super::DWORD);
     unsafe { PowerGetUserConfiguredACPowerMode(powermodeguid as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerGetUserConfiguredDCPowerMode(powermodeguid: *mut windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerGetUserConfiguredDCPowerMode(powermodeguid : *mut windows_core::GUID) -> u32);
+pub unsafe fn PowerGetUserConfiguredDCPowerMode(powermodeguid: *mut windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerGetUserConfiguredDCPowerMode(powermodeguid : *mut windows_core::GUID) -> super::DWORD);
     unsafe { PowerGetUserConfiguredDCPowerMode(powermodeguid as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerImportPowerScheme<P1>(rootpowerkey: Option<super::HKEY>, importfilenamepath: P1, destinationschemeguid: *mut *mut windows_core::GUID) -> u32
+pub unsafe fn PowerImportPowerScheme<P1>(rootpowerkey: Option<super::HKEY>, importfilenamepath: P1, destinationschemeguid: *mut *mut windows_core::GUID) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("powrprof.dll" "system" fn PowerImportPowerScheme(rootpowerkey : super::HKEY, importfilenamepath : windows_core::PCWSTR, destinationschemeguid : *mut *mut windows_core::GUID) -> u32);
+    windows_core::link!("powrprof.dll" "system" fn PowerImportPowerScheme(rootpowerkey : super::HKEY, importfilenamepath : windows_core::PCWSTR, destinationschemeguid : *mut *mut windows_core::GUID) -> super::DWORD);
     unsafe { PowerImportPowerScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, importfilenamepath.param().abi(), destinationschemeguid as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core::GUID>, settingguid: Option<*const windows_core::GUID>) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn PowerIsSettingRangeDefined(subkeyguid : *const windows_core::GUID, settingguid : *const windows_core::GUID) -> super::BOOLEAN);
     unsafe { PowerIsSettingRangeDefined(subkeyguid.unwrap_or(core::mem::zeroed()) as _, settingguid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::HKEY, access: super::REGSAM, openexisting: bool) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::HKEY, access : super::REGSAM, openexisting : windows_core::BOOL) -> u32);
+pub unsafe fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::HKEY, access: super::REGSAM, openexisting: bool) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::HKEY, access : super::REGSAM, openexisting : windows_core::BOOL) -> super::DWORD);
     unsafe { PowerOpenSystemPowerKey(phsystempowerkey as _, access, openexisting.into()) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::HKEY, access: super::REGSAM, openexisting: bool) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::HKEY, access : super::REGSAM, openexisting : windows_core::BOOL) -> u32);
+pub unsafe fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::HKEY, access: super::REGSAM, openexisting: bool) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::HKEY, access : super::REGSAM, openexisting : windows_core::BOOL) -> super::DWORD);
     unsafe { PowerOpenUserPowerKey(phuserpowerkey as _, access, openexisting.into()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadACDefaultIndex(rootpowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, acdefaultindex: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadACDefaultIndex(rootpowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acdefaultindex : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadACDefaultIndex(rootpowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, acdefaultindex: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadACDefaultIndex(rootpowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acdefaultindex : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadACDefaultIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, acdefaultindex as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadACValueIndex(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadACValueIndex(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadACValueIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, acvalueindex as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadDCDefaultIndex(rootpowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, dcdefaultindex: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadDCDefaultIndex(rootpowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, dcdefaultindex : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadDCDefaultIndex(rootpowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, dcdefaultindex: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadDCDefaultIndex(rootpowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, dcdefaultindex : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadDCDefaultIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, dcdefaultindex as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadDCValueIndex(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, dcvalueindex: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadDCValueIndex(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, dcvalueindex : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadDCValueIndex(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, dcvalueindex: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadDCValueIndex(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, dcvalueindex : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadDCValueIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, dcvalueindex as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadDescription(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadDescription(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadDescription(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadDescription(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadFriendlyName(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadFriendlyName(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadFriendlyName(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadFriendlyName(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadIconResourceSpecifier(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadIconResourceSpecifier(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadIconResourceSpecifier(rootpowerkey: Option<super::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadIconResourceSpecifier(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadIconResourceSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadPossibleDescription(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleDescription(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadPossibleDescription(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: super::ULONG, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleDescription(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : super::ULONG, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadPossibleDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadPossibleFriendlyName(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleFriendlyName(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadPossibleFriendlyName(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: super::ULONG, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleFriendlyName(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : super::ULONG, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadPossibleFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadPossibleValue(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<super::PULONG>, possiblesettingindex: u32, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleValue(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : super::PULONG, possiblesettingindex : u32, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadPossibleValue(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<super::PULONG>, possiblesettingindex: super::ULONG, buffer: Option<super::PUCHAR>, buffersize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleValue(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : super::PULONG, possiblesettingindex : super::ULONG, buffer : super::PUCHAR, buffersize : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadPossibleValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerReadSettingAttributes(subgroupguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadSettingAttributes(subgroupguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerReadSettingAttributes(subgroupguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadSettingAttributes(subgroupguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerReadSettingAttributes(subgroupguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadValueIncrement(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueincrement: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadValueIncrement(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueincrement : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadValueIncrement(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueincrement: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadValueIncrement(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueincrement : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadValueIncrement(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueincrement as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadValueMax(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valuemaximum: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadValueMax(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valuemaximum : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadValueMax(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valuemaximum: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadValueMax(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valuemaximum : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadValueMax(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valuemaximum as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadValueMin(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueminimum: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadValueMin(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueminimum : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadValueMin(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueminimum: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadValueMin(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueminimum : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadValueMin(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueminimum as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerReadValueUnitsSpecifier(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<*mut u8>, buffersize: super::LPDWORD) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReadValueUnitsSpecifier(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *mut u8, buffersize : super::LPDWORD) -> u32);
+pub unsafe fn PowerReadValueUnitsSpecifier(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<*mut super::UCHAR>, buffersize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReadValueUnitsSpecifier(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *mut super::UCHAR, buffersize : super::LPDWORD) -> super::DWORD);
     unsafe { PowerReadValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerRemovePowerSetting(powersettingsubkeyguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerRemovePowerSetting(powersettingsubkeyguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerRemovePowerSetting(powersettingsubkeyguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerRemovePowerSetting(powersettingsubkeyguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerRemovePowerSetting(powersettingsubkeyguid, powersettingguid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerReplaceDefaultPowerSchemes() -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReplaceDefaultPowerSchemes() -> u32);
+pub unsafe fn PowerReplaceDefaultPowerSchemes() -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReplaceDefaultPowerSchemes() -> super::DWORD);
     unsafe { PowerReplaceDefaultPowerSchemes() }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerReportThermalEvent(event: PTHERMAL_EVENT) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerReportThermalEvent(event : PTHERMAL_EVENT) -> u32);
+pub unsafe fn PowerReportThermalEvent(event: PTHERMAL_EVENT) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerReportThermalEvent(event : PTHERMAL_EVENT) -> super::DWORD);
     unsafe { PowerReportThermalEvent(event) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerRestoreDefaultPowerSchemes() -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerRestoreDefaultPowerSchemes() -> u32);
+pub unsafe fn PowerRestoreDefaultPowerSchemes() -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerRestoreDefaultPowerSchemes() -> super::DWORD);
     unsafe { PowerRestoreDefaultPowerSchemes() }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerRestoreIndividualDefaultPowerScheme(schemeguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerRestoreIndividualDefaultPowerScheme(schemeguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerRestoreIndividualDefaultPowerScheme(schemeguid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerSetUserConfiguredACPowerMode(powermodeguid: *const windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerSetUserConfiguredACPowerMode(powermodeguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerSetUserConfiguredACPowerMode(powermodeguid: *const windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerSetUserConfiguredACPowerMode(powermodeguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerSetUserConfiguredACPowerMode(powermodeguid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerSetUserConfiguredDCPowerMode(powermodeguid: *const windows_core::GUID) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerSetUserConfiguredDCPowerMode(powermodeguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerSetUserConfiguredDCPowerMode(powermodeguid: *const windows_core::GUID) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerSetUserConfiguredDCPowerMode(powermodeguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerSetUserConfiguredDCPowerMode(powermodeguid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: Option<*const windows_core::GUID>) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerSettingAccessCheck(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_core::GUID) -> u32);
+pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: Option<*const windows_core::GUID>) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerSettingAccessCheck(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_core::GUID) -> super::DWORD);
     unsafe { PowerSettingAccessCheck(accessflags, powerguid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: Option<*const windows_core::GUID>, accesstype: super::REGSAM) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerSettingAccessCheckEx(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_core::GUID, accesstype : super::REGSAM) -> u32);
+pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: Option<*const windows_core::GUID>, accesstype: super::REGSAM) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerSettingAccessCheckEx(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_core::GUID, accesstype : super::REGSAM) -> super::DWORD);
     unsafe { PowerSettingAccessCheckEx(accessflags, powerguid.unwrap_or(core::mem::zeroed()) as _, accesstype) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteACDefaultIndex(rootsystempowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, defaultacindex: u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteACDefaultIndex(rootsystempowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, defaultacindex : u32) -> u32);
+pub unsafe fn PowerWriteACDefaultIndex(rootsystempowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, defaultacindex: super::DWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteACDefaultIndex(rootsystempowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, defaultacindex : super::DWORD) -> super::DWORD);
     unsafe { PowerWriteACDefaultIndex(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, defaultacindex) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteDCDefaultIndex(rootsystempowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, defaultdcindex: u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteDCDefaultIndex(rootsystempowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, defaultdcindex : u32) -> u32);
+pub unsafe fn PowerWriteDCDefaultIndex(rootsystempowerkey: Option<super::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, defaultdcindex: super::DWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteDCDefaultIndex(rootsystempowerkey : super::HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, defaultdcindex : super::DWORD) -> super::DWORD);
     unsafe { PowerWriteDCDefaultIndex(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, defaultdcindex) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteDescription(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteDescription(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+pub unsafe fn PowerWriteDescription(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteDescription(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const super::UCHAR, buffersize : super::DWORD) -> super::DWORD);
+    unsafe { PowerWriteDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteFriendlyName(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteFriendlyName(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+pub unsafe fn PowerWriteFriendlyName(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteFriendlyName(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const super::UCHAR, buffersize : super::DWORD) -> super::DWORD);
+    unsafe { PowerWriteFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteIconResourceSpecifier(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteIconResourceSpecifier(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteIconResourceSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+pub unsafe fn PowerWriteIconResourceSpecifier(rootpowerkey: Option<super::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteIconResourceSpecifier(rootpowerkey : super::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const super::UCHAR, buffersize : super::DWORD) -> super::DWORD);
+    unsafe { PowerWriteIconResourceSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWritePossibleDescription(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleDescription(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWritePossibleDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+pub unsafe fn PowerWritePossibleDescription(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: super::ULONG, buffer: &[u8]) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleDescription(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : super::ULONG, buffer : *const super::UCHAR, buffersize : super::DWORD) -> super::DWORD);
+    unsafe { PowerWritePossibleDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWritePossibleFriendlyName(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleFriendlyName(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWritePossibleFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+pub unsafe fn PowerWritePossibleFriendlyName(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: super::ULONG, buffer: &[u8]) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleFriendlyName(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : super::ULONG, buffer : *const super::UCHAR, buffersize : super::DWORD) -> super::DWORD);
+    unsafe { PowerWritePossibleFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWritePossibleValue(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: u32, possiblesettingindex: u32, buffer: &[u8]) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleValue(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : u32, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWritePossibleValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type, possiblesettingindex, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+pub unsafe fn PowerWritePossibleValue(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: super::ULONG, possiblesettingindex: super::ULONG, buffer: &[u8]) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleValue(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : super::ULONG, possiblesettingindex : super::ULONG, buffer : *const super::UCHAR, buffersize : super::DWORD) -> super::DWORD);
+    unsafe { PowerWritePossibleValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PowerWriteSettingAttributes(subgroupguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, attributes: u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteSettingAttributes(subgroupguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, attributes : u32) -> u32);
+pub unsafe fn PowerWriteSettingAttributes(subgroupguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, attributes: super::DWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteSettingAttributes(subgroupguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, attributes : super::DWORD) -> super::DWORD);
     unsafe { PowerWriteSettingAttributes(subgroupguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, attributes) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteValueIncrement(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueincrement: u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueIncrement(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueincrement : u32) -> u32);
+pub unsafe fn PowerWriteValueIncrement(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueincrement: super::DWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueIncrement(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueincrement : super::DWORD) -> super::DWORD);
     unsafe { PowerWriteValueIncrement(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueincrement) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteValueMax(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valuemaximum: u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueMax(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valuemaximum : u32) -> u32);
+pub unsafe fn PowerWriteValueMax(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valuemaximum: super::DWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueMax(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valuemaximum : super::DWORD) -> super::DWORD);
     unsafe { PowerWriteValueMax(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valuemaximum) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteValueMin(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueminimum: u32) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueMin(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueminimum : u32) -> u32);
+pub unsafe fn PowerWriteValueMin(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueminimum: super::DWORD) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueMin(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueminimum : super::DWORD) -> super::DWORD);
     unsafe { PowerWriteValueMin(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueminimum) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PowerWriteValueUnitsSpecifier(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
-    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
+pub unsafe fn PowerWriteValueUnitsSpecifier(rootpowerkey: Option<super::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> super::DWORD {
+    windows_core::link!("powrprof.dll" "system" fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const super::UCHAR, buffersize : super::DWORD) -> super::DWORD);
+    unsafe { PowerWriteValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: PGLOBAL_POWER_POLICY) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn ReadGlobalPwrPolicy(pglobalpowerpolicy : PGLOBAL_POWER_POLICY) -> super::BOOLEAN);
     unsafe { ReadGlobalPwrPolicy(pglobalpowerpolicy) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN {
-    windows_core::link!("powrprof.dll" "system" fn ReadProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN);
+pub unsafe fn ReadProcessorPwrScheme(uiid: super::UINT, pmachineprocessorpowerpolicy: PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn ReadProcessorPwrScheme(uiid : super::UINT, pmachineprocessorpowerpolicy : PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN);
     unsafe { ReadProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: PPOWER_POLICY) -> super::BOOLEAN {
-    windows_core::link!("powrprof.dll" "system" fn ReadPwrScheme(uiid : u32, ppowerpolicy : PPOWER_POLICY) -> super::BOOLEAN);
+pub unsafe fn ReadPwrScheme(uiid: super::UINT, ppowerpolicy: PPOWER_POLICY) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn ReadPwrScheme(uiid : super::UINT, ppowerpolicy : PPOWER_POLICY) -> super::BOOLEAN);
     unsafe { ReadPwrScheme(uiid, ppowerpolicy as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: Option<PGLOBAL_POWER_POLICY>, ppowerpolicy: Option<PPOWER_POLICY>) -> super::BOOLEAN {
-    windows_core::link!("powrprof.dll" "system" fn SetActivePwrScheme(uiid : u32, pglobalpowerpolicy : PGLOBAL_POWER_POLICY, ppowerpolicy : PPOWER_POLICY) -> super::BOOLEAN);
+pub unsafe fn SetActivePwrScheme(uiid: super::UINT, pglobalpowerpolicy: Option<PGLOBAL_POWER_POLICY>, ppowerpolicy: Option<PPOWER_POLICY>) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn SetActivePwrScheme(uiid : super::UINT, pglobalpowerpolicy : PGLOBAL_POWER_POLICY, ppowerpolicy : PPOWER_POLICY) -> super::BOOLEAN);
     unsafe { SetActivePwrScheme(uiid, pglobalpowerpolicy.unwrap_or(core::mem::zeroed()) as _, ppowerpolicy.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetSuspendState(bhibernate: super::BOOLEAN, bforce: super::BOOLEAN, bwakeupeventsdisabled: super::BOOLEAN) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn SetSuspendState(bhibernate : super::BOOLEAN, bforce : super::BOOLEAN, bwakeupeventsdisabled : super::BOOLEAN) -> super::BOOLEAN);
     unsafe { SetSuspendState(bhibernate, bforce, bwakeupeventsdisabled) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: Option<PGLOBAL_POWER_POLICY>, ppowerpolicy: Option<PPOWER_POLICY>) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn ValidatePowerPolicies(pglobalpowerpolicy : PGLOBAL_POWER_POLICY, ppowerpolicy : PPOWER_POLICY) -> super::BOOLEAN);
     unsafe { ValidatePowerPolicies(pglobalpowerpolicy.unwrap_or(core::mem::zeroed()) as _, ppowerpolicy.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: PGLOBAL_POWER_POLICY) -> super::BOOLEAN {
     windows_core::link!("powrprof.dll" "system" fn WriteGlobalPwrPolicy(pglobalpowerpolicy : PGLOBAL_POWER_POLICY) -> super::BOOLEAN);
     unsafe { WriteGlobalPwrPolicy(pglobalpowerpolicy) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN {
-    windows_core::link!("powrprof.dll" "system" fn WriteProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN);
+pub unsafe fn WriteProcessorPwrScheme(uiid: super::UINT, pmachineprocessorpowerpolicy: PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN {
+    windows_core::link!("powrprof.dll" "system" fn WriteProcessorPwrScheme(uiid : super::UINT, pmachineprocessorpowerpolicy : PMACHINE_PROCESSOR_POWER_POLICY) -> super::BOOLEAN);
     unsafe { WriteProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WritePwrScheme<P1, P2>(puiid: super::PUINT, lpszschemename: P1, lpszdescription: P2, lpscheme: PPOWER_POLICY) -> super::BOOLEAN
 where
@@ -471,12 +485,14 @@ pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: i32 = 67108864;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648;
 pub const DEVICEPOWER_SET_WAKEENABLED: i32 = 1;
 pub const DEVICE_NOTIFY_CALLBACK: i32 = 2;
-pub type DEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type DEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, r#type: super::ULONG, setting: super::PVOID) -> super::ULONG>;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
-    pub Context: *mut core::ffi::c_void,
+    pub Context: super::PVOID,
 }
 pub const EnableMultiBatteryDisplay: i32 = 2;
 pub const EnablePasswordLogon: i32 = 4;
@@ -484,26 +500,26 @@ pub const EnableSysTrayBatteryMeter: i32 = 1;
 pub const EnableVideoDimDisplay: i32 = 16;
 pub const EnableWakeOnRing: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_MACHINE_POWER_POLICY {
-    pub Revision: u32,
+    pub Revision: super::ULONG,
     pub LidOpenWakeAc: super::SYSTEM_POWER_STATE,
     pub LidOpenWakeDc: super::SYSTEM_POWER_STATE,
-    pub BroadcastCapacityResolution: u32,
+    pub BroadcastCapacityResolution: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_USER_POWER_POLICY {
-    pub Revision: u32,
+    pub Revision: super::ULONG,
     pub PowerButtonAc: super::POWER_ACTION_POLICY,
     pub PowerButtonDc: super::POWER_ACTION_POLICY,
     pub SleepButtonAc: super::POWER_ACTION_POLICY,
@@ -511,48 +527,49 @@ pub struct GLOBAL_USER_POWER_POLICY {
     pub LidCloseAc: super::POWER_ACTION_POLICY,
     pub LidCloseDc: super::POWER_ACTION_POLICY,
     pub DischargePolicy: [super::SYSTEM_POWER_LEVEL; 4],
-    pub GlobalFlags: u32,
+    pub GlobalFlags: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for GLOBAL_USER_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACHINE_POWER_POLICY {
-    pub Revision: u32,
+    pub Revision: super::ULONG,
     pub MinSleepAc: super::SYSTEM_POWER_STATE,
     pub MinSleepDc: super::SYSTEM_POWER_STATE,
     pub ReducedLatencySleepAc: super::SYSTEM_POWER_STATE,
     pub ReducedLatencySleepDc: super::SYSTEM_POWER_STATE,
-    pub DozeTimeoutAc: u32,
-    pub DozeTimeoutDc: u32,
-    pub DozeS4TimeoutAc: u32,
-    pub DozeS4TimeoutDc: u32,
-    pub MinThrottleAc: u8,
-    pub MinThrottleDc: u8,
-    pub pad1: [u8; 2],
+    pub DozeTimeoutAc: super::ULONG,
+    pub DozeTimeoutDc: super::ULONG,
+    pub DozeS4TimeoutAc: super::ULONG,
+    pub DozeS4TimeoutDc: super::ULONG,
+    pub MinThrottleAc: super::UCHAR,
+    pub MinThrottleDc: super::UCHAR,
+    pub pad1: [super::UCHAR; 2],
     pub OverThrottledAc: super::POWER_ACTION_POLICY,
     pub OverThrottledDc: super::POWER_ACTION_POLICY,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MACHINE_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY {
-    pub Revision: u32,
+    pub Revision: super::ULONG,
     pub ProcessorPolicyAc: super::PROCESSOR_POWER_POLICY,
     pub ProcessorPolicyDc: super::PROCESSOR_POWER_POLICY,
 }
-pub const NEWSCHEME: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const NEWSCHEME: super::UINT = 4294967295;
 pub const PDCAP_S0_SUPPORTED: i32 = 65536;
 pub const PDCAP_S1_SUPPORTED: i32 = 131072;
 pub const PDCAP_S2_SUPPORTED: i32 = 262144;
@@ -563,79 +580,83 @@ pub const PDCAP_WAKE_FROM_S0_SUPPORTED: i32 = 1048576;
 pub const PDCAP_WAKE_FROM_S1_SUPPORTED: i32 = 2097152;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: i32 = 4194304;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: i32 = 8388608;
-pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, r#type: super::ULONG, setting: super::PVOID) -> super::ULONG>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS = *mut DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGLOBAL_MACHINE_POWER_POLICY = *mut GLOBAL_MACHINE_POWER_POLICY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGLOBAL_POWER_POLICY = *mut GLOBAL_POWER_POLICY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGLOBAL_USER_POWER_POLICY = *mut GLOBAL_USER_POWER_POLICY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMACHINE_POWER_POLICY = *mut MACHINE_POWER_POLICY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMACHINE_PROCESSOR_POWER_POLICY = *mut MACHINE_PROCESSOR_POWER_POLICY;
 pub const POWER_ATTRIBUTE_HIDE: i32 = 1;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: i32 = 2;
 pub type POWER_DATA_ACCESSOR = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
 }
 pub type PPOWER_DATA_ACCESSOR = *mut POWER_DATA_ACCESSOR;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOWER_POLICY = *mut POWER_POLICY;
+#[cfg(feature = "shared")]
 pub type PTHERMAL_EVENT = *mut THERMAL_EVENT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSER_POWER_POLICY = *mut USER_POWER_POLICY;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_core::PCWSTR, descriptionsize: u32, description: windows_core::PCWSTR, policy: PPOWER_POLICY, context: super::LPARAM) -> super::BOOLEAN>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: super::LPTSTR, descriptionsize: u32, description: super::LPTSTR, policy: PPOWER_POLICY, context: super::LPARAM) -> super::BOOLEAN>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PWRSCHEMESENUMPROC_V2 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_core::PCWSTR, descriptionsize: u32, description: windows_core::PCWSTR, policy: PPOWER_POLICY, context: super::LPARAM) -> super::BOOLEAN>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: super::UINT, namesize: super::DWORD, name: windows_core::PCWSTR, descriptionsize: super::DWORD, description: windows_core::PCWSTR, policy: PPOWER_POLICY, context: super::LPARAM) -> super::BOOLEAN>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: super::UINT, namesize: super::DWORD, name: super::LPTSTR, descriptionsize: super::DWORD, description: super::LPTSTR, policy: PPOWER_POLICY, context: super::LPARAM) -> super::BOOLEAN>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PWRSCHEMESENUMPROC_V2 = Option<unsafe extern "system" fn(index: super::UINT, namesize: super::DWORD, name: windows_core::PCWSTR, descriptionsize: super::DWORD, description: windows_core::PCWSTR, policy: PPOWER_POLICY, context: super::LPARAM) -> super::BOOLEAN>;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_EVENT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Type: u32,
-    pub Temperature: u32,
-    pub TripPointTemperature: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub Type: super::ULONG,
+    pub Temperature: super::ULONG,
+    pub TripPointTemperature: super::ULONG,
     pub Initiator: windows_core::PWSTR,
 }
 pub const THERMAL_EVENT_VERSION: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_POWER_POLICY {
-    pub Revision: u32,
+    pub Revision: super::ULONG,
     pub IdleAc: super::POWER_ACTION_POLICY,
     pub IdleDc: super::POWER_ACTION_POLICY,
-    pub IdleTimeoutAc: u32,
-    pub IdleTimeoutDc: u32,
-    pub IdleSensitivityAc: u8,
-    pub IdleSensitivityDc: u8,
-    pub ThrottlePolicyAc: u8,
-    pub ThrottlePolicyDc: u8,
+    pub IdleTimeoutAc: super::ULONG,
+    pub IdleTimeoutDc: super::ULONG,
+    pub IdleSensitivityAc: super::UCHAR,
+    pub IdleSensitivityDc: super::UCHAR,
+    pub ThrottlePolicyAc: super::UCHAR,
+    pub ThrottlePolicyDc: super::UCHAR,
     pub MaxSleepAc: super::SYSTEM_POWER_STATE,
     pub MaxSleepDc: super::SYSTEM_POWER_STATE,
-    pub Reserved: [u32; 2],
-    pub VideoTimeoutAc: u32,
-    pub VideoTimeoutDc: u32,
-    pub SpindownTimeoutAc: u32,
-    pub SpindownTimeoutDc: u32,
+    pub Reserved: [super::ULONG; 2],
+    pub VideoTimeoutAc: super::ULONG,
+    pub VideoTimeoutDc: super::ULONG,
+    pub SpindownTimeoutAc: super::ULONG,
+    pub SpindownTimeoutDc: super::ULONG,
     pub OptimizeForPowerAc: super::BOOLEAN,
     pub OptimizeForPowerDc: super::BOOLEAN,
-    pub FanThrottleToleranceAc: u8,
-    pub FanThrottleToleranceDc: u8,
-    pub ForcedThrottleAc: u8,
-    pub ForcedThrottleDc: u8,
+    pub FanThrottleToleranceAc: super::UCHAR,
+    pub FanThrottleToleranceDc: super::UCHAR,
+    pub ForcedThrottleAc: super::UCHAR,
+    pub ForcedThrottleDc: super::UCHAR,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USER_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

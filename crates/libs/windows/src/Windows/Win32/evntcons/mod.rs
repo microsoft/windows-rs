@@ -1,19 +1,19 @@
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn EventAccessControl(guid: super::LPGUID, operation: u32, sid: super::PSID, rights: u32, allowordeny: super::BOOLEAN) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventAccessControl(guid : super::LPGUID, operation : u32, sid : super::PSID, rights : u32, allowordeny : super::BOOLEAN) -> u32);
+pub unsafe fn EventAccessControl(guid: super::LPGUID, operation: super::ULONG, sid: super::PSID, rights: super::ULONG, allowordeny: super::BOOLEAN) -> super::ULONG {
+    windows_core::link!("advapi32.dll" "system" fn EventAccessControl(guid : super::LPGUID, operation : super::ULONG, sid : super::PSID, rights : super::ULONG, allowordeny : super::BOOLEAN) -> super::ULONG);
     unsafe { EventAccessControl(guid, operation, sid, rights, allowordeny) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn EventAccessQuery(guid: super::LPGUID, buffer: Option<super::PSECURITY_DESCRIPTOR>, buffersize: super::PULONG) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventAccessQuery(guid : super::LPGUID, buffer : super::PSECURITY_DESCRIPTOR, buffersize : super::PULONG) -> u32);
+pub unsafe fn EventAccessQuery(guid: super::LPGUID, buffer: Option<super::PSECURITY_DESCRIPTOR>, buffersize: super::PULONG) -> super::ULONG {
+    windows_core::link!("advapi32.dll" "system" fn EventAccessQuery(guid : super::LPGUID, buffer : super::PSECURITY_DESCRIPTOR, buffersize : super::PULONG) -> super::ULONG);
     unsafe { EventAccessQuery(guid, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn EventAccessRemove(guid: super::LPGUID) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventAccessRemove(guid : super::LPGUID) -> u32);
+pub unsafe fn EventAccessRemove(guid: super::LPGUID) -> super::ULONG {
+    windows_core::link!("advapi32.dll" "system" fn EventAccessRemove(guid : super::LPGUID) -> super::ULONG);
     unsafe { EventAccessRemove(guid) }
 }
 pub type ETW_PROVIDER_TRAIT_TYPE = i32;
@@ -31,36 +31,42 @@ pub const EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING: i32 = 2048;
 pub const EVENT_ENABLE_PROPERTY_STACK_TRACE: i32 = 4;
 pub const EVENT_ENABLE_PROPERTY_TS_ID: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_EVENT_KEY {
-    pub Key: u64,
+    pub Key: super::ULONG64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_INSTANCE {
-    pub InstanceId: u32,
-    pub ParentInstanceId: u32,
+    pub InstanceId: super::ULONG,
+    pub ParentInstanceId: super::ULONG,
     pub ParentGuid: windows_core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
-    pub PebsIndex: u64,
+    pub PebsIndex: super::ULONG64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
-    pub Counter: [u64; 1],
+    pub Counter: [super::ULONG64; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
-    pub ProcessStartKey: u64,
+    pub ProcessStartKey: super::ULONG64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -68,112 +74,122 @@ pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     pub RelatedActivityId: windows_core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
-    pub MatchId: u64,
-    pub StackKey: u32,
-    pub Padding: u32,
+    pub MatchId: super::ULONG64,
+    pub StackKey: super::ULONG,
+    pub Padding: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
-    pub MatchId: u64,
-    pub StackKey: u64,
+    pub MatchId: super::ULONG64,
+    pub StackKey: super::ULONG64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
-    pub MatchId: u64,
-    pub Address: [u32; 1],
+    pub MatchId: super::ULONG64,
+    pub Address: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
-    pub MatchId: u64,
-    pub Address: [u64; 1],
+    pub MatchId: super::ULONG64,
+    pub Address: [super::ULONG64; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_TS_ID {
-    pub SessionId: u32,
+    pub SessionId: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "evntprov", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_HEADER {
-    pub Size: u16,
-    pub HeaderType: u16,
-    pub Flags: u16,
-    pub EventProperty: u16,
-    pub ThreadId: u32,
-    pub ProcessId: u32,
+    pub Size: super::USHORT,
+    pub HeaderType: super::USHORT,
+    pub Flags: super::USHORT,
+    pub EventProperty: super::USHORT,
+    pub ThreadId: super::ULONG,
+    pub ProcessId: super::ULONG,
     pub TimeStamp: super::LARGE_INTEGER,
     pub ProviderId: windows_core::GUID,
     pub EventDescriptor: super::EVENT_DESCRIPTOR,
     pub Anonymous: EVENT_HEADER_0,
     pub ActivityId: windows_core::GUID,
 }
-#[cfg(all(feature = "evntprov", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "shared", feature = "winnt"))]
 impl Default for EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "evntprov", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union EVENT_HEADER_0 {
     pub Anonymous: EVENT_HEADER_0_0,
-    pub ProcessorTime: u64,
+    pub ProcessorTime: super::ULONG64,
 }
-#[cfg(all(feature = "evntprov", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "shared", feature = "winnt"))]
 impl Default for EVENT_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "evntprov", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_HEADER_0_0 {
-    pub KernelTime: u32,
-    pub UserTime: u32,
+    pub KernelTime: super::ULONG,
+    pub UserTime: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
-    pub Reserved1: u16,
-    pub ExtType: u16,
+    pub Reserved1: super::USHORT,
+    pub ExtType: super::USHORT,
     pub Anonymous: EVENT_HEADER_EXTENDED_DATA_ITEM_0,
-    pub DataSize: u16,
-    pub DataPtr: u64,
+    pub DataSize: super::USHORT,
+    pub DataPtr: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
-    pub fn Linkage(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Linkage(&self) -> super::USHORT {
+        (self._bitfield) & 1
     }
-    pub fn set_Linkage(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u16);
+    pub fn set_Linkage(&mut self, value: super::USHORT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved2(&self) -> u16 {
+    pub fn Reserved2(&self) -> super::USHORT {
         self._bitfield >> 1
     }
-    pub fn set_Reserved2(&mut self, value: u16) {
+    pub fn set_Reserved2(&mut self, value: super::USHORT) {
         self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
     }
 }
@@ -212,18 +228,18 @@ pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: i32 = 4;
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: i32 = 8;
 pub const EVENT_HEADER_PROPERTY_XML: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EVENT_RECORD {
     pub EventHeader: EVENT_HEADER,
     pub BufferContext: super::ETW_BUFFER_CONTEXT,
-    pub ExtendedDataCount: u16,
-    pub UserDataLength: u16,
+    pub ExtendedDataCount: super::USHORT,
+    pub UserDataLength: super::USHORT,
     pub ExtendedData: PEVENT_HEADER_EXTENDED_DATA_ITEM,
-    pub UserData: *mut core::ffi::c_void,
-    pub UserContext: *mut core::ffi::c_void,
+    pub UserData: super::PVOID,
+    pub UserContext: super::PVOID,
 }
-#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "shared", feature = "winnt"))]
 impl Default for EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -237,22 +253,35 @@ pub const EventSecurityAddSACL: EVENTSECURITYOPERATION = 3;
 pub const EventSecurityMax: EVENTSECURITYOPERATION = 4;
 pub const EventSecuritySetDACL: EVENTSECURITYOPERATION = 0;
 pub const EventSecuritySetSACL: EVENTSECURITYOPERATION = 1;
-#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "shared", feature = "winnt"))]
 pub type PCEVENT_RECORD = *const EVENT_RECORD;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_EVENT_KEY = *mut EVENT_EXTENDED_ITEM_EVENT_KEY;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_INSTANCE = *mut EVENT_EXTENDED_ITEM_INSTANCE;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_PEBS_INDEX = *mut EVENT_EXTENDED_ITEM_PEBS_INDEX;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_PMC_COUNTERS = *mut EVENT_EXTENDED_ITEM_PMC_COUNTERS;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_PROCESS_START_KEY = *mut EVENT_EXTENDED_ITEM_PROCESS_START_KEY;
 pub type PEVENT_EXTENDED_ITEM_RELATED_ACTIVITYID = *mut EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_STACK_KEY32 = *mut EVENT_EXTENDED_ITEM_STACK_KEY32;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_STACK_KEY64 = *mut EVENT_EXTENDED_ITEM_STACK_KEY64;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_STACK_TRACE32 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE32;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_STACK_TRACE64 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE64;
+#[cfg(feature = "shared")]
 pub type PEVENT_EXTENDED_ITEM_TS_ID = *mut EVENT_EXTENDED_ITEM_TS_ID;
-#[cfg(all(feature = "evntprov", feature = "winnt"))]
+#[cfg(all(feature = "evntprov", feature = "shared", feature = "winnt"))]
 pub type PEVENT_HEADER = *mut EVENT_HEADER;
+#[cfg(feature = "shared")]
 pub type PEVENT_HEADER_EXTENDED_DATA_ITEM = *mut EVENT_HEADER_EXTENDED_DATA_ITEM;
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "shared", feature = "winnt"))]
+pub type PEVENT_RECORD = *mut EVENT_RECORD;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: i32 = 268435456;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: i32 = 4096;
 pub const PROCESS_TRACE_MODE_REAL_TIME: i32 = 256;

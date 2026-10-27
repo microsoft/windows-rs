@@ -7,7 +7,7 @@ pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_
 pub type APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = i32;
 pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 0;
 pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 1;
-pub type APPX_CAPABILITIES = u32;
+pub type APPX_CAPABILITIES = i32;
 pub const APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = 1024;
 pub const APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = 7;
 pub const APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = 8;
@@ -34,32 +34,33 @@ pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = 0;
 pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1;
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
-    pub count: u32,
+    pub count: super::UINT32,
     pub plainTextFiles: *mut windows_core::PCWSTR,
 }
-pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = u32;
+pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = i32;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = 1;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2;
 #[repr(C)]
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "shared", feature = "urlmon"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    pub keyLength: u32,
+    pub keyLength: super::UINT32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
     pub useDiffusion: windows_core::BOOL,
     pub blockMapHashAlgorithm: core::mem::ManuallyDrop<Option<super::IUri>>,
 }
 #[repr(C)]
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "shared", feature = "urlmon"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    pub keyLength: u32,
+    pub keyLength: super::UINT32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
     pub blockMapHashAlgorithm: core::mem::ManuallyDrop<Option<super::IUri>>,
-    pub options: u32,
+    pub options: super::DWORD,
 }
 pub type APPX_FOOTPRINT_FILE_TYPE = i32;
 pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = 1;
@@ -68,12 +69,13 @@ pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = 4
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0;
 pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_KEY_INFO {
-    pub keyLength: u32,
-    pub keyIdLength: u32,
-    pub key: *mut u8,
-    pub keyId: *mut u8,
+    pub keyLength: super::UINT32,
+    pub keyIdLength: super::UINT32,
+    pub key: *mut super::BYTE,
+    pub keyId: *mut super::BYTE,
 }
 pub type APPX_PACKAGE_ARCHITECTURE = i32;
 pub type APPX_PACKAGE_ARCHITECTURE2 = i32;
@@ -89,7 +91,7 @@ pub const APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = 12;
 pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = 11;
 pub const APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = 9;
 pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = 0;
-pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = u32;
+pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = i32;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 2;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 0;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 1;
@@ -177,13 +179,12 @@ impl windows_core::RuntimeName for IAppxAppInstallerReader {}
 windows_core::imp::define_interface!(IAppxBlockMapBlock, IAppxBlockMapBlock_Vtbl, 0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
 windows_core::imp::interface_hierarchy!(IAppxBlockMapBlock, windows_core::IUnknown);
 impl IAppxBlockMapBlock {
-    pub unsafe fn GetHash(&self, buffersize: *mut u32) -> windows_core::Result<*mut u8> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHash)(windows_core::Interface::as_raw(self), buffersize as _, &mut result__).map(|| result__)
-        }
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetHash(&self, buffersize: *mut super::UINT32, buffer: *mut *mut super::BYTE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetHash)(windows_core::Interface::as_raw(self), buffersize as _, buffer as _) }
     }
-    pub unsafe fn GetCompressedSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCompressedSize(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCompressedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -194,28 +195,30 @@ impl IAppxBlockMapBlock {
 #[doc(hidden)]
 pub struct IAppxBlockMapBlock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
-    pub GetCompressedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32, *mut *mut super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetHash: usize,
+    #[cfg(feature = "shared")]
+    pub GetCompressedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCompressedSize: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxBlockMapBlock_Impl: windows_core::IUnknownImpl {
-    fn GetHash(&self, buffersize: *mut u32) -> windows_core::Result<*mut u8>;
-    fn GetCompressedSize(&self) -> windows_core::Result<u32>;
+    fn GetHash(&self, buffersize: *mut super::UINT32, buffer: *mut *mut super::BYTE) -> windows_core::Result<()>;
+    fn GetCompressedSize(&self) -> windows_core::Result<super::UINT32>;
 }
+#[cfg(feature = "shared")]
 impl IAppxBlockMapBlock_Vtbl {
     pub const fn new<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetHash<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffersize: *mut u32, buffer: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHash<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffersize: *mut super::UINT32, buffer: *mut *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBlockMapBlock_Impl::GetHash(this, core::mem::transmute_copy(&buffersize)) {
-                    Ok(ok__) => {
-                        buffer.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxBlockMapBlock_Impl::GetHash(this, core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&buffer)).into()
             }
         }
-        unsafe extern "system" fn GetCompressedSize<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCompressedSize<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapBlock_Impl::GetCompressedSize(this) {
@@ -237,6 +240,7 @@ impl IAppxBlockMapBlock_Vtbl {
         iid == &<IAppxBlockMapBlock as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxBlockMapBlock {}
 windows_core::imp::define_interface!(IAppxBlockMapBlocksEnumerator, IAppxBlockMapBlocksEnumerator_Vtbl, 0x6b429b5b_36ef_479e_b9eb_0c1482b49e16);
 windows_core::imp::interface_hierarchy!(IAppxBlockMapBlocksEnumerator, windows_core::IUnknown);
@@ -332,19 +336,18 @@ impl IAppxBlockMapFile {
             (windows_core::Interface::vtable(self).GetBlocks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetLocalFileHeaderSize(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLocalFileHeaderSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
-    pub unsafe fn GetUncompressedSize(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetUncompressedSize(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUncompressedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -366,23 +369,29 @@ impl IAppxBlockMapFile {
 pub struct IAppxBlockMapFile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBlocks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetLocalFileHeaderSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetLocalFileHeaderSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetLocalFileHeaderSize: usize,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetUncompressedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetUncompressedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetUncompressedSize: usize,
     #[cfg(feature = "objidlbase")]
     pub ValidateFileHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
     ValidateFileHash: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxBlockMapFile_Impl: windows_core::IUnknownImpl {
     fn GetBlocks(&self) -> windows_core::Result<IAppxBlockMapBlocksEnumerator>;
-    fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32>;
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetUncompressedSize(&self) -> windows_core::Result<u64>;
+    fn GetLocalFileHeaderSize(&self) -> windows_core::Result<super::UINT32>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetUncompressedSize(&self) -> windows_core::Result<super::UINT64>;
     fn ValidateFileHash(&self, filestream: windows_core::Ref<super::IStream>) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxBlockMapFile_Vtbl {
     pub const fn new<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBlocks<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -397,7 +406,7 @@ impl IAppxBlockMapFile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLocalFileHeaderSize<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfhsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLocalFileHeaderSize<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfhsize: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile_Impl::GetLocalFileHeaderSize(this) {
@@ -412,16 +421,10 @@ impl IAppxBlockMapFile_Vtbl {
         unsafe extern "system" fn GetName<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBlockMapFile_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxBlockMapFile_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
-        unsafe extern "system" fn GetUncompressedSize<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUncompressedSize<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile_Impl::GetUncompressedSize(this) {
@@ -458,7 +461,7 @@ impl IAppxBlockMapFile_Vtbl {
         iid == &<IAppxBlockMapFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxBlockMapFile {}
 windows_core::imp::define_interface!(IAppxBlockMapFile2, IAppxBlockMapFile2_Vtbl, 0x54785f78_40e9_11ee_be56_0242ac120002);
 impl core::ops::Deref for IAppxBlockMapFile2 {
@@ -469,7 +472,8 @@ impl core::ops::Deref for IAppxBlockMapFile2 {
 }
 windows_core::imp::interface_hierarchy!(IAppxBlockMapFile2, windows_core::IUnknown, IAppxBlockMapFile);
 impl IAppxBlockMapFile2 {
-    pub unsafe fn GetBlockSize(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBlockSize(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBlockSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -480,16 +484,19 @@ impl IAppxBlockMapFile2 {
 #[doc(hidden)]
 pub struct IAppxBlockMapFile2_Vtbl {
     pub base__: IAppxBlockMapFile_Vtbl,
-    pub GetBlockSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetBlockSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBlockSize: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxBlockMapFile2_Impl: IAppxBlockMapFile_Impl {
-    fn GetBlockSize(&self) -> windows_core::Result<u64>;
+    fn GetBlockSize(&self) -> windows_core::Result<super::UINT64>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxBlockMapFile2_Vtbl {
     pub const fn new<Identity: IAppxBlockMapFile2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetBlockSize<Identity: IAppxBlockMapFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocksize: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBlockSize<Identity: IAppxBlockMapFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocksize: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile2_Impl::GetBlockSize(this) {
@@ -507,7 +514,7 @@ impl IAppxBlockMapFile2_Vtbl {
         iid == &<IAppxBlockMapFile2 as windows_core::Interface>::IID || iid == &<IAppxBlockMapFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxBlockMapFile2 {}
 windows_core::imp::define_interface!(IAppxBlockMapFilesEnumerator, IAppxBlockMapFilesEnumerator_Vtbl, 0x02b856a2_4262_4070_bacb_1a8cbbc42305);
 windows_core::imp::interface_hierarchy!(IAppxBlockMapFilesEnumerator, windows_core::IUnknown);
@@ -717,8 +724,8 @@ impl windows_core::RuntimeName for IAppxBlockMapReader {}
 windows_core::imp::define_interface!(IAppxBundleFactory, IAppxBundleFactory_Vtbl, 0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
 windows_core::imp::interface_hierarchy!(IAppxBundleFactory, windows_core::IUnknown);
 impl IAppxBundleFactory {
-    #[cfg(feature = "objidlbase")]
-    pub unsafe fn CreateBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub unsafe fn CreateBundleWriter<P0>(&self, outputstream: P0, bundleversion: super::UINT64) -> windows_core::Result<IAppxBundleWriter>
     where
         P0: windows_core::Param<super::IStream>,
     {
@@ -752,9 +759,9 @@ impl IAppxBundleFactory {
 #[doc(hidden)]
 pub struct IAppxBundleFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "objidlbase")]
-    pub CreateBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub CreateBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::UINT64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     CreateBundleWriter: usize,
     #[cfg(feature = "objidlbase")]
     pub CreateBundleReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -765,16 +772,16 @@ pub struct IAppxBundleFactory_Vtbl {
     #[cfg(not(feature = "objidlbase"))]
     CreateBundleManifestReader: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxBundleFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateBundleWriter(&self, outputstream: windows_core::Ref<super::IStream>, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>;
+    fn CreateBundleWriter(&self, outputstream: windows_core::Ref<super::IStream>, bundleversion: super::UINT64) -> windows_core::Result<IAppxBundleWriter>;
     fn CreateBundleReader(&self, inputstream: windows_core::Ref<super::IStream>) -> windows_core::Result<IAppxBundleReader>;
     fn CreateBundleManifestReader(&self, inputstream: windows_core::Ref<super::IStream>) -> windows_core::Result<IAppxBundleManifestReader>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxBundleFactory_Vtbl {
     pub const fn new<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateBundleWriter<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateBundleWriter<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: super::UINT64, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleFactory_Impl::CreateBundleWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&bundleversion)) {
@@ -821,7 +828,7 @@ impl IAppxBundleFactory_Vtbl {
         iid == &<IAppxBundleFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxBundleFactory {}
 windows_core::imp::define_interface!(IAppxBundleFactory2, IAppxBundleFactory2_Vtbl, 0x7325b83d_0185_42c4_82ac_be34ab1a2a8a);
 windows_core::imp::interface_hierarchy!(IAppxBundleFactory2, windows_core::IUnknown);
@@ -930,11 +937,8 @@ impl IAppxBundleManifestOptionalBundleInfo {
             (windows_core::Interface::vtable(self).GetPackageId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFileName(&self, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), filename as _) }
     }
     pub unsafe fn GetPackageInfoItems(&self) -> windows_core::Result<IAppxBundleManifestPackageInfoEnumerator> {
         unsafe {
@@ -953,7 +957,7 @@ pub struct IAppxBundleManifestOptionalBundleInfo_Vtbl {
 }
 pub trait IAppxBundleManifestOptionalBundleInfo_Impl: windows_core::IUnknownImpl {
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
-    fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetFileName(&self, filename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetPackageInfoItems(&self) -> windows_core::Result<IAppxBundleManifestPackageInfoEnumerator>;
 }
 impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
@@ -973,13 +977,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
         unsafe extern "system" fn GetFileName<Identity: IAppxBundleManifestOptionalBundleInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBundleManifestOptionalBundleInfo_Impl::GetFileName(this) {
-                    Ok(ok__) => {
-                        filename.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxBundleManifestOptionalBundleInfo_Impl::GetFileName(this, core::mem::transmute_copy(&filename)).into()
             }
         }
         unsafe extern "system" fn GetPackageInfoItems<Identity: IAppxBundleManifestOptionalBundleInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageinfoitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1106,19 +1104,18 @@ impl IAppxBundleManifestPackageInfo {
             (windows_core::Interface::vtable(self).GetPackageId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFileName(&self, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFileName)(windows_core::Interface::as_raw(self), filename as _) }
     }
-    pub unsafe fn GetOffset(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOffset(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSize(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSize(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1138,18 +1135,26 @@ pub struct IAppxBundleManifestPackageInfo_Vtbl {
     pub GetPackageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> windows_core::HRESULT,
     pub GetPackageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOffset: usize,
+    #[cfg(feature = "shared")]
+    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSize: usize,
     pub GetResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxBundleManifestPackageInfo_Impl: windows_core::IUnknownImpl {
     fn GetPackageType(&self) -> windows_core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>;
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
-    fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetOffset(&self) -> windows_core::Result<u64>;
-    fn GetSize(&self) -> windows_core::Result<u64>;
+    fn GetFileName(&self, filename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetOffset(&self) -> windows_core::Result<super::UINT64>;
+    fn GetSize(&self) -> windows_core::Result<super::UINT64>;
     fn GetResources(&self) -> windows_core::Result<IAppxManifestQualifiedResourcesEnumerator>;
 }
+#[cfg(feature = "shared")]
 impl IAppxBundleManifestPackageInfo_Vtbl {
     pub const fn new<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPackageType<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagetype: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> windows_core::HRESULT {
@@ -1179,16 +1184,10 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
         unsafe extern "system" fn GetFileName<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBundleManifestPackageInfo_Impl::GetFileName(this) {
-                    Ok(ok__) => {
-                        filename.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxBundleManifestPackageInfo_Impl::GetFileName(this, core::mem::transmute_copy(&filename)).into()
             }
         }
-        unsafe extern "system" fn GetOffset<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOffset<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo_Impl::GetOffset(this) {
@@ -1200,7 +1199,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSize<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSize<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo_Impl::GetSize(this) {
@@ -1238,6 +1237,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
         iid == &<IAppxBundleManifestPackageInfo as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxBundleManifestPackageInfo {}
 windows_core::imp::define_interface!(IAppxBundleManifestPackageInfo2, IAppxBundleManifestPackageInfo2_Vtbl, 0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
 windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo2, windows_core::IUnknown);
@@ -2041,11 +2041,8 @@ impl windows_core::RuntimeName for IAppxBundleWriter4 {}
 windows_core::imp::define_interface!(IAppxContentGroup, IAppxContentGroup_Vtbl, 0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
 windows_core::imp::interface_hierarchy!(IAppxContentGroup, windows_core::IUnknown);
 impl IAppxContentGroup {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, groupname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), groupname as _) }
     }
     pub unsafe fn GetFiles(&self) -> windows_core::Result<IAppxContentGroupFilesEnumerator> {
         unsafe {
@@ -2062,7 +2059,7 @@ pub struct IAppxContentGroup_Vtbl {
     pub GetFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAppxContentGroup_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetName(&self, groupname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetFiles(&self) -> windows_core::Result<IAppxContentGroupFilesEnumerator>;
 }
 impl IAppxContentGroup_Vtbl {
@@ -2070,13 +2067,7 @@ impl IAppxContentGroup_Vtbl {
         unsafe extern "system" fn GetName<Identity: IAppxContentGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, groupname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxContentGroup_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        groupname.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxContentGroup_Impl::GetName(this, core::mem::transmute_copy(&groupname)).into()
             }
         }
         unsafe extern "system" fn GetFiles<Identity: IAppxContentGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2660,28 +2651,28 @@ impl windows_core::RuntimeName for IAppxEncryptedPackageWriter {}
 windows_core::imp::define_interface!(IAppxEncryptedPackageWriter2, IAppxEncryptedPackageWriter2_Vtbl, 0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
 windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
-    #[cfg(feature = "objidlbase")]
-    pub unsafe fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), filecount, payloadfiles, memorylimit) }
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: super::UINT64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), payloadfiles.as_ptr(), memorylimit) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxEncryptedPackageWriter2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "objidlbase")]
-    pub AddPayloadFilesEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub AddPayloadFilesEncrypted: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     AddPayloadFilesEncrypted: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxEncryptedPackageWriter2_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::Result<()>;
+    fn AddPayloadFilesEncrypted(&self, filecount: super::UINT32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: super::UINT64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxEncryptedPackageWriter2_Vtbl {
     pub const fn new<Identity: IAppxEncryptedPackageWriter2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddPayloadFilesEncrypted<Identity: IAppxEncryptedPackageWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPayloadFilesEncrypted<Identity: IAppxEncryptedPackageWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: super::UINT32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxEncryptedPackageWriter2_Impl::AddPayloadFilesEncrypted(this, core::mem::transmute_copy(&filecount), core::mem::transmute_copy(&payloadfiles), core::mem::transmute_copy(&memorylimit)).into()
@@ -2693,12 +2684,12 @@ impl IAppxEncryptedPackageWriter2_Vtbl {
         iid == &<IAppxEncryptedPackageWriter2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxEncryptedPackageWriter2 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory, IAppxEncryptionFactory_Vtbl, 0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory, windows_core::IUnknown);
 impl IAppxEncryptionFactory {
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -2706,7 +2697,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -2714,7 +2705,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).DecryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo) }
     }
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1>(&self, outputstream: P0, manifeststream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
     where
         P0: windows_core::Param<super::IStream>,
@@ -2725,7 +2716,7 @@ impl IAppxEncryptionFactory {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub unsafe fn CreateEncryptedPackageReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxPackageReader>
     where
         P0: windows_core::Param<super::IStream>,
@@ -2735,7 +2726,7 @@ impl IAppxEncryptionFactory {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -2743,7 +2734,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -2751,8 +2742,8 @@ impl IAppxEncryptionFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).DecryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo) }
     }
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
-    pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
+    pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: super::UINT64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
     where
         P0: windows_core::Param<super::IStream>,
     {
@@ -2761,7 +2752,7 @@ impl IAppxEncryptionFactory {
             (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub unsafe fn CreateEncryptedBundleReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>
     where
         P0: windows_core::Param<super::IStream>,
@@ -2776,40 +2767,40 @@ impl IAppxEncryptionFactory {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub EncryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     EncryptPackage: usize,
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub DecryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     DecryptPackage: usize,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub CreateEncryptedPackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     CreateEncryptedPackageWriter: usize,
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub CreateEncryptedPackageReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     CreateEncryptedPackageReader: usize,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub EncryptBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     EncryptBundle: usize,
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub DecryptBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     DecryptBundle: usize,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
-    pub CreateEncryptedBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
+    pub CreateEncryptedBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::UINT64, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     CreateEncryptedBundleWriter: usize,
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub CreateEncryptedBundleReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     CreateEncryptedBundleReader: usize,
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory_Impl: windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn DecryptPackage(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
@@ -2817,10 +2808,10 @@ pub trait IAppxEncryptionFactory_Impl: windows_core::IUnknownImpl {
     fn CreateEncryptedPackageReader(&self, inputstream: windows_core::Ref<super::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxPackageReader>;
     fn EncryptBundle(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn DecryptBundle(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::IStream>, bundleversion: super::UINT64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
     fn CreateEncryptedBundleReader(&self, inputstream: windows_core::Ref<super::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>;
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl IAppxEncryptionFactory_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
@@ -2871,7 +2862,7 @@ impl IAppxEncryptionFactory_Vtbl {
                 IAppxEncryptionFactory_Impl::DecryptBundle(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&keyinfo)).into()
             }
         }
-        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: super::UINT64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxEncryptionFactory_Impl::CreateEncryptedBundleWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
@@ -2911,12 +2902,12 @@ impl IAppxEncryptionFactory_Vtbl {
         iid == &<IAppxEncryptionFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory2, IAppxEncryptionFactory2_Vtbl, 0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory2, windows_core::IUnknown);
 impl IAppxEncryptionFactory2 {
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
     where
         P0: windows_core::Param<super::IStream>,
@@ -2933,16 +2924,16 @@ impl IAppxEncryptionFactory2 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub CreateEncryptedPackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     CreateEncryptedPackageWriter: usize,
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory2_Impl: windows_core::IUnknownImpl {
     fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::IStream>, manifeststream: windows_core::Ref<super::IStream>, contentgroupmapstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl IAppxEncryptionFactory2_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2963,12 +2954,12 @@ impl IAppxEncryptionFactory2_Vtbl {
         iid == &<IAppxEncryptionFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory2 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory3, IAppxEncryptionFactory3_Vtbl, 0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory3, windows_core::IUnknown);
 impl IAppxEncryptionFactory3 {
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -2976,7 +2967,7 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
     where
         P0: windows_core::Param<super::IStream>,
@@ -2988,7 +2979,7 @@ impl IAppxEncryptionFactory3 {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -2996,8 +2987,8 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
-    pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
+    pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: super::UINT64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
     where
         P0: windows_core::Param<super::IStream>,
     {
@@ -3011,31 +3002,31 @@ impl IAppxEncryptionFactory3 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub EncryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     EncryptPackage: usize,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub CreateEncryptedPackageWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     CreateEncryptedPackageWriter: usize,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub EncryptBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     EncryptBundle: usize,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
-    pub CreateEncryptedBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
+    pub CreateEncryptedBundleWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::UINT64, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     CreateEncryptedBundleWriter: usize,
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory3_Impl: windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::IStream>, manifeststream: windows_core::Ref<super::IStream>, contentgroupmapstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
     fn EncryptBundle(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::IStream>, bundleversion: super::UINT64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl IAppxEncryptionFactory3_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
@@ -3062,7 +3053,7 @@ impl IAppxEncryptionFactory3_Vtbl {
                 IAppxEncryptionFactory3_Impl::EncryptBundle(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
             }
         }
-        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: super::UINT64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxEncryptionFactory3_Impl::CreateEncryptedBundleWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
@@ -3086,13 +3077,13 @@ impl IAppxEncryptionFactory3_Vtbl {
         iid == &<IAppxEncryptionFactory3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory3 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory4, IAppxEncryptionFactory4_Vtbl, 0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory4, windows_core::IUnknown);
 impl IAppxEncryptionFactory4 {
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
-    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
+    pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: super::UINT64) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
         P1: windows_core::Param<super::IStream>,
@@ -3104,19 +3095,19 @@ impl IAppxEncryptionFactory4 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
-    pub EncryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, u64) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
+    pub EncryptPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO, *const APPX_ENCRYPTED_EXEMPTIONS, super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     EncryptPackage: usize,
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 pub trait IAppxEncryptionFactory4_Impl: windows_core::IUnknownImpl {
-    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>;
+    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::IStream>, outputstream: windows_core::Ref<super::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: super::UINT64) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl IAppxEncryptionFactory4_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxEncryptionFactory4_Impl::EncryptPackage(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles), core::mem::transmute_copy(&memorylimit)).into()
@@ -3128,12 +3119,12 @@ impl IAppxEncryptionFactory4_Vtbl {
         iid == &<IAppxEncryptionFactory4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory4 {}
 windows_core::imp::define_interface!(IAppxEncryptionFactory5, IAppxEncryptionFactory5_Vtbl, 0x68d6e77a_f446_480f_b0f0_d91a24c60746);
 windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory5, windows_core::IUnknown);
 impl IAppxEncryptionFactory5 {
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub unsafe fn CreateEncryptedPackageReader2<P0, P2>(&self, inputstream: P0, keyinfo: Option<*const APPX_KEY_INFO>, expecteddigest: P2) -> windows_core::Result<IAppxPackageReader>
     where
         P0: windows_core::Param<super::IStream>,
@@ -3144,7 +3135,7 @@ impl IAppxEncryptionFactory5 {
             (windows_core::Interface::vtable(self).CreateEncryptedPackageReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo.unwrap_or(core::mem::zeroed()) as _, expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub unsafe fn CreateEncryptedBundleReader2<P0, P2>(&self, inputstream: P0, keyinfo: Option<*const APPX_KEY_INFO>, expecteddigest: P2) -> windows_core::Result<IAppxBundleReader>
     where
         P0: windows_core::Param<super::IStream>,
@@ -3160,21 +3151,21 @@ impl IAppxEncryptionFactory5 {
 #[doc(hidden)]
 pub struct IAppxEncryptionFactory5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub CreateEncryptedPackageReader2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     CreateEncryptedPackageReader2: usize,
-    #[cfg(feature = "objidlbase")]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
     pub CreateEncryptedBundleReader2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const APPX_KEY_INFO, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     CreateEncryptedBundleReader2: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxEncryptionFactory5_Impl: windows_core::IUnknownImpl {
     fn CreateEncryptedPackageReader2(&self, inputstream: windows_core::Ref<super::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
     fn CreateEncryptedBundleReader2(&self, inputstream: windows_core::Ref<super::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxEncryptionFactory5_Vtbl {
     pub const fn new<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateEncryptedPackageReader2<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3211,7 +3202,7 @@ impl IAppxEncryptionFactory5_Vtbl {
         iid == &<IAppxEncryptionFactory5 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxEncryptionFactory5 {}
 windows_core::imp::define_interface!(IAppxFactory, IAppxFactory_Vtbl, 0xbeb94909_e451_438b_b5a7_d79e767b75d8);
 windows_core::imp::interface_hierarchy!(IAppxFactory, windows_core::IUnknown);
@@ -3656,19 +3647,14 @@ impl IAppxFile {
             (windows_core::Interface::vtable(self).GetCompressionOption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetContentType(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetContentType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetContentType(&self, contenttype: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContentType)(windows_core::Interface::as_raw(self), contenttype as _) }
     }
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), filename as _) }
     }
-    pub unsafe fn GetSize(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSize(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3689,21 +3675,24 @@ pub struct IAppxFile_Vtbl {
     pub GetCompressionOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_COMPRESSION_OPTION) -> windows_core::HRESULT,
     pub GetContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSize: usize,
     #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxFile_Impl: windows_core::IUnknownImpl {
     fn GetCompressionOption(&self) -> windows_core::Result<APPX_COMPRESSION_OPTION>;
-    fn GetContentType(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetSize(&self) -> windows_core::Result<u64>;
+    fn GetContentType(&self, contenttype: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetName(&self, filename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetSize(&self) -> windows_core::Result<super::UINT64>;
     fn GetStream(&self) -> windows_core::Result<super::IStream>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxFile_Vtbl {
     pub const fn new<Identity: IAppxFile_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCompressionOption<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionoption: *mut APPX_COMPRESSION_OPTION) -> windows_core::HRESULT {
@@ -3721,28 +3710,16 @@ impl IAppxFile_Vtbl {
         unsafe extern "system" fn GetContentType<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFile_Impl::GetContentType(this) {
-                    Ok(ok__) => {
-                        contenttype.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxFile_Impl::GetContentType(this, core::mem::transmute_copy(&contenttype)).into()
             }
         }
         unsafe extern "system" fn GetName<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFile_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        filename.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxFile_Impl::GetName(this, core::mem::transmute_copy(&filename)).into()
             }
         }
-        unsafe extern "system" fn GetSize<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSize<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFile_Impl::GetSize(this) {
@@ -3779,7 +3756,7 @@ impl IAppxFile_Vtbl {
         iid == &<IAppxFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxFile {}
 windows_core::imp::define_interface!(IAppxFile2, IAppxFile2_Vtbl, 0x0c830b3c_40e9_11ee_be56_0242ac120002);
 impl core::ops::Deref for IAppxFile2 {
@@ -3790,7 +3767,8 @@ impl core::ops::Deref for IAppxFile2 {
 }
 windows_core::imp::interface_hierarchy!(IAppxFile2, windows_core::IUnknown, IAppxFile);
 impl IAppxFile2 {
-    pub unsafe fn GetBlockSize(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBlockSize(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBlockSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3801,16 +3779,19 @@ impl IAppxFile2 {
 #[doc(hidden)]
 pub struct IAppxFile2_Vtbl {
     pub base__: IAppxFile_Vtbl,
-    pub GetBlockSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetBlockSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBlockSize: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxFile2_Impl: IAppxFile_Impl {
-    fn GetBlockSize(&self) -> windows_core::Result<u64>;
+    fn GetBlockSize(&self) -> windows_core::Result<super::UINT64>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxFile2_Vtbl {
     pub const fn new<Identity: IAppxFile2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetBlockSize<Identity: IAppxFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocksize: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBlockSize<Identity: IAppxFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocksize: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFile2_Impl::GetBlockSize(this) {
@@ -3828,7 +3809,7 @@ impl IAppxFile2_Vtbl {
         iid == &<IAppxFile2 as windows_core::Interface>::IID || iid == &<IAppxFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxFile2 {}
 windows_core::imp::define_interface!(IAppxFilesEnumerator, IAppxFilesEnumerator_Vtbl, 0xf007eeaf_9831_411c_9847_917cdc62d1fe);
 windows_core::imp::interface_hierarchy!(IAppxFilesEnumerator, windows_core::IUnknown);
@@ -3918,20 +3899,14 @@ impl windows_core::RuntimeName for IAppxFilesEnumerator {}
 windows_core::imp::define_interface!(IAppxManifestApplication, IAppxManifestApplication_Vtbl, 0x5da89bf4_3773_46be_b650_7e744863b7e8);
 windows_core::imp::interface_hierarchy!(IAppxManifestApplication, windows_core::IUnknown);
 impl IAppxManifestApplication {
-    pub unsafe fn GetStringValue<P0>(&self, name: P0) -> windows_core::Result<windows_core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, name: P0, value: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), value as _) }
     }
-    pub unsafe fn GetAppUserModelId(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAppUserModelId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAppUserModelId(&self, appusermodelid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAppUserModelId)(windows_core::Interface::as_raw(self), appusermodelid as _) }
     }
 }
 #[repr(C)]
@@ -3942,33 +3917,21 @@ pub struct IAppxManifestApplication_Vtbl {
     pub GetAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestApplication_Impl: windows_core::IUnknownImpl {
-    fn GetStringValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetAppUserModelId(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetStringValue(&self, name: &windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetAppUserModelId(&self, appusermodelid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IAppxManifestApplication_Vtbl {
     pub const fn new<Identity: IAppxManifestApplication_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStringValue<Identity: IAppxManifestApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestApplication_Impl::GetStringValue(this, core::mem::transmute(&name)) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestApplication_Impl::GetStringValue(this, core::mem::transmute(&name), core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn GetAppUserModelId<Identity: IAppxManifestApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appusermodelid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestApplication_Impl::GetAppUserModelId(this) {
-                    Ok(ok__) => {
-                        appusermodelid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestApplication_Impl::GetAppUserModelId(this, core::mem::transmute_copy(&appusermodelid)).into()
             }
         }
         Self {
@@ -4070,11 +4033,8 @@ impl windows_core::RuntimeName for IAppxManifestApplicationsEnumerator {}
 windows_core::imp::define_interface!(IAppxManifestCapabilitiesEnumerator, IAppxManifestCapabilitiesEnumerator_Vtbl, 0x11d22258_f470_42c1_b291_8361c5437e41);
 windows_core::imp::interface_hierarchy!(IAppxManifestCapabilitiesEnumerator, windows_core::IUnknown);
 impl IAppxManifestCapabilitiesEnumerator {
-    pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCurrent(&self, capability: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), capability as _) }
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -4098,7 +4058,7 @@ pub struct IAppxManifestCapabilitiesEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestCapabilitiesEnumerator_Impl: windows_core::IUnknownImpl {
-    fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetCurrent(&self, capability: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
@@ -4107,13 +4067,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capability: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestCapabilitiesEnumerator_Impl::GetCurrent(this) {
-                    Ok(ok__) => {
-                        capability.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestCapabilitiesEnumerator_Impl::GetCurrent(this, core::mem::transmute_copy(&capability)).into()
             }
         }
         unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -4155,11 +4109,8 @@ impl windows_core::RuntimeName for IAppxManifestCapabilitiesEnumerator {}
 windows_core::imp::define_interface!(IAppxManifestDeviceCapabilitiesEnumerator, IAppxManifestDeviceCapabilitiesEnumerator_Vtbl, 0x30204541_427b_4a1c_bacf_655bf463a540);
 windows_core::imp::interface_hierarchy!(IAppxManifestDeviceCapabilitiesEnumerator, windows_core::IUnknown);
 impl IAppxManifestDeviceCapabilitiesEnumerator {
-    pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCurrent(&self, devicecapability: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), devicecapability as _) }
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -4183,7 +4134,7 @@ pub struct IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestDeviceCapabilitiesEnumerator_Impl: windows_core::IUnknownImpl {
-    fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetCurrent(&self, devicecapability: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
@@ -4192,13 +4143,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicecapability: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestDeviceCapabilitiesEnumerator_Impl::GetCurrent(this) {
-                    Ok(ok__) => {
-                        devicecapability.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestDeviceCapabilitiesEnumerator_Impl::GetCurrent(this, core::mem::transmute_copy(&devicecapability)).into()
             }
         }
         unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -4240,23 +4185,18 @@ impl windows_core::RuntimeName for IAppxManifestDeviceCapabilitiesEnumerator {}
 windows_core::imp::define_interface!(IAppxManifestDriverConstraint, IAppxManifestDriverConstraint_Vtbl, 0xc031bee4_bbcc_48ea_a237_c34045c80a07);
 windows_core::imp::interface_hierarchy!(IAppxManifestDriverConstraint, windows_core::IUnknown);
 impl IAppxManifestDriverConstraint {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
-    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMinDate(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMinDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMinDate(&self, mindate: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMinDate)(windows_core::Interface::as_raw(self), mindate as _) }
     }
 }
 #[repr(C)]
@@ -4264,29 +4204,28 @@ impl IAppxManifestDriverConstraint {
 pub struct IAppxManifestDriverConstraint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMinVersion: usize,
     pub GetMinDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestDriverConstraint_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetMinVersion(&self) -> windows_core::Result<u64>;
-    fn GetMinDate(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetMinVersion(&self) -> windows_core::Result<super::UINT64>;
+    fn GetMinDate(&self, mindate: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestDriverConstraint_Vtbl {
     pub const fn new<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestDriverConstraint_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestDriverConstraint_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraint_Impl::GetMinVersion(this) {
@@ -4301,13 +4240,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
         unsafe extern "system" fn GetMinDate<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mindate: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestDriverConstraint_Impl::GetMinDate(this) {
-                    Ok(ok__) => {
-                        mindate.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestDriverConstraint_Impl::GetMinDate(this, core::mem::transmute_copy(&mindate)).into()
             }
         }
         Self {
@@ -4321,6 +4254,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
         iid == &<IAppxManifestDriverConstraint as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestDriverConstraint {}
 windows_core::imp::define_interface!(IAppxManifestDriverConstraintsEnumerator, IAppxManifestDriverConstraintsEnumerator_Vtbl, 0xd402b2d1_f600_49e0_95e6_975d8da13d89);
 windows_core::imp::interface_hierarchy!(IAppxManifestDriverConstraintsEnumerator, windows_core::IUnknown);
@@ -4620,19 +4554,14 @@ impl windows_core::RuntimeName for IAppxManifestHostRuntimeDependenciesEnumerato
 windows_core::imp::define_interface!(IAppxManifestHostRuntimeDependency, IAppxManifestHostRuntimeDependency_Vtbl, 0x3455d234_8414_410d_95c7_7b35255b8391);
 windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency, windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependency {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
-    pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), publisher as _) }
     }
-    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4645,40 +4574,33 @@ pub struct IAppxManifestHostRuntimeDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMinVersion: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestHostRuntimeDependency_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetMinVersion(&self) -> windows_core::Result<u64>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetMinVersion(&self) -> windows_core::Result<super::UINT64>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestHostRuntimeDependency_Vtbl {
     pub const fn new<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestHostRuntimeDependency_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestHostRuntimeDependency_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
         unsafe extern "system" fn GetPublisher<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestHostRuntimeDependency_Impl::GetPublisher(this) {
-                    Ok(ok__) => {
-                        publisher.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestHostRuntimeDependency_Impl::GetPublisher(this, core::mem::transmute_copy(&publisher)).into()
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependency_Impl::GetMinVersion(this) {
@@ -4701,15 +4623,13 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
         iid == &<IAppxManifestHostRuntimeDependency as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestHostRuntimeDependency {}
 windows_core::imp::define_interface!(IAppxManifestHostRuntimeDependency2, IAppxManifestHostRuntimeDependency2_Vtbl, 0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a);
 windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency2, windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependency2 {
-    pub unsafe fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPackageFamilyName(&self, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), packagefamilyname as _) }
     }
 }
 #[repr(C)]
@@ -4719,20 +4639,14 @@ pub struct IAppxManifestHostRuntimeDependency2_Vtbl {
     pub GetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestHostRuntimeDependency2_Impl: windows_core::IUnknownImpl {
-    fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetPackageFamilyName(&self, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IAppxManifestHostRuntimeDependency2_Vtbl {
     pub const fn new<Identity: IAppxManifestHostRuntimeDependency2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPackageFamilyName<Identity: IAppxManifestHostRuntimeDependency2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestHostRuntimeDependency2_Impl::GetPackageFamilyName(this) {
-                    Ok(ok__) => {
-                        packagefamilyname.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestHostRuntimeDependency2_Impl::GetPackageFamilyName(this, core::mem::transmute_copy(&packagefamilyname)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPackageFamilyName: GetPackageFamilyName::<Identity, OFFSET> }
@@ -4830,23 +4744,14 @@ impl windows_core::RuntimeName for IAppxManifestMainPackageDependenciesEnumerato
 windows_core::imp::define_interface!(IAppxManifestMainPackageDependency, IAppxManifestMainPackageDependency_Vtbl, 0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae);
 windows_core::imp::interface_hierarchy!(IAppxManifestMainPackageDependency, windows_core::IUnknown);
 impl IAppxManifestMainPackageDependency {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
-    pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), publisher as _) }
     }
-    pub unsafe fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPackageFamilyName(&self, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), packagefamilyname as _) }
     }
 }
 #[repr(C)]
@@ -4858,46 +4763,28 @@ pub struct IAppxManifestMainPackageDependency_Vtbl {
     pub GetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestMainPackageDependency_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetPackageFamilyName(&self, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IAppxManifestMainPackageDependency_Vtbl {
     pub const fn new<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestMainPackageDependency_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestMainPackageDependency_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
         unsafe extern "system" fn GetPublisher<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestMainPackageDependency_Impl::GetPublisher(this) {
-                    Ok(ok__) => {
-                        publisher.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestMainPackageDependency_Impl::GetPublisher(this, core::mem::transmute_copy(&publisher)).into()
             }
         }
         unsafe extern "system" fn GetPackageFamilyName<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestMainPackageDependency_Impl::GetPackageFamilyName(this) {
-                    Ok(ok__) => {
-                        packagefamilyname.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestMainPackageDependency_Impl::GetPackageFamilyName(this, core::mem::transmute_copy(&packagefamilyname)).into()
             }
         }
         Self {
@@ -5000,13 +4887,11 @@ impl windows_core::RuntimeName for IAppxManifestOSPackageDependenciesEnumerator 
 windows_core::imp::define_interface!(IAppxManifestOSPackageDependency, IAppxManifestOSPackageDependency_Vtbl, 0x154995ee_54a6_4f14_ac97_d8cf0519644b);
 windows_core::imp::interface_hierarchy!(IAppxManifestOSPackageDependency, windows_core::IUnknown);
 impl IAppxManifestOSPackageDependency {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
-    pub unsafe fn GetVersion(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetVersion(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5018,27 +4903,26 @@ impl IAppxManifestOSPackageDependency {
 pub struct IAppxManifestOSPackageDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetVersion: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestOSPackageDependency_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetVersion(&self) -> windows_core::Result<u64>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetVersion(&self) -> windows_core::Result<super::UINT64>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestOSPackageDependency_Vtbl {
     pub const fn new<Identity: IAppxManifestOSPackageDependency_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IAppxManifestOSPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestOSPackageDependency_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestOSPackageDependency_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
-        unsafe extern "system" fn GetVersion<Identity: IAppxManifestOSPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVersion<Identity: IAppxManifestOSPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOSPackageDependency_Impl::GetVersion(this) {
@@ -5056,6 +4940,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
         iid == &<IAppxManifestOSPackageDependency as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestOSPackageDependency {}
 windows_core::imp::define_interface!(IAppxManifestOptionalPackageInfo, IAppxManifestOptionalPackageInfo_Vtbl, 0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
 windows_core::imp::interface_hierarchy!(IAppxManifestOptionalPackageInfo, windows_core::IUnknown);
@@ -5066,11 +4951,8 @@ impl IAppxManifestOptionalPackageInfo {
             (windows_core::Interface::vtable(self).GetIsOptionalPackage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMainPackageName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMainPackageName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMainPackageName(&self, mainpackagename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMainPackageName)(windows_core::Interface::as_raw(self), mainpackagename as _) }
     }
 }
 #[repr(C)]
@@ -5082,7 +4964,7 @@ pub struct IAppxManifestOptionalPackageInfo_Vtbl {
 }
 pub trait IAppxManifestOptionalPackageInfo_Impl: windows_core::IUnknownImpl {
     fn GetIsOptionalPackage(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetMainPackageName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetMainPackageName(&self, mainpackagename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IAppxManifestOptionalPackageInfo_Vtbl {
     pub const fn new<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>() -> Self {
@@ -5101,13 +4983,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
         unsafe extern "system" fn GetMainPackageName<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainpackagename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestOptionalPackageInfo_Impl::GetMainPackageName(this) {
-                    Ok(ok__) => {
-                        mainpackagename.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestOptionalPackageInfo_Impl::GetMainPackageName(this, core::mem::transmute_copy(&mainpackagename)).into()
             }
         }
         Self {
@@ -5209,19 +5085,14 @@ impl windows_core::RuntimeName for IAppxManifestPackageDependenciesEnumerator {}
 windows_core::imp::define_interface!(IAppxManifestPackageDependency, IAppxManifestPackageDependency_Vtbl, 0xe4946b59_733e_43f0_a724_3bde4c1285a0);
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency, windows_core::IUnknown);
 impl IAppxManifestPackageDependency {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
-    pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), publisher as _) }
     }
-    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5234,40 +5105,33 @@ pub struct IAppxManifestPackageDependency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMinVersion: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestPackageDependency_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetMinVersion(&self) -> windows_core::Result<u64>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetMinVersion(&self) -> windows_core::Result<super::UINT64>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestPackageDependency_Vtbl {
     pub const fn new<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestPackageDependency_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestPackageDependency_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
         unsafe extern "system" fn GetPublisher<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestPackageDependency_Impl::GetPublisher(this) {
-                    Ok(ok__) => {
-                        publisher.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestPackageDependency_Impl::GetPublisher(this, core::mem::transmute_copy(&publisher)).into()
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency_Impl::GetMinVersion(this) {
@@ -5290,6 +5154,7 @@ impl IAppxManifestPackageDependency_Vtbl {
         iid == &<IAppxManifestPackageDependency as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestPackageDependency {}
 windows_core::imp::define_interface!(IAppxManifestPackageDependency2, IAppxManifestPackageDependency2_Vtbl, 0xdda0b713_f3ff_49d3_898a_2786780c5d98);
 impl core::ops::Deref for IAppxManifestPackageDependency2 {
@@ -5300,7 +5165,8 @@ impl core::ops::Deref for IAppxManifestPackageDependency2 {
 }
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency2, windows_core::IUnknown, IAppxManifestPackageDependency);
 impl IAppxManifestPackageDependency2 {
-    pub unsafe fn GetMaxMajorVersionTested(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxMajorVersionTested(&self) -> windows_core::Result<super::UINT16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxMajorVersionTested)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5311,14 +5177,19 @@ impl IAppxManifestPackageDependency2 {
 #[doc(hidden)]
 pub struct IAppxManifestPackageDependency2_Vtbl {
     pub base__: IAppxManifestPackageDependency_Vtbl,
-    pub GetMaxMajorVersionTested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMaxMajorVersionTested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxMajorVersionTested: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestPackageDependency2_Impl: IAppxManifestPackageDependency_Impl {
-    fn GetMaxMajorVersionTested(&self) -> windows_core::Result<u16>;
+    fn GetMaxMajorVersionTested(&self) -> windows_core::Result<super::UINT16>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestPackageDependency2_Vtbl {
     pub const fn new<Identity: IAppxManifestPackageDependency2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMaxMajorVersionTested<Identity: IAppxManifestPackageDependency2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxmajorversiontested: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxMajorVersionTested<Identity: IAppxManifestPackageDependency2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxmajorversiontested: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency2_Impl::GetMaxMajorVersionTested(this) {
@@ -5336,6 +5207,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
         iid == &<IAppxManifestPackageDependency2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageDependency as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestPackageDependency2 {}
 windows_core::imp::define_interface!(IAppxManifestPackageDependency3, IAppxManifestPackageDependency3_Vtbl, 0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency3, windows_core::IUnknown);
@@ -5380,11 +5252,8 @@ impl windows_core::RuntimeName for IAppxManifestPackageDependency3 {}
 windows_core::imp::define_interface!(IAppxManifestPackageId, IAppxManifestPackageId_Vtbl, 0x283ce2d7_7153_4a91_9649_7a0f7240945f);
 windows_core::imp::interface_hierarchy!(IAppxManifestPackageId, windows_core::IUnknown);
 impl IAppxManifestPackageId {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
     pub unsafe fn GetArchitecture(&self) -> windows_core::Result<APPX_PACKAGE_ARCHITECTURE> {
         unsafe {
@@ -5392,23 +5261,18 @@ impl IAppxManifestPackageId {
             (windows_core::Interface::vtable(self).GetArchitecture)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPublisher)(windows_core::Interface::as_raw(self), publisher as _) }
     }
-    pub unsafe fn GetVersion(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetVersion(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetResourceId(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetResourceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetResourceId(&self, resourceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceId)(windows_core::Interface::as_raw(self), resourceid as _) }
     }
     pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -5419,17 +5283,11 @@ impl IAppxManifestPackageId {
             (windows_core::Interface::vtable(self).ComparePublisher)(windows_core::Interface::as_raw(self), other.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPackageFullName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPackageFullName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPackageFullName(&self, packagefullname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPackageFullName)(windows_core::Interface::as_raw(self), packagefullname as _) }
     }
-    pub unsafe fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPackageFamilyName(&self, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPackageFamilyName)(windows_core::Interface::as_raw(self), packagefamilyname as _) }
     }
 }
 #[repr(C)]
@@ -5439,34 +5297,33 @@ pub struct IAppxManifestPackageId_Vtbl {
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetArchitecture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_PACKAGE_ARCHITECTURE) -> windows_core::HRESULT,
     pub GetPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetVersion: usize,
     pub GetResourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub ComparePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetPackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestPackageId_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetArchitecture(&self) -> windows_core::Result<APPX_PACKAGE_ARCHITECTURE>;
-    fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetVersion(&self) -> windows_core::Result<u64>;
-    fn GetResourceId(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetPublisher(&self, publisher: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetVersion(&self) -> windows_core::Result<super::UINT64>;
+    fn GetResourceId(&self, resourceid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn ComparePublisher(&self, other: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-    fn GetPackageFullName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetPackageFullName(&self, packagefullname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetPackageFamilyName(&self, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestPackageId_Vtbl {
     pub const fn new<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestPackageId_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestPackageId_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
         unsafe extern "system" fn GetArchitecture<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> windows_core::HRESULT {
@@ -5484,16 +5341,10 @@ impl IAppxManifestPackageId_Vtbl {
         unsafe extern "system" fn GetPublisher<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestPackageId_Impl::GetPublisher(this) {
-                    Ok(ok__) => {
-                        publisher.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestPackageId_Impl::GetPublisher(this, core::mem::transmute_copy(&publisher)).into()
             }
         }
-        unsafe extern "system" fn GetVersion<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageversion: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVersion<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageversion: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetVersion(this) {
@@ -5508,13 +5359,7 @@ impl IAppxManifestPackageId_Vtbl {
         unsafe extern "system" fn GetResourceId<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestPackageId_Impl::GetResourceId(this) {
-                    Ok(ok__) => {
-                        resourceid.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestPackageId_Impl::GetResourceId(this, core::mem::transmute_copy(&resourceid)).into()
             }
         }
         unsafe extern "system" fn ComparePublisher<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, other: windows_core::PCWSTR, issame: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -5532,25 +5377,13 @@ impl IAppxManifestPackageId_Vtbl {
         unsafe extern "system" fn GetPackageFullName<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestPackageId_Impl::GetPackageFullName(this) {
-                    Ok(ok__) => {
-                        packagefullname.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestPackageId_Impl::GetPackageFullName(this, core::mem::transmute_copy(&packagefullname)).into()
             }
         }
         unsafe extern "system" fn GetPackageFamilyName<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestPackageId_Impl::GetPackageFamilyName(this) {
-                    Ok(ok__) => {
-                        packagefamilyname.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestPackageId_Impl::GetPackageFamilyName(this, core::mem::transmute_copy(&packagefamilyname)).into()
             }
         }
         Self {
@@ -5569,6 +5402,7 @@ impl IAppxManifestPackageId_Vtbl {
         iid == &<IAppxManifestPackageId as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestPackageId {}
 windows_core::imp::define_interface!(IAppxManifestPackageId2, IAppxManifestPackageId2_Vtbl, 0x2256999d_d617_42f1_880e_0ba4542319d5);
 impl core::ops::Deref for IAppxManifestPackageId2 {
@@ -5592,9 +5426,11 @@ pub struct IAppxManifestPackageId2_Vtbl {
     pub base__: IAppxManifestPackageId_Vtbl,
     pub GetArchitecture2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_PACKAGE_ARCHITECTURE2) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestPackageId2_Impl: IAppxManifestPackageId_Impl {
     fn GetArchitecture2(&self) -> windows_core::Result<APPX_PACKAGE_ARCHITECTURE2>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestPackageId2_Vtbl {
     pub const fn new<Identity: IAppxManifestPackageId2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetArchitecture2<Identity: IAppxManifestPackageId2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> windows_core::HRESULT {
@@ -5615,6 +5451,7 @@ impl IAppxManifestPackageId2_Vtbl {
         iid == &<IAppxManifestPackageId2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageId as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestPackageId2 {}
 windows_core::imp::define_interface!(IAppxManifestProperties, IAppxManifestProperties_Vtbl, 0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
 windows_core::imp::interface_hierarchy!(IAppxManifestProperties, windows_core::IUnknown);
@@ -5628,14 +5465,11 @@ impl IAppxManifestProperties {
             (windows_core::Interface::vtable(self).GetBoolValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetStringValue<P0>(&self, name: P0) -> windows_core::Result<windows_core::PWSTR>
+    pub unsafe fn GetStringValue<P0>(&self, name: P0, value: *mut windows_core::PWSTR) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), value as _) }
     }
 }
 #[repr(C)]
@@ -5647,7 +5481,7 @@ pub struct IAppxManifestProperties_Vtbl {
 }
 pub trait IAppxManifestProperties_Impl: windows_core::IUnknownImpl {
     fn GetBoolValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-    fn GetStringValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetStringValue(&self, name: &windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IAppxManifestProperties_Vtbl {
     pub const fn new<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>() -> Self {
@@ -5666,13 +5500,7 @@ impl IAppxManifestProperties_Vtbl {
         unsafe extern "system" fn GetStringValue<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestProperties_Impl::GetStringValue(this, core::mem::transmute(&name)) {
-                    Ok(ok__) => {
-                        value.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestProperties_Impl::GetStringValue(this, core::mem::transmute(&name), core::mem::transmute_copy(&value)).into()
             }
         }
         Self {
@@ -5689,13 +5517,11 @@ impl windows_core::RuntimeName for IAppxManifestProperties {}
 windows_core::imp::define_interface!(IAppxManifestQualifiedResource, IAppxManifestQualifiedResource_Vtbl, 0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4);
 windows_core::imp::interface_hierarchy!(IAppxManifestQualifiedResource, windows_core::IUnknown);
 impl IAppxManifestQualifiedResource {
-    pub unsafe fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetLanguage(&self, language: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), language as _) }
     }
-    pub unsafe fn GetScale(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetScale(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5713,29 +5539,28 @@ impl IAppxManifestQualifiedResource {
 pub struct IAppxManifestQualifiedResource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetScale: usize,
     pub GetDXFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DX_FEATURE_LEVEL) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestQualifiedResource_Impl: windows_core::IUnknownImpl {
-    fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetScale(&self) -> windows_core::Result<u32>;
+    fn GetLanguage(&self, language: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetScale(&self) -> windows_core::Result<super::UINT32>;
     fn GetDXFeatureLevel(&self) -> windows_core::Result<DX_FEATURE_LEVEL>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestQualifiedResource_Vtbl {
     pub const fn new<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLanguage<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestQualifiedResource_Impl::GetLanguage(this) {
-                    Ok(ok__) => {
-                        language.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestQualifiedResource_Impl::GetLanguage(this, core::mem::transmute_copy(&language)).into()
             }
         }
-        unsafe extern "system" fn GetScale<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scale: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetScale<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scale: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResource_Impl::GetScale(this) {
@@ -5770,6 +5595,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
         iid == &<IAppxManifestQualifiedResource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestQualifiedResource {}
 windows_core::imp::define_interface!(IAppxManifestQualifiedResourcesEnumerator, IAppxManifestQualifiedResourcesEnumerator_Vtbl, 0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2);
 windows_core::imp::interface_hierarchy!(IAppxManifestQualifiedResourcesEnumerator, windows_core::IUnknown);
@@ -5895,7 +5721,8 @@ impl IAppxManifestReader {
             (windows_core::Interface::vtable(self).GetDeviceCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> windows_core::Result<u64>
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> windows_core::Result<super::UINT64>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5928,14 +5755,17 @@ pub struct IAppxManifestReader_Vtbl {
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPX_CAPABILITIES) -> windows_core::HRESULT,
     pub GetResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetPrerequisite: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetPrerequisite: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPrerequisite: usize,
     pub GetApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "objidlbase")]
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
     GetStream: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxManifestReader_Impl: windows_core::IUnknownImpl {
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
     fn GetProperties(&self) -> windows_core::Result<IAppxManifestProperties>;
@@ -5943,11 +5773,11 @@ pub trait IAppxManifestReader_Impl: windows_core::IUnknownImpl {
     fn GetCapabilities(&self) -> windows_core::Result<APPX_CAPABILITIES>;
     fn GetResources(&self) -> windows_core::Result<IAppxManifestResourcesEnumerator>;
     fn GetDeviceCapabilities(&self) -> windows_core::Result<IAppxManifestDeviceCapabilitiesEnumerator>;
-    fn GetPrerequisite(&self, name: &windows_core::PCWSTR) -> windows_core::Result<u64>;
+    fn GetPrerequisite(&self, name: &windows_core::PCWSTR) -> windows_core::Result<super::UINT64>;
     fn GetApplications(&self) -> windows_core::Result<IAppxManifestApplicationsEnumerator>;
     fn GetStream(&self) -> windows_core::Result<super::IStream>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxManifestReader_Vtbl {
     pub const fn new<Identity: IAppxManifestReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPackageId<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6022,7 +5852,7 @@ impl IAppxManifestReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPrerequisite<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrerequisite<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestReader_Impl::GetPrerequisite(this, core::mem::transmute(&name)) {
@@ -6075,7 +5905,7 @@ impl IAppxManifestReader_Vtbl {
         iid == &<IAppxManifestReader as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxManifestReader {}
 windows_core::imp::define_interface!(IAppxManifestReader2, IAppxManifestReader2_Vtbl, 0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
 impl core::ops::Deref for IAppxManifestReader2 {
@@ -6099,11 +5929,11 @@ pub struct IAppxManifestReader2_Vtbl {
     pub base__: IAppxManifestReader_Vtbl,
     pub GetQualifiedResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxManifestReader2_Impl: IAppxManifestReader_Impl {
     fn GetQualifiedResources(&self) -> windows_core::Result<IAppxManifestQualifiedResourcesEnumerator>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxManifestReader2_Vtbl {
     pub const fn new<Identity: IAppxManifestReader2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetQualifiedResources<Identity: IAppxManifestReader2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6124,7 +5954,7 @@ impl IAppxManifestReader2_Vtbl {
         iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxManifestReader2 {}
 windows_core::imp::define_interface!(IAppxManifestReader3, IAppxManifestReader3_Vtbl, 0xc43825ab_69b7_400a_9709_cc37f5a72d24);
 impl core::ops::Deref for IAppxManifestReader3 {
@@ -6155,12 +5985,12 @@ pub struct IAppxManifestReader3_Vtbl {
     pub GetCapabilitiesByCapabilityClass: unsafe extern "system" fn(*mut core::ffi::c_void, APPX_CAPABILITY_CLASS_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTargetDeviceFamilies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxManifestReader3_Impl: IAppxManifestReader2_Impl {
     fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> windows_core::Result<IAppxManifestCapabilitiesEnumerator>;
     fn GetTargetDeviceFamilies(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxManifestReader3_Vtbl {
     pub const fn new<Identity: IAppxManifestReader3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCapabilitiesByCapabilityClass<Identity: IAppxManifestReader3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6197,7 +6027,7 @@ impl IAppxManifestReader3_Vtbl {
         iid == &<IAppxManifestReader3 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxManifestReader3 {}
 windows_core::imp::define_interface!(IAppxManifestReader4, IAppxManifestReader4_Vtbl, 0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
 impl core::ops::Deref for IAppxManifestReader4 {
@@ -6221,11 +6051,11 @@ pub struct IAppxManifestReader4_Vtbl {
     pub base__: IAppxManifestReader3_Vtbl,
     pub GetOptionalPackageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxManifestReader4_Impl: IAppxManifestReader3_Impl {
     fn GetOptionalPackageInfo(&self) -> windows_core::Result<IAppxManifestOptionalPackageInfo>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxManifestReader4_Vtbl {
     pub const fn new<Identity: IAppxManifestReader4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOptionalPackageInfo<Identity: IAppxManifestReader4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalpackageinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6246,7 +6076,7 @@ impl IAppxManifestReader4_Vtbl {
         iid == &<IAppxManifestReader4 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxManifestReader4 {}
 windows_core::imp::define_interface!(IAppxManifestReader5, IAppxManifestReader5_Vtbl, 0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
 windows_core::imp::interface_hierarchy!(IAppxManifestReader5, windows_core::IUnknown);
@@ -6419,11 +6249,8 @@ impl windows_core::RuntimeName for IAppxManifestReader7 {}
 windows_core::imp::define_interface!(IAppxManifestResourcesEnumerator, IAppxManifestResourcesEnumerator_Vtbl, 0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed);
 windows_core::imp::interface_hierarchy!(IAppxManifestResourcesEnumerator, windows_core::IUnknown);
 impl IAppxManifestResourcesEnumerator {
-    pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCurrent(&self, resource: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrent)(windows_core::Interface::as_raw(self), resource as _) }
     }
     pub unsafe fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -6447,7 +6274,7 @@ pub struct IAppxManifestResourcesEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IAppxManifestResourcesEnumerator_Impl: windows_core::IUnknownImpl {
-    fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetCurrent(&self, resource: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetHasCurrent(&self) -> windows_core::Result<windows_core::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL>;
 }
@@ -6456,13 +6283,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestResourcesEnumerator_Impl::GetCurrent(this) {
-                    Ok(ok__) => {
-                        resource.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestResourcesEnumerator_Impl::GetCurrent(this, core::mem::transmute_copy(&resource)).into()
             }
         }
         unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -6589,19 +6410,18 @@ impl windows_core::RuntimeName for IAppxManifestTargetDeviceFamiliesEnumerator {
 windows_core::imp::define_interface!(IAppxManifestTargetDeviceFamily, IAppxManifestTargetDeviceFamily_Vtbl, 0x9091b09b_c8d5_4f31_8687_a338259faefb);
 windows_core::imp::interface_hierarchy!(IAppxManifestTargetDeviceFamily, windows_core::IUnknown);
 impl IAppxManifestTargetDeviceFamily {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), name as _) }
     }
-    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMinVersion(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaxVersionTested(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxVersionTested(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxVersionTested)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6613,29 +6433,31 @@ impl IAppxManifestTargetDeviceFamily {
 pub struct IAppxManifestTargetDeviceFamily_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub GetMaxVersionTested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMinVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMinVersion: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxVersionTested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxVersionTested: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxManifestTargetDeviceFamily_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetMinVersion(&self) -> windows_core::Result<u64>;
-    fn GetMaxVersionTested(&self) -> windows_core::Result<u64>;
+    fn GetName(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetMinVersion(&self) -> windows_core::Result<super::UINT64>;
+    fn GetMaxVersionTested(&self) -> windows_core::Result<super::UINT64>;
 }
+#[cfg(feature = "shared")]
 impl IAppxManifestTargetDeviceFamily_Vtbl {
     pub const fn new<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxManifestTargetDeviceFamily_Impl::GetName(this) {
-                    Ok(ok__) => {
-                        name.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAppxManifestTargetDeviceFamily_Impl::GetName(this, core::mem::transmute_copy(&name)).into()
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamily_Impl::GetMinVersion(this) {
@@ -6647,7 +6469,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxVersionTested<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxversiontested: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxVersionTested<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxversiontested: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamily_Impl::GetMaxVersionTested(this) {
@@ -6670,6 +6492,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
         iid == &<IAppxManifestTargetDeviceFamily as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxManifestTargetDeviceFamily {}
 windows_core::imp::define_interface!(IAppxPackageEditor, IAppxPackageEditor_Vtbl, 0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
 windows_core::imp::interface_hierarchy!(IAppxPackageEditor, windows_core::IUnknown);
@@ -6707,7 +6530,7 @@ impl IAppxPackageEditor {
     {
         unsafe { (windows_core::Interface::vtable(self).UpdatePackage)(windows_core::Interface::as_raw(self), baselinepackagestream.param().abi(), deltapackagestream.param().abi(), updateoption) }
     }
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub unsafe fn UpdateEncryptedPackage<P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -6741,16 +6564,16 @@ pub struct IAppxPackageEditor_Vtbl {
     pub UpdatePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
     UpdatePackage: usize,
-    #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
     pub UpdateEncryptedPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, *const APPX_KEY_INFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "urlmon")))]
+    #[cfg(not(all(feature = "objidlbase", feature = "shared", feature = "urlmon")))]
     UpdateEncryptedPackage: usize,
     #[cfg(feature = "objidlbase")]
     pub UpdatePackageManifest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
     UpdatePackageManifest: usize,
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 pub trait IAppxPackageEditor_Impl: windows_core::IUnknownImpl {
     fn SetWorkingDirectory(&self, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateDeltaPackage(&self, updatedpackagestream: windows_core::Ref<super::IStream>, baselinepackagestream: windows_core::Ref<super::IStream>, deltapackagestream: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
@@ -6759,7 +6582,7 @@ pub trait IAppxPackageEditor_Impl: windows_core::IUnknownImpl {
     fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: windows_core::Ref<super::IStream>, deltapackagestream: windows_core::Ref<super::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
     fn UpdatePackageManifest(&self, packagestream: windows_core::Ref<super::IStream>, updatedmanifeststream: windows_core::Ref<super::IStream>, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl IAppxPackageEditor_Vtbl {
     pub const fn new<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetWorkingDirectory<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -6812,7 +6635,7 @@ impl IAppxPackageEditor_Vtbl {
         iid == &<IAppxPackageEditor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "urlmon"))]
 impl windows_core::RuntimeName for IAppxPackageEditor {}
 windows_core::imp::define_interface!(IAppxPackageReader, IAppxPackageReader_Vtbl, 0xb5c49650_99bc_481c_9a34_3d53a4106708);
 windows_core::imp::interface_hierarchy!(IAppxPackageReader, windows_core::IUnknown);
@@ -7054,28 +6877,28 @@ impl windows_core::RuntimeName for IAppxPackageWriter2 {}
 windows_core::imp::define_interface!(IAppxPackageWriter3, IAppxPackageWriter3_Vtbl, 0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
 windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, windows_core::IUnknown);
 impl IAppxPackageWriter3 {
-    #[cfg(feature = "objidlbase")]
-    pub unsafe fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), filecount, payloadfiles, memorylimit) }
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: super::UINT64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), payloadfiles.len().try_into().unwrap(), payloadfiles.as_ptr(), memorylimit) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppxPackageWriter3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "objidlbase")]
-    pub AddPayloadFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub AddPayloadFiles: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32, *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     AddPayloadFiles: usize,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait IAppxPackageWriter3_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::Result<()>;
+    fn AddPayloadFiles(&self, filecount: super::UINT32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: super::UINT64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl IAppxPackageWriter3_Vtbl {
     pub const fn new<Identity: IAppxPackageWriter3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddPayloadFiles<Identity: IAppxPackageWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPayloadFiles<Identity: IAppxPackageWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: super::UINT32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxPackageWriter3_Impl::AddPayloadFiles(this, core::mem::transmute_copy(&filecount), core::mem::transmute_copy(&payloadfiles), core::mem::transmute_copy(&memorylimit)).into()
@@ -7087,12 +6910,13 @@ impl IAppxPackageWriter3_Vtbl {
         iid == &<IAppxPackageWriter3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for IAppxPackageWriter3 {}
 windows_core::imp::define_interface!(IAppxPackagingDiagnosticEventSink, IAppxPackagingDiagnosticEventSink_Vtbl, 0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
 windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, windows_core::IUnknown);
 impl IAppxPackagingDiagnosticEventSink {
-    pub unsafe fn ReportContextChange<P2, P3, P4>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: P2, contextmessage: P3, detailsmessage: P4) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReportContextChange<P2, P3, P4>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: super::LONG, contextname: P2, contextmessage: P3, detailsmessage: P4) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -7111,16 +6935,21 @@ impl IAppxPackagingDiagnosticEventSink {
 #[doc(hidden)]
 pub struct IAppxPackagingDiagnosticEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ReportContextChange: unsafe extern "system" fn(*mut core::ffi::c_void, APPX_PACKAGING_CONTEXT_CHANGE_TYPE, i32, windows_core::PCSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ReportContextChange: unsafe extern "system" fn(*mut core::ffi::c_void, APPX_PACKAGING_CONTEXT_CHANGE_TYPE, super::LONG, windows_core::PCSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReportContextChange: usize,
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAppxPackagingDiagnosticEventSink_Impl: windows_core::IUnknownImpl {
-    fn ReportContextChange(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: &windows_core::PCSTR, contextmessage: &windows_core::PCWSTR, detailsmessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn ReportContextChange(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: super::LONG, contextname: &windows_core::PCSTR, contextmessage: &windows_core::PCWSTR, detailsmessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ReportError(&self, errormessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAppxPackagingDiagnosticEventSink_Vtbl {
     pub const fn new<Identity: IAppxPackagingDiagnosticEventSink_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReportContextChange<Identity: IAppxPackagingDiagnosticEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: windows_core::PCSTR, contextmessage: windows_core::PCWSTR, detailsmessage: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReportContextChange<Identity: IAppxPackagingDiagnosticEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: super::LONG, contextname: windows_core::PCSTR, contextmessage: windows_core::PCWSTR, detailsmessage: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppxPackagingDiagnosticEventSink_Impl::ReportContextChange(this, core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&contextid), core::mem::transmute(&contextname), core::mem::transmute(&contextmessage), core::mem::transmute(&detailsmessage)).into()
@@ -7142,6 +6971,7 @@ impl IAppxPackagingDiagnosticEventSink_Vtbl {
         iid == &<IAppxPackagingDiagnosticEventSink as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAppxPackagingDiagnosticEventSink {}
 windows_core::imp::define_interface!(IAppxPackagingDiagnosticEventSinkManager, IAppxPackagingDiagnosticEventSinkManager_Vtbl, 0x369648fa_a7eb_4909_a15d_6954a078f18a);
 windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, windows_core::IUnknown);

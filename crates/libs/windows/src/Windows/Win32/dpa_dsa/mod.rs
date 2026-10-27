@@ -19,9 +19,10 @@ pub unsafe fn DPA_DeleteAllPtrs(hdpa: HDPA) -> windows_core::BOOL {
     windows_core::link!("comctl32.dll" "system" fn DPA_DeleteAllPtrs(hdpa : HDPA) -> windows_core::BOOL);
     unsafe { DPA_DeleteAllPtrs(hdpa as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> *mut core::ffi::c_void {
-    windows_core::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut core::ffi::c_void);
+pub unsafe fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> super::PVOID {
+    windows_core::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> super::PVOID);
     unsafe { DPA_DeletePtr(hdpa as _, i) }
 }
 #[inline]
@@ -39,9 +40,10 @@ pub unsafe fn DPA_EnumCallback(hdpa: Option<HDPA>, pfncb: PFNDAENUMCALLBACK, pda
     windows_core::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
     unsafe { DPA_EnumCallback(hdpa.unwrap_or(core::mem::zeroed()) as _, pfncb, pdata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut core::ffi::c_void {
-    windows_core::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut core::ffi::c_void);
+pub unsafe fn DPA_GetPtr(hdpa: HDPA, i: super::INT_PTR) -> super::PVOID {
+    windows_core::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : super::INT_PTR) -> super::PVOID);
     unsafe { DPA_GetPtr(hdpa, i) }
 }
 #[inline]
@@ -49,9 +51,10 @@ pub unsafe fn DPA_GetPtrIndex(hdpa: HDPA, p: Option<*const core::ffi::c_void>) -
     windows_core::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p : *const core::ffi::c_void) -> i32);
     unsafe { DPA_GetPtrIndex(hdpa, p.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DPA_GetSize(hdpa: Option<HDPA>) -> u64 {
-    windows_core::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
+pub unsafe fn DPA_GetSize(hdpa: Option<HDPA>) -> super::ULONGLONG {
+    windows_core::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> super::ULONGLONG);
     unsafe { DPA_GetSize(hdpa.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -73,10 +76,10 @@ where
     windows_core::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DPA_LoadStream(phdpa as _, pfn, pstream.param().abi(), pvinstdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: super::LPARAM) -> windows_core::BOOL {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::LPARAM) -> windows_core::BOOL);
+pub unsafe fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: super::DWORD, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: super::LPARAM) -> windows_core::BOOL {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : super::DWORD, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::LPARAM) -> windows_core::BOOL);
     unsafe { DPA_Merge(hdpadest as _, hdpasrc, dwflags, pfncompare, pfnmerge, lparam) }
 }
 #[cfg(feature = "objidlbase")]
@@ -88,10 +91,10 @@ where
     windows_core::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DPA_SaveStream(hdpa, pfn, pstream.param().abi(), pvinstdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DPA_Search(hdpa: HDPA, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: super::LPARAM, options: u32) -> i32 {
-    windows_core::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::LPARAM, options : u32) -> i32);
+pub unsafe fn DPA_Search(hdpa: HDPA, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: super::LPARAM, options: super::UINT) -> i32 {
+    windows_core::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::LPARAM, options : super::UINT) -> i32);
     unsafe { DPA_Search(hdpa, pfind.unwrap_or(core::mem::zeroed()) as _, istart, pfncompare, lparam, options) }
 }
 #[inline]
@@ -145,14 +148,16 @@ pub unsafe fn DSA_GetItem(hdsa: HDSA, i: i32, pitem: *mut core::ffi::c_void) -> 
     windows_core::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { DSA_GetItem(hdsa, i, pitem as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> *mut core::ffi::c_void {
-    windows_core::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut core::ffi::c_void);
+pub unsafe fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> super::PVOID {
+    windows_core::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> super::PVOID);
     unsafe { DSA_GetItemPtr(hdsa, i) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DSA_GetSize(hdsa: Option<HDSA>) -> u64 {
-    windows_core::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> u64);
+pub unsafe fn DSA_GetSize(hdsa: Option<HDSA>) -> super::ULONGLONG {
+    windows_core::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> super::ULONGLONG);
     unsafe { DSA_GetSize(hdsa.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -209,10 +214,10 @@ pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c
 pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::LPARAM) -> i32>;
 pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
 pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: u32, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *mut core::ffi::c_void>;
-#[cfg(feature = "minwindef")]
-pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: u32, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *const core::ffi::c_void>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: super::UINT, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: super::UINT, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *const core::ffi::c_void>;
 #[cfg(feature = "objidlbase")]
 pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: windows_core::Ref<super::IStream>, pvinstdata: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]

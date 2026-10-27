@@ -1,114 +1,130 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterGroupDependency(hdependentgroup: HGROUP, hprovidergroup: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupDependency(hdependentgroup : HGROUP, hprovidergroup : HGROUP) -> u32);
+pub unsafe fn AddClusterGroupDependency(hdependentgroup: HGROUP, hprovidergroup: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupDependency(hdependentgroup : HGROUP, hprovidergroup : HGROUP) -> super::DWORD);
     unsafe { AddClusterGroupDependency(hdependentgroup, hprovidergroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterGroupDependencyEx<P2>(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: P2) -> u32
+pub unsafe fn AddClusterGroupDependencyEx<P2>(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupDependencyEx(hdependentgroup : HGROUP, hprovidergroup : HGROUP, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupDependencyEx(hdependentgroup : HGROUP, hprovidergroup : HGROUP, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { AddClusterGroupDependencyEx(hdependentgroup, hprovidergroup, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterGroupSetDependency(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupSetDependency(hdependentgroupset : HGROUPSET, hprovidergroupset : HGROUPSET) -> u32);
+pub unsafe fn AddClusterGroupSetDependency(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupSetDependency(hdependentgroupset : HGROUPSET, hprovidergroupset : HGROUPSET) -> super::DWORD);
     unsafe { AddClusterGroupSetDependency(hdependentgroupset, hprovidergroupset) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterGroupSetDependencyEx<P2>(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: P2) -> u32
+pub unsafe fn AddClusterGroupSetDependencyEx<P2>(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupSetDependencyEx(hdependentgroupset : HGROUPSET, hprovidergroupset : HGROUPSET, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupSetDependencyEx(hdependentgroupset : HGROUPSET, hprovidergroupset : HGROUPSET, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { AddClusterGroupSetDependencyEx(hdependentgroupset, hprovidergroupset, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterGroupToGroupSetDependency(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupToGroupSetDependency(hdependentgroup : HGROUP, hprovidergroupset : HGROUPSET) -> u32);
+pub unsafe fn AddClusterGroupToGroupSetDependency(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupToGroupSetDependency(hdependentgroup : HGROUP, hprovidergroupset : HGROUPSET) -> super::DWORD);
     unsafe { AddClusterGroupToGroupSetDependency(hdependentgroup, hprovidergroupset) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterGroupToGroupSetDependencyEx<P2>(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: P2) -> u32
+pub unsafe fn AddClusterGroupToGroupSetDependencyEx<P2>(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupToGroupSetDependencyEx(hdependentgroup : HGROUP, hprovidergroupset : HGROUPSET, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterGroupToGroupSetDependencyEx(hdependentgroup : HGROUP, hprovidergroupset : HGROUPSET, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { AddClusterGroupToGroupSetDependencyEx(hdependentgroup, hprovidergroupset, lpszreason.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AddClusterNode<P1>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> HNODE
+pub unsafe fn AddClusterNode<P1>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>) -> HNODE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HNODE);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID) -> HNODE);
     unsafe { AddClusterNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AddClusterNodeEx<P1>(hcluster: HCLUSTER, lpsznodename: P1, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> HNODE
+pub unsafe fn AddClusterNodeEx<P1>(hcluster: HCLUSTER, lpsznodename: P1, dwflags: super::DWORD, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>) -> HNODE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterNodeEx(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, dwflags : u32, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HNODE);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterNodeEx(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, dwflags : super::DWORD, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID) -> HNODE);
     unsafe { AddClusterNodeEx(hcluster, lpsznodename.param().abi(), dwflags, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceDependency(hresource : HRESOURCE, hdependson : HRESOURCE) -> u32);
+pub unsafe fn AddClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceDependency(hresource : HRESOURCE, hdependson : HRESOURCE) -> super::DWORD);
     unsafe { AddClusterResourceDependency(hresource, hdependson) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterResourceDependencyEx<P2>(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: P2) -> u32
+pub unsafe fn AddClusterResourceDependencyEx<P2>(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceDependencyEx(hresource : HRESOURCE, hdependson : HRESOURCE, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceDependencyEx(hresource : HRESOURCE, hdependson : HRESOURCE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { AddClusterResourceDependencyEx(hresource, hdependson, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterResourceNode(hresource: HRESOURCE, hnode: HNODE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceNode(hresource : HRESOURCE, hnode : HNODE) -> u32);
+pub unsafe fn AddClusterResourceNode(hresource: HRESOURCE, hnode: HNODE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceNode(hresource : HRESOURCE, hnode : HNODE) -> super::DWORD);
     unsafe { AddClusterResourceNode(hresource, hnode) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddClusterResourceNodeEx<P2>(hresource: HRESOURCE, hnode: HNODE, lpszreason: P2) -> u32
+pub unsafe fn AddClusterResourceNodeEx<P2>(hresource: HRESOURCE, hnode: HNODE, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceNodeEx(hresource : HRESOURCE, hnode : HNODE, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterResourceNodeEx(hresource : HRESOURCE, hnode : HNODE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { AddClusterResourceNodeEx(hresource, hnode, lpszreason.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AddClusterStorageNode<P1, P4, P5>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, lpszclusterstoragenodedescription: P4, lpszclusterstoragenodelocation: P5) -> u32
+pub unsafe fn AddClusterStorageNode<P1, P4, P5>(hcluster: HCLUSTER, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>, lpszclusterstoragenodedescription: P4, lpszclusterstoragenodelocation: P5) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddClusterStorageNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, lpszclusterstoragenodedescription : windows_core::PCWSTR, lpszclusterstoragenodelocation : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn AddClusterStorageNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID, lpszclusterstoragenodedescription : windows_core::PCWSTR, lpszclusterstoragenodelocation : windows_core::PCWSTR) -> super::DWORD);
     unsafe { AddClusterStorageNode(hcluster, lpsznodename.param().abi(), pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, lpszclusterstoragenodedescription.param().abi(), lpszclusterstoragenodelocation.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddCrossClusterGroupSetDependency<P1, P2>(hdependentgroupset: HGROUPSET, lpremoteclustername: P1, lpremotegroupsetname: P2) -> u32
+pub unsafe fn AddCrossClusterGroupSetDependency<P1, P2>(hdependentgroupset: HGROUPSET, lpremoteclustername: P1, lpremotegroupsetname: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn AddCrossClusterGroupSetDependency(hdependentgroupset : HGROUPSET, lpremoteclustername : windows_core::PCWSTR, lpremotegroupsetname : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn AddCrossClusterGroupSetDependency(hdependentgroupset : HGROUPSET, lpremoteclustername : windows_core::PCWSTR, lpremotegroupsetname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { AddCrossClusterGroupSetDependency(hdependentgroupset, lpremoteclustername.param().abi(), lpremotegroupsetname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AddResourceToClusterSharedVolumes(hresource: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn AddResourceToClusterSharedVolumes(hresource : HRESOURCE) -> u32);
+pub unsafe fn AddResourceToClusterSharedVolumes(hresource: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn AddResourceToClusterSharedVolumes(hresource : HRESOURCE) -> super::DWORD);
     unsafe { AddResourceToClusterSharedVolumes(hresource) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn BackupClusterDatabase<P1>(hcluster: HCLUSTER, lpszpathname: P1) -> u32
+pub unsafe fn BackupClusterDatabase<P1>(hcluster: HCLUSTER, lpszpathname: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn BackupClusterDatabase(hcluster : HCLUSTER, lpszpathname : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn BackupClusterDatabase(hcluster : HCLUSTER, lpszpathname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { BackupClusterDatabase(hcluster, lpszpathname.param().abi()) }
 }
 #[inline]
@@ -116,27 +132,31 @@ pub unsafe fn CanResourceBeDependent(hresource: HRESOURCE, hresourcedependent: H
     windows_core::link!("clusapi.dll" "system" fn CanResourceBeDependent(hresource : HRESOURCE, hresourcedependent : HRESOURCE) -> windows_core::BOOL);
     unsafe { CanResourceBeDependent(hresource, hresourcedependent) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CancelClusterGroupOperation(hgroup: HGROUP, dwcancelflags_reserved: u32) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn CancelClusterGroupOperation(hgroup : HGROUP, dwcancelflags_reserved : u32) -> u32);
+pub unsafe fn CancelClusterGroupOperation(hgroup: HGROUP, dwcancelflags_reserved: super::DWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn CancelClusterGroupOperation(hgroup : HGROUP, dwcancelflags_reserved : super::DWORD) -> super::DWORD);
     unsafe { CancelClusterGroupOperation(hgroup, dwcancelflags_reserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ChangeClusterResourceGroup(hresource: HRESOURCE, hgroup: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ChangeClusterResourceGroup(hresource : HRESOURCE, hgroup : HGROUP) -> u32);
+pub unsafe fn ChangeClusterResourceGroup(hresource: HRESOURCE, hgroup: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ChangeClusterResourceGroup(hresource : HRESOURCE, hgroup : HGROUP) -> super::DWORD);
     unsafe { ChangeClusterResourceGroup(hresource, hgroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ChangeClusterResourceGroupEx(hresource: HRESOURCE, hgroup: HGROUP, flags: u64) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ChangeClusterResourceGroupEx(hresource : HRESOURCE, hgroup : HGROUP, flags : u64) -> u32);
+pub unsafe fn ChangeClusterResourceGroupEx(hresource: HRESOURCE, hgroup: HGROUP, flags: super::ULONGLONG) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ChangeClusterResourceGroupEx(hresource : HRESOURCE, hgroup : HGROUP, flags : super::ULONGLONG) -> super::DWORD);
     unsafe { ChangeClusterResourceGroupEx(hresource, hgroup, flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ChangeClusterResourceGroupEx2<P3>(hresource: HRESOURCE, hgroup: HGROUP, flags: u64, lpszreason: P3) -> u32
+pub unsafe fn ChangeClusterResourceGroupEx2<P3>(hresource: HRESOURCE, hgroup: HGROUP, flags: super::ULONGLONG, lpszreason: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ChangeClusterResourceGroupEx2(hresource : HRESOURCE, hgroup : HGROUP, flags : u64, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ChangeClusterResourceGroupEx2(hresource : HRESOURCE, hgroup : HGROUP, flags : super::ULONGLONG, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ChangeClusterResourceGroupEx2(hresource, hgroup, flags, lpszreason.param().abi()) }
 }
 #[inline]
@@ -185,217 +205,231 @@ pub unsafe fn ClusapiSetReasonHandler(lphandler: PCLUSAPI_REASON_HANDLER) -> PCL
     windows_core::link!("clusapi.dll" "system" fn ClusapiSetReasonHandler(lphandler : PCLUSAPI_REASON_HANDLER) -> PCLUSAPI_REASON_HANDLER);
     unsafe { ClusapiSetReasonHandler(lphandler) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterAddGroupToAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1, hgroup: HGROUP) -> u32
+pub unsafe fn ClusterAddGroupToAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1, hgroup: HGROUP) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR, hgroup : HGROUP) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR, hgroup : HGROUP) -> super::DWORD);
     unsafe { ClusterAddGroupToAffinityRule(hcluster, rulename.param().abi(), hgroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterAddGroupToGroupSet(hgroupset: HGROUPSET, hgroup: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToGroupSet(hgroupset : HGROUPSET, hgroup : HGROUP) -> u32);
+pub unsafe fn ClusterAddGroupToGroupSet(hgroupset: HGROUPSET, hgroup: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToGroupSet(hgroupset : HGROUPSET, hgroup : HGROUP) -> super::DWORD);
     unsafe { ClusterAddGroupToGroupSet(hgroupset, hgroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterAddGroupToGroupSetWithDomains(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: u32, updatedomain: u32) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToGroupSetWithDomains(hgroupset : HGROUPSET, hgroup : HGROUP, faultdomain : u32, updatedomain : u32) -> u32);
+pub unsafe fn ClusterAddGroupToGroupSetWithDomains(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: super::DWORD, updatedomain: super::DWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToGroupSetWithDomains(hgroupset : HGROUPSET, hgroup : HGROUP, faultdomain : super::DWORD, updatedomain : super::DWORD) -> super::DWORD);
     unsafe { ClusterAddGroupToGroupSetWithDomains(hgroupset, hgroup, faultdomain, updatedomain) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterAddGroupToGroupSetWithDomainsEx<P4>(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: u32, updatedomain: u32, lpszreason: P4) -> u32
+pub unsafe fn ClusterAddGroupToGroupSetWithDomainsEx<P4>(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: super::DWORD, updatedomain: super::DWORD, lpszreason: P4) -> super::DWORD
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToGroupSetWithDomainsEx(hgroupset : HGROUPSET, hgroup : HGROUP, faultdomain : u32, updatedomain : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterAddGroupToGroupSetWithDomainsEx(hgroupset : HGROUPSET, hgroup : HGROUP, faultdomain : super::DWORD, updatedomain : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterAddGroupToGroupSetWithDomainsEx(hgroupset, hgroup, faultdomain, updatedomain, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterAffinityRuleControl<P1>(hcluster: HCLUSTER, affinityrulename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32
+pub unsafe fn ClusterAffinityRuleControl<P1>(hcluster: HCLUSTER, affinityrulename: P1, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, cbinbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, cboutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterAffinityRuleControl(hcluster : HCLUSTER, affinityrulename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterAffinityRuleControl(hcluster : HCLUSTER, affinityrulename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, cbinbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, cboutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterAffinityRuleControl(hcluster, affinityrulename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterCloseEnum(henum: HCLUSENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterCloseEnum(henum : HCLUSENUM) -> u32);
+pub unsafe fn ClusterCloseEnum(henum: HCLUSENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterCloseEnum(henum : HCLUSENUM) -> super::DWORD);
     unsafe { ClusterCloseEnum(henum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterCloseEnumEx(hclusterenum: HCLUSENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterCloseEnumEx(hclusterenum : HCLUSENUMEX) -> u32);
+pub unsafe fn ClusterCloseEnumEx(hclusterenum: HCLUSENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterCloseEnumEx(hclusterenum : HCLUSENUMEX) -> super::DWORD);
     unsafe { ClusterCloseEnumEx(hclusterenum) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterControl(hcluster: HCLUSTER, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterControl(hcluster : HCLUSTER, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterControl(hcluster: HCLUSTER, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterControl(hcluster : HCLUSTER, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterControl(hcluster, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterControlEx<P8>(hcluster: HCLUSTER, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterControlEx<P8>(hcluster: HCLUSTER, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterControlEx(hcluster : HCLUSTER, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterControlEx(hcluster : HCLUSTER, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterControlEx(hcluster, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterCreateAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32
+pub unsafe fn ClusterCreateAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1, ruletype: CLUS_AFFINITY_RULE_TYPE) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterCreateAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR, ruletype : CLUS_AFFINITY_RULE_TYPE) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterCreateAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR, ruletype : CLUS_AFFINITY_RULE_TYPE) -> super::DWORD);
     unsafe { ClusterCreateAffinityRule(hcluster, rulename.param().abi(), ruletype) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterEnum(henum: HCLUSENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterEnum(henum : HCLUSENUM, dwindex : u32, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterEnum(henum: HCLUSENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterEnum(henum : HCLUSENUM, dwindex : super::DWORD, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterEnum(henum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterEnumEx(hclusterenum: HCLUSENUMEX, dwindex: u32, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterEnumEx(hclusterenum : HCLUSENUMEX, dwindex : u32, pitem : PCLUSTER_ENUM_ITEM, cbitem : super::LPDWORD) -> u32);
+pub unsafe fn ClusterEnumEx(hclusterenum: HCLUSENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterEnumEx(hclusterenum : HCLUSENUMEX, dwindex : super::DWORD, pitem : PCLUSTER_ENUM_ITEM, cbitem : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterEnumEx(hclusterenum, dwindex, pitem as _, cbitem as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGetEnumCount(henum: HCLUSENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGetEnumCount(henum : HCLUSENUM) -> u32);
+pub unsafe fn ClusterGetEnumCount(henum: HCLUSENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGetEnumCount(henum : HCLUSENUM) -> super::DWORD);
     unsafe { ClusterGetEnumCount(henum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGetEnumCountEx(hclusterenum: HCLUSENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGetEnumCountEx(hclusterenum : HCLUSENUMEX) -> u32);
+pub unsafe fn ClusterGetEnumCountEx(hclusterenum: HCLUSENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGetEnumCountEx(hclusterenum : HCLUSENUMEX) -> super::DWORD);
     unsafe { ClusterGetEnumCountEx(hclusterenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupCloseEnum(hgroupenum: HGROUPENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupCloseEnum(hgroupenum : HGROUPENUM) -> u32);
+pub unsafe fn ClusterGroupCloseEnum(hgroupenum: HGROUPENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupCloseEnum(hgroupenum : HGROUPENUM) -> super::DWORD);
     unsafe { ClusterGroupCloseEnum(hgroupenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupCloseEnumEx(hgroupenumex: HGROUPENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupCloseEnumEx(hgroupenumex : HGROUPENUMEX) -> u32);
+pub unsafe fn ClusterGroupCloseEnumEx(hgroupenumex: HGROUPENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupCloseEnumEx(hgroupenumex : HGROUPENUMEX) -> super::DWORD);
     unsafe { ClusterGroupCloseEnumEx(hgroupenumex) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterGroupControl(hgroup: HGROUP, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupControl(hgroup : HGROUP, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterGroupControl(hgroup: HGROUP, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupControl(hgroup : HGROUP, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterGroupControl(hgroup, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterGroupControlEx<P8>(hgroup: HGROUP, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterGroupControlEx<P8>(hgroup: HGROUP, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupControlEx(hgroup : HGROUP, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupControlEx(hgroup : HGROUP, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterGroupControlEx(hgroup, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterGroupEnum(hgroupenum: HGROUPENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszresourcename: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupEnum(hgroupenum : HGROUPENUM, dwindex : u32, lpdwtype : super::LPDWORD, lpszresourcename : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterGroupEnum(hgroupenum: HGROUPENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszresourcename: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupEnum(hgroupenum : HGROUPENUM, dwindex : super::DWORD, lpdwtype : super::LPDWORD, lpszresourcename : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterGroupEnum(hgroupenum, dwindex, lpdwtype as _, lpszresourcename, lpcchname as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterGroupEnumEx(hgroupenumex: HGROUPENUMEX, dwindex: u32, pitem: PCLUSTER_GROUP_ENUM_ITEM, cbitem: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupEnumEx(hgroupenumex : HGROUPENUMEX, dwindex : u32, pitem : PCLUSTER_GROUP_ENUM_ITEM, cbitem : super::LPDWORD) -> u32);
+pub unsafe fn ClusterGroupEnumEx(hgroupenumex: HGROUPENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_GROUP_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupEnumEx(hgroupenumex : HGROUPENUMEX, dwindex : super::DWORD, pitem : PCLUSTER_GROUP_ENUM_ITEM, cbitem : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterGroupEnumEx(hgroupenumex, dwindex, pitem as _, cbitem as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupGetEnumCount(hgroupenum: HGROUPENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupGetEnumCount(hgroupenum : HGROUPENUM) -> u32);
+pub unsafe fn ClusterGroupGetEnumCount(hgroupenum: HGROUPENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupGetEnumCount(hgroupenum : HGROUPENUM) -> super::DWORD);
     unsafe { ClusterGroupGetEnumCount(hgroupenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupGetEnumCountEx(hgroupenumex: HGROUPENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupGetEnumCountEx(hgroupenumex : HGROUPENUMEX) -> u32);
+pub unsafe fn ClusterGroupGetEnumCountEx(hgroupenumex: HGROUPENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupGetEnumCountEx(hgroupenumex : HGROUPENUMEX) -> super::DWORD);
     unsafe { ClusterGroupGetEnumCountEx(hgroupenumex) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupOpenEnum(hgroup: HGROUP, dwtype: u32) -> HGROUPENUM {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupOpenEnum(hgroup : HGROUP, dwtype : u32) -> HGROUPENUM);
+pub unsafe fn ClusterGroupOpenEnum(hgroup: HGROUP, dwtype: super::DWORD) -> HGROUPENUM {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupOpenEnum(hgroup : HGROUP, dwtype : super::DWORD) -> HGROUPENUM);
     unsafe { ClusterGroupOpenEnum(hgroup, dwtype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupOpenEnumEx<P1, P3>(hcluster: HCLUSTER, lpszproperties: P1, cbproperties: u32, lpszroproperties: P3, cbroproperties: u32, dwflags: u32) -> HGROUPENUMEX
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupOpenEnumEx(hcluster : HCLUSTER, lpszproperties : windows_core::PCWSTR, cbproperties : u32, lpszroproperties : windows_core::PCWSTR, cbroproperties : u32, dwflags : u32) -> HGROUPENUMEX);
-    unsafe { ClusterGroupOpenEnumEx(hcluster, lpszproperties.param().abi(), cbproperties, lpszroproperties.param().abi(), cbroproperties, dwflags) }
+pub unsafe fn ClusterGroupOpenEnumEx(hcluster: HCLUSTER, lpszproperties: Option<windows_core::PCWSTR>, cbproperties: super::DWORD, lpszroproperties: Option<windows_core::PCWSTR>, cbroproperties: super::DWORD, dwflags: super::DWORD) -> HGROUPENUMEX {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupOpenEnumEx(hcluster : HCLUSTER, lpszproperties : windows_core::PCWSTR, cbproperties : super::DWORD, lpszroproperties : windows_core::PCWSTR, cbroproperties : super::DWORD, dwflags : super::DWORD) -> HGROUPENUMEX);
+    unsafe { ClusterGroupOpenEnumEx(hcluster, lpszproperties.unwrap_or(core::mem::zeroed()) as _, cbproperties, lpszroproperties.unwrap_or(core::mem::zeroed()) as _, cbroproperties, dwflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: HGROUPSETENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetCloseEnum(hgroupsetenum : HGROUPSETENUM) -> u32);
-    unsafe { ClusterGroupSetCloseEnum(hgroupsetenum) }
+pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: HGROUPSETENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetCloseEnum(hgroupsetenum : HGROUPSETENUM) -> super::DWORD);
+    unsafe { ClusterGroupSetCloseEnum(hgroupsetenum as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterGroupSetControl(hgroupset: HGROUPSET, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetControl(hgroupset : HGROUPSET, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterGroupSetControl(hgroupset: HGROUPSET, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, cbinbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, cboutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetControl(hgroupset : HGROUPSET, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, cbinbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, cboutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterGroupSetControl(hgroupset, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterGroupSetControlEx<P8>(hgroupset: HGROUPSET, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterGroupSetControlEx<P8>(hgroupset: HGROUPSET, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, cbinbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, cboutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetControlEx(hgroupset : HGROUPSET, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetControlEx(hgroupset : HGROUPSET, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, cbinbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, cboutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterGroupSetControlEx(hgroupset, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: HGROUPSETENUM, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetEnum(hgroupsetenum : HGROUPSETENUM, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: HGROUPSETENUM, dwindex: super::DWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetEnum(hgroupsetenum : HGROUPSETENUM, dwindex : super::DWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterGroupSetEnum(hgroupsetenum, dwindex, lpszname, lpcchname as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: HGROUPSETENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetGetEnumCount(hgroupsetenum : HGROUPSETENUM) -> u32);
-    unsafe { ClusterGroupSetGetEnumCount(hgroupsetenum) }
+pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: HGROUPSETENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetGetEnumCount(hgroupsetenum : HGROUPSETENUM) -> super::DWORD);
+    unsafe { ClusterGroupSetGetEnumCount(hgroupsetenum as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupSetOpenEnum(hcluster: HCLUSTER) -> HGROUPSETENUM {
     windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetOpenEnum(hcluster : HCLUSTER) -> HGROUPSETENUM);
-    unsafe { ClusterGroupSetOpenEnum(hcluster) }
+    unsafe { ClusterGroupSetOpenEnum(hcluster as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: HNETINTERFACEENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum : HNETINTERFACEENUM) -> u32);
+pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: HNETINTERFACEENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum : HNETINTERFACEENUM) -> super::DWORD);
     unsafe { ClusterNetInterfaceCloseEnum(hnetinterfaceenum) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNetInterfaceControl(hnetinterface: HNETINTERFACE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceControl(hnetinterface : HNETINTERFACE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterNetInterfaceControl(hnetinterface: HNETINTERFACE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceControl(hnetinterface : HNETINTERFACE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterNetInterfaceControl(hnetinterface, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNetInterfaceControlEx<P8>(hnetinterface: HNETINTERFACE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterNetInterfaceControlEx<P8>(hnetinterface: HNETINTERFACE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceControlEx(hnetinterface : HNETINTERFACE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceControlEx(hnetinterface : HNETINTERFACE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterNetInterfaceControlEx(hnetinterface, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: HNETINTERFACEENUM, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceEnum(hnetinterfaceenum : HNETINTERFACEENUM, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: HNETINTERFACEENUM, dwindex: super::DWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceEnum(hnetinterfaceenum : HNETINTERFACEENUM, dwindex : super::DWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterNetInterfaceEnum(hnetinterfaceenum, dwindex, lpszname, lpcchname as _) }
 }
 #[inline]
@@ -407,541 +441,579 @@ where
     windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceOpenEnum(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, lpsznetworkname : windows_core::PCWSTR) -> HNETINTERFACEENUM);
     unsafe { ClusterNetInterfaceOpenEnum(hcluster, lpsznodename.param().abi(), lpsznetworkname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNetworkCloseEnum(hnetworkenum: HNETWORKENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkCloseEnum(hnetworkenum : HNETWORKENUM) -> u32);
+pub unsafe fn ClusterNetworkCloseEnum(hnetworkenum: HNETWORKENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkCloseEnum(hnetworkenum : HNETWORKENUM) -> super::DWORD);
     unsafe { ClusterNetworkCloseEnum(hnetworkenum) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNetworkControl(hnetwork: HNETWORK, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkControl(hnetwork : HNETWORK, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterNetworkControl(hnetwork: HNETWORK, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkControl(hnetwork : HNETWORK, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterNetworkControl(hnetwork, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNetworkControlEx<P8>(hnetwork: HNETWORK, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterNetworkControlEx<P8>(hnetwork: HNETWORK, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkControlEx(hnetwork : HNETWORK, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkControlEx(hnetwork : HNETWORK, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterNetworkControlEx(hnetwork, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNetworkEnum(hnetworkenum: HNETWORKENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkEnum(hnetworkenum : HNETWORKENUM, dwindex : u32, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterNetworkEnum(hnetworkenum: HNETWORKENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkEnum(hnetworkenum : HNETWORKENUM, dwindex : super::DWORD, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterNetworkEnum(hnetworkenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNetworkGetEnumCount(hnetworkenum: HNETWORKENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkGetEnumCount(hnetworkenum : HNETWORKENUM) -> u32);
+pub unsafe fn ClusterNetworkGetEnumCount(hnetworkenum: HNETWORKENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkGetEnumCount(hnetworkenum : HNETWORKENUM) -> super::DWORD);
     unsafe { ClusterNetworkGetEnumCount(hnetworkenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNetworkOpenEnum(hnetwork: HNETWORK, dwtype: u32) -> HNETWORKENUM {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkOpenEnum(hnetwork : HNETWORK, dwtype : u32) -> HNETWORKENUM);
+pub unsafe fn ClusterNetworkOpenEnum(hnetwork: HNETWORK, dwtype: super::DWORD) -> HNETWORKENUM {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNetworkOpenEnum(hnetwork : HNETWORK, dwtype : super::DWORD) -> HNETWORKENUM);
     unsafe { ClusterNetworkOpenEnum(hnetwork, dwtype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNodeCloseEnum(hnodeenum: HNODEENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeCloseEnum(hnodeenum : HNODEENUM) -> u32);
+pub unsafe fn ClusterNodeCloseEnum(hnodeenum: HNODEENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeCloseEnum(hnodeenum : HNODEENUM) -> super::DWORD);
     unsafe { ClusterNodeCloseEnum(hnodeenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNodeCloseEnumEx(hnodeenum: HNODEENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeCloseEnumEx(hnodeenum : HNODEENUMEX) -> u32);
+pub unsafe fn ClusterNodeCloseEnumEx(hnodeenum: HNODEENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeCloseEnumEx(hnodeenum : HNODEENUMEX) -> super::DWORD);
     unsafe { ClusterNodeCloseEnumEx(hnodeenum) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNodeControl(hnode: HNODE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeControl(hnode : HNODE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterNodeControl(hnode: HNODE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeControl(hnode : HNODE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterNodeControl(hnode, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNodeControlEx<P8>(hnode: HNODE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterNodeControlEx<P8>(hnode: HNODE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeControlEx(hnode : HNODE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeControlEx(hnode : HNODE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterNodeControlEx(hnode, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNodeEnum(hnodeenum: HNODEENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeEnum(hnodeenum : HNODEENUM, dwindex : u32, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterNodeEnum(hnodeenum: HNODEENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeEnum(hnodeenum : HNODEENUM, dwindex : super::DWORD, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterNodeEnum(hnodeenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterNodeEnumEx(hnodeenum: HNODEENUMEX, dwindex: u32, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeEnumEx(hnodeenum : HNODEENUMEX, dwindex : u32, pitem : PCLUSTER_ENUM_ITEM, cbitem : super::LPDWORD) -> u32);
+pub unsafe fn ClusterNodeEnumEx(hnodeenum: HNODEENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeEnumEx(hnodeenum : HNODEENUMEX, dwindex : super::DWORD, pitem : PCLUSTER_ENUM_ITEM, cbitem : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterNodeEnumEx(hnodeenum, dwindex, pitem as _, cbitem as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNodeGetEnumCount(hnodeenum: HNODEENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeGetEnumCount(hnodeenum : HNODEENUM) -> u32);
+pub unsafe fn ClusterNodeGetEnumCount(hnodeenum: HNODEENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeGetEnumCount(hnodeenum : HNODEENUM) -> super::DWORD);
     unsafe { ClusterNodeGetEnumCount(hnodeenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNodeGetEnumCountEx(hnodeenum: HNODEENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeGetEnumCountEx(hnodeenum : HNODEENUMEX) -> u32);
+pub unsafe fn ClusterNodeGetEnumCountEx(hnodeenum: HNODEENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeGetEnumCountEx(hnodeenum : HNODEENUMEX) -> super::DWORD);
     unsafe { ClusterNodeGetEnumCountEx(hnodeenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNodeOpenEnum(hnode: HNODE, dwtype: u32) -> HNODEENUM {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeOpenEnum(hnode : HNODE, dwtype : u32) -> HNODEENUM);
+pub unsafe fn ClusterNodeOpenEnum(hnode: HNODE, dwtype: super::DWORD) -> HNODEENUM {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeOpenEnum(hnode : HNODE, dwtype : super::DWORD) -> HNODEENUM);
     unsafe { ClusterNodeOpenEnum(hnode, dwtype) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterNodeOpenEnumEx(hnode: HNODE, dwtype: u32, poptions: Option<*const core::ffi::c_void>) -> HNODEENUMEX {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeOpenEnumEx(hnode : HNODE, dwtype : u32, poptions : *const core::ffi::c_void) -> HNODEENUMEX);
+pub unsafe fn ClusterNodeOpenEnumEx(hnode: HNODE, dwtype: super::DWORD, poptions: Option<super::PVOID>) -> HNODEENUMEX {
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeOpenEnumEx(hnode : HNODE, dwtype : super::DWORD, poptions : super::PVOID) -> HNODEENUMEX);
     unsafe { ClusterNodeOpenEnumEx(hnode, dwtype, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterNodeReplacement<P1, P2>(hcluster: HCLUSTER, lpsznodenamecurrent: P1, lpsznodenamenew: P2) -> u32
+pub unsafe fn ClusterNodeReplacement<P1, P2>(hcluster: HCLUSTER, lpsznodenamecurrent: P1, lpsznodenamenew: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterNodeReplacement(hcluster : HCLUSTER, lpsznodenamecurrent : windows_core::PCWSTR, lpsznodenamenew : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterNodeReplacement(hcluster : HCLUSTER, lpsznodenamecurrent : windows_core::PCWSTR, lpsznodenamenew : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterNodeReplacement(hcluster, lpsznodenamecurrent.param().abi(), lpsznodenamenew.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterOpenEnum(hcluster: HCLUSTER, dwtype: u32) -> HCLUSENUM {
-    windows_core::link!("clusapi.dll" "system" fn ClusterOpenEnum(hcluster : HCLUSTER, dwtype : u32) -> HCLUSENUM);
+pub unsafe fn ClusterOpenEnum(hcluster: HCLUSTER, dwtype: super::DWORD) -> HCLUSENUM {
+    windows_core::link!("clusapi.dll" "system" fn ClusterOpenEnum(hcluster : HCLUSTER, dwtype : super::DWORD) -> HCLUSENUM);
     unsafe { ClusterOpenEnum(hcluster, dwtype) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterOpenEnumEx(hcluster: HCLUSTER, dwtype: u32, poptions: Option<*const core::ffi::c_void>) -> HCLUSENUMEX {
-    windows_core::link!("clusapi.dll" "system" fn ClusterOpenEnumEx(hcluster : HCLUSTER, dwtype : u32, poptions : *const core::ffi::c_void) -> HCLUSENUMEX);
+pub unsafe fn ClusterOpenEnumEx(hcluster: HCLUSTER, dwtype: super::DWORD, poptions: Option<super::PVOID>) -> HCLUSENUMEX {
+    windows_core::link!("clusapi.dll" "system" fn ClusterOpenEnumEx(hcluster : HCLUSTER, dwtype : super::DWORD, poptions : super::PVOID) -> HCLUSENUMEX);
     unsafe { ClusterOpenEnumEx(hcluster, dwtype, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegBatchAddCommand<P2>(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: P2, dwoptions: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> i32
+pub unsafe fn ClusterRegBatchAddCommand<P2>(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: P2, dwoptions: super::DWORD, lpdata: Option<*const core::ffi::c_void>, cbdata: super::DWORD) -> super::LONG
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegBatchAddCommand(hregbatch : HREGBATCH, dwcommand : CLUSTER_REG_COMMAND, wzname : windows_core::PCWSTR, dwoptions : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegBatchAddCommand(hregbatch : HREGBATCH, dwcommand : CLUSTER_REG_COMMAND, wzname : windows_core::PCWSTR, dwoptions : super::DWORD, lpdata : *const core::ffi::c_void, cbdata : super::DWORD) -> super::LONG);
     unsafe { ClusterRegBatchAddCommand(hregbatch, dwcommand, wzname.param().abi(), dwoptions, lpdata.unwrap_or(core::mem::zeroed()) as _, cbdata) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegBatchCloseNotification(hbatchnotification: HREGBATCHNOTIFICATION) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegBatchCloseNotification(hbatchnotification : HREGBATCHNOTIFICATION) -> i32);
+pub unsafe fn ClusterRegBatchCloseNotification(hbatchnotification: HREGBATCHNOTIFICATION) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegBatchCloseNotification(hbatchnotification : HREGBATCHNOTIFICATION) -> super::LONG);
     unsafe { ClusterRegBatchCloseNotification(hbatchnotification) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegBatchReadCommand(hbatchnotification : HREGBATCHNOTIFICATION, pbatchcommand : *mut CLUSTER_BATCH_COMMAND) -> i32);
+pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegBatchReadCommand(hbatchnotification : HREGBATCHNOTIFICATION, pbatchcommand : *mut CLUSTER_BATCH_COMMAND) -> super::LONG);
     unsafe { ClusterRegBatchReadCommand(hbatchnotification, pbatchcommand as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegCloseBatch(hregbatch: HREGBATCH, bcommit: bool, failedcommandnumber: Option<*mut i32>) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseBatch(hregbatch : HREGBATCH, bcommit : windows_core::BOOL, failedcommandnumber : *mut i32) -> i32);
+pub unsafe fn ClusterRegCloseBatch(hregbatch: HREGBATCH, bcommit: bool, failedcommandnumber: Option<*mut super::INT>) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseBatch(hregbatch : HREGBATCH, bcommit : windows_core::BOOL, failedcommandnumber : *mut super::INT) -> super::LONG);
     unsafe { ClusterRegCloseBatch(hregbatch, bcommit.into(), failedcommandnumber.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegCloseBatchEx(hregbatch: HREGBATCH, flags: u32, failedcommandnumber: Option<*mut i32>) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseBatchEx(hregbatch : HREGBATCH, flags : u32, failedcommandnumber : *mut i32) -> i32);
+pub unsafe fn ClusterRegCloseBatchEx(hregbatch: HREGBATCH, flags: super::DWORD, failedcommandnumber: Option<*mut super::INT>) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseBatchEx(hregbatch : HREGBATCH, flags : super::DWORD, failedcommandnumber : *mut super::INT) -> super::LONG);
     unsafe { ClusterRegCloseBatchEx(hregbatch, flags, failedcommandnumber.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: HREGBATCHPORT) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport : HREGBATCHPORT) -> i32);
+pub unsafe fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: HREGBATCHPORT) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport : HREGBATCHPORT) -> super::LONG);
     unsafe { ClusterRegCloseBatchNotifyPort(hbatchnotifyport) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegCloseKey(hkey: super::HKEY) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseKey(hkey : super::HKEY) -> i32);
+pub unsafe fn ClusterRegCloseKey(hkey: super::HKEY) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseKey(hkey : super::HKEY) -> super::LONG);
     unsafe { ClusterRegCloseKey(hkey) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegCloseReadBatch(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatch(hregreadbatch : HREGREADBATCH, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> i32);
+pub unsafe fn ClusterRegCloseReadBatch(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatch(hregreadbatch : HREGREADBATCH, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> super::LONG);
     unsafe { ClusterRegCloseReadBatch(hregreadbatch, phregreadbatchreply as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegCloseReadBatchEx(hregreadbatch: HREGREADBATCH, flags: u32, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchEx(hregreadbatch : HREGREADBATCH, flags : u32, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> i32);
+pub unsafe fn ClusterRegCloseReadBatchEx(hregreadbatch: HREGREADBATCH, flags: super::DWORD, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchEx(hregreadbatch : HREGREADBATCH, flags : super::DWORD, phregreadbatchreply : *mut HREGREADBATCHREPLY) -> super::LONG);
     unsafe { ClusterRegCloseReadBatchEx(hregreadbatch, flags, phregreadbatchreply as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREPLY) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchReply(hregreadbatchreply : HREGREADBATCHREPLY) -> i32);
+pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREPLY) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchReply(hregreadbatchreply : HREGREADBATCHREPLY) -> super::LONG);
     unsafe { ClusterRegCloseReadBatchReply(hregreadbatchreply) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegCreateBatch(hkey: Option<super::HKEY>, phregbatch: *mut HREGBATCH) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateBatch(hkey : super::HKEY, phregbatch : *mut HREGBATCH) -> i32);
+pub unsafe fn ClusterRegCreateBatch(hkey: Option<super::HKEY>, phregbatch: *mut HREGBATCH) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateBatch(hkey : super::HKEY, phregbatch : *mut HREGBATCH) -> super::LONG);
     unsafe { ClusterRegCreateBatch(hkey.unwrap_or(core::mem::zeroed()) as _, phregbatch as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegCreateBatchNotifyPort(hkey: super::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateBatchNotifyPort(hkey : super::HKEY, phbatchnotifyport : *mut HREGBATCHPORT) -> i32);
+pub unsafe fn ClusterRegCreateBatchNotifyPort(hkey: super::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateBatchNotifyPort(hkey : super::HKEY, phbatchnotifyport : *mut HREGBATCHPORT) -> super::LONG);
     unsafe { ClusterRegCreateBatchNotifyPort(hkey, phbatchnotifyport as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn ClusterRegCreateKey<P1>(hkey: super::HKEY, lpszsubkey: P1, dwoptions: u32, samdesired: super::REGSAM, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>, phkresult: super::PHKEY, lpdwdisposition: Option<super::LPDWORD>) -> i32
+pub unsafe fn ClusterRegCreateKey<P1>(hkey: super::HKEY, lpszsubkey: P1, dwoptions: super::DWORD, samdesired: super::REGSAM, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>, phkresult: super::PHKEY, lpdwdisposition: Option<super::LPDWORD>) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateKey(hkey : super::HKEY, lpszsubkey : windows_core::PCWSTR, dwoptions : u32, samdesired : super::REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateKey(hkey : super::HKEY, lpszsubkey : windows_core::PCWSTR, dwoptions : super::DWORD, samdesired : super::REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD) -> super::LONG);
     unsafe { ClusterRegCreateKey(hkey, lpszsubkey.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn ClusterRegCreateKeyEx<P1, P7>(hkey: super::HKEY, lpsubkey: P1, dwoptions: u32, samdesired: super::REGSAM, lpsecurityattributes: super::LPSECURITY_ATTRIBUTES, phkresult: super::PHKEY, lpdwdisposition: super::LPDWORD, lpszreason: P7) -> i32
+pub unsafe fn ClusterRegCreateKeyEx<P1, P7>(hkey: super::HKEY, lpsubkey: P1, dwoptions: super::DWORD, samdesired: super::REGSAM, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>, phkresult: super::PHKEY, lpdwdisposition: Option<super::LPDWORD>, lpszreason: P7) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateKeyEx(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, dwoptions : u32, samdesired : super::REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> i32);
-    unsafe { ClusterRegCreateKeyEx(hkey, lpsubkey.param().abi(), dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition, lpszreason.param().abi()) }
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateKeyEx(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, dwoptions : super::DWORD, samdesired : super::REGSAM, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, phkresult : super::PHKEY, lpdwdisposition : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::LONG);
+    unsafe { ClusterRegCreateKeyEx(hkey, lpsubkey.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegCreateReadBatch(hkey: super::HKEY, phregreadbatch: *mut HREGREADBATCH) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateReadBatch(hkey : super::HKEY, phregreadbatch : *mut HREGREADBATCH) -> i32);
+pub unsafe fn ClusterRegCreateReadBatch(hkey: super::HKEY, phregreadbatch: *mut HREGREADBATCH) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegCreateReadBatch(hkey : super::HKEY, phregreadbatch : *mut HREGREADBATCH) -> super::LONG);
     unsafe { ClusterRegCreateReadBatch(hkey, phregreadbatch as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegDeleteKey<P1>(hkey: super::HKEY, lpszsubkey: P1) -> i32
+pub unsafe fn ClusterRegDeleteKey<P1>(hkey: super::HKEY, lpszsubkey: P1) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteKey(hkey : super::HKEY, lpszsubkey : windows_core::PCWSTR) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteKey(hkey : super::HKEY, lpszsubkey : windows_core::PCWSTR) -> super::LONG);
     unsafe { ClusterRegDeleteKey(hkey, lpszsubkey.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegDeleteKeyEx<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpszreason: P2) -> i32
+pub unsafe fn ClusterRegDeleteKeyEx<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpszreason: P2) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteKeyEx(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteKeyEx(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::LONG);
     unsafe { ClusterRegDeleteKeyEx(hkey, lpsubkey.param().abi(), lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegDeleteValue<P1>(hkey: super::HKEY, lpszvaluename: P1) -> u32
+pub unsafe fn ClusterRegDeleteValue<P1>(hkey: super::HKEY, lpszvaluename: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteValue(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteValue(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterRegDeleteValue(hkey, lpszvaluename.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegDeleteValueEx<P1, P2>(hkey: super::HKEY, lpszvaluename: P1, lpszreason: P2) -> u32
+pub unsafe fn ClusterRegDeleteValueEx<P1, P2>(hkey: super::HKEY, lpszvaluename: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteValueEx(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegDeleteValueEx(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterRegDeleteValueEx(hkey, lpszvaluename.param().abi(), lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegEnumKey(hkey: super::HKEY, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, lpftlastwritetime: Option<super::PFILETIME>) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegEnumKey(hkey : super::HKEY, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> i32);
+pub unsafe fn ClusterRegEnumKey(hkey: super::HKEY, dwindex: super::DWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, lpftlastwritetime: Option<super::PFILETIME>) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegEnumKey(hkey : super::HKEY, dwindex : super::DWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> super::LONG);
     unsafe { ClusterRegEnumKey(hkey, dwindex, lpszname, lpcchname as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegEnumValue(hkey: super::HKEY, dwindex: u32, lpszvaluename: windows_core::PWSTR, lpcchvaluename: super::LPDWORD, lpdwtype: Option<super::LPDWORD>, lpdata: Option<super::LPBYTE>, lpcbdata: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegEnumValue(hkey : super::HKEY, dwindex : u32, lpszvaluename : windows_core::PWSTR, lpcchvaluename : super::LPDWORD, lpdwtype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> u32);
+pub unsafe fn ClusterRegEnumValue(hkey: super::HKEY, dwindex: super::DWORD, lpszvaluename: windows_core::PWSTR, lpcchvaluename: super::LPDWORD, lpdwtype: Option<super::LPDWORD>, lpdata: Option<super::LPBYTE>, lpcbdata: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegEnumValue(hkey : super::HKEY, dwindex : super::DWORD, lpszvaluename : windows_core::PWSTR, lpcchvaluename : super::LPDWORD, lpdwtype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterRegEnumValue(hkey, dwindex, lpszvaluename, lpcchvaluename as _, lpdwtype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegGetBatchNotification(hbatchnotify : HREGBATCHPORT, phbatchnotification : *mut HREGBATCHNOTIFICATION) -> i32);
+pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegGetBatchNotification(hbatchnotify : HREGBATCHPORT, phbatchnotification : *mut HREGBATCHNOTIFICATION) -> super::LONG);
     unsafe { ClusterRegGetBatchNotification(hbatchnotify, phbatchnotification as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterRegGetKeySecurity(hkey: super::HKEY, requestedinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: super::LPDWORD) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegGetKeySecurity(hkey : super::HKEY, requestedinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : super::LPDWORD) -> i32);
+pub unsafe fn ClusterRegGetKeySecurity(hkey: super::HKEY, requestedinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: super::LPDWORD) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegGetKeySecurity(hkey : super::HKEY, requestedinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : super::LPDWORD) -> super::LONG);
     unsafe { ClusterRegGetKeySecurity(hkey, requestedinformation, psecuritydescriptor as _, lpcbsecuritydescriptor as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn ClusterRegOpenKey<P1>(hkey: super::HKEY, lpszsubkey: P1, samdesired: super::REGSAM, phkresult: super::PHKEY) -> i32
+pub unsafe fn ClusterRegOpenKey<P1>(hkey: super::HKEY, lpszsubkey: P1, samdesired: super::REGSAM, phkresult: super::PHKEY) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegOpenKey(hkey : super::HKEY, lpszsubkey : windows_core::PCWSTR, samdesired : super::REGSAM, phkresult : super::PHKEY) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegOpenKey(hkey : super::HKEY, lpszsubkey : windows_core::PCWSTR, samdesired : super::REGSAM, phkresult : super::PHKEY) -> super::LONG);
     unsafe { ClusterRegOpenKey(hkey, lpszsubkey.param().abi(), samdesired, phkresult as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegQueryInfoKey(hkey: super::HKEY, lpcsubkeys: super::LPDWORD, lpcchmaxsubkeylen: super::LPDWORD, lpcvalues: super::LPDWORD, lpcchmaxvaluenamelen: super::LPDWORD, lpcbmaxvaluelen: super::LPDWORD, lpcbsecuritydescriptor: super::LPDWORD, lpftlastwritetime: super::PFILETIME) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegQueryInfoKey(hkey : super::HKEY, lpcsubkeys : super::LPDWORD, lpcchmaxsubkeylen : super::LPDWORD, lpcvalues : super::LPDWORD, lpcchmaxvaluenamelen : super::LPDWORD, lpcbmaxvaluelen : super::LPDWORD, lpcbsecuritydescriptor : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> i32);
+pub unsafe fn ClusterRegQueryInfoKey(hkey: super::HKEY, lpcsubkeys: super::LPDWORD, lpcchmaxsubkeylen: super::LPDWORD, lpcvalues: super::LPDWORD, lpcchmaxvaluenamelen: super::LPDWORD, lpcbmaxvaluelen: super::LPDWORD, lpcbsecuritydescriptor: super::LPDWORD, lpftlastwritetime: super::PFILETIME) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegQueryInfoKey(hkey : super::HKEY, lpcsubkeys : super::LPDWORD, lpcchmaxsubkeylen : super::LPDWORD, lpcvalues : super::LPDWORD, lpcchmaxvaluenamelen : super::LPDWORD, lpcbmaxvaluelen : super::LPDWORD, lpcbsecuritydescriptor : super::LPDWORD, lpftlastwritetime : super::PFILETIME) -> super::LONG);
     unsafe { ClusterRegQueryInfoKey(hkey, lpcsubkeys, lpcchmaxsubkeylen, lpcvalues, lpcchmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegQueryValue<P1>(hkey: super::HKEY, lpszvaluename: P1, lpdwvaluetype: Option<super::LPDWORD>, lpdata: Option<super::LPBYTE>, lpcbdata: Option<super::LPDWORD>) -> i32
+pub unsafe fn ClusterRegQueryValue<P1>(hkey: super::HKEY, lpszvaluename: P1, lpdwvaluetype: Option<super::LPDWORD>, lpdata: Option<super::LPBYTE>, lpcbdata: Option<super::LPDWORD>) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegQueryValue(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, lpdwvaluetype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegQueryValue(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, lpdwvaluetype : super::LPDWORD, lpdata : super::LPBYTE, lpcbdata : super::LPDWORD) -> super::LONG);
     unsafe { ClusterRegQueryValue(hkey, lpszvaluename.param().abi(), lpdwvaluetype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegReadBatchAddCommand<P1, P2>(hregreadbatch: HREGREADBATCH, wzsubkeyname: P1, wzvaluename: P2) -> i32
+pub unsafe fn ClusterRegReadBatchAddCommand<P1, P2>(hregreadbatch: HREGREADBATCH, wzsubkeyname: P1, wzvaluename: P2) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegReadBatchAddCommand(hregreadbatch : HREGREADBATCH, wzsubkeyname : windows_core::PCWSTR, wzvaluename : windows_core::PCWSTR) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegReadBatchAddCommand(hregreadbatch : HREGREADBATCH, wzsubkeyname : windows_core::PCWSTR, wzvaluename : windows_core::PCWSTR) -> super::LONG);
     unsafe { ClusterRegReadBatchAddCommand(hregreadbatch, wzsubkeyname.param().abi(), wzvaluename.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply : HREGREADBATCHREPLY, pbatchcommand : *mut CLUSTER_READ_BATCH_COMMAND) -> i32);
+pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply : HREGREADBATCHREPLY, pbatchcommand : *mut CLUSTER_READ_BATCH_COMMAND) -> super::LONG);
     unsafe { ClusterRegReadBatchReplyNextCommand(hregreadbatchreply, pbatchcommand as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterRegSetKeySecurity(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> i32);
+pub unsafe fn ClusterRegSetKeySecurity(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> super::LONG);
     unsafe { ClusterRegSetKeySecurity(hkey, securityinformation, psecuritydescriptor) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterRegSetKeySecurityEx<P3>(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpszreason: P3) -> i32
+pub unsafe fn ClusterRegSetKeySecurityEx<P3>(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpszreason: P3) -> super::LONG
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurityEx(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpszreason : windows_core::PCWSTR) -> i32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurityEx(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpszreason : windows_core::PCWSTR) -> super::LONG);
     unsafe { ClusterRegSetKeySecurityEx(hkey, securityinformation, psecuritydescriptor, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegSetValue<P1>(hkey: super::HKEY, lpszvaluename: P1, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32
+pub unsafe fn ClusterRegSetValue<P1>(hkey: super::HKEY, lpszvaluename: P1, dwtype: super::DWORD, lpdata: *const super::BYTE, cbdata: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetValue(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetValue(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, dwtype : super::DWORD, lpdata : *const super::BYTE, cbdata : super::DWORD) -> super::DWORD);
     unsafe { ClusterRegSetValue(hkey, lpszvaluename.param().abi(), dwtype, lpdata, cbdata) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterRegSetValueEx<P1, P5>(hkey: super::HKEY, lpszvaluename: P1, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: P5) -> u32
+pub unsafe fn ClusterRegSetValueEx<P1, P5>(hkey: super::HKEY, lpszvaluename: P1, dwtype: super::DWORD, lpdata: *const super::BYTE, cbdata: super::DWORD, lpszreason: P5) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetValueEx(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegSetValueEx(hkey : super::HKEY, lpszvaluename : windows_core::PCWSTR, dwtype : super::DWORD, lpdata : *const super::BYTE, cbdata : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterRegSetValueEx(hkey, lpszvaluename.param().abi(), dwtype, lpdata, cbdata, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRegSyncDatabase(hcluster: HCLUSTER, flags: u32) -> i32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRegSyncDatabase(hcluster : HCLUSTER, flags : u32) -> i32);
+pub unsafe fn ClusterRegSyncDatabase(hcluster: HCLUSTER, flags: super::DWORD) -> super::LONG {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRegSyncDatabase(hcluster : HCLUSTER, flags : super::DWORD) -> super::LONG);
     unsafe { ClusterRegSyncDatabase(hcluster, flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRemoveAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1) -> u32
+pub unsafe fn ClusterRemoveAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterRemoveAffinityRule(hcluster, rulename.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRemoveGroupFromAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1, hgroup: HGROUP) -> u32
+pub unsafe fn ClusterRemoveGroupFromAffinityRule<P1>(hcluster: HCLUSTER, rulename: P1, hgroup: HGROUP) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveGroupFromAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR, hgroup : HGROUP) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveGroupFromAffinityRule(hcluster : HCLUSTER, rulename : windows_core::PCWSTR, hgroup : HGROUP) -> super::DWORD);
     unsafe { ClusterRemoveGroupFromAffinityRule(hcluster, rulename.param().abi(), hgroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRemoveGroupFromGroupSet(hgroup: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveGroupFromGroupSet(hgroup : HGROUP) -> u32);
+pub unsafe fn ClusterRemoveGroupFromGroupSet(hgroup: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveGroupFromGroupSet(hgroup : HGROUP) -> super::DWORD);
     unsafe { ClusterRemoveGroupFromGroupSet(hgroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterRemoveGroupFromGroupSetEx<P1>(hgroup: HGROUP, lpszreason: P1) -> u32
+pub unsafe fn ClusterRemoveGroupFromGroupSetEx<P1>(hgroup: HGROUP, lpszreason: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveGroupFromGroupSetEx(hgroup : HGROUP, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterRemoveGroupFromGroupSetEx(hgroup : HGROUP, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterRemoveGroupFromGroupSetEx(hgroup, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceCloseEnum(hresenum: HRESENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceCloseEnum(hresenum : HRESENUM) -> u32);
+pub unsafe fn ClusterResourceCloseEnum(hresenum: HRESENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceCloseEnum(hresenum : HRESENUM) -> super::DWORD);
     unsafe { ClusterResourceCloseEnum(hresenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceCloseEnumEx(hresourceenumex: HRESENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceCloseEnumEx(hresourceenumex : HRESENUMEX) -> u32);
+pub unsafe fn ClusterResourceCloseEnumEx(hresourceenumex: HRESENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceCloseEnumEx(hresourceenumex : HRESENUMEX) -> super::DWORD);
     unsafe { ClusterResourceCloseEnumEx(hresourceenumex) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceControl(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControl(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterResourceControl(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, cbinbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, cboutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControl(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, cbinbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, cboutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterResourceControl(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceControlAsUser(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControlAsUser(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+pub unsafe fn ClusterResourceControlAsUser(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, cbinbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, cboutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControlAsUser(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, cbinbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, cboutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterResourceControlAsUser(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceControlAsUserEx<P8>(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterResourceControlAsUserEx<P8>(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, cbinbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, cboutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControlAsUserEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControlAsUserEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, cbinbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, cboutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterResourceControlAsUserEx(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceControlEx<P8>(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> u32
+pub unsafe fn ClusterResourceControlEx<P8>(hresource: HRESOURCE, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, cbinbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, cboutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P8) -> super::DWORD
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControlEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceControlEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, cbinbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, cboutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterResourceControlEx(hresource, hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceEnum(hresenum: HRESENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceEnum(hresenum : HRESENUM, dwindex : u32, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterResourceEnum(hresenum: HRESENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceEnum(hresenum : HRESENUM, dwindex : super::DWORD, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterResourceEnum(hresenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterResourceEnumEx(hresourceenumex: HRESENUMEX, dwindex: u32, pitem: PCLUSTER_RESOURCE_ENUM_ITEM, cbitem: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceEnumEx(hresourceenumex : HRESENUMEX, dwindex : u32, pitem : PCLUSTER_RESOURCE_ENUM_ITEM, cbitem : super::LPDWORD) -> u32);
+pub unsafe fn ClusterResourceEnumEx(hresourceenumex: HRESENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_RESOURCE_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceEnumEx(hresourceenumex : HRESENUMEX, dwindex : super::DWORD, pitem : PCLUSTER_RESOURCE_ENUM_ITEM, cbitem : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterResourceEnumEx(hresourceenumex, dwindex, pitem as _, cbitem as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceGetEnumCount(hresenum: HRESENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceGetEnumCount(hresenum : HRESENUM) -> u32);
+pub unsafe fn ClusterResourceGetEnumCount(hresenum: HRESENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceGetEnumCount(hresenum : HRESENUM) -> super::DWORD);
     unsafe { ClusterResourceGetEnumCount(hresenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceGetEnumCountEx(hresourceenumex: HRESENUMEX) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceGetEnumCountEx(hresourceenumex : HRESENUMEX) -> u32);
+pub unsafe fn ClusterResourceGetEnumCountEx(hresourceenumex: HRESENUMEX) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceGetEnumCountEx(hresourceenumex : HRESENUMEX) -> super::DWORD);
     unsafe { ClusterResourceGetEnumCountEx(hresourceenumex) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceOpenEnum(hresource: HRESOURCE, dwtype: u32) -> HRESENUM {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceOpenEnum(hresource : HRESOURCE, dwtype : u32) -> HRESENUM);
+pub unsafe fn ClusterResourceOpenEnum(hresource: HRESOURCE, dwtype: super::DWORD) -> HRESENUM {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceOpenEnum(hresource : HRESOURCE, dwtype : super::DWORD) -> HRESENUM);
     unsafe { ClusterResourceOpenEnum(hresource, dwtype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceOpenEnumEx<P1, P3>(hcluster: HCLUSTER, lpszproperties: P1, cbproperties: u32, lpszroproperties: P3, cbroproperties: u32, dwflags: u32) -> HRESENUMEX
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceOpenEnumEx(hcluster : HCLUSTER, lpszproperties : windows_core::PCWSTR, cbproperties : u32, lpszroproperties : windows_core::PCWSTR, cbroproperties : u32, dwflags : u32) -> HRESENUMEX);
-    unsafe { ClusterResourceOpenEnumEx(hcluster, lpszproperties.param().abi(), cbproperties, lpszroproperties.param().abi(), cbroproperties, dwflags) }
+pub unsafe fn ClusterResourceOpenEnumEx(hcluster: HCLUSTER, lpszproperties: Option<windows_core::PCWSTR>, cbproperties: super::DWORD, lpszroproperties: Option<windows_core::PCWSTR>, cbroproperties: super::DWORD, dwflags: super::DWORD) -> HRESENUMEX {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceOpenEnumEx(hcluster : HCLUSTER, lpszproperties : windows_core::PCWSTR, cbproperties : super::DWORD, lpszroproperties : windows_core::PCWSTR, cbroproperties : super::DWORD, dwflags : super::DWORD) -> HRESENUMEX);
+    unsafe { ClusterResourceOpenEnumEx(hcluster, lpszproperties.unwrap_or(core::mem::zeroed()) as _, cbproperties, lpszroproperties.unwrap_or(core::mem::zeroed()) as _, cbroproperties, dwflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceTypeCloseEnum(hrestypeenum: HRESTYPEENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeCloseEnum(hrestypeenum : HRESTYPEENUM) -> u32);
+pub unsafe fn ClusterResourceTypeCloseEnum(hrestypeenum: HRESTYPEENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeCloseEnum(hrestypeenum : HRESTYPEENUM) -> super::DWORD);
     unsafe { ClusterResourceTypeCloseEnum(hrestypeenum) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceTypeControl<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32
+pub unsafe fn ClusterResourceTypeControl<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControl(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControl(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterResourceTypeControl(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceTypeControlAsUser<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>) -> u32
+pub unsafe fn ClusterResourceTypeControlAsUser<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControlAsUser(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControlAsUser(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterResourceTypeControlAsUser(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceTypeControlAsUserEx<P1, P9>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P9) -> u32
+pub unsafe fn ClusterResourceTypeControlAsUserEx<P1, P9>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P9) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControlAsUserEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControlAsUserEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterResourceTypeControlAsUserEx(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceTypeControlEx<P1, P9>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P9) -> u32
+pub unsafe fn ClusterResourceTypeControlEx<P1, P9>(hcluster: HCLUSTER, lpszresourcetypename: P1, hhostnode: Option<HNODE>, dwcontrolcode: super::DWORD, lpinbuffer: Option<super::LPVOID>, ninbuffersize: super::DWORD, lpoutbuffer: Option<super::LPVOID>, noutbuffersize: super::DWORD, lpbytesreturned: Option<super::LPDWORD>, lpszreason: P9) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControlEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeControlEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : super::DWORD, lpinbuffer : super::LPVOID, ninbuffersize : super::DWORD, lpoutbuffer : super::LPVOID, noutbuffersize : super::DWORD, lpbytesreturned : super::LPDWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ClusterResourceTypeControlEx(hcluster, lpszresourcetypename.param().abi(), hhostnode.unwrap_or(core::mem::zeroed()) as _, dwcontrolcode, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, ninbuffersize, lpoutbuffer.unwrap_or(core::mem::zeroed()) as _, noutbuffersize, lpbytesreturned.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: HRESTYPEENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeEnum(hrestypeenum : HRESTYPEENUM, dwindex : u32, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: HRESTYPEENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeEnum(hrestypeenum : HRESTYPEENUM, dwindex : super::DWORD, lpdwtype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { ClusterResourceTypeEnum(hrestypeenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: HRESTYPEENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeGetEnumCount(hrestypeenum : HRESTYPEENUM) -> u32);
+pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: HRESTYPEENUM) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeGetEnumCount(hrestypeenum : HRESTYPEENUM) -> super::DWORD);
     unsafe { ClusterResourceTypeGetEnumCount(hrestypeenum) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterResourceTypeOpenEnum<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1, dwtype: u32) -> HRESTYPEENUM
+pub unsafe fn ClusterResourceTypeOpenEnum<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1, dwtype: super::DWORD) -> HRESTYPEENUM
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeOpenEnum(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, dwtype : u32) -> HRESTYPEENUM);
+    windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeOpenEnum(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, dwtype : super::DWORD) -> HRESTYPEENUM);
     unsafe { ClusterResourceTypeOpenEnum(hcluster, lpszresourcetypename.param().abi(), dwtype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterSetAccountAccess<P1>(hcluster: HCLUSTER, szaccountsid: P1, dwaccess: u32, dwcontroltype: u32) -> u32
+pub unsafe fn ClusterSetAccountAccess<P1>(hcluster: HCLUSTER, szaccountsid: P1, dwaccess: super::DWORD, dwcontroltype: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterSetAccountAccess(hcluster : HCLUSTER, szaccountsid : windows_core::PCWSTR, dwaccess : u32, dwcontroltype : u32) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterSetAccountAccess(hcluster : HCLUSTER, szaccountsid : windows_core::PCWSTR, dwaccess : super::DWORD, dwcontroltype : super::DWORD) -> super::DWORD);
     unsafe { ClusterSetAccountAccess(hcluster, szaccountsid.param().abi(), dwaccess, dwcontroltype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ClusterSharedVolumeSetSnapshotState<P1>(guidsnapshotset: windows_core::GUID, lpszvolumename: P1, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32
+pub unsafe fn ClusterSharedVolumeSetSnapshotState<P1>(guidsnapshotset: windows_core::GUID, lpszvolumename: P1, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterSharedVolumeSetSnapshotState(guidsnapshotset : windows_core::GUID, lpszvolumename : windows_core::PCWSTR, state : CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ClusterSharedVolumeSetSnapshotState(guidsnapshotset : windows_core::GUID, lpszvolumename : windows_core::PCWSTR, state : CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> super::DWORD);
     unsafe { ClusterSharedVolumeSetSnapshotState(guidsnapshotset, lpszvolumename.param().abi(), state) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: bool, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterUpgradeFunctionalLevel(hcluster : HCLUSTER, perform : windows_core::BOOL, pfnprogresscallback : PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
+pub unsafe fn ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: bool, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ClusterUpgradeFunctionalLevel(hcluster : HCLUSTER, perform : windows_core::BOOL, pfnprogresscallback : PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID) -> super::DWORD);
     unsafe { ClusterUpgradeFunctionalLevel(hcluster, perform.into(), pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateCluster(pconfig: PCREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> HCLUSTER {
-    windows_core::link!("clusapi.dll" "system" fn CreateCluster(pconfig : PCREATE_CLUSTER_CONFIG, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> HCLUSTER);
+pub unsafe fn CreateCluster(pconfig: PCREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>) -> HCLUSTER {
+    windows_core::link!("clusapi.dll" "system" fn CreateCluster(pconfig : PCREATE_CLUSTER_CONFIG, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID) -> HCLUSTER);
     unsafe { CreateCluster(pconfig, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn CreateClusterAvailabilitySet<P1>(hcluster: HCLUSTER, lpavailabilitysetname: P1, pavailabilitysetconfig: PCLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET
 where
@@ -958,6 +1030,7 @@ where
     windows_core::link!("clusapi.dll" "system" fn CreateClusterGroup(hcluster : HCLUSTER, lpszgroupname : windows_core::PCWSTR) -> HGROUP);
     unsafe { CreateClusterGroup(hcluster, lpszgroupname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn CreateClusterGroupEx<P1>(hcluster: HCLUSTER, lpszgroupname: P1, pgroupinfo: Option<PCLUSTER_CREATE_GROUP_INFO>) -> HGROUP
 where
@@ -974,185 +1047,211 @@ where
     windows_core::link!("clusapi.dll" "system" fn CreateClusterGroupSet(hcluster : HCLUSTER, groupsetname : windows_core::PCWSTR) -> HGROUPSET);
     unsafe { CreateClusterGroupSet(hcluster, groupsetname.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: PCREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn CreateClusterNameAccount(hcluster : HCLUSTER, pconfig : PCREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
+pub unsafe fn CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: PCREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn CreateClusterNameAccount(hcluster : HCLUSTER, pconfig : PCREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID) -> super::DWORD);
     unsafe { CreateClusterNameAccount(hcluster, pconfig, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateClusterNotifyPort(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> HCHANGE {
-    windows_core::link!("clusapi.dll" "system" fn CreateClusterNotifyPort(hchange : HCHANGE, hcluster : HCLUSTER, dwfilter : u32, dwnotifykey : usize) -> HCHANGE);
+pub unsafe fn CreateClusterNotifyPort(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: super::DWORD, dwnotifykey: super::DWORD_PTR) -> HCHANGE {
+    windows_core::link!("clusapi.dll" "system" fn CreateClusterNotifyPort(hchange : HCHANGE, hcluster : HCLUSTER, dwfilter : super::DWORD, dwnotifykey : super::DWORD_PTR) -> HCHANGE);
     unsafe { CreateClusterNotifyPort(hchange, hcluster, dwfilter, dwnotifykey) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateClusterNotifyPortV2(hchange: HCHANGE, hcluster: HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> HCHANGE {
-    windows_core::link!("clusapi.dll" "system" fn CreateClusterNotifyPortV2(hchange : HCHANGE, hcluster : HCLUSTER, filters : *const NOTIFY_FILTER_AND_TYPE, dwfiltercount : u32, dwnotifykey : usize) -> HCHANGE);
+pub unsafe fn CreateClusterNotifyPortV2(hchange: HCHANGE, hcluster: HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: super::DWORD, dwnotifykey: super::DWORD_PTR) -> HCHANGE {
+    windows_core::link!("clusapi.dll" "system" fn CreateClusterNotifyPortV2(hchange : HCHANGE, hcluster : HCLUSTER, filters : *const NOTIFY_FILTER_AND_TYPE, dwfiltercount : super::DWORD, dwnotifykey : super::DWORD_PTR) -> HCHANGE);
     unsafe { CreateClusterNotifyPortV2(hchange, hcluster, filters, dwfiltercount, dwnotifykey) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateClusterResource<P1, P2>(hgroup: HGROUP, lpszresourcename: P1, lpszresourcetype: P2, dwflags: u32) -> HRESOURCE
+pub unsafe fn CreateClusterResource<P1, P2>(hgroup: HGROUP, lpszresourcename: P1, lpszresourcetype: P2, dwflags: super::DWORD) -> HRESOURCE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn CreateClusterResource(hgroup : HGROUP, lpszresourcename : windows_core::PCWSTR, lpszresourcetype : windows_core::PCWSTR, dwflags : u32) -> HRESOURCE);
+    windows_core::link!("clusapi.dll" "system" fn CreateClusterResource(hgroup : HGROUP, lpszresourcename : windows_core::PCWSTR, lpszresourcetype : windows_core::PCWSTR, dwflags : super::DWORD) -> HRESOURCE);
     unsafe { CreateClusterResource(hgroup, lpszresourcename.param().abi(), lpszresourcetype.param().abi(), dwflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateClusterResourceEx<P1, P2, P4>(hgroup: HGROUP, lpszresourcename: P1, lpszresourcetype: P2, dwflags: u32, lpszreason: P4) -> HRESOURCE
+pub unsafe fn CreateClusterResourceEx<P1, P2, P4>(hgroup: HGROUP, lpszresourcename: P1, lpszresourcetype: P2, dwflags: super::DWORD, lpszreason: P4) -> HRESOURCE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn CreateClusterResourceEx(hgroup : HGROUP, lpszresourcename : windows_core::PCWSTR, lpszresourcetype : windows_core::PCWSTR, dwflags : u32, lpszreason : windows_core::PCWSTR) -> HRESOURCE);
+    windows_core::link!("clusapi.dll" "system" fn CreateClusterResourceEx(hgroup : HGROUP, lpszresourcename : windows_core::PCWSTR, lpszresourcetype : windows_core::PCWSTR, dwflags : super::DWORD, lpszreason : windows_core::PCWSTR) -> HRESOURCE);
     unsafe { CreateClusterResourceEx(hgroup, lpszresourcename.param().abi(), lpszresourcetype.param().abi(), dwflags, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateClusterResourceType<P1, P2, P3>(hcluster: HCLUSTER, lpszresourcetypename: P1, lpszdisplayname: P2, lpszresourcetypedll: P3, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32
+pub unsafe fn CreateClusterResourceType<P1, P2, P3>(hcluster: HCLUSTER, lpszresourcetypename: P1, lpszdisplayname: P2, lpszresourcetypedll: P3, dwlooksalivepollinterval: super::DWORD, dwisalivepollinterval: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn CreateClusterResourceType(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, lpszdisplayname : windows_core::PCWSTR, lpszresourcetypedll : windows_core::PCWSTR, dwlooksalivepollinterval : u32, dwisalivepollinterval : u32) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn CreateClusterResourceType(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, lpszdisplayname : windows_core::PCWSTR, lpszresourcetypedll : windows_core::PCWSTR, dwlooksalivepollinterval : super::DWORD, dwisalivepollinterval : super::DWORD) -> super::DWORD);
     unsafe { CreateClusterResourceType(hcluster, lpszresourcetypename.param().abi(), lpszdisplayname.param().abi(), lpszresourcetypedll.param().abi(), dwlooksalivepollinterval, dwisalivepollinterval) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateClusterResourceTypeEx<P1, P2, P3, P6>(hcluster: HCLUSTER, lpszresourcetypename: P1, lpszdisplayname: P2, lpszresourcetypedll: P3, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32, lpszreason: P6) -> u32
+pub unsafe fn CreateClusterResourceTypeEx<P1, P2, P3, P6>(hcluster: HCLUSTER, lpszresourcetypename: P1, lpszdisplayname: P2, lpszresourcetypedll: P3, dwlooksalivepollinterval: super::DWORD, dwisalivepollinterval: super::DWORD, lpszreason: P6) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn CreateClusterResourceTypeEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, lpszdisplayname : windows_core::PCWSTR, lpszresourcetypedll : windows_core::PCWSTR, dwlooksalivepollinterval : u32, dwisalivepollinterval : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn CreateClusterResourceTypeEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, lpszdisplayname : windows_core::PCWSTR, lpszresourcetypedll : windows_core::PCWSTR, dwlooksalivepollinterval : super::DWORD, dwisalivepollinterval : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { CreateClusterResourceTypeEx(hcluster, lpszresourcetypename.param().abi(), lpszdisplayname.param().abi(), lpszresourcetypedll.param().abi(), dwlooksalivepollinterval, dwisalivepollinterval, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterGroup(hgroup: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroup(hgroup : HGROUP) -> u32);
+pub unsafe fn DeleteClusterGroup(hgroup: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroup(hgroup : HGROUP) -> super::DWORD);
     unsafe { DeleteClusterGroup(hgroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterGroupEx<P1>(hgroup: HGROUP, lpszreason: P1) -> u32
+pub unsafe fn DeleteClusterGroupEx<P1>(hgroup: HGROUP, lpszreason: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroupEx(hgroup : HGROUP, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroupEx(hgroup : HGROUP, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DeleteClusterGroupEx(hgroup, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterGroupSet(hgroupset: HGROUPSET) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroupSet(hgroupset : HGROUPSET) -> u32);
+pub unsafe fn DeleteClusterGroupSet(hgroupset: HGROUPSET) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroupSet(hgroupset : HGROUPSET) -> super::DWORD);
     unsafe { DeleteClusterGroupSet(hgroupset) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterGroupSetEx<P1>(hgroupset: HGROUPSET, lpszreason: P1) -> u32
+pub unsafe fn DeleteClusterGroupSetEx<P1>(hgroupset: HGROUPSET, lpszreason: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroupSetEx(hgroupset : HGROUPSET, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterGroupSetEx(hgroupset : HGROUPSET, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DeleteClusterGroupSetEx(hgroupset, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterResource(hresource: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResource(hresource : HRESOURCE) -> u32);
+pub unsafe fn DeleteClusterResource(hresource: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResource(hresource : HRESOURCE) -> super::DWORD);
     unsafe { DeleteClusterResource(hresource) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterResourceEx<P1>(hresource: HRESOURCE, lpszreason: P1) -> u32
+pub unsafe fn DeleteClusterResourceEx<P1>(hresource: HRESOURCE, lpszreason: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResourceEx(hresource : HRESOURCE, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResourceEx(hresource : HRESOURCE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DeleteClusterResourceEx(hresource, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterResourceType<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1) -> u32
+pub unsafe fn DeleteClusterResourceType<P1>(hcluster: HCLUSTER, lpszresourcetypename: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResourceType(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResourceType(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DeleteClusterResourceType(hcluster, lpszresourcetypename.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DeleteClusterResourceTypeEx<P1, P2>(hcluster: HCLUSTER, lpsztypename: P1, lpszreason: P2) -> u32
+pub unsafe fn DeleteClusterResourceTypeEx<P1, P2>(hcluster: HCLUSTER, lpsztypename: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResourceTypeEx(hcluster : HCLUSTER, lpsztypename : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn DeleteClusterResourceTypeEx(hcluster : HCLUSTER, lpsztypename : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DeleteClusterResourceTypeEx(hcluster, lpsztypename.param().abi(), lpszreason.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: bool) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DestroyCluster(hcluster : HCLUSTER, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, fdeletevirtualcomputerobjects : windows_core::BOOL) -> u32);
+pub unsafe fn DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>, fdeletevirtualcomputerobjects: bool) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DestroyCluster(hcluster : HCLUSTER, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID, fdeletevirtualcomputerobjects : windows_core::BOOL) -> super::DWORD);
     unsafe { DestroyCluster(hcluster, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _, fdeletevirtualcomputerobjects.into()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DestroyClusterGroup(hgroup: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DestroyClusterGroup(hgroup : HGROUP) -> u32);
+pub unsafe fn DestroyClusterGroup(hgroup: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DestroyClusterGroup(hgroup : HGROUP) -> super::DWORD);
     unsafe { DestroyClusterGroup(hgroup) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DestroyClusterGroupEx<P1>(hgroup: HGROUP, lpszreason: P1) -> u32
+pub unsafe fn DestroyClusterGroupEx<P1>(hgroup: HGROUP, lpszreason: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn DestroyClusterGroupEx(hgroup : HGROUP, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn DestroyClusterGroupEx(hgroup : HGROUP, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { DestroyClusterGroupEx(hgroup, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: HCLUSTER, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DetermineCNOResTypeFromCluster(hcluster : HCLUSTER, pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32);
+pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: HCLUSTER, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DetermineCNOResTypeFromCluster(hcluster : HCLUSTER, pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE) -> super::DWORD);
     unsafe { DetermineCNOResTypeFromCluster(hcluster, pcnorestype as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const windows_core::PCWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DetermineCNOResTypeFromNodelist(cnodes : u32, ppsznodenames : *const windows_core::PCWSTR, pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32);
+pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: super::DWORD, ppsznodenames: *const windows_core::PCWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DetermineCNOResTypeFromNodelist(cnodes : super::DWORD, ppsznodenames : *const windows_core::PCWSTR, pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE) -> super::DWORD);
     unsafe { DetermineCNOResTypeFromNodelist(cnodes, ppsznodenames, pcnorestype as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: HCLUSTER, pcloudtype: PCLUSTER_CLOUD_TYPE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DetermineClusterCloudTypeFromCluster(hcluster : HCLUSTER, pcloudtype : PCLUSTER_CLOUD_TYPE) -> u32);
+pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: HCLUSTER, pcloudtype: PCLUSTER_CLOUD_TYPE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DetermineClusterCloudTypeFromCluster(hcluster : HCLUSTER, pcloudtype : PCLUSTER_CLOUD_TYPE) -> super::DWORD);
     unsafe { DetermineClusterCloudTypeFromCluster(hcluster, pcloudtype as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const windows_core::PCWSTR, pcloudtype: PCLUSTER_CLOUD_TYPE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn DetermineClusterCloudTypeFromNodelist(cnodes : u32, ppsznodenames : *const windows_core::PCWSTR, pcloudtype : PCLUSTER_CLOUD_TYPE) -> u32);
+pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: super::DWORD, ppsznodenames: *const windows_core::PCWSTR, pcloudtype: PCLUSTER_CLOUD_TYPE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn DetermineClusterCloudTypeFromNodelist(cnodes : super::DWORD, ppsznodenames : *const windows_core::PCWSTR, pcloudtype : PCLUSTER_CLOUD_TYPE) -> super::DWORD);
     unsafe { DetermineClusterCloudTypeFromNodelist(cnodes, ppsznodenames, pcloudtype as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn EvictClusterNode(hnode: HNODE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn EvictClusterNode(hnode : HNODE) -> u32);
+pub unsafe fn EvictClusterNode(hnode: HNODE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn EvictClusterNode(hnode : HNODE) -> super::DWORD);
     unsafe { EvictClusterNode(hnode) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn EvictClusterNodeEx(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn EvictClusterNodeEx(hnode : HNODE, dwtimeout : u32, phrcleanupstatus : *mut windows_core::HRESULT) -> u32);
+pub unsafe fn EvictClusterNodeEx(hnode: HNODE, dwtimeout: super::DWORD, phrcleanupstatus: *mut windows_core::HRESULT) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn EvictClusterNodeEx(hnode : HNODE, dwtimeout : super::DWORD, phrcleanupstatus : *mut windows_core::HRESULT) -> super::DWORD);
     unsafe { EvictClusterNodeEx(hnode, dwtimeout, phrcleanupstatus as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn EvictClusterNodeEx2<P3>(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT, lpszreason: P3) -> u32
+pub unsafe fn EvictClusterNodeEx2<P3>(hnode: HNODE, dwtimeout: super::DWORD, phrcleanupstatus: *mut windows_core::HRESULT, lpszreason: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn EvictClusterNodeEx2(hnode : HNODE, dwtimeout : u32, phrcleanupstatus : *mut windows_core::HRESULT, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn EvictClusterNodeEx2(hnode : HNODE, dwtimeout : super::DWORD, phrcleanupstatus : *mut windows_core::HRESULT, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { EvictClusterNodeEx2(hnode, dwtimeout, phrcleanupstatus as _, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FailClusterResource(hresource: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn FailClusterResource(hresource : HRESOURCE) -> u32);
+pub unsafe fn FailClusterResource(hresource: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn FailClusterResource(hresource : HRESOURCE) -> super::DWORD);
     unsafe { FailClusterResource(hresource) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FailClusterResourceEx<P1>(hresource: HRESOURCE, lpszreason: P1) -> u32
+pub unsafe fn FailClusterResourceEx<P1>(hresource: HRESOURCE, lpszreason: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn FailClusterResourceEx(hresource : HRESOURCE, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn FailClusterResourceEx(hresource : HRESOURCE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { FailClusterResourceEx(hresource, lpszreason.param().abi()) }
 }
 #[inline]
@@ -1180,7 +1279,7 @@ pub unsafe fn GetClusterFromResource(hresource: HRESOURCE) -> HCLUSTER {
     windows_core::link!("clusapi.dll" "system" fn GetClusterFromResource(hresource : HRESOURCE) -> HCLUSTER);
     unsafe { GetClusterFromResource(hresource) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn GetClusterGroupKey(hgroup: HGROUP, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("clusapi.dll" "system" fn GetClusterGroupKey(hgroup : HGROUP, samdesired : super::REGSAM) -> super::HKEY);
@@ -1192,29 +1291,29 @@ pub unsafe fn GetClusterGroupState(hgroup: HGROUP, lpsznodename: Option<windows_
     windows_core::link!("clusapi.dll" "system" fn GetClusterGroupState(hgroup : HGROUP, lpsznodename : windows_core::PWSTR, lpcchnodename : super::LPDWORD) -> CLUSTER_GROUP_STATE);
     unsafe { GetClusterGroupState(hgroup, lpsznodename.unwrap_or(core::mem::zeroed()) as _, lpcchnodename.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetClusterInformation(hcluster: HCLUSTER, lpszclustername: windows_core::PWSTR, lpcchclustername: super::LPDWORD, lpclusterinfo: Option<LPCLUSTERVERSIONINFO>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterInformation(hcluster : HCLUSTER, lpszclustername : windows_core::PWSTR, lpcchclustername : super::LPDWORD, lpclusterinfo : LPCLUSTERVERSIONINFO) -> u32);
+pub unsafe fn GetClusterInformation(hcluster: HCLUSTER, lpszclustername: windows_core::PWSTR, lpcchclustername: super::LPDWORD, lpclusterinfo: Option<LPCLUSTERVERSIONINFO>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetClusterInformation(hcluster : HCLUSTER, lpszclustername : windows_core::PWSTR, lpcchclustername : super::LPDWORD, lpclusterinfo : LPCLUSTERVERSIONINFO) -> super::DWORD);
     unsafe { GetClusterInformation(hcluster, lpszclustername, lpcchclustername as _, lpclusterinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn GetClusterKey(hcluster: HCLUSTER, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("clusapi.dll" "system" fn GetClusterKey(hcluster : HCLUSTER, samdesired : super::REGSAM) -> super::HKEY);
     unsafe { GetClusterKey(hcluster, samdesired) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetClusterNetInterface<P1, P2>(hcluster: HCLUSTER, lpsznodename: P1, lpsznetworkname: P2, lpszinterfacename: windows_core::PWSTR, lpcchinterfacename: super::LPDWORD) -> u32
+pub unsafe fn GetClusterNetInterface<P1, P2>(hcluster: HCLUSTER, lpsznodename: P1, lpsznetworkname: P2, lpszinterfacename: windows_core::PWSTR, lpcchinterfacename: super::LPDWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterNetInterface(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, lpsznetworkname : windows_core::PCWSTR, lpszinterfacename : windows_core::PWSTR, lpcchinterfacename : super::LPDWORD) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn GetClusterNetInterface(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, lpsznetworkname : windows_core::PCWSTR, lpszinterfacename : windows_core::PWSTR, lpcchinterfacename : super::LPDWORD) -> super::DWORD);
     unsafe { GetClusterNetInterface(hcluster, lpsznodename.param().abi(), lpsznetworkname.param().abi(), lpszinterfacename, lpcchinterfacename as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNetInterfaceKey(hnetinterface : HNETINTERFACE, samdesired : super::REGSAM) -> super::HKEY);
@@ -1225,13 +1324,13 @@ pub unsafe fn GetClusterNetInterfaceState(hnetinterface: HNETINTERFACE) -> CLUST
     windows_core::link!("clusapi.dll" "system" fn GetClusterNetInterfaceState(hnetinterface : HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE);
     unsafe { GetClusterNetInterfaceState(hnetinterface) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterNetworkId(hnetwork : HNETWORK, lpsznetworkid : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetClusterNetworkId(hnetwork : HNETWORK, lpsznetworkid : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { GetClusterNetworkId(hnetwork, lpsznetworkid, lpcchname as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNetworkKey(hnetwork : HNETWORK, samdesired : super::REGSAM) -> super::HKEY);
@@ -1242,13 +1341,13 @@ pub unsafe fn GetClusterNetworkState(hnetwork: HNETWORK) -> CLUSTER_NETWORK_STAT
     windows_core::link!("clusapi.dll" "system" fn GetClusterNetworkState(hnetwork : HNETWORK) -> CLUSTER_NETWORK_STATE);
     unsafe { GetClusterNetworkState(hnetwork) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetClusterNodeId(hnode: Option<HNODE>, lpsznodeid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterNodeId(hnode : HNODE, lpsznodeid : windows_core::PWSTR, lpcchname : super::LPDWORD) -> u32);
+pub unsafe fn GetClusterNodeId(hnode: Option<HNODE>, lpsznodeid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetClusterNodeId(hnode : HNODE, lpsznodeid : windows_core::PWSTR, lpcchname : super::LPDWORD) -> super::DWORD);
     unsafe { GetClusterNodeId(hnode.unwrap_or(core::mem::zeroed()) as _, lpsznodeid, lpcchname as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn GetClusterNodeKey(hnode: HNODE, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNodeKey(hnode : HNODE, samdesired : super::REGSAM) -> super::HKEY);
@@ -1259,16 +1358,16 @@ pub unsafe fn GetClusterNodeState(hnode: HNODE) -> CLUSTER_NODE_STATE {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNodeState(hnode : HNODE) -> CLUSTER_NODE_STATE);
     unsafe { GetClusterNodeState(hnode) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetClusterNotify(hchange: HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, dwmilliseconds: u32) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterNotify(hchange : HCHANGE, lpdwnotifykey : *mut usize, lpdwfiltertype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD, dwmilliseconds : u32) -> u32);
+pub unsafe fn GetClusterNotify(hchange: HCHANGE, lpdwnotifykey: *mut super::DWORD_PTR, lpdwfiltertype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, dwmilliseconds: super::DWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetClusterNotify(hchange : HCHANGE, lpdwnotifykey : *mut super::DWORD_PTR, lpdwfiltertype : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD, dwmilliseconds : super::DWORD) -> super::DWORD);
     unsafe { GetClusterNotify(hchange, lpdwnotifykey as _, lpdwfiltertype as _, lpszname, lpcchname as _, dwmilliseconds) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: Option<PNOTIFY_FILTER_AND_TYPE>, buffer: Option<*mut u8>, lpbbuffersize: Option<super::LPDWORD>, lpszobjectid: Option<windows_core::PWSTR>, lpcchobjectid: Option<super::LPDWORD>, lpszparentid: Option<windows_core::PWSTR>, lpcchparentid: Option<super::LPDWORD>, lpszname: Option<windows_core::PWSTR>, lpcchname: Option<super::LPDWORD>, lpsztype: Option<windows_core::PWSTR>, lpcchtype: Option<super::LPDWORD>, dwmilliseconds: Option<u32>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterNotifyV2(hchange : HCHANGE, lpdwnotifykey : *mut usize, pfilterandtype : PNOTIFY_FILTER_AND_TYPE, buffer : *mut u8, lpbbuffersize : super::LPDWORD, lpszobjectid : windows_core::PWSTR, lpcchobjectid : super::LPDWORD, lpszparentid : windows_core::PWSTR, lpcchparentid : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD, lpsztype : windows_core::PWSTR, lpcchtype : super::LPDWORD, dwmilliseconds : u32) -> u32);
+pub unsafe fn GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: *mut super::DWORD_PTR, pfilterandtype: Option<PNOTIFY_FILTER_AND_TYPE>, buffer: Option<*mut super::BYTE>, lpbbuffersize: Option<super::LPDWORD>, lpszobjectid: Option<windows_core::PWSTR>, lpcchobjectid: Option<super::LPDWORD>, lpszparentid: Option<windows_core::PWSTR>, lpcchparentid: Option<super::LPDWORD>, lpszname: Option<windows_core::PWSTR>, lpcchname: Option<super::LPDWORD>, lpsztype: Option<windows_core::PWSTR>, lpcchtype: Option<super::LPDWORD>, dwmilliseconds: Option<super::DWORD>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetClusterNotifyV2(hchange : HCHANGE, lpdwnotifykey : *mut super::DWORD_PTR, pfilterandtype : PNOTIFY_FILTER_AND_TYPE, buffer : *mut super::BYTE, lpbbuffersize : super::LPDWORD, lpszobjectid : windows_core::PWSTR, lpcchobjectid : super::LPDWORD, lpszparentid : windows_core::PWSTR, lpcchparentid : super::LPDWORD, lpszname : windows_core::PWSTR, lpcchname : super::LPDWORD, lpsztype : windows_core::PWSTR, lpcchtype : super::LPDWORD, dwmilliseconds : super::DWORD) -> super::DWORD);
     unsafe {
         GetClusterNotifyV2(
             hchange,
@@ -1288,19 +1387,19 @@ pub unsafe fn GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: *mut usize, pf
         )
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetClusterQuorumResource(hcluster: HCLUSTER, lpszresourcename: windows_core::PWSTR, lpcchresourcename: super::LPDWORD, lpszdevicename: windows_core::PWSTR, lpcchdevicename: super::LPDWORD, lpdwmaxquorumlogsize: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterQuorumResource(hcluster : HCLUSTER, lpszresourcename : windows_core::PWSTR, lpcchresourcename : super::LPDWORD, lpszdevicename : windows_core::PWSTR, lpcchdevicename : super::LPDWORD, lpdwmaxquorumlogsize : super::LPDWORD) -> u32);
+pub unsafe fn GetClusterQuorumResource(hcluster: HCLUSTER, lpszresourcename: windows_core::PWSTR, lpcchresourcename: super::LPDWORD, lpszdevicename: windows_core::PWSTR, lpcchdevicename: super::LPDWORD, lpdwmaxquorumlogsize: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetClusterQuorumResource(hcluster : HCLUSTER, lpszresourcename : windows_core::PWSTR, lpcchresourcename : super::LPDWORD, lpszdevicename : windows_core::PWSTR, lpcchdevicename : super::LPDWORD, lpdwmaxquorumlogsize : super::LPDWORD) -> super::DWORD);
     unsafe { GetClusterQuorumResource(hcluster, lpszresourcename, lpcchresourcename as _, lpszdevicename, lpcchdevicename as _, lpdwmaxquorumlogsize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: Option<windows_core::PWSTR>, lpcchdependencyexpression: super::LPDWORD) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetClusterResourceDependencyExpression(hresource : HRESOURCE, lpszdependencyexpression : windows_core::PWSTR, lpcchdependencyexpression : super::LPDWORD) -> u32);
+pub unsafe fn GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: Option<windows_core::PWSTR>, lpcchdependencyexpression: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetClusterResourceDependencyExpression(hresource : HRESOURCE, lpszdependencyexpression : windows_core::PWSTR, lpcchdependencyexpression : super::LPDWORD) -> super::DWORD);
     unsafe { GetClusterResourceDependencyExpression(hresource, lpszdependencyexpression.unwrap_or(core::mem::zeroed()) as _, lpcchdependencyexpression as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn GetClusterResourceKey(hresource: HRESOURCE, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("clusapi.dll" "system" fn GetClusterResourceKey(hresource : HRESOURCE, samdesired : super::REGSAM) -> super::HKEY);
@@ -1318,7 +1417,7 @@ pub unsafe fn GetClusterResourceState(hresource: HRESOURCE, lpsznodename: Option
     windows_core::link!("clusapi.dll" "system" fn GetClusterResourceState(hresource : HRESOURCE, lpsznodename : windows_core::PWSTR, lpcchnodename : super::LPDWORD, lpszgroupname : windows_core::PWSTR, lpcchgroupname : super::LPDWORD) -> CLUSTER_RESOURCE_STATE);
     unsafe { GetClusterResourceState(hresource, lpsznodename.unwrap_or(core::mem::zeroed()) as _, lpcchnodename.unwrap_or(core::mem::zeroed()) as _, lpszgroupname.unwrap_or(core::mem::zeroed()) as _, lpcchgroupname.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn GetClusterResourceTypeKey<P1>(hcluster: HCLUSTER, lpsztypename: P1, samdesired: super::REGSAM) -> super::HKEY
 where
@@ -1327,136 +1426,142 @@ where
     windows_core::link!("clusapi.dll" "system" fn GetClusterResourceTypeKey(hcluster : HCLUSTER, lpsztypename : windows_core::PCWSTR, samdesired : super::REGSAM) -> super::HKEY);
     unsafe { GetClusterResourceTypeKey(hcluster, lpsztypename.param().abi(), samdesired) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetNodeCloudTypeDW<P0>(ppsznodename: P0, nodecloudtype: *mut u32) -> u32
+pub unsafe fn GetNodeCloudTypeDW<P0>(ppsznodename: P0, nodecloudtype: *mut super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn GetNodeCloudTypeDW(ppsznodename : windows_core::PCWSTR, nodecloudtype : *mut u32) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn GetNodeCloudTypeDW(ppsznodename : windows_core::PCWSTR, nodecloudtype : *mut super::DWORD) -> super::DWORD);
     unsafe { GetNodeCloudTypeDW(ppsznodename.param().abi(), nodecloudtype as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetNodeClusterState<P0>(lpsznodename: P0, pdwclusterstate: super::LPDWORD) -> u32
+pub unsafe fn GetNodeClusterState<P0>(lpsznodename: P0, pdwclusterstate: super::LPDWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn GetNodeClusterState(lpsznodename : windows_core::PCWSTR, pdwclusterstate : super::LPDWORD) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn GetNodeClusterState(lpsznodename : windows_core::PCWSTR, pdwclusterstate : super::LPDWORD) -> super::DWORD);
     unsafe { GetNodeClusterState(lpsznodename.param().abi(), pdwclusterstate as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetNotifyEventHandle(hchange: HCHANGE, lphtargetevent: super::LPHANDLE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn GetNotifyEventHandle(hchange : HCHANGE, lphtargetevent : super::LPHANDLE) -> u32);
+pub unsafe fn GetNotifyEventHandle(hchange: HCHANGE, lphtargetevent: super::LPHANDLE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn GetNotifyEventHandle(hchange : HCHANGE, lphtargetevent : super::LPHANDLE) -> super::DWORD);
     unsafe { GetNotifyEventHandle(hchange, lphtargetevent as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn IsFileOnClusterSharedVolume<P0>(lpszpathname: P0, pbfileisonsharedvolume: super::PBOOL) -> u32
+pub unsafe fn IsFileOnClusterSharedVolume<P0>(lpszpathname: P0, pbfileisonsharedvolume: super::PBOOL) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn IsFileOnClusterSharedVolume(lpszpathname : windows_core::PCWSTR, pbfileisonsharedvolume : super::PBOOL) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn IsFileOnClusterSharedVolume(lpszpathname : windows_core::PCWSTR, pbfileisonsharedvolume : super::PBOOL) -> super::DWORD);
     unsafe { IsFileOnClusterSharedVolume(lpszpathname.param().abi(), pbfileisonsharedvolume as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MoveClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn MoveClusterGroup(hgroup : HGROUP, hdestinationnode : HNODE) -> u32);
+pub unsafe fn MoveClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn MoveClusterGroup(hgroup : HGROUP, hdestinationnode : HNODE) -> super::DWORD);
     unsafe { MoveClusterGroup(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32) -> u32);
+pub unsafe fn MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
     unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
+pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> super::DWORD
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterGroup(hgroup: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroup(hgroup : HGROUP) -> u32);
+pub unsafe fn OfflineClusterGroup(hgroup: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroup(hgroup : HGROUP) -> super::DWORD);
     unsafe { OfflineClusterGroup(hgroup) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx(hgroup : HGROUP, dwofflineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32) -> u32);
+pub unsafe fn OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx(hgroup : HGROUP, dwofflineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
     unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterGroupEx2<P4>(hgroup: HGROUP, dwofflineflags: u32, lpinbuffer: super::PBYTE, cbinbuffersize: u32, lpszreason: P4) -> u32
+pub unsafe fn OfflineClusterGroupEx2<P4>(hgroup: HGROUP, dwofflineflags: super::DWORD, lpinbuffer: Option<super::PBYTE>, cbinbuffersize: super::DWORD, lpszreason: P4) -> super::DWORD
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx2(hgroup : HGROUP, dwofflineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OfflineClusterGroupEx2(hgroup, dwofflineflags, lpinbuffer, cbinbuffersize, lpszreason.param().abi()) }
+    windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx2(hgroup : HGROUP, dwofflineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
+    unsafe { OfflineClusterGroupEx2(hgroup, dwofflineflags, lpinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffersize, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterResource(hresource: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OfflineClusterResource(hresource : HRESOURCE) -> u32);
+pub unsafe fn OfflineClusterResource(hresource: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OfflineClusterResource(hresource : HRESOURCE) -> super::DWORD);
     unsafe { OfflineClusterResource(hresource) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx(hresource : HRESOURCE, dwofflineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32) -> u32);
+pub unsafe fn OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx(hresource : HRESOURCE, dwofflineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
     unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OfflineClusterResourceEx2<P4>(hresource: HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
+pub unsafe fn OfflineClusterResourceEx2<P4>(hresource: HRESOURCE, dwofflineflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> super::DWORD
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx2(hresource : HRESOURCE, dwofflineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx2(hresource : HRESOURCE, dwofflineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroup(hgroup : HGROUP, hdestinationnode : HNODE) -> u32);
+pub unsafe fn OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroup(hgroup : HGROUP, hdestinationnode : HNODE) -> super::DWORD);
     unsafe { OnlineClusterGroup(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32) -> u32);
+pub unsafe fn OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
     unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
+pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> super::DWORD
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterResource(hresource: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OnlineClusterResource(hresource : HRESOURCE) -> u32);
+pub unsafe fn OnlineClusterResource(hresource: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OnlineClusterResource(hresource : HRESOURCE) -> super::DWORD);
     unsafe { OnlineClusterResource(hresource) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx(hresource : HRESOURCE, dwonlineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32) -> u32);
+pub unsafe fn OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx(hresource : HRESOURCE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD) -> super::DWORD);
     unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OnlineClusterResourceEx2<P4>(hresource: HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
+pub unsafe fn OnlineClusterResourceEx2<P4>(hresource: HRESOURCE, dwonlineflags: super::DWORD, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> super::DWORD
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx2(hresource : HRESOURCE, dwonlineflags : u32, lpinbuffer : super::PBYTE, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx2(hresource : HRESOURCE, dwonlineflags : super::DWORD, lpinbuffer : super::PBYTE, cbinbuffersize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
@@ -1467,12 +1572,13 @@ where
     windows_core::link!("clusapi.dll" "system" fn OpenCluster(lpszclustername : windows_core::PCWSTR) -> HCLUSTER);
     unsafe { OpenCluster(lpszclustername.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OpenClusterEx<P0>(lpszclustername: P0, desiredaccess: u32, grantedaccess: Option<*mut u32>) -> HCLUSTER
+pub unsafe fn OpenClusterEx<P0>(lpszclustername: P0, desiredaccess: super::DWORD, grantedaccess: Option<*mut super::DWORD>) -> HCLUSTER
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OpenClusterEx(lpszclustername : windows_core::PCWSTR, desiredaccess : u32, grantedaccess : *mut u32) -> HCLUSTER);
+    windows_core::link!("clusapi.dll" "system" fn OpenClusterEx(lpszclustername : windows_core::PCWSTR, desiredaccess : super::DWORD, grantedaccess : *mut super::DWORD) -> HCLUSTER);
     unsafe { OpenClusterEx(lpszclustername.param().abi(), desiredaccess, grantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1483,12 +1589,13 @@ where
     windows_core::link!("clusapi.dll" "system" fn OpenClusterGroup(hcluster : HCLUSTER, lpszgroupname : windows_core::PCWSTR) -> HGROUP);
     unsafe { OpenClusterGroup(hcluster, lpszgroupname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OpenClusterGroupEx<P1>(hcluster: HCLUSTER, lpszgroupname: P1, dwdesiredaccess: u32, lpdwgrantedaccess: Option<*mut u32>) -> HGROUP
+pub unsafe fn OpenClusterGroupEx<P1>(hcluster: HCLUSTER, lpszgroupname: P1, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: Option<*mut super::DWORD>) -> HGROUP
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OpenClusterGroupEx(hcluster : HCLUSTER, lpszgroupname : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HGROUP);
+    windows_core::link!("clusapi.dll" "system" fn OpenClusterGroupEx(hcluster : HCLUSTER, lpszgroupname : windows_core::PCWSTR, dwdesiredaccess : super::DWORD, lpdwgrantedaccess : *mut super::DWORD) -> HGROUP);
     unsafe { OpenClusterGroupEx(hcluster, lpszgroupname.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1507,12 +1614,13 @@ where
     windows_core::link!("clusapi.dll" "system" fn OpenClusterNetInterface(hcluster : HCLUSTER, lpszinterfacename : windows_core::PCWSTR) -> HNETINTERFACE);
     unsafe { OpenClusterNetInterface(hcluster, lpszinterfacename.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OpenClusterNetInterfaceEx<P1>(hcluster: HCLUSTER, lpszinterfacename: P1, dwdesiredaccess: u32, lpdwgrantedaccess: Option<*mut u32>) -> HNETINTERFACE
+pub unsafe fn OpenClusterNetInterfaceEx<P1>(hcluster: HCLUSTER, lpszinterfacename: P1, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: Option<*mut super::DWORD>) -> HNETINTERFACE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OpenClusterNetInterfaceEx(hcluster : HCLUSTER, lpszinterfacename : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HNETINTERFACE);
+    windows_core::link!("clusapi.dll" "system" fn OpenClusterNetInterfaceEx(hcluster : HCLUSTER, lpszinterfacename : windows_core::PCWSTR, dwdesiredaccess : super::DWORD, lpdwgrantedaccess : *mut super::DWORD) -> HNETINTERFACE);
     unsafe { OpenClusterNetInterfaceEx(hcluster, lpszinterfacename.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1523,12 +1631,13 @@ where
     windows_core::link!("clusapi.dll" "system" fn OpenClusterNetwork(hcluster : HCLUSTER, lpsznetworkname : windows_core::PCWSTR) -> HNETWORK);
     unsafe { OpenClusterNetwork(hcluster, lpsznetworkname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OpenClusterNetworkEx<P1>(hcluster: HCLUSTER, lpsznetworkname: P1, dwdesiredaccess: u32, lpdwgrantedaccess: Option<*mut u32>) -> HNETWORK
+pub unsafe fn OpenClusterNetworkEx<P1>(hcluster: HCLUSTER, lpsznetworkname: P1, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: Option<*mut super::DWORD>) -> HNETWORK
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OpenClusterNetworkEx(hcluster : HCLUSTER, lpsznetworkname : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HNETWORK);
+    windows_core::link!("clusapi.dll" "system" fn OpenClusterNetworkEx(hcluster : HCLUSTER, lpsznetworkname : windows_core::PCWSTR, dwdesiredaccess : super::DWORD, lpdwgrantedaccess : *mut super::DWORD) -> HNETWORK);
     unsafe { OpenClusterNetworkEx(hcluster, lpsznetworkname.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1539,17 +1648,19 @@ where
     windows_core::link!("clusapi.dll" "system" fn OpenClusterNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR) -> HNODE);
     unsafe { OpenClusterNode(hcluster, lpsznodename.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OpenClusterNodeById(hcluster: HCLUSTER, nodeid: u32) -> HNODE {
-    windows_core::link!("clusapi.dll" "system" fn OpenClusterNodeById(hcluster : HCLUSTER, nodeid : u32) -> HNODE);
+pub unsafe fn OpenClusterNodeById(hcluster: HCLUSTER, nodeid: super::DWORD) -> HNODE {
+    windows_core::link!("clusapi.dll" "system" fn OpenClusterNodeById(hcluster : HCLUSTER, nodeid : super::DWORD) -> HNODE);
     unsafe { OpenClusterNodeById(hcluster, nodeid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OpenClusterNodeEx<P1>(hcluster: HCLUSTER, lpsznodename: P1, dwdesiredaccess: u32, lpdwgrantedaccess: Option<*mut u32>) -> HNODE
+pub unsafe fn OpenClusterNodeEx<P1>(hcluster: HCLUSTER, lpsznodename: P1, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: Option<*mut super::DWORD>) -> HNODE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OpenClusterNodeEx(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HNODE);
+    windows_core::link!("clusapi.dll" "system" fn OpenClusterNodeEx(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, dwdesiredaccess : super::DWORD, lpdwgrantedaccess : *mut super::DWORD) -> HNODE);
     unsafe { OpenClusterNodeEx(hcluster, lpsznodename.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1560,342 +1671,386 @@ where
     windows_core::link!("clusapi.dll" "system" fn OpenClusterResource(hcluster : HCLUSTER, lpszresourcename : windows_core::PCWSTR) -> HRESOURCE);
     unsafe { OpenClusterResource(hcluster, lpszresourcename.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn OpenClusterResourceEx<P1>(hcluster: HCLUSTER, lpszresourcename: P1, dwdesiredaccess: u32, lpdwgrantedaccess: Option<*mut u32>) -> HRESOURCE
+pub unsafe fn OpenClusterResourceEx<P1>(hcluster: HCLUSTER, lpszresourcename: P1, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: Option<*mut super::DWORD>) -> HRESOURCE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn OpenClusterResourceEx(hcluster : HCLUSTER, lpszresourcename : windows_core::PCWSTR, dwdesiredaccess : u32, lpdwgrantedaccess : *mut u32) -> HRESOURCE);
+    windows_core::link!("clusapi.dll" "system" fn OpenClusterResourceEx(hcluster : HCLUSTER, lpszresourcename : windows_core::PCWSTR, dwdesiredaccess : super::DWORD, lpdwgrantedaccess : *mut super::DWORD) -> HRESOURCE);
     unsafe { OpenClusterResourceEx(hcluster, lpszresourcename.param().abi(), dwdesiredaccess, lpdwgrantedaccess.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PauseClusterNode(hnode: HNODE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn PauseClusterNode(hnode : HNODE) -> u32);
+pub unsafe fn PauseClusterNode(hnode: HNODE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn PauseClusterNode(hnode : HNODE) -> super::DWORD);
     unsafe { PauseClusterNode(hnode) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PauseClusterNodeEx(hnode: HNODE, bdrainnode: bool, dwpauseflags: u32, hnodedraintarget: Option<HNODE>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn PauseClusterNodeEx(hnode : HNODE, bdrainnode : windows_core::BOOL, dwpauseflags : u32, hnodedraintarget : HNODE) -> u32);
+pub unsafe fn PauseClusterNodeEx(hnode: HNODE, bdrainnode: bool, dwpauseflags: super::DWORD, hnodedraintarget: Option<HNODE>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn PauseClusterNodeEx(hnode : HNODE, bdrainnode : windows_core::BOOL, dwpauseflags : super::DWORD, hnodedraintarget : HNODE) -> super::DWORD);
     unsafe { PauseClusterNodeEx(hnode, bdrainnode.into(), dwpauseflags, hnodedraintarget.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PauseClusterNodeEx2<P4>(hnode: HNODE, bdrainnode: bool, dwpauseflags: u32, hnodedraintarget: Option<HNODE>, lpszreason: P4) -> u32
+pub unsafe fn PauseClusterNodeEx2<P4>(hnode: HNODE, bdrainnode: bool, dwpauseflags: super::DWORD, hnodedraintarget: Option<HNODE>, lpszreason: P4) -> super::DWORD
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn PauseClusterNodeEx2(hnode : HNODE, bdrainnode : windows_core::BOOL, dwpauseflags : u32, hnodedraintarget : HNODE, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn PauseClusterNodeEx2(hnode : HNODE, bdrainnode : windows_core::BOOL, dwpauseflags : super::DWORD, hnodedraintarget : HNODE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { PauseClusterNodeEx2(hnode, bdrainnode.into(), dwpauseflags, hnodedraintarget.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegisterClusterNotify(hchange: HCHANGE, dwfiltertype: u32, hobject: super::HANDLE, dwnotifykey: usize) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RegisterClusterNotify(hchange : HCHANGE, dwfiltertype : u32, hobject : super::HANDLE, dwnotifykey : usize) -> u32);
+pub unsafe fn RegisterClusterNotify(hchange: HCHANGE, dwfiltertype: super::DWORD, hobject: super::HANDLE, dwnotifykey: super::DWORD_PTR) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RegisterClusterNotify(hchange : HCHANGE, dwfiltertype : super::DWORD, hobject : super::HANDLE, dwnotifykey : super::DWORD_PTR) -> super::DWORD);
     unsafe { RegisterClusterNotify(hchange, dwfiltertype, hobject, dwnotifykey) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegisterClusterNotifyV2(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::HANDLE, dwnotifykey: usize) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RegisterClusterNotifyV2(hchange : HCHANGE, filter : NOTIFY_FILTER_AND_TYPE, hobject : super::HANDLE, dwnotifykey : usize) -> u32);
+pub unsafe fn RegisterClusterNotifyV2(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::HANDLE, dwnotifykey: super::DWORD_PTR) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RegisterClusterNotifyV2(hchange : HCHANGE, filter : NOTIFY_FILTER_AND_TYPE, hobject : super::HANDLE, dwnotifykey : super::DWORD_PTR) -> super::DWORD);
     unsafe { RegisterClusterNotifyV2(hchange, filter, hobject, dwnotifykey) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RegisterClusterResourceTypeNotifyV2<P3>(hchange: HCHANGE, hcluster: HCLUSTER, flags: i64, restypename: P3, dwnotifykey: usize) -> u32
+pub unsafe fn RegisterClusterResourceTypeNotifyV2<P3>(hchange: HCHANGE, hcluster: HCLUSTER, flags: super::LONGLONG, restypename: P3, dwnotifykey: super::DWORD_PTR) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RegisterClusterResourceTypeNotifyV2(hchange : HCHANGE, hcluster : HCLUSTER, flags : i64, restypename : windows_core::PCWSTR, dwnotifykey : usize) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RegisterClusterResourceTypeNotifyV2(hchange : HCHANGE, hcluster : HCLUSTER, flags : super::LONGLONG, restypename : windows_core::PCWSTR, dwnotifykey : super::DWORD_PTR) -> super::DWORD);
     unsafe { RegisterClusterResourceTypeNotifyV2(hchange, hcluster, flags, restypename.param().abi(), dwnotifykey) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterGroupDependency(hgroup: HGROUP, hdependson: HGROUP) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupDependency(hgroup : HGROUP, hdependson : HGROUP) -> u32);
+pub unsafe fn RemoveClusterGroupDependency(hgroup: HGROUP, hdependson: HGROUP) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupDependency(hgroup : HGROUP, hdependson : HGROUP) -> super::DWORD);
     unsafe { RemoveClusterGroupDependency(hgroup, hdependson) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterGroupDependencyEx<P2>(hgroup: HGROUP, hdependson: HGROUP, lpszreason: P2) -> u32
+pub unsafe fn RemoveClusterGroupDependencyEx<P2>(hgroup: HGROUP, hdependson: HGROUP, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupDependencyEx(hgroup : HGROUP, hdependson : HGROUP, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupDependencyEx(hgroup : HGROUP, hdependson : HGROUP, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RemoveClusterGroupDependencyEx(hgroup, hdependson, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterGroupSetDependency(hgroupset: HGROUPSET, hdependson: HGROUPSET) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupSetDependency(hgroupset : HGROUPSET, hdependson : HGROUPSET) -> u32);
+pub unsafe fn RemoveClusterGroupSetDependency(hgroupset: HGROUPSET, hdependson: HGROUPSET) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupSetDependency(hgroupset : HGROUPSET, hdependson : HGROUPSET) -> super::DWORD);
     unsafe { RemoveClusterGroupSetDependency(hgroupset, hdependson) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterGroupSetDependencyEx<P2>(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: P2) -> u32
+pub unsafe fn RemoveClusterGroupSetDependencyEx<P2>(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupSetDependencyEx(hgroupset : HGROUPSET, hdependson : HGROUPSET, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupSetDependencyEx(hgroupset : HGROUPSET, hdependson : HGROUPSET, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RemoveClusterGroupSetDependencyEx(hgroupset, hdependson, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterGroupToGroupSetDependency(hgroup: HGROUP, hdependson: HGROUPSET) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupToGroupSetDependency(hgroup : HGROUP, hdependson : HGROUPSET) -> u32);
+pub unsafe fn RemoveClusterGroupToGroupSetDependency(hgroup: HGROUP, hdependson: HGROUPSET) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupToGroupSetDependency(hgroup : HGROUP, hdependson : HGROUPSET) -> super::DWORD);
     unsafe { RemoveClusterGroupToGroupSetDependency(hgroup, hdependson) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterGroupToGroupSetDependencyEx<P2>(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: P2) -> u32
+pub unsafe fn RemoveClusterGroupToGroupSetDependencyEx<P2>(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupToGroupSetDependencyEx(hgroup : HGROUP, hdependson : HGROUPSET, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterGroupToGroupSetDependencyEx(hgroup : HGROUP, hdependson : HGROUPSET, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RemoveClusterGroupToGroupSetDependencyEx(hgroup, hdependson, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterNameAccount(hcluster: HCLUSTER, bdeletecomputerobjects: bool) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterNameAccount(hcluster : HCLUSTER, bdeletecomputerobjects : windows_core::BOOL) -> u32);
+pub unsafe fn RemoveClusterNameAccount(hcluster: HCLUSTER, bdeletecomputerobjects: bool) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterNameAccount(hcluster : HCLUSTER, bdeletecomputerobjects : windows_core::BOOL) -> super::DWORD);
     unsafe { RemoveClusterNameAccount(hcluster, bdeletecomputerobjects.into()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceDependency(hresource : HRESOURCE, hdependson : HRESOURCE) -> u32);
+pub unsafe fn RemoveClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceDependency(hresource : HRESOURCE, hdependson : HRESOURCE) -> super::DWORD);
     unsafe { RemoveClusterResourceDependency(hresource, hdependson) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterResourceDependencyEx<P2>(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: P2) -> u32
+pub unsafe fn RemoveClusterResourceDependencyEx<P2>(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceDependencyEx(hresource : HRESOURCE, hdependson : HRESOURCE, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceDependencyEx(hresource : HRESOURCE, hdependson : HRESOURCE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RemoveClusterResourceDependencyEx(hresource, hdependson, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterResourceNode(hresource: HRESOURCE, hnode: HNODE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceNode(hresource : HRESOURCE, hnode : HNODE) -> u32);
+pub unsafe fn RemoveClusterResourceNode(hresource: HRESOURCE, hnode: HNODE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceNode(hresource : HRESOURCE, hnode : HNODE) -> super::DWORD);
     unsafe { RemoveClusterResourceNode(hresource, hnode) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterResourceNodeEx<P2>(hresource: HRESOURCE, hnode: HNODE, lpszreason: P2) -> u32
+pub unsafe fn RemoveClusterResourceNodeEx<P2>(hresource: HRESOURCE, hnode: HNODE, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceNodeEx(hresource : HRESOURCE, hnode : HNODE, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterResourceNodeEx(hresource : HRESOURCE, hnode : HNODE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RemoveClusterResourceNodeEx(hresource, hnode, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveClusterStorageNode<P1>(hcluster: HCLUSTER, lpszclusterstorageenclosurename: P1, dwtimeout: u32, dwflags: u32) -> u32
+pub unsafe fn RemoveClusterStorageNode<P1>(hcluster: HCLUSTER, lpszclusterstorageenclosurename: P1, dwtimeout: super::DWORD, dwflags: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveClusterStorageNode(hcluster : HCLUSTER, lpszclusterstorageenclosurename : windows_core::PCWSTR, dwtimeout : u32, dwflags : u32) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RemoveClusterStorageNode(hcluster : HCLUSTER, lpszclusterstorageenclosurename : windows_core::PCWSTR, dwtimeout : super::DWORD, dwflags : super::DWORD) -> super::DWORD);
     unsafe { RemoveClusterStorageNode(hcluster, lpszclusterstorageenclosurename.param().abi(), dwtimeout, dwflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveCrossClusterGroupSetDependency<P1, P2>(hdependentgroupset: HGROUPSET, lpremoteclustername: P1, lpremotegroupsetname: P2) -> u32
+pub unsafe fn RemoveCrossClusterGroupSetDependency<P1, P2>(hdependentgroupset: HGROUPSET, lpremoteclustername: P1, lpremotegroupsetname: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveCrossClusterGroupSetDependency(hdependentgroupset : HGROUPSET, lpremoteclustername : windows_core::PCWSTR, lpremotegroupsetname : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RemoveCrossClusterGroupSetDependency(hdependentgroupset : HGROUPSET, lpremoteclustername : windows_core::PCWSTR, lpremotegroupsetname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RemoveCrossClusterGroupSetDependency(hdependentgroupset, lpremoteclustername.param().abi(), lpremotegroupsetname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RemoveResourceFromClusterSharedVolumes(hresource: HRESOURCE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RemoveResourceFromClusterSharedVolumes(hresource : HRESOURCE) -> u32);
+pub unsafe fn RemoveResourceFromClusterSharedVolumes(hresource: HRESOURCE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RemoveResourceFromClusterSharedVolumes(hresource : HRESOURCE) -> super::DWORD);
     unsafe { RemoveResourceFromClusterSharedVolumes(hresource) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RepairClusterNameAccount(hcluster: HCLUSTER, pconfig: PREPAIR_CLUSTER_NAME_ACCOUNT_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RepairClusterNameAccount(hcluster : HCLUSTER, pconfig : PREPAIR_CLUSTER_NAME_ACCOUNT_CONFIG, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void) -> u32);
+pub unsafe fn RepairClusterNameAccount(hcluster: HCLUSTER, pconfig: PREPAIR_CLUSTER_NAME_ACCOUNT_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<super::PVOID>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RepairClusterNameAccount(hcluster : HCLUSTER, pconfig : PREPAIR_CLUSTER_NAME_ACCOUNT_CONFIG, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : super::PVOID) -> super::DWORD);
     unsafe { RepairClusterNameAccount(hcluster, pconfig, pfnprogresscallback, pvcallbackarg.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RestartClusterResource(hresource: HRESOURCE, dwflags: u32) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn RestartClusterResource(hresource : HRESOURCE, dwflags : u32) -> u32);
+pub unsafe fn RestartClusterResource(hresource: HRESOURCE, dwflags: super::DWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn RestartClusterResource(hresource : HRESOURCE, dwflags : super::DWORD) -> super::DWORD);
     unsafe { RestartClusterResource(hresource, dwflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RestartClusterResourceEx<P2>(hresource: HRESOURCE, dwflags: u32, lpszreason: P2) -> u32
+pub unsafe fn RestartClusterResourceEx<P2>(hresource: HRESOURCE, dwflags: super::DWORD, lpszreason: P2) -> super::DWORD
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RestartClusterResourceEx(hresource : HRESOURCE, dwflags : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RestartClusterResourceEx(hresource : HRESOURCE, dwflags : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RestartClusterResourceEx(hresource, dwflags, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RestoreClusterDatabase<P0, P2>(lpszpathname: P0, bforce: bool, lpszquorumdriveletter: P2) -> u32
+pub unsafe fn RestoreClusterDatabase<P0, P2>(lpszpathname: P0, bforce: bool, lpszquorumdriveletter: P2) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn RestoreClusterDatabase(lpszpathname : windows_core::PCWSTR, bforce : windows_core::BOOL, lpszquorumdriveletter : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn RestoreClusterDatabase(lpszpathname : windows_core::PCWSTR, bforce : windows_core::BOOL, lpszquorumdriveletter : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RestoreClusterDatabase(lpszpathname.param().abi(), bforce.into(), lpszquorumdriveletter.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ResumeClusterNode(hnode: HNODE) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ResumeClusterNode(hnode : HNODE) -> u32);
+pub unsafe fn ResumeClusterNode(hnode: HNODE) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ResumeClusterNode(hnode : HNODE) -> super::DWORD);
     unsafe { ResumeClusterNode(hnode) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ResumeClusterNodeEx(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ResumeClusterNodeEx(hnode : HNODE, eresumefailbacktype : CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved : u32) -> u32);
+pub unsafe fn ResumeClusterNodeEx(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: super::DWORD) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn ResumeClusterNodeEx(hnode : HNODE, eresumefailbacktype : CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved : super::DWORD) -> super::DWORD);
     unsafe { ResumeClusterNodeEx(hnode, eresumefailbacktype, dwresumeflagsreserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ResumeClusterNodeEx2<P3>(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32, lpszreason: P3) -> u32
+pub unsafe fn ResumeClusterNodeEx2<P3>(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: super::DWORD, lpszreason: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn ResumeClusterNodeEx2(hnode : HNODE, eresumefailbacktype : CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn ResumeClusterNodeEx2(hnode : HNODE, eresumefailbacktype : CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { ResumeClusterNodeEx2(hnode, eresumefailbacktype, dwresumeflagsreserved, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupName<P1>(hgroup: HGROUP, lpszgroupname: P1) -> u32
+pub unsafe fn SetClusterGroupName<P1>(hgroup: HGROUP, lpszgroupname: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupName(hgroup : HGROUP, lpszgroupname : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupName(hgroup : HGROUP, lpszgroupname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterGroupName(hgroup, lpszgroupname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupNameEx<P1, P2>(hgroup: HGROUP, lpszgroupname: P1, lpszreason: P2) -> u32
+pub unsafe fn SetClusterGroupNameEx<P1, P2>(hgroup: HGROUP, lpszgroupname: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNameEx(hgroup : HGROUP, lpszgroupname : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNameEx(hgroup : HGROUP, lpszgroupname : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterGroupNameEx(hgroup, lpszgroupname.param().abi(), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupNodeList(hgroup: HGROUP, nodelist: Option<&[HNODE]>) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeList(hgroup : HGROUP, nodecount : u32, nodelist : *const HNODE) -> u32);
+pub unsafe fn SetClusterGroupNodeList(hgroup: HGROUP, nodelist: Option<&[HNODE]>) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeList(hgroup : HGROUP, nodecount : super::DWORD, nodelist : *const HNODE) -> super::DWORD);
     unsafe { SetClusterGroupNodeList(hgroup, nodelist.map_or(0, |slice| slice.len().try_into().unwrap()), nodelist.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupNodeListEx<P3>(hgroup: HGROUP, nodecount: u32, nodelist: *mut HNODE, lpszreason: P3) -> u32
+pub unsafe fn SetClusterGroupNodeListEx<P3>(hgroup: HGROUP, nodelist: &[HNODE], lpszreason: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeListEx(hgroup : HGROUP, nodecount : u32, nodelist : *mut HNODE, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { SetClusterGroupNodeListEx(hgroup, nodecount, nodelist as _, lpszreason.param().abi()) }
+    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeListEx(hgroup : HGROUP, nodecount : super::DWORD, nodelist : *const HNODE, lpszreason : windows_core::PCWSTR) -> super::DWORD);
+    unsafe { SetClusterGroupNodeListEx(hgroup, nodelist.len().try_into().unwrap(), nodelist.as_ptr(), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupSetDependencyExpression<P1>(hgroupset: HGROUPSET, lpszdependencyexprssion: P1) -> u32
+pub unsafe fn SetClusterGroupSetDependencyExpression<P1>(hgroupset: HGROUPSET, lpszdependencyexprssion: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupSetDependencyExpression(hgroupset : HGROUPSET, lpszdependencyexprssion : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupSetDependencyExpression(hgroupset : HGROUPSET, lpszdependencyexprssion : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterGroupSetDependencyExpression(hgroupset, lpszdependencyexprssion.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterGroupSetDependencyExpressionEx<P1, P2>(hgroupset: HGROUPSET, lpszdependencyexpression: P1, lpszreason: P2) -> u32
+pub unsafe fn SetClusterGroupSetDependencyExpressionEx<P1, P2>(hgroupset: HGROUPSET, lpszdependencyexpression: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupSetDependencyExpressionEx(hgroupset : HGROUPSET, lpszdependencyexpression : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterGroupSetDependencyExpressionEx(hgroupset : HGROUPSET, lpszdependencyexpression : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterGroupSetDependencyExpressionEx(hgroupset, lpszdependencyexpression.param().abi(), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterName<P1>(hcluster: HCLUSTER, lpsznewclustername: P1) -> u32
+pub unsafe fn SetClusterName<P1>(hcluster: HCLUSTER, lpsznewclustername: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterName(hcluster : HCLUSTER, lpsznewclustername : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterName(hcluster : HCLUSTER, lpsznewclustername : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterName(hcluster, lpsznewclustername.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterNameEx<P1, P2>(hcluster: HCLUSTER, lpsznewclustername: P1, lpszreason: P2) -> u32
+pub unsafe fn SetClusterNameEx<P1, P2>(hcluster: HCLUSTER, lpsznewclustername: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterNameEx(hcluster : HCLUSTER, lpsznewclustername : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterNameEx(hcluster : HCLUSTER, lpsznewclustername : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterNameEx(hcluster, lpsznewclustername.param().abi(), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterNetworkName<P1>(hnetwork: HNETWORK, lpszname: P1) -> u32
+pub unsafe fn SetClusterNetworkName<P1>(hnetwork: HNETWORK, lpszname: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkName(hnetwork : HNETWORK, lpszname : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkName(hnetwork : HNETWORK, lpszname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterNetworkName(hnetwork, lpszname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterNetworkNameEx<P1, P2>(hnetwork: HNETWORK, lpszname: P1, lpszreason: P2) -> u32
+pub unsafe fn SetClusterNetworkNameEx<P1, P2>(hnetwork: HNETWORK, lpszname: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkNameEx(hnetwork : HNETWORK, lpszname : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkNameEx(hnetwork : HNETWORK, lpszname : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterNetworkNameEx(hnetwork, lpszname.param().abi(), lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: HCLUSTER, networklist: &[HNETWORK]) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkPriorityOrder(hcluster : HCLUSTER, networkcount : u32, networklist : *const HNETWORK) -> u32);
+pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: HCLUSTER, networklist: &[HNETWORK]) -> super::DWORD {
+    windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkPriorityOrder(hcluster : HCLUSTER, networkcount : super::DWORD, networklist : *const HNETWORK) -> super::DWORD);
     unsafe { SetClusterNetworkPriorityOrder(hcluster, networklist.len().try_into().unwrap(), networklist.as_ptr()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterQuorumResource<P1>(hresource: HRESOURCE, lpszdevicename: P1, dwmaxquologsize: u32) -> u32
+pub unsafe fn SetClusterQuorumResource<P1>(hresource: HRESOURCE, lpszdevicename: P1, dwmaxquologsize: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterQuorumResource(hresource : HRESOURCE, lpszdevicename : windows_core::PCWSTR, dwmaxquologsize : u32) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterQuorumResource(hresource : HRESOURCE, lpszdevicename : windows_core::PCWSTR, dwmaxquologsize : super::DWORD) -> super::DWORD);
     unsafe { SetClusterQuorumResource(hresource, lpszdevicename.param().abi(), dwmaxquologsize) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterQuorumResourceEx<P1, P3>(hresource: HRESOURCE, lpszdevicename: P1, dwmaxquorumlogsize: u32, lpszreason: P3) -> u32
+pub unsafe fn SetClusterQuorumResourceEx<P1, P3>(hresource: HRESOURCE, lpszdevicename: P1, dwmaxquorumlogsize: super::DWORD, lpszreason: P3) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterQuorumResourceEx(hresource : HRESOURCE, lpszdevicename : windows_core::PCWSTR, dwmaxquorumlogsize : u32, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterQuorumResourceEx(hresource : HRESOURCE, lpszdevicename : windows_core::PCWSTR, dwmaxquorumlogsize : super::DWORD, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterQuorumResourceEx(hresource, lpszdevicename.param().abi(), dwmaxquorumlogsize, lpszreason.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterResourceDependencyExpression<P1>(hresource: HRESOURCE, lpszdependencyexpression: P1) -> u32
+pub unsafe fn SetClusterResourceDependencyExpression<P1>(hresource: HRESOURCE, lpszdependencyexpression: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterResourceDependencyExpression(hresource : HRESOURCE, lpszdependencyexpression : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterResourceDependencyExpression(hresource : HRESOURCE, lpszdependencyexpression : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterResourceDependencyExpression(hresource, lpszdependencyexpression.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterResourceName<P1>(hresource: HRESOURCE, lpszresourcename: P1) -> u32
+pub unsafe fn SetClusterResourceName<P1>(hresource: HRESOURCE, lpszresourcename: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterResourceName(hresource : HRESOURCE, lpszresourcename : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterResourceName(hresource : HRESOURCE, lpszresourcename : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterResourceName(hresource, lpszresourcename.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetClusterResourceNameEx<P1, P2>(hresource: HRESOURCE, lpszresourcename: P1, lpszreason: P2) -> u32
+pub unsafe fn SetClusterResourceNameEx<P1, P2>(hresource: HRESOURCE, lpszresourcename: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterResourceNameEx(hresource : HRESOURCE, lpszresourcename : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterResourceNameEx(hresource : HRESOURCE, lpszresourcename : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetClusterResourceNameEx(hresource, lpszresourcename.param().abi(), lpszreason.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetClusterServiceAccountPassword<P0, P1>(lpszclustername: P0, lpsznewpassword: P1, dwflags: u32, lpreturnstatusbuffer: Option<PCLUSTER_SET_PASSWORD_STATUS>, lpcbreturnstatusbuffersize: super::LPDWORD) -> u32
+pub unsafe fn SetClusterServiceAccountPassword<P0, P1>(lpszclustername: P0, lpsznewpassword: P1, dwflags: super::DWORD, lpreturnstatusbuffer: Option<PCLUSTER_SET_PASSWORD_STATUS>, lpcbreturnstatusbuffersize: super::LPDWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetClusterServiceAccountPassword(lpszclustername : windows_core::PCWSTR, lpsznewpassword : windows_core::PCWSTR, dwflags : u32, lpreturnstatusbuffer : PCLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize : super::LPDWORD) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetClusterServiceAccountPassword(lpszclustername : windows_core::PCWSTR, lpsznewpassword : windows_core::PCWSTR, dwflags : super::DWORD, lpreturnstatusbuffer : PCLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize : super::LPDWORD) -> super::DWORD);
     unsafe { SetClusterServiceAccountPassword(lpszclustername.param().abi(), lpsznewpassword.param().abi(), dwflags, lpreturnstatusbuffer.unwrap_or(core::mem::zeroed()) as _, lpcbreturnstatusbuffersize as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetGroupDependencyExpression<P1>(hgroup: HGROUP, lpszdependencyexpression: P1) -> u32
+pub unsafe fn SetGroupDependencyExpression<P1>(hgroup: HGROUP, lpszdependencyexpression: P1) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetGroupDependencyExpression(hgroup : HGROUP, lpszdependencyexpression : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetGroupDependencyExpression(hgroup : HGROUP, lpszdependencyexpression : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetGroupDependencyExpression(hgroup, lpszdependencyexpression.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetGroupDependencyExpressionEx<P1, P2>(hgroup: HGROUP, lpszdependencyexpression: P1, lpszreason: P2) -> u32
+pub unsafe fn SetGroupDependencyExpressionEx<P1, P2>(hgroup: HGROUP, lpszdependencyexpression: P1, lpszreason: P2) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clusapi.dll" "system" fn SetGroupDependencyExpressionEx(hgroup : HGROUP, lpszdependencyexpression : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
+    windows_core::link!("clusapi.dll" "system" fn SetGroupDependencyExpressionEx(hgroup : HGROUP, lpszdependencyexpression : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> super::DWORD);
     unsafe { SetGroupDependencyExpressionEx(hgroup, lpszdependencyexpression.param().abi(), lpszreason.param().abi()) }
 }
 pub const BitLockerDecrypted: i32 = 4;
@@ -1907,7 +2062,7 @@ pub const BitLockerStopped: i32 = 128;
 pub const BitlockerEncrypted: i32 = 8;
 pub const BitlockerEncrypting: i32 = 32;
 pub const CA_UPGRADE_VERSION: i32 = 1;
-pub type CGAFT = i32;
+pub type CGAFT = CLUSTER_GROUP_AUTOFAILBACK_TYPE;
 pub const CLCTL_ADD_CRYPTO_CHECKPOINT: CLCTL_CODES = 4194478;
 pub const CLCTL_ADD_CRYPTO_CHECKPOINT_EX: CLCTL_CODES = 4195030;
 pub const CLCTL_ADD_DEPENDENCY: CLCTL_CODES = 5242898;
@@ -2141,7 +2296,7 @@ pub const CLUSAPI_READ_ACCESS: i32 = 1;
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct CLUSAPI_REASON_HANDLER {
-    pub lpParameter: *mut core::ffi::c_void,
+    pub lpParameter: super::LPVOID,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
 }
 pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: i32 = 4;
@@ -2248,12 +2403,12 @@ pub const CLUSCTL_GROUP_GET_FLAGS: CLUSCTL_GROUP_CODES = 50331657;
 pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = 50331705;
 pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = 50332377;
 #[repr(C)]
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    pub GetTickCount64: u64,
+    pub GetTickCount64: super::ULONGLONG,
     pub GetSystemTime: super::SYSTEMTIME,
-    pub NodeId: u32,
+    pub NodeId: super::DWORD,
 }
 pub const CLUSCTL_GROUP_GET_NAME: CLUSCTL_GROUP_CODES = 50331689;
 pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = 50331777;
@@ -2423,10 +2578,11 @@ pub const CLUSCTL_RESOURCE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 2097
 pub const CLUSCTL_RESOURCE_SET_SHARED_VOLUME_BACKUP_MODE: CLUSCTL_RESOURCE_CODES = 20972186;
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON: CLUSCTL_RESOURCE_CODES = 22020174;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    pub dwSize: u32,
-    pub dwVersion: u32,
+    pub dwSize: super::DWORD,
+    pub dwVersion: super::DWORD,
     pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
 }
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: i32 = 1;
@@ -2499,9 +2655,10 @@ pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: i32 = 2;
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub guidPoolFilter: windows_core::GUID,
 }
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLUSCTL_RESOURCE_TYPE_CODES = 33562593;
@@ -2543,77 +2700,31 @@ pub const CLUSGRP_STATUS_UNMONITORED: i32 = 256;
 pub const CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES: i32 = 4096;
 pub const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: i32 = 4;
 pub const CLUSGRP_STATUS_WAITING_TO_START: i32 = 16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_BINARY {
-    pub Base: CLUSPROP_VALUE,
-    pub rgb: [u8; 0],
-}
-impl Default for CLUSPROP_BINARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
-pub union CLUSPROP_BUFFER_HELPER {
-    pub pb: *mut u8,
-    pub pw: *mut u16,
-    pub pdw: *mut u32,
-    pub pl: *mut i32,
-    pub psz: windows_core::PWSTR,
-    pub pList: PCLUSPROP_LIST,
-    pub pSyntax: PCLUSPROP_SYNTAX,
-    pub pName: PCLUSPROP_PROPERTY_NAME,
-    pub pValue: PCLUSPROP_VALUE,
-    pub pBinaryValue: PCLUSPROP_BINARY,
-    pub pWordValue: PCLUSPROP_WORD,
-    pub pDwordValue: PCLUSPROP_DWORD,
-    pub pLongValue: PCLUSPROP_LONG,
-    pub pULargeIntegerValue: PCLUSPROP_ULARGE_INTEGER,
-    pub pLargeIntegerValue: PCLUSPROP_LARGE_INTEGER,
-    pub pStringValue: PCLUSPROP_SZ,
-    pub pMultiSzValue: PCLUSPROP_MULTI_SZ,
-    pub pSecurityDescriptor: PCLUSPROP_SECURITY_DESCRIPTOR,
-    pub pResourceClassValue: PCLUSPROP_RESOURCE_CLASS,
-    pub pResourceClassInfoValue: PCLUSPROP_RESOURCE_CLASS_INFO,
-    pub pDiskSignatureValue: PCLUSPROP_DISK_SIGNATURE,
-    pub pScsiAddressValue: PCLUSPROP_SCSI_ADDRESS,
-    pub pDiskNumberValue: PCLUSPROP_DISK_NUMBER,
-    pub pPartitionInfoValue: PCLUSPROP_PARTITION_INFO,
-    pub pRequiredDependencyValue: PCLUSPROP_REQUIRED_DEPENDENCY,
-    pub pPartitionInfoValueEx: PCLUSPROP_PARTITION_INFO_EX,
-    pub pPartitionInfoValueEx2: PCLUSPROP_PARTITION_INFO_EX2,
-    pub pFileTimeValue: PCLUSPROP_FILETIME,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for CLUSPROP_BUFFER_HELPER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
 pub type CLUSPROP_DISK_NUMBER = CLUSPROP_DWORD;
+#[cfg(feature = "shared")]
 pub type CLUSPROP_DISK_SIGNATURE = CLUSPROP_DWORD;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_DWORD {
-    pub Base: CLUSPROP_VALUE,
-    pub dw: u32,
+    pub base: CLUSPROP_VALUE,
+    pub dw: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUSPROP_DWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_FILETIME {
-    pub Base: CLUSPROP_VALUE,
+    pub base: CLUSPROP_VALUE,
     pub ft: super::FILETIME,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for CLUSPROP_FILETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2635,90 +2746,32 @@ pub const CLUSPROP_FORMAT_UNKNOWN: CLUSTER_PROPERTY_FORMAT = 0;
 pub const CLUSPROP_FORMAT_USER: CLUSTER_PROPERTY_FORMAT = 32768;
 pub const CLUSPROP_FORMAT_VALUE_LIST: CLUSTER_PROPERTY_FORMAT = 13;
 pub const CLUSPROP_FORMAT_WORD: CLUSTER_PROPERTY_FORMAT = 11;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_FTSET_INFO {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_FTSET_INFO,
-}
-impl Default for CLUSPROP_FTSET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type CLUSPROP_IPADDR_ENABLENETBIOS = i32;
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = 0;
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_ENABLED: CLUSPROP_IPADDR_ENABLENETBIOS = 1;
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC: CLUSPROP_IPADDR_ENABLENETBIOS = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_LARGE_INTEGER {
-    pub Base: CLUSPROP_VALUE,
+    pub base: CLUSPROP_VALUE,
     pub li: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSPROP_LARGE_INTEGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_LIST {
-    pub nPropertyCount: u32,
-    pub PropertyName: CLUSPROP_PROPERTY_NAME,
-}
-impl Default for CLUSPROP_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_LONG {
-    pub Base: CLUSPROP_VALUE,
-    pub l: i32,
+    pub base: CLUSPROP_VALUE,
+    pub l: super::LONG,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUSPROP_LONG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type CLUSPROP_MULTI_SZ = CLUSPROP_SZ;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_PARTITION_INFO {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_PARTITION_INFO,
-}
-impl Default for CLUSPROP_PARTITION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_PARTITION_INFO_EX {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_PARTITION_INFO_EX,
-}
-#[cfg(feature = "winnt")]
-impl Default for CLUSPROP_PARTITION_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_PARTITION_INFO_EX2 {
-    pub Base: CLUSPROP_PARTITION_INFO_EX,
-    pub Base2: CLUS_PARTITION_INFO_EX2,
-}
-#[cfg(feature = "winnt")]
-impl Default for CLUSPROP_PARTITION_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2732,96 +2785,38 @@ pub const CLUSPROP_PIFLAG_STICKY: CLUSPROP_PIFLAGS = 1;
 pub const CLUSPROP_PIFLAG_UNKNOWN: CLUSPROP_PIFLAGS = -2147483648;
 pub const CLUSPROP_PIFLAG_USABLE: CLUSPROP_PIFLAGS = 4;
 pub const CLUSPROP_PIFLAG_USABLE_FOR_CSV: CLUSPROP_PIFLAGS = 16;
-pub type CLUSPROP_PROPERTY_NAME = CLUSPROP_SZ;
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLUSPROP_REQUIRED_DEPENDENCY {
-    pub Value: CLUSPROP_VALUE,
-    pub ResClass: CLUSPROP_RESOURCE_CLASS,
-    pub ResTypeName: CLUSPROP_SZ,
-}
-impl Default for CLUSPROP_REQUIRED_DEPENDENCY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_RESOURCE_CLASS {
-    pub Base: CLUSPROP_VALUE,
+    pub base: CLUSPROP_VALUE,
     pub rc: CLUSTER_RESOURCE_CLASS,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUSPROP_RESOURCE_CLASS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_RESOURCE_CLASS_INFO {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_RESOURCE_CLASS_INFO,
-}
-#[cfg(feature = "winnt")]
-impl Default for CLUSPROP_RESOURCE_CLASS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_SCSI_ADDRESS {
-    pub Base: CLUSPROP_VALUE,
-    pub Base2: CLUS_SCSI_ADDRESS,
-}
-impl Default for CLUSPROP_SCSI_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_SECURITY_DESCRIPTOR {
-    pub Base: CLUSPROP_VALUE,
-    pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
-}
-#[cfg(feature = "winnt")]
-impl Default for CLUSPROP_SECURITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    pub sd: super::SECURITY_DESCRIPTOR_RELATIVE,
-    pub rgbSecurityDescriptor: [u8; 0],
-}
-#[cfg(feature = "winnt")]
-impl Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union CLUSPROP_SYNTAX {
-    pub dw: u32,
+    pub dw: super::DWORD,
     pub Anonymous: CLUSPROP_SYNTAX_0,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUSPROP_SYNTAX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSPROP_SYNTAX_0 {
-    pub wFormat: u16,
-    pub wType: u16,
+    pub wFormat: super::WORD,
+    pub wType: super::WORD,
 }
 pub const CLUSPROP_SYNTAX_DISK_GUID: CLUSTER_PROPERTY_SYNTAX = 720899;
 pub const CLUSPROP_SYNTAX_DISK_NUMBER: CLUSTER_PROPERTY_SYNTAX = 458754;
@@ -2850,17 +2845,6 @@ pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX2: CLUSTER_PROPERTY_SYNTAX = 917505;
 pub const CLUSPROP_SYNTAX_RESCLASS: CLUSTER_PROPERTY_SYNTAX = 131074;
 pub const CLUSPROP_SYNTAX_SCSI_ADDRESS: CLUSTER_PROPERTY_SYNTAX = 393218;
 pub const CLUSPROP_SYNTAX_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = 983041;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSPROP_SZ {
-    pub Base: CLUSPROP_VALUE,
-    pub sz: [u16; 0],
-}
-impl Default for CLUSPROP_SZ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CLUSPROP_TYPE_DISK_GUID: CLUSTER_PROPERTY_TYPE = 11;
 pub const CLUSPROP_TYPE_DISK_NUMBER: CLUSTER_PROPERTY_TYPE = 7;
 pub const CLUSPROP_TYPE_DISK_SERIALNUMBER: CLUSTER_PROPERTY_TYPE = 10;
@@ -2880,35 +2864,39 @@ pub const CLUSPROP_TYPE_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_TYPE = 15
 pub const CLUSPROP_TYPE_UNKNOWN: CLUSTER_PROPERTY_TYPE = -1;
 pub const CLUSPROP_TYPE_USER: CLUSTER_PROPERTY_TYPE = 32768;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_ULARGE_INTEGER {
-    pub Base: CLUSPROP_VALUE,
+    pub base: CLUSPROP_VALUE,
     pub li: super::ULARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSPROP_ULARGE_INTEGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_VALUE {
     pub Syntax: CLUSPROP_SYNTAX,
-    pub cbLength: u32,
+    pub cbLength: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUSPROP_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_WORD {
-    pub Base: CLUSPROP_VALUE,
-    pub w: u16,
+    pub base: CLUSPROP_VALUE,
+    pub w: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUSPROP_WORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3256,34 +3244,38 @@ pub const CLUSTERSET_OBJECT_TYPE_MEMBER: CLUSTERSET_OBJECT_TYPE = 1;
 pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = 0;
 pub const CLUSTERSET_OBJECT_TYPE_WORKLOAD: CLUSTERSET_OBJECT_TYPE = 2;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTERVERSIONINFO {
-    pub dwVersionInfoSize: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub BuildNumber: u16,
-    pub szVendorId: [u16; 64],
-    pub szCSDVersion: [u16; 64],
-    pub dwClusterHighestVersion: u32,
-    pub dwClusterLowestVersion: u32,
-    pub dwFlags: u32,
-    pub dwReserved: u32,
+    pub dwVersionInfoSize: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub BuildNumber: super::WORD,
+    pub szVendorId: [super::WCHAR; 64],
+    pub szCSDVersion: [super::WCHAR; 64],
+    pub dwClusterHighestVersion: super::DWORD,
+    pub dwClusterLowestVersion: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwReserved: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSTERVERSIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTERVERSIONINFO_NT4 {
-    pub dwVersionInfoSize: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub BuildNumber: u16,
-    pub szVendorId: [u16; 64],
-    pub szCSDVersion: [u16; 64],
+    pub dwVersionInfoSize: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub BuildNumber: super::WORD,
+    pub szVendorId: [super::WCHAR; 64],
+    pub szCSDVersion: [super::WCHAR; 64],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSTERVERSIONINFO_NT4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3291,22 +3283,24 @@ impl Default for CLUSTERVERSIONINFO_NT4 {
 }
 pub const CLUSTER_ADD_EVICT_DELAY: windows_core::PCWSTR = windows_core::w!("AddEvictDelay");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
-    pub dwVersion: u32,
-    pub dwUpdateDomains: u32,
-    pub dwFaultDomains: u32,
+    pub dwVersion: super::DWORD,
+    pub dwUpdateDomains: super::DWORD,
+    pub dwFaultDomains: super::DWORD,
     pub bReserveSpareNode: windows_core::BOOL,
 }
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
-    pub dwOptions: u32,
+    pub dwOptions: super::DWORD,
     pub wzName: windows_core::PCWSTR,
-    pub lpData: *const u8,
-    pub cbData: u32,
+    pub lpData: *const super::BYTE,
+    pub cbData: super::DWORD,
 }
 pub type CLUSTER_CHANGE = i32;
 pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = -1;
@@ -3454,9 +3448,10 @@ pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = -1;
 pub const CLUSTER_CONFIGURED: i32 = 2;
 pub type CLUSTER_CONTROL_OBJECT = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CREATE_GROUP_INFO {
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub groupType: CLUSGROUP_TYPE,
 }
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION: i32 = 1;
@@ -3473,13 +3468,14 @@ pub const CLUSTER_ENUM_CAPACITY_NODE: CLUSTER_ENUM = 268435456;
 pub const CLUSTER_ENUM_GROUP: CLUSTER_ENUM = 8;
 pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = -2147483648;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_ENUM_ITEM {
-    pub dwVersion: u32,
-    pub dwType: u32,
-    pub cbId: u32,
+    pub dwVersion: super::DWORD,
+    pub dwType: super::DWORD,
+    pub cbId: super::DWORD,
     pub lpszId: windows_core::PWSTR,
-    pub cbName: u32,
+    pub cbName: super::DWORD,
     pub lpszName: windows_core::PWSTR,
 }
 pub const CLUSTER_ENUM_ITEM_VERSION: i32 = 1;
@@ -3491,25 +3487,27 @@ pub const CLUSTER_ENUM_RESOURCE: CLUSTER_ENUM = 4;
 pub const CLUSTER_ENUM_RESTYPE: CLUSTER_ENUM = 2;
 pub const CLUSTER_ENUM_SHARED_VOLUME_GROUP: CLUSTER_ENUM = 536870912;
 pub const CLUSTER_ENUM_SHARED_VOLUME_RESOURCE: CLUSTER_ENUM = 1073741824;
+pub type CLUSTER_GROUP_AUTOFAILBACK_TYPE = i32;
 pub type CLUSTER_GROUP_ENUM = i32;
 pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = 3;
 pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = 1;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
-    pub dwVersion: u32,
-    pub cbId: u32,
+    pub dwVersion: super::DWORD,
+    pub cbId: super::DWORD,
     pub lpszId: windows_core::PWSTR,
-    pub cbName: u32,
+    pub cbName: super::DWORD,
     pub lpszName: windows_core::PWSTR,
     pub state: CLUSTER_GROUP_STATE,
-    pub cbOwnerNode: u32,
+    pub cbOwnerNode: super::DWORD,
     pub lpszOwnerNode: windows_core::PWSTR,
-    pub dwFlags: u32,
-    pub cbProperties: u32,
-    pub pProperties: *mut core::ffi::c_void,
-    pub cbRoProperties: u32,
-    pub pRoProperties: *mut core::ffi::c_void,
+    pub dwFlags: super::DWORD,
+    pub cbProperties: super::DWORD,
+    pub pProperties: super::PVOID,
+    pub cbRoProperties: super::DWORD,
+    pub pRoProperties: super::PVOID,
 }
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: i32 = 1;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: i32 = 1;
@@ -3521,18 +3519,21 @@ pub const CLUSTER_HANG_RECOVERY_ACTION_KEYNAME: windows_core::PCWSTR = windows_c
 pub const CLUSTER_HANG_TIMEOUT_KEYNAME: windows_core::PCWSTR = windows_core::w!("ClusSvcHangTimeout");
 pub const CLUSTER_INSTALLED: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_IP_ENTRY {
     pub lpszIpAddress: windows_core::PCWSTR,
-    pub dwPrefixLength: u32,
+    pub dwPrefixLength: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_MEMBERSHIP_INFO {
     pub HasQuorum: windows_core::BOOL,
-    pub UpnodesSize: u32,
-    pub Upnodes: [u8; 1],
+    pub UpnodesSize: super::DWORD,
+    pub Upnodes: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CLUSTER_MEMBERSHIP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3592,14 +3593,15 @@ pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = 0;
 pub type CLUSTER_QUORUM_TYPE = i32;
 pub type CLUSTER_QUORUM_VALUE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_READ_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
-    pub dwOptions: u32,
+    pub dwOptions: super::DWORD,
     pub wzSubkeyName: windows_core::PCWSTR,
     pub wzValueName: windows_core::PCWSTR,
-    pub lpData: *const u8,
-    pub cbData: u32,
+    pub lpData: *const super::BYTE,
+    pub cbData: super::DWORD,
 }
 pub type CLUSTER_REG_COMMAND = i32;
 pub const CLUSTER_REQUEST_REPLY_TIMEOUT: windows_core::PCWSTR = windows_core::w!("RequestReplyTimeout");
@@ -3611,26 +3613,28 @@ pub type CLUSTER_RESOURCE_ENUM = i32;
 pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = 7;
 pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = 1;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
-    pub dwVersion: u32,
-    pub cbId: u32,
+    pub dwVersion: super::DWORD,
+    pub cbId: super::DWORD,
     pub lpszId: windows_core::PWSTR,
-    pub cbName: u32,
+    pub cbName: super::DWORD,
     pub lpszName: windows_core::PWSTR,
-    pub cbOwnerGroupName: u32,
+    pub cbOwnerGroupName: super::DWORD,
     pub lpszOwnerGroupName: windows_core::PWSTR,
-    pub cbOwnerGroupId: u32,
+    pub cbOwnerGroupId: super::DWORD,
     pub lpszOwnerGroupId: windows_core::PWSTR,
-    pub cbProperties: u32,
-    pub pProperties: *mut core::ffi::c_void,
-    pub cbRoProperties: u32,
-    pub pRoProperties: *mut core::ffi::c_void,
+    pub cbProperties: super::DWORD,
+    pub pProperties: super::PVOID,
+    pub cbRoProperties: super::DWORD,
+    pub pRoProperties: super::PVOID,
 }
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: i32 = 1;
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: i32 = 1;
 pub const CLUSTER_RESOURCE_ENUM_NODES: CLUSTER_RESOURCE_ENUM = 4;
 pub const CLUSTER_RESOURCE_ENUM_PROVIDES: CLUSTER_RESOURCE_ENUM = 2;
+pub type CLUSTER_RESOURCE_RESTART_ACTION = i32;
 pub const CLUSTER_RESOURCE_SEPARATE_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = 1;
 pub type CLUSTER_RESOURCE_STATE = i32;
 pub type CLUSTER_RESOURCE_STATE_CHANGE_REASON = i32;
@@ -3656,53 +3660,35 @@ pub type CLUSTER_SETUP_PHASE_TYPE = i32;
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: i32 = 0;
 pub const CLUSTER_SET_ACCESS_TYPE_DENIED: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
-    pub NodeId: u32,
+    pub NodeId: super::DWORD,
     pub SetAttempted: super::BOOLEAN,
-    pub ReturnStatus: u32,
+    pub ReturnStatus: super::DWORD,
 }
 pub const CLUSTER_SHARED_VOLUMES_ROOT: windows_core::PCWSTR = windows_core::w!("SharedVolumesRoot");
 pub type CLUSTER_SHARED_VOLUME_BACKUP_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
-}
-impl Default for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
-}
-impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    pub NewVolumeName: [u16; 260],
-    pub NewVolumeGuid: [u16; 50],
+    pub NewVolumeName: [super::WCHAR; 260],
+    pub NewVolumeGuid: [super::WCHAR; 50],
 }
+#[cfg(feature = "winnt")]
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    pub NewVolumeName: [u16; 260],
+    pub NewVolumeName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3710,24 +3696,28 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
 }
 pub type CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
     pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
-    pub VolumeOffset: u64,
-    pub VolumeId: [u16; 260],
-    pub VolumeName: [u16; 260],
-    pub VolumeGuid: [u16; 50],
+    pub VolumeOffset: super::ULONGLONG,
+    pub VolumeId: [super::WCHAR; 260],
+    pub VolumeName: [super::WCHAR; 260],
+    pub VolumeGuid: [super::WCHAR; 50],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3736,27 +3726,31 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
 pub type CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = i32;
 pub type CLUSTER_SHARED_VOLUME_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
-    pub szVolumeName: [u16; 260],
-    pub szNodeName: [u16; 260],
+    pub szVolumeName: [super::WCHAR; 260],
+    pub szNodeName: [super::WCHAR; 260],
     pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
 }
+#[cfg(feature = "winnt")]
 impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    pub szVolumeName: [u16; 260],
-    pub szNodeName: [u16; 260],
+    pub szVolumeName: [super::WCHAR; 260],
+    pub szNodeName: [super::WCHAR; 260],
     pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
-    pub szVolumeFriendlyName: [u16; 260],
-    pub RedirectedIOReason: u64,
-    pub VolumeRedirectedIOReason: u64,
+    pub szVolumeFriendlyName: [super::WCHAR; 260],
+    pub RedirectedIOReason: super::ULONGLONG,
+    pub VolumeRedirectedIOReason: super::ULONGLONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3765,46 +3759,6 @@ impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
 pub const CLUSTER_SHARED_VOLUME_VSS_WRITER_OPERATION_TIMEOUT: windows_core::PCWSTR = windows_core::w!("SharedVolumeVssWriterOperationTimeout");
 pub type CLUSTER_STORAGENODE_STATE = i32;
 pub type CLUSTER_UPGRADE_PHASE = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLUSTER_VALIDATE_CSV_FILENAME {
-    pub szFileName: [u16; 0],
-}
-impl Default for CLUSTER_VALIDATE_CSV_FILENAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLUSTER_VALIDATE_DIRECTORY {
-    pub szPath: [u16; 0],
-}
-impl Default for CLUSTER_VALIDATE_DIRECTORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLUSTER_VALIDATE_NETNAME {
-    pub szNetworkName: [u16; 0],
-}
-impl Default for CLUSTER_VALIDATE_NETNAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLUSTER_VALIDATE_PATH {
-    pub szPath: [u16; 0],
-}
-impl Default for CLUSTER_VALIDATE_PATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CLUSTER_VERSION_FLAG_MIXED_MODE: i32 = 1;
 pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295;
 pub const CLUSTER_WITNESS_DATABASE_WRITE_TIMEOUT: windows_core::PCWSTR = windows_core::w!("WitnessDatabaseWriteTimeout");
@@ -3847,85 +3801,94 @@ pub const CLUS_CHAR_SUPPORTS_UNMONITORED_STATE: CLUS_CHARACTERISTICS = 65536;
 pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = 0;
 pub const CLUS_CHAR_VETO_DRAIN: CLUS_CHARACTERISTICS = 262144;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CHKDSK_INFO {
-    pub PartitionNumber: u32,
-    pub ChkdskState: u32,
-    pub FileIdCount: u32,
-    pub FileIdList: [u64; 1],
+    pub PartitionNumber: super::DWORD,
+    pub ChkdskState: super::DWORD,
+    pub FileIdCount: super::DWORD,
+    pub FileIdList: [super::ULONGLONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CLUS_CHKDSK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    pub FileServerName: [u16; 16],
+    pub FileServerName: [super::WCHAR; 16],
 }
+#[cfg(feature = "winnt")]
 impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    pub FileServerName: [u16; 260],
+    pub FileServerName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
     pub InMaintenance: windows_core::BOOL,
-    pub VolumeName: [u16; 260],
+    pub VolumeName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for CLUS_CSV_MAINTENANCE_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUS_CSV_VOLUME_INFO {
     pub VolumeOffset: super::ULARGE_INTEGER,
-    pub PartitionNumber: u32,
+    pub PartitionNumber: super::DWORD,
     pub FaultState: CLUSTER_CSV_VOLUME_FAULT_STATE,
     pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
-    pub szVolumeFriendlyName: [u16; 260],
-    pub szVolumeName: [u16; 50],
+    pub szVolumeFriendlyName: [super::WCHAR; 260],
+    pub szVolumeName: [super::WCHAR; 50],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_CSV_VOLUME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUS_CSV_VOLUME_NAME {
     pub VolumeOffset: super::LARGE_INTEGER,
-    pub szVolumeName: [u16; 260],
-    pub szRootPath: [u16; 263],
+    pub szVolumeName: [super::WCHAR; 260],
+    pub szRootPath: [super::WCHAR; 263],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_CSV_VOLUME_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_DISK_NUMBER_INFO {
-    pub DiskNumber: u32,
-    pub BytesPerSector: u32,
+    pub DiskNumber: super::DWORD,
+    pub BytesPerSector: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3934,31 +3897,35 @@ pub struct CLUS_DNN_LEADER_STATUS {
     pub IsFileServerPresent: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
-    pub NodeId: u32,
+    pub NodeId: super::DWORD,
     pub Status: CLUSTER_RESOURCE_STATE,
 }
 pub type CLUS_FLAGS = i32;
 pub const CLUS_FLAG_CORE: CLUS_FLAGS = 1;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_FORCE_QUORUM_INFO {
-    pub dwSize: u32,
-    pub dwNodeBitMask: u32,
-    pub dwMaxNumberofNodes: u32,
-    pub multiszNodeList: [u16; 1],
+    pub dwSize: super::DWORD,
+    pub dwNodeBitMask: super::DWORD,
+    pub dwMaxNumberofNodes: super::DWORD,
+    pub multiszNodeList: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_FORCE_QUORUM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_FTSET_INFO {
-    pub dwRootSignature: u32,
-    pub dwFtType: u32,
+    pub dwRootSignature: super::DWORD,
+    pub dwFtType: super::DWORD,
 }
 pub const CLUS_GLOBAL: i32 = 1;
 pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = 1;
@@ -3975,12 +3942,13 @@ pub struct CLUS_MAINTENANCE_MODE_INFO {
     pub InMaintenance: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX {
     pub InMaintenance: windows_core::BOOL,
     pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
     pub InternalState: CLUSTER_RESOURCE_STATE,
-    pub Signature: u32,
+    pub Signature: super::DWORD,
 }
 pub const CLUS_MODIFY: i32 = 1;
 pub const CLUS_NAME_RES_TYPE_CLUSTER_GROUPID: windows_core::PCWSTR = windows_core::w!("ClusterGroupId");
@@ -3997,28 +3965,70 @@ pub const CLUS_NAME_RES_TYPE_TARGET_RESID: windows_core::PCWSTR = windows_core::
 pub const CLUS_NAME_RES_TYPE_TARGET_VOLUMES: windows_core::PCWSTR = windows_core::w!("TargetVolumes");
 pub const CLUS_NAME_RES_TYPE_UNIT_LOG_SIZE_CHANGE: windows_core::PCWSTR = windows_core::w!("UnitOfLogSizeChangeInBytes");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_ENTRY {
-    pub NodeId: u32,
-    pub AddressSize: u32,
-    pub Address: [u8; 1],
+    pub NodeId: super::DWORD,
+    pub AddressSize: super::DWORD,
+    pub Address: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CLUS_NETNAME_IP_INFO_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    pub szName: [u16; 64],
-    pub NumEntries: u32,
+    pub szName: [super::WCHAR; 64],
+    pub NumEntries: super::DWORD,
     pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CLUS_NETNAME_PWD_INFO {
+    pub Flags: super::DWORD,
+    pub Password: [super::WCHAR; 16],
+    pub CreatingDC: [super::WCHAR; 258],
+    pub ObjectGuid: [super::WCHAR; 64],
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CLUS_NETNAME_PWD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CLUS_NETNAME_PWD_INFOEX {
+    pub Flags: super::DWORD,
+    pub Password: [super::WCHAR; 128],
+    pub CreatingDC: [super::WCHAR; 258],
+    pub ObjectGuid: [super::WCHAR; 64],
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CLUS_NETNAME_PWD_INFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLUS_NETNAME_VS_TOKEN_INFO {
+    pub ProcessID: super::DWORD,
+    pub DesiredAccess: super::DWORD,
+    pub InheritHandle: windows_core::BOOL,
 }
 pub const CLUS_NODE_MAJORITY_QUORUM: i32 = 0;
 pub const CLUS_NOT_GLOBAL: i32 = 0;
@@ -4035,63 +4045,69 @@ pub const CLUS_OBJECT_RESOURCE: CLUSTER_CONTROL_OBJECT = 1;
 pub const CLUS_OBJECT_RESOURCE_TYPE: CLUSTER_CONTROL_OBJECT = 2;
 pub const CLUS_OBJECT_USER: CLUSTER_CONTROL_OBJECT = 128;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO {
-    pub dwFlags: u32,
-    pub szDeviceName: [u16; 260],
-    pub szVolumeLabel: [u16; 260],
-    pub dwSerialNumber: u32,
-    pub rgdwMaximumComponentLength: u32,
-    pub dwFileSystemFlags: u32,
-    pub szFileSystem: [u16; 32],
+    pub dwFlags: super::DWORD,
+    pub szDeviceName: [super::WCHAR; 260],
+    pub szVolumeLabel: [super::WCHAR; 260],
+    pub dwSerialNumber: super::DWORD,
+    pub rgdwMaximumComponentLength: super::DWORD,
+    pub dwFileSystemFlags: super::DWORD,
+    pub szFileSystem: [super::WCHAR; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUS_PARTITION_INFO_EX {
-    pub dwFlags: u32,
-    pub szDeviceName: [u16; 260],
-    pub szVolumeLabel: [u16; 260],
-    pub dwSerialNumber: u32,
-    pub rgdwMaximumComponentLength: u32,
-    pub dwFileSystemFlags: u32,
-    pub szFileSystem: [u16; 32],
+    pub dwFlags: super::DWORD,
+    pub szDeviceName: [super::WCHAR; 260],
+    pub szVolumeLabel: [super::WCHAR; 260],
+    pub dwSerialNumber: super::DWORD,
+    pub rgdwMaximumComponentLength: super::DWORD,
+    pub dwFileSystemFlags: super::DWORD,
+    pub szFileSystem: [super::WCHAR; 32],
     pub TotalSizeInBytes: super::ULARGE_INTEGER,
     pub FreeSizeInBytes: super::ULARGE_INTEGER,
-    pub DeviceNumber: u32,
-    pub PartitionNumber: u32,
+    pub DeviceNumber: super::DWORD,
+    pub PartitionNumber: super::DWORD,
     pub VolumeGuid: windows_core::GUID,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_PARTITION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX2 {
     pub GptPartitionId: windows_core::GUID,
-    pub szPartitionName: [u16; 260],
-    pub EncryptionFlags: u32,
+    pub szPartitionName: [super::WCHAR; 260],
+    pub EncryptionFlags: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_PARTITION_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub resourceState: CLUSTER_RESOURCE_STATE,
-    pub szProviderId: [u16; 1],
+    pub szProviderId: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_PROVIDER_STATE_CHANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4102,51 +4118,51 @@ pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = 1;
 pub const CLUS_RESCLASS_UNKNOWN: CLUSTER_RESOURCE_CLASS = 0;
 pub const CLUS_RESCLASS_USER: CLUSTER_RESOURCE_CLASS = 32768;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUS_RESOURCE_CLASS_INFO {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_RESOURCE_CLASS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
     pub li: super::ULARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_RESOURCE_CLASS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
-    pub SubClass: u32,
+    pub SubClass: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_RESOURCE_CLASS_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
-    pub dw: u32,
+    pub dw: super::DWORD,
     pub rc: CLUSTER_RESOURCE_CLASS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4216,126 +4232,112 @@ pub const CLUS_RESTYPE_NAME_VSSTASK: windows_core::PCWSTR = windows_core::w!("Vo
 pub const CLUS_RESTYPE_NAME_WINS: windows_core::PCWSTR = windows_core::w!("WINS Service");
 pub const CLUS_RES_NAME_SCALEOUT_MASTER: windows_core::PCWSTR = windows_core::w!("Scaleout Master");
 pub const CLUS_RES_NAME_SCALEOUT_WORKER: windows_core::PCWSTR = windows_core::w!("Scaleout Worker");
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type CLUS_RLUA_PWD_INFO = CLUS_NETNAME_PWD_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type CLUS_RLUA_PWD_INFOEX = CLUS_NETNAME_PWD_INFOEX;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLUS_RLUA_PWD_INFO {
-    pub Flags: u32,
-    pub Password: [u16; 16],
-    pub CreatingDC: [u16; 258],
-    pub ObjectGuid: [u16; 64],
-}
-impl Default for CLUS_RLUA_PWD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLUS_RLUA_PWD_INFOEX {
-    pub Flags: u32,
-    pub Password: [u16; 128],
-    pub CreatingDC: [u16; 258],
-    pub ObjectGuid: [u16; 64],
-}
-impl Default for CLUS_RLUA_PWD_INFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CLUS_SCSI_ADDRESS {
     pub Anonymous: CLUS_SCSI_ADDRESS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUS_SCSI_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union CLUS_SCSI_ADDRESS_0 {
     pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
-    pub dw: u32,
+    pub dw: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for CLUS_SCSI_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_SCSI_ADDRESS_0_0 {
-    pub PortNumber: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
+    pub PortNumber: super::UCHAR,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
     pub InMaintenance: windows_core::BOOL,
-    pub ExtraParameterSize: u32,
-    pub ExtraParameter: [u8; 1],
+    pub ExtraParameterSize: super::DWORD,
+    pub ExtraParameter: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CLUS_SET_MAINTENANCE_MODE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
     pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
-    pub DelayTimerInSecs: u32,
-    pub VolumeName: [u16; 260],
+    pub DelayTimerInSecs: super::DWORD,
+    pub VolumeName: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUS_SHARED_VOLUME_BACKUP_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STARTING_PARAMS {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub bForm: windows_core::BOOL,
     pub bFirst: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    pub AvailDrivelettersMask: u32,
+    pub AvailDrivelettersMask: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
-    pub CurrentDriveLetterMask: u32,
-    pub TargetDriveLetterMask: u32,
+    pub CurrentDriveLetterMask: super::DWORD,
+    pub TargetDriveLetterMask: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STORAGE_SET_DRIVELETTER {
-    pub PartitionNumber: u32,
-    pub DriveLetterMask: u32,
+    pub PartitionNumber: super::DWORD,
+    pub DriveLetterMask: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLUS_VS_TOKEN_INFO {
-    pub ProcessID: u32,
-    pub DesiredAccess: u32,
-    pub InheritHandle: windows_core::BOOL,
-}
+#[cfg(feature = "shared")]
+pub type CLUS_VS_TOKEN_INFO = CLUS_NETNAME_VS_TOKEN_INFO;
 pub const CREATEDC_PRESENT: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_CLUSTER_CONFIG {
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub lpszClusterName: windows_core::PCWSTR,
-    pub cNodes: u32,
+    pub cNodes: super::DWORD,
     pub ppszNodeNames: *mut windows_core::PCWSTR,
-    pub cIpEntries: u32,
+    pub cIpEntries: super::DWORD,
     pub pIpEntries: PCLUSTER_IP_ENTRY,
     pub fEmptyCluster: super::BOOLEAN,
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
@@ -4346,12 +4348,12 @@ pub struct CREATE_CLUSTER_CONFIG {
 }
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT {
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub lpszClusterName: windows_core::PCWSTR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub pszUserName: windows_core::PCWSTR,
     pub pszPassword: windows_core::PCWSTR,
     pub pszDomain: windows_core::PCWSTR,
@@ -4360,7 +4362,7 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub bUpgradeVCOs: super::BOOLEAN,
 }
 pub const CREATE_CLUSTER_VERSION: i32 = 1536;
-pub type CRRA = i32;
+pub type CRRA = CLUSTER_RESOURCE_RESTART_ACTION;
 pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = 789;
 pub const CTCTL_GET_ROUTESTATUS_BASIC: CLCTL_CODES = 781;
 pub const CTCTL_GET_ROUTESTATUS_EXTENDED: CLCTL_CODES = 785;
@@ -4399,14 +4401,14 @@ pub const ClusGroupTypeVMReplicaBroker: CLUSGROUP_TYPE = 115;
 pub const ClusGroupTypeVMReplicaCoordinator: CLUSGROUP_TYPE = 120;
 pub const ClusGroupTypeVirtualMachine: CLUSGROUP_TYPE = 111;
 pub const ClusGroupTypeWins: CLUSGROUP_TYPE = 105;
-pub const ClusterGroupAllowFailback: CGAFT = 1;
-pub const ClusterGroupFailbackTypeCount: CGAFT = 2;
+pub const ClusterGroupAllowFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 1;
+pub const ClusterGroupFailbackTypeCount: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 2;
 pub const ClusterGroupFailed: CLUSTER_GROUP_STATE = 2;
 pub const ClusterGroupOffline: CLUSTER_GROUP_STATE = 1;
 pub const ClusterGroupOnline: CLUSTER_GROUP_STATE = 0;
 pub const ClusterGroupPartialOnline: CLUSTER_GROUP_STATE = 3;
 pub const ClusterGroupPending: CLUSTER_GROUP_STATE = 4;
-pub const ClusterGroupPreventFailback: CGAFT = 0;
+pub const ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 0;
 pub const ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = -1;
 pub const ClusterNetInterfaceFailed: CLUSTER_NETINTERFACE_STATE = 1;
 pub const ClusterNetInterfaceStateUnknown: CLUSTER_NETINTERFACE_STATE = -1;
@@ -4430,7 +4432,7 @@ pub const ClusterNodePaused: CLUSTER_NODE_STATE = 2;
 pub const ClusterNodeResumeFailbackTypeCount: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 3;
 pub const ClusterNodeStateUnknown: CLUSTER_NODE_STATE = -1;
 pub const ClusterNodeUp: CLUSTER_NODE_STATE = 0;
-pub const ClusterResourceDontRestart: CRRA = 0;
+pub const ClusterResourceDontRestart: CLUSTER_RESOURCE_RESTART_ACTION = 0;
 pub const ClusterResourceEmbeddedFailureActionLogOnly: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = 1;
 pub const ClusterResourceEmbeddedFailureActionNone: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = 0;
 pub const ClusterResourceEmbeddedFailureActionRecover: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = 2;
@@ -4442,9 +4444,9 @@ pub const ClusterResourceOfflinePending: CLUSTER_RESOURCE_STATE = 130;
 pub const ClusterResourceOnline: CLUSTER_RESOURCE_STATE = 2;
 pub const ClusterResourceOnlinePending: CLUSTER_RESOURCE_STATE = 129;
 pub const ClusterResourcePending: CLUSTER_RESOURCE_STATE = 128;
-pub const ClusterResourceRestartActionCount: CRRA = 3;
-pub const ClusterResourceRestartNoNotify: CRRA = 1;
-pub const ClusterResourceRestartNotify: CRRA = 2;
+pub const ClusterResourceRestartActionCount: CLUSTER_RESOURCE_RESTART_ACTION = 3;
+pub const ClusterResourceRestartNoNotify: CLUSTER_RESOURCE_RESTART_ACTION = 1;
+pub const ClusterResourceRestartNotify: CLUSTER_RESOURCE_RESTART_ACTION = 2;
 pub const ClusterResourceStateUnknown: CLUSTER_RESOURCE_STATE = -1;
 pub const ClusterSetupPhaseAddClusterProperties: CLUSTER_SETUP_PHASE = 201;
 pub const ClusterSetupPhaseAddNodeToCluster: CLUSTER_SETUP_PHASE = 301;
@@ -4515,11 +4517,13 @@ pub const ENABLE_CLUSTER_SHARED_VOLUMES: windows_core::PCWSTR = windows_core::w!
 pub const FE_22H2_UPGRADE_VERSION: i32 = 5;
 pub const FE_UPGRADE_VERSION: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILESHARE_CHANGE {
     pub Change: FILESHARE_CHANGE_ENUM,
-    pub ShareName: [u16; 84],
+    pub ShareName: [super::WCHAR; 84],
 }
+#[cfg(feature = "winnt")]
 impl Default for FILESHARE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4529,11 +4533,13 @@ pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = 1;
 pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = 2;
 pub type FILESHARE_CHANGE_ENUM = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILESHARE_CHANGE_LIST {
-    pub NumEntries: u32,
+    pub NumEntries: super::DWORD,
     pub ChangeEntry: [FILESHARE_CHANGE; 0],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILESHARE_CHANGE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4550,15 +4556,17 @@ pub const GROUPSET_READY_SETTING_DELAY: i32 = 1;
 pub const GROUPSET_READY_SETTING_ONLINE: i32 = 2;
 pub const GROUPSET_READY_SETTING_OS_HEARTBEAT: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_FAILURE_INFO {
-    pub dwFailoverAttemptsRemaining: u32,
-    pub dwFailoverPeriodRemaining: u32,
+    pub dwFailoverAttemptsRemaining: super::DWORD,
+    pub dwFailoverPeriodRemaining: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_FAILURE_INFO_BUFFER {
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub Info: GROUP_FAILURE_INFO,
 }
 pub const GROUP_FAILURE_INFO_VERSION_1: i32 = 1;
@@ -4599,6 +4607,7 @@ pub type HRESENUM = *mut _HRESENUM;
 pub type HRESENUMEX = *mut _HRESENUMEX;
 pub type HRESOURCE = *mut _HRESOURCE;
 pub type HRESTYPEENUM = *mut _HRESTYPEENUM;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCLUSTERVERSIONINFO = *mut CLUSTERVERSIONINFO;
 pub type MAINTENANCE_MODE_TYPE_ENUM = i32;
 pub const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087;
@@ -4618,12 +4627,14 @@ pub const ModifyQuorum: CLUSTER_QUORUM_TYPE = 1;
 pub const NINETEEN_H1_UPGRADE_VERSION: i32 = 1;
 pub const NINETEEN_H2_UPGRADE_VERSION: i32 = 2;
 pub const NI_UPGRADE_VERSION: i32 = 2;
+pub const NNLEN: i32 = 80;
 pub type NODE_CLUSTER_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_FILTER_AND_TYPE {
-    pub dwObjectType: u32,
-    pub FilterFlags: i64,
+    pub dwObjectType: super::DWORD,
+    pub FilterFlags: super::LONGLONG,
 }
 pub const NT10_MAJOR_VERSION: i32 = 9;
 pub const NT11_MAJOR_VERSION: i32 = 10;
@@ -4647,12 +4658,13 @@ pub const NodeFailbackStatusFailed: CLUSTER_NODE_FAILBACK_STATUS = 3;
 pub const NodeFailbackStatusInProgress: CLUSTER_NODE_FAILBACK_STATUS = 1;
 pub const NodeFailbackStatusNotInitiated: CLUSTER_NODE_FAILBACK_STATUS = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NodeSriovInfo {
-    pub VFTotal: u32,
-    pub VFUsed: u32,
-    pub QPTotal: u32,
-    pub QPUsed: u32,
+    pub VFTotal: super::DWORD,
+    pub VFUsed: super::DWORD,
+    pub QPTotal: super::DWORD,
+    pub QPUsed: super::DWORD,
 }
 pub const NodeStatusAvoidPlacement: CLUSTER_NODE_STATUS = 32;
 pub const NodeStatusDrainCompleted: CLUSTER_NODE_STATUS = 8;
@@ -4663,25 +4675,43 @@ pub const NodeStatusMax: CLUSTER_NODE_STATUS = 51;
 pub const NodeStatusNormal: CLUSTER_NODE_STATUS = 0;
 pub const NodeStatusQuarantined: CLUSTER_NODE_STATUS = 2;
 pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = 0;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_NODE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HNODE>;
-pub type PCLUSAPI_ADD_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HNODE>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> u32>;
-pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_core::PCWSTR, lpremotegroupsetname: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_BACKUP_CLUSTER_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszpathname: windows_core::PCWSTR) -> u32>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_ADD_CLUSTER_NODE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: super::PVOID) -> HNODE>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_ADD_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, dwflags: super::DWORD, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: super::PVOID) -> HNODE>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_core::PCWSTR, lpremotegroupsetname: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_BACKUP_CLUSTER_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszpathname: windows_core::PCWSTR) -> super::DWORD>;
 pub type PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT = Option<unsafe extern "system" fn(hresource: HRESOURCE, hresourcedependent: HRESOURCE) -> windows_core::BOOL>;
-pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: u64) -> u32>;
-pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX2 = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: u64, lpszreason: windows_core::PCWSTR) -> u32>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: super::ULONGLONG) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX2 = Option<unsafe extern "system" fn(hresource: HRESOURCE, hgroup: HGROUP, flags: super::ULONGLONG, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
 pub type PCLUSAPI_CLOSE_CLUSTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> windows_core::BOOL>;
 pub type PCLUSAPI_CLOSE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> windows_core::BOOL>;
 pub type PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> windows_core::BOOL>;
@@ -4690,431 +4720,583 @@ pub type PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn
 pub type PCLUSAPI_CLOSE_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> windows_core::BOOL>;
 pub type PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT = Option<unsafe extern "system" fn(hchange: HCHANGE) -> windows_core::BOOL>;
 pub type PCLUSAPI_CLOSE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> windows_core::BOOL>;
-pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR, hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUPSET_WITH_DOMAINS_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: u32, updatedomain: u32, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, affinityrulename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_CLUSTER_CLOSE_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX, dwindex: u32, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_GROUP_CONTROL = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_GROUP_CONTROL_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_GROUP_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszresourcename: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_GROUP_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX, dwindex: u32, pitem: PCLUSTER_GROUP_ENUM_ITEM, cbitem: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM = Option<unsafe extern "system" fn(hgroup: HGROUP, dwtype: u32) -> HGROUPENUM>;
-pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_core::PCWSTR, cbproperties: u32, lpszroproperties: windows_core::PCWSTR, cbroproperties: u32, dwflags: u32) -> HGROUPENUMEX>;
-pub type PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NETWORK_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM = Option<unsafe extern "system" fn(hnetwork: HNETWORK, dwtype: u32) -> HNETWORKENUM>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL_EX = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NODE_CONTROL = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NODE_CONTROL_EX = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NODE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_NODE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX, dwindex: u32, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: u32) -> HNODEENUM>;
-pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: u32, poptions: *const core::ffi::c_void) -> HNODEENUMEX>;
-pub type PCLUSAPI_CLUSTER_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32) -> HCLUSENUM>;
-pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32, poptions: *const core::ffi::c_void) -> HCLUSENUMEX>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = Option<unsafe extern "system" fn(hkey: super::HKEY, phregbatch: *mut HREGBATCH) -> i32>;
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
-pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR, dwoptions: u32, samdesired: super::REGSAM, lpsecurityattributes: super::LPSECURITY_ATTRIBUTES, phkresult: super::PHKEY, lpdwdisposition: super::LPDWORD) -> i32>;
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winreg"))]
-pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR, dwoptions: u32, samdesired: super::REGSAM, lpsecurityattributes: super::LPSECURITY_ATTRIBUTES, phkresult: super::PHKEY, lpdwdisposition: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpsubkey: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, lpftlastwritetime: super::PFILETIME) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, dwindex: u32, lpszvaluename: windows_core::PWSTR, lpcchvaluename: super::LPDWORD, lpdwtype: super::LPDWORD, lpdata: super::LPBYTE, lpcbdata: super::LPDWORD) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::HKEY, requestedinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: super::LPDWORD) -> i32>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
-pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR, samdesired: super::REGSAM, phkresult: super::PHKEY) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpcsubkeys: super::LPDWORD, lpcbmaxsubkeylen: super::LPDWORD, lpcvalues: super::LPDWORD, lpcbmaxvaluenamelen: super::LPDWORD, lpcbmaxvaluelen: super::LPDWORD, lpcbsecuritydescriptor: super::LPDWORD, lpftlastwritetime: super::PFILETIME) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, lpdwvaluetype: super::LPDWORD, lpdata: super::LPBYTE, lpcbdata: super::LPDWORD) -> i32>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR) -> i32>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpszreason: windows_core::PCWSTR) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, flags: u32) -> i32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR, hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX, dwindex: u32, pitem: PCLUSTER_RESOURCE_ENUM_ITEM, cbitem: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwtype: u32) -> HRESENUM>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_core::PCWSTR, cbproperties: u32, lpszroproperties: windows_core::PCWSTR, cbroproperties: u32, dwflags: u32) -> HRESENUMEX>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM, dwindex: u32, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> u32>;
-pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, dwtype: u32) -> HRESTYPEENUM>;
-pub type PCLUSAPI_CLUSTER_UPGRADE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, perform: windows_core::BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> u32>;
-#[cfg(feature = "winnt")]
-pub type PCLUSAPI_CREATE_CLUSTER = Option<unsafe extern "system" fn(pconfig: PCREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HCLUSTER>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR, hgroup: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUPSET_WITH_DOMAINS_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: super::DWORD, updatedomain: super::DWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hgroup: HGROUP) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, affinityrulename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, cbinbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, cboutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_CLOSE_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_ENUM = Option<unsafe extern "system" fn(henum: HCLUSENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_ENUM_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT = Option<unsafe extern "system" fn(henum: HCLUSENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hclusterenum: HCLUSENUMEX) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_GROUP_CONTROL = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_GROUP_CONTROL_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_GROUP_ENUM = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszresourcename: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_GROUP_ENUM_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_GROUP_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hgroupenum: HGROUPENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hgroupenumex: HGROUPENUMEX) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, cbinbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, cboutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, cbinbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, cboutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM = Option<unsafe extern "system" fn(hgroup: HGROUP, dwtype: super::DWORD) -> HGROUPENUM>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_core::PCWSTR, cbproperties: super::DWORD, lpszroproperties: windows_core::PCWSTR, cbroproperties: super::DWORD, dwflags: super::DWORD) -> HGROUPENUMEX>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NETWORK_ENUM = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnetworkenum: HNETWORKENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM = Option<unsafe extern "system" fn(hnetwork: HNETWORK, dwtype: super::DWORD) -> HNETWORKENUM>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL_EX = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NODE_CONTROL = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NODE_CONTROL_EX = Option<unsafe extern "system" fn(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NODE_ENUM = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_NODE_ENUM_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hnodeenum: HNODEENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hnodeenum: HNODEENUMEX) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: super::DWORD) -> HNODEENUM>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtype: super::DWORD, poptions: super::PVOID) -> HNODEENUMEX>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: super::DWORD) -> HCLUSENUM>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: super::DWORD, poptions: super::PVOID) -> HCLUSENUMEX>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = Option<unsafe extern "system" fn(hkey: super::HKEY, phregbatch: *mut HREGBATCH) -> super::LONG>;
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winreg"))]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR, dwoptions: super::DWORD, samdesired: super::REGSAM, lpsecurityattributes: super::LPSECURITY_ATTRIBUTES, phkresult: super::PHKEY, lpdwdisposition: super::LPDWORD) -> super::LONG>;
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winreg"))]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR, dwoptions: super::DWORD, samdesired: super::REGSAM, lpsecurityattributes: super::LPSECURITY_ATTRIBUTES, phkresult: super::PHKEY, lpdwdisposition: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpsubkey: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, dwindex: super::DWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, lpftlastwritetime: super::PFILETIME) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, dwindex: super::DWORD, lpszvaluename: windows_core::PWSTR, lpcchvaluename: super::LPDWORD, lpdwtype: super::LPDWORD, lpdata: super::LPBYTE, lpcbdata: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::HKEY, requestedinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: super::LPDWORD) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
+pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszsubkey: windows_core::PCWSTR, samdesired: super::REGSAM, phkresult: super::PHKEY) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = Option<unsafe extern "system" fn(hkey: super::HKEY, lpcsubkeys: super::LPDWORD, lpcbmaxsubkeylen: super::LPDWORD, lpcvalues: super::LPDWORD, lpcbmaxvaluenamelen: super::LPDWORD, lpcbmaxvaluelen: super::LPDWORD, lpcbsecuritydescriptor: super::LPDWORD, lpftlastwritetime: super::PFILETIME) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, lpdwvaluetype: super::LPDWORD, lpdata: super::LPBYTE, lpcbdata: super::LPDWORD) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = Option<unsafe extern "system" fn(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, lpszreason: windows_core::PCWSTR) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, dwtype: super::DWORD, lpdata: *const super::BYTE, cbdata: super::DWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = Option<unsafe extern "system" fn(hkey: super::HKEY, lpszvaluename: windows_core::PCWSTR, dwtype: super::DWORD, lpdata: *const super::BYTE, cbdata: super::DWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, flags: super::DWORD) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, rulename: windows_core::PCWSTR, hgroup: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, cbinbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, cboutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, cbinbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, cboutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, cbinbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, cboutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM = Option<unsafe extern "system" fn(hresenum: HRESENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX, dwindex: super::DWORD, pitem: PCLUSTER_RESOURCE_ENUM_ITEM, cbitem: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hresenum: HRESENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX = Option<unsafe extern "system" fn(hresourceenumex: HRESENUMEX) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwtype: super::DWORD) -> HRESENUM>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszproperties: windows_core::PCWSTR, cbproperties: super::DWORD, lpszroproperties: windows_core::PCWSTR, cbroproperties: super::DWORD, dwflags: super::DWORD) -> HRESENUMEX>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_AS_USER_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, hhostnode: HNODE, dwcontrolcode: super::DWORD, lpinbuffer: super::LPVOID, ninbuffersize: super::DWORD, lpoutbuffer: super::LPVOID, noutbuffersize: super::DWORD, lpbytesreturned: super::LPDWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM, dwindex: super::DWORD, lpdwtype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT = Option<unsafe extern "system" fn(hrestypeenum: HRESTYPEENUM) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, dwtype: super::DWORD) -> HRESTYPEENUM>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CLUSTER_UPGRADE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, perform: windows_core::BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: super::PVOID) -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CREATE_CLUSTER = Option<unsafe extern "system" fn(pconfig: PCREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: super::PVOID) -> HCLUSTER>;
+#[cfg(feature = "shared")]
 pub type PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpavailabilitysetname: windows_core::PCWSTR, pavailabilitysetconfig: PCLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET>;
-#[cfg(feature = "winnt")]
-pub type PCLUSAPI_CREATE_CLUSTER_CNOLESS = Option<unsafe extern "system" fn(pconfig: PCREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> HCLUSTER>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CREATE_CLUSTER_CNOLESS = Option<unsafe extern "system" fn(pconfig: PCREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: super::PVOID) -> HCLUSTER>;
 pub type PCLUSAPI_CREATE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_core::PCWSTR) -> HGROUP>;
+#[cfg(feature = "shared")]
 pub type PCLUSAPI_CREATE_CLUSTER_GROUPEX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_core::PCWSTR, pgroupinfo: PCLUSTER_CREATE_GROUP_INFO) -> HGROUP>;
 pub type PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupsetname: windows_core::PCWSTR) -> HGROUPSET>;
-#[cfg(feature = "winnt")]
-pub type PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pconfig: PCREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void) -> u32>;
-pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> HCHANGE>;
-pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> HCHANGE>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_core::PCWSTR, lpszresourcetype: windows_core::PCWSTR, dwflags: u32) -> HRESOURCE>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_core::PCWSTR, lpszresourcetype: windows_core::PCWSTR, dwflags: u32, lpszreason: windows_core::PCWSTR) -> HRESOURCE>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, lpszdisplayname: windows_core::PCWSTR, lpszresourcetypedll: windows_core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32>;
-pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, lpszdisplayname: windows_core::PCWSTR, lpszresourcetypedll: windows_core::PCWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_DESTROY_CLUSTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const core::ffi::c_void, fdeletevirtualcomputerobjects: windows_core::BOOL) -> u32>;
-pub type PCLUSAPI_DESTROY_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_DESTROY_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_EVICT_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
-pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT) -> u32>;
-pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_core::PCWSTR) -> u32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pconfig: PCREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: super::PVOID) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: super::DWORD, dwnotifykey: super::DWORD_PTR) -> HCHANGE>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, hcluster: HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: super::DWORD, dwnotifykey: super::DWORD_PTR) -> HCHANGE>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_core::PCWSTR, lpszresourcetype: windows_core::PCWSTR, dwflags: super::DWORD) -> HRESOURCE>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszresourcename: windows_core::PCWSTR, lpszresourcetype: windows_core::PCWSTR, dwflags: super::DWORD, lpszreason: windows_core::PCWSTR) -> HRESOURCE>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, lpszdisplayname: windows_core::PCWSTR, lpszresourcetypedll: windows_core::PCWSTR, dwlooksalivepollinterval: super::DWORD, dwisalivepollinterval: super::DWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR, lpszdisplayname: windows_core::PCWSTR, lpszresourcetypedll: windows_core::PCWSTR, dwlooksalivepollinterval: super::DWORD, dwisalivepollinterval: super::DWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcetypename: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_DESTROY_CLUSTER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: super::PVOID, fdeletevirtualcomputerobjects: windows_core::BOOL) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DESTROY_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_DESTROY_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_EVICT_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: super::DWORD, phrcleanupstatus: *mut windows_core::HRESULT) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, dwtimeout: super::DWORD, phrcleanupstatus: *mut windows_core::HRESULT, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET = Option<unsafe extern "system" fn(hgroupset: HGROUPSET) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_NETWORK = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> HCLUSTER>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_GROUP_KEY = Option<unsafe extern "system" fn(hgroup: HGROUP, samdesired: super::REGSAM) -> super::HKEY>;
 #[cfg(feature = "minwindef")]
 pub type PCLUSAPI_GET_CLUSTER_GROUP_STATE = Option<unsafe extern "system" fn(hgroup: HGROUP, lpsznodename: windows_core::PWSTR, lpcchnodename: super::LPDWORD) -> CLUSTER_GROUP_STATE>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_INFORMATION = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszclustername: windows_core::PWSTR, lpcchclustername: super::LPDWORD, lpclusterinfo: LPCLUSTERVERSIONINFO) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_GET_CLUSTER_INFORMATION = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszclustername: windows_core::PWSTR, lpcchclustername: super::LPDWORD, lpclusterinfo: LPCLUSTERVERSIONINFO) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_KEY = Option<unsafe extern "system" fn(hcluster: HCLUSTER, samdesired: super::REGSAM) -> super::HKEY>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpsznetworkid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpsznetworkid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_KEY = Option<unsafe extern "system" fn(hnetwork: HNETWORK, samdesired: super::REGSAM) -> super::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_STATE = Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> CLUSTER_NETWORK_STATE>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, lpsznetworkname: windows_core::PCWSTR, lpszinterfacename: windows_core::PWSTR, lpcchinterfacename: super::LPDWORD) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, lpsznetworkname: windows_core::PCWSTR, lpszinterfacename: windows_core::PWSTR, lpcchinterfacename: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, samdesired: super::REGSAM) -> super::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE = Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_NODE_ID = Option<unsafe extern "system" fn(hnode: HNODE, lpsznodeid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_CLUSTER_NODE_ID = Option<unsafe extern "system" fn(hnode: HNODE, lpsznodeid: windows_core::PWSTR, lpcchname: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_NODE_KEY = Option<unsafe extern "system" fn(hnode: HNODE, samdesired: super::REGSAM) -> super::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = Option<unsafe extern "system" fn(hnode: HNODE) -> CLUSTER_NODE_STATE>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, dwmilliseconds: u32) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: PNOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: super::LPDWORD, lpszobjectid: windows_core::PWSTR, lpcchobjectid: super::LPDWORD, lpszparentid: windows_core::PWSTR, lpcchparentid: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, lpsztype: windows_core::PWSTR, lpcchtype: super::LPDWORD, dwmilliseconds: u32) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_core::PWSTR, lpcchresourcename: super::LPDWORD, lpszdevicename: windows_core::PWSTR, lpcchdevicename: super::LPDWORD, lpdwmaxquorumlogsize: super::LPDWORD) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_core::PWSTR, lpcchdependencyexpression: super::LPDWORD) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut super::DWORD_PTR, lpdwfiltertype: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, dwmilliseconds: super::DWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut super::DWORD_PTR, pfilterandtype: PNOTIFY_FILTER_AND_TYPE, buffer: *mut super::BYTE, lpcchbuffersize: super::LPDWORD, lpszobjectid: windows_core::PWSTR, lpcchobjectid: super::LPDWORD, lpszparentid: windows_core::PWSTR, lpcchparentid: super::LPDWORD, lpszname: windows_core::PWSTR, lpcchname: super::LPDWORD, lpsztype: windows_core::PWSTR, lpcchtype: super::LPDWORD, dwmilliseconds: super::DWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_core::PWSTR, lpcchresourcename: super::LPDWORD, lpszdevicename: windows_core::PWSTR, lpcchdevicename: super::LPDWORD, lpdwmaxquorumlogsize: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_core::PWSTR, lpcchdependencyexpression: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = Option<unsafe extern "system" fn(hresource: HRESOURCE, samdesired: super::REGSAM) -> super::HKEY>;
 #[cfg(feature = "minwindef")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpbuffer: windows_core::PWSTR, nsize: super::LPDWORD) -> windows_core::BOOL>;
 #[cfg(feature = "minwindef")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpsznodename: windows_core::PWSTR, lpcchnodename: super::LPDWORD, lpszgroupname: windows_core::PWSTR, lpcchgroupname: super::LPDWORD) -> CLUSTER_RESOURCE_STATE>;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: windows_core::PCWSTR, samdesired: super::REGSAM) -> super::HKEY>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = Option<unsafe extern "system" fn(lpsznodename: windows_core::PCWSTR, pdwclusterstate: super::LPDWORD) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lphtargetevent: super::LPHANDLE) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszpathname: windows_core::PCWSTR, pbfileisonsharedvolume: super::PBOOL) -> u32>;
-pub type PCLUSAPI_MOVE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> u32>;
-pub type PCLUSAPI_OFFLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> u32>;
-pub type PCLUSAPI_OFFLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_ONLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> u32>;
-pub type PCLUSAPI_ONLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = Option<unsafe extern "system" fn(lpsznodename: windows_core::PCWSTR, pdwclusterstate: super::LPDWORD) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, lphtargetevent: super::LPHANDLE) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME = Option<unsafe extern "system" fn(lpszpathname: windows_core::PCWSTR, pbfileisonsharedvolume: super::PBOOL) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_MOVE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_OFFLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_OFFLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ONLINE_CLUSTER_GROUP = Option<unsafe extern "system" fn(hgroup: HGROUP, hdestinationnode: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_ONLINE_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::DWORD>;
 pub type PCLUSAPI_OPEN_CLUSTER = Option<unsafe extern "system" fn(lpszclustername: windows_core::PCWSTR) -> HCLUSTER>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_OPEN_CLUSTER_EX = Option<unsafe extern "system" fn(lpszclustername: windows_core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: super::LPDWORD) -> HCLUSTER>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_OPEN_CLUSTER_EX = Option<unsafe extern "system" fn(lpszclustername: windows_core::PCWSTR, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: super::LPDWORD) -> HCLUSTER>;
 pub type PCLUSAPI_OPEN_CLUSTER_GROUP = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_core::PCWSTR) -> HGROUP>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_OPEN_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: super::LPDWORD) -> HGROUP>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_OPEN_CLUSTER_GROUP_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupname: windows_core::PCWSTR, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: super::LPDWORD) -> HGROUP>;
 pub type PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszgroupsetname: windows_core::PCWSTR) -> HGROUPSET>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetinterfacename: windows_core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: super::LPDWORD) -> HNETINTERFACE>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetinterfacename: windows_core::PCWSTR, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: super::LPDWORD) -> HNETINTERFACE>;
 pub type PCLUSAPI_OPEN_CLUSTER_NETWORK = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetworkname: windows_core::PCWSTR) -> HNETWORK>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_OPEN_CLUSTER_NETWORK_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetworkname: windows_core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: super::LPDWORD) -> HNETWORK>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_OPEN_CLUSTER_NETWORK_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznetworkname: windows_core::PCWSTR, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: super::LPDWORD) -> HNETWORK>;
 pub type PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszinterfacename: windows_core::PCWSTR) -> HNETINTERFACE>;
 pub type PCLUSAPI_OPEN_CLUSTER_NODE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR) -> HNODE>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_OPEN_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: super::LPDWORD) -> HNODE>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_OPEN_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: windows_core::PCWSTR, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: super::LPDWORD) -> HNODE>;
 pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_core::PCWSTR) -> HRESOURCE>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_core::PCWSTR, dwdesiredaccess: super::DWORD, lpdwgrantedaccess: super::LPDWORD) -> HRESOURCE>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_OPEN_NODE_BY_ID = Option<unsafe extern "system" fn(hcluster: HCLUSTER, nodeid: super::DWORD) -> HNODE>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: windows_core::BOOL, dwpauseflags: super::DWORD, hnodedraintarget: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: windows_core::BOOL, dwpauseflags: super::DWORD, hnodedraintarget: HNODE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
 #[cfg(feature = "minwindef")]
-pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: windows_core::PCWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: super::LPDWORD) -> HRESOURCE>;
-pub type PCLUSAPI_OPEN_NODE_BY_ID = Option<unsafe extern "system" fn(hcluster: HCLUSTER, nodeid: u32) -> HNODE>;
-pub type PCLUSAPI_PAUSE_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
-pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: windows_core::BOOL, dwpauseflags: u32, hnodedraintarget: HNODE) -> u32>;
-pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, bdrainnode: windows_core::BOOL, dwpauseflags: u32, hnodedraintarget: HNODE, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSAPI_PFN_REASON_HANDLER = Option<unsafe extern "system" fn(lpparameter: *const core::ffi::c_void, hcluster: HCLUSTER, szreason: windows_core::PWSTR, lpsize: super::LPDWORD) -> windows_core::BOOL>;
+pub type PCLUSAPI_PFN_REASON_HANDLER = Option<unsafe extern "system" fn(lpparameter: super::LPVOID, hcluster: HCLUSTER, szreason: windows_core::PWSTR, lpsize: super::LPDWORD) -> windows_core::BOOL>;
 #[cfg(feature = "minwindef")]
 pub type PCLUSAPI_REASON_HANDLER = *mut CLUSAPI_REASON_HANDLER;
-#[cfg(feature = "winnt")]
-pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, dwfiltertype: u32, hobject: super::HANDLE, dwnotifykey: usize) -> u32>;
-#[cfg(feature = "winnt")]
-pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::HANDLE, dwnotifykey: usize) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> u32>;
-pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_core::PCWSTR, lpremotegroupsetname: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> u32>;
-pub type PCLUSAPI_REPAIR_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> u32>;
-pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: u32) -> u32>;
-pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: u32) -> u32>;
-pub type PCLUSAPI_RESTORE_CLUSTER_DATABASE = Option<unsafe extern "system" fn(lpszpathname: windows_core::PCWSTR, bforce: windows_core::BOOL, lpszquorumdriveletter: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_RESUME_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> u32>;
-pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32>;
-pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: u32, nodelist: *const HNODE) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: u32, nodelist: *const HNODE, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NAME_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, networkcount: u32, networklist: *const HNETWORK) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_core::PCWSTR, dwmaxquologsize: u32) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_core::PCWSTR, dwmaxquorumlogsize: u32, lpszreason: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(lpszclustername: windows_core::PCWSTR, lpsznewpassword: windows_core::PCWSTR, dwflags: u32, lpreturnstatusbuffer: PCLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: super::LPDWORD) -> u32>;
-pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUP, lpszdependencyexpression: windows_core::PCWSTR) -> u32>;
-pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszdependencyexpression: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> u32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = Option<unsafe extern "system" fn(hchange: HCHANGE, dwfiltertype: super::DWORD, hobject: super::HANDLE, dwnotifykey: super::DWORD_PTR) -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = Option<unsafe extern "system" fn(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::HANDLE, dwnotifykey: super::DWORD_PTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUP, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, hnode: HNODE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY = Option<unsafe extern "system" fn(hdependentgroupset: HGROUPSET, lpremoteclustername: windows_core::PCWSTR, lpremotegroupsetname: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES = Option<unsafe extern "system" fn(hresource: HRESOURCE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_REPAIR_CLUSTER_NAME_ACCOUNT = Option<unsafe extern "system" fn(hcluster: HCLUSTER) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: super::DWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, dwflags: super::DWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_RESTORE_CLUSTER_DATABASE = Option<unsafe extern "system" fn(lpszpathname: windows_core::PCWSTR, bforce: windows_core::BOOL, lpszquorumdriveletter: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_RESUME_CLUSTER_NODE = Option<unsafe extern "system" fn(hnode: HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: super::DWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX2 = Option<unsafe extern "system" fn(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: super::DWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroupset: HGROUPSET, lpszdependencyexpression: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszgroupname: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: super::DWORD, nodelist: *const HNODE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, nodecount: super::DWORD, nodelist: *const HNODE, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_NAME_EX = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX = Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpszname: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER = Option<unsafe extern "system" fn(hcluster: HCLUSTER, networkcount: super::DWORD, networklist: *const HNETWORK) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_core::PCWSTR, dwmaxquologsize: super::DWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdevicename: windows_core::PCWSTR, dwmaxquorumlogsize: super::DWORD, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME_EX = Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszresourcename: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(lpszclustername: windows_core::PCWSTR, lpsznewpassword: windows_core::PCWSTR, dwflags: super::DWORD, lpreturnstatusbuffer: PCLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: super::LPDWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION = Option<unsafe extern "system" fn(hgroupset: HGROUP, lpszdependencyexpression: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX = Option<unsafe extern "system" fn(hgroup: HGROUP, lpszdependencyexpression: windows_core::PCWSTR, lpszreason: windows_core::PCWSTR) -> super::DWORD>;
 #[cfg(feature = "minwindef")]
 pub type PCLUSAPI_SET_REASON_HANDLER = Option<unsafe extern "system" fn(lphandler: PCLUSAPI_REASON_HANDLER) -> PCLUSAPI_REASON_HANDLER>;
-pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = Option<unsafe extern "system" fn(guidsnapshotset: windows_core::GUID, lpszvolumename: windows_core::PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32>;
-pub type PCLUSAPI_SetClusterName = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_core::PCWSTR) -> u32>;
-#[cfg(feature = "minwinbase")]
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = Option<unsafe extern "system" fn(guidsnapshotset: windows_core::GUID, lpszvolumename: windows_core::PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PCLUSAPI_SetClusterName = Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznewclustername: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 pub type PCLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT = *mut CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PCLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT = *mut CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT;
+#[cfg(feature = "shared")]
 pub type PCLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT = *mut CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT;
 pub type PCLUSGROUP_TYPE = *mut CLUSGROUP_TYPE;
-pub type PCLUSPROP_BINARY = *mut CLUSPROP_BINARY;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PCLUSPROP_BUFFER_HELPER = *mut CLUSPROP_BUFFER_HELPER;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_DISK_NUMBER = *mut CLUSPROP_DWORD;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_DISK_SIGNATURE = *mut CLUSPROP_DWORD;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_DWORD = *mut CLUSPROP_DWORD;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCLUSPROP_FILETIME = *mut CLUSPROP_FILETIME;
-pub type PCLUSPROP_FTSET_INFO = *mut CLUSPROP_FTSET_INFO;
-#[cfg(feature = "winnt")]
-pub type PCLUSPROP_LARGE_INTEGER = *mut CLUSPROP_LARGE_INTEGER;
-pub type PCLUSPROP_LIST = *mut CLUSPROP_LIST;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_LONG = *mut CLUSPROP_LONG;
-pub type PCLUSPROP_MULTI_SZ = *mut CLUSPROP_SZ;
-pub type PCLUSPROP_PARTITION_INFO = *mut CLUSPROP_PARTITION_INFO;
-#[cfg(feature = "winnt")]
-pub type PCLUSPROP_PARTITION_INFO_EX = *mut CLUSPROP_PARTITION_INFO_EX;
-#[cfg(feature = "winnt")]
-pub type PCLUSPROP_PARTITION_INFO_EX2 = *mut CLUSPROP_PARTITION_INFO_EX2;
-pub type PCLUSPROP_PROPERTY_NAME = *mut CLUSPROP_SZ;
-pub type PCLUSPROP_REQUIRED_DEPENDENCY = *mut CLUSPROP_REQUIRED_DEPENDENCY;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_RESOURCE_CLASS = *mut CLUSPROP_RESOURCE_CLASS;
-#[cfg(feature = "winnt")]
-pub type PCLUSPROP_RESOURCE_CLASS_INFO = *mut CLUSPROP_RESOURCE_CLASS_INFO;
-pub type PCLUSPROP_SCSI_ADDRESS = *mut CLUSPROP_SCSI_ADDRESS;
-#[cfg(feature = "winnt")]
-pub type PCLUSPROP_SECURITY_DESCRIPTOR = *mut CLUSPROP_SECURITY_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_SYNTAX = *mut CLUSPROP_SYNTAX;
-pub type PCLUSPROP_SZ = *mut CLUSPROP_SZ;
-#[cfg(feature = "winnt")]
-pub type PCLUSPROP_ULARGE_INTEGER = *mut CLUSPROP_ULARGE_INTEGER;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_VALUE = *mut CLUSPROP_VALUE;
+#[cfg(feature = "shared")]
 pub type PCLUSPROP_WORD = *mut CLUSPROP_WORD;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUSTERVERSIONINFO = *mut CLUSTERVERSIONINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUSTERVERSIONINFO_NT4 = *mut CLUSTERVERSIONINFO_NT4;
+#[cfg(feature = "shared")]
 pub type PCLUSTER_AVAILABILITY_SET_CONFIG = *mut CLUSTER_AVAILABILITY_SET_CONFIG;
 pub type PCLUSTER_CLOUD_TYPE = *mut CLUSTER_CLOUD_TYPE;
+#[cfg(feature = "shared")]
 pub type PCLUSTER_CREATE_GROUP_INFO = *mut CLUSTER_CREATE_GROUP_INFO;
 pub type PCLUSTER_CSV_VOLUME_FAULT_STATE = *mut CLUSTER_CSV_VOLUME_FAULT_STATE;
+#[cfg(feature = "shared")]
 pub type PCLUSTER_ENUM_ITEM = *mut CLUSTER_ENUM_ITEM;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUSTER_GROUP_ENUM_ITEM = *mut CLUSTER_GROUP_ENUM_ITEM;
+#[cfg(feature = "shared")]
 pub type PCLUSTER_IP_ENTRY = *mut CLUSTER_IP_ENTRY;
+#[cfg(feature = "shared")]
 pub type PCLUSTER_MEMBERSHIP_INFO = *mut CLUSTER_MEMBERSHIP_INFO;
 pub type PCLUSTER_MGMT_POINT_RESTYPE = *mut CLUSTER_MGMT_POINT_RESTYPE;
-pub type PCLUSTER_REG_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: windows_core::PCWSTR, dwoptions: u32, lpdata: *const core::ffi::c_void, cbdata: u32) -> i32>;
-pub type PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION) -> i32>;
-pub type PCLUSTER_REG_BATCH_READ_COMMAND = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32>;
-pub type PCLUSTER_REG_CLOSE_BATCH = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, bcommit: windows_core::BOOL, failedcommandnumber: *mut i32) -> i32>;
-pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hbatchnotifyport: HREGBATCHPORT) -> i32>;
-pub type PCLUSTER_REG_CLOSE_READ_BATCH = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
-pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, flags: u32, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
-pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hkey: super::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PCLUSTER_REG_CREATE_READ_BATCH = Option<unsafe extern "system" fn(hkey: super::HKEY, phregreadbatch: *mut HREGREADBATCH) -> i32>;
-pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32>;
-pub type PCLUSTER_REG_READ_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, wzsubkeyname: windows_core::PCWSTR, wzvaluename: windows_core::PCWSTR) -> i32>;
-pub type PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: windows_core::PCWSTR, dwoptions: super::DWORD, lpdata: *const core::ffi::c_void, cbdata: super::DWORD) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_BATCH_READ_COMMAND = Option<unsafe extern "system" fn(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_CLOSE_BATCH = Option<unsafe extern "system" fn(hregbatch: HREGBATCH, bcommit: windows_core::BOOL, failedcommandnumber: *mut super::INT) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hbatchnotifyport: HREGBATCHPORT) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_CLOSE_READ_BATCH = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, flags: super::DWORD, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = Option<unsafe extern "system" fn(hkey: super::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> super::LONG>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCLUSTER_REG_CREATE_READ_BATCH = Option<unsafe extern "system" fn(hkey: super::HKEY, phregreadbatch: *mut HREGREADBATCH) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = Option<unsafe extern "system" fn(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_READ_BATCH_ADD_COMMAND = Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, wzsubkeyname: windows_core::PCWSTR, wzvaluename: windows_core::PCWSTR) -> super::LONG>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND = Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> super::LONG>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUSTER_RESOURCE_ENUM_ITEM = *mut CLUSTER_RESOURCE_ENUM_ITEM;
-pub type PCLUSTER_SETUP_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: *mut core::ffi::c_void, esetupphase: CLUSTER_SETUP_PHASE, ephasetype: CLUSTER_SETUP_PHASE_TYPE, ephaseseverity: CLUSTER_SETUP_PHASE_SEVERITY, dwpercentcomplete: u32, lpszobjectname: windows_core::PCWSTR, dwstatus: u32) -> windows_core::BOOL>;
-pub type PCLUSTER_SET_ACCOUNT_ACCESS = Option<unsafe extern "system" fn(hcluster: HCLUSTER, szaccountsid: windows_core::PCWSTR, dwaccess: u32, dwcontroltype: u32) -> u32>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUSTER_SETUP_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: super::PVOID, esetupphase: CLUSTER_SETUP_PHASE, ephasetype: CLUSTER_SETUP_PHASE_TYPE, ephaseseverity: CLUSTER_SETUP_PHASE_SEVERITY, dwpercentcomplete: super::DWORD, lpszobjectname: windows_core::PCWSTR, dwstatus: super::DWORD) -> windows_core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PCLUSTER_SET_ACCOUNT_ACCESS = Option<unsafe extern "system" fn(hcluster: HCLUSTER, szaccountsid: windows_core::PCWSTR, dwaccess: super::DWORD, dwcontroltype: super::DWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
 pub type PCLUSTER_SET_PASSWORD_STATUS = *mut CLUSTER_SET_PASSWORD_STATUS;
 pub type PCLUSTER_SHARED_VOLUME_BACKUP_STATE = *mut CLUSTER_SHARED_VOLUME_BACKUP_STATE;
-pub type PCLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT = *mut CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT;
-pub type PCLUSTER_SHARED_VOLUME_RENAME_INPUT = *mut CLUSTER_SHARED_VOLUME_RENAME_INPUT;
+#[cfg(feature = "winnt")]
 pub type PCLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME = *mut CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME;
+#[cfg(feature = "winnt")]
 pub type PCLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME = *mut CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME;
 pub type PCLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = *mut CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME = *mut CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME;
 pub type PCLUSTER_SHARED_VOLUME_STATE = *mut CLUSTER_SHARED_VOLUME_STATE;
+#[cfg(feature = "winnt")]
 pub type PCLUSTER_SHARED_VOLUME_STATE_INFO = *mut CLUSTER_SHARED_VOLUME_STATE_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUSTER_SHARED_VOLUME_STATE_INFO_EX = *mut CLUSTER_SHARED_VOLUME_STATE_INFO_EX;
-pub type PCLUSTER_UPGRADE_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: *mut core::ffi::c_void, eupgradephase: CLUSTER_UPGRADE_PHASE) -> windows_core::BOOL>;
-pub type PCLUSTER_VALIDATE_CSV_FILENAME = *mut CLUSTER_VALIDATE_CSV_FILENAME;
-pub type PCLUSTER_VALIDATE_DIRECTORY = *mut CLUSTER_VALIDATE_DIRECTORY;
-pub type PCLUSTER_VALIDATE_NETNAME = *mut CLUSTER_VALIDATE_NETNAME;
-pub type PCLUSTER_VALIDATE_PATH = *mut CLUSTER_VALIDATE_PATH;
+#[cfg(feature = "winnt")]
+pub type PCLUSTER_UPGRADE_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(pvcallbackarg: super::PVOID, eupgradephase: CLUSTER_UPGRADE_PHASE) -> windows_core::BOOL>;
+#[cfg(feature = "shared")]
 pub type PCLUS_CHKDSK_INFO = *mut CLUS_CHKDSK_INFO;
+#[cfg(feature = "winnt")]
 pub type PCLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT = *mut CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT;
+#[cfg(feature = "winnt")]
 pub type PCLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT = *mut CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT;
+#[cfg(feature = "winnt")]
 pub type PCLUS_CSV_MAINTENANCE_MODE_INFO = *mut CLUS_CSV_MAINTENANCE_MODE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_CSV_VOLUME_INFO = *mut CLUS_CSV_VOLUME_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_CSV_VOLUME_NAME = *mut CLUS_CSV_VOLUME_NAME;
+#[cfg(feature = "shared")]
 pub type PCLUS_DISK_NUMBER_INFO = *mut CLUS_DISK_NUMBER_INFO;
 pub type PCLUS_DNN_LEADER_STATUS = *mut CLUS_DNN_LEADER_STATUS;
+#[cfg(feature = "shared")]
 pub type PCLUS_DNN_SODAFS_CLONE_STATUS = *mut CLUS_DNN_SODAFS_CLONE_STATUS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_FORCE_QUORUM_INFO = *mut CLUS_FORCE_QUORUM_INFO;
+#[cfg(feature = "shared")]
 pub type PCLUS_FTSET_INFO = *mut CLUS_FTSET_INFO;
 pub type PCLUS_MAINTENANCE_MODE_INFO = *mut CLUS_MAINTENANCE_MODE_INFO;
+#[cfg(feature = "shared")]
 pub type PCLUS_MAINTENANCE_MODE_INFOEX = *mut CLUS_MAINTENANCE_MODE_INFOEX;
+#[cfg(feature = "shared")]
 pub type PCLUS_NETNAME_IP_INFO_ENTRY = *mut CLUS_NETNAME_IP_INFO_ENTRY;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL = *mut CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL;
-pub type PCLUS_NETNAME_PWD_INFO = *mut CLUS_RLUA_PWD_INFO;
-pub type PCLUS_NETNAME_PWD_INFOEX = *mut CLUS_RLUA_PWD_INFOEX;
-pub type PCLUS_NETNAME_VS_TOKEN_INFO = *mut CLUS_VS_TOKEN_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUS_NETNAME_PWD_INFO = *mut CLUS_NETNAME_PWD_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUS_NETNAME_PWD_INFOEX = *mut CLUS_NETNAME_PWD_INFOEX;
+#[cfg(feature = "shared")]
+pub type PCLUS_NETNAME_VS_TOKEN_INFO = *mut CLUS_NETNAME_VS_TOKEN_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_PARTITION_INFO = *mut CLUS_PARTITION_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_PARTITION_INFO_EX = *mut CLUS_PARTITION_INFO_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_PARTITION_INFO_EX2 = *mut CLUS_PARTITION_INFO_EX2;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_PROVIDER_STATE_CHANGE_INFO = *mut CLUS_PROVIDER_STATE_CHANGE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_RESOURCE_CLASS_INFO = *mut CLUS_RESOURCE_CLASS_INFO;
-pub type PCLUS_RLUA_PWD_INFO = *mut CLUS_RLUA_PWD_INFO;
-pub type PCLUS_RLUA_PWD_INFOEX = *mut CLUS_RLUA_PWD_INFOEX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUS_RLUA_PWD_INFO = *mut CLUS_NETNAME_PWD_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCLUS_RLUA_PWD_INFOEX = *mut CLUS_NETNAME_PWD_INFOEX;
+#[cfg(feature = "shared")]
 pub type PCLUS_SCSI_ADDRESS = *mut CLUS_SCSI_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PCLUS_SET_MAINTENANCE_MODE_INPUT = *mut CLUS_SET_MAINTENANCE_MODE_INPUT;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUS_SHARED_VOLUME_BACKUP_MODE = *mut CLUS_SHARED_VOLUME_BACKUP_MODE;
+#[cfg(feature = "shared")]
 pub type PCLUS_STARTING_PARAMS = *mut CLUS_STARTING_PARAMS;
+#[cfg(feature = "shared")]
 pub type PCLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS = *mut CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS;
+#[cfg(feature = "shared")]
 pub type PCLUS_STORAGE_REMAP_DRIVELETTER = *mut CLUS_STORAGE_REMAP_DRIVELETTER;
+#[cfg(feature = "shared")]
 pub type PCLUS_STORAGE_SET_DRIVELETTER = *mut CLUS_STORAGE_SET_DRIVELETTER;
-pub type PCLUS_VS_TOKEN_INFO = *mut CLUS_VS_TOKEN_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PCLUS_VS_TOKEN_INFO = *mut CLUS_NETNAME_VS_TOKEN_INFO;
+#[cfg(feature = "shared")]
 pub type PCREATE_CLUSTER_CONFIG = *mut CREATE_CLUSTER_CONFIG;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCREATE_CLUSTER_NAME_ACCOUNT = *mut CREATE_CLUSTER_NAME_ACCOUNT;
+#[cfg(feature = "winnt")]
 pub type PFILESHARE_CHANGE = *mut FILESHARE_CHANGE;
 pub type PFILESHARE_CHANGE_ENUM = *mut FILESHARE_CHANGE_ENUM;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILESHARE_CHANGE_LIST = *mut FILESHARE_CHANGE_LIST;
+#[cfg(feature = "shared")]
 pub type PGROUP_FAILURE_INFO = *mut GROUP_FAILURE_INFO;
+#[cfg(feature = "shared")]
 pub type PGROUP_FAILURE_INFO_BUFFER = *mut GROUP_FAILURE_INFO_BUFFER;
 pub type PLACEMENT_OPTIONS = i32;
 pub const PLACEMENT_OPTIONS_ALL: PLACEMENT_OPTIONS = 1023;
@@ -5131,59 +5313,74 @@ pub const PLACEMENT_OPTIONS_MIN_VALUE: PLACEMENT_OPTIONS = 0;
 pub const PLACEMENT_OPTIONS_SAVE_AVAILABILTY_SET_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = 256;
 pub const PLACEMENT_OPTIONS_SAVE_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = 64;
 pub type PMAINTENANCE_MODE_TYPE_ENUM = *mut MAINTENANCE_MODE_TYPE_ENUM;
+#[cfg(feature = "shared")]
 pub type PNOTIFY_FILTER_AND_TYPE = *mut NOTIFY_FILTER_AND_TYPE;
+#[cfg(feature = "shared")]
 pub type PREPAIR_CLUSTER_NAME_ACCOUNT_CONFIG = *mut REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG;
+#[cfg(feature = "shared")]
 pub type PRESOURCE_FAILURE_INFO = *mut RESOURCE_FAILURE_INFO;
+#[cfg(feature = "shared")]
 pub type PRESOURCE_FAILURE_INFO_BUFFER = *mut RESOURCE_FAILURE_INFO_BUFFER;
+#[cfg(feature = "shared")]
 pub type PRESOURCE_TERMINAL_FAILURE_INFO_BUFFER = *mut RESOURCE_TERMINAL_FAILURE_INFO_BUFFER;
 pub type PSR_DISK_REPLICATION_ELIGIBLE = *mut SR_DISK_REPLICATION_ELIGIBLE;
 pub type PSR_REPLICATED_DISK_TYPE = *mut SR_REPLICATED_DISK_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSR_RESOURCE_TYPE_ADD_REPLICATION_GROUP = *mut SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT = *mut SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT;
 pub type PSR_RESOURCE_TYPE_DISK_INFO = *mut SR_RESOURCE_TYPE_DISK_INFO;
+#[cfg(feature = "shared")]
 pub type PSR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT = *mut SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS = *mut SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS = *mut SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS = *mut SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS;
+#[cfg(feature = "winnt")]
 pub type PSR_RESOURCE_TYPE_REPLICATED_DISK = *mut SR_RESOURCE_TYPE_REPLICATED_DISK;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT = *mut SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT;
+#[cfg(feature = "shared")]
 pub type PSR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY = *mut SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY;
+#[cfg(feature = "shared")]
 pub type PSR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO = *mut SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO;
 pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = 0;
 pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = 3000;
 pub const PriorityLow: CLUSTER_GROUP_PRIORITY = 1000;
 pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = 2000;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG {
-    pub dwVersion: u32,
-    pub dwFlags: u32,
+    pub dwVersion: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub pszUserName: windows_core::PCWSTR,
     pub pszPassword: windows_core::PCWSTR,
     pub pszDomain: windows_core::PCWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO {
-    pub dwRestartAttemptsRemaining: u32,
-    pub dwRestartPeriodRemaining: u32,
+    pub dwRestartAttemptsRemaining: super::DWORD,
+    pub dwRestartPeriodRemaining: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO_BUFFER {
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub Info: RESOURCE_FAILURE_INFO,
 }
 pub const RESOURCE_FAILURE_INFO_VERSION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     pub isTerminalFailure: windows_core::BOOL,
-    pub restartPeriodRemaining: u32,
+    pub restartPeriodRemaining: super::DWORD,
 }
 pub const RS3_UPGRADE_VERSION: i32 = 1;
 pub const RS4_UPGRADE_VERSION: i32 = 2;
@@ -5200,35 +5397,37 @@ pub type SR_DISK_REPLICATION_ELIGIBLE = i32;
 pub type SR_REPLICATED_DISK_TYPE = i32;
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    pub ReplicationGroupName: [u16; 260],
-    pub Description: [u16; 260],
-    pub LogPath: [u16; 260],
-    pub MaxLogSizeInBytes: u64,
-    pub LogType: u16,
-    pub ReplicationMode: u32,
-    pub MinimumPartnersInSync: u32,
+    pub ReplicationGroupName: [super::WCHAR; 260],
+    pub Description: [super::WCHAR; 260],
+    pub LogPath: [super::WCHAR; 260],
+    pub MaxLogSizeInBytes: super::ULONGLONG,
+    pub LogType: super::USHORT,
+    pub ReplicationMode: super::DWORD,
+    pub MinimumPartnersInSync: super::DWORD,
     pub EnableWriteConsistency: super::BOOLEAN,
     pub EnableEncryption: super::BOOLEAN,
     pub EnableCompression: super::BOOLEAN,
-    pub CertificateThumbprint: [u16; 260],
-    pub VolumeNameCount: u32,
-    pub VolumeNames: [[u16; 260]; 1],
+    pub CertificateThumbprint: [super::WCHAR; 260],
+    pub VolumeNameCount: super::ULONG,
+    pub VolumeNames: [[super::WCHAR; 260]; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    pub Result: u32,
-    pub ErrorString: [u16; 260],
+    pub Result: super::DWORD,
+    pub ErrorString: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5241,32 +5440,34 @@ pub struct SR_RESOURCE_TYPE_DISK_INFO {
     pub DiskGuid: windows_core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    pub Count: u16,
+    pub Count: super::USHORT,
     pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeOfflineDisks: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeAvailableStoargeDisks: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_core::GUID,
@@ -5275,45 +5476,52 @@ pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub IncludeOfflineDisks: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
     pub Type: SR_REPLICATED_DISK_TYPE,
     pub ClusterDiskResourceGuid: windows_core::GUID,
     pub ReplicationGroupId: windows_core::GUID,
-    pub ReplicationGroupName: [u16; 260],
+    pub ReplicationGroupName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for SR_RESOURCE_TYPE_REPLICATED_DISK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    pub Count: u16,
+    pub Count: super::USHORT,
     pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    pub Count: u32,
+    pub Count: super::DWORD,
     pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    pub PartitionOffset: u64,
-    pub Capabilities: u32,
+    pub PartitionOffset: super::ULONGLONG,
+    pub Capabilities: super::ULONG,
 }
 pub const SharedVolumeStateActive: CLUSTER_SHARED_VOLUME_STATE = 2;
 pub const SharedVolumeStateActiveRedirected: CLUSTER_SHARED_VOLUME_STATE = 3;

@@ -1,9 +1,14 @@
+#[cfg(feature = "shared")]
 pub type PSecPkgCred_CipherStrengths = *mut SecPkgCred_CipherStrengths;
+#[cfg(feature = "shared")]
 pub type PSecPkgCred_ClientCertPolicy = *mut SecPkgCred_ClientCertPolicy;
+#[cfg(feature = "shared")]
 pub type PSecPkgCred_SessionTicketKey = *mut SecPkgCred_SessionTicketKey;
+#[cfg(feature = "shared")]
 pub type PSecPkgCred_SessionTicketKeys = *mut SecPkgCred_SessionTicketKeys;
-#[cfg(feature = "wincrypt")]
+#[cfg(feature = "shared")]
 pub type PSecPkgCred_SupportedAlgs = *mut SecPkgCred_SupportedAlgs;
+#[cfg(feature = "shared")]
 pub type PSecPkgCred_SupportedProtocols = *mut SecPkgCred_SupportedProtocols;
 pub const SECPKG_ATTR_APP_DATA: i32 = 94;
 pub const SECPKG_ATTR_CC_POLICY_RESULT: i32 = 97;
@@ -46,52 +51,58 @@ pub const SECPKG_ATTR_USE_NCRYPT: i32 = 98;
 pub const SESSION_TICKET_INFO_V0: i32 = 0;
 pub const SESSION_TICKET_INFO_VERSION: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_CipherStrengths {
-    pub dwMinimumCipherStrength: u32,
-    pub dwMaximumCipherStrength: u32,
+    pub dwMinimumCipherStrength: super::DWORD,
+    pub dwMaximumCipherStrength: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_ClientCertPolicy {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub guidPolicyId: windows_core::GUID,
-    pub dwCertFlags: u32,
-    pub dwUrlRetrievalTimeout: u32,
+    pub dwCertFlags: super::DWORD,
+    pub dwUrlRetrievalTimeout: super::DWORD,
     pub fCheckRevocationFreshnessTime: windows_core::BOOL,
-    pub dwRevocationFreshnessTime: u32,
+    pub dwRevocationFreshnessTime: super::DWORD,
     pub fOmitUsageCheck: windows_core::BOOL,
     pub pwszSslCtlStoreName: windows_core::PWSTR,
     pub pwszSslCtlIdentifier: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCred_SessionTicketKey {
-    pub TicketInfoVersion: u32,
-    pub KeyId: [u8; 16],
-    pub KeyingMaterial: [u8; 64],
-    pub KeyingMaterialSize: u8,
+    pub TicketInfoVersion: super::DWORD,
+    pub KeyId: [super::BYTE; 16],
+    pub KeyingMaterial: [super::BYTE; 64],
+    pub KeyingMaterialSize: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for SecPkgCred_SessionTicketKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_SessionTicketKeys {
-    pub cSessionTicketKeys: u32,
+    pub cSessionTicketKeys: super::DWORD,
     pub pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
 }
 #[repr(C)]
-#[cfg(feature = "wincrypt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_SupportedAlgs {
-    pub cSupportedAlgs: u32,
+    pub cSupportedAlgs: super::DWORD,
     pub palgSupportedAlgs: *mut super::ALG_ID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_SupportedProtocols {
-    pub grbitProtocol: u32,
+    pub grbitProtocol: super::DWORD,
 }

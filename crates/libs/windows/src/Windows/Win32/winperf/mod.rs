@@ -8,42 +8,45 @@ pub const PERF_AVERAGE_BULK: i32 = 1073874176;
 pub const PERF_AVERAGE_TIMER: i32 = 805438464;
 pub const PERF_COUNTER_100NS_QUEUELEN_TYPE: i32 = 5571840;
 pub const PERF_COUNTER_BASE: i32 = 196608;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_BLOCK {
-    pub ByteLength: u32,
+    pub ByteLength: super::DWORD,
 }
 pub const PERF_COUNTER_BULK_COUNT: i32 = 272696576;
 pub const PERF_COUNTER_COUNTER: i32 = 272696320;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_DEFINITION {
-    pub ByteLength: u32,
-    pub CounterNameTitleIndex: u32,
+    pub ByteLength: super::DWORD,
+    pub CounterNameTitleIndex: super::DWORD,
     pub CounterNameTitle: windows_core::PWSTR,
-    pub CounterHelpTitleIndex: u32,
+    pub CounterHelpTitleIndex: super::DWORD,
     pub CounterHelpTitle: windows_core::PWSTR,
-    pub DefaultScale: i32,
-    pub DetailLevel: u32,
-    pub CounterType: u32,
-    pub CounterSize: u32,
-    pub CounterOffset: u32,
+    pub DefaultScale: super::LONG,
+    pub DetailLevel: super::DWORD,
+    pub CounterType: super::DWORD,
+    pub CounterSize: super::DWORD,
+    pub CounterOffset: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_DEFINITION {
-    pub ByteLength: u32,
-    pub CounterNameTitleIndex: u32,
-    pub CounterNameTitle: u32,
-    pub CounterHelpTitleIndex: u32,
-    pub CounterHelpTitle: u32,
-    pub DefaultScale: i32,
-    pub DetailLevel: u32,
-    pub CounterType: u32,
-    pub CounterSize: u32,
-    pub CounterOffset: u32,
+    pub ByteLength: super::DWORD,
+    pub CounterNameTitleIndex: super::DWORD,
+    pub CounterNameTitle: super::DWORD,
+    pub CounterHelpTitleIndex: super::DWORD,
+    pub CounterHelpTitle: super::DWORD,
+    pub DefaultScale: super::LONG,
+    pub DetailLevel: super::DWORD,
+    pub CounterType: super::DWORD,
+    pub CounterSize: super::DWORD,
+    pub CounterOffset: super::DWORD,
 }
 pub const PERF_COUNTER_DELTA: i32 = 4195328;
 pub const PERF_COUNTER_ELAPSED: i32 = 262144;
@@ -69,26 +72,26 @@ pub const PERF_COUNTER_TEXT: i32 = 2816;
 pub const PERF_COUNTER_TIMER: i32 = 541132032;
 pub const PERF_COUNTER_TIMER_INV: i32 = 557909248;
 pub const PERF_COUNTER_VALUE: i32 = 0;
-#[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PERF_DATA_BLOCK {
-    pub Signature: [u16; 4],
-    pub LittleEndian: u32,
-    pub Version: u32,
-    pub Revision: u32,
-    pub TotalByteLength: u32,
-    pub HeaderLength: u32,
-    pub NumObjectTypes: u32,
-    pub DefaultObject: i32,
+    pub Signature: [super::WCHAR; 4],
+    pub LittleEndian: super::DWORD,
+    pub Version: super::DWORD,
+    pub Revision: super::DWORD,
+    pub TotalByteLength: super::DWORD,
+    pub HeaderLength: super::DWORD,
+    pub NumObjectTypes: super::DWORD,
+    pub DefaultObject: super::LONG,
     pub SystemTime: super::SYSTEMTIME,
     pub PerfTime: super::LARGE_INTEGER,
     pub PerfFreq: super::LARGE_INTEGER,
     pub PerfTime100nSec: super::LARGE_INTEGER,
-    pub SystemNameLength: u32,
-    pub SystemNameOffset: u32,
+    pub SystemNameLength: super::DWORD,
+    pub SystemNameOffset: super::DWORD,
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 impl Default for PERF_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -108,15 +111,16 @@ pub const PERF_DISPLAY_PERCENT: i32 = 536870912;
 pub const PERF_DISPLAY_PER_SEC: i32 = 268435456;
 pub const PERF_DISPLAY_SECONDS: i32 = 805306368;
 pub const PERF_ELAPSED_TIME: i32 = 807666944;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_INSTANCE_DEFINITION {
-    pub ByteLength: u32,
-    pub ParentObjectTitleIndex: u32,
-    pub ParentObjectInstance: u32,
-    pub UniqueID: i32,
-    pub NameOffset: u32,
-    pub NameLength: u32,
+    pub ByteLength: super::DWORD,
+    pub ParentObjectTitleIndex: super::DWORD,
+    pub ParentObjectInstance: super::DWORD,
+    pub UniqueID: super::LONG,
+    pub NameOffset: super::DWORD,
+    pub NameLength: super::DWORD,
 }
 pub const PERF_INVERSE_COUNTER: i32 = 16777216;
 pub const PERF_LARGE_RAW_BASE: i32 = 1073939712;
@@ -130,55 +134,55 @@ pub const PERF_NUMBER_DECIMAL: i32 = 65536;
 pub const PERF_NUMBER_DEC_1000: i32 = 131072;
 pub const PERF_NUMBER_HEX: i32 = 0;
 pub const PERF_OBJECT_TIMER: i32 = 2097152;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PERF_OBJECT_TYPE {
-    pub TotalByteLength: u32,
-    pub DefinitionLength: u32,
-    pub HeaderLength: u32,
-    pub ObjectNameTitleIndex: u32,
+    pub TotalByteLength: super::DWORD,
+    pub DefinitionLength: super::DWORD,
+    pub HeaderLength: super::DWORD,
+    pub ObjectNameTitleIndex: super::DWORD,
     pub ObjectNameTitle: windows_core::PWSTR,
-    pub ObjectHelpTitleIndex: u32,
+    pub ObjectHelpTitleIndex: super::DWORD,
     pub ObjectHelpTitle: windows_core::PWSTR,
-    pub DetailLevel: u32,
-    pub NumCounters: u32,
-    pub DefaultCounter: i32,
-    pub NumInstances: i32,
-    pub CodePage: u32,
+    pub DetailLevel: super::DWORD,
+    pub NumCounters: super::DWORD,
+    pub DefaultCounter: super::LONG,
+    pub NumInstances: super::LONG,
+    pub CodePage: super::DWORD,
     pub PerfTime: super::LARGE_INTEGER,
     pub PerfFreq: super::LARGE_INTEGER,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PERF_OBJECT_TYPE {
-    pub TotalByteLength: u32,
-    pub DefinitionLength: u32,
-    pub HeaderLength: u32,
-    pub ObjectNameTitleIndex: u32,
-    pub ObjectNameTitle: u32,
-    pub ObjectHelpTitleIndex: u32,
-    pub ObjectHelpTitle: u32,
-    pub DetailLevel: u32,
-    pub NumCounters: u32,
-    pub DefaultCounter: i32,
-    pub NumInstances: i32,
-    pub CodePage: u32,
+    pub TotalByteLength: super::DWORD,
+    pub DefinitionLength: super::DWORD,
+    pub HeaderLength: super::DWORD,
+    pub ObjectNameTitleIndex: super::DWORD,
+    pub ObjectNameTitle: super::DWORD,
+    pub ObjectHelpTitleIndex: super::DWORD,
+    pub ObjectHelpTitle: super::DWORD,
+    pub DetailLevel: super::DWORD,
+    pub NumCounters: super::DWORD,
+    pub DefaultCounter: super::LONG,
+    pub NumInstances: super::LONG,
+    pub CodePage: super::DWORD,
     pub PerfTime: super::LARGE_INTEGER,
     pub PerfFreq: super::LARGE_INTEGER,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -206,15 +210,21 @@ pub const PERF_TYPE_COUNTER: i32 = 1024;
 pub const PERF_TYPE_NUMBER: i32 = 0;
 pub const PERF_TYPE_TEXT: i32 = 2048;
 pub const PERF_TYPE_ZERO: i32 = 3072;
-pub type PM_CLOSE_PROC = Option<unsafe extern "system" fn() -> u32>;
-pub type PM_COLLECT_PROC = Option<unsafe extern "system" fn(pvaluename: windows_core::PCWSTR, ppdata: *mut *mut core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
-pub type PM_OPEN_PROC = Option<unsafe extern "system" fn(pcontext: windows_core::PCWSTR) -> u32>;
+#[cfg(feature = "shared")]
+pub type PM_CLOSE_PROC = Option<unsafe extern "system" fn() -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PM_COLLECT_PROC = Option<unsafe extern "system" fn(pvaluename: windows_core::PCWSTR, ppdata: *mut *mut core::ffi::c_void, pcbtotalbytes: *mut super::DWORD, pnumobjecttypes: *mut super::DWORD) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PM_OPEN_PROC = Option<unsafe extern "system" fn(pcontext: windows_core::PCWSTR) -> super::DWORD>;
+#[cfg(feature = "shared")]
 pub type PPERF_COUNTER_BLOCK = *mut PERF_COUNTER_BLOCK;
+#[cfg(feature = "shared")]
 pub type PPERF_COUNTER_DEFINITION = *mut PERF_COUNTER_DEFINITION;
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 pub type PPERF_DATA_BLOCK = *mut PERF_DATA_BLOCK;
+#[cfg(feature = "shared")]
 pub type PPERF_INSTANCE_DEFINITION = *mut PERF_INSTANCE_DEFINITION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPERF_OBJECT_TYPE = *mut PERF_OBJECT_TYPE;
 pub const WINPERF_LOG_DEBUG: i32 = 2;
 pub const WINPERF_LOG_NONE: i32 = 0;

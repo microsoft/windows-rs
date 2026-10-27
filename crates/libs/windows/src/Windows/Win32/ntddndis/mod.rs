@@ -14,15 +14,17 @@ pub const CLOCK_NETWORK_DERIVED: i32 = 2;
 pub const CLOCK_PRECISION: i32 = 4;
 pub const ENCRYPT: OFFLOAD_OPERATION_E = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GEN_GET_NETCARD_TIME {
-    pub ReadTime: u64,
+    pub ReadTime: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GEN_GET_TIME_CAPS {
-    pub Flags: u32,
-    pub ClockPrecision: u32,
+    pub Flags: super::ULONG,
+    pub ClockPrecision: super::ULONG,
 }
 pub const IOCTL_NDIS_ADD_TDI_DEVICE: i32 = 1507348;
 pub const IOCTL_NDIS_DO_PNP_OPERATION: i32 = 1507336;
@@ -62,16 +64,16 @@ pub const IOCTL_NDIS_RESERVED6: i32 = 1540152;
 pub const IOCTL_NDIS_RESERVED7: i32 = 1507390;
 pub const IOCTL_NDIS_RESERVED8: i32 = 1507392;
 pub const IOCTL_NDIS_RESERVED9: i32 = 1507396;
-pub type IPAddr = u32;
-pub type IPMask = u32;
 pub const MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_REQFI {
-    pub Capabilities: u16,
-    pub ListenInterval: u16,
+    pub Capabilities: super::USHORT,
+    pub ListenInterval: super::USHORT,
     pub CurrentAPAddress: NDIS_802_11_MAC_ADDRESS,
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_AI_REQFI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -81,28 +83,30 @@ pub const NDIS_802_11_AI_REQFI_CAPABILITIES: i32 = 1;
 pub const NDIS_802_11_AI_REQFI_CURRENTAPADDRESS: i32 = 4;
 pub const NDIS_802_11_AI_REQFI_LISTENINTERVAL: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_RESFI {
-    pub Capabilities: u16,
-    pub StatusCode: u16,
-    pub AssociationId: u16,
+    pub Capabilities: super::USHORT,
+    pub StatusCode: super::USHORT,
+    pub AssociationId: super::USHORT,
 }
 pub const NDIS_802_11_AI_RESFI_ASSOCIATIONID: i32 = 4;
 pub const NDIS_802_11_AI_RESFI_CAPABILITIES: i32 = 1;
 pub const NDIS_802_11_AI_RESFI_STATUSCODE: i32 = 2;
 pub type NDIS_802_11_ANTENNA = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
-    pub Length: u32,
-    pub AvailableRequestFixedIEs: u16,
+    pub Length: super::ULONG,
+    pub AvailableRequestFixedIEs: super::USHORT,
     pub RequestFixedIEs: NDIS_802_11_AI_REQFI,
-    pub RequestIELength: u32,
-    pub OffsetRequestIEs: u32,
-    pub AvailableResponseFixedIEs: u16,
+    pub RequestIELength: super::ULONG,
+    pub OffsetRequestIEs: super::ULONG,
+    pub AvailableResponseFixedIEs: super::USHORT,
     pub ResponseFixedIEs: NDIS_802_11_AI_RESFI,
-    pub ResponseIELength: u32,
-    pub OffsetResponseIEs: u32,
+    pub ResponseIELength: super::ULONG,
+    pub OffsetResponseIEs: super::ULONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -111,11 +115,13 @@ pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     pub EncryptStatusSupported: NDIS_802_11_ENCRYPTION_STATUS,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_EVENT {
     pub Status: NDIS_802_11_STATUS_INDICATION,
     pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_AUTHENTICATION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -123,12 +129,14 @@ impl Default for NDIS_802_11_AUTHENTICATION_EVENT {
 }
 pub type NDIS_802_11_AUTHENTICATION_MODE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub Bssid: NDIS_802_11_MAC_ADDRESS,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -140,66 +148,76 @@ pub const NDIS_802_11_AUTH_REQUEST_KEYUPDATE: i32 = 2;
 pub const NDIS_802_11_AUTH_REQUEST_PAIRWISE_ERROR: i32 = 6;
 pub const NDIS_802_11_AUTH_REQUEST_REAUTH: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST {
-    pub NumberOfItems: u32,
+    pub NumberOfItems: super::ULONG,
     pub Bssid: [NDIS_WLAN_BSSID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_BSSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST_EX {
-    pub NumberOfItems: u32,
+    pub NumberOfItems: super::ULONG,
     pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_BSSID_LIST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CAPABILITY {
-    pub Length: u32,
-    pub Version: u32,
-    pub NoOfPMKIDs: u32,
-    pub NoOfAuthEncryptPairsSupported: u32,
+    pub Length: super::ULONG,
+    pub Version: super::ULONG,
+    pub NoOfPMKIDs: super::ULONG,
+    pub NoOfAuthEncryptPairsSupported: super::ULONG,
     pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION {
-    pub Length: u32,
-    pub BeaconPeriod: u32,
-    pub ATIMWindow: u32,
-    pub DSConfig: u32,
+    pub Length: super::ULONG,
+    pub BeaconPeriod: super::ULONG,
+    pub ATIMWindow: super::ULONG,
+    pub DSConfig: super::ULONG,
     pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION_FH {
-    pub Length: u32,
-    pub HopPattern: u32,
-    pub HopSet: u32,
-    pub DwellTime: u32,
+    pub Length: super::ULONG,
+    pub HopPattern: super::ULONG,
+    pub HopSet: super::ULONG,
+    pub DwellTime: super::ULONG,
 }
-pub type NDIS_802_11_ENCRYPTION_STATUS = NDIS_802_11_WEP_STATUS;
+pub type NDIS_802_11_ENCRYPTION_STATUS = _NDIS_802_11_WEP_STATUS;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_FIXED_IEs {
-    pub Timestamp: [u8; 8],
-    pub BeaconInterval: u16,
-    pub Capabilities: u16,
+    pub Timestamp: [super::UCHAR; 8],
+    pub BeaconInterval: super::USHORT,
+    pub Capabilities: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_FIXED_IEs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -207,15 +225,17 @@ impl Default for NDIS_802_11_FIXED_IEs {
 }
 pub type NDIS_802_11_FRAGMENTATION_THRESHOLD = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_KEY {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub KeyLength: u32,
+    pub Length: super::ULONG,
+    pub KeyIndex: super::ULONG,
+    pub KeyLength: super::ULONG,
     pub BSSID: NDIS_802_11_MAC_ADDRESS,
     pub KeyRSC: NDIS_802_11_KEY_RSC,
-    pub KeyMaterial: [u8; 1],
+    pub KeyMaterial: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -231,46 +251,54 @@ pub type NDIS_802_11_MEDIA_STREAM_MODE = i32;
 pub type NDIS_802_11_NETWORK_INFRASTRUCTURE = i32;
 pub type NDIS_802_11_NETWORK_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NETWORK_TYPE_LIST {
-    pub NumberOfItems: u32,
+    pub NumberOfItems: super::ULONG,
     pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_NETWORK_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
-    pub NumberOfItems: u32,
+    pub NumberOfItems: super::ULONG,
     pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID {
-    pub Length: u32,
-    pub BSSIDInfoCount: u32,
+    pub Length: super::ULONG,
+    pub BSSIDInfoCount: super::ULONG,
     pub BSSIDInfo: [BSSID_INFO; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_PMKID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
-    pub Version: u32,
-    pub NumCandidates: u32,
+    pub Version: super::ULONG,
+    pub NumCandidates: super::ULONG,
     pub CandidateList: [PMKID_CANDIDATE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -285,12 +313,14 @@ pub type NDIS_802_11_RATES = [u8; 8];
 pub type NDIS_802_11_RATES_EX = [u8; 16];
 pub type NDIS_802_11_RELOAD_DEFAULTS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_REMOVE_KEY {
-    pub Length: u32,
-    pub KeyIndex: u32,
+    pub Length: super::ULONG,
+    pub KeyIndex: super::ULONG,
     pub BSSID: NDIS_802_11_MAC_ADDRESS,
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_REMOVE_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -299,21 +329,23 @@ impl Default for NDIS_802_11_REMOVE_KEY {
 pub type NDIS_802_11_RSSI = i32;
 pub type NDIS_802_11_RTS_THRESHOLD = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_SSID {
-    pub SsidLength: u32,
-    pub Ssid: [u8; 32],
+    pub SsidLength: super::ULONG,
+    pub Ssid: [super::UCHAR; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_SSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_802_11_STATISTICS {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub TransmittedFragmentCount: super::LARGE_INTEGER,
     pub MulticastTransmittedFrameCount: super::LARGE_INTEGER,
     pub FailedCount: super::LARGE_INTEGER,
@@ -339,7 +371,7 @@ pub struct NDIS_802_11_STATISTICS {
     pub DecryptSuccessCount: super::LARGE_INTEGER,
     pub DecryptFailureCount: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for NDIS_802_11_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -352,23 +384,27 @@ pub struct NDIS_802_11_STATUS_INDICATION {
 }
 pub type NDIS_802_11_STATUS_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NDIS_802_11_TEST {
-    pub Length: u32,
-    pub Type: u32,
+    pub Length: super::ULONG,
+    pub Type: super::ULONG,
     pub Anonymous: NDIS_802_11_TEST_0,
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_TEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NDIS_802_11_TEST_0 {
     pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
     pub RssiTrigger: NDIS_802_11_RSSI,
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_TEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -376,70 +412,76 @@ impl Default for NDIS_802_11_TEST_0 {
 }
 pub type NDIS_802_11_TX_POWER_LEVEL = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_VARIABLE_IEs {
-    pub ElementID: u8,
-    pub Length: u8,
-    pub data: [u8; 1],
+    pub ElementID: super::UCHAR,
+    pub Length: super::UCHAR,
+    pub data: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_VARIABLE_IEs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_WEP {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub KeyLength: u32,
-    pub KeyMaterial: [u8; 1],
+    pub Length: super::ULONG,
+    pub KeyIndex: super::ULONG,
+    pub KeyLength: super::ULONG,
+    pub KeyMaterial: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_802_11_WEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type NDIS_802_11_WEP_STATUS = i32;
+pub type NDIS_802_11_WEP_STATUS = _NDIS_802_11_WEP_STATUS;
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: i32 = 1;
 pub type NDIS_802_5_RING_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_CO_DEVICE_PROFILE {
     pub DeviceDescription: NDIS_VAR_DATA_DESC,
     pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
-    pub ulTAPISupplementaryPassThru: u32,
-    pub ulAddressModes: u32,
-    pub ulNumAddresses: u32,
-    pub ulBearerModes: u32,
-    pub ulMaxTxRate: u32,
-    pub ulMinTxRate: u32,
-    pub ulMaxRxRate: u32,
-    pub ulMinRxRate: u32,
-    pub ulMediaModes: u32,
-    pub ulGenerateToneModes: u32,
-    pub ulGenerateToneMaxNumFreq: u32,
-    pub ulGenerateDigitModes: u32,
-    pub ulMonitorToneMaxNumFreq: u32,
-    pub ulMonitorToneMaxNumEntries: u32,
-    pub ulMonitorDigitModes: u32,
-    pub ulGatherDigitsMinTimeout: u32,
-    pub ulGatherDigitsMaxTimeout: u32,
-    pub ulDevCapFlags: u32,
-    pub ulMaxNumActiveCalls: u32,
-    pub ulAnswerMode: u32,
-    pub ulUUIAcceptSize: u32,
-    pub ulUUIAnswerSize: u32,
-    pub ulUUIMakeCallSize: u32,
-    pub ulUUIDropSize: u32,
-    pub ulUUISendUserUserInfoSize: u32,
-    pub ulUUICallInfoSize: u32,
+    pub ulTAPISupplementaryPassThru: super::ULONG,
+    pub ulAddressModes: super::ULONG,
+    pub ulNumAddresses: super::ULONG,
+    pub ulBearerModes: super::ULONG,
+    pub ulMaxTxRate: super::ULONG,
+    pub ulMinTxRate: super::ULONG,
+    pub ulMaxRxRate: super::ULONG,
+    pub ulMinRxRate: super::ULONG,
+    pub ulMediaModes: super::ULONG,
+    pub ulGenerateToneModes: super::ULONG,
+    pub ulGenerateToneMaxNumFreq: super::ULONG,
+    pub ulGenerateDigitModes: super::ULONG,
+    pub ulMonitorToneMaxNumFreq: super::ULONG,
+    pub ulMonitorToneMaxNumEntries: super::ULONG,
+    pub ulMonitorDigitModes: super::ULONG,
+    pub ulGatherDigitsMinTimeout: super::ULONG,
+    pub ulGatherDigitsMaxTimeout: super::ULONG,
+    pub ulDevCapFlags: super::ULONG,
+    pub ulMaxNumActiveCalls: super::ULONG,
+    pub ulAnswerMode: super::ULONG,
+    pub ulUUIAcceptSize: super::ULONG,
+    pub ulUUIAnswerSize: super::ULONG,
+    pub ulUUIMakeCallSize: super::ULONG,
+    pub ulUUIDropSize: super::ULONG,
+    pub ulUUISendUserUserInfoSize: super::ULONG,
+    pub ulUUICallInfoSize: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_CO_LINK_SPEED {
-    pub Outbound: u32,
-    pub Inbound: u32,
+    pub Outbound: super::ULONG,
+    pub Inbound: super::ULONG,
 }
 pub const NDIS_CO_MAC_OPTION_DYNAMIC_LINK_SPEED: i32 = 1;
 pub type NDIS_DEVICE_POWER_STATE = i32;
@@ -457,63 +499,64 @@ pub type NDIS_FDDI_ATTACHMENT_TYPE = i32;
 pub type NDIS_FDDI_LCONNECTION_STATE = i32;
 pub type NDIS_FDDI_RING_MGT_STATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "oidtypes", feature = "types"))]
+#[cfg(all(feature = "oidtypes", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_GUID {
     pub Guid: windows_core::GUID,
     pub Anonymous: NDIS_GUID_0,
-    pub Size: u32,
-    pub Flags: u32,
+    pub Size: super::ULONG,
+    pub Flags: super::ULONG,
 }
-#[cfg(all(feature = "oidtypes", feature = "types"))]
+#[cfg(all(feature = "oidtypes", feature = "shared", feature = "types"))]
 impl Default for NDIS_GUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "oidtypes", feature = "types"))]
+#[cfg(all(feature = "oidtypes", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy)]
 pub union NDIS_GUID_0 {
     pub Oid: super::NDIS_OID,
     pub Status: super::NDIS_STATUS,
 }
-#[cfg(all(feature = "oidtypes", feature = "types"))]
+#[cfg(all(feature = "oidtypes", feature = "shared", feature = "types"))]
 impl Default for NDIS_GUID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub SystemTimestamp1: u64,
-    pub HardwareClockTimestamp: u64,
-    pub SystemTimestamp2: u64,
+    pub Flags: super::ULONG,
+    pub SystemTimestamp1: super::ULONG64,
+    pub HardwareClockTimestamp: super::ULONG64,
+    pub SystemTimestamp2: super::ULONG64,
 }
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: i32 = 1;
 pub type NDIS_HARDWARE_STATUS = i32;
-#[cfg(feature = "ifdef")]
-pub type NDIS_IF_COUNTED_STRING = super::IF_COUNTED_STRING;
+#[cfg(all(feature = "ifdef", feature = "shared", feature = "winnt"))]
+pub type NDIS_IF_COUNTED_STRING = super::IF_COUNTED_STRING_LH;
 pub const NDIS_IF_MAX_STRING_SIZE: i32 = 256;
-#[cfg(feature = "ifdef")]
-pub type NDIS_IF_PHYSICAL_ADDRESS = super::IF_PHYSICAL_ADDRESS;
+#[cfg(all(feature = "ifdef", feature = "shared"))]
+pub type NDIS_IF_PHYSICAL_ADDRESS = super::IF_PHYSICAL_ADDRESS_LH;
 pub type NDIS_INTERRUPT_MODERATION = i32;
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: i32 = 2;
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
 }
 pub const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
@@ -521,139 +564,144 @@ pub struct NDIS_IPSEC_OFFLOAD_V1 {
     pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
+    pub Encapsulation: super::ULONG,
+    pub AhEspCombined: super::ULONG,
+    pub TransportTunnelCombined: super::ULONG,
+    pub IPv4Options: super::ULONG,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_IPSEC_OFFLOAD_V1_1 {
-    pub fn Md5(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn Md5(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_Md5(&mut self, value: u32) {
+    pub fn set_Md5(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn Sha_1(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn Sha_1(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_Sha_1(&mut self, value: u32) {
+    pub fn set_Sha_1(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn Transport(&self) -> u32 {
-        (self._bitfield << 26) >> 30
+    pub fn Transport(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 3
     }
-    pub fn set_Transport(&mut self, value: u32) {
+    pub fn set_Transport(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
     }
-    pub fn Tunnel(&self) -> u32 {
-        (self._bitfield << 24) >> 30
+    pub fn Tunnel(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 3
     }
-    pub fn set_Tunnel(&mut self, value: u32) {
+    pub fn set_Tunnel(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
-    pub fn Send(&self) -> u32 {
-        (self._bitfield << 22) >> 30
+    pub fn Send(&self) -> super::ULONG {
+        (self._bitfield >> 8) & 3
     }
-    pub fn set_Send(&mut self, value: u32) {
+    pub fn set_Send(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
     }
-    pub fn Receive(&self) -> u32 {
-        (self._bitfield << 20) >> 30
+    pub fn Receive(&self) -> super::ULONG {
+        (self._bitfield >> 10) & 3
     }
-    pub fn set_Receive(&mut self, value: u32) {
+    pub fn set_Receive(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 10)) | ((value & 3) << 10);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_IPSEC_OFFLOAD_V1_2 {
-    pub fn Des(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn Des(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_Des(&mut self, value: u32) {
+    pub fn set_Des(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn Reserved(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn Reserved(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn TripleDes(&self) -> u32 {
-        (self._bitfield << 26) >> 30
+    pub fn TripleDes(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 3
     }
-    pub fn set_TripleDes(&mut self, value: u32) {
+    pub fn set_TripleDes(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
     }
-    pub fn NullEsp(&self) -> u32 {
-        (self._bitfield << 24) >> 30
+    pub fn NullEsp(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 3
     }
-    pub fn set_NullEsp(&mut self, value: u32) {
+    pub fn set_NullEsp(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
-    pub fn Transport(&self) -> u32 {
-        (self._bitfield << 22) >> 30
+    pub fn Transport(&self) -> super::ULONG {
+        (self._bitfield >> 8) & 3
     }
-    pub fn set_Transport(&mut self, value: u32) {
+    pub fn set_Transport(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
     }
-    pub fn Tunnel(&self) -> u32 {
-        (self._bitfield << 20) >> 30
+    pub fn Tunnel(&self) -> super::ULONG {
+        (self._bitfield >> 10) & 3
     }
-    pub fn set_Tunnel(&mut self, value: u32) {
+    pub fn set_Tunnel(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 10)) | ((value & 3) << 10);
     }
-    pub fn Send(&self) -> u32 {
-        (self._bitfield << 18) >> 30
+    pub fn Send(&self) -> super::ULONG {
+        (self._bitfield >> 12) & 3
     }
-    pub fn set_Send(&mut self, value: u32) {
+    pub fn set_Send(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 12)) | ((value & 3) << 12);
     }
-    pub fn Receive(&self) -> u32 {
-        (self._bitfield << 16) >> 30
+    pub fn Receive(&self) -> super::ULONG {
+        (self._bitfield >> 14) & 3
     }
-    pub fn set_Receive(&mut self, value: u32) {
+    pub fn set_Receive(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
 }
 pub const NDIS_IP_OPER_STATE_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "ifdef")]
+#[cfg(all(feature = "ifdef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS {
-    pub AddressFamily: u32,
+    pub AddressFamily: super::ULONG,
     pub OperationalStatus: super::NET_IF_OPER_STATUS,
-    pub OperationalStatusFlags: u32,
+    pub OperationalStatusFlags: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub NumberofAddressFamiliesReturned: u32,
+    pub Flags: super::ULONG,
+    pub NumberofAddressFamiliesReturned: super::ULONG,
     pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
 }
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 impl Default for NDIS_IP_OPER_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -661,41 +709,44 @@ impl Default for NDIS_IP_OPER_STATUS_INFO {
 }
 pub const NDIS_IP_OPER_STATUS_INFO_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IRDA_PACKET_INFO {
-    pub ExtraBOFs: u32,
-    pub MinTurnAroundTime: u32,
+    pub ExtraBOFs: super::ULONG,
+    pub MinTurnAroundTime: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub MediaDuplexState: NDIS_MEDIA_DUPLEX_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
+    pub XmitLinkSpeed: super::ULONG64,
+    pub RcvLinkSpeed: super::ULONG64,
     pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-    pub AutoNegotiationFlags: u32,
+    pub AutoNegotiationFlags: super::ULONG,
 }
 pub const NDIS_LINK_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_LINK_SPEED {
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
+    pub XmitLinkSpeed: super::ULONG64,
+    pub RcvLinkSpeed: super::ULONG64,
 }
-pub const NDIS_LINK_SPEED_UNKNOWN: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const NDIS_LINK_SPEED_UNKNOWN: super::ULONG64 = 18446744073709551615;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_LINK_STATE {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
     pub MediaDuplexState: NDIS_MEDIA_DUPLEX_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
+    pub XmitLinkSpeed: super::ULONG64,
+    pub RcvLinkSpeed: super::ULONG64,
     pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-    pub AutoNegotiationFlags: u32,
+    pub AutoNegotiationFlags: super::ULONG,
 }
 pub const NDIS_LINK_STATE_DUPLEX_AUTO_NEGOTIATED: i32 = 4;
 pub const NDIS_LINK_STATE_PAUSE_FUNCTIONS_AUTO_NEGOTIATED: i32 = 8;
@@ -773,7 +824,7 @@ pub const NDIS_OBJECT_TYPE_SG_DMA_DESCRIPTION: i32 = 131;
 pub const NDIS_OBJECT_TYPE_STATUS_INDICATION: i32 = 152;
 pub const NDIS_OBJECT_TYPE_TIMER_CHARACTERISTICS: i32 = 151;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -781,26 +832,26 @@ pub struct NDIS_OFFLOAD {
     pub LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1,
     pub IPsecV1: NDIS_IPSEC_OFFLOAD_V1,
     pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub IPv4Checksum: u8,
-    pub TCPIPv4Checksum: u8,
-    pub UDPIPv4Checksum: u8,
-    pub TCPIPv6Checksum: u8,
-    pub UDPIPv6Checksum: u8,
-    pub LsoV1: u8,
-    pub IPsecV1: u8,
-    pub LsoV2IPv4: u8,
-    pub LsoV2IPv6: u8,
-    pub TcpConnectionIPv4: u8,
-    pub TcpConnectionIPv6: u8,
-    pub Flags: u32,
+    pub IPv4Checksum: super::UCHAR,
+    pub TCPIPv4Checksum: super::UCHAR,
+    pub UDPIPv4Checksum: super::UCHAR,
+    pub TCPIPv6Checksum: super::UCHAR,
+    pub UDPIPv6Checksum: super::UCHAR,
+    pub LsoV1: super::UCHAR,
+    pub IPsecV1: super::UCHAR,
+    pub LsoV2IPv4: super::UCHAR,
+    pub LsoV2IPv6: super::UCHAR,
+    pub TcpConnectionIPv4: super::UCHAR,
+    pub TcpConnectionIPv6: super::UCHAR,
+    pub Flags: super::ULONG,
 }
 pub const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_DISABLED: i32 = 1;
 pub const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_ENABLED: i32 = 2;
@@ -820,12 +871,12 @@ pub const NDIS_OFFLOAD_PARAMETERS_TX_RX_DISABLED: i32 = 1;
 pub const NDIS_OFFLOAD_PARAMETERS_TX_RX_ENABLED: i32 = 4;
 pub const NDIS_OFFLOAD_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_OPER_STATE {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub OperationalStatus: super::NET_IF_OPER_STATUS,
-    pub OperationalStatusFlags: u32,
+    pub OperationalStatusFlags: super::ULONG,
 }
 pub const NDIS_OPER_STATE_REVISION_1: i32 = 1;
 pub const NDIS_PACKET_TYPE_ALL_FUNCTIONAL: i32 = 8192;
@@ -842,33 +893,34 @@ pub const NDIS_PACKET_TYPE_PROMISCUOUS: i32 = 32;
 pub const NDIS_PACKET_TYPE_SMT: i32 = 64;
 pub const NDIS_PACKET_TYPE_SOURCE_ROUTING: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub DeviceType: u32,
-    pub CurrentSpeedAndMode: u32,
-    pub CurrentPayloadSize: u32,
-    pub MaxPayloadSize: u32,
-    pub MaxReadRequestSize: u32,
-    pub CurrentLinkSpeed: u32,
-    pub CurrentLinkWidth: u32,
-    pub MaxLinkSpeed: u32,
-    pub MaxLinkWidth: u32,
-    pub PciExpressVersion: u32,
-    pub InterruptType: u32,
-    pub MaxInterruptMessages: u32,
+    pub DeviceType: super::UINT32,
+    pub CurrentSpeedAndMode: super::UINT32,
+    pub CurrentPayloadSize: super::UINT32,
+    pub MaxPayloadSize: super::UINT32,
+    pub MaxReadRequestSize: super::UINT32,
+    pub CurrentLinkSpeed: super::UINT32,
+    pub CurrentLinkWidth: super::UINT32,
+    pub MaxLinkSpeed: super::UINT32,
+    pub MaxLinkWidth: super::UINT32,
+    pub PciExpressVersion: super::UINT32,
+    pub InterruptType: super::UINT32,
+    pub MaxInterruptMessages: super::UINT32,
 }
 pub type NDIS_PHYSICAL_MEDIUM = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PM_PACKET_PATTERN {
-    pub Priority: u32,
-    pub Reserved: u32,
-    pub MaskSize: u32,
-    pub PatternOffset: u32,
-    pub PatternSize: u32,
-    pub PatternFlags: u32,
+    pub Priority: super::ULONG,
+    pub Reserved: super::ULONG,
+    pub MaskSize: super::ULONG,
+    pub PatternOffset: super::ULONG,
+    pub PatternSize: super::ULONG,
+    pub PatternFlags: super::ULONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -878,35 +930,28 @@ pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
     pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PNP_CAPABILITIES {
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
 }
 pub const NDIS_PNP_WAKE_UP_LINK_CHANGE: i32 = 4;
 pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: i32 = 1;
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: i32 = 2;
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type NDIS_PORT = _NDIS_PORT;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NDIS_PORT {
-    pub Next: PNDIS_PORT,
-    pub NdisReserved: *mut core::ffi::c_void,
-    pub MiniportReserved: *mut core::ffi::c_void,
-    pub ProtocolReserved: *mut core::ffi::c_void,
-    pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
-}
-#[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_ARRAY {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub NumberOfPorts: u32,
-    pub OffsetFirstPort: u32,
-    pub ElementSize: u32,
+    pub NumberOfPorts: super::ULONG,
+    pub OffsetFirstPort: super::ULONG,
+    pub ElementSize: super::ULONG,
     pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
 }
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 impl Default for NDIS_PORT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -914,7 +959,7 @@ impl Default for NDIS_PORT_ARRAY {
 }
 pub const NDIS_PORT_ARRAY_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -926,16 +971,16 @@ pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: i32 = 1;
 pub type NDIS_PORT_AUTHORIZATION_STATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PortNumber: super::NDIS_PORT_NUMBER,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub Type: super::NDIS_PORT_TYPE,
     pub MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
+    pub XmitLinkSpeed: super::ULONG64,
+    pub RcvLinkSpeed: super::ULONG64,
     pub Direction: super::NET_IF_DIRECTION_TYPE,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
     pub RcvControlState: NDIS_PORT_CONTROL_STATE,
@@ -947,19 +992,19 @@ pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: i32 = 1;
 pub type NDIS_PORT_CONTROLL_STATE = NDIS_PORT_CONTROL_STATE;
 pub type NDIS_PORT_CONTROL_STATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_STATE {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
+    pub XmitLinkSpeed: super::ULONG64,
+    pub RcvLinkSpeed: super::ULONG64,
     pub Direction: super::NET_IF_DIRECTION_TYPE,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
     pub RcvControlState: NDIS_PORT_CONTROL_STATE,
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const NDIS_PORT_STATE_REVISION_1: i32 = 1;
 pub type NDIS_PROCESSOR_VENDOR = i32;
@@ -978,38 +1023,38 @@ pub const NDIS_RECEIVE_HASH_FLAG_ENABLE_HASH: i32 = 1;
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_INFO_UNCHANGED: i32 = 2;
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_KEY_UNCHANGED: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub HashInformation: u32,
-    pub HashSecretKeySize: u16,
-    pub HashSecretKeyOffset: u32,
+    pub Flags: super::ULONG,
+    pub HashInformation: super::ULONG,
+    pub HashSecretKeySize: super::USHORT,
+    pub HashSecretKeyOffset: super::ULONG,
 }
 pub const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub CapabilitiesFlags: NDIS_RSS_CAPS_FLAGS,
-    pub NumberOfInterruptMessages: u32,
-    pub NumberOfReceiveQueues: u32,
+    pub NumberOfInterruptMessages: super::ULONG,
+    pub NumberOfReceiveQueues: super::ULONG,
 }
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u16,
-    pub BaseCpuNumber: u16,
-    pub HashInformation: u32,
-    pub IndirectionTableSize: u16,
-    pub IndirectionTableOffset: u32,
-    pub HashSecretKeySize: u16,
-    pub HashSecretKeyOffset: u32,
+    pub Flags: super::USHORT,
+    pub BaseCpuNumber: super::USHORT,
+    pub HashInformation: super::ULONG,
+    pub IndirectionTableSize: super::USHORT,
+    pub IndirectionTableOffset: super::ULONG,
+    pub HashSecretKeySize: super::USHORT,
+    pub HashSecretKeyOffset: super::ULONG,
 }
 pub const NDIS_RECEIVE_SCALE_PARAMETERS_REVISION_1: i32 = 1;
 pub const NDIS_RING_AUTO_REMOVAL_ERROR: i32 = 1024;
@@ -1173,55 +1218,55 @@ pub const NDIS_STATISTICS_FLAGS_VALID_RCV_ERROR: i32 = 32;
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_DISCARDS: i32 = 32768;
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_ERROR: i32 = 1024;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub SupportedStatistics: u32,
-    pub ifInDiscards: u64,
-    pub ifInErrors: u64,
-    pub ifHCInOctets: u64,
-    pub ifHCInUcastPkts: u64,
-    pub ifHCInMulticastPkts: u64,
-    pub ifHCInBroadcastPkts: u64,
-    pub ifHCOutOctets: u64,
-    pub ifHCOutUcastPkts: u64,
-    pub ifHCOutMulticastPkts: u64,
-    pub ifHCOutBroadcastPkts: u64,
-    pub ifOutErrors: u64,
-    pub ifOutDiscards: u64,
-    pub ifHCInUcastOctets: u64,
-    pub ifHCInMulticastOctets: u64,
-    pub ifHCInBroadcastOctets: u64,
-    pub ifHCOutUcastOctets: u64,
-    pub ifHCOutMulticastOctets: u64,
-    pub ifHCOutBroadcastOctets: u64,
+    pub SupportedStatistics: super::ULONG,
+    pub ifInDiscards: super::ULONG64,
+    pub ifInErrors: super::ULONG64,
+    pub ifHCInOctets: super::ULONG64,
+    pub ifHCInUcastPkts: super::ULONG64,
+    pub ifHCInMulticastPkts: super::ULONG64,
+    pub ifHCInBroadcastPkts: super::ULONG64,
+    pub ifHCOutOctets: super::ULONG64,
+    pub ifHCOutUcastPkts: super::ULONG64,
+    pub ifHCOutMulticastPkts: super::ULONG64,
+    pub ifHCOutBroadcastPkts: super::ULONG64,
+    pub ifOutErrors: super::ULONG64,
+    pub ifOutDiscards: super::ULONG64,
+    pub ifHCInUcastOctets: super::ULONG64,
+    pub ifHCInMulticastOctets: super::ULONG64,
+    pub ifHCInBroadcastOctets: super::ULONG64,
+    pub ifHCOutUcastOctets: super::ULONG64,
+    pub ifHCOutMulticastOctets: super::ULONG64,
+    pub ifHCOutBroadcastOctets: super::ULONG64,
 }
 pub const NDIS_STATISTICS_INFO_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "oidtypes")]
+#[cfg(all(feature = "oidtypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE {
     pub Oid: super::NDIS_OID,
-    pub DataLength: u32,
-    pub Data: [u8; 1],
+    pub DataLength: super::ULONG,
+    pub Data: [super::UCHAR; 1],
 }
-#[cfg(feature = "oidtypes")]
+#[cfg(all(feature = "oidtypes", feature = "shared"))]
 impl Default for NDIS_STATISTICS_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "oidtypes")]
+#[cfg(all(feature = "oidtypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE_EX {
     pub Oid: super::NDIS_OID,
-    pub DataLength: u32,
-    pub Length: u32,
-    pub Data: [u8; 1],
+    pub DataLength: super::ULONG,
+    pub Length: super::ULONG,
+    pub Data: [super::UCHAR; 1],
 }
-#[cfg(feature = "oidtypes")]
+#[cfg(all(feature = "oidtypes", feature = "shared"))]
 impl Default for NDIS_STATISTICS_VALUE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1229,44 +1274,45 @@ impl Default for NDIS_STATISTICS_VALUE_EX {
 }
 pub type NDIS_SUPPORTED_PAUSE_FUNCTIONS = i32;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Encapsulation: u32,
+    pub Encapsulation: super::ULONG,
     pub _bitfield: u32,
-    pub TcpConnectionOffloadCapacity: u32,
-    pub Flags: u32,
+    pub TcpConnectionOffloadCapacity: super::ULONG,
+    pub Flags: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl NDIS_TCP_CONNECTION_OFFLOAD {
-    pub fn SupportIPv4(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn SupportIPv4(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_SupportIPv4(&mut self, value: u32) {
+    pub fn set_SupportIPv4(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn SupportIPv6(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn SupportIPv6(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_SupportIPv6(&mut self, value: u32) {
+    pub fn set_SupportIPv6(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn SupportIPv6ExtensionHeaders(&self) -> u32 {
-        (self._bitfield << 26) >> 30
+    pub fn SupportIPv6ExtensionHeaders(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 3
     }
-    pub fn set_SupportIPv6ExtensionHeaders(&mut self, value: u32) {
+    pub fn set_SupportIPv6ExtensionHeaders(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
     }
-    pub fn SupportSack(&self) -> u32 {
-        (self._bitfield << 24) >> 30
+    pub fn SupportSack(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 3
     }
-    pub fn set_SupportSack(&mut self, value: u32) {
+    pub fn set_SupportSack(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
 }
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
@@ -1275,217 +1321,232 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
+    pub Encapsulation: super::ULONG,
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub fn IpOptionsSupported(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn IpOptionsSupported(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_IpOptionsSupported(&mut self, value: u32) {
+    pub fn set_IpOptionsSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn TcpOptionsSupported(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn TcpOptionsSupported(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+    pub fn set_TcpOptionsSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn TcpChecksum(&self) -> u32 {
-        (self._bitfield << 26) >> 30
+    pub fn TcpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 3
     }
-    pub fn set_TcpChecksum(&mut self, value: u32) {
+    pub fn set_TcpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
     }
-    pub fn UdpChecksum(&self) -> u32 {
-        (self._bitfield << 24) >> 30
+    pub fn UdpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 3
     }
-    pub fn set_UdpChecksum(&mut self, value: u32) {
+    pub fn set_UdpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
-    pub fn IpChecksum(&self) -> u32 {
-        (self._bitfield << 22) >> 30
+    pub fn IpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 8) & 3
     }
-    pub fn set_IpChecksum(&mut self, value: u32) {
+    pub fn set_IpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
+    pub Encapsulation: super::ULONG,
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub fn IpOptionsSupported(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn IpOptionsSupported(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_IpOptionsSupported(&mut self, value: u32) {
+    pub fn set_IpOptionsSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn TcpOptionsSupported(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn TcpOptionsSupported(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+    pub fn set_TcpOptionsSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn TcpChecksum(&self) -> u32 {
-        (self._bitfield << 26) >> 30
+    pub fn TcpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 3
     }
-    pub fn set_TcpChecksum(&mut self, value: u32) {
+    pub fn set_TcpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
     }
-    pub fn UdpChecksum(&self) -> u32 {
-        (self._bitfield << 24) >> 30
+    pub fn UdpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 3
     }
-    pub fn set_UdpChecksum(&mut self, value: u32) {
+    pub fn set_UdpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
-    pub fn IpChecksum(&self) -> u32 {
-        (self._bitfield << 22) >> 30
+    pub fn IpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 8) & 3
     }
-    pub fn set_IpChecksum(&mut self, value: u32) {
+    pub fn set_IpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    pub Encapsulation: u32,
+    pub Encapsulation: super::ULONG,
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    pub fn IpExtensionHeadersSupported(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn IpExtensionHeadersSupported(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_IpExtensionHeadersSupported(&mut self, value: u32) {
+    pub fn set_IpExtensionHeadersSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn TcpOptionsSupported(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn TcpOptionsSupported(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+    pub fn set_TcpOptionsSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn TcpChecksum(&self) -> u32 {
-        (self._bitfield << 26) >> 30
+    pub fn TcpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 3
     }
-    pub fn set_TcpChecksum(&mut self, value: u32) {
+    pub fn set_TcpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
     }
-    pub fn UdpChecksum(&self) -> u32 {
-        (self._bitfield << 24) >> 30
+    pub fn UdpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 3
     }
-    pub fn set_UdpChecksum(&mut self, value: u32) {
+    pub fn set_UdpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    pub Encapsulation: u32,
+    pub Encapsulation: super::ULONG,
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    pub fn IpExtensionHeadersSupported(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn IpExtensionHeadersSupported(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_IpExtensionHeadersSupported(&mut self, value: u32) {
+    pub fn set_IpExtensionHeadersSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn TcpOptionsSupported(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn TcpOptionsSupported(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+    pub fn set_TcpOptionsSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn TcpChecksum(&self) -> u32 {
-        (self._bitfield << 26) >> 30
+    pub fn TcpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 3
     }
-    pub fn set_TcpChecksum(&mut self, value: u32) {
+    pub fn set_TcpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
     }
-    pub fn UdpChecksum(&self) -> u32 {
-        (self._bitfield << 24) >> 30
+    pub fn UdpChecksum(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 3
     }
-    pub fn set_UdpChecksum(&mut self, value: u32) {
+    pub fn set_UdpChecksum(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
+    pub Encapsulation: super::ULONG,
+    pub MaxOffLoadSize: super::ULONG,
+    pub MinSegmentCount: super::ULONG,
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    pub fn TcpOptions(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn TcpOptions(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_TcpOptions(&mut self, value: u32) {
+    pub fn set_TcpOptions(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn IpOptions(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn IpOptions(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_IpOptions(&mut self, value: u32) {
+    pub fn set_IpOptions(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
+    pub Encapsulation: super::ULONG,
+    pub MaxOffLoadSize: super::ULONG,
+    pub MinSegmentCount: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
+    pub Encapsulation: super::ULONG,
+    pub MaxOffLoadSize: super::ULONG,
+    pub MinSegmentCount: super::ULONG,
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    pub fn IpExtensionHeadersSupported(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn IpExtensionHeadersSupported(&self) -> super::ULONG {
+        (self._bitfield) & 3
     }
-    pub fn set_IpExtensionHeadersSupported(&mut self, value: u32) {
+    pub fn set_IpExtensionHeadersSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn TcpOptionsSupported(&self) -> u32 {
-        (self._bitfield << 28) >> 30
+    pub fn TcpOptionsSupported(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 3
     }
-    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+    pub fn set_TcpOptionsSupported(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub TimeoutArrayLength: u32,
-    pub TimeoutArray: [u32; 1],
+    pub Flags: super::ULONG,
+    pub TimeoutArrayLength: super::ULONG,
+    pub TimeoutArray: [super::ULONG; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1493,19 +1554,19 @@ impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 }
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub HardwareClockFrequencyHz: u64,
+    pub HardwareClockFrequencyHz: super::ULONG64,
     pub CrossTimestamp: super::BOOLEAN,
-    pub Reserved1: u64,
-    pub Reserved2: u64,
+    pub Reserved1: super::ULONG64,
+    pub Reserved2: super::ULONG64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
 }
 pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::BOOLEAN,
@@ -1524,57 +1585,63 @@ pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub TaggedTransmitSw: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_VAR_DATA_DESC {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Offset: usize,
+    pub Length: super::USHORT,
+    pub MaximumLength: super::USHORT,
+    pub Offset: super::ULONG_PTR,
 }
 pub type NDIS_VLAN_ID = u32;
 pub type NDIS_WAN_HEADER_FORMAT = i32;
 pub type NDIS_WAN_MEDIUM_SUBTYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WAN_PROTOCOL_CAPS {
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub Flags: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub type NDIS_WAN_QUALITY = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub MacAddress: NDIS_802_11_MAC_ADDRESS,
-    pub Reserved: [u8; 2],
+    pub Reserved: [super::UCHAR; 2],
     pub Ssid: NDIS_802_11_SSID,
-    pub Privacy: u32,
+    pub Privacy: super::ULONG,
     pub Rssi: NDIS_802_11_RSSI,
     pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
     pub Configuration: NDIS_802_11_CONFIGURATION,
     pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
     pub SupportedRates: NDIS_802_11_RATES,
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_WLAN_BSSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID_EX {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub MacAddress: NDIS_802_11_MAC_ADDRESS,
-    pub Reserved: [u8; 2],
+    pub Reserved: [super::UCHAR; 2],
     pub Ssid: NDIS_802_11_SSID,
-    pub Privacy: u32,
+    pub Privacy: super::ULONG,
     pub Rssi: NDIS_802_11_RSSI,
     pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
     pub Configuration: NDIS_802_11_CONFIGURATION,
     pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
     pub SupportedRates: NDIS_802_11_RATES_EX,
-    pub IELength: u32,
-    pub IEs: [u8; 1],
+    pub IELength: super::ULONG,
+    pub IEs: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NDIS_WLAN_BSSID_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1582,16 +1649,16 @@ impl Default for NDIS_WLAN_BSSID_EX {
 }
 pub const NDIS_WMI_DEFAULT_METHOD_ID: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub IfIndex: super::NET_IFINDEX,
     pub NetLuid: super::NET_LUID,
-    pub DeviceNameLength: u16,
-    pub DeviceName: [i8; 1],
+    pub DeviceNameLength: super::USHORT,
+    pub DeviceName: [super::CHAR; 1],
 }
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 impl Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1599,19 +1666,19 @@ impl Default for NDIS_WMI_ENUM_ADAPTER {
 }
 pub const NDIS_WMI_ENUM_ADAPTER_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_EVENT_HEADER {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub IfIndex: super::NET_IFINDEX,
     pub NetLuid: super::NET_LUID,
-    pub RequestId: u64,
+    pub RequestId: super::ULONG64,
     pub PortNumber: super::NDIS_PORT_NUMBER,
-    pub DeviceNameLength: u32,
-    pub DeviceNameOffset: u32,
-    pub Padding: [u8; 4],
+    pub DeviceNameLength: super::ULONG,
+    pub DeviceNameOffset: super::ULONG,
+    pub Padding: [super::UCHAR; 4],
 }
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 impl Default for NDIS_WMI_EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1619,6 +1686,7 @@ impl Default for NDIS_WMI_EVENT_HEADER {
 }
 pub const NDIS_WMI_EVENT_HEADER_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
@@ -1626,48 +1694,51 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
     pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
+    pub Encapsulation: super::ULONG,
+    pub AhEspCombined: super::ULONG,
+    pub TransportTunnelCombined: super::ULONG,
+    pub IPv4Options: super::ULONG,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    pub Md5: u32,
-    pub Sha_1: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
+    pub Md5: super::ULONG,
+    pub Sha_1: super::ULONG,
+    pub Transport: super::ULONG,
+    pub Tunnel: super::ULONG,
+    pub Send: super::ULONG,
+    pub Receive: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    pub Des: u32,
-    pub Reserved: u32,
-    pub TripleDes: u32,
-    pub NullEsp: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
+    pub Des: super::ULONG,
+    pub Reserved: super::ULONG,
+    pub TripleDes: super::ULONG,
+    pub NullEsp: super::ULONG,
+    pub Transport: super::ULONG,
+    pub Tunnel: super::ULONG,
+    pub Send: super::ULONG,
+    pub Receive: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_METHOD_HEADER {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PortNumber: super::NDIS_PORT_NUMBER,
     pub NetLuid: super::NET_LUID,
-    pub RequestId: u64,
-    pub Timeout: u32,
-    pub Padding: [u8; 4],
+    pub RequestId: super::ULONG64,
+    pub Timeout: super::ULONG,
+    pub Padding: [super::UCHAR; 4],
 }
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 impl Default for NDIS_WMI_METHOD_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1680,7 +1751,7 @@ pub const NDIS_WMI_OBJECT_TYPE_METHOD: i32 = 2;
 pub const NDIS_WMI_OBJECT_TYPE_OUTPUT_INFO: i32 = 5;
 pub const NDIS_WMI_OBJECT_TYPE_SET: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_OFFLOAD {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -1688,30 +1759,29 @@ pub struct NDIS_WMI_OFFLOAD {
     pub LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1,
     pub IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1,
     pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_OUTPUT_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub SupportedRevision: u8,
-    pub DataOffset: u32,
+    pub Flags: super::ULONG,
+    pub SupportedRevision: super::UCHAR,
+    pub DataOffset: super::ULONG,
 }
-pub const NDIS_WMI_OUTPUT_INFO_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_SET_HEADER {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PortNumber: super::NDIS_PORT_NUMBER,
     pub NetLuid: super::NET_LUID,
-    pub RequestId: u64,
-    pub Timeout: u32,
-    pub Padding: [u8; 4],
+    pub RequestId: super::ULONG64,
+    pub Timeout: super::ULONG,
+    pub Padding: [super::UCHAR; 4],
 }
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 impl Default for NDIS_WMI_SET_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1719,19 +1789,20 @@ impl Default for NDIS_WMI_SET_HEADER {
 }
 pub const NDIS_WMI_SET_HEADER_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub Encapsulation: u32,
-    pub SupportIPv4: u32,
-    pub SupportIPv6: u32,
-    pub SupportIPv6ExtensionHeaders: u32,
-    pub SupportSack: u32,
-    pub TcpConnectionOffloadCapacity: u32,
-    pub Flags: u32,
+    pub Encapsulation: super::ULONG,
+    pub SupportIPv4: super::ULONG,
+    pub SupportIPv6: super::ULONG,
+    pub SupportIPv6ExtensionHeaders: super::ULONG,
+    pub SupportSack: super::ULONG,
+    pub TcpConnectionOffloadCapacity: super::ULONG,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
@@ -1740,123 +1811,140 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
+    pub Encapsulation: super::ULONG,
+    pub IpOptionsSupported: super::ULONG,
+    pub TcpOptionsSupported: super::ULONG,
+    pub TcpChecksum: super::ULONG,
+    pub UdpChecksum: super::ULONG,
+    pub IpChecksum: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
+    pub Encapsulation: super::ULONG,
+    pub IpOptionsSupported: super::ULONG,
+    pub TcpOptionsSupported: super::ULONG,
+    pub TcpChecksum: super::ULONG,
+    pub UdpChecksum: super::ULONG,
+    pub IpChecksum: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
+    pub Encapsulation: super::ULONG,
+    pub IpExtensionHeadersSupported: super::ULONG,
+    pub TcpOptionsSupported: super::ULONG,
+    pub TcpChecksum: super::ULONG,
+    pub UdpChecksum: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
+    pub Encapsulation: super::ULONG,
+    pub IpExtensionHeadersSupported: super::ULONG,
+    pub TcpOptionsSupported: super::ULONG,
+    pub TcpChecksum: super::ULONG,
+    pub UdpChecksum: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub TcpOptions: u32,
-    pub IpOptions: u32,
+    pub Encapsulation: super::ULONG,
+    pub MaxOffLoadSize: super::ULONG,
+    pub MinSegmentCount: super::ULONG,
+    pub TcpOptions: super::ULONG,
+    pub IpOptions: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
+    pub Encapsulation: super::ULONG,
+    pub MaxOffLoadSize: super::ULONG,
+    pub MinSegmentCount: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
+    pub Encapsulation: super::ULONG,
+    pub MaxOffLoadSize: super::ULONG,
+    pub MinSegmentCount: super::ULONG,
+    pub IpExtensionHeadersSupported: super::ULONG,
+    pub TcpOptionsSupported: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS {
-    pub AddressLength: u16,
-    pub AddressType: u16,
-    pub Address: [u8; 1],
+    pub AddressLength: super::USHORT,
+    pub AddressType: super::USHORT,
+    pub Address: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NETWORK_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP {
-    pub sin_port: u16,
-    pub in_addr: u32,
-    pub sin_zero: [u8; 8],
+    pub sin_port: super::USHORT,
+    pub in_addr: super::ULONG,
+    pub sin_zero: [super::UCHAR; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for NETWORK_ADDRESS_IP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP6 {
-    pub sin6_port: u16,
-    pub sin6_flowinfo: u32,
-    pub sin6_addr: [u16; 8],
-    pub sin6_scope_id: u32,
+    pub sin6_port: super::USHORT,
+    pub sin6_flowinfo: super::ULONG,
+    pub sin6_addr: [super::USHORT; 8],
+    pub sin6_scope_id: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NETWORK_ADDRESS_IP6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IPX {
-    pub NetworkAddress: u32,
-    pub NodeAddress: [u8; 6],
-    pub Socket: u16,
+    pub NetworkAddress: super::ULONG,
+    pub NodeAddress: [super::UCHAR; 6],
+    pub Socket: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NETWORK_ADDRESS_IPX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1875,12 +1963,14 @@ pub const NETWORK_ADDRESS_LENGTH_IPX: u32 = 12;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const NETWORK_ADDRESS_LENGTH_IPX: u64 = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_LIST {
-    pub AddressCount: i32,
-    pub AddressType: u16,
+    pub AddressCount: super::LONG,
+    pub AddressType: super::USHORT,
     pub Address: [NETWORK_ADDRESS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NETWORK_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1902,14 +1992,14 @@ pub const Ndis802_11AuthModeWPAPSK: NDIS_802_11_AUTHENTICATION_MODE = 4;
 pub const Ndis802_11AutoUnknown: NDIS_802_11_NETWORK_INFRASTRUCTURE = 2;
 pub const Ndis802_11Automode: NDIS_802_11_NETWORK_TYPE = 4;
 pub const Ndis802_11DS: NDIS_802_11_NETWORK_TYPE = 1;
-pub const Ndis802_11Encryption1Enabled: NDIS_802_11_WEP_STATUS = 0;
-pub const Ndis802_11Encryption1KeyAbsent: NDIS_802_11_WEP_STATUS = 2;
-pub const Ndis802_11Encryption2Enabled: NDIS_802_11_WEP_STATUS = 4;
-pub const Ndis802_11Encryption2KeyAbsent: NDIS_802_11_WEP_STATUS = 5;
-pub const Ndis802_11Encryption3Enabled: NDIS_802_11_WEP_STATUS = 6;
-pub const Ndis802_11Encryption3KeyAbsent: NDIS_802_11_WEP_STATUS = 7;
-pub const Ndis802_11EncryptionDisabled: NDIS_802_11_WEP_STATUS = 1;
-pub const Ndis802_11EncryptionNotSupported: NDIS_802_11_WEP_STATUS = 3;
+pub const Ndis802_11Encryption1Enabled: _NDIS_802_11_WEP_STATUS = 0;
+pub const Ndis802_11Encryption1KeyAbsent: _NDIS_802_11_WEP_STATUS = 2;
+pub const Ndis802_11Encryption2Enabled: _NDIS_802_11_WEP_STATUS = 4;
+pub const Ndis802_11Encryption2KeyAbsent: _NDIS_802_11_WEP_STATUS = 5;
+pub const Ndis802_11Encryption3Enabled: _NDIS_802_11_WEP_STATUS = 6;
+pub const Ndis802_11Encryption3KeyAbsent: _NDIS_802_11_WEP_STATUS = 7;
+pub const Ndis802_11EncryptionDisabled: _NDIS_802_11_WEP_STATUS = 1;
+pub const Ndis802_11EncryptionNotSupported: _NDIS_802_11_WEP_STATUS = 3;
 pub const Ndis802_11FH: NDIS_802_11_NETWORK_TYPE = 0;
 pub const Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE = 0;
 pub const Ndis802_11Infrastructure: NDIS_802_11_NETWORK_INFRASTRUCTURE = 1;
@@ -1935,10 +2025,10 @@ pub const Ndis802_11StatusTypeMax: NDIS_802_11_STATUS_TYPE = 3;
 pub const Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE = 0;
 pub const Ndis802_11StatusType_MediaStreamMode: NDIS_802_11_STATUS_TYPE = 1;
 pub const Ndis802_11StatusType_PMKID_CandidateList: NDIS_802_11_STATUS_TYPE = 2;
-pub const Ndis802_11WEPDisabled: NDIS_802_11_WEP_STATUS = 1;
-pub const Ndis802_11WEPEnabled: NDIS_802_11_WEP_STATUS = 0;
-pub const Ndis802_11WEPKeyAbsent: NDIS_802_11_WEP_STATUS = 2;
-pub const Ndis802_11WEPNotSupported: NDIS_802_11_WEP_STATUS = 3;
+pub const Ndis802_11WEPDisabled: _NDIS_802_11_WEP_STATUS = 1;
+pub const Ndis802_11WEPEnabled: _NDIS_802_11_WEP_STATUS = 0;
+pub const Ndis802_11WEPKeyAbsent: _NDIS_802_11_WEP_STATUS = 2;
+pub const Ndis802_11WEPNotSupported: _NDIS_802_11_WEP_STATUS = 3;
 pub const NdisDefinitelyNetworkChange: NDIS_NETWORK_CHANGE_TYPE = 2;
 pub const NdisDeviceStateD0: NDIS_DEVICE_POWER_STATE = 1;
 pub const NdisDeviceStateD1: NDIS_DEVICE_POWER_STATE = 2;
@@ -2079,64 +2169,65 @@ pub const NdisWanMediumX_25: NDIS_WAN_MEDIUM_SUBTYPE = 1;
 pub const NdisWanRaw: NDIS_WAN_QUALITY = 0;
 pub const NdisWanReliable: NDIS_WAN_QUALITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_ALGO_INFO {
-    pub algoIdentifier: u32,
-    pub algoKeylen: u32,
-    pub algoRounds: u32,
+    pub algoIdentifier: super::ULONG,
+    pub algoKeylen: super::ULONG,
+    pub algoRounds: super::ULONG,
 }
 pub type OFFLOAD_CONF_ALGO = i32;
 pub const OFFLOAD_INBOUND_SA: i32 = 1;
 pub type OFFLOAD_INTEGRITY_ALGO = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_SA {
-    pub SrcAddr: IPAddr,
-    pub SrcMask: IPMask,
-    pub DestAddr: IPAddr,
-    pub DestMask: IPMask,
-    pub Protocol: u32,
-    pub SrcPort: u16,
-    pub DestPort: u16,
-    pub SrcTunnelAddr: IPAddr,
-    pub DestTunnelAddr: IPAddr,
-    pub Flags: u16,
-    pub NumSAs: i16,
+    pub SrcAddr: super::IPAddr,
+    pub SrcMask: super::IPMask,
+    pub DestAddr: super::IPAddr,
+    pub DestMask: super::IPMask,
+    pub Protocol: super::ULONG,
+    pub SrcPort: super::USHORT,
+    pub DestPort: super::USHORT,
+    pub SrcTunnelAddr: super::IPAddr,
+    pub DestTunnelAddr: super::IPAddr,
+    pub Flags: super::USHORT,
+    pub NumSAs: super::SHORT,
     pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
     pub OffloadHandle: super::HANDLE,
-    pub KeyLen: u32,
-    pub KeyMat: [u8; 1],
+    pub KeyLen: super::ULONG,
+    pub KeyMat: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for OFFLOAD_IPSEC_ADD_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    pub SrcAddr: IPAddr,
-    pub SrcMask: IPMask,
-    pub DstAddr: IPAddr,
-    pub DstMask: IPMask,
-    pub Protocol: u32,
-    pub SrcPort: u16,
-    pub DstPort: u16,
-    pub SrcTunnelAddr: IPAddr,
-    pub DstTunnelAddr: IPAddr,
-    pub Flags: u16,
-    pub NumSAs: i16,
+    pub SrcAddr: super::IPAddr,
+    pub SrcMask: super::IPMask,
+    pub DstAddr: super::IPAddr,
+    pub DstMask: super::IPMask,
+    pub Protocol: super::ULONG,
+    pub SrcPort: super::USHORT,
+    pub DstPort: super::USHORT,
+    pub SrcTunnelAddr: super::IPAddr,
+    pub DstTunnelAddr: super::IPAddr,
+    pub Flags: super::USHORT,
+    pub NumSAs: super::SHORT,
     pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
     pub OffloadHandle: super::HANDLE,
     pub EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY,
     pub EncapTypeEntryOffldHandle: super::HANDLE,
-    pub KeyLen: u32,
-    pub KeyMat: [u8; 1],
+    pub KeyLen: super::ULONG,
+    pub KeyMat: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2165,10 +2256,11 @@ pub const OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = 1;
 pub const OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = 0;
 pub const OFFLOAD_IPSEC_INTEGRITY_SHA: OFFLOAD_INTEGRITY_ALGO = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     pub UdpEncapType: UDP_ENCAP_TYPE,
-    pub DstEncapPort: u16,
+    pub DstEncapPort: super::USHORT,
 }
 pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: UDP_ENCAP_TYPE = 0;
 pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER: UDP_ENCAP_TYPE = 1;
@@ -2176,6 +2268,7 @@ pub const OFFLOAD_MAX_SAS: i32 = 3;
 pub type OFFLOAD_OPERATION_E = i32;
 pub const OFFLOAD_OUTBOUND_SA: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub Operation: OFFLOAD_OPERATION_E,
@@ -2895,86 +2988,116 @@ pub const OID_WWAN_VENDOR_SPECIFIC: i32 = 234946836;
 pub const OID_WWAN_VISIBLE_PROVIDERS: i32 = 234946824;
 pub const OID_XBOX_ACC_RESERVED0: u32 = 4194304000;
 pub type PBSSID_INFO = *mut BSSID_INFO;
+#[cfg(feature = "shared")]
 pub type PGEN_GET_NETCARD_TIME = *mut GEN_GET_NETCARD_TIME;
+#[cfg(feature = "shared")]
 pub type PGEN_GET_TIME_CAPS = *mut GEN_GET_TIME_CAPS;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PMKID_CANDIDATE {
     pub BSSID: NDIS_802_11_MAC_ADDRESS,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for PMKID_CANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_AI_REQFI = *mut NDIS_802_11_AI_REQFI;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_AI_RESFI = *mut NDIS_802_11_AI_RESFI;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_ASSOCIATION_INFORMATION = *mut NDIS_802_11_ASSOCIATION_INFORMATION;
 pub type PNDIS_802_11_AUTHENTICATION_ENCRYPTION = *mut NDIS_802_11_AUTHENTICATION_ENCRYPTION;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_AUTHENTICATION_EVENT = *mut NDIS_802_11_AUTHENTICATION_EVENT;
 pub type PNDIS_802_11_AUTHENTICATION_MODE = *mut NDIS_802_11_AUTHENTICATION_MODE;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_AUTHENTICATION_REQUEST = *mut NDIS_802_11_AUTHENTICATION_REQUEST;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_BSSID_LIST = *mut NDIS_802_11_BSSID_LIST;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_BSSID_LIST_EX = *mut NDIS_802_11_BSSID_LIST_EX;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_CAPABILITY = *mut NDIS_802_11_CAPABILITY;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_CONFIGURATION = *mut NDIS_802_11_CONFIGURATION;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_CONFIGURATION_FH = *mut NDIS_802_11_CONFIGURATION_FH;
-pub type PNDIS_802_11_ENCRYPTION_STATUS = *mut NDIS_802_11_WEP_STATUS;
+pub type PNDIS_802_11_ENCRYPTION_STATUS = *mut _NDIS_802_11_WEP_STATUS;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_FIXED_IEs = *mut NDIS_802_11_FIXED_IEs;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_KEY = *mut NDIS_802_11_KEY;
 pub type PNDIS_802_11_MEDIA_STREAM_MODE = *mut NDIS_802_11_MEDIA_STREAM_MODE;
 pub type PNDIS_802_11_NETWORK_INFRASTRUCTURE = *mut NDIS_802_11_NETWORK_INFRASTRUCTURE;
 pub type PNDIS_802_11_NETWORK_TYPE = *mut NDIS_802_11_NETWORK_TYPE;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_NETWORK_TYPE_LIST = *mut NDIS_802_11_NETWORK_TYPE_LIST;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_NON_BCAST_SSID_LIST = *mut NDIS_802_11_NON_BCAST_SSID_LIST;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_PMKID = *mut NDIS_802_11_PMKID;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_PMKID_CANDIDATE_LIST = *mut NDIS_802_11_PMKID_CANDIDATE_LIST;
 pub type PNDIS_802_11_POWER_MODE = *mut NDIS_802_11_POWER_MODE;
 pub type PNDIS_802_11_PRIVACY_FILTER = *mut NDIS_802_11_PRIVACY_FILTER;
 pub type PNDIS_802_11_RADIO_STATUS = *mut NDIS_802_11_RADIO_STATUS;
 pub type PNDIS_802_11_RELOAD_DEFAULTS = *mut NDIS_802_11_RELOAD_DEFAULTS;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_REMOVE_KEY = *mut NDIS_802_11_REMOVE_KEY;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_SSID = *mut NDIS_802_11_SSID;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNDIS_802_11_STATISTICS = *mut NDIS_802_11_STATISTICS;
 pub type PNDIS_802_11_STATUS_INDICATION = *mut NDIS_802_11_STATUS_INDICATION;
 pub type PNDIS_802_11_STATUS_TYPE = *mut NDIS_802_11_STATUS_TYPE;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_TEST = *mut NDIS_802_11_TEST;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_VARIABLE_IEs = *mut NDIS_802_11_VARIABLE_IEs;
+#[cfg(feature = "shared")]
 pub type PNDIS_802_11_WEP = *mut NDIS_802_11_WEP;
-pub type PNDIS_802_11_WEP_STATUS = *mut NDIS_802_11_WEP_STATUS;
+pub type PNDIS_802_11_WEP_STATUS = *mut _NDIS_802_11_WEP_STATUS;
 pub type PNDIS_802_5_RING_STATE = *mut NDIS_802_5_RING_STATE;
+#[cfg(feature = "shared")]
 pub type PNDIS_CO_DEVICE_PROFILE = *mut NDIS_CO_DEVICE_PROFILE;
+#[cfg(feature = "shared")]
 pub type PNDIS_CO_LINK_SPEED = *mut NDIS_CO_LINK_SPEED;
 pub type PNDIS_DEVICE_POWER_STATE = *mut NDIS_DEVICE_POWER_STATE;
 pub type PNDIS_FDDI_ATTACHMENT_TYPE = *mut NDIS_FDDI_ATTACHMENT_TYPE;
 pub type PNDIS_FDDI_LCONNECTION_STATE = *mut NDIS_FDDI_LCONNECTION_STATE;
 pub type PNDIS_FDDI_RING_MGT_STATE = *mut NDIS_FDDI_RING_MGT_STATE;
-#[cfg(all(feature = "oidtypes", feature = "types"))]
+#[cfg(all(feature = "oidtypes", feature = "shared", feature = "types"))]
 pub type PNDIS_GUID = *mut NDIS_GUID;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_HARDWARE_CROSSTIMESTAMP = *mut NDIS_HARDWARE_CROSSTIMESTAMP;
 pub type PNDIS_HARDWARE_STATUS = *mut NDIS_HARDWARE_STATUS;
-#[cfg(feature = "ifdef")]
-pub type PNDIS_IF_COUNTED_STRING = *mut super::IF_COUNTED_STRING;
-#[cfg(feature = "ifdef")]
-pub type PNDIS_IF_PHYSICAL_ADDRESS = *mut super::IF_PHYSICAL_ADDRESS;
+#[cfg(all(feature = "ifdef", feature = "shared", feature = "winnt"))]
+pub type PNDIS_IF_COUNTED_STRING = *mut super::IF_COUNTED_STRING_LH;
+#[cfg(all(feature = "ifdef", feature = "shared"))]
+pub type PNDIS_IF_PHYSICAL_ADDRESS = *mut super::IF_PHYSICAL_ADDRESS_LH;
 pub type PNDIS_INTERRUPT_MODERATION = *mut NDIS_INTERRUPT_MODERATION;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_INTERRUPT_MODERATION_PARAMETERS = *mut NDIS_INTERRUPT_MODERATION_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PNDIS_IPSEC_OFFLOAD_V1 = *mut NDIS_IPSEC_OFFLOAD_V1;
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_IP_OPER_STATE = *mut NDIS_IP_OPER_STATE;
-#[cfg(feature = "ifdef")]
+#[cfg(all(feature = "ifdef", feature = "shared"))]
 pub type PNDIS_IP_OPER_STATUS = *mut NDIS_IP_OPER_STATUS;
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_IP_OPER_STATUS_INFO = *mut NDIS_IP_OPER_STATUS_INFO;
+#[cfg(feature = "shared")]
 pub type PNDIS_IRDA_PACKET_INFO = *mut NDIS_IRDA_PACKET_INFO;
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_LINK_PARAMETERS = *mut NDIS_LINK_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PNDIS_LINK_SPEED = *mut NDIS_LINK_SPEED;
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_LINK_STATE = *mut NDIS_LINK_STATE;
 #[cfg(feature = "ifdef")]
 pub type PNDIS_MEDIA_CONNECT_STATE = *mut super::NET_IF_MEDIA_CONNECT_STATE;
@@ -2983,98 +3106,117 @@ pub type PNDIS_MEDIA_DUPLEX_STATE = *mut super::NET_IF_MEDIA_DUPLEX_STATE;
 pub type PNDIS_MEDIA_STATE = *mut NDIS_MEDIA_STATE;
 pub type PNDIS_MEDIUM = *mut NDIS_MEDIUM;
 pub type PNDIS_NETWORK_CHANGE_TYPE = *mut NDIS_NETWORK_CHANGE_TYPE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_OFFLOAD = *mut NDIS_OFFLOAD;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_OFFLOAD_PARAMETERS = *mut NDIS_OFFLOAD_PARAMETERS;
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_OPER_STATE = *mut NDIS_OPER_STATE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_PCI_DEVICE_CUSTOM_PROPERTIES = *mut NDIS_PCI_DEVICE_CUSTOM_PROPERTIES;
 pub type PNDIS_PHYSICAL_MEDIUM = *mut NDIS_PHYSICAL_MEDIUM;
+#[cfg(feature = "shared")]
 pub type PNDIS_PM_PACKET_PATTERN = *mut NDIS_PM_PACKET_PATTERN;
 pub type PNDIS_PM_WAKE_UP_CAPABILITIES = *mut NDIS_PM_WAKE_UP_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PNDIS_PNP_CAPABILITIES = *mut NDIS_PNP_CAPABILITIES;
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-pub type PNDIS_PORT = *mut NDIS_PORT;
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type PNDIS_PORT = *mut _NDIS_PORT;
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_PORT_ARRAY = *mut NDIS_PORT_ARRAY;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_PORT_AUTHENTICATION_PARAMETERS = *mut NDIS_PORT_AUTHENTICATION_PARAMETERS;
 pub type PNDIS_PORT_AUTHORIZATION_STATE = *mut NDIS_PORT_AUTHORIZATION_STATE;
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_PORT_CHARACTERISTICS = *mut NDIS_PORT_CHARACTERISTICS;
-pub type PNDIS_PORT_CONTROLL_STATE = PNDIS_PORT_CONTROL_STATE;
+pub type PNDIS_PORT_CONTROLL_STATE = *mut NDIS_PORT_CONTROL_STATE;
 pub type PNDIS_PORT_CONTROL_STATE = *mut NDIS_PORT_CONTROL_STATE;
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_PORT_STATE = *mut NDIS_PORT_STATE;
 pub type PNDIS_PROCESSOR_VENDOR = *mut NDIS_PROCESSOR_VENDOR;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_RECEIVE_HASH_PARAMETERS = *mut NDIS_RECEIVE_HASH_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_RECEIVE_SCALE_CAPABILITIES = *mut NDIS_RECEIVE_SCALE_CAPABILITIES;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_RECEIVE_SCALE_PARAMETERS = *mut NDIS_RECEIVE_SCALE_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_STATISTICS_INFO = *mut NDIS_STATISTICS_INFO;
-#[cfg(feature = "oidtypes")]
-pub type PNDIS_STATISTICS_VALUE = *mut NDIS_STATISTICS_VALUE;
-#[cfg(feature = "oidtypes")]
-pub type PNDIS_STATISTICS_VALUE_EX = *mut NDIS_STATISTICS_VALUE_EX;
 pub type PNDIS_SUPPORTED_PAUSE_FUNCTIONS = *mut NDIS_SUPPORTED_PAUSE_FUNCTIONS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_TCP_CONNECTION_OFFLOAD = *mut NDIS_TCP_CONNECTION_OFFLOAD;
+#[cfg(feature = "shared")]
 pub type PNDIS_TCP_IP_CHECKSUM_OFFLOAD = *mut NDIS_TCP_IP_CHECKSUM_OFFLOAD;
+#[cfg(feature = "shared")]
 pub type PNDIS_TCP_LARGE_SEND_OFFLOAD_V1 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V1;
+#[cfg(feature = "shared")]
 pub type PNDIS_TCP_LARGE_SEND_OFFLOAD_V2 = *mut NDIS_TCP_LARGE_SEND_OFFLOAD_V2;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES = *mut NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_TIMESTAMP_CAPABILITIES = *mut NDIS_TIMESTAMP_CAPABILITIES;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PNDIS_TIMESTAMP_CAPABILITY_FLAGS = *mut NDIS_TIMESTAMP_CAPABILITY_FLAGS;
+#[cfg(feature = "shared")]
 pub type PNDIS_VAR_DATA_DESC = *mut NDIS_VAR_DATA_DESC;
 pub type PNDIS_WAN_HEADER_FORMAT = *mut NDIS_WAN_HEADER_FORMAT;
 pub type PNDIS_WAN_MEDIUM_SUBTYPE = *mut NDIS_WAN_MEDIUM_SUBTYPE;
+#[cfg(feature = "shared")]
 pub type PNDIS_WAN_PROTOCOL_CAPS = *mut NDIS_WAN_PROTOCOL_CAPS;
 pub type PNDIS_WAN_QUALITY = *mut NDIS_WAN_QUALITY;
+#[cfg(feature = "shared")]
 pub type PNDIS_WLAN_BSSID = *mut NDIS_WLAN_BSSID;
+#[cfg(feature = "shared")]
 pub type PNDIS_WLAN_BSSID_EX = *mut NDIS_WLAN_BSSID_EX;
-#[cfg(all(feature = "ifdef", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_WMI_ENUM_ADAPTER = *mut NDIS_WMI_ENUM_ADAPTER;
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_WMI_EVENT_HEADER = *mut NDIS_WMI_EVENT_HEADER;
+#[cfg(feature = "shared")]
 pub type PNDIS_WMI_IPSEC_OFFLOAD_V1 = *mut NDIS_WMI_IPSEC_OFFLOAD_V1;
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_WMI_METHOD_HEADER = *mut NDIS_WMI_METHOD_HEADER;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_WMI_OFFLOAD = *mut NDIS_WMI_OFFLOAD;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_WMI_OUTPUT_INFO = *mut NDIS_WMI_OUTPUT_INFO;
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared"))]
 pub type PNDIS_WMI_SET_HEADER = *mut NDIS_WMI_SET_HEADER;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PNDIS_WMI_TCP_CONNECTION_OFFLOAD = *mut NDIS_WMI_TCP_CONNECTION_OFFLOAD;
+#[cfg(feature = "shared")]
 pub type PNDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD = *mut NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD;
+#[cfg(feature = "shared")]
 pub type PNDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 = *mut NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1;
+#[cfg(feature = "shared")]
 pub type PNDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 = *mut NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2;
+#[cfg(feature = "shared")]
 pub type PNETWORK_ADDRESS = *mut NETWORK_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PNETWORK_ADDRESS_IP = *mut NETWORK_ADDRESS_IP;
+#[cfg(feature = "shared")]
 pub type PNETWORK_ADDRESS_IP6 = *mut NETWORK_ADDRESS_IP6;
+#[cfg(feature = "shared")]
 pub type PNETWORK_ADDRESS_IPX = *mut NETWORK_ADDRESS_IPX;
+#[cfg(feature = "shared")]
 pub type PNETWORK_ADDRESS_LIST = *mut NETWORK_ADDRESS_LIST;
+#[cfg(feature = "shared")]
 pub type POFFLOAD_ALGO_INFO = *mut OFFLOAD_ALGO_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type POFFLOAD_IPSEC_ADD_SA = *mut OFFLOAD_IPSEC_ADD_SA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type POFFLOAD_IPSEC_ADD_UDPESP_SA = *mut OFFLOAD_IPSEC_ADD_UDPESP_SA;
 #[cfg(feature = "winnt")]
 pub type POFFLOAD_IPSEC_DELETE_SA = *mut OFFLOAD_IPSEC_DELETE_SA;
 #[cfg(feature = "winnt")]
 pub type POFFLOAD_IPSEC_DELETE_UDPESP_SA = *mut OFFLOAD_IPSEC_DELETE_UDPESP_SA;
+#[cfg(feature = "shared")]
 pub type POFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY = *mut OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY;
+#[cfg(feature = "shared")]
 pub type POFFLOAD_SECURITY_ASSOCIATION = *mut OFFLOAD_SECURITY_ASSOCIATION;
+#[cfg(feature = "shared")]
 pub type PPMKID_CANDIDATE = *mut PMKID_CANDIDATE;
+#[cfg(feature = "shared")]
 pub type PTRANSPORT_HEADER_OFFSET = *mut TRANSPORT_HEADER_OFFSET;
 pub type PUDP_ENCAP_TYPE = *mut UDP_ENCAP_TYPE;
 pub type Priority_802_3 = u32;
@@ -3084,13 +3226,25 @@ pub type SPI_TYPE = u32;
 pub const TIMED_SEND_CAPABLE: i32 = 16;
 pub const TIME_STAMP_CAPABLE: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_HEADER_OFFSET {
-    pub ProtocolType: u16,
-    pub HeaderOffset: u16,
+    pub ProtocolType: super::USHORT,
+    pub HeaderOffset: super::USHORT,
 }
 pub type UDP_ENCAP_TYPE = i32;
 pub const WAN_PROTOCOL_KEEPS_STATS: i32 = 1;
+pub type _NDIS_802_11_WEP_STATUS = i32;
+#[repr(C)]
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _NDIS_PORT {
+    pub Next: PNDIS_PORT,
+    pub NdisReserved: super::PVOID,
+    pub MiniportReserved: super::PVOID,
+    pub ProtocolReserved: super::PVOID,
+    pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
+}
 pub const fNDIS_GUID_ALLOW_READ: i32 = 32;
 pub const fNDIS_GUID_ALLOW_WRITE: i32 = 64;
 pub const fNDIS_GUID_ANSI_STRING: i32 = 4;

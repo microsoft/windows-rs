@@ -1,155 +1,130 @@
-#[inline]
-pub unsafe fn RtlEthernetAddressToStringA(addr: *const DL_EUI48, s: windows_core::PSTR) -> windows_core::PSTR {
-    windows_core::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringA(addr : *const DL_EUI48, s : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { RtlEthernetAddressToStringA(addr, s) }
-}
-#[inline]
-pub unsafe fn RtlEthernetAddressToStringW(addr: *const DL_EUI48, s: windows_core::PWSTR) -> windows_core::PWSTR {
-    windows_core::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringW(addr : *const DL_EUI48, s : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { RtlEthernetAddressToStringW(addr, s) }
-}
-#[inline]
-pub unsafe fn RtlEthernetStringToAddressA<P0>(s: P0, terminator: *mut windows_core::PCSTR, addr: *mut DL_EUI48) -> i32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressA(s : windows_core::PCSTR, terminator : *mut windows_core::PCSTR, addr : *mut DL_EUI48) -> i32);
-    unsafe { RtlEthernetStringToAddressA(s.param().abi(), terminator as _, addr as _) }
-}
-#[inline]
-pub unsafe fn RtlEthernetStringToAddressW<P0>(s: P0, terminator: *mut windows_core::PCWSTR, addr: *mut DL_EUI48) -> i32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressW(s : windows_core::PCWSTR, terminator : *mut windows_core::PCWSTR, addr : *mut DL_EUI48) -> i32);
-    unsafe { RtlEthernetStringToAddressW(s.param().abi(), terminator as _, addr as _) }
-}
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringA(addr: *const super::IN_ADDR, s: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringA(addr : *const super::IN_ADDR, s : windows_core::PSTR) -> windows_core::PSTR);
     unsafe { RtlIpv4AddressToStringA(addr, s) }
 }
-#[cfg(all(feature = "inaddr", feature = "minwindef"))]
+#[cfg(all(feature = "inaddr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv4AddressToStringExA(address: *const super::IN_ADDR, port: u16, addressstring: windows_core::PSTR, addressstringlength: super::PULONG) -> i32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExA(address : *const super::IN_ADDR, port : u16, addressstring : windows_core::PSTR, addressstringlength : super::PULONG) -> i32);
+pub unsafe fn RtlIpv4AddressToStringExA(address: *const super::IN_ADDR, port: super::USHORT, addressstring: windows_core::PSTR, addressstringlength: super::PULONG) -> super::LONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExA(address : *const super::IN_ADDR, port : super::USHORT, addressstring : windows_core::PSTR, addressstringlength : super::PULONG) -> super::LONG);
     unsafe { RtlIpv4AddressToStringExA(address, port, addressstring, addressstringlength as _) }
 }
-#[cfg(all(feature = "inaddr", feature = "minwindef"))]
+#[cfg(all(feature = "inaddr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv4AddressToStringExW(address: *const super::IN_ADDR, port: u16, addressstring: windows_core::PWSTR, addressstringlength: super::PULONG) -> i32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExW(address : *const super::IN_ADDR, port : u16, addressstring : windows_core::PWSTR, addressstringlength : super::PULONG) -> i32);
+pub unsafe fn RtlIpv4AddressToStringExW(address: *const super::IN_ADDR, port: super::USHORT, addressstring: windows_core::PWSTR, addressstringlength: super::PULONG) -> super::LONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExW(address : *const super::IN_ADDR, port : super::USHORT, addressstring : windows_core::PWSTR, addressstringlength : super::PULONG) -> super::LONG);
     unsafe { RtlIpv4AddressToStringExW(address, port, addressstring, addressstringlength as _) }
 }
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringW(addr: *const super::IN_ADDR, s: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringW(addr : *const super::IN_ADDR, s : windows_core::PWSTR) -> windows_core::PWSTR);
     unsafe { RtlIpv4AddressToStringW(addr, s) }
 }
-#[cfg(all(feature = "inaddr", feature = "winnt"))]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressA<P0>(s: P0, strict: super::BOOLEAN, terminator: *mut windows_core::PCSTR, addr: *mut super::IN_ADDR) -> i32
+pub unsafe fn RtlIpv4StringToAddressA<P0>(s: P0, strict: super::BOOLEAN, terminator: *mut windows_core::PCSTR, addr: *mut super::IN_ADDR) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_core::PCSTR, strict : super::BOOLEAN, terminator : *mut windows_core::PCSTR, addr : *mut super::IN_ADDR) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_core::PCSTR, strict : super::BOOLEAN, terminator : *mut windows_core::PCSTR, addr : *mut super::IN_ADDR) -> super::LONG);
     unsafe { RtlIpv4StringToAddressA(s.param().abi(), strict, terminator as _, addr as _) }
 }
-#[cfg(all(feature = "inaddr", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "inaddr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressExA<P0>(addressstring: P0, strict: super::BOOLEAN, address: *mut super::IN_ADDR, port: super::PUSHORT) -> i32
+pub unsafe fn RtlIpv4StringToAddressExA<P0>(addressstring: P0, strict: super::BOOLEAN, address: *mut super::IN_ADDR, port: super::PUSHORT) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_core::PCSTR, strict : super::BOOLEAN, address : *mut super::IN_ADDR, port : super::PUSHORT) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_core::PCSTR, strict : super::BOOLEAN, address : *mut super::IN_ADDR, port : super::PUSHORT) -> super::LONG);
     unsafe { RtlIpv4StringToAddressExA(addressstring.param().abi(), strict, address as _, port as _) }
 }
-#[cfg(all(feature = "inaddr", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "inaddr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressExW<P0>(addressstring: P0, strict: super::BOOLEAN, address: *mut super::IN_ADDR, port: super::PUSHORT) -> i32
+pub unsafe fn RtlIpv4StringToAddressExW<P0>(addressstring: P0, strict: super::BOOLEAN, address: *mut super::IN_ADDR, port: super::PUSHORT) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_core::PCWSTR, strict : super::BOOLEAN, address : *mut super::IN_ADDR, port : super::PUSHORT) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_core::PCWSTR, strict : super::BOOLEAN, address : *mut super::IN_ADDR, port : super::PUSHORT) -> super::LONG);
     unsafe { RtlIpv4StringToAddressExW(addressstring.param().abi(), strict, address as _, port as _) }
 }
-#[cfg(all(feature = "inaddr", feature = "winnt"))]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressW<P0>(s: P0, strict: super::BOOLEAN, terminator: *mut windows_core::PCWSTR, addr: *mut super::IN_ADDR) -> i32
+pub unsafe fn RtlIpv4StringToAddressW<P0>(s: P0, strict: super::BOOLEAN, terminator: *mut windows_core::PCWSTR, addr: *mut super::IN_ADDR) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_core::PCWSTR, strict : super::BOOLEAN, terminator : *mut windows_core::PCWSTR, addr : *mut super::IN_ADDR) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_core::PCWSTR, strict : super::BOOLEAN, terminator : *mut windows_core::PCWSTR, addr : *mut super::IN_ADDR) -> super::LONG);
     unsafe { RtlIpv4StringToAddressW(s.param().abi(), strict, terminator as _, addr as _) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringA(addr: *const super::IN6_ADDR, s: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringA(addr : *const super::IN6_ADDR, s : windows_core::PSTR) -> windows_core::PSTR);
     unsafe { RtlIpv6AddressToStringA(addr, s) }
 }
-#[cfg(all(feature = "in6addr", feature = "minwindef"))]
+#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv6AddressToStringExA(address: *const super::IN6_ADDR, scopeid: u32, port: u16, addressstring: windows_core::PSTR, addressstringlength: super::PULONG) -> i32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExA(address : *const super::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_core::PSTR, addressstringlength : super::PULONG) -> i32);
+pub unsafe fn RtlIpv6AddressToStringExA(address: *const super::IN6_ADDR, scopeid: super::ULONG, port: super::USHORT, addressstring: windows_core::PSTR, addressstringlength: super::PULONG) -> super::LONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExA(address : *const super::IN6_ADDR, scopeid : super::ULONG, port : super::USHORT, addressstring : windows_core::PSTR, addressstringlength : super::PULONG) -> super::LONG);
     unsafe { RtlIpv6AddressToStringExA(address, scopeid, port, addressstring, addressstringlength as _) }
 }
-#[cfg(all(feature = "in6addr", feature = "minwindef"))]
+#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv6AddressToStringExW(address: *const super::IN6_ADDR, scopeid: u32, port: u16, addressstring: windows_core::PWSTR, addressstringlength: super::PULONG) -> i32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExW(address : *const super::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_core::PWSTR, addressstringlength : super::PULONG) -> i32);
+pub unsafe fn RtlIpv6AddressToStringExW(address: *const super::IN6_ADDR, scopeid: super::ULONG, port: super::USHORT, addressstring: windows_core::PWSTR, addressstringlength: super::PULONG) -> super::LONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExW(address : *const super::IN6_ADDR, scopeid : super::ULONG, port : super::USHORT, addressstring : windows_core::PWSTR, addressstringlength : super::PULONG) -> super::LONG);
     unsafe { RtlIpv6AddressToStringExW(address, scopeid, port, addressstring, addressstringlength as _) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringW(addr: *const super::IN6_ADDR, s: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringW(addr : *const super::IN6_ADDR, s : windows_core::PWSTR) -> windows_core::PWSTR);
     unsafe { RtlIpv6AddressToStringW(addr, s) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressA<P0>(s: P0, terminator: *mut windows_core::PCSTR, addr: *mut super::IN6_ADDR) -> i32
+pub unsafe fn RtlIpv6StringToAddressA<P0>(s: P0, terminator: *mut windows_core::PCSTR, addr: *mut super::IN6_ADDR) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressA(s : windows_core::PCSTR, terminator : *mut windows_core::PCSTR, addr : *mut super::IN6_ADDR) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressA(s : windows_core::PCSTR, terminator : *mut windows_core::PCSTR, addr : *mut super::IN6_ADDR) -> super::LONG);
     unsafe { RtlIpv6StringToAddressA(s.param().abi(), terminator as _, addr as _) }
 }
-#[cfg(all(feature = "in6addr", feature = "minwindef"))]
+#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressExA<P0>(addressstring: P0, address: *mut super::IN6_ADDR, scopeid: super::PULONG, port: super::PUSHORT) -> i32
+pub unsafe fn RtlIpv6StringToAddressExA<P0>(addressstring: P0, address: *mut super::IN6_ADDR, scopeid: super::PULONG, port: super::PUSHORT) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExA(addressstring : windows_core::PCSTR, address : *mut super::IN6_ADDR, scopeid : super::PULONG, port : super::PUSHORT) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExA(addressstring : windows_core::PCSTR, address : *mut super::IN6_ADDR, scopeid : super::PULONG, port : super::PUSHORT) -> super::LONG);
     unsafe { RtlIpv6StringToAddressExA(addressstring.param().abi(), address as _, scopeid as _, port as _) }
 }
-#[cfg(all(feature = "in6addr", feature = "minwindef"))]
+#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressExW<P0>(addressstring: P0, address: *mut super::IN6_ADDR, scopeid: super::PULONG, port: super::PUSHORT) -> i32
+pub unsafe fn RtlIpv6StringToAddressExW<P0>(addressstring: P0, address: *mut super::IN6_ADDR, scopeid: super::PULONG, port: super::PUSHORT) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExW(addressstring : windows_core::PCWSTR, address : *mut super::IN6_ADDR, scopeid : super::PULONG, port : super::PUSHORT) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExW(addressstring : windows_core::PCWSTR, address : *mut super::IN6_ADDR, scopeid : super::PULONG, port : super::PUSHORT) -> super::LONG);
     unsafe { RtlIpv6StringToAddressExW(addressstring.param().abi(), address as _, scopeid as _, port as _) }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressW<P0>(s: P0, terminator: *mut windows_core::PCWSTR, addr: *mut super::IN6_ADDR) -> i32
+pub unsafe fn RtlIpv6StringToAddressW<P0>(s: P0, terminator: *mut windows_core::PCWSTR, addr: *mut super::IN6_ADDR) -> super::LONG
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressW(s : windows_core::PCWSTR, terminator : *mut windows_core::PCWSTR, addr : *mut super::IN6_ADDR) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressW(s : windows_core::PCWSTR, terminator : *mut windows_core::PCWSTR, addr : *mut super::IN6_ADDR) -> super::LONG);
     unsafe { RtlIpv6StringToAddressW(s.param().abi(), terminator as _, addr as _) }
 }
 pub const ASSOCIATE_NAMERES_CONTEXT: windows_core::GUID = windows_core::GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
-    pub Handle: u64,
+    pub Handle: super::UINT64,
 }
 pub type CONTROL_CHANNEL_TRIGGER_STATUS = i32;
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 2;
@@ -160,60 +135,64 @@ pub const CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: CONTROL_CHANNEL_TR
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 1;
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 4;
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = 5;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DL_EUI48 {
-    pub value: u8,
-}
-impl Default for DL_EUI48 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const IN4ADDR_ANY: u32 = 0;
-pub const IN4ADDR_BROADCAST: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const IN4ADDR_ANY: super::ULONG = 0;
+#[cfg(feature = "shared")]
+pub const IN4ADDR_BROADCAST: super::ULONG = 4294967295;
 pub const IN4ADDR_LINKLOCALPREFIX_LENGTH: i32 = 16;
 pub const IN4ADDR_LOOPBACK: i32 = 16777343;
 pub const IN4ADDR_LOOPBACKPREFIX_LENGTH: i32 = 8;
 pub const IN4ADDR_MULTICASTPREFIX_LENGTH: i32 = 4;
 pub const IN4ADDR_NONE: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RANGE {
-    pub StartPort: u16,
-    pub NumberOfPorts: u16,
+    pub StartPort: super::USHORT,
+    pub NumberOfPorts: super::USHORT,
 }
+#[cfg(feature = "shared")]
 pub type INET_PORT_RESERVATION = INET_PORT_RANGE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RESERVATION_INFORMATION {
-    pub OwningPid: u32,
+    pub OwningPid: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RESERVATION_INSTANCE {
     pub Reservation: INET_PORT_RESERVATION,
     pub Token: INET_PORT_RESERVATION_TOKEN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RESERVATION_TOKEN {
-    pub Token: u64,
+    pub Token: super::ULONG64,
 }
-pub const INVALID_PORT_RESERVATION_TOKEN: u64 = 0;
+#[cfg(feature = "shared")]
+pub const INVALID_PORT_RESERVATION_TOKEN: super::ULONG64 = 0;
+#[cfg(feature = "shared")]
 pub type PASSOCIATE_NAMERES_CONTEXT_INPUT = *mut ASSOCIATE_NAMERES_CONTEXT_INPUT;
 pub type PCONTROL_CHANNEL_TRIGGER_STATUS = *mut CONTROL_CHANNEL_TRIGGER_STATUS;
-pub type PDL_EUI48 = *mut DL_EUI48;
+#[cfg(feature = "shared")]
 pub type PINET_PORT_RANGE = *mut INET_PORT_RANGE;
+#[cfg(feature = "shared")]
 pub type PINET_PORT_RESERVATION = *mut INET_PORT_RANGE;
+#[cfg(feature = "shared")]
 pub type PINET_PORT_RESERVATION_INFORMATION = *mut INET_PORT_RESERVATION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PINET_PORT_RESERVATION_INSTANCE = *mut INET_PORT_RESERVATION_INSTANCE;
+#[cfg(feature = "shared")]
 pub type PINET_PORT_RESERVATION_TOKEN = *mut INET_PORT_RESERVATION_TOKEN;
 pub type PPRIORITY_STATUS = *mut PRIORITY_STATUS;
+#[cfg(feature = "shared")]
 pub type PRCVALL_IF = *mut RCVALL_IF;
 pub type PRCVALL_VALUE = *mut RCVALL_VALUE;
 pub type PREAL_TIME_NOTIFICATION_SETTING_INPUT = *mut REAL_TIME_NOTIFICATION_SETTING_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PREAL_TIME_NOTIFICATION_SETTING_INPUT_EX = *mut REAL_TIME_NOTIFICATION_SETTING_INPUT_EX;
 pub type PREAL_TIME_NOTIFICATION_SETTING_OUTPUT = *mut REAL_TIME_NOTIFICATION_SETTING_OUTPUT;
 #[repr(C)]
@@ -222,26 +201,30 @@ pub struct PRIORITY_STATUS {
     pub Sender: SOCKET_PRIORITY_HINT,
     pub Receiver: SOCKET_PRIORITY_HINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PRSS_SCALABILITY_INFO = *mut RSS_SCALABILITY_INFO;
 pub type PSOCKET_PRIORITY_HINT = *mut SOCKET_PRIORITY_HINT;
+#[cfg(feature = "shared")]
 pub type PTCP_ACK_FREQUENCY_PARAMETERS = *mut TCP_ACK_FREQUENCY_PARAMETERS;
 pub type PTCP_ICW_LEVEL = *mut TCP_ICW_LEVEL;
 pub type PTCP_ICW_PARAMETERS = *mut TCP_ICW_PARAMETERS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_INFO_v0 = *mut TCP_INFO_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_INFO_v1 = *mut TCP_INFO_v1;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_INFO_v2 = *mut TCP_INFO_v2;
+#[cfg(feature = "shared")]
 pub type PTCP_INITIAL_RTO_PARAMETERS = *mut TCP_INITIAL_RTO_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PTIMESTAMPING_CONFIG = *mut TIMESTAMPING_CONFIG;
 pub type PTRANSPORT_SETTING_ID = *mut TRANSPORT_SETTING_ID;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RCVALL_IF {
     pub Mode: RCVALL_VALUE,
-    pub Interface: u32,
+    pub Interface: super::ULONG,
 }
 pub const RCVALL_IPLEVEL: RCVALL_VALUE = 3;
 pub const RCVALL_MAX: RCVALL_VALUE = 3;
@@ -258,7 +241,7 @@ pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
     pub BrokerEventGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
@@ -271,7 +254,7 @@ pub struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
     pub ChannelStatus: CONTROL_CHANNEL_TRIGGER_STATUS,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RSS_SCALABILITY_INFO {
     pub RssEnabled: super::BOOLEAN,
@@ -319,15 +302,15 @@ pub const SOCKET_INFO_CONNECTION_ENCRYPTED: i32 = 2;
 pub const SOCKET_INFO_CONNECTION_IMPERSONATED: i32 = 4;
 pub const SOCKET_INFO_CONNECTION_SECURED: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKET_PEER_TARGET_NAME {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: super::SOCKADDR_STORAGE,
-    pub PeerTargetNameStringLen: u32,
+    pub PeerTargetNameStringLen: super::ULONG,
     pub AllStrings: [u16; 0],
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for SOCKET_PEER_TARGET_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -343,64 +326,69 @@ pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = 3;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = 1;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_INFO {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-    pub Flags: u32,
-    pub PeerApplicationAccessTokenHandle: u64,
-    pub PeerMachineAccessTokenHandle: u64,
+    pub Flags: super::ULONG,
+    pub PeerApplicationAccessTokenHandle: super::UINT64,
+    pub PeerMachineAccessTokenHandle: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-    pub Flags: u32,
-    pub PeerApplicationAccessTokenHandle: u64,
-    pub PeerMachineAccessTokenHandle: u64,
-    pub MmSaId: u64,
-    pub QmSaId: u64,
-    pub NegotiationWinerr: u32,
+    pub Flags: super::ULONG,
+    pub PeerApplicationAccessTokenHandle: super::UINT64,
+    pub PeerMachineAccessTokenHandle: super::UINT64,
+    pub MmSaId: super::UINT64,
+    pub QmSaId: super::UINT64,
+    pub NegotiationWinerr: super::UINT32,
     pub SaLookupContext: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: super::SOCKADDR_STORAGE,
-    pub PeerTokenAccessMask: u32,
+    pub PeerTokenAccessMask: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: super::SOCKADDR_STORAGE,
-    pub PeerTokenAccessMask: u32,
-    pub Flags: u32,
-    pub FieldMask: u32,
+    pub PeerTokenAccessMask: super::ULONG,
+    pub Flags: super::ULONG,
+    pub FieldMask: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_SETTINGS {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-    pub SecurityFlags: u32,
+    pub SecurityFlags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_SETTINGS_IPSEC {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-    pub SecurityFlags: u32,
-    pub IpsecFlags: u32,
+    pub SecurityFlags: super::ULONG,
+    pub IpsecFlags: super::ULONG,
     pub AuthipMMPolicyKey: windows_core::GUID,
     pub AuthipQMPolicyKey: windows_core::GUID,
     pub Reserved: windows_core::GUID,
-    pub Reserved2: u64,
-    pub UserNameStringLen: u32,
-    pub DomainNameStringLen: u32,
-    pub PasswordStringLen: u32,
+    pub Reserved2: super::UINT64,
+    pub UserNameStringLen: super::ULONG,
+    pub DomainNameStringLen: super::ULONG,
+    pub PasswordStringLen: super::ULONG,
     pub AllStrings: [u16; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for SOCKET_SECURITY_SETTINGS_IPSEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -434,9 +422,10 @@ pub const TCPSTATE_SYN_RCVD: TCPSTATE = 3;
 pub const TCPSTATE_SYN_SENT: TCPSTATE = 2;
 pub const TCPSTATE_TIME_WAIT: TCPSTATE = 10;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS {
-    pub TcpDelayedAckFrequency: u8,
+    pub TcpDelayedAckFrequency: super::UCHAR,
 }
 pub type TCP_ICW_LEVEL = i32;
 pub const TCP_ICW_LEVEL_AGGRESSIVE: TCP_ICW_LEVEL = 3;
@@ -452,115 +441,120 @@ pub struct TCP_ICW_PARAMETERS {
     pub Level: TCP_ICW_LEVEL,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INFO_v0 {
     pub State: TCPSTATE,
-    pub Mss: u32,
-    pub ConnectionTimeMs: u64,
+    pub Mss: super::ULONG,
+    pub ConnectionTimeMs: super::ULONG64,
     pub TimestampsEnabled: super::BOOLEAN,
-    pub RttUs: u32,
-    pub MinRttUs: u32,
-    pub BytesInFlight: u32,
-    pub Cwnd: u32,
-    pub SndWnd: u32,
-    pub RcvWnd: u32,
-    pub RcvBuf: u32,
-    pub BytesOut: u64,
-    pub BytesIn: u64,
-    pub BytesReordered: u32,
-    pub BytesRetrans: u32,
-    pub FastRetrans: u32,
-    pub DupAcksIn: u32,
-    pub TimeoutEpisodes: u32,
-    pub SynRetrans: u8,
+    pub RttUs: super::ULONG,
+    pub MinRttUs: super::ULONG,
+    pub BytesInFlight: super::ULONG,
+    pub Cwnd: super::ULONG,
+    pub SndWnd: super::ULONG,
+    pub RcvWnd: super::ULONG,
+    pub RcvBuf: super::ULONG,
+    pub BytesOut: super::ULONG64,
+    pub BytesIn: super::ULONG64,
+    pub BytesReordered: super::ULONG,
+    pub BytesRetrans: super::ULONG,
+    pub FastRetrans: super::ULONG,
+    pub DupAcksIn: super::ULONG,
+    pub TimeoutEpisodes: super::ULONG,
+    pub SynRetrans: super::UCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INFO_v1 {
     pub State: TCPSTATE,
-    pub Mss: u32,
-    pub ConnectionTimeMs: u64,
+    pub Mss: super::ULONG,
+    pub ConnectionTimeMs: super::ULONG64,
     pub TimestampsEnabled: super::BOOLEAN,
-    pub RttUs: u32,
-    pub MinRttUs: u32,
-    pub BytesInFlight: u32,
-    pub Cwnd: u32,
-    pub SndWnd: u32,
-    pub RcvWnd: u32,
-    pub RcvBuf: u32,
-    pub BytesOut: u64,
-    pub BytesIn: u64,
-    pub BytesReordered: u32,
-    pub BytesRetrans: u32,
-    pub FastRetrans: u32,
-    pub DupAcksIn: u32,
-    pub TimeoutEpisodes: u32,
-    pub SynRetrans: u8,
-    pub SndLimTransRwin: u32,
-    pub SndLimTimeRwin: u32,
-    pub SndLimBytesRwin: u64,
-    pub SndLimTransCwnd: u32,
-    pub SndLimTimeCwnd: u32,
-    pub SndLimBytesCwnd: u64,
-    pub SndLimTransSnd: u32,
-    pub SndLimTimeSnd: u32,
-    pub SndLimBytesSnd: u64,
+    pub RttUs: super::ULONG,
+    pub MinRttUs: super::ULONG,
+    pub BytesInFlight: super::ULONG,
+    pub Cwnd: super::ULONG,
+    pub SndWnd: super::ULONG,
+    pub RcvWnd: super::ULONG,
+    pub RcvBuf: super::ULONG,
+    pub BytesOut: super::ULONG64,
+    pub BytesIn: super::ULONG64,
+    pub BytesReordered: super::ULONG,
+    pub BytesRetrans: super::ULONG,
+    pub FastRetrans: super::ULONG,
+    pub DupAcksIn: super::ULONG,
+    pub TimeoutEpisodes: super::ULONG,
+    pub SynRetrans: super::UCHAR,
+    pub SndLimTransRwin: super::ULONG,
+    pub SndLimTimeRwin: super::ULONG,
+    pub SndLimBytesRwin: super::ULONG64,
+    pub SndLimTransCwnd: super::ULONG,
+    pub SndLimTimeCwnd: super::ULONG,
+    pub SndLimBytesCwnd: super::ULONG64,
+    pub SndLimTransSnd: super::ULONG,
+    pub SndLimTimeSnd: super::ULONG,
+    pub SndLimBytesSnd: super::ULONG64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INFO_v2 {
     pub State: TCPSTATE,
-    pub Mss: u32,
-    pub ConnectionTimeMs: u64,
+    pub Mss: super::ULONG,
+    pub ConnectionTimeMs: super::ULONG64,
     pub TimestampsEnabled: super::BOOLEAN,
-    pub RttUs: u32,
-    pub MinRttUs: u32,
-    pub BytesInFlight: u32,
-    pub Cwnd: u32,
-    pub SndWnd: u32,
-    pub RcvWnd: u32,
-    pub RcvBuf: u32,
-    pub BytesOut: u64,
-    pub BytesIn: u64,
-    pub BytesReordered: u32,
-    pub BytesRetrans: u32,
-    pub FastRetrans: u32,
-    pub DupAcksIn: u32,
-    pub TimeoutEpisodes: u32,
-    pub SynRetrans: u8,
-    pub SndLimTransRwin: u32,
-    pub SndLimTimeRwin: u32,
-    pub SndLimBytesRwin: u64,
-    pub SndLimTransCwnd: u32,
-    pub SndLimTimeCwnd: u32,
-    pub SndLimBytesCwnd: u64,
-    pub SndLimTransSnd: u32,
-    pub SndLimTimeSnd: u32,
-    pub SndLimBytesSnd: u64,
-    pub OutOfOrderPktsIn: u32,
+    pub RttUs: super::ULONG,
+    pub MinRttUs: super::ULONG,
+    pub BytesInFlight: super::ULONG,
+    pub Cwnd: super::ULONG,
+    pub SndWnd: super::ULONG,
+    pub RcvWnd: super::ULONG,
+    pub RcvBuf: super::ULONG,
+    pub BytesOut: super::ULONG64,
+    pub BytesIn: super::ULONG64,
+    pub BytesReordered: super::ULONG,
+    pub BytesRetrans: super::ULONG,
+    pub FastRetrans: super::ULONG,
+    pub DupAcksIn: super::ULONG,
+    pub TimeoutEpisodes: super::ULONG,
+    pub SynRetrans: super::UCHAR,
+    pub SndLimTransRwin: super::ULONG,
+    pub SndLimTimeRwin: super::ULONG,
+    pub SndLimBytesRwin: super::ULONG64,
+    pub SndLimTransCwnd: super::ULONG,
+    pub SndLimTimeCwnd: super::ULONG,
+    pub SndLimBytesCwnd: super::ULONG64,
+    pub SndLimTransSnd: super::ULONG,
+    pub SndLimTimeSnd: super::ULONG,
+    pub SndLimBytesSnd: super::ULONG64,
+    pub OutOfOrderPktsIn: super::ULONG,
     pub EcnNegotiated: super::BOOLEAN,
-    pub EceAcksIn: u32,
-    pub PtoEpisodes: u32,
+    pub EceAcksIn: super::ULONG,
+    pub PtoEpisodes: super::ULONG,
 }
 pub const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: i32 = 0;
 pub const TCP_INITIAL_RTO_DEFAULT_RTT: i32 = 0;
-pub const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u8 = 254;
+#[cfg(feature = "shared")]
+pub const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: super::UCHAR = 254;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INITIAL_RTO_PARAMETERS {
-    pub Rtt: u16,
-    pub MaxSynRetransmissions: u8,
+    pub Rtt: super::USHORT,
+    pub MaxSynRetransmissions: super::UCHAR,
 }
-pub const TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: u8 = 255;
-pub const TCP_INITIAL_RTO_UNSPECIFIED_RTT: u16 = 65535;
+#[cfg(feature = "shared")]
+pub const TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: super::UCHAR = 255;
+#[cfg(feature = "shared")]
+pub const TCP_INITIAL_RTO_UNSPECIFIED_RTT: super::USHORT = 65535;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMESTAMPING_CONFIG {
-    pub Flags: u32,
-    pub TxTimestampsBuffered: u16,
+    pub Flags: super::ULONG,
+    pub TxTimestampsBuffered: super::USHORT,
 }
 pub const TIMESTAMPING_FLAG_RX: i32 = 1;
 pub const TIMESTAMPING_FLAG_TX: i32 = 2;
@@ -570,9 +564,10 @@ pub struct TRANSPORT_SETTING_ID {
     pub Guid: windows_core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tcp_keepalive {
-    pub onoff: u32,
-    pub keepalivetime: u32,
-    pub keepaliveinterval: u32,
+    pub onoff: super::ULONG,
+    pub keepalivetime: super::ULONG,
+    pub keepaliveinterval: super::ULONG,
 }

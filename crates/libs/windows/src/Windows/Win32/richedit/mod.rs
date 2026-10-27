@@ -9,14 +9,15 @@ pub const AURL_ENABLEEAURLS: i32 = 8;
 pub const AURL_ENABLEEMAILADDR: i32 = 2;
 pub const AURL_ENABLETELNO: i32 = 4;
 pub const AURL_ENABLEURL: i32 = 1;
-#[cfg(feature = "winnt")]
-pub type AutoCorrectProc = Option<unsafe extern "system" fn(langid: super::LANGID, pszbefore: *const u16, pszafter: *mut u16, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type AutoCorrectProc = Option<unsafe extern "system" fn(langid: super::LANGID, pszbefore: *const super::WCHAR, pszafter: *mut super::WCHAR, cchafter: super::LONG, pcchreplaced: *mut super::LONG) -> i32>;
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct BIDIOPTIONS {
-    pub cbSize: u32,
-    pub wMask: u16,
-    pub wEffects: u16,
+    pub cbSize: super::UINT,
+    pub wMask: super::WORD,
+    pub wEffects: super::WORD,
 }
 pub const BOE_CONTEXTALIGNMENT: i32 = 16;
 pub const BOE_CONTEXTREADING: i32 = 8;
@@ -120,93 +121,96 @@ pub const CFU_UNDERLINETHICKDOTTED: i32 = 17;
 pub const CFU_UNDERLINETHICKLONGDASH: i32 = 18;
 pub const CFU_UNDERLINEWAVE: i32 = 8;
 pub const CFU_UNDERLINEWORD: i32 = 2;
-#[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+pub const CF_RETEXTOBJ: windows_core::PCSTR = windows_core::s!("RichEdit Text and Objects");
+pub const CF_RTF: windows_core::PCSTR = windows_core::s!("Rich Text Format");
+pub const CF_RTFNOOBJS: windows_core::PCSTR = windows_core::s!("Rich Text Format Without Objects");
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct CHARFORMAT2A {
-    pub Base: CHARFORMATA,
-    pub wWeight: u16,
-    pub sSpacing: i16,
+    pub base: CHARFORMATA,
+    pub wWeight: super::WORD,
+    pub sSpacing: super::SHORT,
     pub crBackColor: super::COLORREF,
     pub lcid: super::LCID,
     pub Anonymous: CHARFORMAT2A_0,
-    pub sStyle: i16,
-    pub wKerning: u16,
-    pub bUnderlineType: u8,
-    pub bAnimation: u8,
-    pub bRevAuthor: u8,
-    pub bUnderlineColor: u8,
+    pub sStyle: super::SHORT,
+    pub wKerning: super::WORD,
+    pub bUnderlineType: super::BYTE,
+    pub bAnimation: super::BYTE,
+    pub bRevAuthor: super::BYTE,
+    pub bUnderlineColor: super::BYTE,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for CHARFORMAT2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union CHARFORMAT2A_0 {
-    pub dwReserved: u32,
-    pub dwCookie: u32,
+    pub dwReserved: super::DWORD,
+    pub dwCookie: super::DWORD,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for CHARFORMAT2A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CHARFORMAT2W {
-    pub Base: CHARFORMATW,
-    pub wWeight: u16,
-    pub sSpacing: i16,
+    pub base: CHARFORMATW,
+    pub wWeight: super::WORD,
+    pub sSpacing: super::SHORT,
     pub crBackColor: super::COLORREF,
     pub lcid: super::LCID,
     pub Anonymous: CHARFORMAT2W_0,
-    pub sStyle: i16,
-    pub wKerning: u16,
-    pub bUnderlineType: u8,
-    pub bAnimation: u8,
-    pub bRevAuthor: u8,
-    pub bUnderlineColor: u8,
+    pub sStyle: super::SHORT,
+    pub wKerning: super::WORD,
+    pub bUnderlineType: super::BYTE,
+    pub bAnimation: super::BYTE,
+    pub bRevAuthor: super::BYTE,
+    pub bUnderlineColor: super::BYTE,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for CHARFORMAT2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CHARFORMAT2W_0 {
-    pub dwReserved: u32,
-    pub dwCookie: u32,
+    pub dwReserved: super::DWORD,
+    pub dwCookie: super::DWORD,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for CHARFORMAT2W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy)]
 pub struct CHARFORMATA {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub dwEffects: u32,
-    pub yHeight: i32,
-    pub yOffset: i32,
+    pub cbSize: super::UINT,
+    pub dwMask: super::DWORD,
+    pub dwEffects: super::DWORD,
+    pub yHeight: super::LONG,
+    pub yOffset: super::LONG,
     pub crTextColor: super::COLORREF,
-    pub bCharSet: u8,
-    pub bPitchAndFamily: u8,
+    pub bCharSet: super::BYTE,
+    pub bPitchAndFamily: super::BYTE,
     pub szFaceName: [i8; 32],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for CHARFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -216,55 +220,47 @@ impl Default for CHARFORMATA {
 pub const CHARFORMATDELTA: u32 = 24;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const CHARFORMATDELTA: u64 = 24;
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CHARFORMATW {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub dwEffects: u32,
-    pub yHeight: i32,
-    pub yOffset: i32,
+    pub cbSize: super::UINT,
+    pub dwMask: super::DWORD,
+    pub dwEffects: super::DWORD,
+    pub yHeight: super::LONG,
+    pub yOffset: super::LONG,
     pub crTextColor: super::COLORREF,
-    pub bCharSet: u8,
-    pub bPitchAndFamily: u8,
-    pub szFaceName: [u16; 32],
+    pub bCharSet: super::BYTE,
+    pub bPitchAndFamily: super::BYTE,
+    pub szFaceName: [super::WCHAR; 32],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for CHARFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct CHARRANGE {
-    pub cpMin: i32,
-    pub cpMax: i32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser", feature = "wtypes"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLIPBOARDFORMAT {
-    pub nmhdr: super::NMHDR,
-    pub cf: super::CLIPFORMAT,
+    pub cpMin: super::LONG,
+    pub cpMax: super::LONG,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser", feature = "wtypes"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::NMHDR,
     pub cf: super::CLIPFORMAT,
 }
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
 pub struct COMPCOLOR {
     pub crText: super::COLORREF,
     pub crBackground: super::COLORREF,
-    pub dwEffects: u32,
+    pub dwEffects: super::DWORD,
 }
 pub const CTFMODEBIAS_CONVERSATION: i32 = 5;
 pub const CTFMODEBIAS_DATETIME: i32 = 4;
@@ -294,27 +290,18 @@ pub const ECO_SAVESEL: i32 = 32768;
 pub const ECO_SELECTIONBAR: i32 = 16777216;
 pub const ECO_VERTICAL: i32 = 4194304;
 pub const ECO_WANTRETURN: i32 = 4096;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default)]
-pub struct EDITSTREAM {
-    pub dwCookie: usize,
-    pub dwError: u32,
-    pub pfnCallback: EDITSTREAMCALLBACK,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EDITSTREAM {
-    pub dwCookie: usize,
-    pub dwError: u32,
+    pub dwCookie: super::DWORD_PTR,
+    pub dwError: super::DWORD,
     pub pfnCallback: EDITSTREAMCALLBACK,
 }
-#[cfg(feature = "minwindef")]
-pub type EDITSTREAMCALLBACK = Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: super::LPBYTE, cb: i32, pcb: *mut i32) -> u32>;
-pub type EDITWORDBREAKPROCEX = Option<unsafe extern "C" fn(pchtext: *mut i8, cchtext: i32, bcharset: u8, action: i32) -> i32>;
+#[cfg(feature = "shared")]
+pub type EDITSTREAMCALLBACK = Option<unsafe extern "system" fn(dwcookie: super::DWORD_PTR, pbbuff: super::LPBYTE, cb: super::LONG, pcb: *mut super::LONG) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type EDITWORDBREAKPROCEX = Option<unsafe extern "C" fn(pchtext: *mut i8, cchtext: super::LONG, bcharset: super::BYTE, action: super::INT) -> super::LONG>;
 pub const ELLIPSIS_END: i32 = 1;
 pub const ELLIPSIS_MASK: i32 = 3;
 pub const ELLIPSIS_NONE: i32 = 0;
@@ -384,6 +371,7 @@ pub const EM_GETUNDONAME: i32 = 1110;
 pub const EM_GETVIEWKIND: i32 = 1250;
 pub const EM_GETWORDBREAKPROCEX: i32 = 1104;
 pub const EM_GETWORDWRAPMODE: i32 = 1127;
+pub const EM_GETZOOM: i32 = 1248;
 pub const EM_HIDESELECTION: i32 = 1087;
 pub const EM_INSERTIMAGE: i32 = 1338;
 pub const EM_INSERTTABLE: i32 = 1256;
@@ -433,97 +421,47 @@ pub const EM_SETUNDOLIMIT: i32 = 1106;
 pub const EM_SETVIEWKIND: i32 = 1251;
 pub const EM_SETWORDBREAKPROCEX: i32 = 1105;
 pub const EM_SETWORDWRAPMODE: i32 = 1126;
+pub const EM_SETZOOM: i32 = 1249;
 pub const EM_SHOWSCROLLBAR: i32 = 1120;
 pub const EM_STOPGROUPTYPING: i32 = 1112;
 pub const EM_STREAMIN: i32 = 1097;
 pub const EM_STREAMOUT: i32 = 1098;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENCORRECTTEXT {
-    pub nmhdr: super::NMHDR,
-    pub chrg: CHARRANGE,
-    pub seltyp: u16,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
-    pub seltyp: u16,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENDCOMPOSITIONNOTIFY {
-    pub nmhdr: super::NMHDR,
-    pub dwCode: u32,
+    pub seltyp: super::WORD,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::NMHDR,
-    pub dwCode: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENDROPFILES {
-    pub nmhdr: super::NMHDR,
-    pub hDrop: super::HANDLE,
-    pub cp: i32,
-    pub fProtected: windows_core::BOOL,
+    pub dwCode: super::DWORD,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::HANDLE,
-    pub cp: i32,
+    pub cp: super::LONG,
     pub fProtected: windows_core::BOOL,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+#[derive(Clone, Copy, Default)]
 pub struct ENLINK {
     pub nmhdr: super::NMHDR,
-    pub msg: u32,
+    pub msg: super::UINT,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
     pub chrg: CHARRANGE,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
-pub struct ENLINK {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::WPARAM,
-    pub lParam: super::LPARAM,
-    pub chrg: CHARRANGE,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENLOWFIRTF {
-    pub nmhdr: super::NMHDR,
-    pub szControl: *mut i8,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
@@ -554,65 +492,32 @@ pub const ENM_SCROLLEVENTS: i32 = 8;
 pub const ENM_SELCHANGE: i32 = 524288;
 pub const ENM_STARTCOMPOSITION: i32 = 268435456;
 pub const ENM_UPDATE: i32 = 2;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENOLEOPFAILED {
-    pub nmhdr: super::NMHDR,
-    pub iob: i32,
-    pub lOper: i32,
-    pub hr: windows_core::HRESULT,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::NMHDR,
-    pub iob: i32,
-    pub lOper: i32,
+    pub iob: super::LONG,
+    pub lOper: super::LONG,
     pub hr: windows_core::HRESULT,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+#[derive(Clone, Copy, Default)]
 pub struct ENPROTECTED {
     pub nmhdr: super::NMHDR,
-    pub msg: u32,
+    pub msg: super::UINT,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
     pub chrg: CHARRANGE,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
-pub struct ENPROTECTED {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::WPARAM,
-    pub lParam: super::LPARAM,
-    pub chrg: CHARRANGE,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENSAVECLIPBOARD {
-    pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub cch: i32,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub cch: i32,
+    pub cObjectCount: super::LONG,
+    pub cch: super::LONG,
 }
 pub const EN_ALIGNLTR: i32 = 1808;
 pub const EN_ALIGNRTL: i32 = 1809;
@@ -649,80 +554,38 @@ pub const ES_SELECTIONBAR: i32 = 16777216;
 pub const ES_SELFIME: i32 = 262144;
 pub const ES_SUNKEN: i32 = 16384;
 pub const ES_VERTICAL: i32 = 4194304;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FINDTEXTA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCSTR,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
     pub chrgText: CHARRANGE,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
-pub struct FINDTEXTEXA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCSTR,
-    pub chrgText: CHARRANGE,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FINDTEXTEXW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCWSTR,
-    pub chrgText: CHARRANGE,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
     pub chrgText: CHARRANGE,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FINDTEXTW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PCWSTR,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FORMATRANGE {
-    pub hdc: super::HDC,
-    pub hdcTarget: super::HDC,
-    pub rc: super::RECT,
-    pub rcPage: super::RECT,
-    pub chrg: CHARRANGE,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct FORMATRANGE {
     pub hdc: super::HDC,
@@ -738,65 +601,34 @@ pub const GCMF_TOUCHMENU: i32 = 16384;
 pub const GCM_MOUSEMENU: i32 = 8192;
 pub const GCM_RIGHTMOUSEDROP: i32 = 32768;
 pub const GCM_TOUCHMENU: i32 = 16384;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub pt: super::POINT,
     pub pvReserved: *mut core::ffi::c_void,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
-pub struct GETCONTEXTMENUEX {
-    pub chrg: CHARRANGE,
-    pub dwFlags: u32,
-    pub pt: super::POINT,
-    pub pvReserved: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETTEXTEX {
-    pub cb: u32,
-    pub flags: u32,
-    pub codepage: u32,
+    pub cb: super::DWORD,
+    pub flags: super::DWORD,
+    pub codepage: super::UINT,
     pub lpDefaultChar: windows_core::PCSTR,
     pub lpUsedDefChar: super::LPBOOL,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
-pub struct GETTEXTEX {
-    pub cb: u32,
-    pub flags: u32,
-    pub codepage: u32,
-    pub lpDefaultChar: windows_core::PCSTR,
-    pub lpUsedDefChar: super::LPBOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETTEXTLENGTHEX {
-    pub flags: u32,
-    pub codepage: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GROUPTYPINGCHANGE {
-    pub nmhdr: super::NMHDR,
-    pub fGroupTyping: windows_core::BOOL,
+    pub flags: super::DWORD,
+    pub codepage: super::UINT,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct GROUPTYPINGCHANGE {
     pub nmhdr: super::NMHDR,
@@ -813,28 +645,21 @@ pub const GT_NOHIDDENTEXT: i32 = 8;
 pub const GT_RAWTEXT: i32 = 4;
 pub const GT_SELECTION: i32 = 2;
 pub const GT_USECRLF: i32 = 1;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HYPHENATEINFO {
-    pub cbSize: i16,
-    pub dxHyphenateZone: i16,
-    pub pfnHyphenate: *mut u8,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct HYPHENATEINFO {
-    pub cbSize: i16,
-    pub dxHyphenateZone: i16,
-    pub pfnHyphenate: *mut u8,
+    pub cbSize: super::SHORT,
+    pub dxHyphenateZone: super::SHORT,
+    pub pfnHyphenate: Option<unsafe extern "system" fn(*mut super::WCHAR, super::LANGID, i32, *mut HYPHRESULT)>,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
 pub struct HYPHRESULT {
     pub khyph: KHYPH,
     pub ichHyph: i32,
-    pub chHyph: u16,
+    pub chHyph: super::WCHAR,
 }
 pub const ICM_CTF: i32 = 5;
 pub const ICM_LEVEL2: i32 = 2;
@@ -843,11 +668,12 @@ pub const ICM_LEVEL2_SUI: i32 = 4;
 pub const ICM_LEVEL3: i32 = 1;
 pub const ICM_NOTOPEN: i32 = 0;
 pub const ICT_RESULTREADSTR: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMECOMPTEXT {
-    pub cb: i32,
-    pub flags: u32,
+    pub cb: super::LONG,
+    pub flags: super::DWORD,
 }
 pub const IMF_AUTOFONT: i32 = 2;
 pub const IMF_AUTOFONTSIZEADJUST: i32 = 16;
@@ -877,94 +703,79 @@ pub type KHYPH = i32;
 pub const MAX_TABLE_CELLS: i32 = 63;
 pub const MAX_TAB_STOPS: i32 = 32;
 pub const MSFTEDIT_CLASS: windows_core::PCWSTR = windows_core::w!("RICHEDIT50W");
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+#[derive(Clone, Copy, Default)]
 pub struct MSGFILTER {
     pub nmhdr: super::NMHDR,
-    pub msg: u32,
+    pub msg: super::UINT,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
-pub struct MSGFILTER {
-    pub nmhdr: super::NMHDR,
-    pub msg: u32,
-    pub wParam: super::WPARAM,
-    pub lParam: super::LPARAM,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OBJECTPOSITIONS {
-    pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub pcpPositions: *mut i32,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
-    pub cObjectCount: i32,
-    pub pcpPositions: *mut i32,
+    pub cObjectCount: super::LONG,
+    pub pcpPositions: *mut super::LONG,
 }
 pub const OLEOP_DOVERB: i32 = 1;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PARAFORMAT {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub wNumbering: u16,
+    pub cbSize: super::UINT,
+    pub dwMask: super::DWORD,
+    pub wNumbering: super::WORD,
     pub Anonymous: PARAFORMAT_0,
-    pub dxStartIndent: i32,
-    pub dxRightIndent: i32,
-    pub dxOffset: i32,
-    pub wAlignment: u16,
-    pub cTabCount: i16,
-    pub rgxTabs: [i32; 32],
+    pub dxStartIndent: super::LONG,
+    pub dxRightIndent: super::LONG,
+    pub dxOffset: super::LONG,
+    pub wAlignment: super::WORD,
+    pub cTabCount: super::SHORT,
+    pub rgxTabs: [super::LONG; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for PARAFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PARAFORMAT_0 {
-    pub wReserved: u16,
-    pub wEffects: u16,
+    pub wReserved: super::WORD,
+    pub wEffects: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for PARAFORMAT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PARAFORMAT2 {
-    pub Base: PARAFORMAT,
-    pub dySpaceBefore: i32,
-    pub dySpaceAfter: i32,
-    pub dyLineSpacing: i32,
-    pub sStyle: i16,
-    pub bLineSpacingRule: u8,
-    pub bOutlineLevel: u8,
-    pub wShadingWeight: u16,
-    pub wShadingStyle: u16,
-    pub wNumberingStart: u16,
-    pub wNumberingStyle: u16,
-    pub wNumberingTab: u16,
-    pub wBorderSpace: u16,
-    pub wBorderWidth: u16,
-    pub wBorders: u16,
+    pub base: PARAFORMAT,
+    pub dySpaceBefore: super::LONG,
+    pub dySpaceAfter: super::LONG,
+    pub dyLineSpacing: super::LONG,
+    pub sStyle: super::SHORT,
+    pub bLineSpacingRule: super::BYTE,
+    pub bOutlineLevel: super::BYTE,
+    pub wShadingWeight: super::WORD,
+    pub wShadingStyle: super::WORD,
+    pub wNumberingStart: super::WORD,
+    pub wNumberingStyle: super::WORD,
+    pub wNumberingTab: super::WORD,
+    pub wBorderSpace: super::WORD,
+    pub wBorderWidth: super::WORD,
+    pub wBorders: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for PARAFORMAT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1042,45 +853,22 @@ pub const PFN_LCLETTER: i32 = 3;
 pub const PFN_LCROMAN: i32 = 5;
 pub const PFN_UCLETTER: i32 = 4;
 pub const PFN_UCROMAN: i32 = 6;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct PUNCTUATION {
-    pub iSize: u32,
+    pub iSize: super::UINT,
     pub szPunctuation: windows_core::PSTR,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
-pub struct PUNCTUATION {
-    pub iSize: u32,
-    pub szPunctuation: windows_core::PSTR,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REPASTESPECIAL {
-    pub dwAspect: u32,
-    pub dwParam: usize,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct REPASTESPECIAL {
-    pub dwAspect: u32,
-    pub dwParam: usize,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REQRESIZE {
-    pub nmhdr: super::NMHDR,
-    pub rc: super::RECT,
+    pub dwAspect: super::DWORD,
+    pub dwParam: super::DWORD_PTR,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct REQRESIZE {
     pub nmhdr: super::NMHDR,
@@ -1091,27 +879,14 @@ pub const RICHEDIT_CLASS: windows_core::PCSTR = windows_core::s!("RichEdit20A");
 pub const RICHEDIT_CLASS10A: windows_core::PCSTR = windows_core::s!("RICHEDIT");
 pub const RICHEDIT_CLASSA: windows_core::PCSTR = windows_core::s!("RichEdit20A");
 pub const RICHEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("RichEdit20W");
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
-pub struct RICHEDIT_IMAGE_PARAMETERS {
-    pub xWidth: i32,
-    pub yHeight: i32,
-    pub Ascent: i32,
-    pub Type: i32,
-    pub pwszAlternateText: windows_core::PCWSTR,
-    pub pIStream: core::mem::ManuallyDrop<Option<super::IStream>>,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[derive(Default)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
-    pub xWidth: i32,
-    pub yHeight: i32,
-    pub Ascent: i32,
-    pub Type: i32,
+    pub xWidth: super::LONG,
+    pub yHeight: super::LONG,
+    pub Ascent: super::LONG,
+    pub Type: super::LONG,
     pub pwszAlternateText: windows_core::PCWSTR,
     pub pIStream: core::mem::ManuallyDrop<Option<super::IStream>>,
 }
@@ -1128,23 +903,13 @@ pub const SCF_SELECTION: i32 = 1;
 pub const SCF_SMARTFONT: i32 = 128;
 pub const SCF_USEUIRULES: i32 = 8;
 pub const SCF_WORD: i32 = 2;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SELCHANGE {
-    pub nmhdr: super::NMHDR,
-    pub chrg: CHARRANGE,
-    pub seltyp: u16,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct SELCHANGE {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
-    pub seltyp: u16,
+    pub seltyp: super::WORD,
 }
 pub const SEL_EMPTY: i32 = 0;
 pub const SEL_MULTICHAR: i32 = 4;
@@ -1194,11 +959,12 @@ pub const SES_USECRLF: i32 = 32;
 pub const SES_USECTF: i32 = 65536;
 pub const SES_WORDDRAGDROP: i32 = 33554432;
 pub const SES_XLTCRCRLFTOCR: i32 = 16384;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SETTEXTEX {
-    pub flags: u32,
-    pub codepage: u32,
+    pub flags: super::DWORD,
+    pub codepage: super::UINT,
 }
 pub const SFF_KEEPDOCINFO: i32 = 4096;
 pub const SFF_PERSISTVIEWSCALE: i32 = 8192;
@@ -1221,17 +987,17 @@ pub const ST_KEEPUNDO: i32 = 1;
 pub const ST_NEWCHARS: i32 = 4;
 pub const ST_SELECTION: i32 = 2;
 pub const ST_UNICODE: i32 = 8;
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
 pub struct TABLECELLPARMS {
-    pub dxWidth: i32,
+    pub dxWidth: super::LONG,
     pub _bitfield: u16,
-    pub wShading: u16,
-    pub dxBrdrLeft: i16,
-    pub dyBrdrTop: i16,
-    pub dxBrdrRight: i16,
-    pub dyBrdrBottom: i16,
+    pub wShading: super::WORD,
+    pub dxBrdrLeft: super::SHORT,
+    pub dyBrdrTop: super::SHORT,
+    pub dxBrdrRight: super::SHORT,
+    pub dyBrdrBottom: super::SHORT,
     pub crBrdrLeft: super::COLORREF,
     pub crBrdrTop: super::COLORREF,
     pub crBrdrRight: super::COLORREF,
@@ -1239,122 +1005,110 @@ pub struct TABLECELLPARMS {
     pub crBackPat: super::COLORREF,
     pub crForePat: super::COLORREF,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl TABLECELLPARMS {
-    pub fn nVertAlign(&self) -> u16 {
-        (self._bitfield << 14) >> 14
+    pub fn nVertAlign(&self) -> super::WORD {
+        (self._bitfield) & 3
     }
-    pub fn set_nVertAlign(&mut self, value: u16) {
+    pub fn set_nVertAlign(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn fMergeTop(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn fMergeTop(&self) -> super::WORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_fMergeTop(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    pub fn set_fMergeTop(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn fMergePrev(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn fMergePrev(&self) -> super::WORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_fMergePrev(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    pub fn set_fMergePrev(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn fVertical(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn fVertical(&self) -> super::WORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_fVertical(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    pub fn set_fVertical(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn fMergeStart(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn fMergeStart(&self) -> super::WORD {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_fMergeStart(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    pub fn set_fMergeStart(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn fMergeCont(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn fMergeCont(&self) -> super::WORD {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_fMergeCont(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    pub fn set_fMergeCont(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct TABLEROWPARMS {
-    pub cbRow: u8,
-    pub cbCell: u8,
-    pub cCell: u8,
-    pub cRow: u8,
-    pub dxCellMargin: i32,
-    pub dxIndent: i32,
-    pub dyHeight: i32,
+    pub cbRow: super::BYTE,
+    pub cbCell: super::BYTE,
+    pub cCell: super::BYTE,
+    pub cRow: super::BYTE,
+    pub dxCellMargin: super::LONG,
+    pub dxIndent: super::LONG,
+    pub dyHeight: super::LONG,
     pub _bitfield: u32,
-    pub cpStartRow: i32,
-    pub bTableLevel: u8,
-    pub iCell: u8,
+    pub cpStartRow: super::LONG,
+    pub bTableLevel: super::BYTE,
+    pub iCell: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl TABLEROWPARMS {
-    pub fn nAlignment(&self) -> u32 {
-        (self._bitfield << 29) >> 29
+    pub fn nAlignment(&self) -> super::DWORD {
+        (self._bitfield) & 7
     }
-    pub fn set_nAlignment(&mut self, value: u32) {
+    pub fn set_nAlignment(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !7) | (value & 7);
     }
-    pub fn fRTL(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn fRTL(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_fRTL(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_fRTL(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn fKeep(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn fKeep(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_fKeep(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_fKeep(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn fKeepFollow(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn fKeepFollow(&self) -> super::DWORD {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_fKeepFollow(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_fKeepFollow(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn fWrap(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn fWrap(&self) -> super::DWORD {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_fWrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_fWrap(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn fIdentCells(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn fIdentCells(&self) -> super::DWORD {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_fIdentCells(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_fIdentCells(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
 }
 pub type TEXTMODE = i32;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TEXTRANGEA {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PSTR,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PSTR,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TEXTRANGEW {
-    pub chrg: CHARRANGE,
-    pub lpstrText: windows_core::PWSTR,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
@@ -1381,11 +1135,15 @@ pub type UNDONAMEID = i32;
 pub const VM_NORMAL: i32 = 4;
 pub const VM_OUTLINE: i32 = 2;
 pub const VM_PAGE: i32 = 9;
-pub const WBF_BREAKAFTER: u8 = 64;
-pub const WBF_BREAKLINE: u8 = 32;
-pub const WBF_CLASS: u8 = 15;
+#[cfg(feature = "shared")]
+pub const WBF_BREAKAFTER: super::BYTE = 64;
+#[cfg(feature = "shared")]
+pub const WBF_BREAKLINE: super::BYTE = 32;
+#[cfg(feature = "shared")]
+pub const WBF_CLASS: super::BYTE = 15;
 pub const WBF_CUSTOM: i32 = 512;
-pub const WBF_ISWHITE: u8 = 16;
+#[cfg(feature = "shared")]
+pub const WBF_ISWHITE: super::BYTE = 16;
 pub const WBF_LEVEL1: i32 = 128;
 pub const WBF_LEVEL2: i32 = 256;
 pub const WBF_OVERFLOW: i32 = 64;
@@ -1400,7 +1158,8 @@ pub const WB_MOVEWORDRIGHT: i32 = 5;
 pub const WB_NEXTBREAK: i32 = 7;
 pub const WB_PREVBREAK: i32 = 6;
 pub const WB_RIGHTBREAK: i32 = 7;
-pub const WCH_EMBEDDING: u16 = 65532;
+#[cfg(feature = "winnt")]
+pub const WCH_EMBEDDING: super::WCHAR = 65532;
 pub const _RICHEDIT_VER: i32 = 2064;
 pub const cchTextLimitDefault: i32 = 32767;
 pub const khyphAddBefore: KHYPH = 2;

@@ -1,8 +1,14 @@
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PWHV_HYPERCALL_CONTEXT = *mut WHV_HYPERCALL_CONTEXT;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+pub type PWHV_HYPERCALL_CONTEXT = *mut WHV_X64_HYPERCALL_CONTEXT;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+pub type PWHV_HYPERCALL_CONTEXT = *mut WHV_ARM64_HYPERCALL_CONTEXT;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PWHV_PROCESSOR_PERFMON_FEATURES = *mut WHV_PROCESSOR_PERFMON_FEATURES;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PWHV_PROCESSOR_XSAVE_FEATURES = *mut WHV_PROCESSOR_XSAVE_FEATURES;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT = *mut WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT;
@@ -10,12 +16,14 @@ pub type PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT = *mut WHV_X64_INTERRUPTION_D
 pub type PWHV_X64_PENDING_INTERRUPTION_TYPE = *mut WHV_X64_PENDING_INTERRUPTION_TYPE;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ACCESS_GPA_CONTROLS {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_ACCESS_GPA_CONTROLS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ACCESS_GPA_CONTROLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,14 +31,16 @@ impl Default for WHV_ACCESS_GPA_CONTROLS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ACCESS_GPA_CONTROLS_0 {
     pub CacheType: WHV_CACHE_TYPE,
     pub InputVtl: WHV_INPUT_VTL,
-    pub Reserved: u8,
-    pub Reserved1: u16,
+    pub Reserved: super::UINT8,
+    pub Reserved1: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ACCESS_GPA_CONTROLS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -38,11 +48,13 @@ impl Default for WHV_ACCESS_GPA_CONTROLS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ADVISE_GPA_RANGE {
     pub Populate: WHV_ADVISE_GPA_RANGE_POPULATE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ADVISE_GPA_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -52,12 +64,14 @@ impl Default for WHV_ADVISE_GPA_RANGE {
 pub type WHV_ADVISE_GPA_RANGE_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
     pub Flags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub AccessType: WHV_MEMORY_ACCESS_TYPE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ADVISE_GPA_RANGE_POPULATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -65,12 +79,14 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -78,47 +94,51 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
-    pub fn Prefetch(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Prefetch(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_Prefetch(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Prefetch(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AvoidHardFaults(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AvoidHardFaults(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AvoidHardFaults(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AvoidHardFaults(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = u32;
+pub type WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_ANY_VP: u32 = 4294967295;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE {
-    pub Version: u8,
-    pub GicVersion: u8,
-    pub Reserved0: [u8; 2],
-    pub NumInterrupts: u32,
-    pub GicdCtlrEnableGrp1A: u64,
+    pub Version: super::UINT8,
+    pub GicVersion: super::UINT8,
+    pub Reserved0: [super::UINT8; 2],
+    pub NumInterrupts: super::UINT32,
+    pub GicdCtlrEnableGrp1A: super::UINT64,
     pub Interrupts: [WHV_ARM64_GLOBAL_INTERRUPT_STATE; 1],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -128,14 +148,16 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE {
 pub const WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_GLOBAL_INTERRUPT_STATE {
-    pub InterruptId: u32,
-    pub ActiveVpIndex: u32,
+    pub InterruptId: super::UINT32,
+    pub ActiveVpIndex: super::UINT32,
     pub Anonymous: WHV_ARM64_GLOBAL_INTERRUPT_STATE_0,
     pub InterruptState: WHV_ARM64_INTERRUPT_STATE,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -143,13 +165,33 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_GLOBAL_INTERRUPT_STATE_0 {
-    pub TargetMpidr: u32,
-    pub TargetVpIndex: u32,
+    pub TargetMpidr: super::UINT32,
+    pub TargetVpIndex: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct WHV_ARM64_HYPERCALL_CONTEXT {
+    pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
+    pub Immediate: super::UINT16,
+    pub Reserved1: super::UINT16,
+    pub Reserved2: super::UINT32,
+    pub X: [super::UINT64; 18],
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_ARM64_HYPERCALL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -158,17 +200,19 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE_0 {
 pub type WHV_ARM64_IC_EMULATION_MODE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ARM64_IC_GIC_V3_PARAMETERS {
     pub GicdBaseAddress: WHV_GUEST_PHYSICAL_ADDRESS,
     pub GitsTranslaterBaseAddress: WHV_GUEST_PHYSICAL_ADDRESS,
-    pub Reserved: u32,
-    pub GicLpiIntIdBits: u32,
+    pub Reserved: super::UINT32,
+    pub GicLpiIntIdBits: super::UINT32,
     pub GicPpiOverflowInterruptFromCntv: WHV_ARM64_INTERRUPT_VECTOR,
     pub GicPpiPerformanceMonitorsInterrupt: WHV_ARM64_INTERRUPT_VECTOR,
-    pub Reserved1: [u32; 6],
+    pub Reserved1: [super::UINT32; 6],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_IC_GIC_V3_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -176,13 +220,15 @@ impl Default for WHV_ARM64_IC_GIC_V3_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_IC_PARAMETERS {
     pub EmulationMode: WHV_ARM64_IC_EMULATION_MODE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_ARM64_IC_PARAMETERS_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_IC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -190,11 +236,13 @@ impl Default for WHV_ARM64_IC_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_IC_PARAMETERS_0 {
     pub GicV3Parameters: WHV_ARM64_IC_GIC_V3_PARAMETERS,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_IC_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -204,61 +252,64 @@ impl Default for WHV_ARM64_IC_PARAMETERS_0 {
 pub const WHV_ARM64_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_INTERRUPT_STATE {
     pub Anonymous: WHV_ARM64_INTERRUPT_STATE_0,
-    pub GicrIpriorityrConfigured: u8,
-    pub GicrIpriorityrActive: u8,
-    pub Reserved1: u8,
+    pub GicrIpriorityrConfigured: super::UINT8,
+    pub GicrIpriorityrActive: super::UINT8,
+    pub Reserved1: super::UINT8,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_INTERRUPT_STATE_0 {
     pub _bitfield: u8,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_ARM64_INTERRUPT_STATE_0 {
-    pub fn Enabled(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Enabled(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_Enabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_Enabled(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EdgeTriggered(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn EdgeTriggered(&self) -> super::UINT8 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_EdgeTriggered(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_EdgeTriggered(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Asserted(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Asserted(&self) -> super::UINT8 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Asserted(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    pub fn set_Asserted(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn SetPending(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn SetPending(&self) -> super::UINT8 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_SetPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    pub fn set_SetPending(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Active(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn Active(&self) -> super::UINT8 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_Active(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    pub fn set_Active(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Direct(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn Direct(&self) -> super::UINT8 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_Direct(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    pub fn set_Direct(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved0(&self) -> u8 {
+    pub fn Reserved0(&self) -> super::UINT8 {
         self._bitfield >> 6
     }
-    pub fn set_Reserved0(&mut self, value: u8) {
+    pub fn set_Reserved0(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
     }
 }
@@ -266,21 +317,23 @@ impl WHV_ARM64_INTERRUPT_STATE_0 {
 pub type WHV_ARM64_INTERRUPT_VECTOR = u32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ARM64_LOCAL_INTERRUPT_CONTROLLER_STATE {
-    pub Version: u8,
-    pub GicVersion: u8,
-    pub Reserved0: [u8; 6],
-    pub IccIgrpen1El1: u64,
-    pub GicrCtlrEnableLpis: u64,
-    pub IccBpr1El1: u64,
-    pub IccPmrEl1: u64,
-    pub GicrPropbaser: u64,
-    pub GicrPendbaser: u64,
-    pub IchAp1REl2: [u32; 4],
+    pub Version: super::UINT8,
+    pub GicVersion: super::UINT8,
+    pub Reserved0: [super::UINT8; 6],
+    pub IccIgrpen1El1: super::UINT64,
+    pub GicrCtlrEnableLpis: super::UINT64,
+    pub IccBpr1El1: super::UINT64,
+    pub IccPmrEl1: super::UINT64,
+    pub GicrPropbaser: super::UINT64,
+    pub GicrPendbaser: super::UINT64,
+    pub IchAp1REl2: [super::UINT32; 4],
     pub BankedInterruptState: [WHV_ARM64_INTERRUPT_STATE; 32],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_LOCAL_INTERRUPT_CONTROLLER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -288,6 +341,7 @@ impl Default for WHV_ARM64_LOCAL_INTERRUPT_CONTROLLER_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_PENDING_EVENT {
     pub Anonymous: WHV_ARM64_PENDING_EVENT_0,
@@ -296,6 +350,7 @@ pub union WHV_ARM64_PENDING_EVENT {
     pub SyntheticException: WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -303,12 +358,14 @@ impl Default for WHV_ARM64_PENDING_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_PENDING_EVENT_0 {
     pub Reg0: WHV_UINT128,
     pub Reg1: WHV_UINT128,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -316,33 +373,36 @@ impl Default for WHV_ARM64_PENDING_EVENT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ARM64_PENDING_EVENT_1 {
     pub _bitfield: u8,
-    pub EventData: [u8; 15],
+    pub EventData: [super::UINT8; 15],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_ARM64_PENDING_EVENT_1 {
-    pub fn EventPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EventPending(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_EventPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_EventPending(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EventType(&self) -> u8 {
-        (self._bitfield << 4) >> 5
+    pub fn EventType(&self) -> super::UINT8 {
+        (self._bitfield >> 1) & 7
     }
-    pub fn set_EventType(&mut self, value: u8) {
+    pub fn set_EventType(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EVENT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -352,12 +412,14 @@ impl Default for WHV_ARM64_PENDING_EVENT_1 {
 pub type WHV_ARM64_PENDING_EVENT_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_PENDING_EXCEPTION_EVENT {
-    pub AsUINT64: [u64; 3],
+    pub AsUINT64: [super::UINT64; 3],
     pub Anonymous: WHV_ARM64_PENDING_EXCEPTION_EVENT_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EXCEPTION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -365,44 +427,48 @@ impl Default for WHV_ARM64_PENDING_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u16,
-    pub Reserved3: u32,
-    pub EsrElx: u64,
-    pub FarElx: u64,
+    pub Reserved1: super::UINT8,
+    pub Reserved2: super::UINT16,
+    pub Reserved3: super::UINT32,
+    pub EsrElx: super::UINT64,
+    pub FarElx: super::UINT64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_ARM64_PENDING_EXCEPTION_EVENT_0 {
-    pub fn EventPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EventPending(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_EventPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_EventPending(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EventType(&self) -> u8 {
-        (self._bitfield << 4) >> 5
+    pub fn EventType(&self) -> super::UINT8 {
+        (self._bitfield >> 1) & 7
     }
-    pub fn set_EventType(&mut self, value: u8) {
+    pub fn set_EventType(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
-    pub AsUINT64: [u64; 2],
+    pub AsUINT64: [super::UINT64; 2],
     pub Anonymous: WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -410,44 +476,850 @@ impl Default for WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0 {
     pub _bitfield: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u16,
-    pub ExceptionType: u32,
-    pub Context: u64,
+    pub Reserved1: super::UINT8,
+    pub Reserved2: super::UINT16,
+    pub ExceptionType: super::UINT32,
+    pub Context: super::UINT64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0 {
-    pub fn EventPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EventPending(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_EventPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_EventPending(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EventType(&self) -> u8 {
-        (self._bitfield << 4) >> 5
+    pub fn EventType(&self) -> super::UINT8 {
+        (self._bitfield >> 1) & 7
     }
-    pub fn set_EventType(&mut self, value: u8) {
+    pub fn set_EventType(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_ARM64_PROCESSOR_FEATURES {
+    pub Anonymous: WHV_ARM64_PROCESSOR_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_ARM64_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_ARM64_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl WHV_ARM64_PROCESSOR_FEATURES_0 {
+    pub fn Asid16(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_Asid16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn TGran16(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_TGran16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn TGran64(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_TGran64(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn Haf(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_Haf(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn Hdbs(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_Hdbs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn Pan(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_Pan(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn AtS1E1(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
+    }
+    pub fn set_AtS1E1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
+    }
+    pub fn Uao(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
+    }
+    pub fn set_Uao(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
+    }
+    pub fn El0Aarch32(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
+    }
+    pub fn set_El0Aarch32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
+    }
+    pub fn Fp(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
+    }
+    pub fn set_Fp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
+    }
+    pub fn FpHp(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_FpHp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn AdvSimd(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_AdvSimd(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn AdvSimdHp(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
+    }
+    pub fn set_AdvSimdHp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
+    }
+    pub fn GicV3V4(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
+    }
+    pub fn set_GicV3V4(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
+    }
+    pub fn GicV41(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
+    }
+    pub fn set_GicV41(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
+    }
+    pub fn Ras(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
+    }
+    pub fn set_Ras(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
+    }
+    pub fn PmuV3(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 1
+    }
+    pub fn set_PmuV3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
+    }
+    pub fn PmuV3ArmV81(&self) -> super::UINT64 {
+        (self._bitfield >> 17) & 1
+    }
+    pub fn set_PmuV3ArmV81(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
+    }
+    pub fn PmuV3ArmV84(&self) -> super::UINT64 {
+        (self._bitfield >> 18) & 1
+    }
+    pub fn set_PmuV3ArmV84(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
+    }
+    pub fn PmuV3ArmV85(&self) -> super::UINT64 {
+        (self._bitfield >> 19) & 1
+    }
+    pub fn set_PmuV3ArmV85(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
+    }
+    pub fn Aes(&self) -> super::UINT64 {
+        (self._bitfield >> 20) & 1
+    }
+    pub fn set_Aes(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
+    }
+    pub fn PolyMul(&self) -> super::UINT64 {
+        (self._bitfield >> 21) & 1
+    }
+    pub fn set_PolyMul(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
+    }
+    pub fn Sha1(&self) -> super::UINT64 {
+        (self._bitfield >> 22) & 1
+    }
+    pub fn set_Sha1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
+    }
+    pub fn Sha256(&self) -> super::UINT64 {
+        (self._bitfield >> 23) & 1
+    }
+    pub fn set_Sha256(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
+    }
+    pub fn Sha512(&self) -> super::UINT64 {
+        (self._bitfield >> 24) & 1
+    }
+    pub fn set_Sha512(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
+    }
+    pub fn Crc32(&self) -> super::UINT64 {
+        (self._bitfield >> 25) & 1
+    }
+    pub fn set_Crc32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
+    }
+    pub fn Atomic(&self) -> super::UINT64 {
+        (self._bitfield >> 26) & 1
+    }
+    pub fn set_Atomic(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
+    }
+    pub fn Rdm(&self) -> super::UINT64 {
+        (self._bitfield >> 27) & 1
+    }
+    pub fn set_Rdm(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
+    }
+    pub fn Sha3(&self) -> super::UINT64 {
+        (self._bitfield >> 28) & 1
+    }
+    pub fn set_Sha3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
+    }
+    pub fn Sm3(&self) -> super::UINT64 {
+        (self._bitfield >> 29) & 1
+    }
+    pub fn set_Sm3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
+    }
+    pub fn Sm4(&self) -> super::UINT64 {
+        (self._bitfield >> 30) & 1
+    }
+    pub fn set_Sm4(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
+    }
+    pub fn Dp(&self) -> super::UINT64 {
+        (self._bitfield >> 31) & 1
+    }
+    pub fn set_Dp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
+    }
+    pub fn Fhm(&self) -> super::UINT64 {
+        (self._bitfield >> 32) & 1
+    }
+    pub fn set_Fhm(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value & 1) << 32);
+    }
+    pub fn DcCvap(&self) -> super::UINT64 {
+        (self._bitfield >> 33) & 1
+    }
+    pub fn set_DcCvap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value & 1) << 33);
+    }
+    pub fn DcCvadp(&self) -> super::UINT64 {
+        (self._bitfield >> 34) & 1
+    }
+    pub fn set_DcCvadp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value & 1) << 34);
+    }
+    pub fn ApaBase(&self) -> super::UINT64 {
+        (self._bitfield >> 35) & 1
+    }
+    pub fn set_ApaBase(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value & 1) << 35);
+    }
+    pub fn ApaEp(&self) -> super::UINT64 {
+        (self._bitfield >> 36) & 1
+    }
+    pub fn set_ApaEp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value & 1) << 36);
+    }
+    pub fn ApaEp2(&self) -> super::UINT64 {
+        (self._bitfield >> 37) & 1
+    }
+    pub fn set_ApaEp2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value & 1) << 37);
+    }
+    pub fn ApaEp2Fp(&self) -> super::UINT64 {
+        (self._bitfield >> 38) & 1
+    }
+    pub fn set_ApaEp2Fp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value & 1) << 38);
+    }
+    pub fn ApaEp2Fpc(&self) -> super::UINT64 {
+        (self._bitfield >> 39) & 1
+    }
+    pub fn set_ApaEp2Fpc(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value & 1) << 39);
+    }
+    pub fn Jscvt(&self) -> super::UINT64 {
+        (self._bitfield >> 40) & 1
+    }
+    pub fn set_Jscvt(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value & 1) << 40);
+    }
+    pub fn Fcma(&self) -> super::UINT64 {
+        (self._bitfield >> 41) & 1
+    }
+    pub fn set_Fcma(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value & 1) << 41);
+    }
+    pub fn RcpcV83(&self) -> super::UINT64 {
+        (self._bitfield >> 42) & 1
+    }
+    pub fn set_RcpcV83(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value & 1) << 42);
+    }
+    pub fn RcpcV84(&self) -> super::UINT64 {
+        (self._bitfield >> 43) & 1
+    }
+    pub fn set_RcpcV84(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value & 1) << 43);
+    }
+    pub fn Gpa(&self) -> super::UINT64 {
+        (self._bitfield >> 44) & 1
+    }
+    pub fn set_Gpa(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value & 1) << 44);
+    }
+    pub fn L1ipPipt(&self) -> super::UINT64 {
+        (self._bitfield >> 45) & 1
+    }
+    pub fn set_L1ipPipt(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value & 1) << 45);
+    }
+    pub fn DzPermitted(&self) -> super::UINT64 {
+        (self._bitfield >> 46) & 1
+    }
+    pub fn set_DzPermitted(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value & 1) << 46);
+    }
+    pub fn Ssbs(&self) -> super::UINT64 {
+        (self._bitfield >> 47) & 1
+    }
+    pub fn set_Ssbs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 47)) | ((value & 1) << 47);
+    }
+    pub fn SsbsRw(&self) -> super::UINT64 {
+        (self._bitfield >> 48) & 1
+    }
+    pub fn set_SsbsRw(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 48)) | ((value & 1) << 48);
+    }
+    pub fn Reserved49(&self) -> super::UINT64 {
+        (self._bitfield >> 49) & 1
+    }
+    pub fn set_Reserved49(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 49)) | ((value & 1) << 49);
+    }
+    pub fn Reserved50(&self) -> super::UINT64 {
+        (self._bitfield >> 50) & 1
+    }
+    pub fn set_Reserved50(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 50)) | ((value & 1) << 50);
+    }
+    pub fn Reserved51(&self) -> super::UINT64 {
+        (self._bitfield >> 51) & 1
+    }
+    pub fn set_Reserved51(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 51)) | ((value & 1) << 51);
+    }
+    pub fn Reserved52(&self) -> super::UINT64 {
+        (self._bitfield >> 52) & 1
+    }
+    pub fn set_Reserved52(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 52)) | ((value & 1) << 52);
+    }
+    pub fn Csv2(&self) -> super::UINT64 {
+        (self._bitfield >> 53) & 1
+    }
+    pub fn set_Csv2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 53)) | ((value & 1) << 53);
+    }
+    pub fn Csv3(&self) -> super::UINT64 {
+        (self._bitfield >> 54) & 1
+    }
+    pub fn set_Csv3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 54)) | ((value & 1) << 54);
+    }
+    pub fn Sb(&self) -> super::UINT64 {
+        (self._bitfield >> 55) & 1
+    }
+    pub fn set_Sb(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 55)) | ((value & 1) << 55);
+    }
+    pub fn Idc(&self) -> super::UINT64 {
+        (self._bitfield >> 56) & 1
+    }
+    pub fn set_Idc(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 56)) | ((value & 1) << 56);
+    }
+    pub fn Dic(&self) -> super::UINT64 {
+        (self._bitfield >> 57) & 1
+    }
+    pub fn set_Dic(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 57)) | ((value & 1) << 57);
+    }
+    pub fn TlbiOs(&self) -> super::UINT64 {
+        (self._bitfield >> 58) & 1
+    }
+    pub fn set_TlbiOs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 58)) | ((value & 1) << 58);
+    }
+    pub fn TlbiOsRange(&self) -> super::UINT64 {
+        (self._bitfield >> 59) & 1
+    }
+    pub fn set_TlbiOsRange(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 59)) | ((value & 1) << 59);
+    }
+    pub fn FlagsM(&self) -> super::UINT64 {
+        (self._bitfield >> 60) & 1
+    }
+    pub fn set_FlagsM(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 60)) | ((value & 1) << 60);
+    }
+    pub fn FlagsM2(&self) -> super::UINT64 {
+        (self._bitfield >> 61) & 1
+    }
+    pub fn set_FlagsM2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 61)) | ((value & 1) << 61);
+    }
+    pub fn Bf16(&self) -> super::UINT64 {
+        (self._bitfield >> 62) & 1
+    }
+    pub fn set_Bf16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 62)) | ((value & 1) << 62);
+    }
+    pub fn Ebf16(&self) -> super::UINT64 {
+        self._bitfield >> 63
+    }
+    pub fn set_Ebf16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 63)) | ((value & 1) << 63);
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_ARM64_PROCESSOR_FEATURES1 {
+    pub Anonymous: WHV_ARM64_PROCESSOR_FEATURES1_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_ARM64_PROCESSOR_FEATURES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_ARM64_PROCESSOR_FEATURES1_0 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl WHV_ARM64_PROCESSOR_FEATURES1_0 {
+    pub fn SveBf16(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_SveBf16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn SveEbf16(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_SveEbf16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn I8mm(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_I8mm(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn SveI8mm(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_SveI8mm(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn Frintts(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_Frintts(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn Specres(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_Specres(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn Reserved6(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
+    }
+    pub fn set_Reserved6(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
+    }
+    pub fn Rpres(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
+    }
+    pub fn set_Rpres(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
+    }
+    pub fn Exs(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
+    }
+    pub fn set_Exs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
+    }
+    pub fn SpecSei(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
+    }
+    pub fn set_SpecSei(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
+    }
+    pub fn Ets(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_Ets(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn Afp(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_Afp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn Iesb(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
+    }
+    pub fn set_Iesb(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
+    }
+    pub fn Rng(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
+    }
+    pub fn set_Rng(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
+    }
+    pub fn Lse2(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
+    }
+    pub fn set_Lse2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
+    }
+    pub fn Idst(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
+    }
+    pub fn set_Idst(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
+    }
+    pub fn Reserved16(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 1
+    }
+    pub fn set_Reserved16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
+    }
+    pub fn Reserved17(&self) -> super::UINT64 {
+        (self._bitfield >> 17) & 1
+    }
+    pub fn set_Reserved17(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
+    }
+    pub fn Reserved18(&self) -> super::UINT64 {
+        (self._bitfield >> 18) & 1
+    }
+    pub fn set_Reserved18(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
+    }
+    pub fn Reserved19(&self) -> super::UINT64 {
+        (self._bitfield >> 19) & 1
+    }
+    pub fn set_Reserved19(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
+    }
+    pub fn Reserved20(&self) -> super::UINT64 {
+        (self._bitfield >> 20) & 1
+    }
+    pub fn set_Reserved20(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
+    }
+    pub fn Reserved21(&self) -> super::UINT64 {
+        (self._bitfield >> 21) & 1
+    }
+    pub fn set_Reserved21(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
+    }
+    pub fn Ccidx(&self) -> super::UINT64 {
+        (self._bitfield >> 22) & 1
+    }
+    pub fn set_Ccidx(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
+    }
+    pub fn Reserved23(&self) -> super::UINT64 {
+        (self._bitfield >> 23) & 1
+    }
+    pub fn set_Reserved23(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
+    }
+    pub fn Reserved24(&self) -> super::UINT64 {
+        (self._bitfield >> 24) & 1
+    }
+    pub fn set_Reserved24(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
+    }
+    pub fn Ecv(&self) -> super::UINT64 {
+        (self._bitfield >> 25) & 1
+    }
+    pub fn set_Ecv(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
+    }
+    pub fn EcvPoff(&self) -> super::UINT64 {
+        (self._bitfield >> 26) & 1
+    }
+    pub fn set_EcvPoff(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
+    }
+    pub fn Reserved27(&self) -> super::UINT64 {
+        (self._bitfield >> 27) & 1
+    }
+    pub fn set_Reserved27(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
+    }
+    pub fn Reserved28(&self) -> super::UINT64 {
+        (self._bitfield >> 28) & 1
+    }
+    pub fn set_Reserved28(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
+    }
+    pub fn Reserved29(&self) -> super::UINT64 {
+        (self._bitfield >> 29) & 1
+    }
+    pub fn set_Reserved29(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
+    }
+    pub fn Reserved30(&self) -> super::UINT64 {
+        (self._bitfield >> 30) & 1
+    }
+    pub fn set_Reserved30(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
+    }
+    pub fn Reserved31(&self) -> super::UINT64 {
+        (self._bitfield >> 31) & 1
+    }
+    pub fn set_Reserved31(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
+    }
+    pub fn Reserved32(&self) -> super::UINT64 {
+        (self._bitfield >> 32) & 1
+    }
+    pub fn set_Reserved32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value & 1) << 32);
+    }
+    pub fn Reserved33(&self) -> super::UINT64 {
+        (self._bitfield >> 33) & 1
+    }
+    pub fn set_Reserved33(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value & 1) << 33);
+    }
+    pub fn Reserved34(&self) -> super::UINT64 {
+        (self._bitfield >> 34) & 1
+    }
+    pub fn set_Reserved34(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value & 1) << 34);
+    }
+    pub fn TtCnp(&self) -> super::UINT64 {
+        (self._bitfield >> 35) & 1
+    }
+    pub fn set_TtCnp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value & 1) << 35);
+    }
+    pub fn Hpds(&self) -> super::UINT64 {
+        (self._bitfield >> 36) & 1
+    }
+    pub fn set_Hpds(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value & 1) << 36);
+    }
+    pub fn Sve(&self) -> super::UINT64 {
+        (self._bitfield >> 37) & 1
+    }
+    pub fn set_Sve(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value & 1) << 37);
+    }
+    pub fn SveV2(&self) -> super::UINT64 {
+        (self._bitfield >> 38) & 1
+    }
+    pub fn set_SveV2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value & 1) << 38);
+    }
+    pub fn SveV2P1(&self) -> super::UINT64 {
+        (self._bitfield >> 39) & 1
+    }
+    pub fn set_SveV2P1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value & 1) << 39);
+    }
+    pub fn SpecFpacc(&self) -> super::UINT64 {
+        (self._bitfield >> 40) & 1
+    }
+    pub fn set_SpecFpacc(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value & 1) << 40);
+    }
+    pub fn SveAes(&self) -> super::UINT64 {
+        (self._bitfield >> 41) & 1
+    }
+    pub fn set_SveAes(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value & 1) << 41);
+    }
+    pub fn SveBitPerm(&self) -> super::UINT64 {
+        (self._bitfield >> 42) & 1
+    }
+    pub fn set_SveBitPerm(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value & 1) << 42);
+    }
+    pub fn SveSha3(&self) -> super::UINT64 {
+        (self._bitfield >> 43) & 1
+    }
+    pub fn set_SveSha3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value & 1) << 43);
+    }
+    pub fn SveSm4(&self) -> super::UINT64 {
+        (self._bitfield >> 44) & 1
+    }
+    pub fn set_SveSm4(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value & 1) << 44);
+    }
+    pub fn E0PD(&self) -> super::UINT64 {
+        (self._bitfield >> 45) & 1
+    }
+    pub fn set_E0PD(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value & 1) << 45);
+    }
+    pub fn Gpa3(&self) -> super::UINT64 {
+        (self._bitfield >> 46) & 1
+    }
+    pub fn set_Gpa3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value & 1) << 46);
+    }
+    pub fn Apa3Base(&self) -> super::UINT64 {
+        (self._bitfield >> 47) & 1
+    }
+    pub fn set_Apa3Base(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 47)) | ((value & 1) << 47);
+    }
+    pub fn Apa3Ep(&self) -> super::UINT64 {
+        (self._bitfield >> 48) & 1
+    }
+    pub fn set_Apa3Ep(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 48)) | ((value & 1) << 48);
+    }
+    pub fn Apa3Ep2(&self) -> super::UINT64 {
+        (self._bitfield >> 49) & 1
+    }
+    pub fn set_Apa3Ep2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 49)) | ((value & 1) << 49);
+    }
+    pub fn Apa3Ep2Fp(&self) -> super::UINT64 {
+        (self._bitfield >> 50) & 1
+    }
+    pub fn set_Apa3Ep2Fp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 50)) | ((value & 1) << 50);
+    }
+    pub fn Apa3Ep2Fpc(&self) -> super::UINT64 {
+        (self._bitfield >> 51) & 1
+    }
+    pub fn set_Apa3Ep2Fpc(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 51)) | ((value & 1) << 51);
+    }
+    pub fn Lrcpc3(&self) -> super::UINT64 {
+        (self._bitfield >> 52) & 1
+    }
+    pub fn set_Lrcpc3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 52)) | ((value & 1) << 52);
+    }
+    pub fn Sme(&self) -> super::UINT64 {
+        (self._bitfield >> 53) & 1
+    }
+    pub fn set_Sme(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 53)) | ((value & 1) << 53);
+    }
+    pub fn SmeF32F32(&self) -> super::UINT64 {
+        (self._bitfield >> 54) & 1
+    }
+    pub fn set_SmeF32F32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 54)) | ((value & 1) << 54);
+    }
+    pub fn SmeB16F32(&self) -> super::UINT64 {
+        (self._bitfield >> 55) & 1
+    }
+    pub fn set_SmeB16F32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 55)) | ((value & 1) << 55);
+    }
+    pub fn SmeF16F32(&self) -> super::UINT64 {
+        (self._bitfield >> 56) & 1
+    }
+    pub fn set_SmeF16F32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 56)) | ((value & 1) << 56);
+    }
+    pub fn SmeI8I32(&self) -> super::UINT64 {
+        (self._bitfield >> 57) & 1
+    }
+    pub fn set_SmeI8I32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 57)) | ((value & 1) << 57);
+    }
+    pub fn SmeF64F64(&self) -> super::UINT64 {
+        (self._bitfield >> 58) & 1
+    }
+    pub fn set_SmeF64F64(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 58)) | ((value & 1) << 58);
+    }
+    pub fn SmeI16I64(&self) -> super::UINT64 {
+        (self._bitfield >> 59) & 1
+    }
+    pub fn set_SmeI16I64(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 59)) | ((value & 1) << 59);
+    }
+    pub fn Reserved(&self) -> super::UINT64 {
+        self._bitfield >> 60
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(15 << 60)) | ((value & 15) << 60);
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_RESET_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
     pub ResetType: WHV_ARM64_RESET_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_RESET_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -459,21 +1331,23 @@ pub type WHV_ARM64_RESET_TYPE = i32;
 pub type WHV_ARM64_SYNTHETIC_EXCEPTION_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_VP_STATE_SME {
-    pub Version: u16,
-    pub RegisterDataOffset: u16,
-    pub StreamingVectorLength: u32,
-    pub Reserved0: u64,
+    pub Version: super::USHORT,
+    pub RegisterDataOffset: super::USHORT,
+    pub StreamingVectorLength: super::UINT32,
+    pub Reserved0: super::UINT64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_VP_STATE_SVE {
-    pub Version: u16,
-    pub RegisterDataOffset: u16,
-    pub VectorLength: u32,
-    pub Reserved0: u64,
+    pub Version: super::USHORT,
+    pub RegisterDataOffset: super::USHORT,
+    pub VectorLength: super::UINT32,
+    pub Reserved0: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_CACHE_TYPE = i32;
@@ -481,6 +1355,7 @@ pub type WHV_CACHE_TYPE = i32;
 pub type WHV_CACHE_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
     pub HypervisorPresent: windows_core::BOOL,
@@ -489,21 +1364,22 @@ pub union WHV_CAPABILITY {
     pub ProcessorVendor: WHV_PROCESSOR_VENDOR,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
     pub GpaRangePopulateFlags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub ProcessorFrequencyCap: WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP,
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
-    pub PhysicalAddressWidth: u32,
-    pub NestedFeatureRegister: u64,
+    pub PhysicalAddressWidth: super::UINT32,
+    pub NestedFeatureRegister: super::UINT64,
     pub ProcessorXsaveFeatures: WHV_PROCESSOR_XSAVE_FEATURES,
-    pub InterruptClockFrequency: u64,
+    pub InterruptClockFrequency: super::UINT64,
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub X64MsrExitBitmap: WHV_X64_MSR_EXIT_BITMAP,
-    pub ExceptionExitBitmap: u64,
+    pub ExceptionExitBitmap: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -511,6 +1387,7 @@ impl Default for WHV_CAPABILITY {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
     pub HypervisorPresent: windows_core::BOOL,
@@ -519,19 +1396,20 @@ pub union WHV_CAPABILITY {
     pub ProcessorVendor: WHV_PROCESSOR_VENDOR,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
     pub GpaRangePopulateFlags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub ProcessorFrequencyCap: WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP,
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
-    pub PhysicalAddressWidth: u32,
-    pub NestedFeatureRegister: u64,
-    pub GicLpiIntIdBits: u32,
-    pub MaxSveVectorLength: u32,
-    pub MaxSmeStreamingVectorLength: u32,
+    pub PhysicalAddressWidth: super::UINT32,
+    pub NestedFeatureRegister: super::UINT64,
+    pub GicLpiIntIdBits: super::UINT32,
+    pub MaxSveVectorLength: super::UINT32,
+    pub MaxSmeStreamingVectorLength: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -542,149 +1420,350 @@ pub type WHV_CAPABILITY_CODE = i32;
 #[cfg(target_arch = "aarch64")]
 pub type WHV_CAPABILITY_CODE = i32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY_FEATURES {
     pub Anonymous: WHV_CAPABILITY_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_CAPABILITY_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CAPABILITY_FEATURES_0 {
     pub _bitfield: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_CAPABILITY_FEATURES_0 {
-    pub fn PartialUnmap(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn PartialUnmap(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_PartialUnmap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_PartialUnmap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn LocalApicEmulation(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn LocalApicEmulation(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_LocalApicEmulation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_LocalApicEmulation(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Xsave(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Xsave(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Xsave(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_Xsave(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn DirtyPageTracking(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn DirtyPageTracking(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_DirtyPageTracking(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_DirtyPageTracking(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SpeculationControl(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SpeculationControl(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SpeculationControl(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_SpeculationControl(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn ApicRemoteRead(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn ApicRemoteRead(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_ApicRemoteRead(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    pub fn set_ApicRemoteRead(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn IdleSuspend(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn IdleSuspend(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_IdleSuspend(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    pub fn set_IdleSuspend(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn VirtualPciDeviceSupport(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn VirtualPciDeviceSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_VirtualPciDeviceSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    pub fn set_VirtualPciDeviceSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn IommuSupport(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn IommuSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_IommuSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    pub fn set_IommuSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn VpHotAddRemove(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn VpHotAddRemove(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_VpHotAddRemove(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    pub fn set_VpHotAddRemove(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn DeviceAccessTracking(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn DeviceAccessTracking(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_DeviceAccessTracking(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    pub fn set_DeviceAccessTracking(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn ReservedX640(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn ReservedX640(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_ReservedX640(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    pub fn set_ReservedX640(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 12
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(4503599627370495 << 12)) | ((value & 4503599627370495) << 12);
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_CAPABILITY_FEATURES {
+    pub Anonymous: WHV_CAPABILITY_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_CAPABILITY_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_CAPABILITY_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl WHV_CAPABILITY_FEATURES_0 {
+    pub fn PartialUnmap(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_PartialUnmap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn ReservedArm0(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 3
+    }
+    pub fn set_ReservedArm0(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
+    }
+    pub fn DirtyPageTracking(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_DirtyPageTracking(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn SpeculationControl(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_SpeculationControl(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn ReservedArm1(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_ReservedArm1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn IdleSuspend(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
+    }
+    pub fn set_IdleSuspend(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
+    }
+    pub fn VirtualPciDeviceSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
+    }
+    pub fn set_VirtualPciDeviceSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
+    }
+    pub fn IommuSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
+    }
+    pub fn set_IommuSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
+    }
+    pub fn VpHotAddRemove(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
+    }
+    pub fn set_VpHotAddRemove(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
+    }
+    pub fn DeviceAccessTracking(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_DeviceAccessTracking(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn Arm64Support(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_Arm64Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn Reserved(&self) -> super::UINT64 {
+        self._bitfield >> 12
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(4503599627370495 << 12)) | ((value & 4503599627370495) << 12);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub _bitfield: u32,
-    pub HighestFrequencyMhz: u32,
-    pub NominalFrequencyMhz: u32,
-    pub LowestFrequencyMhz: u32,
-    pub FrequencyStepMhz: u32,
+    pub HighestFrequencyMhz: super::UINT32,
+    pub NominalFrequencyMhz: super::UINT32,
+    pub LowestFrequencyMhz: super::UINT32,
+    pub FrequencyStepMhz: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-    pub fn IsSupported(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsSupported(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_IsSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_IsSupported(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CPUID_OUTPUT {
-    pub Eax: u32,
-    pub Ebx: u32,
-    pub Ecx: u32,
-    pub Edx: u32,
+    pub Eax: super::UINT32,
+    pub Ebx: super::UINT32,
+    pub Ecx: super::UINT32,
+    pub Edx: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_CREATE_VPCI_DEVICE_FLAGS = u32;
+pub type WHV_CREATE_VPCI_DEVICE_FLAGS = i32;
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    pub Anonymous: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    pub fn NmiNotification(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_NmiNotification(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn InterruptNotification(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_InterruptNotification(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn InterruptPriority(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 15
+    }
+    pub fn set_InterruptPriority(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(15 << 2)) | ((value & 15) << 2);
+    }
+    pub fn Reserved(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 4398046511103
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(4398046511103 << 6)) | ((value & 4398046511103) << 6);
+    }
+    pub fn Sint(&self) -> super::UINT64 {
+        self._bitfield >> 48
+    }
+    pub fn set_Sint(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(65535 << 48)) | ((value & 65535) << 48);
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    pub Anonymous: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    pub fn Reserved(&self) -> super::UINT64 {
+        (self._bitfield) & 281474976710655
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !281474976710655) | (value & 281474976710655);
+    }
+    pub fn Sint(&self) -> super::UINT64 {
+        self._bitfield >> 48
+    }
+    pub fn set_Sint(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(65535 << 48)) | ((value & 65535) << 48);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_DISABLE_PARTITION_VTL_FLAGS {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_DISABLE_PARTITION_VTL_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_DISABLE_PARTITION_VTL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -692,33 +1771,37 @@ impl Default for WHV_DISABLE_PARTITION_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_DISABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_DISABLE_PARTITION_VTL_FLAGS_0 {
-    pub fn ScrubOnly(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ScrubOnly(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_ScrubOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_ScrubOnly(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_DISABLE_VP_VTL_FLAGS {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_DISABLE_VP_VTL_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_DISABLE_VP_VTL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -726,63 +1809,69 @@ impl Default for WHV_DISABLE_VP_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_DISABLE_VP_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_DISABLE_VP_VTL_FLAGS_0 {
-    pub fn ScrubOnly(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ScrubOnly(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_ScrubOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_ScrubOnly(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_DOORBELL_MATCH_DATA {
     pub GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS,
-    pub Value: u64,
-    pub Length: u32,
+    pub Value: super::UINT64,
+    pub Length: super::UINT32,
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_DOORBELL_MATCH_DATA {
-    pub fn MatchOnValue(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn MatchOnValue(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_MatchOnValue(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_MatchOnValue(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn MatchOnLength(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn MatchOnLength(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_MatchOnLength(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_MatchOnLength(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ENABLE_PARTITION_VTL_FLAGS {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_ENABLE_PARTITION_VTL_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ENABLE_PARTITION_VTL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -790,154 +1879,234 @@ impl Default for WHV_ENABLE_PARTITION_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ENABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_ENABLE_PARTITION_VTL_FLAGS_0 {
-    pub fn EnableMbec(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnableMbec(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_EnableMbec(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_EnableMbec(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EnableSupervisorShadowStack(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn EnableSupervisorShadowStack(&self) -> super::UINT8 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_EnableSupervisorShadowStack(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_EnableSupervisorShadowStack(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn EnableHardwareHvpt(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn EnableHardwareHvpt(&self) -> super::UINT8 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_EnableHardwareHvpt(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    pub fn set_EnableHardwareHvpt(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_EXCEPTION_TYPE = i32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_EXTENDED_VM_EXITS {
     pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_EXTENDED_VM_EXITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_EXTENDED_VM_EXITS_0 {
-    pub fn X64CpuidExit(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn X64CpuidExit(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_X64CpuidExit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_X64CpuidExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn X64MsrExit(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn X64MsrExit(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_X64MsrExit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_X64MsrExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ExceptionExit(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn ExceptionExit(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_ExceptionExit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_ExceptionExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn X64RdtscExit(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn X64RdtscExit(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_X64RdtscExit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_X64RdtscExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn X64ApicSmiExitTrap(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn X64ApicSmiExitTrap(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_X64ApicSmiExitTrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_X64ApicSmiExitTrap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn HypercallExit(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn HypercallExit(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_HypercallExit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    pub fn set_HypercallExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn X64ApicInitSipiExitTrap(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn X64ApicInitSipiExitTrap(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_X64ApicInitSipiExitTrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    pub fn set_X64ApicInitSipiExitTrap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn X64ApicWriteLint0ExitTrap(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn X64ApicWriteLint0ExitTrap(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_X64ApicWriteLint0ExitTrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    pub fn set_X64ApicWriteLint0ExitTrap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn X64ApicWriteLint1ExitTrap(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn X64ApicWriteLint1ExitTrap(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_X64ApicWriteLint1ExitTrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    pub fn set_X64ApicWriteLint1ExitTrap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn X64ApicWriteSvrExitTrap(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn X64ApicWriteSvrExitTrap(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_X64ApicWriteSvrExitTrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    pub fn set_X64ApicWriteSvrExitTrap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn UnknownSynicConnection(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn UnknownSynicConnection(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_UnknownSynicConnection(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    pub fn set_UnknownSynicConnection(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn RetargetUnknownVpciDevice(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn RetargetUnknownVpciDevice(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_RetargetUnknownVpciDevice(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    pub fn set_RetargetUnknownVpciDevice(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn X64ApicWriteLdrExitTrap(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn X64ApicWriteLdrExitTrap(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_X64ApicWriteLdrExitTrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    pub fn set_X64ApicWriteLdrExitTrap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn X64ApicWriteDfrExitTrap(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
+    pub fn X64ApicWriteDfrExitTrap(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
     }
-    pub fn set_X64ApicWriteDfrExitTrap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    pub fn set_X64ApicWriteDfrExitTrap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
     }
-    pub fn GpaAccessFaultExit(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
+    pub fn GpaAccessFaultExit(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
     }
-    pub fn set_GpaAccessFaultExit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    pub fn set_GpaAccessFaultExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 15
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(562949953421311 << 15)) | ((value & 562949953421311) << 15);
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_EXTENDED_VM_EXITS {
+    pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_EXTENDED_VM_EXITS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_EXTENDED_VM_EXITS_0 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl WHV_EXTENDED_VM_EXITS_0 {
+    pub fn ReservedArm0(&self) -> super::UINT64 {
+        (self._bitfield) & 31
+    }
+    pub fn set_ReservedArm0(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn HypercallExit(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_HypercallExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn ReservedArm1(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 15
+    }
+    pub fn set_ReservedArm1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(15 << 6)) | ((value & 15) << 6);
+    }
+    pub fn UnknownSynicConnection(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_UnknownSynicConnection(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn RetargetUnknownVpciDevice(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_RetargetUnknownVpciDevice(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn ReservedArm2(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 3
+    }
+    pub fn set_ReservedArm2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(3 << 12)) | ((value & 3) << 12);
+    }
+    pub fn GpaAccessFaultExit(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
+    }
+    pub fn set_GpaAccessFaultExit(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
+    }
+    pub fn Reserved(&self) -> super::UINT64 {
+        self._bitfield >> 15
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(562949953421311 << 15)) | ((value & 562949953421311) << 15);
     }
 }
@@ -947,52 +2116,22 @@ pub const WHV_EXTENDED_VM_EXITS_RESERVED_BITFIELD_COUNT: i32 = 49;
 pub type WHV_GUEST_PHYSICAL_ADDRESS = u64;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_GUEST_VIRTUAL_ADDRESS = u64;
-#[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct WHV_HYPERCALL_CONTEXT {
-    pub Rax: u64,
-    pub Rbx: u64,
-    pub Rcx: u64,
-    pub Rdx: u64,
-    pub R8: u64,
-    pub Rsi: u64,
-    pub Rdi: u64,
-    pub Reserved0: u64,
-    pub XmmRegisters: [WHV_UINT128; 6],
-    pub Reserved1: [u64; 2],
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_HYPERCALL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
+pub type WHV_HYPERCALL_CONTEXT = WHV_X64_HYPERCALL_CONTEXT;
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
-pub struct WHV_HYPERCALL_CONTEXT {
-    pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
-    pub Immediate: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
-    pub X: [u64; 18],
-}
-#[cfg(target_arch = "aarch64")]
-impl Default for WHV_HYPERCALL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type WHV_HYPERCALL_CONTEXT = WHV_ARM64_HYPERCALL_CONTEXT;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: i32 = 6;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_INITIAL_VP_CONTEXT {
-    pub Rip: u64,
-    pub Rsp: u64,
-    pub Rflags: u64,
+    pub Rip: super::UINT64,
+    pub Rsp: super::UINT64,
+    pub Rflags: super::UINT64,
     pub Cs: WHV_X64_SEGMENT_REGISTER,
     pub Ds: WHV_X64_SEGMENT_REGISTER,
     pub Es: WHV_X64_SEGMENT_REGISTER,
@@ -1003,13 +2142,14 @@ pub struct WHV_INITIAL_VP_CONTEXT {
     pub Ldtr: WHV_X64_SEGMENT_REGISTER,
     pub Idtr: WHV_X64_TABLE_REGISTER,
     pub Gdtr: WHV_X64_TABLE_REGISTER,
-    pub Efer: u64,
-    pub Cr0: u64,
-    pub Cr3: u64,
-    pub Cr4: u64,
-    pub MsrCrPat: u64,
+    pub Efer: super::UINT64,
+    pub Cr0: super::UINT64,
+    pub Cr3: super::UINT64,
+    pub Cr4: super::UINT64,
+    pub MsrCrPat: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_INITIAL_VP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1017,26 +2157,29 @@ impl Default for WHV_INITIAL_VP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INITIAL_VP_CONTEXT {
-    pub Pc: u64,
-    pub Sp_ELh: u64,
-    pub SCTLR_EL1: u64,
-    pub MAIR_EL1: u64,
-    pub TCR_EL1: u64,
-    pub VBAR_EL1: u64,
-    pub TTBR0_EL1: u64,
-    pub TTBR1_EL1: u64,
-    pub X18: u64,
+    pub Pc: super::UINT64,
+    pub Sp_ELh: super::UINT64,
+    pub SCTLR_EL1: super::UINT64,
+    pub MAIR_EL1: super::UINT64,
+    pub TCR_EL1: super::UINT64,
+    pub VBAR_EL1: super::UINT64,
+    pub TTBR0_EL1: super::UINT64,
+    pub TTBR1_EL1: super::UINT64,
+    pub X18: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_INPUT_VTL {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_INPUT_VTL_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_INPUT_VTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1044,43 +2187,47 @@ impl Default for WHV_INPUT_VTL {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INPUT_VTL_0 {
     pub _bitfield: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_INPUT_VTL_0 {
-    pub fn TargetVtl(&self) -> u8 {
-        (self._bitfield << 4) >> 4
+    pub fn TargetVtl(&self) -> super::UINT8 {
+        (self._bitfield) & 15
     }
-    pub fn set_TargetVtl(&mut self, value: u8) {
+    pub fn set_TargetVtl(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn UseTargetVtl(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn UseTargetVtl(&self) -> super::UINT8 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_UseTargetVtl(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    pub fn set_UseTargetVtl(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 5
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_INTERCEPT_MESSAGE_HEADER {
-    pub VpIndex: u32,
-    pub InstructionLength: u8,
-    pub InterceptAccessType: u8,
+    pub VpIndex: super::UINT32,
+    pub InstructionLength: super::UINT8,
+    pub InterceptAccessType: super::UINT8,
     pub ExecutionState: WHV_VP_EXECUTION_STATE,
-    pub Pc: u64,
-    pub Cpsr: u64,
+    pub Pc: super::UINT64,
+    pub Cpsr: super::UINT64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERCEPT_MESSAGE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1088,12 +2235,14 @@ impl Default for WHV_INTERCEPT_MESSAGE_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_INTERNAL_ACTIVITY_REGISTER {
     pub Anonymous: WHV_INTERNAL_ACTIVITY_REGISTER_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1101,91 +2250,97 @@ impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_INTERNAL_ACTIVITY_REGISTER_0 {
-    pub fn StartupSuspend(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn StartupSuspend(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_StartupSuspend(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_StartupSuspend(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn HaltSuspend(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn HaltSuspend(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_HaltSuspend(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_HaltSuspend(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn IdleSuspend(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn IdleSuspend(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_IdleSuspend(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_IdleSuspend(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(2305843009213693951 << 3)) | ((value & 2305843009213693951) << 3);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_CONTROL {
     pub _bitfield: u64,
-    pub Destination: u32,
-    pub Vector: u32,
+    pub Destination: super::UINT32,
+    pub Vector: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_INTERRUPT_CONTROL {
-    pub fn Type(&self) -> u64 {
-        (self._bitfield << 56) >> 56
+    pub fn Type(&self) -> super::UINT64 {
+        (self._bitfield) & 255
     }
-    pub fn set_Type(&mut self, value: u64) {
+    pub fn set_Type(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !255) | (value & 255);
     }
-    pub fn DestinationMode(&self) -> u64 {
-        (self._bitfield << 52) >> 60
+    pub fn DestinationMode(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 15
     }
-    pub fn set_DestinationMode(&mut self, value: u64) {
+    pub fn set_DestinationMode(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
     }
-    pub fn TriggerMode(&self) -> u64 {
-        (self._bitfield << 48) >> 60
+    pub fn TriggerMode(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 15
     }
-    pub fn set_TriggerMode(&mut self, value: u64) {
+    pub fn set_TriggerMode(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
     }
-    pub fn TargetVtl(&self) -> u64 {
-        (self._bitfield << 40) >> 56
+    pub fn TargetVtl(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 255
     }
-    pub fn set_TargetVtl(&mut self, value: u64) {
+    pub fn set_TargetVtl(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 24
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(1099511627775 << 24)) | ((value & 1099511627775) << 24);
     }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_INTERRUPT_CONTROL {
-    pub TargetPartition: u64,
+    pub TargetPartition: super::UINT64,
     pub InterruptControl: WHV_INTERRUPT_CONTROL2,
-    pub DestinationAddress: u64,
-    pub RequestedVector: u32,
-    pub TargetVtl: u8,
-    pub ReservedZ0: u8,
-    pub ReservedZ1: u16,
+    pub DestinationAddress: super::UINT64,
+    pub RequestedVector: super::UINT32,
+    pub TargetVtl: super::UINT8,
+    pub ReservedZ0: super::UINT8,
+    pub ReservedZ1: super::UINT16,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERRUPT_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1193,12 +2348,14 @@ impl Default for WHV_INTERRUPT_CONTROL {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_INTERRUPT_CONTROL2 {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_INTERRUPT_CONTROL2_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERRUPT_CONTROL2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1206,35 +2363,37 @@ impl Default for WHV_INTERRUPT_CONTROL2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_CONTROL2_0 {
     pub InterruptType: WHV_INTERRUPT_TYPE,
     pub _bitfield: u32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_INTERRUPT_CONTROL2_0 {
-    pub fn Reserved1(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn Reserved1(&self) -> super::UINT32 {
+        (self._bitfield) & 3
     }
-    pub fn set_Reserved1(&mut self, value: u32) {
+    pub fn set_Reserved1(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn Asserted(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Asserted(&self) -> super::UINT32 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Asserted(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_Asserted(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Retarget(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn Retarget(&self) -> super::UINT32 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_Retarget(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_Retarget(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Reserved2(&self) -> u32 {
+    pub fn Reserved2(&self) -> super::UINT32 {
         self._bitfield >> 4
     }
-    pub fn set_Reserved2(&mut self, value: u32) {
+    pub fn set_Reserved2(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
@@ -1248,27 +2407,30 @@ pub type WHV_INTERRUPT_TYPE = i32;
 pub type WHV_INTERRUPT_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INVALID_VP_REGISTER_CONTEXT {
-    pub VpIndex: u32,
-    pub Reserved: u32,
+    pub VpIndex: super::UINT32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_MAP_GPA_RANGE_FLAGS = u32;
+pub type WHV_MAP_GPA_RANGE_FLAGS = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: i32 = 200;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
-    pub InstructionByteCount: u8,
-    pub Reserved: [u8; 3],
-    pub InstructionBytes: [u8; 16],
+    pub InstructionByteCount: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub InstructionBytes: [super::UINT8; 16],
     pub AccessInfo: WHV_MEMORY_ACCESS_INFO,
     pub Gpa: WHV_GUEST_PHYSICAL_ADDRESS,
     pub Gva: WHV_GUEST_VIRTUAL_ADDRESS,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1276,20 +2438,22 @@ impl Default for WHV_MEMORY_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
-    pub Reserved0: u32,
-    pub InstructionByteCount: u8,
+    pub Reserved0: super::UINT32,
+    pub InstructionByteCount: super::UINT8,
     pub AccessInfo: WHV_MEMORY_ACCESS_INFO,
-    pub Reserved1: u16,
-    pub InstructionBytes: [u8; 4],
-    pub Reserved2: u32,
-    pub Gva: u64,
-    pub Gpa: u64,
-    pub Syndrome: u64,
+    pub Reserved1: super::UINT16,
+    pub InstructionBytes: [super::UINT8; 4],
+    pub Reserved2: super::UINT32,
+    pub Gva: super::UINT64,
+    pub Gpa: super::UINT64,
+    pub Syndrome: super::UINT64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1297,12 +2461,14 @@ impl Default for WHV_MEMORY_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_MEMORY_ACCESS_INFO {
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1310,45 +2476,49 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_MEMORY_ACCESS_INFO_0 {
-    pub fn AccessType(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn AccessType(&self) -> super::UINT32 {
+        (self._bitfield) & 3
     }
-    pub fn set_AccessType(&mut self, value: u32) {
+    pub fn set_AccessType(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn GpaUnmapped(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn GpaUnmapped(&self) -> super::UINT32 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_GpaUnmapped(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_GpaUnmapped(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn GvaValid(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn GvaValid(&self) -> super::UINT32 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_GvaValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_GvaValid(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_MEMORY_ACCESS_INFO {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1356,34 +2526,36 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u8,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_MEMORY_ACCESS_INFO_0 {
-    pub fn GvaValid(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn GvaValid(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_GvaValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_GvaValid(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn GvaGpaValid(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn GvaGpaValid(&self) -> super::UINT8 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_GvaGpaValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_GvaGpaValid(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn HypercallOutputPending(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn HypercallOutputPending(&self) -> super::UINT8 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_HypercallOutputPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    pub fn set_HypercallOutputPending(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
     }
 }
@@ -1391,30 +2563,34 @@ impl WHV_MEMORY_ACCESS_INFO_0 {
 pub type WHV_MEMORY_ACCESS_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_RANGE_ENTRY {
-    pub GuestAddress: u64,
-    pub SizeInBytes: u64,
+    pub GuestAddress: super::UINT64,
+    pub SizeInBytes: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_MSR_ACTION = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MSR_ACTION_ENTRY {
-    pub Index: u32,
-    pub ReadAction: u8,
-    pub WriteAction: u8,
-    pub Reserved: u16,
+    pub Index: super::UINT32,
+    pub ReadAction: super::UINT8,
+    pub WriteAction: super::UINT8,
+    pub Reserved: super::UINT16,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL {
     pub Features: WHV_NESTED_ENLIGHTENMENTS_CONTROL_0,
     pub HypercallControls: WHV_NESTED_ENLIGHTENMENTS_CONTROL_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1422,12 +2598,14 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1435,39 +2613,43 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0 {
-    pub fn DirectHypercall(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DirectHypercall(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_DirectHypercall(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DirectHypercall(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn VirtualizationException(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn VirtualizationException(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_VirtualizationException(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_VirtualizationException(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1475,22 +2657,24 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0 {
-    pub fn InterPartitionCommunication(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn InterPartitionCommunication(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_InterPartitionCommunication(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_InterPartitionCommunication(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
@@ -1500,15 +2684,17 @@ pub type WHV_NESTED_STATE_TYPE = i32;
 pub type WHV_NOTIFICATION_PORT_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS {
     pub NotificationPortType: WHV_NOTIFICATION_PORT_TYPE,
-    pub Reserved: u16,
-    pub Reserved1: u8,
-    pub ConnectionVtl: u8,
+    pub Reserved: super::UINT16,
+    pub Reserved1: super::UINT8,
+    pub ConnectionVtl: super::UINT8,
     pub Anonymous: WHV_NOTIFICATION_PORT_PARAMETERS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NOTIFICATION_PORT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1516,12 +2702,14 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     pub Doorbell: WHV_DOORBELL_MATCH_DATA,
     pub Event: WHV_NOTIFICATION_PORT_PARAMETERS_0_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1529,9 +2717,10 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
-    pub ConnectionId: u32,
+    pub ConnectionId: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX: u64 = 18446744073709551615;
@@ -1547,42 +2736,44 @@ pub type WHV_PARTITION_COUNTER_SET = i32;
 pub type WHV_PARTITION_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {
-    pub Mapped4KPageCount: u64,
-    pub Mapped2MPageCount: u64,
-    pub Mapped1GPageCount: u64,
+    pub Mapped4KPageCount: super::UINT64,
+    pub Mapped2MPageCount: super::UINT64,
+    pub Mapped1GPageCount: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PARTITION_PROPERTY {
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorCount: u32,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorCount: super::UINT32,
     pub SeparateSecurityDomain: windows_core::BOOL,
     pub NestedVirtualization: windows_core::BOOL,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
-    pub ReferenceTime: u64,
-    pub PrimaryNumaNode: u16,
-    pub CpuReserve: u32,
-    pub CpuCap: u32,
-    pub CpuWeight: u32,
-    pub CpuGroupId: u64,
-    pub ProcessorFrequencyCap: u32,
+    pub ReferenceTime: super::UINT64,
+    pub PrimaryNumaNode: super::USHORT,
+    pub CpuReserve: super::UINT32,
+    pub CpuCap: super::UINT32,
+    pub CpuWeight: super::UINT32,
+    pub CpuGroupId: super::UINT64,
+    pub ProcessorFrequencyCap: super::UINT32,
     pub AllowDeviceAssignment: windows_core::BOOL,
     pub DisableSmt: windows_core::BOOL,
-    pub PhysicalAddressWidth: u32,
+    pub PhysicalAddressWidth: super::UINT32,
     pub ProcessorXsaveFeatures: WHV_PROCESSOR_XSAVE_FEATURES,
-    pub CpuidExitList: [u32; 1],
-    pub ExceptionExitBitmap: u64,
+    pub CpuidExitList: [super::UINT32; 1],
+    pub ExceptionExitBitmap: super::UINT64,
     pub ApicRemoteRead: windows_core::BOOL,
     pub X64MsrExitBitmap: WHV_X64_MSR_EXIT_BITMAP,
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
-    pub InterruptClockFrequency: u64,
+    pub InterruptClockFrequency: super::UINT64,
     pub CpuidResultList: [WHV_X64_CPUID_RESULT; 1],
     pub CpuidResultList2: [WHV_X64_CPUID_RESULT2; 1],
     pub MsrActionList: [WHV_MSR_ACTION_ENTRY; 1],
@@ -1590,6 +2781,7 @@ pub union WHV_PARTITION_PROPERTY {
     pub LocalApicEmulationMode: WHV_X64_LOCAL_APIC_EMULATION_MODE,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PARTITION_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1597,30 +2789,32 @@ impl Default for WHV_PARTITION_PROPERTY {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PARTITION_PROPERTY {
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorCount: u32,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorCount: super::UINT32,
     pub SeparateSecurityDomain: windows_core::BOOL,
     pub NestedVirtualization: windows_core::BOOL,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
-    pub ReferenceTime: u64,
-    pub PrimaryNumaNode: u16,
-    pub CpuReserve: u32,
-    pub CpuCap: u32,
-    pub CpuWeight: u32,
-    pub CpuGroupId: u64,
-    pub ProcessorFrequencyCap: u32,
+    pub ReferenceTime: super::UINT64,
+    pub PrimaryNumaNode: super::USHORT,
+    pub CpuReserve: super::UINT32,
+    pub CpuCap: super::UINT32,
+    pub CpuWeight: super::UINT32,
+    pub CpuGroupId: super::UINT64,
+    pub ProcessorFrequencyCap: super::UINT32,
     pub AllowDeviceAssignment: windows_core::BOOL,
     pub DisableSmt: windows_core::BOOL,
-    pub PhysicalAddressWidth: u32,
+    pub PhysicalAddressWidth: super::UINT32,
     pub Arm64IcParameters: WHV_ARM64_IC_PARAMETERS,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_PARTITION_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1632,6 +2826,7 @@ pub type WHV_PARTITION_PROPERTY_CODE = i32;
 pub type WHV_PARTITION_PROPERTY_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub PageInvalidations: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -1651,6 +2846,7 @@ pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub OtherIntercepts: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -1660,6 +2856,7 @@ pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub Reserved: [WHV_PROCESSOR_INTERCEPT_COUNTER; 10],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_ACTIVITY_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1667,833 +2864,42 @@ impl Default for WHV_PROCESSOR_ACTIVITY_COUNTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
-    pub MmioAccessCount: u64,
-    pub EoiAccessCount: u64,
-    pub TprAccessCount: u64,
-    pub SentIpiCount: u64,
-    pub SelfIpiCount: u64,
+    pub MmioAccessCount: super::UINT64,
+    pub EoiAccessCount: super::UINT64,
+    pub TprAccessCount: super::UINT64,
+    pub SentIpiCount: super::UINT64,
+    pub SelfIpiCount: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_PROCESSOR_COUNTER_SET = i32;
 #[cfg(target_arch = "aarch64")]
 pub type WHV_PROCESSOR_COUNTER_SET = i32;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES = WHV_X64_PROCESSOR_FEATURES;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES = WHV_ARM64_PROCESSOR_FEATURES;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES1 = WHV_X64_PROCESSOR_FEATURES1;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES1 = WHV_ARM64_PROCESSOR_FEATURES1;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union WHV_PROCESSOR_FEATURES {
-    pub Anonymous: WHV_PROCESSOR_FEATURES_0,
-    pub AsUINT64: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_PROCESSOR_FEATURES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_PROCESSOR_FEATURES_0 {
-    pub _bitfield: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl WHV_PROCESSOR_FEATURES_0 {
-    pub fn Sse3Support(&self) -> bool {
-        self._bitfield & 1 != 0
-    }
-    pub fn set_Sse3Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
-    }
-    pub fn LahfSahfSupport(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
-    }
-    pub fn set_LahfSahfSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
-    }
-    pub fn Ssse3Support(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
-    }
-    pub fn set_Ssse3Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
-    }
-    pub fn Sse4_1Support(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
-    }
-    pub fn set_Sse4_1Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
-    }
-    pub fn Sse4_2Support(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
-    }
-    pub fn set_Sse4_2Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
-    }
-    pub fn Sse4aSupport(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
-    }
-    pub fn set_Sse4aSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
-    }
-    pub fn XopSupport(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
-    }
-    pub fn set_XopSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
-    }
-    pub fn PopCntSupport(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
-    }
-    pub fn set_PopCntSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
-    }
-    pub fn Cmpxchg16bSupport(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
-    }
-    pub fn set_Cmpxchg16bSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
-    }
-    pub fn Altmovcr8Support(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
-    }
-    pub fn set_Altmovcr8Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
-    }
-    pub fn LzcntSupport(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
-    }
-    pub fn set_LzcntSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
-    }
-    pub fn MisAlignSseSupport(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
-    }
-    pub fn set_MisAlignSseSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
-    }
-    pub fn MmxExtSupport(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
-    }
-    pub fn set_MmxExtSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
-    }
-    pub fn Amd3DNowSupport(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
-    }
-    pub fn set_Amd3DNowSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
-    }
-    pub fn ExtendedAmd3DNowSupport(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
-    }
-    pub fn set_ExtendedAmd3DNowSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
-    }
-    pub fn Page1GbSupport(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
-    }
-    pub fn set_Page1GbSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
-    }
-    pub fn AesSupport(&self) -> bool {
-        (self._bitfield >> 16) & 1 != 0
-    }
-    pub fn set_AesSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
-    }
-    pub fn PclmulqdqSupport(&self) -> bool {
-        (self._bitfield >> 17) & 1 != 0
-    }
-    pub fn set_PclmulqdqSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
-    }
-    pub fn PcidSupport(&self) -> bool {
-        (self._bitfield >> 18) & 1 != 0
-    }
-    pub fn set_PcidSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
-    }
-    pub fn Fma4Support(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
-    }
-    pub fn set_Fma4Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
-    }
-    pub fn F16CSupport(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
-    }
-    pub fn set_F16CSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
-    }
-    pub fn RdRandSupport(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
-    }
-    pub fn set_RdRandSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
-    }
-    pub fn RdWrFsGsSupport(&self) -> bool {
-        (self._bitfield >> 22) & 1 != 0
-    }
-    pub fn set_RdWrFsGsSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
-    }
-    pub fn SmepSupport(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
-    }
-    pub fn set_SmepSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
-    }
-    pub fn EnhancedFastStringSupport(&self) -> bool {
-        (self._bitfield >> 24) & 1 != 0
-    }
-    pub fn set_EnhancedFastStringSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
-    }
-    pub fn Bmi1Support(&self) -> bool {
-        (self._bitfield >> 25) & 1 != 0
-    }
-    pub fn set_Bmi1Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
-    }
-    pub fn Bmi2Support(&self) -> bool {
-        (self._bitfield >> 26) & 1 != 0
-    }
-    pub fn set_Bmi2Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
-    }
-    pub fn Reserved1(&self) -> u64 {
-        (self._bitfield << 35) >> 62
-    }
-    pub fn set_Reserved1(&mut self, value: u64) {
-        self._bitfield = (self._bitfield & !(3 << 27)) | ((value & 3) << 27);
-    }
-    pub fn MovbeSupport(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
-    }
-    pub fn set_MovbeSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
-    }
-    pub fn Npiep1Support(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
-    }
-    pub fn set_Npiep1Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
-    }
-    pub fn DepX87FPUSaveSupport(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
-    }
-    pub fn set_DepX87FPUSaveSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
-    }
-    pub fn RdSeedSupport(&self) -> bool {
-        (self._bitfield >> 32) & 1 != 0
-    }
-    pub fn set_RdSeedSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
-    }
-    pub fn AdxSupport(&self) -> bool {
-        (self._bitfield >> 33) & 1 != 0
-    }
-    pub fn set_AdxSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
-    }
-    pub fn IntelPrefetchSupport(&self) -> bool {
-        (self._bitfield >> 34) & 1 != 0
-    }
-    pub fn set_IntelPrefetchSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
-    }
-    pub fn SmapSupport(&self) -> bool {
-        (self._bitfield >> 35) & 1 != 0
-    }
-    pub fn set_SmapSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
-    }
-    pub fn HleSupport(&self) -> bool {
-        (self._bitfield >> 36) & 1 != 0
-    }
-    pub fn set_HleSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
-    }
-    pub fn RtmSupport(&self) -> bool {
-        (self._bitfield >> 37) & 1 != 0
-    }
-    pub fn set_RtmSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
-    }
-    pub fn RdtscpSupport(&self) -> bool {
-        (self._bitfield >> 38) & 1 != 0
-    }
-    pub fn set_RdtscpSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 38)) | ((value as u64) << 38);
-    }
-    pub fn ClflushoptSupport(&self) -> bool {
-        (self._bitfield >> 39) & 1 != 0
-    }
-    pub fn set_ClflushoptSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 39)) | ((value as u64) << 39);
-    }
-    pub fn ClwbSupport(&self) -> bool {
-        (self._bitfield >> 40) & 1 != 0
-    }
-    pub fn set_ClwbSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 40)) | ((value as u64) << 40);
-    }
-    pub fn ShaSupport(&self) -> bool {
-        (self._bitfield >> 41) & 1 != 0
-    }
-    pub fn set_ShaSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 41)) | ((value as u64) << 41);
-    }
-    pub fn X87PointersSavedSupport(&self) -> bool {
-        (self._bitfield >> 42) & 1 != 0
-    }
-    pub fn set_X87PointersSavedSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 42)) | ((value as u64) << 42);
-    }
-    pub fn InvpcidSupport(&self) -> bool {
-        (self._bitfield >> 43) & 1 != 0
-    }
-    pub fn set_InvpcidSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 43)) | ((value as u64) << 43);
-    }
-    pub fn IbrsSupport(&self) -> bool {
-        (self._bitfield >> 44) & 1 != 0
-    }
-    pub fn set_IbrsSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 44)) | ((value as u64) << 44);
-    }
-    pub fn StibpSupport(&self) -> bool {
-        (self._bitfield >> 45) & 1 != 0
-    }
-    pub fn set_StibpSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 45)) | ((value as u64) << 45);
-    }
-    pub fn IbpbSupport(&self) -> bool {
-        (self._bitfield >> 46) & 1 != 0
-    }
-    pub fn set_IbpbSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 46)) | ((value as u64) << 46);
-    }
-    pub fn UnrestrictedGuestSupport(&self) -> bool {
-        (self._bitfield >> 47) & 1 != 0
-    }
-    pub fn set_UnrestrictedGuestSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 47)) | ((value as u64) << 47);
-    }
-    pub fn SsbdSupport(&self) -> bool {
-        (self._bitfield >> 48) & 1 != 0
-    }
-    pub fn set_SsbdSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 48)) | ((value as u64) << 48);
-    }
-    pub fn FastShortRepMovSupport(&self) -> bool {
-        (self._bitfield >> 49) & 1 != 0
-    }
-    pub fn set_FastShortRepMovSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 49)) | ((value as u64) << 49);
-    }
-    pub fn Reserved3(&self) -> bool {
-        (self._bitfield >> 50) & 1 != 0
-    }
-    pub fn set_Reserved3(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 50)) | ((value as u64) << 50);
-    }
-    pub fn RdclNo(&self) -> bool {
-        (self._bitfield >> 51) & 1 != 0
-    }
-    pub fn set_RdclNo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 51)) | ((value as u64) << 51);
-    }
-    pub fn IbrsAllSupport(&self) -> bool {
-        (self._bitfield >> 52) & 1 != 0
-    }
-    pub fn set_IbrsAllSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 52)) | ((value as u64) << 52);
-    }
-    pub fn Reserved4(&self) -> bool {
-        (self._bitfield >> 53) & 1 != 0
-    }
-    pub fn set_Reserved4(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 53)) | ((value as u64) << 53);
-    }
-    pub fn SsbNo(&self) -> bool {
-        (self._bitfield >> 54) & 1 != 0
-    }
-    pub fn set_SsbNo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 54)) | ((value as u64) << 54);
-    }
-    pub fn RsbANo(&self) -> bool {
-        (self._bitfield >> 55) & 1 != 0
-    }
-    pub fn set_RsbANo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 55)) | ((value as u64) << 55);
-    }
-    pub fn Reserved5(&self) -> bool {
-        (self._bitfield >> 56) & 1 != 0
-    }
-    pub fn set_Reserved5(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 56)) | ((value as u64) << 56);
-    }
-    pub fn RdPidSupport(&self) -> bool {
-        (self._bitfield >> 57) & 1 != 0
-    }
-    pub fn set_RdPidSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 57)) | ((value as u64) << 57);
-    }
-    pub fn UmipSupport(&self) -> bool {
-        (self._bitfield >> 58) & 1 != 0
-    }
-    pub fn set_UmipSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 58)) | ((value as u64) << 58);
-    }
-    pub fn MdsNoSupport(&self) -> bool {
-        (self._bitfield >> 59) & 1 != 0
-    }
-    pub fn set_MdsNoSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 59)) | ((value as u64) << 59);
-    }
-    pub fn MdClearSupport(&self) -> bool {
-        (self._bitfield >> 60) & 1 != 0
-    }
-    pub fn set_MdClearSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 60)) | ((value as u64) << 60);
-    }
-    pub fn TaaNoSupport(&self) -> bool {
-        (self._bitfield >> 61) & 1 != 0
-    }
-    pub fn set_TaaNoSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 61)) | ((value as u64) << 61);
-    }
-    pub fn TsxCtrlSupport(&self) -> bool {
-        (self._bitfield >> 62) & 1 != 0
-    }
-    pub fn set_TsxCtrlSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 62)) | ((value as u64) << 62);
-    }
-    pub fn Reserved6(&self) -> bool {
-        (self._bitfield >> 63) & 1 != 0
-    }
-    pub fn set_Reserved6(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 63)) | ((value as u64) << 63);
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union WHV_PROCESSOR_FEATURES1 {
-    pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
-    pub AsUINT64: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_PROCESSOR_FEATURES1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_PROCESSOR_FEATURES1_0 {
-    pub _bitfield: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl WHV_PROCESSOR_FEATURES1_0 {
-    pub fn ACountMCountSupport(&self) -> bool {
-        self._bitfield & 1 != 0
-    }
-    pub fn set_ACountMCountSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
-    }
-    pub fn TscInvariantSupport(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
-    }
-    pub fn set_TscInvariantSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
-    }
-    pub fn ClZeroSupport(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
-    }
-    pub fn set_ClZeroSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
-    }
-    pub fn RdpruSupport(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
-    }
-    pub fn set_RdpruSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
-    }
-    pub fn La57Support(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
-    }
-    pub fn set_La57Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
-    }
-    pub fn MbecSupport(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
-    }
-    pub fn set_MbecSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
-    }
-    pub fn NestedVirtSupport(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
-    }
-    pub fn set_NestedVirtSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
-    }
-    pub fn PsfdSupport(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
-    }
-    pub fn set_PsfdSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
-    }
-    pub fn CetSsSupport(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
-    }
-    pub fn set_CetSsSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
-    }
-    pub fn CetIbtSupport(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
-    }
-    pub fn set_CetIbtSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
-    }
-    pub fn VmxExceptionInjectSupport(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
-    }
-    pub fn set_VmxExceptionInjectSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
-    }
-    pub fn Reserved2(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
-    }
-    pub fn set_Reserved2(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
-    }
-    pub fn UmwaitTpauseSupport(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
-    }
-    pub fn set_UmwaitTpauseSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
-    }
-    pub fn MovdiriSupport(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
-    }
-    pub fn set_MovdiriSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
-    }
-    pub fn Movdir64bSupport(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
-    }
-    pub fn set_Movdir64bSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
-    }
-    pub fn CldemoteSupport(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
-    }
-    pub fn set_CldemoteSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
-    }
-    pub fn SerializeSupport(&self) -> bool {
-        (self._bitfield >> 16) & 1 != 0
-    }
-    pub fn set_SerializeSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
-    }
-    pub fn TscDeadlineTmrSupport(&self) -> bool {
-        (self._bitfield >> 17) & 1 != 0
-    }
-    pub fn set_TscDeadlineTmrSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
-    }
-    pub fn TscAdjustSupport(&self) -> bool {
-        (self._bitfield >> 18) & 1 != 0
-    }
-    pub fn set_TscAdjustSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
-    }
-    pub fn FZLRepMovsb(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
-    }
-    pub fn set_FZLRepMovsb(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
-    }
-    pub fn FSRepStosb(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
-    }
-    pub fn set_FSRepStosb(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
-    }
-    pub fn FSRepCmpsb(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
-    }
-    pub fn set_FSRepCmpsb(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
-    }
-    pub fn TsxLdTrkSupport(&self) -> bool {
-        (self._bitfield >> 22) & 1 != 0
-    }
-    pub fn set_TsxLdTrkSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
-    }
-    pub fn VmxInsOutsExitInfoSupport(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
-    }
-    pub fn set_VmxInsOutsExitInfoSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
-    }
-    pub fn Reserved3(&self) -> bool {
-        (self._bitfield >> 24) & 1 != 0
-    }
-    pub fn set_Reserved3(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
-    }
-    pub fn SbdrSsdpNoSupport(&self) -> bool {
-        (self._bitfield >> 25) & 1 != 0
-    }
-    pub fn set_SbdrSsdpNoSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
-    }
-    pub fn FbsdpNoSupport(&self) -> bool {
-        (self._bitfield >> 26) & 1 != 0
-    }
-    pub fn set_FbsdpNoSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
-    }
-    pub fn PsdpNoSupport(&self) -> bool {
-        (self._bitfield >> 27) & 1 != 0
-    }
-    pub fn set_PsdpNoSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u64) << 27);
-    }
-    pub fn FbClearSupport(&self) -> bool {
-        (self._bitfield >> 28) & 1 != 0
-    }
-    pub fn set_FbClearSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u64) << 28);
-    }
-    pub fn BtcNoSupport(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
-    }
-    pub fn set_BtcNoSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
-    }
-    pub fn IbpbRsbFlushSupport(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
-    }
-    pub fn set_IbpbRsbFlushSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
-    }
-    pub fn StibpAlwaysOnSupport(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
-    }
-    pub fn set_StibpAlwaysOnSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
-    }
-    pub fn PerfGlobalCtrlSupport(&self) -> bool {
-        (self._bitfield >> 32) & 1 != 0
-    }
-    pub fn set_PerfGlobalCtrlSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
-    }
-    pub fn NptExecuteOnlySupport(&self) -> bool {
-        (self._bitfield >> 33) & 1 != 0
-    }
-    pub fn set_NptExecuteOnlySupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
-    }
-    pub fn NptADFlagsSupport(&self) -> bool {
-        (self._bitfield >> 34) & 1 != 0
-    }
-    pub fn set_NptADFlagsSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
-    }
-    pub fn Npt1GbPageSupport(&self) -> bool {
-        (self._bitfield >> 35) & 1 != 0
-    }
-    pub fn set_Npt1GbPageSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
-    }
-    pub fn Reserved4(&self) -> bool {
-        (self._bitfield >> 36) & 1 != 0
-    }
-    pub fn set_Reserved4(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
-    }
-    pub fn Reserved5(&self) -> bool {
-        (self._bitfield >> 37) & 1 != 0
-    }
-    pub fn set_Reserved5(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
-    }
-    pub fn Reserved6(&self) -> bool {
-        (self._bitfield >> 38) & 1 != 0
-    }
-    pub fn set_Reserved6(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 38)) | ((value as u64) << 38);
-    }
-    pub fn Reserved7(&self) -> bool {
-        (self._bitfield >> 39) & 1 != 0
-    }
-    pub fn set_Reserved7(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 39)) | ((value as u64) << 39);
-    }
-    pub fn CmpccxaddSupport(&self) -> bool {
-        (self._bitfield >> 40) & 1 != 0
-    }
-    pub fn set_CmpccxaddSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 40)) | ((value as u64) << 40);
-    }
-    pub fn Reserved8(&self) -> bool {
-        (self._bitfield >> 41) & 1 != 0
-    }
-    pub fn set_Reserved8(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 41)) | ((value as u64) << 41);
-    }
-    pub fn Reserved9(&self) -> bool {
-        (self._bitfield >> 42) & 1 != 0
-    }
-    pub fn set_Reserved9(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 42)) | ((value as u64) << 42);
-    }
-    pub fn Reserved10(&self) -> bool {
-        (self._bitfield >> 43) & 1 != 0
-    }
-    pub fn set_Reserved10(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 43)) | ((value as u64) << 43);
-    }
-    pub fn Reserved11(&self) -> bool {
-        (self._bitfield >> 44) & 1 != 0
-    }
-    pub fn set_Reserved11(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 44)) | ((value as u64) << 44);
-    }
-    pub fn PrefetchISupport(&self) -> bool {
-        (self._bitfield >> 45) & 1 != 0
-    }
-    pub fn set_PrefetchISupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 45)) | ((value as u64) << 45);
-    }
-    pub fn Sha512Support(&self) -> bool {
-        (self._bitfield >> 46) & 1 != 0
-    }
-    pub fn set_Sha512Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 46)) | ((value as u64) << 46);
-    }
-    pub fn Reserved12(&self) -> bool {
-        (self._bitfield >> 47) & 1 != 0
-    }
-    pub fn set_Reserved12(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 47)) | ((value as u64) << 47);
-    }
-    pub fn Reserved13(&self) -> bool {
-        (self._bitfield >> 48) & 1 != 0
-    }
-    pub fn set_Reserved13(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 48)) | ((value as u64) << 48);
-    }
-    pub fn Reserved14(&self) -> bool {
-        (self._bitfield >> 49) & 1 != 0
-    }
-    pub fn set_Reserved14(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 49)) | ((value as u64) << 49);
-    }
-    pub fn SM3Support(&self) -> bool {
-        (self._bitfield >> 50) & 1 != 0
-    }
-    pub fn set_SM3Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 50)) | ((value as u64) << 50);
-    }
-    pub fn SM4Support(&self) -> bool {
-        (self._bitfield >> 51) & 1 != 0
-    }
-    pub fn set_SM4Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 51)) | ((value as u64) << 51);
-    }
-    pub fn Reserved15(&self) -> bool {
-        (self._bitfield >> 52) & 1 != 0
-    }
-    pub fn set_Reserved15(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 52)) | ((value as u64) << 52);
-    }
-    pub fn Reserved16(&self) -> bool {
-        (self._bitfield >> 53) & 1 != 0
-    }
-    pub fn set_Reserved16(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 53)) | ((value as u64) << 53);
-    }
-    pub fn SbpbSupported(&self) -> bool {
-        (self._bitfield >> 54) & 1 != 0
-    }
-    pub fn set_SbpbSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 54)) | ((value as u64) << 54);
-    }
-    pub fn IbpbBrTypeSupported(&self) -> bool {
-        (self._bitfield >> 55) & 1 != 0
-    }
-    pub fn set_IbpbBrTypeSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 55)) | ((value as u64) << 55);
-    }
-    pub fn SrsoNoSupported(&self) -> bool {
-        (self._bitfield >> 56) & 1 != 0
-    }
-    pub fn set_SrsoNoSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 56)) | ((value as u64) << 56);
-    }
-    pub fn SrsoUserKernelNoSupported(&self) -> bool {
-        (self._bitfield >> 57) & 1 != 0
-    }
-    pub fn set_SrsoUserKernelNoSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 57)) | ((value as u64) << 57);
-    }
-    pub fn Reserved17(&self) -> bool {
-        (self._bitfield >> 58) & 1 != 0
-    }
-    pub fn set_Reserved17(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 58)) | ((value as u64) << 58);
-    }
-    pub fn Reserved18(&self) -> bool {
-        (self._bitfield >> 59) & 1 != 0
-    }
-    pub fn set_Reserved18(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 59)) | ((value as u64) << 59);
-    }
-    pub fn Reserved19(&self) -> bool {
-        (self._bitfield >> 60) & 1 != 0
-    }
-    pub fn set_Reserved19(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 60)) | ((value as u64) << 60);
-    }
-    pub fn LassSupport(&self) -> bool {
-        (self._bitfield >> 61) & 1 != 0
-    }
-    pub fn set_LassSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 61)) | ((value as u64) << 61);
-    }
-    pub fn IdleHltInterceptSupport(&self) -> bool {
-        (self._bitfield >> 62) & 1 != 0
-    }
-    pub fn set_IdleHltInterceptSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 62)) | ((value as u64) << 62);
-    }
-    pub fn MsrListSupport(&self) -> bool {
-        (self._bitfield >> 63) & 1 != 0
-    }
-    pub fn set_MsrListSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 63)) | ((value as u64) << 63);
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_PROCESSOR_FEATURES_BANKS {
-    pub BanksCount: u32,
-    pub Reserved0: u32,
+    pub BanksCount: super::UINT32,
+    pub Reserved0: super::UINT32,
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2501,12 +2907,14 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0_0,
-    pub AsUINT64: [u64; 2],
+    pub AsUINT64: [super::UINT64; 2],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2514,12 +2922,14 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_PROCESSOR_FEATURES,
     pub Bank1: WHV_PROCESSOR_FEATURES1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2529,27 +2939,31 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
 pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 2;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_GUEST_EVENT_COUNTERS {
-    pub PageFaultCount: u64,
-    pub ExceptionCount: u64,
-    pub InterruptCount: u64,
+    pub PageFaultCount: super::UINT64,
+    pub ExceptionCount: super::UINT64,
+    pub InterruptCount: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTER {
-    pub Count: u64,
-    pub Time100ns: u64,
+    pub Count: super::UINT64,
+    pub Time100ns: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_PERFMON_FEATURES {
     pub Anonymous: WHV_PROCESSOR_PERFMON_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2557,59 +2971,65 @@ impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_PERFMON_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_PROCESSOR_PERFMON_FEATURES_0 {
-    pub fn PmuSupport(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn PmuSupport(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_PmuSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_PmuSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn LbrSupport(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn LbrSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_LbrSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_LbrSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(4611686018427387903 << 2)) | ((value & 4611686018427387903) << 2);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_RUNTIME_COUNTERS {
-    pub TotalRuntime100ns: u64,
-    pub HypervisorRuntime100ns: u64,
+    pub TotalRuntime100ns: super::UINT64,
+    pub HypervisorRuntime100ns: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
-    pub SyntheticInterruptsCount: u64,
-    pub LongSpinWaitHypercallsCount: u64,
-    pub OtherHypercallsCount: u64,
-    pub SyntheticInterruptHypercallsCount: u64,
-    pub VirtualInterruptHypercallsCount: u64,
-    pub VirtualMmuHypercallsCount: u64,
+    pub SyntheticInterruptsCount: super::UINT64,
+    pub LongSpinWaitHypercallsCount: super::UINT64,
+    pub OtherHypercallsCount: super::UINT64,
+    pub SyntheticInterruptHypercallsCount: super::UINT64,
+    pub VirtualInterruptHypercallsCount: super::UINT64,
+    pub VirtualMmuHypercallsCount: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_PROCESSOR_VENDOR = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_XSAVE_FEATURES {
     pub Anonymous: WHV_PROCESSOR_XSAVE_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2617,244 +3037,246 @@ impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_PROCESSOR_XSAVE_FEATURES_0 {
-    pub fn XsaveSupport(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn XsaveSupport(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_XsaveSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_XsaveSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn XsaveoptSupport(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn XsaveoptSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_XsaveoptSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_XsaveoptSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn AvxSupport(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn AvxSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_AvxSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_AvxSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Avx2Support(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn Avx2Support(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_Avx2Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_Avx2Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn FmaSupport(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn FmaSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_FmaSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_FmaSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn MpxSupport(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn MpxSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_MpxSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    pub fn set_MpxSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Avx512Support(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn Avx512Support(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_Avx512Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    pub fn set_Avx512Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Avx512DQSupport(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Avx512DQSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_Avx512DQSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    pub fn set_Avx512DQSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn Avx512CDSupport(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn Avx512CDSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_Avx512CDSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    pub fn set_Avx512CDSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn Avx512BWSupport(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn Avx512BWSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_Avx512BWSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    pub fn set_Avx512BWSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn Avx512VLSupport(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn Avx512VLSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_Avx512VLSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    pub fn set_Avx512VLSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn XsaveCompSupport(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn XsaveCompSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_XsaveCompSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    pub fn set_XsaveCompSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn XsaveSupervisorSupport(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn XsaveSupervisorSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_XsaveSupervisorSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    pub fn set_XsaveSupervisorSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn Xcr1Support(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
+    pub fn Xcr1Support(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
     }
-    pub fn set_Xcr1Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    pub fn set_Xcr1Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
     }
-    pub fn Avx512BitalgSupport(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
+    pub fn Avx512BitalgSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
     }
-    pub fn set_Avx512BitalgSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    pub fn set_Avx512BitalgSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
     }
-    pub fn Avx512IfmaSupport(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn Avx512IfmaSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
     }
-    pub fn set_Avx512IfmaSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    pub fn set_Avx512IfmaSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
-    pub fn Avx512VBmiSupport(&self) -> bool {
-        (self._bitfield >> 16) & 1 != 0
+    pub fn Avx512VBmiSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 1
     }
-    pub fn set_Avx512VBmiSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
+    pub fn set_Avx512VBmiSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
     }
-    pub fn Avx512VBmi2Support(&self) -> bool {
-        (self._bitfield >> 17) & 1 != 0
+    pub fn Avx512VBmi2Support(&self) -> super::UINT64 {
+        (self._bitfield >> 17) & 1
     }
-    pub fn set_Avx512VBmi2Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
+    pub fn set_Avx512VBmi2Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
     }
-    pub fn Avx512VnniSupport(&self) -> bool {
-        (self._bitfield >> 18) & 1 != 0
+    pub fn Avx512VnniSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 18) & 1
     }
-    pub fn set_Avx512VnniSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
+    pub fn set_Avx512VnniSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
     }
-    pub fn GfniSupport(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
+    pub fn GfniSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 19) & 1
     }
-    pub fn set_GfniSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
+    pub fn set_GfniSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
     }
-    pub fn VaesSupport(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn VaesSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_VaesSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
+    pub fn set_VaesSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn Avx512VPopcntdqSupport(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
+    pub fn Avx512VPopcntdqSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 21) & 1
     }
-    pub fn set_Avx512VPopcntdqSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
+    pub fn set_Avx512VPopcntdqSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
     }
-    pub fn VpclmulqdqSupport(&self) -> bool {
-        (self._bitfield >> 22) & 1 != 0
+    pub fn VpclmulqdqSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 22) & 1
     }
-    pub fn set_VpclmulqdqSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
+    pub fn set_VpclmulqdqSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
     }
-    pub fn Avx512Bf16Support(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
+    pub fn Avx512Bf16Support(&self) -> super::UINT64 {
+        (self._bitfield >> 23) & 1
     }
-    pub fn set_Avx512Bf16Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
+    pub fn set_Avx512Bf16Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
     }
-    pub fn Avx512Vp2IntersectSupport(&self) -> bool {
-        (self._bitfield >> 24) & 1 != 0
+    pub fn Avx512Vp2IntersectSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 24) & 1
     }
-    pub fn set_Avx512Vp2IntersectSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
+    pub fn set_Avx512Vp2IntersectSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
     }
-    pub fn Avx512Fp16Support(&self) -> bool {
-        (self._bitfield >> 25) & 1 != 0
+    pub fn Avx512Fp16Support(&self) -> super::UINT64 {
+        (self._bitfield >> 25) & 1
     }
-    pub fn set_Avx512Fp16Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
+    pub fn set_Avx512Fp16Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
     }
-    pub fn XfdSupport(&self) -> bool {
-        (self._bitfield >> 26) & 1 != 0
+    pub fn XfdSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 26) & 1
     }
-    pub fn set_XfdSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
+    pub fn set_XfdSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
     }
-    pub fn AmxTileSupport(&self) -> bool {
-        (self._bitfield >> 27) & 1 != 0
+    pub fn AmxTileSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 27) & 1
     }
-    pub fn set_AmxTileSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u64) << 27);
+    pub fn set_AmxTileSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
     }
-    pub fn AmxBf16Support(&self) -> bool {
-        (self._bitfield >> 28) & 1 != 0
+    pub fn AmxBf16Support(&self) -> super::UINT64 {
+        (self._bitfield >> 28) & 1
     }
-    pub fn set_AmxBf16Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u64) << 28);
+    pub fn set_AmxBf16Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
     }
-    pub fn AmxInt8Support(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
+    pub fn AmxInt8Support(&self) -> super::UINT64 {
+        (self._bitfield >> 29) & 1
     }
-    pub fn set_AmxInt8Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
+    pub fn set_AmxInt8Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
     }
-    pub fn AvxVnniSupport(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
+    pub fn AvxVnniSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 30) & 1
     }
-    pub fn set_AvxVnniSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
+    pub fn set_AvxVnniSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
     }
-    pub fn AvxIfmaSupport(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn AvxIfmaSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 31) & 1
     }
-    pub fn set_AvxIfmaSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
+    pub fn set_AvxIfmaSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
-    pub fn AvxNeConvertSupport(&self) -> bool {
-        (self._bitfield >> 32) & 1 != 0
+    pub fn AvxNeConvertSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 32) & 1
     }
-    pub fn set_AvxNeConvertSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
+    pub fn set_AvxNeConvertSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value & 1) << 32);
     }
-    pub fn AvxVnniInt8Support(&self) -> bool {
-        (self._bitfield >> 33) & 1 != 0
+    pub fn AvxVnniInt8Support(&self) -> super::UINT64 {
+        (self._bitfield >> 33) & 1
     }
-    pub fn set_AvxVnniInt8Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
+    pub fn set_AvxVnniInt8Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value & 1) << 33);
     }
-    pub fn AvxVnniInt16Support(&self) -> bool {
-        (self._bitfield >> 34) & 1 != 0
+    pub fn AvxVnniInt16Support(&self) -> super::UINT64 {
+        (self._bitfield >> 34) & 1
     }
-    pub fn set_AvxVnniInt16Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
+    pub fn set_AvxVnniInt16Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value & 1) << 34);
     }
-    pub fn Avx10_1_256Support(&self) -> bool {
-        (self._bitfield >> 35) & 1 != 0
+    pub fn Avx10_1_256Support(&self) -> super::UINT64 {
+        (self._bitfield >> 35) & 1
     }
-    pub fn set_Avx10_1_256Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
+    pub fn set_Avx10_1_256Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value & 1) << 35);
     }
-    pub fn Avx10_1_512Support(&self) -> bool {
-        (self._bitfield >> 36) & 1 != 0
+    pub fn Avx10_1_512Support(&self) -> super::UINT64 {
+        (self._bitfield >> 36) & 1
     }
-    pub fn set_Avx10_1_512Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
+    pub fn set_Avx10_1_512Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value & 1) << 36);
     }
-    pub fn AmxFp16Support(&self) -> bool {
-        (self._bitfield >> 37) & 1 != 0
+    pub fn AmxFp16Support(&self) -> super::UINT64 {
+        (self._bitfield >> 37) & 1
     }
-    pub fn set_AmxFp16Support(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
+    pub fn set_AmxFp16Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value & 1) << 37);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 38
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(67108863 << 38)) | ((value & 67108863) << 38);
     }
 }
@@ -2862,12 +3284,14 @@ impl WHV_PROCESSOR_XSAVE_FEATURES_0 {
 pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: i32 = 16;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_REGISTER_ACCESS_INFO {
     pub SourceValue: WHV_REGISTER_VALUE,
     pub DestinationRegister: WHV_REGISTER_NAME,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2875,16 +3299,18 @@ impl Default for WHV_REGISTER_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_REGISTER_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
     pub Anonymous: WHV_REGISTER_CONTEXT_0,
-    pub Reserved8: u8,
-    pub Reserved16: u16,
+    pub Reserved8: super::UINT8,
+    pub Reserved16: super::UINT16,
     pub RegisterName: WHV_REGISTER_NAME,
     pub AccessInfo: WHV_REGISTER_ACCESS_INFO,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2892,22 +3318,24 @@ impl Default for WHV_REGISTER_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_REGISTER_CONTEXT_0 {
     pub _bitfield: u8,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_REGISTER_CONTEXT_0 {
-    pub fn IsMemoryOp(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsMemoryOp(&self) -> super::UINT8 {
+        (self._bitfield) & 1
     }
-    pub fn set_IsMemoryOp(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_IsMemoryOp(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UINT8 {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UINT8) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
@@ -2917,15 +3345,16 @@ pub type WHV_REGISTER_NAME = i32;
 pub type WHV_REGISTER_NAME = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_REGISTER_VALUE {
     pub Reg128: WHV_UINT128,
-    pub Reg64: u64,
-    pub Reg32: u32,
-    pub Reg16: u16,
-    pub Reg8: u8,
+    pub Reg64: super::UINT64,
+    pub Reg32: super::UINT32,
+    pub Reg16: super::UINT16,
+    pub Reg8: super::UINT8,
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-    pub DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+    pub DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
     pub Fp: WHV_X64_FP_REGISTER,
     pub FpControlStatus: WHV_X64_FP_CONTROL_STATUS_REGISTER,
     pub XmmControlStatus: WHV_X64_XMM_CONTROL_STATUS_REGISTER,
@@ -2949,6 +3378,7 @@ pub union WHV_REGISTER_VALUE {
     pub VmxNestedExit3: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2956,17 +3386,19 @@ impl Default for WHV_REGISTER_VALUE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_REGISTER_VALUE {
     pub Reg128: WHV_UINT128,
-    pub Reg64: u64,
-    pub Reg32: u32,
-    pub Reg16: u16,
-    pub Reg8: u8,
+    pub Reg64: super::UINT64,
+    pub Reg32: super::UINT32,
+    pub Reg16: super::UINT16,
+    pub Reg8: super::UINT8,
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-    pub DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+    pub DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2982,14 +3414,16 @@ pub struct WHV_RUN_VP_CANCELED_CONTEXT {
 pub type WHV_RUN_VP_CANCEL_REASON = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub ExitReason: WHV_RUN_VP_EXIT_REASON,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub VpContext: WHV_VP_EXIT_CONTEXT,
     pub Anonymous: WHV_RUN_VP_EXIT_CONTEXT_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2997,6 +3431,7 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub MemoryAccess: WHV_MEMORY_ACCESS_CONTEXT,
@@ -3014,9 +3449,10 @@ pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub ApicSmi: WHV_X64_APIC_SMI_CONTEXT,
     pub ApicInitSipi: WHV_X64_APIC_INIT_SIPI_CONTEXT,
     pub ApicWrite: WHV_X64_APIC_WRITE_CONTEXT,
-    pub AsUINT64: [u64; 22],
+    pub AsUINT64: [super::UINT64; 22],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3024,14 +3460,16 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub ExitReason: WHV_RUN_VP_EXIT_REASON,
-    pub Reserved: u32,
-    pub Reserved1: u64,
+    pub Reserved: super::UINT32,
+    pub Reserved1: super::UINT64,
     pub Anonymous: WHV_RUN_VP_EXIT_CONTEXT_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3039,6 +3477,7 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub MemoryAccess: WHV_MEMORY_ACCESS_CONTEXT,
@@ -3049,9 +3488,10 @@ pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub InvalidVpRegister: WHV_INVALID_VP_REGISTER_CONTEXT,
     pub Register: WHV_REGISTER_CONTEXT,
     pub Arm64Reset: WHV_ARM64_RESET_CONTEXT,
-    pub AsUINT64: [u64; 32],
+    pub AsUINT64: [super::UINT64; 32],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3063,12 +3503,14 @@ pub type WHV_RUN_VP_EXIT_REASON = i32;
 pub type WHV_RUN_VP_EXIT_REASON = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_SCHEDULER_FEATURES {
     pub Anonymous: WHV_SCHEDULER_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SCHEDULER_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3076,61 +3518,63 @@ impl Default for WHV_SCHEDULER_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SCHEDULER_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_SCHEDULER_FEATURES_0 {
-    pub fn CpuReserve(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn CpuReserve(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_CpuReserve(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_CpuReserve(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn CpuCap(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn CpuCap(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_CpuCap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_CpuCap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn CpuWeight(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn CpuWeight(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_CpuWeight(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_CpuWeight(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn CpuGroupId(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn CpuGroupId(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_CpuGroupId(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_CpuGroupId(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn DisableSmt(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn DisableSmt(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_DisableSmt(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_DisableSmt(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 5
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(576460752303423487 << 5)) | ((value & 576460752303423487) << 5);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
-    pub PnpInstanceId: [u16; 200],
+    pub PnpInstanceId: [super::WCHAR; 200],
     pub VirtualFunctionId: super::LUID,
-    pub VirtualFunctionIndex: u16,
-    pub Reserved: u16,
+    pub VirtualFunctionIndex: super::UINT16,
+    pub Reserved: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3138,26 +3582,28 @@ impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SVM_NESTED_HOST_STATE {
-    pub Rip: u64,
-    pub Rsp: u64,
-    pub Rflags: u64,
-    pub Rax: u64,
+    pub Rip: super::UINT64,
+    pub Rsp: super::UINT64,
+    pub Rflags: super::UINT64,
+    pub Rax: super::UINT64,
     pub Es: WHV_SVM_VMCB_SELECTOR,
     pub Cs: WHV_SVM_VMCB_SELECTOR,
     pub Ss: WHV_SVM_VMCB_SELECTOR,
     pub Ds: WHV_SVM_VMCB_SELECTOR,
     pub Gdtr: WHV_SVM_VMCB_SELECTOR,
     pub Idtr: WHV_SVM_VMCB_SELECTOR,
-    pub Efer: u64,
-    pub Cr0: u64,
-    pub Cr3: u64,
-    pub Cr4: u64,
-    pub VirtualTpr: u64,
-    pub Reserved: [u64; 6],
+    pub Efer: super::UINT64,
+    pub Cr0: super::UINT64,
+    pub Cr3: super::UINT64,
+    pub Cr4: super::UINT64,
+    pub VirtualTpr: super::UINT64,
+    pub Reserved: [super::UINT64; 6],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SVM_NESTED_HOST_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3165,366 +3611,691 @@ impl Default for WHV_SVM_NESTED_HOST_STATE {
 }
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_SVM_VMCB_SELECTOR {
-    pub Selector: u16,
-    pub Attrib: u16,
-    pub Limit: u32,
-    pub Base: u64,
+    pub Selector: super::UINT16,
+    pub Attrib: super::UINT16,
+    pub Limit: super::UINT32,
+    pub Base: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SYNIC_EVENT_PARAMETERS {
-    pub VpIndex: u32,
-    pub TargetSint: u8,
+    pub VpIndex: super::UINT32,
+    pub TargetSint: super::UINT8,
     pub TargetVtl: WHV_VTL,
-    pub FlagNumber: u16,
+    pub FlagNumber: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_SYNIC_MESSAGE_SIZE: i32 = 256;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
-    pub DeliverableSints: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
+    pub DeliverableSints: super::UINT16,
+    pub Reserved1: super::UINT16,
+    pub Reserved2: super::UINT32,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
-    pub DeliverableSints: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
+    pub DeliverableSints: super::UINT16,
+    pub Reserved1: super::UINT16,
+    pub Reserved2: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
-    pub fn HypervisorPresent(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn HypervisorPresent(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_HypervisorPresent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_HypervisorPresent(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Hv1(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Hv1(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Hv1(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_Hv1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn AccessVpRunTimeReg(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn AccessVpRunTimeReg(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_AccessVpRunTimeReg(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_AccessVpRunTimeReg(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AccessPartitionReferenceCounter(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AccessPartitionReferenceCounter(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AccessPartitionReferenceCounter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_AccessPartitionReferenceCounter(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn AccessSynicRegs(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn AccessSynicRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_AccessSynicRegs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_AccessSynicRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn AccessSyntheticTimerRegs(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn AccessSyntheticTimerRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_AccessSyntheticTimerRegs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    pub fn set_AccessSyntheticTimerRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn AccessIntrCtrlRegs(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn AccessIntrCtrlRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_AccessIntrCtrlRegs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    pub fn set_AccessIntrCtrlRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn AccessHypercallRegs(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn AccessHypercallRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_AccessHypercallRegs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    pub fn set_AccessHypercallRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn AccessVpIndex(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn AccessVpIndex(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_AccessVpIndex(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    pub fn set_AccessVpIndex(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn AccessPartitionReferenceTsc(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn AccessPartitionReferenceTsc(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_AccessPartitionReferenceTsc(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    pub fn set_AccessPartitionReferenceTsc(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn AccessGuestIdleReg(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn AccessGuestIdleReg(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_AccessGuestIdleReg(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    pub fn set_AccessGuestIdleReg(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn AccessFrequencyRegs(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn AccessFrequencyRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_AccessFrequencyRegs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    pub fn set_AccessFrequencyRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn ReservedZ12(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn ReservedZ12(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_ReservedZ12(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    pub fn set_ReservedZ12(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn ReservedZ13(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
+    pub fn ReservedZ13(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
     }
-    pub fn set_ReservedZ13(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    pub fn set_ReservedZ13(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
     }
-    pub fn ReservedZ14(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
+    pub fn ReservedZ14(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
     }
-    pub fn set_ReservedZ14(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    pub fn set_ReservedZ14(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
     }
-    pub fn EnableExtendedGvaRangesForFlushVirtualAddressList(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn EnableExtendedGvaRangesForFlushVirtualAddressList(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
     }
-    pub fn set_EnableExtendedGvaRangesForFlushVirtualAddressList(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    pub fn set_EnableExtendedGvaRangesForFlushVirtualAddressList(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
-    pub fn ReservedZ16(&self) -> bool {
-        (self._bitfield >> 16) & 1 != 0
+    pub fn ReservedZ16(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 1
     }
-    pub fn set_ReservedZ16(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
+    pub fn set_ReservedZ16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
     }
-    pub fn ReservedZ17(&self) -> bool {
-        (self._bitfield >> 17) & 1 != 0
+    pub fn ReservedZ17(&self) -> super::UINT64 {
+        (self._bitfield >> 17) & 1
     }
-    pub fn set_ReservedZ17(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
+    pub fn set_ReservedZ17(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
     }
-    pub fn FastHypercallOutput(&self) -> bool {
-        (self._bitfield >> 18) & 1 != 0
+    pub fn FastHypercallOutput(&self) -> super::UINT64 {
+        (self._bitfield >> 18) & 1
     }
-    pub fn set_FastHypercallOutput(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
+    pub fn set_FastHypercallOutput(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
     }
-    pub fn ReservedZ19(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
+    pub fn ReservedZ19(&self) -> super::UINT64 {
+        (self._bitfield >> 19) & 1
     }
-    pub fn set_ReservedZ19(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
+    pub fn set_ReservedZ19(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
     }
-    pub fn ReservedZ20(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn ReservedZ20(&self) -> super::UINT64 {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_ReservedZ20(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
+    pub fn set_ReservedZ20(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn ReservedZ21(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
+    pub fn ReservedZ21(&self) -> super::UINT64 {
+        (self._bitfield >> 21) & 1
     }
-    pub fn set_ReservedZ21(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
+    pub fn set_ReservedZ21(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
     }
-    pub fn DirectSyntheticTimers(&self) -> bool {
-        (self._bitfield >> 22) & 1 != 0
+    pub fn DirectSyntheticTimers(&self) -> super::UINT64 {
+        (self._bitfield >> 22) & 1
     }
-    pub fn set_DirectSyntheticTimers(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
+    pub fn set_DirectSyntheticTimers(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
     }
-    pub fn ReservedZ23(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
+    pub fn ReservedZ23(&self) -> super::UINT64 {
+        (self._bitfield >> 23) & 1
     }
-    pub fn set_ReservedZ23(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
+    pub fn set_ReservedZ23(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
     }
-    pub fn ExtendedProcessorMasks(&self) -> bool {
-        (self._bitfield >> 24) & 1 != 0
+    pub fn ExtendedProcessorMasks(&self) -> super::UINT64 {
+        (self._bitfield >> 24) & 1
     }
-    pub fn set_ExtendedProcessorMasks(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
+    pub fn set_ExtendedProcessorMasks(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
     }
-    pub fn TbFlushHypercalls(&self) -> bool {
-        (self._bitfield >> 25) & 1 != 0
+    pub fn TbFlushHypercalls(&self) -> super::UINT64 {
+        (self._bitfield >> 25) & 1
     }
-    pub fn set_TbFlushHypercalls(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
+    pub fn set_TbFlushHypercalls(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
     }
-    pub fn SyntheticClusterIpi(&self) -> bool {
-        (self._bitfield >> 26) & 1 != 0
+    pub fn SyntheticClusterIpi(&self) -> super::UINT64 {
+        (self._bitfield >> 26) & 1
     }
-    pub fn set_SyntheticClusterIpi(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
+    pub fn set_SyntheticClusterIpi(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
     }
-    pub fn NotifyLongSpinWait(&self) -> bool {
-        (self._bitfield >> 27) & 1 != 0
+    pub fn NotifyLongSpinWait(&self) -> super::UINT64 {
+        (self._bitfield >> 27) & 1
     }
-    pub fn set_NotifyLongSpinWait(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u64) << 27);
+    pub fn set_NotifyLongSpinWait(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
     }
-    pub fn QueryNumaDistance(&self) -> bool {
-        (self._bitfield >> 28) & 1 != 0
+    pub fn QueryNumaDistance(&self) -> super::UINT64 {
+        (self._bitfield >> 28) & 1
     }
-    pub fn set_QueryNumaDistance(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u64) << 28);
+    pub fn set_QueryNumaDistance(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
     }
-    pub fn SignalEvents(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
+    pub fn SignalEvents(&self) -> super::UINT64 {
+        (self._bitfield >> 29) & 1
     }
-    pub fn set_SignalEvents(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
+    pub fn set_SignalEvents(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
     }
-    pub fn RetargetDeviceInterrupt(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
+    pub fn RetargetDeviceInterrupt(&self) -> super::UINT64 {
+        (self._bitfield >> 30) & 1
     }
-    pub fn set_RetargetDeviceInterrupt(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
+    pub fn set_RetargetDeviceInterrupt(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
     }
-    pub fn RestoreTime(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn RestoreTime(&self) -> super::UINT64 {
+        (self._bitfield >> 31) & 1
     }
-    pub fn set_RestoreTime(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
+    pub fn set_RestoreTime(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
-    pub fn EnlightenedVmcs(&self) -> bool {
-        (self._bitfield >> 32) & 1 != 0
+    pub fn EnlightenedVmcs(&self) -> super::UINT64 {
+        (self._bitfield >> 32) & 1
     }
-    pub fn set_EnlightenedVmcs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
+    pub fn set_EnlightenedVmcs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value & 1) << 32);
     }
-    pub fn NestedDebugCtl(&self) -> bool {
-        (self._bitfield >> 33) & 1 != 0
+    pub fn NestedDebugCtl(&self) -> super::UINT64 {
+        (self._bitfield >> 33) & 1
     }
-    pub fn set_NestedDebugCtl(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
+    pub fn set_NestedDebugCtl(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value & 1) << 33);
     }
-    pub fn SyntheticTimeUnhaltedTimer(&self) -> bool {
-        (self._bitfield >> 34) & 1 != 0
+    pub fn SyntheticTimeUnhaltedTimer(&self) -> super::UINT64 {
+        (self._bitfield >> 34) & 1
     }
-    pub fn set_SyntheticTimeUnhaltedTimer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
+    pub fn set_SyntheticTimeUnhaltedTimer(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value & 1) << 34);
     }
-    pub fn IdleSpecCtrl(&self) -> bool {
-        (self._bitfield >> 35) & 1 != 0
+    pub fn IdleSpecCtrl(&self) -> super::UINT64 {
+        (self._bitfield >> 35) & 1
     }
-    pub fn set_IdleSpecCtrl(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
+    pub fn set_IdleSpecCtrl(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value & 1) << 35);
     }
-    pub fn ReservedZ36(&self) -> bool {
-        (self._bitfield >> 36) & 1 != 0
+    pub fn ReservedZ36(&self) -> super::UINT64 {
+        (self._bitfield >> 36) & 1
     }
-    pub fn set_ReservedZ36(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
+    pub fn set_ReservedZ36(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value & 1) << 36);
     }
-    pub fn WakeVps(&self) -> bool {
-        (self._bitfield >> 37) & 1 != 0
+    pub fn WakeVps(&self) -> super::UINT64 {
+        (self._bitfield >> 37) & 1
     }
-    pub fn set_WakeVps(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
+    pub fn set_WakeVps(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value & 1) << 37);
     }
-    pub fn AccessVpRegs(&self) -> bool {
-        (self._bitfield >> 38) & 1 != 0
+    pub fn AccessVpRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 38) & 1
     }
-    pub fn set_AccessVpRegs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 38)) | ((value as u64) << 38);
+    pub fn set_AccessVpRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value & 1) << 38);
     }
-    pub fn ReservedZ39(&self) -> bool {
-        (self._bitfield >> 39) & 1 != 0
+    pub fn ReservedZ39(&self) -> super::UINT64 {
+        (self._bitfield >> 39) & 1
     }
-    pub fn set_ReservedZ39(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 39)) | ((value as u64) << 39);
+    pub fn set_ReservedZ39(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value & 1) << 39);
     }
-    pub fn ReservedZ40(&self) -> bool {
-        (self._bitfield >> 40) & 1 != 0
+    pub fn ReservedZ40(&self) -> super::UINT64 {
+        (self._bitfield >> 40) & 1
     }
-    pub fn set_ReservedZ40(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 40)) | ((value as u64) << 40);
+    pub fn set_ReservedZ40(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value & 1) << 40);
     }
-    pub fn ReservedZ41(&self) -> bool {
-        (self._bitfield >> 41) & 1 != 0
+    pub fn ReservedZ41(&self) -> super::UINT64 {
+        (self._bitfield >> 41) & 1
     }
-    pub fn set_ReservedZ41(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 41)) | ((value as u64) << 41);
+    pub fn set_ReservedZ41(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value & 1) << 41);
     }
-    pub fn ReservedZ42(&self) -> bool {
-        (self._bitfield >> 42) & 1 != 0
+    pub fn ReservedZ42(&self) -> super::UINT64 {
+        (self._bitfield >> 42) & 1
     }
-    pub fn set_ReservedZ42(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 42)) | ((value as u64) << 42);
+    pub fn set_ReservedZ42(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value & 1) << 42);
     }
-    pub fn ReservedZ43(&self) -> bool {
-        (self._bitfield >> 43) & 1 != 0
+    pub fn ReservedZ43(&self) -> super::UINT64 {
+        (self._bitfield >> 43) & 1
     }
-    pub fn set_ReservedZ43(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 43)) | ((value as u64) << 43);
+    pub fn set_ReservedZ43(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value & 1) << 43);
     }
-    pub fn ReservedZ44(&self) -> bool {
-        (self._bitfield >> 44) & 1 != 0
+    pub fn ReservedZ44(&self) -> super::UINT64 {
+        (self._bitfield >> 44) & 1
     }
-    pub fn set_ReservedZ44(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 44)) | ((value as u64) << 44);
+    pub fn set_ReservedZ44(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value & 1) << 44);
     }
-    pub fn ReservedZ45(&self) -> bool {
-        (self._bitfield >> 45) & 1 != 0
+    pub fn ReservedZ45(&self) -> super::UINT64 {
+        (self._bitfield >> 45) & 1
     }
-    pub fn set_ReservedZ45(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 45)) | ((value as u64) << 45);
+    pub fn set_ReservedZ45(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value & 1) << 45);
     }
-    pub fn ReservedZ46(&self) -> bool {
-        (self._bitfield >> 46) & 1 != 0
+    pub fn ReservedZ46(&self) -> super::UINT64 {
+        (self._bitfield >> 46) & 1
     }
-    pub fn set_ReservedZ46(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 46)) | ((value as u64) << 46);
+    pub fn set_ReservedZ46(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value & 1) << 46);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 47
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(131071 << 47)) | ((value & 131071) << 47);
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
+    pub fn HypervisorPresent(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_HypervisorPresent(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Hv1(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_Hv1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn AccessVpRunTimeReg(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_AccessVpRunTimeReg(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn AccessPartitionReferenceCounter(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_AccessPartitionReferenceCounter(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn AccessSynicRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_AccessSynicRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn AccessSyntheticTimerRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_AccessSyntheticTimerRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn AccessIntrCtrlRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
+    }
+    pub fn set_AccessIntrCtrlRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
+    }
+    pub fn AccessHypercallRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
+    }
+    pub fn set_AccessHypercallRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
+    }
+    pub fn AccessVpIndex(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
+    }
+    pub fn set_AccessVpIndex(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
+    }
+    pub fn AccessPartitionReferenceTsc(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
+    }
+    pub fn set_AccessPartitionReferenceTsc(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
+    }
+    pub fn ReservedZ10(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_ReservedZ10(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn ReservedZ11(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_ReservedZ11(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn ReservedZ12(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
+    }
+    pub fn set_ReservedZ12(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
+    }
+    pub fn ReservedZ13(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
+    }
+    pub fn set_ReservedZ13(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
+    }
+    pub fn ReservedZ14(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
+    }
+    pub fn set_ReservedZ14(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
+    }
+    pub fn ReservedZ15(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
+    }
+    pub fn set_ReservedZ15(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
+    }
+    pub fn ReservedZ16(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 1
+    }
+    pub fn set_ReservedZ16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
+    }
+    pub fn ReservedZ17(&self) -> super::UINT64 {
+        (self._bitfield >> 17) & 1
+    }
+    pub fn set_ReservedZ17(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
+    }
+    pub fn FastHypercallOutput(&self) -> super::UINT64 {
+        (self._bitfield >> 18) & 1
+    }
+    pub fn set_FastHypercallOutput(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
+    }
+    pub fn ReservedZ19(&self) -> super::UINT64 {
+        (self._bitfield >> 19) & 1
+    }
+    pub fn set_ReservedZ19(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
+    }
+    pub fn ReservedZ20(&self) -> super::UINT64 {
+        (self._bitfield >> 20) & 1
+    }
+    pub fn set_ReservedZ20(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
+    }
+    pub fn ReservedZ21(&self) -> super::UINT64 {
+        (self._bitfield >> 21) & 1
+    }
+    pub fn set_ReservedZ21(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
+    }
+    pub fn DirectSyntheticTimers(&self) -> super::UINT64 {
+        (self._bitfield >> 22) & 1
+    }
+    pub fn set_DirectSyntheticTimers(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
+    }
+    pub fn ReservedZ23(&self) -> super::UINT64 {
+        (self._bitfield >> 23) & 1
+    }
+    pub fn set_ReservedZ23(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
+    }
+    pub fn ExtendedProcessorMasks(&self) -> super::UINT64 {
+        (self._bitfield >> 24) & 1
+    }
+    pub fn set_ExtendedProcessorMasks(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
+    }
+    pub fn TbFlushHypercalls(&self) -> super::UINT64 {
+        (self._bitfield >> 25) & 1
+    }
+    pub fn set_TbFlushHypercalls(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
+    }
+    pub fn SyntheticClusterIpi(&self) -> super::UINT64 {
+        (self._bitfield >> 26) & 1
+    }
+    pub fn set_SyntheticClusterIpi(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
+    }
+    pub fn NotifyLongSpinWait(&self) -> super::UINT64 {
+        (self._bitfield >> 27) & 1
+    }
+    pub fn set_NotifyLongSpinWait(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
+    }
+    pub fn QueryNumaDistance(&self) -> super::UINT64 {
+        (self._bitfield >> 28) & 1
+    }
+    pub fn set_QueryNumaDistance(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
+    }
+    pub fn SignalEvents(&self) -> super::UINT64 {
+        (self._bitfield >> 29) & 1
+    }
+    pub fn set_SignalEvents(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
+    }
+    pub fn RetargetDeviceInterrupt(&self) -> super::UINT64 {
+        (self._bitfield >> 30) & 1
+    }
+    pub fn set_RetargetDeviceInterrupt(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
+    }
+    pub fn ReservedZ31(&self) -> super::UINT64 {
+        (self._bitfield >> 31) & 1
+    }
+    pub fn set_ReservedZ31(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
+    }
+    pub fn ReservedZ32(&self) -> super::UINT64 {
+        (self._bitfield >> 32) & 1
+    }
+    pub fn set_ReservedZ32(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value & 1) << 32);
+    }
+    pub fn ReservedZ33(&self) -> super::UINT64 {
+        (self._bitfield >> 33) & 1
+    }
+    pub fn set_ReservedZ33(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value & 1) << 33);
+    }
+    pub fn ReservedZ34(&self) -> super::UINT64 {
+        (self._bitfield >> 34) & 1
+    }
+    pub fn set_ReservedZ34(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value & 1) << 34);
+    }
+    pub fn ReservedZ35(&self) -> super::UINT64 {
+        (self._bitfield >> 35) & 1
+    }
+    pub fn set_ReservedZ35(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value & 1) << 35);
+    }
+    pub fn ReservedZ36(&self) -> super::UINT64 {
+        (self._bitfield >> 36) & 1
+    }
+    pub fn set_ReservedZ36(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value & 1) << 36);
+    }
+    pub fn WakeVps(&self) -> super::UINT64 {
+        (self._bitfield >> 37) & 1
+    }
+    pub fn set_WakeVps(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value & 1) << 37);
+    }
+    pub fn AccessVpRegs(&self) -> super::UINT64 {
+        (self._bitfield >> 38) & 1
+    }
+    pub fn set_AccessVpRegs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value & 1) << 38);
+    }
+    pub fn SyncContext(&self) -> super::UINT64 {
+        (self._bitfield >> 39) & 1
+    }
+    pub fn set_SyncContext(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value & 1) << 39);
+    }
+    pub fn ReservedZ40(&self) -> super::UINT64 {
+        (self._bitfield >> 40) & 1
+    }
+    pub fn set_ReservedZ40(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value & 1) << 40);
+    }
+    pub fn ReservedZ41(&self) -> super::UINT64 {
+        (self._bitfield >> 41) & 1
+    }
+    pub fn set_ReservedZ41(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value & 1) << 41);
+    }
+    pub fn ReservedZ42(&self) -> super::UINT64 {
+        (self._bitfield >> 42) & 1
+    }
+    pub fn set_ReservedZ42(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value & 1) << 42);
+    }
+    pub fn ReservedZ43(&self) -> super::UINT64 {
+        (self._bitfield >> 43) & 1
+    }
+    pub fn set_ReservedZ43(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value & 1) << 43);
+    }
+    pub fn ReservedZ44(&self) -> super::UINT64 {
+        (self._bitfield >> 44) & 1
+    }
+    pub fn set_ReservedZ44(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value & 1) << 44);
+    }
+    pub fn ReservedZ45(&self) -> super::UINT64 {
+        (self._bitfield >> 45) & 1
+    }
+    pub fn set_ReservedZ45(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value & 1) << 45);
+    }
+    pub fn ReservedZ46(&self) -> super::UINT64 {
+        (self._bitfield >> 46) & 1
+    }
+    pub fn set_ReservedZ46(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value & 1) << 46);
+    }
+    pub fn Reserved(&self) -> super::UINT64 {
+        self._bitfield >> 47
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(131071 << 47)) | ((value & 131071) << 47);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
-    pub BanksCount: u32,
-    pub Reserved0: u32,
+    pub BanksCount: super::UINT32,
+    pub Reserved0: super::UINT32,
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3532,12 +4303,14 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0,
-    pub AsUINT64: [u64; 1],
+    pub AsUINT64: [super::UINT64; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3545,11 +4318,13 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_SYNTHETIC_PROCESSOR_FEATURES,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3560,97 +4335,188 @@ pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 1;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_RESERVED_BITFIELD_COUNT: i32 = 17;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_TRANSLATE_GVA_2_FLAGS {
     pub Anonymous: WHV_TRANSLATE_GVA_2_FLAGS_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRANSLATE_GVA_2_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_2_FLAGS_0 {
     pub _bitfield: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_TRANSLATE_GVA_2_FLAGS_0 {
-    pub fn ValidateRead(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ValidateRead(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_ValidateRead(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_ValidateRead(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ValidateWrite(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn ValidateWrite(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_ValidateWrite(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_ValidateWrite(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ValidateExecute(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn ValidateExecute(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_ValidateExecute(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_ValidateExecute(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn PrivilegeExempt(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn PrivilegeExempt(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_PrivilegeExempt(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_PrivilegeExempt(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SetPageTableBits(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SetPageTableBits(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SetPageTableBits(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_SetPageTableBits(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Reserved1(&self) -> u64 {
-        (self._bitfield << 56) >> 61
+    pub fn Reserved1(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 7
     }
-    pub fn set_Reserved1(&mut self, value: u64) {
+    pub fn set_Reserved1(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
-    pub fn EnforceSmap(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn EnforceSmap(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_EnforceSmap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    pub fn set_EnforceSmap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn OverrideSmap(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn OverrideSmap(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_OverrideSmap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    pub fn set_OverrideSmap(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn Reserved4(&self) -> u64 {
-        (self._bitfield << 8) >> 18
+    pub fn Reserved4(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 70368744177663
     }
-    pub fn set_Reserved4(&mut self, value: u64) {
+    pub fn set_Reserved4(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(70368744177663 << 10)) | ((value & 70368744177663) << 10);
     }
-    pub fn InputVtl(&self) -> u64 {
+    pub fn InputVtl(&self) -> super::UINT64 {
         self._bitfield >> 56
     }
-    pub fn set_InputVtl(&mut self, value: u64) {
+    pub fn set_InputVtl(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(255 << 56)) | ((value & 255) << 56);
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_TRANSLATE_GVA_2_FLAGS {
+    pub Anonymous: WHV_TRANSLATE_GVA_2_FLAGS_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_TRANSLATE_GVA_2_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_TRANSLATE_GVA_2_FLAGS_0 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl WHV_TRANSLATE_GVA_2_FLAGS_0 {
+    pub fn ValidateRead(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_ValidateRead(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn ValidateWrite(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_ValidateWrite(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn ValidateExecute(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_ValidateExecute(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn Reserved0(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_Reserved0(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn SetPageTableBits(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_SetPageTableBits(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn Reserved1(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 7
+    }
+    pub fn set_Reserved1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn Reserved2(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
+    }
+    pub fn set_Reserved2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
+    }
+    pub fn Reserved3(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
+    }
+    pub fn set_Reserved3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
+    }
+    pub fn Reserved4(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 70368744177663
+    }
+    pub fn set_Reserved4(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(70368744177663 << 10)) | ((value & 70368744177663) << 10);
+    }
+    pub fn InputVtl(&self) -> super::UINT64 {
+        self._bitfield >> 56
+    }
+    pub fn set_InputVtl(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(255 << 56)) | ((value & 255) << 56);
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_TRANSLATE_GVA_FLAGS = u32;
+pub type WHV_TRANSLATE_GVA_FLAGS = i32;
 #[cfg(target_arch = "aarch64")]
-pub type WHV_TRANSLATE_GVA_FLAGS = u32;
+pub type WHV_TRANSLATE_GVA_FLAGS = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_RESULT {
     pub ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_TRANSLATE_GVA_RESULT_CODE = i32;
@@ -3658,13 +4524,15 @@ pub type WHV_TRANSLATE_GVA_RESULT_CODE = i32;
 pub type WHV_TRIGGER_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_TRIGGER_PARAMETERS {
     pub TriggerType: WHV_TRIGGER_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_TRIGGER_PARAMETERS_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3672,6 +4540,7 @@ impl Default for WHV_TRIGGER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_TRIGGER_PARAMETERS_0 {
     pub Interrupt: WHV_INTERRUPT_CONTROL,
@@ -3679,6 +4548,7 @@ pub union WHV_TRIGGER_PARAMETERS_0 {
     pub DeviceInterrupt: WHV_TRIGGER_PARAMETERS_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3686,22 +4556,25 @@ impl Default for WHV_TRIGGER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
-    pub LogicalDeviceId: u64,
-    pub MsiAddress: u64,
-    pub MsiData: u32,
-    pub Reserved: u32,
+    pub LogicalDeviceId: super::UINT64,
+    pub MsiAddress: super::UINT64,
+    pub MsiData: super::UINT32,
+    pub Reserved: super::UINT32,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_TRIGGER_PARAMETERS {
     pub TriggerType: WHV_TRIGGER_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_TRIGGER_PARAMETERS_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3709,12 +4582,14 @@ impl Default for WHV_TRIGGER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_TRIGGER_PARAMETERS_0 {
     pub SynicEvent: WHV_SYNIC_EVENT_PARAMETERS,
     pub DeviceInterrupt: WHV_TRIGGER_PARAMETERS_0_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3722,12 +4597,13 @@ impl Default for WHV_TRIGGER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
-    pub LogicalDeviceId: u64,
-    pub MsiAddress: u64,
-    pub MsiData: u32,
-    pub Reserved: u32,
+    pub LogicalDeviceId: super::UINT64,
+    pub MsiAddress: super::UINT64,
+    pub MsiData: super::UINT32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_TRIGGER_TYPE = i32;
@@ -3735,12 +4611,14 @@ pub type WHV_TRIGGER_TYPE = i32;
 pub type WHV_TRIGGER_TYPE = i32;
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_UINT128 {
     pub Anonymous: WHV_UINT128_0,
-    pub Dword: [u32; 4],
+    pub Dword: [super::UINT32; 4],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_UINT128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3748,18 +4626,21 @@ impl Default for WHV_UINT128 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_UINT128_0 {
-    pub Low64: u64,
-    pub High64: u64,
+    pub Low64: super::UINT64,
+    pub High64: super::UINT64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_UNRECOVERABLE_EXCEPTION_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_UNRECOVERABLE_EXCEPTION_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3767,13 +4648,15 @@ impl Default for WHV_UNRECOVERABLE_EXCEPTION_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY {
     pub PropertyCode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_VIRTUAL_PROCESSOR_PROPERTY_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3781,12 +4664,14 @@ impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
-    pub NumaNode: u16,
-    pub Padding: u64,
+    pub NumaNode: super::USHORT,
+    pub Padding: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3804,13 +4689,15 @@ pub const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_ANY_VP: u32 = 1073741824;
 pub const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_PFN: u32 = 2147483648;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION {
     pub NotificationType: WHV_VPCI_DEVICE_NOTIFICATION_TYPE,
-    pub Reserved1: u32,
+    pub Reserved1: super::UINT32,
     pub Anonymous: WHV_VPCI_DEVICE_NOTIFICATION_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_DEVICE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3818,11 +4705,13 @@ impl Default for WHV_VPCI_DEVICE_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VPCI_DEVICE_NOTIFICATION_0 {
-    pub Reserved2: u64,
+    pub Reserved2: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3834,63 +4723,70 @@ pub type WHV_VPCI_DEVICE_NOTIFICATION_TYPE = i32;
 pub type WHV_VPCI_DEVICE_PROPERTY_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_DEVICE_REGISTER {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
-    pub SizeInBytes: u32,
-    pub OffsetInBytes: u64,
+    pub SizeInBytes: super::UINT32,
+    pub OffsetInBytes: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_VPCI_DEVICE_REGISTER_SPACE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_HARDWARE_IDS {
-    pub VendorID: u16,
-    pub DeviceID: u16,
-    pub RevisionID: u8,
-    pub ProgIf: u8,
-    pub SubClass: u8,
-    pub BaseClass: u8,
-    pub SubVendorID: u16,
-    pub SubSystemID: u16,
+    pub VendorID: super::UINT16,
+    pub DeviceID: super::UINT16,
+    pub RevisionID: super::UINT8,
+    pub ProgIf: super::UINT8,
+    pub SubClass: super::UINT8,
+    pub BaseClass: super::UINT8,
+    pub SubVendorID: super::UINT16,
+    pub SubSystemID: super::UINT16,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_INTERRUPT_TARGET {
-    pub Vector: u32,
+    pub Vector: super::UINT32,
     pub Flags: WHV_VPCI_INTERRUPT_TARGET_FLAGS,
-    pub ProcessorCount: u32,
-    pub Processors: [u32; 1],
+    pub ProcessorCount: super::UINT32,
+    pub Processors: [super::UINT32; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_INTERRUPT_TARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_VPCI_INTERRUPT_TARGET_FLAGS = u32;
+pub type WHV_VPCI_INTERRUPT_TARGET_FLAGS = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_MMIO_MAPPING {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub Flags: WHV_VPCI_MMIO_RANGE_FLAGS,
-    pub SizeInBytes: u64,
-    pub OffsetInBytes: u64,
-    pub VirtualAddress: *mut core::ffi::c_void,
+    pub SizeInBytes: super::UINT64,
+    pub OffsetInBytes: super::UINT64,
+    pub VirtualAddress: super::PVOID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_VPCI_MMIO_RANGE_FLAGS = u32;
+pub type WHV_VPCI_MMIO_RANGE_FLAGS = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_PROBED_BARS {
-    pub Value: [u32; 6],
+    pub Value: [super::UINT32; 6],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_PROBED_BARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3900,18 +4796,20 @@ impl Default for WHV_VPCI_PROBED_BARS {
 pub const WHV_VPCI_TYPE0_BAR_COUNT: i32 = 6;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VP_EXCEPTION_CONTEXT {
-    pub InstructionByteCount: u8,
-    pub Reserved: [u8; 3],
-    pub InstructionBytes: [u8; 16],
+    pub InstructionByteCount: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub InstructionBytes: [super::UINT8; 16],
     pub ExceptionInfo: WHV_VP_EXCEPTION_INFO,
-    pub ExceptionType: u8,
-    pub Reserved2: [u8; 3],
-    pub ErrorCode: u32,
-    pub ExceptionParameter: u64,
+    pub ExceptionType: super::UINT8,
+    pub Reserved2: [super::UINT8; 3],
+    pub ErrorCode: super::UINT32,
+    pub ExceptionParameter: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VP_EXCEPTION_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3919,12 +4817,14 @@ impl Default for WHV_VP_EXCEPTION_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VP_EXCEPTION_INFO {
     pub Anonymous: WHV_VP_EXCEPTION_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VP_EXCEPTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3932,39 +4832,43 @@ impl Default for WHV_VP_EXCEPTION_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VP_EXCEPTION_INFO_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_VP_EXCEPTION_INFO_0 {
-    pub fn ErrorCodeValid(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ErrorCodeValid(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_ErrorCodeValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_ErrorCodeValid(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn SoftwareException(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn SoftwareException(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_SoftwareException(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_SoftwareException(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VP_EXECUTION_STATE {
-    pub AsUINT16: u16,
+    pub AsUINT16: super::UINT16,
     pub Anonymous: WHV_VP_EXECUTION_STATE_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_VP_EXECUTION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3972,94 +4876,68 @@ impl Default for WHV_VP_EXECUTION_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl WHV_VP_EXECUTION_STATE_0 {
-    pub fn Cpl(&self) -> u16 {
-        (self._bitfield << 14) >> 14
+    pub fn Cpl(&self) -> super::UINT16 {
+        (self._bitfield) & 3
     }
-    pub fn set_Cpl(&mut self, value: u16) {
+    pub fn set_Cpl(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn DebugActive(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn DebugActive(&self) -> super::UINT16 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_DebugActive(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    pub fn set_DebugActive(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn InterruptionPending(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn InterruptionPending(&self) -> super::UINT16 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_InterruptionPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    pub fn set_InterruptionPending(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Vtl(&self) -> u16 {
-        (self._bitfield << 8) >> 12
+    pub fn Vtl(&self) -> super::UINT16 {
+        (self._bitfield >> 4) & 15
     }
-    pub fn set_Vtl(&mut self, value: u16) {
+    pub fn set_Vtl(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
-    pub fn VirtualizationFaultActive(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn VirtualizationFaultActive(&self) -> super::UINT16 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_VirtualizationFaultActive(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    pub fn set_VirtualizationFaultActive(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn Reserved(&self) -> u16 {
+    pub fn Reserved(&self) -> super::UINT16 {
         self._bitfield >> 9
     }
-    pub fn set_Reserved(&mut self, value: u16) {
+    pub fn set_Reserved(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(127 << 9)) | ((value & 127) << 9);
     }
 }
-#[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct WHV_VP_EXIT_CONTEXT {
-    pub ExecutionState: WHV_X64_VP_EXECUTION_STATE,
-    pub _bitfield: u8,
-    pub Reserved: u8,
-    pub Reserved2: u32,
-    pub Cs: WHV_X64_SEGMENT_REGISTER,
-    pub Rip: u64,
-    pub Rflags: u64,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl WHV_VP_EXIT_CONTEXT {
-    pub fn InstructionLength(&self) -> u8 {
-        (self._bitfield << 4) >> 4
-    }
-    pub fn set_InstructionLength(&mut self, value: u8) {
-        self._bitfield = (self._bitfield & !15) | (value & 15);
-    }
-    pub fn Cr8(&self) -> u8 {
-        self._bitfield >> 4
-    }
-    pub fn set_Cr8(&mut self, value: u8) {
-        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_VP_EXIT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type WHV_VP_EXIT_CONTEXT = WHV_X64_VP_EXIT_CONTEXT;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_VTL = u8;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_VTL_ALL: i32 = 15;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VTL_PERMISSION_SET {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_VTL_PERMISSION_SET_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VTL_PERMISSION_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4067,11 +4945,13 @@ impl Default for WHV_VTL_PERMISSION_SET {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VTL_PERMISSION_SET_0 {
-    pub VtlPermissionFrom1: [u16; 2],
+    pub VtlPermissionFrom1: [super::UINT16; 2],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VTL_PERMISSION_SET_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4079,57 +4959,64 @@ impl Default for WHV_VTL_PERMISSION_SET_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_EOI_CONTEXT {
-    pub InterruptVector: u32,
+    pub InterruptVector: super::UINT32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_INIT_SIPI_CONTEXT {
-    pub ApicIcr: u64,
+    pub ApicIcr: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_SMI_CONTEXT {
-    pub ApicIcr: u64,
+    pub ApicIcr: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_WRITE_CONTEXT {
     pub Type: WHV_X64_APIC_WRITE_TYPE,
-    pub Reserved: u32,
-    pub WriteValue: u64,
+    pub Reserved: super::UINT32,
+    pub WriteValue: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_APIC_WRITE_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
-    pub Rax: u64,
-    pub Rcx: u64,
-    pub Rdx: u64,
-    pub Rbx: u64,
-    pub DefaultResultRax: u64,
-    pub DefaultResultRcx: u64,
-    pub DefaultResultRdx: u64,
-    pub DefaultResultRbx: u64,
+    pub Rax: super::UINT64,
+    pub Rcx: super::UINT64,
+    pub Rdx: super::UINT64,
+    pub Rbx: super::UINT64,
+    pub DefaultResultRax: super::UINT64,
+    pub DefaultResultRcx: super::UINT64,
+    pub DefaultResultRdx: super::UINT64,
+    pub DefaultResultRbx: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_RESULT {
-    pub Function: u32,
-    pub Reserved: [u32; 3],
-    pub Eax: u32,
-    pub Ebx: u32,
-    pub Ecx: u32,
-    pub Edx: u32,
+    pub Function: super::UINT32,
+    pub Reserved: [super::UINT32; 3],
+    pub Eax: super::UINT32,
+    pub Ebx: super::UINT32,
+    pub Ecx: super::UINT32,
+    pub Edx: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_CPUID_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4137,77 +5024,31 @@ impl Default for WHV_X64_CPUID_RESULT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_RESULT2 {
-    pub Function: u32,
-    pub Index: u32,
-    pub VpIndex: u32,
+    pub Function: super::UINT32,
+    pub Index: super::UINT32,
+    pub VpIndex: super::UINT32,
     pub Flags: WHV_X64_CPUID_RESULT2_FLAGS,
     pub Output: WHV_CPUID_OUTPUT,
     pub Mask: WHV_CPUID_OUTPUT,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_X64_CPUID_RESULT2_FLAGS = u32;
-#[repr(C)]
+pub type WHV_X64_CPUID_RESULT2_FLAGS = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    pub Anonymous: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
-    pub AsUINT64: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    pub _bitfield: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    pub fn NmiNotification(&self) -> bool {
-        self._bitfield & 1 != 0
-    }
-    pub fn set_NmiNotification(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
-    }
-    pub fn InterruptNotification(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
-    }
-    pub fn set_InterruptNotification(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
-    }
-    pub fn InterruptPriority(&self) -> u64 {
-        (self._bitfield << 58) >> 60
-    }
-    pub fn set_InterruptPriority(&mut self, value: u64) {
-        self._bitfield = (self._bitfield & !(15 << 2)) | ((value & 15) << 2);
-    }
-    pub fn Reserved(&self) -> u64 {
-        (self._bitfield << 16) >> 22
-    }
-    pub fn set_Reserved(&mut self, value: u64) {
-        self._bitfield = (self._bitfield & !(4398046511103 << 6)) | ((value & 4398046511103) << 6);
-    }
-    pub fn Sint(&self) -> u64 {
-        self._bitfield >> 48
-    }
-    pub fn set_Sint(&mut self, value: u64) {
-        self._bitfield = (self._bitfield & !(65535 << 48)) | ((value & 65535) << 48);
-    }
-}
+#[cfg(feature = "shared")]
+pub type WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER = WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4215,16 +5056,18 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
-    pub FpControl: u16,
-    pub FpStatus: u16,
-    pub FpTag: u8,
-    pub Reserved: u8,
-    pub LastFpOp: u16,
+    pub FpControl: super::UINT16,
+    pub FpStatus: super::UINT16,
+    pub FpTag: super::UINT8,
+    pub Reserved: super::UINT8,
+    pub LastFpOp: super::UINT16,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4232,12 +5075,14 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
-    pub LastFpRip: u64,
+    pub LastFpRip: super::UINT64,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4245,20 +5090,23 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
-    pub LastFpEip: u32,
-    pub LastFpCs: u16,
-    pub Reserved2: u16,
+    pub LastFpEip: super::UINT32,
+    pub LastFpCs: super::UINT16,
+    pub Reserved2: super::UINT16,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_FP_REGISTER {
     pub Anonymous: WHV_X64_FP_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4266,30 +5114,55 @@ impl Default for WHV_X64_FP_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_FP_REGISTER_0 {
-    pub Mantissa: u64,
+    pub Mantissa: super::UINT64,
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_FP_REGISTER_0 {
-    pub fn BiasedExponent(&self) -> u64 {
-        (self._bitfield << 49) >> 49
+    pub fn BiasedExponent(&self) -> super::UINT64 {
+        (self._bitfield) & 32767
     }
-    pub fn set_BiasedExponent(&mut self, value: u64) {
+    pub fn set_BiasedExponent(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !32767) | (value & 32767);
     }
-    pub fn Sign(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn Sign(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
     }
-    pub fn set_Sign(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    pub fn set_Sign(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 16
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct WHV_X64_HYPERCALL_CONTEXT {
+    pub Rax: super::UINT64,
+    pub Rbx: super::UINT64,
+    pub Rcx: super::UINT64,
+    pub Rdx: super::UINT64,
+    pub R8: super::UINT64,
+    pub Rsi: super::UINT64,
+    pub Rdi: super::UINT64,
+    pub Reserved0: super::UINT64,
+    pub XmmRegisters: [WHV_UINT128; 6],
+    pub Reserved1: [super::UINT64; 2],
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_HYPERCALL_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4300,12 +5173,14 @@ pub struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_INTERRUPT_STATE_REGISTER {
     pub Anonymous: WHV_X64_INTERRUPT_STATE_REGISTER_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4313,49 +5188,53 @@ impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_INTERRUPT_STATE_REGISTER_0 {
-    pub fn InterruptShadow(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn InterruptShadow(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_InterruptShadow(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_InterruptShadow(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn NmiMasked(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn NmiMasked(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_NmiMasked(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_NmiMasked(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(4611686018427387903 << 2)) | ((value & 4611686018427387903) << 2);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT {
-    pub InstructionByteCount: u8,
-    pub Reserved: [u8; 3],
-    pub InstructionBytes: [u8; 16],
+    pub InstructionByteCount: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub InstructionBytes: [super::UINT8; 16],
     pub AccessInfo: WHV_X64_IO_PORT_ACCESS_INFO,
-    pub PortNumber: u16,
-    pub Reserved2: [u16; 3],
-    pub Rax: u64,
-    pub Rcx: u64,
-    pub Rsi: u64,
-    pub Rdi: u64,
+    pub PortNumber: super::UINT16,
+    pub Reserved2: [super::UINT16; 3],
+    pub Rax: super::UINT64,
+    pub Rcx: super::UINT64,
+    pub Rsi: super::UINT64,
+    pub Rdi: super::UINT64,
     pub Ds: WHV_X64_SEGMENT_REGISTER,
     pub Es: WHV_X64_SEGMENT_REGISTER,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4363,12 +5242,14 @@ impl Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_IO_PORT_ACCESS_INFO {
     pub Anonymous: WHV_X64_IO_PORT_ACCESS_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_IO_PORT_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4376,40 +5257,42 @@ impl Default for WHV_X64_IO_PORT_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_IO_PORT_ACCESS_INFO_0 {
-    pub fn IsWrite(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsWrite(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_IsWrite(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_IsWrite(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AccessSize(&self) -> u32 {
-        (self._bitfield << 28) >> 29
+    pub fn AccessSize(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 7
     }
-    pub fn set_AccessSize(&mut self, value: u32) {
+    pub fn set_AccessSize(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
     }
-    pub fn StringOp(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn StringOp(&self) -> super::UINT32 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_StringOp(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_StringOp(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn RepPrefix(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn RepPrefix(&self) -> super::UINT32 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_RepPrefix(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_RepPrefix(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
     }
 }
@@ -4417,14 +5300,16 @@ impl WHV_X64_IO_PORT_ACCESS_INFO_0 {
 pub type WHV_X64_LOCAL_APIC_EMULATION_MODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_MSR_ACCESS_CONTEXT {
     pub AccessInfo: WHV_X64_MSR_ACCESS_INFO,
-    pub MsrNumber: u32,
-    pub Rax: u64,
-    pub Rdx: u64,
+    pub MsrNumber: super::UINT32,
+    pub Rax: super::UINT64,
+    pub Rdx: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_MSR_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4432,12 +5317,14 @@ impl Default for WHV_X64_MSR_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_MSR_ACCESS_INFO {
     pub Anonymous: WHV_X64_MSR_ACCESS_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_MSR_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4445,33 +5332,37 @@ impl Default for WHV_X64_MSR_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_MSR_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_MSR_ACCESS_INFO_0 {
-    pub fn IsWrite(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsWrite(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_IsWrite(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_IsWrite(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_MSR_EXIT_BITMAP {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_X64_MSR_EXIT_BITMAP_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_MSR_EXIT_BITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4479,63 +5370,67 @@ impl Default for WHV_X64_MSR_EXIT_BITMAP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_MSR_EXIT_BITMAP_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_MSR_EXIT_BITMAP_0 {
-    pub fn UnhandledMsrs(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn UnhandledMsrs(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_UnhandledMsrs(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_UnhandledMsrs(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn TscMsrWrite(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn TscMsrWrite(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_TscMsrWrite(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_TscMsrWrite(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn TscMsrRead(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn TscMsrRead(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_TscMsrRead(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_TscMsrRead(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn ApicBaseMsrWrite(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn ApicBaseMsrWrite(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_ApicBaseMsrWrite(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_ApicBaseMsrWrite(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn MiscEnableMsrRead(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn MiscEnableMsrRead(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_MiscEnableMsrRead(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_MiscEnableMsrRead(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn McUpdatePatchLevelMsrRead(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn McUpdatePatchLevelMsrRead(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_McUpdatePatchLevelMsrRead(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    pub fn set_McUpdatePatchLevelMsrRead(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(288230376151711743 << 6)) | ((value & 288230376151711743) << 6);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_GUEST_STATE {
     pub Anonymous: WHV_X64_NESTED_GUEST_STATE_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_GUEST_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4543,46 +5438,50 @@ impl Default for WHV_X64_NESTED_GUEST_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_NESTED_GUEST_STATE_0 {
     pub _bitfield: u64,
-    pub Reserved1: u64,
+    pub Reserved1: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_NESTED_GUEST_STATE_0 {
-    pub fn NestedVirtActive(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn NestedVirtActive(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_NestedVirtActive(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_NestedVirtActive(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn NestedGuestMode(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn NestedGuestMode(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_NestedGuestMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_NestedGuestMode(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn VmEntryPending(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn VmEntryPending(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_VmEntryPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_VmEntryPending(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved0(&self) -> u64 {
+    pub fn Reserved0(&self) -> super::UINT64 {
         self._bitfield >> 3
     }
-    pub fn set_Reserved0(&mut self, value: u64) {
+    pub fn set_Reserved0(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(2305843009213693951 << 3)) | ((value & 2305843009213693951) << 3);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_INVEPT_REGISTER {
     pub Anonymous: WHV_X64_NESTED_INVEPT_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVEPT_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4590,13 +5489,15 @@ impl Default for WHV_X64_NESTED_INVEPT_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_NESTED_INVEPT_REGISTER_0 {
-    pub Type: u8,
-    pub Reserved: [u8; 7],
-    pub Eptp: u64,
+    pub Type: super::UINT8,
+    pub Reserved: [super::UINT8; 7],
+    pub Eptp: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVEPT_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4604,12 +5505,14 @@ impl Default for WHV_X64_NESTED_INVEPT_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_INVVPID_REGISTER {
     pub Anonymous: WHV_X64_NESTED_INVVPID_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVVPID_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4617,14 +5520,16 @@ impl Default for WHV_X64_NESTED_INVVPID_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_NESTED_INVVPID_REGISTER_0 {
-    pub Type: u8,
-    pub Reserved: [u8; 3],
-    pub Vpid: u32,
-    pub LinearAddress: u64,
+    pub Type: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub Vpid: super::UINT32,
+    pub LinearAddress: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVVPID_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4632,12 +5537,14 @@ impl Default for WHV_X64_NESTED_INVVPID_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_STATE {
     pub Vmx: WHV_X64_VMX_NESTED_STATE,
     pub Svm: WHV_X64_SVM_NESTED_STATE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4645,12 +5552,14 @@ impl Default for WHV_X64_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_DEBUG_EXCEPTION {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_X64_PENDING_DEBUG_EXCEPTION_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4658,46 +5567,48 @@ impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
-    pub fn Breakpoint0(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Breakpoint0(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_Breakpoint0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_Breakpoint0(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Breakpoint1(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Breakpoint1(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Breakpoint1(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_Breakpoint1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Breakpoint2(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Breakpoint2(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Breakpoint2(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_Breakpoint2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Breakpoint3(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn Breakpoint3(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_Breakpoint3(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_Breakpoint3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SingleStep(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SingleStep(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SingleStep(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_SingleStep(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Reserved0(&self) -> u64 {
+    pub fn Reserved0(&self) -> super::UINT64 {
         self._bitfield >> 5
     }
-    pub fn set_Reserved0(&mut self, value: u64) {
+    pub fn set_Reserved0(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(576460752303423487 << 5)) | ((value & 576460752303423487) << 5);
     }
 }
@@ -4705,12 +5616,14 @@ impl WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
 pub type WHV_X64_PENDING_EVENT_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_EXCEPTION_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXCEPTION_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_EXCEPTION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4718,59 +5631,63 @@ impl Default for WHV_X64_PENDING_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u32,
-    pub ErrorCode: u32,
-    pub ExceptionParameter: u64,
+    pub ErrorCode: super::UINT32,
+    pub ExceptionParameter: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_PENDING_EXCEPTION_EVENT_0 {
-    pub fn EventPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EventPending(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_EventPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EventPending(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EventType(&self) -> u32 {
-        (self._bitfield << 28) >> 29
+    pub fn EventType(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 7
     }
-    pub fn set_EventType(&mut self, value: u32) {
+    pub fn set_EventType(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
     }
-    pub fn Reserved0(&self) -> u32 {
-        (self._bitfield << 24) >> 28
+    pub fn Reserved0(&self) -> super::UINT32 {
+        (self._bitfield >> 4) & 15
     }
-    pub fn set_Reserved0(&mut self, value: u32) {
+    pub fn set_Reserved0(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
-    pub fn DeliverErrorCode(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn DeliverErrorCode(&self) -> super::UINT32 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_DeliverErrorCode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_DeliverErrorCode(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn Reserved1(&self) -> u32 {
-        (self._bitfield << 16) >> 25
+    pub fn Reserved1(&self) -> super::UINT32 {
+        (self._bitfield >> 9) & 127
     }
-    pub fn set_Reserved1(&mut self, value: u32) {
+    pub fn set_Reserved1(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(127 << 9)) | ((value & 127) << 9);
     }
-    pub fn Vector(&self) -> u32 {
+    pub fn Vector(&self) -> super::UINT32 {
         self._bitfield >> 16
     }
-    pub fn set_Vector(&mut self, value: u32) {
+    pub fn set_Vector(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_EXT_INT_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXT_INT_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4778,52 +5695,56 @@ impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_EXT_INT_EVENT_0 {
     pub _bitfield: u64,
-    pub Reserved2: u64,
+    pub Reserved2: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_PENDING_EXT_INT_EVENT_0 {
-    pub fn EventPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EventPending(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_EventPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_EventPending(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EventType(&self) -> u64 {
-        (self._bitfield << 60) >> 61
+    pub fn EventType(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 7
     }
-    pub fn set_EventType(&mut self, value: u64) {
+    pub fn set_EventType(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
     }
-    pub fn Reserved0(&self) -> u64 {
-        (self._bitfield << 56) >> 60
+    pub fn Reserved0(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 15
     }
-    pub fn set_Reserved0(&mut self, value: u64) {
+    pub fn set_Reserved0(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
-    pub fn Vector(&self) -> u64 {
-        (self._bitfield << 48) >> 56
+    pub fn Vector(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 255
     }
-    pub fn set_Vector(&mut self, value: u64) {
+    pub fn set_Vector(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
     }
-    pub fn Reserved1(&self) -> u64 {
+    pub fn Reserved1(&self) -> super::UINT64 {
         self._bitfield >> 16
     }
-    pub fn set_Reserved1(&mut self, value: u64) {
+    pub fn set_Reserved1(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_INTERRUPTION_REGISTER {
     pub Anonymous: WHV_X64_PENDING_INTERRUPTION_REGISTER_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4831,53 +5752,55 @@ impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub _bitfield: u32,
-    pub ErrorCode: u32,
+    pub ErrorCode: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
-    pub fn InterruptionPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn InterruptionPending(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_InterruptionPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_InterruptionPending(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn InterruptionType(&self) -> u32 {
-        (self._bitfield << 28) >> 29
+    pub fn InterruptionType(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 7
     }
-    pub fn set_InterruptionType(&mut self, value: u32) {
+    pub fn set_InterruptionType(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
     }
-    pub fn DeliverErrorCode(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn DeliverErrorCode(&self) -> super::UINT32 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_DeliverErrorCode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_DeliverErrorCode(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn InstructionLength(&self) -> u32 {
-        (self._bitfield << 23) >> 28
+    pub fn InstructionLength(&self) -> super::UINT32 {
+        (self._bitfield >> 5) & 15
     }
-    pub fn set_InstructionLength(&mut self, value: u32) {
+    pub fn set_InstructionLength(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(15 << 5)) | ((value & 15) << 5);
     }
-    pub fn NestedEvent(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn NestedEvent(&self) -> super::UINT32 {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_NestedEvent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_NestedEvent(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn Reserved(&self) -> u32 {
-        (self._bitfield << 16) >> 26
+    pub fn Reserved(&self) -> super::UINT32 {
+        (self._bitfield >> 10) & 63
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(63 << 10)) | ((value & 63) << 10);
     }
-    pub fn InterruptionVector(&self) -> u32 {
+    pub fn InterruptionVector(&self) -> super::UINT32 {
         self._bitfield >> 16
     }
-    pub fn set_InterruptionVector(&mut self, value: u32) {
+    pub fn set_InterruptionVector(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
     }
 }
@@ -4885,12 +5808,14 @@ impl WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
 pub type WHV_X64_PENDING_INTERRUPTION_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4898,52 +5823,56 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u64,
-    pub ExitCode: u64,
+    pub ExitCode: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0 {
-    pub fn EventPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EventPending(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_EventPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_EventPending(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EventType(&self) -> u64 {
-        (self._bitfield << 59) >> 60
+    pub fn EventType(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 15
     }
-    pub fn set_EventType(&mut self, value: u64) {
+    pub fn set_EventType(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(15 << 1)) | ((value & 15) << 1);
     }
-    pub fn Reserved0(&self) -> u64 {
-        (self._bitfield << 56) >> 61
+    pub fn Reserved0(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 7
     }
-    pub fn set_Reserved0(&mut self, value: u64) {
+    pub fn set_Reserved0(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
-    pub fn InstructionBytesValid(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn InstructionBytesValid(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_InstructionBytesValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    pub fn set_InstructionBytesValid(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn Reserved1(&self) -> u64 {
+    pub fn Reserved1(&self) -> super::UINT64 {
         self._bitfield >> 9
     }
-    pub fn set_Reserved1(&mut self, value: u64) {
+    pub fn set_Reserved1(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(36028797018963967 << 9)) | ((value & 36028797018963967) << 9);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4951,19 +5880,22 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1_0 {
-    pub ExitInfo1: u64,
-    pub ExitInfo2: u64,
+    pub ExitInfo1: super::UINT64,
+    pub ExitInfo2: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4971,13 +5903,15 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0 {
-    pub NextRip: u64,
-    pub InstructionBytesFetchedCount: u8,
-    pub InstructionBytes: [u8; 7],
+    pub NextRip: super::UINT64,
+    pub InstructionBytesFetchedCount: super::UINT8,
+    pub InstructionBytes: [super::UINT8; 7],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4985,12 +5919,14 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4998,12 +5934,14 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0 {
-    pub InstructionBytes: [u8; 8],
-    pub Reserved2: u64,
+    pub InstructionBytes: [super::UINT8; 8],
+    pub Reserved2: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5011,12 +5949,14 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5024,41 +5964,45 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u32,
-    pub ExitReason: u32,
-    pub ExitQualification: u64,
+    pub ExitReason: super::UINT32,
+    pub ExitQualification: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0 {
-    pub fn EventPending(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EventPending(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_EventPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EventPending(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EventType(&self) -> u32 {
-        (self._bitfield << 27) >> 28
+    pub fn EventType(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 15
     }
-    pub fn set_EventType(&mut self, value: u32) {
+    pub fn set_EventType(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(15 << 1)) | ((value & 15) << 1);
     }
-    pub fn Reserved0(&self) -> u32 {
+    pub fn Reserved0(&self) -> super::UINT32 {
         self._bitfield >> 5
     }
-    pub fn set_Reserved0(&mut self, value: u32) {
+    pub fn set_Reserved0(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5066,21 +6010,24 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1_0 {
-    pub InstructionLength: u32,
-    pub InstructionInfo: u32,
-    pub ExitInterruptionInfo: u32,
-    pub ExitExceptionErrorCode: u32,
+    pub InstructionLength: super::UINT32,
+    pub InstructionInfo: super::UINT32,
+    pub ExitInterruptionInfo: super::UINT32,
+    pub ExitExceptionErrorCode: super::UINT32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5088,19 +6035,22 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2_0 {
-    pub GuestLinearAddress: u64,
-    pub GuestPhysicalAddress: u64,
+    pub GuestLinearAddress: super::UINT64,
+    pub GuestPhysicalAddress: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5108,21 +6058,838 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3_0 {
-    pub MsrData: u64,
+    pub MsrData: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_X64_PROCESSOR_FEATURES {
+    pub Anonymous: WHV_X64_PROCESSOR_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl WHV_X64_PROCESSOR_FEATURES_0 {
+    pub fn Sse3Support(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_Sse3Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn LahfSahfSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_LahfSahfSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn Ssse3Support(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_Ssse3Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn Sse4_1Support(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_Sse4_1Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn Sse4_2Support(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_Sse4_2Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn Sse4aSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_Sse4aSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn XopSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
+    }
+    pub fn set_XopSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
+    }
+    pub fn PopCntSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
+    }
+    pub fn set_PopCntSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
+    }
+    pub fn Cmpxchg16bSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
+    }
+    pub fn set_Cmpxchg16bSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
+    }
+    pub fn Altmovcr8Support(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
+    }
+    pub fn set_Altmovcr8Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
+    }
+    pub fn LzcntSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_LzcntSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn MisAlignSseSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_MisAlignSseSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn MmxExtSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
+    }
+    pub fn set_MmxExtSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
+    }
+    pub fn Amd3DNowSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
+    }
+    pub fn set_Amd3DNowSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
+    }
+    pub fn ExtendedAmd3DNowSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
+    }
+    pub fn set_ExtendedAmd3DNowSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
+    }
+    pub fn Page1GbSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
+    }
+    pub fn set_Page1GbSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
+    }
+    pub fn AesSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 1
+    }
+    pub fn set_AesSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
+    }
+    pub fn PclmulqdqSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 17) & 1
+    }
+    pub fn set_PclmulqdqSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
+    }
+    pub fn PcidSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 18) & 1
+    }
+    pub fn set_PcidSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
+    }
+    pub fn Fma4Support(&self) -> super::UINT64 {
+        (self._bitfield >> 19) & 1
+    }
+    pub fn set_Fma4Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
+    }
+    pub fn F16CSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 20) & 1
+    }
+    pub fn set_F16CSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
+    }
+    pub fn RdRandSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 21) & 1
+    }
+    pub fn set_RdRandSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
+    }
+    pub fn RdWrFsGsSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 22) & 1
+    }
+    pub fn set_RdWrFsGsSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
+    }
+    pub fn SmepSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 23) & 1
+    }
+    pub fn set_SmepSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
+    }
+    pub fn EnhancedFastStringSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 24) & 1
+    }
+    pub fn set_EnhancedFastStringSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
+    }
+    pub fn Bmi1Support(&self) -> super::UINT64 {
+        (self._bitfield >> 25) & 1
+    }
+    pub fn set_Bmi1Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
+    }
+    pub fn Bmi2Support(&self) -> super::UINT64 {
+        (self._bitfield >> 26) & 1
+    }
+    pub fn set_Bmi2Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
+    }
+    pub fn Reserved1(&self) -> super::UINT64 {
+        (self._bitfield >> 27) & 3
+    }
+    pub fn set_Reserved1(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(3 << 27)) | ((value & 3) << 27);
+    }
+    pub fn MovbeSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 29) & 1
+    }
+    pub fn set_MovbeSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
+    }
+    pub fn Npiep1Support(&self) -> super::UINT64 {
+        (self._bitfield >> 30) & 1
+    }
+    pub fn set_Npiep1Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
+    }
+    pub fn DepX87FPUSaveSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 31) & 1
+    }
+    pub fn set_DepX87FPUSaveSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
+    }
+    pub fn RdSeedSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 32) & 1
+    }
+    pub fn set_RdSeedSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value & 1) << 32);
+    }
+    pub fn AdxSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 33) & 1
+    }
+    pub fn set_AdxSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value & 1) << 33);
+    }
+    pub fn IntelPrefetchSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 34) & 1
+    }
+    pub fn set_IntelPrefetchSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value & 1) << 34);
+    }
+    pub fn SmapSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 35) & 1
+    }
+    pub fn set_SmapSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value & 1) << 35);
+    }
+    pub fn HleSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 36) & 1
+    }
+    pub fn set_HleSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value & 1) << 36);
+    }
+    pub fn RtmSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 37) & 1
+    }
+    pub fn set_RtmSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value & 1) << 37);
+    }
+    pub fn RdtscpSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 38) & 1
+    }
+    pub fn set_RdtscpSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value & 1) << 38);
+    }
+    pub fn ClflushoptSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 39) & 1
+    }
+    pub fn set_ClflushoptSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value & 1) << 39);
+    }
+    pub fn ClwbSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 40) & 1
+    }
+    pub fn set_ClwbSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value & 1) << 40);
+    }
+    pub fn ShaSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 41) & 1
+    }
+    pub fn set_ShaSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value & 1) << 41);
+    }
+    pub fn X87PointersSavedSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 42) & 1
+    }
+    pub fn set_X87PointersSavedSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value & 1) << 42);
+    }
+    pub fn InvpcidSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 43) & 1
+    }
+    pub fn set_InvpcidSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value & 1) << 43);
+    }
+    pub fn IbrsSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 44) & 1
+    }
+    pub fn set_IbrsSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value & 1) << 44);
+    }
+    pub fn StibpSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 45) & 1
+    }
+    pub fn set_StibpSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value & 1) << 45);
+    }
+    pub fn IbpbSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 46) & 1
+    }
+    pub fn set_IbpbSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value & 1) << 46);
+    }
+    pub fn UnrestrictedGuestSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 47) & 1
+    }
+    pub fn set_UnrestrictedGuestSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 47)) | ((value & 1) << 47);
+    }
+    pub fn SsbdSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 48) & 1
+    }
+    pub fn set_SsbdSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 48)) | ((value & 1) << 48);
+    }
+    pub fn FastShortRepMovSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 49) & 1
+    }
+    pub fn set_FastShortRepMovSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 49)) | ((value & 1) << 49);
+    }
+    pub fn Reserved3(&self) -> super::UINT64 {
+        (self._bitfield >> 50) & 1
+    }
+    pub fn set_Reserved3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 50)) | ((value & 1) << 50);
+    }
+    pub fn RdclNo(&self) -> super::UINT64 {
+        (self._bitfield >> 51) & 1
+    }
+    pub fn set_RdclNo(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 51)) | ((value & 1) << 51);
+    }
+    pub fn IbrsAllSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 52) & 1
+    }
+    pub fn set_IbrsAllSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 52)) | ((value & 1) << 52);
+    }
+    pub fn Reserved4(&self) -> super::UINT64 {
+        (self._bitfield >> 53) & 1
+    }
+    pub fn set_Reserved4(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 53)) | ((value & 1) << 53);
+    }
+    pub fn SsbNo(&self) -> super::UINT64 {
+        (self._bitfield >> 54) & 1
+    }
+    pub fn set_SsbNo(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 54)) | ((value & 1) << 54);
+    }
+    pub fn RsbANo(&self) -> super::UINT64 {
+        (self._bitfield >> 55) & 1
+    }
+    pub fn set_RsbANo(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 55)) | ((value & 1) << 55);
+    }
+    pub fn Reserved5(&self) -> super::UINT64 {
+        (self._bitfield >> 56) & 1
+    }
+    pub fn set_Reserved5(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 56)) | ((value & 1) << 56);
+    }
+    pub fn RdPidSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 57) & 1
+    }
+    pub fn set_RdPidSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 57)) | ((value & 1) << 57);
+    }
+    pub fn UmipSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 58) & 1
+    }
+    pub fn set_UmipSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 58)) | ((value & 1) << 58);
+    }
+    pub fn MdsNoSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 59) & 1
+    }
+    pub fn set_MdsNoSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 59)) | ((value & 1) << 59);
+    }
+    pub fn MdClearSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 60) & 1
+    }
+    pub fn set_MdClearSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 60)) | ((value & 1) << 60);
+    }
+    pub fn TaaNoSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 61) & 1
+    }
+    pub fn set_TaaNoSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 61)) | ((value & 1) << 61);
+    }
+    pub fn TsxCtrlSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 62) & 1
+    }
+    pub fn set_TsxCtrlSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 62)) | ((value & 1) << 62);
+    }
+    pub fn Reserved6(&self) -> super::UINT64 {
+        self._bitfield >> 63
+    }
+    pub fn set_Reserved6(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 63)) | ((value & 1) << 63);
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_X64_PROCESSOR_FEATURES1 {
+    pub Anonymous: WHV_X64_PROCESSOR_FEATURES1_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_PROCESSOR_FEATURES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_PROCESSOR_FEATURES1_0 {
+    pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl WHV_X64_PROCESSOR_FEATURES1_0 {
+    pub fn ACountMCountSupport(&self) -> super::UINT64 {
+        (self._bitfield) & 1
+    }
+    pub fn set_ACountMCountSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn TscInvariantSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_TscInvariantSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn ClZeroSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_ClZeroSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn RdpruSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_RdpruSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn La57Support(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_La57Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn MbecSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_MbecSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn NestedVirtSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 6) & 1
+    }
+    pub fn set_NestedVirtSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
+    }
+    pub fn PsfdSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 7) & 1
+    }
+    pub fn set_PsfdSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
+    }
+    pub fn CetSsSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 8) & 1
+    }
+    pub fn set_CetSsSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
+    }
+    pub fn CetIbtSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 9) & 1
+    }
+    pub fn set_CetIbtSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
+    }
+    pub fn VmxExceptionInjectSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 10) & 1
+    }
+    pub fn set_VmxExceptionInjectSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
+    }
+    pub fn Reserved2(&self) -> super::UINT64 {
+        (self._bitfield >> 11) & 1
+    }
+    pub fn set_Reserved2(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
+    }
+    pub fn UmwaitTpauseSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 12) & 1
+    }
+    pub fn set_UmwaitTpauseSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
+    }
+    pub fn MovdiriSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 13) & 1
+    }
+    pub fn set_MovdiriSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
+    }
+    pub fn Movdir64bSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 14) & 1
+    }
+    pub fn set_Movdir64bSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
+    }
+    pub fn CldemoteSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 15) & 1
+    }
+    pub fn set_CldemoteSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
+    }
+    pub fn SerializeSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 16) & 1
+    }
+    pub fn set_SerializeSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
+    }
+    pub fn TscDeadlineTmrSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 17) & 1
+    }
+    pub fn set_TscDeadlineTmrSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
+    }
+    pub fn TscAdjustSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 18) & 1
+    }
+    pub fn set_TscAdjustSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
+    }
+    pub fn FZLRepMovsb(&self) -> super::UINT64 {
+        (self._bitfield >> 19) & 1
+    }
+    pub fn set_FZLRepMovsb(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
+    }
+    pub fn FSRepStosb(&self) -> super::UINT64 {
+        (self._bitfield >> 20) & 1
+    }
+    pub fn set_FSRepStosb(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
+    }
+    pub fn FSRepCmpsb(&self) -> super::UINT64 {
+        (self._bitfield >> 21) & 1
+    }
+    pub fn set_FSRepCmpsb(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
+    }
+    pub fn TsxLdTrkSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 22) & 1
+    }
+    pub fn set_TsxLdTrkSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
+    }
+    pub fn VmxInsOutsExitInfoSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 23) & 1
+    }
+    pub fn set_VmxInsOutsExitInfoSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
+    }
+    pub fn Reserved3(&self) -> super::UINT64 {
+        (self._bitfield >> 24) & 1
+    }
+    pub fn set_Reserved3(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
+    }
+    pub fn SbdrSsdpNoSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 25) & 1
+    }
+    pub fn set_SbdrSsdpNoSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
+    }
+    pub fn FbsdpNoSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 26) & 1
+    }
+    pub fn set_FbsdpNoSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
+    }
+    pub fn PsdpNoSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 27) & 1
+    }
+    pub fn set_PsdpNoSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
+    }
+    pub fn FbClearSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 28) & 1
+    }
+    pub fn set_FbClearSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
+    }
+    pub fn BtcNoSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 29) & 1
+    }
+    pub fn set_BtcNoSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
+    }
+    pub fn IbpbRsbFlushSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 30) & 1
+    }
+    pub fn set_IbpbRsbFlushSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
+    }
+    pub fn StibpAlwaysOnSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 31) & 1
+    }
+    pub fn set_StibpAlwaysOnSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
+    }
+    pub fn PerfGlobalCtrlSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 32) & 1
+    }
+    pub fn set_PerfGlobalCtrlSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value & 1) << 32);
+    }
+    pub fn NptExecuteOnlySupport(&self) -> super::UINT64 {
+        (self._bitfield >> 33) & 1
+    }
+    pub fn set_NptExecuteOnlySupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value & 1) << 33);
+    }
+    pub fn NptADFlagsSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 34) & 1
+    }
+    pub fn set_NptADFlagsSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value & 1) << 34);
+    }
+    pub fn Npt1GbPageSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 35) & 1
+    }
+    pub fn set_Npt1GbPageSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value & 1) << 35);
+    }
+    pub fn Reserved4(&self) -> super::UINT64 {
+        (self._bitfield >> 36) & 1
+    }
+    pub fn set_Reserved4(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value & 1) << 36);
+    }
+    pub fn Reserved5(&self) -> super::UINT64 {
+        (self._bitfield >> 37) & 1
+    }
+    pub fn set_Reserved5(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value & 1) << 37);
+    }
+    pub fn Reserved6(&self) -> super::UINT64 {
+        (self._bitfield >> 38) & 1
+    }
+    pub fn set_Reserved6(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value & 1) << 38);
+    }
+    pub fn Reserved7(&self) -> super::UINT64 {
+        (self._bitfield >> 39) & 1
+    }
+    pub fn set_Reserved7(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value & 1) << 39);
+    }
+    pub fn CmpccxaddSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 40) & 1
+    }
+    pub fn set_CmpccxaddSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value & 1) << 40);
+    }
+    pub fn Reserved8(&self) -> super::UINT64 {
+        (self._bitfield >> 41) & 1
+    }
+    pub fn set_Reserved8(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value & 1) << 41);
+    }
+    pub fn Reserved9(&self) -> super::UINT64 {
+        (self._bitfield >> 42) & 1
+    }
+    pub fn set_Reserved9(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value & 1) << 42);
+    }
+    pub fn Reserved10(&self) -> super::UINT64 {
+        (self._bitfield >> 43) & 1
+    }
+    pub fn set_Reserved10(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value & 1) << 43);
+    }
+    pub fn Reserved11(&self) -> super::UINT64 {
+        (self._bitfield >> 44) & 1
+    }
+    pub fn set_Reserved11(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value & 1) << 44);
+    }
+    pub fn PrefetchISupport(&self) -> super::UINT64 {
+        (self._bitfield >> 45) & 1
+    }
+    pub fn set_PrefetchISupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value & 1) << 45);
+    }
+    pub fn Sha512Support(&self) -> super::UINT64 {
+        (self._bitfield >> 46) & 1
+    }
+    pub fn set_Sha512Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value & 1) << 46);
+    }
+    pub fn Reserved12(&self) -> super::UINT64 {
+        (self._bitfield >> 47) & 1
+    }
+    pub fn set_Reserved12(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 47)) | ((value & 1) << 47);
+    }
+    pub fn Reserved13(&self) -> super::UINT64 {
+        (self._bitfield >> 48) & 1
+    }
+    pub fn set_Reserved13(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 48)) | ((value & 1) << 48);
+    }
+    pub fn Reserved14(&self) -> super::UINT64 {
+        (self._bitfield >> 49) & 1
+    }
+    pub fn set_Reserved14(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 49)) | ((value & 1) << 49);
+    }
+    pub fn SM3Support(&self) -> super::UINT64 {
+        (self._bitfield >> 50) & 1
+    }
+    pub fn set_SM3Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 50)) | ((value & 1) << 50);
+    }
+    pub fn SM4Support(&self) -> super::UINT64 {
+        (self._bitfield >> 51) & 1
+    }
+    pub fn set_SM4Support(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 51)) | ((value & 1) << 51);
+    }
+    pub fn Reserved15(&self) -> super::UINT64 {
+        (self._bitfield >> 52) & 1
+    }
+    pub fn set_Reserved15(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 52)) | ((value & 1) << 52);
+    }
+    pub fn Reserved16(&self) -> super::UINT64 {
+        (self._bitfield >> 53) & 1
+    }
+    pub fn set_Reserved16(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 53)) | ((value & 1) << 53);
+    }
+    pub fn SbpbSupported(&self) -> super::UINT64 {
+        (self._bitfield >> 54) & 1
+    }
+    pub fn set_SbpbSupported(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 54)) | ((value & 1) << 54);
+    }
+    pub fn IbpbBrTypeSupported(&self) -> super::UINT64 {
+        (self._bitfield >> 55) & 1
+    }
+    pub fn set_IbpbBrTypeSupported(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 55)) | ((value & 1) << 55);
+    }
+    pub fn SrsoNoSupported(&self) -> super::UINT64 {
+        (self._bitfield >> 56) & 1
+    }
+    pub fn set_SrsoNoSupported(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 56)) | ((value & 1) << 56);
+    }
+    pub fn SrsoUserKernelNoSupported(&self) -> super::UINT64 {
+        (self._bitfield >> 57) & 1
+    }
+    pub fn set_SrsoUserKernelNoSupported(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 57)) | ((value & 1) << 57);
+    }
+    pub fn Reserved17(&self) -> super::UINT64 {
+        (self._bitfield >> 58) & 1
+    }
+    pub fn set_Reserved17(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 58)) | ((value & 1) << 58);
+    }
+    pub fn Reserved18(&self) -> super::UINT64 {
+        (self._bitfield >> 59) & 1
+    }
+    pub fn set_Reserved18(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 59)) | ((value & 1) << 59);
+    }
+    pub fn Reserved19(&self) -> super::UINT64 {
+        (self._bitfield >> 60) & 1
+    }
+    pub fn set_Reserved19(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 60)) | ((value & 1) << 60);
+    }
+    pub fn LassSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 61) & 1
+    }
+    pub fn set_LassSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 61)) | ((value & 1) << 61);
+    }
+    pub fn IdleHltInterceptSupport(&self) -> super::UINT64 {
+        (self._bitfield >> 62) & 1
+    }
+    pub fn set_IdleHltInterceptSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 62)) | ((value & 1) << 62);
+    }
+    pub fn MsrListSupport(&self) -> super::UINT64 {
+        self._bitfield >> 63
+    }
+    pub fn set_MsrListSupport(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 63)) | ((value & 1) << 63);
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_RDTSC_CONTEXT {
-    pub TscAux: u64,
-    pub VirtualOffset: u64,
-    pub Tsc: u64,
-    pub ReferenceTime: u64,
+    pub TscAux: super::UINT64,
+    pub VirtualOffset: super::UINT64,
+    pub Tsc: super::UINT64,
+    pub ReferenceTime: super::UINT64,
     pub RdtscInfo: WHV_X64_RDTSC_INFO,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_RDTSC_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5130,12 +6897,14 @@ impl Default for WHV_X64_RDTSC_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_RDTSC_INFO {
     pub Anonymous: WHV_X64_RDTSC_INFO_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_RDTSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5143,35 +6912,39 @@ impl Default for WHV_X64_RDTSC_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_RDTSC_INFO_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_RDTSC_INFO_0 {
-    pub fn IsRdtscp(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsRdtscp(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_IsRdtscp(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_IsRdtscp(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(9223372036854775807 << 1)) | ((value & 9223372036854775807) << 1);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_SEGMENT_REGISTER {
-    pub Base: u64,
-    pub Limit: u32,
-    pub Selector: u16,
+    pub Base: super::UINT64,
+    pub Limit: super::UINT32,
+    pub Selector: super::UINT16,
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_SEGMENT_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5179,12 +6952,14 @@ impl Default for WHV_X64_SEGMENT_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_SEGMENT_REGISTER_0 {
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0_0,
-    pub Attributes: u16,
+    pub Attributes: super::UINT16,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_SEGMENT_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5192,83 +6967,112 @@ impl Default for WHV_X64_SEGMENT_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_SEGMENT_REGISTER_0_0 {
     pub _bitfield: u16,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_SEGMENT_REGISTER_0_0 {
-    pub fn SegmentType(&self) -> u16 {
-        (self._bitfield << 12) >> 12
+    pub fn SegmentType(&self) -> super::UINT16 {
+        (self._bitfield) & 15
     }
-    pub fn set_SegmentType(&mut self, value: u16) {
+    pub fn set_SegmentType(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn NonSystemSegment(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn NonSystemSegment(&self) -> super::UINT16 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_NonSystemSegment(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    pub fn set_NonSystemSegment(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn DescriptorPrivilegeLevel(&self) -> u16 {
-        (self._bitfield << 9) >> 14
+    pub fn DescriptorPrivilegeLevel(&self) -> super::UINT16 {
+        (self._bitfield >> 5) & 3
     }
-    pub fn set_DescriptorPrivilegeLevel(&mut self, value: u16) {
+    pub fn set_DescriptorPrivilegeLevel(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(3 << 5)) | ((value & 3) << 5);
     }
-    pub fn Present(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Present(&self) -> super::UINT16 {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_Present(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    pub fn set_Present(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn Reserved(&self) -> u16 {
-        (self._bitfield << 4) >> 12
+    pub fn Reserved(&self) -> super::UINT16 {
+        (self._bitfield >> 8) & 15
     }
-    pub fn set_Reserved(&mut self, value: u16) {
+    pub fn set_Reserved(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
     }
-    pub fn Available(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn Available(&self) -> super::UINT16 {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_Available(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    pub fn set_Available(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn Long(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
+    pub fn Long(&self) -> super::UINT16 {
+        (self._bitfield >> 13) & 1
     }
-    pub fn set_Long(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    pub fn set_Long(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
     }
-    pub fn Default(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
+    pub fn Default(&self) -> super::UINT16 {
+        (self._bitfield >> 14) & 1
     }
-    pub fn set_Default(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u16) << 14);
+    pub fn set_Default(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
     }
-    pub fn Granularity(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn Granularity(&self) -> super::UINT16 {
+        self._bitfield >> 15
     }
-    pub fn set_Granularity(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    pub fn set_Granularity(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
 }
 #[repr(C, align(4096))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_SVM_NESTED_STATE {
     pub Vendor: WHV_NESTED_STATE_TYPE,
     pub Flags: WHV_X64_SVM_NESTED_STATE_0,
     pub NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
-    pub HostSaveGpa: u64,
-    pub VmControlMsr: u64,
-    pub VirtualTscRatioMsr: u64,
-    pub VmcbGpa: u64,
+    pub HostSaveGpa: super::UINT64,
+    pub VmControlMsr: super::UINT64,
+    pub VirtualTscRatioMsr: super::UINT64,
+    pub VmcbGpa: super::UINT64,
     pub HostState: WHV_SVM_NESTED_HOST_STATE,
-    pub Reserved: [u8; 3832],
-    pub VmcbBytes: [u8; 4096],
+    pub Reserved: [super::UINT8; 3832],
+    #[doc(hidden)]
+    pub __padding_9: [core::mem::MaybeUninit<u8>; {
+        let offset = 0usize;
+        let alignment =::core::mem::align_of::<WHV_NESTED_STATE_TYPE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_STATE_TYPE>();
+        let alignment =::core::mem::align_of::<WHV_X64_SVM_NESTED_STATE_0>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_X64_SVM_NESTED_STATE_0>();
+        let alignment =::core::mem::align_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<WHV_SVM_NESTED_HOST_STATE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_SVM_NESTED_HOST_STATE>();
+        let alignment =::core::mem::align_of::<[super::UINT8; 3832]>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<[super::UINT8; 3832]>();
+        let natural =::core::mem::align_of::<[super::UINT8; 4096]>();
+        let required = if natural < 4096 { 4096 } else { natural };
+        ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
+    }],
+    pub VmcbBytes: [super::UINT8; 4096],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_SVM_NESTED_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5276,52 +7080,56 @@ impl Default for WHV_X64_SVM_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_SVM_NESTED_STATE_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_SVM_NESTED_STATE_0 {
-    pub fn GuestMode(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn GuestMode(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_GuestMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_GuestMode(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn VmEntryPending(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn VmEntryPending(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_VmEntryPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_VmEntryPending(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn HostSaveGpaValid(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn HostSaveGpaValid(&self) -> super::UINT32 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_HostSaveGpaValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_HostSaveGpaValid(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn CurrentVmcbValid(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn CurrentVmcbValid(&self) -> super::UINT32 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_CurrentVmcbValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_CurrentVmcbValid(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_TABLE_REGISTER {
-    pub Pad: [u16; 3],
-    pub Limit: u16,
-    pub Base: u64,
+    pub Pad: [super::UINT16; 3],
+    pub Limit: super::UINT16,
+    pub Base: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_TABLE_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5331,28 +7139,56 @@ impl Default for WHV_X64_TABLE_REGISTER {
 pub type WHV_X64_UNSUPPORTED_FEATURE_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     pub FeatureCode: WHV_X64_UNSUPPORTED_FEATURE_CODE,
-    pub Reserved: u32,
-    pub FeatureParameter: u64,
+    pub Reserved: super::UINT32,
+    pub FeatureParameter: super::UINT64,
 }
 #[repr(C, align(4096))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_VMX_NESTED_STATE {
     pub Vendor: WHV_NESTED_STATE_TYPE,
     pub Flags: WHV_X64_VMX_NESTED_STATE_0,
     pub NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
-    pub Pdpt: [u64; 4],
-    pub VmxonRegionGpa: u64,
-    pub VmcsGpa: u64,
-    pub CurrentEnlightenedVmcs: u64,
+    pub Pdpt: [super::UINT64; 4],
+    pub VmxonRegionGpa: super::UINT64,
+    pub VmcsGpa: super::UINT64,
+    pub CurrentEnlightenedVmcs: super::UINT64,
     pub VirtualApicRegs: WHV_X64_VMX_NESTED_STATE_1,
-    pub Reserved: [u8; 3944],
-    pub VmcsBytes: [u8; 4096],
+    pub Reserved: [super::UINT8; 3944],
+    #[doc(hidden)]
+    pub __padding_9: [core::mem::MaybeUninit<u8>; {
+        let offset = 0usize;
+        let alignment =::core::mem::align_of::<WHV_NESTED_STATE_TYPE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_STATE_TYPE>();
+        let alignment =::core::mem::align_of::<WHV_X64_VMX_NESTED_STATE_0>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_X64_VMX_NESTED_STATE_0>();
+        let alignment =::core::mem::align_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let alignment =::core::mem::align_of::<[super::UINT64; 4]>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<[super::UINT64; 4]>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<WHV_X64_VMX_NESTED_STATE_1>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_X64_VMX_NESTED_STATE_1>();
+        let alignment =::core::mem::align_of::<[super::UINT8; 3944]>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<[super::UINT8; 3944]>();
+        let natural =::core::mem::align_of::<[super::UINT8; 4096]>();
+        let required = if natural < 4096 { 4096 } else { natural };
+        ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
+    }],
+    pub VmcsBytes: [super::UINT8; 4096],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_VMX_NESTED_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5360,67 +7196,71 @@ impl Default for WHV_X64_VMX_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_VMX_NESTED_STATE_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_VMX_NESTED_STATE_0 {
-    pub fn GuestMode(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn GuestMode(&self) -> super::UINT32 {
+        (self._bitfield) & 1
     }
-    pub fn set_GuestMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_GuestMode(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Vmxon(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Vmxon(&self) -> super::UINT32 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Vmxon(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Vmxon(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn CurrentVmcsValid(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn CurrentVmcsValid(&self) -> super::UINT32 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_CurrentVmcsValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_CurrentVmcsValid(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn VmEntryPending(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn VmEntryPending(&self) -> super::UINT32 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_VmEntryPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_VmEntryPending(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn VmcsEnlightened(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn VmcsEnlightened(&self) -> super::UINT32 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_VmcsEnlightened(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_VmcsEnlightened(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn EnlightenedVmEntry(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn EnlightenedVmEntry(&self) -> super::UINT32 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_EnlightenedVmEntry(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_EnlightenedVmEntry(&mut self, value: super::UINT32) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT32 {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_VMX_NESTED_STATE_1 {
-    pub Tpr: u32,
-    pub Ppr: u32,
-    pub Isr: [u32; 8],
-    pub Irr: [u32; 8],
-    pub IcrLow: u32,
-    pub IcrHigh: u32,
+    pub Tpr: super::UINT32,
+    pub Ppr: super::UINT32,
+    pub Isr: [super::UINT32; 8],
+    pub Irr: [super::UINT32; 8],
+    pub IcrLow: super::UINT32,
+    pub IcrHigh: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_VMX_NESTED_STATE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5428,12 +7268,14 @@ impl Default for WHV_X64_VMX_NESTED_STATE_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_VP_EXECUTION_STATE {
     pub Anonymous: WHV_X64_VP_EXECUTION_STATE_0,
-    pub AsUINT16: u16,
+    pub AsUINT16: super::UINT16,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_VP_EXECUTION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5441,75 +7283,115 @@ impl Default for WHV_X64_VP_EXECUTION_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl WHV_X64_VP_EXECUTION_STATE_0 {
-    pub fn Cpl(&self) -> u16 {
-        (self._bitfield << 14) >> 14
+    pub fn Cpl(&self) -> super::UINT16 {
+        (self._bitfield) & 3
     }
-    pub fn set_Cpl(&mut self, value: u16) {
+    pub fn set_Cpl(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn Cr0Pe(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Cr0Pe(&self) -> super::UINT16 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Cr0Pe(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    pub fn set_Cr0Pe(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Cr0Am(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn Cr0Am(&self) -> super::UINT16 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_Cr0Am(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    pub fn set_Cr0Am(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn EferLma(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn EferLma(&self) -> super::UINT16 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_EferLma(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    pub fn set_EferLma(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn DebugActive(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn DebugActive(&self) -> super::UINT16 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_DebugActive(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    pub fn set_DebugActive(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn InterruptionPending(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn InterruptionPending(&self) -> super::UINT16 {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_InterruptionPending(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    pub fn set_InterruptionPending(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Reserved0(&self) -> u16 {
-        (self._bitfield << 4) >> 11
+    pub fn Reserved0(&self) -> super::UINT16 {
+        (self._bitfield >> 7) & 31
     }
-    pub fn set_Reserved0(&mut self, value: u16) {
+    pub fn set_Reserved0(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(31 << 7)) | ((value & 31) << 7);
     }
-    pub fn InterruptShadow(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn InterruptShadow(&self) -> super::UINT16 {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_InterruptShadow(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    pub fn set_InterruptShadow(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn Reserved1(&self) -> u16 {
+    pub fn Reserved1(&self) -> super::UINT16 {
         self._bitfield >> 13
     }
-    pub fn set_Reserved1(&mut self, value: u16) {
+    pub fn set_Reserved1(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct WHV_X64_VP_EXIT_CONTEXT {
+    pub ExecutionState: WHV_X64_VP_EXECUTION_STATE,
+    pub _bitfield: u8,
+    pub Reserved: super::UINT8,
+    pub Reserved2: super::UINT32,
+    pub Cs: WHV_X64_SEGMENT_REGISTER,
+    pub Rip: super::UINT64,
+    pub Rflags: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl WHV_X64_VP_EXIT_CONTEXT {
+    pub fn InstructionLength(&self) -> super::UINT8 {
+        (self._bitfield) & 15
+    }
+    pub fn set_InstructionLength(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Cr8(&self) -> super::UINT8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Cr8(&mut self, value: super::UINT8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_VP_EXIT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5517,13 +7399,15 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0,
-    pub XmmStatusControl: u32,
-    pub XmmStatusControlMask: u32,
+    pub XmmStatusControl: super::UINT32,
+    pub XmmStatusControlMask: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5531,12 +7415,14 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
-    pub LastFpRdp: u64,
+    pub LastFpRdp: super::UINT64,
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5544,11 +7430,12 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
-    pub LastFpDp: u32,
-    pub LastFpDs: u16,
-    pub Reserved: u16,
+    pub LastFpDp: super::UINT32,
+    pub LastFpDs: super::UINT16,
+    pub Reserved: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvAdviseGpaRangeCodePin: WHV_ADVISE_GPA_RANGE_CODE = 1;

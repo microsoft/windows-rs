@@ -1,32 +1,36 @@
+#[cfg(feature = "shared")]
 pub type LPVIDEOPARAMETERS = *mut VIDEOPARAMETERS;
+#[cfg(feature = "shared")]
 pub type PVIDEOPARAMETERS = *mut VIDEOPARAMETERS;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEOPARAMETERS {
     pub Guid: windows_core::GUID,
-    pub dwOffset: u32,
-    pub dwCommand: u32,
-    pub dwFlags: u32,
-    pub dwMode: u32,
-    pub dwTVStandard: u32,
-    pub dwAvailableModes: u32,
-    pub dwAvailableTVStandard: u32,
-    pub dwFlickerFilter: u32,
-    pub dwOverScanX: u32,
-    pub dwOverScanY: u32,
-    pub dwMaxUnscaledX: u32,
-    pub dwMaxUnscaledY: u32,
-    pub dwPositionX: u32,
-    pub dwPositionY: u32,
-    pub dwBrightness: u32,
-    pub dwContrast: u32,
-    pub dwCPType: u32,
-    pub dwCPCommand: u32,
-    pub dwCPStandard: u32,
-    pub dwCPKey: u32,
-    pub bCP_APSTriggerBits: u32,
-    pub bOEMCopyProtection: [u8; 256],
+    pub dwOffset: super::ULONG,
+    pub dwCommand: super::ULONG,
+    pub dwFlags: super::ULONG,
+    pub dwMode: super::ULONG,
+    pub dwTVStandard: super::ULONG,
+    pub dwAvailableModes: super::ULONG,
+    pub dwAvailableTVStandard: super::ULONG,
+    pub dwFlickerFilter: super::ULONG,
+    pub dwOverScanX: super::ULONG,
+    pub dwOverScanY: super::ULONG,
+    pub dwMaxUnscaledX: super::ULONG,
+    pub dwMaxUnscaledY: super::ULONG,
+    pub dwPositionX: super::ULONG,
+    pub dwPositionY: super::ULONG,
+    pub dwBrightness: super::ULONG,
+    pub dwContrast: super::ULONG,
+    pub dwCPType: super::ULONG,
+    pub dwCPCommand: super::ULONG,
+    pub dwCPStandard: super::ULONG,
+    pub dwCPKey: super::ULONG,
+    pub bCP_APSTriggerBits: super::ULONG,
+    pub bOEMCopyProtection: [super::UCHAR; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for VIDEOPARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

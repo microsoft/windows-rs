@@ -1,28 +1,28 @@
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzAccessCheck(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: Option<AUTHZ_AUDIT_EVENT_HANDLE>, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: PAUTHZ_ACCESS_REPLY, phaccesscheckresults: Option<PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzAccessCheck(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : PAUTHZ_ACCESS_REPLY, phaccesscheckresults : PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> windows_core::BOOL);
+pub unsafe fn AuthzAccessCheck(flags: super::DWORD, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: Option<AUTHZ_AUDIT_EVENT_HANDLE>, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: PAUTHZ_ACCESS_REPLY, phaccesscheckresults: Option<PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzAccessCheck(flags : super::DWORD, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : super::DWORD, preply : PAUTHZ_ACCESS_REPLY, phaccesscheckresults : PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzAccessCheck(flags, hauthzclientcontext, prequest, hauditevent.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor, optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply as _, phaccesscheckresults.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzAddSidsToContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sids: Option<super::PSID_AND_ATTRIBUTES>, sidcount: u32, restrictedsids: Option<super::PSID_AND_ATTRIBUTES>, restrictedsidcount: u32, phnewauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzAddSidsToContext(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, sids : super::PSID_AND_ATTRIBUTES, sidcount : u32, restrictedsids : super::PSID_AND_ATTRIBUTES, restrictedsidcount : u32, phnewauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
+pub unsafe fn AuthzAddSidsToContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sids: Option<super::PSID_AND_ATTRIBUTES>, sidcount: super::DWORD, restrictedsids: Option<super::PSID_AND_ATTRIBUTES>, restrictedsidcount: super::DWORD, phnewauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzAddSidsToContext(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, sids : super::PSID_AND_ATTRIBUTES, sidcount : super::DWORD, restrictedsids : super::PSID_AND_ATTRIBUTES, restrictedsidcount : super::DWORD, phnewauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzAddSidsToContext(hauthzclientcontext, sids.unwrap_or(core::mem::zeroed()) as _, sidcount, restrictedsids.unwrap_or(core::mem::zeroed()) as _, restrictedsidcount, phnewauthzclientcontext as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzCachedAccessCheck(flags: u32, haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: Option<AUTHZ_AUDIT_EVENT_HANDLE>, preply: PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzCachedAccessCheck(flags : u32, haccesscheckresults : AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, preply : PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
+pub unsafe fn AuthzCachedAccessCheck(flags: super::DWORD, haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: Option<AUTHZ_AUDIT_EVENT_HANDLE>, preply: PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzCachedAccessCheck(flags : super::DWORD, haccesscheckresults : AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, preply : PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
     unsafe { AuthzCachedAccessCheck(flags, haccesscheckresults, prequest, hauditevent.unwrap_or(core::mem::zeroed()) as _, preply as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: PAUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: super::PDWORD, pdwlength: super::PDWORD) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzEnumerateSecurityEventSources(dwflags : u32, buffer : PAUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount : super::PDWORD, pdwlength : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: super::DWORD, buffer: PAUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: super::PDWORD, pdwlength: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzEnumerateSecurityEventSources(dwflags : super::DWORD, buffer : PAUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount : super::PDWORD, pdwlength : super::PDWORD) -> windows_core::BOOL);
     unsafe { AuthzEnumerateSecurityEventSources(dwflags, buffer as _, pdwcount as _, pdwlength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuthzEvaluateSacl(authzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, sacl: super::PACL, grantedaccess: super::ACCESS_MASK, accessgranted: bool, pbgenerateaudit: super::PBOOL) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzEvaluateSacl(authzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, sacl : super::PACL, grantedaccess : super::ACCESS_MASK, accessgranted : windows_core::BOOL, pbgenerateaudit : super::PBOOL) -> windows_core::BOOL);
@@ -53,10 +53,10 @@ pub unsafe fn AuthzFreeResourceManager(hauthzresourcemanager: AUTHZ_RESOURCE_MAN
     windows_core::link!("authz.dll" "system" fn AuthzFreeResourceManager(hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzFreeResourceManager(hauthzresourcemanager) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzGetInformationFromContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: u32, psizerequired: super::PDWORD, buffer: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzGetInformationFromContext(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, infoclass : AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize : u32, psizerequired : super::PDWORD, buffer : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn AuthzGetInformationFromContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: super::DWORD, psizerequired: super::PDWORD, buffer: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzGetInformationFromContext(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, infoclass : AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize : super::DWORD, psizerequired : super::PDWORD, buffer : super::PVOID) -> windows_core::BOOL);
     unsafe { AuthzGetInformationFromContext(hauthzclientcontext, infoclass, buffersize, psizerequired as _, buffer as _) }
 }
 #[inline]
@@ -64,105 +64,109 @@ pub unsafe fn AuthzInitializeCompoundContext(usercontext: AUTHZ_CLIENT_CONTEXT_H
     windows_core::link!("authz.dll" "system" fn AuthzInitializeCompoundContext(usercontext : AUTHZ_CLIENT_CONTEXT_HANDLE, devicecontext : AUTHZ_CLIENT_CONTEXT_HANDLE, phcompoundcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzInitializeCompoundContext(usercontext, devicecontext, phcompoundcontext as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzInitializeContextFromAuthzContext(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: Option<super::PLARGE_INTEGER>, identifier: super::LUID, dynamicgroupargs: *const core::ffi::c_void, phnewauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromAuthzContext(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime : super::PLARGE_INTEGER, identifier : super::LUID, dynamicgroupargs : *const core::ffi::c_void, phnewauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
+pub unsafe fn AuthzInitializeContextFromAuthzContext(flags: super::DWORD, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: Option<super::PLARGE_INTEGER>, identifier: super::LUID, dynamicgroupargs: super::PVOID, phnewauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromAuthzContext(flags : super::DWORD, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime : super::PLARGE_INTEGER, identifier : super::LUID, dynamicgroupargs : super::PVOID, phnewauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, identifier, dynamicgroupargs, phnewauthzclientcontext as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzInitializeContextFromSid(flags: u32, usersid: super::PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Option<super::PLARGE_INTEGER>, identifier: super::LUID, dynamicgroupargs: Option<*const core::ffi::c_void>, phauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromSid(flags : u32, usersid : super::PSID, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : super::PLARGE_INTEGER, identifier : super::LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
+pub unsafe fn AuthzInitializeContextFromSid(flags: super::DWORD, usersid: super::PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Option<super::PLARGE_INTEGER>, identifier: super::LUID, dynamicgroupargs: Option<super::PVOID>, phauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromSid(flags : super::DWORD, usersid : super::PSID, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : super::PLARGE_INTEGER, identifier : super::LUID, dynamicgroupargs : super::PVOID, phauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzInitializeContextFromSid(flags, usersid, hauthzresourcemanager, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, identifier, dynamicgroupargs.unwrap_or(core::mem::zeroed()) as _, phauthzclientcontext as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzInitializeContextFromToken(flags: u32, tokenhandle: super::HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Option<super::PLARGE_INTEGER>, identifier: super::LUID, dynamicgroupargs: Option<*const core::ffi::c_void>, phauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromToken(flags : u32, tokenhandle : super::HANDLE, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : super::PLARGE_INTEGER, identifier : super::LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
+pub unsafe fn AuthzInitializeContextFromToken(flags: super::DWORD, tokenhandle: super::HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Option<super::PLARGE_INTEGER>, identifier: super::LUID, dynamicgroupargs: Option<super::PVOID>, phauthzclientcontext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromToken(flags : super::DWORD, tokenhandle : super::HANDLE, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : super::PLARGE_INTEGER, identifier : super::LUID, dynamicgroupargs : super::PVOID, phauthzclientcontext : PAUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzInitializeContextFromToken(flags, tokenhandle, hauthzresourcemanager, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, identifier, dynamicgroupargs.unwrap_or(core::mem::zeroed()) as _, phauthzclientcontext as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: PAUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzInitializeRemoteResourceManager(prpcinitinfo : PAUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager : PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzInitializeRemoteResourceManager(prpcinitinfo, phauthzresourcemanager as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzInitializeResourceManager<P4>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: P4, phauthzresourcemanager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL
+pub unsafe fn AuthzInitializeResourceManager<P4>(flags: super::DWORD, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: P4, phauthzresourcemanager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeResourceManager(flags : u32, pfndynamicaccesscheck : PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups : PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups : PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername : windows_core::PCWSTR, phauthzresourcemanager : PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeResourceManager(flags : super::DWORD, pfndynamicaccesscheck : PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups : PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups : PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername : windows_core::PCWSTR, phauthzresourcemanager : PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzInitializeResourceManager(flags, pfndynamicaccesscheck, pfncomputedynamicgroups, pfnfreedynamicgroups, szresourcemanagername.param().abi(), phauthzresourcemanager as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzInitializeResourceManagerEx(flags: Option<u32>, pauthzinitinfo: Option<PAUTHZ_INIT_INFO>, phauthzresourcemanager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeResourceManagerEx(flags : u32, pauthzinitinfo : PAUTHZ_INIT_INFO, phauthzresourcemanager : PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
+pub unsafe fn AuthzInitializeResourceManagerEx(flags: Option<super::DWORD>, pauthzinitinfo: Option<PAUTHZ_INIT_INFO>, phauthzresourcemanager: PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeResourceManagerEx(flags : super::DWORD, pauthzinitinfo : PAUTHZ_INIT_INFO, phauthzresourcemanager : PAUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzInitializeResourceManagerEx(flags.unwrap_or(core::mem::zeroed()) as _, pauthzinitinfo.unwrap_or(core::mem::zeroed()) as _, phauthzresourcemanager as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: PAUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInstallSecurityEventSource(dwflags : u32, pregistration : PAUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL);
+pub unsafe fn AuthzInstallSecurityEventSource(dwflags: super::DWORD, pregistration: PAUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInstallSecurityEventSource(dwflags : super::DWORD, pregistration : PAUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL);
     unsafe { AuthzInstallSecurityEventSource(dwflags, pregistration) }
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuthzModifyClaims(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: Option<PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzModifyClaims(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass : AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations : PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims : PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> windows_core::BOOL);
     unsafe { AuthzModifyClaims(hauthzclientcontext, claimclass, pclaimoperations, pclaims.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuthzModifySecurityAttributes(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, poperations: PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: Option<PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzModifySecurityAttributes(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, poperations : PAUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes : PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> windows_core::BOOL);
     unsafe { AuthzModifySecurityAttributes(hauthzclientcontext, poperations, pattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: PAUTHZ_SID_OPERATION, psids: Option<super::PTOKEN_GROUPS>) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzModifySids(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass : AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations : PAUTHZ_SID_OPERATION, psids : super::PTOKEN_GROUPS) -> windows_core::BOOL);
     unsafe { AuthzModifySids(hauthzclientcontext, sidclass, psidoperations, psids.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzOpenObjectAudit(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
+pub unsafe fn AuthzOpenObjectAudit(flags: super::DWORD, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: PAUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzOpenObjectAudit(flags : super::DWORD, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : PAUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : super::DWORD, preply : PAUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
     unsafe { AuthzOpenObjectAudit(flags, hauthzclientcontext, prequest, hauditevent, psecuritydescriptor, optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply) }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, pfncapchangecallback: super::LPTHREAD_START_ROUTINE, pcallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzRegisterCapChangeNotification(phcapchangesubscription : PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, pfncapchangecallback : super::LPTHREAD_START_ROUTINE, pcallbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, pfncapchangecallback: super::LPTHREAD_START_ROUTINE, pcallbackcontext: Option<super::PVOID>) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzRegisterCapChangeNotification(phcapchangesubscription : PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, pfncapchangecallback : super::LPTHREAD_START_ROUTINE, pcallbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { AuthzRegisterCapChangeNotification(phcapchangesubscription as _, pfncapchangecallback, pcallbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AuthzRegisterSecurityEventSource<P1>(dwflags: u32, szeventsourcename: P1, pheventprovider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL
+pub unsafe fn AuthzRegisterSecurityEventSource<P1>(dwflags: super::DWORD, szeventsourcename: P1, pheventprovider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("authz.dll" "system" fn AuthzRegisterSecurityEventSource(dwflags : u32, szeventsourcename : windows_core::PCWSTR, pheventprovider : PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("authz.dll" "system" fn AuthzRegisterSecurityEventSource(dwflags : super::DWORD, szeventsourcename : windows_core::PCWSTR, pheventprovider : PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzRegisterSecurityEventSource(dwflags, szeventsourcename.param().abi(), pheventprovider as _) }
 }
-#[cfg(all(feature = "adtgen", feature = "winnt"))]
+#[cfg(all(feature = "adtgen", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AuthzReportSecurityEventFromParams(dwflags: u32, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: u32, pusersid: Option<super::PSID>, pparams: super::PAUDIT_PARAMS) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzReportSecurityEventFromParams(dwflags : u32, heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : u32, pusersid : super::PSID, pparams : super::PAUDIT_PARAMS) -> windows_core::BOOL);
+pub unsafe fn AuthzReportSecurityEventFromParams(dwflags: super::DWORD, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: super::DWORD, pusersid: Option<super::PSID>, pparams: super::PAUDIT_PARAMS) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzReportSecurityEventFromParams(dwflags : super::DWORD, heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : super::DWORD, pusersid : super::PSID, pparams : super::PAUDIT_PARAMS) -> windows_core::BOOL);
     unsafe { AuthzReportSecurityEventFromParams(dwflags, heventprovider as _, dwauditid, pusersid.unwrap_or(core::mem::zeroed()) as _, pparams) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AuthzSetAppContainerInformation(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid: super::PSID, pcapabilitysids: Option<&[super::SID_AND_ATTRIBUTES]>) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzSetAppContainerInformation(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid : super::PSID, capabilitycount : u32, pcapabilitysids : super::PSID_AND_ATTRIBUTES) -> windows_core::BOOL);
+    windows_core::link!("authz.dll" "system" fn AuthzSetAppContainerInformation(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid : super::PSID, capabilitycount : super::DWORD, pcapabilitysids : super::PSID_AND_ATTRIBUTES) -> windows_core::BOOL);
     unsafe { AuthzSetAppContainerInformation(hauthzclientcontext, pappcontainersid, pcapabilitysids.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcapabilitysids.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AuthzUninstallSecurityEventSource<P1>(dwflags: u32, szeventsourcename: P1) -> windows_core::BOOL
+pub unsafe fn AuthzUninstallSecurityEventSource<P1>(dwflags: super::DWORD, szeventsourcename: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("authz.dll" "system" fn AuthzUninstallSecurityEventSource(dwflags : u32, szeventsourcename : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("authz.dll" "system" fn AuthzUninstallSecurityEventSource(dwflags : super::DWORD, szeventsourcename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { AuthzUninstallSecurityEventSource(dwflags, szeventsourcename.param().abi()) }
 }
 #[inline]
@@ -170,9 +174,10 @@ pub unsafe fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: AUTHZ
     windows_core::link!("authz.dll" "system" fn AuthzUnregisterCapChangeNotification(hcapchangesubscription : AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzUnregisterCapChangeNotification(hcapchangesubscription) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzUnregisterSecurityEventSource(dwflags : u32, pheventprovider : PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL);
+pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: super::DWORD, pheventprovider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzUnregisterSecurityEventSource(dwflags : super::DWORD, pheventprovider : PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzUnregisterSecurityEventSource(dwflags, pheventprovider as _) }
 }
 pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: i32 = 1;
@@ -183,23 +188,23 @@ pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__ {
     pub unused: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REPLY {
-    pub ResultListLength: u32,
+    pub ResultListLength: super::DWORD,
     pub GrantedAccessMask: super::PACCESS_MASK,
     pub SaclEvaluationResults: super::PDWORD,
     pub Error: super::PDWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: super::ACCESS_MASK,
     pub PrincipalSelfSid: super::PSID,
     pub ObjectTypeList: super::POBJECT_TYPE_LIST,
-    pub ObjectTypeListLength: u32,
-    pub OptionalArguments: *mut core::ffi::c_void,
+    pub ObjectTypeListLength: super::DWORD,
+    pub OptionalArguments: super::PVOID,
 }
 pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE__;
 #[repr(C)]
@@ -232,10 +237,10 @@ pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: i32 = 1;
 pub const AUTHZ_GENERATE_FAILURE_AUDIT: i32 = 2;
 pub const AUTHZ_GENERATE_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct AUTHZ_INIT_INFO {
-    pub version: u16,
+    pub version: super::USHORT,
     pub szResourceManagerName: windows_core::PCWSTR,
     pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
     pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
@@ -248,10 +253,11 @@ pub const AUTHZ_NO_ALLOC_STRINGS: i32 = 4;
 pub const AUTHZ_NO_FAILURE_AUDIT: i32 = 2;
 pub const AUTHZ_NO_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_core::PWSTR,
-    pub dwOffset: u32,
+    pub dwOffset: super::DWORD,
 }
 pub const AUTHZ_REQUIRE_S4U_LOGON: i32 = 4;
 pub type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut AUTHZ_RESOURCE_MANAGER_HANDLE__;
@@ -264,9 +270,10 @@ pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: i32 = 2;
 pub const AUTHZ_RM_FLAG_NO_AUDIT: i32 = 1;
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
-    pub version: u16,
+    pub version: super::USHORT,
     pub ObjectUuid: windows_core::PWSTR,
     pub ProtSeq: windows_core::PWSTR,
     pub NetworkAddr: windows_core::PWSTR,
@@ -276,27 +283,27 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
 }
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub AttributeCount: u32,
+    pub Version: super::USHORT,
+    pub Reserved: super::USHORT,
+    pub AttributeCount: super::ULONG,
     pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: PAUTHZ_SECURITY_ATTRIBUTE_V1,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -305,17 +312,19 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: i32 = 1;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    pub Version: u64,
+    pub Version: super::ULONG64,
     pub pName: windows_core::PWSTR,
 }
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub pValue: *mut core::ffi::c_void,
-    pub ValueLength: u32,
+    pub pValue: super::PVOID,
+    pub ValueLength: super::ULONG,
 }
 pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2;
@@ -332,24 +341,24 @@ pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: i32 = 5;
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: i32 = 3;
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub pName: windows_core::PWSTR,
-    pub ValueType: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub ValueCount: u32,
+    pub ValueType: super::USHORT,
+    pub Reserved: super::USHORT,
+    pub Flags: super::ULONG,
+    pub ValueCount: super::ULONG,
     pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: super::PLONG64,
@@ -358,7 +367,7 @@ pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -380,29 +389,33 @@ pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = 4;
 pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = 1;
 pub const AUTHZ_SKIP_TOKEN_GROUPS: i32 = 2;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub szEventSourceName: windows_core::PWSTR,
     pub szEventMessageFile: windows_core::PWSTR,
     pub szEventSourceXmlSchemaFile: windows_core::PWSTR,
     pub szEventAccessStringsFile: windows_core::PWSTR,
     pub szExecutableImagePath: windows_core::PWSTR,
     pub Anonymous: AUTHZ_SOURCE_SCHEMA_REGISTRATION_0,
-    pub dwObjectTypeNameCount: u32,
+    pub dwObjectTypeNameCount: super::DWORD,
     pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    pub pReserved: *mut core::ffi::c_void,
+    pub pReserved: super::PVOID,
     pub pProviderGuid: *mut windows_core::GUID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -432,36 +445,42 @@ pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = 6;
 pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = 8;
 pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = 13;
 pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = 1;
-pub type PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_ACCESS_REPLY = *mut AUTHZ_ACCESS_REPLY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_ACCESS_REQUEST = *mut AUTHZ_ACCESS_REQUEST;
-pub type PAUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE;
-pub type PAUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut AUTHZ_AUDIT_EVENT_TYPE_HANDLE;
-pub type PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE;
-pub type PAUTHZ_CLIENT_CONTEXT_HANDLE = *mut AUTHZ_CLIENT_CONTEXT_HANDLE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PAUTHZ_AUDIT_EVENT_HANDLE = *mut *mut AUTHZ_AUDIT_EVENT_HANDLE__;
+pub type PAUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut *mut AUTHZ_AUDIT_EVENT_TYPE_HANDLE__;
+pub type PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__;
+pub type PAUTHZ_CLIENT_CONTEXT_HANDLE = *mut *mut AUTHZ_CLIENT_CONTEXT_HANDLE__;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_INIT_INFO = *mut AUTHZ_INIT_INFO;
+#[cfg(feature = "shared")]
 pub type PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET = *mut AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET;
-pub type PAUTHZ_RESOURCE_MANAGER_HANDLE = *mut AUTHZ_RESOURCE_MANAGER_HANDLE;
+pub type PAUTHZ_RESOURCE_MANAGER_HANDLE = *mut *mut AUTHZ_RESOURCE_MANAGER_HANDLE__;
+#[cfg(feature = "shared")]
 pub type PAUTHZ_RPC_INIT_INFO_CLIENT = *mut AUTHZ_RPC_INIT_INFO_CLIENT;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION = *mut AUTHZ_SECURITY_ATTRIBUTES_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE;
 pub type PAUTHZ_SECURITY_ATTRIBUTE_OPERATION = *mut AUTHZ_SECURITY_ATTRIBUTE_OPERATION;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_SECURITY_ATTRIBUTE_V1 = *mut AUTHZ_SECURITY_ATTRIBUTE_V1;
-pub type PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE;
+pub type PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE__;
 pub type PAUTHZ_SID_OPERATION = *mut AUTHZ_SID_OPERATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_SOURCE_SCHEMA_REGISTRATION = *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut super::PSID_AND_ATTRIBUTES, psidcount: super::PDWORD, prestrictedsidattrarray: *mut super::PSID_AND_ATTRIBUTES, prestrictedsidcount: super::PDWORD) -> windows_core::BOOL>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: super::PACE_HEADER, pargs: *const core::ffi::c_void, pbaceapplicable: super::PBOOL) -> windows_core::BOOL>;
-pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: *const core::ffi::c_void)>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: super::PVOID, psidattrarray: *mut super::PSID_AND_ATTRIBUTES, psidcount: super::PDWORD, prestrictedsidattrarray: *mut super::PSID_AND_ATTRIBUTES, prestrictedsidcount: super::PDWORD) -> windows_core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: super::PACE_HEADER, pargs: super::PVOID, pbaceapplicable: super::PBOOL) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]
+pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: super::PVOID)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(psidattrarray: super::PSID_AND_ATTRIBUTES)>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: *const core::ffi::c_void, pcentralaccesspolicyapplicable: super::PBOOL, ppcentralaccesspolicy: *mut *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: super::PVOID, pcentralaccesspolicyapplicable: super::PBOOL, ppcentralaccesspolicy: *mut super::PVOID) -> windows_core::BOOL>;

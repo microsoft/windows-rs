@@ -1,19 +1,22 @@
 pub const BROADCAST_NODETYPE: i32 = 1;
 pub const DEFAULT_MINIMUM_ENTITIES: i32 = 32;
+#[cfg(feature = "shared")]
 pub type FIXED_INFO = FIXED_INFO_W2KSP1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FIXED_INFO_W2KSP1 {
     pub HostName: [i8; 132],
     pub DomainName: [i8; 132],
     pub CurrentDnsServer: PIP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
-    pub NodeType: u32,
+    pub NodeType: super::UINT,
     pub ScopeId: [i8; 260],
-    pub EnableRouting: u32,
-    pub EnableProxy: u32,
-    pub EnableDns: u32,
+    pub EnableRouting: super::UINT,
+    pub EnableProxy: super::UINT,
+    pub EnableDns: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for FIXED_INFO_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -32,10 +35,10 @@ pub const GAA_FLAG_SKIP_FRIENDLY_NAME: i32 = 32;
 pub const GAA_FLAG_SKIP_MULTICAST: i32 = 4;
 pub const GAA_FLAG_SKIP_UNICAST: i32 = 1;
 pub const HYBRID_NODETYPE: i32 = 8;
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type IP_ADAPTER_ADDRESSES = IP_ADAPTER_ADDRESSES_LH;
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_LH {
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0,
@@ -48,21 +51,21 @@ pub struct IP_ADAPTER_ADDRESSES_LH {
     pub DnsSuffix: super::PWCHAR,
     pub Description: super::PWCHAR,
     pub FriendlyName: super::PWCHAR,
-    pub PhysicalAddress: [u8; 8],
-    pub PhysicalAddressLength: u32,
+    pub PhysicalAddress: [super::BYTE; 8],
+    pub PhysicalAddressLength: super::ULONG,
     pub Anonymous2: IP_ADAPTER_ADDRESSES_LH_1,
-    pub Mtu: u32,
+    pub Mtu: super::ULONG,
     pub IfType: super::IFTYPE,
     pub OperStatus: super::IF_OPER_STATUS,
     pub Ipv6IfIndex: super::IF_INDEX,
-    pub ZoneIndices: [u32; 16],
+    pub ZoneIndices: [super::ULONG; 16],
     pub FirstPrefix: PIP_ADAPTER_PREFIX_XP,
-    pub TransmitLinkSpeed: u64,
-    pub ReceiveLinkSpeed: u64,
+    pub TransmitLinkSpeed: super::ULONG64,
+    pub ReceiveLinkSpeed: super::ULONG64,
     pub FirstWinsServerAddress: PIP_ADAPTER_WINS_SERVER_ADDRESS_LH,
     pub FirstGatewayAddress: PIP_ADAPTER_GATEWAY_ADDRESS_LH,
-    pub Ipv4Metric: u32,
-    pub Ipv6Metric: u32,
+    pub Ipv4Metric: super::ULONG,
+    pub Ipv6Metric: super::ULONG,
     pub Luid: super::IF_LUID,
     pub Dhcpv4Server: super::SOCKET_ADDRESS,
     pub CompartmentId: super::NET_IF_COMPARTMENT_ID,
@@ -70,121 +73,121 @@ pub struct IP_ADAPTER_ADDRESSES_LH {
     pub ConnectionType: super::NET_IF_CONNECTION_TYPE,
     pub TunnelType: super::TUNNEL_TYPE,
     pub Dhcpv6Server: super::SOCKET_ADDRESS,
-    pub Dhcpv6ClientDuid: [u8; 130],
-    pub Dhcpv6ClientDuidLength: u32,
-    pub Dhcpv6Iaid: u32,
+    pub Dhcpv6ClientDuid: [super::BYTE; 130],
+    pub Dhcpv6ClientDuidLength: super::ULONG,
+    pub Dhcpv6Iaid: super::ULONG,
     pub FirstDnsSuffix: PIP_ADAPTER_DNS_SUFFIX,
 }
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
 }
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub IfIndex: super::IF_INDEX,
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_1 {
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
 }
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 impl IP_ADAPTER_ADDRESSES_LH_1_0 {
-    pub fn DdnsEnabled(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DdnsEnabled(&self) -> super::ULONG {
+        (self._bitfield) & 1
     }
-    pub fn set_DdnsEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DdnsEnabled(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn RegisterAdapterSuffix(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn RegisterAdapterSuffix(&self) -> super::ULONG {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_RegisterAdapterSuffix(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_RegisterAdapterSuffix(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Dhcpv4Enabled(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Dhcpv4Enabled(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Dhcpv4Enabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_Dhcpv4Enabled(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn ReceiveOnly(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn ReceiveOnly(&self) -> super::ULONG {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_ReceiveOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_ReceiveOnly(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn NoMulticast(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn NoMulticast(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_NoMulticast(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_NoMulticast(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Ipv6OtherStatefulConfig(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn Ipv6OtherStatefulConfig(&self) -> super::ULONG {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_Ipv6OtherStatefulConfig(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_Ipv6OtherStatefulConfig(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn NetbiosOverTcpipEnabled(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn NetbiosOverTcpipEnabled(&self) -> super::ULONG {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_NetbiosOverTcpipEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_NetbiosOverTcpipEnabled(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Ipv4Enabled(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Ipv4Enabled(&self) -> super::ULONG {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_Ipv4Enabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_Ipv4Enabled(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn Ipv6Enabled(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn Ipv6Enabled(&self) -> super::ULONG {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_Ipv6Enabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_Ipv6Enabled(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn Ipv6ManagedAddressConfigurationSupported(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn Ipv6ManagedAddressConfigurationSupported(&self) -> super::ULONG {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_Ipv6ManagedAddressConfigurationSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_Ipv6ManagedAddressConfigurationSupported(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_XP {
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0,
@@ -197,178 +200,180 @@ pub struct IP_ADAPTER_ADDRESSES_XP {
     pub DnsSuffix: super::PWCHAR,
     pub Description: super::PWCHAR,
     pub FriendlyName: super::PWCHAR,
-    pub PhysicalAddress: [u8; 8],
-    pub PhysicalAddressLength: u32,
-    pub Flags: u32,
-    pub Mtu: u32,
-    pub IfType: u32,
+    pub PhysicalAddress: [super::BYTE; 8],
+    pub PhysicalAddressLength: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Mtu: super::DWORD,
+    pub IfType: super::DWORD,
     pub OperStatus: super::IF_OPER_STATUS,
-    pub Ipv6IfIndex: u32,
-    pub ZoneIndices: [u32; 16],
+    pub Ipv6IfIndex: super::DWORD,
+    pub ZoneIndices: [super::DWORD; 16],
     pub FirstPrefix: PIP_ADAPTER_PREFIX_XP,
 }
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for IP_ADAPTER_ADDRESSES_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_XP_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
 }
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for IP_ADAPTER_ADDRESSES_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
-    pub Length: u32,
-    pub IfIndex: u32,
+    pub Length: super::ULONG,
+    pub IfIndex: super::DWORD,
 }
 pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: i32 = 1;
 pub const IP_ADAPTER_ADDRESS_TRANSIENT: i32 = 2;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type IP_ADAPTER_ANYCAST_ADDRESS = IP_ADAPTER_ANYCAST_ADDRESS_XP;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0,
     pub Next: *mut Self,
     pub Address: super::SOCKET_ADDRESS,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
-    pub Length: u32,
-    pub Flags: u32,
+    pub Length: super::ULONG,
+    pub Flags: super::DWORD,
 }
 pub const IP_ADAPTER_DDNS_ENABLED: i32 = 1;
 pub const IP_ADAPTER_DHCP_ENABLED: i32 = 4;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type IP_ADAPTER_DNS_SERVER_ADDRESS = IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0,
     pub Next: *mut Self,
     pub Address: super::SOCKET_ADDRESS,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
-    pub Length: u32,
-    pub Reserved: u32,
+    pub Length: super::ULONG,
+    pub Reserved: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SUFFIX {
     pub Next: *mut Self,
-    pub String: [u16; 256],
+    pub String: [super::WCHAR; 256],
 }
+#[cfg(feature = "winnt")]
 impl Default for IP_ADAPTER_DNS_SUFFIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type IP_ADAPTER_GATEWAY_ADDRESS = IP_ADAPTER_GATEWAY_ADDRESS_LH;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0,
     pub Next: *mut Self,
     pub Address: super::SOCKET_ADDRESS,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
-    pub Length: u32,
-    pub Reserved: u32,
+    pub Length: super::ULONG,
+    pub Reserved: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "corecrt")]
+#[cfg(all(feature = "corecrt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_INFO {
     pub Next: *mut Self,
-    pub ComboIndex: u32,
+    pub ComboIndex: super::DWORD,
     pub AdapterName: [i8; 260],
     pub Description: [i8; 132],
-    pub AddressLength: u32,
-    pub Address: [u8; 8],
-    pub Index: u32,
-    pub Type: u32,
-    pub DhcpEnabled: u32,
+    pub AddressLength: super::UINT,
+    pub Address: [super::BYTE; 8],
+    pub Index: super::DWORD,
+    pub Type: super::UINT,
+    pub DhcpEnabled: super::UINT,
     pub CurrentIpAddress: PIP_ADDR_STRING,
     pub IpAddressList: IP_ADDR_STRING,
     pub GatewayList: IP_ADDR_STRING,
@@ -379,7 +384,7 @@ pub struct IP_ADAPTER_INFO {
     pub LeaseObtained: super::time_t,
     pub LeaseExpires: super::time_t,
 }
-#[cfg(feature = "corecrt")]
+#[cfg(all(feature = "corecrt", feature = "shared"))]
 impl Default for IP_ADAPTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -389,87 +394,87 @@ pub const IP_ADAPTER_IPV4_ENABLED: i32 = 128;
 pub const IP_ADAPTER_IPV6_ENABLED: i32 = 256;
 pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: i32 = 512;
 pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: i32 = 32;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type IP_ADAPTER_MULTICAST_ADDRESS = IP_ADAPTER_MULTICAST_ADDRESS_XP;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0,
     pub Next: *mut Self,
     pub Address: super::SOCKET_ADDRESS,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
-    pub Length: u32,
-    pub Flags: u32,
+    pub Length: super::ULONG,
+    pub Flags: super::DWORD,
 }
 pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: i32 = 64;
 pub const IP_ADAPTER_NO_MULTICAST: i32 = 16;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type IP_ADAPTER_PREFIX = IP_ADAPTER_PREFIX_XP;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_PREFIX_XP {
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0,
     pub Next: *mut Self,
     pub Address: super::SOCKET_ADDRESS,
-    pub PrefixLength: u32,
+    pub PrefixLength: super::ULONG,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_PREFIX_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_PREFIX_XP_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_PREFIX_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
-    pub Length: u32,
-    pub Flags: u32,
+    pub Length: super::ULONG,
+    pub Flags: super::DWORD,
 }
 pub const IP_ADAPTER_RECEIVE_ONLY: i32 = 8;
 pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: i32 = 2;
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 pub type IP_ADAPTER_UNICAST_ADDRESS = IP_ADAPTER_UNICAST_ADDRESS_LH;
 #[repr(C)]
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0,
@@ -478,39 +483,39 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub PrefixOrigin: IP_PREFIX_ORIGIN,
     pub SuffixOrigin: IP_SUFFIX_ORIGIN,
     pub DadState: IP_DAD_STATE,
-    pub ValidLifetime: u32,
-    pub PreferredLifetime: u32,
-    pub LeaseLifetime: u32,
-    pub OnLinkPrefixLength: u8,
+    pub ValidLifetime: super::ULONG,
+    pub PreferredLifetime: super::ULONG,
+    pub LeaseLifetime: super::ULONG,
+    pub OnLinkPrefixLength: super::UINT8,
 }
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
 }
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
-    pub Length: u32,
-    pub Flags: u32,
+    pub Length: super::ULONG,
+    pub Flags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0,
@@ -519,109 +524,115 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub PrefixOrigin: IP_PREFIX_ORIGIN,
     pub SuffixOrigin: IP_SUFFIX_ORIGIN,
     pub DadState: IP_DAD_STATE,
-    pub ValidLifetime: u32,
-    pub PreferredLifetime: u32,
-    pub LeaseLifetime: u32,
+    pub ValidLifetime: super::ULONG,
+    pub PreferredLifetime: super::ULONG,
+    pub LeaseLifetime: super::ULONG,
 }
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
 }
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
-    pub Length: u32,
-    pub Flags: u32,
+    pub Length: super::ULONG,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type IP_ADAPTER_WINS_SERVER_ADDRESS = IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0,
     pub Next: *mut Self,
     pub Address: super::SOCKET_ADDRESS,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
-    pub Length: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IP_ADDR_STRING {
-    pub Next: *mut Self,
-    pub IpAddress: IP_MASK_STRING,
-    pub IpMask: IP_MASK_STRING,
-    pub Context: u32,
-}
-#[cfg(feature = "nldef")]
-pub type IP_DAD_STATE = super::NL_DAD_STATE;
-pub type IP_INTERFACE_NAME_INFO = IP_INTERFACE_NAME_INFO_W2KSP1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
-    pub Index: u32,
-    pub MediaType: u32,
-    pub ConnectionType: u8,
-    pub AccessType: u8,
-    pub DeviceGuid: windows_core::GUID,
-    pub InterfaceGuid: windows_core::GUID,
+    pub Length: super::ULONG,
+    pub Reserved: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IP_MASK_STRING {
+pub struct IP_ADDRESS_STRING {
     pub String: [i8; 16],
 }
-impl Default for IP_MASK_STRING {
+impl Default for IP_ADDRESS_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IP_ADDR_STRING {
+    pub Next: *mut Self,
+    pub IpAddress: IP_ADDRESS_STRING,
+    pub IpMask: IP_MASK_STRING,
+    pub Context: super::DWORD,
+}
+#[cfg(feature = "nldef")]
+pub type IP_DAD_STATE = super::NL_DAD_STATE;
+#[cfg(feature = "shared")]
+pub type IP_INTERFACE_NAME_INFO = IP_INTERFACE_NAME_INFO_W2KSP1;
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
+    pub Index: super::ULONG,
+    pub MediaType: super::ULONG,
+    pub ConnectionType: super::UCHAR,
+    pub AccessType: super::UCHAR,
+    pub DeviceGuid: windows_core::GUID,
+    pub InterfaceGuid: windows_core::GUID,
+}
+pub type IP_MASK_STRING = IP_ADDRESS_STRING;
+#[cfg(feature = "shared")]
 pub type IP_PER_ADAPTER_INFO = IP_PER_ADAPTER_INFO_W2KSP1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
-    pub AutoconfigEnabled: u32,
-    pub AutoconfigActive: u32,
+    pub AutoconfigEnabled: super::UINT,
+    pub AutoconfigActive: super::UINT,
     pub CurrentDnsServer: PIP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
 }
@@ -639,51 +650,59 @@ pub const MAX_HOSTNAME_LEN: i32 = 128;
 pub const MAX_SCOPE_ID_LEN: i32 = 256;
 pub const MIXED_NODETYPE: i32 = 4;
 pub const PEER_TO_PEER_NODETYPE: i32 = 2;
+#[cfg(feature = "shared")]
 pub type PFIXED_INFO = *mut FIXED_INFO_W2KSP1;
+#[cfg(feature = "shared")]
 pub type PFIXED_INFO_W2KSP1 = *mut FIXED_INFO_W2KSP1;
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PIP_ADAPTER_ADDRESSES = *mut IP_ADAPTER_ADDRESSES_LH;
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PIP_ADAPTER_ADDRESSES_LH = *mut IP_ADAPTER_ADDRESSES_LH;
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PIP_ADAPTER_ADDRESSES_XP = *mut IP_ADAPTER_ADDRESSES_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_ANYCAST_ADDRESS = *mut IP_ADAPTER_ANYCAST_ADDRESS_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_ANYCAST_ADDRESS_XP = *mut IP_ADAPTER_ANYCAST_ADDRESS_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_DNS_SERVER_ADDRESS = *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_DNS_SERVER_ADDRESS_XP = *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
+#[cfg(feature = "winnt")]
 pub type PIP_ADAPTER_DNS_SUFFIX = *mut IP_ADAPTER_DNS_SUFFIX;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_GATEWAY_ADDRESS = *mut IP_ADAPTER_GATEWAY_ADDRESS_LH;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_GATEWAY_ADDRESS_LH = *mut IP_ADAPTER_GATEWAY_ADDRESS_LH;
-#[cfg(feature = "corecrt")]
+#[cfg(all(feature = "corecrt", feature = "shared"))]
 pub type PIP_ADAPTER_INFO = *mut IP_ADAPTER_INFO;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_MULTICAST_ADDRESS = *mut IP_ADAPTER_MULTICAST_ADDRESS_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_MULTICAST_ADDRESS_XP = *mut IP_ADAPTER_MULTICAST_ADDRESS_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_PREFIX = *mut IP_ADAPTER_PREFIX_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_PREFIX_XP = *mut IP_ADAPTER_PREFIX_XP;
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_UNICAST_ADDRESS = *mut IP_ADAPTER_UNICAST_ADDRESS_LH;
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_UNICAST_ADDRESS_LH = *mut IP_ADAPTER_UNICAST_ADDRESS_LH;
-#[cfg(all(feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "nldef", feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_UNICAST_ADDRESS_XP = *mut IP_ADAPTER_UNICAST_ADDRESS_XP;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_WINS_SERVER_ADDRESS = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PIP_ADAPTER_WINS_SERVER_ADDRESS_LH = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
-pub type PIP_ADDRESS_STRING = *mut IP_MASK_STRING;
+pub type PIP_ADDRESS_STRING = *mut IP_ADDRESS_STRING;
+#[cfg(feature = "shared")]
 pub type PIP_ADDR_STRING = *mut IP_ADDR_STRING;
+#[cfg(feature = "shared")]
 pub type PIP_INTERFACE_NAME_INFO = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
+#[cfg(feature = "shared")]
 pub type PIP_INTERFACE_NAME_INFO_W2KSP1 = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
-pub type PIP_MASK_STRING = *mut IP_MASK_STRING;
+pub type PIP_MASK_STRING = *mut IP_ADDRESS_STRING;
+#[cfg(feature = "shared")]
 pub type PIP_PER_ADAPTER_INFO = *mut IP_PER_ADAPTER_INFO_W2KSP1;
+#[cfg(feature = "shared")]
 pub type PIP_PER_ADAPTER_INFO_W2KSP1 = *mut IP_PER_ADAPTER_INFO_W2KSP1;

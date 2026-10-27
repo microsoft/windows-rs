@@ -48,7 +48,7 @@ impl windows_core::RuntimeName for IShareWindowCommandEventArgsInterop {}
 windows_core::imp::define_interface!(IShareWindowCommandSourceInterop, IShareWindowCommandSourceInterop_Vtbl, 0x461a191f_8424_43a6_a0fa_3451a22f56ab);
 windows_core::imp::interface_hierarchy!(IShareWindowCommandSourceInterop, windows_core::IUnknown);
 impl IShareWindowCommandSourceInterop {
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "guiddef", feature = "windef"))]
     pub unsafe fn GetForWindow<T>(&self, appwindow: super::HWND) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -61,19 +61,19 @@ impl IShareWindowCommandSourceInterop {
 #[doc(hidden)]
 pub struct IShareWindowCommandSourceInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "windef")]
-    pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "guiddef", feature = "windef"))]
+    pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "windef")))]
     GetForWindow: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 pub trait IShareWindowCommandSourceInterop_Impl: windows_core::IUnknownImpl {
-    fn GetForWindow(&self, appwindow: super::HWND, riid: *const windows_core::GUID, sharewindowcommandsource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::HWND, riid: *const super::IID, sharewindowcommandsource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl IShareWindowCommandSourceInterop_Vtbl {
     pub const fn new<Identity: IShareWindowCommandSourceInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetForWindow<Identity: IShareWindowCommandSourceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::HWND, riid: *const windows_core::GUID, sharewindowcommandsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetForWindow<Identity: IShareWindowCommandSourceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::HWND, riid: *const super::IID, sharewindowcommandsource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IShareWindowCommandSourceInterop_Impl::GetForWindow(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&sharewindowcommandsource)).into()
@@ -85,5 +85,5 @@ impl IShareWindowCommandSourceInterop_Vtbl {
         iid == &<IShareWindowCommandSourceInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl windows_core::RuntimeName for IShareWindowCommandSourceInterop {}

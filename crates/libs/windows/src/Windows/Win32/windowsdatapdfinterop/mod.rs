@@ -13,7 +13,7 @@ where
 windows_core::imp::define_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 windows_core::imp::interface_hierarchy!(IPdfRendererNative, windows_core::IUnknown);
 impl IPdfRendererNative {
-    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef", feature = "winnt"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
     pub unsafe fn RenderPageToSurface<P0, P1>(&self, pdfpage: P0, psurface: P1, offset: super::POINT, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -21,7 +21,7 @@ impl IPdfRendererNative {
     {
         unsafe { (windows_core::Interface::vtable(self).RenderPageToSurface)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), psurface.param().abi(), offset, prenderparams.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "winnt"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
     pub unsafe fn RenderPageToDeviceContext<P0, P1>(&self, pdfpage: P0, pd2ddevicecontext: P1, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -34,21 +34,21 @@ impl IPdfRendererNative {
 #[doc(hidden)]
 pub struct IPdfRendererNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef", feature = "winnt"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
     pub RenderPageToSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::POINT, *const PDF_RENDER_PARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef", feature = "winnt")))]
+    #[cfg(not(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef")))]
     RenderPageToSurface: usize,
-    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "winnt"))]
+    #[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
     pub RenderPageToDeviceContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const PDF_RENDER_PARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "winnt")))]
+    #[cfg(not(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared")))]
     RenderPageToDeviceContext: usize,
 }
-#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IPdfRendererNative_Impl: windows_core::IUnknownImpl {
     fn RenderPageToSurface(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, psurface: windows_core::Ref<super::IDXGISurface>, offset: &super::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
     fn RenderPageToDeviceContext(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, pd2ddevicecontext: windows_core::Ref<super::ID2D1DeviceContext>, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IPdfRendererNative_Vtbl {
     pub const fn new<Identity: IPdfRendererNative_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RenderPageToSurface<Identity: IPdfRendererNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdfpage: *mut core::ffi::c_void, psurface: *mut core::ffi::c_void, offset: super::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::HRESULT {
@@ -73,15 +73,15 @@ impl IPdfRendererNative_Vtbl {
         iid == &<IPdfRendererNative as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IPdfRendererNative {}
 #[repr(C)]
-#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "winnt"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::D2D_RECT_F,
-    pub DestinationWidth: u32,
-    pub DestinationHeight: u32,
+    pub DestinationWidth: super::UINT32,
+    pub DestinationHeight: super::UINT32,
     pub BackgroundColor: super::D2D_COLOR_F,
     pub IgnoreHighContrast: super::BOOLEAN,
 }

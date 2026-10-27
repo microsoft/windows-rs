@@ -1,8 +1,8 @@
 windows_core::imp::define_interface!(IDisplayDeviceInterop, IDisplayDeviceInterop_Vtbl, 0x64338358_366a_471b_bd56_dd8ef48e439b);
 windows_core::imp::interface_hierarchy!(IDisplayDeviceInterop, windows_core::IUnknown);
 impl IDisplayDeviceInterop {
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::HANDLE>
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+    pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::SECURITY_ATTRIBUTES, access: super::DWORD, name: &windows_core::HSTRING) -> windows_core::Result<super::HANDLE>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -11,8 +11,8 @@ impl IDisplayDeviceInterop {
             (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), psecurityattributes, access, core::mem::transmute_copy(name), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn OpenSharedHandle(&self, nthandle: super::HANDLE, riid: windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void> {
+    #[cfg(all(feature = "guiddef", feature = "winnt"))]
+    pub unsafe fn OpenSharedHandle(&self, nthandle: super::HANDLE, riid: super::IID) -> windows_core::Result<*mut core::ffi::c_void> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, riid, &mut result__).map(|| result__)
@@ -23,24 +23,24 @@ impl IDisplayDeviceInterop {
 #[doc(hidden)]
 pub struct IDisplayDeviceInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub CreateSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::SECURITY_ATTRIBUTES, u32, *mut core::ffi::c_void, *mut super::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+    pub CreateSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::SECURITY_ATTRIBUTES, super::DWORD, *mut core::ffi::c_void, *mut super::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt")))]
     CreateSharedHandle: usize,
-    #[cfg(feature = "winnt")]
-    pub OpenSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "guiddef", feature = "winnt"))]
+    pub OpenSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "winnt")))]
     OpenSharedHandle: usize,
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDisplayDeviceInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateSharedHandle(&self, pobject: windows_core::Ref<windows_core::IInspectable>, psecurityattributes: *const super::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::HANDLE>;
-    fn OpenSharedHandle(&self, nthandle: super::HANDLE, riid: &windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void>;
+    fn CreateSharedHandle(&self, pobject: windows_core::Ref<windows_core::IInspectable>, psecurityattributes: *const super::SECURITY_ATTRIBUTES, access: super::DWORD, name: &windows_core::HSTRING) -> windows_core::Result<super::HANDLE>;
+    fn OpenSharedHandle(&self, nthandle: super::HANDLE, riid: &super::IID) -> windows_core::Result<*mut core::ffi::c_void>;
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDisplayDeviceInterop_Vtbl {
     pub const fn new<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::SECURITY_ATTRIBUTES, access: u32, name: *mut core::ffi::c_void, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::SECURITY_ATTRIBUTES, access: super::DWORD, name: *mut core::ffi::c_void, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
@@ -52,7 +52,7 @@ impl IDisplayDeviceInterop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OpenSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nthandle: super::HANDLE, riid: windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nthandle: super::HANDLE, riid: super::IID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDisplayDeviceInterop_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), core::mem::transmute(&riid)) {
@@ -74,7 +74,7 @@ impl IDisplayDeviceInterop_Vtbl {
         iid == &<IDisplayDeviceInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDisplayDeviceInterop {}
 windows_core::imp::define_interface!(IDisplayPathInterop, IDisplayPathInterop_Vtbl, 0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
 windows_core::imp::interface_hierarchy!(IDisplayPathInterop, windows_core::IUnknown);
@@ -86,7 +86,8 @@ impl IDisplayPathInterop {
             (windows_core::Interface::vtable(self).CreateSourcePresentationHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSourceId(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSourceId(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSourceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -101,14 +102,17 @@ pub struct IDisplayPathInterop_Vtbl {
     pub CreateSourcePresentationHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HANDLE) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     CreateSourcePresentationHandle: usize,
-    pub GetSourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSourceId: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDisplayPathInterop_Impl: windows_core::IUnknownImpl {
     fn CreateSourcePresentationHandle(&self) -> windows_core::Result<super::HANDLE>;
-    fn GetSourceId(&self) -> windows_core::Result<u32>;
+    fn GetSourceId(&self) -> windows_core::Result<super::UINT>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl IDisplayPathInterop_Vtbl {
     pub const fn new<Identity: IDisplayPathInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSourcePresentationHandle<Identity: IDisplayPathInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::HANDLE) -> windows_core::HRESULT {
@@ -123,7 +127,7 @@ impl IDisplayPathInterop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSourceId<Identity: IDisplayPathInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceid: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceId<Identity: IDisplayPathInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDisplayPathInterop_Impl::GetSourceId(this) {
@@ -145,5 +149,5 @@ impl IDisplayPathInterop_Vtbl {
         iid == &<IDisplayPathInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDisplayPathInterop {}

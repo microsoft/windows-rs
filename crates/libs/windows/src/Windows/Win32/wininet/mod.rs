@@ -1,28 +1,28 @@
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CommitUrlCacheEntryA<P0, P1, P7, P8>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::FILETIME, lastmodifiedtime: super::FILETIME, cacheentrytype: u32, lpheaderinfo: Option<&[u8]>, lpszfileextension: P7, lpszoriginalurl: P8) -> windows_core::BOOL
+pub unsafe fn CommitUrlCacheEntryA<P0, P1, P7, P8>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::FILETIME, lastmodifiedtime: super::FILETIME, cacheentrytype: super::DWORD, lpheaderinfo: Option<&[u8]>, lpszfileextension: P7, lpszoriginalurl: P8) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P7: windows_core::Param<windows_core::PCSTR>,
     P8: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn CommitUrlCacheEntryA(lpszurlname : windows_core::PCSTR, lpszlocalfilename : windows_core::PCSTR, expiretime : super::FILETIME, lastmodifiedtime : super::FILETIME, cacheentrytype : u32, lpheaderinfo : super::LPBYTE, cchheaderinfo : u32, lpszfileextension : windows_core::PCSTR, lpszoriginalurl : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn CommitUrlCacheEntryA(lpszurlname : windows_core::PCSTR, lpszlocalfilename : windows_core::PCSTR, expiretime : super::FILETIME, lastmodifiedtime : super::FILETIME, cacheentrytype : super::DWORD, lpheaderinfo : super::LPBYTE, cchheaderinfo : super::DWORD, lpszfileextension : windows_core::PCSTR, lpszoriginalurl : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { CommitUrlCacheEntryA(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), expiretime, lastmodifiedtime, cacheentrytype, core::mem::transmute(lpheaderinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpheaderinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CommitUrlCacheEntryW<P0, P1, P7, P8>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::FILETIME, lastmodifiedtime: super::FILETIME, cacheentrytype: u32, lpszheaderinfo: Option<&[u16]>, lpszfileextension: P7, lpszoriginalurl: P8) -> windows_core::BOOL
+pub unsafe fn CommitUrlCacheEntryW<P0, P1, P7, P8>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::FILETIME, lastmodifiedtime: super::FILETIME, cacheentrytype: super::DWORD, lpszheaderinfo: Option<&[u16]>, lpszfileextension: P7, lpszoriginalurl: P8) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn CommitUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, lpszlocalfilename : windows_core::PCWSTR, expiretime : super::FILETIME, lastmodifiedtime : super::FILETIME, cacheentrytype : u32, lpszheaderinfo : windows_core::PCWSTR, cchheaderinfo : u32, lpszfileextension : windows_core::PCWSTR, lpszoriginalurl : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn CommitUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, lpszlocalfilename : windows_core::PCWSTR, expiretime : super::FILETIME, lastmodifiedtime : super::FILETIME, cacheentrytype : super::DWORD, lpszheaderinfo : windows_core::PCWSTR, cchheaderinfo : super::DWORD, lpszfileextension : windows_core::PCWSTR, lpszoriginalurl : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { CommitUrlCacheEntryW(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), expiretime, lastmodifiedtime, cacheentrytype, core::mem::transmute(lpszheaderinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaderinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn CreateMD5SSOHash<P0, P1, P2>(pszchallengeinfo: P0, pwszrealm: P1, pwsztarget: P2, pbhexhash: super::PBYTE) -> windows_core::BOOL
 where
@@ -33,27 +33,30 @@ where
     windows_core::link!("wininet.dll" "system" fn CreateMD5SSOHash(pszchallengeinfo : windows_core::PCWSTR, pwszrealm : windows_core::PCWSTR, pwsztarget : windows_core::PCWSTR, pbhexhash : super::PBYTE) -> windows_core::BOOL);
     unsafe { CreateMD5SSOHash(pszchallengeinfo.param().abi(), pwszrealm.param().abi(), pwsztarget.param().abi(), pbhexhash as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryA<P0, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: windows_core::PSTR, dwreserved: u32) -> windows_core::BOOL
+pub unsafe fn CreateUrlCacheEntryA<P0, P2>(lpszurlname: P0, dwexpectedfilesize: super::DWORD, lpszfileextension: P2, lpszfilename: &mut [u8; 260], dwreserved: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn CreateUrlCacheEntryA(lpszurlname : windows_core::PCSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCSTR, lpszfilename : windows_core::PSTR, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { CreateUrlCacheEntryA(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), lpszfilename, dwreserved) }
+    windows_core::link!("wininet.dll" "system" fn CreateUrlCacheEntryA(lpszurlname : windows_core::PCSTR, dwexpectedfilesize : super::DWORD, lpszfileextension : windows_core::PCSTR, lpszfilename : windows_core::PSTR, dwreserved : super::DWORD) -> windows_core::BOOL);
+    unsafe { CreateUrlCacheEntryA(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_mut_ptr()), dwreserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryW<P0, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: windows_core::PWSTR, dwreserved: u32) -> windows_core::BOOL
+pub unsafe fn CreateUrlCacheEntryW<P0, P2>(lpszurlname: P0, dwexpectedfilesize: super::DWORD, lpszfileextension: P2, lpszfilename: &mut [u16; 260], dwreserved: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn CreateUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCWSTR, lpszfilename : windows_core::PWSTR, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { CreateUrlCacheEntryW(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), lpszfilename, dwreserved) }
+    windows_core::link!("wininet.dll" "system" fn CreateUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, dwexpectedfilesize : super::DWORD, lpszfileextension : windows_core::PCWSTR, lpszfilename : windows_core::PWSTR, dwreserved : super::DWORD) -> windows_core::BOOL);
+    unsafe { CreateUrlCacheEntryW(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_mut_ptr()), dwreserved) }
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateUrlCacheGroup(dwflags: u32, lpreserved: Option<*mut core::ffi::c_void>) -> GROUPID {
-    windows_core::link!("wininet.dll" "system" fn CreateUrlCacheGroup(dwflags : u32, lpreserved : *mut core::ffi::c_void) -> GROUPID);
+pub unsafe fn CreateUrlCacheGroup(dwflags: super::DWORD, lpreserved: Option<super::LPVOID>) -> GROUPID {
+    windows_core::link!("wininet.dll" "system" fn CreateUrlCacheGroup(dwflags : super::DWORD, lpreserved : super::LPVOID) -> GROUPID);
     unsafe { CreateUrlCacheGroup(dwflags, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -80,9 +83,10 @@ where
     windows_core::link!("wininet.dll" "system" fn DeleteUrlCacheEntryW(lpszurlname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { DeleteUrlCacheEntryW(lpszurlname.param().abi()) }
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DeleteUrlCacheGroup(groupid: GROUPID, dwflags: u32, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn DeleteUrlCacheGroup(groupid : GROUPID, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn DeleteUrlCacheGroup(groupid: GROUPID, dwflags: super::DWORD, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn DeleteUrlCacheGroup(groupid : GROUPID, dwflags : super::DWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { DeleteUrlCacheGroup(groupid, dwflags, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -90,9 +94,10 @@ pub unsafe fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> windows_c
     windows_core::link!("wininet.dll" "system" fn DeleteWpadCacheForNetworks(param0 : WPAD_CACHE_DELETE) -> windows_core::BOOL);
     unsafe { DeleteWpadCacheForNetworks(param0) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: windows_core::PSTR, cchautoproxyurl: u32, dwdetectflags: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn DetectAutoProxyUrl(pszautoproxyurl : windows_core::PSTR, cchautoproxyurl : u32, dwdetectflags : u32) -> windows_core::BOOL);
+pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: windows_core::PSTR, cchautoproxyurl: super::DWORD, dwdetectflags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn DetectAutoProxyUrl(pszautoproxyurl : windows_core::PSTR, cchautoproxyurl : super::DWORD, dwdetectflags : super::DWORD) -> windows_core::BOOL);
     unsafe { DetectAutoProxyUrl(pszautoproxyurl, cchautoproxyurl, dwdetectflags) }
 }
 #[cfg(feature = "winnt")]
@@ -101,7 +106,7 @@ pub unsafe fn FindCloseUrlCache(henumhandle: super::HANDLE) -> windows_core::BOO
     windows_core::link!("wininet.dll" "system" fn FindCloseUrlCache(henumhandle : super::HANDLE) -> windows_core::BOOL);
     unsafe { FindCloseUrlCache(henumhandle) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn FindFirstUrlCacheEntryA<P0>(lpszurlsearchpattern: P0, lpfirstcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD) -> super::HANDLE
 where
@@ -110,25 +115,25 @@ where
     windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryA(lpszurlsearchpattern : windows_core::PCSTR, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD) -> super::HANDLE);
     unsafe { FindFirstUrlCacheEntryA(lpszurlsearchpattern.param().abi(), lpfirstcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstUrlCacheEntryExA<P0>(lpszurlsearchpattern: P0, dwflags: u32, dwfilter: u32, groupid: GROUPID, lpfirstcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<*mut core::ffi::c_void>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<*mut core::ffi::c_void>) -> super::HANDLE
+pub unsafe fn FindFirstUrlCacheEntryExA<P0>(lpszurlsearchpattern: P0, dwflags: super::DWORD, dwfilter: super::DWORD, groupid: GROUPID, lpfirstcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<super::LPVOID>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern : windows_core::PCSTR, dwflags : u32, dwfilter : u32, groupid : GROUPID, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> super::HANDLE);
+    windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern : windows_core::PCSTR, dwflags : super::DWORD, dwfilter : super::DWORD, groupid : GROUPID, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : super::LPVOID, lpcbgroupattributes : super::LPDWORD, lpreserved : super::LPVOID) -> super::HANDLE);
     unsafe { FindFirstUrlCacheEntryExA(lpszurlsearchpattern.param().abi(), dwflags, dwfilter, groupid, lpfirstcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, lpgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpcbgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstUrlCacheEntryExW<P0>(lpszurlsearchpattern: P0, dwflags: u32, dwfilter: u32, groupid: GROUPID, lpfirstcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<*mut core::ffi::c_void>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<*mut core::ffi::c_void>) -> super::HANDLE
+pub unsafe fn FindFirstUrlCacheEntryExW<P0>(lpszurlsearchpattern: P0, dwflags: super::DWORD, dwfilter: super::DWORD, groupid: GROUPID, lpfirstcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<super::LPVOID>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern : windows_core::PCWSTR, dwflags : u32, dwfilter : u32, groupid : GROUPID, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> super::HANDLE);
+    windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern : windows_core::PCWSTR, dwflags : super::DWORD, dwfilter : super::DWORD, groupid : GROUPID, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : super::LPVOID, lpcbgroupattributes : super::LPDWORD, lpreserved : super::LPVOID) -> super::HANDLE);
     unsafe { FindFirstUrlCacheEntryExW(lpszurlsearchpattern.param().abi(), dwflags, dwfilter, groupid, lpfirstcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, lpgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpcbgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn FindFirstUrlCacheEntryW<P0>(lpszurlsearchpattern: P0, lpfirstcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD) -> super::HANDLE
 where
@@ -137,61 +142,61 @@ where
     windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryW(lpszurlsearchpattern : windows_core::PCWSTR, lpfirstcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD) -> super::HANDLE);
     unsafe { FindFirstUrlCacheEntryW(lpszurlsearchpattern.param().abi(), lpfirstcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstUrlCacheGroup(dwflags: u32, dwfilter: u32, lpsearchcondition: Option<*mut core::ffi::c_void>, dwsearchcondition: Option<u32>, lpgroupid: *mut GROUPID, lpreserved: Option<*mut core::ffi::c_void>) -> super::HANDLE {
-    windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheGroup(dwflags : u32, dwfilter : u32, lpsearchcondition : *mut core::ffi::c_void, dwsearchcondition : u32, lpgroupid : *mut GROUPID, lpreserved : *mut core::ffi::c_void) -> super::HANDLE);
+pub unsafe fn FindFirstUrlCacheGroup(dwflags: super::DWORD, dwfilter: super::DWORD, lpsearchcondition: Option<super::LPVOID>, dwsearchcondition: Option<super::DWORD>, lpgroupid: *mut GROUPID, lpreserved: Option<super::LPVOID>) -> super::HANDLE {
+    windows_core::link!("wininet.dll" "system" fn FindFirstUrlCacheGroup(dwflags : super::DWORD, dwfilter : super::DWORD, lpsearchcondition : super::LPVOID, dwsearchcondition : super::DWORD, lpgroupid : *mut GROUPID, lpreserved : super::LPVOID) -> super::HANDLE);
     unsafe { FindFirstUrlCacheGroup(dwflags, dwfilter, lpsearchcondition.unwrap_or(core::mem::zeroed()) as _, dwsearchcondition.unwrap_or(core::mem::zeroed()) as _, lpgroupid as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn FindNextUrlCacheEntryA(henumhandle: super::HANDLE, lpnextcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheEntryA(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD) -> windows_core::BOOL);
     unsafe { FindNextUrlCacheEntryA(henumhandle, lpnextcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindNextUrlCacheEntryExA(henumhandle: super::HANDLE, lpnextcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<*mut core::ffi::c_void>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExA(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn FindNextUrlCacheEntryExA(henumhandle: super::HANDLE, lpnextcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<super::LPVOID>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExA(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : super::LPVOID, lpcbgroupattributes : super::LPDWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { FindNextUrlCacheEntryExA(henumhandle, lpnextcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, lpgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpcbgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindNextUrlCacheEntryExW(henumhandle: super::HANDLE, lpnextcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<*mut core::ffi::c_void>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExW(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : *mut core::ffi::c_void, lpcbgroupattributes : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn FindNextUrlCacheEntryExW(henumhandle: super::HANDLE, lpnextcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, lpgroupattributes: Option<super::LPVOID>, lpcbgroupattributes: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheEntryExW(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpgroupattributes : super::LPVOID, lpcbgroupattributes : super::LPDWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { FindNextUrlCacheEntryExW(henumhandle, lpnextcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, lpgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpcbgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn FindNextUrlCacheEntryW(henumhandle: super::HANDLE, lpnextcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheEntryW(henumhandle : super::HANDLE, lpnextcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD) -> windows_core::BOOL);
     unsafe { FindNextUrlCacheEntryW(henumhandle, lpnextcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindNextUrlCacheGroup(hfind: super::HANDLE, lpgroupid: *mut GROUPID, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheGroup(hfind : super::HANDLE, lpgroupid : *mut GROUPID, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn FindNextUrlCacheGroup(hfind: super::HANDLE, lpgroupid: *mut GROUPID, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn FindNextUrlCacheGroup(hfind : super::HANDLE, lpgroupid : *mut GROUPID, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { FindNextUrlCacheGroup(hfind, lpgroupid as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpCommandA<P3>(hconnect: super::HINTERNET, fexpectresponse: bool, dwflags: u32, lpszcommand: P3, dwcontext: Option<usize>, phftpcommand: Option<*mut super::HINTERNET>) -> windows_core::BOOL
+pub unsafe fn FtpCommandA<P3>(hconnect: super::HINTERNET, fexpectresponse: bool, dwflags: super::DWORD, lpszcommand: P3, dwcontext: Option<super::DWORD_PTR>, phftpcommand: Option<*mut super::HINTERNET>) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpCommandA(hconnect : super::HINTERNET, fexpectresponse : windows_core::BOOL, dwflags : u32, lpszcommand : windows_core::PCSTR, dwcontext : usize, phftpcommand : *mut super::HINTERNET) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpCommandA(hconnect : super::HINTERNET, fexpectresponse : windows_core::BOOL, dwflags : super::DWORD, lpszcommand : windows_core::PCSTR, dwcontext : super::DWORD_PTR, phftpcommand : *mut super::HINTERNET) -> windows_core::BOOL);
     unsafe { FtpCommandA(hconnect, fexpectresponse.into(), dwflags, lpszcommand.param().abi(), dwcontext.unwrap_or(core::mem::zeroed()) as _, phftpcommand.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpCommandW<P3>(hconnect: super::HINTERNET, fexpectresponse: bool, dwflags: u32, lpszcommand: P3, dwcontext: Option<usize>, phftpcommand: Option<*mut super::HINTERNET>) -> windows_core::BOOL
+pub unsafe fn FtpCommandW<P3>(hconnect: super::HINTERNET, fexpectresponse: bool, dwflags: super::DWORD, lpszcommand: P3, dwcontext: Option<super::DWORD_PTR>, phftpcommand: Option<*mut super::HINTERNET>) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpCommandW(hconnect : super::HINTERNET, fexpectresponse : windows_core::BOOL, dwflags : u32, lpszcommand : windows_core::PCWSTR, dwcontext : usize, phftpcommand : *mut super::HINTERNET) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpCommandW(hconnect : super::HINTERNET, fexpectresponse : windows_core::BOOL, dwflags : super::DWORD, lpszcommand : windows_core::PCWSTR, dwcontext : super::DWORD_PTR, phftpcommand : *mut super::HINTERNET) -> windows_core::BOOL);
     unsafe { FtpCommandW(hconnect, fexpectresponse.into(), dwflags, lpszcommand.param().abi(), dwcontext.unwrap_or(core::mem::zeroed()) as _, phftpcommand.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpCreateDirectoryA<P1>(hconnect: super::HINTERNET, lpszdirectory: P1) -> windows_core::BOOL
 where
@@ -200,7 +205,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpCreateDirectoryA(hconnect : super::HINTERNET, lpszdirectory : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { FtpCreateDirectoryA(hconnect, lpszdirectory.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpCreateDirectoryW<P1>(hconnect: super::HINTERNET, lpszdirectory: P1) -> windows_core::BOOL
 where
@@ -209,7 +214,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpCreateDirectoryW(hconnect : super::HINTERNET, lpszdirectory : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { FtpCreateDirectoryW(hconnect, lpszdirectory.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpDeleteFileA<P1>(hconnect: super::HINTERNET, lpszfilename: P1) -> windows_core::BOOL
 where
@@ -218,7 +223,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpDeleteFileA(hconnect : super::HINTERNET, lpszfilename : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { FtpDeleteFileA(hconnect, lpszfilename.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpDeleteFileW<P1>(hconnect: super::HINTERNET, lpszfilename: P1) -> windows_core::BOOL
 where
@@ -227,121 +232,121 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpDeleteFileW(hconnect : super::HINTERNET, lpszfilename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { FtpDeleteFileW(hconnect, lpszfilename.param().abi()) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn FtpFindFirstFileA<P1>(hconnect: super::HINTERNET, lpszsearchfile: P1, lpfindfiledata: Option<super::LPWIN32_FIND_DATAA>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn FtpFindFirstFileA<P1>(hconnect: super::HINTERNET, lpszsearchfile: P1, lpfindfiledata: Option<super::LPWIN32_FIND_DATAA>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpFindFirstFileA(hconnect : super::HINTERNET, lpszsearchfile : windows_core::PCSTR, lpfindfiledata : super::LPWIN32_FIND_DATAA, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn FtpFindFirstFileA(hconnect : super::HINTERNET, lpszsearchfile : windows_core::PCSTR, lpfindfiledata : super::LPWIN32_FIND_DATAA, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { FtpFindFirstFileA(hconnect, lpszsearchfile.param().abi(), lpfindfiledata.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn FtpFindFirstFileW<P1>(hconnect: super::HINTERNET, lpszsearchfile: P1, lpfindfiledata: Option<super::LPWIN32_FIND_DATAW>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn FtpFindFirstFileW<P1>(hconnect: super::HINTERNET, lpszsearchfile: P1, lpfindfiledata: Option<super::LPWIN32_FIND_DATAW>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpFindFirstFileW(hconnect : super::HINTERNET, lpszsearchfile : windows_core::PCWSTR, lpfindfiledata : super::LPWIN32_FIND_DATAW, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn FtpFindFirstFileW(hconnect : super::HINTERNET, lpszsearchfile : windows_core::PCWSTR, lpfindfiledata : super::LPWIN32_FIND_DATAW, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { FtpFindFirstFileW(hconnect, lpszsearchfile.param().abi(), lpfindfiledata.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn FtpGetCurrentDirectoryA(hconnect: super::HINTERNET, lpszcurrentdirectory: windows_core::PSTR, lpdwcurrentdirectory: super::LPDWORD) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryA(hconnect : super::HINTERNET, lpszcurrentdirectory : windows_core::PSTR, lpdwcurrentdirectory : super::LPDWORD) -> windows_core::BOOL);
     unsafe { FtpGetCurrentDirectoryA(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn FtpGetCurrentDirectoryW(hconnect: super::HINTERNET, lpszcurrentdirectory: windows_core::PWSTR, lpdwcurrentdirectory: super::LPDWORD) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryW(hconnect : super::HINTERNET, lpszcurrentdirectory : windows_core::PWSTR, lpdwcurrentdirectory : super::LPDWORD) -> windows_core::BOOL);
     unsafe { FtpGetCurrentDirectoryW(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpGetFileA<P1, P2>(hconnect: super::HINTERNET, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn FtpGetFileA<P1, P2>(hconnect: super::HINTERNET, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: super::DWORD, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpGetFileA(hconnect : super::HINTERNET, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCSTR, ffailifexists : windows_core::BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpGetFileA(hconnect : super::HINTERNET, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCSTR, ffailifexists : windows_core::BOOL, dwflagsandattributes : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { FtpGetFileA(hconnect, lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.into(), dwflagsandattributes, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpGetFileEx<P1, P2>(hftpsession: super::HINTERNET, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn FtpGetFileEx<P1, P2>(hftpsession: super::HINTERNET, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: super::DWORD, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpGetFileEx(hftpsession : super::HINTERNET, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : windows_core::BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpGetFileEx(hftpsession : super::HINTERNET, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : windows_core::BOOL, dwflagsandattributes : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { FtpGetFileEx(hftpsession, lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.into(), dwflagsandattributes, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn FtpGetFileSize(hfile: super::HINTERNET, lpdwfilesizehigh: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("wininet.dll" "system" fn FtpGetFileSize(hfile : super::HINTERNET, lpdwfilesizehigh : super::LPDWORD) -> u32);
+pub unsafe fn FtpGetFileSize(hfile: super::HINTERNET, lpdwfilesizehigh: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("wininet.dll" "system" fn FtpGetFileSize(hfile : super::HINTERNET, lpdwfilesizehigh : super::LPDWORD) -> super::DWORD);
     unsafe { FtpGetFileSize(hfile, lpdwfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpGetFileW<P1, P2>(hconnect: super::HINTERNET, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: u32, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn FtpGetFileW<P1, P2>(hconnect: super::HINTERNET, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: bool, dwflagsandattributes: super::DWORD, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpGetFileW(hconnect : super::HINTERNET, lpszremotefile : windows_core::PCWSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : windows_core::BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpGetFileW(hconnect : super::HINTERNET, lpszremotefile : windows_core::PCWSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : windows_core::BOOL, dwflagsandattributes : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { FtpGetFileW(hconnect, lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.into(), dwflagsandattributes, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpOpenFileA<P1>(hconnect: super::HINTERNET, lpszfilename: P1, dwaccess: u32, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn FtpOpenFileA<P1>(hconnect: super::HINTERNET, lpszfilename: P1, dwaccess: super::DWORD, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpOpenFileA(hconnect : super::HINTERNET, lpszfilename : windows_core::PCSTR, dwaccess : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn FtpOpenFileA(hconnect : super::HINTERNET, lpszfilename : windows_core::PCSTR, dwaccess : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { FtpOpenFileA(hconnect, lpszfilename.param().abi(), dwaccess, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpOpenFileW<P1>(hconnect: super::HINTERNET, lpszfilename: P1, dwaccess: u32, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn FtpOpenFileW<P1>(hconnect: super::HINTERNET, lpszfilename: P1, dwaccess: super::DWORD, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpOpenFileW(hconnect : super::HINTERNET, lpszfilename : windows_core::PCWSTR, dwaccess : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn FtpOpenFileW(hconnect : super::HINTERNET, lpszfilename : windows_core::PCWSTR, dwaccess : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { FtpOpenFileW(hconnect, lpszfilename.param().abi(), dwaccess, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpPutFileA<P1, P2>(hconnect: super::HINTERNET, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn FtpPutFileA<P1, P2>(hconnect: super::HINTERNET, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpPutFileA(hconnect : super::HINTERNET, lpszlocalfile : windows_core::PCSTR, lpsznewremotefile : windows_core::PCSTR, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpPutFileA(hconnect : super::HINTERNET, lpszlocalfile : windows_core::PCSTR, lpsznewremotefile : windows_core::PCSTR, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { FtpPutFileA(hconnect, lpszlocalfile.param().abi(), lpsznewremotefile.param().abi(), dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpPutFileEx<P1, P2>(hftpsession: super::HINTERNET, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn FtpPutFileEx<P1, P2>(hftpsession: super::HINTERNET, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpPutFileEx(hftpsession : super::HINTERNET, lpszlocalfile : windows_core::PCWSTR, lpsznewremotefile : windows_core::PCSTR, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpPutFileEx(hftpsession : super::HINTERNET, lpszlocalfile : windows_core::PCWSTR, lpsznewremotefile : windows_core::PCSTR, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { FtpPutFileEx(hftpsession, lpszlocalfile.param().abi(), lpsznewremotefile.param().abi(), dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn FtpPutFileW<P1, P2>(hconnect: super::HINTERNET, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn FtpPutFileW<P1, P2>(hconnect: super::HINTERNET, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn FtpPutFileW(hconnect : super::HINTERNET, lpszlocalfile : windows_core::PCWSTR, lpsznewremotefile : windows_core::PCWSTR, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn FtpPutFileW(hconnect : super::HINTERNET, lpszlocalfile : windows_core::PCWSTR, lpsznewremotefile : windows_core::PCWSTR, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { FtpPutFileW(hconnect, lpszlocalfile.param().abi(), lpsznewremotefile.param().abi(), dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpRemoveDirectoryA<P1>(hconnect: super::HINTERNET, lpszdirectory: P1) -> windows_core::BOOL
 where
@@ -350,7 +355,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpRemoveDirectoryA(hconnect : super::HINTERNET, lpszdirectory : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { FtpRemoveDirectoryA(hconnect, lpszdirectory.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpRemoveDirectoryW<P1>(hconnect: super::HINTERNET, lpszdirectory: P1) -> windows_core::BOOL
 where
@@ -359,7 +364,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpRemoveDirectoryW(hconnect : super::HINTERNET, lpszdirectory : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { FtpRemoveDirectoryW(hconnect, lpszdirectory.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpRenameFileA<P1, P2>(hconnect: super::HINTERNET, lpszexisting: P1, lpsznew: P2) -> windows_core::BOOL
 where
@@ -369,7 +374,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpRenameFileA(hconnect : super::HINTERNET, lpszexisting : windows_core::PCSTR, lpsznew : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { FtpRenameFileA(hconnect, lpszexisting.param().abi(), lpsznew.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpRenameFileW<P1, P2>(hconnect: super::HINTERNET, lpszexisting: P1, lpsznew: P2) -> windows_core::BOOL
 where
@@ -379,7 +384,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpRenameFileW(hconnect : super::HINTERNET, lpszexisting : windows_core::PCWSTR, lpsznew : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { FtpRenameFileW(hconnect, lpszexisting.param().abi(), lpsznew.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpSetCurrentDirectoryA<P1>(hconnect: super::HINTERNET, lpszdirectory: P1) -> windows_core::BOOL
 where
@@ -388,7 +393,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpSetCurrentDirectoryA(hconnect : super::HINTERNET, lpszdirectory : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { FtpSetCurrentDirectoryA(hconnect, lpszdirectory.param().abi()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn FtpSetCurrentDirectoryW<P1>(hconnect: super::HINTERNET, lpszdirectory: P1) -> windows_core::BOOL
 where
@@ -397,7 +402,7 @@ where
     windows_core::link!("wininet.dll" "system" fn FtpSetCurrentDirectoryW(hconnect : super::HINTERNET, lpszdirectory : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { FtpSetCurrentDirectoryW(hconnect, lpszdirectory.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn GetUrlCacheEntryInfoA<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: Option<super::LPDWORD>) -> windows_core::BOOL
 where
@@ -406,27 +411,25 @@ where
     windows_core::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetUrlCacheEntryInfoA(lpszurlname.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoExA<P0, P3>(lpszurl: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: Option<super::LPDWORD>, lpszredirecturl: P3, lpcbredirecturl: Option<super::LPDWORD>, lpreserved: Option<*mut core::ffi::c_void>, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn GetUrlCacheEntryInfoExA<P0>(lpszurl: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: Option<super::LPDWORD>, lpszredirecturl: Option<windows_core::PSTR>, lpcbredirecturl: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExA(lpszurl : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpszredirecturl : windows_core::PCSTR, lpcbredirecturl : super::LPDWORD, lpreserved : *mut core::ffi::c_void, dwflags : u32) -> windows_core::BOOL);
-    unsafe { GetUrlCacheEntryInfoExA(lpszurl.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpszredirecturl.param().abi(), lpcbredirecturl.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    windows_core::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExA(lpszurl : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, lpszredirecturl : windows_core::PSTR, lpcbredirecturl : super::LPDWORD, lpreserved : super::LPVOID, dwflags : super::DWORD) -> windows_core::BOOL);
+    unsafe { GetUrlCacheEntryInfoExA(lpszurl.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpszredirecturl.unwrap_or(core::mem::zeroed()) as _, lpcbredirecturl.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoExW<P0, P3>(lpszurl: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: Option<super::LPDWORD>, lpszredirecturl: P3, lpcbredirecturl: Option<super::LPDWORD>, lpreserved: Option<*mut core::ffi::c_void>, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn GetUrlCacheEntryInfoExW<P0>(lpszurl: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: Option<super::LPDWORD>, lpszredirecturl: Option<windows_core::PWSTR>, lpcbredirecturl: Option<super::LPDWORD>, lpreserved: Option<super::LPVOID>, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExW(lpszurl : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpszredirecturl : windows_core::PCWSTR, lpcbredirecturl : super::LPDWORD, lpreserved : *mut core::ffi::c_void, dwflags : u32) -> windows_core::BOOL);
-    unsafe { GetUrlCacheEntryInfoExW(lpszurl.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpszredirecturl.param().abi(), lpcbredirecturl.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    windows_core::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExW(lpszurl : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, lpszredirecturl : windows_core::PWSTR, lpcbredirecturl : super::LPDWORD, lpreserved : super::LPVOID, dwflags : super::DWORD) -> windows_core::BOOL);
+    unsafe { GetUrlCacheEntryInfoExW(lpszurl.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpszredirecturl.unwrap_or(core::mem::zeroed()) as _, lpcbredirecturl.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn GetUrlCacheEntryInfoW<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: Option<super::LPDWORD>) -> windows_core::BOOL
 where
@@ -435,79 +438,79 @@ where
     windows_core::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetUrlCacheEntryInfoW(lpszurlname.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GetUrlCacheGroupAttributeA(gid: GROUPID, dwflags: Option<u32>, dwattributes: u32, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo: super::LPDWORD, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn GetUrlCacheGroupAttributeA(gid: GROUPID, dwflags: Option<super::DWORD>, dwattributes: super::DWORD, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo: super::LPDWORD, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : super::DWORD, dwattributes : super::DWORD, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo : super::LPDWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { GetUrlCacheGroupAttributeA(gid, dwflags.unwrap_or(core::mem::zeroed()) as _, dwattributes, lpgroupinfo as _, lpcbgroupinfo as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetUrlCacheGroupAttributeW(gid: GROUPID, dwflags: Option<u32>, dwattributes: u32, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo: super::LPDWORD, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn GetUrlCacheGroupAttributeW(gid: GROUPID, dwflags: Option<super::DWORD>, dwattributes: super::DWORD, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo: super::LPDWORD, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn GetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : super::DWORD, dwattributes : super::DWORD, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo : super::LPDWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { GetUrlCacheGroupAttributeW(gid, dwflags.unwrap_or(core::mem::zeroed()) as _, dwattributes, lpgroupinfo as _, lpcbgroupinfo as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GopherCreateLocatorA<P0, P2, P3>(lpszhost: P0, nserverport: super::INTERNET_PORT, lpszdisplaystring: P2, lpszselectorstring: P3, dwgophertype: u32, lpszlocator: Option<windows_core::PSTR>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL
+pub unsafe fn GopherCreateLocatorA<P0, P2, P3>(lpszhost: P0, nserverport: super::INTERNET_PORT, lpszdisplaystring: P2, lpszselectorstring: P3, dwgophertype: super::DWORD, lpszlocator: Option<windows_core::PSTR>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherCreateLocatorA(lpszhost : windows_core::PCSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_core::PCSTR, lpszselectorstring : windows_core::PCSTR, dwgophertype : u32, lpszlocator : windows_core::PSTR, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn GopherCreateLocatorA(lpszhost : windows_core::PCSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_core::PCSTR, lpszselectorstring : windows_core::PCSTR, dwgophertype : super::DWORD, lpszlocator : windows_core::PSTR, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GopherCreateLocatorA(lpszhost.param().abi(), nserverport, lpszdisplaystring.param().abi(), lpszselectorstring.param().abi(), dwgophertype, lpszlocator.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GopherCreateLocatorW<P0, P2, P3>(lpszhost: P0, nserverport: super::INTERNET_PORT, lpszdisplaystring: P2, lpszselectorstring: P3, dwgophertype: u32, lpszlocator: Option<windows_core::PWSTR>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL
+pub unsafe fn GopherCreateLocatorW<P0, P2, P3>(lpszhost: P0, nserverport: super::INTERNET_PORT, lpszdisplaystring: P2, lpszselectorstring: P3, dwgophertype: super::DWORD, lpszlocator: Option<windows_core::PWSTR>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherCreateLocatorW(lpszhost : windows_core::PCWSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_core::PCWSTR, lpszselectorstring : windows_core::PCWSTR, dwgophertype : u32, lpszlocator : windows_core::PWSTR, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn GopherCreateLocatorW(lpszhost : windows_core::PCWSTR, nserverport : super::INTERNET_PORT, lpszdisplaystring : windows_core::PCWSTR, lpszselectorstring : windows_core::PCWSTR, dwgophertype : super::DWORD, lpszlocator : windows_core::PWSTR, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GopherCreateLocatorW(lpszhost.param().abi(), nserverport, lpszdisplaystring.param().abi(), lpszselectorstring.param().abi(), dwgophertype, lpszlocator.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn GopherFindFirstFileA<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszsearchstring: P2, lpfinddata: Option<LPGOPHER_FIND_DATAA>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn GopherFindFirstFileA<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszsearchstring: P2, lpfinddata: Option<LPGOPHER_FIND_DATAA>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherFindFirstFileA(hconnect : super::HINTERNET, lpszlocator : windows_core::PCSTR, lpszsearchstring : windows_core::PCSTR, lpfinddata : LPGOPHER_FIND_DATAA, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn GopherFindFirstFileA(hconnect : super::HINTERNET, lpszlocator : windows_core::PCSTR, lpszsearchstring : windows_core::PCSTR, lpfinddata : LPGOPHER_FIND_DATAA, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { GopherFindFirstFileA(hconnect, lpszlocator.param().abi(), lpszsearchstring.param().abi(), lpfinddata.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GopherFindFirstFileW<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszsearchstring: P2, lpfinddata: Option<LPGOPHER_FIND_DATAW>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn GopherFindFirstFileW<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszsearchstring: P2, lpfinddata: Option<LPGOPHER_FIND_DATAW>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherFindFirstFileW(hconnect : super::HINTERNET, lpszlocator : windows_core::PCWSTR, lpszsearchstring : windows_core::PCWSTR, lpfinddata : LPGOPHER_FIND_DATAW, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn GopherFindFirstFileW(hconnect : super::HINTERNET, lpszlocator : windows_core::PCWSTR, lpszsearchstring : windows_core::PCWSTR, lpfinddata : LPGOPHER_FIND_DATAW, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { GopherFindFirstFileW(hconnect, lpszlocator.param().abi(), lpszsearchstring.param().abi(), lpfinddata.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GopherGetAttributeA<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszattributename: P2, lpbuffer: super::LPBYTE, dwbufferlength: u32, lpdwcharactersreturned: super::LPDWORD, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn GopherGetAttributeA<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszattributename: P2, lpbuffer: super::LPBYTE, dwbufferlength: super::DWORD, lpdwcharactersreturned: super::LPDWORD, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherGetAttributeA(hconnect : super::HINTERNET, lpszlocator : windows_core::PCSTR, lpszattributename : windows_core::PCSTR, lpbuffer : super::LPBYTE, dwbufferlength : u32, lpdwcharactersreturned : super::LPDWORD, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_core::BOOL);
-    unsafe { GopherGetAttributeA(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), lpbuffer, dwbufferlength, lpdwcharactersreturned as _, lpfnenumerator, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("wininet.dll" "system" fn GopherGetAttributeA(hconnect : super::HINTERNET, lpszlocator : windows_core::PCSTR, lpszattributename : windows_core::PCSTR, lpbuffer : super::LPBYTE, dwbufferlength : super::DWORD, lpdwcharactersreturned : super::LPDWORD, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
+    unsafe { GopherGetAttributeA(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), lpbuffer as _, dwbufferlength, lpdwcharactersreturned as _, lpfnenumerator, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GopherGetAttributeW<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszattributename: P2, lpbuffer: super::LPBYTE, dwbufferlength: u32, lpdwcharactersreturned: super::LPDWORD, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: Option<usize>) -> windows_core::BOOL
+pub unsafe fn GopherGetAttributeW<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszattributename: P2, lpbuffer: super::LPBYTE, dwbufferlength: super::DWORD, lpdwcharactersreturned: super::LPDWORD, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherGetAttributeW(hconnect : super::HINTERNET, lpszlocator : windows_core::PCWSTR, lpszattributename : windows_core::PCWSTR, lpbuffer : super::LPBYTE, dwbufferlength : u32, lpdwcharactersreturned : super::LPDWORD, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> windows_core::BOOL);
-    unsafe { GopherGetAttributeW(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), lpbuffer, dwbufferlength, lpdwcharactersreturned as _, lpfnenumerator, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("wininet.dll" "system" fn GopherGetAttributeW(hconnect : super::HINTERNET, lpszlocator : windows_core::PCWSTR, lpszattributename : windows_core::PCWSTR, lpbuffer : super::LPBYTE, dwbufferlength : super::DWORD, lpdwcharactersreturned : super::LPDWORD, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
+    unsafe { GopherGetAttributeW(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), lpbuffer as _, dwbufferlength, lpdwcharactersreturned as _, lpfnenumerator, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -527,173 +530,171 @@ where
     windows_core::link!("wininet.dll" "system" fn GopherGetLocatorTypeW(lpszlocator : windows_core::PCWSTR, lpdwgophertype : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GopherGetLocatorTypeW(lpszlocator.param().abi(), lpdwgophertype as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GopherOpenFileA<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszview: P2, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn GopherOpenFileA<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszview: P2, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherOpenFileA(hconnect : super::HINTERNET, lpszlocator : windows_core::PCSTR, lpszview : windows_core::PCSTR, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn GopherOpenFileA(hconnect : super::HINTERNET, lpszlocator : windows_core::PCSTR, lpszview : windows_core::PCSTR, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { GopherOpenFileA(hconnect, lpszlocator.param().abi(), lpszview.param().abi(), dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GopherOpenFileW<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszview: P2, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn GopherOpenFileW<P1, P2>(hconnect: super::HINTERNET, lpszlocator: P1, lpszview: P2, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn GopherOpenFileW(hconnect : super::HINTERNET, lpszlocator : windows_core::PCWSTR, lpszview : windows_core::PCWSTR, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn GopherOpenFileW(hconnect : super::HINTERNET, lpszlocator : windows_core::PCWSTR, lpszview : windows_core::PCWSTR, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { GopherOpenFileW(hconnect, lpszlocator.param().abi(), lpszview.param().abi(), dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpAddRequestHeadersA<P1>(hrequest: super::HINTERNET, lpszheaders: P1, dwheaderslength: u32, dwmodifiers: u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("wininet.dll" "system" fn HttpAddRequestHeadersA(hrequest : super::HINTERNET, lpszheaders : windows_core::PCSTR, dwheaderslength : u32, dwmodifiers : u32) -> windows_core::BOOL);
-    unsafe { HttpAddRequestHeadersA(hrequest, lpszheaders.param().abi(), dwheaderslength, dwmodifiers) }
+pub unsafe fn HttpAddRequestHeadersA(hrequest: super::HINTERNET, lpszheaders: windows_core::PCSTR, dwheaderslength: super::DWORD, dwmodifiers: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpAddRequestHeadersA(hrequest : super::HINTERNET, lpszheaders : windows_core::PCSTR, dwheaderslength : super::DWORD, dwmodifiers : super::DWORD) -> windows_core::BOOL);
+    unsafe { HttpAddRequestHeadersA(hrequest, lpszheaders, dwheaderslength, dwmodifiers) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpAddRequestHeadersW<P1>(hrequest: super::HINTERNET, lpszheaders: P1, dwheaderslength: u32, dwmodifiers: u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("wininet.dll" "system" fn HttpAddRequestHeadersW(hrequest : super::HINTERNET, lpszheaders : windows_core::PCWSTR, dwheaderslength : u32, dwmodifiers : u32) -> windows_core::BOOL);
-    unsafe { HttpAddRequestHeadersW(hrequest, lpszheaders.param().abi(), dwheaderslength, dwmodifiers) }
+pub unsafe fn HttpAddRequestHeadersW(hrequest: super::HINTERNET, lpszheaders: windows_core::PCWSTR, dwheaderslength: super::DWORD, dwmodifiers: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpAddRequestHeadersW(hrequest : super::HINTERNET, lpszheaders : windows_core::PCWSTR, dwheaderslength : super::DWORD, dwmodifiers : super::DWORD) -> windows_core::BOOL);
+    unsafe { HttpAddRequestHeadersW(hrequest, lpszheaders, dwheaderslength, dwmodifiers) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpEndRequestA(hrequest: super::HINTERNET, lpbuffersout: Option<LPINTERNET_BUFFERSA>, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpEndRequestA(hrequest : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+pub unsafe fn HttpEndRequestA(hrequest: super::HINTERNET, lpbuffersout: Option<LPINTERNET_BUFFERSA>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpEndRequestA(hrequest : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { HttpEndRequestA(hrequest, lpbuffersout.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpEndRequestW(hrequest: super::HINTERNET, lpbuffersout: Option<LPINTERNET_BUFFERSW>, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpEndRequestW(hrequest : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+pub unsafe fn HttpEndRequestW(hrequest: super::HINTERNET, lpbuffersout: Option<LPINTERNET_BUFFERSW>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpEndRequestW(hrequest : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { HttpEndRequestW(hrequest, lpbuffersout.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpIsHostHstsEnabled<P0>(pcwszurl: P0, pfishsts: super::PBOOL) -> u32
+pub unsafe fn HttpIsHostHstsEnabled<P0>(pcwszurl: P0, pfishsts: super::PBOOL) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn HttpIsHostHstsEnabled(pcwszurl : windows_core::PCWSTR, pfishsts : super::PBOOL) -> u32);
+    windows_core::link!("wininet.dll" "system" fn HttpIsHostHstsEnabled(pcwszurl : windows_core::PCWSTR, pfishsts : super::PBOOL) -> super::DWORD);
     unsafe { HttpIsHostHstsEnabled(pcwszurl.param().abi(), pfishsts as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpOpenRequestA<P1, P2, P3, P4>(hconnect: super::HINTERNET, lpszverb: P1, lpszobjectname: P2, lpszversion: P3, lpszreferrer: P4, lplpszaccepttypes: Option<*const windows_core::PCSTR>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn HttpOpenRequestA<P1, P2, P3, P4>(hconnect: super::HINTERNET, lpszverb: P1, lpszobjectname: P2, lpszversion: P3, lpszreferrer: P4, lplpszaccepttypes: Option<*const windows_core::PCSTR>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn HttpOpenRequestA(hconnect : super::HINTERNET, lpszverb : windows_core::PCSTR, lpszobjectname : windows_core::PCSTR, lpszversion : windows_core::PCSTR, lpszreferrer : windows_core::PCSTR, lplpszaccepttypes : *const windows_core::PCSTR, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn HttpOpenRequestA(hconnect : super::HINTERNET, lpszverb : windows_core::PCSTR, lpszobjectname : windows_core::PCSTR, lpszversion : windows_core::PCSTR, lpszreferrer : windows_core::PCSTR, lplpszaccepttypes : *const windows_core::PCSTR, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { HttpOpenRequestA(hconnect, lpszverb.param().abi(), lpszobjectname.param().abi(), lpszversion.param().abi(), lpszreferrer.param().abi(), lplpszaccepttypes.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpOpenRequestW<P1, P2, P3, P4>(hconnect: super::HINTERNET, lpszverb: P1, lpszobjectname: P2, lpszversion: P3, lpszreferrer: P4, lplpszaccepttypes: Option<*const windows_core::PCWSTR>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn HttpOpenRequestW<P1, P2, P3, P4>(hconnect: super::HINTERNET, lpszverb: P1, lpszobjectname: P2, lpszversion: P3, lpszreferrer: P4, lplpszaccepttypes: Option<*const windows_core::PCWSTR>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn HttpOpenRequestW(hconnect : super::HINTERNET, lpszverb : windows_core::PCWSTR, lpszobjectname : windows_core::PCWSTR, lpszversion : windows_core::PCWSTR, lpszreferrer : windows_core::PCWSTR, lplpszaccepttypes : *const windows_core::PCWSTR, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn HttpOpenRequestW(hconnect : super::HINTERNET, lpszverb : windows_core::PCWSTR, lpszobjectname : windows_core::PCWSTR, lpszversion : windows_core::PCWSTR, lpszreferrer : windows_core::PCWSTR, lplpszaccepttypes : *const windows_core::PCWSTR, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { HttpOpenRequestW(hconnect, lpszverb.param().abi(), lpszobjectname.param().abi(), lpszversion.param().abi(), lpszreferrer.param().abi(), lplpszaccepttypes.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpQueryInfoA(hrequest: super::HINTERNET, dwinfolevel: u32, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: super::LPDWORD, lpdwindex: Option<super::LPDWORD>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpQueryInfoA(hrequest : super::HINTERNET, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD, lpdwindex : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn HttpQueryInfoA(hrequest: super::HINTERNET, dwinfolevel: super::DWORD, lpbuffer: Option<super::LPVOID>, lpdwbufferlength: super::LPDWORD, lpdwindex: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpQueryInfoA(hrequest : super::HINTERNET, dwinfolevel : super::DWORD, lpbuffer : super::LPVOID, lpdwbufferlength : super::LPDWORD, lpdwindex : super::LPDWORD) -> windows_core::BOOL);
     unsafe { HttpQueryInfoA(hrequest, dwinfolevel, lpbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _, lpdwindex.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpQueryInfoW(hrequest: super::HINTERNET, dwinfolevel: u32, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: super::LPDWORD, lpdwindex: Option<super::LPDWORD>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpQueryInfoW(hrequest : super::HINTERNET, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD, lpdwindex : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn HttpQueryInfoW(hrequest: super::HINTERNET, dwinfolevel: super::DWORD, lpbuffer: Option<super::LPVOID>, lpdwbufferlength: super::LPDWORD, lpdwindex: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpQueryInfoW(hrequest : super::HINTERNET, dwinfolevel : super::DWORD, lpbuffer : super::LPVOID, lpdwbufferlength : super::LPDWORD, lpdwindex : super::LPDWORD) -> windows_core::BOOL);
     unsafe { HttpQueryInfoW(hrequest, dwinfolevel, lpbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _, lpdwindex.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpSendRequestA(hrequest: super::HINTERNET, lpszheaders: Option<&[u8]>, lpoptional: Option<*const core::ffi::c_void>, dwoptionallength: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpSendRequestA(hrequest : super::HINTERNET, lpszheaders : windows_core::PCSTR, dwheaderslength : u32, lpoptional : *const core::ffi::c_void, dwoptionallength : u32) -> windows_core::BOOL);
+pub unsafe fn HttpSendRequestA(hrequest: super::HINTERNET, lpszheaders: Option<&[u8]>, lpoptional: Option<super::LPVOID>, dwoptionallength: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpSendRequestA(hrequest : super::HINTERNET, lpszheaders : windows_core::PCSTR, dwheaderslength : super::DWORD, lpoptional : super::LPVOID, dwoptionallength : super::DWORD) -> windows_core::BOOL);
     unsafe { HttpSendRequestA(hrequest, core::mem::transmute(lpszheaders.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.map_or(0, |slice| slice.len().try_into().unwrap()), lpoptional.unwrap_or(core::mem::zeroed()) as _, dwoptionallength) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpSendRequestExA(hrequest: super::HINTERNET, lpbuffersin: Option<LPINTERNET_BUFFERSA>, lpbuffersout: Option<LPINTERNET_BUFFERSA>, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpSendRequestExA(hrequest : super::HINTERNET, lpbuffersin : LPINTERNET_BUFFERSA, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+pub unsafe fn HttpSendRequestExA(hrequest: super::HINTERNET, lpbuffersin: Option<LPINTERNET_BUFFERSA>, lpbuffersout: Option<LPINTERNET_BUFFERSA>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpSendRequestExA(hrequest : super::HINTERNET, lpbuffersin : LPINTERNET_BUFFERSA, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { HttpSendRequestExA(hrequest, lpbuffersin.unwrap_or(core::mem::zeroed()) as _, lpbuffersout.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpSendRequestExW(hrequest: super::HINTERNET, lpbuffersin: Option<LPINTERNET_BUFFERSW>, lpbuffersout: Option<LPINTERNET_BUFFERSW>, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpSendRequestExW(hrequest : super::HINTERNET, lpbuffersin : LPINTERNET_BUFFERSW, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+pub unsafe fn HttpSendRequestExW(hrequest: super::HINTERNET, lpbuffersin: Option<LPINTERNET_BUFFERSW>, lpbuffersout: Option<LPINTERNET_BUFFERSW>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpSendRequestExW(hrequest : super::HINTERNET, lpbuffersin : LPINTERNET_BUFFERSW, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { HttpSendRequestExW(hrequest, lpbuffersin.unwrap_or(core::mem::zeroed()) as _, lpbuffersout.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpSendRequestW(hrequest: super::HINTERNET, lpszheaders: Option<&[u16]>, lpoptional: Option<*const core::ffi::c_void>, dwoptionallength: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn HttpSendRequestW(hrequest : super::HINTERNET, lpszheaders : windows_core::PCWSTR, dwheaderslength : u32, lpoptional : *const core::ffi::c_void, dwoptionallength : u32) -> windows_core::BOOL);
+pub unsafe fn HttpSendRequestW(hrequest: super::HINTERNET, lpszheaders: Option<&[u16]>, lpoptional: Option<super::LPVOID>, dwoptionallength: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn HttpSendRequestW(hrequest : super::HINTERNET, lpszheaders : windows_core::PCWSTR, dwheaderslength : super::DWORD, lpoptional : super::LPVOID, dwoptionallength : super::DWORD) -> windows_core::BOOL);
     unsafe { HttpSendRequestW(hrequest, core::mem::transmute(lpszheaders.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.map_or(0, |slice| slice.len().try_into().unwrap()), lpoptional.unwrap_or(core::mem::zeroed()) as _, dwoptionallength) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetAttemptConnect(dwreserved: u32) -> u32 {
-    windows_core::link!("wininet.dll" "system" fn InternetAttemptConnect(dwreserved : u32) -> u32);
+pub unsafe fn InternetAttemptConnect(dwreserved: super::DWORD) -> super::DWORD {
+    windows_core::link!("wininet.dll" "system" fn InternetAttemptConnect(dwreserved : super::DWORD) -> super::DWORD);
     unsafe { InternetAttemptConnect(dwreserved) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetAutodial(dwflags: u32, hwndparent: Option<super::HWND>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetAutodial(dwflags : u32, hwndparent : super::HWND) -> windows_core::BOOL);
+pub unsafe fn InternetAutodial(dwflags: super::DWORD, hwndparent: Option<super::HWND>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetAutodial(dwflags : super::DWORD, hwndparent : super::HWND) -> windows_core::BOOL);
     unsafe { InternetAutodial(dwflags, hwndparent.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetAutodialHangup(dwreserved: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetAutodialHangup(dwreserved : u32) -> windows_core::BOOL);
+pub unsafe fn InternetAutodialHangup(dwreserved: Option<super::DWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetAutodialHangup(dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetAutodialHangup(dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetCanonicalizeUrlA<P0>(lpszurl: P0, lpszbuffer: windows_core::PSTR, lpdwbufferlength: super::LPDWORD, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn InternetCanonicalizeUrlA<P0>(lpszurl: P0, lpszbuffer: windows_core::PSTR, lpdwbufferlength: super::LPDWORD, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetCanonicalizeUrlA(lpszurl : windows_core::PCSTR, lpszbuffer : windows_core::PSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetCanonicalizeUrlA(lpszurl : windows_core::PCSTR, lpszbuffer : windows_core::PSTR, lpdwbufferlength : super::LPDWORD, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetCanonicalizeUrlA(lpszurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetCanonicalizeUrlW<P0>(lpszurl: P0, lpszbuffer: windows_core::PWSTR, lpdwbufferlength: super::LPDWORD, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn InternetCanonicalizeUrlW<P0>(lpszurl: P0, lpszbuffer: windows_core::PWSTR, lpdwbufferlength: super::LPDWORD, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetCanonicalizeUrlW(lpszurl : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetCanonicalizeUrlW(lpszurl : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR, lpdwbufferlength : super::LPDWORD, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetCanonicalizeUrlW(lpszurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetCheckConnectionA<P0>(lpszurl: P0, dwflags: u32, dwreserved: u32) -> windows_core::BOOL
+pub unsafe fn InternetCheckConnectionA<P0>(lpszurl: P0, dwflags: super::DWORD, dwreserved: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetCheckConnectionA(lpszurl : windows_core::PCSTR, dwflags : u32, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetCheckConnectionA(lpszurl : windows_core::PCSTR, dwflags : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetCheckConnectionA(lpszurl.param().abi(), dwflags, dwreserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetCheckConnectionW<P0>(lpszurl: P0, dwflags: u32, dwreserved: u32) -> windows_core::BOOL
+pub unsafe fn InternetCheckConnectionW<P0>(lpszurl: P0, dwflags: super::DWORD, dwreserved: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetCheckConnectionW(lpszurl : windows_core::PCWSTR, dwflags : u32, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetCheckConnectionW(lpszurl : windows_core::PCWSTR, dwflags : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetCheckConnectionW(lpszurl.param().abi(), dwflags, dwreserved) }
 }
 #[inline]
@@ -701,133 +702,133 @@ pub unsafe fn InternetClearAllPerSiteCookieDecisions() -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetClearAllPerSiteCookieDecisions() -> windows_core::BOOL);
     unsafe { InternetClearAllPerSiteCookieDecisions() }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn InternetCloseHandle(hinternet: super::HINTERNET) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetCloseHandle(hinternet : super::HINTERNET) -> windows_core::BOOL);
     unsafe { InternetCloseHandle(hinternet) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetCombineUrlA<P0, P1>(lpszbaseurl: P0, lpszrelativeurl: P1, lpszbuffer: windows_core::PSTR, lpdwbufferlength: super::LPDWORD, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn InternetCombineUrlA<P0, P1>(lpszbaseurl: P0, lpszrelativeurl: P1, lpszbuffer: windows_core::PSTR, lpdwbufferlength: super::LPDWORD, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetCombineUrlA(lpszbaseurl : windows_core::PCSTR, lpszrelativeurl : windows_core::PCSTR, lpszbuffer : windows_core::PSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetCombineUrlA(lpszbaseurl : windows_core::PCSTR, lpszrelativeurl : windows_core::PCSTR, lpszbuffer : windows_core::PSTR, lpdwbufferlength : super::LPDWORD, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetCombineUrlA(lpszbaseurl.param().abi(), lpszrelativeurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetCombineUrlW<P0, P1>(lpszbaseurl: P0, lpszrelativeurl: P1, lpszbuffer: windows_core::PWSTR, lpdwbufferlength: super::LPDWORD, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn InternetCombineUrlW<P0, P1>(lpszbaseurl: P0, lpszrelativeurl: P1, lpszbuffer: windows_core::PWSTR, lpdwbufferlength: super::LPDWORD, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetCombineUrlW(lpszbaseurl : windows_core::PCWSTR, lpszrelativeurl : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR, lpdwbufferlength : super::LPDWORD, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetCombineUrlW(lpszbaseurl : windows_core::PCWSTR, lpszrelativeurl : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR, lpdwbufferlength : super::LPDWORD, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetCombineUrlW(lpszbaseurl.param().abi(), lpszrelativeurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossing<P1, P2>(hwnd: super::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> u32
+pub unsafe fn InternetConfirmZoneCrossing<P1, P2>(hwnd: super::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetConfirmZoneCrossing(hwnd : super::HWND, szurlprev : windows_core::PCSTR, szurlnew : windows_core::PCSTR, bpost : windows_core::BOOL) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetConfirmZoneCrossing(hwnd : super::HWND, szurlprev : windows_core::PCSTR, szurlnew : windows_core::PCSTR, bpost : windows_core::BOOL) -> super::DWORD);
     unsafe { InternetConfirmZoneCrossing(hwnd, szurlprev.param().abi(), szurlnew.param().abi(), bpost.into()) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossingA<P1, P2>(hwnd: super::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> u32
+pub unsafe fn InternetConfirmZoneCrossingA<P1, P2>(hwnd: super::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetConfirmZoneCrossingA(hwnd : super::HWND, szurlprev : windows_core::PCSTR, szurlnew : windows_core::PCSTR, bpost : windows_core::BOOL) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetConfirmZoneCrossingA(hwnd : super::HWND, szurlprev : windows_core::PCSTR, szurlnew : windows_core::PCSTR, bpost : windows_core::BOOL) -> super::DWORD);
     unsafe { InternetConfirmZoneCrossingA(hwnd, szurlprev.param().abi(), szurlnew.param().abi(), bpost.into()) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossingW<P1, P2>(hwnd: super::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> u32
+pub unsafe fn InternetConfirmZoneCrossingW<P1, P2>(hwnd: super::HWND, szurlprev: P1, szurlnew: P2, bpost: bool) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetConfirmZoneCrossingW(hwnd : super::HWND, szurlprev : windows_core::PCWSTR, szurlnew : windows_core::PCWSTR, bpost : windows_core::BOOL) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetConfirmZoneCrossingW(hwnd : super::HWND, szurlprev : windows_core::PCWSTR, szurlnew : windows_core::PCWSTR, bpost : windows_core::BOOL) -> super::DWORD);
     unsafe { InternetConfirmZoneCrossingW(hwnd, szurlprev.param().abi(), szurlnew.param().abi(), bpost.into()) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetConnectA<P1, P3, P4>(hinternet: super::HINTERNET, lpszservername: P1, nserverport: super::INTERNET_PORT, lpszusername: P3, lpszpassword: P4, dwservice: u32, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn InternetConnectA<P1, P3, P4>(hinternet: super::HINTERNET, lpszservername: P1, nserverport: super::INTERNET_PORT, lpszusername: P3, lpszpassword: P4, dwservice: super::DWORD, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetConnectA(hinternet : super::HINTERNET, lpszservername : windows_core::PCSTR, nserverport : super::INTERNET_PORT, lpszusername : windows_core::PCSTR, lpszpassword : windows_core::PCSTR, dwservice : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn InternetConnectA(hinternet : super::HINTERNET, lpszservername : windows_core::PCSTR, nserverport : super::INTERNET_PORT, lpszusername : windows_core::PCSTR, lpszpassword : windows_core::PCSTR, dwservice : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { InternetConnectA(hinternet, lpszservername.param().abi(), nserverport, lpszusername.param().abi(), lpszpassword.param().abi(), dwservice, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetConnectW<P1, P3, P4>(hinternet: super::HINTERNET, lpszservername: P1, nserverport: super::INTERNET_PORT, lpszusername: P3, lpszpassword: P4, dwservice: u32, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn InternetConnectW<P1, P3, P4>(hinternet: super::HINTERNET, lpszservername: P1, nserverport: super::INTERNET_PORT, lpszusername: P3, lpszpassword: P4, dwservice: super::DWORD, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetConnectW(hinternet : super::HINTERNET, lpszservername : windows_core::PCWSTR, nserverport : super::INTERNET_PORT, lpszusername : windows_core::PCWSTR, lpszpassword : windows_core::PCWSTR, dwservice : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn InternetConnectW(hinternet : super::HINTERNET, lpszservername : windows_core::PCWSTR, nserverport : super::INTERNET_PORT, lpszusername : windows_core::PCWSTR, lpszpassword : windows_core::PCWSTR, dwservice : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { InternetConnectW(hinternet, lpszservername.param().abi(), nserverport, lpszusername.param().abi(), lpszpassword.param().abi(), dwservice, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "shared", feature = "winhttp"))]
 #[inline]
-pub unsafe fn InternetCrackUrlA(lpszurl: &[u8], dwflags: u32, lpurlcomponents: LPURL_COMPONENTSA) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetCrackUrlA(lpszurl : windows_core::PCSTR, dwurllength : u32, dwflags : u32, lpurlcomponents : LPURL_COMPONENTSA) -> windows_core::BOOL);
+pub unsafe fn InternetCrackUrlA(lpszurl: &[u8], dwflags: super::DWORD, lpurlcomponents: LPURL_COMPONENTSA) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetCrackUrlA(lpszurl : windows_core::PCSTR, dwurllength : super::DWORD, dwflags : super::DWORD, lpurlcomponents : LPURL_COMPONENTSA) -> windows_core::BOOL);
     unsafe { InternetCrackUrlA(core::mem::transmute(lpszurl.as_ptr()), lpszurl.len().try_into().unwrap(), dwflags, lpurlcomponents as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "shared", feature = "winhttp"))]
 #[inline]
-pub unsafe fn InternetCrackUrlW(lpszurl: &[u16], dwflags: u32, lpurlcomponents: super::LPURL_COMPONENTSW) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetCrackUrlW(lpszurl : windows_core::PCWSTR, dwurllength : u32, dwflags : u32, lpurlcomponents : super::LPURL_COMPONENTSW) -> windows_core::BOOL);
+pub unsafe fn InternetCrackUrlW(lpszurl: &[u16], dwflags: super::DWORD, lpurlcomponents: super::LPURL_COMPONENTSW) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetCrackUrlW(lpszurl : windows_core::PCWSTR, dwurllength : super::DWORD, dwflags : super::DWORD, lpurlcomponents : super::LPURL_COMPONENTSW) -> windows_core::BOOL);
     unsafe { InternetCrackUrlW(core::mem::transmute(lpszurl.as_ptr()), lpszurl.len().try_into().unwrap(), dwflags, lpurlcomponents as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winhttp"))]
 #[inline]
-pub unsafe fn InternetCreateUrlA(lpurlcomponents: LPURL_COMPONENTSA, dwflags: u32, lpszurl: Option<windows_core::PSTR>, lpdwurllength: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetCreateUrlA(lpurlcomponents : LPURL_COMPONENTSA, dwflags : u32, lpszurl : windows_core::PSTR, lpdwurllength : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn InternetCreateUrlA(lpurlcomponents: LPURL_COMPONENTSA, dwflags: super::DWORD, lpszurl: Option<windows_core::PSTR>, lpdwurllength: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetCreateUrlA(lpurlcomponents : LPURL_COMPONENTSA, dwflags : super::DWORD, lpszurl : windows_core::PSTR, lpdwurllength : super::LPDWORD) -> windows_core::BOOL);
     unsafe { InternetCreateUrlA(lpurlcomponents, dwflags, lpszurl.unwrap_or(core::mem::zeroed()) as _, lpdwurllength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winhttp"))]
 #[inline]
-pub unsafe fn InternetCreateUrlW(lpurlcomponents: super::LPURL_COMPONENTSW, dwflags: u32, lpszurl: Option<windows_core::PWSTR>, lpdwurllength: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetCreateUrlW(lpurlcomponents : super::LPURL_COMPONENTSW, dwflags : u32, lpszurl : windows_core::PWSTR, lpdwurllength : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn InternetCreateUrlW(lpurlcomponents: super::LPURL_COMPONENTSW, dwflags: super::DWORD, lpszurl: Option<windows_core::PWSTR>, lpdwurllength: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetCreateUrlW(lpurlcomponents : super::LPURL_COMPONENTSW, dwflags : super::DWORD, lpszurl : windows_core::PWSTR, lpdwurllength : super::LPDWORD) -> windows_core::BOOL);
     unsafe { InternetCreateUrlW(lpurlcomponents, dwflags, lpszurl.unwrap_or(core::mem::zeroed()) as _, lpdwurllength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetDial<P1>(hwndparent: super::HWND, lpszconnectoid: P1, dwflags: u32, lpdwconnection: super::LPDWORD, dwreserved: u32) -> u32
+pub unsafe fn InternetDial<P1>(hwndparent: super::HWND, lpszconnectoid: P1, dwflags: super::DWORD, lpdwconnection: super::LPDWORD, dwreserved: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetDial(hwndparent : super::HWND, lpszconnectoid : windows_core::PCSTR, dwflags : u32, lpdwconnection : super::LPDWORD, dwreserved : u32) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetDial(hwndparent : super::HWND, lpszconnectoid : windows_core::PCSTR, dwflags : super::DWORD, lpdwconnection : super::LPDWORD, dwreserved : super::DWORD) -> super::DWORD);
     unsafe { InternetDial(hwndparent, lpszconnectoid.param().abi(), dwflags, lpdwconnection as _, dwreserved) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetDialA<P1>(hwndparent: super::HWND, lpszconnectoid: P1, dwflags: u32, lpdwconnection: *mut usize, dwreserved: Option<u32>) -> u32
+pub unsafe fn InternetDialA<P1>(hwndparent: super::HWND, lpszconnectoid: P1, dwflags: super::DWORD, lpdwconnection: *mut super::DWORD_PTR, dwreserved: Option<super::DWORD>) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetDialA(hwndparent : super::HWND, lpszconnectoid : windows_core::PCSTR, dwflags : u32, lpdwconnection : *mut usize, dwreserved : u32) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetDialA(hwndparent : super::HWND, lpszconnectoid : windows_core::PCSTR, dwflags : super::DWORD, lpdwconnection : *mut super::DWORD_PTR, dwreserved : super::DWORD) -> super::DWORD);
     unsafe { InternetDialA(hwndparent, lpszconnectoid.param().abi(), dwflags, lpdwconnection as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetDialW<P1>(hwndparent: super::HWND, lpszconnectoid: P1, dwflags: u32, lpdwconnection: *mut usize, dwreserved: Option<u32>) -> u32
+pub unsafe fn InternetDialW<P1>(hwndparent: super::HWND, lpszconnectoid: P1, dwflags: super::DWORD, lpdwconnection: *mut super::DWORD_PTR, dwreserved: Option<super::DWORD>) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetDialW(hwndparent : super::HWND, lpszconnectoid : windows_core::PCWSTR, dwflags : u32, lpdwconnection : *mut usize, dwreserved : u32) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetDialW(hwndparent : super::HWND, lpszconnectoid : windows_core::PCWSTR, dwflags : super::DWORD, lpdwconnection : *mut super::DWORD_PTR, dwreserved : super::DWORD) -> super::DWORD);
     unsafe { InternetDialW(hwndparent, lpszconnectoid.param().abi(), dwflags, lpdwconnection as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -840,52 +841,52 @@ pub unsafe fn InternetEnumPerSiteCookieDecisionW(pszsitename: windows_core::PWST
     windows_core::link!("wininet.dll" "system" fn InternetEnumPerSiteCookieDecisionW(pszsitename : windows_core::PWSTR, pcsitenamesize : *mut u32, pdwdecision : *mut u32, dwindex : u32) -> windows_core::BOOL);
     unsafe { InternetEnumPerSiteCookieDecisionW(pszsitename, pcsitenamesize as _, pdwdecision as _, dwindex) }
 }
-#[cfg(all(feature = "windef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetErrorDlg(hwnd: super::HWND, hrequest: Option<super::HINTERNET>, dwerror: u32, dwflags: u32, lppvdata: Option<*mut *mut core::ffi::c_void>) -> u32 {
-    windows_core::link!("wininet.dll" "system" fn InternetErrorDlg(hwnd : super::HWND, hrequest : super::HINTERNET, dwerror : u32, dwflags : u32, lppvdata : *mut *mut core::ffi::c_void) -> u32);
+pub unsafe fn InternetErrorDlg(hwnd: super::HWND, hrequest: Option<super::HINTERNET>, dwerror: super::DWORD, dwflags: super::DWORD, lppvdata: Option<*mut super::LPVOID>) -> super::DWORD {
+    windows_core::link!("wininet.dll" "system" fn InternetErrorDlg(hwnd : super::HWND, hrequest : super::HINTERNET, dwerror : super::DWORD, dwflags : super::DWORD, lppvdata : *mut super::LPVOID) -> super::DWORD);
     unsafe { InternetErrorDlg(hwnd, hrequest.unwrap_or(core::mem::zeroed()) as _, dwerror, dwflags, lppvdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetFindNextFileA(hfind: super::HINTERNET, lpvfinddata: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetFindNextFileA(hfind : super::HINTERNET, lpvfinddata : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn InternetFindNextFileA(hfind: super::HINTERNET, lpvfinddata: super::LPVOID) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetFindNextFileA(hfind : super::HINTERNET, lpvfinddata : super::LPVOID) -> windows_core::BOOL);
     unsafe { InternetFindNextFileA(hfind, lpvfinddata as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetFindNextFileW(hfind: super::HINTERNET, lpvfinddata: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetFindNextFileW(hfind : super::HINTERNET, lpvfinddata : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn InternetFindNextFileW(hfind: super::HINTERNET, lpvfinddata: super::LPVOID) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetFindNextFileW(hfind : super::HINTERNET, lpvfinddata : super::LPVOID) -> windows_core::BOOL);
     unsafe { InternetFindNextFileW(hfind, lpvfinddata as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetFreeCookies(pcookies: Option<*mut INTERNET_COOKIE2>, dwcookiecount: u32) {
-    windows_core::link!("wininet.dll" "system" fn InternetFreeCookies(pcookies : *mut INTERNET_COOKIE2, dwcookiecount : u32));
+pub unsafe fn InternetFreeCookies(pcookies: Option<*mut INTERNET_COOKIE2>, dwcookiecount: super::DWORD) {
+    windows_core::link!("wininet.dll" "system" fn InternetFreeCookies(pcookies : *mut INTERNET_COOKIE2, dwcookiecount : super::DWORD));
     unsafe { InternetFreeCookies(pcookies.unwrap_or(core::mem::zeroed()) as _, dwcookiecount) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetGetConnectedState(lpdwflags: super::LPDWORD, dwreserved: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedState(lpdwflags : super::LPDWORD, dwreserved : u32) -> windows_core::BOOL);
+pub unsafe fn InternetGetConnectedState(lpdwflags: super::LPDWORD, dwreserved: Option<super::DWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedState(lpdwflags : super::LPDWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetGetConnectedState(lpdwflags as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetGetConnectedStateEx(lpdwflags: super::LPDWORD, lpszconnectionname: Option<windows_core::PSTR>, dwnamelen: u32, dwreserved: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateEx(lpdwflags : super::LPDWORD, lpszconnectionname : windows_core::PSTR, dwnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
+pub unsafe fn InternetGetConnectedStateEx(lpdwflags: super::LPDWORD, lpszconnectionname: Option<windows_core::PSTR>, dwnamelen: super::DWORD, dwreserved: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateEx(lpdwflags : super::LPDWORD, lpszconnectionname : windows_core::PSTR, dwnamelen : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetGetConnectedStateEx(lpdwflags as _, lpszconnectionname.unwrap_or(core::mem::zeroed()) as _, dwnamelen, dwreserved) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetGetConnectedStateExA(lpdwflags: Option<super::LPDWORD>, lpszconnectionname: Option<windows_core::PSTR>, cchnamelen: u32, dwreserved: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExA(lpdwflags : super::LPDWORD, lpszconnectionname : windows_core::PSTR, cchnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
+pub unsafe fn InternetGetConnectedStateExA(lpdwflags: Option<super::LPDWORD>, lpszconnectionname: Option<windows_core::PSTR>, cchnamelen: super::DWORD, dwreserved: Option<super::DWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExA(lpdwflags : super::LPDWORD, lpszconnectionname : windows_core::PSTR, cchnamelen : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetGetConnectedStateExA(lpdwflags.unwrap_or(core::mem::zeroed()) as _, lpszconnectionname.unwrap_or(core::mem::zeroed()) as _, cchnamelen, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetGetConnectedStateExW(lpdwflags: Option<super::LPDWORD>, lpszconnectionname: Option<windows_core::PWSTR>, cchnamelen: u32, dwreserved: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExW(lpdwflags : super::LPDWORD, lpszconnectionname : windows_core::PWSTR, cchnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
+pub unsafe fn InternetGetConnectedStateExW(lpdwflags: Option<super::LPDWORD>, lpszconnectionname: Option<windows_core::PWSTR>, cchnamelen: super::DWORD, dwreserved: Option<super::DWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExW(lpdwflags : super::LPDWORD, lpszconnectionname : windows_core::PWSTR, cchnamelen : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetGetConnectedStateExW(lpdwflags.unwrap_or(core::mem::zeroed()) as _, lpszconnectionname.unwrap_or(core::mem::zeroed()) as _, cchnamelen, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -898,37 +899,35 @@ where
     windows_core::link!("wininet.dll" "system" fn InternetGetCookieA(lpszurl : windows_core::PCSTR, lpszcookiename : windows_core::PCSTR, lpszcookiedata : windows_core::PSTR, lpdwsize : super::LPDWORD) -> windows_core::BOOL);
     unsafe { InternetGetCookieA(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.unwrap_or(core::mem::zeroed()) as _, lpdwsize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetGetCookieEx2<P0, P1>(pcwszurl: P0, pcwszcookiename: P1, dwflags: u32, ppcookies: *mut *mut INTERNET_COOKIE2, pdwcookiecount: super::PDWORD) -> u32
+pub unsafe fn InternetGetCookieEx2<P0, P1>(pcwszurl: P0, pcwszcookiename: P1, dwflags: super::DWORD, ppcookies: *mut *mut INTERNET_COOKIE2, pdwcookiecount: super::PDWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetGetCookieEx2(pcwszurl : windows_core::PCWSTR, pcwszcookiename : windows_core::PCWSTR, dwflags : u32, ppcookies : *mut *mut INTERNET_COOKIE2, pdwcookiecount : super::PDWORD) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetGetCookieEx2(pcwszurl : windows_core::PCWSTR, pcwszcookiename : windows_core::PCWSTR, dwflags : super::DWORD, ppcookies : *mut *mut INTERNET_COOKIE2, pdwcookiecount : super::PDWORD) -> super::DWORD);
     unsafe { InternetGetCookieEx2(pcwszurl.param().abi(), pcwszcookiename.param().abi(), dwflags, ppcookies as _, pdwcookiecount as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetGetCookieExA<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, lpdwsize: super::LPDWORD, dwflags: u32, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn InternetGetCookieExA<P0, P1>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: Option<windows_core::PCSTR>, lpdwsize: super::LPDWORD, dwflags: super::DWORD, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetGetCookieExA(lpszurl : windows_core::PCSTR, lpszcookiename : windows_core::PCSTR, lpszcookiedata : windows_core::PCSTR, lpdwsize : super::LPDWORD, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { InternetGetCookieExA(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi(), lpdwsize as _, dwflags, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("wininet.dll" "system" fn InternetGetCookieExA(lpszurl : windows_core::PCSTR, lpszcookiename : windows_core::PCSTR, lpszcookiedata : windows_core::PCSTR, lpdwsize : super::LPDWORD, dwflags : super::DWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
+    unsafe { InternetGetCookieExA(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.unwrap_or(core::mem::zeroed()) as _, lpdwsize as _, dwflags, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetGetCookieExW<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, lpdwsize: super::LPDWORD, dwflags: u32, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn InternetGetCookieExW<P0, P1>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: Option<windows_core::PCWSTR>, lpdwsize: super::LPDWORD, dwflags: super::DWORD, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetGetCookieExW(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR, lpdwsize : super::LPDWORD, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { InternetGetCookieExW(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi(), lpdwsize as _, dwflags, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("wininet.dll" "system" fn InternetGetCookieExW(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR, lpdwsize : super::LPDWORD, dwflags : super::DWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
+    unsafe { InternetGetCookieExW(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.unwrap_or(core::mem::zeroed()) as _, lpdwsize as _, dwflags, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -968,123 +967,125 @@ where
     windows_core::link!("wininet.dll" "system" fn InternetGetPerSiteCookieDecisionW(pchhostname : windows_core::PCWSTR, presult : *mut u32) -> windows_core::BOOL);
     unsafe { InternetGetPerSiteCookieDecisionW(pchhostname.param().abi(), presult as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetGoOnline<P0>(lpszurl: P0, hwndparent: super::HWND, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn InternetGoOnline<P0>(lpszurl: P0, hwndparent: super::HWND, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetGoOnline(lpszurl : windows_core::PCSTR, hwndparent : super::HWND, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetGoOnline(lpszurl : windows_core::PCSTR, hwndparent : super::HWND, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetGoOnline(lpszurl.param().abi(), hwndparent, dwflags) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetGoOnlineA<P0>(lpszurl: P0, hwndparent: super::HWND, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn InternetGoOnlineA<P0>(lpszurl: P0, hwndparent: super::HWND, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetGoOnlineA(lpszurl : windows_core::PCSTR, hwndparent : super::HWND, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetGoOnlineA(lpszurl : windows_core::PCSTR, hwndparent : super::HWND, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetGoOnlineA(lpszurl.param().abi(), hwndparent, dwflags) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InternetGoOnlineW<P0>(lpszurl: P0, hwndparent: super::HWND, dwflags: u32) -> windows_core::BOOL
+pub unsafe fn InternetGoOnlineW<P0>(lpszurl: P0, hwndparent: super::HWND, dwflags: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetGoOnlineW(lpszurl : windows_core::PCWSTR, hwndparent : super::HWND, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetGoOnlineW(lpszurl : windows_core::PCWSTR, hwndparent : super::HWND, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetGoOnlineW(lpszurl.param().abi(), hwndparent, dwflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetHangUp(dwconnection: usize, dwreserved: Option<u32>) -> u32 {
-    windows_core::link!("wininet.dll" "system" fn InternetHangUp(dwconnection : usize, dwreserved : u32) -> u32);
+pub unsafe fn InternetHangUp(dwconnection: super::DWORD_PTR, dwreserved: Option<super::DWORD>) -> super::DWORD {
+    windows_core::link!("wininet.dll" "system" fn InternetHangUp(dwconnection : super::DWORD_PTR, dwreserved : super::DWORD) -> super::DWORD);
     unsafe { InternetHangUp(dwconnection, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetInitializeAutoProxyDll(dwreserved: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetInitializeAutoProxyDll(dwreserved : u32) -> windows_core::BOOL);
+pub unsafe fn InternetInitializeAutoProxyDll(dwreserved: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetInitializeAutoProxyDll(dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetInitializeAutoProxyDll(dwreserved) }
 }
-#[cfg(all(feature = "winhttp", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn InternetLockRequestFile(hinternet: super::HINTERNET, lphlockrequestinfo: *mut super::HANDLE) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetLockRequestFile(hinternet : super::HINTERNET, lphlockrequestinfo : *mut super::HANDLE) -> windows_core::BOOL);
     unsafe { InternetLockRequestFile(hinternet, lphlockrequestinfo as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetOpenA<P0, P2, P3>(lpszagent: P0, dwaccesstype: u32, lpszproxy: P2, lpszproxybypass: P3, dwflags: u32) -> super::HINTERNET
+pub unsafe fn InternetOpenA<P0, P2, P3>(lpszagent: P0, dwaccesstype: super::DWORD, lpszproxy: P2, lpszproxybypass: P3, dwflags: super::DWORD) -> super::HINTERNET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetOpenA(lpszagent : windows_core::PCSTR, dwaccesstype : u32, lpszproxy : windows_core::PCSTR, lpszproxybypass : windows_core::PCSTR, dwflags : u32) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn InternetOpenA(lpszagent : windows_core::PCSTR, dwaccesstype : super::DWORD, lpszproxy : windows_core::PCSTR, lpszproxybypass : windows_core::PCSTR, dwflags : super::DWORD) -> super::HINTERNET);
     unsafe { InternetOpenA(lpszagent.param().abi(), dwaccesstype, lpszproxy.param().abi(), lpszproxybypass.param().abi(), dwflags) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetOpenUrlA<P1>(hinternet: super::HINTERNET, lpszurl: P1, lpszheaders: Option<&[u8]>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn InternetOpenUrlA<P1>(hinternet: super::HINTERNET, lpszurl: P1, lpszheaders: Option<&[u8]>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetOpenUrlA(hinternet : super::HINTERNET, lpszurl : windows_core::PCSTR, lpszheaders : windows_core::PCSTR, dwheaderslength : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn InternetOpenUrlA(hinternet : super::HINTERNET, lpszurl : windows_core::PCSTR, lpszheaders : windows_core::PCSTR, dwheaderslength : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { InternetOpenUrlA(hinternet, lpszurl.param().abi(), core::mem::transmute(lpszheaders.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetOpenUrlW<P1>(hinternet: super::HINTERNET, lpszurl: P1, lpszheaders: Option<&[u16]>, dwflags: u32, dwcontext: Option<usize>) -> super::HINTERNET
+pub unsafe fn InternetOpenUrlW<P1>(hinternet: super::HINTERNET, lpszurl: P1, lpszheaders: Option<&[u16]>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::HINTERNET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetOpenUrlW(hinternet : super::HINTERNET, lpszurl : windows_core::PCWSTR, lpszheaders : windows_core::PCWSTR, dwheaderslength : u32, dwflags : u32, dwcontext : usize) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn InternetOpenUrlW(hinternet : super::HINTERNET, lpszurl : windows_core::PCWSTR, lpszheaders : windows_core::PCWSTR, dwheaderslength : super::DWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> super::HINTERNET);
     unsafe { InternetOpenUrlW(hinternet, lpszurl.param().abi(), core::mem::transmute(lpszheaders.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetOpenW<P0, P2, P3>(lpszagent: P0, dwaccesstype: u32, lpszproxy: P2, lpszproxybypass: P3, dwflags: u32) -> super::HINTERNET
+pub unsafe fn InternetOpenW<P0, P2, P3>(lpszagent: P0, dwaccesstype: super::DWORD, lpszproxy: P2, lpszproxybypass: P3, dwflags: super::DWORD) -> super::HINTERNET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetOpenW(lpszagent : windows_core::PCWSTR, dwaccesstype : u32, lpszproxy : windows_core::PCWSTR, lpszproxybypass : windows_core::PCWSTR, dwflags : u32) -> super::HINTERNET);
+    windows_core::link!("wininet.dll" "system" fn InternetOpenW(lpszagent : windows_core::PCWSTR, dwaccesstype : super::DWORD, lpszproxy : windows_core::PCWSTR, lpszproxybypass : windows_core::PCWSTR, dwflags : super::DWORD) -> super::HINTERNET);
     unsafe { InternetOpenW(lpszagent.param().abi(), dwaccesstype, lpszproxy.param().abi(), lpszproxybypass.param().abi(), dwflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetQueryDataAvailable(hfile: super::HINTERNET, lpdwnumberofbytesavailable: Option<super::LPDWORD>, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetQueryDataAvailable(hfile : super::HINTERNET, lpdwnumberofbytesavailable : super::LPDWORD, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+pub unsafe fn InternetQueryDataAvailable(hfile: super::HINTERNET, lpdwnumberofbytesavailable: Option<super::LPDWORD>, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetQueryDataAvailable(hfile : super::HINTERNET, lpdwnumberofbytesavailable : super::LPDWORD, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { InternetQueryDataAvailable(hfile, lpdwnumberofbytesavailable.unwrap_or(core::mem::zeroed()) as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetQueryOptionA(hinternet: Option<super::HINTERNET>, dwoption: u32, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetQueryOptionA(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn InternetQueryOptionA(hinternet: Option<super::HINTERNET>, dwoption: super::DWORD, lpbuffer: Option<super::LPVOID>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetQueryOptionA(hinternet : super::HINTERNET, dwoption : super::DWORD, lpbuffer : super::LPVOID, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
     unsafe { InternetQueryOptionA(hinternet.unwrap_or(core::mem::zeroed()) as _, dwoption, lpbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetQueryOptionW(hinternet: Option<super::HINTERNET>, dwoption: u32, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetQueryOptionW(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn InternetQueryOptionW(hinternet: Option<super::HINTERNET>, dwoption: super::DWORD, lpbuffer: Option<super::LPVOID>, lpdwbufferlength: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetQueryOptionW(hinternet : super::HINTERNET, dwoption : super::DWORD, lpbuffer : super::LPVOID, lpdwbufferlength : super::LPDWORD) -> windows_core::BOOL);
     unsafe { InternetQueryOptionW(hinternet.unwrap_or(core::mem::zeroed()) as _, dwoption, lpbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetReadFile(hfile: super::HINTERNET, lpbuffer: *mut core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetReadFile(hfile : super::HINTERNET, lpbuffer : *mut core::ffi::c_void, dwnumberofbytestoread : u32, lpdwnumberofbytesread : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn InternetReadFile(hfile: super::HINTERNET, lpbuffer: super::LPVOID, dwnumberofbytestoread: super::DWORD, lpdwnumberofbytesread: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetReadFile(hfile : super::HINTERNET, lpbuffer : super::LPVOID, dwnumberofbytestoread : super::DWORD, lpdwnumberofbytesread : super::LPDWORD) -> windows_core::BOOL);
     unsafe { InternetReadFile(hfile, lpbuffer as _, dwnumberofbytestoread, lpdwnumberofbytesread as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetReadFileExA(hfile: super::HINTERNET, lpbuffersout: LPINTERNET_BUFFERSA, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetReadFileExA(hfile : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+pub unsafe fn InternetReadFileExA(hfile: super::HINTERNET, lpbuffersout: LPINTERNET_BUFFERSA, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetReadFileExA(hfile : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSA, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { InternetReadFileExA(hfile, lpbuffersout as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetReadFileExW(hfile: super::HINTERNET, lpbuffersout: LPINTERNET_BUFFERSW, dwflags: u32, dwcontext: Option<usize>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetReadFileExW(hfile : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : u32, dwcontext : usize) -> windows_core::BOOL);
+pub unsafe fn InternetReadFileExW(hfile: super::HINTERNET, lpbuffersout: LPINTERNET_BUFFERSW, dwflags: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetReadFileExW(hfile : super::HINTERNET, lpbuffersout : LPINTERNET_BUFFERSW, dwflags : super::DWORD, dwcontext : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { InternetReadFileExW(hfile, lpbuffersout as _, dwflags, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1097,34 +1098,36 @@ where
     windows_core::link!("wininet.dll" "system" fn InternetSetCookieA(lpszurl : windows_core::PCSTR, lpszcookiename : windows_core::PCSTR, lpszcookiedata : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { InternetSetCookieA(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetSetCookieEx2<P0, P2>(pcwszurl: P0, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: P2, dwflags: u32, pdwcookiestate: super::PDWORD) -> u32
+pub unsafe fn InternetSetCookieEx2<P0, P2>(pcwszurl: P0, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: P2, dwflags: super::DWORD, pdwcookiestate: super::PDWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetCookieEx2(pcwszurl : windows_core::PCWSTR, pcookie : *const INTERNET_COOKIE2, pcwszp3ppolicy : windows_core::PCWSTR, dwflags : u32, pdwcookiestate : super::PDWORD) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetSetCookieEx2(pcwszurl : windows_core::PCWSTR, pcookie : *const INTERNET_COOKIE2, pcwszp3ppolicy : windows_core::PCWSTR, dwflags : super::DWORD, pdwcookiestate : super::PDWORD) -> super::DWORD);
     unsafe { InternetSetCookieEx2(pcwszurl.param().abi(), pcookie, pcwszp3ppolicy.param().abi(), dwflags, pdwcookiestate as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetSetCookieExA<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, dwflags: u32, dwreserved: Option<usize>) -> u32
+pub unsafe fn InternetSetCookieExA<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, dwflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetCookieExA(lpszurl : windows_core::PCSTR, lpszcookiename : windows_core::PCSTR, lpszcookiedata : windows_core::PCSTR, dwflags : u32, dwreserved : usize) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetSetCookieExA(lpszurl : windows_core::PCSTR, lpszcookiename : windows_core::PCSTR, lpszcookiedata : windows_core::PCSTR, dwflags : super::DWORD, dwreserved : super::DWORD_PTR) -> super::DWORD);
     unsafe { InternetSetCookieExA(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetSetCookieExW<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, dwflags: u32, dwreserved: Option<usize>) -> u32
+pub unsafe fn InternetSetCookieExW<P0, P1, P2>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: P2, dwflags: super::DWORD, dwreserved: Option<super::DWORD_PTR>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetCookieExW(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR, dwflags : u32, dwreserved : usize) -> u32);
+    windows_core::link!("wininet.dll" "system" fn InternetSetCookieExW(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR, dwflags : super::DWORD, dwreserved : super::DWORD_PTR) -> super::DWORD);
     unsafe { InternetSetCookieExW(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1137,137 +1140,142 @@ where
     windows_core::link!("wininet.dll" "system" fn InternetSetCookieW(lpszurl : windows_core::PCWSTR, lpszcookiename : windows_core::PCWSTR, lpszcookiedata : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { InternetSetCookieW(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetSetDialState<P0>(lpszconnectoid: P0, dwstate: u32, dwreserved: u32) -> windows_core::BOOL
+pub unsafe fn InternetSetDialState<P0>(lpszconnectoid: P0, dwstate: super::DWORD, dwreserved: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetDialState(lpszconnectoid : windows_core::PCSTR, dwstate : u32, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetSetDialState(lpszconnectoid : windows_core::PCSTR, dwstate : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetDialState(lpszconnectoid.param().abi(), dwstate, dwreserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetSetDialStateA<P0>(lpszconnectoid: P0, dwstate: u32, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn InternetSetDialStateA<P0>(lpszconnectoid: P0, dwstate: super::DWORD, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetDialStateA(lpszconnectoid : windows_core::PCSTR, dwstate : u32, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetSetDialStateA(lpszconnectoid : windows_core::PCSTR, dwstate : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetDialStateA(lpszconnectoid.param().abi(), dwstate, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetSetDialStateW<P0>(lpszconnectoid: P0, dwstate: u32, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn InternetSetDialStateW<P0>(lpszconnectoid: P0, dwstate: super::DWORD, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetDialStateW(lpszconnectoid : windows_core::PCWSTR, dwstate : u32, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetSetDialStateW(lpszconnectoid : windows_core::PCWSTR, dwstate : super::DWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetDialStateW(lpszconnectoid.param().abi(), dwstate, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "winhttp", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn InternetSetFilePointer(hfile: super::HINTERNET, ldistancetomove: i32, lpdistancetomovehigh: Option<super::PLONG>, dwmovemethod: u32, dwcontext: Option<usize>) -> u32 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetFilePointer(hfile : super::HINTERNET, ldistancetomove : i32, lpdistancetomovehigh : super::PLONG, dwmovemethod : u32, dwcontext : usize) -> u32);
+pub unsafe fn InternetSetFilePointer(hfile: super::HINTERNET, ldistancetomove: super::LONG, lpdistancetomovehigh: Option<super::PLONG>, dwmovemethod: super::DWORD, dwcontext: Option<super::DWORD_PTR>) -> super::DWORD {
+    windows_core::link!("wininet.dll" "system" fn InternetSetFilePointer(hfile : super::HINTERNET, ldistancetomove : super::LONG, lpdistancetomovehigh : super::PLONG, dwmovemethod : super::DWORD, dwcontext : super::DWORD_PTR) -> super::DWORD);
     unsafe { InternetSetFilePointer(hfile, ldistancetomove, lpdistancetomovehigh.unwrap_or(core::mem::zeroed()) as _, dwmovemethod, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetSetOptionA(hinternet: Option<super::HINTERNET>, dwoption: u32, lpbuffer: Option<*const core::ffi::c_void>, dwbufferlength: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetSetOptionA(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *const core::ffi::c_void, dwbufferlength : u32) -> windows_core::BOOL);
+pub unsafe fn InternetSetOptionA(hinternet: Option<super::HINTERNET>, dwoption: super::DWORD, lpbuffer: Option<super::LPVOID>, dwbufferlength: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetSetOptionA(hinternet : super::HINTERNET, dwoption : super::DWORD, lpbuffer : super::LPVOID, dwbufferlength : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetOptionA(hinternet.unwrap_or(core::mem::zeroed()) as _, dwoption, lpbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetSetOptionExA(hinternet: Option<super::HINTERNET>, dwoption: u32, lpbuffer: Option<*const core::ffi::c_void>, dwbufferlength: u32, dwflags: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetSetOptionExA(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwflags : u32) -> windows_core::BOOL);
+pub unsafe fn InternetSetOptionExA(hinternet: Option<super::HINTERNET>, dwoption: super::DWORD, lpbuffer: Option<super::LPVOID>, dwbufferlength: super::DWORD, dwflags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetSetOptionExA(hinternet : super::HINTERNET, dwoption : super::DWORD, lpbuffer : super::LPVOID, dwbufferlength : super::DWORD, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetOptionExA(hinternet.unwrap_or(core::mem::zeroed()) as _, dwoption, lpbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength, dwflags) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetSetOptionExW(hinternet: Option<super::HINTERNET>, dwoption: u32, lpbuffer: Option<*const core::ffi::c_void>, dwbufferlength: u32, dwflags: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetSetOptionExW(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwflags : u32) -> windows_core::BOOL);
+pub unsafe fn InternetSetOptionExW(hinternet: Option<super::HINTERNET>, dwoption: super::DWORD, lpbuffer: Option<super::LPVOID>, dwbufferlength: super::DWORD, dwflags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetSetOptionExW(hinternet : super::HINTERNET, dwoption : super::DWORD, lpbuffer : super::LPVOID, dwbufferlength : super::DWORD, dwflags : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetOptionExW(hinternet.unwrap_or(core::mem::zeroed()) as _, dwoption, lpbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength, dwflags) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetSetOptionW(hinternet: Option<super::HINTERNET>, dwoption: u32, lpbuffer: Option<*const core::ffi::c_void>, dwbufferlength: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetSetOptionW(hinternet : super::HINTERNET, dwoption : u32, lpbuffer : *const core::ffi::c_void, dwbufferlength : u32) -> windows_core::BOOL);
+pub unsafe fn InternetSetOptionW(hinternet: Option<super::HINTERNET>, dwoption: super::DWORD, lpbuffer: Option<super::LPVOID>, dwbufferlength: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetSetOptionW(hinternet : super::HINTERNET, dwoption : super::DWORD, lpbuffer : super::LPVOID, dwbufferlength : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetOptionW(hinternet.unwrap_or(core::mem::zeroed()) as _, dwoption, lpbuffer.unwrap_or(core::mem::zeroed()) as _, dwbufferlength) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetSetPerSiteCookieDecisionA<P0>(pchhostname: P0, dwdecision: u32) -> windows_core::BOOL
+pub unsafe fn InternetSetPerSiteCookieDecisionA<P0>(pchhostname: P0, dwdecision: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetPerSiteCookieDecisionA(pchhostname : windows_core::PCSTR, dwdecision : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetSetPerSiteCookieDecisionA(pchhostname : windows_core::PCSTR, dwdecision : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetPerSiteCookieDecisionA(pchhostname.param().abi(), dwdecision) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn InternetSetPerSiteCookieDecisionW<P0>(pchhostname: P0, dwdecision: u32) -> windows_core::BOOL
+pub unsafe fn InternetSetPerSiteCookieDecisionW<P0>(pchhostname: P0, dwdecision: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetSetPerSiteCookieDecisionW(pchhostname : windows_core::PCWSTR, dwdecision : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetSetPerSiteCookieDecisionW(pchhostname : windows_core::PCWSTR, dwdecision : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetSetPerSiteCookieDecisionW(pchhostname.param().abi(), dwdecision) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn InternetSetStatusCallback(hinternet: super::HINTERNET, lpfninternetcallback: INTERNET_STATUS_CALLBACK) -> INTERNET_STATUS_CALLBACK {
     windows_core::link!("wininet.dll" "system" fn InternetSetStatusCallback(hinternet : super::HINTERNET, lpfninternetcallback : INTERNET_STATUS_CALLBACK) -> INTERNET_STATUS_CALLBACK);
     unsafe { InternetSetStatusCallback(hinternet, lpfninternetcallback) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn InternetSetStatusCallbackA(hinternet: super::HINTERNET, lpfninternetcallback: INTERNET_STATUS_CALLBACK) -> INTERNET_STATUS_CALLBACK {
     windows_core::link!("wininet.dll" "system" fn InternetSetStatusCallbackA(hinternet : super::HINTERNET, lpfninternetcallback : INTERNET_STATUS_CALLBACK) -> INTERNET_STATUS_CALLBACK);
     unsafe { InternetSetStatusCallbackA(hinternet, lpfninternetcallback) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn InternetSetStatusCallbackW(hinternet: super::HINTERNET, lpfninternetcallback: INTERNET_STATUS_CALLBACK) -> INTERNET_STATUS_CALLBACK {
     windows_core::link!("wininet.dll" "system" fn InternetSetStatusCallbackW(hinternet : super::HINTERNET, lpfninternetcallback : INTERNET_STATUS_CALLBACK) -> INTERNET_STATUS_CALLBACK);
     unsafe { InternetSetStatusCallbackW(hinternet, lpfninternetcallback) }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTime(pst: *const super::SYSTEMTIME, dwrfc: u32, lpsztime: windows_core::PSTR, cbtime: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTime(pst : *const super::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PSTR, cbtime : u32) -> windows_core::BOOL);
+pub unsafe fn InternetTimeFromSystemTime(pst: *const super::SYSTEMTIME, dwrfc: super::DWORD, lpsztime: windows_core::PSTR, cbtime: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTime(pst : *const super::SYSTEMTIME, dwrfc : super::DWORD, lpsztime : windows_core::PSTR, cbtime : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetTimeFromSystemTime(pst, dwrfc, lpsztime, cbtime) }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::SYSTEMTIME, dwrfc: u32, lpsztime: windows_core::PSTR, cbtime: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTimeA(pst : *const super::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PSTR, cbtime : u32) -> windows_core::BOOL);
+pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::SYSTEMTIME, dwrfc: super::DWORD, lpsztime: windows_core::PSTR, cbtime: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTimeA(pst : *const super::SYSTEMTIME, dwrfc : super::DWORD, lpsztime : windows_core::PSTR, cbtime : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetTimeFromSystemTimeA(pst, dwrfc, lpsztime, cbtime) }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::SYSTEMTIME, dwrfc: u32, lpsztime: windows_core::PWSTR, cbtime: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTimeW(pst : *const super::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PWSTR, cbtime : u32) -> windows_core::BOOL);
+pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::SYSTEMTIME, dwrfc: super::DWORD, lpsztime: windows_core::PWSTR, cbtime: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTimeW(pst : *const super::SYSTEMTIME, dwrfc : super::DWORD, lpsztime : windows_core::PWSTR, cbtime : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetTimeFromSystemTimeW(pst, dwrfc, lpsztime, cbtime) }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetTimeToSystemTime<P0>(lpsztime: P0, pst: *mut super::SYSTEMTIME, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn InternetTimeToSystemTime<P0>(lpsztime: P0, pst: *mut super::SYSTEMTIME, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetTimeToSystemTime(lpsztime : windows_core::PCSTR, pst : *mut super::SYSTEMTIME, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetTimeToSystemTime(lpsztime : windows_core::PCSTR, pst : *mut super::SYSTEMTIME, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetTimeToSystemTime(lpsztime.param().abi(), pst as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetTimeToSystemTimeA<P0>(lpsztime: P0, pst: *mut super::SYSTEMTIME, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn InternetTimeToSystemTimeA<P0>(lpsztime: P0, pst: *mut super::SYSTEMTIME, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetTimeToSystemTimeA(lpsztime : windows_core::PCSTR, pst : *mut super::SYSTEMTIME, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetTimeToSystemTimeA(lpsztime : windows_core::PCSTR, pst : *mut super::SYSTEMTIME, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetTimeToSystemTimeA(lpsztime.param().abi(), pst as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetTimeToSystemTimeW<P0>(lpsztime: P0, pst: *mut super::SYSTEMTIME, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn InternetTimeToSystemTimeW<P0>(lpsztime: P0, pst: *mut super::SYSTEMTIME, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn InternetTimeToSystemTimeW(lpsztime : windows_core::PCWSTR, pst : *mut super::SYSTEMTIME, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn InternetTimeToSystemTimeW(lpsztime : windows_core::PCWSTR, pst : *mut super::SYSTEMTIME, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { InternetTimeToSystemTimeW(lpsztime.param().abi(), pst as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -1276,163 +1284,169 @@ pub unsafe fn InternetUnlockRequestFile(hlockrequestinfo: super::HANDLE) -> wind
     windows_core::link!("wininet.dll" "system" fn InternetUnlockRequestFile(hlockrequestinfo : super::HANDLE) -> windows_core::BOOL);
     unsafe { InternetUnlockRequestFile(hlockrequestinfo as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winhttp"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn InternetWriteFile(hfile: super::HINTERNET, lpbuffer: super::LPCVOID, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn InternetWriteFile(hfile : super::HINTERNET, lpbuffer : super::LPCVOID, dwnumberofbytestowrite : u32, lpdwnumberofbyteswritten : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn InternetWriteFile(hfile: super::HINTERNET, lpbuffer: super::LPCVOID, dwnumberofbytestowrite: super::DWORD, lpdwnumberofbyteswritten: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn InternetWriteFile(hfile : super::HINTERNET, lpbuffer : super::LPCVOID, dwnumberofbytestowrite : super::DWORD, lpdwnumberofbyteswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { InternetWriteFile(hfile, lpbuffer, dwnumberofbytestowrite, lpdwnumberofbyteswritten as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: Option<super::LPDWORD>, pszbuffer: Option<windows_core::PWSTR>, pdwbufferlength: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("wininet.dll" "system" fn PrivacyGetZonePreferenceW(dwzone : u32, dwtype : u32, pdwtemplate : super::LPDWORD, pszbuffer : windows_core::PWSTR, pdwbufferlength : super::LPDWORD) -> u32);
+pub unsafe fn PrivacyGetZonePreferenceW(dwzone: super::DWORD, dwtype: super::DWORD, pdwtemplate: Option<super::LPDWORD>, pszbuffer: Option<windows_core::PWSTR>, pdwbufferlength: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("wininet.dll" "system" fn PrivacyGetZonePreferenceW(dwzone : super::DWORD, dwtype : super::DWORD, pdwtemplate : super::LPDWORD, pszbuffer : windows_core::PWSTR, pdwbufferlength : super::LPDWORD) -> super::DWORD);
     unsafe { PrivacyGetZonePreferenceW(dwzone, dwtype, pdwtemplate.unwrap_or(core::mem::zeroed()) as _, pszbuffer.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PrivacySetZonePreferenceW<P3>(dwzone: u32, dwtype: u32, dwtemplate: u32, pszpreference: P3) -> u32
+pub unsafe fn PrivacySetZonePreferenceW<P3>(dwzone: super::DWORD, dwtype: super::DWORD, dwtemplate: super::DWORD, pszpreference: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn PrivacySetZonePreferenceW(dwzone : u32, dwtype : u32, dwtemplate : u32, pszpreference : windows_core::PCWSTR) -> u32);
+    windows_core::link!("wininet.dll" "system" fn PrivacySetZonePreferenceW(dwzone : super::DWORD, dwtype : super::DWORD, dwtemplate : super::DWORD, pszpreference : windows_core::PCWSTR) -> super::DWORD);
     unsafe { PrivacySetZonePreferenceW(dwzone, dwtype, dwtemplate, pszpreference.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadUrlCacheEntryStream(hurlcachestream: super::HANDLE, dwlocation: u32, lpbuffer: *mut core::ffi::c_void, lpdwlen: super::LPDWORD, reserved: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn ReadUrlCacheEntryStream(hurlcachestream : super::HANDLE, dwlocation : u32, lpbuffer : *mut core::ffi::c_void, lpdwlen : super::LPDWORD, reserved : u32) -> windows_core::BOOL);
+pub unsafe fn ReadUrlCacheEntryStream(hurlcachestream: super::HANDLE, dwlocation: super::DWORD, lpbuffer: super::LPVOID, lpdwlen: super::LPDWORD, reserved: Option<super::DWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn ReadUrlCacheEntryStream(hurlcachestream : super::HANDLE, dwlocation : super::DWORD, lpbuffer : super::LPVOID, lpdwlen : super::LPDWORD, reserved : super::DWORD) -> windows_core::BOOL);
     unsafe { ReadUrlCacheEntryStream(hurlcachestream, dwlocation, lpbuffer as _, lpdwlen as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadUrlCacheEntryStreamEx(hurlcachestream: super::HANDLE, qwlocation: super::DWORDLONG, lpbuffer: *mut core::ffi::c_void, lpdwlen: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn ReadUrlCacheEntryStreamEx(hurlcachestream : super::HANDLE, qwlocation : super::DWORDLONG, lpbuffer : *mut core::ffi::c_void, lpdwlen : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn ReadUrlCacheEntryStreamEx(hurlcachestream: super::HANDLE, qwlocation: super::DWORDLONG, lpbuffer: super::LPVOID, lpdwlen: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn ReadUrlCacheEntryStreamEx(hurlcachestream : super::HANDLE, qwlocation : super::DWORDLONG, lpbuffer : super::LPVOID, lpdwlen : super::LPDWORD) -> windows_core::BOOL);
     unsafe { ReadUrlCacheEntryStreamEx(hurlcachestream, qwlocation, lpbuffer as _, lpdwlen as _) }
 }
-#[cfg(feature = "winhttp")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ResumeSuspendedDownload(hrequest: super::HINTERNET, dwresultcode: u32) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn ResumeSuspendedDownload(hrequest : super::HINTERNET, dwresultcode : u32) -> windows_core::BOOL);
+pub unsafe fn ResumeSuspendedDownload(hrequest: super::HINTERNET, dwresultcode: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn ResumeSuspendedDownload(hrequest : super::HINTERNET, dwresultcode : super::DWORD) -> windows_core::BOOL);
     unsafe { ResumeSuspendedDownload(hrequest, dwresultcode) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryFileA<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn RetrieveUrlCacheEntryFileA<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { RetrieveUrlCacheEntryFileA(lpszurlname.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryFileW<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn RetrieveUrlCacheEntryFileW<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryFileW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { RetrieveUrlCacheEntryFileW(lpszurlname.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamA<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, frandomread: bool, dwreserved: Option<u32>) -> super::HANDLE
+pub unsafe fn RetrieveUrlCacheEntryStreamA<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: super::LPDWORD, frandomread: bool, dwreserved: Option<super::DWORD>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, frandomread : windows_core::BOOL, dwreserved : u32) -> super::HANDLE);
+    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : super::LPDWORD, frandomread : windows_core::BOOL, dwreserved : super::DWORD) -> super::HANDLE);
     unsafe { RetrieveUrlCacheEntryStreamA(lpszurlname.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, frandomread.into(), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamW<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, frandomread: bool, dwreserved: Option<u32>) -> super::HANDLE
+pub unsafe fn RetrieveUrlCacheEntryStreamW<P0>(lpszurlname: P0, lpcacheentryinfo: Option<LPINTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: super::LPDWORD, frandomread: bool, dwreserved: Option<super::DWORD>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, frandomread : windows_core::BOOL, dwreserved : u32) -> super::HANDLE);
+    windows_core::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : super::LPDWORD, frandomread : windows_core::BOOL, dwreserved : super::DWORD) -> super::HANDLE);
     unsafe { RetrieveUrlCacheEntryStreamW(lpszurlname.param().abi(), lpcacheentryinfo.unwrap_or(core::mem::zeroed()) as _, lpcbcacheentryinfo as _, frandomread.into(), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetUrlCacheEntryGroup<P0>(lpszurlname: P0, dwflags: u32, groupid: GROUPID, pbgroupattributes: Option<super::LPBYTE>, cbgroupattributes: Option<u32>, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetUrlCacheEntryGroup<P0>(lpszurlname: P0, dwflags: super::DWORD, groupid: GROUPID, pbgroupattributes: Option<super::LPBYTE>, cbgroupattributes: Option<super::DWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryGroup(lpszurlname : windows_core::PCSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : u32, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryGroup(lpszurlname : windows_core::PCSTR, dwflags : super::DWORD, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : super::DWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { SetUrlCacheEntryGroup(lpszurlname.param().abi(), dwflags, groupid, pbgroupattributes.unwrap_or(core::mem::zeroed()) as _, cbgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetUrlCacheEntryGroupA<P0>(lpszurlname: P0, dwflags: u32, groupid: GROUPID, pbgroupattributes: Option<super::LPBYTE>, cbgroupattributes: Option<u32>, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetUrlCacheEntryGroupA<P0>(lpszurlname: P0, dwflags: super::DWORD, groupid: GROUPID, pbgroupattributes: Option<super::LPBYTE>, cbgroupattributes: Option<super::DWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupA(lpszurlname : windows_core::PCSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : u32, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupA(lpszurlname : windows_core::PCSTR, dwflags : super::DWORD, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : super::DWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { SetUrlCacheEntryGroupA(lpszurlname.param().abi(), dwflags, groupid, pbgroupattributes.unwrap_or(core::mem::zeroed()) as _, cbgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetUrlCacheEntryGroupW<P0>(lpszurlname: P0, dwflags: u32, groupid: GROUPID, pbgroupattributes: Option<super::LPBYTE>, cbgroupattributes: Option<u32>, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetUrlCacheEntryGroupW<P0>(lpszurlname: P0, dwflags: super::DWORD, groupid: GROUPID, pbgroupattributes: Option<super::LPBYTE>, cbgroupattributes: Option<super::DWORD>, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupW(lpszurlname : windows_core::PCWSTR, dwflags : u32, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : u32, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryGroupW(lpszurlname : windows_core::PCWSTR, dwflags : super::DWORD, groupid : GROUPID, pbgroupattributes : super::LPBYTE, cbgroupattributes : super::DWORD, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { SetUrlCacheEntryGroupW(lpszurlname.param().abi(), dwflags, groupid, pbgroupattributes.unwrap_or(core::mem::zeroed()) as _, cbgroupattributes.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetUrlCacheEntryInfoA<P0>(lpszurlname: P0, lpcacheentryinfo: LPINTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol: u32) -> windows_core::BOOL
+pub unsafe fn SetUrlCacheEntryInfoA<P0>(lpszurlname: P0, lpcacheentryinfo: LPINTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol : super::DWORD) -> windows_core::BOOL);
     unsafe { SetUrlCacheEntryInfoA(lpszurlname.param().abi(), lpcacheentryinfo, dwfieldcontrol) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetUrlCacheEntryInfoW<P0>(lpszurlname: P0, lpcacheentryinfo: LPINTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol: u32) -> windows_core::BOOL
+pub unsafe fn SetUrlCacheEntryInfoW<P0>(lpszurlname: P0, lpcacheentryinfo: LPINTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn SetUrlCacheEntryInfoW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : LPINTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol : super::DWORD) -> windows_core::BOOL);
     unsafe { SetUrlCacheEntryInfoW(lpszurlname.param().abi(), lpcacheentryinfo, dwfieldcontrol) }
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetUrlCacheGroupAttributeA(gid: GROUPID, dwflags: Option<u32>, dwattributes: u32, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOA, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOA, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn SetUrlCacheGroupAttributeA(gid: GROUPID, dwflags: Option<super::DWORD>, dwattributes: super::DWORD, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOA, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeA(gid : GROUPID, dwflags : super::DWORD, dwattributes : super::DWORD, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOA, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { SetUrlCacheGroupAttributeA(gid, dwflags.unwrap_or(core::mem::zeroed()) as _, dwattributes, lpgroupinfo, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetUrlCacheGroupAttributeW(gid: GROUPID, dwflags: Option<u32>, dwattributes: u32, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOW, lpreserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : u32, dwattributes : u32, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOW, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn SetUrlCacheGroupAttributeW(gid: GROUPID, dwflags: Option<super::DWORD>, dwattributes: super::DWORD, lpgroupinfo: LPINTERNET_CACHE_GROUP_INFOW, lpreserved: Option<super::LPVOID>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn SetUrlCacheGroupAttributeW(gid : GROUPID, dwflags : super::DWORD, dwattributes : super::DWORD, lpgroupinfo : LPINTERNET_CACHE_GROUP_INFOW, lpreserved : super::LPVOID) -> windows_core::BOOL);
     unsafe { SetUrlCacheGroupAttributeW(gid, dwflags.unwrap_or(core::mem::zeroed()) as _, dwattributes, lpgroupinfo, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryFile<P0>(lpszurlname: P0, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn UnlockUrlCacheEntryFile<P0>(lpszurlname: P0, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFile(lpszurlname : windows_core::PCSTR, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFile(lpszurlname : windows_core::PCSTR, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { UnlockUrlCacheEntryFile(lpszurlname.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryFileA<P0>(lpszurlname: P0, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn UnlockUrlCacheEntryFileA<P0>(lpszurlname: P0, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFileA(lpszurlname : windows_core::PCSTR, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFileA(lpszurlname : windows_core::PCSTR, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { UnlockUrlCacheEntryFileA(lpszurlname.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryFileW<P0>(lpszurlname: P0, dwreserved: Option<u32>) -> windows_core::BOOL
+pub unsafe fn UnlockUrlCacheEntryFileW<P0>(lpszurlname: P0, dwreserved: Option<super::DWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFileW(lpszurlname : windows_core::PCWSTR, dwreserved : u32) -> windows_core::BOOL);
+    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFileW(lpszurlname : windows_core::PCWSTR, dwreserved : super::DWORD) -> windows_core::BOOL);
     unsafe { UnlockUrlCacheEntryFileW(lpszurlname.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryStream(hurlcachestream: super::HANDLE, reserved: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryStream(hurlcachestream : super::HANDLE, reserved : u32) -> windows_core::BOOL);
+pub unsafe fn UnlockUrlCacheEntryStream(hurlcachestream: super::HANDLE, reserved: Option<super::DWORD>) -> windows_core::BOOL {
+    windows_core::link!("wininet.dll" "system" fn UnlockUrlCacheEntryStream(hurlcachestream : super::HANDLE, reserved : super::DWORD) -> windows_core::BOOL);
     unsafe { UnlockUrlCacheEntryStream(hurlcachestream, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const AUTH_FLAG_DISABLE_BASIC_CLEARCHANNEL: i32 = 4;
@@ -1449,30 +1463,67 @@ pub const AUTO_PROXY_FLAG_DETECTION_SUSPECT: i32 = 64;
 pub const AUTO_PROXY_FLAG_DONT_CACHE_PROXY_RESULT: i32 = 16;
 pub const AUTO_PROXY_FLAG_MIGRATED: i32 = 8;
 pub const AUTO_PROXY_FLAG_USER_SET: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
-    pub dwStructSize: u32,
+    pub dwStructSize: super::DWORD,
     pub lpszScriptBuffer: windows_core::PSTR,
-    pub dwScriptBufferSize: u32,
+    pub dwScriptBufferSize: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct AUTO_PROXY_SCRIPT_BUFFER {
+    pub dwStructSize: super::DWORD,
+    pub lpszScriptBuffer: windows_core::PSTR,
+    pub dwScriptBufferSize: super::DWORD,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
+#[derive(Clone, Copy, Default)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
+#[derive(Clone, Copy, Default)]
+pub struct AutoProxyHelperFunctions {
+    pub lpVtbl: *const AutoProxyHelperVtbl,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
+#[derive(Clone, Copy, Default)]
 pub struct AutoProxyHelperVtbl {
-    pub IsResolvable: *mut u8,
-    pub GetIPAddress: *mut u8,
-    pub ResolveHostName: *mut u8,
-    pub IsInNet: *mut u8,
-    pub IsResolvableEx: *mut u8,
-    pub GetIPAddressEx: *mut u8,
-    pub ResolveHostNameEx: *mut u8,
-    pub IsInNetEx: *mut u8,
-    pub SortIpList: *mut u8,
+    pub IsResolvable: super::CALINFO_ENUMPROCA,
+    pub GetIPAddress: Option<unsafe extern "system" fn(windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub ResolveHostName: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub IsInNet: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, windows_core::PSTR) -> windows_core::BOOL>,
+    pub IsResolvableEx: super::CALINFO_ENUMPROCA,
+    pub GetIPAddressEx: Option<unsafe extern "system" fn(windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub ResolveHostNameEx: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub IsInNetEx: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR) -> windows_core::BOOL>,
+    pub SortIpList: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
+#[derive(Clone, Copy, Default)]
+pub struct AutoProxyHelperVtbl {
+    pub IsResolvable: super::CALINFO_ENUMPROCA,
+    pub GetIPAddress: Option<unsafe extern "system" fn(windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub ResolveHostName: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub IsInNet: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, windows_core::PSTR) -> windows_core::BOOL>,
+    pub IsResolvableEx: super::CALINFO_ENUMPROCA,
+    pub GetIPAddressEx: Option<unsafe extern "system" fn(windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub ResolveHostNameEx: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
+    pub IsInNetEx: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR) -> windows_core::BOOL>,
+    pub SortIpList: Option<unsafe extern "system" fn(windows_core::PSTR, windows_core::PSTR, super::LPDWORD) -> super::DWORD>,
 }
 pub const CACHEGROUP_ATTRIBUTE_BASIC: i32 = 1;
 pub const CACHEGROUP_ATTRIBUTE_FLAG: i32 = 2;
@@ -1505,10 +1556,20 @@ pub const COOKIE_STATE_MAX: InternetCookieState = 5;
 pub const COOKIE_STATE_PROMPT: InternetCookieState = 2;
 pub const COOKIE_STATE_REJECT: InternetCookieState = 5;
 pub const COOKIE_STATE_UNKNOWN: InternetCookieState = 0;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct CookieDecision {
-    pub dwCookieState: u32,
+    pub dwCookieState: super::DWORD,
+    pub fAllowSession: windows_core::BOOL,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct CookieDecision {
+    pub dwCookieState: super::DWORD,
     pub fAllowSession: windows_core::BOOL,
 }
 pub const EDITED_CACHE_ENTRY: i32 = 8;
@@ -1622,29 +1683,60 @@ pub const FTP_TRANSFER_TYPE_ASCII: i32 = 1;
 pub const FTP_TRANSFER_TYPE_BINARY: i32 = 2;
 pub const FTP_TRANSFER_TYPE_MASK: i32 = 3;
 pub const FTP_TRANSFER_TYPE_UNKNOWN: i32 = 0;
-#[repr(C)]
+pub const GOPHER_ABSTRACT_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Abstract");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: super::LPCTSTR,
     pub AbstractFile: super::LPCTSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
+    pub ShortAbstract: super::LPCTSTR,
+    pub AbstractFile: super::LPCTSTR,
+}
+pub const GOPHER_ABSTRACT_CATEGORY: windows_core::PCSTR = windows_core::s!("+ABSTRACT");
+pub const GOPHER_ADMIN_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Admin");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: super::LPCTSTR,
     pub EmailAddress: super::LPCTSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
+    pub Comment: super::LPCTSTR,
+    pub EmailAddress: super::LPCTSTR,
+}
+pub const GOPHER_ADMIN_CATEGORY: windows_core::PCSTR = windows_core::s!("+ADMIN");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: super::LPCTSTR,
     pub QuestionText: super::LPCTSTR,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: LPGOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> windows_core::BOOL>;
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
+    pub QuestionType: super::LPCTSTR,
+    pub QuestionText: super::LPCTSTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: LPGOPHER_ATTRIBUTE_TYPE, dwerror: super::DWORD) -> windows_core::BOOL>;
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526;
 pub const GOPHER_ATTRIBUTE_ID_ADMIN: u32 = 2882325514;
 pub const GOPHER_ATTRIBUTE_ID_ALL: u32 = 2882325513;
@@ -1663,22 +1755,25 @@ pub const GOPHER_ATTRIBUTE_ID_TTL: u32 = 2882325516;
 pub const GOPHER_ATTRIBUTE_ID_UNKNOWN: u32 = 2882325529;
 pub const GOPHER_ATTRIBUTE_ID_VERSION: u32 = 2882325525;
 pub const GOPHER_ATTRIBUTE_ID_VIEW: u32 = 2882325527;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct GOPHER_ATTRIBUTE_TYPE {
-    pub CategoryId: u32,
-    pub AttributeId: u32,
+    pub CategoryId: super::DWORD,
+    pub AttributeId: super::DWORD,
     pub AttributeType: GOPHER_ATTRIBUTE_TYPE_0,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for GOPHER_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
@@ -1699,7 +1794,54 @@ pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Ask: GOPHER_ASK_ATTRIBUTE_TYPE,
     pub Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for GOPHER_ATTRIBUTE_TYPE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct GOPHER_ATTRIBUTE_TYPE {
+    pub CategoryId: super::DWORD,
+    pub AttributeId: super::DWORD,
+    pub AttributeType: GOPHER_ATTRIBUTE_TYPE_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for GOPHER_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union GOPHER_ATTRIBUTE_TYPE_0 {
+    pub Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
+    pub ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
+    pub Ttl: GOPHER_TTL_ATTRIBUTE_TYPE,
+    pub Score: GOPHER_SCORE_ATTRIBUTE_TYPE,
+    pub ScoreRange: GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE,
+    pub Site: GOPHER_SITE_ATTRIBUTE_TYPE,
+    pub Organization: GOPHER_ORGANIZATION_ATTRIBUTE_TYPE,
+    pub Location: GOPHER_LOCATION_ATTRIBUTE_TYPE,
+    pub GeographicalLocation: GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE,
+    pub TimeZone: GOPHER_TIMEZONE_ATTRIBUTE_TYPE,
+    pub Provider: GOPHER_PROVIDER_ATTRIBUTE_TYPE,
+    pub Version: GOPHER_VERSION_ATTRIBUTE_TYPE,
+    pub Abstract: GOPHER_ABSTRACT_ATTRIBUTE_TYPE,
+    pub View: GOPHER_VIEW_ATTRIBUTE_TYPE,
+    pub Veronica: GOPHER_VERONICA_ATTRIBUTE_TYPE,
+    pub Ask: GOPHER_ASK_ATTRIBUTE_TYPE,
+    pub Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for GOPHER_ATTRIBUTE_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1713,102 +1855,247 @@ pub const GOPHER_CATEGORY_ID_INFO: u32 = 2882325506;
 pub const GOPHER_CATEGORY_ID_UNKNOWN: u32 = 2882325512;
 pub const GOPHER_CATEGORY_ID_VERONICA: u32 = 2882325510;
 pub const GOPHER_CATEGORY_ID_VIEWS: u32 = 2882325508;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type GOPHER_FIND_DATA = GOPHER_FIND_DATAA;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
 pub struct GOPHER_FIND_DATAA {
-    pub DisplayString: [i8; 129],
-    pub GopherType: u32,
-    pub SizeLow: u32,
-    pub SizeHigh: u32,
+    pub DisplayString: [super::CHAR; 129],
+    pub GopherType: super::DWORD,
+    pub SizeLow: super::DWORD,
+    pub SizeHigh: super::DWORD,
     pub LastModificationTime: super::FILETIME,
-    pub Locator: [i8; 654],
+    pub Locator: [super::CHAR; 654],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for GOPHER_FIND_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct GOPHER_FIND_DATAW {
-    pub DisplayString: [u16; 129],
-    pub GopherType: u32,
-    pub SizeLow: u32,
-    pub SizeHigh: u32,
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct GOPHER_FIND_DATAA {
+    pub DisplayString: [super::CHAR; 129],
+    pub GopherType: super::DWORD,
+    pub SizeLow: super::DWORD,
+    pub SizeHigh: super::DWORD,
     pub LastModificationTime: super::FILETIME,
-    pub Locator: [u16; 654],
+    pub Locator: [super::CHAR; 654],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for GOPHER_FIND_DATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct GOPHER_FIND_DATAW {
+    pub DisplayString: [super::WCHAR; 129],
+    pub GopherType: super::DWORD,
+    pub SizeLow: super::DWORD,
+    pub SizeHigh: super::DWORD,
+    pub LastModificationTime: super::FILETIME,
+    pub Locator: [super::WCHAR; 654],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for GOPHER_FIND_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
-    pub DegreesNorth: i32,
-    pub MinutesNorth: i32,
-    pub SecondsNorth: i32,
-    pub DegreesEast: i32,
-    pub MinutesEast: i32,
-    pub SecondsEast: i32,
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct GOPHER_FIND_DATAW {
+    pub DisplayString: [super::WCHAR; 129],
+    pub GopherType: super::DWORD,
+    pub SizeLow: super::DWORD,
+    pub SizeHigh: super::DWORD,
+    pub LastModificationTime: super::FILETIME,
+    pub Locator: [super::WCHAR; 654],
 }
-#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for GOPHER_FIND_DATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
+    pub DegreesNorth: super::INT,
+    pub MinutesNorth: super::INT,
+    pub SecondsNorth: super::INT,
+    pub DegreesEast: super::INT,
+    pub MinutesEast: super::INT,
+    pub SecondsEast: super::INT,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
+    pub DegreesNorth: super::INT,
+    pub MinutesNorth: super::INT,
+    pub SecondsNorth: super::INT,
+    pub DegreesEast: super::INT,
+    pub MinutesEast: super::INT,
+    pub SecondsEast: super::INT,
+}
+pub const GOPHER_GEOG_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Geog");
+pub const GOPHER_INFO_CATEGORY: windows_core::PCSTR = windows_core::s!("+INFO");
+pub const GOPHER_LOCATION_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Loc");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: super::LPCTSTR,
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
+    pub Location: super::LPCTSTR,
+}
+pub const GOPHER_MOD_DATE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Mod-Date");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::FILETIME,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
+    pub DateAndTime: super::FILETIME,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: super::LPCTSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
+    pub Organization: super::LPCTSTR,
+}
+pub const GOPHER_ORG_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Org");
+pub const GOPHER_PROVIDER_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Provider");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: super::LPCTSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
-    pub Score: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
-    pub LowerBound: i32,
-    pub UpperBound: i32,
-}
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
+    pub Provider: super::LPCTSTR,
+}
+pub const GOPHER_RANGE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Score-range");
+pub const GOPHER_SCORE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Score");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
+    pub Score: super::INT,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
+    pub Score: super::INT,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
+    pub LowerBound: super::INT,
+    pub UpperBound: super::INT,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
+    pub LowerBound: super::INT,
+    pub UpperBound: super::INT,
+}
+pub const GOPHER_SITE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Site");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: super::LPCTSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
-    pub Zone: i32,
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
+    pub Site: super::LPCTSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub const GOPHER_TIMEZONE_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("TZ");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
+    pub Zone: super::INT,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
+    pub Zone: super::INT,
+}
+pub const GOPHER_TREEWALK_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("treewalk");
+pub const GOPHER_TTL_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("TTL");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
-    pub Ttl: u32,
+    pub Ttl: super::DWORD,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
+    pub Ttl: super::DWORD,
 }
 pub const GOPHER_TYPE_ASK: i32 = 1073741824;
 pub const GOPHER_TYPE_BINARY: i32 = 512;
@@ -1835,30 +2122,67 @@ pub const GOPHER_TYPE_TEXT_FILE: i32 = 1;
 pub const GOPHER_TYPE_TN3270: i32 = 2048;
 pub const GOPHER_TYPE_UNIX_UUENCODED: i32 = 64;
 pub const GOPHER_TYPE_UNKNOWN: i32 = 536870912;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: super::LPCTSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
+    pub Text: super::LPCTSTR,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: windows_core::BOOL,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
+    pub TreeWalk: windows_core::BOOL,
+}
+pub const GOPHER_VERONICA_CATEGORY: windows_core::PCSTR = windows_core::s!("+VERONICA");
+pub const GOPHER_VERSION_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("Version");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: super::LPCTSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
+    pub Version: super::LPCTSTR,
+}
+pub const GOPHER_VIEWS_CATEGORY: windows_core::PCSTR = windows_core::s!("+VIEWS");
+pub const GOPHER_VIEW_ATTRIBUTE: windows_core::PCSTR = windows_core::s!("View");
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: super::LPCTSTR,
     pub Language: super::LPCTSTR,
-    pub Size: u32,
+    pub Size: super::DWORD,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
+    pub ContentType: super::LPCTSTR,
+    pub Language: super::LPCTSTR,
+    pub Size: super::DWORD,
 }
 pub type GROUPID = i64;
 pub const GROUPNAME_MAX_LENGTH: i32 = 120;
@@ -1993,9 +2317,58 @@ pub const HTTP_QUERY_X_FRAME_OPTIONS: i32 = 85;
 pub const HTTP_QUERY_X_P2P_PEERDIST: i32 = 81;
 pub const HTTP_QUERY_X_UA_COMPATIBLE: i32 = 83;
 pub const HTTP_QUERY_X_XSS_PROTECTION: i32 = 86;
+pub const HTTP_STATUS_ACCEPTED: i32 = 202;
+pub const HTTP_STATUS_AMBIGUOUS: i32 = 300;
+pub const HTTP_STATUS_BAD_GATEWAY: i32 = 502;
+pub const HTTP_STATUS_BAD_METHOD: i32 = 405;
+pub const HTTP_STATUS_BAD_REQUEST: i32 = 400;
+pub const HTTP_STATUS_CONFLICT: i32 = 409;
+pub const HTTP_STATUS_CONTINUE: i32 = 100;
+pub const HTTP_STATUS_CREATED: i32 = 201;
+pub const HTTP_STATUS_DENIED: i32 = 401;
+pub const HTTP_STATUS_FIRST: i32 = 100;
+pub const HTTP_STATUS_FORBIDDEN: i32 = 403;
+pub const HTTP_STATUS_GATEWAY_TIMEOUT: i32 = 504;
+pub const HTTP_STATUS_GONE: i32 = 410;
+pub const HTTP_STATUS_LAST: i32 = 505;
+pub const HTTP_STATUS_LENGTH_REQUIRED: i32 = 411;
 pub const HTTP_STATUS_MISDIRECTED_REQUEST: i32 = 421;
+pub const HTTP_STATUS_MOVED: i32 = 301;
+pub const HTTP_STATUS_NONE_ACCEPTABLE: i32 = 406;
+pub const HTTP_STATUS_NOT_FOUND: i32 = 404;
+pub const HTTP_STATUS_NOT_MODIFIED: i32 = 304;
+pub const HTTP_STATUS_NOT_SUPPORTED: i32 = 501;
+pub const HTTP_STATUS_NO_CONTENT: i32 = 204;
+pub const HTTP_STATUS_OK: i32 = 200;
+pub const HTTP_STATUS_PARTIAL: i32 = 203;
+pub const HTTP_STATUS_PARTIAL_CONTENT: i32 = 206;
+pub const HTTP_STATUS_PAYMENT_REQ: i32 = 402;
+pub const HTTP_STATUS_PERMANENT_REDIRECT: i32 = 308;
+pub const HTTP_STATUS_PRECOND_FAILED: i32 = 412;
+pub const HTTP_STATUS_PROXY_AUTH_REQ: i32 = 407;
+pub const HTTP_STATUS_REDIRECT: i32 = 302;
+pub const HTTP_STATUS_REDIRECT_KEEP_VERB: i32 = 307;
+pub const HTTP_STATUS_REDIRECT_METHOD: i32 = 303;
+pub const HTTP_STATUS_REQUEST_TIMEOUT: i32 = 408;
+pub const HTTP_STATUS_REQUEST_TOO_LARGE: i32 = 413;
+pub const HTTP_STATUS_RESET_CONTENT: i32 = 205;
+pub const HTTP_STATUS_RETRY_WITH: i32 = 449;
+pub const HTTP_STATUS_SERVER_ERROR: i32 = 500;
+pub const HTTP_STATUS_SERVICE_UNAVAIL: i32 = 503;
+pub const HTTP_STATUS_SWITCH_PROTOCOLS: i32 = 101;
+pub const HTTP_STATUS_UNSUPPORTED_MEDIA: i32 = 415;
+pub const HTTP_STATUS_URI_TOO_LONG: i32 = 414;
+pub const HTTP_STATUS_USE_PROXY: i32 = 305;
+pub const HTTP_STATUS_VERSION_NOT_SUP: i32 = 505;
 pub const HTTP_VERSIONA: windows_core::PCSTR = windows_core::s!("HTTP/1.0");
 pub const HTTP_VERSIONW: windows_core::PCWSTR = windows_core::w!("HTTP/1.0");
+pub const ICU_BROWSER_MODE: i32 = 33554432;
+pub const ICU_DECODE: i32 = 268435456;
+pub const ICU_ENCODE_PERCENT: i32 = 4096;
+pub const ICU_ENCODE_SPACES_ONLY: i32 = 67108864;
+pub const ICU_ESCAPE: u32 = 2147483648;
+pub const ICU_NO_ENCODE: i32 = 536870912;
+pub const ICU_NO_META: i32 = 134217728;
 pub const ICU_USERNAME: i32 = 1073741824;
 pub const IDSI_FLAG_KEEP_ALIVE: i32 = 1;
 pub const IDSI_FLAG_PROXY: i32 = 4;
@@ -2004,181 +2377,395 @@ pub const IDSI_FLAG_TUNNEL: i32 = 8;
 pub const INTERENT_GOONLINE_MASK: i32 = 3;
 pub const INTERENT_GOONLINE_NOPROMPT: i32 = 2;
 pub const INTERENT_GOONLINE_REFRESH: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_ASYNC_RESULT {
-    pub dwResult: usize,
-    pub dwError: u32,
+    pub dwResult: super::DWORD_PTR,
+    pub dwError: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_ASYNC_RESULT {
+    pub dwResult: super::DWORD_PTR,
+    pub dwError: super::DWORD,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
-    pub cbStruct: u32,
-    pub dwOptions: u32,
+    pub cbStruct: super::DWORD,
+    pub dwOptions: super::DWORD,
     pub pfnNotify: PFN_AUTH_NOTIFY,
-    pub dwContext: usize,
+    pub dwContext: super::DWORD_PTR,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_AUTH_NOTIFY_DATA {
+    pub cbStruct: super::DWORD,
+    pub dwOptions: super::DWORD,
+    pub pfnNotify: PFN_AUTH_NOTIFY,
+    pub dwContext: super::DWORD_PTR,
 }
 pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: i32 = 4;
 pub const INTERNET_AUTODIAL_FLAGS_MASK: i32 = 15;
 pub const INTERNET_AUTODIAL_FORCE_ONLINE: i32 = 1;
 pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: i32 = 2;
 pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: i32 = 8;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type INTERNET_BUFFERS = INTERNET_BUFFERSA;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_BUFFERSA {
-    pub dwStructSize: u32,
+    pub dwStructSize: super::DWORD,
     pub Next: *mut Self,
     pub lpcszHeader: windows_core::PCSTR,
-    pub dwHeadersLength: u32,
-    pub dwHeadersTotal: u32,
-    pub lpvBuffer: *mut core::ffi::c_void,
-    pub dwBufferLength: u32,
-    pub dwBufferTotal: u32,
-    pub dwOffsetLow: u32,
-    pub dwOffsetHigh: u32,
+    pub dwHeadersLength: super::DWORD,
+    pub dwHeadersTotal: super::DWORD,
+    pub lpvBuffer: super::LPVOID,
+    pub dwBufferLength: super::DWORD,
+    pub dwBufferTotal: super::DWORD,
+    pub dwOffsetLow: super::DWORD,
+    pub dwOffsetHigh: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_BUFFERSA {
+    pub dwStructSize: super::DWORD,
+    pub Next: *mut Self,
+    pub lpcszHeader: windows_core::PCSTR,
+    pub dwHeadersLength: super::DWORD,
+    pub dwHeadersTotal: super::DWORD,
+    pub lpvBuffer: super::LPVOID,
+    pub dwBufferLength: super::DWORD,
+    pub dwBufferTotal: super::DWORD,
+    pub dwOffsetLow: super::DWORD,
+    pub dwOffsetHigh: super::DWORD,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_BUFFERSW {
-    pub dwStructSize: u32,
+    pub dwStructSize: super::DWORD,
     pub Next: *mut Self,
     pub lpcszHeader: windows_core::PCWSTR,
-    pub dwHeadersLength: u32,
-    pub dwHeadersTotal: u32,
-    pub lpvBuffer: *mut core::ffi::c_void,
-    pub dwBufferLength: u32,
-    pub dwBufferTotal: u32,
-    pub dwOffsetLow: u32,
-    pub dwOffsetHigh: u32,
+    pub dwHeadersLength: super::DWORD,
+    pub dwHeadersTotal: super::DWORD,
+    pub lpvBuffer: super::LPVOID,
+    pub dwBufferLength: super::DWORD,
+    pub dwBufferTotal: super::DWORD,
+    pub dwOffsetLow: super::DWORD,
+    pub dwOffsetHigh: super::DWORD,
 }
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_BUFFERSW {
+    pub dwStructSize: super::DWORD,
+    pub Next: *mut Self,
+    pub lpcszHeader: windows_core::PCWSTR,
+    pub dwHeadersLength: super::DWORD,
+    pub dwHeadersTotal: super::DWORD,
+    pub lpvBuffer: super::LPVOID,
+    pub dwBufferLength: super::DWORD,
+    pub dwBufferTotal: super::DWORD,
+    pub dwOffsetLow: super::DWORD,
+    pub dwOffsetHigh: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type INTERNET_CACHE_ENTRY_INFO = INTERNET_CACHE_ENTRY_INFOA;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_ENTRY_INFOA {
-    pub dwStructSize: u32,
+    pub dwStructSize: super::DWORD,
     pub lpszSourceUrlName: windows_core::PSTR,
     pub lpszLocalFileName: windows_core::PSTR,
-    pub CacheEntryType: u32,
-    pub dwUseCount: u32,
-    pub dwHitRate: u32,
-    pub dwSizeLow: u32,
-    pub dwSizeHigh: u32,
+    pub CacheEntryType: super::DWORD,
+    pub dwUseCount: super::DWORD,
+    pub dwHitRate: super::DWORD,
+    pub dwSizeLow: super::DWORD,
+    pub dwSizeHigh: super::DWORD,
     pub LastModifiedTime: super::FILETIME,
     pub ExpireTime: super::FILETIME,
     pub LastAccessTime: super::FILETIME,
     pub LastSyncTime: super::FILETIME,
     pub lpHeaderInfo: windows_core::PSTR,
-    pub dwHeaderInfoSize: u32,
+    pub dwHeaderInfoSize: super::DWORD,
     pub lpszFileExtension: windows_core::PSTR,
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOA_0,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_CACHE_ENTRY_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOA_0 {
-    pub dwReserved: u32,
-    pub dwExemptDelta: u32,
+    pub dwReserved: super::DWORD,
+    pub dwExemptDelta: super::DWORD,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct INTERNET_CACHE_ENTRY_INFOA {
+    pub dwStructSize: super::DWORD,
+    pub lpszSourceUrlName: windows_core::PSTR,
+    pub lpszLocalFileName: windows_core::PSTR,
+    pub CacheEntryType: super::DWORD,
+    pub dwUseCount: super::DWORD,
+    pub dwHitRate: super::DWORD,
+    pub dwSizeLow: super::DWORD,
+    pub dwSizeHigh: super::DWORD,
+    pub LastModifiedTime: super::FILETIME,
+    pub ExpireTime: super::FILETIME,
+    pub LastAccessTime: super::FILETIME,
+    pub LastSyncTime: super::FILETIME,
+    pub lpHeaderInfo: windows_core::PSTR,
+    pub dwHeaderInfoSize: super::DWORD,
+    pub lpszFileExtension: windows_core::PSTR,
+    pub Anonymous: INTERNET_CACHE_ENTRY_INFOA_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_CACHE_ENTRY_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union INTERNET_CACHE_ENTRY_INFOA_0 {
+    pub dwReserved: super::DWORD,
+    pub dwExemptDelta: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_CACHE_ENTRY_INFOA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_ENTRY_INFOW {
-    pub dwStructSize: u32,
+    pub dwStructSize: super::DWORD,
     pub lpszSourceUrlName: windows_core::PWSTR,
     pub lpszLocalFileName: windows_core::PWSTR,
-    pub CacheEntryType: u32,
-    pub dwUseCount: u32,
-    pub dwHitRate: u32,
-    pub dwSizeLow: u32,
-    pub dwSizeHigh: u32,
+    pub CacheEntryType: super::DWORD,
+    pub dwUseCount: super::DWORD,
+    pub dwHitRate: super::DWORD,
+    pub dwSizeLow: super::DWORD,
+    pub dwSizeHigh: super::DWORD,
     pub LastModifiedTime: super::FILETIME,
     pub ExpireTime: super::FILETIME,
     pub LastAccessTime: super::FILETIME,
     pub LastSyncTime: super::FILETIME,
     pub lpHeaderInfo: windows_core::PWSTR,
-    pub dwHeaderInfoSize: u32,
+    pub dwHeaderInfoSize: super::DWORD,
     pub lpszFileExtension: windows_core::PWSTR,
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOW_0,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_CACHE_ENTRY_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOW_0 {
-    pub dwReserved: u32,
-    pub dwExemptDelta: u32,
+    pub dwReserved: super::DWORD,
+    pub dwExemptDelta: super::DWORD,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_CACHE_ENTRY_INFOW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct INTERNET_CACHE_ENTRY_INFOW {
+    pub dwStructSize: super::DWORD,
+    pub lpszSourceUrlName: windows_core::PWSTR,
+    pub lpszLocalFileName: windows_core::PWSTR,
+    pub CacheEntryType: super::DWORD,
+    pub dwUseCount: super::DWORD,
+    pub dwHitRate: super::DWORD,
+    pub dwSizeLow: super::DWORD,
+    pub dwSizeHigh: super::DWORD,
+    pub LastModifiedTime: super::FILETIME,
+    pub ExpireTime: super::FILETIME,
+    pub LastAccessTime: super::FILETIME,
+    pub LastSyncTime: super::FILETIME,
+    pub lpHeaderInfo: windows_core::PWSTR,
+    pub dwHeaderInfoSize: super::DWORD,
+    pub lpszFileExtension: windows_core::PWSTR,
+    pub Anonymous: INTERNET_CACHE_ENTRY_INFOW_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_CACHE_ENTRY_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union INTERNET_CACHE_ENTRY_INFOW_0 {
+    pub dwReserved: super::DWORD,
+    pub dwExemptDelta: super::DWORD,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const INTERNET_CACHE_GROUP_ADD: i32 = 0;
+#[cfg(feature = "shared")]
 pub type INTERNET_CACHE_GROUP_INFO = INTERNET_CACHE_GROUP_INFOA;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
-    pub dwGroupSize: u32,
-    pub dwGroupFlags: u32,
-    pub dwGroupType: u32,
-    pub dwDiskUsage: u32,
-    pub dwDiskQuota: u32,
-    pub dwOwnerStorage: [u32; 4],
-    pub szGroupName: [i8; 120],
+    pub dwGroupSize: super::DWORD,
+    pub dwGroupFlags: super::DWORD,
+    pub dwGroupType: super::DWORD,
+    pub dwDiskUsage: super::DWORD,
+    pub dwDiskQuota: super::DWORD,
+    pub dwOwnerStorage: [super::DWORD; 4],
+    pub szGroupName: [super::CHAR; 120],
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for INTERNET_CACHE_GROUP_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct INTERNET_CACHE_GROUP_INFOW {
-    pub dwGroupSize: u32,
-    pub dwGroupFlags: u32,
-    pub dwGroupType: u32,
-    pub dwDiskUsage: u32,
-    pub dwDiskQuota: u32,
-    pub dwOwnerStorage: [u32; 4],
-    pub szGroupName: [u16; 120],
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct INTERNET_CACHE_GROUP_INFOA {
+    pub dwGroupSize: super::DWORD,
+    pub dwGroupFlags: super::DWORD,
+    pub dwGroupType: super::DWORD,
+    pub dwDiskUsage: super::DWORD,
+    pub dwDiskQuota: super::DWORD,
+    pub dwOwnerStorage: [super::DWORD; 4],
+    pub szGroupName: [super::CHAR; 120],
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for INTERNET_CACHE_GROUP_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct INTERNET_CACHE_GROUP_INFOW {
+    pub dwGroupSize: super::DWORD,
+    pub dwGroupFlags: super::DWORD,
+    pub dwGroupType: super::DWORD,
+    pub dwDiskUsage: super::DWORD,
+    pub dwDiskQuota: super::DWORD,
+    pub dwOwnerStorage: [super::DWORD; 4],
+    pub szGroupName: [super::WCHAR; 120],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for INTERNET_CACHE_GROUP_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct INTERNET_CACHE_GROUP_INFOW {
+    pub dwGroupSize: super::DWORD,
+    pub dwGroupFlags: super::DWORD,
+    pub dwGroupType: super::DWORD,
+    pub dwDiskUsage: super::DWORD,
+    pub dwDiskQuota: super::DWORD,
+    pub dwOwnerStorage: [super::DWORD; 4],
+    pub szGroupName: [super::WCHAR; 120],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for INTERNET_CACHE_GROUP_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const INTERNET_CACHE_GROUP_REMOVE: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::FILETIME,
     pub ftLastModified: super::FILETIME,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_CACHE_TIMESTAMPS {
+    pub ftExpires: super::FILETIME,
+    pub ftLastModified: super::FILETIME,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::FILETIME,
     pub ftStart: super::FILETIME,
@@ -2187,13 +2774,37 @@ pub struct INTERNET_CERTIFICATE_INFO {
     pub lpszProtocolName: super::LPTSTR,
     pub lpszSignatureAlgName: super::LPTSTR,
     pub lpszEncryptionAlgName: super::LPTSTR,
-    pub dwKeySize: u32,
+    pub dwKeySize: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_CERTIFICATE_INFO {
+    pub ftExpiry: super::FILETIME,
+    pub ftStart: super::FILETIME,
+    pub lpszSubjectInfo: super::LPTSTR,
+    pub lpszIssuerInfo: super::LPTSTR,
+    pub lpszProtocolName: super::LPTSTR,
+    pub lpszSignatureAlgName: super::LPTSTR,
+    pub lpszEncryptionAlgName: super::LPTSTR,
+    pub dwKeySize: super::DWORD,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_CONNECTED_INFO {
-    pub dwConnectedState: u32,
-    pub dwFlags: u32,
+    pub dwConnectedState: super::DWORD,
+    pub dwFlags: super::DWORD,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_CONNECTED_INFO {
+    pub dwConnectedState: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
 pub const INTERNET_CONNECTION_CONFIGURED: i32 = 64;
 pub const INTERNET_CONNECTION_LAN: i32 = 2;
@@ -2201,15 +2812,29 @@ pub const INTERNET_CONNECTION_MODEM: i32 = 1;
 pub const INTERNET_CONNECTION_MODEM_BUSY: i32 = 8;
 pub const INTERNET_CONNECTION_OFFLINE: i32 = 32;
 pub const INTERNET_CONNECTION_PROXY: i32 = 4;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
     pub pwszDomain: windows_core::PWSTR,
     pub pwszPath: windows_core::PWSTR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
+    pub ftExpires: super::FILETIME,
+    pub fExpiresSet: windows_core::BOOL,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_COOKIE2 {
+    pub pwszName: windows_core::PWSTR,
+    pub pwszValue: windows_core::PWSTR,
+    pub pwszDomain: windows_core::PWSTR,
+    pub pwszPath: windows_core::PWSTR,
+    pub dwFlags: super::DWORD,
     pub ftExpires: super::FILETIME,
     pub fExpiresSet: windows_core::BOOL,
 }
@@ -2240,14 +2865,28 @@ pub const INTERNET_CUSTOMDIAL_UNATTENDED: i32 = 1;
 pub const INTERNET_CUSTOMDIAL_WILL_SUPPLY_STATE: i32 = 2;
 pub const INTERNET_DEFAULT_FTP_PORT: i32 = 21;
 pub const INTERNET_DEFAULT_GOPHER_PORT: i32 = 70;
+pub const INTERNET_DEFAULT_HTTPS_PORT: i32 = 443;
+pub const INTERNET_DEFAULT_HTTP_PORT: i32 = 80;
 pub const INTERNET_DEFAULT_SOCKS_PORT: i32 = 1080;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
-    pub Socket: usize,
-    pub SourcePort: u32,
-    pub DestPort: u32,
-    pub Flags: u32,
+    pub Socket: super::DWORD_PTR,
+    pub SourcePort: super::DWORD,
+    pub DestPort: super::DWORD,
+    pub Flags: super::DWORD,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
+    pub Socket: super::DWORD_PTR,
+    pub SourcePort: super::DWORD,
+    pub DestPort: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const INTERNET_DIALSTATE_DISCONNECTED: i32 = 1;
 pub const INTERNET_DIAL_FORCE_PROMPT: i32 = 8192;
@@ -2318,7 +2957,8 @@ pub const INTERNET_IDENTITY_FLAG_SHARED_CACHE: i32 = 2;
 pub const INTERNET_INVALID_PORT_NUMBER: i32 = 0;
 pub const INTERNET_KEEP_ALIVE_DISABLED: i32 = 0;
 pub const INTERNET_KEEP_ALIVE_ENABLED: i32 = 1;
-pub const INTERNET_KEEP_ALIVE_UNKNOWN: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const INTERNET_KEEP_ALIVE_UNKNOWN: super::DWORD = 4294967295;
 pub const INTERNET_LAST_OPTION: i32 = 193;
 pub const INTERNET_MAX_HOST_NAME_LENGTH: i32 = 256;
 pub const INTERNET_MAX_PASSWORD_LENGTH: i32 = 128;
@@ -2326,6 +2966,10 @@ pub const INTERNET_MAX_PATH_LENGTH: i32 = 2048;
 pub const INTERNET_MAX_PORT_NUMBER_LENGTH: i32 = 5;
 pub const INTERNET_MAX_PORT_NUMBER_VALUE: i32 = 65535;
 pub const INTERNET_MAX_SCHEME_LENGTH: i32 = 32;
+#[cfg(target_arch = "x86")]
+pub const INTERNET_MAX_URL_LENGTH: u32 = 2084;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const INTERNET_MAX_URL_LENGTH: u64 = 2084;
 pub const INTERNET_MAX_USER_NAME_LENGTH: i32 = 128;
 pub const INTERNET_NO_CALLBACK: i32 = 0;
 pub const INTERNET_OPEN_TYPE_DIRECT: i32 = 1;
@@ -2446,92 +3090,196 @@ pub const INTERNET_PER_CONN_AUTOCONFIG_URL: i32 = 4;
 pub const INTERNET_PER_CONN_AUTODISCOVERY_FLAGS: i32 = 5;
 pub const INTERNET_PER_CONN_FLAGS: i32 = 1;
 pub const INTERNET_PER_CONN_FLAGS_UI: i32 = 10;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type INTERNET_PER_CONN_OPTION = INTERNET_PER_CONN_OPTIONA;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTIONA {
-    pub dwOption: u32,
+    pub dwOption: super::DWORD,
     pub Value: INTERNET_PER_CONN_OPTIONA_0,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_PER_CONN_OPTIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union INTERNET_PER_CONN_OPTIONA_0 {
-    pub dwValue: u32,
+    pub dwValue: super::DWORD,
     pub pszValue: windows_core::PSTR,
     pub ftValue: super::FILETIME,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_PER_CONN_OPTIONA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct INTERNET_PER_CONN_OPTIONA {
+    pub dwOption: super::DWORD,
+    pub Value: INTERNET_PER_CONN_OPTIONA_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_PER_CONN_OPTIONA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union INTERNET_PER_CONN_OPTIONA_0 {
+    pub dwValue: super::DWORD,
+    pub pszValue: windows_core::PSTR,
+    pub ftValue: super::FILETIME,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_PER_CONN_OPTIONA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTIONW {
-    pub dwOption: u32,
+    pub dwOption: super::DWORD,
     pub Value: INTERNET_PER_CONN_OPTIONW_0,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_PER_CONN_OPTIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union INTERNET_PER_CONN_OPTIONW_0 {
-    pub dwValue: u32,
+    pub dwValue: super::DWORD,
     pub pszValue: windows_core::PWSTR,
     pub ftValue: super::FILETIME,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for INTERNET_PER_CONN_OPTIONW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct INTERNET_PER_CONN_OPTIONW {
+    pub dwOption: super::DWORD,
+    pub Value: INTERNET_PER_CONN_OPTIONW_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_PER_CONN_OPTIONW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union INTERNET_PER_CONN_OPTIONW_0 {
+    pub dwValue: super::DWORD,
+    pub pszValue: windows_core::PWSTR,
+    pub ftValue: super::FILETIME,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for INTERNET_PER_CONN_OPTIONW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type INTERNET_PER_CONN_OPTION_LIST = INTERNET_PER_CONN_OPTION_LISTA;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub pszConnection: windows_core::PSTR,
-    pub dwOptionCount: u32,
-    pub dwOptionError: u32,
+    pub dwOptionCount: super::DWORD,
+    pub dwOptionError: super::DWORD,
     pub pOptions: LPINTERNET_PER_CONN_OPTIONA,
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_PER_CONN_OPTION_LISTA {
+    pub dwSize: super::DWORD,
+    pub pszConnection: windows_core::PSTR,
+    pub dwOptionCount: super::DWORD,
+    pub dwOptionError: super::DWORD,
+    pub pOptions: LPINTERNET_PER_CONN_OPTIONA,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub pszConnection: windows_core::PWSTR,
-    pub dwOptionCount: u32,
-    pub dwOptionError: u32,
+    pub dwOptionCount: super::DWORD,
+    pub dwOptionError: super::DWORD,
+    pub pOptions: LPINTERNET_PER_CONN_OPTIONW,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_PER_CONN_OPTION_LISTW {
+    pub dwSize: super::DWORD,
+    pub pszConnection: windows_core::PWSTR,
+    pub dwOptionCount: super::DWORD,
+    pub dwOptionError: super::DWORD,
     pub pOptions: LPINTERNET_PER_CONN_OPTIONW,
 }
 pub const INTERNET_PER_CONN_PROXY_BYPASS: i32 = 3;
 pub const INTERNET_PER_CONN_PROXY_SERVER: i32 = 2;
 pub const INTERNET_PRIORITY_FOREGROUND: i32 = 1000;
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_PROXY_INFO {
-    pub dwAccessType: u32,
+    pub dwAccessType: super::DWORD,
+    pub lpszProxy: super::LPCTSTR,
+    pub lpszProxyBypass: super::LPCTSTR,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_PROXY_INFO {
+    pub dwAccessType: super::DWORD,
     pub lpszProxy: super::LPCTSTR,
     pub lpszProxyBypass: super::LPCTSTR,
 }
@@ -2553,8 +3301,8 @@ pub const INTERNET_STATE_CONNECTED: i32 = 1;
 pub const INTERNET_STATE_DISCONNECTED: i32 = 2;
 pub const INTERNET_STATE_DISCONNECTED_BY_USER: i32 = 16;
 pub const INTERNET_STATE_IDLE: i32 = 256;
-#[cfg(feature = "winhttp")]
-pub type INTERNET_STATUS_CALLBACK = Option<unsafe extern "system" fn(hinternet: super::HINTERNET, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const core::ffi::c_void, dwstatusinformationlength: u32)>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type INTERNET_STATUS_CALLBACK = Option<unsafe extern "system" fn(hinternet: super::HINTERNET, dwcontext: super::DWORD_PTR, dwinternetstatus: super::DWORD, lpvstatusinformation: super::LPVOID, dwstatusinformationlength: super::DWORD)>;
 pub const INTERNET_STATUS_CLOSING_CONNECTION: i32 = 50;
 pub const INTERNET_STATUS_CONNECTED_TO_SERVER: i32 = 21;
 pub const INTERNET_STATUS_CONNECTING_TO_SERVER: i32 = 20;
@@ -2584,11 +3332,21 @@ pub const INTERNET_STATUS_USER_INPUT_REQUIRED: i32 = 140;
 pub const INTERNET_SUPPRESS_COOKIE_POLICY: i32 = 1;
 pub const INTERNET_SUPPRESS_COOKIE_POLICY_RESET: i32 = 2;
 pub const INTERNET_SUPPRESS_RESET_ALL: i32 = 0;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_VERSION_INFO {
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
+    pub dwMajorVersion: super::DWORD,
+    pub dwMinorVersion: super::DWORD,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct INTERNET_VERSION_INFO {
+    pub dwMajorVersion: super::DWORD,
+    pub dwMinorVersion: super::DWORD,
 }
 pub const IRF_ASYNC: i32 = 1;
 pub const IRF_NO_WAIT: i32 = 8;
@@ -2598,8 +3356,9 @@ pub const ISO_FORCE_DISCONNECTED: i32 = 1;
 pub const ISO_GLOBAL: i32 = 1;
 pub const ISO_REGISTRY: i32 = 2;
 pub const ISO_VALID_FLAGS: i32 = 3;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -2609,8 +3368,30 @@ pub struct IncomingCookieState {
     pub cBlocked: i32,
     pub pszLocation: *const i8,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct IncomingCookieState {
+    pub cSession: i32,
+    pub cPersistent: i32,
+    pub cAccepted: i32,
+    pub cLeashed: i32,
+    pub cDowngraded: i32,
+    pub cBlocked: i32,
+    pub pszLocation: *const i8,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct InternetCookieHistory {
+    pub fAccepted: windows_core::BOOL,
+    pub fLeashed: windows_core::BOOL,
+    pub fDowngraded: windows_core::BOOL,
+    pub fRejected: windows_core::BOOL,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct InternetCookieHistory {
     pub fAccepted: windows_core::BOOL,
     pub fLeashed: windows_core::BOOL,
@@ -2619,6 +3400,7 @@ pub struct InternetCookieHistory {
 }
 pub type InternetCookieState = i32;
 pub const LOCAL_INTERNET_ACCESS: i32 = 1;
+#[cfg(feature = "shared")]
 pub type LPAUTO_PROXY_SCRIPT_BUFFER = *mut AUTO_PROXY_SCRIPT_BUFFER;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_ABSTRACT_ATTRIBUTE_TYPE = *mut GOPHER_ABSTRACT_ATTRIBUTE_TYPE;
@@ -2626,73 +3408,88 @@ pub type LPGOPHER_ABSTRACT_ATTRIBUTE_TYPE = *mut GOPHER_ABSTRACT_ATTRIBUTE_TYPE;
 pub type LPGOPHER_ADMIN_ATTRIBUTE_TYPE = *mut GOPHER_ADMIN_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_ASK_ATTRIBUTE_TYPE = *mut GOPHER_ASK_ATTRIBUTE_TYPE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPGOPHER_ATTRIBUTE_TYPE = *mut GOPHER_ATTRIBUTE_TYPE;
-#[cfg(feature = "minwindef")]
-pub type LPGOPHER_FIND_DATA = LPGOPHER_FIND_DATAA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPGOPHER_FIND_DATA = *mut GOPHER_FIND_DATAA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPGOPHER_FIND_DATAA = *mut GOPHER_FIND_DATAA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPGOPHER_FIND_DATAW = *mut GOPHER_FIND_DATAW;
+#[cfg(feature = "shared")]
 pub type LPGOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE = *mut GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_LOCATION_ATTRIBUTE_TYPE = *mut GOPHER_LOCATION_ATTRIBUTE_TYPE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPGOPHER_MOD_DATE_ATTRIBUTE_TYPE = *mut GOPHER_MOD_DATE_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_ORGANIZATION_ATTRIBUTE_TYPE = *mut GOPHER_ORGANIZATION_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_PROVIDER_ATTRIBUTE_TYPE = *mut GOPHER_PROVIDER_ATTRIBUTE_TYPE;
+#[cfg(feature = "shared")]
 pub type LPGOPHER_SCORE_ATTRIBUTE_TYPE = *mut GOPHER_SCORE_ATTRIBUTE_TYPE;
+#[cfg(feature = "shared")]
 pub type LPGOPHER_SCORE_RANGE_ATTRIBUTE_TYPE = *mut GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_SITE_ATTRIBUTE_TYPE = *mut GOPHER_SITE_ATTRIBUTE_TYPE;
+#[cfg(feature = "shared")]
 pub type LPGOPHER_TIMEZONE_ATTRIBUTE_TYPE = *mut GOPHER_TIMEZONE_ATTRIBUTE_TYPE;
+#[cfg(feature = "shared")]
 pub type LPGOPHER_TTL_ATTRIBUTE_TYPE = *mut GOPHER_TTL_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_UNKNOWN_ATTRIBUTE_TYPE = *mut GOPHER_UNKNOWN_ATTRIBUTE_TYPE;
 pub type LPGOPHER_VERONICA_ATTRIBUTE_TYPE = *mut GOPHER_VERONICA_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
 pub type LPGOPHER_VERSION_ATTRIBUTE_TYPE = *mut GOPHER_VERSION_ATTRIBUTE_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPGOPHER_VIEW_ATTRIBUTE_TYPE = *mut GOPHER_VIEW_ATTRIBUTE_TYPE;
+#[cfg(feature = "shared")]
 pub type LPINTERNET_ASYNC_RESULT = *mut INTERNET_ASYNC_RESULT;
-pub type LPINTERNET_BUFFERS = LPINTERNET_BUFFERSA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPINTERNET_BUFFERS = *mut INTERNET_BUFFERSA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_BUFFERSA = *mut INTERNET_BUFFERSA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_BUFFERSW = *mut INTERNET_BUFFERSW;
-#[cfg(feature = "minwindef")]
-pub type LPINTERNET_CACHE_ENTRY_INFO = LPINTERNET_CACHE_ENTRY_INFOA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPINTERNET_CACHE_ENTRY_INFO = *mut INTERNET_CACHE_ENTRY_INFOA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_CACHE_ENTRY_INFOA = *mut INTERNET_CACHE_ENTRY_INFOA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_CACHE_ENTRY_INFOW = *mut INTERNET_CACHE_ENTRY_INFOW;
-pub type LPINTERNET_CACHE_GROUP_INFO = LPINTERNET_CACHE_GROUP_INFOA;
+#[cfg(feature = "shared")]
+pub type LPINTERNET_CACHE_GROUP_INFO = *mut INTERNET_CACHE_GROUP_INFOA;
+#[cfg(feature = "shared")]
 pub type LPINTERNET_CACHE_GROUP_INFOA = *mut INTERNET_CACHE_GROUP_INFOA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPINTERNET_CACHE_GROUP_INFOW = *mut INTERNET_CACHE_GROUP_INFOW;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_CACHE_TIMESTAMPS = *mut INTERNET_CACHE_TIMESTAMPS;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPINTERNET_CERTIFICATE_INFO = *mut INTERNET_CERTIFICATE_INFO;
+#[cfg(feature = "shared")]
 pub type LPINTERNET_CONNECTED_INFO = *mut INTERNET_CONNECTED_INFO;
+#[cfg(feature = "shared")]
 pub type LPINTERNET_DIAGNOSTIC_SOCKET_INFO = *mut INTERNET_DIAGNOSTIC_SOCKET_INFO;
-#[cfg(feature = "minwindef")]
-pub type LPINTERNET_PER_CONN_OPTION = LPINTERNET_PER_CONN_OPTIONA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPINTERNET_PER_CONN_OPTION = *mut INTERNET_PER_CONN_OPTIONA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_PER_CONN_OPTIONA = *mut INTERNET_PER_CONN_OPTIONA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_PER_CONN_OPTIONW = *mut INTERNET_PER_CONN_OPTIONW;
-#[cfg(feature = "minwindef")]
-pub type LPINTERNET_PER_CONN_OPTION_LIST = LPINTERNET_PER_CONN_OPTION_LISTA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPINTERNET_PER_CONN_OPTION_LIST = *mut INTERNET_PER_CONN_OPTION_LISTA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_PER_CONN_OPTION_LISTA = *mut INTERNET_PER_CONN_OPTION_LISTA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_PER_CONN_OPTION_LISTW = *mut INTERNET_PER_CONN_OPTION_LISTW;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPINTERNET_PROXY_INFO = *mut INTERNET_PROXY_INFO;
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPINTERNET_STATUS_CALLBACK = *mut INTERNET_STATUS_CALLBACK;
+#[cfg(feature = "shared")]
 pub type LPINTERNET_VERSION_INFO = *mut INTERNET_VERSION_INFO;
-#[cfg(feature = "winhttp")]
+#[cfg(all(feature = "shared", feature = "winhttp"))]
 pub type LPURL_COMPONENTSA = *mut URL_COMPONENTSA;
 pub const MAX_GOPHER_ATTRIBUTE_NAME: i32 = 128;
 pub const MAX_GOPHER_CATEGORY_NAME: i32 = 128;
@@ -2702,16 +3499,26 @@ pub const MAX_GOPHER_LOCATOR_LENGTH: i32 = 653;
 pub const MAX_GOPHER_SELECTOR_TEXT: i32 = 256;
 pub const MIN_GOPHER_ATTRIBUTE_LENGTH: i32 = 256;
 pub const NORMAL_CACHE_ENTRY: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
     pub pszLocation: *const i8,
 }
-pub type PFN_AUTH_NOTIFY = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type PFN_DIAL_HANDLER = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_core::PCSTR, param2: u32, param3: super::LPDWORD) -> u32>;
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct OutgoingCookieState {
+    pub cSent: i32,
+    pub cSuppressed: i32,
+    pub pszLocation: *const i8,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PFN_AUTH_NOTIFY = Option<unsafe extern "system" fn(param0: super::DWORD_PTR, param1: super::DWORD, param2: super::LPVOID) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type PFN_DIAL_HANDLER = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_core::PCSTR, param2: super::DWORD, param3: super::LPDWORD) -> super::DWORD>;
 pub const PRE_CONFIG_INTERNET_ACCESS: i32 = 0;
 pub const PRIVACY_TEMPLATE_ADVANCED: i32 = 101;
 pub const PRIVACY_TEMPLATE_CUSTOM: i32 = 100;
@@ -2735,17 +3542,24 @@ pub const SECURITY_FLAG_40BIT: i32 = 268435456;
 pub const SECURITY_FLAG_56BIT: i32 = 1073741824;
 pub const SECURITY_FLAG_FORTEZZA: i32 = 134217728;
 pub const SECURITY_FLAG_IETFSSL4: i32 = 32;
+pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: i32 = 4096;
+pub const SECURITY_FLAG_IGNORE_CERT_DATE_INVALID: i32 = 8192;
 pub const SECURITY_FLAG_IGNORE_REDIRECT_TO_HTTP: i32 = 32768;
 pub const SECURITY_FLAG_IGNORE_REDIRECT_TO_HTTPS: i32 = 16384;
 pub const SECURITY_FLAG_IGNORE_REVOCATION: i32 = 128;
+pub const SECURITY_FLAG_IGNORE_UNKNOWN_CA: i32 = 256;
 pub const SECURITY_FLAG_IGNORE_WEAK_SIGNATURE: i32 = 65536;
 pub const SECURITY_FLAG_IGNORE_WRONG_USAGE: i32 = 512;
 pub const SECURITY_FLAG_NORMALBITNESS: i32 = 268435456;
 pub const SECURITY_FLAG_OPT_IN_WEAK_SIGNATURE: i32 = 131072;
 pub const SECURITY_FLAG_PCT: i32 = 8;
 pub const SECURITY_FLAG_PCT4: i32 = 16;
+pub const SECURITY_FLAG_SECURE: i32 = 1;
 pub const SECURITY_FLAG_SSL: i32 = 2;
 pub const SECURITY_FLAG_SSL3: i32 = 4;
+pub const SECURITY_FLAG_STRENGTH_MEDIUM: i32 = 1073741824;
+pub const SECURITY_FLAG_STRENGTH_STRONG: i32 = 536870912;
+pub const SECURITY_FLAG_STRENGTH_WEAK: i32 = 268435456;
 pub const SECURITY_FLAG_UNKNOWNBIT: u32 = 2147483648;
 pub const SECURITY_IGNORE_ERROR_MASK: i32 = 78208;
 pub const SECURITY_INTERNET_MASK: i32 = 61440;
@@ -2756,25 +3570,47 @@ pub const TRACK_OFFLINE_CACHE_ENTRY: i32 = 16;
 pub const TRACK_ONLINE_CACHE_ENTRY: i32 = 32;
 pub const URLCACHE_FIND_DEFAULT_FILTER: i32 = 3145781;
 pub const URLHISTORY_CACHE_ENTRY: i32 = 2097152;
-#[repr(C)]
-#[cfg(feature = "winhttp")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winhttp"))]
+#[derive(Clone, Copy, Default)]
 pub struct URL_COMPONENTSA {
-    pub dwStructSize: u32,
+    pub dwStructSize: super::DWORD,
     pub lpszScheme: windows_core::PSTR,
-    pub dwSchemeLength: u32,
+    pub dwSchemeLength: super::DWORD,
     pub nScheme: super::INTERNET_SCHEME,
     pub lpszHostName: windows_core::PSTR,
-    pub dwHostNameLength: u32,
+    pub dwHostNameLength: super::DWORD,
     pub nPort: super::INTERNET_PORT,
     pub lpszUserName: windows_core::PSTR,
-    pub dwUserNameLength: u32,
+    pub dwUserNameLength: super::DWORD,
     pub lpszPassword: windows_core::PSTR,
-    pub dwPasswordLength: u32,
+    pub dwPasswordLength: super::DWORD,
     pub lpszUrlPath: windows_core::PSTR,
-    pub dwUrlPathLength: u32,
+    pub dwUrlPathLength: super::DWORD,
     pub lpszExtraInfo: windows_core::PSTR,
-    pub dwExtraInfoLength: u32,
+    pub dwExtraInfoLength: super::DWORD,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winhttp"))]
+#[derive(Clone, Copy, Default)]
+pub struct URL_COMPONENTSA {
+    pub dwStructSize: super::DWORD,
+    pub lpszScheme: windows_core::PSTR,
+    pub dwSchemeLength: super::DWORD,
+    pub nScheme: super::INTERNET_SCHEME,
+    pub lpszHostName: windows_core::PSTR,
+    pub dwHostNameLength: super::DWORD,
+    pub nPort: super::INTERNET_PORT,
+    pub lpszUserName: windows_core::PSTR,
+    pub dwUserNameLength: super::DWORD,
+    pub lpszPassword: windows_core::PSTR,
+    pub dwPasswordLength: super::DWORD,
+    pub lpszUrlPath: windows_core::PSTR,
+    pub dwUrlPathLength: super::DWORD,
+    pub lpszExtraInfo: windows_core::PSTR,
+    pub dwExtraInfoLength: super::DWORD,
 }
 pub const WININET_API_FLAG_ASYNC: i32 = 1;
 pub const WININET_API_FLAG_SYNC: i32 = 4;
@@ -2782,7 +3618,9 @@ pub const WININET_API_FLAG_USE_CONTEXT: i32 = 8;
 pub type WPAD_CACHE_DELETE = i32;
 pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = 1;
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = 0;
-pub type pfnInternetDeInitializeAutoProxyDll = Option<unsafe extern "system" fn(lpszmime: windows_core::PCSTR, dwreserved: u32) -> windows_core::BOOL>;
-#[cfg(feature = "minwindef")]
-pub type pfnInternetGetProxyInfo = Option<unsafe extern "system" fn(lpszurl: windows_core::PCSTR, dwurllength: u32, lpszurlhostname: windows_core::PCSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut windows_core::PSTR, lpdwproxyhostnamelength: super::LPDWORD) -> windows_core::BOOL>;
-pub type pfnInternetInitializeAutoProxyDll = Option<unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: windows_core::PCSTR, lpszmime: windows_core::PCSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: LPAUTO_PROXY_SCRIPT_BUFFER) -> windows_core::BOOL>;
+#[cfg(feature = "shared")]
+pub type pfnInternetDeInitializeAutoProxyDll = Option<unsafe extern "system" fn(lpszmime: windows_core::PSTR, dwreserved: super::DWORD) -> windows_core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type pfnInternetGetProxyInfo = Option<unsafe extern "system" fn(lpszurl: windows_core::PCSTR, dwurllength: super::DWORD, lpszurlhostname: windows_core::PSTR, dwurlhostnamelength: super::DWORD, lplpszproxyhostname: *mut windows_core::PSTR, lpdwproxyhostnamelength: super::LPDWORD) -> windows_core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnls"))]
+pub type pfnInternetInitializeAutoProxyDll = Option<unsafe extern "system" fn(dwversion: super::DWORD, lpszdownloadedtempfile: windows_core::PSTR, lpszmime: windows_core::PSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: LPAUTO_PROXY_SCRIPT_BUFFER) -> windows_core::BOOL>;

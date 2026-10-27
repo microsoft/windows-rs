@@ -3,22 +3,22 @@ pub unsafe fn PTCloseProvider(hprovider: HPTPROVIDER) -> windows_core::HRESULT {
     windows_core::link!("prntvpt.dll" "system" fn PTCloseProvider(hprovider : HPTPROVIDER) -> windows_core::HRESULT);
     unsafe { PTCloseProvider(hprovider) }
 }
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn PTConvertDevModeToPrintTicket<P4>(hprovider: HPTPROVIDER, cbdevmode: u32, pdevmode: super::PDEVMODE, scope: EPrintTicketScope, pprintticket: P4) -> windows_core::HRESULT
+pub unsafe fn PTConvertDevModeToPrintTicket<P4>(hprovider: HPTPROVIDER, cbdevmode: super::ULONG, pdevmode: super::PDEVMODE, scope: EPrintTicketScope, pprintticket: P4) -> windows_core::HRESULT
 where
     P4: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : u32, pdevmode : super::PDEVMODE, scope : EPrintTicketScope, pprintticket : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : super::ULONG, pdevmode : super::PDEVMODE, scope : EPrintTicketScope, pprintticket : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTConvertDevModeToPrintTicket(hprovider, cbdevmode, pdevmode, scope, pprintticket.param().abi()) }
 }
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn PTConvertPrintTicketToDevMode<P1>(hprovider: HPTPROVIDER, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut super::PDEVMODE, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::HRESULT
+pub unsafe fn PTConvertPrintTicketToDevMode<P1>(hprovider: HPTPROVIDER, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut super::ULONG, ppdevmode: *mut super::PDEVMODE, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("prntvpt.dll" "system" fn PTConvertPrintTicketToDevMode(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, basedevmodetype : EDefaultDevmodeType, scope : EPrintTicketScope, pcbdevmode : *mut u32, ppdevmode : *mut super::PDEVMODE, pbstrerrormessage : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("prntvpt.dll" "system" fn PTConvertPrintTicketToDevMode(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, basedevmodetype : EDefaultDevmodeType, scope : EPrintTicketScope, pcbdevmode : *mut super::ULONG, ppdevmode : *mut super::PDEVMODE, pbstrerrormessage : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTConvertPrintTicketToDevMode(hprovider, pprintticket.param().abi(), basedevmodetype, scope, pcbdevmode as _, ppdevmode as _, pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "objidlbase")]
@@ -63,39 +63,43 @@ where
     windows_core::link!("prntvpt.dll" "system" fn PTMergeAndValidatePrintTicket(hprovider : HPTPROVIDER, pbaseticket : *mut core::ffi::c_void, pdeltaticket : *mut core::ffi::c_void, scope : EPrintTicketScope, presultticket : *mut core::ffi::c_void, pbstrerrormessage : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTMergeAndValidatePrintTicket(hprovider, pbaseticket.param().abi(), pdeltaticket.param().abi(), scope, presultticket.param().abi(), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: u32) -> windows_core::Result<HPTPROVIDER>
+pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: super::DWORD) -> windows_core::Result<HPTPROVIDER>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_core::PCWSTR, dwversion : u32, phprovider : *mut HPTPROVIDER) -> windows_core::HRESULT);
+    windows_core::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_core::PCWSTR, dwversion : super::DWORD, phprovider : *mut HPTPROVIDER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PTOpenProvider(pszprintername.param().abi(), dwversion, &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PTOpenProviderEx<P0>(pszprintername: P0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut HPTPROVIDER, pusedversion: *mut u32) -> windows_core::HRESULT
+pub unsafe fn PTOpenProviderEx<P0>(pszprintername: P0, dwmaxversion: super::DWORD, dwprefversion: super::DWORD, phprovider: *mut HPTPROVIDER, pusedversion: *mut super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("prntvpt.dll" "system" fn PTOpenProviderEx(pszprintername : windows_core::PCWSTR, dwmaxversion : u32, dwprefversion : u32, phprovider : *mut HPTPROVIDER, pusedversion : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("prntvpt.dll" "system" fn PTOpenProviderEx(pszprintername : windows_core::PCWSTR, dwmaxversion : super::DWORD, dwprefversion : super::DWORD, phprovider : *mut HPTPROVIDER, pusedversion : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe { PTOpenProviderEx(pszprintername.param().abi(), dwmaxversion, dwprefversion, phprovider as _, pusedversion as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0) -> windows_core::Result<u32>
+pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0) -> windows_core::Result<super::DWORD>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_core::PCWSTR, pmaxversion : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_core::PCWSTR, pmaxversion : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PTQuerySchemaVersionSupport(pszprintername.param().abi(), &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn PTReleaseMemory(pbuffer: *const core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *const core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn PTReleaseMemory(pbuffer: super::PVOID) -> windows_core::HRESULT {
+    windows_core::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : super::PVOID) -> windows_core::HRESULT);
     unsafe { PTReleaseMemory(pbuffer) }
 }
 pub type EDefaultDevmodeType = i32;

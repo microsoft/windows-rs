@@ -1,11 +1,12 @@
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type CMC_EXCEPTION = MCA_EXCEPTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type CPE_EXCEPTION = MCA_EXCEPTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type ERROR_SEVERITY = u8;
+#[cfg(feature = "shared")]
+pub type ERROR_SEVERITY = super::UCHAR;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type ERROR_SEVERITY_VALUE = i32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -20,21 +21,21 @@ pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = 1;
 pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = 0;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION {
-    pub VersionNumber: u32,
+    pub VersionNumber: super::ULONG,
     pub ExceptionType: MCA_EXCEPTION_TYPE,
     pub TimeStamp: super::LARGE_INTEGER,
-    pub ProcessorNumber: u32,
-    pub Reserved1: u32,
+    pub ProcessorNumber: super::ULONG,
+    pub Reserved1: super::ULONG,
     pub u: MCA_EXCEPTION_0,
-    pub ExtCnt: u32,
-    pub Reserved3: u32,
-    pub ExtReg: [u64; 24],
+    pub ExtCnt: super::ULONG,
+    pub Reserved3: super::ULONG,
+    pub ExtReg: [super::ULONGLONG; 24],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MCA_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -42,14 +43,14 @@ impl Default for MCA_EXCEPTION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MCA_EXCEPTION_0 {
     pub Mca: MCA_EXCEPTION_0_0,
     pub Mce: MCA_EXCEPTION_0_1,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MCA_EXCEPTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -57,17 +58,17 @@ impl Default for MCA_EXCEPTION_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION_0_0 {
-    pub BankNumber: u8,
-    pub Reserved2: [u8; 7],
+    pub BankNumber: super::UCHAR,
+    pub Reserved2: [super::UCHAR; 7],
     pub Status: MCI_STATS,
     pub Address: MCI_ADDR,
-    pub Misc: u64,
+    pub Misc: super::ULONGLONG,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MCA_EXCEPTION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -75,21 +76,23 @@ impl Default for MCA_EXCEPTION_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCA_EXCEPTION_0_1 {
-    pub Address: u64,
-    pub Type: u64,
+    pub Address: super::ULONGLONG,
+    pub Type: super::ULONGLONG,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCA_EXCEPTION {
-    pub Dummy: u32,
+    pub Dummy: super::ULONG,
 }
 pub type MCA_EXCEPTION_TYPE = i32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const MCA_EXCEPTION_V1_SIZE: i32 = 56;
+#[cfg(feature = "shared")]
+pub const MCA_EXCEPTION_V1_SIZE: super::LONG = 0x38_u32 as _;
 #[cfg(target_arch = "x86")]
 pub const MCA_EXCEPTION_V2_SIZE: u32 = 256;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -98,12 +101,14 @@ pub const MCA_EXCEPTION_V2_SIZE: u64 = 256;
 pub const MCA_EXTREG_V2MAX: i32 = 24;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MCI_ADDR {
     pub Anonymous: MCI_ADDR_0,
-    pub QuadPart: u64,
+    pub QuadPart: super::ULONGLONG,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for MCI_ADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -111,19 +116,22 @@ impl Default for MCI_ADDR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_ADDR_0 {
-    pub Address: u32,
-    pub Reserved: u32,
+    pub Address: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MCI_STATS {
     pub MciStats: MCI_STATS_0,
-    pub QuadPart: u64,
+    pub QuadPart: super::ULONGLONG,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for MCI_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -131,71 +139,75 @@ impl Default for MCI_STATS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_STATS_0 {
-    pub McaCod: u16,
-    pub MsCod: u16,
+    pub McaCod: super::USHORT,
+    pub MsCod: super::USHORT,
     pub _bitfield: u32,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl MCI_STATS_0 {
-    pub fn OtherInfo(&self) -> u32 {
-        (self._bitfield << 7) >> 7
+    pub fn OtherInfo(&self) -> super::ULONG {
+        (self._bitfield) & 33554431
     }
-    pub fn set_OtherInfo(&mut self, value: u32) {
+    pub fn set_OtherInfo(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !33554431) | (value & 33554431);
     }
-    pub fn Damage(&self) -> bool {
-        (self._bitfield >> 25) & 1 != 0
+    pub fn Damage(&self) -> super::ULONG {
+        (self._bitfield >> 25) & 1
     }
-    pub fn set_Damage(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    pub fn set_Damage(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
     }
-    pub fn AddressValid(&self) -> bool {
-        (self._bitfield >> 26) & 1 != 0
+    pub fn AddressValid(&self) -> super::ULONG {
+        (self._bitfield >> 26) & 1
     }
-    pub fn set_AddressValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    pub fn set_AddressValid(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
     }
-    pub fn MiscValid(&self) -> bool {
-        (self._bitfield >> 27) & 1 != 0
+    pub fn MiscValid(&self) -> super::ULONG {
+        (self._bitfield >> 27) & 1
     }
-    pub fn set_MiscValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    pub fn set_MiscValid(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
     }
-    pub fn Enabled(&self) -> bool {
-        (self._bitfield >> 28) & 1 != 0
+    pub fn Enabled(&self) -> super::ULONG {
+        (self._bitfield >> 28) & 1
     }
-    pub fn set_Enabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u32) << 28);
+    pub fn set_Enabled(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
     }
-    pub fn UnCorrected(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
+    pub fn UnCorrected(&self) -> super::ULONG {
+        (self._bitfield >> 29) & 1
     }
-    pub fn set_UnCorrected(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    pub fn set_UnCorrected(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
     }
-    pub fn OverFlow(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
+    pub fn OverFlow(&self) -> super::ULONG {
+        (self._bitfield >> 30) & 1
     }
-    pub fn set_OverFlow(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    pub fn set_OverFlow(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
     }
-    pub fn Valid(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn Valid(&self) -> super::ULONG {
+        self._bitfield >> 31
     }
-    pub fn set_Valid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_Valid(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MCI_STATS {
     pub MciStatus: MCI_STATS_0,
-    pub QuadPart: u64,
+    pub QuadPart: super::ULONG64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for MCI_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -203,78 +215,73 @@ impl Default for MCI_STATS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_STATS_0 {
-    pub McaErrorCode: u16,
-    pub ModelErrorCode: u16,
+    pub McaErrorCode: super::USHORT,
+    pub ModelErrorCode: super::USHORT,
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl MCI_STATS_0 {
-    pub fn OtherInformation(&self) -> u32 {
-        (self._bitfield << 7) >> 7
+    pub fn OtherInformation(&self) -> super::ULONG {
+        (self._bitfield) & 33554431
     }
-    pub fn set_OtherInformation(&mut self, value: u32) {
+    pub fn set_OtherInformation(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !33554431) | (value & 33554431);
     }
-    pub fn ContextCorrupt(&self) -> bool {
-        (self._bitfield >> 25) & 1 != 0
+    pub fn ContextCorrupt(&self) -> super::ULONG {
+        (self._bitfield >> 25) & 1
     }
-    pub fn set_ContextCorrupt(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    pub fn set_ContextCorrupt(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
     }
-    pub fn AddressValid(&self) -> bool {
-        (self._bitfield >> 26) & 1 != 0
+    pub fn AddressValid(&self) -> super::ULONG {
+        (self._bitfield >> 26) & 1
     }
-    pub fn set_AddressValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    pub fn set_AddressValid(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
     }
-    pub fn MiscValid(&self) -> bool {
-        (self._bitfield >> 27) & 1 != 0
+    pub fn MiscValid(&self) -> super::ULONG {
+        (self._bitfield >> 27) & 1
     }
-    pub fn set_MiscValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    pub fn set_MiscValid(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
     }
-    pub fn ErrorEnabled(&self) -> bool {
-        (self._bitfield >> 28) & 1 != 0
+    pub fn ErrorEnabled(&self) -> super::ULONG {
+        (self._bitfield >> 28) & 1
     }
-    pub fn set_ErrorEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u32) << 28);
+    pub fn set_ErrorEnabled(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
     }
-    pub fn UncorrectedError(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
+    pub fn UncorrectedError(&self) -> super::ULONG {
+        (self._bitfield >> 29) & 1
     }
-    pub fn set_UncorrectedError(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    pub fn set_UncorrectedError(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
     }
-    pub fn StatusOverFlow(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
+    pub fn StatusOverFlow(&self) -> super::ULONG {
+        (self._bitfield >> 30) & 1
     }
-    pub fn set_StatusOverFlow(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    pub fn set_StatusOverFlow(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
     }
-    pub fn Valid(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn Valid(&self) -> super::ULONG {
+        self._bitfield >> 31
     }
-    pub fn set_Valid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_Valid(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-pub type PCMC_EXCEPTION = *mut MCA_EXCEPTION;
-#[cfg(target_arch = "aarch64")]
-pub type PCMC_EXCEPTION = *mut core::ffi::c_void;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-pub type PCPE_EXCEPTION = *mut MCA_EXCEPTION;
-#[cfg(target_arch = "aarch64")]
-pub type PCPE_EXCEPTION = *mut core::ffi::c_void;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PERROR_SEVERITY = *mut u8;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PERROR_SEVERITY = *mut super::UCHAR;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMCA_EXCEPTION = *mut MCA_EXCEPTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PMCI_ADDR = *mut MCI_ADDR;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PMCI_STATS = *mut MCI_STATS;

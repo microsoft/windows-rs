@@ -1,15 +1,16 @@
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn DsRoleFreeMemory(buffer: *const core::ffi::c_void) {
-    windows_core::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *const core::ffi::c_void));
-    unsafe { DsRoleFreeMemory(buffer) }
+pub unsafe fn DsRoleFreeMemory(buffer: super::PVOID) {
+    windows_core::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : super::PVOID));
+    unsafe { DsRoleFreeMemory(buffer as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DsRoleGetPrimaryDomainInformation<P0>(lpserver: P0, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut super::PBYTE) -> u32
+pub unsafe fn DsRoleGetPrimaryDomainInformation<P0>(lpserver: P0, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut super::PBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn DsRoleGetPrimaryDomainInformation(lpserver : windows_core::PCWSTR, infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer : *mut super::PBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn DsRoleGetPrimaryDomainInformation(lpserver : windows_core::PCWSTR, infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer : *mut super::PBYTE) -> super::DWORD);
     unsafe { DsRoleGetPrimaryDomainInformation(lpserver.param().abi(), infolevel, buffer as _) }
 }
 pub type DSROLE_MACHINE_ROLE = i32;
@@ -21,10 +22,11 @@ pub struct DSROLE_OPERATION_STATE_INFO {
 }
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: i32 = 16777216;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub MachineRole: DSROLE_MACHINE_ROLE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub DomainNameFlat: windows_core::PWSTR,
     pub DomainNameDns: windows_core::PWSTR,
     pub DomainForestName: windows_core::PWSTR,
@@ -37,9 +39,10 @@ pub const DSROLE_PRIMARY_DS_RUNNING: i32 = 1;
 pub type DSROLE_SERVER_STATE = i32;
 pub const DSROLE_UPGRADE_IN_PROGRESS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
-    pub OperationState: u32,
+    pub OperationState: super::ULONG,
     pub PreviousServerState: DSROLE_SERVER_STATE,
 }
 pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = 1;
@@ -58,6 +61,8 @@ pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = 5;
 pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = 2;
 pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = 0;
 pub type PDSROLE_OPERATION_STATE_INFO = *mut DSROLE_OPERATION_STATE_INFO;
+#[cfg(feature = "shared")]
 pub type PDSROLE_PRIMARY_DOMAIN_INFO_BASIC = *mut DSROLE_PRIMARY_DOMAIN_INFO_BASIC;
 pub type PDSROLE_SERVER_STATE = *mut DSROLE_SERVER_STATE;
+#[cfg(feature = "shared")]
 pub type PDSROLE_UPGRADE_STATUS_INFO = *mut DSROLE_UPGRADE_STATUS_INFO;

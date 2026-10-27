@@ -1,33 +1,34 @@
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 #[inline]
-pub unsafe fn DMOEnum(guidcategory: *const windows_core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> windows_core::Result<super::IEnumDMO> {
-    windows_core::link!("msdmo.dll" "system" fn DMOEnum(guidcategory : *const windows_core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DMOEnum(guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+pub unsafe fn DMOEnum(guidcategory: *const windows_core::GUID, dwflags: super::DWORD, cintypes: super::DWORD, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: super::DWORD, pouttypes: *const DMO_PARTIAL_MEDIATYPE, ppenum: *mut Option<super::IEnumDMO>) -> windows_core::HRESULT {
+    windows_core::link!("msdmo.dll" "system" fn DMOEnum(guidcategory : *const windows_core::GUID, dwflags : super::DWORD, cintypes : super::DWORD, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : super::DWORD, pouttypes : *const DMO_PARTIAL_MEDIATYPE, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DMOEnum(guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes, ppenum as _) }
 }
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DMOGetName(clsiddmo: *const windows_core::GUID, szname: *mut u16) -> windows_core::HRESULT {
-    windows_core::link!("msdmo.dll" "system" fn DMOGetName(clsiddmo : *const windows_core::GUID, szname : *mut u16) -> windows_core::HRESULT);
+pub unsafe fn DMOGetName(clsiddmo: *const super::IID, szname: *mut super::WCHAR) -> windows_core::HRESULT {
+    windows_core::link!("msdmo.dll" "system" fn DMOGetName(clsiddmo : *const super::IID, szname : *mut super::WCHAR) -> windows_core::HRESULT);
     unsafe { DMOGetName(clsiddmo, szname as _) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn DMOGetTypes(clsiddmo: *const windows_core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT {
-    windows_core::link!("msdmo.dll" "system" fn DMOGetTypes(clsiddmo : *const windows_core::GUID, ulinputtypesrequested : u32, pulinputtypessupplied : *mut u32, pinputtypes : *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested : u32, puloutputtypessupplied : *mut u32, poutputtypes : *mut DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT);
+pub unsafe fn DMOGetTypes(clsiddmo: *const super::IID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT {
+    windows_core::link!("msdmo.dll" "system" fn DMOGetTypes(clsiddmo : *const super::IID, ulinputtypesrequested : u32, pulinputtypessupplied : *mut u32, pinputtypes : *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested : u32, puloutputtypessupplied : *mut u32, poutputtypes : *mut DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT);
     unsafe { DMOGetTypes(clsiddmo, ulinputtypesrequested, pulinputtypessupplied as _, pinputtypes as _, uloutputtypesrequested, puloutputtypessupplied as _, poutputtypes as _) }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn DMORegister<P0>(szname: P0, clsiddmo: *const windows_core::GUID, guidcategory: *const windows_core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT
+pub unsafe fn DMORegister<P0>(szname: P0, clsiddmo: *const super::IID, guidcategory: *const windows_core::GUID, dwflags: super::DWORD, cintypes: super::DWORD, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: super::DWORD, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdmo.dll" "system" fn DMORegister(szname : windows_core::PCWSTR, clsiddmo : *const windows_core::GUID, guidcategory : *const windows_core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT);
+    windows_core::link!("msdmo.dll" "system" fn DMORegister(szname : windows_core::PCWSTR, clsiddmo : *const super::IID, guidcategory : *const windows_core::GUID, dwflags : super::DWORD, cintypes : super::DWORD, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : super::DWORD, pouttypes : *const DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT);
     unsafe { DMORegister(szname.param().abi(), clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn DMOUnregister(clsiddmo: *const windows_core::GUID, guidcategory: *const windows_core::GUID) -> windows_core::HRESULT {
-    windows_core::link!("msdmo.dll" "system" fn DMOUnregister(clsiddmo : *const windows_core::GUID, guidcategory : *const windows_core::GUID) -> windows_core::HRESULT);
+pub unsafe fn DMOUnregister(clsiddmo: *const super::IID, guidcategory: *const windows_core::GUID) -> windows_core::HRESULT {
+    windows_core::link!("msdmo.dll" "system" fn DMOUnregister(clsiddmo : *const super::IID, guidcategory : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { DMOUnregister(clsiddmo, guidcategory) }
 }
 pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_core::GUID = windows_core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);

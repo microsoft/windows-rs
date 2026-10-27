@@ -25,48 +25,54 @@ pub const CDROM_CD_TEXT_PACK_TOC_INFO2: i32 = 137;
 pub const CDROM_CD_TEXT_PACK_UPC_EAN: i32 = 142;
 pub const CDROM_DISK_AUDIO_TRACK: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_DISK_DATA {
-    pub DiskData: u32,
+    pub DiskData: super::ULONG,
 }
 pub const CDROM_DISK_DATA_TRACK: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
-    pub Lba: [u8; 4],
-    pub Time: [u8; 2],
+    pub Lba: [super::UCHAR; 4],
+    pub Time: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_ACCESS {
     pub RequestType: EXCLUSIVE_ACCESS_REQUEST_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const CDROM_EXCLUSIVE_CALLER_LENGTH: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK {
     pub Access: CDROM_EXCLUSIVE_ACCESS,
-    pub CallerName: [u8; 64],
+    pub CallerName: [super::UCHAR; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_EXCLUSIVE_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK_STATE {
     pub LockState: super::BOOLEAN,
-    pub CallerName: [u8; 64],
+    pub CallerName: [super::UCHAR; 64],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -75,13 +81,15 @@ impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
 pub const CDROM_IN_EXCLUSIVE_MODE: i32 = 1;
 pub const CDROM_LOCK_IGNORE_VOLUME: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
-    pub StartLba: [u8; 4],
-    pub StartPerformance: [u8; 4],
-    pub EndLba: [u8; 4],
-    pub EndPerformance: [u8; 4],
+    pub StartLba: [super::UCHAR; 4],
+    pub StartPerformance: [super::UCHAR; 4],
+    pub EndLba: [super::UCHAR; 4],
+    pub EndPerformance: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -92,86 +100,93 @@ pub const CDROM_NO_MEDIA_NOTIFICATIONS: i32 = 2;
 pub type CDROM_OPC_INFO_TYPE = i32;
 pub type CDROM_PERFORMANCE_EXCEPTION_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_HEADER {
-    pub DataLength: [u8; 4],
+    pub DataLength: [super::UCHAR; 4],
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
-    pub Data: [u8; 0],
+    pub Reserved2: [super::UCHAR; 3],
+    pub Data: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl CDROM_PERFORMANCE_HEADER {
-    pub fn Except(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Except(&self) -> super::UCHAR {
+        (self._bitfield) & 1
     }
-    pub fn set_Except(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_Except(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Write(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Write(&self) -> super::UCHAR {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Write(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_Write(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved1(&self) -> u8 {
+    pub fn Reserved1(&self) -> super::UCHAR {
         self._bitfield >> 2
     }
-    pub fn set_Reserved1(&mut self, value: u8) {
+    pub fn set_Reserved1(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_PERFORMANCE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_REQUEST {
     pub RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
     pub PerformanceType: CDROM_PERFORMANCE_TYPE,
     pub Exceptions: CDROM_PERFORMANCE_EXCEPTION_TYPE,
     pub Tolerance: CDROM_PERFORMANCE_TOLERANCE_TYPE,
-    pub StaringLba: u32,
+    pub StaringLba: super::ULONG,
 }
 pub type CDROM_PERFORMANCE_REQUEST_TYPE = i32;
 pub type CDROM_PERFORMANCE_TOLERANCE_TYPE = i32;
 pub type CDROM_PERFORMANCE_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PLAY_AUDIO_MSF {
-    pub StartingM: u8,
-    pub StartingS: u8,
-    pub StartingF: u8,
-    pub EndingM: u8,
-    pub EndingS: u8,
-    pub EndingF: u8,
+    pub StartingM: super::UCHAR,
+    pub StartingS: super::UCHAR,
+    pub StartingF: super::UCHAR,
+    pub EndingM: super::UCHAR,
+    pub EndingS: super::UCHAR,
+    pub EndingF: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_READ_TOC_EX {
     pub _bitfield: u8,
-    pub SessionTrack: u8,
-    pub Reserved2: u8,
-    pub Reserved3: u8,
+    pub SessionTrack: super::UCHAR,
+    pub Reserved2: super::UCHAR,
+    pub Reserved3: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl CDROM_READ_TOC_EX {
-    pub fn Format(&self) -> u8 {
-        (self._bitfield << 4) >> 4
+    pub fn Format(&self) -> super::UCHAR {
+        (self._bitfield) & 15
     }
-    pub fn set_Format(&mut self, value: u8) {
+    pub fn set_Format(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn Reserved1(&self) -> u8 {
-        (self._bitfield << 1) >> 5
+    pub fn Reserved1(&self) -> super::UCHAR {
+        (self._bitfield >> 4) & 7
     }
-    pub fn set_Reserved1(&mut self, value: u8) {
+    pub fn set_Reserved1(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(7 << 4)) | ((value & 7) << 4);
     }
-    pub fn Msf(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Msf(&self) -> super::UCHAR {
+        self._bitfield >> 7
     }
-    pub fn set_Msf(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_Msf(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
 }
 pub const CDROM_READ_TOC_EX_FORMAT_ATIP: i32 = 4;
@@ -181,31 +196,33 @@ pub const CDROM_READ_TOC_EX_FORMAT_PMA: i32 = 3;
 pub const CDROM_READ_TOC_EX_FORMAT_SESSION: i32 = 1;
 pub const CDROM_READ_TOC_EX_FORMAT_TOC: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SEEK_AUDIO_MSF {
-    pub M: u8,
-    pub S: u8,
-    pub F: u8,
+    pub M: super::UCHAR,
+    pub S: super::UCHAR,
+    pub F: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SET_SPEED {
     pub RequestType: CDROM_SPEED_REQUEST,
-    pub ReadSpeed: u16,
-    pub WriteSpeed: u16,
+    pub ReadSpeed: super::USHORT,
+    pub WriteSpeed: super::USHORT,
     pub RotationControl: WRITE_ROTATION,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SET_STREAMING {
     pub RequestType: CDROM_SPEED_REQUEST,
-    pub ReadSize: u32,
-    pub ReadTime: u32,
-    pub WriteSize: u32,
-    pub WriteTime: u32,
-    pub StartLba: u32,
-    pub EndLba: u32,
+    pub ReadSize: super::ULONG,
+    pub ReadTime: super::ULONG,
+    pub WriteSize: super::ULONG,
+    pub WriteTime: super::ULONG,
+    pub StartLba: super::ULONG,
+    pub EndLba: super::ULONG,
     pub RotationControl: WRITE_ROTATION,
     pub RestoreDefaults: super::BOOLEAN,
     pub SetExact: super::BOOLEAN,
@@ -213,7 +230,7 @@ pub struct CDROM_SET_STREAMING {
     pub Persistent: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SIMPLE_OPC_INFO {
     pub RequestType: CDROM_OPC_INFO_TYPE,
@@ -227,275 +244,299 @@ pub struct CDROM_STREAMING_CONTROL {
     pub RequestType: STREAMING_CONTROL_REQUEST_TYPE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SUB_Q_DATA_FORMAT {
-    pub Format: u8,
-    pub Track: u8,
+    pub Format: super::UCHAR,
+    pub Track: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC {
-    pub Length: [u8; 2],
-    pub FirstTrack: u8,
-    pub LastTrack: u8,
+    pub Length: [super::UCHAR; 2],
+    pub FirstTrack: super::UCHAR,
+    pub LastTrack: super::UCHAR,
     pub TrackData: [TRACK_DATA; 100],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_TOC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_ATIP_DATA {
-    pub Length: [u8; 2],
-    pub Reserved1: u8,
-    pub Reserved2: u8,
+    pub Length: [super::UCHAR; 2],
+    pub Reserved1: super::UCHAR,
+    pub Reserved2: super::UCHAR,
     pub Descriptors: [CDROM_TOC_ATIP_DATA_BLOCK; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_TOC_ATIP_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_ATIP_DATA_BLOCK {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub _bitfield3: u8,
-    pub Reserved7: u8,
-    pub LeadInMsf: [u8; 3],
-    pub Reserved8: u8,
-    pub LeadOutMsf: [u8; 3],
-    pub Reserved9: u8,
-    pub A1Values: [u8; 3],
-    pub Reserved10: u8,
-    pub A2Values: [u8; 3],
-    pub Reserved11: u8,
-    pub A3Values: [u8; 3],
-    pub Reserved12: u8,
+    pub Reserved7: super::UCHAR,
+    pub LeadInMsf: [super::UCHAR; 3],
+    pub Reserved8: super::UCHAR,
+    pub LeadOutMsf: [super::UCHAR; 3],
+    pub Reserved9: super::UCHAR,
+    pub A1Values: [super::UCHAR; 3],
+    pub Reserved10: super::UCHAR,
+    pub A2Values: [super::UCHAR; 3],
+    pub Reserved11: super::UCHAR,
+    pub A3Values: [super::UCHAR; 3],
+    pub Reserved12: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl CDROM_TOC_ATIP_DATA_BLOCK {
-    pub fn CdrwReferenceSpeed(&self) -> u8 {
-        (self._bitfield1 << 5) >> 5
+    pub fn CdrwReferenceSpeed(&self) -> super::UCHAR {
+        (self._bitfield1) & 7
     }
-    pub fn set_CdrwReferenceSpeed(&mut self, value: u8) {
+    pub fn set_CdrwReferenceSpeed(&mut self, value: super::UCHAR) {
         self._bitfield1 = (self._bitfield1 & !7) | (value & 7);
     }
-    pub fn Reserved3(&self) -> bool {
-        (self._bitfield1 >> 3) & 1 != 0
+    pub fn Reserved3(&self) -> super::UCHAR {
+        (self._bitfield1 >> 3) & 1
     }
-    pub fn set_Reserved3(&mut self, value: bool) {
-        self._bitfield1 = (self._bitfield1 & !(1 << 3)) | ((value as u8) << 3);
+    pub fn set_Reserved3(&mut self, value: super::UCHAR) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn WritePower(&self) -> u8 {
-        (self._bitfield1 << 1) >> 5
+    pub fn WritePower(&self) -> super::UCHAR {
+        (self._bitfield1 >> 4) & 7
     }
-    pub fn set_WritePower(&mut self, value: u8) {
+    pub fn set_WritePower(&mut self, value: super::UCHAR) {
         self._bitfield1 = (self._bitfield1 & !(7 << 4)) | ((value & 7) << 4);
     }
-    pub fn True1(&self) -> bool {
-        (self._bitfield1 >> 7) & 1 != 0
+    pub fn True1(&self) -> super::UCHAR {
+        self._bitfield1 >> 7
     }
-    pub fn set_True1(&mut self, value: bool) {
-        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_True1(&mut self, value: super::UCHAR) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn Reserved4(&self) -> u8 {
-        (self._bitfield2 << 2) >> 2
+    pub fn Reserved4(&self) -> super::UCHAR {
+        (self._bitfield2) & 63
     }
-    pub fn set_Reserved4(&mut self, value: u8) {
+    pub fn set_Reserved4(&mut self, value: super::UCHAR) {
         self._bitfield2 = (self._bitfield2 & !63) | (value & 63);
     }
-    pub fn UnrestrictedUse(&self) -> bool {
-        (self._bitfield2 >> 6) & 1 != 0
+    pub fn UnrestrictedUse(&self) -> super::UCHAR {
+        (self._bitfield2 >> 6) & 1
     }
-    pub fn set_UnrestrictedUse(&mut self, value: bool) {
-        self._bitfield2 = (self._bitfield2 & !(1 << 6)) | ((value as u8) << 6);
+    pub fn set_UnrestrictedUse(&mut self, value: super::UCHAR) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Reserved5(&self) -> bool {
-        (self._bitfield2 >> 7) & 1 != 0
+    pub fn Reserved5(&self) -> super::UCHAR {
+        self._bitfield2 >> 7
     }
-    pub fn set_Reserved5(&mut self, value: bool) {
-        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_Reserved5(&mut self, value: super::UCHAR) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn A3Valid(&self) -> bool {
-        self._bitfield3 & 1 != 0
+    pub fn A3Valid(&self) -> super::UCHAR {
+        (self._bitfield3) & 1
     }
-    pub fn set_A3Valid(&mut self, value: bool) {
-        self._bitfield3 = (self._bitfield3 & !1) | (value as u8);
+    pub fn set_A3Valid(&mut self, value: super::UCHAR) {
+        self._bitfield3 = (self._bitfield3 & !1) | (value & 1);
     }
-    pub fn A2Valid(&self) -> bool {
-        (self._bitfield3 >> 1) & 1 != 0
+    pub fn A2Valid(&self) -> super::UCHAR {
+        (self._bitfield3 >> 1) & 1
     }
-    pub fn set_A2Valid(&mut self, value: bool) {
-        self._bitfield3 = (self._bitfield3 & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_A2Valid(&mut self, value: super::UCHAR) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn A1Valid(&self) -> bool {
-        (self._bitfield3 >> 2) & 1 != 0
+    pub fn A1Valid(&self) -> super::UCHAR {
+        (self._bitfield3 >> 2) & 1
     }
-    pub fn set_A1Valid(&mut self, value: bool) {
-        self._bitfield3 = (self._bitfield3 & !(1 << 2)) | ((value as u8) << 2);
+    pub fn set_A1Valid(&mut self, value: super::UCHAR) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn DiscSubType(&self) -> u8 {
-        (self._bitfield3 << 2) >> 5
+    pub fn DiscSubType(&self) -> super::UCHAR {
+        (self._bitfield3 >> 3) & 7
     }
-    pub fn set_DiscSubType(&mut self, value: u8) {
+    pub fn set_DiscSubType(&mut self, value: super::UCHAR) {
         self._bitfield3 = (self._bitfield3 & !(7 << 3)) | ((value & 7) << 3);
     }
-    pub fn IsCdrw(&self) -> bool {
-        (self._bitfield3 >> 6) & 1 != 0
+    pub fn IsCdrw(&self) -> super::UCHAR {
+        (self._bitfield3 >> 6) & 1
     }
-    pub fn set_IsCdrw(&mut self, value: bool) {
-        self._bitfield3 = (self._bitfield3 & !(1 << 6)) | ((value as u8) << 6);
+    pub fn set_IsCdrw(&mut self, value: super::UCHAR) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn True2(&self) -> bool {
-        (self._bitfield3 >> 7) & 1 != 0
+    pub fn True2(&self) -> super::UCHAR {
+        self._bitfield3 >> 7
     }
-    pub fn set_True2(&mut self, value: bool) {
-        self._bitfield3 = (self._bitfield3 & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_True2(&mut self, value: super::UCHAR) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 7)) | ((value & 1) << 7);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_TOC_ATIP_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CDROM_TOC_CD_TEXT_DATA {
-    pub Length: [u8; 2],
-    pub Reserved1: u8,
-    pub Reserved2: u8,
+    pub Length: [super::UCHAR; 2],
+    pub Reserved1: super::UCHAR,
+    pub Reserved2: super::UCHAR,
     pub Descriptors: [CDROM_TOC_CD_TEXT_DATA_BLOCK; 0],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CDROM_TOC_CD_TEXT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CDROM_TOC_CD_TEXT_DATA_BLOCK {
-    pub PackType: u8,
+    pub PackType: super::UCHAR,
     pub _bitfield1: u8,
-    pub SequenceNumber: u8,
+    pub SequenceNumber: super::UCHAR,
     pub _bitfield2: u8,
     pub Anonymous: CDROM_TOC_CD_TEXT_DATA_BLOCK_0,
-    pub CRC: [u8; 2],
+    pub CRC: [super::UCHAR; 2],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl CDROM_TOC_CD_TEXT_DATA_BLOCK {
-    pub fn TrackNumber(&self) -> u8 {
-        (self._bitfield1 << 1) >> 1
+    pub fn TrackNumber(&self) -> super::UCHAR {
+        (self._bitfield1) & 127
     }
-    pub fn set_TrackNumber(&mut self, value: u8) {
+    pub fn set_TrackNumber(&mut self, value: super::UCHAR) {
         self._bitfield1 = (self._bitfield1 & !127) | (value & 127);
     }
-    pub fn ExtensionFlag(&self) -> bool {
-        (self._bitfield1 >> 7) & 1 != 0
+    pub fn ExtensionFlag(&self) -> super::UCHAR {
+        self._bitfield1 >> 7
     }
-    pub fn set_ExtensionFlag(&mut self, value: bool) {
-        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_ExtensionFlag(&mut self, value: super::UCHAR) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn CharacterPosition(&self) -> u8 {
-        (self._bitfield2 << 4) >> 4
+    pub fn CharacterPosition(&self) -> super::UCHAR {
+        (self._bitfield2) & 15
     }
-    pub fn set_CharacterPosition(&mut self, value: u8) {
+    pub fn set_CharacterPosition(&mut self, value: super::UCHAR) {
         self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
     }
-    pub fn BlockNumber(&self) -> u8 {
-        (self._bitfield2 << 1) >> 5
+    pub fn BlockNumber(&self) -> super::UCHAR {
+        (self._bitfield2 >> 4) & 7
     }
-    pub fn set_BlockNumber(&mut self, value: u8) {
+    pub fn set_BlockNumber(&mut self, value: super::UCHAR) {
         self._bitfield2 = (self._bitfield2 & !(7 << 4)) | ((value & 7) << 4);
     }
-    pub fn Unicode(&self) -> bool {
-        (self._bitfield2 >> 7) & 1 != 0
+    pub fn Unicode(&self) -> super::UCHAR {
+        self._bitfield2 >> 7
     }
-    pub fn set_Unicode(&mut self, value: bool) {
-        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_Unicode(&mut self, value: super::UCHAR) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value & 1) << 7);
     }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
-    pub Text: [u8; 12],
-    pub WText: [u16; 6],
+    pub Text: [super::UCHAR; 12],
+    pub WText: [super::WCHAR; 6],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_FULL_TOC_DATA {
-    pub Length: [u8; 2],
-    pub FirstCompleteSession: u8,
-    pub LastCompleteSession: u8,
+    pub Length: [super::UCHAR; 2],
+    pub FirstCompleteSession: super::UCHAR,
+    pub LastCompleteSession: super::UCHAR,
     pub Descriptors: [CDROM_TOC_FULL_TOC_DATA_BLOCK; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_TOC_FULL_TOC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_FULL_TOC_DATA_BLOCK {
-    pub SessionNumber: u8,
+    pub SessionNumber: super::UCHAR,
     pub _bitfield: u8,
-    pub Reserved1: u8,
-    pub Point: u8,
-    pub MsfExtra: [u8; 3],
-    pub Zero: u8,
-    pub Msf: [u8; 3],
+    pub Reserved1: super::UCHAR,
+    pub Point: super::UCHAR,
+    pub MsfExtra: [super::UCHAR; 3],
+    pub Zero: super::UCHAR,
+    pub Msf: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl CDROM_TOC_FULL_TOC_DATA_BLOCK {
-    pub fn Control(&self) -> u8 {
-        (self._bitfield << 4) >> 4
+    pub fn Control(&self) -> super::UCHAR {
+        (self._bitfield) & 15
     }
-    pub fn set_Control(&mut self, value: u8) {
+    pub fn set_Control(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn Adr(&self) -> u8 {
+    pub fn Adr(&self) -> super::UCHAR {
         self._bitfield >> 4
     }
-    pub fn set_Adr(&mut self, value: u8) {
+    pub fn set_Adr(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_TOC_FULL_TOC_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_PMA_DATA {
-    pub Length: [u8; 2],
-    pub Reserved1: u8,
-    pub Reserved2: u8,
+    pub Length: [super::UCHAR; 2],
+    pub Reserved1: super::UCHAR,
+    pub Reserved2: super::UCHAR,
     pub Descriptors: [CDROM_TOC_FULL_TOC_DATA_BLOCK; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_TOC_PMA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_SESSION_DATA {
-    pub Length: [u8; 2],
-    pub FirstCompleteSession: u8,
-    pub LastCompleteSession: u8,
+    pub Length: [super::UCHAR; 2],
+    pub FirstCompleteSession: super::UCHAR,
+    pub LastCompleteSession: super::UCHAR,
     pub TrackData: [TRACK_DATA; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_TOC_SESSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -506,46 +547,49 @@ pub const CDROM_TOC_SIZE: u32 = 804;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const CDROM_TOC_SIZE: u64 = 804;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_WRITE_SPEED_DESCRIPTOR {
     pub _bitfield: u8,
-    pub Reserved3: [u8; 3],
-    pub EndLba: [u8; 4],
-    pub ReadSpeed: [u8; 4],
-    pub WriteSpeed: [u8; 4],
+    pub Reserved3: [super::UCHAR; 3],
+    pub EndLba: [super::UCHAR; 4],
+    pub ReadSpeed: [super::UCHAR; 4],
+    pub WriteSpeed: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl CDROM_WRITE_SPEED_DESCRIPTOR {
-    pub fn MixedReadWrite(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn MixedReadWrite(&self) -> super::UCHAR {
+        (self._bitfield) & 1
     }
-    pub fn set_MixedReadWrite(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_MixedReadWrite(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Exact(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Exact(&self) -> super::UCHAR {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Exact(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_Exact(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved1(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Reserved1(&self) -> super::UCHAR {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Reserved1(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    pub fn set_Reserved1(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn WriteRotationControl(&self) -> u8 {
-        (self._bitfield << 3) >> 6
+    pub fn WriteRotationControl(&self) -> super::UCHAR {
+        (self._bitfield >> 3) & 3
     }
-    pub fn set_WriteRotationControl(&mut self, value: u8) {
+    pub fn set_WriteRotationControl(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(3 << 3)) | ((value & 3) << 3);
     }
-    pub fn Reserved2(&self) -> u8 {
+    pub fn Reserved2(&self) -> super::UCHAR {
         self._bitfield >> 5
     }
-    pub fn set_Reserved2(&mut self, value: u8) {
+    pub fn set_Reserved2(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for CDROM_WRITE_SPEED_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -632,65 +676,94 @@ pub const MediaBlankTypeTrackTail: MEDIA_BLANK_TYPE = 4;
 pub const MediaBlankTypeUncloseLastSession: MEDIA_BLANK_TYPE = 5;
 pub const MediaBlankTypeUnreserveLastTrack: MEDIA_BLANK_TYPE = 3;
 pub const OBSOLETE_IOCTL_CDROM_GET_CONTROL: i32 = 147508;
+#[cfg(feature = "shared")]
 pub type PCDROM_DISK_DATA = *mut CDROM_DISK_DATA;
+#[cfg(feature = "shared")]
 pub type PCDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR = *mut CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PCDROM_EXCLUSIVE_ACCESS = *mut CDROM_EXCLUSIVE_ACCESS;
+#[cfg(feature = "shared")]
 pub type PCDROM_EXCLUSIVE_LOCK = *mut CDROM_EXCLUSIVE_LOCK;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCDROM_EXCLUSIVE_LOCK_STATE = *mut CDROM_EXCLUSIVE_LOCK_STATE;
+#[cfg(feature = "shared")]
 pub type PCDROM_NOMINAL_PERFORMANCE_DESCRIPTOR = *mut CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR;
 pub type PCDROM_OPC_INFO_TYPE = *mut CDROM_OPC_INFO_TYPE;
 pub type PCDROM_PERFORMANCE_EXCEPTION_TYPE = *mut CDROM_PERFORMANCE_EXCEPTION_TYPE;
+#[cfg(feature = "shared")]
 pub type PCDROM_PERFORMANCE_HEADER = *mut CDROM_PERFORMANCE_HEADER;
+#[cfg(feature = "shared")]
 pub type PCDROM_PERFORMANCE_REQUEST = *mut CDROM_PERFORMANCE_REQUEST;
 pub type PCDROM_PERFORMANCE_REQUEST_TYPE = *mut CDROM_PERFORMANCE_REQUEST_TYPE;
 pub type PCDROM_PERFORMANCE_TOLERANCE_TYPE = *mut CDROM_PERFORMANCE_TOLERANCE_TYPE;
 pub type PCDROM_PERFORMANCE_TYPE = *mut CDROM_PERFORMANCE_TYPE;
+#[cfg(feature = "shared")]
 pub type PCDROM_PLAY_AUDIO_MSF = *mut CDROM_PLAY_AUDIO_MSF;
+#[cfg(feature = "shared")]
 pub type PCDROM_READ_TOC_EX = *mut CDROM_READ_TOC_EX;
+#[cfg(feature = "shared")]
 pub type PCDROM_SEEK_AUDIO_MSF = *mut CDROM_SEEK_AUDIO_MSF;
+#[cfg(feature = "shared")]
 pub type PCDROM_SET_SPEED = *mut CDROM_SET_SPEED;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCDROM_SET_STREAMING = *mut CDROM_SET_STREAMING;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCDROM_SIMPLE_OPC_INFO = *mut CDROM_SIMPLE_OPC_INFO;
 pub type PCDROM_SPEED_REQUEST = *mut CDROM_SPEED_REQUEST;
 pub type PCDROM_STREAMING_CONTROL = *mut CDROM_STREAMING_CONTROL;
+#[cfg(feature = "shared")]
 pub type PCDROM_SUB_Q_DATA_FORMAT = *mut CDROM_SUB_Q_DATA_FORMAT;
+#[cfg(feature = "shared")]
 pub type PCDROM_TOC = *mut CDROM_TOC;
+#[cfg(feature = "shared")]
 pub type PCDROM_TOC_ATIP_DATA = *mut CDROM_TOC_ATIP_DATA;
+#[cfg(feature = "shared")]
 pub type PCDROM_TOC_ATIP_DATA_BLOCK = *mut CDROM_TOC_ATIP_DATA_BLOCK;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCDROM_TOC_CD_TEXT_DATA = *mut CDROM_TOC_CD_TEXT_DATA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCDROM_TOC_CD_TEXT_DATA_BLOCK = *mut CDROM_TOC_CD_TEXT_DATA_BLOCK;
+#[cfg(feature = "shared")]
 pub type PCDROM_TOC_FULL_TOC_DATA = *mut CDROM_TOC_FULL_TOC_DATA;
+#[cfg(feature = "shared")]
 pub type PCDROM_TOC_FULL_TOC_DATA_BLOCK = *mut CDROM_TOC_FULL_TOC_DATA_BLOCK;
+#[cfg(feature = "shared")]
 pub type PCDROM_TOC_PMA_DATA = *mut CDROM_TOC_PMA_DATA;
+#[cfg(feature = "shared")]
 pub type PCDROM_TOC_SESSION_DATA = *mut CDROM_TOC_SESSION_DATA;
+#[cfg(feature = "shared")]
 pub type PCDROM_WRITE_SPEED_DESCRIPTOR = *mut CDROM_WRITE_SPEED_DESCRIPTOR;
 pub type PCDROM_WRITE_SPEED_REQUEST = *mut CDROM_WRITE_SPEED_REQUEST;
 pub type PEXCLUSIVE_ACCESS_REQUEST_TYPE = *mut EXCLUSIVE_ACCESS_REQUEST_TYPE;
 pub type PMEDIA_BLANK_TYPE = *mut MEDIA_BLANK_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRAW_READ_INFO = *mut RAW_READ_INFO;
 pub type PSTREAMING_CONTROL_REQUEST_TYPE = *mut STREAMING_CONTROL_REQUEST_TYPE;
+#[cfg(feature = "shared")]
 pub type PSUB_Q_CHANNEL_DATA = *mut SUB_Q_CHANNEL_DATA;
+#[cfg(feature = "shared")]
 pub type PSUB_Q_CURRENT_POSITION = *mut SUB_Q_CURRENT_POSITION;
+#[cfg(feature = "shared")]
 pub type PSUB_Q_HEADER = *mut SUB_Q_HEADER;
+#[cfg(feature = "shared")]
 pub type PSUB_Q_MEDIA_CATALOG_NUMBER = *mut SUB_Q_MEDIA_CATALOG_NUMBER;
+#[cfg(feature = "shared")]
 pub type PSUB_Q_TRACK_ISRC = *mut SUB_Q_TRACK_ISRC;
+#[cfg(feature = "shared")]
 pub type PTRACK_DATA = *mut TRACK_DATA;
 pub type PTRACK_MODE_TYPE = *mut TRACK_MODE_TYPE;
+#[cfg(feature = "shared")]
 pub type PVOLUME_CONTROL = *mut VOLUME_CONTROL;
 pub type PWRITE_ROTATION = *mut WRITE_ROTATION;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RAW_READ_INFO {
     pub DiskOffset: super::LARGE_INTEGER,
-    pub SectorCount: u32,
+    pub SectorCount: super::ULONG,
     pub TrackMode: TRACK_MODE_TYPE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for RAW_READ_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -701,112 +774,125 @@ pub const RawWithC2AndSubCode: TRACK_MODE_TYPE = 3;
 pub const RawWithSubCode: TRACK_MODE_TYPE = 5;
 pub type STREAMING_CONTROL_REQUEST_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SUB_Q_CHANNEL_DATA {
     pub CurrentPosition: SUB_Q_CURRENT_POSITION,
     pub MediaCatalog: SUB_Q_MEDIA_CATALOG_NUMBER,
     pub TrackIsrc: SUB_Q_TRACK_ISRC,
 }
+#[cfg(feature = "shared")]
 impl Default for SUB_Q_CHANNEL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_CURRENT_POSITION {
     pub Header: SUB_Q_HEADER,
-    pub FormatCode: u8,
+    pub FormatCode: super::UCHAR,
     pub _bitfield: u8,
-    pub TrackNumber: u8,
-    pub IndexNumber: u8,
-    pub AbsoluteAddress: [u8; 4],
-    pub TrackRelativeAddress: [u8; 4],
+    pub TrackNumber: super::UCHAR,
+    pub IndexNumber: super::UCHAR,
+    pub AbsoluteAddress: [super::UCHAR; 4],
+    pub TrackRelativeAddress: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl SUB_Q_CURRENT_POSITION {
-    pub fn Control(&self) -> u8 {
-        (self._bitfield << 4) >> 4
+    pub fn Control(&self) -> super::UCHAR {
+        (self._bitfield) & 15
     }
-    pub fn set_Control(&mut self, value: u8) {
+    pub fn set_Control(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn ADR(&self) -> u8 {
+    pub fn ADR(&self) -> super::UCHAR {
         self._bitfield >> 4
     }
-    pub fn set_ADR(&mut self, value: u8) {
+    pub fn set_ADR(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for SUB_Q_CURRENT_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_HEADER {
-    pub Reserved: u8,
-    pub AudioStatus: u8,
-    pub DataLength: [u8; 2],
+    pub Reserved: super::UCHAR,
+    pub AudioStatus: super::UCHAR,
+    pub DataLength: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for SUB_Q_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_MEDIA_CATALOG_NUMBER {
     pub Header: SUB_Q_HEADER,
-    pub FormatCode: u8,
-    pub Reserved: [u8; 3],
+    pub FormatCode: super::UCHAR,
+    pub Reserved: [super::UCHAR; 3],
     pub _bitfield: u8,
-    pub MediaCatalog: [u8; 15],
+    pub MediaCatalog: [super::UCHAR; 15],
 }
+#[cfg(feature = "shared")]
 impl SUB_Q_MEDIA_CATALOG_NUMBER {
-    pub fn Reserved1(&self) -> u8 {
-        (self._bitfield << 1) >> 1
+    pub fn Reserved1(&self) -> super::UCHAR {
+        (self._bitfield) & 127
     }
-    pub fn set_Reserved1(&mut self, value: u8) {
+    pub fn set_Reserved1(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !127) | (value & 127);
     }
-    pub fn Mcval(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Mcval(&self) -> super::UCHAR {
+        self._bitfield >> 7
     }
-    pub fn set_Mcval(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_Mcval(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for SUB_Q_MEDIA_CATALOG_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_TRACK_ISRC {
     pub Header: SUB_Q_HEADER,
-    pub FormatCode: u8,
-    pub Reserved0: u8,
-    pub Track: u8,
-    pub Reserved1: u8,
+    pub FormatCode: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub Track: super::UCHAR,
+    pub Reserved1: super::UCHAR,
     pub _bitfield: u8,
-    pub TrackIsrc: [u8; 15],
+    pub TrackIsrc: [super::UCHAR; 15],
 }
+#[cfg(feature = "shared")]
 impl SUB_Q_TRACK_ISRC {
-    pub fn Reserved2(&self) -> u8 {
-        (self._bitfield << 1) >> 1
+    pub fn Reserved2(&self) -> super::UCHAR {
+        (self._bitfield) & 127
     }
-    pub fn set_Reserved2(&mut self, value: u8) {
+    pub fn set_Reserved2(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !127) | (value & 127);
     }
-    pub fn Tcval(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Tcval(&self) -> super::UCHAR {
+        self._bitfield >> 7
     }
-    pub fn set_Tcval(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_Tcval(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for SUB_Q_TRACK_ISRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -814,28 +900,31 @@ impl Default for SUB_Q_TRACK_ISRC {
 }
 pub const SimpleOpcInfo: CDROM_OPC_INFO_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRACK_DATA {
-    pub Reserved: u8,
+    pub Reserved: super::UCHAR,
     pub _bitfield: u8,
-    pub TrackNumber: u8,
-    pub Reserved1: u8,
-    pub Address: [u8; 4],
+    pub TrackNumber: super::UCHAR,
+    pub Reserved1: super::UCHAR,
+    pub Address: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl TRACK_DATA {
-    pub fn Control(&self) -> u8 {
-        (self._bitfield << 4) >> 4
+    pub fn Control(&self) -> super::UCHAR {
+        (self._bitfield) & 15
     }
-    pub fn set_Control(&mut self, value: u8) {
+    pub fn set_Control(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn Adr(&self) -> u8 {
+    pub fn Adr(&self) -> super::UCHAR {
         self._bitfield >> 4
     }
-    pub fn set_Adr(&mut self, value: u8) {
+    pub fn set_Adr(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for TRACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -844,10 +933,12 @@ impl Default for TRACK_DATA {
 pub type TRACK_MODE_TYPE = i32;
 pub const TWO_FOUR_CHANNEL_AUDIO: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_CONTROL {
-    pub PortVolume: [u8; 4],
+    pub PortVolume: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for VOLUME_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

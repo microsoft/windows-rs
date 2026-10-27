@@ -12,11 +12,12 @@ impl core::ops::Deref for ICertServerExit {
 windows_core::imp::interface_hierarchy!(ICertServerExit, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ICertServerExit {
-    pub unsafe fn SetContext(&self, context: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetContext(&self, context: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), context) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRequestProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), propertytype, &mut result__).map(|| core::mem::transmute(result__))
@@ -28,27 +29,29 @@ impl ICertServerExit {
             (windows_core::Interface::vtable(self).GetRequestAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strattributename), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCertificateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), propertytype, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strextensionname), r#type, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCertificateExtensionFlags(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCertificateExtensionFlags(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCertificateExtensionFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerateExtensionsSetup(&self, flags: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumerateExtensionsSetup(&self, flags: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumerateExtensionsSetup)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn EnumerateExtensions(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -60,7 +63,8 @@ impl ICertServerExit {
     pub unsafe fn EnumerateExtensionsClose(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumerateExtensionsClose)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn EnumerateAttributesSetup(&self, flags: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumerateAttributesSetup(&self, flags: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumerateAttributesSetup)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn EnumerateAttributes(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -78,53 +82,65 @@ impl ICertServerExit {
 #[doc(hidden)]
 pub struct ICertServerExit_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetRequestProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetContext: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetRequestProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRequestProperty: usize,
     pub GetRequestAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetCertificateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetCertificateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCertificateProperty: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCertificateExtension: usize,
-    pub GetCertificateExtensionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub EnumerateExtensionsSetup: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCertificateExtensionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCertificateExtensionFlags: usize,
+    #[cfg(feature = "shared")]
+    pub EnumerateExtensionsSetup: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumerateExtensionsSetup: usize,
     pub EnumerateExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateExtensionsClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnumerateAttributesSetup: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub EnumerateAttributesSetup: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumerateAttributesSetup: usize,
     pub EnumerateAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateAttributesClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertServerExit_Impl: super::IDispatch_Impl {
-    fn SetContext(&self, context: i32) -> windows_core::Result<()>;
-    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT>;
+    fn SetContext(&self, context: super::LONG) -> windows_core::Result<()>;
+    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT>;
     fn GetRequestAttribute(&self, strattributename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT>;
-    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32) -> windows_core::Result<super::VARIANT>;
-    fn GetCertificateExtensionFlags(&self) -> windows_core::Result<i32>;
-    fn EnumerateExtensionsSetup(&self, flags: i32) -> windows_core::Result<()>;
+    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT>;
+    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: super::LONG) -> windows_core::Result<super::VARIANT>;
+    fn GetCertificateExtensionFlags(&self) -> windows_core::Result<super::LONG>;
+    fn EnumerateExtensionsSetup(&self, flags: super::LONG) -> windows_core::Result<()>;
     fn EnumerateExtensions(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateExtensionsClose(&self) -> windows_core::Result<()>;
-    fn EnumerateAttributesSetup(&self, flags: i32) -> windows_core::Result<()>;
+    fn EnumerateAttributesSetup(&self, flags: super::LONG) -> windows_core::Result<()>;
     fn EnumerateAttributes(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateAttributesClose(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertServerExit_Vtbl {
     pub const fn new<Identity: ICertServerExit_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetContext<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetContext<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerExit_Impl::SetContext(this, core::mem::transmute_copy(&context)).into()
             }
         }
-        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerExit_Impl::GetRequestProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
@@ -148,7 +164,7 @@ impl ICertServerExit_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerExit_Impl::GetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
@@ -160,7 +176,7 @@ impl ICertServerExit_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: i32, pvarvalue: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, pvarvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerExit_Impl::GetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type)) {
@@ -172,7 +188,7 @@ impl ICertServerExit_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCertificateExtensionFlags<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextflags: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateExtensionFlags<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextflags: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerExit_Impl::GetCertificateExtensionFlags(this) {
@@ -184,7 +200,7 @@ impl ICertServerExit_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnumerateExtensionsSetup<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateExtensionsSetup<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerExit_Impl::EnumerateExtensionsSetup(this, core::mem::transmute_copy(&flags)).into()
@@ -208,7 +224,7 @@ impl ICertServerExit_Vtbl {
                 ICertServerExit_Impl::EnumerateExtensionsClose(this).into()
             }
         }
-        unsafe extern "system" fn EnumerateAttributesSetup<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateAttributesSetup<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerExit_Impl::EnumerateAttributesSetup(this, core::mem::transmute_copy(&flags)).into()
@@ -252,7 +268,7 @@ impl ICertServerExit_Vtbl {
         iid == &<ICertServerExit as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertServerExit {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertServerPolicy, ICertServerPolicy_Vtbl, 0xaa000922_ffbe_11cf_8800_00a0c903b83c);
@@ -267,11 +283,12 @@ impl core::ops::Deref for ICertServerPolicy {
 windows_core::imp::interface_hierarchy!(ICertServerPolicy, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ICertServerPolicy {
-    pub unsafe fn SetContext(&self, context: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetContext(&self, context: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), context) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRequestProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), propertytype, &mut result__).map(|| core::mem::transmute(result__))
@@ -283,35 +300,37 @@ impl ICertServerPolicy {
             (windows_core::Interface::vtable(self).GetRequestAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strattributename), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCertificateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), propertytype, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn SetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCertificateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), propertytype, pvarpropertyvalue) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strextensionname), r#type, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCertificateExtensionFlags(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCertificateExtensionFlags(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCertificateExtensionFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32, extflags: i32, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn SetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: super::LONG, extflags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strextensionname), r#type, extflags, pvarvalue) }
     }
-    pub unsafe fn EnumerateExtensionsSetup(&self, flags: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumerateExtensionsSetup(&self, flags: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumerateExtensionsSetup)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn EnumerateExtensions(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -323,7 +342,8 @@ impl ICertServerPolicy {
     pub unsafe fn EnumerateExtensionsClose(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumerateExtensionsClose)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn EnumerateAttributesSetup(&self, flags: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumerateAttributesSetup(&self, flags: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumerateAttributesSetup)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn EnumerateAttributes(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -341,63 +361,75 @@ impl ICertServerPolicy {
 #[doc(hidden)]
 pub struct ICertServerPolicy_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetRequestProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetContext: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetRequestProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRequestProperty: usize,
     pub GetRequestAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetCertificateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetCertificateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCertificateProperty: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetCertificateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetCertificateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *const super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetCertificateProperty: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCertificateExtension: usize,
-    pub GetCertificateExtensionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub GetCertificateExtensionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCertificateExtensionFlags: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, super::LONG, *const super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetCertificateExtension: usize,
-    pub EnumerateExtensionsSetup: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub EnumerateExtensionsSetup: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumerateExtensionsSetup: usize,
     pub EnumerateExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateExtensionsClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnumerateAttributesSetup: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub EnumerateAttributesSetup: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumerateAttributesSetup: usize,
     pub EnumerateAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateAttributesClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertServerPolicy_Impl: super::IDispatch_Impl {
-    fn SetContext(&self, context: i32) -> windows_core::Result<()>;
-    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT>;
+    fn SetContext(&self, context: super::LONG) -> windows_core::Result<()>;
+    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT>;
     fn GetRequestAttribute(&self, strattributename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::VARIANT>;
-    fn SetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32, pvarpropertyvalue: *const super::VARIANT) -> windows_core::Result<()>;
-    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32) -> windows_core::Result<super::VARIANT>;
-    fn GetCertificateExtensionFlags(&self) -> windows_core::Result<i32>;
-    fn SetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32, extflags: i32, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
-    fn EnumerateExtensionsSetup(&self, flags: i32) -> windows_core::Result<()>;
+    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG) -> windows_core::Result<super::VARIANT>;
+    fn SetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::Result<()>;
+    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: super::LONG) -> windows_core::Result<super::VARIANT>;
+    fn GetCertificateExtensionFlags(&self) -> windows_core::Result<super::LONG>;
+    fn SetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: super::LONG, extflags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
+    fn EnumerateExtensionsSetup(&self, flags: super::LONG) -> windows_core::Result<()>;
     fn EnumerateExtensions(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateExtensionsClose(&self) -> windows_core::Result<()>;
-    fn EnumerateAttributesSetup(&self, flags: i32) -> windows_core::Result<()>;
+    fn EnumerateAttributesSetup(&self, flags: super::LONG) -> windows_core::Result<()>;
     fn EnumerateAttributes(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateAttributesClose(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertServerPolicy_Vtbl {
     pub const fn new<Identity: ICertServerPolicy_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetContext<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetContext<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerPolicy_Impl::SetContext(this, core::mem::transmute_copy(&context)).into()
             }
         }
-        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerPolicy_Impl::GetRequestProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
@@ -421,7 +453,7 @@ impl ICertServerPolicy_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerPolicy_Impl::GetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
@@ -433,13 +465,13 @@ impl ICertServerPolicy_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertytype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerPolicy_Impl::SetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype), core::mem::transmute_copy(&pvarpropertyvalue)).into()
             }
         }
-        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: i32, pvarvalue: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, pvarvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerPolicy_Impl::GetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type)) {
@@ -451,7 +483,7 @@ impl ICertServerPolicy_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCertificateExtensionFlags<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextflags: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateExtensionFlags<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextflags: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerPolicy_Impl::GetCertificateExtensionFlags(this) {
@@ -463,13 +495,13 @@ impl ICertServerPolicy_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: i32, extflags: i32, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, extflags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerPolicy_Impl::SetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&extflags), core::mem::transmute_copy(&pvarvalue)).into()
             }
         }
-        unsafe extern "system" fn EnumerateExtensionsSetup<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateExtensionsSetup<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerPolicy_Impl::EnumerateExtensionsSetup(this, core::mem::transmute_copy(&flags)).into()
@@ -493,7 +525,7 @@ impl ICertServerPolicy_Vtbl {
                 ICertServerPolicy_Impl::EnumerateExtensionsClose(this).into()
             }
         }
-        unsafe extern "system" fn EnumerateAttributesSetup<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateAttributesSetup<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertServerPolicy_Impl::EnumerateAttributesSetup(this, core::mem::transmute_copy(&flags)).into()
@@ -539,5 +571,5 @@ impl ICertServerPolicy_Vtbl {
         iid == &<ICertServerPolicy as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertServerPolicy {}

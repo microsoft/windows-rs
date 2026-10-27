@@ -24,87 +24,89 @@ pub const AP_PrimaryLogonId: i32 = 256;
 pub const AP_SidAsLogonId: i32 = 256;
 pub type AUDIT_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_IP_ADDRESS {
-    pub pIpAddress: [u8; 128],
+    pub pIpAddress: [super::BYTE; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for AUDIT_IP_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPE {
     pub ObjectType: windows_core::GUID,
-    pub Flags: u16,
-    pub Level: u16,
+    pub Flags: super::USHORT,
+    pub Level: super::USHORT,
     pub AccessMask: super::ACCESS_MASK,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPES {
-    pub Count: u16,
-    pub Flags: u16,
+    pub Count: super::USHORT,
+    pub Flags: super::USHORT,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AUDIT_PARAM {
     pub Type: AUDIT_PARAM_TYPE,
-    pub Length: u32,
-    pub Flags: u32,
+    pub Length: super::ULONG,
+    pub Flags: super::DWORD,
     pub Anonymous: AUDIT_PARAM_0,
     pub Anonymous2: AUDIT_PARAM_1,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for AUDIT_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union AUDIT_PARAM_0 {
-    pub Data0: usize,
+    pub Data0: super::ULONG_PTR,
     pub String: windows_core::PWSTR,
-    pub u: usize,
+    pub u: super::ULONG_PTR,
     pub psid: *mut super::SID,
     pub pguid: *mut windows_core::GUID,
-    pub LogonId_LowPart: u32,
+    pub LogonId_LowPart: super::ULONG,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
     pub pIpAddress: *mut AUDIT_IP_ADDRESS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for AUDIT_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union AUDIT_PARAM_1 {
-    pub Data1: usize,
-    pub LogonId_HighPart: i32,
+    pub Data1: super::ULONG_PTR,
+    pub LogonId_HighPart: super::LONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for AUDIT_PARAM_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_PARAMS {
-    pub Length: u32,
-    pub Flags: u32,
-    pub Count: u16,
+    pub Length: super::ULONG,
+    pub Flags: super::DWORD,
+    pub Count: super::USHORT,
     pub Parameters: *mut AUDIT_PARAM,
 }
 pub type AUDIT_PARAM_TYPE = i32;
@@ -113,34 +115,37 @@ pub const AUDIT_TYPE_WMI: i32 = 2;
 pub const AUTHZP_WPD_EVENT: i32 = 16;
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    pub CategoryId: u16,
-    pub AuditId: u16,
-    pub ParameterCount: u16,
+    pub CategoryId: super::USHORT,
+    pub AuditId: super::USHORT,
+    pub ParameterCount: super::USHORT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    pub Version: u32,
-    pub dwFlags: u32,
-    pub RefCount: i32,
-    pub hAudit: usize,
+    pub Version: super::ULONG,
+    pub dwFlags: super::DWORD,
+    pub RefCount: super::LONG,
+    pub hAudit: super::ULONG_PTR,
     pub LinkId: super::LUID,
     pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
     pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
 }
+#[cfg(feature = "shared")]
 impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -149,17 +154,20 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: i32 = 2;
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: i32 = 2;
 pub type PAUDIT_HANDLE = *mut *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PAUDIT_IP_ADDRESS = *mut AUDIT_IP_ADDRESS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PAUDIT_OBJECT_TYPE = *mut AUDIT_OBJECT_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PAUDIT_OBJECT_TYPES = *mut AUDIT_OBJECT_TYPES;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PAUDIT_PARAM = *mut AUDIT_PARAM;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PAUDIT_PARAMS = *mut AUDIT_PARAMS;
+#[cfg(feature = "shared")]
 pub type PAUTHZ_AUDIT_EVENT_TYPE_LEGACY = *mut AUTHZ_AUDIT_EVENT_TYPE_LEGACY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PAUTHZ_AUDIT_EVENT_TYPE_OLD = *mut AUTHZ_AUDIT_EVENT_TYPE_OLD;
+#[cfg(feature = "shared")]
 pub type PAUTHZ_AUDIT_EVENT_TYPE_UNION = *mut AUTHZ_AUDIT_EVENT_TYPE_UNION;
 pub const _AUTHZ_SS_MAXSIZE: i32 = 128;
