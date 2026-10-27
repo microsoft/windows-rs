@@ -260,7 +260,7 @@ impl WindowBuilder {
                 core::ptr::null_mut(),
                 core::ptr::null_mut(),
                 core::ptr::null_mut(),
-                core::ptr::null(),
+                core::ptr::null_mut(),
             );
 
             if hwnd.is_null() {
