@@ -5,7 +5,7 @@
 //! best-effort integration test reads a real `kernel32.lib` when the SDK is
 //! installed.
 
-use windows_rdl::implib::{self, Import};
+use windows_rdl::implib::{self, Import, ImportKind, ImportName};
 
 /// Build a 60-byte archive member header followed by `data` (padded to an even
 /// length, as archives require).
@@ -63,10 +63,34 @@ fn reads_single_import() {
     assert_eq!(
         imports,
         vec![Import {
+            machine: 0x8664,
+            kind: ImportKind::Code,
             symbol: "CreateFileW".to_string(),
             dll: "KERNEL32.dll".to_string(),
+            name: ImportName::Name("CreateFileW".into()),
         }]
     );
+}
+
+#[test]
+fn preserves_machine_and_import_kind() {
+    for machine in [0x14c_u16, 0x8664, 0xaa64] {
+        for (bits, kind) in [
+            (0, ImportKind::Code),
+            (1, ImportKind::Data),
+            (2, ImportKind::Const),
+        ] {
+            let mut data = short_import("Entry", "example.dll");
+            data[6..8].copy_from_slice(&machine.to_le_bytes());
+            data[18..20].copy_from_slice(&(4_u16 | bits).to_le_bytes());
+            let imports = implib::read(&archive(&[member("import/", &data)])).unwrap();
+            assert_eq!(imports[0].machine, machine);
+            assert_eq!(imports[0].kind, kind);
+        }
+    }
+    let mut data = short_import("Entry", "example.dll");
+    data[18..20].copy_from_slice(&7_u16.to_le_bytes());
+    assert!(implib::read(&archive(&[member("import/", &data)])).is_err());
 }
 
 #[test]
@@ -129,6 +153,40 @@ fn long_name_member_is_not_skipped() {
 fn rejects_non_archive() {
     assert!(implib::read(b"not an archive").is_err());
     assert!(implib::read(&[]).is_err());
+}
+
+#[test]
+fn import_names() {
+    for (kind, symbol, expected) in [
+        (0_u16, "Local", ImportName::Ordinal(123)),
+        (1, "_Function@8", ImportName::Name("_Function@8".into())),
+        (2, "_Function@8", ImportName::Name("Function@8".into())),
+        (3, "_Function@8", ImportName::Name("Function".into())),
+        (3, "@Function@8", ImportName::Name("Function".into())),
+        (3, "?Function@@", ImportName::Name("Function".into())),
+        (3, "Function", ImportName::Name("Function".into())),
+        (4, "Local", ImportName::Name("Exported".into())),
+    ] {
+        let mut data = short_import(symbol, "example.dll");
+        data[16..18].copy_from_slice(&123_u16.to_le_bytes());
+        data[18..20].copy_from_slice(&(kind << 2).to_le_bytes());
+        if kind == 4 {
+            data.extend_from_slice(b"Exported\0");
+            let length = (data.len() - 20) as u32;
+            data[12..16].copy_from_slice(&length.to_le_bytes());
+        }
+        let imports = implib::read(&archive(&[member("example.dll/", &data)])).unwrap();
+        assert_eq!(imports[0].symbol, symbol);
+        assert_eq!(imports[0].name, expected);
+    }
+    for kind in [4_u16, 5, 6, 7] {
+        let mut data = short_import("Local", "example.dll");
+        data[18..20].copy_from_slice(&(kind << 2).to_le_bytes());
+        assert!(implib::read(&archive(&[member("example.dll/", &data)])).is_err());
+    }
+    let mut data = short_import("Local", "example.dll");
+    *data.last_mut().unwrap() = b'x';
+    assert!(implib::read(&archive(&[member("example.dll/", &data)])).is_err());
 }
 
 /// Best-effort integration check against a real SDK import library. Skips
