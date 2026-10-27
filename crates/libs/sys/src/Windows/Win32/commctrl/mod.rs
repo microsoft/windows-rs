@@ -1,57 +1,65 @@
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::HINSTANCE, idbitmap : isize, wflags : u32, lpcolormap : LPCOLORMAP, inummaps : i32) -> super::HBITMAP);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : windows_sys::core::PCSTR, hwndparent : super::HWND, wid : u32) -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : windows_sys::core::PCWSTR, hwndparent : super::HWND, wid : u32) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::HINSTANCE, wbmid : usize, lpbuttons : LPCTBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn CreateUpDownControl(dwstyle : u32, x : i32, y : i32, cx : i32, cy : i32, hparent : super::HWND, nid : i32, hinst : super::HINSTANCE, hbuddy : super::HWND, nupper : i32, nlower : i32, npos : i32) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn DefSubclassProc(hwnd : super::HWND, umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::HINSTANCE, idbitmap : super::INT_PTR, wflags : super::UINT, lpcolormap : LPCOLORMAP, inummaps : i32) -> super::HBITMAP);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : super::LONG, lpsztext : windows_sys::core::PCSTR, hwndparent : super::HWND, wid : super::UINT) -> super::HWND);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : super::LONG, lpsztext : windows_sys::core::PCWSTR, hwndparent : super::HWND, wid : super::UINT) -> super::HWND);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::HWND, ws : super::DWORD, wid : super::UINT, nbitmaps : i32, hbminst : super::HINSTANCE, wbmid : super::UINT_PTR, lpbuttons : LPCTBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : super::UINT) -> super::HWND);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn CreateUpDownControl(dwstyle : super::DWORD, x : i32, y : i32, cx : i32, cy : i32, hparent : super::HWND, nid : i32, hinst : super::HINSTANCE, hbuddy : super::HWND, nupper : i32, nlower : i32, npos : i32) -> super::HWND);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn DefSubclassProc(hwnd : super::HWND, umsg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::HWND, hlb : super::HWND, nitem : i32));
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::HDC, psztext : windows_sys::core::PCWSTR, cch : u32, prc : *const super::RECT, dwflags : u32, crtext : super::COLORREF, crshadow : super::COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::HDC, lprc : super::LPCRECT, psztext : windows_sys::core::PCSTR, uflags : u32));
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::HDC, lprc : super::LPCRECT, psztext : windows_sys::core::PCWSTR, uflags : u32));
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn FlatSB_EnableScrollBar(param0 : super::HWND, param1 : i32, param2 : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::HDC, psztext : windows_sys::core::PCWSTR, cch : super::UINT, prc : *const super::RECT, dwflags : super::DWORD, crtext : super::COLORREF, crshadow : super::COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::HDC, lprc : super::LPCRECT, psztext : windows_sys::core::PCSTR, uflags : super::UINT));
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::HDC, lprc : super::LPCRECT, psztext : windows_sys::core::PCWSTR, uflags : super::UINT));
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn FlatSB_EnableScrollBar(param0 : super::HWND, param1 : i32, param2 : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollInfo(param0 : super::HWND, code : i32, param2 : super::LPSCROLLINFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollPos(param0 : super::HWND, code : i32) -> i32);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollProp(param0 : super::HWND, propindex : i32, param2 : super::LPINT) -> windows_sys::core::BOOL);
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" "FlatSB_GetScrollProp" fn FlatSB_GetScrollPropPtr(param0 : super::HWND, propindex : i32, param2 : super::LPINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 : super::HWND, code : i32, param2 : super::LPINT, param3 : super::LPINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::HWND, code : i32, psi : super::LPSCROLLINFO, fredraw : windows_sys::core::BOOL) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollPos(param0 : super::HWND, code : i32, pos : i32, fredraw : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::HWND, index : u32, newvalue : isize, param3 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::HWND, index : super::UINT, newvalue : super::INT_PTR, param3 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" "FlatSB_SetScrollProp" fn FlatSB_SetScrollPropPtr(param0 : super::HWND, index : super::UINT, newvalue : super::INT_PTR, param3 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : super::HWND, code : i32, min : i32, max : i32, fredraw : windows_sys::core::BOOL) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::HWND, code : i32, param2 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::HWND, lprc : super::LPRECT, lpinfo : *const i32));
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::HWND, lprc : super::LPRECT, lpinfo : *const super::INT));
+#[cfg(feature = "shared")]
 windows_link::link!("comctl32.dll" "system" fn GetMUILanguage() -> super::LANGID);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn GetWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, pdwrefdata : *mut usize) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn GetWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : super::UINT_PTR, pdwrefdata : *mut super::DWORD_PTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "guiddef")]
+windows_link::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_Add(himl : HIMAGELIST, hbmimage : super::HBITMAP, hbmmask : super::HBITMAP) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_AddMasked(himl : HIMAGELIST, hbmimage : super::HBITMAP, crmask : super::COLORREF) -> i32);
 windows_link::link!("comctl32.dll" "system" fn ImageList_BeginDrag(himltrack : HIMAGELIST, itrack : i32, dxhotspot : i32, dyhotspot : i32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : HIMAGELIST, idst : i32, himlsrc : HIMAGELIST, isrc : i32, uflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_Create(cx : i32, cy : i32, flags : u32, cinitial : i32, cgrow : i32) -> HIMAGELIST);
+#[cfg(feature = "shared")]
+windows_link::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : HIMAGELIST, idst : i32, himlsrc : HIMAGELIST, isrc : i32, uflags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("comctl32.dll" "system" fn ImageList_Create(cx : i32, cy : i32, flags : super::UINT, cinitial : i32, cgrow : i32) -> HIMAGELIST);
 windows_link::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : HIMAGELIST) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_DragEnter(hwndlock : super::HWND, x : i32, y : i32) -> windows_sys::core::BOOL);
@@ -59,33 +67,33 @@ windows_link::link!("comctl32.dll" "system" fn ImageList_DragEnter(hwndlock : su
 windows_link::link!("comctl32.dll" "system" fn ImageList_DragLeave(hwndlock : super::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_DragMove(x : i32, y : i32) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_DragShowNolock(fshow : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_Draw(himl : HIMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, fstyle : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : HIMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::COLORREF, rgbfg : super::COLORREF, fstyle : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn ImageList_Draw(himl : HIMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, fstyle : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : HIMAGELIST, i : i32, hdcdst : super::HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::COLORREF, rgbfg : super::COLORREF, fstyle : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn ImageList_DrawIndirect(pimldp : *const IMAGELISTDRAWPARAMS) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_Duplicate(himl : HIMAGELIST) -> HIMAGELIST);
 windows_link::link!("comctl32.dll" "system" fn ImageList_EndDrag());
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_GetBkColor(himl : HIMAGELIST) -> super::COLORREF);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn ImageList_GetDragImage(ppt : *mut super::POINT, ppthotspot : *mut super::POINT) -> HIMAGELIST);
-#[cfg(feature = "windef")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : u32) -> super::HICON);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : super::UINT) -> super::HICON);
 windows_link::link!("comctl32.dll" "system" fn ImageList_GetIconSize(himl : HIMAGELIST, cx : *mut i32, cy : *mut i32) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_GetImageCount(himl : HIMAGELIST) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : HIMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::HINSTANCE, lpbmp : windows_sys::core::PCSTR, cx : i32, cgrow : i32, crmask : super::COLORREF, utype : u32, uflags : u32) -> HIMAGELIST);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::HINSTANCE, lpbmp : windows_sys::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::COLORREF, utype : u32, uflags : u32) -> HIMAGELIST);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::HINSTANCE, lpbmp : windows_sys::core::PCSTR, cx : i32, cgrow : i32, crmask : super::COLORREF, utype : super::UINT, uflags : super::UINT) -> HIMAGELIST);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::HINSTANCE, lpbmp : windows_sys::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::COLORREF, utype : super::UINT, uflags : super::UINT) -> HIMAGELIST);
 windows_link::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_Read(pstm : *mut core::ffi::c_void) -> HIMAGELIST);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "winnt"))]
+windows_link::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : super::DWORD, pstm : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut super::PVOID) -> windows_sys::core::HRESULT);
 windows_link::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::HBITMAP, hbmmask : super::HBITMAP) -> windows_sys::core::BOOL);
@@ -95,19 +103,21 @@ windows_link::link!("comctl32.dll" "system" fn ImageList_ReplaceIcon(himl : HIMA
 windows_link::link!("comctl32.dll" "system" fn ImageList_SetBkColor(himl : HIMAGELIST, clrbk : super::COLORREF) -> super::COLORREF);
 windows_link::link!("comctl32.dll" "system" fn ImageList_SetDragCursorImage(himldrag : HIMAGELIST, idrag : i32, dxhotspot : i32, dyhotspot : i32) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : super::UINT) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : u32, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
+windows_link::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : super::DWORD, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("comctl32.dll" "system" fn InitCommonControls());
+#[cfg(feature = "shared")]
 windows_link::link!("comctl32.dll" "system" fn InitCommonControlsEx(picce : *const INITCOMMONCONTROLSEX) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("comctl32.dll" "system" fn InitMUILanguage(uilang : super::LANGID));
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn InitializeFlatSB(param0 : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::HWND, pt : super::POINT, bautoscroll : windows_sys::core::BOOL) -> i32);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::HINSTANCE, pszname : windows_sys::core::PCWSTR, lims : i32, phico : *mut super::HICON) -> windows_sys::core::HRESULT);
@@ -115,21 +125,21 @@ windows_link::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::HIN
 windows_link::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::HINSTANCE, pszname : windows_sys::core::PCWSTR, cx : i32, cy : i32, phico : *mut super::HICON) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn MakeDragList(hlb : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM, hmainmenu : super::HMENU, hinst : super::HINSTANCE, hwndstatus : super::HWND, lpwids : *const u32));
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn RemoveWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn SetWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, dwrefdata : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::HWND, uflags : usize, lpinfo : super::LPINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn MenuHelp(umsg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, hmainmenu : super::HMENU, hinst : super::HINSTANCE, hwndstatus : super::HWND, lpwids : *const super::UINT));
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn RemoveWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : super::UINT_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn SetWindowSubclass(hwnd : super::HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : super::UINT_PTR, dwrefdata : super::DWORD_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::HWND, uflags : super::UINT_PTR, lpinfo : super::LPINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::HWND, hinstance : super::HINSTANCE, pszwindowtitle : windows_sys::core::PCWSTR, pszmaininstruction : windows_sys::core::PCWSTR, pszcontent : windows_sys::core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : windows_sys::core::PCWSTR, pnbutton : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::HWND) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 windows_link::link!("comctl32.dll" "system" fn _TrackMouseEvent(lpeventtrack : super::LPTRACKMOUSEEVENT) -> windows_sys::core::BOOL);
 pub const ACM_ISPLAYING: i32 = 1128;
 pub const ACM_OPEN: i32 = 1124;
@@ -189,12 +199,12 @@ pub const BTNS_SEP: i32 = 1;
 pub const BTNS_SHOWTEXT: i32 = 64;
 pub const BTNS_WHOLEDROPDOWN: i32 = 128;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
     pub margin: super::RECT,
-    pub uAlign: u32,
+    pub uAlign: super::UINT,
 }
 pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: i32 = 3;
 pub const BUTTON_IMAGELIST_ALIGN_CENTER: i32 = 4;
@@ -202,12 +212,12 @@ pub const BUTTON_IMAGELIST_ALIGN_LEFT: i32 = 0;
 pub const BUTTON_IMAGELIST_ALIGN_RIGHT: i32 = 1;
 pub const BUTTON_IMAGELIST_ALIGN_TOP: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct BUTTON_SPLITINFO {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub himlGlyph: HIMAGELIST,
-    pub uSplitStyle: u32,
+    pub uSplitStyle: super::UINT,
     pub size: super::SIZE,
 }
 pub const CBEIF_DI_SETITEM: i32 = 268435456;
@@ -337,19 +347,19 @@ pub struct COLORMAP {
     pub to: super::COLORREF,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct COLORSCHEME {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub clrBtnHighlight: super::COLORREF,
     pub clrBtnShadow: super::COLORREF,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct COMBOBOXEXITEMA {
-    pub mask: u32,
-    pub iItem: isize,
+    pub mask: super::UINT,
+    pub iItem: super::INT_PTR,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -359,11 +369,11 @@ pub struct COMBOBOXEXITEMA {
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct COMBOBOXEXITEMW {
-    pub mask: u32,
-    pub iItem: isize,
+    pub mask: super::UINT,
+    pub iItem: super::INT_PTR,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -374,14 +384,14 @@ pub struct COMBOBOXEXITEMW {
 }
 pub const COMCTL32_VERSION: i32 = 6;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DATETIMEPICKERINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcCheck: super::RECT,
-    pub stateCheck: u32,
+    pub stateCheck: super::DWORD,
     pub rcButton: super::RECT,
-    pub stateButton: u32,
+    pub stateButton: super::DWORD,
     pub hwndEdit: super::HWND,
     pub hwndUD: super::HWND,
     pub hwndDropDown: super::HWND,
@@ -398,13 +408,14 @@ pub const DL_DROPPED: i32 = 1159;
 pub const DL_MOVECURSOR: i32 = 3;
 pub const DL_STOPCURSOR: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DRAGLISTINFO {
-    pub uNotification: u32,
+    pub uNotification: super::UINT,
     pub hWnd: super::HWND,
     pub ptCursor: super::POINT,
 }
+pub const DRAGLISTMSGSTRING: windows_sys::core::PCSTR = windows_sys::core::s!("commctrl_DragListMsg");
 pub const DTM_CLOSEMONTHCAL: i32 = 4109;
 pub const DTM_FIRST: i32 = 4096;
 pub const DTM_GETDATETIMEPICKERINFO: i32 = 4110;
@@ -460,12 +471,13 @@ pub type EC_SEARCHWEB_ENTRYPOINT = i32;
 pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = 1;
 pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EDITBALLOONTIP {
-    pub cbStruct: u32,
+    pub cbStruct: super::DWORD,
     pub pszTitle: windows_sys::core::PCWSTR,
     pub pszText: windows_sys::core::PCWSTR,
-    pub ttiIcon: i32,
+    pub ttiIcon: super::INT,
 }
 pub const EMF_CENTERED: i32 = 1;
 pub const EM_ENABLESEARCHWEB: i32 = 5390;
@@ -479,7 +491,6 @@ pub const EM_GETEXTENDEDSTYLE: i32 = 5387;
 pub const EM_GETFILELINE: i32 = 5398;
 pub const EM_GETFILELINECOUNT: i32 = 5399;
 pub const EM_GETHILITE: i32 = 5382;
-pub const EM_GETZOOM: i32 = 1248;
 pub const EM_HIDEBALLOONTIP: i32 = 5380;
 pub const EM_NOSETFOCUS: i32 = 5383;
 pub const EM_SEARCHWEB: i32 = 5391;
@@ -488,7 +499,6 @@ pub const EM_SETCUEBANNER: i32 = 5377;
 pub const EM_SETENDOFLINE: i32 = 5388;
 pub const EM_SETEXTENDEDSTYLE: i32 = 5386;
 pub const EM_SETHILITE: i32 = 5381;
-pub const EM_SETZOOM: i32 = 1249;
 pub const EM_SHOWBALLOONTIP: i32 = 5379;
 pub const EM_TAKEFOCUS: i32 = 5384;
 pub const EN_FIRST: u32 = 4294965776;
@@ -532,19 +542,19 @@ pub const HDF_SORTUP: i32 = 1024;
 pub const HDF_SPLITBUTTON: i32 = 16777216;
 pub const HDF_STRING: i32 = 16384;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct HDHITTESTINFO {
     pub pt: super::POINT,
-    pub flags: u32,
+    pub flags: super::UINT,
     pub iItem: i32,
 }
 pub const HDIS_FOCUSED: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct HDITEMA {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub cxy: i32,
     pub pszText: windows_sys::core::PSTR,
     pub hbm: super::HBITMAP,
@@ -553,19 +563,19 @@ pub struct HDITEMA {
     pub lParam: super::LPARAM,
     pub iImage: i32,
     pub iOrder: i32,
-    pub r#type: u32,
+    pub r#type: super::UINT,
     pub pvFilter: *mut core::ffi::c_void,
-    pub state: u32,
+    pub state: super::UINT,
 }
 #[cfg(target_arch = "x86")]
 pub const HDITEMA_V1_SIZE: u32 = 28;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const HDITEMA_V1_SIZE: u64 = 40;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct HDITEMW {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub cxy: i32,
     pub pszText: windows_sys::core::PWSTR,
     pub hbm: super::HBITMAP,
@@ -574,9 +584,9 @@ pub struct HDITEMW {
     pub lParam: super::LPARAM,
     pub iImage: i32,
     pub iOrder: i32,
-    pub r#type: u32,
+    pub r#type: super::UINT,
     pub pvFilter: *mut core::ffi::c_void,
-    pub state: u32,
+    pub state: super::UINT,
 }
 #[cfg(target_arch = "x86")]
 pub const HDITEMW_V1_SIZE: u32 = 28;
@@ -598,7 +608,7 @@ pub const HDI_STATE: i32 = 512;
 pub const HDI_TEXT: i32 = 2;
 pub const HDI_WIDTH: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct HDLAYOUT {
     pub prc: *mut super::RECT,
@@ -690,16 +700,18 @@ pub const HDS_HOTTRACK: i32 = 4;
 pub const HDS_NOSIZING: i32 = 2048;
 pub const HDS_OVERFLOW: i32 = 4096;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HD_TEXTFILTERA {
     pub pszText: windows_sys::core::PSTR,
-    pub cchTextMax: i32,
+    pub cchTextMax: super::INT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HD_TEXTFILTERW {
     pub pszText: windows_sys::core::PWSTR,
-    pub cchTextMax: i32,
+    pub cchTextMax: super::INT,
 }
 pub const HHT_ABOVE: i32 = 256;
 pub const HHT_BELOW: i32 = 512;
@@ -818,7 +830,7 @@ pub const ILS_NORMAL: i32 = 0;
 pub const ILS_SATURATE: i32 = 4;
 pub const ILS_SHADOW: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEINFO {
     pub hbmImage: super::HBITMAP,
@@ -828,10 +840,10 @@ pub struct IMAGEINFO {
     pub rcImage: super::RECT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGELISTDRAWPARAMS {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub himl: HIMAGELIST,
     pub i: i32,
     pub hdcDst: super::HDC,
@@ -843,10 +855,10 @@ pub struct IMAGELISTDRAWPARAMS {
     pub yBitmap: i32,
     pub rgbBk: super::COLORREF,
     pub rgbFg: super::COLORREF,
-    pub fStyle: u32,
-    pub dwRop: u32,
-    pub fState: u32,
-    pub Frame: u32,
+    pub fStyle: super::UINT,
+    pub dwRop: super::DWORD,
+    pub fState: super::DWORD,
+    pub Frame: super::DWORD,
     pub crEffect: super::COLORREF,
 }
 #[cfg(target_arch = "x86")]
@@ -855,10 +867,11 @@ pub const IMAGELISTDRAWPARAMS_V3_SIZE: u32 = 56;
 pub const IMAGELISTDRAWPARAMS_V3_SIZE: u64 = 72;
 pub const INFOTIPSIZE: i32 = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INITCOMMONCONTROLSEX {
-    pub dwSize: u32,
-    pub dwICC: u32,
+    pub dwSize: super::DWORD,
+    pub dwICC: super::DWORD,
 }
 pub const INVALID_LINK_INDEX: i32 = -1;
 pub const IPM_CLEARADDRESS: i32 = 1124;
@@ -872,14 +885,15 @@ pub const IPN_FIRST: u32 = 4294966436;
 pub const IPN_LAST: u32 = 4294966417;
 pub const I_CHILDRENAUTO: i32 = -2;
 pub const I_CHILDRENCALLBACK: i32 = -1;
-pub const I_COLUMNSCALLBACK: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const I_COLUMNSCALLBACK: super::UINT = 4294967295;
 pub const I_GROUPIDCALLBACK: i32 = -1;
 pub const I_GROUPIDNONE: i32 = -2;
 pub const I_IMAGECALLBACK: i32 = -1;
 pub const I_IMAGENONE: i32 = -2;
 pub const I_INDENTCALLBACK: i32 = -1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct LHITTESTINFO {
     pub pt: super::POINT,
@@ -897,15 +911,17 @@ pub const LIS_FOCUSED: i32 = 1;
 pub const LIS_HOTTRACK: i32 = 8;
 pub const LIS_VISITED: i32 = 4;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LITEM {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub iLink: i32,
-    pub state: u32,
-    pub stateMask: u32,
-    pub szID: [u16; 48],
-    pub szUrl: [u16; 2084],
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
+    pub szID: [super::WCHAR; 48],
+    pub szUrl: [super::WCHAR; 2084],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for LITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -918,271 +934,289 @@ pub const LM_HITTEST: i32 = 1792;
 pub const LM_SETITEM: i32 = 1794;
 #[cfg(feature = "windef")]
 pub type LPCOLORMAP = *mut COLORMAP;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCOLORSCHEME = *mut COLORSCHEME;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCREBARBANDINFOA = *const REBARBANDINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCREBARBANDINFOW = *const REBARBANDINFOW;
+#[cfg(feature = "shared")]
 pub type LPCTBBUTTON = *const TBBUTTON;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDATETIMEPICKERINFO = *mut DATETIMEPICKERINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDRAGLISTINFO = *mut DRAGLISTINFO;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPFINDINFOA = *mut LVFINDINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPFINDINFOW = *mut LVFINDINFOW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPHDHITTESTINFO = *mut HDHITTESTINFO;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPHDITEMA = *mut HDITEMA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPHDITEMW = *mut HDITEMW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPHDLAYOUT = *mut HDLAYOUT;
+#[cfg(feature = "shared")]
 pub type LPHD_TEXTFILTERA = *mut HD_TEXTFILTERA;
+#[cfg(feature = "shared")]
 pub type LPHD_TEXTFILTERW = *mut HD_TEXTFILTERW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPIMAGEINFO = *mut IMAGEINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPIMAGELISTDRAWPARAMS = *mut IMAGELISTDRAWPARAMS;
+#[cfg(feature = "shared")]
 pub type LPINITCOMMONCONTROLSEX = *mut INITCOMMONCONTROLSEX;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPLVBKIMAGEA = *mut LVBKIMAGEA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPLVBKIMAGEW = *mut LVBKIMAGEW;
+#[cfg(feature = "shared")]
 pub type LPLVCOLUMNA = *mut LVCOLUMNA;
+#[cfg(feature = "shared")]
 pub type LPLVCOLUMNW = *mut LVCOLUMNW;
+#[cfg(feature = "shared")]
 pub type LPLVFOOTERINFO = *mut LVFOOTERINFO;
+#[cfg(feature = "shared")]
 pub type LPLVFOOTERITEM = *mut LVFOOTERITEM;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPLVHITTESTINFO = *mut LVHITTESTINFO;
+#[cfg(feature = "shared")]
 pub type LPLVINSERTMARK = *mut LVINSERTMARK;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPLVITEMA = *mut LVITEMA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPLVITEMW = *mut LVITEMW;
 pub type LPMONTHDAYSTATE = *mut u32;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMBCDROPDOWN = *mut NMBCDROPDOWN;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMBCHOTITEM = *mut NMBCHOTITEM;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMCBEDRAGBEGINA = *mut NMCBEDRAGBEGINA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPNMCBEDRAGBEGINW = *mut NMCBEDRAGBEGINW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMCBEENDEDITA = *mut NMCBEENDEDITA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPNMCBEENDEDITW = *mut NMCBEENDEDITW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMCHAR = *mut NMCHAR;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-pub type LPNMCLICK = LPNMMOUSE;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+pub type LPNMCLICK = *mut NMMOUSE;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMCUSTOMDRAW = *mut NMCUSTOMDRAW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMCUSTOMSPLITRECTINFO = *mut NMCUSTOMSPLITRECTINFO;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMCUSTOMTEXT = *mut NMCUSTOMTEXT;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMECHANGE = *mut NMDATETIMECHANGE;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMEFORMATA = *mut NMDATETIMEFORMATA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMEFORMATQUERYA = *mut NMDATETIMEFORMATQUERYA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMEFORMATQUERYW = *mut NMDATETIMEFORMATQUERYW;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPNMDATETIMEFORMATW = *mut NMDATETIMEFORMATW;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMESTRINGA = *mut NMDATETIMESTRINGA;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMESTRINGW = *mut NMDATETIMESTRINGW;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMEWMKEYDOWNA = *mut NMDATETIMEWMKEYDOWNA;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDATETIMEWMKEYDOWNW = *mut NMDATETIMEWMKEYDOWNW;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMDAYSTATE = *mut NMDAYSTATE;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMHDDISPINFOA = *mut NMHDDISPINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMHDDISPINFOW = *mut NMHDDISPINFOW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMHDFILTERBTNCLICK = *mut NMHDFILTERBTNCLICK;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMHEADERA = *mut NMHEADERA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMHEADERW = *mut NMHEADERW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMIPADDRESS = *mut NMIPADDRESS;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMITEMACTIVATE = *mut NMITEMACTIVATE;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMKEY = *mut NMKEY;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLISTVIEW = *mut NMLISTVIEW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVCACHEHINT = *mut NMLVCACHEHINT;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVCUSTOMDRAW = *mut NMLVCUSTOMDRAW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVDISPINFOA = *mut NMLVDISPINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVDISPINFOW = *mut NMLVDISPINFOW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVFINDITEMA = *mut NMLVFINDITEMA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVFINDITEMW = *mut NMLVFINDITEMW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVGETINFOTIPA = *mut NMLVGETINFOTIPA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVGETINFOTIPW = *mut NMLVGETINFOTIPW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVKEYDOWN = *mut NMLVKEYDOWN;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVODSTATECHANGE = *mut NMLVODSTATECHANGE;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMLVSCROLL = *mut NMLVSCROLL;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMMOUSE = *mut NMMOUSE;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMOBJECTNOTIFY = *mut NMOBJECTNOTIFY;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMPGCALCSIZE = *mut NMPGCALCSIZE;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMPGHOTITEM = *mut NMPGHOTITEM;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMPGSCROLL = *mut NMPGSCROLL;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMRBAUTOSIZE = *mut NMRBAUTOSIZE;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMREBAR = *mut NMREBAR;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMREBARAUTOBREAK = *mut NMREBARAUTOBREAK;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMREBARCHEVRON = *mut NMREBARCHEVRON;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMREBARCHILDSIZE = *mut NMREBARCHILDSIZE;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMREBARSPLITTER = *mut NMREBARSPLITTER;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMSELCHANGE = *mut NMSELCHANGE;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMSELECT = *mut NMSELCHANGE;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBCUSTOMDRAW = *mut NMTBCUSTOMDRAW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBDISPINFOA = *mut NMTBDISPINFOA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBDISPINFOW = *mut NMTBDISPINFOW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBGETINFOTIPA = *mut NMTBGETINFOTIPA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBGETINFOTIPW = *mut NMTBGETINFOTIPW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBHOTITEM = *mut NMTBHOTITEM;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBRESTORE = *mut NMTBRESTORE;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTBSAVE = *mut NMTBSAVE;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTOOLBARA = *mut NMTOOLBARA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTOOLBARW = *mut NMTOOLBARW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTOOLTIPSCREATED = *mut NMTOOLTIPSCREATED;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTREEVIEWA = *mut NMTREEVIEWA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTREEVIEWW = *mut NMTREEVIEWW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTTCUSTOMDRAW = *mut NMTTCUSTOMDRAW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTTDISPINFOA = *mut NMTTDISPINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPNMTTDISPINFOW = *mut NMTTDISPINFOW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVCUSTOMDRAW = *mut NMTVCUSTOMDRAW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVDISPINFOA = *mut NMTVDISPINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVDISPINFOEXA = *mut NMTVDISPINFOEXA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVDISPINFOEXW = *mut NMTVDISPINFOEXW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVDISPINFOW = *mut NMTVDISPINFOW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVGETINFOTIPA = *mut NMTVGETINFOTIPA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVGETINFOTIPW = *mut NMTVGETINFOTIPW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVKEYDOWN = *mut NMTVKEYDOWN;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMTVSTATEIMAGECHANGING = *mut NMTVSTATEIMAGECHANGING;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMUPDOWN = *mut NMUPDOWN;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type LPNMVIEWCHANGE = *mut NMVIEWCHANGE;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPRBHITTESTINFO = *mut RBHITTESTINFO;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPREBARBANDINFOA = *mut REBARBANDINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPREBARBANDINFOW = *mut REBARBANDINFOW;
+#[cfg(feature = "shared")]
 pub type LPREBARINFO = *mut REBARINFO;
 pub const LPSTR_TEXTCALLBACK: windows_sys::core::PCSTR = -1 as _;
 pub const LPSTR_TEXTCALLBACKA: windows_sys::core::PCSTR = -1 as _;
 pub const LPSTR_TEXTCALLBACKW: windows_sys::core::PCWSTR = -1 as _;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPTBADDBITMAP = *mut TBADDBITMAP;
+#[cfg(feature = "shared")]
 pub type LPTBBUTTON = *mut TBBUTTON;
+#[cfg(feature = "shared")]
 pub type LPTBBUTTONINFOA = *mut TBBUTTONINFOA;
+#[cfg(feature = "shared")]
 pub type LPTBBUTTONINFOW = *mut TBBUTTONINFOW;
+#[cfg(feature = "shared")]
 pub type LPTBINSERTMARK = *mut TBINSERTMARK;
+#[cfg(feature = "shared")]
 pub type LPTBMETRICS = *mut TBMETRICS;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPTBREPLACEBITMAP = *mut TBREPLACEBITMAP;
 #[cfg(feature = "minwindef")]
 pub type LPTBSAVEPARAMSA = *mut TBSAVEPARAMSA;
 #[cfg(feature = "minwindef")]
 pub type LPTBSAVEPARAMW = *mut TBSAVEPARAMSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPTCHITTESTINFO = *mut TCHITTESTINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPTCITEMA = *mut TCITEMA;
+#[cfg(feature = "shared")]
 pub type LPTCITEMHEADERA = *mut TCITEMHEADERA;
+#[cfg(feature = "shared")]
 pub type LPTCITEMHEADERW = *mut TCITEMHEADERW;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPTCITEMW = *mut TCITEMW;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTTHITTESTINFOA = *mut TTHITTESTINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTTHITTESTINFOW = *mut TTHITTESTINFOW;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTTTOOLINFOA = *mut TTTOOLINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTTTOOLINFOW = *mut TTTOOLINFOW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPTVHITTESTINFO = *mut TVHITTESTINFO;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTVINSERTSTRUCTA = *mut TVINSERTSTRUCTA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTVINSERTSTRUCTW = *mut TVINSERTSTRUCTW;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPTVITEMA = *mut TVITEMA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type LPTVITEMEX = LPTVITEMEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPTVITEMEX = *mut TVITEMEXA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTVITEMEXA = *mut TVITEMEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPTVITEMEXW = *mut TVITEMEXW;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPTVITEMW = *mut TVITEMW;
 #[cfg(feature = "minwindef")]
 pub type LPTVSORTCB = *mut TVSORTCB;
+#[cfg(feature = "shared")]
 pub type LPUDACCEL = *mut UDACCEL;
 pub const LVA_ALIGNLEFT: i32 = 1;
 pub const LVA_ALIGNTOP: i32 = 2;
@@ -1199,24 +1233,24 @@ pub const LVBKIF_STYLE_NORMAL: i32 = 0;
 pub const LVBKIF_STYLE_TILE: i32 = 16;
 pub const LVBKIF_TYPE_WATERMARK: i32 = 268435456;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVBKIMAGEA {
-    pub ulFlags: u32,
+    pub ulFlags: super::ULONG,
     pub hbm: super::HBITMAP,
     pub pszImage: windows_sys::core::PSTR,
-    pub cchImageMax: u32,
+    pub cchImageMax: super::UINT,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVBKIMAGEW {
-    pub ulFlags: u32,
+    pub ulFlags: super::ULONG,
     pub hbm: super::HBITMAP,
     pub pszImage: windows_sys::core::PWSTR,
-    pub cchImageMax: u32,
+    pub cchImageMax: super::UINT,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
@@ -1251,9 +1285,10 @@ pub const LVCF_SUBITEM: i32 = 8;
 pub const LVCF_TEXT: i32 = 4;
 pub const LVCF_WIDTH: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVCOLUMNA {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub fmt: i32,
     pub cx: i32,
     pub pszText: windows_sys::core::PSTR,
@@ -1270,9 +1305,10 @@ pub const LVCOLUMNA_V1_SIZE: u32 = 24;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LVCOLUMNA_V1_SIZE: u64 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVCOLUMNW {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub fmt: i32,
     pub cx: i32,
     pub pszText: windows_sys::core::PWSTR,
@@ -1296,24 +1332,24 @@ pub const LVFF_ITEMCOUNT: i32 = 1;
 pub const LVFIF_STATE: i32 = 2;
 pub const LVFIF_TEXT: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVFINDINFOA {
-    pub flags: u32,
+    pub flags: super::UINT,
     pub psz: windows_sys::core::PCSTR,
     pub lParam: super::LPARAM,
     pub pt: super::POINT,
-    pub vkDirection: u32,
+    pub vkDirection: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVFINDINFOW {
-    pub flags: u32,
+    pub flags: super::UINT,
     pub psz: windows_sys::core::PCWSTR,
     pub lParam: super::LPARAM,
     pub pt: super::POINT,
-    pub vkDirection: u32,
+    pub vkDirection: super::UINT,
 }
 pub const LVFIS_FOCUSED: i32 = 1;
 pub const LVFI_NEARESTXY: i32 = 64;
@@ -1323,22 +1359,24 @@ pub const LVFI_STRING: i32 = 2;
 pub const LVFI_SUBSTRING: i32 = 4;
 pub const LVFI_WRAP: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVFOOTERINFO {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
-    pub cItems: u32,
+    pub cItems: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVFOOTERITEM {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub iItem: i32,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
 }
 pub const LVGA_FOOTER_CENTER: i32 = 16;
 pub const LVGA_FOOTER_LEFT: i32 = 8;
@@ -1371,43 +1409,44 @@ pub const LVGMF_BORDERSIZE: i32 = 1;
 pub const LVGMF_NONE: i32 = 0;
 pub const LVGMF_TEXTCOLOR: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVGROUP {
-    pub cbSize: u32,
-    pub mask: u32,
+    pub cbSize: super::UINT,
+    pub mask: super::UINT,
     pub pszHeader: windows_sys::core::PWSTR,
     pub cchHeader: i32,
     pub pszFooter: windows_sys::core::PWSTR,
     pub cchFooter: i32,
     pub iGroupId: i32,
-    pub stateMask: u32,
-    pub state: u32,
-    pub uAlign: u32,
+    pub stateMask: super::UINT,
+    pub state: super::UINT,
+    pub uAlign: super::UINT,
     pub pszSubtitle: windows_sys::core::PWSTR,
-    pub cchSubtitle: u32,
+    pub cchSubtitle: super::UINT,
     pub pszTask: windows_sys::core::PWSTR,
-    pub cchTask: u32,
+    pub cchTask: super::UINT,
     pub pszDescriptionTop: windows_sys::core::PWSTR,
-    pub cchDescriptionTop: u32,
+    pub cchDescriptionTop: super::UINT,
     pub pszDescriptionBottom: windows_sys::core::PWSTR,
-    pub cchDescriptionBottom: u32,
+    pub cchDescriptionBottom: super::UINT,
     pub iTitleImage: i32,
     pub iExtendedImage: i32,
     pub iFirstItem: i32,
-    pub cItems: u32,
+    pub cItems: super::UINT,
     pub pszSubsetTitle: windows_sys::core::PWSTR,
-    pub cchSubsetTitle: u32,
+    pub cchSubsetTitle: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVGROUPMETRICS {
-    pub cbSize: u32,
-    pub mask: u32,
-    pub Left: u32,
-    pub Top: u32,
-    pub Right: u32,
-    pub Bottom: u32,
+    pub cbSize: super::UINT,
+    pub mask: super::UINT,
+    pub Left: super::UINT,
+    pub Top: super::UINT,
+    pub Right: super::UINT,
+    pub Bottom: super::UINT,
     pub crLeft: super::COLORREF,
     pub crTop: super::COLORREF,
     pub crRight: super::COLORREF,
@@ -1429,11 +1468,11 @@ pub const LVGS_SELECTED: i32 = 32;
 pub const LVGS_SUBSETED: i32 = 64;
 pub const LVGS_SUBSETLINKFOCUSED: i32 = 128;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVHITTESTINFO {
     pub pt: super::POINT,
-    pub flags: u32,
+    pub flags: super::UINT,
     pub iItem: i32,
     pub iSubItem: i32,
     pub iGroup: i32,
@@ -1472,6 +1511,7 @@ pub const LVIF_STATE: i32 = 8;
 pub const LVIF_TEXT: i32 = 1;
 pub const LVIM_AFTER: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
@@ -1479,12 +1519,13 @@ pub struct LVINSERTGROUPSORTED {
     pub lvGroup: LVGROUP,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVINSERTMARK {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
     pub iItem: i32,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
 pub const LVIR_BOUNDS: i32 = 0;
 pub const LVIR_ICON: i32 = 1;
@@ -1499,21 +1540,21 @@ pub const LVIS_OVERLAYMASK: i32 = 3840;
 pub const LVIS_SELECTED: i32 = 2;
 pub const LVIS_STATEIMAGEMASK: i32 = 61440;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVITEMA {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub iItem: i32,
     pub iSubItem: i32,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::LPARAM,
     pub iIndent: i32,
     pub iGroupId: i32,
-    pub cColumns: u32,
+    pub cColumns: super::UINT,
     pub puColumns: super::PUINT,
     pub piColFmt: *mut i32,
     pub iGroup: i32,
@@ -1533,21 +1574,21 @@ pub struct LVITEMINDEX {
     pub iGroup: i32,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVITEMW {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub iItem: i32,
     pub iSubItem: i32,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::LPARAM,
     pub iIndent: i32,
     pub iGroupId: i32,
-    pub cColumns: u32,
+    pub cColumns: super::UINT,
     pub puColumns: super::PUINT,
     pub piColFmt: *mut i32,
     pub iGroup: i32,
@@ -1790,10 +1831,11 @@ pub const LVN_SETDISPINFOW: u32 = 4294967118;
 pub const LVSCW_AUTOSIZE: i32 = -1;
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LVSETINFOTIP {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
     pub pszText: windows_sys::core::PWSTR,
     pub iItem: i32,
     pub iSubItem: i32,
@@ -1857,12 +1899,12 @@ pub const LVS_SORTDESCENDING: i32 = 32;
 pub const LVS_TYPEMASK: i32 = 3;
 pub const LVS_TYPESTYLEMASK: i32 = 64512;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVTILEINFO {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iItem: i32,
-    pub cColumns: u32,
+    pub cColumns: super::UINT,
     pub puColumns: super::PUINT,
     pub piColFmt: *mut i32,
 }
@@ -1871,12 +1913,12 @@ pub const LVTILEINFO_V5_SIZE: u32 = 16;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LVTILEINFO_V5_SIZE: u64 = 24;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct LVTILEVIEWINFO {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwMask: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub sizeTile: super::SIZE,
     pub cLines: i32,
     pub rcLabelMargin: super::RECT,
@@ -1902,6 +1944,10 @@ pub const LWS_RIGHT: i32 = 32;
 pub const LWS_TRANSPARENT: i32 = 1;
 pub const LWS_USECUSTOMTEXT: i32 = 16;
 pub const LWS_USEVISUALSTYLE: i32 = 8;
+#[cfg(target_arch = "x86")]
+pub const L_MAX_URL_LENGTH: u32 = 2084;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const L_MAX_URL_LENGTH: u64 = 2084;
 pub const MAX_LINKID_TEXT: i32 = 48;
 pub const MCGIF_DATE: i32 = 1;
 pub const MCGIF_NAME: i32 = 4;
@@ -1916,12 +1962,12 @@ pub const MCGIP_FOOTER: i32 = 3;
 pub const MCGIP_NEXT: i32 = 1;
 pub const MCGIP_PREV: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCGRIDINFO {
-    pub cbSize: u32,
-    pub dwPart: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwPart: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub iCalendar: i32,
     pub iRow: i32,
     pub iCol: i32,
@@ -1930,15 +1976,15 @@ pub struct MCGRIDINFO {
     pub stEnd: super::SYSTEMTIME,
     pub rc: super::RECT,
     pub pszName: windows_sys::core::PWSTR,
-    pub cchName: usize,
+    pub cchName: super::size_t,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCHITTESTINFO {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub pt: super::POINT,
-    pub uHit: u32,
+    pub uHit: super::UINT,
     pub st: super::SYSTEMTIME,
     pub rc: super::RECT,
     pub iOffset: i32,
@@ -2043,49 +2089,49 @@ pub const NFS_LISTCOMBO: i32 = 4;
 pub const NFS_STATIC: i32 = 2;
 pub const NFS_USEFONTASSOC: i32 = 32;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMBCDROPDOWN {
     pub hdr: super::NMHDR,
     pub rcButton: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMBCHOTITEM {
     pub hdr: super::NMHDR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMCBEDRAGBEGINA {
     pub hdr: super::NMHDR,
     pub iItemid: i32,
     pub szText: [i8; 260],
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 impl Default for NMCBEDRAGBEGINA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMCBEDRAGBEGINW {
     pub hdr: super::NMHDR,
     pub iItemid: i32,
-    pub szText: [u16; 260],
+    pub szText: [super::WCHAR; 260],
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for NMCBEDRAGBEGINW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMCBEENDEDITA {
     pub hdr: super::NMHDR,
@@ -2094,67 +2140,67 @@ pub struct NMCBEENDEDITA {
     pub szText: [i8; 260],
     pub iWhy: i32,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 impl Default for NMCBEENDEDITA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMCBEENDEDITW {
     pub hdr: super::NMHDR,
     pub fChanged: windows_sys::core::BOOL,
     pub iNewSelection: i32,
-    pub szText: [u16; 260],
+    pub szText: [super::WCHAR; 260],
     pub iWhy: i32,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for NMCBEENDEDITW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMCHAR {
     pub hdr: super::NMHDR,
-    pub ch: u32,
-    pub dwItemPrev: u32,
-    pub dwItemNext: u32,
+    pub ch: super::UINT,
+    pub dwItemPrev: super::DWORD,
+    pub dwItemNext: super::DWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type NMCLICK = NMMOUSE;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMCOMBOBOXEXA {
     pub hdr: super::NMHDR,
     pub ceItem: COMBOBOXEXITEMA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMCOMBOBOXEXW {
     pub hdr: super::NMHDR,
     pub ceItem: COMBOBOXEXITEMW,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMCUSTOMDRAW {
     pub hdr: super::NMHDR,
-    pub dwDrawStage: u32,
+    pub dwDrawStage: super::DWORD,
     pub hdc: super::HDC,
     pub rc: super::RECT,
-    pub dwItemSpec: usize,
-    pub uItemState: u32,
+    pub dwItemSpec: super::DWORD_PTR,
+    pub uItemState: super::UINT,
     pub lItemlParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMCUSTOMSPLITRECTINFO {
     pub hdr: super::NMHDR,
@@ -2163,7 +2209,7 @@ pub struct NMCUSTOMSPLITRECTINFO {
     pub rcSplit: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMCUSTOMTEXT {
     pub hdr: super::NMHDR,
@@ -2171,35 +2217,35 @@ pub struct NMCUSTOMTEXT {
     pub lpString: windows_sys::core::PCWSTR,
     pub nCount: i32,
     pub lpRect: super::LPRECT,
-    pub uFormat: u32,
+    pub uFormat: super::UINT,
     pub fLink: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDATETIMECHANGE {
     pub nmhdr: super::NMHDR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub st: super::SYSTEMTIME,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATA {
     pub nmhdr: super::NMHDR,
     pub pszFormat: windows_sys::core::PCSTR,
     pub st: super::SYSTEMTIME,
     pub pszDisplay: windows_sys::core::PCSTR,
-    pub szDisplay: [i8; 64],
+    pub szDisplay: [super::CHAR; 64],
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 impl Default for NMDATETIMEFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: super::NMHDR,
@@ -2207,7 +2253,7 @@ pub struct NMDATETIMEFORMATQUERYA {
     pub szMax: super::SIZE,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: super::NMHDR,
@@ -2215,41 +2261,41 @@ pub struct NMDATETIMEFORMATQUERYW {
     pub szMax: super::SIZE,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATW {
     pub nmhdr: super::NMHDR,
     pub pszFormat: windows_sys::core::PCWSTR,
     pub st: super::SYSTEMTIME,
     pub pszDisplay: windows_sys::core::PCWSTR,
-    pub szDisplay: [u16; 64],
+    pub szDisplay: [super::WCHAR; 64],
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for NMDATETIMEFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: super::NMHDR,
     pub pszUserString: windows_sys::core::PCSTR,
     pub st: super::SYSTEMTIME,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: super::NMHDR,
     pub pszUserString: windows_sys::core::PCWSTR,
     pub st: super::SYSTEMTIME,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: super::NMHDR,
@@ -2258,7 +2304,7 @@ pub struct NMDATETIMEWMKEYDOWNA {
     pub st: super::SYSTEMTIME,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: super::NMHDR,
@@ -2267,7 +2313,7 @@ pub struct NMDATETIMEWMKEYDOWNW {
     pub st: super::SYSTEMTIME,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMDAYSTATE {
     pub nmhdr: super::NMHDR,
@@ -2276,39 +2322,39 @@ pub struct NMDAYSTATE {
     pub prgDayState: LPMONTHDAYSTATE,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMHDDISPINFOA {
     pub hdr: super::NMHDR,
     pub iItem: i32,
-    pub mask: u32,
+    pub mask: super::UINT,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMHDDISPINFOW {
     pub hdr: super::NMHDR,
     pub iItem: i32,
-    pub mask: u32,
+    pub mask: super::UINT,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMHDFILTERBTNCLICK {
     pub hdr: super::NMHDR,
-    pub iItem: i32,
+    pub iItem: super::INT,
     pub rc: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMHEADERA {
     pub hdr: super::NMHDR,
@@ -2317,7 +2363,7 @@ pub struct NMHEADERA {
     pub pitem: *mut HDITEMA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMHEADERW {
     pub hdr: super::NMHDR,
@@ -2326,7 +2372,7 @@ pub struct NMHEADERW {
     pub pitem: *mut HDITEMW,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMIPADDRESS {
     pub hdr: super::NMHDR,
@@ -2334,49 +2380,49 @@ pub struct NMIPADDRESS {
     pub iValue: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMITEMACTIVATE {
     pub hdr: super::NMHDR,
     pub iItem: i32,
     pub iSubItem: i32,
-    pub uNewState: u32,
-    pub uOldState: u32,
-    pub uChanged: u32,
+    pub uNewState: super::UINT,
+    pub uOldState: super::UINT,
+    pub uChanged: super::UINT,
     pub ptAction: super::POINT,
     pub lParam: super::LPARAM,
-    pub uKeyFlags: u32,
+    pub uKeyFlags: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMKEY {
     pub hdr: super::NMHDR,
-    pub nVKey: u32,
-    pub uFlags: u32,
+    pub nVKey: super::UINT,
+    pub uFlags: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLINK {
     pub hdr: super::NMHDR,
     pub item: LITEM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLISTVIEW {
     pub hdr: super::NMHDR,
     pub iItem: i32,
     pub iSubItem: i32,
-    pub uNewState: u32,
-    pub uOldState: u32,
-    pub uChanged: u32,
+    pub uNewState: super::UINT,
+    pub uOldState: super::UINT,
+    pub uChanged: super::UINT,
     pub ptAction: super::POINT,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVCACHEHINT {
     pub hdr: super::NMHDR,
@@ -2384,56 +2430,56 @@ pub struct NMLVCACHEHINT {
     pub iTo: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::COLORREF,
     pub clrTextBk: super::COLORREF,
     pub iSubItem: i32,
-    pub dwItemType: u32,
+    pub dwItemType: super::DWORD,
     pub clrFace: super::COLORREF,
     pub iIconEffect: i32,
     pub iIconPhase: i32,
     pub iPartId: i32,
     pub iStateId: i32,
     pub rcText: super::RECT,
-    pub uAlign: u32,
+    pub uAlign: super::UINT,
 }
 #[cfg(target_arch = "x86")]
 pub const NMLVCUSTOMDRAW_V3_SIZE: u32 = 56;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const NMLVCUSTOMDRAW_V3_SIZE: u64 = 88;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVDISPINFOA {
     pub hdr: super::NMHDR,
     pub item: LVITEMA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVDISPINFOW {
     pub hdr: super::NMHDR,
     pub item: LVITEMW,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMLVEMPTYMARKUP {
     pub hdr: super::NMHDR,
-    pub dwFlags: u32,
-    pub szMarkup: [u16; 2084],
+    pub dwFlags: super::DWORD,
+    pub szMarkup: [super::WCHAR; 2084],
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for NMLVEMPTYMARKUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVFINDITEMA {
     pub hdr: super::NMHDR,
@@ -2441,7 +2487,7 @@ pub struct NMLVFINDITEMA {
     pub lvfi: LVFINDINFOA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVFINDITEMW {
     pub hdr: super::NMHDR,
@@ -2449,11 +2495,11 @@ pub struct NMLVFINDITEMW {
     pub lvfi: LVFINDINFOW,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVGETINFOTIPA {
     pub hdr: super::NMHDR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
@@ -2461,11 +2507,11 @@ pub struct NMLVGETINFOTIPA {
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVGETINFOTIPW {
     pub hdr: super::NMHDR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
@@ -2473,15 +2519,15 @@ pub struct NMLVGETINFOTIPW {
     pub lParam: super::LPARAM,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVKEYDOWN {
     pub hdr: super::NMHDR,
-    pub wVKey: u16,
-    pub flags: u32,
+    pub wVKey: super::WORD,
+    pub flags: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVLINK {
     pub hdr: super::NMHDR,
@@ -2490,17 +2536,17 @@ pub struct NMLVLINK {
     pub iSubItem: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVODSTATECHANGE {
     pub hdr: super::NMHDR,
     pub iFrom: i32,
     pub iTo: i32,
-    pub uNewState: u32,
-    pub uOldState: u32,
+    pub uNewState: super::UINT,
+    pub uOldState: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVSCROLL {
     pub hdr: super::NMHDR,
@@ -2508,50 +2554,50 @@ pub struct NMLVSCROLL {
     pub dy: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMMOUSE {
     pub hdr: super::NMHDR,
-    pub dwItemSpec: usize,
-    pub dwItemData: usize,
+    pub dwItemSpec: super::DWORD_PTR,
+    pub dwItemData: super::DWORD_PTR,
     pub pt: super::POINT,
     pub dwHitInfo: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMOBJECTNOTIFY {
     pub hdr: super::NMHDR,
     pub iItem: i32,
-    pub piid: *const windows_sys::core::GUID,
+    pub piid: *const super::IID,
     pub pObject: *mut core::ffi::c_void,
     pub hResult: windows_sys::core::HRESULT,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMPGCALCSIZE {
     pub hdr: super::NMHDR,
-    pub dwFlag: u32,
+    pub dwFlag: super::DWORD,
     pub iWidth: i32,
     pub iHeight: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMPGHOTITEM {
     pub hdr: super::NMHDR,
     pub idOld: i32,
     pub idNew: i32,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMPGSCROLL {
     pub hdr: super::NMHDR,
-    pub fwKeys: u16,
+    pub fwKeys: super::WORD,
     pub rcParent: super::RECT,
     pub iDir: i32,
     pub iXpos: i32,
@@ -2559,7 +2605,7 @@ pub struct NMPGSCROLL {
     pub iScroll: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMRBAUTOSIZE {
     pub hdr: super::NMHDR,
@@ -2568,58 +2614,58 @@ pub struct NMRBAUTOSIZE {
     pub rcActual: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMREBAR {
     pub hdr: super::NMHDR,
-    pub dwMask: u32,
-    pub uBand: u32,
-    pub fStyle: u32,
-    pub wID: u32,
+    pub dwMask: super::DWORD,
+    pub uBand: super::UINT,
+    pub fStyle: super::UINT,
+    pub wID: super::UINT,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMREBARAUTOBREAK {
     pub hdr: super::NMHDR,
-    pub uBand: u32,
-    pub wID: u32,
+    pub uBand: super::UINT,
+    pub wID: super::UINT,
     pub lParam: super::LPARAM,
-    pub uMsg: u32,
-    pub fStyleCurrent: u32,
+    pub uMsg: super::UINT,
+    pub fStyleCurrent: super::UINT,
     pub fAutoBreak: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMREBARCHEVRON {
     pub hdr: super::NMHDR,
-    pub uBand: u32,
-    pub wID: u32,
+    pub uBand: super::UINT,
+    pub wID: super::UINT,
     pub lParam: super::LPARAM,
     pub rc: super::RECT,
     pub lParamNM: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMREBARCHILDSIZE {
     pub hdr: super::NMHDR,
-    pub uBand: u32,
-    pub wID: u32,
+    pub uBand: super::UINT,
+    pub wID: super::UINT,
     pub rcChild: super::RECT,
     pub rcBand: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMREBARSPLITTER {
     pub hdr: super::NMHDR,
     pub rcSizing: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMSEARCHWEB {
     pub hdr: super::NMHDR,
@@ -2628,17 +2674,17 @@ pub struct NMSEARCHWEB {
     pub invokeSucceeded: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMSELCHANGE {
     pub nmhdr: super::NMHDR,
     pub stSelStart: super::SYSTEMTIME,
     pub stSelEnd: super::SYSTEMTIME,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type NMSELECT = NMSELCHANGE;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -2657,31 +2703,31 @@ pub struct NMTBCUSTOMDRAW {
     pub iListGap: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBDISPINFOA {
     pub hdr: super::NMHDR,
-    pub dwMask: u32,
+    pub dwMask: super::DWORD,
     pub idCommand: i32,
-    pub lParam: usize,
+    pub lParam: super::DWORD_PTR,
     pub iImage: i32,
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBDISPINFOW {
     pub hdr: super::NMHDR,
-    pub dwMask: u32,
+    pub dwMask: super::DWORD,
     pub idCommand: i32,
-    pub lParam: usize,
+    pub lParam: super::DWORD_PTR,
     pub iImage: i32,
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBGETINFOTIPA {
     pub hdr: super::NMHDR,
@@ -2691,7 +2737,7 @@ pub struct NMTBGETINFOTIPA {
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBGETINFOTIPW {
     pub hdr: super::NMHDR,
@@ -2701,49 +2747,49 @@ pub struct NMTBGETINFOTIPW {
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBHOTITEM {
     pub hdr: super::NMHDR,
     pub idOld: i32,
     pub idNew: i32,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBRESTORE {
     pub hdr: super::NMHDR,
-    pub pData: *mut u32,
-    pub pCurrent: *mut u32,
-    pub cbData: u32,
+    pub pData: *mut super::DWORD,
+    pub pCurrent: *mut super::DWORD,
+    pub cbData: super::UINT,
     pub iItem: i32,
     pub cButtons: i32,
     pub cbBytesPerRecord: i32,
     pub tbButton: TBBUTTON,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTBSAVE {
     pub hdr: super::NMHDR,
-    pub pData: *mut u32,
-    pub pCurrent: *mut u32,
-    pub cbData: u32,
+    pub pData: *mut super::DWORD,
+    pub pCurrent: *mut super::DWORD,
+    pub cbData: super::UINT,
     pub iItem: i32,
     pub cButtons: i32,
     pub tbButton: TBBUTTON,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTCKEYDOWN {
     pub hdr: super::NMHDR,
-    pub wVKey: u16,
-    pub flags: u32,
+    pub wVKey: super::WORD,
+    pub flags: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTOOLBARA {
     pub hdr: super::NMHDR,
@@ -2754,7 +2800,7 @@ pub struct NMTOOLBARA {
     pub rcButton: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTOOLBARW {
     pub hdr: super::NMHDR,
@@ -2765,59 +2811,59 @@ pub struct NMTOOLBARW {
     pub rcButton: super::RECT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: super::NMHDR,
     pub hwndToolTips: super::HWND,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTRBTHUMBPOSCHANGING {
     pub hdr: super::NMHDR,
-    pub dwPos: u32,
+    pub dwPos: super::DWORD,
     pub nReason: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTREEVIEWA {
     pub hdr: super::NMHDR,
-    pub action: u32,
+    pub action: super::UINT,
     pub itemOld: TVITEMA,
     pub itemNew: TVITEMA,
     pub ptDrag: super::POINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTREEVIEWW {
     pub hdr: super::NMHDR,
-    pub action: u32,
+    pub action: super::UINT,
     pub itemOld: TVITEMW,
     pub itemNew: TVITEMW,
     pub ptDrag: super::POINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTTCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
-    pub uDrawFlags: u32,
+    pub uDrawFlags: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMTTDISPINFOA {
     pub hdr: super::NMHDR,
     pub lpszText: windows_sys::core::PSTR,
     pub szText: [i8; 80],
     pub hinst: super::HINSTANCE,
-    pub uFlags: u32,
+    pub uFlags: super::UINT,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 impl Default for NMTTDISPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2828,17 +2874,17 @@ pub const NMTTDISPINFOA_V1_SIZE: u32 = 104;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const NMTTDISPINFOA_V1_SIZE: u64 = 124;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct NMTTDISPINFOW {
     pub hdr: super::NMHDR,
     pub lpszText: windows_sys::core::PWSTR,
-    pub szText: [u16; 80],
+    pub szText: [super::WCHAR; 80],
     pub hinst: super::HINSTANCE,
-    pub uFlags: u32,
+    pub uFlags: super::UINT,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for NMTTDISPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2853,7 +2899,7 @@ pub const NMTTDISPINFO_V1_SIZE: u32 = 104;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const NMTTDISPINFO_V1_SIZE: u64 = 124;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVASYNCDRAW {
     pub hdr: super::NMHDR,
@@ -2861,11 +2907,11 @@ pub struct NMTVASYNCDRAW {
     pub hr: windows_sys::core::HRESULT,
     pub hItem: HTREEITEM,
     pub lParam: super::LPARAM,
-    pub dwRetFlags: u32,
+    pub dwRetFlags: super::DWORD,
     pub iRetImageIndex: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -2878,35 +2924,35 @@ pub const NMTVCUSTOMDRAW_V3_SIZE: u32 = 56;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const NMTVCUSTOMDRAW_V3_SIZE: u64 = 88;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOA {
     pub hdr: super::NMHDR,
     pub item: TVITEMA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOEXA {
     pub hdr: super::NMHDR,
     pub item: TVITEMEXA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOEXW {
     pub hdr: super::NMHDR,
     pub item: TVITEMEXW,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOW {
     pub hdr: super::NMHDR,
     pub item: TVITEMW,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVGETINFOTIPA {
     pub hdr: super::NMHDR,
@@ -2916,7 +2962,7 @@ pub struct NMTVGETINFOTIPA {
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVGETINFOTIPW {
     pub hdr: super::NMHDR,
@@ -2926,26 +2972,26 @@ pub struct NMTVGETINFOTIPW {
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVITEMCHANGE {
     pub hdr: super::NMHDR,
-    pub uChanged: u32,
+    pub uChanged: super::UINT,
     pub hItem: HTREEITEM,
-    pub uStateNew: u32,
-    pub uStateOld: u32,
+    pub uStateNew: super::UINT,
+    pub uStateOld: super::UINT,
     pub lParam: super::LPARAM,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVKEYDOWN {
     pub hdr: super::NMHDR,
-    pub wVKey: u16,
-    pub flags: u32,
+    pub wVKey: super::WORD,
+    pub flags: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: super::NMHDR,
@@ -2954,7 +3000,7 @@ pub struct NMTVSTATEIMAGECHANGING {
     pub iNewStateImageIndex: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMUPDOWN {
     pub hdr: super::NMHDR,
@@ -2962,12 +3008,12 @@ pub struct NMUPDOWN {
     pub iDelta: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMVIEWCHANGE {
     pub nmhdr: super::NMHDR,
-    pub dwOldView: u32,
-    pub dwNewView: u32,
+    pub dwOldView: super::DWORD,
+    pub dwNewView: super::DWORD,
 }
 pub const NM_CHAR: u32 = 4294967278;
 pub const NM_CLICK: u32 = 4294967294;
@@ -3026,26 +3072,27 @@ pub const PBS_MARQUEE: i32 = 8;
 pub const PBS_SMOOTH: i32 = 1;
 pub const PBS_SMOOTHREVERSE: i32 = 16;
 pub const PBS_VERTICAL: i32 = 4;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PBUTTON_IMAGELIST = *mut BUTTON_IMAGELIST;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PBUTTON_SPLITINFO = *mut BUTTON_SPLITINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCCOMBOEXITEMA = *const COMBOBOXEXITEMA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCCOMBOEXITEMW = *const COMBOBOXEXITEMW;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCOMBOBOXEXITEMA = *mut COMBOBOXEXITEMA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCOMBOBOXEXITEMW = *mut COMBOBOXEXITEMW;
+#[cfg(feature = "shared")]
 pub type PEDITBALLOONTIP = *mut EDITBALLOONTIP;
 #[cfg(feature = "minwindef")]
 pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::LPARAM, param1: super::LPARAM, param2: super::LPARAM) -> i32>;
 pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
 #[cfg(feature = "minwindef")]
 pub type PFNTVCOMPARE = Option<unsafe extern "system" fn(lparam1: super::LPARAM, lparam2: super::LPARAM, lparamsort: super::LPARAM) -> i32>;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM, lprefdata: isize) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, lprefdata: super::LONG_PTR) -> windows_sys::core::HRESULT>;
 pub const PGB_BOTTOMORRIGHT: i32 = 1;
 pub const PGB_TOPORLEFT: i32 = 0;
 pub const PGF_CALCHEIGHT: i32 = 2;
@@ -3086,48 +3133,54 @@ pub const PGS_AUTOSCROLL: i32 = 2;
 pub const PGS_DRAGNDROP: i32 = 4;
 pub const PGS_HORZ: i32 = 1;
 pub const PGS_VERT: i32 = 0;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PLHITTESTINFO = *mut LHITTESTINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PLITEM = *mut LITEM;
+#[cfg(feature = "shared")]
 pub type PLVGROUP = *mut LVGROUP;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PLVGROUPMETRICS = *mut LVGROUPMETRICS;
+#[cfg(feature = "shared")]
 pub type PLVINSERTGROUPSORTED = *mut LVINSERTGROUPSORTED;
 pub type PLVITEMINDEX = *mut LVITEMINDEX;
+#[cfg(feature = "shared")]
 pub type PLVSETINFOTIP = *mut LVSETINFOTIP;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PLVTILEINFO = *mut LVTILEINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PLVTILEVIEWINFO = *mut LVTILEVIEWINFO;
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef"))]
 pub type PMCGRIDINFO = *mut MCGRIDINFO;
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef"))]
 pub type PMCHITTESTINFO = *mut MCHITTESTINFO;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type PNMCBEDRAGBEGINA = *mut NMCBEDRAGBEGINA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PNMCBEDRAGBEGINW = *mut NMCBEDRAGBEGINW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
 pub type PNMCBEENDEDITA = *mut NMCBEENDEDITA;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PNMCBEENDEDITW = *mut NMCBEENDEDITW;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type PNMCOMBOBOXEXA = *mut NMCOMBOBOXEXA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
 pub type PNMCOMBOBOXEXW = *mut NMCOMBOBOXEXW;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PNMLINK = *mut NMLINK;
-#[cfg(all(feature = "windef", feature = "winuser"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PNMLVLINK = *mut NMLVLINK;
 pub type PPBRANGE = *mut PBRANGE;
 pub const PROGRESS_CLASS: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_progress32");
 pub const PROGRESS_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("msctls_progress32");
 pub const PROGRESS_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("msctls_progress32");
+#[cfg(feature = "shared")]
 pub type PTBBUTTON = *mut TBBUTTON;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PTOOLINFOA = *mut TTTOOLINFOA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PTOOLINFOW = *mut TTTOOLINFOW;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTTGETTITLE = *mut TTGETTITLE;
 pub const RBAB_ADDBAND: i32 = 2;
 pub const RBAB_AUTOSIZE: i32 = 1;
@@ -3158,11 +3211,11 @@ pub const RBBS_TOPALIGN: i32 = 2048;
 pub const RBBS_USECHEVRON: i32 = 512;
 pub const RBBS_VARIABLEHEIGHT: i32 = 64;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct RBHITTESTINFO {
     pub pt: super::POINT,
-    pub flags: u32,
+    pub flags: super::UINT,
     pub iBand: i32,
 }
 pub const RBHT_CAPTION: i32 = 2;
@@ -3248,31 +3301,31 @@ pub const RB_SETWINDOWTHEME: i32 = 8203;
 pub const RB_SHOWBAND: i32 = 1059;
 pub const RB_SIZETORECT: i32 = 1047;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct REBARBANDINFOA {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub fStyle: u32,
+    pub cbSize: super::UINT,
+    pub fMask: super::UINT,
+    pub fStyle: super::UINT,
     pub clrFore: super::COLORREF,
     pub clrBack: super::COLORREF,
     pub lpText: windows_sys::core::PSTR,
-    pub cch: u32,
+    pub cch: super::UINT,
     pub iImage: i32,
     pub hwndChild: super::HWND,
-    pub cxMinChild: u32,
-    pub cyMinChild: u32,
-    pub cx: u32,
+    pub cxMinChild: super::UINT,
+    pub cyMinChild: super::UINT,
+    pub cx: super::UINT,
     pub hbmBack: super::HBITMAP,
-    pub wID: u32,
-    pub cyChild: u32,
-    pub cyMaxChild: u32,
-    pub cyIntegral: u32,
-    pub cxIdeal: u32,
+    pub wID: super::UINT,
+    pub cyChild: super::UINT,
+    pub cyMaxChild: super::UINT,
+    pub cyIntegral: super::UINT,
+    pub cxIdeal: super::UINT,
     pub lParam: super::LPARAM,
-    pub cxHeader: u32,
+    pub cxHeader: super::UINT,
     pub rcChevronLocation: super::RECT,
-    pub uChevronState: u32,
+    pub uChevronState: super::UINT,
 }
 #[cfg(target_arch = "x86")]
 pub const REBARBANDINFOA_V3_SIZE: u32 = 56;
@@ -3283,31 +3336,31 @@ pub const REBARBANDINFOA_V6_SIZE: u32 = 80;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const REBARBANDINFOA_V6_SIZE: u64 = 108;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct REBARBANDINFOW {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub fStyle: u32,
+    pub cbSize: super::UINT,
+    pub fMask: super::UINT,
+    pub fStyle: super::UINT,
     pub clrFore: super::COLORREF,
     pub clrBack: super::COLORREF,
     pub lpText: windows_sys::core::PWSTR,
-    pub cch: u32,
+    pub cch: super::UINT,
     pub iImage: i32,
     pub hwndChild: super::HWND,
-    pub cxMinChild: u32,
-    pub cyMinChild: u32,
-    pub cx: u32,
+    pub cxMinChild: super::UINT,
+    pub cyMinChild: super::UINT,
+    pub cx: super::UINT,
     pub hbmBack: super::HBITMAP,
-    pub wID: u32,
-    pub cyChild: u32,
-    pub cyMaxChild: u32,
-    pub cyIntegral: u32,
-    pub cxIdeal: u32,
+    pub wID: super::UINT,
+    pub cyChild: super::UINT,
+    pub cyMaxChild: super::UINT,
+    pub cyIntegral: super::UINT,
+    pub cxIdeal: super::UINT,
     pub lParam: super::LPARAM,
-    pub cxHeader: u32,
+    pub cxHeader: super::UINT,
     pub rcChevronLocation: super::RECT,
-    pub uChevronState: u32,
+    pub uChevronState: super::UINT,
 }
 #[cfg(target_arch = "x86")]
 pub const REBARBANDINFOW_V3_SIZE: u32 = 56;
@@ -3329,10 +3382,11 @@ pub const REBARCLASSNAME: windows_sys::core::PCSTR = windows_sys::core::s!("ReBa
 pub const REBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
 pub const REBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct REBARINFO {
-    pub cbSize: u32,
-    pub fMask: u32,
+    pub cbSize: super::UINT,
+    pub fMask: super::UINT,
     pub himl: HIMAGELIST,
 }
 pub const SBARS_SIZEGRIP: i32 = 256;
@@ -3392,13 +3446,13 @@ pub const STD_PROPERTIES: i32 = 10;
 pub const STD_REDOW: i32 = 4;
 pub const STD_REPLACE: i32 = 13;
 pub const STD_UNDO: i32 = 3;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type SUBCLASSPROC = Option<unsafe extern "system" fn(hwnd: super::HWND, umsg: u32, wparam: super::WPARAM, lparam: super::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::LRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type SUBCLASSPROC = Option<unsafe extern "system" fn(hwnd: super::HWND, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM, uidsubclass: super::UINT_PTR, dwrefdata: super::DWORD_PTR) -> super::LRESULT>;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct TASKDIALOGCONFIG {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub hwndParent: super::HWND,
     pub hInstance: super::HINSTANCE,
     pub dwFlags: TASKDIALOG_FLAGS,
@@ -3407,10 +3461,10 @@ pub struct TASKDIALOGCONFIG {
     pub Anonymous: TASKDIALOGCONFIG_0,
     pub pszMainInstruction: windows_sys::core::PCWSTR,
     pub pszContent: windows_sys::core::PCWSTR,
-    pub cButtons: u32,
+    pub cButtons: super::UINT,
     pub pButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultButton: i32,
-    pub cRadioButtons: u32,
+    pub cRadioButtons: super::UINT,
     pub pRadioButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultRadioButton: i32,
     pub pszVerificationText: windows_sys::core::PCWSTR,
@@ -3420,36 +3474,36 @@ pub struct TASKDIALOGCONFIG {
     pub Anonymous2: TASKDIALOGCONFIG_1,
     pub pszFooter: windows_sys::core::PCWSTR,
     pub pfCallback: PFTASKDIALOGCALLBACK,
-    pub lpCallbackData: isize,
-    pub cxWidth: u32,
+    pub lpCallbackData: super::LONG_PTR,
+    pub cxWidth: super::UINT,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for TASKDIALOGCONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union TASKDIALOGCONFIG_0 {
     pub hMainIcon: super::HICON,
     pub pszMainIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for TASKDIALOGCONFIG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::HICON,
     pub pszFooterIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for TASKDIALOGCONFIG_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3468,26 +3522,28 @@ pub type TASKDIALOG_ICON_ELEMENTS = i32;
 pub type TASKDIALOG_MESSAGES = i32;
 pub type TASKDIALOG_NOTIFICATIONS = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TBADDBITMAP {
     pub hInst: super::HINSTANCE,
-    pub nID: usize,
+    pub nID: super::UINT_PTR,
 }
 pub const TBBF_LARGE: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub bReserved: [u8; 2],
-    pub dwData: usize,
-    pub iString: isize,
+    pub fsState: super::BYTE,
+    pub fsStyle: super::BYTE,
+    pub bReserved: [super::BYTE; 2],
+    pub dwData: super::DWORD_PTR,
+    pub iString: super::INT_PTR,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for TBBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3495,47 +3551,51 @@ impl Default for TBBUTTON {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub bReserved: [u8; 6],
-    pub dwData: usize,
-    pub iString: isize,
+    pub fsState: super::BYTE,
+    pub fsStyle: super::BYTE,
+    pub bReserved: [super::BYTE; 6],
+    pub dwData: super::DWORD_PTR,
+    pub iString: super::INT_PTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for TBBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TBBUTTONINFOA {
-    pub cbSize: u32,
-    pub dwMask: u32,
+    pub cbSize: super::UINT,
+    pub dwMask: super::DWORD,
     pub idCommand: i32,
     pub iImage: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub cx: u16,
-    pub lParam: usize,
+    pub fsState: super::BYTE,
+    pub fsStyle: super::BYTE,
+    pub cx: super::WORD,
+    pub lParam: super::DWORD_PTR,
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TBBUTTONINFOW {
-    pub cbSize: u32,
-    pub dwMask: u32,
+    pub cbSize: super::UINT,
+    pub dwMask: super::DWORD,
     pub idCommand: i32,
     pub iImage: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub cx: u16,
-    pub lParam: usize,
+    pub fsState: super::BYTE,
+    pub fsStyle: super::BYTE,
+    pub cx: super::WORD,
+    pub lParam: super::DWORD_PTR,
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
@@ -3564,16 +3624,18 @@ pub const TBIF_TEXT: i32 = 2;
 pub const TBIMHT_AFTER: i32 = 1;
 pub const TBIMHT_BACKGROUND: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TBINSERTMARK {
     pub iButton: i32,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TBMETRICS {
-    pub cbSize: u32,
-    pub dwMask: u32,
+    pub cbSize: super::UINT,
+    pub dwMask: super::DWORD,
     pub cxPad: i32,
     pub cyPad: i32,
     pub cxBarPad: i32,
@@ -3659,13 +3721,13 @@ pub const TBN_TOOLBARCHANGE: u32 = 4294966588;
 pub const TBN_WRAPACCELERATOR: u32 = 4294966570;
 pub const TBN_WRAPHOTITEM: u32 = 4294966572;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TBREPLACEBITMAP {
     pub hInstOld: super::HINSTANCE,
-    pub nIDOld: usize,
+    pub nIDOld: super::UINT_PTR,
     pub hInstNew: super::HINSTANCE,
-    pub nIDNew: usize,
+    pub nIDNew: super::UINT_PTR,
     pub nButtons: i32,
 }
 #[repr(C)]
@@ -3856,11 +3918,11 @@ pub const TB_THUMBPOSITION: i32 = 4;
 pub const TB_THUMBTRACK: i32 = 5;
 pub const TB_TOP: i32 = 6;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TCHITTESTINFO {
     pub pt: super::POINT,
-    pub flags: u32,
+    pub flags: super::UINT,
 }
 pub const TCHT_NOWHERE: i32 = 1;
 pub const TCHT_ONITEM: i32 = 6;
@@ -3874,44 +3936,46 @@ pub const TCIF_TEXT: i32 = 1;
 pub const TCIS_BUTTONPRESSED: i32 = 1;
 pub const TCIS_HIGHLIGHTED: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TCITEMA {
-    pub mask: u32,
-    pub dwState: u32,
-    pub dwStateMask: u32,
+    pub mask: super::UINT,
+    pub dwState: super::DWORD,
+    pub dwStateMask: super::DWORD,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCITEMHEADERA {
-    pub mask: u32,
-    pub lpReserved1: u32,
-    pub lpReserved2: u32,
+    pub mask: super::UINT,
+    pub lpReserved1: super::UINT,
+    pub lpReserved2: super::UINT,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCITEMHEADERW {
-    pub mask: u32,
-    pub lpReserved1: u32,
-    pub lpReserved2: u32,
+    pub mask: super::UINT,
+    pub lpReserved1: super::UINT,
+    pub lpReserved2: super::UINT,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TCITEMW {
-    pub mask: u32,
-    pub dwState: u32,
-    pub dwStateMask: u32,
+    pub mask: super::UINT,
+    pub dwState: super::DWORD,
+    pub dwStateMask: super::DWORD,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -4068,15 +4132,16 @@ pub const TTF_SUBCLASS: i32 = 16;
 pub const TTF_TRACK: i32 = 32;
 pub const TTF_TRANSPARENT: i32 = 256;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct TTGETTITLE {
-    pub dwSize: u32,
-    pub uTitleBitmap: u32,
-    pub cch: u32,
-    pub pszTitle: *mut u16,
+    pub dwSize: super::DWORD,
+    pub uTitleBitmap: super::UINT,
+    pub cch: super::UINT,
+    pub pszTitle: *mut super::WCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TTHITTESTINFOA {
     pub hwnd: super::HWND,
@@ -4084,7 +4149,7 @@ pub struct TTHITTESTINFOA {
     pub ti: TTTOOLINFOA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::HWND,
@@ -4173,13 +4238,13 @@ pub const TTS_NOFADE: i32 = 32;
 pub const TTS_NOPREFIX: i32 = 2;
 pub const TTS_USEVISUALSTYLE: i32 = 256;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TTTOOLINFOA {
-    pub cbSize: u32,
-    pub uFlags: u32,
+    pub cbSize: super::UINT,
+    pub uFlags: super::UINT,
     pub hwnd: super::HWND,
-    pub uId: usize,
+    pub uId: super::UINT_PTR,
     pub rect: super::RECT,
     pub hinst: super::HINSTANCE,
     pub lpszText: windows_sys::core::PSTR,
@@ -4199,13 +4264,13 @@ pub const TTTOOLINFOA_V3_SIZE: u32 = 48;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const TTTOOLINFOA_V3_SIZE: u64 = 72;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TTTOOLINFOW {
-    pub cbSize: u32,
-    pub uFlags: u32,
+    pub cbSize: super::UINT,
+    pub uFlags: super::UINT,
     pub hwnd: super::HWND,
-    pub uId: usize,
+    pub uId: super::UINT_PTR,
     pub rect: super::RECT,
     pub hinst: super::HINSTANCE,
     pub lpszText: windows_sys::core::PWSTR,
@@ -4238,7 +4303,7 @@ pub const TVE_EXPAND: i32 = 2;
 pub const TVE_EXPANDPARTIAL: i32 = 16384;
 pub const TVE_TOGGLE: i32 = 3;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TVGETITEMPARTRECTINFO {
     pub hti: HTREEITEM,
@@ -4259,11 +4324,11 @@ pub const TVGN_PREVIOUS: i32 = 2;
 pub const TVGN_PREVIOUSVISIBLE: i32 = 7;
 pub const TVGN_ROOT: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TVHITTESTINFO {
     pub pt: super::POINT,
-    pub flags: u32,
+    pub flags: super::UINT,
     pub hItem: HTREEITEM,
 }
 pub const TVHT_ABOVE: i32 = 256;
@@ -4290,27 +4355,27 @@ pub const TVIF_STATE: i32 = 8;
 pub const TVIF_STATEEX: i32 = 256;
 pub const TVIF_TEXT: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct TVINSERTSTRUCTA {
     pub hParent: HTREEITEM,
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTA_0,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for TVINSERTSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union TVINSERTSTRUCTA_0 {
     pub itemex: TVITEMEXA,
     pub item: TVITEMA,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for TVINSERTSTRUCTA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4321,27 +4386,27 @@ pub const TVINSERTSTRUCTA_V1_SIZE: u32 = 48;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const TVINSERTSTRUCTA_V1_SIZE: u64 = 72;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct TVINSERTSTRUCTW {
     pub hParent: HTREEITEM,
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTW_0,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for TVINSERTSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union TVINSERTSTRUCTW_0 {
     pub itemex: TVITEMEXW,
     pub item: TVITEMW,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for TVINSERTSTRUCTW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4369,13 +4434,13 @@ pub const TVIS_SELECTED: i32 = 2;
 pub const TVIS_STATEIMAGEMASK: i32 = 61440;
 pub const TVIS_USERMASK: i32 = 61440;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TVITEMA {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -4383,16 +4448,16 @@ pub struct TVITEMA {
     pub cChildren: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type TVITEMEX = TVITEMEXA;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TVITEMEXA {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -4400,19 +4465,19 @@ pub struct TVITEMEXA {
     pub cChildren: i32,
     pub lParam: super::LPARAM,
     pub iIntegral: i32,
-    pub uStateEx: u32,
+    pub uStateEx: super::UINT,
     pub hwnd: super::HWND,
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TVITEMEXW {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -4420,20 +4485,20 @@ pub struct TVITEMEXW {
     pub cChildren: i32,
     pub lParam: super::LPARAM,
     pub iIntegral: i32,
-    pub uStateEx: u32,
+    pub uStateEx: super::UINT,
     pub hwnd: super::HWND,
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
 pub type TVITEMPART = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TVITEMW {
-    pub mask: u32,
+    pub mask: super::UINT,
     pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: super::UINT,
+    pub stateMask: super::UINT,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -4598,10 +4663,11 @@ pub const TVS_SINGLEEXPAND: i32 = 1024;
 pub const TVS_TRACKSELECT: i32 = 512;
 pub const TV_FIRST: i32 = 4352;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct UDACCEL {
-    pub nSec: u32,
-    pub nInc: u32,
+    pub nSec: super::UINT,
+    pub nInc: super::UINT,
 }
 pub const UDM_GETACCEL: i32 = 1132;
 pub const UDM_GETBASE: i32 = 1134;

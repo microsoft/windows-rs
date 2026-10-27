@@ -4,13 +4,21 @@ pub const CMultiLanguage: windows_sys::core::GUID = windows_sys::core::GUID::fro
 pub const CPIOD_FORCE_PROMPT: u32 = 2147483648;
 pub const CPIOD_PEEK: i32 = 1073741824;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DetectEncodingInfo {
-    pub nLangID: u32,
-    pub nCodePage: u32,
-    pub nDocPercent: i32,
-    pub nConfidence: i32,
+    pub nLangID: super::UINT,
+    pub nCodePage: super::UINT,
+    pub nDocPercent: super::INT,
+    pub nConfidence: super::INT,
 }
+pub type LPENUMCODEPAGE = *mut core::ffi::c_void;
+pub type LPENUMRFC1766 = *mut core::ffi::c_void;
+pub type LPENUMScript = *mut core::ffi::c_void;
+pub type LPMLANGCONVERTCHARSET = *mut core::ffi::c_void;
+pub type LPMULTILANGUAGE = *mut core::ffi::c_void;
+pub type LPMULTILANGUAGE2 = *mut core::ffi::c_void;
+pub type LPMULTILANGUAGE3 = *mut core::ffi::c_void;
 pub const MAX_LOCALE_NAME: i32 = 32;
 pub const MAX_MIMECP_NAME: i32 = 64;
 pub const MAX_MIMECSET_NAME: i32 = 50;
@@ -32,31 +40,35 @@ pub const MIMECONTF_SAVABLE_MAILNEWS: MIMECONTF = 256;
 pub const MIMECONTF_VALID: MIMECONTF = 131072;
 pub const MIMECONTF_VALID_NLS: MIMECONTF = 262144;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIMECPINFO {
-    pub dwFlags: u32,
-    pub uiCodePage: u32,
-    pub uiFamilyCodePage: u32,
-    pub wszDescription: [u16; 64],
-    pub wszWebCharset: [u16; 50],
-    pub wszHeaderCharset: [u16; 50],
-    pub wszBodyCharset: [u16; 50],
-    pub wszFixedWidthFont: [u16; 32],
-    pub wszProportionalFont: [u16; 32],
-    pub bGDICharset: u8,
+    pub dwFlags: super::DWORD,
+    pub uiCodePage: super::UINT,
+    pub uiFamilyCodePage: super::UINT,
+    pub wszDescription: [super::WCHAR; 64],
+    pub wszWebCharset: [super::WCHAR; 50],
+    pub wszHeaderCharset: [super::WCHAR; 50],
+    pub wszBodyCharset: [super::WCHAR; 50],
+    pub wszFixedWidthFont: [super::WCHAR; 32],
+    pub wszProportionalFont: [super::WCHAR; 32],
+    pub bGDICharset: super::BYTE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIMECPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIMECSETINFO {
-    pub uiCodePage: u32,
-    pub uiInternetEncoding: u32,
-    pub wszCharset: [u16; 50],
+    pub uiCodePage: super::UINT,
+    pub uiInternetEncoding: super::UINT,
+    pub wszCharset: [super::WCHAR; 50],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIMECSETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -89,21 +101,28 @@ pub const MLDETECTF_VALID_NLS: MLCP = 8;
 pub type MLSTR_FLAGS = i32;
 pub const MLSTR_READ: MLSTR_FLAGS = 1;
 pub const MLSTR_WRITE: MLSTR_FLAGS = 2;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIMECPINFO = *mut MIMECPINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIMECSETINFO = *mut MIMECSETINFO;
-#[cfg(feature = "winnt")]
+pub type PMLANGCODEPAGES = *mut core::ffi::c_void;
+pub type PMLANGFONTLINK = *mut core::ffi::c_void;
+pub type PMLANGFONTLINK2 = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRFC1766INFO = *mut RFC1766INFO;
+#[cfg(feature = "winnt")]
 pub type PSCRIPTFONTINFO = *mut SCRIPTFONTINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCRIPTINFO = *mut SCRIPTINFO;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RFC1766INFO {
     pub lcid: super::LCID,
-    pub wszRfc1766: [u16; 6],
-    pub wszLocaleName: [u16; 32],
+    pub wszRfc1766: [super::WCHAR; 6],
+    pub wszLocaleName: [super::WCHAR; 32],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for RFC1766INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -117,25 +136,29 @@ pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = 262144;
 pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = 65536;
 pub type SCRIPTFONTCONTF = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SCRIPTFONTINFO {
     pub scripts: SCRIPT_IDS,
-    pub wszFont: [u16; 32],
+    pub wszFont: [super::WCHAR; 32],
 }
+#[cfg(feature = "winnt")]
 impl Default for SCRIPTFONTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SCRIPTINFO {
     pub ScriptId: SCRIPT_ID,
-    pub uiCodePage: u32,
-    pub wszDescription: [u16; 48],
-    pub wszFixedWidthFont: [u16; 32],
-    pub wszProportionalFont: [u16; 32],
+    pub uiCodePage: super::UINT,
+    pub wszDescription: [super::WCHAR; 48],
+    pub wszFixedWidthFont: [super::WCHAR; 32],
+    pub wszProportionalFont: [super::WCHAR; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCRIPTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -144,11 +167,13 @@ impl Default for SCRIPTINFO {
 pub type SCRIPT_ID = u8;
 pub type SCRIPT_IDS = i64;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct UNICODERANGE {
-    pub wcFrom: u16,
-    pub wcTo: u16,
+    pub wcFrom: super::WCHAR,
+    pub wcTo: super::WCHAR,
 }
+#[cfg(feature = "shared")]
 pub type pDetectEncodingInfo = *mut DetectEncodingInfo;
 pub const sidArabic: SCRIPTCONTF = 9;
 pub const sidArmenian: SCRIPTCONTF = 7;

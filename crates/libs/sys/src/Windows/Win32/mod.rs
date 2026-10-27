@@ -7,10 +7,10 @@ pub use accctrl::*;
 pub mod aclapi;
 #[cfg(feature = "aclapi")]
 pub use aclapi::*;
-#[cfg(feature = "activationregistration")]
-pub mod activationregistration;
-#[cfg(feature = "activationregistration")]
-pub use activationregistration::*;
+#[cfg(feature = "activation")]
+pub mod activation;
+#[cfg(feature = "activation")]
+pub use activation::*;
 #[cfg(feature = "adshlp")]
 pub mod adshlp;
 #[cfg(feature = "adshlp")]
@@ -35,10 +35,6 @@ pub use amvideo::*;
 pub mod appmodel;
 #[cfg(feature = "appmodel")]
 pub use appmodel::*;
-#[cfg(feature = "appserviceinterop")]
-pub mod appserviceinterop;
-#[cfg(feature = "appserviceinterop")]
-pub use appserviceinterop::*;
 #[cfg(feature = "appxpackaging")]
 pub mod appxpackaging;
 #[cfg(feature = "appxpackaging")]
@@ -591,10 +587,70 @@ pub use fwpmu::*;
 pub mod fwptypes;
 #[cfg(feature = "fwptypes")]
 pub use fwptypes::*;
+#[cfg(feature = "fwpvi")]
+pub mod fwpvi;
+#[cfg(feature = "fwpvi")]
+pub use fwpvi::*;
 #[cfg(feature = "gameux")]
 pub mod gameux;
 #[cfg(feature = "gameux")]
 pub use gameux::*;
+#[cfg(feature = "gdiplusbase")]
+pub mod gdiplusbase;
+#[cfg(feature = "gdiplusbase")]
+pub use gdiplusbase::*;
+#[cfg(feature = "gdipluscolor")]
+pub mod gdipluscolor;
+#[cfg(feature = "gdipluscolor")]
+pub use gdipluscolor::*;
+#[cfg(feature = "gdipluscolormatrix")]
+pub mod gdipluscolormatrix;
+#[cfg(feature = "gdipluscolormatrix")]
+pub use gdipluscolormatrix::*;
+#[cfg(feature = "gdipluseffects")]
+pub mod gdipluseffects;
+#[cfg(feature = "gdipluseffects")]
+pub use gdipluseffects::*;
+#[cfg(feature = "gdiplusenums")]
+pub mod gdiplusenums;
+#[cfg(feature = "gdiplusenums")]
+pub use gdiplusenums::*;
+#[cfg(feature = "gdiplusflat")]
+pub mod gdiplusflat;
+#[cfg(feature = "gdiplusflat")]
+pub use gdiplusflat::*;
+#[cfg(feature = "gdiplusgpstubs")]
+pub mod gdiplusgpstubs;
+#[cfg(feature = "gdiplusgpstubs")]
+pub use gdiplusgpstubs::*;
+#[cfg(feature = "gdiplusimaging")]
+pub mod gdiplusimaging;
+#[cfg(feature = "gdiplusimaging")]
+pub use gdiplusimaging::*;
+#[cfg(feature = "gdiplusinit")]
+pub mod gdiplusinit;
+#[cfg(feature = "gdiplusinit")]
+pub use gdiplusinit::*;
+#[cfg(feature = "gdiplusmatrix")]
+pub mod gdiplusmatrix;
+#[cfg(feature = "gdiplusmatrix")]
+pub use gdiplusmatrix::*;
+#[cfg(feature = "gdiplusmem")]
+pub mod gdiplusmem;
+#[cfg(feature = "gdiplusmem")]
+pub use gdiplusmem::*;
+#[cfg(feature = "gdiplusmetaheader")]
+pub mod gdiplusmetaheader;
+#[cfg(feature = "gdiplusmetaheader")]
+pub use gdiplusmetaheader::*;
+#[cfg(feature = "gdipluspixelformats")]
+pub mod gdipluspixelformats;
+#[cfg(feature = "gdipluspixelformats")]
+pub use gdipluspixelformats::*;
+#[cfg(feature = "gdiplustypes")]
+pub mod gdiplustypes;
+#[cfg(feature = "gdiplustypes")]
+pub use gdiplustypes::*;
 #[cfg(feature = "gl")]
 pub mod gl;
 #[cfg(feature = "gl")]
@@ -639,10 +695,6 @@ pub use hidusage::*;
 pub mod hlink;
 #[cfg(feature = "hlink")]
 pub use hlink::*;
-#[cfg(feature = "holographicspaceinterop")]
-pub mod holographicspaceinterop;
-#[cfg(feature = "holographicspaceinterop")]
-pub use holographicspaceinterop::*;
 #[cfg(feature = "hstring")]
 pub mod hstring;
 #[cfg(feature = "hstring")]
@@ -727,6 +779,10 @@ pub use inspectable::*;
 pub mod interlockedapi;
 #[cfg(feature = "interlockedapi")]
 pub use interlockedapi::*;
+#[cfg(feature = "intsafe")]
+pub mod intsafe;
+#[cfg(feature = "intsafe")]
+pub use intsafe::*;
 #[cfg(feature = "intshcut")]
 pub mod intshcut;
 #[cfg(feature = "intshcut")]
@@ -799,6 +855,10 @@ pub use ks::*;
 pub mod ksmedia;
 #[cfg(feature = "ksmedia")]
 pub use ksmedia::*;
+#[cfg(feature = "ksuuids")]
+pub mod ksuuids;
+#[cfg(feature = "ksuuids")]
+pub use ksuuids::*;
 #[cfg(feature = "ktmtypes")]
 pub mod ktmtypes;
 #[cfg(feature = "ktmtypes")]
@@ -859,6 +919,10 @@ pub use lmserver::*;
 pub mod lmshare;
 #[cfg(feature = "lmshare")]
 pub use lmshare::*;
+#[cfg(feature = "lmsname")]
+pub mod lmsname;
+#[cfg(feature = "lmsname")]
+pub use lmsname::*;
 #[cfg(feature = "lmstats")]
 pub mod lmstats;
 #[cfg(feature = "lmstats")]
@@ -1507,10 +1571,18 @@ pub use sensapi::*;
 pub mod sensorsapi;
 #[cfg(feature = "sensorsapi")]
 pub use sensorsapi::*;
+#[cfg(feature = "servprov")]
+pub mod servprov;
+#[cfg(feature = "servprov")]
+pub use servprov::*;
 #[cfg(feature = "setupapi")]
 pub mod setupapi;
 #[cfg(feature = "setupapi")]
 pub use setupapi::*;
+#[cfg(feature = "shared")]
+pub mod shared;
+#[cfg(feature = "shared")]
+pub use shared::*;
 #[cfg(feature = "shcore")]
 pub mod shcore;
 #[cfg(feature = "shcore")]
@@ -1607,6 +1679,10 @@ pub use sqlucode::*;
 pub mod sspi;
 #[cfg(feature = "sspi")]
 pub use sspi::*;
+#[cfg(feature = "stdint")]
+pub mod stdint;
+#[cfg(feature = "stdint")]
+pub use stdint::*;
 #[cfg(feature = "stgprop")]
 pub mod stgprop;
 #[cfg(feature = "stgprop")]
@@ -1775,6 +1851,10 @@ pub use uiautomationclient::*;
 pub mod uiautomationcore;
 #[cfg(feature = "uiautomationcore")]
 pub use uiautomationcore::*;
+#[cfg(feature = "uiautomationcoreapi")]
+pub mod uiautomationcoreapi;
+#[cfg(feature = "uiautomationcoreapi")]
+pub use uiautomationcoreapi::*;
 #[cfg(feature = "unknwnbase")]
 pub mod unknwnbase;
 #[cfg(feature = "unknwnbase")]
@@ -1811,14 +1891,14 @@ pub use usp10::*;
 pub mod utilapiset;
 #[cfg(feature = "utilapiset")]
 pub use utilapiset::*;
+#[cfg(feature = "uuids")]
+pub mod uuids;
+#[cfg(feature = "uuids")]
+pub use uuids::*;
 #[cfg(feature = "uxtheme")]
 pub mod uxtheme;
 #[cfg(feature = "uxtheme")]
 pub use uxtheme::*;
-#[cfg(feature = "vadefs")]
-pub mod vadefs;
-#[cfg(feature = "vadefs")]
-pub use vadefs::*;
 #[cfg(feature = "vds")]
 pub mod vds;
 #[cfg(feature = "vds")]
@@ -1983,6 +2063,14 @@ pub use windowsdatapdfinterop::*;
 pub mod windowsgraphicsdirectxdirect3d11interop;
 #[cfg(feature = "windowsgraphicsdirectxdirect3d11interop")]
 pub use windowsgraphicsdirectxdirect3d11interop::*;
+#[cfg(feature = "windowsgraphicsimaginginterop")]
+pub mod windowsgraphicsimaginginterop;
+#[cfg(feature = "windowsgraphicsimaginginterop")]
+pub use windowsgraphicsimaginginterop::*;
+#[cfg(feature = "windowsmediacoreinterop")]
+pub mod windowsmediacoreinterop;
+#[cfg(feature = "windowsmediacoreinterop")]
+pub use windowsmediacoreinterop::*;
 #[cfg(feature = "windowsstoragecom")]
 pub mod windowsstoragecom;
 #[cfg(feature = "windowsstoragecom")]
@@ -2022,10 +2110,12 @@ pub use winhttp::*;
 #[cfg(feature = "winhvplatform")]
 pub mod winhvplatform;
 #[cfg(feature = "winhvplatform")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub use winhvplatform::*;
 #[cfg(feature = "winhvplatformdefs")]
 pub mod winhvplatformdefs;
 #[cfg(feature = "winhvplatformdefs")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub use winhvplatformdefs::*;
 #[cfg(feature = "wininet")]
 pub mod wininet;
@@ -2135,6 +2225,10 @@ pub use wmp::*;
 pub mod wmpids;
 #[cfg(feature = "wmpids")]
 pub use wmpids::*;
+#[cfg(feature = "wmsbuffer")]
+pub mod wmsbuffer;
+#[cfg(feature = "wmsbuffer")]
+pub use wmsbuffer::*;
 #[cfg(feature = "wmsdkidl")]
 pub mod wmsdkidl;
 #[cfg(feature = "wmsdkidl")]
@@ -2205,7 +2299,83 @@ pub mod xmllite;
 pub use xmllite::*;
 #[cfg(feature = "xps")]
 pub mod xps;
-#[cfg(any(feature = "ro", feature = "xamlom"))]
+#[cfg(feature = "xamlom")]
 pub use core::option::Option::None;
+#[cfg(feature = "gdiplustypes")]
+pub use core::result::Result::Ok;
 #[cfg(feature = "xps")]
 pub use xps::*;
+#[doc = r" A fixed 64-bit address, not a native Rust pointer."]
+#[doc(hidden)]
+#[repr(C)]
+pub struct __windows_bindgen_Pointer64<P> {
+    address: u64,
+    pointer: core::marker::PhantomData<fn() -> P>,
+}
+impl<P> __windows_bindgen_Pointer64<P> {
+    pub const fn from_address(address: u64) -> Self {
+        Self { address, pointer: core::marker::PhantomData }
+    }
+    pub const fn address(self) -> u64 {
+        self.address
+    }
+}
+impl<P> Copy for __windows_bindgen_Pointer64<P> {}
+impl<P> Clone for __windows_bindgen_Pointer64<P> {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl<P> Default for __windows_bindgen_Pointer64<P> {
+    fn default() -> Self {
+        Self::from_address(0)
+    }
+}
+impl<P> PartialEq for __windows_bindgen_Pointer64<P> {
+    fn eq(&self, other: &Self) -> bool {
+        self.address == other.address
+    }
+}
+impl<P> Eq for __windows_bindgen_Pointer64<P> {}
+impl<P> core::fmt::Debug for __windows_bindgen_Pointer64<P> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("Pointer64").field(&self.address).finish()
+    }
+}
+#[doc = r" Unaligned native field storage. No references to the stored value are exposed."]
+#[doc(hidden)]
+#[repr(C)]
+pub struct __windows_bindgen_Unaligned<T, const N: usize> {
+    bytes: [core::mem::MaybeUninit<u8>; N],
+    value: core::marker::PhantomData<T>,
+}
+impl<T, const N: usize> __windows_bindgen_Unaligned<T, N> {
+    pub fn new(value: T) -> Self {
+        let mut result = Self { bytes: [core::mem::MaybeUninit::uninit(); N], value: core::marker::PhantomData };
+        result.write(value);
+        result
+    }
+    #[doc = r" Copies the stored value without creating an aligned reference."]
+    #[doc = r""]
+    #[doc = r" # Safety"]
+    #[doc = r""]
+    #[doc = r" Storage must contain a valid, initialized `T`. For non-`Copy` values,"]
+    #[doc = r" the caller must prevent duplicated ownership and subsequent reads."]
+    pub unsafe fn read(&self) -> T {
+        assert_eq!(N,::core::mem::size_of::<T>());
+        unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
+    }
+    #[doc = r" Writes a value without dropping the previous contents."]
+    pub fn write(&mut self, value: T) {
+        assert_eq!(N,::core::mem::size_of::<T>());
+        unsafe {
+            self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value);
+        }
+    }
+}
+impl<T: Copy, const N: usize> Copy for __windows_bindgen_Unaligned<T, N> {}
+impl<T: Copy, const N: usize> Clone for __windows_bindgen_Unaligned<T, N> {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

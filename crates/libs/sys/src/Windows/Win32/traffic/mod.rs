@@ -1,160 +1,160 @@
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::HANDLE, pgenericfilter : PTC_GEN_FILTER, pfilterhandle : super::PHANDLE) -> u32);
-#[cfg(all(feature = "qos", feature = "winnt"))]
-windows_link::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::HANDLE, clflowctx : super::HANDLE, flags : u32, pgenericflow : PTC_GEN_FLOW, pflowhandle : super::PHANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcCloseInterface(ifchandle : super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcDeleteFilter(filterhandle : super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcDeleteFlow(flowhandle : super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcDeregisterClient(clienthandle : super::HANDLE) -> u32);
-#[cfg(all(feature = "minwindef", feature = "qos", feature = "winnt"))]
-windows_link::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::HANDLE, penumhandle : super::PHANDLE, pflowcount : super::PULONG, pbufsize : super::PULONG, buffer : PENUMERATION_BUFFER) -> u32);
-#[cfg(all(feature = "minwindef", feature = "ntddndis", feature = "winnt"))]
-windows_link::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::HANDLE, pbuffersize : super::PULONG, interfacebuffer : PTC_IFC_DESCRIPTOR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::HANDLE, strsize : u32, pflowname : windows_sys::core::PSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::HANDLE, strsize : u32, pflowname : windows_sys::core::PWSTR) -> u32);
-#[cfg(all(feature = "qos", feature = "winnt"))]
-windows_link::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::HANDLE, pgenericflow : PTC_GEN_FLOW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_sys::core::PCSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : super::PHANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_sys::core::PCWSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : super::PHANDLE) -> u32);
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
-windows_link::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : super::LPGUID, pbuffersize : super::PULONG, buffer : *mut core::ffi::c_void) -> u32);
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
-windows_link::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : super::LPGUID, pbuffersize : super::PULONG, buffer : *mut core::ffi::c_void) -> u32);
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::HANDLE, pguidparam : super::LPGUID, notifychange : super::BOOLEAN, pbuffersize : super::PULONG, buffer : *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::HANDLE, clienthandlerlist : PTCI_CLIENT_FUNC_LIST, pclienthandle : super::PHANDLE) -> u32);
-#[cfg(feature = "guiddef")]
-windows_link::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : super::LPGUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "guiddef")]
-windows_link::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : super::LPGUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
-windows_link::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::HANDLE, pguidparam : super::LPGUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::HANDLE, pgenericfilter : PTC_GEN_FILTER, pfilterhandle : super::PHANDLE) -> super::ULONG);
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::HANDLE, clflowctx : super::HANDLE, flags : super::ULONG, pgenericflow : PTC_GEN_FLOW, pflowhandle : super::PHANDLE) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcCloseInterface(ifchandle : super::HANDLE) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcDeleteFilter(filterhandle : super::HANDLE) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcDeleteFlow(flowhandle : super::HANDLE) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcDeregisterClient(clienthandle : super::HANDLE) -> super::ULONG);
+#[cfg(all(feature = "minwindef", feature = "qos", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::HANDLE, penumhandle : super::PHANDLE, pflowcount : super::PULONG, pbufsize : super::PULONG, buffer : PENUMERATION_BUFFER) -> super::ULONG);
+#[cfg(all(feature = "minwindef", feature = "ntddndis", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::HANDLE, pbuffersize : super::PULONG, interfacebuffer : PTC_IFC_DESCRIPTOR) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::HANDLE, strsize : super::ULONG, pflowname : windows_sys::core::PSTR) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::HANDLE, strsize : super::ULONG, pflowname : windows_sys::core::PWSTR) -> super::ULONG);
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::HANDLE, pgenericflow : PTC_GEN_FLOW) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_sys::core::PCSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : super::PHANDLE) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_sys::core::PCWSTR, clienthandle : super::HANDLE, clifcctx : super::HANDLE, pifchandle : super::PHANDLE) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : super::LPGUID, pbuffersize : super::PULONG, buffer : super::PVOID) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : super::LPGUID, pbuffersize : super::PULONG, buffer : super::PVOID) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::HANDLE, pguidparam : super::LPGUID, notifychange : super::BOOLEAN, pbuffersize : super::PULONG, buffer : super::PVOID) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : super::ULONG, clregctx : super::HANDLE, clienthandlerlist : PTCI_CLIENT_FUNC_LIST, pclienthandle : super::PHANDLE) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : super::LPGUID, buffersize : super::ULONG, buffer : super::PVOID) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : super::LPGUID, buffersize : super::ULONG, buffer : super::PVOID) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+windows_link::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::HANDLE, pguidparam : super::LPGUID, buffersize : super::ULONG, buffer : super::PVOID) -> super::ULONG);
 #[repr(C)]
-#[cfg(feature = "ntddndis")]
+#[cfg(all(feature = "ntddndis", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRESS_LIST_DESCRIPTOR {
-    pub MediaType: u32,
+    pub MediaType: super::ULONG,
     pub AddressList: super::NETWORK_ADDRESS_LIST,
 }
 pub const CURRENT_TCI_VERSION: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ENUMERATION_BUFFER {
-    pub Length: u32,
-    pub OwnerProcessId: u32,
-    pub FlowNameLength: u16,
-    pub FlowName: [u16; 256],
+    pub Length: super::ULONG,
+    pub OwnerProcessId: super::ULONG,
+    pub FlowNameLength: super::USHORT,
+    pub FlowName: [super::WCHAR; 256],
     pub pFlow: PTC_GEN_FLOW,
-    pub NumberOfFilters: u32,
+    pub NumberOfFilters: super::ULONG,
     pub GenericFilter: [TC_GEN_FILTER; 1],
 }
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
 impl Default for ENUMERATION_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IPX_PATTERN {
     pub Src: IPX_PATTERN_0,
-    pub Dest: IPX_PATTERN_1,
+    pub Dest: IPX_PATTERN_0,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IPX_PATTERN_0 {
-    pub NetworkAddress: u32,
-    pub NodeAddress: [u8; 6],
-    pub Socket: u16,
+    pub NetworkAddress: super::ULONG,
+    pub NodeAddress: [super::UCHAR; 6],
+    pub Socket: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for IPX_PATTERN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IPX_PATTERN_1 {
-    pub NetworkAddress: u32,
-    pub NodeAddress: [u8; 6],
-    pub Socket: u16,
-}
-impl Default for IPX_PATTERN_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IP_PATTERN {
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub SrcAddr: u32,
-    pub DstAddr: u32,
+    pub Reserved1: super::ULONG,
+    pub Reserved2: super::ULONG,
+    pub SrcAddr: super::ULONG,
+    pub DstAddr: super::ULONG,
     pub S_un: IP_PATTERN_0,
-    pub ProtocolId: u8,
-    pub Reserved3: [u8; 3],
+    pub ProtocolId: super::UCHAR,
+    pub Reserved3: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for IP_PATTERN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IP_PATTERN_0 {
     pub S_un_ports: IP_PATTERN_0_0,
     pub S_un_icmp: IP_PATTERN_0_1,
-    pub S_Spi: u32,
+    pub S_Spi: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for IP_PATTERN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_PATTERN_0_0 {
-    pub s_srcport: u16,
-    pub s_dstport: u16,
+    pub s_srcport: super::USHORT,
+    pub s_dstport: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_PATTERN_0_1 {
-    pub s_type: u8,
-    pub s_code: u8,
-    pub filler: u16,
+    pub s_type: super::UCHAR,
+    pub s_code: super::UCHAR,
+    pub filler: super::USHORT,
 }
 pub const MAX_STRING_LENGTH: i32 = 256;
-#[cfg(feature = "ntddndis")]
+#[cfg(all(feature = "ntddndis", feature = "shared"))]
 pub type PADDRESS_LIST_DESCRIPTOR = *mut ADDRESS_LIST_DESCRIPTOR;
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
 pub type PENUMERATION_BUFFER = *mut ENUMERATION_BUFFER;
+#[cfg(feature = "shared")]
 pub type PIPX_PATTERN = *mut IPX_PATTERN;
+#[cfg(feature = "shared")]
 pub type PIP_PATTERN = *mut IP_PATTERN;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTCI_CLIENT_FUNC_LIST = *mut TCI_CLIENT_FUNC_LIST;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTC_GEN_FILTER = *mut TC_GEN_FILTER;
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 pub type PTC_GEN_FLOW = *mut TC_GEN_FLOW;
-#[cfg(feature = "ntddndis")]
+#[cfg(all(feature = "ntddndis", feature = "shared"))]
 pub type PTC_IFC_DESCRIPTOR = *mut TC_IFC_DESCRIPTOR;
-#[cfg(feature = "ntddndis")]
+#[cfg(all(feature = "ntddndis", feature = "shared", feature = "winnt"))]
 pub type PTC_SUPPORTED_INFO_BUFFER = *mut TC_SUPPORTED_INFO_BUFFER;
-#[cfg(feature = "winnt")]
-pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::HANDLE, status: u32)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::HANDLE, status: super::ULONG)>;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct TCI_CLIENT_FUNC_LIST {
     pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
@@ -162,40 +162,41 @@ pub struct TCI_CLIENT_FUNC_LIST {
     pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
     pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
 }
-#[cfg(feature = "winnt")]
-pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::HANDLE, status: u32)>;
-#[cfg(feature = "winnt")]
-pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::HANDLE, status: u32)>;
-#[cfg(feature = "winnt")]
-pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::HANDLE, clifcctx: super::HANDLE, event: u32, subcode: super::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::HANDLE, status: super::ULONG)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::HANDLE, status: super::ULONG)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::HANDLE, clifcctx: super::HANDLE, event: super::ULONG, subcode: super::HANDLE, bufsize: super::ULONG, buffer: super::PVOID)>;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct TC_GEN_FILTER {
-    pub AddressType: u16,
-    pub PatternSize: u32,
-    pub Pattern: *mut core::ffi::c_void,
-    pub Mask: *mut core::ffi::c_void,
+    pub AddressType: super::USHORT,
+    pub PatternSize: super::ULONG,
+    pub Pattern: super::PVOID,
+    pub Mask: super::PVOID,
 }
 #[repr(C)]
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct TC_GEN_FLOW {
     pub SendingFlowspec: super::FLOWSPEC,
     pub ReceivingFlowspec: super::FLOWSPEC,
-    pub TcObjectsLength: u32,
+    pub TcObjectsLength: super::ULONG,
     pub TcObjects: [super::QOS_OBJECT_HDR; 1],
 }
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 impl Default for TC_GEN_FLOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ntddndis")]
+#[cfg(all(feature = "ntddndis", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TC_IFC_DESCRIPTOR {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub pInterfaceName: windows_sys::core::PWSTR,
     pub pInterfaceID: windows_sys::core::PWSTR,
     pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
@@ -208,15 +209,15 @@ pub const TC_NOTIFY_IFC_CLOSE: i32 = 2;
 pub const TC_NOTIFY_IFC_UP: i32 = 1;
 pub const TC_NOTIFY_PARAM_CHANGED: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "ntddndis")]
+#[cfg(all(feature = "ntddndis", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TC_SUPPORTED_INFO_BUFFER {
-    pub InstanceIDLength: u16,
-    pub InstanceID: [u16; 256],
-    pub InterfaceLuid: u64,
+    pub InstanceIDLength: super::USHORT,
+    pub InstanceID: [super::WCHAR; 256],
+    pub InterfaceLuid: super::ULONG64,
     pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
 }
-#[cfg(feature = "ntddndis")]
+#[cfg(all(feature = "ntddndis", feature = "shared", feature = "winnt"))]
 impl Default for TC_SUPPORTED_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

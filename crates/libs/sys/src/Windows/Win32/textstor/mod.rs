@@ -14,14 +14,14 @@ pub const TS_AS_STATUS_CHANGE: i32 = 16;
 pub const TS_AS_TEXT_CHANGE: i32 = 1;
 pub type TS_ATTRID = windows_sys::core::GUID;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TS_ATTRVAL {
     pub idAttr: TS_ATTRID,
-    pub dwOverlapId: u32,
+    pub dwOverlapId: super::DWORD,
     pub varValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -38,7 +38,8 @@ pub const TS_CHAR_REGION: i32 = 0;
 pub const TS_CHAR_REPLACEMENT: i32 = 65533;
 pub const TS_CH_FOLLOWING_DEL: i32 = 2;
 pub const TS_CH_PRECEDING_DEL: i32 = 1;
-pub const TS_DEFAULT_SELECTION: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const TS_DEFAULT_SELECTION: super::ULONG = 4294967295;
 pub const TS_E_FORMAT: windows_sys::core::HRESULT = 0x8004020A_u32 as _;
 pub const TS_E_INVALIDPOINT: windows_sys::core::HRESULT = 0x80040207_u32 as _;
 pub const TS_E_INVALIDPOS: windows_sys::core::HRESULT = 0x80040200_u32 as _;
@@ -68,9 +69,10 @@ pub const TS_RT_HIDDEN: TsRunType = 1;
 pub const TS_RT_OPAQUE: TsRunType = 2;
 pub const TS_RT_PLAIN: TsRunType = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TS_RUNINFO {
-    pub uCount: u32,
+    pub uCount: super::ULONG,
     pub r#type: TsRunType,
 }
 pub const TS_SD_BACKWARD: TsShiftDir = 0;
@@ -93,10 +95,11 @@ pub struct TS_SELECTIONSTYLE {
     pub fInterimChar: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TS_SELECTION_ACP {
-    pub acpStart: i32,
-    pub acpEnd: i32,
+    pub acpStart: super::LONG,
+    pub acpEnd: super::LONG,
     pub style: TS_SELECTIONSTYLE,
 }
 #[repr(C)]
@@ -119,20 +122,22 @@ pub const TS_SS_TKBPREDICTIONENABLE: i32 = 32;
 pub const TS_SS_TRANSITORY: i32 = 4;
 pub const TS_SS_UWPCONTROL: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TS_STATUS {
-    pub dwDynamicFlags: u32,
-    pub dwStaticFlags: u32,
+    pub dwDynamicFlags: super::DWORD,
+    pub dwStaticFlags: super::DWORD,
 }
 pub const TS_ST_CORRECTION: i32 = 1;
 pub const TS_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
 pub const TS_TC_CORRECTION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TS_TEXTCHANGE {
-    pub acpStart: i32,
-    pub acpOldEnd: i32,
-    pub acpNewEnd: i32,
+    pub acpStart: super::LONG,
+    pub acpOldEnd: super::LONG,
+    pub acpNewEnd: super::LONG,
 }
 pub const TS_VCOOKIE_NUL: u32 = 4294967295;
 pub type TsActiveSelEnd = i32;

@@ -1,3 +1,4 @@
+pub const FILE_DEVICE_SMARTCARD: i32 = 49;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 pub const IOCTL_SMARTCARD_CONFISCATE: i32 = 3211280;
 pub const IOCTL_SMARTCARD_EJECT: i32 = 3211288;
@@ -13,64 +14,118 @@ pub const IOCTL_SMARTCARD_SET_ATTRIBUTE: i32 = 3211276;
 pub const IOCTL_SMARTCARD_SET_PROTOCOL: i32 = 3211312;
 pub const IOCTL_SMARTCARD_SWALLOW: i32 = 3211292;
 pub const IOCTL_SMARTCARD_TRANSMIT: i32 = 3211284;
+#[cfg(feature = "shared")]
 pub type LPCSCARD_IO_REQUEST = *const SCARD_IO_REQUEST;
+#[cfg(feature = "shared")]
 pub type LPSCARD_IO_REQUEST = *mut SCARD_IO_REQUEST;
+#[cfg(feature = "shared")]
 pub type LPSCARD_T0_COMMAND = *mut SCARD_T0_COMMAND;
+#[cfg(feature = "shared")]
 pub type LPSCARD_T0_REQUEST = *mut SCARD_T0_REQUEST;
+#[cfg(feature = "shared")]
 pub type LPSCARD_T1_REQUEST = *mut SCARD_T1_REQUEST;
 pub const MAXIMUM_ATTR_STRING_LENGTH: i32 = 32;
 pub const MAXIMUM_SMARTCARD_READERS: i32 = 10;
+#[cfg(feature = "shared")]
 pub type PSCARD_IO_REQUEST = *mut SCARD_IO_REQUEST;
+#[cfg(feature = "shared")]
 pub type PSCARD_T0_REQUEST = *mut SCARD_T0_REQUEST;
+#[cfg(feature = "shared")]
 pub type PSCARD_T1_REQUEST = *mut SCARD_T1_REQUEST;
 pub const SCARD_ABSENT: i32 = 1;
 pub const SCARD_ATR_LENGTH: i32 = 33;
-pub const SCARD_ATTR_ATR_STRING: u32 = 590595;
-pub const SCARD_ATTR_CHANNEL_ID: u32 = 131344;
-pub const SCARD_ATTR_CHARACTERISTICS: u32 = 393552;
-pub const SCARD_ATTR_CURRENT_BWT: u32 = 524809;
-pub const SCARD_ATTR_CURRENT_CLK: u32 = 524802;
-pub const SCARD_ATTR_CURRENT_CWT: u32 = 524810;
-pub const SCARD_ATTR_CURRENT_D: u32 = 524804;
-pub const SCARD_ATTR_CURRENT_EBC_ENCODING: u32 = 524811;
-pub const SCARD_ATTR_CURRENT_F: u32 = 524803;
-pub const SCARD_ATTR_CURRENT_IFSC: u32 = 524807;
-pub const SCARD_ATTR_CURRENT_IFSD: u32 = 524808;
-pub const SCARD_ATTR_CURRENT_IO_STATE: u32 = 590594;
-pub const SCARD_ATTR_CURRENT_N: u32 = 524805;
-pub const SCARD_ATTR_CURRENT_PROTOCOL_TYPE: u32 = 524801;
-pub const SCARD_ATTR_CURRENT_W: u32 = 524806;
-pub const SCARD_ATTR_DEFAULT_CLK: u32 = 196897;
-pub const SCARD_ATTR_DEFAULT_DATA_RATE: u32 = 196899;
-pub const SCARD_ATTR_DEVICE_FRIENDLY_NAME: u32 = 2147418115;
-pub const SCARD_ATTR_DEVICE_FRIENDLY_NAME_A: u32 = 2147418115;
-pub const SCARD_ATTR_DEVICE_FRIENDLY_NAME_W: u32 = 2147418117;
-pub const SCARD_ATTR_DEVICE_IN_USE: u32 = 2147418114;
-pub const SCARD_ATTR_DEVICE_SYSTEM_NAME: u32 = 2147418116;
-pub const SCARD_ATTR_DEVICE_SYSTEM_NAME_A: u32 = 2147418116;
-pub const SCARD_ATTR_DEVICE_SYSTEM_NAME_W: u32 = 2147418118;
-pub const SCARD_ATTR_DEVICE_UNIT: u32 = 2147418113;
-pub const SCARD_ATTR_ESC_AUTHREQUEST: u32 = 499717;
-pub const SCARD_ATTR_ESC_CANCEL: u32 = 499715;
-pub const SCARD_ATTR_ESC_RESET: u32 = 499712;
-pub const SCARD_ATTR_EXTENDED_BWT: u32 = 524812;
-pub const SCARD_ATTR_ICC_INTERFACE_STATUS: u32 = 590593;
-pub const SCARD_ATTR_ICC_PRESENCE: u32 = 590592;
-pub const SCARD_ATTR_ICC_TYPE_PER_ATR: u32 = 590596;
-pub const SCARD_ATTR_MAXINPUT: u32 = 499719;
-pub const SCARD_ATTR_MAX_CLK: u32 = 196898;
-pub const SCARD_ATTR_MAX_DATA_RATE: u32 = 196900;
-pub const SCARD_ATTR_MAX_IFSD: u32 = 196901;
-pub const SCARD_ATTR_POWER_MGMT_SUPPORT: u32 = 262449;
-pub const SCARD_ATTR_PROTOCOL_TYPES: u32 = 196896;
-pub const SCARD_ATTR_SUPRESS_T1_IFS_REQUEST: u32 = 2147418119;
-pub const SCARD_ATTR_USER_AUTH_INPUT_DEVICE: u32 = 328002;
-pub const SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE: u32 = 328000;
-pub const SCARD_ATTR_VENDOR_IFD_SERIAL_NO: u32 = 65795;
-pub const SCARD_ATTR_VENDOR_IFD_TYPE: u32 = 65793;
-pub const SCARD_ATTR_VENDOR_IFD_VERSION: u32 = 65794;
-pub const SCARD_ATTR_VENDOR_NAME: u32 = 65792;
-pub const SCARD_ATTR_VENDOR_SPECIFIC_INFO: u32 = 499720;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_ATR_STRING: super::ULONG = 590595;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CHANNEL_ID: super::ULONG = 131344;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CHARACTERISTICS: super::ULONG = 393552;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_BWT: super::ULONG = 524809;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_CLK: super::ULONG = 524802;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_CWT: super::ULONG = 524810;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_D: super::ULONG = 524804;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_EBC_ENCODING: super::ULONG = 524811;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_F: super::ULONG = 524803;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_IFSC: super::ULONG = 524807;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_IFSD: super::ULONG = 524808;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_IO_STATE: super::ULONG = 590594;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_N: super::ULONG = 524805;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_PROTOCOL_TYPE: super::ULONG = 524801;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_CURRENT_W: super::ULONG = 524806;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEFAULT_CLK: super::ULONG = 196897;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEFAULT_DATA_RATE: super::ULONG = 196899;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_FRIENDLY_NAME: super::ULONG = 2147418115;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_FRIENDLY_NAME_A: super::ULONG = 2147418115;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_FRIENDLY_NAME_W: super::ULONG = 2147418117;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_IN_USE: super::ULONG = 2147418114;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_SYSTEM_NAME: super::ULONG = 2147418116;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_SYSTEM_NAME_A: super::ULONG = 2147418116;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_SYSTEM_NAME_W: super::ULONG = 2147418118;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_DEVICE_UNIT: super::ULONG = 2147418113;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_ESC_AUTHREQUEST: super::ULONG = 499717;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_ESC_CANCEL: super::ULONG = 499715;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_ESC_RESET: super::ULONG = 499712;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_EXTENDED_BWT: super::ULONG = 524812;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_ICC_INTERFACE_STATUS: super::ULONG = 590593;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_ICC_PRESENCE: super::ULONG = 590592;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_ICC_TYPE_PER_ATR: super::ULONG = 590596;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_MAXINPUT: super::ULONG = 499719;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_MAX_CLK: super::ULONG = 196898;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_MAX_DATA_RATE: super::ULONG = 196900;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_MAX_IFSD: super::ULONG = 196901;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_POWER_MGMT_SUPPORT: super::ULONG = 262449;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_PROTOCOL_TYPES: super::ULONG = 196896;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_SUPRESS_T1_IFS_REQUEST: super::ULONG = 2147418119;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_USER_AUTH_INPUT_DEVICE: super::ULONG = 328002;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE: super::ULONG = 328000;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_VENDOR_IFD_SERIAL_NO: super::ULONG = 65795;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_VENDOR_IFD_TYPE: super::ULONG = 65793;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_VENDOR_IFD_VERSION: super::ULONG = 65794;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_VENDOR_NAME: super::ULONG = 65792;
+#[cfg(feature = "shared")]
+pub const SCARD_ATTR_VENDOR_SPECIFIC_INFO: super::ULONG = 499720;
 pub const SCARD_CLASS_COMMUNICATIONS: i32 = 2;
 pub const SCARD_CLASS_ICC_STATE: i32 = 9;
 pub const SCARD_CLASS_IFD_PROTOCOL: i32 = 8;
@@ -84,15 +139,19 @@ pub const SCARD_CLASS_VENDOR_DEFINED: i32 = 7;
 pub const SCARD_CLASS_VENDOR_INFO: i32 = 1;
 pub const SCARD_COLD_RESET: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCARD_IO_REQUEST {
-    pub dwProtocol: u32,
-    pub cbPciLength: u32,
+    pub dwProtocol: super::DWORD,
+    pub cbPciLength: super::DWORD,
 }
 pub const SCARD_NEGOTIABLE: i32 = 5;
-pub const SCARD_PERF_BYTES_TRANSMITTED: u32 = 2147352578;
-pub const SCARD_PERF_NUM_TRANSMISSIONS: u32 = 2147352577;
-pub const SCARD_PERF_TRANSMISSION_TIME: u32 = 2147352579;
+#[cfg(feature = "shared")]
+pub const SCARD_PERF_BYTES_TRANSMITTED: super::ULONG = 2147352578;
+#[cfg(feature = "shared")]
+pub const SCARD_PERF_NUM_TRANSMISSIONS: super::ULONG = 2147352577;
+#[cfg(feature = "shared")]
+pub const SCARD_PERF_TRANSMISSION_TIME: super::ULONG = 2147352579;
 pub const SCARD_POWERED: i32 = 4;
 pub const SCARD_POWER_DOWN: i32 = 0;
 pub const SCARD_PRESENT: i32 = 2;
@@ -124,34 +183,39 @@ pub const SCARD_SPECIFIC: i32 = 6;
 pub const SCARD_SWALLOWED: i32 = 3;
 pub const SCARD_T0_CMD_LENGTH: i32 = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCARD_T0_COMMAND {
-    pub bCla: u8,
-    pub bIns: u8,
-    pub bP1: u8,
-    pub bP2: u8,
-    pub bP3: u8,
+    pub bCla: super::BYTE,
+    pub bIns: super::BYTE,
+    pub bP1: super::BYTE,
+    pub bP2: super::BYTE,
+    pub bP3: super::BYTE,
 }
 pub const SCARD_T0_HEADER_LENGTH: i32 = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SCARD_T0_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
-    pub bSw1: u8,
-    pub bSw2: u8,
+    pub bSw1: super::BYTE,
+    pub bSw2: super::BYTE,
     pub Anonymous: SCARD_T0_REQUEST_0,
 }
+#[cfg(feature = "shared")]
 impl Default for SCARD_T0_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
-    pub rgbHeader: [u8; 5],
+    pub rgbHeader: [super::BYTE; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for SCARD_T0_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -162,10 +226,10 @@ pub const SCARD_T1_EPILOGUE_LENGTH_LRC: i32 = 1;
 pub const SCARD_T1_MAX_IFS: i32 = 254;
 pub const SCARD_T1_PROLOGUE_LENGTH: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
 }
 pub const SCARD_UNKNOWN: i32 = 0;
 pub const SCARD_WARM_RESET: i32 = 2;
-pub type UWORD = u16;

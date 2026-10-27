@@ -1,19 +1,3 @@
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserFree(param0 : *mut u32, param1 : *mut super::HMENU));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserFree64(param0 : *mut u32, param1 : *mut super::HMENU));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMENU_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
 pub type DOCMISC = i32;
 pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = 1;
 pub const DOCMISC_CANTOPENEDIT: DOCMISC = 4;
@@ -25,6 +9,13 @@ pub const IGNOREMIME_TEXT: IGNOREMIME = 2;
 pub const INSTALL_SCOPE_INVALID: i32 = 0;
 pub const INSTALL_SCOPE_MACHINE: i32 = 1;
 pub const INSTALL_SCOPE_USER: i32 = 2;
+pub type LPCONTINUECALLBACK = *mut core::ffi::c_void;
+pub type LPENUMOLEDOCUMENTVIEWS = *mut core::ffi::c_void;
+pub type LPOLECOMMANDTARGET = *mut core::ffi::c_void;
+pub type LPOLEDOCUMENT = *mut core::ffi::c_void;
+pub type LPOLEDOCUMENTSITE = *mut core::ffi::c_void;
+pub type LPOLEDOCUMENTVIEW = *mut core::ffi::c_void;
+pub type LPPRINT = *mut core::ffi::c_void;
 pub const MEDIAPLAYBACK_PAUSE: MEDIAPLAYBACK_STATE = 1;
 pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = 2;
 pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = 0;
@@ -68,10 +59,11 @@ pub const MSOCMDTEXTF_NAME: OLECMDTEXTF = 1;
 pub const MSOCMDTEXTF_NONE: OLECMDTEXTF = 0;
 pub const MSOCMDTEXTF_STATUS: OLECMDTEXTF = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct OLECMD {
-    pub cmdID: u32,
-    pub cmdf: u32,
+    pub cmdID: super::ULONG,
+    pub cmdf: super::DWORD,
 }
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: i32 = 2;
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: i32 = 1;
@@ -265,13 +257,15 @@ pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = 65;
 pub type OLECMDID_WINDOWSTATE_FLAG = i32;
 pub const OLECMDID_ZOOM: OLECMDID = 19;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct OLECMDTEXT {
-    pub cmdtextf: u32,
-    pub cwActual: u32,
-    pub cwBuf: u32,
+    pub cmdtextf: super::DWORD,
+    pub cwActual: super::ULONG,
+    pub cwBuf: super::ULONG,
     pub rgwz: [u16; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for OLECMDTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -288,26 +282,30 @@ pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = 1;
 pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = 2;
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PAGERANGE {
-    pub nFromPage: i32,
-    pub nToPage: i32,
+    pub nFromPage: super::LONG,
+    pub nToPage: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PAGESET {
-    pub cbStruct: u32,
+    pub cbStruct: super::ULONG,
     pub fOddPages: windows_sys::core::BOOL,
     pub fEvenPages: windows_sys::core::BOOL,
-    pub cPageRange: u32,
+    pub cPageRange: super::ULONG,
     pub rgPages: [PAGERANGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PAGESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PAGESET_TOLASTPAGE: u16 = 65535;
+#[cfg(feature = "shared")]
+pub const PAGESET_TOLASTPAGE: super::WORD = 65535;
 pub type PRINTFLAG = i32;
 pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = 16;
 pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = 32;

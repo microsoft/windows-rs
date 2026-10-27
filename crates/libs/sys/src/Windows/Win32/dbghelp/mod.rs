@@ -1,401 +1,481 @@
-#[cfg(feature = "minwindef")]
-windows_link::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_sys::core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_sys::core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_sys::core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_sys::core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::HANDLE, rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::HANDLE, rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::HANDLE, rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::HANDLE, rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModules(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModules64(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesEx(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesExW(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesW64(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModules(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "EnumerateLoadedModules64" fn EnumerateLoadedModules(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModules64(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesEx(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesExW(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesW64(hprocess : super::HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFile(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : super::PVOID) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : super::PVOID) -> super::HANDLE);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn FindExecutableImage(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : super::PVOID) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn FindFileInPath(hprocess : super::HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : super::HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, one : u32, two : u32, three : u32, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::HMODULE) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : super::BOOLEAN, directoryentry : u16, size : super::PULONG) -> *mut core::ffi::c_void);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : super::BOOLEAN, directoryentry : u16, size : super::PULONG, foundheader : *mut super::PIMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> super::PIMAGE_NT_HEADERS);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : super::PIMAGE_NT_HEADERS, base : *const core::ffi::c_void, rva : u32) -> super::PIMAGE_SECTION_HEADER);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : super::PIMAGE_NT_HEADERS, base : *const core::ffi::c_void, rva : u32, lastrvasection : *mut super::PIMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : super::PVOID) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn FindFileInPath(hprocess : super::HANDLE, searchpath : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : super::PVOID, two : super::DWORD, three : super::DWORD, flags : super::DWORD, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : super::HANDLE, searchpath : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, one : super::DWORD, two : super::DWORD, three : super::DWORD, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn GetSymLoadError() -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::HMODULE) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : super::PVOID, mappedasimage : super::BOOLEAN, directoryentry : super::USHORT, size : super::PULONG) -> super::PVOID);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : super::PVOID, mappedasimage : super::BOOLEAN, directoryentry : super::USHORT, size : super::PULONG, foundheader : *mut super::PIMAGE_SECTION_HEADER) -> super::PVOID);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn ImageNtHeader(base : super::PVOID) -> super::PIMAGE_NT_HEADERS);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : super::PIMAGE_NT_HEADERS, base : super::PVOID, rva : super::ULONG) -> super::PIMAGE_SECTION_HEADER);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : super::PIMAGE_NT_HEADERS, base : super::PVOID, rva : super::ULONG, lastrvasection : *const super::PIMAGE_SECTION_HEADER) -> super::PVOID);
+#[cfg(feature = "shared")]
 windows_link::link!("dbghelp.dll" "system" fn ImagehlpApiVersion() -> LPAPI_VERSION);
+#[cfg(feature = "shared")]
 windows_link::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : LPAPI_VERSION) -> LPAPI_VERSION);
 windows_link::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : *const core::ffi::c_void, imagename : windows_sys::core::PCWSTR, mappedimage : *const core::ffi::c_void, mappingbytes : u32, imagebase : u64, usertag : u64, mappingflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn RangeMapCreate() -> *mut core::ffi::c_void);
-windows_link::link!("dbghelp.dll" "system" fn RangeMapFree(rmaphandle : *const core::ffi::c_void));
-#[cfg(feature = "minwindef")]
-windows_link::link!("dbghelp.dll" "system" fn RangeMapRead(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *mut core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : super::PDWORD) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn RangeMapRemove(rmaphandle : *const core::ffi::c_void, usertag : u64) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("dbghelp.dll" "system" fn RangeMapWrite(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *const core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn MapDebugInformation(filehandle : super::HANDLE, filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagebase : super::ULONG) -> PIMAGE_DEBUG_INFORMATION);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : super::PVOID, imagename : windows_sys::core::PCWSTR, mappedimage : super::PVOID, mappingbytes : super::DWORD, imagebase : super::DWORD64, usertag : super::DWORD64, mappingflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("dbghelp.dll" "system" fn RangeMapCreate() -> super::PVOID);
+#[cfg(feature = "winnt")]
+windows_link::link!("dbghelp.dll" "system" fn RangeMapFree(rmaphandle : super::PVOID));
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn RangeMapRead(rmaphandle : super::PVOID, offset : super::DWORD64, buffer : super::PVOID, requestbytes : super::DWORD, flags : super::DWORD, donebytes : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn RangeMapRemove(rmaphandle : super::PVOID, usertag : super::DWORD64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn RangeMapWrite(rmaphandle : super::PVOID, offset : super::DWORD64, buffer : super::PVOID, requestbytes : super::DWORD, flags : super::DWORD, donebytes : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn RemoveInvalidModuleList(hprocess : super::HANDLE));
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn ReportSymbolLoadSummary(hprocess : super::HANDLE, ploadmodule : windows_sys::core::PCWSTR, psymboldata : PDBGHELP_DATA_REPORT_STRUCT) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SearchTreeForFile(rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SearchTreeForFileW(rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("dbghelp.dll" "system" fn SetCheckUserInterruptShared(lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE));
-windows_link::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn SetSymLoadError(error : super::DWORD));
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : u32, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME64, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : u32, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::HANDLE, base : u64, streamfile : windows_sys::core::PCSTR, buffer : super::PBYTE, size : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::HANDLE, base : u64, streamfile : windows_sys::core::PCSTR, buffer : super::PBYTE, size : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, buffer : super::PBYTE, size : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymAddSymbol(hprocess : super::HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, address : u64, size : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymAddSymbolW(hprocess : super::HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, address : u64, size : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymAddrIncludeInlineTrace(hprocess : super::HANDLE, address : u64) -> u32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn StackWalk(machinetype : super::DWORD, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME, contextrecord : super::PVOID, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "StackWalk64" fn StackWalk(machinetype : super::DWORD, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME64, contextrecord : super::PVOID, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : super::DWORD, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME_EX, contextrecord : super::PVOID, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : super::DWORD, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME64, contextrecord : super::PVOID, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : super::DWORD, hprocess : super::HANDLE, hthread : super::HANDLE, stackframe : LPSTACKFRAME_EX, contextrecord : super::PVOID, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::HANDLE, base : super::ULONG64, streamfile : windows_sys::core::PCSTR, buffer : super::PBYTE, size : super::size_t) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::HANDLE, base : super::ULONG64, streamfile : windows_sys::core::PCSTR, buffer : super::PBYTE, size : super::size_t) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_sys::core::PCWSTR, buffer : super::PBYTE, size : super::size_t) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymAddSymbol(hprocess : super::HANDLE, baseofdll : super::ULONG64, name : windows_sys::core::PCSTR, address : super::DWORD64, size : super::DWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymAddSymbolW(hprocess : super::HANDLE, baseofdll : super::ULONG64, name : windows_sys::core::PCWSTR, address : super::DWORD64, size : super::DWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymAddrIncludeInlineTrace(hprocess : super::HANDLE, address : super::DWORD64) -> super::DWORD);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymCleanup(hprocess : super::HANDLE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymCompareInlineTrace(hprocess : super::HANDLE, address1 : super::DWORD64, inlinecontext1 : super::DWORD, retaddress1 : super::DWORD64, address2 : super::DWORD64, retaddress2 : super::DWORD64) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::HANDLE, baseofdll : super::ULONG64, name : windows_sys::core::PCSTR, address : super::DWORD64, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::HANDLE, baseofdll : super::ULONG64, name : windows_sys::core::PCWSTR, address : super::DWORD64, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::HANDLE, base : super::ULONG64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumLinesW(hprocess : super::HANDLE, base : super::ULONG64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymCompareInlineTrace(hprocess : super::HANDLE, address1 : u64, inlinecontext1 : u32, retaddress1 : u64, address2 : u64, retaddress2 : u64) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, address : u64, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, address : u64, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::HANDLE, base : u64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumLinesW(hprocess : super::HANDLE, base : u64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumProcesses(enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFileTokens(hprocess : super::HANDLE, base : u64, callback : PENUMSOURCEFILETOKENSCALLBACK) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::HANDLE, modbase : u64, mask : windows_sys::core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::HANDLE, modbase : u64, mask : windows_sys::core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::HANDLE, base : u64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceLinesW(hprocess : super::HANDLE, base : u64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSym(hprocess : super::HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbols(hprocess : super::HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsEx(hprocess : super::HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsExW(hprocess : super::HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddr(hprocess : super::HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddrW(hprocess : super::HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsW(hprocess : super::HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumTypes(hprocess : super::HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesByName(hprocess : super::HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesByNameW(hprocess : super::HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesW(hprocess : super::HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumProcesses(enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFileTokens(hprocess : super::HANDLE, base : super::ULONG64, callback : PENUMSOURCEFILETOKENSCALLBACK) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::HANDLE, modbase : super::ULONG64, mask : windows_sys::core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::HANDLE, modbase : super::ULONG64, mask : windows_sys::core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::HANDLE, base : super::ULONG64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, line : super::DWORD, flags : super::DWORD, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceLinesW(hprocess : super::HANDLE, base : super::ULONG64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, line : super::DWORD, flags : super::DWORD, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSym(hprocess : super::HANDLE, baseofdll : super::ULONG64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbols(hprocess : super::HANDLE, baseofdll : super::ULONG64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsEx(hprocess : super::HANDLE, baseofdll : super::ULONG64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : super::PVOID, options : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsExW(hprocess : super::HANDLE, baseofdll : super::ULONG64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : super::PVOID, options : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddr(hprocess : super::HANDLE, address : super::DWORD64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddrW(hprocess : super::HANDLE, address : super::DWORD64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsW(hprocess : super::HANDLE, baseofdll : super::ULONG64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypes(hprocess : super::HANDLE, baseofdll : super::ULONG64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesByName(hprocess : super::HANDLE, baseofdll : super::ULONG64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesByNameW(hprocess : super::HANDLE, baseofdll : super::ULONG64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesW(hprocess : super::HANDLE, baseofdll : super::ULONG64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModules(hprocess : super::HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModules64(hprocess : super::HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModulesW64(hprocess : super::HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModules(hprocess : super::HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymEnumerateModules64" fn SymEnumerateModules(hprocess : super::HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModules64(hprocess : super::HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModulesW64(hprocess : super::HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbols(hprocess : super::HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbols64(hprocess : super::HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbols(hprocess : super::HANDLE, baseofdll : super::ULONG, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymEnumerateSymbols64" fn SymEnumerateSymbols(hprocess : super::HANDLE, baseofdll : super::ULONG64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbols64(hprocess : super::HANDLE, baseofdll : super::ULONG64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW(hprocess : super::HANDLE, baseofdll : super::ULONG, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymEnumerateSymbolsW64" fn SymEnumerateSymbolsW(hprocess : super::HANDLE, baseofdll : super::ULONG64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW64(hprocess : super::HANDLE, baseofdll : super::ULONG64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : super::PVOID) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW(hprocess : super::HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::HANDLE, filename : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : super::PVOID) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW64(hprocess : super::HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::HANDLE, filename : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : super::PVOID) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::HANDLE, filename : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::HANDLE, filename : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : super::PVOID) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::HANDLE, filename : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::HANDLE, filename : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::HANDLE, filename : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, foundfile : windows_sys::core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::HANDLE, searchpatha : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, foundfile : windows_sys::core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymFromAddr(hprocess : super::HANDLE, address : u64, displacement : super::PDWORD64, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymFromAddrW(hprocess : super::HANDLE, address : u64, displacement : super::PDWORD64, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFromIndex(hprocess : super::HANDLE, baseofdll : u64, index : u32, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFromIndexW(hprocess : super::HANDLE, baseofdll : u64, index : u32, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymFromInlineContext(hprocess : super::HANDLE, address : u64, inlinecontext : u32, displacement : super::PDWORD64, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymFromInlineContextW(hprocess : super::HANDLE, address : u64, inlinecontext : u32, displacement : super::PDWORD64, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+windows_link::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::HANDLE, filename : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : super::PVOID) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::HANDLE, searchpath : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : super::PVOID, two : super::DWORD, three : super::DWORD, flags : super::DWORD, foundfile : windows_sys::core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::HANDLE, searchpath : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, id : super::PVOID, two : super::DWORD, three : super::DWORD, flags : super::DWORD, foundfile : windows_sys::core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromAddr(hprocess : super::HANDLE, address : super::DWORD64, displacement : super::PDWORD64, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromAddrW(hprocess : super::HANDLE, address : super::DWORD64, displacement : super::PDWORD64, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromIndex(hprocess : super::HANDLE, baseofdll : super::ULONG64, index : super::DWORD, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromIndexW(hprocess : super::HANDLE, baseofdll : super::ULONG64, index : super::DWORD, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromInlineContext(hprocess : super::HANDLE, address : super::DWORD64, inlinecontext : super::ULONG, displacement : super::PDWORD64, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromInlineContextW(hprocess : super::HANDLE, address : super::DWORD64, inlinecontext : super::ULONG, displacement : super::PDWORD64, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymFromName(hprocess : super::HANDLE, name : windows_sys::core::PCSTR, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymFromNameW(hprocess : super::HANDLE, name : windows_sys::core::PCWSTR, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFromToken(hprocess : super::HANDLE, base : u64, token : u32, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFromTokenW(hprocess : super::HANDLE, base : u64, token : u32, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromToken(hprocess : super::HANDLE, base : super::DWORD64, token : super::DWORD, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFromTokenW(hprocess : super::HANDLE, base : super::DWORD64, token : super::DWORD, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess(hprocess : super::HANDLE, addrbase : u32) -> *mut core::ffi::c_void);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64(hprocess : super::HANDLE, addrbase : u64) -> *mut core::ffi::c_void);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::HANDLE, addrbase : u64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess(hprocess : super::HANDLE, addrbase : super::DWORD) -> super::PVOID);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymFunctionTableAccess64" fn SymFunctionTableAccess(hprocess : super::HANDLE, addrbase : super::DWORD64) -> super::PVOID);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64(hprocess : super::HANDLE, addrbase : super::DWORD64) -> super::PVOID);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::HANDLE, addrbase : super::DWORD64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> super::PVOID);
 windows_link::link!("dbghelp.dll" "system" fn SymGetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetFileLineOffsets64(hprocess : super::HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, buffer : super::PDWORD64, bufferlines : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetHomeDirectory(r#type : u32, dir : windows_sys::core::PSTR, size : usize) -> super::PCHAR);
-windows_link::link!("dbghelp.dll" "system" fn SymGetHomeDirectoryW(r#type : u32, dir : windows_sys::core::PWSTR, size : usize) -> windows_sys::core::PWSTR);
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetFileLineOffsets64(hprocess : super::HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, buffer : super::PDWORD64, bufferlines : super::ULONG) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetHomeDirectory(r#type : super::DWORD, dir : windows_sys::core::PSTR, size : super::size_t) -> super::PCHAR);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn SymGetHomeDirectoryW(r#type : super::DWORD, dir : windows_sys::core::PWSTR, size : super::size_t) -> windows_sys::core::PWSTR);
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddr(hprocess : super::HANDLE, dwaddr : u32, pdwdisplacement : super::PDWORD, line : PIMAGEHLP_LINE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddr64(hprocess : super::HANDLE, qwaddr : u64, pdwdisplacement : super::PDWORD, line64 : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddrW64(hprocess : super::HANDLE, dwaddr : u64, pdwdisplacement : super::PDWORD, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContext(hprocess : super::HANDLE, qwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : super::PDWORD, line64 : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContextW(hprocess : super::HANDLE, dwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : super::PDWORD, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddr(hprocess : super::HANDLE, dwaddr : super::DWORD, pdwdisplacement : super::PDWORD, line : PIMAGEHLP_LINE) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetLineFromAddr64" fn SymGetLineFromAddr(hprocess : super::HANDLE, qwaddr : super::DWORD64, pdwdisplacement : super::PDWORD, line64 : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddr64(hprocess : super::HANDLE, qwaddr : super::DWORD64, pdwdisplacement : super::PDWORD, line64 : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetLineFromAddrW64" fn SymGetLineFromAddrW(hprocess : super::HANDLE, dwaddr : super::DWORD64, pdwdisplacement : super::PDWORD, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddrW64(hprocess : super::HANDLE, dwaddr : super::DWORD64, pdwdisplacement : super::PDWORD, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContext(hprocess : super::HANDLE, qwaddr : super::DWORD64, inlinecontext : super::ULONG, qwmodulebaseaddress : super::DWORD64, pdwdisplacement : super::PDWORD, line64 : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContextW(hprocess : super::HANDLE, dwaddr : super::DWORD64, inlinecontext : super::ULONG, qwmodulebaseaddress : super::DWORD64, pdwdisplacement : super::PDWORD, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromName(hprocess : super::HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : u32, pldisplacement : super::PLONG, line : PIMAGEHLP_LINE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromName64(hprocess : super::HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : u32, pldisplacement : super::PLONG, line : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromNameW64(hprocess : super::HANDLE, modulename : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, dwlinenumber : u32, pldisplacement : super::PLONG, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromName(hprocess : super::HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : super::DWORD, pldisplacement : super::PLONG, line : PIMAGEHLP_LINE) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetLineFromName64" fn SymGetLineFromName(hprocess : super::HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : super::DWORD, pldisplacement : super::PLONG, line : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromName64(hprocess : super::HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : super::DWORD, pldisplacement : super::PLONG, line : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromNameW64(hprocess : super::HANDLE, modulename : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, dwlinenumber : super::DWORD, pldisplacement : super::PLONG, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetLineNext(hprocess : super::HANDLE, line : PIMAGEHLP_LINE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetLineNext64" fn SymGetLineNext(hprocess : super::HANDLE, line : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetLineNext64(hprocess : super::HANDLE, line : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetLineNextW64(hprocess : super::HANDLE, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetLinePrev(hprocess : super::HANDLE, line : PIMAGEHLP_LINE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetLinePrev64" fn SymGetLinePrev(hprocess : super::HANDLE, line : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetLinePrev64(hprocess : super::HANDLE, line : PIMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetLinePrevW64(hprocess : super::HANDLE, line : PIMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetModuleBase(hprocess : super::HANDLE, dwaddr : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetModuleBase64(hprocess : super::HANDLE, qwaddr : u64) -> u64);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleBase(hprocess : super::HANDLE, dwaddr : super::DWORD) -> super::DWORD);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetModuleBase64" fn SymGetModuleBase(hprocess : super::HANDLE, qwaddr : super::DWORD64) -> super::DWORD64);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleBase64(hprocess : super::HANDLE, qwaddr : super::DWORD64) -> super::DWORD64);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfo(hprocess : super::HANDLE, dwaddr : u32, moduleinfo : PIMAGEHLP_MODULE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfo64(hprocess : super::HANDLE, qwaddr : u64, moduleinfo : PIMAGEHLP_MODULE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfo(hprocess : super::HANDLE, dwaddr : super::DWORD, moduleinfo : PIMAGEHLP_MODULE) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetModuleInfo64" fn SymGetModuleInfo(hprocess : super::HANDLE, qwaddr : super::DWORD64, moduleinfo : PIMAGEHLP_MODULE64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfo64(hprocess : super::HANDLE, qwaddr : super::DWORD64, moduleinfo : PIMAGEHLP_MODULE64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super::HANDLE, dwaddr : u32, moduleinfo : PIMAGEHLP_MODULEW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::HANDLE, qwaddr : u64, moduleinfo : PIMAGEHLP_MODULEW64) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::HANDLE, baseofdll : u64, omapto : *mut POMAP, comapto : super::PDWORD64, omapfrom : *mut POMAP, comapfrom : super::PDWORD64) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn SymGetOptions() -> u32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super::HANDLE, dwaddr : super::DWORD, moduleinfo : PIMAGEHLP_MODULEW) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetModuleInfoW64" fn SymGetModuleInfoW(hprocess : super::HANDLE, qwaddr : super::DWORD64, moduleinfo : PIMAGEHLP_MODULEW64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::HANDLE, qwaddr : super::DWORD64, moduleinfo : PIMAGEHLP_MODULEW64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::HANDLE, baseofdll : super::DWORD64, omapto : *mut POMAP, comapto : super::PDWORD64, omapfrom : *mut POMAP, comapfrom : super::PDWORD64) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn SymGetOptions() -> super::DWORD);
 #[cfg(feature = "windef")]
 windows_link::link!("dbghelp.dll" "system" fn SymGetParentWindow(phwnd : *mut super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::HANDLE, baseofdll : u64, index : u32, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::HANDLE, baseofdll : u64, index : u32, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::HANDLE, searchpatha : windows_sys::core::PSTR, searchpathlength : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSearchPathW(hprocess : super::HANDLE, searchpatha : windows_sys::core::PWSTR, searchpathlength : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::HANDLE, base : u64, params : windows_sys::core::PCSTR, filespec : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::HANDLE, base : u64, filespec : windows_sys::core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::HANDLE, token : *const core::ffi::c_void, tokenname : windows_sys::core::PCSTR, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::HANDLE, token : *const core::ffi::c_void, tokenname : windows_sys::core::PCWSTR, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::HANDLE, base : u64, filespec : windows_sys::core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::HANDLE, base : u64, filespec : windows_sys::core::PCSTR, tokenname : windows_sys::core::PCSTR, tokenparameters : windows_sys::core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, tokenname : windows_sys::core::PCWSTR, tokenparameters : windows_sys::core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::HANDLE, base : u64, params : windows_sys::core::PCWSTR, filespec : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCSTR, varname : windows_sys::core::PCSTR, value : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCWSTR, varname : windows_sys::core::PCWSTR, value : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::HANDLE, baseofdll : super::ULONG64, index : super::DWORD, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::HANDLE, baseofdll : super::ULONG64, index : super::DWORD, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::HANDLE, searchpath : windows_sys::core::PSTR, searchpathlength : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSearchPathW(hprocess : super::HANDLE, searchpath : windows_sys::core::PWSTR, searchpathlength : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::HANDLE, base : super::ULONG64, params : windows_sys::core::PCSTR, filespec : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_sys::core::PCSTR, pchecksumtype : *mut super::DWORD, pchecksum : *mut super::BYTE, checksumsize : super::DWORD, pactualbyteswritten : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_sys::core::PCWSTR, pchecksumtype : *mut super::DWORD, pchecksum : *mut super::BYTE, checksumsize : super::DWORD, pactualbyteswritten : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::HANDLE, token : super::PVOID, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::HANDLE, token : super::PVOID, tokenname : windows_sys::core::PCSTR, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::HANDLE, token : super::PVOID, tokenname : windows_sys::core::PCWSTR, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::HANDLE, token : super::PVOID, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_sys::core::PCSTR, token : *mut super::PVOID, size : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_sys::core::PCSTR, tokenname : windows_sys::core::PCSTR, tokenparameters : windows_sys::core::PCSTR, token : *mut super::PVOID, size : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_sys::core::PCWSTR, tokenname : windows_sys::core::PCWSTR, tokenparameters : windows_sys::core::PCWSTR, token : *mut super::PVOID, size : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::HANDLE, base : super::ULONG64, filespec : windows_sys::core::PCWSTR, token : *mut super::PVOID, size : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::HANDLE, base : super::ULONG64, params : windows_sys::core::PCWSTR, filespec : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::HANDLE, token : super::PVOID, params : windows_sys::core::PCSTR, varname : windows_sys::core::PCSTR, value : windows_sys::core::PSTR, size : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::HANDLE, token : super::PVOID, params : windows_sys::core::PCWSTR, varname : windows_sys::core::PCWSTR, value : windows_sys::core::PWSTR, size : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromAddr(hprocess : super::HANDLE, dwaddr : u32, pdwdisplacement : super::PDWORD, symbol : PIMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromAddr64(hprocess : super::HANDLE, qwaddr : u64, pdwdisplacement : super::PDWORD64, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromAddr(hprocess : super::HANDLE, dwaddr : super::DWORD, pdwdisplacement : super::PDWORD, symbol : PIMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetSymFromAddr64" fn SymGetSymFromAddr(hprocess : super::HANDLE, qwaddr : super::DWORD64, pdwdisplacement : super::PDWORD64, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromAddr64(hprocess : super::HANDLE, qwaddr : super::DWORD64, pdwdisplacement : super::PDWORD64, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromName(hprocess : super::HANDLE, name : windows_sys::core::PCSTR, symbol : PIMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetSymFromName64" fn SymGetSymFromName(hprocess : super::HANDLE, name : windows_sys::core::PCSTR, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromName64(hprocess : super::HANDLE, name : windows_sys::core::PCSTR, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetSymNext(hprocess : super::HANDLE, symbol : PIMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetSymNext64" fn SymGetSymNext(hprocess : super::HANDLE, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetSymNext64(hprocess : super::HANDLE, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetSymPrev(hprocess : super::HANDLE, symbol : PIMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymGetSymPrev64" fn SymGetSymPrev(hprocess : super::HANDLE, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymGetSymPrev64(hprocess : super::HANDLE, symbol : PIMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSymbolFile(hprocess : super::HANDLE, sympath : windows_sys::core::PCSTR, imagefile : windows_sys::core::PCSTR, r#type : u32, symbolfile : windows_sys::core::PSTR, csymbolfile : usize, dbgfile : windows_sys::core::PSTR, cdbgfile : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetSymbolFileW(hprocess : super::HANDLE, sympath : windows_sys::core::PCWSTR, imagefile : windows_sys::core::PCWSTR, r#type : u32, symbolfile : windows_sys::core::PWSTR, csymbolfile : usize, dbgfile : windows_sys::core::PWSTR, cdbgfile : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetTypeFromName(hprocess : super::HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetTypeFromNameW(hprocess : super::HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymGetTypeInfo(hprocess : super::HANDLE, modbase : u64, typeid : u32, gettype : IMAGEHLP_SYMBOL_TYPE_INFO, pinfo : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetTypeInfoEx(hprocess : super::HANDLE, modbase : u64, params : PIMAGEHLP_GET_TYPE_INFO_PARAMS) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymGetUnwindInfo(hprocess : super::HANDLE, address : u64, buffer : *mut core::ffi::c_void, size : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymbolFile(hprocess : super::HANDLE, sympath : windows_sys::core::PCSTR, imagefile : windows_sys::core::PCSTR, r#type : super::DWORD, symbolfile : windows_sys::core::PSTR, csymbolfile : super::size_t, dbgfile : windows_sys::core::PSTR, cdbgfile : super::size_t) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymbolFileW(hprocess : super::HANDLE, sympath : windows_sys::core::PCWSTR, imagefile : windows_sys::core::PCWSTR, r#type : super::DWORD, symbolfile : windows_sys::core::PWSTR, csymbolfile : super::size_t, dbgfile : windows_sys::core::PWSTR, cdbgfile : super::size_t) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeFromName(hprocess : super::HANDLE, baseofdll : super::ULONG64, name : windows_sys::core::PCSTR, symbol : PSYMBOL_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeFromNameW(hprocess : super::HANDLE, baseofdll : super::ULONG64, name : windows_sys::core::PCWSTR, symbol : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeInfo(hprocess : super::HANDLE, modbase : super::DWORD64, typeid : super::ULONG, gettype : IMAGEHLP_SYMBOL_TYPE_INFO, pinfo : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeInfoEx(hprocess : super::HANDLE, modbase : super::DWORD64, params : PIMAGEHLP_GET_TYPE_INFO_PARAMS) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymGetUnwindInfo(hprocess : super::HANDLE, address : super::DWORD64, buffer : super::PVOID, size : super::PULONG) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymInitialize(hprocess : super::HANDLE, usersearchpath : windows_sys::core::PCSTR, finvadeprocess : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymInitializeW(hprocess : super::HANDLE, usersearchpath : windows_sys::core::PCWSTR, finvadeprocess : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymLoadModule(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u32, sizeofdll : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymLoadModule64(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u64, sizeofdll : u32) -> u64);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymLoadModuleEx(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u64, dllsize : u32, data : PMODLOAD_DATA, flags : u32) -> u64);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymLoadModuleExW(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCWSTR, modulename : windows_sys::core::PCWSTR, baseofdll : u64, dllsize : u32, data : PMODLOAD_DATA, flags : u32) -> u64);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModule(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : super::DWORD, sizeofdll : super::DWORD) -> super::DWORD);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymLoadModule64" fn SymLoadModule(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : super::DWORD64, sizeofdll : super::DWORD) -> super::DWORD64);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModule64(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : super::DWORD64, sizeofdll : super::DWORD) -> super::DWORD64);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModuleEx(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : super::DWORD64, dllsize : super::DWORD, data : PMODLOAD_DATA, flags : super::DWORD) -> super::DWORD64);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModuleExW(hprocess : super::HANDLE, hfile : super::HANDLE, imagename : windows_sys::core::PCWSTR, modulename : windows_sys::core::PCWSTR, baseofdll : super::DWORD64, dllsize : super::DWORD, data : PMODLOAD_DATA, flags : super::DWORD) -> super::DWORD64);
 windows_link::link!("dbghelp.dll" "system" fn SymMatchFileName(filename : windows_sys::core::PCSTR, r#match : windows_sys::core::PCSTR, filenamestop : *mut windows_sys::core::PSTR, matchstop : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymMatchFileNameW(filename : windows_sys::core::PCWSTR, r#match : windows_sys::core::PCWSTR, filenamestop : *mut windows_sys::core::PWSTR, matchstop : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymMatchString(string : windows_sys::core::PCSTR, expression : windows_sys::core::PCSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymMatchStringA(string : windows_sys::core::PCSTR, expression : windows_sys::core::PCSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymMatchStringW(string : windows_sys::core::PCWSTR, expression : windows_sys::core::PCWSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymNext(hprocess : super::HANDLE, si : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymNextW(hprocess : super::HANDLE, siw : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymPrev(hprocess : super::HANDLE, si : PSYMBOL_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymPrevW(hprocess : super::HANDLE, siw : PSYMBOL_INFOW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dbghelp.dll" "system" fn SymQueryInlineTrace(hprocess : super::HANDLE, startaddress : u64, startcontext : u32, startretaddress : u64, curaddress : u64, curcontext : super::LPDWORD, curframeindex : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymQueryInlineTrace(hprocess : super::HANDLE, startaddress : super::DWORD64, startcontext : super::DWORD, startretaddress : super::DWORD64, curaddress : super::DWORD64, curcontext : super::LPDWORD, curframeindex : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymRefreshModuleList(hprocess : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallback(hprocess : super::HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallback64(hprocess : super::HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallbackW64(hprocess : super::HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallback(hprocess : super::HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymRegisterCallback64" fn SymRegisterCallback(hprocess : super::HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : super::ULONG64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallback64(hprocess : super::HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : super::ULONG64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallbackW64(hprocess : super::HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : super::ULONG64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback(hprocess : super::HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback64(hprocess : super::HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSearch(hprocess : super::HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_sys::core::PCSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSearchW(hprocess : super::HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_sys::core::PCWSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback(hprocess : super::HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK, usercontext : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymRegisterFunctionEntryCallback64" fn SymRegisterFunctionEntryCallback(hprocess : super::HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : super::ULONG64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback64(hprocess : super::HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : super::ULONG64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSearch(hprocess : super::HANDLE, baseofdll : super::ULONG64, index : super::DWORD, symtag : super::DWORD, mask : windows_sys::core::PCSTR, address : super::DWORD64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : super::PVOID, options : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSearchW(hprocess : super::HANDLE, baseofdll : super::ULONG64, index : super::DWORD, symtag : super::DWORD, mask : windows_sys::core::PCWSTR, address : super::DWORD64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : super::PVOID, options : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("dbghelp.dll" "system" fn SymSetContext(hprocess : super::HANDLE, stackframe : PIMAGEHLP_STACK_FRAME, context : PIMAGEHLP_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymSetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS, value : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymSetHomeDirectory(hprocess : super::HANDLE, dir : windows_sys::core::PCSTR) -> super::PCHAR);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymSetHomeDirectoryW(hprocess : super::HANDLE, dir : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
-windows_link::link!("dbghelp.dll" "system" fn SymSetOptions(symoptions : u32) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn SymSetOptions(symoptions : super::DWORD) -> super::DWORD);
 #[cfg(feature = "windef")]
 windows_link::link!("dbghelp.dll" "system" fn SymSetParentWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromAddr(hprocess : super::HANDLE, address : super::ULONG64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromIndex(hprocess : super::HANDLE, baseofdll : super::ULONG64, index : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromInlineContext(hprocess : super::HANDLE, address : super::ULONG64, inlinecontext : super::ULONG) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromAddr(hprocess : super::HANDLE, address : u64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetSearchPath(hprocess : super::HANDLE, searchpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromIndex(hprocess : super::HANDLE, baseofdll : u64, index : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromInlineContext(hprocess : super::HANDLE, address : u64, inlinecontext : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSetSearchPath(hprocess : super::HANDLE, searchpatha : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSetSearchPathW(hprocess : super::HANDLE, searchpatha : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetSearchPathW(hprocess : super::HANDLE, searchpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymSrvDeltaName(hprocess : super::HANDLE, sympath : windows_sys::core::PCSTR, r#type : windows_sys::core::PCSTR, file1 : windows_sys::core::PCSTR, file2 : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymSrvDeltaNameW(hprocess : super::HANDLE, sympath : windows_sys::core::PCWSTR, r#type : windows_sys::core::PCWSTR, file1 : windows_sys::core::PCWSTR, file2 : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
-windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfo(file : windows_sys::core::PCSTR, info : PSYMSRV_INDEX_INFO, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfoW(file : windows_sys::core::PCWSTR, info : PSYMSRV_INDEX_INFOW, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, index : windows_sys::core::PSTR, size : usize, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, index : windows_sys::core::PWSTR, size : usize, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexes(file : windows_sys::core::PCSTR, id : *mut windows_sys::core::GUID, val1 : super::PDWORD, val2 : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexesW(file : windows_sys::core::PCWSTR, id : *mut windows_sys::core::GUID, val1 : super::PDWORD, val2 : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfo(file : windows_sys::core::PCSTR, info : PSYMSRV_INDEX_INFO, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfoW(file : windows_sys::core::PCWSTR, info : PSYMSRV_INDEX_INFOW, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, index : windows_sys::core::PSTR, size : super::size_t, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, index : windows_sys::core::PWSTR, size : super::size_t, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexes(file : windows_sys::core::PCSTR, id : *mut windows_sys::core::GUID, val1 : super::PDWORD, val2 : super::PDWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexesW(file : windows_sys::core::PCWSTR, id : *mut windows_sys::core::GUID, val1 : super::PDWORD, val2 : super::PDWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymSrvGetSupplement(hprocess : super::HANDLE, sympath : windows_sys::core::PCSTR, node : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
 #[cfg(feature = "winnt")]
@@ -404,47 +484,63 @@ windows_link::link!("dbghelp.dll" "system" fn SymSrvGetSupplementW(hprocess : su
 windows_link::link!("dbghelp.dll" "system" fn SymSrvIsStore(hprocess : super::HANDLE, path : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("dbghelp.dll" "system" fn SymSrvIsStoreW(hprocess : super::HANDLE, path : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreFile(hprocess : super::HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::PCSTR);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreFileW(hprocess : super::HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::PCWSTR);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreSupplement(hprocess : super::HANDLE, srvpath : windows_sys::core::PCSTR, node : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::PCSTR);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreSupplementW(hprocess : super::HANDLE, sympath : windows_sys::core::PCWSTR, node : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::PCWSTR);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreFile(hprocess : super::HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : super::DWORD) -> windows_sys::core::PCSTR);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreFileW(hprocess : super::HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::PCWSTR);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreSupplement(hprocess : super::HANDLE, srvpath : windows_sys::core::PCSTR, node : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : super::DWORD) -> windows_sys::core::PCSTR);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreSupplementW(hprocess : super::HANDLE, sympath : windows_sys::core::PCWSTR, node : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::PCWSTR);
 #[cfg(target_arch = "x86")]
-windows_link::link!("dbghelp.dll" "system" fn SymUnDName(sym : PIMAGEHLP_SYMBOL, undecname : windows_sys::core::PSTR, undecnamelength : u32) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn SymUnDName64(sym : PIMAGEHLP_SYMBOL64, undecname : windows_sys::core::PSTR, undecnamelength : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn SymUnDName(sym : PIMAGEHLP_SYMBOL, undecname : windows_sys::core::PSTR, undecnamelength : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" "SymUnDName64" fn SymUnDName(sym : PIMAGEHLP_SYMBOL64, undecname : windows_sys::core::PSTR, undecnamelength : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn SymUnDName64(sym : PIMAGEHLP_SYMBOL64, undecname : windows_sys::core::PSTR, undecnamelength : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymUnloadModule(hprocess : super::HANDLE, baseofdll : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("dbghelp.dll" "system" fn SymUnloadModule64(hprocess : super::HANDLE, baseofdll : u64) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_sys::core::PCSTR, outputstring : windows_sys::core::PSTR, maxstringlength : u32, flags : u32) -> u32);
-windows_link::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_sys::core::PCWSTR, outputstring : windows_sys::core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
-#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymUnloadModule(hprocess : super::HANDLE, baseofdll : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" "SymUnloadModule64" fn SymUnloadModule(hprocess : super::HANDLE, baseofdll : super::DWORD64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn SymUnloadModule64(hprocess : super::HANDLE, baseofdll : super::DWORD64) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_sys::core::PCSTR, outputstring : windows_sys::core::PSTR, maxstringlength : super::DWORD, flags : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_sys::core::PCWSTR, outputstring : windows_sys::core::PWSTR, maxstringlength : super::DWORD, flags : super::DWORD) -> super::DWORD);
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("dbghelp.dll" "system" fn UnmapDebugInformation(debuginfo : PIMAGE_DEBUG_INFORMATION) -> windows_sys::core::BOOL);
+#[repr(C, packed(8))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRESS {
-    pub Offset: u32,
-    pub Segment: u16,
+    pub Offset: super::DWORD,
+    pub Segment: super::WORD,
     pub Mode: ADDRESS_MODE,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRESS64 {
-    pub Offset: u64,
-    pub Segment: u16,
+    pub Offset: super::DWORD64,
+    pub Segment: super::WORD,
     pub Mode: ADDRESS_MODE,
 }
 pub type ADDRESS_MODE = i32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct API_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub Revision: u16,
-    pub Reserved: u16,
+    pub MajorVersion: super::USHORT,
+    pub MinorVersion: super::USHORT,
+    pub Revision: super::USHORT,
+    pub Reserved: super::USHORT,
 }
 pub const API_VERSION_NUMBER: i32 = 12;
 pub const AddrMode1616: ADDRESS_MODE = 0;
@@ -471,7 +567,7 @@ pub const CBA_SRCSRV_INFO: i32 = 536870912;
 pub const CBA_SYMBOLS_UNLOADED: i32 = 4;
 pub const CBA_UPDATE_STATUS_BAR: i32 = 1342177280;
 pub const CBA_XML_LOG: u32 = 2415919104;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[derive(Clone, Copy, Default)]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_sys::core::PCWSTR,
@@ -480,12 +576,14 @@ pub struct DBGHELP_DATA_REPORT_STRUCT {
 pub const DBHHEADER_CVMISC: i32 = 2;
 pub const DBHHEADER_DEBUGDIRS: i32 = 1;
 pub const DBHHEADER_PDBGUID: i32 = 3;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DISCRIMINATEDUNION_TAG_VALUE {
-    pub value: [u8; 16],
-    pub valueSizeBytes: u8,
+    pub value: [super::BYTE; 16],
+    pub valueSizeBytes: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for DISCRIMINATEDUNION_TAG_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -508,222 +606,231 @@ pub const EXT_OUTPUT_VER: i32 = 1;
 pub const FLAG_ENGINE_PRESENT: i32 = 4;
 pub const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
 pub const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_CBA_EVENT {
-    pub severity: u32,
-    pub code: u32,
+    pub severity: super::DWORD,
+    pub code: super::DWORD,
     pub desc: super::PCHAR,
-    pub object: *mut core::ffi::c_void,
+    pub object: super::PVOID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_CBA_EVENTW {
-    pub severity: u32,
-    pub code: u32,
+    pub severity: super::DWORD,
+    pub code: super::DWORD,
     pub desc: windows_sys::core::PCWSTR,
-    pub object: *mut core::ffi::c_void,
+    pub object: super::PVOID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
-    pub addr: u64,
-    pub buf: *mut core::ffi::c_void,
-    pub bytes: u32,
-    pub bytesread: *mut u32,
+    pub addr: super::DWORD64,
+    pub buf: super::PVOID,
+    pub bytes: super::DWORD,
+    pub bytesread: *mut super::DWORD,
 }
 pub type IMAGEHLP_CONTEXT = core::ffi::c_void;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
-    pub SizeOfStruct: u32,
-    pub BaseOfImage: u32,
-    pub CheckSum: u32,
-    pub TimeDateStamp: u32,
-    pub FileName: [i8; 260],
+    pub SizeOfStruct: super::DWORD,
+    pub BaseOfImage: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub FileName: [super::CHAR; 260],
     pub Reparse: super::BOOLEAN,
     pub hFile: super::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-    pub SizeOfStruct: u32,
-    pub BaseOfImage: u64,
-    pub CheckSum: u32,
-    pub TimeDateStamp: u32,
-    pub FileName: [i8; 260],
+    pub SizeOfStruct: super::DWORD,
+    pub BaseOfImage: super::DWORD64,
+    pub CheckSum: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub FileName: [super::CHAR; 260],
     pub Reparse: super::BOOLEAN,
     pub hFile: super::HANDLE,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-    pub SizeOfStruct: u32,
-    pub BaseOfImage: u64,
-    pub CheckSum: u32,
-    pub TimeDateStamp: u32,
-    pub FileName: [u16; 261],
+    pub SizeOfStruct: super::DWORD,
+    pub BaseOfImage: super::DWORD64,
+    pub CheckSum: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub FileName: [super::WCHAR; 261],
     pub Reparse: super::BOOLEAN,
     pub hFile: super::HANDLE,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
-    pub SizeOfStruct: u32,
-    pub NumberOfDups: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub NumberOfDups: super::DWORD,
     pub Symbol: PIMAGEHLP_SYMBOL,
-    pub SelectedSymbol: u32,
+    pub SelectedSymbol: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
-    pub SizeOfStruct: u32,
-    pub NumberOfDups: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub NumberOfDups: super::DWORD,
     pub Symbol: PIMAGEHLP_SYMBOL64,
-    pub SelectedSymbol: u32,
+    pub SelectedSymbol: super::DWORD,
 }
 pub type IMAGEHLP_EXTENDED_OPTIONS = i32;
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
-#[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
-    pub SizeOfStruct: u32,
-    pub Flags: u32,
-    pub NumIds: u32,
+    pub SizeOfStruct: super::ULONG,
+    pub Flags: super::ULONG,
+    pub NumIds: super::ULONG,
     pub TypeIds: super::PULONG,
-    pub TagFilter: u64,
-    pub NumReqs: u32,
+    pub TagFilter: super::ULONG64,
+    pub NumReqs: super::ULONG,
     pub ReqKinds: *mut IMAGEHLP_SYMBOL_TYPE_INFO,
     pub ReqOffsets: super::PULONG_PTR,
     pub ReqSizes: super::PULONG,
-    pub ReqStride: usize,
-    pub BufferSize: usize,
-    pub Buffer: *mut core::ffi::c_void,
-    pub EntriesMatched: u32,
-    pub EntriesFilled: u32,
-    pub TagsFound: u64,
-    pub AllReqsValid: u64,
-    pub NumReqsValid: u32,
+    pub ReqStride: super::ULONG_PTR,
+    pub BufferSize: super::ULONG_PTR,
+    pub Buffer: super::PVOID,
+    pub EntriesMatched: super::ULONG,
+    pub EntriesFilled: super::ULONG,
+    pub TagsFound: super::ULONG64,
+    pub AllReqsValid: super::ULONG64,
+    pub NumReqsValid: super::ULONG,
     pub ReqsValid: super::PULONG64,
 }
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
 pub type IMAGEHLP_HD_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_JIT_SYMBOLMAP {
-    pub SizeOfStruct: u32,
-    pub Address: u64,
-    pub BaseOfImage: u64,
+    pub SizeOfStruct: super::DWORD,
+    pub Address: super::DWORD64,
+    pub BaseOfImage: super::DWORD64,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINE {
-    pub SizeOfStruct: u32,
-    pub Key: *mut core::ffi::c_void,
-    pub LineNumber: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub Key: super::PVOID,
+    pub LineNumber: super::DWORD,
     pub FileName: super::PCHAR,
-    pub Address: u32,
+    pub Address: super::DWORD,
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINE64 {
-    pub SizeOfStruct: u32,
-    pub Key: *mut core::ffi::c_void,
-    pub LineNumber: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub Key: super::PVOID,
+    pub LineNumber: super::DWORD,
     pub FileName: super::PCHAR,
-    pub Address: u64,
+    pub Address: super::DWORD64,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINEW {
-    pub SizeOfStruct: u32,
-    pub Key: *mut core::ffi::c_void,
-    pub LineNumber: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub Key: super::PVOID,
+    pub LineNumber: super::DWORD,
     pub FileName: super::PCHAR,
-    pub Address: u64,
+    pub Address: super::DWORD64,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINEW64 {
-    pub SizeOfStruct: u32,
-    pub Key: *mut core::ffi::c_void,
-    pub LineNumber: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub Key: super::PVOID,
+    pub LineNumber: super::DWORD,
     pub FileName: windows_sys::core::PWSTR,
-    pub Address: u64,
+    pub Address: super::DWORD64,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_MODULE {
-    pub SizeOfStruct: u32,
-    pub BaseOfImage: u32,
-    pub ImageSize: u32,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub NumSyms: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub BaseOfImage: super::DWORD,
+    pub ImageSize: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub NumSyms: super::DWORD,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [i8; 32],
-    pub ImageName: [i8; 256],
-    pub LoadedImageName: [i8; 256],
+    pub ModuleName: [super::CHAR; 32],
+    pub ImageName: [super::CHAR; 256],
+    pub LoadedImageName: [super::CHAR; 256],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_MODULE64 {
-    pub SizeOfStruct: u32,
-    pub BaseOfImage: u64,
-    pub ImageSize: u32,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub NumSyms: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub BaseOfImage: super::DWORD64,
+    pub ImageSize: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub NumSyms: super::DWORD,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [i8; 32],
-    pub ImageName: [i8; 256],
-    pub LoadedImageName: [i8; 256],
-    pub LoadedPdbName: [i8; 256],
-    pub CVSig: u32,
-    pub CVData: [i8; 780],
-    pub PdbSig: u32,
+    pub ModuleName: [super::CHAR; 32],
+    pub ImageName: [super::CHAR; 256],
+    pub LoadedImageName: [super::CHAR; 256],
+    pub LoadedPdbName: [super::CHAR; 256],
+    pub CVSig: super::DWORD,
+    pub CVData: [super::CHAR; 780],
+    pub PdbSig: super::DWORD,
     pub PdbSig70: windows_sys::core::GUID,
-    pub PdbAge: u32,
+    pub PdbAge: super::DWORD,
     pub PdbUnmatched: windows_sys::core::BOOL,
     pub DbgUnmatched: windows_sys::core::BOOL,
     pub LineNumbers: windows_sys::core::BOOL,
@@ -731,60 +838,65 @@ pub struct IMAGEHLP_MODULE64 {
     pub TypeInfo: windows_sys::core::BOOL,
     pub SourceIndexed: windows_sys::core::BOOL,
     pub Publics: windows_sys::core::BOOL,
-    pub MachineType: u32,
-    pub Reserved: u32,
+    pub MachineType: super::DWORD,
+    pub Reserved: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_MODULE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_MODULE64_EX {
     pub Module: IMAGEHLP_MODULE64,
-    pub RegionFlags: u32,
+    pub RegionFlags: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_MODULEW {
-    pub SizeOfStruct: u32,
-    pub BaseOfImage: u32,
-    pub ImageSize: u32,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub NumSyms: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub BaseOfImage: super::DWORD,
+    pub ImageSize: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub NumSyms: super::DWORD,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [u16; 32],
-    pub ImageName: [u16; 256],
-    pub LoadedImageName: [u16; 256],
+    pub ModuleName: [super::WCHAR; 32],
+    pub ImageName: [super::WCHAR; 256],
+    pub LoadedImageName: [super::WCHAR; 256],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_MODULEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_MODULEW64 {
-    pub SizeOfStruct: u32,
-    pub BaseOfImage: u64,
-    pub ImageSize: u32,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub NumSyms: u32,
+    pub SizeOfStruct: super::DWORD,
+    pub BaseOfImage: super::DWORD64,
+    pub ImageSize: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub NumSyms: super::DWORD,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [u16; 32],
-    pub ImageName: [u16; 256],
-    pub LoadedImageName: [u16; 256],
-    pub LoadedPdbName: [u16; 256],
-    pub CVSig: u32,
-    pub CVData: [u16; 780],
-    pub PdbSig: u32,
+    pub ModuleName: [super::WCHAR; 32],
+    pub ImageName: [super::WCHAR; 256],
+    pub LoadedImageName: [super::WCHAR; 256],
+    pub LoadedPdbName: [super::WCHAR; 256],
+    pub CVSig: super::DWORD,
+    pub CVData: [super::WCHAR; 780],
+    pub PdbSig: super::DWORD,
     pub PdbSig70: windows_sys::core::GUID,
-    pub PdbAge: u32,
+    pub PdbAge: super::DWORD,
     pub PdbUnmatched: windows_sys::core::BOOL,
     pub DbgUnmatched: windows_sys::core::BOOL,
     pub LineNumbers: windows_sys::core::BOOL,
@@ -792,19 +904,21 @@ pub struct IMAGEHLP_MODULEW64 {
     pub TypeInfo: windows_sys::core::BOOL,
     pub SourceIndexed: windows_sys::core::BOOL,
     pub Publics: windows_sys::core::BOOL,
-    pub MachineType: u32,
-    pub Reserved: u32,
+    pub MachineType: super::DWORD,
+    pub Reserved: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_MODULEW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_MODULEW64_EX {
     pub Module: IMAGEHLP_MODULEW64,
-    pub RegionFlags: u32,
+    pub RegionFlags: super::DWORD,
 }
 pub const IMAGEHLP_MODULE_REGION_ADDITIONAL: i32 = 4;
 pub const IMAGEHLP_MODULE_REGION_ALL: i32 = 255;
@@ -820,119 +934,135 @@ pub const IMAGEHLP_RMAP_MAPPED_FLAT: i32 = 1;
 pub const IMAGEHLP_RMAP_NOBASERELOCATIONS: i32 = 134217728;
 pub const IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS: i32 = 1073741824;
 pub type IMAGEHLP_SF_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_STACK_FRAME {
-    pub InstructionOffset: u64,
-    pub ReturnOffset: u64,
-    pub FrameOffset: u64,
-    pub StackOffset: u64,
-    pub BackingStoreOffset: u64,
-    pub FuncTableEntry: u64,
-    pub Params: [u64; 4],
-    pub Reserved: [u64; 5],
+    pub InstructionOffset: super::ULONG64,
+    pub ReturnOffset: super::ULONG64,
+    pub FrameOffset: super::ULONG64,
+    pub StackOffset: super::ULONG64,
+    pub BackingStoreOffset: super::ULONG64,
+    pub FuncTableEntry: super::ULONG64,
+    pub Params: [super::ULONG64; 4],
+    pub Reserved: [super::ULONG64; 5],
     pub Virtual: windows_sys::core::BOOL,
-    pub Reserved2: u32,
+    pub Reserved2: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_STACK_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL {
-    pub SizeOfStruct: u32,
-    pub Address: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub MaxNameLength: u32,
-    pub Name: [i8; 1],
+    pub SizeOfStruct: super::DWORD,
+    pub Address: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub MaxNameLength: super::DWORD,
+    pub Name: [super::CHAR; 1],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL64 {
-    pub SizeOfStruct: u32,
-    pub Address: u64,
-    pub Size: u32,
-    pub Flags: u32,
-    pub MaxNameLength: u32,
-    pub Name: [i8; 1],
+    pub SizeOfStruct: super::DWORD,
+    pub Address: super::DWORD64,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub MaxNameLength: super::DWORD,
+    pub Name: [super::CHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_SYMBOL64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
-    pub name: [i8; 2001],
+    pub name: [super::CHAR; 2001],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_SYMBOL64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOLW {
-    pub SizeOfStruct: u32,
-    pub Address: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub MaxNameLength: u32,
-    pub Name: [u16; 1],
+    pub SizeOfStruct: super::DWORD,
+    pub Address: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub MaxNameLength: super::DWORD,
+    pub Name: [super::WCHAR; 1],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_SYMBOLW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOLW64 {
-    pub SizeOfStruct: u32,
-    pub Address: u64,
-    pub Size: u32,
-    pub Flags: u32,
-    pub MaxNameLength: u32,
-    pub Name: [u16; 1],
+    pub SizeOfStruct: super::DWORD,
+    pub Address: super::DWORD64,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub MaxNameLength: super::DWORD,
+    pub Name: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_SYMBOLW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW64,
-    pub name: [u16; 2001],
+    pub name: [super::WCHAR; 2001],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_SYMBOLW64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
-    pub name: [u16; 2001],
+    pub name: [super::WCHAR; 2001],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGEHLP_SYMBOLW_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -947,26 +1077,30 @@ pub const IMAGEHLP_SYMBOL_INFO_REGISTER: i32 = 8;
 pub const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: i32 = 16;
 pub const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: i32 = 16384;
 pub const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: i32 = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
-    pub name: [i8; 2001],
+    pub name: [super::CHAR; 2001],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_SYMBOL_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGEHLP_SYMBOL_SRC {
-    pub sizeofstruct: u32,
-    pub r#type: u32,
+    pub sizeofstruct: super::DWORD,
+    pub r#type: super::DWORD,
     pub file: [i8; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGEHLP_SYMBOL_SRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -976,45 +1110,45 @@ pub const IMAGEHLP_SYMBOL_THUNK: i32 = 8192;
 pub type IMAGEHLP_SYMBOL_TYPE_INFO = i32;
 pub const IMAGEHLP_SYMBOL_TYPE_INFO_MAX: IMAGEHLP_SYMBOL_TYPE_INFO = 39;
 pub const IMAGEHLP_SYMBOL_VIRTUAL: i32 = 4096;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DEBUG_INFORMATION {
     pub List: super::LIST_ENTRY,
-    pub ReservedSize: u32,
-    pub ReservedMappedBase: *mut core::ffi::c_void,
-    pub ReservedMachine: u16,
-    pub ReservedCharacteristics: u16,
-    pub ReservedCheckSum: u32,
-    pub ImageBase: u32,
-    pub SizeOfImage: u32,
-    pub ReservedNumberOfSections: u32,
+    pub ReservedSize: super::DWORD,
+    pub ReservedMappedBase: super::PVOID,
+    pub ReservedMachine: super::USHORT,
+    pub ReservedCharacteristics: super::USHORT,
+    pub ReservedCheckSum: super::DWORD,
+    pub ImageBase: super::DWORD,
+    pub SizeOfImage: super::DWORD,
+    pub ReservedNumberOfSections: super::DWORD,
     pub ReservedSections: super::PIMAGE_SECTION_HEADER,
-    pub ReservedExportedNamesSize: u32,
+    pub ReservedExportedNamesSize: super::DWORD,
     pub ReservedExportedNames: windows_sys::core::PSTR,
-    pub ReservedNumberOfFunctionTableEntries: u32,
+    pub ReservedNumberOfFunctionTableEntries: super::DWORD,
     pub ReservedFunctionTableEntries: super::PIMAGE_FUNCTION_ENTRY,
-    pub ReservedLowestFunctionStartingAddress: u32,
-    pub ReservedHighestFunctionEndingAddress: u32,
-    pub ReservedNumberOfFpoTableEntries: u32,
+    pub ReservedLowestFunctionStartingAddress: super::DWORD,
+    pub ReservedHighestFunctionEndingAddress: super::DWORD,
+    pub ReservedNumberOfFpoTableEntries: super::DWORD,
     pub ReservedFpoTableEntries: super::PFPO_DATA,
-    pub SizeOfCoffSymbols: u32,
+    pub SizeOfCoffSymbols: super::DWORD,
     pub CoffSymbols: super::PIMAGE_COFF_SYMBOLS_HEADER,
-    pub ReservedSizeOfCodeViewSymbols: u32,
-    pub ReservedCodeViewSymbols: *mut core::ffi::c_void,
+    pub ReservedSizeOfCodeViewSymbols: super::DWORD,
+    pub ReservedCodeViewSymbols: super::PVOID,
     pub ImageFilePath: windows_sys::core::PSTR,
     pub ImageFileName: windows_sys::core::PSTR,
     pub ReservedDebugFilePath: windows_sys::core::PSTR,
-    pub ReservedTimeDateStamp: u32,
+    pub ReservedTimeDateStamp: super::DWORD,
     pub ReservedRomImage: windows_sys::core::BOOL,
     pub ReservedDebugDirectory: super::PIMAGE_DEBUG_DIRECTORY,
-    pub ReservedNumberOfDebugDirectories: u32,
-    pub ReservedOriginalFunctionTableBaseAddress: u32,
-    pub Reserved: [u32; 2],
+    pub ReservedNumberOfDebugDirectories: super::DWORD,
+    pub ReservedOriginalFunctionTableBaseAddress: super::DWORD,
+    pub Reserved: [super::DWORD; 2],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IMAGE_DEBUG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1023,58 +1157,62 @@ impl Default for IMAGE_DEBUG_INFORMATION {
 pub const IMAGE_SEPARATION: i32 = 65536;
 pub const INLINE_FRAME_CONTEXT_IGNORE: u32 = 4294967295;
 pub const INLINE_FRAME_CONTEXT_INIT: i32 = 0;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KDHELP {
-    pub Thread: u32,
-    pub ThCallbackStack: u32,
-    pub NextCallback: u32,
-    pub FramePointer: u32,
-    pub KiCallUserMode: u32,
-    pub KeUserCallbackDispatcher: u32,
-    pub SystemRangeStart: u32,
-    pub ThCallbackBStore: u32,
-    pub KiUserExceptionDispatcher: u32,
-    pub StackBase: u32,
-    pub StackLimit: u32,
-    pub Reserved: [u32; 5],
+    pub Thread: super::DWORD,
+    pub ThCallbackStack: super::DWORD,
+    pub NextCallback: super::DWORD,
+    pub FramePointer: super::DWORD,
+    pub KiCallUserMode: super::DWORD,
+    pub KeUserCallbackDispatcher: super::DWORD,
+    pub SystemRangeStart: super::DWORD,
+    pub ThCallbackBStore: super::DWORD,
+    pub KiUserExceptionDispatcher: super::DWORD,
+    pub StackBase: super::DWORD,
+    pub StackLimit: super::DWORD,
+    pub Reserved: [super::DWORD; 5],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for KDHELP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KDHELP64 {
-    pub Thread: u64,
-    pub ThCallbackStack: u32,
-    pub ThCallbackBStore: u32,
-    pub NextCallback: u32,
-    pub FramePointer: u32,
-    pub KiCallUserMode: u64,
-    pub KeUserCallbackDispatcher: u64,
-    pub SystemRangeStart: u64,
-    pub KiUserExceptionDispatcher: u64,
-    pub StackBase: u64,
-    pub StackLimit: u64,
-    pub BuildVersion: u32,
-    pub RetpolineStubFunctionTableSize: u32,
-    pub RetpolineStubFunctionTable: u64,
-    pub RetpolineStubOffset: u32,
-    pub RetpolineStubSize: u32,
-    pub Reserved0: [u64; 2],
+    pub Thread: super::DWORD64,
+    pub ThCallbackStack: super::DWORD,
+    pub ThCallbackBStore: super::DWORD,
+    pub NextCallback: super::DWORD,
+    pub FramePointer: super::DWORD,
+    pub KiCallUserMode: super::DWORD64,
+    pub KeUserCallbackDispatcher: super::DWORD64,
+    pub SystemRangeStart: super::DWORD64,
+    pub KiUserExceptionDispatcher: super::DWORD64,
+    pub StackBase: super::DWORD64,
+    pub StackLimit: super::DWORD64,
+    pub BuildVersion: super::DWORD,
+    pub RetpolineStubFunctionTableSize: super::DWORD,
+    pub RetpolineStubFunctionTable: super::DWORD64,
+    pub RetpolineStubOffset: super::DWORD,
+    pub RetpolineStubSize: super::DWORD,
+    pub Reserved0: [super::DWORD64; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for KDHELP64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
@@ -1082,19 +1220,19 @@ pub struct LOADED_IMAGE {
     pub MappedAddress: super::PUCHAR,
     pub FileHeader: super::PIMAGE_NT_HEADERS32,
     pub LastRvaSection: super::PIMAGE_SECTION_HEADER,
-    pub NumberOfSections: u32,
+    pub NumberOfSections: super::ULONG,
     pub Sections: super::PIMAGE_SECTION_HEADER,
-    pub Characteristics: u32,
+    pub Characteristics: super::ULONG,
     pub fSystemImage: super::BOOLEAN,
     pub fDOSImage: super::BOOLEAN,
     pub fReadOnly: super::BOOLEAN,
-    pub Version: u8,
+    pub Version: super::UCHAR,
     pub Links: super::LIST_ENTRY,
-    pub SizeOfImage: u32,
+    pub SizeOfImage: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
@@ -1102,58 +1240,70 @@ pub struct LOADED_IMAGE {
     pub MappedAddress: super::PUCHAR,
     pub FileHeader: super::PIMAGE_NT_HEADERS64,
     pub LastRvaSection: super::PIMAGE_SECTION_HEADER,
-    pub NumberOfSections: u32,
+    pub NumberOfSections: super::ULONG,
     pub Sections: super::PIMAGE_SECTION_HEADER,
-    pub Characteristics: u32,
+    pub Characteristics: super::ULONG,
     pub fSystemImage: super::BOOLEAN,
     pub fDOSImage: super::BOOLEAN,
     pub fReadOnly: super::BOOLEAN,
-    pub Version: u8,
+    pub Version: super::UCHAR,
     pub Links: super::LIST_ENTRY,
-    pub SizeOfImage: u32,
+    pub SizeOfImage: super::ULONG,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type LPADDRESS = *mut ADDRESS;
+#[cfg(feature = "shared")]
 pub type LPADDRESS64 = *mut ADDRESS64;
+#[cfg(feature = "shared")]
 pub type LPAPI_VERSION = *mut API_VERSION;
-pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> u32>;
+#[cfg(feature = "shared")]
+pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> super::ULONG>;
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSTACKFRAME = *mut STACKFRAME;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSTACKFRAME64 = *mut STACKFRAME64;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSTACKFRAME_EX = *mut STACKFRAME_EX;
 pub const MAX_SYM_NAME: i32 = 2000;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MODLOAD_CVMISC {
-    pub oCV: u32,
-    pub cCV: usize,
-    pub oMisc: u32,
-    pub cMisc: usize,
-    pub dtImage: u32,
-    pub cImage: u32,
+    pub oCV: super::DWORD,
+    pub cCV: super::size_t,
+    pub oMisc: super::DWORD,
+    pub cMisc: super::size_t,
+    pub dtImage: super::DWORD,
+    pub cImage: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MODLOAD_DATA {
-    pub ssize: u32,
-    pub ssig: u32,
-    pub data: *mut core::ffi::c_void,
-    pub size: u32,
-    pub flags: u32,
+    pub ssize: super::DWORD,
+    pub ssig: super::DWORD,
+    pub data: super::PVOID,
+    pub size: super::DWORD,
+    pub flags: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: windows_sys::core::GUID,
-    pub PdbAge: u32,
+    pub PdbAge: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MODULE_TYPE_INFO {
-    pub dataLength: u16,
-    pub leaf: u16,
-    pub data: [u8; 1],
+    pub dataLength: super::USHORT,
+    pub leaf: super::USHORT,
+    pub data: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MODULE_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1162,234 +1312,320 @@ impl Default for MODULE_TYPE_INFO {
 pub const NONGAMESPARTITIONS: i32 = 1;
 pub const NUM_SSRVOPTS: i32 = 32;
 pub const NumSymTypes: SYM_TYPE = 9;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct OMAP {
-    pub rva: u32,
-    pub rvaTo: u32,
+    pub rva: super::ULONG,
+    pub rvaTo: super::ULONG,
 }
-#[cfg(feature = "minwindef")]
-pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = Option<unsafe extern "system" fn(datatype: u32, data: *const *const core::ffi::c_void, datalength: super::LPDWORD, userdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = Option<unsafe extern "system" fn(datatype: super::DWORD, data: *const super::PVOID, datalength: super::LPDWORD, userdata: super::PVOID) -> windows_sys::core::BOOL>;
 pub type PDBGHELP_DATA_REPORT_STRUCT = *mut DBGHELP_DATA_REPORT_STRUCT;
-pub type PENUMDIRTREE_CALLBACK = Option<unsafe extern "system" fn(filepath: windows_sys::core::PCSTR, callerdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PENUMDIRTREE_CALLBACKW = Option<unsafe extern "system" fn(filepath: windows_sys::core::PCWSTR, callerdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(feature = "winnt")]
+pub type PENUMDIRTREE_CALLBACK = Option<unsafe extern "system" fn(filepath: windows_sys::core::PCSTR, callerdata: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(feature = "winnt")]
+pub type PENUMDIRTREE_CALLBACKW = Option<unsafe extern "system" fn(filepath: windows_sys::core::PCWSTR, callerdata: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(target_arch = "x86")]
-pub type PENUMLOADED_MODULES_CALLBACK = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, modulebase: u32, modulesize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PENUMLOADED_MODULES_CALLBACK64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, modulebase: u64, modulesize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PENUMLOADED_MODULES_CALLBACKW64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCWSTR, modulebase: u64, modulesize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PENUMSOURCEFILETOKENSCALLBACK = Option<unsafe extern "system" fn(token: *const core::ffi::c_void, size: usize) -> windows_sys::core::BOOL>;
-pub type PFINDFILEINPATHCALLBACK = Option<unsafe extern "system" fn(filename: windows_sys::core::PCSTR, context: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PFINDFILEINPATHCALLBACKW = Option<unsafe extern "system" fn(filename: windows_sys::core::PCWSTR, context: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PENUMLOADED_MODULES_CALLBACK = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, modulebase: super::ULONG, modulesize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PENUMLOADED_MODULES_CALLBACK64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, modulebase: super::DWORD64, modulesize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PENUMLOADED_MODULES_CALLBACKW64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCWSTR, modulebase: super::DWORD64, modulesize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PENUMSOURCEFILETOKENSCALLBACK = Option<unsafe extern "system" fn(token: super::PVOID, size: super::size_t) -> windows_sys::core::BOOL>;
 #[cfg(feature = "winnt")]
-pub type PFIND_DEBUG_FILE_CALLBACK = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCSTR, callerdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type PFINDFILEINPATHCALLBACK = Option<unsafe extern "system" fn(filename: windows_sys::core::PCSTR, context: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(feature = "winnt")]
-pub type PFIND_DEBUG_FILE_CALLBACKW = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCWSTR, callerdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type PFINDFILEINPATHCALLBACKW = Option<unsafe extern "system" fn(filename: windows_sys::core::PCWSTR, context: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(feature = "winnt")]
-pub type PFIND_EXE_FILE_CALLBACK = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCSTR, callerdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type PFIND_DEBUG_FILE_CALLBACK = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCSTR, callerdata: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(feature = "winnt")]
-pub type PFIND_EXE_FILE_CALLBACKW = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCWSTR, callerdata: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type PFIND_DEBUG_FILE_CALLBACKW = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCWSTR, callerdata: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(feature = "winnt")]
+pub type PFIND_EXE_FILE_CALLBACK = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCSTR, callerdata: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(feature = "winnt")]
+pub type PFIND_EXE_FILE_CALLBACKW = Option<unsafe extern "system" fn(filehandle: super::HANDLE, filename: windows_sys::core::PCWSTR, callerdata: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, addrbase: u32) -> *mut core::ffi::c_void>;
-#[cfg(feature = "winnt")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = Option<unsafe extern "system" fn(ahprocess: super::HANDLE, addrbase: u64) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, addrbase: super::DWORD) -> super::PVOID>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = Option<unsafe extern "system" fn(ahprocess: super::HANDLE, addrbase: super::DWORD64) -> super::PVOID>;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-pub type PGET_MODULE_BASE_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, address: u32) -> u32>;
-#[cfg(feature = "winnt")]
-pub type PGET_MODULE_BASE_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, address: u64) -> u64>;
-#[cfg(feature = "winnt")]
-pub type PGET_TARGET_ATTRIBUTE_VALUE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, attribute: u32, attributedata: u64, attributevalue: *mut u64) -> windows_sys::core::BOOL>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PGET_MODULE_BASE_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, address: super::DWORD) -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PGET_MODULE_BASE_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, address: super::DWORD64) -> super::DWORD64>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PGET_TARGET_ATTRIBUTE_VALUE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, attribute: super::DWORD, attributedata: super::DWORD64, attributevalue: *mut super::DWORD64) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_CBA_EVENT = *mut IMAGEHLP_CBA_EVENT;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_CBA_EVENTW = *mut IMAGEHLP_CBA_EVENTW;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_CBA_READ_MEMORY = *mut IMAGEHLP_CBA_READ_MEMORY;
 pub type PIMAGEHLP_CONTEXT = *mut core::ffi::c_void;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_DEFERRED_SYMBOL_LOAD = *mut IMAGEHLP_DEFERRED_SYMBOL_LOAD;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_DEFERRED_SYMBOL_LOAD64 = *mut IMAGEHLP_DEFERRED_SYMBOL_LOAD64;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_DEFERRED_SYMBOL_LOADW64 = *mut IMAGEHLP_DEFERRED_SYMBOL_LOADW64;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_DUPLICATE_SYMBOL = *mut IMAGEHLP_DUPLICATE_SYMBOL;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_DUPLICATE_SYMBOL64 = *mut IMAGEHLP_DUPLICATE_SYMBOL64;
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_GET_TYPE_INFO_PARAMS = *mut IMAGEHLP_GET_TYPE_INFO_PARAMS;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_JIT_SYMBOLMAP = *mut IMAGEHLP_JIT_SYMBOLMAP;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_LINE = *mut IMAGEHLP_LINE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_LINE64 = *mut IMAGEHLP_LINE64;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_LINEW = *mut IMAGEHLP_LINEW;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_LINEW64 = *mut IMAGEHLP_LINEW64;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_MODULE = *mut IMAGEHLP_MODULE;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_MODULE64 = *mut IMAGEHLP_MODULE64;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_MODULE64_EX = *mut IMAGEHLP_MODULE64_EX;
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_MODULEW = *mut IMAGEHLP_MODULEW;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_MODULEW64 = *mut IMAGEHLP_MODULEW64;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_MODULEW64_EX = *mut IMAGEHLP_MODULEW64_EX;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_STACK_FRAME = *mut IMAGEHLP_STACK_FRAME;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_SYMBOL = *mut IMAGEHLP_SYMBOL;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_SYMBOL64 = *mut IMAGEHLP_SYMBOL64;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_SYMBOL64_PACKAGE = *mut IMAGEHLP_SYMBOL64_PACKAGE;
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_SYMBOLW = *mut IMAGEHLP_SYMBOLW;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_SYMBOLW64 = *mut IMAGEHLP_SYMBOLW64;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_SYMBOLW64_PACKAGE = *mut IMAGEHLP_SYMBOLW64_PACKAGE;
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGEHLP_SYMBOLW_PACKAGE = *mut IMAGEHLP_SYMBOLW_PACKAGE;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_SYMBOL_PACKAGE = *mut IMAGEHLP_SYMBOL_PACKAGE;
+#[cfg(feature = "shared")]
 pub type PIMAGEHLP_SYMBOL_SRC = *mut IMAGEHLP_SYMBOL_SRC;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIMAGE_DEBUG_INFORMATION = *mut IMAGE_DEBUG_INFORMATION;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type PKDHELP = *mut KDHELP;
+#[cfg(feature = "shared")]
 pub type PKDHELP64 = *mut KDHELP64;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PLOADED_IMAGE = *mut LOADED_IMAGE;
+#[cfg(feature = "shared")]
 pub type PMODLOAD_CVMISC = *mut MODLOAD_CVMISC;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMODLOAD_DATA = *mut MODLOAD_DATA;
+#[cfg(feature = "shared")]
 pub type PMODLOAD_PDBGUID_PDBAGE = *mut MODLOAD_PDBGUID_PDBAGE;
+#[cfg(feature = "shared")]
 pub type PMODULE_TYPE_INFO = *mut MODULE_TYPE_INFO;
+#[cfg(feature = "shared")]
 pub type POMAP = *mut OMAP;
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PREAD_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, lpbaseaddress: u32, lpbuffer: *mut core::ffi::c_void, nsize: u32, lpnumberofbytesread: super::PDWORD) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PREAD_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, qwbaseaddress: u64, lpbuffer: *mut core::ffi::c_void, nsize: u32, lpnumberofbytesread: super::LPDWORD) -> windows_sys::core::BOOL>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PREAD_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, lpbaseaddress: super::DWORD, lpbuffer: super::PVOID, nsize: super::DWORD, lpnumberofbytesread: super::PDWORD) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PREAD_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, qwbaseaddress: super::DWORD64, lpbuffer: super::PVOID, nsize: super::DWORD, lpnumberofbytesread: super::LPDWORD) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSOURCEFILE = *mut SOURCEFILE;
+#[cfg(feature = "shared")]
 pub type PSOURCEFILEW = *mut SOURCEFILEW;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSRCCODEINFO = *mut SRCCODEINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSRCCODEINFOW = *mut SRCCODEINFOW;
-pub type PSYMBOLSERVERBYINDEXPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERBYINDEXPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERBYINDEXPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERCALLBACKPROC = Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> windows_sys::core::BOOL>;
+pub type PSYMBOLSERVERBYINDEXPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+pub type PSYMBOLSERVERBYINDEXPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+pub type PSYMBOLSERVERBYINDEXPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERCALLBACKPROC = Option<unsafe extern "system" fn(action: super::UINT_PTR, data: super::ULONG64, context: super::ULONG64) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERCLOSEPROC = Option<unsafe extern "system" fn() -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERDELTANAME = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: *mut core::ffi::c_void, param2: u32, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: u32, param7: windows_sys::core::PCSTR, param8: usize) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERDELTANAMEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: *mut core::ffi::c_void, param2: u32, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: u32, param7: windows_sys::core::PCWSTR, param8: usize) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERGETINDEXSTRING = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32, param2: u32, param3: windows_sys::core::PCSTR, param4: usize) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERGETINDEXSTRINGW = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32, param2: u32, param3: windows_sys::core::PCWSTR, param4: usize) -> windows_sys::core::BOOL>;
-#[cfg(feature = "basetsd")]
-pub type PSYMBOLSERVERGETOPTIONDATAPROC = Option<unsafe extern "system" fn(param0: usize, param1: super::PULONG64) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERGETOPTIONSPROC = Option<unsafe extern "system" fn() -> usize>;
-pub type PSYMBOLSERVERGETSUPPLEMENT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PCSTR, param4: usize) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERGETSUPPLEMENTW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: usize) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERDELTANAME = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::PVOID, param2: super::DWORD, param3: super::DWORD, param4: super::PVOID, param5: super::DWORD, param6: super::DWORD, param7: windows_sys::core::PSTR, param8: super::size_t) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERDELTANAMEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::PVOID, param2: super::DWORD, param3: super::DWORD, param4: super::PVOID, param5: super::DWORD, param6: super::DWORD, param7: windows_sys::core::PWSTR, param8: super::size_t) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERGETINDEXSTRING = Option<unsafe extern "system" fn(param0: super::PVOID, param1: super::DWORD, param2: super::DWORD, param3: windows_sys::core::PSTR, param4: super::size_t) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERGETINDEXSTRINGW = Option<unsafe extern "system" fn(param0: super::PVOID, param1: super::DWORD, param2: super::DWORD, param3: windows_sys::core::PWSTR, param4: super::size_t) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+pub type PSYMBOLSERVERGETOPTIONDATAPROC = Option<unsafe extern "system" fn(param0: super::UINT_PTR, param1: super::PULONG64) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERGETOPTIONSPROC = Option<unsafe extern "system" fn() -> super::UINT_PTR>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERGETSUPPLEMENT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PSTR, param4: super::size_t) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERGETSUPPLEMENTW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PWSTR, param4: super::size_t) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
 pub type PSYMBOLSERVERGETVERSION = Option<unsafe extern "system" fn(param0: LPAPI_VERSION) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERISSTORE = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERISSTOREW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERMESSAGEPROC = Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERMESSAGEPROC = Option<unsafe extern "system" fn(action: super::UINT_PTR, data: super::ULONG64, context: super::ULONG64) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVEROPENPROC = Option<unsafe extern "system" fn() -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERPINGPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERPINGPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERPINGPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERPINGPROCWEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: u32, param4: u32, param5: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: u32, param4: u32, param5: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut core::ffi::c_void, param3: u32, param4: u32, param5: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: super::PVOID, param3: super::DWORD, param4: super::DWORD, param5: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: super::PVOID, param3: super::DWORD, param4: super::DWORD, param5: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: super::PVOID, param3: super::DWORD, param4: super::DWORD, param5: windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
 pub type PSYMBOLSERVERSETHTTPAUTHHEADER = Option<unsafe extern "system" fn(pszauthheader: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERSETOPTIONSPROC = Option<unsafe extern "system" fn(param0: usize, param1: u64) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERSETOPTIONSWPROC = Option<unsafe extern "system" fn(param0: usize, param1: u64) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERSTOREFILE = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: *mut core::ffi::c_void, param3: u32, param4: u32, param5: windows_sys::core::PCSTR, param6: usize, param7: u32) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERSTOREFILEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut core::ffi::c_void, param3: u32, param4: u32, param5: windows_sys::core::PCWSTR, param6: usize, param7: u32) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERSTORESUPPLEMENT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PCSTR, param4: usize, param5: u32) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERSTORESUPPLEMENTW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PCWSTR, param4: usize, param5: u32) -> windows_sys::core::BOOL>;
-pub type PSYMBOLSERVERVERSION = Option<unsafe extern "system" fn() -> u32>;
-pub type PSYMBOLSERVERWEXPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut core::ffi::c_void, param3: u32, param4: u32, param5: windows_sys::core::PCWSTR, param6: PSYMSRV_EXTENDED_OUTPUT_DATA) -> windows_sys::core::BOOL>;
-#[cfg(feature = "winnt")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::HANDLE, addrbase: u32, usercontext: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
-#[cfg(feature = "winnt")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, addrbase: u64, usercontext: u64) -> *mut core::ffi::c_void>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERSETOPTIONSPROC = Option<unsafe extern "system" fn(param0: super::UINT_PTR, param1: super::ULONG64) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERSETOPTIONSWPROC = Option<unsafe extern "system" fn(param0: super::UINT_PTR, param1: super::ULONG64) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERSTOREFILE = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: super::PVOID, param3: super::DWORD, param4: super::DWORD, param5: windows_sys::core::PSTR, param6: super::size_t, param7: super::DWORD) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERSTOREFILEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: super::PVOID, param3: super::DWORD, param4: super::DWORD, param5: windows_sys::core::PWSTR, param6: super::size_t, param7: super::DWORD) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERSTORESUPPLEMENT = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: windows_sys::core::PSTR, param4: super::size_t, param5: super::DWORD) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERSTORESUPPLEMENTW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: windows_sys::core::PWSTR, param4: super::size_t, param5: super::DWORD) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PSYMBOLSERVERVERSION = Option<unsafe extern "system" fn() -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOLSERVERWEXPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: super::PVOID, param3: super::DWORD, param4: super::DWORD, param5: windows_sys::core::PWSTR, param6: PSYMSRV_EXTENDED_OUTPUT_DATA) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOL_FUNCENTRY_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::HANDLE, addrbase: super::DWORD, usercontext: super::PVOID) -> super::PVOID>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOL_FUNCENTRY_CALLBACK64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, addrbase: super::ULONG64, usercontext: super::ULONG64) -> super::PVOID>;
+#[cfg(feature = "shared")]
 pub type PSYMBOL_INFO = *mut SYMBOL_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSYMBOL_INFOW = *mut SYMBOL_INFOW;
+#[cfg(feature = "shared")]
 pub type PSYMBOL_INFO_PACKAGE = *mut SYMBOL_INFO_PACKAGE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSYMBOL_INFO_PACKAGEW = *mut SYMBOL_INFO_PACKAGEW;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-pub type PSYMBOL_REGISTERED_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::HANDLE, actioncode: u32, callbackdata: *const core::ffi::c_void, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "winnt")]
-pub type PSYMBOL_REGISTERED_CALLBACK64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOL_REGISTERED_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::HANDLE, actioncode: super::ULONG, callbackdata: super::PVOID, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYMBOL_REGISTERED_CALLBACK64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, actioncode: super::ULONG, callbackdata: super::ULONG64, usercontext: super::ULONG64) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSYMSRV_EXTENDED_OUTPUT_DATA = *mut SYMSRV_EXTENDED_OUTPUT_DATA;
+#[cfg(feature = "shared")]
 pub type PSYMSRV_INDEX_INFO = *mut SYMSRV_INDEX_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSYMSRV_INDEX_INFOW = *mut SYMSRV_INDEX_INFOW;
-pub type PSYM_ENUMERATESYMBOLS_CALLBACK = Option<unsafe extern "system" fn(psyminfo: PSYMBOL_INFO, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(psyminfo: PSYMBOL_INFOW, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMLINES_CALLBACK = Option<unsafe extern "system" fn(lineinfo: PSRCCODEINFO, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMLINES_CALLBACKW = Option<unsafe extern "system" fn(lineinfo: PSRCCODEINFOW, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMERATESYMBOLS_CALLBACK = Option<unsafe extern "system" fn(psyminfo: PSYMBOL_INFO, symbolsize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(psyminfo: PSYMBOL_INFOW, symbolsize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMLINES_CALLBACK = Option<unsafe extern "system" fn(lineinfo: PSRCCODEINFO, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMLINES_CALLBACKW = Option<unsafe extern "system" fn(lineinfo: PSRCCODEINFOW, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(target_arch = "x86")]
-pub type PSYM_ENUMMODULES_CALLBACK = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, baseofdll: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMMODULES_CALLBACK64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, baseofdll: u64, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMMODULES_CALLBACKW64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCWSTR, baseofdll: u64, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMMODULES_CALLBACK = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, baseofdll: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMMODULES_CALLBACK64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCSTR, baseofdll: super::DWORD64, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMMODULES_CALLBACKW64 = Option<unsafe extern "system" fn(modulename: windows_sys::core::PCWSTR, baseofdll: super::DWORD64, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(feature = "winnt")]
-pub type PSYM_ENUMPROCESSES_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::HANDLE, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "winnt")]
-pub type PSYM_ENUMSOURCEFILES_CALLBACK = Option<unsafe extern "system" fn(psourcefile: PSOURCEFILE, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMSOURCEFILES_CALLBACKW = Option<unsafe extern "system" fn(psourcefile: PSOURCEFILEW, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type PSYM_ENUMPROCESSES_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::HANDLE, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMSOURCEFILES_CALLBACK = Option<unsafe extern "system" fn(psourcefile: PSOURCEFILE, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMSOURCEFILES_CALLBACKW = Option<unsafe extern "system" fn(psourcefile: PSOURCEFILEW, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(target_arch = "x86")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCSTR, symboladdress: u32, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMSYMBOLS_CALLBACK64 = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCSTR, symboladdress: u64, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type PSYM_ENUMSYMBOLS_CALLBACK64W = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMSYMBOLS_CALLBACK = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCSTR, symboladdress: super::ULONG, symbolsize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMSYMBOLS_CALLBACK64 = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCSTR, symboladdress: super::DWORD64, symbolsize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMSYMBOLS_CALLBACK64W = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCWSTR, symboladdress: super::DWORD64, symbolsize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(target_arch = "x86")]
-pub type PSYM_ENUMSYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSYM_ENUMSYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(symbolname: windows_sys::core::PCWSTR, symboladdress: super::ULONG, symbolsize: super::ULONG, usercontext: super::PVOID) -> windows_sys::core::BOOL>;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-pub type PTRANSLATE_ADDRESS_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, hthread: super::HANDLE, lpaddr: LPADDRESS) -> u32>;
-#[cfg(feature = "winnt")]
-pub type PTRANSLATE_ADDRESS_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, hthread: super::HANDLE, lpaddr: LPADDRESS64) -> u64>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PTRANSLATE_ADDRESS_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::HANDLE, hthread: super::HANDLE, lpaddr: LPADDRESS) -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PTRANSLATE_ADDRESS_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::HANDLE, hthread: super::HANDLE, lpaddr: LPADDRESS64) -> super::DWORD64>;
 pub const SLMFLAG_ALT_INDEX: i32 = 2;
 pub const SLMFLAG_NO_SYMBOLS: i32 = 4;
 pub const SLMFLAG_VIRTUAL: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SOURCEFILE {
-    pub ModBase: u64,
+    pub ModBase: super::DWORD64,
     pub FileName: super::PCHAR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOURCEFILEW {
-    pub ModBase: u64,
+    pub ModBase: super::DWORD64,
     pub FileName: windows_sys::core::PWSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SRCCODEINFO {
-    pub SizeOfStruct: u32,
-    pub Key: *mut core::ffi::c_void,
-    pub ModBase: u64,
-    pub Obj: [i8; 261],
-    pub FileName: [i8; 261],
-    pub LineNumber: u32,
-    pub Address: u64,
+    pub SizeOfStruct: super::DWORD,
+    pub Key: super::PVOID,
+    pub ModBase: super::DWORD64,
+    pub Obj: [super::CHAR; 261],
+    pub FileName: [super::CHAR; 261],
+    pub LineNumber: super::DWORD,
+    pub Address: super::DWORD64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SRCCODEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SRCCODEINFOW {
-    pub SizeOfStruct: u32,
-    pub Key: *mut core::ffi::c_void,
-    pub ModBase: u64,
-    pub Obj: [u16; 261],
-    pub FileName: [u16; 261],
-    pub LineNumber: u32,
-    pub Address: u64,
+    pub SizeOfStruct: super::DWORD,
+    pub Key: super::PVOID,
+    pub ModBase: super::DWORD64,
+    pub Obj: [super::WCHAR; 261],
+    pub FileName: [super::WCHAR; 261],
+    pub LineNumber: super::DWORD,
+    pub Address: super::DWORD64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SRCCODEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1427,9 +1663,11 @@ pub const SSRVOPT_PARENTWIN: i32 = 128;
 pub const SSRVOPT_PROXY: i32 = 4096;
 pub const SSRVOPT_PROXYW: i32 = 262144;
 #[cfg(target_arch = "x86")]
-pub const SSRVOPT_RESET: usize = 4294967295;
+#[cfg(feature = "shared")]
+pub const SSRVOPT_RESET: super::ULONG_PTR = 4294967295;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const SSRVOPT_RESET: usize = 18446744073709551615u64 as usize;
+#[cfg(feature = "shared")]
+pub const SSRVOPT_RESET: super::ULONG_PTR = 18446744073709551615u64 as usize;
 pub const SSRVOPT_RESETTOU: i32 = 32768;
 pub const SSRVOPT_RETRY_APP_HANG: u32 = 2147483648;
 pub const SSRVOPT_SECURE: i32 = 512;
@@ -1456,29 +1694,32 @@ pub const SSRVURI_UNC_FILEPTR: i32 = 64;
 pub const SSRVURI_UNC_MASK: i32 = 240;
 pub const SSRVURI_UNC_MSFZ0: i32 = 128;
 pub const SSRVURI_UNC_NORMAL: i32 = 16;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STACKFRAME {
     pub AddrPC: ADDRESS,
     pub AddrReturn: ADDRESS,
     pub AddrFrame: ADDRESS,
     pub AddrStack: ADDRESS,
-    pub FuncTableEntry: *mut core::ffi::c_void,
-    pub Params: [u32; 4],
+    pub FuncTableEntry: super::PVOID,
+    pub Params: [super::DWORD; 4],
     pub Far: windows_sys::core::BOOL,
     pub Virtual: windows_sys::core::BOOL,
-    pub Reserved: [u32; 3],
+    pub Reserved: [super::DWORD; 3],
     pub KdHelp: KDHELP,
     pub AddrBStore: ADDRESS,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STACKFRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STACKFRAME64 {
     pub AddrPC: ADDRESS64,
@@ -1486,19 +1727,21 @@ pub struct STACKFRAME64 {
     pub AddrFrame: ADDRESS64,
     pub AddrStack: ADDRESS64,
     pub AddrBStore: ADDRESS64,
-    pub FuncTableEntry: *mut core::ffi::c_void,
-    pub Params: [u64; 4],
+    pub FuncTableEntry: super::PVOID,
+    pub Params: [super::DWORD64; 4],
     pub Far: windows_sys::core::BOOL,
     pub Virtual: windows_sys::core::BOOL,
-    pub Reserved: [u64; 3],
+    pub Reserved: [super::DWORD64; 3],
     pub KdHelp: KDHELP64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STACKFRAME64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STACKFRAME_EX {
     pub AddrPC: ADDRESS64,
@@ -1506,89 +1749,98 @@ pub struct STACKFRAME_EX {
     pub AddrFrame: ADDRESS64,
     pub AddrStack: ADDRESS64,
     pub AddrBStore: ADDRESS64,
-    pub FuncTableEntry: *mut core::ffi::c_void,
-    pub Params: [u64; 4],
+    pub FuncTableEntry: super::PVOID,
+    pub Params: [super::DWORD64; 4],
     pub Far: windows_sys::core::BOOL,
     pub Virtual: windows_sys::core::BOOL,
-    pub Reserved: [u64; 3],
+    pub Reserved: [super::DWORD64; 3],
     pub KdHelp: KDHELP64,
-    pub StackFrameSize: u32,
-    pub InlineFrameContext: u32,
+    pub StackFrameSize: super::DWORD,
+    pub InlineFrameContext: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STACKFRAME_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type SYMADDSOURCESTREAM = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: u64, param2: windows_sys::core::PCSTR, param3: super::PBYTE, param4: usize) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type SYMADDSOURCESTREAMA = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: u64, param2: windows_sys::core::PCSTR, param3: super::PBYTE, param4: usize) -> windows_sys::core::BOOL>;
-#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type SYMADDSOURCESTREAM = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: super::ULONG64, param2: windows_sys::core::PCSTR, param3: super::PBYTE, param4: super::size_t) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type SYMADDSOURCESTREAMA = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: super::ULONG64, param2: windows_sys::core::PCSTR, param3: super::PBYTE, param4: super::size_t) -> windows_sys::core::BOOL>;
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SYMBOL_INFO {
-    pub SizeOfStruct: u32,
-    pub TypeIndex: u32,
-    pub Reserved: [u64; 2],
-    pub Index: u32,
-    pub Size: u32,
-    pub ModBase: u64,
-    pub Flags: u32,
-    pub Value: u64,
-    pub Address: u64,
-    pub Register: u32,
-    pub Scope: u32,
-    pub Tag: u32,
-    pub NameLen: u32,
-    pub MaxNameLen: u32,
-    pub Name: [i8; 1],
+    pub SizeOfStruct: super::ULONG,
+    pub TypeIndex: super::ULONG,
+    pub Reserved: [super::ULONG64; 2],
+    pub Index: super::ULONG,
+    pub Size: super::ULONG,
+    pub ModBase: super::ULONG64,
+    pub Flags: super::ULONG,
+    pub Value: super::ULONG64,
+    pub Address: super::ULONG64,
+    pub Register: super::ULONG,
+    pub Scope: super::ULONG,
+    pub Tag: super::ULONG,
+    pub NameLen: super::ULONG,
+    pub MaxNameLen: super::ULONG,
+    pub Name: [super::CHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SYMBOL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SYMBOL_INFOW {
-    pub SizeOfStruct: u32,
-    pub TypeIndex: u32,
-    pub Reserved: [u64; 2],
-    pub Index: u32,
-    pub Size: u32,
-    pub ModBase: u64,
-    pub Flags: u32,
-    pub Value: u64,
-    pub Address: u64,
-    pub Register: u32,
-    pub Scope: u32,
-    pub Tag: u32,
-    pub NameLen: u32,
-    pub MaxNameLen: u32,
-    pub Name: [u16; 1],
+    pub SizeOfStruct: super::ULONG,
+    pub TypeIndex: super::ULONG,
+    pub Reserved: [super::ULONG64; 2],
+    pub Index: super::ULONG,
+    pub Size: super::ULONG,
+    pub ModBase: super::ULONG64,
+    pub Flags: super::ULONG,
+    pub Value: super::ULONG64,
+    pub Address: super::ULONG64,
+    pub Register: super::ULONG,
+    pub Scope: super::ULONG,
+    pub Tag: super::ULONG,
+    pub NameLen: super::ULONG,
+    pub MaxNameLen: super::ULONG,
+    pub Name: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SYMBOL_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
-    pub name: [i8; 2001],
+    pub name: [super::CHAR; 2001],
 }
+#[cfg(feature = "shared")]
 impl Default for SYMBOL_INFO_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SYMBOL_INFO_PACKAGEW {
     pub si: SYMBOL_INFOW,
-    pub name: [u16; 2001],
+    pub name: [super::WCHAR; 2001],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SYMBOL_INFO_PACKAGEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1678,51 +1930,57 @@ pub const SYMSEARCH_ALLITEMS: i32 = 8;
 pub const SYMSEARCH_GLOBALSONLY: i32 = 4;
 pub const SYMSEARCH_MASKOBJS: i32 = 1;
 pub const SYMSEARCH_RECURSE: i32 = 2;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SYMSRV_EXTENDED_OUTPUT_DATA {
-    pub sizeOfStruct: u32,
-    pub version: u32,
-    pub filePtrMsg: [u16; 261],
+    pub sizeOfStruct: super::DWORD,
+    pub version: super::DWORD,
+    pub filePtrMsg: [super::WCHAR; 261],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SYMSRV_EXTENDED_OUTPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SYMSRV_INDEX_INFO {
-    pub sizeofstruct: u32,
+    pub sizeofstruct: super::DWORD,
     pub file: [i8; 261],
     pub stripped: windows_sys::core::BOOL,
-    pub timestamp: u32,
-    pub size: u32,
+    pub timestamp: super::DWORD,
+    pub size: super::DWORD,
     pub dbgfile: [i8; 261],
     pub pdbfile: [i8; 261],
     pub guid: windows_sys::core::GUID,
-    pub sig: u32,
-    pub age: u32,
+    pub sig: super::DWORD,
+    pub age: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for SYMSRV_INDEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SYMSRV_INDEX_INFOW {
-    pub sizeofstruct: u32,
-    pub file: [u16; 261],
+    pub sizeofstruct: super::DWORD,
+    pub file: [super::WCHAR; 261],
     pub stripped: windows_sys::core::BOOL,
-    pub timestamp: u32,
-    pub size: u32,
-    pub dbgfile: [u16; 261],
-    pub pdbfile: [u16; 261],
+    pub timestamp: super::DWORD,
+    pub size: super::DWORD,
+    pub dbgfile: [super::WCHAR; 261],
+    pub pdbfile: [super::WCHAR; 261],
     pub guid: windows_sys::core::GUID,
-    pub sig: u32,
-    pub age: u32,
+    pub sig: super::DWORD,
+    pub age: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SYMSRV_INDEX_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1758,13 +2016,15 @@ pub const SymVirtual: SYM_TYPE = 8;
 pub const TARGET_ATTRIBUTE_PACMASK: i32 = 1;
 pub const TARGET_ATTRIBUTE_PACMASK_LIVETARGET: u64 = 18446744073709551615;
 pub const TI_FINDCHILDREN: IMAGEHLP_SYMBOL_TYPE_INFO = 7;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TI_FINDCHILDREN_PARAMS {
-    pub Count: u32,
-    pub Start: u32,
-    pub ChildId: [u32; 1],
+    pub Count: super::ULONG,
+    pub Start: super::ULONG,
+    pub ChildId: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TI_FINDCHILDREN_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1783,13 +2043,15 @@ pub const TI_GET_DATAKIND: IMAGEHLP_SYMBOL_TYPE_INFO = 8;
 pub const TI_GET_DISCRIMINATEDUNION_TAG_OFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 36;
 pub const TI_GET_DISCRIMINATEDUNION_TAG_RANGES: IMAGEHLP_SYMBOL_TYPE_INFO = 38;
 pub const TI_GET_DISCRIMINATEDUNION_TAG_RANGESCOUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 37;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
-    pub Count: u32,
-    pub Start: u32,
+    pub Count: super::ULONG,
+    pub Start: super::ULONG,
     pub Range: [DISCRIMINATEDUNION_TAG_VALUE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

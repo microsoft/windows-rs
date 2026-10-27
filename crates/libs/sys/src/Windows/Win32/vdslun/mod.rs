@@ -40,21 +40,23 @@ pub const VDS_IA_MAC: VDS_INTERCONNECT_ADDRESS_TYPE = 4;
 pub const VDS_IA_SCSI: VDS_INTERCONNECT_ADDRESS_TYPE = 5;
 pub const VDS_IA_UNKNOWN: VDS_INTERCONNECT_ADDRESS_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VDS_INTERCONNECT {
     pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
-    pub m_cbPort: u32,
-    pub m_pbPort: *mut u8,
-    pub m_cbAddress: u32,
-    pub m_pbAddress: *mut u8,
+    pub m_cbPort: super::ULONG,
+    pub m_pbPort: *mut super::BYTE,
+    pub m_cbAddress: super::ULONG,
+    pub m_pbAddress: *mut super::BYTE,
 }
 pub type VDS_INTERCONNECT_ADDRESS_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VDS_LUN_INFORMATION {
-    pub m_version: u32,
-    pub m_DeviceType: u8,
-    pub m_DeviceTypeModifier: u8,
+    pub m_version: super::ULONG,
+    pub m_DeviceType: super::BYTE,
+    pub m_DeviceTypeModifier: super::BYTE,
     pub m_bCommandQueueing: windows_sys::core::BOOL,
     pub m_BusType: VDS_STORAGE_BUS_TYPE,
     pub m_szVendorId: *mut i8,
@@ -63,24 +65,26 @@ pub struct VDS_LUN_INFORMATION {
     pub m_szSerialNumber: *mut i8,
     pub m_diskSignature: windows_sys::core::GUID,
     pub m_deviceIdDescriptor: VDS_STORAGE_DEVICE_ID_DESCRIPTOR,
-    pub m_cInterconnects: u32,
+    pub m_cInterconnects: super::ULONG,
     pub m_rgInterconnects: *mut VDS_INTERCONNECT,
 }
 pub type VDS_STORAGE_BUS_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    pub m_version: u32,
-    pub m_cIdentifiers: u32,
+    pub m_version: super::ULONG,
+    pub m_cIdentifiers: super::ULONG,
     pub m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VDS_STORAGE_IDENTIFIER {
     pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
     pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
-    pub m_cbIdentifier: u32,
-    pub m_rgbIdentifier: *mut u8,
+    pub m_cbIdentifier: super::ULONG,
+    pub m_rgbIdentifier: *mut super::BYTE,
 }
 pub type VDS_STORAGE_IDENTIFIER_CODE_SET = i32;
 pub type VDS_STORAGE_IDENTIFIER_TYPE = i32;

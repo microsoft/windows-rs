@@ -10,23 +10,24 @@ pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = 0;
 pub const CHUNK_TEXT: CHUNKSTATE = 1;
 pub const CHUNK_VALUE: CHUNKSTATE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTERREGION {
-    pub idChunk: u32,
-    pub cwcStart: u32,
-    pub cwcExtent: u32,
+    pub idChunk: super::ULONG,
+    pub cwcStart: super::ULONG,
+    pub cwcExtent: super::ULONG,
 }
 pub const FILTER_PIXELFORMAT_BGR8: IMAGE_PIXELFORMAT = 2;
 pub const FILTER_PIXELFORMAT_BGRA8: IMAGE_PIXELFORMAT = 0;
 pub const FILTER_PIXELFORMAT_PBGRA8: IMAGE_PIXELFORMAT = 1;
 #[repr(C)]
-#[cfg(all(feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "propidlbase", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct FULLPROPSPEC {
     pub guidPropSet: windows_sys::core::GUID,
     pub psProperty: super::PROPSPEC,
 }
-#[cfg(all(feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "propidlbase", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for FULLPROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -49,27 +50,28 @@ pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = 2;
 pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = 64;
 pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = 128;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_INFO {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: IMAGE_PIXELFORMAT,
 }
 pub type IMAGE_PIXELFORMAT = i32;
 #[repr(C)]
-#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "propidlbase", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct STAT_CHUNK {
-    pub idChunk: u32,
+    pub idChunk: super::ULONG,
     pub breakType: CHUNK_BREAKTYPE,
     pub flags: CHUNKSTATE,
     pub locale: super::LCID,
     pub attribute: FULLPROPSPEC,
-    pub idChunkSource: u32,
-    pub cwcStartSource: u32,
-    pub cwcLenSource: u32,
+    pub idChunkSource: super::ULONG,
+    pub cwcStartSource: super::ULONG,
+    pub cwcLenSource: super::ULONG,
 }
-#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "propidlbase", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for STAT_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

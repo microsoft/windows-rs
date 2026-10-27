@@ -1,22 +1,27 @@
-windows_link::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut LPDIRECTDRAW, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : super::DWORD, lplpddclipper : *mut LPDIRECTDRAWCLIPPER, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut super::LPVOID, iid : *const super::IID, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : super::LPVOID, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : super::LPVOID, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : super::LPVOID) -> windows_sys::core::HRESULT);
 pub const CLSID_DirectDraw: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7b70ee0_4340_11cf_b063_0020afc2cd35);
 pub const CLSID_DirectDraw7: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c305196_50db_11d3_9cfe_00c04fd930c5);
 pub const CLSID_DirectDrawClipper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x593817a0_7db3_11cf_a2de_00aa00b93356);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DDARGB {
-    pub blue: u8,
-    pub green: u8,
-    pub red: u8,
-    pub alpha: u8,
+    pub blue: super::BYTE,
+    pub green: super::BYTE,
+    pub red: super::BYTE,
+    pub alpha: super::BYTE,
 }
 pub const DDBD_1: i32 = 16384;
 pub const DDBD_16: i32 = 1024;
@@ -26,13 +31,13 @@ pub const DDBD_32: i32 = 256;
 pub const DDBD_4: i32 = 4096;
 pub const DDBD_8: i32 = 2048;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DDBLTBATCH {
     pub lprDest: super::LPRECT,
-    pub lpDDSSrc: *mut core::ffi::c_void,
+    pub lpDDSSrc: LPDIRECTDRAWSURFACE,
     pub lprSrc: super::LPRECT,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub lpDDBltFx: LPDDBLTFX,
 }
 pub const DDBLTFAST_DESTCOLORKEY: i32 = 2;
@@ -41,89 +46,101 @@ pub const DDBLTFAST_NOCOLORKEY: i32 = 0;
 pub const DDBLTFAST_SRCCOLORKEY: i32 = 1;
 pub const DDBLTFAST_WAIT: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDBLTFX {
-    pub dwSize: u32,
-    pub dwDDFX: u32,
-    pub dwROP: u32,
-    pub dwDDROP: u32,
-    pub dwRotationAngle: u32,
-    pub dwZBufferOpCode: u32,
-    pub dwZBufferLow: u32,
-    pub dwZBufferHigh: u32,
-    pub dwZBufferBaseDest: u32,
-    pub dwZDestConstBitDepth: u32,
+    pub dwSize: super::DWORD,
+    pub dwDDFX: super::DWORD,
+    pub dwROP: super::DWORD,
+    pub dwDDROP: super::DWORD,
+    pub dwRotationAngle: super::DWORD,
+    pub dwZBufferOpCode: super::DWORD,
+    pub dwZBufferLow: super::DWORD,
+    pub dwZBufferHigh: super::DWORD,
+    pub dwZBufferBaseDest: super::DWORD,
+    pub dwZDestConstBitDepth: super::DWORD,
     pub Anonymous: DDBLTFX_0,
-    pub dwZSrcConstBitDepth: u32,
+    pub dwZSrcConstBitDepth: super::DWORD,
     pub Anonymous2: DDBLTFX_1,
-    pub dwAlphaEdgeBlendBitDepth: u32,
-    pub dwAlphaEdgeBlend: u32,
-    pub dwReserved: u32,
-    pub dwAlphaDestConstBitDepth: u32,
+    pub dwAlphaEdgeBlendBitDepth: super::DWORD,
+    pub dwAlphaEdgeBlend: super::DWORD,
+    pub dwReserved: super::DWORD,
+    pub dwAlphaDestConstBitDepth: super::DWORD,
     pub Anonymous3: DDBLTFX_2,
-    pub dwAlphaSrcConstBitDepth: u32,
+    pub dwAlphaSrcConstBitDepth: super::DWORD,
     pub Anonymous4: DDBLTFX_3,
     pub Anonymous5: DDBLTFX_4,
     pub ddckDestColorkey: DDCOLORKEY,
     pub ddckSrcColorkey: DDCOLORKEY,
 }
+#[cfg(feature = "shared")]
 impl Default for DDBLTFX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDBLTFX_0 {
-    pub dwZDestConst: u32,
-    pub lpDDSZBufferDest: *mut core::ffi::c_void,
+    pub dwZDestConst: super::DWORD,
+    pub lpDDSZBufferDest: LPDIRECTDRAWSURFACE,
 }
+#[cfg(feature = "shared")]
 impl Default for DDBLTFX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDBLTFX_1 {
-    pub dwZSrcConst: u32,
-    pub lpDDSZBufferSrc: *mut core::ffi::c_void,
+    pub dwZSrcConst: super::DWORD,
+    pub lpDDSZBufferSrc: LPDIRECTDRAWSURFACE,
 }
+#[cfg(feature = "shared")]
 impl Default for DDBLTFX_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDBLTFX_2 {
-    pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: *mut core::ffi::c_void,
+    pub dwAlphaDestConst: super::DWORD,
+    pub lpDDSAlphaDest: LPDIRECTDRAWSURFACE,
 }
+#[cfg(feature = "shared")]
 impl Default for DDBLTFX_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDBLTFX_3 {
-    pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: *mut core::ffi::c_void,
+    pub dwAlphaSrcConst: super::DWORD,
+    pub lpDDSAlphaSrc: LPDIRECTDRAWSURFACE,
 }
+#[cfg(feature = "shared")]
 impl Default for DDBLTFX_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDBLTFX_4 {
-    pub dwFillColor: u32,
-    pub dwFillDepth: u32,
-    pub dwFillPixel: u32,
-    pub lpDDSPattern: *mut core::ffi::c_void,
+    pub dwFillColor: super::DWORD,
+    pub dwFillDepth: super::DWORD,
+    pub dwFillPixel: super::DWORD,
+    pub lpDDSPattern: LPDIRECTDRAWSURFACE,
 }
+#[cfg(feature = "shared")]
 impl Default for DDBLTFX_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -169,6 +186,7 @@ pub const DDBLT_ZBUFFERDESTCONSTOVERRIDE: i32 = 1048576;
 pub const DDBLT_ZBUFFERDESTOVERRIDE: i32 = 2097152;
 pub const DDBLT_ZBUFFERSRCCONSTOVERRIDE: i32 = 4194304;
 pub const DDBLT_ZBUFFERSRCOVERRIDE: i32 = 8388608;
+#[cfg(feature = "shared")]
 pub type DDCAPS = DDCAPS_DX7;
 pub const DDCAPS2_AUTOFLIPOVERLAY: i32 = 8;
 pub const DDCAPS2_CANAUTOGENMIPMAP: i32 = 1073741824;
@@ -220,302 +238,312 @@ pub const DDCAPS_CANCLIPSTRETCHED: i32 = 1073741824;
 pub const DDCAPS_COLORKEY: i32 = 4194304;
 pub const DDCAPS_COLORKEYHWASSIST: i32 = 16777216;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDCAPS_DX1 {
-    pub dwSize: u32,
-    pub dwCaps: u32,
-    pub dwCaps2: u32,
-    pub dwCKeyCaps: u32,
-    pub dwFXCaps: u32,
-    pub dwFXAlphaCaps: u32,
-    pub dwPalCaps: u32,
-    pub dwSVCaps: u32,
-    pub dwAlphaBltConstBitDepths: u32,
-    pub dwAlphaBltPixelBitDepths: u32,
-    pub dwAlphaBltSurfaceBitDepths: u32,
-    pub dwAlphaOverlayConstBitDepths: u32,
-    pub dwAlphaOverlayPixelBitDepths: u32,
-    pub dwAlphaOverlaySurfaceBitDepths: u32,
-    pub dwZBufferBitDepths: u32,
-    pub dwVidMemTotal: u32,
-    pub dwVidMemFree: u32,
-    pub dwMaxVisibleOverlays: u32,
-    pub dwCurrVisibleOverlays: u32,
-    pub dwNumFourCCCodes: u32,
-    pub dwAlignBoundarySrc: u32,
-    pub dwAlignSizeSrc: u32,
-    pub dwAlignBoundaryDest: u32,
-    pub dwAlignSizeDest: u32,
-    pub dwAlignStrideAlign: u32,
-    pub dwRops: [u32; 8],
+    pub dwSize: super::DWORD,
+    pub dwCaps: super::DWORD,
+    pub dwCaps2: super::DWORD,
+    pub dwCKeyCaps: super::DWORD,
+    pub dwFXCaps: super::DWORD,
+    pub dwFXAlphaCaps: super::DWORD,
+    pub dwPalCaps: super::DWORD,
+    pub dwSVCaps: super::DWORD,
+    pub dwAlphaBltConstBitDepths: super::DWORD,
+    pub dwAlphaBltPixelBitDepths: super::DWORD,
+    pub dwAlphaBltSurfaceBitDepths: super::DWORD,
+    pub dwAlphaOverlayConstBitDepths: super::DWORD,
+    pub dwAlphaOverlayPixelBitDepths: super::DWORD,
+    pub dwAlphaOverlaySurfaceBitDepths: super::DWORD,
+    pub dwZBufferBitDepths: super::DWORD,
+    pub dwVidMemTotal: super::DWORD,
+    pub dwVidMemFree: super::DWORD,
+    pub dwMaxVisibleOverlays: super::DWORD,
+    pub dwCurrVisibleOverlays: super::DWORD,
+    pub dwNumFourCCCodes: super::DWORD,
+    pub dwAlignBoundarySrc: super::DWORD,
+    pub dwAlignSizeSrc: super::DWORD,
+    pub dwAlignBoundaryDest: super::DWORD,
+    pub dwAlignSizeDest: super::DWORD,
+    pub dwAlignStrideAlign: super::DWORD,
+    pub dwRops: [super::DWORD; 8],
     pub ddsCaps: DDSCAPS,
-    pub dwMinOverlayStretch: u32,
-    pub dwMaxOverlayStretch: u32,
-    pub dwMinLiveVideoStretch: u32,
-    pub dwMaxLiveVideoStretch: u32,
-    pub dwMinHwCodecStretch: u32,
-    pub dwMaxHwCodecStretch: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
+    pub dwMinOverlayStretch: super::DWORD,
+    pub dwMaxOverlayStretch: super::DWORD,
+    pub dwMinLiveVideoStretch: super::DWORD,
+    pub dwMaxLiveVideoStretch: super::DWORD,
+    pub dwMinHwCodecStretch: super::DWORD,
+    pub dwMaxHwCodecStretch: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
+    pub dwReserved3: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDCAPS_DX1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDCAPS_DX3 {
-    pub dwSize: u32,
-    pub dwCaps: u32,
-    pub dwCaps2: u32,
-    pub dwCKeyCaps: u32,
-    pub dwFXCaps: u32,
-    pub dwFXAlphaCaps: u32,
-    pub dwPalCaps: u32,
-    pub dwSVCaps: u32,
-    pub dwAlphaBltConstBitDepths: u32,
-    pub dwAlphaBltPixelBitDepths: u32,
-    pub dwAlphaBltSurfaceBitDepths: u32,
-    pub dwAlphaOverlayConstBitDepths: u32,
-    pub dwAlphaOverlayPixelBitDepths: u32,
-    pub dwAlphaOverlaySurfaceBitDepths: u32,
-    pub dwZBufferBitDepths: u32,
-    pub dwVidMemTotal: u32,
-    pub dwVidMemFree: u32,
-    pub dwMaxVisibleOverlays: u32,
-    pub dwCurrVisibleOverlays: u32,
-    pub dwNumFourCCCodes: u32,
-    pub dwAlignBoundarySrc: u32,
-    pub dwAlignSizeSrc: u32,
-    pub dwAlignBoundaryDest: u32,
-    pub dwAlignSizeDest: u32,
-    pub dwAlignStrideAlign: u32,
-    pub dwRops: [u32; 8],
+    pub dwSize: super::DWORD,
+    pub dwCaps: super::DWORD,
+    pub dwCaps2: super::DWORD,
+    pub dwCKeyCaps: super::DWORD,
+    pub dwFXCaps: super::DWORD,
+    pub dwFXAlphaCaps: super::DWORD,
+    pub dwPalCaps: super::DWORD,
+    pub dwSVCaps: super::DWORD,
+    pub dwAlphaBltConstBitDepths: super::DWORD,
+    pub dwAlphaBltPixelBitDepths: super::DWORD,
+    pub dwAlphaBltSurfaceBitDepths: super::DWORD,
+    pub dwAlphaOverlayConstBitDepths: super::DWORD,
+    pub dwAlphaOverlayPixelBitDepths: super::DWORD,
+    pub dwAlphaOverlaySurfaceBitDepths: super::DWORD,
+    pub dwZBufferBitDepths: super::DWORD,
+    pub dwVidMemTotal: super::DWORD,
+    pub dwVidMemFree: super::DWORD,
+    pub dwMaxVisibleOverlays: super::DWORD,
+    pub dwCurrVisibleOverlays: super::DWORD,
+    pub dwNumFourCCCodes: super::DWORD,
+    pub dwAlignBoundarySrc: super::DWORD,
+    pub dwAlignSizeSrc: super::DWORD,
+    pub dwAlignBoundaryDest: super::DWORD,
+    pub dwAlignSizeDest: super::DWORD,
+    pub dwAlignStrideAlign: super::DWORD,
+    pub dwRops: [super::DWORD; 8],
     pub ddsCaps: DDSCAPS,
-    pub dwMinOverlayStretch: u32,
-    pub dwMaxOverlayStretch: u32,
-    pub dwMinLiveVideoStretch: u32,
-    pub dwMaxLiveVideoStretch: u32,
-    pub dwMinHwCodecStretch: u32,
-    pub dwMaxHwCodecStretch: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub dwSVBCaps: u32,
-    pub dwSVBCKeyCaps: u32,
-    pub dwSVBFXCaps: u32,
-    pub dwSVBRops: [u32; 8],
-    pub dwVSBCaps: u32,
-    pub dwVSBCKeyCaps: u32,
-    pub dwVSBFXCaps: u32,
-    pub dwVSBRops: [u32; 8],
-    pub dwSSBCaps: u32,
-    pub dwSSBCKeyCaps: u32,
-    pub dwSSBFXCaps: u32,
-    pub dwSSBRops: [u32; 8],
-    pub dwReserved4: u32,
-    pub dwReserved5: u32,
-    pub dwReserved6: u32,
+    pub dwMinOverlayStretch: super::DWORD,
+    pub dwMaxOverlayStretch: super::DWORD,
+    pub dwMinLiveVideoStretch: super::DWORD,
+    pub dwMaxLiveVideoStretch: super::DWORD,
+    pub dwMinHwCodecStretch: super::DWORD,
+    pub dwMaxHwCodecStretch: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
+    pub dwReserved3: super::DWORD,
+    pub dwSVBCaps: super::DWORD,
+    pub dwSVBCKeyCaps: super::DWORD,
+    pub dwSVBFXCaps: super::DWORD,
+    pub dwSVBRops: [super::DWORD; 8],
+    pub dwVSBCaps: super::DWORD,
+    pub dwVSBCKeyCaps: super::DWORD,
+    pub dwVSBFXCaps: super::DWORD,
+    pub dwVSBRops: [super::DWORD; 8],
+    pub dwSSBCaps: super::DWORD,
+    pub dwSSBCKeyCaps: super::DWORD,
+    pub dwSSBFXCaps: super::DWORD,
+    pub dwSSBRops: [super::DWORD; 8],
+    pub dwReserved4: super::DWORD,
+    pub dwReserved5: super::DWORD,
+    pub dwReserved6: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDCAPS_DX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDCAPS_DX5 {
-    pub dwSize: u32,
-    pub dwCaps: u32,
-    pub dwCaps2: u32,
-    pub dwCKeyCaps: u32,
-    pub dwFXCaps: u32,
-    pub dwFXAlphaCaps: u32,
-    pub dwPalCaps: u32,
-    pub dwSVCaps: u32,
-    pub dwAlphaBltConstBitDepths: u32,
-    pub dwAlphaBltPixelBitDepths: u32,
-    pub dwAlphaBltSurfaceBitDepths: u32,
-    pub dwAlphaOverlayConstBitDepths: u32,
-    pub dwAlphaOverlayPixelBitDepths: u32,
-    pub dwAlphaOverlaySurfaceBitDepths: u32,
-    pub dwZBufferBitDepths: u32,
-    pub dwVidMemTotal: u32,
-    pub dwVidMemFree: u32,
-    pub dwMaxVisibleOverlays: u32,
-    pub dwCurrVisibleOverlays: u32,
-    pub dwNumFourCCCodes: u32,
-    pub dwAlignBoundarySrc: u32,
-    pub dwAlignSizeSrc: u32,
-    pub dwAlignBoundaryDest: u32,
-    pub dwAlignSizeDest: u32,
-    pub dwAlignStrideAlign: u32,
-    pub dwRops: [u32; 8],
+    pub dwSize: super::DWORD,
+    pub dwCaps: super::DWORD,
+    pub dwCaps2: super::DWORD,
+    pub dwCKeyCaps: super::DWORD,
+    pub dwFXCaps: super::DWORD,
+    pub dwFXAlphaCaps: super::DWORD,
+    pub dwPalCaps: super::DWORD,
+    pub dwSVCaps: super::DWORD,
+    pub dwAlphaBltConstBitDepths: super::DWORD,
+    pub dwAlphaBltPixelBitDepths: super::DWORD,
+    pub dwAlphaBltSurfaceBitDepths: super::DWORD,
+    pub dwAlphaOverlayConstBitDepths: super::DWORD,
+    pub dwAlphaOverlayPixelBitDepths: super::DWORD,
+    pub dwAlphaOverlaySurfaceBitDepths: super::DWORD,
+    pub dwZBufferBitDepths: super::DWORD,
+    pub dwVidMemTotal: super::DWORD,
+    pub dwVidMemFree: super::DWORD,
+    pub dwMaxVisibleOverlays: super::DWORD,
+    pub dwCurrVisibleOverlays: super::DWORD,
+    pub dwNumFourCCCodes: super::DWORD,
+    pub dwAlignBoundarySrc: super::DWORD,
+    pub dwAlignSizeSrc: super::DWORD,
+    pub dwAlignBoundaryDest: super::DWORD,
+    pub dwAlignSizeDest: super::DWORD,
+    pub dwAlignStrideAlign: super::DWORD,
+    pub dwRops: [super::DWORD; 8],
     pub ddsCaps: DDSCAPS,
-    pub dwMinOverlayStretch: u32,
-    pub dwMaxOverlayStretch: u32,
-    pub dwMinLiveVideoStretch: u32,
-    pub dwMaxLiveVideoStretch: u32,
-    pub dwMinHwCodecStretch: u32,
-    pub dwMaxHwCodecStretch: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub dwSVBCaps: u32,
-    pub dwSVBCKeyCaps: u32,
-    pub dwSVBFXCaps: u32,
-    pub dwSVBRops: [u32; 8],
-    pub dwVSBCaps: u32,
-    pub dwVSBCKeyCaps: u32,
-    pub dwVSBFXCaps: u32,
-    pub dwVSBRops: [u32; 8],
-    pub dwSSBCaps: u32,
-    pub dwSSBCKeyCaps: u32,
-    pub dwSSBFXCaps: u32,
-    pub dwSSBRops: [u32; 8],
-    pub dwMaxVideoPorts: u32,
-    pub dwCurrVideoPorts: u32,
-    pub dwSVBCaps2: u32,
-    pub dwNLVBCaps: u32,
-    pub dwNLVBCaps2: u32,
-    pub dwNLVBCKeyCaps: u32,
-    pub dwNLVBFXCaps: u32,
-    pub dwNLVBRops: [u32; 8],
+    pub dwMinOverlayStretch: super::DWORD,
+    pub dwMaxOverlayStretch: super::DWORD,
+    pub dwMinLiveVideoStretch: super::DWORD,
+    pub dwMaxLiveVideoStretch: super::DWORD,
+    pub dwMinHwCodecStretch: super::DWORD,
+    pub dwMaxHwCodecStretch: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
+    pub dwReserved3: super::DWORD,
+    pub dwSVBCaps: super::DWORD,
+    pub dwSVBCKeyCaps: super::DWORD,
+    pub dwSVBFXCaps: super::DWORD,
+    pub dwSVBRops: [super::DWORD; 8],
+    pub dwVSBCaps: super::DWORD,
+    pub dwVSBCKeyCaps: super::DWORD,
+    pub dwVSBFXCaps: super::DWORD,
+    pub dwVSBRops: [super::DWORD; 8],
+    pub dwSSBCaps: super::DWORD,
+    pub dwSSBCKeyCaps: super::DWORD,
+    pub dwSSBFXCaps: super::DWORD,
+    pub dwSSBRops: [super::DWORD; 8],
+    pub dwMaxVideoPorts: super::DWORD,
+    pub dwCurrVideoPorts: super::DWORD,
+    pub dwSVBCaps2: super::DWORD,
+    pub dwNLVBCaps: super::DWORD,
+    pub dwNLVBCaps2: super::DWORD,
+    pub dwNLVBCKeyCaps: super::DWORD,
+    pub dwNLVBFXCaps: super::DWORD,
+    pub dwNLVBRops: [super::DWORD; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DDCAPS_DX5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDCAPS_DX6 {
-    pub dwSize: u32,
-    pub dwCaps: u32,
-    pub dwCaps2: u32,
-    pub dwCKeyCaps: u32,
-    pub dwFXCaps: u32,
-    pub dwFXAlphaCaps: u32,
-    pub dwPalCaps: u32,
-    pub dwSVCaps: u32,
-    pub dwAlphaBltConstBitDepths: u32,
-    pub dwAlphaBltPixelBitDepths: u32,
-    pub dwAlphaBltSurfaceBitDepths: u32,
-    pub dwAlphaOverlayConstBitDepths: u32,
-    pub dwAlphaOverlayPixelBitDepths: u32,
-    pub dwAlphaOverlaySurfaceBitDepths: u32,
-    pub dwZBufferBitDepths: u32,
-    pub dwVidMemTotal: u32,
-    pub dwVidMemFree: u32,
-    pub dwMaxVisibleOverlays: u32,
-    pub dwCurrVisibleOverlays: u32,
-    pub dwNumFourCCCodes: u32,
-    pub dwAlignBoundarySrc: u32,
-    pub dwAlignSizeSrc: u32,
-    pub dwAlignBoundaryDest: u32,
-    pub dwAlignSizeDest: u32,
-    pub dwAlignStrideAlign: u32,
-    pub dwRops: [u32; 8],
+    pub dwSize: super::DWORD,
+    pub dwCaps: super::DWORD,
+    pub dwCaps2: super::DWORD,
+    pub dwCKeyCaps: super::DWORD,
+    pub dwFXCaps: super::DWORD,
+    pub dwFXAlphaCaps: super::DWORD,
+    pub dwPalCaps: super::DWORD,
+    pub dwSVCaps: super::DWORD,
+    pub dwAlphaBltConstBitDepths: super::DWORD,
+    pub dwAlphaBltPixelBitDepths: super::DWORD,
+    pub dwAlphaBltSurfaceBitDepths: super::DWORD,
+    pub dwAlphaOverlayConstBitDepths: super::DWORD,
+    pub dwAlphaOverlayPixelBitDepths: super::DWORD,
+    pub dwAlphaOverlaySurfaceBitDepths: super::DWORD,
+    pub dwZBufferBitDepths: super::DWORD,
+    pub dwVidMemTotal: super::DWORD,
+    pub dwVidMemFree: super::DWORD,
+    pub dwMaxVisibleOverlays: super::DWORD,
+    pub dwCurrVisibleOverlays: super::DWORD,
+    pub dwNumFourCCCodes: super::DWORD,
+    pub dwAlignBoundarySrc: super::DWORD,
+    pub dwAlignSizeSrc: super::DWORD,
+    pub dwAlignBoundaryDest: super::DWORD,
+    pub dwAlignSizeDest: super::DWORD,
+    pub dwAlignStrideAlign: super::DWORD,
+    pub dwRops: [super::DWORD; 8],
     pub ddsOldCaps: DDSCAPS,
-    pub dwMinOverlayStretch: u32,
-    pub dwMaxOverlayStretch: u32,
-    pub dwMinLiveVideoStretch: u32,
-    pub dwMaxLiveVideoStretch: u32,
-    pub dwMinHwCodecStretch: u32,
-    pub dwMaxHwCodecStretch: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub dwSVBCaps: u32,
-    pub dwSVBCKeyCaps: u32,
-    pub dwSVBFXCaps: u32,
-    pub dwSVBRops: [u32; 8],
-    pub dwVSBCaps: u32,
-    pub dwVSBCKeyCaps: u32,
-    pub dwVSBFXCaps: u32,
-    pub dwVSBRops: [u32; 8],
-    pub dwSSBCaps: u32,
-    pub dwSSBCKeyCaps: u32,
-    pub dwSSBFXCaps: u32,
-    pub dwSSBRops: [u32; 8],
-    pub dwMaxVideoPorts: u32,
-    pub dwCurrVideoPorts: u32,
-    pub dwSVBCaps2: u32,
-    pub dwNLVBCaps: u32,
-    pub dwNLVBCaps2: u32,
-    pub dwNLVBCKeyCaps: u32,
-    pub dwNLVBFXCaps: u32,
-    pub dwNLVBRops: [u32; 8],
+    pub dwMinOverlayStretch: super::DWORD,
+    pub dwMaxOverlayStretch: super::DWORD,
+    pub dwMinLiveVideoStretch: super::DWORD,
+    pub dwMaxLiveVideoStretch: super::DWORD,
+    pub dwMinHwCodecStretch: super::DWORD,
+    pub dwMaxHwCodecStretch: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
+    pub dwReserved3: super::DWORD,
+    pub dwSVBCaps: super::DWORD,
+    pub dwSVBCKeyCaps: super::DWORD,
+    pub dwSVBFXCaps: super::DWORD,
+    pub dwSVBRops: [super::DWORD; 8],
+    pub dwVSBCaps: super::DWORD,
+    pub dwVSBCKeyCaps: super::DWORD,
+    pub dwVSBFXCaps: super::DWORD,
+    pub dwVSBRops: [super::DWORD; 8],
+    pub dwSSBCaps: super::DWORD,
+    pub dwSSBCKeyCaps: super::DWORD,
+    pub dwSSBFXCaps: super::DWORD,
+    pub dwSSBRops: [super::DWORD; 8],
+    pub dwMaxVideoPorts: super::DWORD,
+    pub dwCurrVideoPorts: super::DWORD,
+    pub dwSVBCaps2: super::DWORD,
+    pub dwNLVBCaps: super::DWORD,
+    pub dwNLVBCaps2: super::DWORD,
+    pub dwNLVBCKeyCaps: super::DWORD,
+    pub dwNLVBFXCaps: super::DWORD,
+    pub dwNLVBRops: [super::DWORD; 8],
     pub ddsCaps: DDSCAPS2,
 }
+#[cfg(feature = "shared")]
 impl Default for DDCAPS_DX6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDCAPS_DX7 {
-    pub dwSize: u32,
-    pub dwCaps: u32,
-    pub dwCaps2: u32,
-    pub dwCKeyCaps: u32,
-    pub dwFXCaps: u32,
-    pub dwFXAlphaCaps: u32,
-    pub dwPalCaps: u32,
-    pub dwSVCaps: u32,
-    pub dwAlphaBltConstBitDepths: u32,
-    pub dwAlphaBltPixelBitDepths: u32,
-    pub dwAlphaBltSurfaceBitDepths: u32,
-    pub dwAlphaOverlayConstBitDepths: u32,
-    pub dwAlphaOverlayPixelBitDepths: u32,
-    pub dwAlphaOverlaySurfaceBitDepths: u32,
-    pub dwZBufferBitDepths: u32,
-    pub dwVidMemTotal: u32,
-    pub dwVidMemFree: u32,
-    pub dwMaxVisibleOverlays: u32,
-    pub dwCurrVisibleOverlays: u32,
-    pub dwNumFourCCCodes: u32,
-    pub dwAlignBoundarySrc: u32,
-    pub dwAlignSizeSrc: u32,
-    pub dwAlignBoundaryDest: u32,
-    pub dwAlignSizeDest: u32,
-    pub dwAlignStrideAlign: u32,
-    pub dwRops: [u32; 8],
+    pub dwSize: super::DWORD,
+    pub dwCaps: super::DWORD,
+    pub dwCaps2: super::DWORD,
+    pub dwCKeyCaps: super::DWORD,
+    pub dwFXCaps: super::DWORD,
+    pub dwFXAlphaCaps: super::DWORD,
+    pub dwPalCaps: super::DWORD,
+    pub dwSVCaps: super::DWORD,
+    pub dwAlphaBltConstBitDepths: super::DWORD,
+    pub dwAlphaBltPixelBitDepths: super::DWORD,
+    pub dwAlphaBltSurfaceBitDepths: super::DWORD,
+    pub dwAlphaOverlayConstBitDepths: super::DWORD,
+    pub dwAlphaOverlayPixelBitDepths: super::DWORD,
+    pub dwAlphaOverlaySurfaceBitDepths: super::DWORD,
+    pub dwZBufferBitDepths: super::DWORD,
+    pub dwVidMemTotal: super::DWORD,
+    pub dwVidMemFree: super::DWORD,
+    pub dwMaxVisibleOverlays: super::DWORD,
+    pub dwCurrVisibleOverlays: super::DWORD,
+    pub dwNumFourCCCodes: super::DWORD,
+    pub dwAlignBoundarySrc: super::DWORD,
+    pub dwAlignSizeSrc: super::DWORD,
+    pub dwAlignBoundaryDest: super::DWORD,
+    pub dwAlignSizeDest: super::DWORD,
+    pub dwAlignStrideAlign: super::DWORD,
+    pub dwRops: [super::DWORD; 8],
     pub ddsOldCaps: DDSCAPS,
-    pub dwMinOverlayStretch: u32,
-    pub dwMaxOverlayStretch: u32,
-    pub dwMinLiveVideoStretch: u32,
-    pub dwMaxLiveVideoStretch: u32,
-    pub dwMinHwCodecStretch: u32,
-    pub dwMaxHwCodecStretch: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub dwSVBCaps: u32,
-    pub dwSVBCKeyCaps: u32,
-    pub dwSVBFXCaps: u32,
-    pub dwSVBRops: [u32; 8],
-    pub dwVSBCaps: u32,
-    pub dwVSBCKeyCaps: u32,
-    pub dwVSBFXCaps: u32,
-    pub dwVSBRops: [u32; 8],
-    pub dwSSBCaps: u32,
-    pub dwSSBCKeyCaps: u32,
-    pub dwSSBFXCaps: u32,
-    pub dwSSBRops: [u32; 8],
-    pub dwMaxVideoPorts: u32,
-    pub dwCurrVideoPorts: u32,
-    pub dwSVBCaps2: u32,
-    pub dwNLVBCaps: u32,
-    pub dwNLVBCaps2: u32,
-    pub dwNLVBCKeyCaps: u32,
-    pub dwNLVBFXCaps: u32,
-    pub dwNLVBRops: [u32; 8],
+    pub dwMinOverlayStretch: super::DWORD,
+    pub dwMaxOverlayStretch: super::DWORD,
+    pub dwMinLiveVideoStretch: super::DWORD,
+    pub dwMaxLiveVideoStretch: super::DWORD,
+    pub dwMinHwCodecStretch: super::DWORD,
+    pub dwMaxHwCodecStretch: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
+    pub dwReserved3: super::DWORD,
+    pub dwSVBCaps: super::DWORD,
+    pub dwSVBCKeyCaps: super::DWORD,
+    pub dwSVBFXCaps: super::DWORD,
+    pub dwSVBRops: [super::DWORD; 8],
+    pub dwVSBCaps: super::DWORD,
+    pub dwVSBCKeyCaps: super::DWORD,
+    pub dwVSBFXCaps: super::DWORD,
+    pub dwVSBRops: [super::DWORD; 8],
+    pub dwSSBCaps: super::DWORD,
+    pub dwSSBCKeyCaps: super::DWORD,
+    pub dwSSBFXCaps: super::DWORD,
+    pub dwSSBRops: [super::DWORD; 8],
+    pub dwMaxVideoPorts: super::DWORD,
+    pub dwCurrVideoPorts: super::DWORD,
+    pub dwSVBCaps2: super::DWORD,
+    pub dwNLVBCaps: super::DWORD,
+    pub dwNLVBCaps2: super::DWORD,
+    pub dwNLVBCKeyCaps: super::DWORD,
+    pub dwNLVBFXCaps: super::DWORD,
+    pub dwNLVBRops: [super::DWORD; 8],
     pub ddsCaps: DDSCAPS2,
 }
+#[cfg(feature = "shared")]
 impl Default for DDCAPS_DX7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -559,24 +587,26 @@ pub const DDCKEY_DESTOVERLAY: i32 = 4;
 pub const DDCKEY_SRCBLT: i32 = 8;
 pub const DDCKEY_SRCOVERLAY: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DDCOLORCONTROL {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub lBrightness: i32,
-    pub lContrast: i32,
-    pub lHue: i32,
-    pub lSaturation: i32,
-    pub lSharpness: i32,
-    pub lGamma: i32,
-    pub lColorEnable: i32,
-    pub dwReserved1: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub lBrightness: super::LONG,
+    pub lContrast: super::LONG,
+    pub lHue: super::LONG,
+    pub lSaturation: super::LONG,
+    pub lSharpness: super::LONG,
+    pub lGamma: super::LONG,
+    pub lColorEnable: super::LONG,
+    pub dwReserved1: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DDCOLORKEY {
-    pub dwColorSpaceLowValue: u32,
-    pub dwColorSpaceHighValue: u32,
+    pub dwColorSpaceLowValue: super::DWORD,
+    pub dwColorSpaceHighValue: super::DWORD,
 }
 pub const DDCOLOR_BRIGHTNESS: i32 = 1;
 pub const DDCOLOR_COLORENABLE: i32 = 64;
@@ -588,39 +618,39 @@ pub const DDCOLOR_SHARPNESS: i32 = 16;
 pub const DDCREATE_EMULATIONONLY: i32 = 2;
 pub const DDCREATE_HARDWAREONLY: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DDDEVICEIDENTIFIER {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
     pub liDriverVersion: super::LARGE_INTEGER,
-    pub dwVendorId: u32,
-    pub dwDeviceId: u32,
-    pub dwSubSysId: u32,
-    pub dwRevision: u32,
+    pub dwVendorId: super::DWORD,
+    pub dwDeviceId: super::DWORD,
+    pub dwSubSysId: super::DWORD,
+    pub dwRevision: super::DWORD,
     pub guidDeviceIdentifier: windows_sys::core::GUID,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DDDEVICEIDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DDDEVICEIDENTIFIER2 {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
     pub liDriverVersion: super::LARGE_INTEGER,
-    pub dwVendorId: u32,
-    pub dwDeviceId: u32,
-    pub dwSubSysId: u32,
-    pub dwRevision: u32,
+    pub dwVendorId: super::DWORD,
+    pub dwDeviceId: super::DWORD,
+    pub dwSubSysId: super::DWORD,
+    pub dwRevision: super::DWORD,
     pub guidDeviceIdentifier: windows_sys::core::GUID,
-    pub dwWHQLLevel: u32,
+    pub dwWHQLLevel: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DDDEVICEIDENTIFIER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -812,12 +842,14 @@ pub const DDFXCAPS_OVERLAYSTRETCHXN: i32 = 16777216;
 pub const DDFXCAPS_OVERLAYSTRETCHY: i32 = 33554432;
 pub const DDFXCAPS_OVERLAYSTRETCHYN: i32 = 67108864;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDGAMMARAMP {
-    pub red: [u16; 256],
-    pub green: [u16; 256],
-    pub blue: [u16; 256],
+    pub red: [super::WORD; 256],
+    pub green: [super::WORD; 256],
+    pub blue: [super::WORD; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for DDGAMMARAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -841,24 +873,27 @@ pub const DDLOCK_SURFACEMEMORYPTR: i32 = 0;
 pub const DDLOCK_WAIT: i32 = 1;
 pub const DDLOCK_WRITEONLY: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDOPTSURFACEDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub ddSCaps: DDSCAPS2,
     pub ddOSCaps: DDOSCAPS,
     pub guid: windows_sys::core::GUID,
-    pub dwCompressionRatio: u32,
+    pub dwCompressionRatio: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDOPTSURFACEDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DDOSCAPS {
-    pub dwCaps: u32,
+    pub dwCaps: super::DWORD,
 }
 pub const DDOSDCAPS_MONOLITHICMIPMAP: i32 = 4;
 pub const DDOSDCAPS_OPTCOMPRESSED: i32 = 1;
@@ -875,43 +910,49 @@ pub const DDOVERFX_DEINTERLACE: i32 = 8;
 pub const DDOVERFX_MIRRORLEFTRIGHT: i32 = 2;
 pub const DDOVERFX_MIRRORUPDOWN: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDOVERLAYFX {
-    pub dwSize: u32,
-    pub dwAlphaEdgeBlendBitDepth: u32,
-    pub dwAlphaEdgeBlend: u32,
-    pub dwReserved: u32,
-    pub dwAlphaDestConstBitDepth: u32,
+    pub dwSize: super::DWORD,
+    pub dwAlphaEdgeBlendBitDepth: super::DWORD,
+    pub dwAlphaEdgeBlend: super::DWORD,
+    pub dwReserved: super::DWORD,
+    pub dwAlphaDestConstBitDepth: super::DWORD,
     pub Anonymous: DDOVERLAYFX_0,
-    pub dwAlphaSrcConstBitDepth: u32,
+    pub dwAlphaSrcConstBitDepth: super::DWORD,
     pub Anonymous2: DDOVERLAYFX_1,
     pub dckDestColorkey: DDCOLORKEY,
     pub dckSrcColorkey: DDCOLORKEY,
-    pub dwDDFX: u32,
-    pub dwFlags: u32,
+    pub dwDDFX: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDOVERLAYFX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDOVERLAYFX_0 {
-    pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: *mut core::ffi::c_void,
+    pub dwAlphaDestConst: super::DWORD,
+    pub lpDDSAlphaDest: LPDIRECTDRAWSURFACE,
 }
+#[cfg(feature = "shared")]
 impl Default for DDOVERLAYFX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDOVERLAYFX_1 {
-    pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: *mut core::ffi::c_void,
+    pub dwAlphaSrcConst: super::DWORD,
+    pub lpDDSAlphaSrc: LPDIRECTDRAWSURFACE,
 }
+#[cfg(feature = "shared")]
 impl Default for DDOVERLAYFX_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -979,37 +1020,43 @@ pub const DDPF_YUV: i32 = 512;
 pub const DDPF_ZBUFFER: i32 = 1024;
 pub const DDPF_ZPIXELS: i32 = 8192;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DDRGBA {
-    pub red: u8,
-    pub green: u8,
-    pub blue: u8,
-    pub alpha: u8,
+    pub red: super::BYTE,
+    pub green: super::BYTE,
+    pub blue: super::BYTE,
+    pub alpha: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DDSCAPS {
-    pub dwCaps: u32,
+    pub dwCaps: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDSCAPS2 {
-    pub dwCaps: u32,
-    pub dwCaps2: u32,
-    pub dwCaps3: u32,
+    pub dwCaps: super::DWORD,
+    pub dwCaps2: super::DWORD,
+    pub dwCaps3: super::DWORD,
     pub Anonymous: DDSCAPS2_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DDSCAPS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDSCAPS2_0 {
-    pub dwCaps4: u32,
-    pub dwVolumeDepth: u32,
+    pub dwCaps4: super::DWORD,
+    pub dwVolumeDepth: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDSCAPS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1058,23 +1105,27 @@ pub const DDSCAPS3_READONLYRESOURCE: i32 = 16384;
 pub const DDSCAPS3_RESERVED1: i32 = 256;
 pub const DDSCAPS3_RESERVED2: i32 = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDSCAPSEX {
-    pub dwCaps2: u32,
-    pub dwCaps3: u32,
+    pub dwCaps2: super::DWORD,
+    pub dwCaps3: super::DWORD,
     pub Anonymous: DDSCAPSEX_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DDSCAPSEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDSCAPSEX_0 {
-    pub dwCaps4: u32,
-    pub dwVolumeDepth: u32,
+    pub dwCaps4: super::DWORD,
+    pub dwVolumeDepth: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDSCAPSEX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1150,19 +1201,19 @@ pub const DDSMT_ISTESTREQUIRED: i32 = 1;
 pub const DDSPD_IUNKNOWNPOINTER: i32 = 1;
 pub const DDSPD_VOLATILE: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DDSURFACEDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwHeight: u32,
-    pub dwWidth: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwHeight: super::DWORD,
+    pub dwWidth: super::DWORD,
     pub Anonymous: DDSURFACEDESC_0,
-    pub dwBackBufferCount: u32,
+    pub dwBackBufferCount: super::DWORD,
     pub Anonymous2: DDSURFACEDESC_1,
-    pub dwAlphaBitDepth: u32,
-    pub dwReserved: u32,
-    pub lpSurface: *mut core::ffi::c_void,
+    pub dwAlphaBitDepth: super::DWORD,
+    pub dwReserved: super::DWORD,
+    pub lpSurface: super::LPVOID,
     pub ddckCKDestOverlay: DDCOLORKEY,
     pub ddckCKDestBlt: DDCOLORKEY,
     pub ddckCKSrcOverlay: DDCOLORKEY,
@@ -1170,128 +1221,128 @@ pub struct DDSURFACEDESC {
     pub ddpfPixelFormat: super::DDPIXELFORMAT,
     pub ddsCaps: DDSCAPS,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC_0 {
-    pub lPitch: i32,
-    pub dwLinearSize: u32,
+    pub lPitch: super::LONG,
+    pub dwLinearSize: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC_1 {
-    pub dwMipMapCount: u32,
-    pub dwZBufferBitDepth: u32,
-    pub dwRefreshRate: u32,
+    pub dwMipMapCount: super::DWORD,
+    pub dwZBufferBitDepth: super::DWORD,
+    pub dwRefreshRate: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DDSURFACEDESC2 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwHeight: u32,
-    pub dwWidth: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwHeight: super::DWORD,
+    pub dwWidth: super::DWORD,
     pub Anonymous: DDSURFACEDESC2_0,
     pub Anonymous2: DDSURFACEDESC2_1,
     pub Anonymous3: DDSURFACEDESC2_2,
-    pub dwAlphaBitDepth: u32,
-    pub dwReserved: u32,
-    pub lpSurface: *mut core::ffi::c_void,
+    pub dwAlphaBitDepth: super::DWORD,
+    pub dwReserved: super::DWORD,
+    pub lpSurface: super::LPVOID,
     pub Anonymous4: DDSURFACEDESC2_3,
     pub ddckCKDestBlt: DDCOLORKEY,
     pub ddckCKSrcOverlay: DDCOLORKEY,
     pub ddckCKSrcBlt: DDCOLORKEY,
     pub Anonymous5: DDSURFACEDESC2_4,
     pub ddsCaps: DDSCAPS2,
-    pub dwTextureStage: u32,
+    pub dwTextureStage: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_0 {
-    pub lPitch: i32,
-    pub dwLinearSize: u32,
+    pub lPitch: super::LONG,
+    pub dwLinearSize: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_1 {
-    pub dwBackBufferCount: u32,
-    pub dwDepth: u32,
+    pub dwBackBufferCount: super::DWORD,
+    pub dwDepth: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_2 {
-    pub dwMipMapCount: u32,
-    pub dwRefreshRate: u32,
-    pub dwSrcVBHandle: u32,
+    pub dwMipMapCount: super::DWORD,
+    pub dwRefreshRate: super::DWORD,
+    pub dwSrcVBHandle: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_3 {
     pub ddckCKDestOverlay: DDCOLORKEY,
-    pub dwEmptyFaceColor: u32,
+    pub dwEmptyFaceColor: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DDSURFACEDESC2_4 {
     pub ddpfPixelFormat: super::DDPIXELFORMAT,
-    pub dwFVF: u32,
+    pub dwFVF: super::DWORD,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl Default for DDSURFACEDESC2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1309,66 +1360,117 @@ pub const DD_FALSE: windows_sys::core::HRESULT = 0x1_u32 as _;
 pub const DD_OK: windows_sys::core::HRESULT = 0x0_u32 as _;
 pub const DD_ROP_SPACE: i32 = 8;
 pub const DIRECTDRAW_VERSION: i32 = 1792;
-pub const FOURCC_DXT1: u32 = 827611204;
-pub const FOURCC_DXT2: u32 = 844388420;
-pub const FOURCC_DXT3: u32 = 861165636;
-pub const FOURCC_DXT4: u32 = 877942852;
-pub const FOURCC_DXT5: u32 = 894720068;
-#[cfg(feature = "windef")]
-pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: *mut core::ffi::c_void, hwnd: super::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
+#[cfg(feature = "shared")]
+pub const FOURCC_DXT1: super::DWORD = 827611204;
+#[cfg(feature = "shared")]
+pub const FOURCC_DXT2: super::DWORD = 844388420;
+#[cfg(feature = "shared")]
+pub const FOURCC_DXT3: super::DWORD = 861165636;
+#[cfg(feature = "shared")]
+pub const FOURCC_DXT4: super::DWORD = 877942852;
+#[cfg(feature = "shared")]
+pub const FOURCC_DXT5: super::DWORD = 894720068;
+pub const IID_IDirectDraw: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
+pub const IID_IDirectDraw2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
+pub const IID_IDirectDraw4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
+pub const IID_IDirectDraw7: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
+pub const IID_IDirectDrawClipper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
+pub const IID_IDirectDrawColorControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
+pub const IID_IDirectDrawGammaControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
+pub const IID_IDirectDrawPalette: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
+pub const IID_IDirectDrawSurface: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
+pub const IID_IDirectDrawSurface2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
+pub const IID_IDirectDrawSurface3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
+pub const IID_IDirectDrawSurface4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
+pub const IID_IDirectDrawSurface7: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: LPDIRECTDRAWCLIPPER, hwnd: super::HWND, code: super::DWORD, lpcontext: super::LPVOID) -> super::DWORD>;
+#[cfg(feature = "shared")]
 pub type LPDDARGB = *mut DDARGB;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDDBLTBATCH = *mut DDBLTBATCH;
+#[cfg(feature = "shared")]
 pub type LPDDBLTFX = *mut DDBLTFX;
-pub type LPDDCAPS = *mut DDCAPS;
+#[cfg(feature = "shared")]
+pub type LPDDCAPS = *mut DDCAPS_DX7;
+#[cfg(feature = "shared")]
 pub type LPDDCAPS_DX1 = *mut DDCAPS_DX1;
+#[cfg(feature = "shared")]
 pub type LPDDCAPS_DX3 = *mut DDCAPS_DX3;
+#[cfg(feature = "shared")]
 pub type LPDDCAPS_DX5 = *mut DDCAPS_DX5;
+#[cfg(feature = "shared")]
 pub type LPDDCAPS_DX6 = *mut DDCAPS_DX6;
+#[cfg(feature = "shared")]
 pub type LPDDCAPS_DX7 = *mut DDCAPS_DX7;
+#[cfg(feature = "shared")]
 pub type LPDDCOLORCONTROL = *mut DDCOLORCONTROL;
+#[cfg(feature = "shared")]
 pub type LPDDCOLORKEY = *mut DDCOLORKEY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDDDEVICEIDENTIFIER = *mut DDDEVICEIDENTIFIER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDDDEVICEIDENTIFIER2 = *mut DDDEVICEIDENTIFIER2;
-pub type LPDDENUMCALLBACK = LPDDENUMCALLBACKA;
-pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "windef")]
-pub type LPDDENUMCALLBACKEX = LPDDENUMCALLBACKEXA;
-#[cfg(feature = "windef")]
-pub type LPDDENUMCALLBACKEXA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void, param4: super::HMONITOR) -> windows_sys::core::BOOL>;
-#[cfg(feature = "windef")]
-pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void, param4: super::HMONITOR) -> windows_sys::core::BOOL>;
-pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "ksmedia")]
-pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: LPDDSURFACEDESC, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "ksmedia")]
-pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: LPDDSURFACEDESC2, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "ksmedia")]
-pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPDDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "ksmedia")]
-pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPDDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "ksmedia")]
-pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPDDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "minwindef")]
+pub type LPDDENUMCALLBACK = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PSTR, param2: windows_sys::core::PSTR, param3: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(feature = "minwindef")]
+pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PSTR, param2: windows_sys::core::PSTR, param3: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPDDENUMCALLBACKEX = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PSTR, param2: windows_sys::core::PSTR, param3: super::LPVOID, param4: super::HMONITOR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPDDENUMCALLBACKEXA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PSTR, param2: windows_sys::core::PSTR, param3: super::LPVOID, param4: super::HMONITOR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PWSTR, param2: windows_sys::core::PWSTR, param3: super::LPVOID, param4: super::HMONITOR) -> windows_sys::core::BOOL>;
+#[cfg(feature = "minwindef")]
+pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PWSTR, param2: windows_sys::core::PWSTR, param3: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
+pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: LPDDSURFACEDESC, param1: super::LPVOID) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
+pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: LPDDSURFACEDESC2, param1: super::LPVOID) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
+pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: LPDIRECTDRAWSURFACE, param1: LPDDSURFACEDESC, param2: super::LPVOID) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
+pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: LPDIRECTDRAWSURFACE4, param1: LPDDSURFACEDESC2, param2: super::LPVOID) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
+pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: LPDIRECTDRAWSURFACE7, param1: LPDDSURFACEDESC2, param2: super::LPVOID) -> windows_sys::core::HRESULT>;
 pub type LPDDFXROP = *mut _DDFXROP;
+#[cfg(feature = "shared")]
 pub type LPDDGAMMARAMP = *mut DDGAMMARAMP;
+#[cfg(feature = "shared")]
 pub type LPDDOSCAPS = *mut DDOSCAPS;
+#[cfg(feature = "shared")]
 pub type LPDDOVERLAYFX = *mut DDOVERLAYFX;
+#[cfg(feature = "shared")]
 pub type LPDDRGBA = *mut DDRGBA;
+#[cfg(feature = "shared")]
 pub type LPDDSCAPS = *mut DDSCAPS;
+#[cfg(feature = "shared")]
 pub type LPDDSCAPS2 = *mut DDSCAPS2;
+#[cfg(feature = "shared")]
 pub type LPDDSCAPSEX = *mut DDSCAPSEX;
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 pub type LPDDSURFACEDESC = *mut DDSURFACEDESC;
-#[cfg(feature = "ksmedia")]
+#[cfg(all(feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 pub type LPDDSURFACEDESC2 = *mut DDSURFACEDESC2;
-#[cfg(feature = "windef")]
-pub type LPDIRECTDRAWENUMERATEEX = LPDIRECTDRAWENUMERATEEXA;
-#[cfg(feature = "windef")]
-pub type LPDIRECTDRAWENUMERATEEXA = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "windef")]
-pub type LPDIRECTDRAWENUMERATEEXW = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_sys::core::HRESULT>;
+pub type LPDIRECTDRAW = *mut core::ffi::c_void;
+pub type LPDIRECTDRAW2 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAW4 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAW7 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWCLIPPER = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWCOLORCONTROL = *mut core::ffi::c_void;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPDIRECTDRAWENUMERATEEX = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: super::LPVOID, dwflags: super::DWORD) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPDIRECTDRAWENUMERATEEXA = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: super::LPVOID, dwflags: super::DWORD) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPDIRECTDRAWENUMERATEEXW = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: super::LPVOID, dwflags: super::DWORD) -> windows_sys::core::HRESULT>;
+pub type LPDIRECTDRAWGAMMACONTROL = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWPALETTE = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE2 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE3 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE4 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE7 = *mut core::ffi::c_void;
 pub const MAX_DDDEVICEID_STRING: i32 = 512;
 pub const REGSTR_KEY_DDHW_DESCRIPTION: windows_sys::core::PCSTR = windows_sys::core::s!("Description");
 pub const REGSTR_KEY_DDHW_DRIVERNAME: windows_sys::core::PCSTR = windows_sys::core::s!("DriverName");

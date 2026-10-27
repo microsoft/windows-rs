@@ -1,5 +1,7 @@
-windows_link::link!("odbc32.dll" "system" fn ODBCGetTryWaitValue() -> u32);
-windows_link::link!("odbc32.dll" "system" fn ODBCSetTryWaitValue(dwvalue : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("odbc32.dll" "system" fn ODBCGetTryWaitValue() -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("odbc32.dll" "system" fn ODBCSetTryWaitValue(dwvalue : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLAllocHandleStd(fhandletype : super::SQLSMALLINT, hinput : super::SQLHANDLE, phoutput : *mut super::SQLHANDLE) -> super::SQLRETURN);
 #[cfg(target_arch = "x86")]
@@ -71,42 +73,42 @@ windows_link::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : super::
 #[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLTablePrivileges(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLCHAR, cchcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLCHAR, cchschemaname : super::SQLSMALLINT, sztablename : *const super::SQLCHAR, cchtablename : super::SQLSMALLINT) -> super::SQLRETURN);
 #[repr(C)]
-#[cfg(feature = "sqltypes")]
+#[cfg(all(feature = "shared", feature = "sqltypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ODBC_VS_ARGS {
     pub pguidEvent: *const windows_sys::core::GUID,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub Anonymous: ODBC_VS_ARGS_0,
     pub Anonymous2: ODBC_VS_ARGS_1,
     pub RetCode: super::RETCODE,
 }
-#[cfg(feature = "sqltypes")]
+#[cfg(all(feature = "shared", feature = "sqltypes", feature = "winnt"))]
 impl Default for ODBC_VS_ARGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "sqltypes")]
+#[cfg(all(feature = "shared", feature = "sqltypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_0 {
-    pub wszArg: *mut u16,
-    pub szArg: *mut i8,
+    pub wszArg: *mut super::WCHAR,
+    pub szArg: *mut super::CHAR,
 }
-#[cfg(feature = "sqltypes")]
+#[cfg(all(feature = "shared", feature = "sqltypes", feature = "winnt"))]
 impl Default for ODBC_VS_ARGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "sqltypes")]
+#[cfg(all(feature = "shared", feature = "sqltypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_1 {
-    pub wszCorrelation: *mut u16,
-    pub szCorrelation: *mut i8,
+    pub wszCorrelation: *mut super::WCHAR,
+    pub szCorrelation: *mut super::CHAR,
 }
-#[cfg(feature = "sqltypes")]
+#[cfg(all(feature = "shared", feature = "sqltypes", feature = "winnt"))]
 impl Default for ODBC_VS_ARGS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -116,10 +118,9 @@ pub const ODBC_VS_FLAG_RETCODE: i32 = 4;
 pub const ODBC_VS_FLAG_STOP: i32 = 8;
 pub const ODBC_VS_FLAG_UNICODE_ARG: i32 = 1;
 pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2;
-#[cfg(feature = "sqltypes")]
+#[cfg(all(feature = "shared", feature = "sqltypes", feature = "winnt"))]
 pub type PODBC_VS_ARGS = *mut ODBC_VS_ARGS;
-#[cfg(feature = "sqltypes")]
-pub type SQLSTATE = [super::SQLTCHAR; 6];
+pub type SQLSTATE = [u8; 6];
 pub const SQL_AA_FALSE: i32 = 0;
 pub const SQL_AA_TRUE: i32 = 1;
 pub const SQL_ACCESS_MODE: i32 = 101;
@@ -149,6 +150,9 @@ pub const SQL_ALL_EXCEPT_LIKE: i32 = 2;
 pub const SQL_ALL_SCHEMAS: windows_sys::core::PCSTR = windows_sys::core::s!("%");
 pub const SQL_ALL_TABLE_TYPES: windows_sys::core::PCSTR = windows_sys::core::s!("%");
 pub const SQL_ALTER_DOMAIN: i32 = 117;
+pub const SQL_AM_CONNECTION: i32 = 1;
+pub const SQL_AM_NONE: i32 = 0;
+pub const SQL_AM_STATEMENT: i32 = 2;
 pub const SQL_API_ALL_FUNCTIONS: i32 = 0;
 pub const SQL_API_LOADBYORDINAL: i32 = 199;
 pub const SQL_API_ODBC3_ALL_FUNCTIONS: i32 = 999;
@@ -900,6 +904,9 @@ pub const SQL_OAC_NONE: i32 = 0;
 pub const SQL_ODBC_API_CONFORMANCE: i32 = 9;
 pub const SQL_ODBC_CURSORS: i32 = 110;
 pub const SQL_ODBC_INTERFACE_CONFORMANCE: i32 = 152;
+pub const SQL_ODBC_KEYWORDS: windows_sys::core::PCSTR = windows_sys::core::s!(
+    "ABSOLUTE,ACTION,ADA,ADD,ALL,ALLOCATE,ALTER,AND,ANY,ARE,AS,ASC,ASSERTION,AT,AUTHORIZATION,AVG,BEGIN,BETWEEN,BIT,BIT_LENGTH,BOTH,BY,CASCADE,CASCADED,CASE,CAST,CATALOG,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CLOSE,COALESCE,COLLATE,COLLATION,COLUMN,COMMIT,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONTINUE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CURRENT,CURRENT_DATE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,DATE,DAY,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELETE,DESC,DESCRIBE,DESCRIPTOR,DIAGNOSTICS,DISCONNECT,DISTINCT,DOMAIN,DOUBLE,DROP,ELSE,END,END-EXEC,ESCAPE,EXCEPT,EXCEPTION,EXEC,EXECUTE,EXISTS,EXTERNAL,EXTRACT,FALSE,FETCH,FIRST,FLOAT,FOR,FOREIGN,FORTRAN,FOUND,FROM,FULL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,HAVING,HOUR,IDENTITY,IMMEDIATE,IN,INCLUDE,INDEX,INDICATOR,INITIALLY,INNER,INPUT,INSENSITIVE,INSERT,INT,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,JOIN,KEY,LANGUAGE,LAST,LEADING,LEFT,LEVEL,LIKE,LOCAL,LOWER,MATCH,MAX,MIN,MINUTE,MODULE,MONTH,NAMES,NATIONAL,NATURAL,NCHAR,NEXT,NO,NONE,NOT,NULL,NULLIF,NUMERIC,OCTET_LENGTH,OF,ON,ONLY,OPEN,OPTION,OR,ORDER,OUTER,OUTPUT,OVERLAPS,PAD,PARTIAL,PASCAL,PLI,POSITION,PRECISION,PREPARE,PRESERVE,PRIMARY,PRIOR,PRIVILEGES,PROCEDURE,PUBLIC,READ,REAL,REFERENCES,RELATIVE,RESTRICT,REVOKE,RIGHT,ROLLBACK,ROWSSCHEMA,SCROLL,SECOND,SECTION,SELECT,SESSION,SESSION_USER,SET,SIZE,SMALLINT,SOME,SPACE,SQL,SQLCA,SQLCODE,SQLERROR,SQLSTATE,SQLWARNING,SUBSTRING,SUM,SYSTEM_USER,TABLE,TEMPORARY,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TO,TRAILING,TRANSACTION,TRANSLATE,TRANSLATION,TRIM,TRUE,UNION,UNIQUE,UNKNOWN,UPDATE,UPPER,USAGE,USER,USING,VALUE,VALUES,VARCHAR,VARYING,VIEW,WHEN,WHENEVER,WHERE,WITH,WORK,WRITE,YEAR,ZONE"
+);
 pub const SQL_ODBC_SAG_CLI_CONFORMANCE: i32 = 12;
 pub const SQL_ODBC_SQL_CONFORMANCE: i32 = 15;
 pub const SQL_ODBC_SQL_OPT_IEF: i32 = 73;

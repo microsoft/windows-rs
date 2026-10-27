@@ -1,129 +1,133 @@
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_sys::core::GUID, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "wincrypt", feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext2(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_sys::core::GUID, pwszhashalgorithm : windows_sys::core::PCWSTR, pstronghashpolicy : super::PCCERT_STRONG_SIGN_PARA, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAddCatalog(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_sys::core::PCWSTR, pwszselectbasename : windows_sys::core::PCWSTR, dwflags : u32) -> HCATINFO);
-#[cfg(feature = "winnt")]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminCalcHashFromFileHandle(hfile : super::HANDLE, pcbhash : *mut u32, pbhash : *mut u8, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin : super::HCATADMIN, hfile : super::HANDLE, pcbhash : *mut u32, pbhash : *mut u8, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminEnumCatalogFromHash(hcatadmin : super::HCATADMIN, pbhash : *const u8, cbhash : u32, dwflags : u32, phprevcatinfo : *mut HCATINFO) -> HCATINFO);
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminPauseServiceForBackup(dwflags : u32, fresume : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminReleaseCatalogContext(hcatadmin : super::HCATADMIN, hcatinfo : HCATINFO, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminReleaseContext(hcatadmin : super::HCATADMIN, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminRemoveCatalog(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "wintrust"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATAdminResolveCatalogPath(hcatadmin : super::HCATADMIN, pwszcatalogfile : *const u16, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
+#[cfg(feature = "shared")]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_sys::core::GUID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext2(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_sys::core::GUID, pwszhashalgorithm : windows_sys::core::PCWSTR, pstronghashpolicy : super::PCCERT_STRONG_SIGN_PARA, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminAddCatalog(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_sys::core::PCWSTR, pwszselectbasename : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> HCATINFO);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminCalcHashFromFileHandle(hfile : super::HANDLE, pcbhash : *mut super::DWORD, pbhash : *mut super::BYTE, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin : super::HCATADMIN, hfile : super::HANDLE, pcbhash : *mut super::DWORD, pbhash : *mut super::BYTE, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminEnumCatalogFromHash(hcatadmin : super::HCATADMIN, pbhash : *const super::BYTE, cbhash : super::DWORD, dwflags : super::DWORD, phprevcatinfo : *mut HCATINFO) -> HCATINFO);
+#[cfg(feature = "shared")]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminPauseServiceForBackup(dwflags : super::DWORD, fresume : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminReleaseCatalogContext(hcatadmin : super::HCATADMIN, hcatinfo : HCATINFO, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminReleaseContext(hcatadmin : super::HCATADMIN, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminRemoveCatalog(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATAdminResolveCatalogPath(hcatadmin : super::HCATADMIN, pwszcatalogfile : *const super::WCHAR, pscatinfo : *mut CATALOG_INFO, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATAllocSortedMemberInfo(hcatalog : super::HANDLE, pwszreferencetag : windows_sys::core::PCWSTR) -> *mut CRYPTCATMEMBER);
-#[cfg(feature = "winnt")]
-windows_link::link!("wintrust.dll" "system" fn CryptCATCDFClose(pcdf : *const CRYPTCATCDF) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributes(pcdf : *const CRYPTCATCDF, pmember : *const CRYPTCATMEMBER, pprevattr : *const CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATCDFClose(pcdf : *mut CRYPTCATCDF) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributes(pcdf : *mut CRYPTCATCDF, pmember : *mut CRYPTCATMEMBER, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATCDFEnumCatAttributes(pcdf : *mut CRYPTCATCDF, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembers(pcdf : *const CRYPTCATCDF, pprevmember : *const CRYPTCATMEMBER, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembers(pcdf : *mut CRYPTCATCDF, pprevmember : *mut CRYPTCATMEMBER, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATCDFOpen(pwszfilepath : windows_sys::core::PCWSTR, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF);
-#[cfg(feature = "winnt")]
-windows_link::link!("wintrust.dll" "system" fn CryptCATCatalogInfoFromContext(hcatinfo : HCATINFO, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATCatalogInfoFromContext(hcatinfo : HCATINFO, pscatinfo : *mut CATALOG_INFO, dwflags : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wintrust.dll" "system" fn CryptCATClose(hcatalog : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATEnumerateAttr(hcatalog : super::HANDLE, pcatmember : *const CRYPTCATMEMBER, pprevattr : *const CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wintrust.dll" "system" fn CryptCATEnumerateCatAttr(hcatalog : super::HANDLE, pprevattr : *const CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATEnumerateMember(hcatalog : super::HANDLE, pprevmember : *const CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATFreeSortedMemberInfo(hcatalog : super::HANDLE, pcatmember : *const CRYPTCATMEMBER));
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATGetAttrInfo(hcatalog : super::HANDLE, pcatmember : *const CRYPTCATMEMBER, pwszreferencetag : windows_sys::core::PCWSTR) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATEnumerateAttr(hcatalog : super::HANDLE, pcatmember : *mut CRYPTCATMEMBER, pprevattr : *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATEnumerateCatAttr(hcatalog : super::HANDLE, pprevattr : *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE);
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATEnumerateMember(hcatalog : super::HANDLE, pprevmember : *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER);
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATFreeSortedMemberInfo(hcatalog : super::HANDLE, pcatmember : *mut CRYPTCATMEMBER));
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATGetAttrInfo(hcatalog : super::HANDLE, pcatmember : *mut CRYPTCATMEMBER, pwszreferencetag : windows_sys::core::PCWSTR) -> *mut CRYPTCATATTRIBUTE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATGetCatAttrInfo(hcatalog : super::HANDLE, pwszreferencetag : windows_sys::core::PCWSTR) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATGetMemberInfo(hcatalog : super::HANDLE, pwszreferencetag : windows_sys::core::PCWSTR) -> *mut CRYPTCATMEMBER);
-#[cfg(all(feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATHandleFromStore(pcatstore : *const CRYPTCATSTORE) -> super::HANDLE);
-#[cfg(all(feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATOpen(pwszfilename : windows_sys::core::PCWSTR, fdwopenflags : u32, hprov : super::HCRYPTPROV, dwpublicversion : u32, dwencodingtype : u32) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATHandleFromStore(pcatstore : *mut CRYPTCATSTORE) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATOpen(pwszfilename : windows_sys::core::PCWSTR, fdwopenflags : super::DWORD, hprov : super::HCRYPTPROV, dwpublicversion : super::DWORD, dwencodingtype : super::DWORD) -> super::HANDLE);
 #[cfg(feature = "winnt")]
 windows_link::link!("wintrust.dll" "system" fn CryptCATPersistStore(hcatalog : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATPutAttrInfo(hcatalog : super::HANDLE, pcatmember : *const CRYPTCATMEMBER, pwszreferencetag : windows_sys::core::PCWSTR, dwattrtypeandaction : u32, cbdata : u32, pbdata : *const u8) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wintrust.dll" "system" fn CryptCATPutCatAttrInfo(hcatalog : super::HANDLE, pwszreferencetag : windows_sys::core::PCWSTR, dwattrtypeandaction : u32, cbdata : u32, pbdata : *const u8) -> *mut CRYPTCATATTRIBUTE);
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-windows_link::link!("wintrust.dll" "system" fn CryptCATPutMemberInfo(hcatalog : super::HANDLE, pwszfilename : windows_sys::core::PCWSTR, pwszreferencetag : windows_sys::core::PCWSTR, pgsubjecttype : *const windows_sys::core::GUID, dwcertversion : u32, cbsipindirectdata : u32, pbsipindirectdata : *const u8) -> *mut CRYPTCATMEMBER);
-#[cfg(all(feature = "wincrypt", feature = "winnt"))]
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATPutAttrInfo(hcatalog : super::HANDLE, pcatmember : *mut CRYPTCATMEMBER, pwszreferencetag : windows_sys::core::PCWSTR, dwattrtypeandaction : super::DWORD, cbdata : super::DWORD, pbdata : *mut super::BYTE) -> *mut CRYPTCATATTRIBUTE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATPutCatAttrInfo(hcatalog : super::HANDLE, pwszreferencetag : windows_sys::core::PCWSTR, dwattrtypeandaction : super::DWORD, cbdata : super::DWORD, pbdata : *mut super::BYTE) -> *mut CRYPTCATATTRIBUTE);
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+windows_link::link!("wintrust.dll" "system" fn CryptCATPutMemberInfo(hcatalog : super::HANDLE, pwszfilename : windows_sys::core::PCWSTR, pwszreferencetag : windows_sys::core::PCWSTR, pgsubjecttype : *mut windows_sys::core::GUID, dwcertversion : super::DWORD, cbsipindirectdata : super::DWORD, pbsipindirectdata : *mut super::BYTE) -> *mut CRYPTCATMEMBER);
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
 windows_link::link!("wintrust.dll" "system" fn CryptCATStoreFromHandle(hcatalog : super::HANDLE) -> *mut CRYPTCATSTORE);
 #[cfg(feature = "winnt")]
-windows_link::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::HANDLE, pwszfilename : *const u16) -> windows_sys::core::BOOL);
-#[repr(C)]
+windows_link::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::HANDLE, pwszfilename : *const super::WCHAR) -> windows_sys::core::BOOL);
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CATALOG_INFO {
-    pub cbStruct: u32,
-    pub wszCatalogFile: [u16; 260],
+    pub cbStruct: super::DWORD,
+    pub wszCatalogFile: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CATALOG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPTCATATTRIBUTE {
-    pub cbStruct: u32,
+    pub cbStruct: super::DWORD,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
-    pub dwAttrTypeAndAction: u32,
-    pub cbValue: u32,
-    pub pbValue: *mut u8,
-    pub dwReserved: u32,
+    pub dwAttrTypeAndAction: super::DWORD,
+    pub cbValue: super::DWORD,
+    pub pbValue: *mut super::BYTE,
+    pub dwReserved: super::DWORD,
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPTCATCDF {
-    pub cbStruct: u32,
+    pub cbStruct: super::DWORD,
     pub hFile: super::HANDLE,
-    pub dwCurFilePos: u32,
-    pub dwLastMemberOffset: u32,
+    pub dwCurFilePos: super::DWORD,
+    pub dwLastMemberOffset: super::DWORD,
     pub fEOF: windows_sys::core::BOOL,
     pub pwszResultDir: windows_sys::core::PWSTR,
     pub hCATStore: super::HANDLE,
 }
-#[repr(C)]
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPTCATMEMBER {
-    pub cbStruct: u32,
+    pub cbStruct: super::DWORD,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
     pub pwszFileName: windows_sys::core::PWSTR,
     pub gSubjectType: windows_sys::core::GUID,
-    pub fdwMemberFlags: u32,
+    pub fdwMemberFlags: super::DWORD,
     pub pIndirectData: *mut super::SIP_INDIRECT_DATA,
-    pub dwCertVersion: u32,
-    pub dwReserved: u32,
+    pub dwCertVersion: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub hReserved: super::HANDLE,
     pub sEncodedIndirectData: super::CRYPT_ATTR_BLOB,
     pub sEncodedMemberInfo: super::CRYPT_ATTR_BLOB,
 }
-#[repr(C)]
-#[cfg(all(feature = "wincrypt", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPTCATSTORE {
-    pub cbStruct: u32,
-    pub dwPublicVersion: u32,
+    pub cbStruct: super::DWORD,
+    pub dwPublicVersion: super::DWORD,
     pub pwszP7File: windows_sys::core::PWSTR,
     pub hProv: super::HCRYPTPROV,
-    pub dwEncodingType: u32,
-    pub fdwStoreFlags: u32,
+    pub dwEncodingType: super::DWORD,
+    pub fdwStoreFlags: super::DWORD,
     pub hReserved: super::HANDLE,
     pub hAttrs: super::HANDLE,
     pub hCryptMsg: super::HCRYPTMSG,
@@ -165,9 +169,9 @@ pub const CRYPTCAT_OPEN_SORTED: i32 = 1073741824;
 pub const CRYPTCAT_OPEN_VERIFYSIGHASH: i32 = 268435456;
 pub const CRYPTCAT_VERSION_1: i32 = 256;
 pub const CRYPTCAT_VERSION_2: i32 = 512;
-#[cfg(feature = "winnt")]
-pub type HCATINFO = super::HANDLE;
-pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: *mut u16)>;
+pub type HCATINFO = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: super::DWORD, dwlocalerror: super::DWORD, pwszline: *mut super::WCHAR)>;
 pub const szOID_CATALOG_LIST: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.1.1");
 pub const szOID_CATALOG_LIST_MEMBER: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.1.2");
 pub const szOID_CATALOG_LIST_MEMBER2: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.1.3");

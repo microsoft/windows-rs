@@ -1,6 +1,10 @@
 windows_link::link!("vssapi.dll" "system" fn CreateVssExpressWriterInternal(ppwriter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("vssapi.dll" "system" fn CreateWriter(pwriter : *const core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("vssapi.dll" "system" fn CreateWriterEx(pwriter : *const core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub const IID_IVssComponent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd2c72c96_c121_4518_b627_e5a93d010ead);
+pub const IID_IVssComponentEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
+pub const IID_IVssComponentEx2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
+pub const IID_IVssCreateExpressWriterMetadata: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
+pub const IID_IVssCreateWriterMetadataEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f21981d_d469_4349_b807_39e64e4674e1);
+pub const IID_IVssExpressWriter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe33affdc_59c7_47b1_97d5_4266598f6235);
 pub type VSS_ALTERNATE_WRITER_STATE = i32;
 pub const VSS_AWS_ALTERNATE_WRITER_EXISTS: VSS_ALTERNATE_WRITER_STATE = 2;
 pub const VSS_AWS_NO_ALTERNATE_WRITER: VSS_ALTERNATE_WRITER_STATE = 1;

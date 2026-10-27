@@ -1,9 +1,13 @@
-windows_link::link!("dxgi.dll" "system" fn CreateDXGIFactory(riid : *const windows_sys::core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dxgi.dll" "system" fn CreateDXGIFactory1(riid : *const windows_sys::core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : u32, riid : *const windows_sys::core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dxgi.dll" "system" fn CreateDXGIFactory(riid : *const super::IID, ppfactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dxgi.dll" "system" fn CreateDXGIFactory1(riid : *const super::IID, ppfactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : super::UINT, riid : *const super::IID, ppfactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dxgi.dll" "system" fn DXGIDeclareAdapterRemovalSupport() -> windows_sys::core::HRESULT);
 windows_link::link!("dxgi.dll" "system" fn DXGIDisableVBlankVirtualization() -> windows_sys::core::HRESULT);
-windows_link::link!("dxgi.dll" "system" fn DXGIGetDebugInterface1(flags : u32, riid : *const windows_sys::core::GUID, pdebug : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("dxgi.dll" "system" fn DXGIGetDebugInterface1(flags : super::UINT, riid : *const super::IID, pdebug : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DCOLORVALUE {
@@ -13,96 +17,96 @@ pub struct D3DCOLORVALUE {
     pub a: f32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC1 {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC2 {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::UINT,
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_ADAPTER_DESC3 {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
     pub Flags: DXGI_ADAPTER_FLAG3,
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DXGI_ADAPTER_FLAG = i32;
-pub type DXGI_ADAPTER_FLAG3 = u32;
+pub type DXGI_ADAPTER_FLAG3 = i32;
 pub const DXGI_ADAPTER_FLAG3_ACG_COMPATIBLE: DXGI_ADAPTER_FLAG3 = 4;
-pub const DXGI_ADAPTER_FLAG3_FORCE_DWORD: DXGI_ADAPTER_FLAG3 = 4294967295;
+pub const DXGI_ADAPTER_FLAG3_FORCE_DWORD: DXGI_ADAPTER_FLAG3 = -1;
 pub const DXGI_ADAPTER_FLAG3_KEYED_MUTEX_CONFORMANCE: DXGI_ADAPTER_FLAG3 = 32;
 pub const DXGI_ADAPTER_FLAG3_NONE: DXGI_ADAPTER_FLAG3 = 0;
 pub const DXGI_ADAPTER_FLAG3_REMOTE: DXGI_ADAPTER_FLAG3 = 1;
@@ -172,16 +176,19 @@ pub type DXGI_DEBUG_RLO_FLAGS = i32;
 pub const DXGI_DEBUG_RLO_IGNORE_INTERNAL: DXGI_DEBUG_RLO_FLAGS = 4;
 pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DXGI_DISPLAY_COLOR_SPACE {
-    pub PrimaryCoordinates: [[f32; 2]; 8],
-    pub WhitePoints: [[f32; 2]; 16],
+    pub PrimaryCoordinates: [[super::FLOAT; 2]; 8],
+    pub WhitePoints: [[super::FLOAT; 2]; 16],
 }
+#[cfg(feature = "minwindef")]
 impl Default for DXGI_DISPLAY_COLOR_SPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -324,34 +331,34 @@ pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE: DXGI_FRAME_PRESENTAT
 pub const DXGI_FRAME_PRESENTATION_MODE_NONE: DXGI_FRAME_PRESENTATION_MODE = 2;
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS {
-    pub PresentCount: u32,
-    pub PresentRefreshCount: u32,
-    pub SyncRefreshCount: u32,
+    pub PresentCount: super::UINT,
+    pub PresentRefreshCount: super::UINT,
+    pub SyncRefreshCount: super::UINT,
     pub SyncQPCTime: super::LARGE_INTEGER,
     pub SyncGPUTime: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
-    pub PresentCount: u32,
-    pub PresentRefreshCount: u32,
-    pub SyncRefreshCount: u32,
+    pub PresentCount: super::UINT,
+    pub PresentRefreshCount: super::UINT,
+    pub SyncRefreshCount: super::UINT,
     pub SyncQPCTime: super::LARGE_INTEGER,
     pub SyncGPUTime: super::LARGE_INTEGER,
     pub CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
-    pub ApprovedPresentDuration: u32,
+    pub ApprovedPresentDuration: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_FRAME_STATISTICS_MEDIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -370,14 +377,16 @@ impl Default for DXGI_GAMMA_CONTROL {
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGI_GAMMA_CONTROL_CAPABILITIES {
     pub ScaleAndOffsetSupported: windows_sys::core::BOOL,
     pub MaxConvertedValue: f32,
     pub MinConvertedValue: f32,
-    pub NumGammaControlPoints: u32,
+    pub NumGammaControlPoints: super::UINT,
     pub ControlPointPositions: [f32; 1025],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_GAMMA_CONTROL_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -393,32 +402,36 @@ pub const DXGI_GRAPHICS_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_GRAPHICS_PREEMPTIO
 pub const DXGI_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = 3;
 pub const DXGI_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = 1;
 pub const DXGI_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = 2;
-pub type DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = u32;
+pub type DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = i32;
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_CURSOR_STRETCHED: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 4;
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_FULLSCREEN: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 1;
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_WINDOWED: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGI_HDR_METADATA_HDR10 {
-    pub RedPrimary: [u16; 2],
-    pub GreenPrimary: [u16; 2],
-    pub BluePrimary: [u16; 2],
-    pub WhitePoint: [u16; 2],
-    pub MaxMasteringLuminance: u32,
-    pub MinMasteringLuminance: u32,
-    pub MaxContentLightLevel: u16,
-    pub MaxFrameAverageLightLevel: u16,
+    pub RedPrimary: [super::UINT16; 2],
+    pub GreenPrimary: [super::UINT16; 2],
+    pub BluePrimary: [super::UINT16; 2],
+    pub WhitePoint: [super::UINT16; 2],
+    pub MaxMasteringLuminance: super::UINT,
+    pub MinMasteringLuminance: super::UINT,
+    pub MaxContentLightLevel: super::UINT16,
+    pub MaxFrameAverageLightLevel: super::UINT16,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_HDR_METADATA_HDR10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGI_HDR_METADATA_HDR10PLUS {
-    pub Data: [u8; 72],
+    pub Data: [super::BYTE; 72],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_HDR_METADATA_HDR10PLUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -430,22 +443,25 @@ pub const DXGI_HDR_METADATA_TYPE_HDR10PLUS: DXGI_HDR_METADATA_TYPE = 2;
 pub const DXGI_HDR_METADATA_TYPE_NONE: DXGI_HDR_METADATA_TYPE = 0;
 pub const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_INFO_QUEUE_FILTER {
     pub AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
     pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
-    pub NumCategories: u32,
+    pub NumCategories: super::UINT,
     pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
-    pub NumSeverities: u32,
+    pub NumSeverities: super::UINT,
     pub pSeverityList: *mut DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
-    pub NumIDs: u32,
+    pub NumIDs: super::UINT,
     pub pIDList: *mut DXGI_INFO_QUEUE_MESSAGE_ID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Producer: DXGI_DEBUG_ID,
@@ -453,7 +469,7 @@ pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
     pub ID: DXGI_INFO_QUEUE_MESSAGE_ID,
     pub pDescription: *const i8,
-    pub DescriptionByteLength: usize,
+    pub DescriptionByteLength: super::SIZE_T,
 }
 pub type DXGI_INFO_QUEUE_MESSAGE_CATEGORY = i32;
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_CLEANUP: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = 3;
@@ -476,75 +492,85 @@ pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_INFO: DXGI_INFO_QUEUE_MESSAGE_SEVERIT
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_MESSAGE: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = 4;
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_WARNING: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGI_JPEG_AC_HUFFMAN_TABLE {
-    pub CodeCounts: [u8; 16],
-    pub CodeValues: [u8; 162],
+    pub CodeCounts: [super::BYTE; 16],
+    pub CodeValues: [super::BYTE; 162],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_JPEG_AC_HUFFMAN_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGI_JPEG_DC_HUFFMAN_TABLE {
-    pub CodeCounts: [u8; 12],
-    pub CodeValues: [u8; 12],
+    pub CodeCounts: [super::BYTE; 12],
+    pub CodeValues: [super::BYTE; 12],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_JPEG_DC_HUFFMAN_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGI_JPEG_QUANTIZATION_TABLE {
-    pub Elements: [u8; 64],
+    pub Elements: [super::BYTE; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_JPEG_QUANTIZATION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_MAPPED_RECT {
-    pub Pitch: i32,
-    pub pBits: *mut u8,
+    pub Pitch: super::INT,
+    pub pBits: *mut super::BYTE,
 }
 pub const DXGI_MAP_DISCARD: u32 = 4;
 pub const DXGI_MAP_READ: u32 = 1;
 pub const DXGI_MAP_WRITE: u32 = 2;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_MATRIX_3X2_F {
-    pub _11: f32,
-    pub _12: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _31: f32,
-    pub _32: f32,
+    pub _11: super::FLOAT,
+    pub _12: super::FLOAT,
+    pub _21: super::FLOAT,
+    pub _22: super::FLOAT,
+    pub _31: super::FLOAT,
+    pub _32: super::FLOAT,
 }
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: i32 = 16;
 pub type DXGI_MEMORY_SEGMENT_GROUP = i32;
 pub const DXGI_MEMORY_SEGMENT_GROUP_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = 0;
 pub const DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_MODE_DESC {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub RefreshRate: DXGI_RATIONAL,
     pub Format: DXGI_FORMAT,
     pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
     pub Scaling: DXGI_MODE_SCALING,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_MODE_DESC1 {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub RefreshRate: DXGI_RATIONAL,
     pub Format: DXGI_FORMAT,
     pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
@@ -582,6 +608,7 @@ pub const DXGI_OFFER_RESOURCE_PRIORITY_LOW: DXGI_OFFER_RESOURCE_PRIORITY = 1;
 pub const DXGI_OFFER_RESOURCE_PRIORITY_NORMAL: DXGI_OFFER_RESOURCE_PRIORITY = 2;
 pub const DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY: DXGI_OUTDUPL_FLAG = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_DESC {
     pub ModeDesc: DXGI_MODE_DESC,
@@ -590,46 +617,46 @@ pub struct DXGI_OUTDUPL_DESC {
 }
 pub type DXGI_OUTDUPL_FLAG = i32;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: super::LARGE_INTEGER,
     pub LastMouseUpdateTime: super::LARGE_INTEGER,
-    pub AccumulatedFrames: u32,
+    pub AccumulatedFrames: super::UINT,
     pub RectsCoalesced: windows_sys::core::BOOL,
     pub ProtectedContentMaskedOut: windows_sys::core::BOOL,
     pub PointerPosition: DXGI_OUTDUPL_POINTER_POSITION,
-    pub TotalMetadataBufferSize: u32,
-    pub PointerShapeBufferSize: u32,
+    pub TotalMetadataBufferSize: super::UINT,
+    pub PointerShapeBufferSize: super::UINT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DXGI_OUTDUPL_FRAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
     pub SourcePoint: super::POINT,
     pub DestinationRect: super::RECT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::POINT,
     pub Visible: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-    pub Type: u32,
-    pub Width: u32,
-    pub Height: u32,
-    pub Pitch: u32,
+    pub Type: super::UINT,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Pitch: super::UINT,
     pub HotSpot: super::POINT,
 }
 pub type DXGI_OUTDUPL_POINTER_SHAPE_TYPE = i32;
@@ -637,41 +664,41 @@ pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = 4;
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_OUTPUT_DESC {
-    pub DeviceName: [u16; 32],
+    pub DeviceName: [super::WCHAR; 32],
     pub DesktopCoordinates: super::RECT,
     pub AttachedToDesktop: windows_sys::core::BOOL,
     pub Rotation: DXGI_MODE_ROTATION,
     pub Monitor: super::HMONITOR,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DXGI_OUTPUT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_OUTPUT_DESC1 {
-    pub DeviceName: [u16; 32],
+    pub DeviceName: [super::WCHAR; 32],
     pub DesktopCoordinates: super::RECT,
     pub AttachedToDesktop: windows_sys::core::BOOL,
     pub Rotation: DXGI_MODE_ROTATION,
     pub Monitor: super::HMONITOR,
-    pub BitsPerColor: u32,
+    pub BitsPerColor: super::UINT,
     pub ColorSpace: DXGI_COLOR_SPACE_TYPE,
-    pub RedPrimary: [f32; 2],
-    pub GreenPrimary: [f32; 2],
-    pub BluePrimary: [f32; 2],
-    pub WhitePoint: [f32; 2],
-    pub MinLuminance: f32,
-    pub MaxLuminance: f32,
-    pub MaxFullFrameLuminance: f32,
+    pub RedPrimary: [super::FLOAT; 2],
+    pub GreenPrimary: [super::FLOAT; 2],
+    pub BluePrimary: [super::FLOAT; 2],
+    pub WhitePoint: [super::FLOAT; 2],
+    pub MinLuminance: super::FLOAT,
+    pub MaxLuminance: super::FLOAT,
+    pub MaxFullFrameLuminance: super::FLOAT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DXGI_OUTPUT_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -686,10 +713,10 @@ pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512;
 pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2;
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_PRESENT_PARAMETERS {
-    pub DirtyRectsCount: u32,
+    pub DirtyRectsCount: super::UINT,
     pub pDirtyRects: *mut super::RECT,
     pub pScrollRect: *mut super::RECT,
     pub pScrollOffset: *mut super::POINT,
@@ -701,18 +728,20 @@ pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: u32 = 32;
 pub const DXGI_PRESENT_TEST: u32 = 1;
 pub const DXGI_PRESENT_USE_DURATION: u32 = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
-    pub Budget: u64,
-    pub CurrentUsage: u64,
-    pub AvailableForReservation: u64,
-    pub CurrentReservation: u64,
+    pub Budget: super::UINT64,
+    pub CurrentUsage: super::UINT64,
+    pub AvailableForReservation: super::UINT64,
+    pub CurrentReservation: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_RATIONAL {
-    pub Numerator: u32,
-    pub Denominator: u32,
+    pub Numerator: super::UINT,
+    pub Denominator: super::UINT,
 }
 pub type DXGI_RECLAIM_RESOURCE_RESULTS = i32;
 pub const DXGI_RECLAIM_RESOURCE_RESULT_DISCARDED: DXGI_RECLAIM_RESOURCE_RESULTS = 1;
@@ -736,10 +765,11 @@ pub struct DXGI_RGB {
 }
 pub type DXGI_RGBA = D3DCOLORVALUE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_SAMPLE_DESC {
-    pub Count: u32,
-    pub Quality: u32,
+    pub Count: super::UINT,
+    pub Quality: super::UINT,
 }
 pub type DXGI_SCALING = i32;
 pub const DXGI_SCALING_ASPECT_RATIO_STRETCH: DXGI_SCALING = 2;
@@ -755,10 +785,11 @@ pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648;
 pub const DXGI_SHARED_RESOURCE_WRITE: i32 = 1;
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_SURFACE_DESC {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: DXGI_FORMAT,
     pub SampleDesc: DXGI_SAMPLE_DESC,
 }
@@ -766,32 +797,33 @@ pub type DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = i32;
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 2;
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: DXGI_MODE_DESC,
     pub SampleDesc: DXGI_SAMPLE_DESC,
     pub BufferUsage: DXGI_USAGE,
-    pub BufferCount: u32,
+    pub BufferCount: super::UINT,
     pub OutputWindow: super::HWND,
     pub Windowed: windows_sys::core::BOOL,
     pub SwapEffect: DXGI_SWAP_EFFECT,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: DXGI_FORMAT,
     pub Stereo: windows_sys::core::BOOL,
     pub SampleDesc: DXGI_SAMPLE_DESC,
     pub BufferUsage: DXGI_USAGE,
-    pub BufferCount: u32,
+    pub BufferCount: super::UINT,
     pub Scaling: DXGI_SCALING,
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub AlphaMode: DXGI_ALPHA_MODE,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 pub type DXGI_SWAP_CHAIN_FLAG = i32;
 pub const DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH: DXGI_SWAP_CHAIN_FLAG = 2;
@@ -809,6 +841,7 @@ pub const DXGI_SWAP_CHAIN_FLAG_RESTRICT_SHARED_RESOURCE_DRIVER: DXGI_SWAP_CHAIN_
 pub const DXGI_SWAP_CHAIN_FLAG_USE_DEFAULT_COLOR_SPACE: DXGI_SWAP_CHAIN_FLAG = 32768;
 pub const DXGI_SWAP_CHAIN_FLAG_YUV_VIDEO: DXGI_SWAP_CHAIN_FLAG = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: DXGI_RATIONAL,
@@ -829,4 +862,50 @@ pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32;
 pub const DXGI_USAGE_SHADER_INPUT: u32 = 16;
 pub const DXGI_USAGE_SHARED: u32 = 128;
 pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024;
+pub const IID_IDXGIAdapter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
+pub const IID_IDXGIAdapter1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29038f61_3839_4626_91fd_086879011a05);
+pub const IID_IDXGIAdapter2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
+pub const IID_IDXGIAdapter3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x645967a4_1392_4310_a798_8053ce3e93fd);
+pub const IID_IDXGIAdapter4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
+pub const IID_IDXGIDebug: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x119e7452_de9e_40fe_8806_88f90c12b441);
+pub const IID_IDXGIDebug1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
+pub const IID_IDXGIDecodeSwapChain: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2633066b_4514_4c7a_8fd8_12ea98059d18);
+pub const IID_IDXGIDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
+pub const IID_IDXGIDevice1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77db970f_6276_48ba_ba28_070143b4392c);
+pub const IID_IDXGIDevice2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05008617_fbfd_4051_a790_144884b4f6a9);
+pub const IID_IDXGIDevice3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6007896c_3244_4afd_bf18_a6d3beda5023);
+pub const IID_IDXGIDevice4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
+pub const IID_IDXGIDeviceSubObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
+pub const IID_IDXGIDisplayControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
+pub const IID_IDXGIFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
+pub const IID_IDXGIFactory1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x770aae78_f26f_4dba_a829_253c83d1b387);
+pub const IID_IDXGIFactory2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
+pub const IID_IDXGIFactory3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25483823_cd46_4c7d_86ca_47aa95b837bd);
+pub const IID_IDXGIFactory4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
+pub const IID_IDXGIFactory5: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
+pub const IID_IDXGIFactory6: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
+pub const IID_IDXGIFactory7: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
+pub const IID_IDXGIFactoryMedia: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
+pub const IID_IDXGIInfoQueue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd67441c7_672a_476f_9e82_cd55b44949ce);
+pub const IID_IDXGIKeyedMutex: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d8e1289_d7b3_465f_8126_250e349af85d);
+pub const IID_IDXGIObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
+pub const IID_IDXGIOutput: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae02eedb_c735_4690_8d52_5a8dc20213aa);
+pub const IID_IDXGIOutput1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00cddea8_939b_4b83_a340_a685226666cc);
+pub const IID_IDXGIOutput2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x595e39d1_2724_4663_99b1_da969de28364);
+pub const IID_IDXGIOutput3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
+pub const IID_IDXGIOutput4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc7dca35_2196_414d_9f53_617884032a60);
+pub const IID_IDXGIOutput5: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80a07424_ab52_42eb_833c_0c42fd282d98);
+pub const IID_IDXGIOutput6: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x068346e8_aaec_4b84_add7_137f513f77a1);
+pub const IID_IDXGIOutputDuplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x191cfac3_a341_470d_b26e_a864f428319c);
+pub const IID_IDXGIResource: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
+pub const IID_IDXGIResource1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x30961379_4609_4a41_998e_54fe567ee0c1);
+pub const IID_IDXGISurface: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
+pub const IID_IDXGISurface1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
+pub const IID_IDXGISurface2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
+pub const IID_IDXGISwapChain: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
+pub const IID_IDXGISwapChain1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
+pub const IID_IDXGISwapChain2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa8be2ac4_199f_4946_b331_79599fb98de7);
+pub const IID_IDXGISwapChain3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
+pub const IID_IDXGISwapChain4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
+pub const IID_IDXGISwapChainMedia: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
 pub const _FACDXGI: i32 = 2170;

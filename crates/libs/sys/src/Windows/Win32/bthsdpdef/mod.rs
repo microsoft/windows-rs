@@ -1,17 +1,22 @@
+#[cfg(feature = "shared")]
 pub type LPSDP_LARGE_INTEGER_16 = *mut SDP_LARGE_INTEGER_16;
+#[cfg(feature = "shared")]
 pub type LPSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
 pub type NodeContainerType = i32;
 pub const NodeContainerTypeAlternative: NodeContainerType = 1;
 pub const NodeContainerTypeSequence: NodeContainerType = 0;
 pub type PSDP_ERROR = *mut u16;
+#[cfg(feature = "shared")]
 pub type PSDP_LARGE_INTEGER_16 = *mut SDP_LARGE_INTEGER_16;
+#[cfg(feature = "shared")]
 pub type PSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
 pub type SDP_ERROR = u16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SDP_LARGE_INTEGER_16 {
-    pub LowPart: u64,
-    pub HighPart: i64,
+    pub LowPart: super::ULONGLONG,
+    pub HighPart: super::LONGLONG,
 }
 pub type SDP_SPECIFICTYPE = i32;
 pub const SDP_ST_INT128: SDP_SPECIFICTYPE = 1056;
@@ -40,35 +45,41 @@ pub const SDP_TYPE_UINT: SDP_TYPE = 1;
 pub const SDP_TYPE_URL: SDP_TYPE = 8;
 pub const SDP_TYPE_UUID: SDP_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SDP_ULARGE_INTEGER_16 {
-    pub LowPart: u64,
-    pub HighPart: u64,
+    pub LowPart: super::ULONGLONG,
+    pub HighPart: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SdpAttributeRange {
-    pub minAttribute: u16,
-    pub maxAttribute: u16,
+    pub minAttribute: super::USHORT,
+    pub maxAttribute: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SdpQueryUuid {
     pub u: SdpQueryUuidUnion,
-    pub uuidType: u16,
+    pub uuidType: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for SdpQueryUuid {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SdpQueryUuidUnion {
     pub uuid128: windows_sys::core::GUID,
-    pub uuid32: u32,
-    pub uuid16: u16,
+    pub uuid32: super::ULONG,
+    pub uuid16: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for SdpQueryUuidUnion {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

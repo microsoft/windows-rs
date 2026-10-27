@@ -1,4 +1,5 @@
-windows_link::link!("windows.ui.xaml.dll" "C" fn InitializeXamlDiagnosticsEx(endpointname : windows_sys::core::PCWSTR, pid : u32, wszdllxamldiagnostics : windows_sys::core::PCWSTR, wsztapdllname : windows_sys::core::PCWSTR, tapclsid : windows_sys::core::GUID, wszinitializationdata : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("windows.ui.xaml.dll" "C" fn InitializeXamlDiagnosticsEx(endpointname : windows_sys::core::PCWSTR, pid : super::DWORD, wszdllxamldiagnostics : windows_sys::core::PCWSTR, wsztapdllname : windows_sys::core::PCWSTR, tapclsid : super::CLSID, wszinitializationdata : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 pub const Add: VisualMutationType = 0;
 pub const Animation: BaseValueSource = 12;
 pub type BaseValueSource = i32;
@@ -29,7 +30,7 @@ pub struct CollectionElementValue {
 pub const DefaultStyleTrigger: BaseValueSource = 6;
 pub const E_UNKNOWNTYPE: windows_sys::core::HRESULT = 0x802B0028_u32 as _;
 #[repr(C)]
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct EnumType {
     pub Name: windows_sys::core::BSTR,

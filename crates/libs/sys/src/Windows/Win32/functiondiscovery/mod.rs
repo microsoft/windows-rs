@@ -37,8 +37,7 @@ pub const FCTN_SUBCAT_NETWORKDEVICES_SSDP: windows_sys::core::PCWSTR = windows_s
 pub const FCTN_SUBCAT_NETWORKDEVICES_WSD: windows_sys::core::PCWSTR = windows_sys::core::w!("WSD");
 pub const FCTN_SUBCAT_REG_DIRECTED: windows_sys::core::PCWSTR = windows_sys::core::w!("Directed");
 pub const FCTN_SUBCAT_REG_PUBLICATION: windows_sys::core::PCWSTR = windows_sys::core::w!("Publication");
-#[cfg(feature = "winnt")]
-pub type FDQUERYCONTEXT = super::DWORDLONG;
+pub type FDQUERYCONTEXT = u64;
 pub const FD_CONSTRAINTVALUE_ALL: windows_sys::core::PCWSTR = windows_sys::core::w!("All");
 pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_INPROC_SERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("1");
 pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_LOCAL_SERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("4");
@@ -68,6 +67,7 @@ pub const FD_QUERYCONSTRAINT_ROUTINGSCOPE: windows_sys::core::PCWSTR = windows_s
 pub const FD_QUERYCONSTRAINT_SUBCATEGORY: windows_sys::core::PCWSTR = windows_sys::core::w!("Subcategory");
 pub const FD_QUERYCONSTRAINT_VISIBILITY: windows_sys::core::PCWSTR = windows_sys::core::w!("Visibility");
 pub const FD_SUBKEY: windows_sys::core::PCWSTR = windows_sys::core::w!("SOFTWARE\\Microsoft\\Function Discovery\\");
+pub const FD_SUBKEY_CATEGORIES: windows_sys::core::PCWSTR = windows_sys::core::w!("SOFTWARE\\Microsoft\\Function Discovery\\Categories\\");
 pub const FD_Visibility_Default: i32 = 0;
 pub const FD_Visibility_Hidden: i32 = 1;
 pub const FMTID_Device: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57);
@@ -92,482 +92,550 @@ pub struct IFunctionInstanceQuery2(pub u8);
 pub const MAX_FDCONSTRAINTNAME_LENGTH: i32 = 100;
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: i32 = 1000;
 pub const ONLINE_PROVIDER_DEVICES_QUERYCONSTRAINT_OWNERNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("OwnerName");
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Create_Time: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf53b7e1c_77e0_4450_8c5f_a76cc7fde058), pid: 257 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_Characteristics: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 29 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_ClassCoInstallers: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x713d1703_a2e2_49f5_9214_56472ef3da5c), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_ClassInstaller: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_ClassName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_DefaultService: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 11 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_DevType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 27 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_Exclusive: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 28 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_Icon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_IconPath: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 12 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_LowerFilters: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 20 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_Name: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_NoDisplayClass: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 8 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_NoInstallClass: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_NoUseClass: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_PropPageProvider: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_Security: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 25 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_SecuritySDS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 26 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_SilentInstall: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x259abffc_50a7_47ce_af08_68c9a7d73366), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceClass_UpperFilters: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 19 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Address: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 51 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_AlwaysShowDeviceAsConnected: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 101 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_AssociationArray: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 80 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_BaselineExperienceId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 78 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Category: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 90 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_CategoryGroup_Desc: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 94 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_CategoryGroup_Icon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 95 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Category_Desc_Plural: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 92 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Category_Desc_Singular: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 91 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Category_Icon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 93 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_DeviceDescription1: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 81 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_DeviceDescription2: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 82 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_DeviceFunctionSubRank: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 100 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_DiscoveryMethod: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 52 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_ExperienceId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 89 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_FriendlyName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12288 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Icon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 57 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_InstallInProgress: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x83da6326_97a6_4088_9453_a1923f573b29), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsAuthenticated: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 54 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsConnected: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 55 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsDefaultDevice: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 86 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsDeviceUniquelyIdentifiable: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 79 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsEncrypted: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 53 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsLocalMachine: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 70 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsMetadataSearchInProgress: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 72 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsNetworkDevice: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 85 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsNotInterestingForDisplay: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 74 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsNotWorkingProperly: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 83 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsPaired: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 56 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsSharedDevice: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 84 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_IsShowInDisconnectedState: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 68 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Last_Connected: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 67 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Last_Seen: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 66 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_LaunchDeviceStageFromExplorer: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 77 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_LaunchDeviceStageOnDeviceConnect: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 76 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Manufacturer: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 8192 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_MetadataCabinet: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 87 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_MetadataChecksum: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 73 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_MetadataPath: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 71 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_ModelName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 8194 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_ModelNumber: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 8195 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_PrimaryCategory: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 97 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_RequiresPairingElevation: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 88 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_RequiresUninstallElevation: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 99 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_UnpairUninstall: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 98 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceDisplay_Version: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 65 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceInterfaceClass_DefaultInterface: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14c83a99_0b3f_44b7_be4c_a178d3990564), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceInterface_ClassGuid: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x026e516e_b814_414b_83cd_856d6fef4822), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_DeviceInterface_DevicePath: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x53808008_07bb_4661_bc3c_b5953e708560), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceInterface_Enabled: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x026e516e_b814_414b_83cd_856d6fef4822), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DeviceInterface_FriendlyName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x026e516e_b814_414b_83cd_856d6fef4822), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_AdditionalSoftwareRequested: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 19 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Address: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 30 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_BIOSVersion: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xeaee7f1d_6a33_44d1_9441_5f46def23198), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_BaseContainerId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 38 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_BusNumber: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 23 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_BusRelations: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_BusReportedDeviceDesc: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_BusTypeGuid: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 21 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Capabilities: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 17 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Characteristics: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 29 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Children: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Class: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ClassGuid: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Device_Comment: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 38 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_CompatibleIds: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ConfigFlags: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 12 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ContainerId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8c7ed206_3f8a_4827_b3ab_ae9e1faefc6c), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DHP_Rebalance_Policy: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DevNodeStatus: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DevType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 27 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DeviceDesc: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Driver: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 11 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverCoInstallers: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 11 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverDate: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverDesc: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverInfPath: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverInfSection: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverInfSectionExt: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverLogoLevel: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 15 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverPropPageProvider: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverProvider: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverRank: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 14 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_DriverVersion: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_EjectionRelations: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_EnumeratorName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 24 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Exclusive: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 28 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_FriendlyName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 14 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_FriendlyNameAttributes: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_GenericDriverInstalled: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 18 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_HardwareIds: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_InstallInProgress: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x83da6326_97a6_4088_9453_a1923f573b29), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_InstallState: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 36 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_InstanceId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 256 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Device_Interface: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 257 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_IsAssociateableByUserAction: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Legacy: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80497100_8c73_48b9_aad9_ce387e19c56e), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_LegacyBusType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 22 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_LocationInfo: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 15 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_LocationPaths: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 37 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_LowerFilters: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 20 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Manufacturer: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 13 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ManufacturerAttributes: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_MatchingDeviceId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 8 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Device_Model: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 39 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ModelId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_NoConnectSound: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 17 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Device_NotPresent: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x904b03a2_471d_423c_a584_f3483238a146), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Numa_Node: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_PDOName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 16 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Parent: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 8 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_PowerData: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 32 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_PowerRelations: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_PresenceNotForDevice: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ProblemCode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Device_QueueSize: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 36 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_RemovalPolicy: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 33 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_RemovalPolicyDefault: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 34 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_RemovalPolicyOverride: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 35 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_RemovalRelations: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Reported: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80497100_8c73_48b9_aad9_ce387e19c56e), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ResourcePickerExceptions: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 13 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_ResourcePickerTags: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6), pid: 12 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_SafeRemovalRequired: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xafd97640_86a3_4210_b67c_289c41aabe55), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_SafeRemovalRequiredOverride: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xafd97640_86a3_4210_b67c_289c41aabe55), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Security: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 25 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_SecuritySDS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 26 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Service: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_Siblings: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_SignalStrength: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Device_Status: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 37 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_TransportRelations: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4340a6c5_93fa_4706_972c_7b648008a5a7), pid: 11 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_UINumber: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 18 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_UINumberDescFormat: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 31 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Device_UpperFilters: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa45c254e_df1c_4efd_8020_67d146a850e0), pid: 19 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DrvPkg_BrandingIcon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DrvPkg_DetailedDescription: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DrvPkg_DocumentationLink: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DrvPkg_Icon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DrvPkg_Model: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_DrvPkg_VendorWebSite: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_ExposedCLSIDs: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 12291 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_ExposedIIDs: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 12290 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_FD_Visibility: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x904b03a2_471d_423c_a584_f3483238a146), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_FunctionInstance: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x08c0c253_a154_4746_9005_82de5317148b), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Devinst: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 4097 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_DisplayAttribute: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_DriverDate: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 11 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_DriverProvider: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_DriverVersion: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Function: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 4099 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Icon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Image: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 4098 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Manufacturer: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Model: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Name: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_SerialNumber: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 8 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_ShellAttributes: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 4100 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Hardware_Status: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953), pid: 4096 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_InstanceValidatorClsid: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57), pid: 12292 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_NAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Numa_Proximity_Domain: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_Associated: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4fc5077e_b686_44be_93e3_86cafe368ccd), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PNPX_AssociatedInstanceId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PNPX_AssociationState: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_Category_Desc_NonPlural: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12304 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_CompactSignature: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 28674 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_CompatibleTypes: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4fc5077e_b686_44be_93e3_86cafe368ccd), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_DeviceCategory: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12292 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_DeviceCategory_Desc: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12293 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_DeviceCertHash: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 28675 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PNPX_Devnode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_DomainName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 20480 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_FirmwareVersion: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12289 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_GlobalIdentity: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4096 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ID: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4101 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_IPBusEnumerated: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 28688 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_InstallState: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4fc5077e_b686_44be_93e3_86cafe368ccd), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_Installable: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4fc5077e_b686_44be_93e3_86cafe368ccd), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_IpAddress: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12297 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PNPX_LastNotificationTime: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ManufacturerUrl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 8193 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_MetadataVersion: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4100 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ModelUrl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 8196 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_NetworkInterfaceGuid: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12296 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_NetworkInterfaceLuid: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12295 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_PhysicalAddress: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12294 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_PresentationUrl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 8198 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_RemoteAddress: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4102 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_Removable: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 28672 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_RootProxy: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4103 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_Scopes: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4098 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_SecureChannel: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 28673 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_SerialNumber: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 12290 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ServiceAddress: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 16384 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ServiceControlUrl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 16388 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ServiceDescUrl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 16389 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ServiceEventSubUrl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 16390 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ServiceId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 16385 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ServiceTypes: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 16386 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_ShareName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 20482 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_Types: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4097 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_Upc: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 8197 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_PNPX_XAddrs: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 4099 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PUBSVCS_METADATA: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x63c6d5b8_f73a_4aca_967e_0cc787e0b559), pid: 20483 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PUBSVCS_METADATA_VERSION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xc0c96c15_1823_4e5b_9348_e82519923f04), pid: 20484 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PUBSVCS_NETWORK_PROFILES_ALLOWED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x63c6d5b8_f73a_4aca_967e_0cc787e0b559), pid: 20485 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PUBSVCS_NETWORK_PROFILES_DEFAULT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x63c6d5b8_f73a_4aca_967e_0cc787e0b559), pid: 20487 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PUBSVCS_NETWORK_PROFILES_DENIED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x63c6d5b8_f73a_4aca_967e_0cc787e0b559), pid: 20486 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PUBSVCS_SCOPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x2ae2b567_eecb_4a3e_b753_54c725494366), pid: 20482 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_PUBSVCS_TYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf1b88ad3_109c_4fd2_ba3f_535a765f82f4), pid: 20481 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Pairing_IsWifiOnlyDevice: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc), pid: 16 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Pairing_ListItemDefault: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Pairing_ListItemDescription: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Pairing_ListItemIcon: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_Pairing_ListItemText: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_SSDP_AltLocationInfo: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 24576 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_SSDP_DevLifeTime: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 24577 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_SSDP_NetworkInterface: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd), pid: 24578 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_AssocState: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b88_4684_11da_a26a_0002b3988e81), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_AuthType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b82_4684_11da_a26a_0002b3988e81), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_ConfigError: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b89_4684_11da_a26a_0002b3988e81), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_ConfigMethods: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b85_4684_11da_a26a_0002b3988e81), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_ConfigState: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b89_4684_11da_a26a_0002b3988e81), pid: 11 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_ConnType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b84_4684_11da_a26a_0002b3988e81), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_DevicePasswordId: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b89_4684_11da_a26a_0002b3988e81), pid: 12 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_EncryptType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b83_4684_11da_a26a_0002b3988e81), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_OSVersion: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b89_4684_11da_a26a_0002b3988e81), pid: 13 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_RegistrarType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 15 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_RequestType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b81_4684_11da_a26a_0002b3988e81), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_RfBand: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b87_4684_11da_a26a_0002b3988e81), pid: 8 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_VendorExtension: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b8a_4684_11da_a26a_0002b3988e81), pid: 14 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WCN_Version: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x88190b80_4684_11da_a26a_0002b3988e81), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_Comment: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_DisplayType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_LocalName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_Provider: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 8 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_RemoteName: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_Scope: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_Type: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_WNET_Usage: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_AddressURI: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 4096 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_AppSeqInstanceID: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 4100 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_AppSeqMessageNumber: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 4102 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_AppSeqSessionID: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 4101 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_MetadataClean: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_MetadataVersion: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 4099 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_Scopes: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 4098 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_ServiceInfo: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_Types: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 4097 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_WSD_XAddrs: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92), pid: 8192 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_Write_Time: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf53b7e1c_77e0_4450_8c5f_a76cc7fde058), pid: 256 };
 pub const PNPX_DEVICECATEGORY_CAMERA: windows_sys::core::PCWSTR = windows_sys::core::w!("Cameras");
 pub const PNPX_DEVICECATEGORY_COMPUTER: windows_sys::core::PCWSTR = windows_sys::core::w!("Computers");
 pub const PNPX_DEVICECATEGORY_DISPLAYS: windows_sys::core::PCWSTR = windows_sys::core::w!("Displays");
@@ -639,8 +707,20 @@ pub const SID_UninstallDeviceFunction: windows_sys::core::GUID = windows_sys::co
 pub const SID_UnpairProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x89a502fc_857b_4698_a0b7_027192002f9e);
 pub const SSDP_CONSTRAINTVALUE_TYPE_ALL: windows_sys::core::PCWSTR = windows_sys::core::w!("ssdp:all");
 pub const SSDP_CONSTRAINTVALUE_TYPE_DEVICE_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_IGD: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:InternetGatewayDevice:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_LANDEVICE: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:LANDevice:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_LIGHTING: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:Lighting:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_LUXMETER: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:Luxmeter:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_MDARNDR: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:MediaRenderer:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_MDASRVR: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:MediaServer:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_POWERDEVICE: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:PowerDevice:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_REMINDER: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:Reminder:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_WANCONNDEVICE: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:WANConnectionDevice:1");
+pub const SSDP_CONSTRAINTVALUE_TYPE_DEV_WANDEVICE: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:device:WANDevice:1");
 pub const SSDP_CONSTRAINTVALUE_TYPE_ROOT: windows_sys::core::PCWSTR = windows_sys::core::w!("upnp:rootdevice");
+pub const SSDP_CONSTRAINTVALUE_TYPE_SVC_DIMMING: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:service:DimmingService:1");
 pub const SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:service:");
+pub const SSDP_CONSTRAINTVALUE_TYPE_SVC_SCANNER: windows_sys::core::PCWSTR = windows_sys::core::w!("urn:schemas-upnp-org:service:Scanner:1");
 pub const SVF_SYSTEM: SystemVisibilityFlags = 0;
 pub const SVF_USER: SystemVisibilityFlags = 1;
 pub type SystemVisibilityFlags = i32;

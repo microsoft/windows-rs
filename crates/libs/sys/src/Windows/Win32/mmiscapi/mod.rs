@@ -1,79 +1,87 @@
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn CloseDriver(hdriver : super::HDRVR, lparam1 : super::LPARAM, lparam2 : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : usize, hdrvr : super::HDRVR, umsg : u32, lparam1 : super::LPARAM, lparam2 : super::LPARAM) -> super::LRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : super::HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : super::DWORD_PTR, hdrvr : super::HDRVR, umsg : super::UINT, lparam1 : super::LPARAM, lparam2 : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn DriverCallback(dwcallback : super::DWORD_PTR, dwflags : super::DWORD, hdevice : super::HDRVR, dwmsg : super::DWORD, dwuser : super::DWORD_PTR, dwparam1 : super::DWORD_PTR, dwparam2 : super::DWORD_PTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn DrvGetModuleHandle(hdriver : super::HDRVR) -> super::HMODULE);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn GetDriverModuleHandle(hdriver : super::HDRVR) -> super::HMODULE);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn OpenDriver(szdrivername : windows_sys::core::PCWSTR, szsectionname : windows_sys::core::PCWSTR, lparam2 : super::LPARAM) -> super::HDRVR);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn SendDriverMessage(hdriver : super::HDRVR, message : u32, lparam1 : super::LPARAM, lparam2 : super::LPARAM) -> super::LRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : super::HDRVR, wszdrventry : windows_sys::core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : LPMMIOINFO, fuadvance : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : LPMMCKINFO, fuascend : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mmioClose(hmmio : HMMIO, fuclose : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : LPMMCKINFO, fucreate : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : LPMMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : u32) -> super::MMRESULT);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : LPMMIOINFO, fuinfo : u32) -> super::MMRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : FOURCC, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : FOURCC, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_sys::core::PSTR, pmmioinfo : LPMMIOINFO, fdwopen : u32) -> HMMIO);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_sys::core::PWSTR, pmmioinfo : LPMMIOINFO, fdwopen : u32) -> HMMIO);
-windows_link::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : HPSTR, cch : i32) -> i32);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_sys::core::PCSTR, psznewfilename : windows_sys::core::PCSTR, pmmioinfo : LPCMMIOINFO, fdwrename : u32) -> super::MMRESULT);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_sys::core::PCWSTR, psznewfilename : windows_sys::core::PCWSTR, pmmioinfo : LPCMMIOINFO, fdwrename : u32) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : i32, iorigin : i32) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winmm.dll" "system" fn mmioSendMessage(hmmio : HMMIO, umsg : u32, lparam1 : super::LPARAM, lparam2 : super::LPARAM) -> super::LRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : windows_sys::core::PSTR, cchbuffer : i32, fubuffer : u32) -> super::MMRESULT);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : LPCMMIOINFO, fuinfo : u32) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn mmioStringToFOURCCA(sz : windows_sys::core::PCSTR, uflags : u32) -> FOURCC);
-windows_link::link!("winmm.dll" "system" fn mmioStringToFOURCCW(sz : windows_sys::core::PCWSTR, uflags : u32) -> FOURCC);
-windows_link::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : *const i8, cch : i32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_sys::core::PCWSTR, appname : windows_sys::core::PCWSTR, flags : i32, filehandle : super::PHANDLE) -> i32);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn SendDriverMessage(hdriver : super::HDRVR, message : super::UINT, lparam1 : super::LPARAM, lparam2 : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : super::HDRVR, wszdrventry : windows_sys::core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : super::UINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : LPMMIOINFO, fuadvance : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : LPMMCKINFO, fuascend : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioClose(hmmio : HMMIO, fuclose : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : LPMMCKINFO, fucreate : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : LPMMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : LPMMIOINFO, fuinfo : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : FOURCC, pioproc : LPMMIOPROC, dwflags : super::DWORD) -> LPMMIOPROC);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : FOURCC, pioproc : LPMMIOPROC, dwflags : super::DWORD) -> LPMMIOPROC);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_sys::core::PSTR, pmmioinfo : LPMMIOINFO, fdwopen : super::DWORD) -> HMMIO);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_sys::core::PWSTR, pmmioinfo : LPMMIOINFO, fdwopen : super::DWORD) -> HMMIO);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : HPSTR, cch : super::LONG) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_sys::core::PCSTR, psznewfilename : windows_sys::core::PCSTR, pmmioinfo : LPCMMIOINFO, fdwrename : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_sys::core::PCWSTR, psznewfilename : windows_sys::core::PCWSTR, pmmioinfo : LPCMMIOINFO, fdwrename : super::DWORD) -> super::MMRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : super::LONG, iorigin : i32) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioSendMessage(hmmio : HMMIO, umsg : super::UINT, lparam1 : super::LPARAM, lparam2 : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : windows_sys::core::PSTR, cchbuffer : super::LONG, fubuffer : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : LPCMMIOINFO, fuinfo : super::UINT) -> super::MMRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn mmioStringToFOURCCA(sz : windows_sys::core::PCSTR, uflags : super::UINT) -> FOURCC);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn mmioStringToFOURCCW(sz : windows_sys::core::PCWSTR, uflags : super::UINT) -> FOURCC);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : *const i8, cch : super::LONG) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_sys::core::PCWSTR, appname : windows_sys::core::PCWSTR, flags : super::INT32, filehandle : super::PHANDLE) -> super::LONG);
 pub const CFSEPCHAR: i8 = 43;
-pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: super::HDRVR, param2: u32, param3: super::LPARAM, param4: super::LPARAM) -> super::LRESULT>;
+#[cfg(feature = "shared")]
+pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: super::DWORD, param1: super::DWORD, param2: super::DWORD_PTR, param3: super::DWORD_PTR, param4: super::DWORD_PTR) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: super::DWORD_PTR, param1: super::HDRVR, param2: super::UINT, param3: super::LPARAM, param4: super::LPARAM) -> super::LRESULT>;
 pub const DRVCNF_CANCEL: i32 = 0;
 pub const DRVCNF_OK: i32 = 1;
 pub const DRVCNF_RESTART: i32 = 2;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DRVCONFIGINFO {
-    pub dwDCISize: u32,
+    pub dwDCISize: super::DWORD,
     pub lpszDCISectionName: windows_sys::core::PCWSTR,
     pub lpszDCIAliasName: windows_sys::core::PCWSTR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DRVCONFIGINFOEX {
-    pub dwDCISize: u32,
+    pub dwDCISize: super::DWORD,
     pub lpszDCISectionName: windows_sys::core::PCWSTR,
     pub lpszDCIAliasName: windows_sys::core::PCWSTR,
-    pub dnDevNode: u32,
+    pub dnDevNode: super::DWORD,
 }
 pub const DRV_CANCEL: i32 = 0;
 pub const DRV_CLOSE: i32 = 4;
@@ -95,10 +103,14 @@ pub const DRV_RESERVED: i32 = 2048;
 pub const DRV_RESTART: i32 = 2;
 pub const DRV_USER: i32 = 16384;
 pub type FOURCC = u32;
-pub const FOURCC_DOS: u32 = 542330692;
-pub const FOURCC_LIST: u32 = 1414744396;
-pub const FOURCC_MEM: u32 = 541934925;
-pub const FOURCC_RIFF: u32 = 1179011410;
+#[cfg(feature = "shared")]
+pub const FOURCC_DOS: super::DWORD = 542330692;
+#[cfg(feature = "shared")]
+pub const FOURCC_LIST: super::DWORD = 1414744396;
+#[cfg(feature = "shared")]
+pub const FOURCC_MEM: super::DWORD = 541934925;
+#[cfg(feature = "shared")]
+pub const FOURCC_RIFF: super::DWORD = 1179011410;
 pub type HMMIO = *mut HMMIO__;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -106,24 +118,29 @@ pub struct HMMIO__ {
     pub unused: i32,
 }
 pub type HPSTR = *mut i8;
+#[cfg(feature = "shared")]
 pub type LPCMMCKINFO = *const MMCKINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCMMIOINFO = *const MMIOINFO;
+#[cfg(feature = "shared")]
 pub type LPDRVCONFIGINFO = *mut DRVCONFIGINFO;
+#[cfg(feature = "shared")]
 pub type LPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+#[cfg(feature = "shared")]
 pub type LPMMCKINFO = *mut MMCKINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPMMIOINFO = *mut MMIOINFO;
-#[cfg(feature = "minwindef")]
-pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_sys::core::PCSTR, umsg: u32, lparam1: super::LPARAM, lparam2: super::LPARAM) -> super::LRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_sys::core::PSTR, umsg: super::UINT, lparam1: super::LPARAM, lparam2: super::LPARAM) -> super::LRESULT>;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MMCKINFO {
     pub ckid: FOURCC,
-    pub cksize: u32,
+    pub cksize: super::DWORD,
     pub fccType: FOURCC,
-    pub dwDataOffset: u32,
-    pub dwFlags: u32,
+    pub dwDataOffset: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
 pub const MMIOERR_ACCESSDENIED: i32 = 268;
 pub const MMIOERR_BASE: i32 = 256;
@@ -143,27 +160,27 @@ pub const MMIOERR_SHARINGVIOLATION: i32 = 269;
 pub const MMIOERR_TOOMANYOPENFILES: i32 = 271;
 pub const MMIOERR_UNBUFFERED: i32 = 266;
 #[repr(C, packed(1))]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MMIOINFO {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub fccIOProc: FOURCC,
     pub pIOProc: LPMMIOPROC,
-    pub wErrorRet: u32,
+    pub wErrorRet: super::UINT,
     pub htask: super::HTASK,
-    pub cchBuffer: i32,
+    pub cchBuffer: super::LONG,
     pub pchBuffer: HPSTR,
     pub pchNext: HPSTR,
     pub pchEndRead: HPSTR,
     pub pchEndWrite: HPSTR,
-    pub lBufOffset: i32,
-    pub lDiskOffset: i32,
-    pub adwInfo: [u32; 3],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub lBufOffset: super::LONG,
+    pub lDiskOffset: super::LONG,
+    pub adwInfo: [super::DWORD; 3],
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
     pub hmmio: HMMIO,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for MMIOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -177,8 +194,8 @@ pub const MMIOM_SEEK: i32 = 2;
 pub const MMIOM_USER: i32 = 32768;
 pub const MMIOM_WRITE: i32 = 1;
 pub const MMIOM_WRITEFLUSH: i32 = 5;
-#[cfg(feature = "minwindef")]
-pub type MMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_sys::core::PCSTR, umsg: u32, lparam1: super::LPARAM, lparam2: super::LPARAM) -> super::LRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type MMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_sys::core::PSTR, umsg: super::UINT, lparam1: super::LPARAM, lparam2: super::LPARAM) -> super::LRESULT>;
 pub const MMIO_ALLOCBUF: i32 = 65536;
 pub const MMIO_COMPAT: i32 = 0;
 pub const MMIO_CREATE: i32 = 4096;
@@ -210,15 +227,21 @@ pub const MMIO_SHAREMODE: i32 = 112;
 pub const MMIO_TOUPPER: i32 = 16;
 pub const MMIO_UNICODEPROC: i32 = 16777216;
 pub const MMIO_WRITE: i32 = 1;
+#[cfg(feature = "shared")]
 pub type NPDRVCONFIGINFO = *mut DRVCONFIGINFO;
+#[cfg(feature = "shared")]
 pub type NPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+#[cfg(feature = "shared")]
 pub type NPMMCKINFO = *mut MMCKINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type NPMMIOINFO = *mut MMIOINFO;
+#[cfg(feature = "shared")]
 pub type PDRVCONFIGINFO = *mut DRVCONFIGINFO;
+#[cfg(feature = "shared")]
 pub type PDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+#[cfg(feature = "shared")]
 pub type PMMCKINFO = *mut MMCKINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PMMIOINFO = *mut MMIOINFO;
 pub const SEEK_CUR: i32 = 1;
 pub const SEEK_END: i32 = 2;

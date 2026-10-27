@@ -1,35 +1,39 @@
-#[cfg(all(feature = "winnt", feature = "winsock2", feature = "ws2"))]
-windows_link::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::HANDLE, socket : super::SOCKET, destaddr : super::PSOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : PQOS_FLOWID) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winsock2", feature = "ws2"))]
+windows_link::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::HANDLE, socket : super::SOCKET, destaddr : super::PSOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : super::DWORD, flowid : PQOS_FLOWID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 windows_link::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::HANDLE, overlapped : super::LPOVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("qwave.dll" "system" fn QOSCloseHandle(qoshandle : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("qwave.dll" "system" fn QOSCreateHandle(version : PQOS_VERSION, qoshandle : super::PHANDLE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::HANDLE, size : super::PULONG, buffer : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::HANDLE, flowid : QOS_FLOWID, operation : QOS_NOTIFY_FLOW, size : super::PULONG, buffer : *mut core::ffi::c_void, flags : u32, overlapped : super::LPOVERLAPPED) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::HANDLE, flowid : QOS_FLOWID, operation : QOS_QUERY_FLOW, size : super::PULONG, buffer : *mut core::ffi::c_void, flags : u32, overlapped : super::LPOVERLAPPED) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "winsock2"))]
-windows_link::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::HANDLE, socket : super::SOCKET, flowid : QOS_FLOWID, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::HANDLE, flowid : QOS_FLOWID, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : super::LPOVERLAPPED) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "ws2"))]
-windows_link::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::HANDLE, destaddr : super::PSOCKADDR, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "winnt", feature = "ws2"))]
-windows_link::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::HANDLE, destaddr : super::PSOCKADDR, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::HANDLE, size : super::PULONG, buffer : super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::HANDLE, flowid : QOS_FLOWID, operation : QOS_NOTIFY_FLOW, size : super::PULONG, buffer : super::PVOID, flags : super::DWORD, overlapped : super::LPOVERLAPPED) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::HANDLE, flowid : QOS_FLOWID, operation : QOS_QUERY_FLOW, size : super::PULONG, buffer : super::PVOID, flags : super::DWORD, overlapped : super::LPOVERLAPPED) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winsock2"))]
+windows_link::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::HANDLE, socket : super::SOCKET, flowid : QOS_FLOWID, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
+windows_link::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::HANDLE, flowid : QOS_FLOWID, operation : QOS_SET_FLOW, size : super::ULONG, buffer : super::PVOID, flags : super::DWORD, overlapped : super::LPOVERLAPPED) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
+windows_link::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::HANDLE, destaddr : super::PSOCKADDR, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
+windows_link::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::HANDLE, destaddr : super::PSOCKADDR, flags : super::DWORD) -> windows_sys::core::BOOL);
 pub type PQOS_FLOWID = *mut u32;
+#[cfg(feature = "shared")]
 pub type PQOS_FLOWRATE_OUTGOING = *mut QOS_FLOWRATE_OUTGOING;
 pub type PQOS_FLOWRATE_REASON = *mut QOS_FLOWRATE_REASON;
+#[cfg(feature = "shared")]
 pub type PQOS_FLOW_FUNDAMENTALS = *mut QOS_FLOW_FUNDAMENTALS;
 pub type PQOS_NOTIFY_FLOW = *mut QOS_NOTIFY_FLOW;
+#[cfg(feature = "shared")]
 pub type PQOS_PACKET_PRIORITY = *mut QOS_PACKET_PRIORITY;
 pub type PQOS_QUERY_FLOW = *mut QOS_QUERY_FLOW;
 pub type PQOS_SET_FLOW = *mut QOS_SET_FLOW;
 pub type PQOS_SHAPING = *mut QOS_SHAPING;
 pub type PQOS_TRAFFIC_TYPE = *mut QOS_TRAFFIC_TYPE;
+#[cfg(feature = "shared")]
 pub type PQOS_VERSION = *mut QOS_VERSION;
 pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = 2;
 pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = 1;
@@ -56,33 +60,36 @@ pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = 4;
 pub const QOSUseNonConformantMarkings: QOS_SHAPING = 2;
 pub type QOS_FLOWID = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QOS_FLOWRATE_OUTGOING {
-    pub Bandwidth: u64,
+    pub Bandwidth: super::UINT64,
     pub ShapingBehavior: QOS_SHAPING,
     pub Reason: QOS_FLOWRATE_REASON,
 }
 pub type QOS_FLOWRATE_REASON = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QOS_FLOW_FUNDAMENTALS {
     pub BottleneckBandwidthSet: windows_sys::core::BOOL,
-    pub BottleneckBandwidth: u64,
+    pub BottleneckBandwidth: super::UINT64,
     pub AvailableBandwidthSet: windows_sys::core::BOOL,
-    pub AvailableBandwidth: u64,
+    pub AvailableBandwidth: super::UINT64,
     pub RTTSet: windows_sys::core::BOOL,
-    pub RTT: u32,
+    pub RTT: super::UINT32,
 }
 pub const QOS_NON_ADAPTIVE_FLOW: i32 = 2;
 pub type QOS_NOTIFY_FLOW = i32;
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QOS_PACKET_PRIORITY {
-    pub ConformantDSCPValue: u32,
-    pub NonConformantDSCPValue: u32,
-    pub ConformantL2Value: u32,
-    pub NonConformantL2Value: u32,
+    pub ConformantDSCPValue: super::ULONG,
+    pub NonConformantDSCPValue: super::ULONG,
+    pub ConformantL2Value: super::ULONG,
+    pub NonConformantL2Value: super::ULONG,
 }
 pub const QOS_QUERYFLOW_FRESH: i32 = 1;
 pub type QOS_QUERY_FLOW = i32;
@@ -90,8 +97,9 @@ pub type QOS_SET_FLOW = i32;
 pub type QOS_SHAPING = i32;
 pub type QOS_TRAFFIC_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QOS_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
+    pub MajorVersion: super::USHORT,
+    pub MinorVersion: super::USHORT,
 }

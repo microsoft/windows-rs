@@ -1,18 +1,18 @@
 #[cfg(feature = "windef")]
 windows_link::link!("mfplay.dll" "system" fn MFPCreateMediaPlayer(pwszurl : windows_sys::core::PCWSTR, fstartplayback : windows_sys::core::BOOL, creationoptions : MFP_CREATION_OPTIONS, pcallback : *mut core::ffi::c_void, hwnd : super::HWND, ppmediaplayer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
-#[cfg(all(feature = "mfidl", feature = "propsys"))]
+#[cfg(all(feature = "mfidl", feature = "propsys", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub dwUserData: usize,
+    pub dwUserData: super::DWORD_PTR,
     pub fProceedWithAuthentication: windows_sys::core::BOOL,
     pub hrAuthenticationStatus: windows_sys::core::HRESULT,
     pub pwszURL: windows_sys::core::PCWSTR,
     pub pwszSite: windows_sys::core::PCWSTR,
     pub pwszRealm: windows_sys::core::PCWSTR,
     pub pwszPackage: windows_sys::core::PCWSTR,
-    pub nRetries: i32,
+    pub nRetries: super::LONG,
     pub flags: MFP_CREDENTIAL_FLAGS,
     pub pCredential: *mut core::ffi::c_void,
 }
@@ -72,12 +72,12 @@ pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub pMediaItem: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "propsys")]
+#[cfg(all(feature = "propsys", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: *mut core::ffi::c_void,
-    pub dwUserData: usize,
+    pub dwUserData: super::DWORD_PTR,
 }
 pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 8;
 pub const MFP_MEDIAITEM_IS_LIVE: _MFP_MEDIAITEM_CHARACTERISTICS = 1;
@@ -114,6 +114,10 @@ pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFP_PKEY_StreamIndex: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa7cf9740_e8d9_4a87_bd8e_2967001fd3ad), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFP_PKEY_StreamRenderingResults: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xa7cf9740_e8d9_4a87_bd8e_2967001fd3ad), pid: 1 };
 #[repr(C)]
 #[cfg(feature = "propsys")]
 #[derive(Clone, Copy, Default)]
@@ -128,6 +132,7 @@ pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: *mut core::ffi::c_void,
 }
+pub const MFP_POSITIONTYPE_100NS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(C)]
 #[cfg(feature = "propsys")]
 #[derive(Clone, Copy, Default)]

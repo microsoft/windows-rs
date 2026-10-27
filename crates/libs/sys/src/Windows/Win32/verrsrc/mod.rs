@@ -78,21 +78,22 @@ pub const VS_FF_PRIVATEBUILD: i32 = 8;
 pub const VS_FF_SPECIALBUILD: i32 = 32;
 pub const VS_FILE_INFO: windows_sys::core::PCSTR = 16 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VS_FIXEDFILEINFO {
-    pub dwSignature: u32,
-    pub dwStrucVersion: u32,
-    pub dwFileVersionMS: u32,
-    pub dwFileVersionLS: u32,
-    pub dwProductVersionMS: u32,
-    pub dwProductVersionLS: u32,
-    pub dwFileFlagsMask: u32,
-    pub dwFileFlags: u32,
-    pub dwFileOS: u32,
-    pub dwFileType: u32,
-    pub dwFileSubtype: u32,
-    pub dwFileDateMS: u32,
-    pub dwFileDateLS: u32,
+    pub dwSignature: super::DWORD,
+    pub dwStrucVersion: super::DWORD,
+    pub dwFileVersionMS: super::DWORD,
+    pub dwFileVersionLS: super::DWORD,
+    pub dwProductVersionMS: super::DWORD,
+    pub dwProductVersionLS: super::DWORD,
+    pub dwFileFlagsMask: super::DWORD,
+    pub dwFileFlags: super::DWORD,
+    pub dwFileOS: super::DWORD,
+    pub dwFileType: super::DWORD,
+    pub dwFileSubtype: super::DWORD,
+    pub dwFileDateMS: super::DWORD,
+    pub dwFileDateLS: super::DWORD,
 }
 pub const VS_USER_DEFINED: i32 = 100;
 pub const VS_VERSION_INFO: i32 = 1;

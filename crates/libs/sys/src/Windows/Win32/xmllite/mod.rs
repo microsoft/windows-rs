@@ -1,15 +1,15 @@
+#[cfg(all(feature = "guiddef", feature = "objidlbase"))]
+windows_link::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const super::IID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
+windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : super::UINT, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidlbase"))]
+windows_link::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const super::IID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
+windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : super::UINT, ppoutput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut IXmlReaderInput) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut IXmlReaderInput) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : u32, ppoutput : *mut IXmlWriterOutput) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, ppoutput : *mut IXmlWriterOutput) -> windows_sys::core::HRESULT);
+windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, ppoutput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type DtdProcessing = i32;
 pub const DtdProcessing_Parse: DtdProcessing = 1;
 pub const DtdProcessing_Prohibit: DtdProcessing = 0;
@@ -144,6 +144,9 @@ pub const XmlWriterProperty_Indent: XmlWriterProperty = 1;
 pub const XmlWriterProperty_MultiLanguage: XmlWriterProperty = 0;
 pub const XmlWriterProperty_OmitXmlDeclaration: XmlWriterProperty = 3;
 pub const _DtdProcessing_Last: DtdProcessing = 1;
+pub const _IID_IXmlReader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
+pub const _IID_IXmlResolver: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
+pub const _IID_IXmlWriter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
 pub const _XmlConformanceLevel_Last: XmlConformanceLevel = 2;
 pub const _XmlNodeType_Last: XmlNodeType = 17;
 pub const _XmlReaderProperty_Last: XmlReaderProperty = 7;

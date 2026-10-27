@@ -1,83 +1,91 @@
-windows_link::link!("dxva2.dll" "system" fn DXVA2CreateDirect3DDeviceManager9(presettoken : *mut u32, ppdevicemanager : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "d3d9")]
-windows_link::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppservice : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("dxva2.dll" "system" fn DXVA2CreateDirect3DDeviceManager9(presettoken : *mut super::UINT, ppdevicemanager : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3d9", feature = "guiddef"))]
+windows_link::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : *mut core::ffi::c_void, riid : *const super::IID, ppservice : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_AES_CTR_IV {
-    pub IV: u64,
-    pub Count: u64,
+    pub IV: super::UINT64,
+    pub Count: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_AYUVSample16 {
-    pub Cr: u16,
-    pub Cb: u16,
-    pub Y: u16,
-    pub Alpha: u16,
+    pub Cr: super::USHORT,
+    pub Cb: super::USHORT,
+    pub Y: super::USHORT,
+    pub Alpha: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_AYUVSample8 {
-    pub Cr: u8,
-    pub Cb: u8,
-    pub Y: u8,
-    pub Alpha: u8,
+    pub Cr: super::UCHAR,
+    pub Cb: super::UCHAR,
+    pub Y: super::UCHAR,
+    pub Alpha: super::UCHAR,
 }
 pub const DXVA2_BitStreamDateBufferType: i32 = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_ConfigPictureDecode {
     pub guidConfigBitstreamEncryption: windows_sys::core::GUID,
     pub guidConfigMBcontrolEncryption: windows_sys::core::GUID,
     pub guidConfigResidDiffEncryption: windows_sys::core::GUID,
-    pub ConfigBitstreamRaw: u32,
-    pub ConfigMBcontrolRasterOrder: u32,
-    pub ConfigResidDiffHost: u32,
-    pub ConfigSpatialResid8: u32,
-    pub ConfigResid8Subtraction: u32,
-    pub ConfigSpatialHost8or9Clipping: u32,
-    pub ConfigSpatialResidInterleaved: u32,
-    pub ConfigIntraResidUnsigned: u32,
-    pub ConfigResidDiffAccelerator: u32,
-    pub ConfigHostInverseScan: u32,
-    pub ConfigSpecificIDCT: u32,
-    pub Config4GroupedCoefs: u32,
-    pub ConfigMinRenderTargetBuffCount: u16,
-    pub ConfigDecoderSpecific: u16,
+    pub ConfigBitstreamRaw: super::UINT,
+    pub ConfigMBcontrolRasterOrder: super::UINT,
+    pub ConfigResidDiffHost: super::UINT,
+    pub ConfigSpatialResid8: super::UINT,
+    pub ConfigResid8Subtraction: super::UINT,
+    pub ConfigSpatialHost8or9Clipping: super::UINT,
+    pub ConfigSpatialResidInterleaved: super::UINT,
+    pub ConfigIntraResidUnsigned: super::UINT,
+    pub ConfigResidDiffAccelerator: super::UINT,
+    pub ConfigHostInverseScan: super::UINT,
+    pub ConfigSpecificIDCT: super::UINT,
+    pub Config4GroupedCoefs: super::UINT,
+    pub ConfigMinRenderTargetBuffCount: super::USHORT,
+    pub ConfigDecoderSpecific: super::USHORT,
 }
 pub const DXVA2_DECODE_GET_DRIVER_HANDLE: i32 = 1829;
 pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: i32 = 1828;
 pub const DXVA2_DeblockingControlBufferType: i32 = 3;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_DecodeBufferDesc {
-    pub CompressedBufferType: u32,
-    pub BufferIndex: u32,
-    pub DataOffset: u32,
-    pub DataSize: u32,
-    pub FirstMBaddress: u32,
-    pub NumMBsInBuffer: u32,
-    pub Width: u32,
-    pub Height: u32,
-    pub Stride: u32,
-    pub ReservedBits: u32,
-    pub pvPVPState: *mut core::ffi::c_void,
+    pub CompressedBufferType: super::DWORD,
+    pub BufferIndex: super::UINT,
+    pub DataOffset: super::UINT,
+    pub DataSize: super::UINT,
+    pub FirstMBaddress: super::UINT,
+    pub NumMBsInBuffer: super::UINT,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Stride: super::UINT,
+    pub ReservedBits: super::UINT,
+    pub pvPVPState: super::PVOID,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_DecodeExecuteParams {
-    pub NumCompBuffers: u32,
+    pub NumCompBuffers: super::UINT,
     pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
     pub pExtensionData: *mut DXVA2_DecodeExtensionData,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_DecodeExtensionData {
-    pub Function: u32,
-    pub pPrivateInputData: *mut core::ffi::c_void,
-    pub PrivateInputDataSize: u32,
-    pub pPrivateOutputData: *mut core::ffi::c_void,
-    pub PrivateOutputDataSize: u32,
+    pub Function: super::UINT,
+    pub pPrivateInputData: super::PVOID,
+    pub PrivateInputDataSize: super::UINT,
+    pub pPrivateOutputData: super::PVOID,
+    pub PrivateOutputDataSize: super::UINT,
 }
 pub const DXVA2_DeinterlaceTech_BOBLineReplicate: i32 = 1;
 pub const DXVA2_DeinterlaceTech_BOBVerticalStretch: i32 = 2;
@@ -110,76 +118,89 @@ pub const DXVA2_E_NOT_AVAILABLE: windows_sys::core::HRESULT = 0x80041003_u32 as 
 pub const DXVA2_E_NOT_INITIALIZED: windows_sys::core::HRESULT = 0x80041000_u32 as _;
 pub const DXVA2_E_VIDEO_DEVICE_LOCKED: windows_sys::core::HRESULT = 0x80041002_u32 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXVA2_ExtendedFormat {
     pub Anonymous: DXVA2_ExtendedFormat_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXVA2_ExtendedFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXVA2_ExtendedFormat_0 {
     pub Anonymous: DXVA2_ExtendedFormat_0_0,
-    pub value: u32,
+    pub value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXVA2_ExtendedFormat_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_ExtendedFormat_0_0 {
     pub _bitfield: u32,
 }
 pub const DXVA2_FilmGrainBuffer: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXVA2_FilterValues {
     pub Level: DXVA2_Fixed32,
     pub Threshold: DXVA2_Fixed32,
     pub Radius: DXVA2_Fixed32,
 }
+#[cfg(feature = "shared")]
 impl Default for DXVA2_FilterValues {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXVA2_Fixed32 {
     pub Anonymous: DXVA2_Fixed32_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXVA2_Fixed32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXVA2_Fixed32_0 {
     pub Anonymous: DXVA2_Fixed32_0_0,
-    pub ll: i32,
+    pub ll: super::LONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DXVA2_Fixed32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_Fixed32_0_0 {
-    pub Fraction: u16,
-    pub Value: i16,
+    pub Fraction: super::USHORT,
+    pub Value: super::SHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_Frequency {
-    pub Numerator: u32,
-    pub Denominator: u32,
+    pub Numerator: super::UINT,
+    pub Denominator: super::UINT,
 }
 pub const DXVA2_InverseQuantizationMatrixBufferType: i32 = 4;
 pub const DXVA2_MacroBlockControlBufferType: i32 = 1;
@@ -241,6 +262,7 @@ pub const DXVA2_NominalRange_Unknown: DXVA2_NominalRange = 0;
 pub const DXVA2_NominalRange_Wide: DXVA2_NominalRange = 2;
 pub const DXVA2_PictureParametersBufferType: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXVA2_ProcAmpValues {
     pub Brightness: DXVA2_Fixed32,
@@ -248,6 +270,7 @@ pub struct DXVA2_ProcAmpValues {
     pub Hue: DXVA2_Fixed32,
     pub Saturation: DXVA2_Fixed32,
 }
+#[cfg(feature = "shared")]
 impl Default for DXVA2_ProcAmpValues {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -283,6 +306,7 @@ pub const DXVA2_VPDev_HardwareDevice: i32 = 1;
 pub const DXVA2_VPDev_Mask: i32 = 7;
 pub const DXVA2_VPDev_SoftwareDevice: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXVA2_ValueRange {
     pub MinValue: DXVA2_Fixed32,
@@ -290,6 +314,7 @@ pub struct DXVA2_ValueRange {
     pub DefaultValue: DXVA2_Fixed32,
     pub StepSize: DXVA2_Fixed32,
 }
+#[cfg(feature = "shared")]
 impl Default for DXVA2_ValueRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -308,19 +333,19 @@ pub const DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes: DXVA2_Vid
 pub const DXVA2_VideoChromaSubsampling_Vertically_Cosited: DXVA2_VideoChromaSubSampling = 2;
 pub const DXVA2_VideoDecoderRenderTarget: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "d3d9")]
+#[cfg(all(feature = "d3d9", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoDesc {
-    pub SampleWidth: u32,
-    pub SampleHeight: u32,
+    pub SampleWidth: super::UINT,
+    pub SampleHeight: super::UINT,
     pub SampleFormat: DXVA2_ExtendedFormat,
     pub Format: super::D3DFORMAT,
     pub InputSampleFreq: DXVA2_Frequency,
     pub OutputFrameFreq: DXVA2_Frequency,
-    pub UABProtectionLevel: u32,
-    pub Reserved: u32,
+    pub UABProtectionLevel: super::UINT,
+    pub Reserved: super::UINT,
 }
-#[cfg(feature = "d3d9")]
+#[cfg(all(feature = "d3d9", feature = "shared"))]
 impl Default for DXVA2_VideoDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -348,13 +373,13 @@ pub const DXVA2_VideoProcBobDevice: windows_sys::core::GUID = windows_sys::core:
 pub const DXVA2_VideoProcProgressiveDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a54a0c9_c7ec_4bd9_8ede_f3c75dc4393b);
 pub const DXVA2_VideoProcSoftwareDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4553d47f_ee7e_4e3f_9475_dbf1376c4810);
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoProcessBltParams {
     pub TargetFrame: super::REFERENCE_TIME,
     pub TargetRect: super::RECT,
     pub ConstrictionSize: super::SIZE,
-    pub StreamingFlags: u32,
+    pub StreamingFlags: super::UINT,
     pub BackgroundColor: DXVA2_AYUVSample16,
     pub DestFormat: DXVA2_ExtendedFormat,
     pub ProcAmpValues: DXVA2_ProcAmpValues,
@@ -363,9 +388,9 @@ pub struct DXVA2_VideoProcessBltParams {
     pub NoiseFilterChroma: DXVA2_FilterValues,
     pub DetailFilterLuma: DXVA2_FilterValues,
     pub DetailFilterChroma: DXVA2_FilterValues,
-    pub DestData: u32,
+    pub DestData: super::DWORD,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for DXVA2_VideoProcessBltParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -390,23 +415,23 @@ pub const DXVA2_VideoProcess_SubStreamsExtended: i32 = 64;
 pub const DXVA2_VideoProcess_YUV2RGB: i32 = 1;
 pub const DXVA2_VideoProcess_YUV2RGBExtended: i32 = 128;
 #[repr(C)]
-#[cfg(feature = "d3d9")]
+#[cfg(all(feature = "d3d9", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_VideoProcessorCaps {
-    pub DeviceCaps: u32,
+    pub DeviceCaps: super::UINT,
     pub InputPool: super::D3DPOOL,
-    pub NumForwardRefSamples: u32,
-    pub NumBackwardRefSamples: u32,
-    pub Reserved: u32,
-    pub DeinterlaceTechnology: u32,
-    pub ProcAmpControlCaps: u32,
-    pub VideoProcessorOperations: u32,
-    pub NoiseFilterTechnology: u32,
-    pub DetailFilterTechnology: u32,
+    pub NumForwardRefSamples: super::UINT,
+    pub NumBackwardRefSamples: super::UINT,
+    pub Reserved: super::UINT,
+    pub DeinterlaceTechnology: super::UINT,
+    pub ProcAmpControlCaps: super::UINT,
+    pub VideoProcessorOperations: super::UINT,
+    pub NoiseFilterTechnology: super::UINT,
+    pub DetailFilterTechnology: super::UINT,
 }
 pub const DXVA2_VideoProcessorRenderTarget: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "d3d9", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoSample {
     pub Start: super::REFERENCE_TIME,
@@ -417,9 +442,9 @@ pub struct DXVA2_VideoSample {
     pub DstRect: super::RECT,
     pub Pal: [DXVA2_AYUVSample8; 16],
     pub PlanarAlpha: DXVA2_Fixed32,
-    pub SampleData: u32,
+    pub SampleData: super::DWORD,
 }
-#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "d3d9", feature = "shared", feature = "windef"))]
 impl Default for DXVA2_VideoSample {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -446,5 +471,12 @@ pub const DXVA2_VideoTransferMatrix_BT601: DXVA2_VideoTransferMatrix = 2;
 pub const DXVA2_VideoTransferMatrix_BT709: DXVA2_VideoTransferMatrix = 1;
 pub const DXVA2_VideoTransferMatrix_SMPTE240M: DXVA2_VideoTransferMatrix = 3;
 pub const DXVA2_VideoTransferMatrix_Unknown: DXVA2_VideoTransferMatrix = 0;
+pub const IID_IDirect3DDeviceManager9: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0cade0f_06d5_4cf4_a1c7_f3cdd725aa75);
+pub const IID_IDirectXVideoAccelerationService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc51a550_d5e7_11d9_af55_00054e43ff02);
+pub const IID_IDirectXVideoDecoder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2b0810a_fd00_43c9_918c_df94e2d8ef7d);
+pub const IID_IDirectXVideoDecoderService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc51a551_d5e7_11d9_af55_00054e43ff02);
+pub const IID_IDirectXVideoMemoryConfiguration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7f916dd_db3b_49c1_84d7_e45ef99ec726);
+pub const IID_IDirectXVideoProcessor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c3a39f0_916e_4690_804f_4c8001355d25);
+pub const IID_IDirectXVideoProcessorService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc51a552_d5e7_11d9_af55_00054e43ff02);
 pub const MAX_DEINTERLACE_SURFACES: i32 = 32;
 pub const MAX_SUBSTREAMS: i32 = 15;

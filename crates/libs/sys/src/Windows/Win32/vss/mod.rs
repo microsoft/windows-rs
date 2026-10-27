@@ -3,15 +3,18 @@ pub type PVSS_BACKUP_SCHEMA = *mut VSS_BACKUP_SCHEMA;
 pub type PVSS_BACKUP_TYPE = *mut VSS_BACKUP_TYPE;
 pub type PVSS_FILE_SPEC_BACKUP_TYPE = *mut VSS_FILE_SPEC_BACKUP_TYPE;
 pub type PVSS_HARDWARE_OPTIONS = *mut VSS_HARDWARE_OPTIONS;
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PVSS_OBJECT_PROP = *mut VSS_OBJECT_PROP;
 pub type PVSS_OBJECT_TYPE = *mut VSS_OBJECT_TYPE;
 pub type PVSS_PROVIDER_CAPABILITIES = *mut VSS_PROVIDER_CAPABILITIES;
+#[cfg(feature = "guiddef")]
 pub type PVSS_PROVIDER_PROP = *mut VSS_PROVIDER_PROP;
 pub type PVSS_PROVIDER_TYPE = *mut VSS_PROVIDER_TYPE;
 pub type PVSS_RECOVERY_OPTIONS = *mut VSS_RECOVERY_OPTIONS;
 pub type PVSS_RESTORE_TYPE = *mut VSS_RESTORE_TYPE;
 pub type PVSS_ROLLFORWARD_TYPE = *mut VSS_ROLLFORWARD_TYPE;
 pub type PVSS_SNAPSHOT_CONTEXT = *mut VSS_SNAPSHOT_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PVSS_SNAPSHOT_PROP = *mut VSS_SNAPSHOT_PROP;
 pub type PVSS_SNAPSHOT_PROPERTY_ID = *mut VSS_SNAPSHOT_PROPERTY_ID;
 pub type PVSS_SNAPSHOT_STATE = *mut VSS_SNAPSHOT_STATE;
@@ -75,12 +78,14 @@ pub const VSS_FSBT_LOG_SNAPSHOT_REQUIRED: VSS_FILE_SPEC_BACKUP_TYPE = 2048;
 pub type VSS_HARDWARE_OPTIONS = i32;
 pub type VSS_ID = windows_sys::core::GUID;
 pub const VSS_OBJECT_NONE: VSS_OBJECT_TYPE = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct VSS_OBJECT_PROP {
     pub Type: VSS_OBJECT_TYPE,
     pub Obj: VSS_OBJECT_UNION,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl Default for VSS_OBJECT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -91,12 +96,14 @@ pub const VSS_OBJECT_SNAPSHOT: VSS_OBJECT_TYPE = 3;
 pub const VSS_OBJECT_SNAPSHOT_SET: VSS_OBJECT_TYPE = 2;
 pub type VSS_OBJECT_TYPE = i32;
 pub const VSS_OBJECT_TYPE_COUNT: VSS_OBJECT_TYPE = 5;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union VSS_OBJECT_UNION {
     pub Snap: VSS_SNAPSHOT_PROP,
     pub Prov: VSS_PROVIDER_PROP,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl Default for VSS_OBJECT_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -108,7 +115,8 @@ pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_POST_RECOVERY: VSS_HARDWARE_OPTIONS = 
 pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY: VSS_HARDWARE_OPTIONS = 512;
 pub const VSS_ONLUNSTATECHANGE_NOTIFY_READ_WRITE: VSS_HARDWARE_OPTIONS = 256;
 pub type VSS_PROVIDER_CAPABILITIES = i32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Default)]
 pub struct VSS_PROVIDER_PROP {
     pub m_ProviderId: VSS_ID,
@@ -116,7 +124,7 @@ pub struct VSS_PROVIDER_PROP {
     pub m_eProviderType: VSS_PROVIDER_TYPE,
     pub m_pwszProviderVersion: VSS_PWSZ,
     pub m_ProviderVersionId: VSS_ID,
-    pub m_ClassId: windows_sys::core::GUID,
+    pub m_ClassId: super::CLSID,
 }
 pub type VSS_PROVIDER_TYPE = i32;
 pub const VSS_PROV_FILESHARE: VSS_PROVIDER_TYPE = 4;
@@ -152,12 +160,13 @@ pub const VSS_SC_DISABLE_CONTENTINDEX: VSS_SNAPSHOT_COMPATIBILITY = 2;
 pub const VSS_SC_DISABLE_DEFRAG: VSS_SNAPSHOT_COMPATIBILITY = 1;
 pub type VSS_SNAPSHOT_COMPATIBILITY = i32;
 pub type VSS_SNAPSHOT_CONTEXT = i32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VSS_SNAPSHOT_PROP {
     pub m_SnapshotId: VSS_ID,
     pub m_SnapshotSetId: VSS_ID,
-    pub m_lSnapshotsCount: i32,
+    pub m_lSnapshotsCount: super::LONG,
     pub m_pwszSnapshotDeviceObject: VSS_PWSZ,
     pub m_pwszOriginalVolumeName: VSS_PWSZ,
     pub m_pwszOriginatingMachine: VSS_PWSZ,
@@ -165,7 +174,7 @@ pub struct VSS_SNAPSHOT_PROP {
     pub m_pwszExposedName: VSS_PWSZ,
     pub m_pwszExposedPath: VSS_PWSZ,
     pub m_ProviderId: VSS_ID,
-    pub m_lSnapshotAttributes: i32,
+    pub m_lSnapshotAttributes: super::LONG,
     pub m_tsCreationTimestamp: VSS_TIMESTAMP,
     pub m_eStatus: VSS_SNAPSHOT_STATE,
 }

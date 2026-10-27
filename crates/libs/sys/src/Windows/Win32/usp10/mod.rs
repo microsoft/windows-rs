@@ -1,77 +1,93 @@
+#[cfg(feature = "shared")]
 windows_link::link!("usp10.dll" "system" fn ScriptApplyDigitSubstitution(psds : *const SCRIPT_DIGITSUBSTITUTE, psc : *mut SCRIPT_CONTROL, pss : *mut SCRIPT_STATE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "wingdi")]
-windows_link::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::ABC, pijustify : *mut i32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : *const u16, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : windows_sys::core::BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+windows_link::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::ABC, pijustify : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : *const super::WCHAR, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : windows_sys::core::BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::HDC, psc : *mut SCRIPT_CACHE, tmheight : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptFreeCache(psc : *mut SCRIPT_CACHE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwcinchars : *const u16, cchars : i32, dwflags : u32, pwoutglyphs : *mut u16) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, tagfeature : OPENTYPE_TAG, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwcinchars : *const super::WCHAR, cchars : i32, dwflags : super::DWORD, pwoutglyphs : *mut super::WORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, tagfeature : OPENTYPE_TAG, wglyphid : super::WORD, cmaxalternates : i32, palternateglyphs : *mut super::WORD, pcalternates : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, cmaxtags : i32, pfeaturetags : *mut OPENTYPE_TAG, pctags : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, cmaxtags : i32, plangsystags : *mut OPENTYPE_TAG, pctags : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::HDC, psc : *mut SCRIPT_CACHE, sfp : *mut SCRIPT_FONTPROPERTIES) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut OPENTYPE_TAG, pctags : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::HDC, psc : *mut SCRIPT_CACHE, wglyph : u16, pabc : *mut super::ABC) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptGetLogicalWidths(psa : *const SCRIPT_ANALYSIS, cchars : i32, cglyphs : i32, piglyphwidth : *const i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, pidx : *const i32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptGetProperties(ppsp : *const *const *const SCRIPT_PROPERTIES, pinumscripts : *mut i32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : *const u16, cinchars : i32, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : *const u16, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : *const u16, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut OPENTYPE_TAG, pcitems : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::HDC, psc : *mut SCRIPT_CACHE, wglyph : super::WORD, pabc : *mut super::ABC) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("usp10.dll" "system" fn ScriptGetLogicalWidths(psa : *const SCRIPT_ANALYSIS, cchars : i32, cglyphs : i32, piglyphwidth : *const i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, pidx : *const i32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("usp10.dll" "system" fn ScriptGetProperties(ppsp : *mut *mut *const SCRIPT_PROPERTIES, pinumscripts : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : *const super::WCHAR, cinchars : i32, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : *const super::WCHAR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : *const super::WCHAR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut OPENTYPE_TAG, pcitems : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("usp10.dll" "system" fn ScriptJustify(psva : *const SCRIPT_VISATTR, piadvance : *const i32, cglyphs : i32, idx : i32, iminkashida : i32, pijustify : *mut i32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::ABC) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *mut SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : *const u16, pwlogclust : *const u16, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const u16, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::ABC) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, tagfeature : OPENTYPE_TAG, lparameter : i32, wglyphid : u16, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+windows_link::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const super::BYTE, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwglyphs : *const super::WORD, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::ABC) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *mut SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : *const super::WCHAR, pwlogclust : *const super::WORD, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const super::WORD, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::ABC) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, tagfeature : OPENTYPE_TAG, lparameter : super::LONG, wglyphid : super::WORD, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("usp10.dll" "system" fn ScriptRecordDigitSubstitution(locale : super::LCID, psds : *mut SCRIPT_DIGITSUBSTITUTE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptShape(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwcchars : *const u16, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *mut SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : *const u16, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut u16, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut u16, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut SCRIPT_STRING_ANALYSIS) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptShape(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwcchars : *const super::WCHAR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut super::WORD, pwlogclust : *mut super::WORD, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *mut SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : *const super::WCHAR, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut super::WORD, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut super::WORD, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : super::DWORD, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const super::BYTE, pssa : *mut SCRIPT_STRING_ANALYSIS) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : SCRIPT_STRING_ANALYSIS, icp : i32, ftrailing : windows_sys::core::BOOL, px : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptStringFree(pssa : *mut SCRIPT_STRING_ANALYSIS) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptStringGetLogicalWidths(ssa : SCRIPT_STRING_ANALYSIS, pidx : *mut i32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptStringGetOrder(ssa : SCRIPT_STRING_ANALYSIS, puorder : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptStringOut(ssa : SCRIPT_STRING_ANALYSIS, ix : i32, iy : i32, uoptions : u32, prc : *const super::RECT, iminsel : i32, imaxsel : i32, fdisabled : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("usp10.dll" "system" fn ScriptStringGetOrder(ssa : SCRIPT_STRING_ANALYSIS, puorder : *mut super::UINT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("usp10.dll" "system" fn ScriptStringOut(ssa : SCRIPT_STRING_ANALYSIS, ix : i32, iy : i32, uoptions : super::UINT, prc : *const super::RECT, iminsel : i32, imaxsel : i32, fdisabled : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptStringValidate(ssa : SCRIPT_STRING_ANALYSIS) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptStringXtoCP(ssa : SCRIPT_STRING_ANALYSIS, ix : i32, pich : *mut i32, pitrailing : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("usp10.dll" "system" fn ScriptString_pLogAttr(ssa : SCRIPT_STRING_ANALYSIS) -> *const SCRIPT_LOGATTR);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("usp10.dll" "system" fn ScriptString_pSize(ssa : SCRIPT_STRING_ANALYSIS) -> *const super::SIZE);
 windows_link::link!("usp10.dll" "system" fn ScriptString_pcOutChars(ssa : SCRIPT_STRING_ANALYSIS) -> *const i32);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, tagfeature : OPENTYPE_TAG, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::HDC, psc : *mut SCRIPT_CACHE, x : i32, y : i32, fuoptions : u32, lprc : *const super::RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : *const u16, ireserved : i32, pwglyphs : *const u16, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, tagfeature : OPENTYPE_TAG, lparameter : super::LONG, wglyphid : super::WORD, pwoutglyphid : *mut super::WORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::HDC, psc : *mut SCRIPT_CACHE, x : i32, y : i32, fuoptions : super::UINT, lprc : *const super::RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : *const super::WCHAR, ireserved : i32, pwglyphs : *const super::WORD, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> windows_sys::core::HRESULT);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct GOFFSET {
-    pub du: i32,
-    pub dv: i32,
+    pub du: super::LONG,
+    pub dv: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct OPENTYPE_FEATURE_RECORD {
     pub tagFeature: OPENTYPE_TAG,
-    pub lParameter: i32,
+    pub lParameter: super::LONG,
 }
 pub type OPENTYPE_TAG = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
@@ -79,43 +95,49 @@ pub struct SCRIPT_ANALYSIS {
 }
 pub type SCRIPT_CACHE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
 pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: i32 = 0;
 pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: i32 = 2;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: i32 = 1;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_FONTPROPERTIES {
     pub cBytes: i32,
-    pub wgBlank: u16,
-    pub wgDefault: u16,
-    pub wgInvalid: u16,
-    pub wgKashida: u16,
+    pub wgBlank: super::WORD,
+    pub wgDefault: super::WORD,
+    pub wgInvalid: super::WORD,
+    pub wgKashida: super::WORD,
     pub iKashidaWidth: i32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_GLYPHPROP {
     pub sva: SCRIPT_VISATTR,
-    pub reserved: u16,
+    pub reserved: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
@@ -139,17 +161,20 @@ pub const SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = 3;
 pub const SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = 5;
 pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
@@ -166,6 +191,7 @@ pub struct SCRIPT_TABDEF {
 pub const SCRIPT_TAG_UNKNOWN: i32 = 0;
 pub const SCRIPT_UNDEFINED: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
@@ -196,6 +222,7 @@ pub const SSA_PIDX: i32 = 268435456;
 pub const SSA_RTL: i32 = 256;
 pub const SSA_TAB: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,

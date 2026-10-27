@@ -1,5 +1,12 @@
 pub const DISPATCH_CONSTRUCT: i32 = 16384;
 pub const DISPID_STARTENUM: i32 = -1;
+pub const DISPID_THIS: i32 = -613;
+pub const IID_ICanHandleException: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5598e60_b307_11d1_b27d_006008c3fbfb);
+pub const IID_IDispError: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa6ef9861_c720_11d0_9337_00a0c90dcaa9);
+pub const IID_IDispatchEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa6ef9860_c720_11d0_9337_00a0c90dcaa9);
+pub const IID_IObjectIdentity: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085);
+pub const IID_IProvideRuntimeContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x10e2414a_ec59_49d2_bc51_5add2c36febc);
+pub const IID_IVariantChangeType: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa6ef9862_c720_11d0_9337_00a0c90dcaa9);
 pub const SID_GetCaller: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9);
 pub const SID_ProvideRuntimeContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x74a5040c_dd0c_48f0_ac85_194c3259180a);
 pub const SID_VariantConversion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1f101481_bccd_11d0_9336_00a0c90dcaa9);

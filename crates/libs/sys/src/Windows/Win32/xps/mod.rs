@@ -1,14 +1,61 @@
-#[cfg(all(feature = "objidlbase", feature = "winnt"))]
-windows_link::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_sys::core::PCWSTR, jobname : windows_sys::core::PCWSTR, outputfilename : windows_sys::core::PCWSTR, progressevent : super::HANDLE, completionevent : super::HANDLE, printablepageson : *const u8, printablepagesoncount : u32, xpsprintjob : *mut *mut core::ffi::c_void, documentstream : *mut *mut core::ffi::c_void, printticketstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "winnt"))]
+windows_link::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_sys::core::PCWSTR, jobname : windows_sys::core::PCWSTR, outputfilename : windows_sys::core::PCWSTR, progressevent : super::HANDLE, completionevent : super::HANDLE, printablepageson : *const super::UINT8, printablepagesoncount : super::UINT32, xpsprintjob : *mut *mut core::ffi::c_void, documentstream : *mut *mut core::ffi::c_void, printticketstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("xpsprint.dll" "system" fn StartXpsPrintJob1(printername : windows_sys::core::PCWSTR, jobname : windows_sys::core::PCWSTR, outputfilename : windows_sys::core::PCWSTR, progressevent : super::HANDLE, completionevent : super::HANDLE, xpsprintjob : *mut *mut core::ffi::c_void, printcontentreceiver : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
-    pub value: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028,
+    pub value: XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for XPS_COLOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028 {
+    pub sRGB: XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_0,
+    pub scRGB: XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_1,
+    pub context: XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_0 {
+    pub alpha: super::UINT8,
+    pub red: super::UINT8,
+    pub green: super::UINT8,
+    pub blue: super::UINT8,
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_1 {
+    pub alpha: super::FLOAT,
+    pub red: super::FLOAT,
+    pub green: super::FLOAT,
+    pub blue: super::FLOAT,
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2 {
+    pub channelCount: super::UINT8,
+    pub channels: [super::FLOAT; 9],
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for XPS_COLOR___MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -21,10 +68,11 @@ pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = 3;
 pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = 2;
 pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_DASH {
-    pub length: f32,
-    pub gap: f32,
+    pub length: super::FLOAT,
+    pub gap: super::FLOAT,
 }
 pub type XPS_DASH_CAP = i32;
 pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = 1;
@@ -115,20 +163,22 @@ pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = 2;
 pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = 3;
 pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = 4;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_GLYPH_INDEX {
-    pub index: i32,
-    pub advanceWidth: f32,
-    pub horizontalOffset: f32,
-    pub verticalOffset: f32,
+    pub index: super::LONG,
+    pub advanceWidth: super::FLOAT,
+    pub horizontalOffset: super::FLOAT,
+    pub verticalOffset: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_GLYPH_MAPPING {
-    pub unicodeStringStart: u32,
-    pub unicodeStringLength: u16,
-    pub glyphIndicesStart: u32,
-    pub glyphIndicesLength: u16,
+    pub unicodeStringStart: super::UINT32,
+    pub unicodeStringLength: super::UINT16,
+    pub glyphIndicesStart: super::UINT32,
+    pub glyphIndicesLength: super::UINT16,
 }
 pub type XPS_IMAGE_TYPE = i32;
 pub const XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = 1;
@@ -145,12 +195,13 @@ pub type XPS_JOB_COMPLETION = i32;
 pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = 3;
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_JOB_STATUS {
-    pub jobId: u32,
-    pub currentDocument: i32,
-    pub currentPage: i32,
-    pub currentPageTotal: i32,
+    pub jobId: super::UINT32,
+    pub currentDocument: super::INT32,
+    pub currentPage: super::INT32,
+    pub currentPageTotal: super::INT32,
     pub completion: XPS_JOB_COMPLETION,
     pub jobStatus: windows_sys::core::HRESULT,
 }
@@ -164,14 +215,15 @@ pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = 2;
 pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = 1;
 pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = 3;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_MATRIX {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub m31: f32,
-    pub m32: f32,
+    pub m11: super::FLOAT,
+    pub m12: super::FLOAT,
+    pub m21: super::FLOAT,
+    pub m22: super::FLOAT,
+    pub m31: super::FLOAT,
+    pub m32: super::FLOAT,
 }
 pub type XPS_OBJECT_TYPE = i32;
 pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = 1;
@@ -185,18 +237,20 @@ pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 9;
 pub const XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = 6;
 pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = 10;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_POINT {
-    pub x: f32,
-    pub y: f32,
+    pub x: super::FLOAT,
+    pub y: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_RECT {
-    pub x: f32,
-    pub y: f32,
-    pub width: f32,
-    pub height: f32,
+    pub x: super::FLOAT,
+    pub y: super::FLOAT,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
 }
 pub type XPS_SEGMENT_STROKE_PATTERN = i32;
 pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = 1;
@@ -211,10 +265,11 @@ pub const XPS_SEGMENT_TYPE_BEZIER: XPS_SEGMENT_TYPE = 5;
 pub const XPS_SEGMENT_TYPE_LINE: XPS_SEGMENT_TYPE = 6;
 pub const XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XPS_SEGMENT_TYPE = 7;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_SIZE {
-    pub width: f32,
-    pub height: f32,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
 }
 pub type XPS_SPREAD_METHOD = i32;
 pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = 1;
@@ -238,42 +293,3 @@ pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = 1;
 pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2;
 pub const XpsOMObjectFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
 pub const XpsOMThumbnailGenerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028 {
-    pub sRGB: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_0,
-    pub scRGB: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_1,
-    pub context: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2,
-}
-impl Default for __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_0 {
-    pub alpha: u8,
-    pub red: u8,
-    pub green: u8,
-    pub blue: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_1 {
-    pub alpha: f32,
-    pub red: f32,
-    pub green: f32,
-    pub blue: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2 {
-    pub channelCount: u8,
-    pub channels: [f32; 9],
-}
-impl Default for __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}

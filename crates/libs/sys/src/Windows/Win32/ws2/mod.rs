@@ -1,96 +1,116 @@
-#[cfg(feature = "guiddef")]
+#[cfg(feature = "shared")]
+windows_link::link!("ws2_32.dll" "system" "freeaddrinfo" fn FreeAddrInfoA(paddrinfo : PADDRINFOA));
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 windows_link::link!("ws2_32.dll" "system" fn FreeAddrInfoEx(paddrinfoex : PADDRINFOEXA));
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 windows_link::link!("ws2_32.dll" "system" fn FreeAddrInfoExW(paddrinfoex : PADDRINFOEXW));
+#[cfg(feature = "shared")]
 windows_link::link!("ws2_32.dll" "system" fn FreeAddrInfoW(paddrinfo : PADDRINFOW));
-#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2"))]
-windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExA(pname : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, dwnamespace : u32, lpnspid : super::LPGUID, hints : *const ADDRINFOEXA, ppresult : *mut PADDRINFOEXA, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> i32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExCancel(lphandle : super::LPHANDLE) -> i32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExOverlappedResult(lpoverlapped : super::LPOVERLAPPED) -> i32);
-#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2"))]
-windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExW(pname : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, dwnamespace : u32, lpnspid : super::LPGUID, hints : *const ADDRINFOEXW, ppresult : *mut PADDRINFOEXW, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle : super::LPHANDLE) -> i32);
-windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoW(pnodename : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, phints : *const ADDRINFOW, ppresult : *mut PADDRINFOW) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ws2_32.dll" "system" fn GetNameInfoW(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : super::PWCHAR, nodebuffersize : u32, pservicebuffer : super::PWCHAR, servicebuffersize : u32, flags : i32) -> i32);
-windows_link::link!("ws2_32.dll" "system" fn InetNtopW(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PWSTR, stringbufsize : usize) -> windows_sys::core::PCWSTR);
-windows_link::link!("ws2_32.dll" "system" fn InetPtonW(family : i32, pszaddrstring : windows_sys::core::PCWSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
-#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
-windows_link::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : super::LPBLOB, dwflags : u32, dwnamespace : u32, lpnspid : super::LPGUID, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> i32);
-#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
-windows_link::link!("ws2_32.dll" "system" fn SetAddrInfoExW(pname : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : super::LPBLOB, dwflags : u32, dwnamespace : u32, lpnspid : super::LPGUID, timeout : *const super::TIMEVAL, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("ws2_32.dll" "system" "getaddrinfo" fn GetAddrInfoA(pnodename : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, phints : *const ADDRINFOA, ppresult : *mut PADDRINFOA) -> super::INT);
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winsock2"))]
+windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExA(pname : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, dwnamespace : super::DWORD, lpnspid : super::LPGUID, hints : *const ADDRINFOEXA, ppresult : *mut PADDRINFOEXA, timeout : *const super::timeval, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> super::INT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExCancel(lphandle : super::LPHANDLE) -> super::INT);
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
+windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExOverlappedResult(lpoverlapped : super::LPOVERLAPPED) -> super::INT);
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winsock2"))]
+windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoExW(pname : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, dwnamespace : super::DWORD, lpnspid : super::LPGUID, hints : *const ADDRINFOEXW, ppresult : *mut PADDRINFOEXW, timeout : *const super::timeval, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle : super::LPHANDLE) -> super::INT);
+#[cfg(feature = "shared")]
+windows_link::link!("ws2_32.dll" "system" fn GetAddrInfoW(pnodename : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, phints : *const ADDRINFOW, ppresult : *mut PADDRINFOW) -> super::INT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ws2_32.dll" "system" "getnameinfo" fn GetNameInfoA(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : super::PCHAR, nodebuffersize : super::DWORD, pservicebuffer : super::PCHAR, servicebuffersize : super::DWORD, flags : super::INT) -> super::INT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ws2_32.dll" "system" fn GetNameInfoW(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : super::PWCHAR, nodebuffersize : super::DWORD, pservicebuffer : super::PWCHAR, servicebuffersize : super::DWORD, flags : super::INT) -> super::INT);
+#[cfg(feature = "shared")]
+windows_link::link!("ws2_32.dll" "system" "inet_ntop" fn InetNtopA(family : super::INT, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PSTR, stringbufsize : super::size_t) -> windows_sys::core::PCSTR);
+#[cfg(feature = "shared")]
+windows_link::link!("ws2_32.dll" "system" fn InetNtopW(family : super::INT, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PWSTR, stringbufsize : super::size_t) -> windows_sys::core::PCWSTR);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ws2_32.dll" "system" "inet_pton" fn InetPtonA(family : super::INT, pszaddrstring : windows_sys::core::PCSTR, paddrbuf : super::PVOID) -> super::INT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ws2_32.dll" "system" fn InetPtonW(family : super::INT, pszaddrstring : windows_sys::core::PCWSTR, paddrbuf : super::PVOID) -> super::INT);
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
+windows_link::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : super::DWORD, lpblob : super::LPBLOB, dwflags : super::DWORD, dwnamespace : super::DWORD, lpnspid : super::LPGUID, timeout : *const super::timeval, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> super::INT);
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winsock2", feature = "wtypesbase"))]
+windows_link::link!("ws2_32.dll" "system" fn SetAddrInfoExW(pname : windows_sys::core::PCWSTR, pservicename : windows_sys::core::PCWSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : super::DWORD, lpblob : super::LPBLOB, dwflags : super::DWORD, dwnamespace : super::DWORD, lpnspid : super::LPGUID, timeout : *const super::timeval, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : super::LPHANDLE) -> super::INT);
+#[cfg(feature = "shared")]
 windows_link::link!("ws2_32.dll" "system" fn freeaddrinfo(paddrinfo : PADDRINFOA));
-windows_link::link!("ws2_32.dll" "system" fn getaddrinfo(pnodename : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, phints : *const ADDRINFOA, ppresult : *mut PADDRINFOA) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ws2_32.dll" "system" fn getnameinfo(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : super::PCHAR, nodebuffersize : u32, pservicebuffer : super::PCHAR, servicebuffersize : u32, flags : i32) -> i32);
-windows_link::link!("ws2_32.dll" "system" fn inet_ntop(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PSTR, stringbufsize : usize) -> windows_sys::core::PCSTR);
-windows_link::link!("ws2_32.dll" "system" fn inet_pton(family : i32, pszaddrstring : windows_sys::core::PCSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("ws2_32.dll" "system" fn getaddrinfo(pnodename : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, phints : *const ADDRINFOA, ppresult : *mut PADDRINFOA) -> super::INT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ws2_32.dll" "system" fn getnameinfo(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : super::PCHAR, nodebuffersize : super::DWORD, pservicebuffer : super::PCHAR, servicebuffersize : super::DWORD, flags : super::INT) -> super::INT);
+#[cfg(feature = "shared")]
+windows_link::link!("ws2_32.dll" "system" fn inet_ntop(family : super::INT, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PSTR, stringbufsize : super::size_t) -> windows_sys::core::PCSTR);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ws2_32.dll" "system" fn inet_pton(family : super::INT, pszaddrstring : windows_sys::core::PCSTR, paddrbuf : super::PVOID) -> super::INT);
 pub type ADDRESS_FAMILY = u16;
+#[cfg(feature = "shared")]
 pub type ADDRINFO = ADDRINFOA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOA {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: *mut i8,
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut Self,
 }
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type ADDRINFOEX = ADDRINFOEXA;
 #[repr(C)]
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX2A {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: *mut i8,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: *mut i8,
 }
 #[repr(C)]
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX2W {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX3 {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
     pub ai_version: i32,
@@ -98,18 +118,18 @@ pub struct ADDRINFOEX3 {
     pub ai_interfaceindex: i32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX4 {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: *mut windows_sys::core::GUID,
     pub ai_next: *mut Self,
     pub ai_version: i32,
@@ -118,18 +138,18 @@ pub struct ADDRINFOEX4 {
     pub ai_resolutionhandle: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX5 {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: *mut windows_sys::core::GUID,
     pub ai_next: *mut Self,
     pub ai_version: i32,
@@ -139,18 +159,18 @@ pub struct ADDRINFOEX5 {
     pub ai_ttl: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX6 {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: *mut windows_sys::core::GUID,
     pub ai_next: *mut ADDRINFOEX5,
     pub ai_version: i32,
@@ -160,21 +180,21 @@ pub struct ADDRINFOEX6 {
     pub ai_ttl: u32,
     pub ai_numservers: u32,
     pub ai_servers: *mut ADDRINFO_DNS_SERVER,
-    pub ai_responseflags: u64,
+    pub ai_responseflags: super::ULONG64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX7 {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: *mut windows_sys::core::GUID,
     pub ai_next: *mut Self,
     pub ai_version: i32,
@@ -184,38 +204,38 @@ pub struct ADDRINFOEX7 {
     pub ai_ttl: u32,
     pub ai_numservers: u32,
     pub ai_servers: *mut ADDRINFO_DNS_SERVER,
-    pub ai_responseflags: u64,
-    pub ai_extraflags: u64,
+    pub ai_responseflags: super::ULONG64,
+    pub ai_extraflags: super::ULONG64,
 }
 #[repr(C)]
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: *mut i8,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
 }
 #[repr(C)]
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEXW {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_blob: *mut core::ffi::c_void,
-    pub ai_bloblen: usize,
+    pub ai_bloblen: super::size_t,
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
 }
@@ -225,20 +245,23 @@ pub const ADDRINFOEX_VERSION_4: i32 = 4;
 pub const ADDRINFOEX_VERSION_5: i32 = 5;
 pub const ADDRINFOEX_VERSION_6: i32 = 6;
 pub const ADDRINFOEX_VERSION_7: i32 = 7;
+#[cfg(feature = "shared")]
 pub type ADDRINFOT = ADDRINFOA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADDRINFOW {
     pub ai_flags: i32,
     pub ai_family: i32,
     pub ai_socktype: i32,
     pub ai_protocol: i32,
-    pub ai_addrlen: usize,
+    pub ai_addrlen: super::size_t,
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut Self,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ADDRINFO_DNS_SERVER {
     pub ai_servertype: u32,
@@ -247,17 +270,20 @@ pub struct ADDRINFO_DNS_SERVER {
     pub ai_addr: *mut SOCKADDR,
     pub Anonymous: ADDRINFO_DNS_SERVER_0,
 }
+#[cfg(feature = "shared")]
 impl Default for ADDRINFO_DNS_SERVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ADDRINFO_DNS_SERVER_0 {
     pub ai_template: windows_sys::core::PWSTR,
     pub ai_hostname: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
 impl Default for ADDRINFO_DNS_SERVER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -330,89 +356,97 @@ pub const AI_RETURN_TTL: i32 = 128;
 pub const AI_SECURE: i32 = 32768;
 pub const AI_SECURE_WITH_FALLBACK: i32 = 1048576;
 pub const AI_V4MAPPED: i32 = 2048;
+#[cfg(feature = "shared")]
 pub type BTHNS_INQUIRYBLOB = BTH_QUERY_DEVICE;
-#[cfg(feature = "bthsdpdef")]
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 pub type BTHNS_RESTRICTIONBLOB = BTH_QUERY_SERVICE;
 pub const BTHNS_RESULT_DEVICE_AUTHENTICATED: i32 = 262144;
 pub const BTHNS_RESULT_DEVICE_CONNECTED: i32 = 65536;
 pub const BTHNS_RESULT_DEVICE_REMEMBERED: i32 = 131072;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type BTHNS_SETBLOB = BTH_SET_SERVICE;
 pub const BTHPROTO_L2CAP: i32 = 256;
 pub const BTHPROTO_RFCOMM: i32 = 3;
 pub const BTH_ADDR_STRING_SIZE: i32 = 12;
 #[repr(C, packed(1))]
-#[cfg(feature = "bthdef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_INFO_REQ {
     pub btAddr: super::BTH_ADDR,
-    pub infoType: u16,
+    pub infoType: super::USHORT,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BTH_INFO_RSP {
-    pub result: u16,
-    pub dataLen: u8,
+    pub result: super::USHORT,
+    pub dataLen: super::UCHAR,
     pub Anonymous: BTH_INFO_RSP_0,
 }
+#[cfg(feature = "shared")]
 impl Default for BTH_INFO_RSP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union BTH_INFO_RSP_0 {
-    pub connectionlessMTU: u16,
-    pub data: [u8; 44],
+    pub connectionlessMTU: super::USHORT,
+    pub data: [super::UCHAR; 44],
 }
+#[cfg(feature = "shared")]
 impl Default for BTH_INFO_RSP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "bthdef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BTH_PING_REQ {
     pub btAddr: super::BTH_ADDR,
-    pub dataLen: u8,
-    pub data: [u8; 44],
+    pub dataLen: super::UCHAR,
+    pub data: [super::UCHAR; 44],
 }
-#[cfg(feature = "bthdef")]
+#[cfg(feature = "shared")]
 impl Default for BTH_PING_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BTH_PING_RSP {
-    pub dataLen: u8,
-    pub data: [u8; 44],
+    pub dataLen: super::UCHAR,
+    pub data: [super::UCHAR; 44],
 }
+#[cfg(feature = "shared")]
 impl Default for BTH_PING_RSP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_QUERY_DEVICE {
-    pub LAP: u32,
-    pub length: u8,
+    pub LAP: super::ULONG,
+    pub length: super::UCHAR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "bthsdpdef")]
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct BTH_QUERY_SERVICE {
-    pub r#type: u32,
-    pub serviceHandle: u32,
+    pub r#type: super::ULONG,
+    pub serviceHandle: super::ULONG,
     pub uuids: [super::SdpQueryUuid; 12],
-    pub numRange: u32,
+    pub numRange: super::ULONG,
     pub pRange: [super::SdpAttributeRange; 1],
 }
-#[cfg(feature = "bthsdpdef")]
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 impl Default for BTH_QUERY_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -420,34 +454,37 @@ impl Default for BTH_QUERY_SERVICE {
 }
 pub const BTH_SDP_VERSION: i32 = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BTH_SET_SERVICE {
     pub pSdpVersion: super::PULONG,
     pub pRecordHandle: *mut super::HANDLE,
-    pub fCodService: u32,
-    pub Reserved: [u32; 5],
-    pub ulRecordLength: u32,
-    pub pRecord: [u8; 1],
+    pub fCodService: super::ULONG,
+    pub Reserved: [super::ULONG; 5],
+    pub ulRecordLength: super::ULONG,
+    pub pRecord: [super::UCHAR; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for BTH_SET_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BT_PORT_ANY: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const BT_PORT_ANY: super::ULONG = 4294967295;
 pub const BT_PORT_DYN_FIRST: i32 = 4097;
 pub const BT_PORT_MAX: i32 = 65535;
 pub const BT_PORT_MIN: i32 = 1;
+#[cfg(feature = "shared")]
 pub type CMSGHDR = WSACMSGHDR;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CSADDR_INFO {
     pub LocalAddr: SOCKET_ADDRESS,
     pub RemoteAddr: SOCKET_ADDRESS,
-    pub iSocketType: i32,
-    pub iProtocol: i32,
+    pub iSocketType: super::INT,
+    pub iProtocol: super::INT,
 }
 pub const EAI_AGAIN: i32 = 11002;
 pub const EAI_BADFLAGS: i32 = 10022;
@@ -462,42 +499,46 @@ pub const EAI_SERVICE: i32 = 10109;
 pub const EAI_SOCKTYPE: i32 = 10044;
 pub const GAI_STRERROR_BUFFER_SIZE: i32 = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct GROUP_FILTER {
-    pub gf_interface: u32,
+    pub gf_interface: super::ULONG,
     pub gf_group: SOCKADDR_STORAGE,
     pub gf_fmode: MULTICAST_MODE_TYPE,
-    pub gf_numsrc: u32,
+    pub gf_numsrc: super::ULONG,
     pub gf_slist: [SOCKADDR_STORAGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for GROUP_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct GROUP_REQ {
-    pub gr_interface: u32,
+    pub gr_interface: super::ULONG,
     pub gr_group: SOCKADDR_STORAGE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct GROUP_SOURCE_REQ {
-    pub gsr_interface: u32,
+    pub gsr_interface: super::ULONG,
     pub gsr_group: SOCKADDR_STORAGE,
     pub gsr_source: SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct ICMP_ERROR_INFO {
     pub srcaddress: SOCKADDR_INET,
     pub protocol: IPPROTO,
-    pub r#type: u8,
-    pub code: u8,
+    pub r#type: super::UINT8,
+    pub code: super::UINT8,
 }
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 impl Default for ICMP_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -515,56 +556,59 @@ pub const IN6ADDR_SOLICITEDNODEMULTICASTPREFIX_LENGTH: i32 = 104;
 pub const IN6ADDR_TEREDOPREFIX_LENGTH: i32 = 32;
 pub const IN6ADDR_V4MAPPEDPREFIX_LENGTH: i32 = 96;
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IN6_PKTINFO {
     pub ipi6_addr: super::IN6_ADDR,
-    pub ipi6_ifindex: u32,
+    pub ipi6_ifindex: super::ULONG,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for IN6_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IN6_PKTINFO_EX {
     pub pkt_info: IN6_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for IN6_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const INADDR_ANY: u32 = 0;
-pub const INADDR_BROADCAST: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const INADDR_ANY: super::ULONG = 0;
+#[cfg(feature = "shared")]
+pub const INADDR_BROADCAST: super::ULONG = 4294967295;
 pub const INADDR_LOOPBACK: i32 = 2130706433;
 pub const INADDR_NONE: u32 = 4294967295;
 pub const INET6_ADDRSTRLEN: i32 = 65;
 pub const INET_ADDRSTRLEN: i32 = 22;
 #[repr(C)]
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct INTERFACE_INFO {
-    pub iiFlags: u32,
+    pub iiFlags: super::ULONG,
     pub iiAddress: sockaddr_gen,
     pub iiBroadcastAddress: sockaddr_gen,
     pub iiNetmask: sockaddr_gen,
 }
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 impl Default for INTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INTERFACE_INFO_EX {
-    pub iiFlags: u32,
+    pub iiFlags: super::ULONG,
     pub iiAddress: SOCKET_ADDRESS,
     pub iiBroadcastAddress: SOCKET_ADDRESS,
     pub iiNetmask: SOCKET_ADDRESS,
@@ -584,97 +628,68 @@ pub const IN_CLASSD_HOST: i32 = 268435455;
 pub const IN_CLASSD_NET: u32 = 4026531840;
 pub const IN_CLASSD_NSHIFT: i32 = 28;
 #[repr(C)]
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IN_PKTINFO {
     pub ipi_addr: super::IN_ADDR,
-    pub ipi_ifindex: u32,
+    pub ipi_ifindex: super::ULONG,
 }
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 impl Default for IN_PKTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IN_PKTINFO_EX {
     pub pkt_info: IN_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 impl Default for IN_PKTINFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IN_RECVERR {
     pub protocol: IPPROTO,
-    pub info: u32,
-    pub r#type: u8,
-    pub code: u8,
+    pub info: super::ULONG,
+    pub r#type: super::UINT8,
+    pub code: super::UINT8,
 }
-pub const IOCPARM_MASK: i32 = 127;
-pub const IOC_IN: u32 = 2147483648;
-pub const IOC_INOUT: u32 = 3221225472;
-pub const IOC_OUT: i32 = 1073741824;
 pub const IOC_PROTOCOL: i32 = 268435456;
 pub const IOC_UNIX: i32 = 0;
 pub const IOC_VENDOR: i32 = 402653184;
-pub const IOC_VOID: i32 = 536870912;
 pub const IOC_WS2: i32 = 134217728;
 pub const IOC_WSK: i32 = 251658240;
 pub const IP6T_SO_ORIGINAL_DST: i32 = 12303;
-pub const IPPORT_BIFFUDP: i32 = 512;
 pub const IPPORT_CHARGEN: i32 = 19;
-pub const IPPORT_CMDSERVER: i32 = 514;
-pub const IPPORT_DAYTIME: i32 = 13;
-pub const IPPORT_DISCARD: i32 = 9;
 pub const IPPORT_DYNAMIC_MAX: i32 = 65535;
 pub const IPPORT_DYNAMIC_MIN: i32 = 49152;
-pub const IPPORT_ECHO: i32 = 7;
-pub const IPPORT_EFSSERVER: i32 = 520;
 pub const IPPORT_EPMAP: i32 = 135;
-pub const IPPORT_EXECSERVER: i32 = 512;
-pub const IPPORT_FINGER: i32 = 79;
-pub const IPPORT_FTP: i32 = 21;
 pub const IPPORT_FTP_DATA: i32 = 20;
 pub const IPPORT_HTTPS: i32 = 443;
 pub const IPPORT_IMAP: i32 = 143;
 pub const IPPORT_IMAP3: i32 = 220;
 pub const IPPORT_LDAP: i32 = 389;
-pub const IPPORT_LOGINSERVER: i32 = 513;
 pub const IPPORT_MICROSOFT_DS: i32 = 445;
 pub const IPPORT_MSP: i32 = 18;
-pub const IPPORT_MTP: i32 = 57;
-pub const IPPORT_NAMESERVER: i32 = 42;
 pub const IPPORT_NETBIOS_DGM: i32 = 138;
 pub const IPPORT_NETBIOS_NS: i32 = 137;
 pub const IPPORT_NETBIOS_SSN: i32 = 139;
-pub const IPPORT_NETSTAT: i32 = 15;
 pub const IPPORT_NTP: i32 = 123;
 pub const IPPORT_POP3: i32 = 110;
 pub const IPPORT_QOTD: i32 = 17;
 pub const IPPORT_REGISTERED_MAX: i32 = 49151;
 pub const IPPORT_REGISTERED_MIN: i32 = 1024;
-pub const IPPORT_RESERVED: i32 = 1024;
-pub const IPPORT_RJE: i32 = 77;
-pub const IPPORT_ROUTESERVER: i32 = 520;
-pub const IPPORT_SMTP: i32 = 25;
 pub const IPPORT_SNMP: i32 = 161;
 pub const IPPORT_SNMP_TRAP: i32 = 162;
-pub const IPPORT_SUPDUP: i32 = 95;
-pub const IPPORT_SYSTAT: i32 = 11;
 pub const IPPORT_TCPMUX: i32 = 1;
-pub const IPPORT_TELNET: i32 = 23;
-pub const IPPORT_TFTP: i32 = 69;
-pub const IPPORT_TIMESERVER: i32 = 37;
-pub const IPPORT_TTYLINK: i32 = 87;
-pub const IPPORT_WHOIS: i32 = 43;
-pub const IPPORT_WHOSERVER: i32 = 513;
 pub type IPPROTO = i32;
 pub const IPPROTO_AH: IPPROTO = 51;
 pub const IPPROTO_CBT: IPPROTO = 7;
@@ -731,13 +746,13 @@ pub const IPV6_IFLIST: i32 = 28;
 pub const IPV6_JOIN_GROUP: i32 = 12;
 pub const IPV6_LEAVE_GROUP: i32 = 13;
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IPV6_MREQ {
     pub ipv6mr_multiaddr: super::IN6_ADDR,
-    pub ipv6mr_interface: u32,
+    pub ipv6mr_interface: super::ULONG,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for IPV6_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -780,43 +795,43 @@ pub const IP_HDRINCL: i32 = 2;
 pub const IP_HOPLIMIT: i32 = 21;
 pub const IP_IFLIST: i32 = 28;
 #[repr(C)]
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IP_MREQ {
     pub imr_multiaddr: super::IN_ADDR,
     pub imr_interface: super::IN_ADDR,
 }
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 impl Default for IP_MREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IP_MREQ_SOURCE {
     pub imr_multiaddr: super::IN_ADDR,
     pub imr_sourceaddr: super::IN_ADDR,
     pub imr_interface: super::IN_ADDR,
 }
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 impl Default for IP_MREQ_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IP_MSFILTER {
     pub imsf_multiaddr: super::IN_ADDR,
     pub imsf_interface: super::IN_ADDR,
     pub imsf_fmode: MULTICAST_MODE_TYPE,
-    pub imsf_numsrc: u32,
+    pub imsf_numsrc: super::ULONG,
     pub imsf_slist: [super::IN_ADDR; 1],
 }
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 impl Default for IP_MSFILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -858,41 +873,53 @@ pub const IP_UNSPECIFIED_TYPE_OF_SERVICE: i32 = -1;
 pub const IP_USER_MTU: i32 = 76;
 pub const IP_WFP_REDIRECT_CONTEXT: i32 = 70;
 pub const IP_WFP_REDIRECT_RECORDS: i32 = 60;
+#[cfg(feature = "shared")]
 pub type LPADDRINFO = *mut ADDRINFOA;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type LPADDRINFOEX2A = *mut ADDRINFOEX2A;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type LPADDRINFOEX2W = *mut ADDRINFOEX2W;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type LPADDRINFOEX3 = *mut ADDRINFOEX3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPADDRINFOEX4 = *mut ADDRINFOEX4;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPADDRINFOEX5 = *mut ADDRINFOEX5;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type LPADDRINFOEXA = *mut ADDRINFOEXA;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type LPADDRINFOEXW = *mut ADDRINFOEXW;
+#[cfg(feature = "shared")]
 pub type LPCSADDR_INFO = *mut CSADDR_INFO;
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 pub type LPINTERFACE_INFO = *mut INTERFACE_INFO;
+#[cfg(feature = "shared")]
 pub type LPINTERFACE_INFO_EX = *mut INTERFACE_INFO_EX;
-#[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
-pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: super::LPWSAOVERLAPPED)>;
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt", feature = "winsock2"))]
+pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: super::DWORD, dwbytes: super::DWORD, lpoverlapped: super::LPWSAOVERLAPPED)>;
+#[cfg(feature = "shared")]
 pub type LPSOCKADDR = *mut SOCKADDR;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type LPSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type LPSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type LPSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
-pub type LPSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
+#[cfg(feature = "shared")]
+pub type LPSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE_LH;
+#[cfg(feature = "shared")]
 pub type LPSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
+#[cfg(feature = "shared")]
 pub type LPSOCKADDR_STORAGE_XP = *mut SOCKADDR_STORAGE_XP;
+#[cfg(feature = "shared")]
 pub type LPSOCKET_ADDRESS = *mut SOCKET_ADDRESS;
+#[cfg(feature = "shared")]
 pub type LPSOCKET_ADDRESS_LIST = *mut SOCKET_ADDRESS_LIST;
+#[cfg(feature = "shared")]
 pub type LPWSABUF = *mut WSABUF;
+#[cfg(feature = "shared")]
 pub type LPWSACMSGHDR = *mut WSACMSGHDR;
+#[cfg(feature = "shared")]
 pub type LPWSAMSG = *mut WSAMSG;
 pub const MCAST_BLOCK_SOURCE: i32 = 43;
 pub const MCAST_EXCLUDE: MULTICAST_MODE_TYPE = 1;
@@ -922,130 +949,133 @@ pub const NI_NAMEREQD: i32 = 4;
 pub const NI_NOFQDN: i32 = 1;
 pub const NI_NUMERICHOST: i32 = 2;
 pub const NI_NUMERICSERV: i32 = 8;
-pub const NS_ALL: i32 = 0;
-pub const NS_BTH: i32 = 16;
-pub const NS_DHCP: i32 = 6;
-pub const NS_DNS: i32 = 12;
-pub const NS_EMAIL: i32 = 37;
-pub const NS_MS: i32 = 30;
-pub const NS_NBP: i32 = 20;
-pub const NS_NDS: i32 = 2;
-pub const NS_NETBT: i32 = 13;
-pub const NS_NETDES: i32 = 60;
-pub const NS_NIS: i32 = 41;
-pub const NS_NISPLUS: i32 = 42;
-pub const NS_NLA: i32 = 15;
-pub const NS_NTDS: i32 = 32;
-pub const NS_PEER_BROWSE: i32 = 3;
-pub const NS_PNRPCLOUD: i32 = 39;
-pub const NS_PNRPNAME: i32 = 38;
-pub const NS_SAP: i32 = 1;
-pub const NS_SLP: i32 = 5;
-pub const NS_STDA: i32 = 31;
-pub const NS_TCPIP_HOSTS: i32 = 11;
-pub const NS_TCPIP_LOCAL: i32 = 10;
-pub const NS_WINS: i32 = 14;
-pub const NS_WRQ: i32 = 50;
-pub const NS_X500: i32 = 40;
+#[cfg(feature = "shared")]
 pub type PADDRINFOA = *mut ADDRINFOA;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PADDRINFOEX = *mut ADDRINFOEXA;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PADDRINFOEX2A = *mut ADDRINFOEX2A;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PADDRINFOEX2W = *mut ADDRINFOEX2W;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PADDRINFOEX3 = *mut ADDRINFOEX3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PADDRINFOEX4 = *mut ADDRINFOEX4;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PADDRINFOEX5 = *mut ADDRINFOEX5;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PADDRINFOEX6 = *mut ADDRINFOEX6;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PADDRINFOEX7 = *mut ADDRINFOEX7;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PADDRINFOEXA = *mut ADDRINFOEXA;
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PADDRINFOEXW = *mut ADDRINFOEXW;
+#[cfg(feature = "shared")]
 pub type PADDRINFOT = *mut ADDRINFOA;
+#[cfg(feature = "shared")]
 pub type PADDRINFOW = *mut ADDRINFOW;
+#[cfg(feature = "shared")]
 pub type PBTHNS_INQUIRYBLOB = *mut BTH_QUERY_DEVICE;
-#[cfg(feature = "bthsdpdef")]
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 pub type PBTHNS_RESTRICTIONBLOB = *mut BTH_QUERY_SERVICE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PBTHNS_SETBLOB = *mut BTH_SET_SERVICE;
-#[cfg(feature = "bthdef")]
+#[cfg(feature = "shared")]
 pub type PBTH_INFO_REQ = *mut BTH_INFO_REQ;
+#[cfg(feature = "shared")]
 pub type PBTH_INFO_RSP = *mut BTH_INFO_RSP;
-#[cfg(feature = "bthdef")]
+#[cfg(feature = "shared")]
 pub type PBTH_PING_REQ = *mut BTH_PING_REQ;
+#[cfg(feature = "shared")]
 pub type PBTH_PING_RSP = *mut BTH_PING_RSP;
+#[cfg(feature = "shared")]
 pub type PBTH_QUERY_DEVICE = *mut BTH_QUERY_DEVICE;
-#[cfg(feature = "bthsdpdef")]
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
 pub type PBTH_QUERY_SERVICE = *mut BTH_QUERY_SERVICE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PBTH_SET_SERVICE = *mut BTH_SET_SERVICE;
+#[cfg(feature = "shared")]
 pub type PCMSGHDR = *mut WSACMSGHDR;
+#[cfg(feature = "shared")]
 pub type PCSADDR_INFO = *mut CSADDR_INFO;
+#[cfg(feature = "shared")]
 pub type PGROUP_FILTER = *mut GROUP_FILTER;
+#[cfg(feature = "shared")]
 pub type PGROUP_REQ = *mut GROUP_REQ;
+#[cfg(feature = "shared")]
 pub type PGROUP_SOURCE_REQ = *mut GROUP_SOURCE_REQ;
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 pub type PICMP_ERROR_INFO = *mut ICMP_ERROR_INFO;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PIN6_PKTINFO = *mut IN6_PKTINFO;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PIN6_PKTINFO_EX = *mut IN6_PKTINFO_EX;
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 pub type PIN_PKTINFO = *mut IN_PKTINFO;
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 pub type PIN_PKTINFO_EX = *mut IN_PKTINFO_EX;
+#[cfg(feature = "shared")]
 pub type PIN_RECVERR = *mut IN_RECVERR;
 pub type PIPROTO = *mut IPPROTO;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PIPV6_MREQ = *mut IPV6_MREQ;
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 pub type PIP_MREQ = *mut IP_MREQ;
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 pub type PIP_MREQ_SOURCE = *mut IP_MREQ_SOURCE;
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 pub type PIP_MSFILTER = *mut IP_MSFILTER;
 pub type PMTUD_STATE = i32;
 pub type PPMTUD_STATE = *mut PMTUD_STATE;
+#[cfg(feature = "shared")]
 pub type PRFCOMM_COMMAND = *mut RFCOMM_COMMAND;
+#[cfg(feature = "shared")]
 pub type PRFCOMM_MSC_DATA = *mut RFCOMM_MSC_DATA;
+#[cfg(feature = "shared")]
 pub type PRFCOMM_RLS_DATA = *mut RFCOMM_RLS_DATA;
+#[cfg(feature = "shared")]
 pub type PRFCOMM_RPN_DATA = *mut RFCOMM_RPN_DATA;
-pub const PROTECTION_LEVEL_DEFAULT: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const PROTECTION_LEVEL_DEFAULT: super::UINT = 4294967295;
 pub const PROTECTION_LEVEL_EDGERESTRICTED: i32 = 20;
 pub const PROTECTION_LEVEL_RESTRICTED: i32 = 30;
 pub const PROTECTION_LEVEL_UNRESTRICTED: i32 = 10;
+#[cfg(feature = "shared")]
 pub type PSCOPE_ID = *mut SCOPE_ID;
+#[cfg(feature = "shared")]
 pub type PSOCKADDR = *mut SOCKADDR;
-#[cfg(feature = "bthdef")]
+#[cfg(feature = "shared")]
 pub type PSOCKADDR_BTH = *mut SOCKADDR_BTH;
+#[cfg(feature = "shared")]
 pub type PSOCKADDR_DL = *mut SOCKADDR_DL;
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 pub type PSOCKADDR_IN = *mut SOCKADDR_IN;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PSOCKADDR_IN6_PAIR = *mut SOCKADDR_IN6_PAIR;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 pub type PSOCKADDR_INET = *mut SOCKADDR_INET;
-pub type PSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
+#[cfg(feature = "shared")]
+pub type PSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE_LH;
+#[cfg(feature = "shared")]
 pub type PSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
+#[cfg(feature = "shared")]
 pub type PSOCKADDR_STORAGE_XP = *mut SOCKADDR_STORAGE_XP;
+#[cfg(feature = "shared")]
 pub type PSOCKET_ADDRESS = *mut SOCKET_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PSOCKET_ADDRESS_LIST = *mut SOCKET_ADDRESS_LIST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSOCKET_PROCESSOR_AFFINITY = *mut SOCKET_PROCESSOR_AFFINITY;
+#[cfg(feature = "shared")]
 pub type PWSACMSGHDR = *mut WSACMSGHDR;
+#[cfg(feature = "shared")]
 pub type PWSAMSG = *mut WSAMSG;
 pub const RFCOMM_CMD_MSC: i32 = 1;
 pub const RFCOMM_CMD_NONE: i32 = 0;
@@ -1054,23 +1084,27 @@ pub const RFCOMM_CMD_RPN: i32 = 3;
 pub const RFCOMM_CMD_RPN_REQUEST: i32 = 4;
 pub const RFCOMM_CMD_RPN_RESPONSE: i32 = 5;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct RFCOMM_COMMAND {
-    pub CmdType: u32,
+    pub CmdType: super::ULONG,
     pub Data: RFCOMM_COMMAND_0,
 }
+#[cfg(feature = "shared")]
 impl Default for RFCOMM_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union RFCOMM_COMMAND_0 {
     pub MSC: RFCOMM_MSC_DATA,
     pub RLS: RFCOMM_RLS_DATA,
     pub RPN: RFCOMM_RPN_DATA,
 }
+#[cfg(feature = "shared")]
 impl Default for RFCOMM_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1078,27 +1112,30 @@ impl Default for RFCOMM_COMMAND_0 {
 }
 pub const RFCOMM_MAX_MTU: i32 = 1011;
 pub const RFCOMM_MIN_MTU: i32 = 23;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RFCOMM_MSC_DATA {
-    pub Signals: u8,
-    pub Break: u8,
+    pub Signals: super::UCHAR,
+    pub Break: super::UCHAR,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RFCOMM_RLS_DATA {
-    pub LineStatus: u8,
+    pub LineStatus: super::UCHAR,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RFCOMM_RPN_DATA {
-    pub Baud: u8,
-    pub Data: u8,
-    pub FlowControl: u8,
-    pub XonChar: u8,
-    pub XoffChar: u8,
-    pub ParameterMask1: u8,
-    pub ParameterMask2: u8,
+    pub Baud: super::UCHAR,
+    pub Data: super::UCHAR,
+    pub FlowControl: super::UCHAR,
+    pub XonChar: super::UCHAR,
+    pub XoffChar: super::UCHAR,
+    pub ParameterMask1: super::UCHAR,
+    pub ParameterMask2: super::UCHAR,
 }
 pub const RLS_ERROR: i32 = 1;
 pub const RLS_FRAMING: i32 = 8;
@@ -1144,27 +1181,32 @@ pub const RPN_PARITY_SPACE: i32 = 56;
 pub const RPN_STOP_1: i32 = 0;
 pub const RPN_STOP_1_5: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SCOPE_ID {
     pub Anonymous: SCOPE_ID_0,
 }
+#[cfg(feature = "shared")]
 impl Default for SCOPE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SCOPE_ID_0 {
     pub Anonymous: SCOPE_ID_0_0,
-    pub Value: u32,
+    pub Value: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for SCOPE_ID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCOPE_ID_0_0 {
     pub _bitfield: u32,
@@ -1217,185 +1259,189 @@ pub const SIO_SET_MULTICAST_FILTER: u32 = 2147775613;
 pub const SIO_SET_QOS: u32 = 2281701387;
 pub const SIO_TRANSLATE_HANDLE: u32 = 3355443213;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
-    pub sa_data: [i8; 14],
+    pub sa_data: [super::CHAR; 14],
 }
+#[cfg(feature = "shared")]
 impl Default for SOCKADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "bthdef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_BTH {
-    pub addressFamily: u16,
+    pub addressFamily: super::USHORT,
     pub btAddr: super::BTH_ADDR,
     pub serviceClassId: windows_sys::core::GUID,
-    pub port: u32,
+    pub port: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_DL {
     pub sdl_family: ADDRESS_FAMILY,
-    pub sdl_data: [u8; 8],
-    pub sdl_zero: [u8; 4],
+    pub sdl_data: [super::UCHAR; 8],
+    pub sdl_zero: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for SOCKADDR_DL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN {
     pub sin_family: ADDRESS_FAMILY,
-    pub sin_port: u16,
+    pub sin_port: super::USHORT,
     pub sin_addr: super::IN_ADDR,
-    pub sin_zero: [i8; 8],
+    pub sin_zero: [super::CHAR; 8],
 }
-#[cfg(feature = "inaddr")]
+#[cfg(all(feature = "inaddr", feature = "shared"))]
 impl Default for SOCKADDR_IN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type SOCKADDR_IN6 = SOCKADDR_IN6_LH;
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_LH {
     pub sin6_family: ADDRESS_FAMILY,
-    pub sin6_port: u16,
-    pub sin6_flowinfo: u32,
+    pub sin6_port: super::USHORT,
+    pub sin6_flowinfo: super::ULONG,
     pub sin6_addr: super::IN6_ADDR,
     pub Anonymous: SOCKADDR_IN6_LH_0,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for SOCKADDR_IN6_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_IN6_LH_0 {
-    pub sin6_scope_id: u32,
+    pub sin6_scope_id: super::ULONG,
     pub sin6_scope_struct: SCOPE_ID,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for SOCKADDR_IN6_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: PSOCKADDR_IN6,
     pub DestinationAddress: PSOCKADDR_IN6,
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_W2KSP1 {
     pub sin6_family: i16,
-    pub sin6_port: u16,
-    pub sin6_flowinfo: u32,
+    pub sin6_port: super::USHORT,
+    pub sin6_flowinfo: super::ULONG,
     pub sin6_addr: super::IN6_ADDR,
-    pub sin6_scope_id: u32,
+    pub sin6_scope_id: super::ULONG,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for SOCKADDR_IN6_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_INET {
     pub Ipv4: SOCKADDR_IN,
     pub Ipv6: SOCKADDR_IN6,
     pub si_family: ADDRESS_FAMILY,
 }
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 impl Default for SOCKADDR_INET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type SOCKADDR_STORAGE = SOCKADDR_STORAGE_LH;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_STORAGE_LH {
     pub ss_family: ADDRESS_FAMILY,
-    pub __ss_pad1: [i8; 6],
+    pub __ss_pad1: [super::CHAR; 6],
     pub __ss_align: i64,
-    pub __ss_pad2: [i8; 112],
+    pub __ss_pad2: [super::CHAR; 112],
 }
+#[cfg(feature = "shared")]
 impl Default for SOCKADDR_STORAGE_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_STORAGE_XP {
     pub ss_family: i16,
-    pub __ss_pad1: [i8; 6],
+    pub __ss_pad1: [super::CHAR; 6],
     pub __ss_align: i64,
-    pub __ss_pad2: [i8; 112],
+    pub __ss_pad2: [super::CHAR; 112],
 }
+#[cfg(feature = "shared")]
 impl Default for SOCKADDR_STORAGE_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKET_ADDRESS {
     pub lpSockaddr: LPSOCKADDR,
-    pub iSockaddrLength: i32,
+    pub iSockaddrLength: super::INT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SOCKET_ADDRESS_LIST {
-    pub iAddressCount: i32,
+    pub iAddressCount: super::INT,
     pub Address: [SOCKET_ADDRESS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SOCKET_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKET_PROCESSOR_AFFINITY {
     pub Processor: super::PROCESSOR_NUMBER,
-    pub NumaNodeId: u16,
-    pub Reserved: u16,
+    pub NumaNodeId: super::USHORT,
+    pub Reserved: super::USHORT,
 }
-pub const SOCK_DGRAM: i32 = 2;
-pub const SOCK_RAW: i32 = 3;
-pub const SOCK_RDM: i32 = 4;
-pub const SOCK_SEQPACKET: i32 = 5;
-pub const SOCK_STREAM: i32 = 1;
 pub const SOL_IP: i32 = 65531;
 pub const SOL_IPV6: i32 = 65530;
 pub const SOL_L2CAP: i32 = 256;
 pub const SOL_RFCOMM: i32 = 3;
 pub const SOL_SDP: i32 = 257;
-pub const SOL_SOCKET: i32 = 65535;
-pub const SO_ACCEPTCONN: i32 = 2;
-pub const SO_BROADCAST: i32 = 32;
 pub const SO_BSP_STATE: i32 = 4105;
 pub const SO_BTH_AUTHENTICATE: u32 = 2147483649;
 pub const SO_BTH_ENCRYPT: i32 = 2;
@@ -1403,35 +1449,14 @@ pub const SO_BTH_MTU: u32 = 2147483655;
 pub const SO_BTH_MTU_MAX: u32 = 2147483656;
 pub const SO_BTH_MTU_MIN: u32 = 2147483658;
 pub const SO_COMPARTMENT_ID: i32 = 12292;
-pub const SO_CONDITIONAL_ACCEPT: i32 = 12290;
-pub const SO_DEBUG: i32 = 1;
-pub const SO_DONTLINGER: i32 = -129;
-pub const SO_DONTROUTE: i32 = 16;
-pub const SO_ERROR: i32 = 4103;
-pub const SO_EXCLUSIVEADDRUSE: i32 = -5;
-pub const SO_GROUP_ID: i32 = 8193;
-pub const SO_GROUP_PRIORITY: i32 = 8194;
-pub const SO_KEEPALIVE: i32 = 8;
-pub const SO_LINGER: i32 = 128;
-pub const SO_MAX_MSG_SIZE: i32 = 8195;
-pub const SO_OOBINLINE: i32 = 256;
 pub const SO_ORIGINAL_DST: i32 = 12303;
 pub const SO_PAUSE_ACCEPT: i32 = 12291;
 pub const SO_PORT_SCALABILITY: i32 = 12294;
 pub const SO_RANDOMIZE_PORT: i32 = 12293;
-pub const SO_RCVBUF: i32 = 4098;
-pub const SO_RCVLOWAT: i32 = 4100;
-pub const SO_RCVTIMEO: i32 = 4102;
 pub const SO_RECEIVED_HOPLIMIT: i32 = 12304;
 pub const SO_RECEIVED_PROCESSOR: i32 = 12305;
-pub const SO_REUSEADDR: i32 = 4;
 pub const SO_REUSE_MULTICASTPORT: i32 = 12296;
 pub const SO_REUSE_UNICASTPORT: i32 = 12295;
-pub const SO_SNDBUF: i32 = 4097;
-pub const SO_SNDLOWAT: i32 = 4099;
-pub const SO_SNDTIMEO: i32 = 4101;
-pub const SO_TYPE: i32 = 4104;
-pub const SO_USELOOPBACK: i32 = 64;
 pub const SVCID_BTH_PROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d);
 pub const ScopeLevelAdmin: SCOPE_LEVEL = 4;
 pub const ScopeLevelCount: SCOPE_LEVEL = 16;
@@ -1470,27 +1495,30 @@ pub const UDP_NOCHECKSUM: i32 = 1;
 pub const UDP_RECV_MAX_COALESCED_SIZE: i32 = 3;
 pub const UDP_SEND_MSG_SIZE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WSABUF {
-    pub len: u32,
-    pub buf: *mut i8,
+    pub len: super::ULONG,
+    pub buf: *mut super::CHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WSACMSGHDR {
-    pub cmsg_len: usize,
-    pub cmsg_level: i32,
-    pub cmsg_type: i32,
+    pub cmsg_len: super::SIZE_T,
+    pub cmsg_level: super::INT,
+    pub cmsg_type: super::INT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WSAMSG {
     pub name: LPSOCKADDR,
-    pub namelen: i32,
+    pub namelen: super::INT,
     pub lpBuffers: LPWSABUF,
-    pub dwBufferCount: u32,
+    pub dwBufferCount: super::ULONG,
     pub Control: WSABUF,
-    pub dwFlags: u32,
+    pub dwFlags: super::ULONG,
 }
 pub const WSK_SO_BASE: i32 = 16384;
 #[cfg(target_arch = "x86")]
@@ -1507,29 +1535,29 @@ pub const _SS_PAD2SIZE: u32 = 112;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const _SS_PAD2SIZE: u64 = 112;
 #[repr(C)]
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union sockaddr_gen {
     pub Address: SOCKADDR,
     pub AddressIn: SOCKADDR_IN,
     pub AddressIn6: sockaddr_in6_old,
 }
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
+#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "shared"))]
 impl Default for sockaddr_gen {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct sockaddr_in6_old {
-    pub sin6_family: i16,
-    pub sin6_port: u16,
-    pub sin6_flowinfo: u32,
+    pub sin6_family: super::SHORT,
+    pub sin6_port: super::USHORT,
+    pub sin6_flowinfo: super::ULONG,
     pub sin6_addr: super::IN6_ADDR,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for sockaddr_in6_old {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

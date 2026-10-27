@@ -1,3 +1,4 @@
+pub const CLSID_WMPSkinManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2a7fd52_301f_4348_b93a_638c6de49229);
 pub type WMPBurnFormat = i32;
 pub type WMPBurnState = i32;
 pub type WMPDeviceStatus = i32;

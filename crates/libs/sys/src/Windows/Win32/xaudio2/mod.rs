@@ -1,9 +1,11 @@
-windows_link::link!("xaudio2_9.dll" "system" "?XAudio2Create@@YAJPEAPEAUIXAudio2@@II@Z" fn XAudio2Create(ppxaudio2 : *mut *mut core::ffi::c_void, flags : u32, xaudio2processor : XAUDIO2_PROCESSOR) -> windows_sys::core::HRESULT);
-windows_link::link!("xaudio2_9.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut *mut core::ffi::c_void, flags : u32, xaudio2processor : XAUDIO2_PROCESSOR, ntddiversion : u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("xaudio2_9.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut *mut core::ffi::c_void, flags : super::UINT32, xaudio2processor : XAUDIO2_PROCESSOR, ntddiversion : super::DWORD) -> windows_sys::core::HRESULT);
 pub const BandPassFilter: XAUDIO2_FILTER_TYPE = 1;
 pub const FACILITY_XAUDIO2: i32 = 2198;
 pub const HighPassFilter: XAUDIO2_FILTER_TYPE = 2;
 pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = 5;
+pub const IID_IXAudio2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
+pub const IID_IXAudio2Extension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
 pub const LowPassFilter: XAUDIO2_FILTER_TYPE = 0;
 pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = 4;
 pub const NotchFilter: XAUDIO2_FILTER_TYPE = 3;
@@ -45,31 +47,34 @@ pub const XAUDIO2D_DLL_W: windows_sys::core::PCWSTR = windows_sys::core::w!("xau
 pub const XAUDIO2_1024_QUANTUM: i32 = 32768;
 pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_BUFFER {
-    pub Flags: u32,
-    pub AudioBytes: u32,
-    pub pAudioData: *const u8,
-    pub PlayBegin: u32,
-    pub PlayLength: u32,
-    pub LoopBegin: u32,
-    pub LoopLength: u32,
-    pub LoopCount: u32,
+    pub Flags: super::UINT32,
+    pub AudioBytes: super::UINT32,
+    pub pAudioData: *const super::BYTE,
+    pub PlayBegin: super::UINT32,
+    pub PlayLength: super::UINT32,
+    pub LoopBegin: super::UINT32,
+    pub LoopLength: super::UINT32,
+    pub LoopCount: super::UINT32,
     pub pContext: *mut core::ffi::c_void,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_BUFFER_WMA {
-    pub pDecodedPacketCumulativeBytes: *const u32,
-    pub PacketCount: u32,
+    pub pDecodedPacketCumulativeBytes: *const super::UINT32,
+    pub PacketCount: super::UINT32,
 }
 pub const XAUDIO2_COMMIT_ALL: i32 = 0;
 pub const XAUDIO2_COMMIT_NOW: i32 = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_DEBUG_CONFIGURATION {
-    pub TraceMask: u32,
-    pub BreakMask: u32,
+    pub TraceMask: super::UINT32,
+    pub BreakMask: super::UINT32,
     pub LogThreadID: windows_sys::core::BOOL,
     pub LogFileline: windows_sys::core::BOOL,
     pub LogFunctionName: windows_sys::core::BOOL,
@@ -87,17 +92,19 @@ pub const XAUDIO2_DLL: windows_sys::core::PCSTR = windows_sys::core::s!("xaudio2
 pub const XAUDIO2_DLL_A: windows_sys::core::PCSTR = windows_sys::core::s!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_W: windows_sys::core::PCWSTR = windows_sys::core::w!("xaudio2_9.dll");
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_EFFECT_CHAIN {
-    pub EffectCount: u32,
+    pub EffectCount: super::UINT32,
     pub pEffectDescriptors: *mut XAUDIO2_EFFECT_DESCRIPTOR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub pEffect: *mut core::ffi::c_void,
     pub InitialState: windows_sys::core::BOOL,
-    pub OutputChannels: u32,
+    pub OutputChannels: super::UINT32,
 }
 pub const XAUDIO2_END_OF_STREAM: i32 = 64;
 pub const XAUDIO2_E_DEVICE_INVALIDATED: windows_sys::core::HRESULT = 0x88960004_u32 as _;
@@ -112,7 +119,8 @@ pub struct XAUDIO2_FILTER_PARAMETERS {
     pub OneOverQ: f32,
 }
 pub type XAUDIO2_FILTER_TYPE = i32;
-pub const XAUDIO2_INVALID_OPSET: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const XAUDIO2_INVALID_OPSET: super::UINT32 = 4294967295;
 pub const XAUDIO2_LOG_API_CALLS: i32 = 16;
 pub const XAUDIO2_LOG_DETAIL: i32 = 8;
 pub const XAUDIO2_LOG_ERRORS: i32 = 1;
@@ -142,22 +150,23 @@ pub const XAUDIO2_MIN_SAMPLE_RATE: i32 = 1000;
 pub const XAUDIO2_NO_LOOP_REGION: i32 = 0;
 pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: i32 = 65536;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_PERFORMANCE_DATA {
-    pub AudioCyclesSinceLastQuery: u64,
-    pub TotalCyclesSinceLastQuery: u64,
-    pub MinimumCyclesPerQuantum: u32,
-    pub MaximumCyclesPerQuantum: u32,
-    pub MemoryUsageInBytes: u32,
-    pub CurrentLatencyInSamples: u32,
-    pub GlitchesSinceEngineStarted: u32,
-    pub ActiveSourceVoiceCount: u32,
-    pub TotalSourceVoiceCount: u32,
-    pub ActiveSubmixVoiceCount: u32,
-    pub ActiveResamplerCount: u32,
-    pub ActiveMatrixMixCount: u32,
-    pub ActiveXmaSourceVoices: u32,
-    pub ActiveXmaStreams: u32,
+    pub AudioCyclesSinceLastQuery: super::UINT64,
+    pub TotalCyclesSinceLastQuery: super::UINT64,
+    pub MinimumCyclesPerQuantum: super::UINT32,
+    pub MaximumCyclesPerQuantum: super::UINT32,
+    pub MemoryUsageInBytes: super::UINT32,
+    pub CurrentLatencyInSamples: super::UINT32,
+    pub GlitchesSinceEngineStarted: super::UINT32,
+    pub ActiveSourceVoiceCount: super::UINT32,
+    pub TotalSourceVoiceCount: super::UINT32,
+    pub ActiveSubmixVoiceCount: super::UINT32,
+    pub ActiveResamplerCount: super::UINT32,
+    pub ActiveMatrixMixCount: super::UINT32,
+    pub ActiveXmaSourceVoices: super::UINT32,
+    pub ActiveXmaStreams: super::UINT32,
 }
 pub const XAUDIO2_PLAY_TAILS: i32 = 32;
 pub type XAUDIO2_PROCESSOR = u32;
@@ -165,36 +174,40 @@ pub const XAUDIO2_QUANTUM_DENOMINATOR: i32 = 100;
 pub const XAUDIO2_QUANTUM_MS: f32 = 10.0;
 pub const XAUDIO2_QUANTUM_NUMERATOR: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
-    pub Flags: u32,
+    pub Flags: super::UINT32,
     pub pOutputVoice: *mut core::ffi::c_void,
 }
 pub const XAUDIO2_SEND_USEFILTER: i32 = 128;
 pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: i32 = 8192;
 pub const XAUDIO2_USE_DEFAULT_PROCESSOR: i32 = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_VOICE_DETAILS {
-    pub CreationFlags: u32,
-    pub ActiveFlags: u32,
-    pub InputChannels: u32,
-    pub InputSampleRate: u32,
+    pub CreationFlags: super::UINT32,
+    pub ActiveFlags: super::UINT32,
+    pub InputChannels: super::UINT32,
+    pub InputSampleRate: super::UINT32,
 }
 pub const XAUDIO2_VOICE_NOPITCH: i32 = 2;
 pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: i32 = 256;
 pub const XAUDIO2_VOICE_NOSRC: i32 = 4;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_VOICE_SENDS {
-    pub SendCount: u32,
+    pub SendCount: super::UINT32,
     pub pSends: *mut XAUDIO2_SEND_DESCRIPTOR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_VOICE_STATE {
     pub pCurrentBufferContext: *mut core::ffi::c_void,
-    pub BuffersQueued: u32,
-    pub SamplesPlayed: u64,
+    pub BuffersQueued: super::UINT32,
+    pub SamplesPlayed: super::UINT64,
 }
 pub const XAUDIO2_VOICE_USEFILTER: i32 = 8;

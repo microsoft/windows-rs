@@ -1,80 +1,85 @@
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn BindMoniker(pmk : *mut core::ffi::c_void, grfopt : u32, iidresult : *const windows_sys::core::GUID, ppvresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoAllowSetForegroundWindow(punk : *mut core::ffi::c_void, lpvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoBuildVersion() -> u32);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "shared"))]
+windows_link::link!("ole32.dll" "system" fn BindMoniker(pmk : super::LPMONIKER, grfopt : super::DWORD, iidresult : *const super::IID, ppvresult : *mut super::LPVOID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "minwindef")]
-windows_link::link!("ole32.dll" "system" fn CoDosDateTimeToFileTime(ndosdate : u16, ndostime : u16, lpfiletime : *mut super::FILETIME) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn CoAllowSetForegroundWindow(punk : *mut core::ffi::c_void, lpvreserved : super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("ole32.dll" "system" fn CoBuildVersion() -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("ole32.dll" "system" fn CoDosDateTimeToFileTime(ndosdate : super::WORD, ndostime : super::WORD, lpfiletime : *mut super::FILETIME) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("ole32.dll" "system" fn CoFileTimeToDosDateTime(lpfiletime : *const super::FILETIME, lpdosdate : super::LPWORD, lpdostime : super::LPWORD) -> windows_sys::core::BOOL);
 windows_link::link!("ole32.dll" "system" fn CoFreeAllLibraries());
 #[cfg(feature = "minwindef")]
 windows_link::link!("ole32.dll" "system" fn CoFreeLibrary(hinst : super::HINSTANCE));
-#[cfg(all(feature = "objidlbase", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super::COSERVERINFO, pclsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, grfmode : u32, pwszname : *const super::OLECHAR, dwcount : u32, presults : *mut super::MULTI_QI) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "objidlbase", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super::COSERVERINFO, pclsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, pstg : *mut core::ffi::c_void, dwcount : u32, presults : *mut super::MULTI_QI) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CoGetObject(pszname : windows_sys::core::PCWSTR, pbindoptions : *const super::BIND_OPTS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super::COSERVERINFO, pclsid : *const super::CLSID, punkouter : *mut core::ffi::c_void, dwclsctx : super::DWORD, grfmode : super::DWORD, pwszname : *const super::OLECHAR, dwcount : super::DWORD, presults : *mut super::MULTI_QI) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super::COSERVERINFO, pclsid : *const super::CLSID, punkouter : *mut core::ffi::c_void, dwclsctx : super::DWORD, pstg : *mut core::ffi::c_void, dwcount : super::DWORD, presults : *mut super::MULTI_QI) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
+windows_link::link!("ole32.dll" "system" fn CoGetObject(pszname : windows_sys::core::PCWSTR, pbindoptions : *const super::BIND_OPTS, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("ole32.dll" "system" fn CoGetSystemSecurityPermissions(comsdtype : COMSD, ppsd : *mut super::PSECURITY_DESCRIPTOR) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn CoInstall(pbc : *mut core::ffi::c_void, dwflags : u32, pclassspec : *const super::uCLSSPEC, pquery : *const super::QUERYCONTEXT, pszcodebase : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoIsOle1Class(rclsid : *const windows_sys::core::GUID) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn CoInitialize(pvreserved : super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CoInstall(pbc : *mut core::ffi::c_void, dwflags : super::DWORD, pclassspec : *const super::uCLSSPEC, pquery : *const super::QUERYCONTEXT, pszcodebase : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("ole32.dll" "system" fn CoIsOle1Class(rclsid : *const super::IID) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn CoLoadLibrary(lpszlibname : super::LPOLESTR, bautofree : windows_sys::core::BOOL) -> super::HINSTANCE);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("ole32.dll" "system" fn CoRegisterChannelHook(extensionuuid : *const windows_sys::core::GUID, pchannelhook : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "objidl", feature = "shared", feature = "winnt"))]
 windows_link::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : *mut core::ffi::c_void, pulicookie : *mut super::ULARGE_INTEGER) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CoRegisterMallocSpy(pmallocspy : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoRegisterMallocSpy(pmallocspy : super::LPMALLOCSPY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : *mut core::ffi::c_void, lplpmessagefilter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
+windows_link::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : super::LPMESSAGEFILTER, lplpmessagefilter : *mut super::LPMESSAGEFILTER) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("ole32.dll" "system" fn CoRevokeInitializeSpy(ulicookie : super::ULARGE_INTEGER) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRevokeMallocSpy() -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoTreatAsClass(clsidold : *const windows_sys::core::GUID, clsidnew : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("ole32.dll" "system" fn CoTreatAsClass(clsidold : *const super::IID, clsidnew : *const super::IID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CreateAntiMoniker(ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CreateBindCtx(reserved : u32, ppbc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CreateClassMoniker(rclsid : *const windows_sys::core::GUID, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CreateDataAdviseHolder(ppdaholder : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CreateDataCache(punkouter : *mut core::ffi::c_void, rclsid : *const windows_sys::core::GUID, iid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CreateAntiMoniker(ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("ole32.dll" "system" fn CreateBindCtx(reserved : super::DWORD, ppbc : *mut super::LPBC) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl"))]
+windows_link::link!("ole32.dll" "system" fn CreateClassMoniker(rclsid : *const super::IID, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "unknwnbase"))]
+windows_link::link!("ole32.dll" "system" fn CreateDataCache(punkouter : super::LPUNKNOWN, rclsid : *const super::IID, iid : *const super::IID, ppv : *mut super::LPVOID) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : super::LPCOLESTR, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : super::LPCOLESTR, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CreateGenericComposite(pmkfirst : *mut core::ffi::c_void, pmkrest : *mut core::ffi::c_void, ppmkcomposite : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CreateGenericComposite(pmkfirst : super::LPMONIKER, pmkrest : super::LPMONIKER, ppmkcomposite : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : super::LPCOLESTR, lpszitem : super::LPCOLESTR, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CreateObjrefMoniker(punk : *mut core::ffi::c_void, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn CreatePointerMoniker(punk : *mut core::ffi::c_void, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : super::LPCOLESTR, lpszitem : super::LPCOLESTR, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "unknwnbase"))]
+windows_link::link!("ole32.dll" "system" fn CreateObjrefMoniker(punk : super::LPUNKNOWN, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "unknwnbase"))]
+windows_link::link!("ole32.dll" "system" fn CreatePointerMoniker(punk : super::LPUNKNOWN, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "urlmon", feature = "windef", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn CreateStdProgressIndicator(hwndparent : super::HWND, psztitle : super::LPCOLESTR, pibsccaller : *mut core::ffi::c_void, ppibsc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn DcomChannelSetHResult(pvreserved : *const core::ffi::c_void, pulreserved : *const u32, appshr : windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn GetClassFile(szfilename : super::LPCOLESTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("ole32.dll" "system" fn DcomChannelSetHResult(pvreserved : super::LPVOID, pulreserved : *const super::ULONG, appshr : windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn GetClassFile(szfilename : super::LPCOLESTR, pclsid : *mut super::CLSID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("ole32.dll" "system" fn GetRunningObjectTable(reserved : super::DWORD, pprot : *mut super::LPRUNNINGOBJECTTABLE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : super::LPBC, szusername : super::LPCOLESTR, pcheaten : *mut super::ULONG, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn GetRunningObjectTable(reserved : u32, pprot : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : *mut core::ffi::c_void, szusername : super::LPCOLESTR, pcheaten : *mut u32, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn MonikerCommonPrefixWith(pmkthis : super::LPMONIKER, pmkother : super::LPMONIKER, ppmkcommon : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn MonikerCommonPrefixWith(pmkthis : *mut core::ffi::c_void, pmkother : *mut core::ffi::c_void, ppmkcommon : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn MonikerRelativePathTo(pmksrc : *mut core::ffi::c_void, pmkdest : *mut core::ffi::c_void, ppmkrelpath : *mut *mut core::ffi::c_void, dwreserved : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn MonikerRelativePathTo(pmksrc : super::LPMONIKER, pmkdest : super::LPMONIKER, ppmkrelpath : *mut super::LPMONIKER, dwreserved : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : *const super::OLECHAR, ppflb : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
 windows_link::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : *mut core::ffi::c_void, ppflb : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : *mut core::ffi::c_void, grfmode : u32, asyncflags : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
-windows_link::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : *const super::OLECHAR, grfmode : u32, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : *mut core::ffi::c_void, grfmode : super::DWORD, asyncflags : super::DWORD, ppstgopen : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared", feature = "wtypesbase"))]
+windows_link::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : *const super::OLECHAR, grfmode : super::DWORD, reserved : super::DWORD, ppstgopen : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1;
 pub const ASYNC_MODE_DEFAULT: i32 = 0;
 pub type COINIT = i32;

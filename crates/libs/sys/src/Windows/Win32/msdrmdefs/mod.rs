@@ -1,21 +1,32 @@
+#[cfg(feature = "shared")]
+pub const DRMACTSERVINFOVERSION: super::UINT = 0;
 pub type DRMATTESTTYPE = i32;
 pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = 0;
 pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = 1;
+#[cfg(feature = "shared")]
+pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: super::DWORD = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DRMBOUNDLICENSEPARAMS {
-    pub uVersion: u32,
+    pub uVersion: super::UINT,
     pub hEnablingPrincipal: DRMHANDLE,
     pub hSecureStore: DRMHANDLE,
     pub wszRightsRequested: windows_sys::core::PWSTR,
     pub wszRightsGroup: windows_sys::core::PWSTR,
     pub idResource: DRMID,
-    pub cAuthenticatorCount: u32,
+    pub cAuthenticatorCount: super::UINT,
     pub rghAuthenticators: *mut DRMHANDLE,
     pub wszDefaultEnablingPrincipalCredentials: windows_sys::core::PWSTR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+pub const DRMBOUNDLICENSEPARAMSVERSION: super::UINT = 1;
 pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_sys::core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "shared")]
+pub const DRMCALLBACKVERSION: super::UINT = 1;
+#[cfg(feature = "shared")]
+pub const DRMCLIENTSTRUCTVERSION: super::UINT = 1;
 pub type DRMENCODINGTYPE = i32;
 pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = 0;
 pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = 2;
@@ -33,12 +44,17 @@ pub const DRMHANDLE_INVALID: i32 = 0;
 pub type DRMHSESSION = u32;
 pub const DRMHSESSION_INVALID: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DRMID {
-    pub uVersion: u32,
+    pub uVersion: super::UINT,
     pub wszIDType: windows_sys::core::PWSTR,
     pub wszID: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+pub const DRMIDVERSION: super::UINT = 0;
+#[cfg(feature = "shared")]
+pub const DRMLICENSEACQDATAVERSION: super::UINT = 0;
 pub type DRMPUBHANDLE = u32;
 pub const DRMPUBHANDLE_INVALID: i32 = 0;
 pub type DRMQUERYHANDLE = u32;
@@ -59,9 +75,10 @@ pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: i32 = 32;
 pub const DRM_ACTIVATE_SILENT: i32 = 16;
 pub const DRM_ACTIVATE_TEMPORARY: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DRM_ACTSERV_INFO {
-    pub uVersion: u32,
+    pub uVersion: super::UINT,
     pub wszPubKey: windows_sys::core::PWSTR,
     pub wszURL: windows_sys::core::PWSTR,
 }
@@ -77,14 +94,16 @@ pub const DRM_AL_NOPERSIST: i32 = 2;
 pub const DRM_AL_NOUI: i32 = 16;
 pub const DRM_AUTO_GENERATE_KEY: i32 = 16;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRM_CLIENT_VERSION_INFO {
-    pub uStructVersion: u32,
-    pub dwVersion: [u32; 4],
-    pub wszHierarchy: [u16; 256],
-    pub wszProductId: [u16; 256],
-    pub wszProductDescription: [u16; 256],
+    pub uStructVersion: super::UINT,
+    pub dwVersion: [super::DWORD; 4],
+    pub wszHierarchy: [super::WCHAR; 256],
+    pub wszProductId: [super::WCHAR; 256],
+    pub wszProductDescription: [super::WCHAR; 256],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DRM_CLIENT_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -113,13 +132,14 @@ pub const DRM_EL_REVOCATIONLIST_LID: i32 = 2048;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: i32 = 512;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DRM_LICENSE_ACQ_DATA {
-    pub uVersion: u32,
+    pub uVersion: super::UINT,
     pub wszURL: windows_sys::core::PWSTR,
     pub wszLocalFilename: windows_sys::core::PWSTR,
-    pub pbPostData: *mut u8,
-    pub dwPostDataSize: u32,
+    pub pbPostData: *mut super::BYTE,
+    pub dwPostDataSize: super::DWORD,
     pub wszFriendlyName: windows_sys::core::PWSTR,
 }
 pub const DRM_LOCKBOXTYPE_BLACKBOX: i32 = 2;

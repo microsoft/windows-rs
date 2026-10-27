@@ -1,19 +1,3 @@
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserFree(param0 : *mut u32, param1 : *mut super::HBITMAP));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserFree64(param0 : *mut u32, param1 : *mut super::HBITMAP));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HBITMAP) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HBITMAP) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
 pub const CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 2;
 pub const CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 1;
 pub const CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 0;
@@ -55,21 +39,22 @@ pub const CPUS_INVALID: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 0;
 pub const CPUS_LOGON: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 1;
 pub const CPUS_PLAP: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 5;
 pub const CPUS_UNLOCK_WORKSTATION: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 2;
-pub type CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = u32;
-pub type CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = u32;
+pub type CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = i32;
+pub type CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = i32;
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
-    pub ulAuthenticationPackage: u32,
+    pub ulAuthenticationPackage: super::ULONG,
     pub clsidCredentialProvider: windows_sys::core::GUID,
-    pub cbSerialization: u32,
+    pub cbSerialization: super::ULONG,
     pub rgbSerialization: *mut super::byte,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
-    pub dwFieldID: u32,
+    pub dwFieldID: super::DWORD,
     pub cpft: CREDENTIAL_PROVIDER_FIELD_TYPE,
     pub pszLabel: windows_sys::core::PWSTR,
     pub guidFieldType: windows_sys::core::GUID,
@@ -78,7 +63,8 @@ pub type CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = i32;
 pub type CREDENTIAL_PROVIDER_FIELD_STATE = i32;
 pub type CREDENTIAL_PROVIDER_FIELD_TYPE = i32;
 pub type CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = i32;
-pub const CREDENTIAL_PROVIDER_NO_DEFAULT: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const CREDENTIAL_PROVIDER_NO_DEFAULT: super::DWORD = 4294967295;
 pub type CREDENTIAL_PROVIDER_STATUS_ICON = i32;
 pub type CREDENTIAL_PROVIDER_USAGE_SCENARIO = i32;
 pub const GenericCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);

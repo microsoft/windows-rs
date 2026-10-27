@@ -1,28 +1,31 @@
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SWbemAnalysisMatrix {
-    pub m_uVersion: u32,
-    pub m_uMatrixType: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uMatrixType: super::ULONG,
     pub m_pszProperty: windows_sys::core::PCWSTR,
-    pub m_uPropertyType: u32,
-    pub m_uEntries: u32,
-    pub m_pValues: *mut *mut core::ffi::c_void,
+    pub m_uPropertyType: super::ULONG,
+    pub m_uEntries: super::ULONG,
+    pub m_pValues: *mut super::LPVOID,
     pub m_pbTruthTable: *mut windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SWbemAnalysisMatrixList {
-    pub m_uVersion: u32,
-    pub m_uMatrixType: u32,
-    pub m_uNumMatrices: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uMatrixType: super::ULONG,
+    pub m_uNumMatrices: super::ULONG,
     pub m_pMatrices: *mut SWbemAnalysisMatrix,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SWbemAssocQueryInf {
-    pub m_uVersion: u32,
-    pub m_uAnalysisType: u32,
-    pub m_uFeatureMask: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uAnalysisType: super::ULONG,
+    pub m_uFeatureMask: super::ULONG,
     pub m_pPath: *mut core::ffi::c_void,
     pub m_pszPath: windows_sys::core::PWSTR,
     pub m_pszQueryText: windows_sys::core::PWSTR,
@@ -34,81 +37,88 @@ pub struct SWbemAssocQueryInf {
     pub m_pszRequiredAssocQualifier: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SWbemQueryQualifiedName {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
-    pub m_uNameListSize: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
+    pub m_uNameListSize: super::ULONG,
     pub m_ppszNameList: *mut windows_sys::core::PCWSTR,
     pub m_bArraysUsed: windows_sys::core::BOOL,
     pub m_pbArrayElUsed: *mut windows_sys::core::BOOL,
-    pub m_puArrayIndex: *mut u32,
+    pub m_puArrayIndex: *mut super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: windows_sys::core::PCWSTR,
     pub m_bBoolVal: windows_sys::core::BOOL,
-    pub m_lLongVal: i32,
-    pub m_uLongVal: u32,
+    pub m_lLongVal: super::LONG,
+    pub m_uLongVal: super::ULONG,
     pub m_dblVal: f64,
     pub m_lVal64: i64,
     pub m_uVal64: i64,
 }
+#[cfg(feature = "shared")]
 impl Default for SWbemRpnConst {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SWbemRpnEncodedQuery {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
     pub m_uParsedFeatureMask: u64,
-    pub m_uDetectedArraySize: u32,
-    pub m_puDetectedFeatures: *mut u32,
-    pub m_uSelectListSize: u32,
+    pub m_uDetectedArraySize: super::ULONG,
+    pub m_puDetectedFeatures: *mut super::ULONG,
+    pub m_uSelectListSize: super::ULONG,
     pub m_ppSelectList: *mut *mut SWbemQueryQualifiedName,
-    pub m_uFromTargetType: u32,
+    pub m_uFromTargetType: super::ULONG,
     pub m_pszOptionalFromPath: windows_sys::core::PCWSTR,
-    pub m_uFromListSize: u32,
+    pub m_uFromListSize: super::ULONG,
     pub m_ppszFromList: *mut windows_sys::core::PCWSTR,
-    pub m_uWhereClauseSize: u32,
+    pub m_uWhereClauseSize: super::ULONG,
     pub m_ppRpnWhereClause: *mut *mut SWbemRpnQueryToken,
     pub m_dblWithinPolling: f64,
     pub m_dblWithinWindow: f64,
-    pub m_uOrderByListSize: u32,
+    pub m_uOrderByListSize: super::ULONG,
     pub m_ppszOrderByList: *mut windows_sys::core::PCWSTR,
-    pub m_uOrderDirectionEl: *mut u32,
+    pub m_uOrderDirectionEl: *mut super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SWbemRpnQueryToken {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
-    pub m_uSubexpressionShape: u32,
-    pub m_uOperator: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
+    pub m_uSubexpressionShape: super::ULONG,
+    pub m_uOperator: super::ULONG,
     pub m_pRightIdent: *mut SWbemQueryQualifiedName,
     pub m_pLeftIdent: *mut SWbemQueryQualifiedName,
-    pub m_uConstApparentType: u32,
+    pub m_uConstApparentType: super::ULONG,
     pub m_Const: SWbemRpnConst,
-    pub m_uConst2ApparentType: u32,
+    pub m_uConst2ApparentType: super::ULONG,
     pub m_Const2: SWbemRpnConst,
     pub m_pszRightFunc: windows_sys::core::PCWSTR,
     pub m_pszLeftFunc: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "shared")]
 impl Default for SWbemRpnQueryToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SWbemRpnTokenList {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
-    pub m_uNumTokens: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
+    pub m_uNumTokens: super::ULONG,
 }
 pub const WBEMPATH_COMPRESSED: tag_WBEM_GET_TEXT_FLAGS = 1;
 pub const WBEMPATH_CREATE_ACCEPT_ABSOLUTE: tag_WBEM_PATH_CREATE_FLAG = 2;

@@ -1,9 +1,14 @@
-windows_link::link!("kernel32.dll" "system" fn Beep(dwfreq : u32, dwduration : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn DecodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn Beep(dwfreq : super::DWORD, dwduration : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernelbase.dll" "system" fn DecodeRemotePointer(processhandle : super::HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("kernel32.dll" "system" fn DecodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-windows_link::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("kernel32.dll" "system" fn DecodePointer(ptr : super::PVOID) -> super::PVOID);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernelbase.dll" "system" fn EncodeRemotePointer(processhandle : super::HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("kernel32.dll" "system" fn EncodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("kernelbase.dll" "system" fn DecodeRemotePointer(processhandle : super::HANDLE, ptr : super::PVOID, decodedptr : *mut super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("kernel32.dll" "system" fn DecodeSystemPointer(ptr : super::PVOID) -> super::PVOID);
+#[cfg(feature = "winnt")]
+windows_link::link!("kernel32.dll" "system" fn EncodePointer(ptr : super::PVOID) -> super::PVOID);
+#[cfg(feature = "winnt")]
+windows_link::link!("kernelbase.dll" "system" fn EncodeRemotePointer(processhandle : super::HANDLE, ptr : super::PVOID, encodedptr : *mut super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("kernel32.dll" "system" fn EncodeSystemPointer(ptr : super::PVOID) -> super::PVOID);

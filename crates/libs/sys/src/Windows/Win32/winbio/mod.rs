@@ -3,145 +3,195 @@ windows_link::link!("winbio.dll" "system" fn WinBioAsyncEnumBiometricUnits(frame
 windows_link::link!("winbio.dll" "system" fn WinBioAsyncEnumDatabases(frameworkhandle : WINBIO_FRAMEWORK_HANDLE, factor : WINBIO_BIOMETRIC_TYPE) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioAsyncEnumServiceProviders(frameworkhandle : WINBIO_FRAMEWORK_HANDLE, factor : WINBIO_BIOMETRIC_TYPE) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle : WINBIO_FRAMEWORK_HANDLE, changetypes : WINBIO_FRAMEWORK_CHANGE_TYPE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : windows_sys::core::BOOL, frameworkhandle : *mut WINBIO_FRAMEWORK_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : usize, databaseid : *const windows_sys::core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : windows_sys::core::BOOL, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::HWND, messagecode : super::UINT, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : super::PVOID, asynchronousopen : windows_sys::core::BOOL, frameworkhandle : *mut WINBIO_FRAMEWORK_HANDLE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : super::SIZE_T, databaseid : *const windows_sys::core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::HWND, messagecode : super::UINT, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : super::PVOID, asynchronousopen : windows_sys::core::BOOL, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioCancel(sessionhandle : WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioCaptureSample(sessionhandle : WINBIO_SESSION_HANDLE, purpose : WINBIO_BIR_PURPOSE, flags : WINBIO_BIR_DATA_FLAGS, unitid : *mut WINBIO_UNIT_ID, sample : *mut PWINBIO_BIR, samplesize : *mut usize, rejectdetail : *mut WINBIO_REJECT_DETAIL) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioCaptureSampleWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, purpose : WINBIO_BIR_PURPOSE, flags : WINBIO_BIR_DATA_FLAGS, capturecallback : PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winbio.dll" "system" fn WinBioCaptureSample(sessionhandle : WINBIO_SESSION_HANDLE, purpose : WINBIO_BIR_PURPOSE, flags : WINBIO_BIR_DATA_FLAGS, unitid : *mut WINBIO_UNIT_ID, sample : *mut PWINBIO_BIR, samplesize : *mut super::SIZE_T, rejectdetail : *mut WINBIO_REJECT_DETAIL) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioCaptureSampleWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, purpose : WINBIO_BIR_PURPOSE, flags : WINBIO_BIR_DATA_FLAGS, capturecallback : PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext : super::PVOID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioCloseFramework(frameworkhandle : WINBIO_FRAMEWORK_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioCloseSession(sessionhandle : WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : super::PUCHAR, sendbuffersize : usize, receivebuffer : super::PUCHAR, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : super::PUCHAR, sendbuffersize : usize, receivebuffer : super::PUCHAR, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : super::ULONG, sendbuffer : super::PUCHAR, sendbuffersize : super::SIZE_T, receivebuffer : super::PUCHAR, receivebuffersize : super::SIZE_T, receivedatasize : *mut super::SIZE_T, operationstatus : *mut super::ULONG) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : super::ULONG, sendbuffer : super::PUCHAR, sendbuffersize : super::SIZE_T, receivebuffer : super::PUCHAR, receivebuffersize : super::SIZE_T, receivedatasize : *mut super::SIZE_T, operationstatus : *mut super::ULONG) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioDeleteTemplate(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioEnrollBegin(sessionhandle : WINBIO_SESSION_HANDLE, subfactor : WINBIO_BIOMETRIC_SUBTYPE, unitid : WINBIO_UNIT_ID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioEnrollCapture(sessionhandle : WINBIO_SESSION_HANDLE, rejectdetail : *mut WINBIO_REJECT_DETAIL) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioEnrollCaptureWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, enrollcallback : PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
+windows_link::link!("winbio.dll" "system" fn WinBioEnrollCaptureWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, enrollcallback : PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext : super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioEnrollCommit(sessionhandle : WINBIO_SESSION_HANDLE, identity : *mut WINBIO_IDENTITY, isnewtemplate : *mut super::BOOLEAN) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioEnrollDiscard(sessionhandle : WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioEnrollSelect(sessionhandle : WINBIO_SESSION_HANDLE, selectorvalue : u64) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioEnumBiometricUnits(factor : WINBIO_BIOMETRIC_TYPE, unitschemaarray : *mut *mut WINBIO_UNIT_SCHEMA, unitcount : *mut usize) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioEnumDatabases(factor : WINBIO_BIOMETRIC_TYPE, storageschemaarray : *mut *mut WINBIO_STORAGE_SCHEMA, storagecount : *mut usize) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioEnumEnrollments(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, identity : *const WINBIO_IDENTITY, subfactorarray : *mut *mut WINBIO_BIOMETRIC_SUBTYPE, subfactorcount : *mut usize) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioEnumServiceProviders(factor : WINBIO_BIOMETRIC_TYPE, bspschemaarray : *mut *mut WINBIO_BSP_SCHEMA, bspcount : *mut usize) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioFree(address : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winbio.dll" "system" fn WinBioEnrollSelect(sessionhandle : WINBIO_SESSION_HANDLE, selectorvalue : super::ULONGLONG) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winbio.dll" "system" fn WinBioEnumBiometricUnits(factor : WINBIO_BIOMETRIC_TYPE, unitschemaarray : *mut *mut WINBIO_UNIT_SCHEMA, unitcount : *mut super::SIZE_T) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winbio.dll" "system" fn WinBioEnumDatabases(factor : WINBIO_BIOMETRIC_TYPE, storageschemaarray : *mut *mut WINBIO_STORAGE_SCHEMA, storagecount : *mut super::SIZE_T) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winbio.dll" "system" fn WinBioEnumEnrollments(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, identity : *const WINBIO_IDENTITY, subfactorarray : *mut *mut WINBIO_BIOMETRIC_SUBTYPE, subfactorcount : *mut super::SIZE_T) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winbio.dll" "system" fn WinBioEnumServiceProviders(factor : WINBIO_BIOMETRIC_TYPE, bspschemaarray : *mut *mut WINBIO_BSP_SCHEMA, bspcount : *mut super::SIZE_T) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("winbio.dll" "system" fn WinBioFree(address : super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioGetCredentialState(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE, credentialstate : *mut WINBIO_CREDENTIAL_STATE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioGetDomainLogonSetting(value : *mut super::BOOLEAN, source : PWINBIO_SETTING_SOURCE_TYPE));
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioGetEnabledSetting(value : *mut super::BOOLEAN, source : PWINBIO_SETTING_SOURCE_TYPE));
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioGetEnrolledFactors(accountowner : *const WINBIO_IDENTITY, enrolledfactors : *mut WINBIO_BIOMETRIC_TYPE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioGetLogonSetting(value : *mut super::BOOLEAN, source : PWINBIO_SETTING_SOURCE_TYPE));
-windows_link::link!("winbio.dll" "system" fn WinBioGetProperty(sessionhandle : WINBIO_SESSION_HANDLE, propertytype : WINBIO_PROPERTY_TYPE, propertyid : WINBIO_PROPERTY_ID, unitid : WINBIO_UNIT_ID, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE, propertybuffer : *mut *mut core::ffi::c_void, propertybuffersize : *mut usize) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioGetProperty(sessionhandle : WINBIO_SESSION_HANDLE, propertytype : WINBIO_PROPERTY_TYPE, propertyid : WINBIO_PROPERTY_ID, unitid : WINBIO_UNIT_ID, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE, propertybuffer : *mut super::PVOID, propertybuffersize : *mut super::SIZE_T) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioIdentify(sessionhandle : WINBIO_SESSION_HANDLE, unitid : *mut WINBIO_UNIT_ID, identity : *mut WINBIO_IDENTITY, subfactor : *mut WINBIO_BIOMETRIC_SUBTYPE, rejectdetail : *mut WINBIO_REJECT_DETAIL) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioIdentifyWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, identifycallback : PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioIdentifyWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, identifycallback : PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext : super::PVOID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioImproveBegin(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioImproveEnd(sessionhandle : WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioIsESSCapable(value : *mut super::BOOLEAN) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioLocateSensor(sessionhandle : WINBIO_SESSION_HANDLE, unitid : *mut WINBIO_UNIT_ID) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioLocateSensorWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, locatecallback : PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("winbio.dll" "system" fn WinBioLocateSensorWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, locatecallback : PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext : super::PVOID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioLockUnit(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioLogonIdentifiedUser(sessionhandle : WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioMonitorPresence(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : usize, databaseid : *const windows_sys::core::GUID, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioRegisterEventMonitor(sessionhandle : WINBIO_SESSION_HANDLE, eventmask : WINBIO_EVENT_TYPE, eventcallback : PWINBIO_EVENT_CALLBACK, eventcallbackcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winbio.dll" "system" fn WinBioOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : super::SIZE_T, databaseid : *const windows_sys::core::GUID, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioRegisterEventMonitor(sessionhandle : WINBIO_SESSION_HANDLE, eventmask : WINBIO_EVENT_TYPE, eventcallback : PWINBIO_EVENT_CALLBACK, eventcallbackcontext : super::PVOID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioReleaseFocus() -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioRemoveAllCredentials() -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioRemoveAllDomainCredentials() -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioRemoveCredential(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winbio.dll" "system" fn WinBioSetCredential(r#type : WINBIO_CREDENTIAL_TYPE, credential : super::PUCHAR, credentialsize : usize, format : WINBIO_CREDENTIAL_FORMAT) -> windows_sys::core::HRESULT);
-windows_link::link!("winbio.dll" "system" fn WinBioSetProperty(sessionhandle : WINBIO_SESSION_HANDLE, propertytype : WINBIO_PROPERTY_TYPE, propertyid : WINBIO_PROPERTY_ID, unitid : WINBIO_UNIT_ID, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE, propertybuffer : *const core::ffi::c_void, propertybuffersize : usize) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winbio.dll" "system" fn WinBioSetCredential(r#type : WINBIO_CREDENTIAL_TYPE, credential : super::PUCHAR, credentialsize : super::SIZE_T, format : WINBIO_CREDENTIAL_FORMAT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioSetProperty(sessionhandle : WINBIO_SESSION_HANDLE, propertytype : WINBIO_PROPERTY_TYPE, propertyid : WINBIO_PROPERTY_ID, unitid : WINBIO_UNIT_ID, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE, propertybuffer : super::PVOID, propertybuffersize : super::SIZE_T) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioUnlockUnit(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioUnregisterEventMonitor(sessionhandle : WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("winbio.dll" "system" fn WinBioVerify(sessionhandle : WINBIO_SESSION_HANDLE, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE, unitid : *mut WINBIO_UNIT_ID, r#match : *mut super::BOOLEAN, rejectdetail : *mut WINBIO_REJECT_DETAIL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("winbio.dll" "system" fn WinBioVerifyWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE, verifycallback : PWINBIO_VERIFY_CALLBACK, verifycallbackcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("winbio.dll" "system" fn WinBioVerifyWithCallback(sessionhandle : WINBIO_SESSION_HANDLE, identity : *const WINBIO_IDENTITY, subfactor : WINBIO_BIOMETRIC_SUBTYPE, verifycallback : PWINBIO_VERIFY_CALLBACK, verifycallbackcontext : super::PVOID) -> windows_sys::core::HRESULT);
 windows_link::link!("winbio.dll" "system" fn WinBioWait(sessionhandle : WINBIO_SESSION_HANDLE) -> windows_sys::core::HRESULT);
-pub const BIO_UNIT_CONTROL_UNIT: u16 = 64;
-pub const BIO_UNIT_DELETE_TEMPLATE: u16 = 32;
-pub const BIO_UNIT_ENROLL: u16 = 16;
-pub const BIO_UNIT_EXTENDED_ACCESS: u16 = 8;
-pub const BIO_UNIT_MAINTENANCE: u16 = 2;
-pub const BIO_UNIT_OPEN_SESSION: u16 = 4;
-pub const BIO_UNIT_RAW: u16 = 1;
+#[cfg(feature = "shared")]
+pub const BIO_UNIT_CONTROL_UNIT: super::USHORT = 64;
+#[cfg(feature = "shared")]
+pub const BIO_UNIT_DELETE_TEMPLATE: super::USHORT = 32;
+#[cfg(feature = "shared")]
+pub const BIO_UNIT_ENROLL: super::USHORT = 16;
+#[cfg(feature = "shared")]
+pub const BIO_UNIT_EXTENDED_ACCESS: super::USHORT = 8;
+#[cfg(feature = "shared")]
+pub const BIO_UNIT_MAINTENANCE: super::USHORT = 2;
+#[cfg(feature = "shared")]
+pub const BIO_UNIT_OPEN_SESSION: super::USHORT = 4;
+#[cfg(feature = "shared")]
+pub const BIO_UNIT_RAW: super::USHORT = 1;
 pub const FACILITY_NONE: i32 = 0;
 pub const FACILITY_WINBIO: i32 = 9;
+#[cfg(feature = "shared")]
 pub type PWINBIO_ACCOUNT_POLICY = *mut WINBIO_ACCOUNT_POLICY;
 pub type PWINBIO_ANTI_SPOOF_POLICY = *mut WINBIO_ANTI_SPOOF_POLICY;
 pub type PWINBIO_ANTI_SPOOF_POLICY_ACTION = *mut WINBIO_ANTI_SPOOF_POLICY_ACTION;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PWINBIO_ASYNC_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(asyncresult: PWINBIO_ASYNC_RESULT)>;
 pub type PWINBIO_ASYNC_NOTIFICATION_METHOD = *mut WINBIO_ASYNC_NOTIFICATION_METHOD;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PWINBIO_ASYNC_RESULT = *mut WINBIO_ASYNC_RESULT;
+#[cfg(feature = "shared")]
 pub type PWINBIO_BDB_ANSI_381_HEADER = *mut WINBIO_BDB_ANSI_381_HEADER;
+#[cfg(feature = "shared")]
 pub type PWINBIO_BDB_ANSI_381_RECORD = *mut WINBIO_BDB_ANSI_381_RECORD;
 pub type PWINBIO_BIOMETRIC_SENSOR_SUBTYPE = *mut u32;
 pub type PWINBIO_BIOMETRIC_SUBTYPE = *mut u8;
 pub type PWINBIO_BIOMETRIC_TYPE = *mut u32;
+#[cfg(feature = "shared")]
 pub type PWINBIO_BIR = *mut WINBIO_BIR;
+#[cfg(feature = "shared")]
 pub type PWINBIO_BIR_DATA = *mut WINBIO_BIR_DATA;
 pub type PWINBIO_BIR_DATA_FLAGS = *mut u8;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWINBIO_BIR_HEADER = *mut WINBIO_BIR_HEADER;
 pub type PWINBIO_BIR_PURPOSE = *mut u8;
 pub type PWINBIO_BIR_QUALITY = *mut i8;
 pub type PWINBIO_BIR_VERSION = *mut u8;
+#[cfg(feature = "shared")]
 pub type PWINBIO_BSP_SCHEMA = *mut WINBIO_BSP_SCHEMA;
 pub type PWINBIO_CAPABILITIES = *mut u32;
-pub type PWINBIO_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(capturecallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID, sample: PWINBIO_BIR, samplesize: usize, rejectdetail: WINBIO_REJECT_DETAIL)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PWINBIO_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(capturecallbackcontext: super::PVOID, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID, sample: PWINBIO_BIR, samplesize: super::SIZE_T, rejectdetail: WINBIO_REJECT_DETAIL)>;
 pub type PWINBIO_COMPONENT = *mut u32;
 pub type PWINBIO_CONNECTED_SENSOR = *mut WINBIO_CONNECTED_SENSOR;
 pub type PWINBIO_CREDENTIAL_STATE = *mut WINBIO_CREDENTIAL_STATE;
-pub type PWINBIO_ENROLL_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(enrollcallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, rejectdetail: WINBIO_REJECT_DETAIL)>;
+#[cfg(feature = "winnt")]
+pub type PWINBIO_ENROLL_CAPTURE_CALLBACK = Option<unsafe extern "system" fn(enrollcallbackcontext: super::PVOID, operationstatus: windows_sys::core::HRESULT, rejectdetail: WINBIO_REJECT_DETAIL)>;
 pub type PWINBIO_ESS_STATE = *mut u64;
+#[cfg(feature = "shared")]
 pub type PWINBIO_EVENT = *mut WINBIO_EVENT;
-pub type PWINBIO_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventcallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, event: PWINBIO_EVENT)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PWINBIO_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventcallbackcontext: super::PVOID, operationstatus: windows_sys::core::HRESULT, event: PWINBIO_EVENT)>;
 pub type PWINBIO_EVENT_TYPE = *mut u32;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PWINBIO_EXTENDED_ENGINE_INFO = *mut WINBIO_EXTENDED_ENGINE_INFO;
+#[cfg(feature = "shared")]
 pub type PWINBIO_EXTENDED_ENROLLMENT_PARAMETERS = *mut WINBIO_EXTENDED_ENROLLMENT_PARAMETERS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 pub type PWINBIO_EXTENDED_ENROLLMENT_STATUS = *mut WINBIO_EXTENDED_ENROLLMENT_STATUS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PWINBIO_EXTENDED_SENSOR_INFO = *mut WINBIO_EXTENDED_SENSOR_INFO;
+#[cfg(feature = "basetsd")]
 pub type PWINBIO_EXTENDED_STORAGE_INFO = *mut WINBIO_EXTENDED_STORAGE_INFO;
+#[cfg(feature = "shared")]
 pub type PWINBIO_EXTENDED_UNIT_STATUS = *mut WINBIO_EXTENDED_UNIT_STATUS;
 pub type PWINBIO_FP_BU_STATE = *mut WINBIO_FP_BU_STATE;
 pub type PWINBIO_FRAMEWORK_CHANGE_TYPE = *mut u32;
-pub type PWINBIO_FRAMEWORK_HANDLE = *mut WINBIO_SESSION_HANDLE;
+pub type PWINBIO_FRAMEWORK_HANDLE = *mut u32;
+#[cfg(feature = "shared")]
 pub type PWINBIO_GESTURE_METADATA = *mut WINBIO_GESTURE_METADATA;
-pub type PWINBIO_IDENTIFY_CALLBACK = Option<unsafe extern "system" fn(identifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID, identity: *const WINBIO_IDENTITY, subfactor: WINBIO_BIOMETRIC_SUBTYPE, rejectdetail: WINBIO_REJECT_DETAIL)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PWINBIO_IDENTIFY_CALLBACK = Option<unsafe extern "system" fn(identifycallbackcontext: super::PVOID, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID, identity: *const WINBIO_IDENTITY, subfactor: WINBIO_BIOMETRIC_SUBTYPE, rejectdetail: WINBIO_REJECT_DETAIL)>;
+#[cfg(feature = "shared")]
 pub type PWINBIO_IDENTITY = *mut WINBIO_IDENTITY;
 pub type PWINBIO_IDENTITY_TYPE = *mut u32;
 pub type PWINBIO_INDICATOR_STATUS = *mut u32;
-pub type PWINBIO_LOCATE_SENSOR_CALLBACK = Option<unsafe extern "system" fn(locatecallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID)>;
+#[cfg(feature = "winnt")]
+pub type PWINBIO_LOCATE_SENSOR_CALLBACK = Option<unsafe extern "system" fn(locatecallbackcontext: super::PVOID, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID)>;
 pub type PWINBIO_MATCH_TYPE = *mut u32;
 pub type PWINBIO_OPERATION_TYPE = *mut u32;
 pub type PWINBIO_ORIENTATION = *mut u32;
 pub type PWINBIO_POLICY_SOURCE = *mut WINBIO_POLICY_SOURCE;
 pub type PWINBIO_POOL_TYPE = *mut u32;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PWINBIO_PRESENCE = *mut WINBIO_PRESENCE;
 pub type PWINBIO_PRESENCE_CHANGE = *mut u32;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PWINBIO_PRESENCE_PROPERTIES = *mut WINBIO_PRESENCE_PROPERTIES;
 pub type PWINBIO_PROPERTY_ID = *mut u32;
 pub type PWINBIO_PROPERTY_TYPE = *mut u32;
+#[cfg(feature = "shared")]
 pub type PWINBIO_PROTECTION_POLICY = *mut WINBIO_PROTECTION_POLICY;
 pub type PWINBIO_PROTECTION_TICKET = *mut u64;
 pub type PWINBIO_PROTECTION_TYPE = *mut u32;
+#[cfg(feature = "shared")]
 pub type PWINBIO_REGISTERED_FORMAT = *mut WINBIO_REGISTERED_FORMAT;
 pub type PWINBIO_REJECT_DETAIL = *mut u32;
+#[cfg(feature = "shared")]
 pub type PWINBIO_SECURE_BUFFER_HEADER_V1 = *mut WINBIO_SECURE_BUFFER_HEADER_V1;
+#[cfg(feature = "shared")]
 pub type PWINBIO_SECURE_CONNECTION_DATA = *mut WINBIO_SECURE_CONNECTION_DATA;
+#[cfg(feature = "shared")]
 pub type PWINBIO_SECURE_CONNECTION_PARAMS = *mut WINBIO_SECURE_CONNECTION_PARAMS;
 pub type PWINBIO_SENSOR_MODE = *mut u32;
 pub type PWINBIO_SENSOR_STATUS = *mut u32;
@@ -149,51 +199,79 @@ pub type PWINBIO_SESSION_FLAGS = *mut u32;
 pub type PWINBIO_SESSION_HANDLE = *mut u32;
 pub type PWINBIO_SETTING_SOURCE_TYPE = *mut u32;
 pub type PWINBIO_SETTING_TYPE = *mut u32;
+#[cfg(feature = "shared")]
 pub type PWINBIO_STORAGE_SCHEMA = *mut WINBIO_STORAGE_SCHEMA;
-pub type PWINBIO_STRING = *mut WINBIO_STRING;
+pub type PWINBIO_STRING = *mut [u16; 256];
 pub type PWINBIO_TELEMETRY_TYPE = *mut u32;
 pub type PWINBIO_UNIT_ID = *mut u32;
+#[cfg(feature = "shared")]
 pub type PWINBIO_UNIT_SCHEMA = *mut WINBIO_UNIT_SCHEMA;
 pub type PWINBIO_UNIT_SECURITY_LEVEL = *mut u32;
 pub type PWINBIO_UUID = *mut windows_sys::core::GUID;
-#[cfg(feature = "winnt")]
-pub type PWINBIO_VERIFY_CALLBACK = Option<unsafe extern "system" fn(verifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID, r#match: super::BOOLEAN, rejectdetail: WINBIO_REJECT_DETAIL)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PWINBIO_VERIFY_CALLBACK = Option<unsafe extern "system" fn(verifycallbackcontext: super::PVOID, operationstatus: windows_sys::core::HRESULT, unitid: WINBIO_UNIT_ID, r#match: super::BOOLEAN, rejectdetail: WINBIO_REJECT_DETAIL)>;
+#[cfg(feature = "shared")]
 pub type PWINBIO_VERSION = *mut WINBIO_VERSION;
 pub type PWINBIO_WAKE_REASON = *mut u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ACCOUNT_POLICY {
     pub Identity: WINBIO_IDENTITY,
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_ACCOUNT_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINBIO_ANSI_381_FORMAT_OWNER: u16 = 27;
-pub const WINBIO_ANSI_381_FORMAT_TYPE: u16 = 1025;
-pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_10: u16 = 10;
-pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_20: u16 = 20;
-pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_30: u16 = 30;
-pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_31: u16 = 31;
-pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_40: u16 = 40;
-pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_41: u16 = 41;
-pub const WINBIO_ANSI_381_IMG_BIT_PACKED: u8 = 1;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u8 = 3;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: u8 = 4;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_PNG: u8 = 5;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_WSQ: u8 = 2;
-pub const WINBIO_ANSI_381_IMG_UNCOMPRESSED: u8 = 0;
-pub const WINBIO_ANSI_381_IMP_TYPE_LATENT: u8 = 7;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS: u8 = 9;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN: u8 = 0;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED: u8 = 1;
-pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN: u8 = 2;
-pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED: u8 = 3;
-pub const WINBIO_ANSI_381_IMP_TYPE_SWIPE: u8 = 8;
-pub const WINBIO_ANSI_381_PIXELS_PER_CM: u8 = 2;
-pub const WINBIO_ANSI_381_PIXELS_PER_INCH: u8 = 1;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_FORMAT_OWNER: super::USHORT = 27;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_FORMAT_TYPE: super::USHORT = 1025;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_10: super::USHORT = 10;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_20: super::USHORT = 20;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_30: super::USHORT = 30;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_31: super::USHORT = 31;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_40: super::USHORT = 40;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_ACQ_LEVEL_41: super::USHORT = 41;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_BIT_PACKED: super::UCHAR = 1;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: super::UCHAR = 3;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: super::UCHAR = 4;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_PNG: super::UCHAR = 5;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_WSQ: super::UCHAR = 2;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMG_UNCOMPRESSED: super::UCHAR = 0;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMP_TYPE_LATENT: super::UCHAR = 7;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS: super::UCHAR = 9;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN: super::UCHAR = 0;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED: super::UCHAR = 1;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN: super::UCHAR = 2;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED: super::UCHAR = 3;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_IMP_TYPE_SWIPE: super::UCHAR = 8;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_PIXELS_PER_CM: super::UCHAR = 2;
+#[cfg(feature = "shared")]
+pub const WINBIO_ANSI_381_PIXELS_PER_INCH: super::UCHAR = 1;
 pub const WINBIO_ANSI_381_POS_LH_FOUR_FINGERS: WINBIO_BIOMETRIC_SUBTYPE = 14;
 pub const WINBIO_ANSI_381_POS_LH_FULL_PALM: WINBIO_BIOMETRIC_SUBTYPE = 23;
 pub const WINBIO_ANSI_381_POS_LH_HYPOTHENAR: WINBIO_BIOMETRIC_SUBTYPE = 36;
@@ -245,26 +323,26 @@ pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = 
 pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = 2;
 pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = 0;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT {
     pub SessionHandle: WINBIO_SESSION_HANDLE,
     pub Operation: WINBIO_OPERATION_TYPE,
-    pub SequenceNumber: u64,
-    pub TimeStamp: i64,
+    pub SequenceNumber: super::ULONGLONG,
+    pub TimeStamp: super::LONGLONG,
     pub ApiStatus: windows_sys::core::HRESULT,
     pub UnitId: WINBIO_UNIT_ID,
-    pub UserData: *mut core::ffi::c_void,
+    pub UserData: super::PVOID,
     pub Parameters: WINBIO_ASYNC_RESULT_0,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union WINBIO_ASYNC_RESULT_0 {
     pub Verify: WINBIO_ASYNC_RESULT_0_0,
@@ -289,81 +367,81 @@ pub union WINBIO_ASYNC_RESULT_0 {
     pub GetProtectionPolicy: WINBIO_ASYNC_RESULT_0_19,
     pub NotifyUnitStatusChange: WINBIO_ASYNC_RESULT_0_20,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Match: super::BOOLEAN,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
     pub Event: WINBIO_EVENT,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Component: WINBIO_COMPONENT,
-    pub ControlCode: u32,
-    pub OperationStatus: u32,
+    pub ControlCode: super::ULONG,
+    pub OperationStatus: super::ULONG,
     pub SendBuffer: super::PUCHAR,
-    pub SendBufferSize: usize,
+    pub SendBufferSize: super::SIZE_T,
     pub ReceiveBuffer: super::PUCHAR,
-    pub ReceiveBufferSize: usize,
-    pub ReceiveDataSize: usize,
+    pub ReceiveBufferSize: super::SIZE_T,
+    pub ReceiveDataSize: super::SIZE_T,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
-    pub BspCount: usize,
+    pub BspCount: super::SIZE_T,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
-    pub UnitCount: usize,
+    pub UnitCount: super::SIZE_T,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
-    pub StorageCount: usize,
+    pub StorageCount: super::SIZE_T,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Match: super::BOOLEAN,
@@ -371,7 +449,7 @@ pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Ticket: WINBIO_PROTECTION_TICKET,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_16 {
     pub Identity: WINBIO_IDENTITY,
@@ -379,175 +457,178 @@ pub struct WINBIO_ASYNC_RESULT_0_16 {
     pub RejectDetail: WINBIO_REJECT_DETAIL,
     pub Ticket: WINBIO_PROTECTION_TICKET,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
-    pub SelectorValue: u64,
+    pub SelectorValue: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub ChangeType: WINBIO_PRESENCE_CHANGE,
-    pub PresenceCount: usize,
+    pub PresenceCount: super::SIZE_T,
     pub PresenceArray: *mut WINBIO_PRESENCE,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_19 {
     pub Identity: WINBIO_IDENTITY,
     pub Policy: WINBIO_PROTECTION_POLICY,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub RejectDetail: WINBIO_REJECT_DETAIL,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub Identity: WINBIO_IDENTITY,
     pub IsNewTemplate: super::BOOLEAN,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub Identity: WINBIO_IDENTITY,
-    pub SubFactorCount: usize,
+    pub SubFactorCount: super::SIZE_T,
     pub SubFactorArray: *mut WINBIO_BIOMETRIC_SUBTYPE,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub Sample: PWINBIO_BIR,
-    pub SampleSize: usize,
+    pub SampleSize: super::SIZE_T,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_8 {
     pub PropertyType: WINBIO_PROPERTY_TYPE,
     pub PropertyId: WINBIO_PROPERTY_ID,
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
-    pub PropertyBufferSize: usize,
-    pub PropertyBuffer: *mut core::ffi::c_void,
+    pub PropertyBufferSize: super::SIZE_T,
+    pub PropertyBuffer: super::PVOID,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub PropertyType: WINBIO_PROPERTY_TYPE,
     pub PropertyId: WINBIO_PROPERTY_ID,
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
-    pub PropertyBufferSize: usize,
-    pub PropertyBuffer: *mut core::ffi::c_void,
+    pub PropertyBufferSize: super::SIZE_T,
+    pub PropertyBuffer: super::PVOID,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_ASYNC_RESULT_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
-    pub RecordLength: u64,
-    pub FormatIdentifier: u32,
-    pub VersionNumber: u32,
+    pub RecordLength: super::ULONG64,
+    pub FormatIdentifier: super::ULONG,
+    pub VersionNumber: super::ULONG,
     pub ProductId: WINBIO_REGISTERED_FORMAT,
-    pub CaptureDeviceId: u16,
-    pub ImageAcquisitionLevel: u16,
-    pub HorizontalScanResolution: u16,
-    pub VerticalScanResolution: u16,
-    pub HorizontalImageResolution: u16,
-    pub VerticalImageResolution: u16,
-    pub ElementCount: u8,
-    pub ScaleUnits: u8,
-    pub PixelDepth: u8,
-    pub ImageCompressionAlg: u8,
-    pub Reserved: u16,
+    pub CaptureDeviceId: super::USHORT,
+    pub ImageAcquisitionLevel: super::USHORT,
+    pub HorizontalScanResolution: super::USHORT,
+    pub VerticalScanResolution: super::USHORT,
+    pub HorizontalImageResolution: super::USHORT,
+    pub VerticalImageResolution: super::USHORT,
+    pub ElementCount: super::UCHAR,
+    pub ScaleUnits: super::UCHAR,
+    pub PixelDepth: super::UCHAR,
+    pub ImageCompressionAlg: super::UCHAR,
+    pub Reserved: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
-    pub BlockLength: u32,
-    pub HorizontalLineLength: u16,
-    pub VerticalLineLength: u16,
+    pub BlockLength: super::ULONG,
+    pub HorizontalLineLength: super::USHORT,
+    pub VerticalLineLength: super::USHORT,
     pub Position: WINBIO_BIOMETRIC_SUBTYPE,
-    pub CountOfViews: u8,
-    pub ViewNumber: u8,
-    pub ImageQuality: u8,
-    pub ImpressionType: u8,
-    pub Reserved: u8,
+    pub CountOfViews: super::UCHAR,
+    pub ViewNumber: super::UCHAR,
+    pub ImageQuality: super::UCHAR,
+    pub ImpressionType: super::UCHAR,
+    pub Reserved: super::UCHAR,
 }
 pub type WINBIO_BIOMETRIC_SENSOR_SUBTYPE = u32;
 pub type WINBIO_BIOMETRIC_SUBTYPE = u8;
 pub type WINBIO_BIOMETRIC_TYPE = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_BIR {
     pub HeaderBlock: WINBIO_BIR_DATA,
@@ -558,34 +639,51 @@ pub struct WINBIO_BIR {
 pub const WINBIO_BIR_ALGIN_SIZE: i32 = 8;
 pub const WINBIO_BIR_ALIGN_SIZE: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_BIR_DATA {
-    pub Size: u32,
-    pub Offset: u32,
+    pub Size: super::ULONG,
+    pub Offset: super::ULONG,
 }
 pub type WINBIO_BIR_DATA_FLAGS = u8;
-pub const WINBIO_BIR_FIELD_BIOMETRIC_CONDITION: u16 = 2048;
-pub const WINBIO_BIR_FIELD_BIOMETRIC_PURPOSE: u16 = 1024;
-pub const WINBIO_BIR_FIELD_BIOMETRIC_SUBTYPE: u16 = 128;
-pub const WINBIO_BIR_FIELD_BIOMETRIC_TYPE: u16 = 64;
-pub const WINBIO_BIR_FIELD_CBEFF_HEADER_VERSION: u16 = 256;
-pub const WINBIO_BIR_FIELD_CHALLENGE: u16 = 16384;
-pub const WINBIO_BIR_FIELD_CREATION_DATE: u16 = 16;
-pub const WINBIO_BIR_FIELD_CREATOR: u16 = 8192;
-pub const WINBIO_BIR_FIELD_INDEX: u16 = 8;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_BIOMETRIC_CONDITION: super::USHORT = 2048;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_BIOMETRIC_PURPOSE: super::USHORT = 1024;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_BIOMETRIC_SUBTYPE: super::USHORT = 128;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_BIOMETRIC_TYPE: super::USHORT = 64;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_CBEFF_HEADER_VERSION: super::USHORT = 256;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_CHALLENGE: super::USHORT = 16384;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_CREATION_DATE: super::USHORT = 16;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_CREATOR: super::USHORT = 8192;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_INDEX: super::USHORT = 8;
 pub const WINBIO_BIR_FIELD_NEVER_VALID: i32 = 49165;
-pub const WINBIO_BIR_FIELD_PATRON_HEADER_VERSION: u16 = 512;
-pub const WINBIO_BIR_FIELD_PATRON_ID: u16 = 4;
-pub const WINBIO_BIR_FIELD_PAYLOAD: u16 = 32768;
-pub const WINBIO_BIR_FIELD_PRODUCT_ID: u16 = 2;
-pub const WINBIO_BIR_FIELD_QUALITY: u16 = 4096;
-pub const WINBIO_BIR_FIELD_SUBHEAD_COUNT: u16 = 1;
-pub const WINBIO_BIR_FIELD_VALIDITY_PERIOD: u16 = 32;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_PATRON_HEADER_VERSION: super::USHORT = 512;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_PATRON_ID: super::USHORT = 4;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_PAYLOAD: super::USHORT = 32768;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_PRODUCT_ID: super::USHORT = 2;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_QUALITY: super::USHORT = 4096;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_SUBHEAD_COUNT: super::USHORT = 1;
+#[cfg(feature = "shared")]
+pub const WINBIO_BIR_FIELD_VALIDITY_PERIOD: super::USHORT = 32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_BIR_HEADER {
-    pub ValidFields: u16,
+    pub ValidFields: super::USHORT,
     pub HeaderVersion: WINBIO_BIR_VERSION,
     pub PatronHeaderVersion: WINBIO_BIR_VERSION,
     pub DataFlags: WINBIO_BIR_DATA_FLAGS,
@@ -598,20 +696,20 @@ pub struct WINBIO_BIR_HEADER {
     pub BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
     pub ProductId: WINBIO_REGISTERED_FORMAT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WINBIO_BIR_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_BIR_HEADER_0 {
     pub BeginDate: super::LARGE_INTEGER,
     pub EndDate: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WINBIO_BIR_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -621,6 +719,7 @@ pub type WINBIO_BIR_PURPOSE = u8;
 pub type WINBIO_BIR_QUALITY = i8;
 pub type WINBIO_BIR_VERSION = u8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_BSP_SCHEMA {
     pub BiometricFactor: WINBIO_BIOMETRIC_TYPE,
@@ -629,6 +728,7 @@ pub struct WINBIO_BSP_SCHEMA {
     pub Vendor: WINBIO_STRING,
     pub Version: WINBIO_VERSION,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_BSP_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -664,21 +764,36 @@ pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = 1;
 pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = 2;
 pub type WINBIO_CREDENTIAL_STATE = i32;
 pub type WINBIO_CREDENTIAL_TYPE = i32;
-pub const WINBIO_DATABASE_FLAG_MASK: u32 = 4294901760;
-pub const WINBIO_DATABASE_FLAG_REMOTE: u32 = 131072;
-pub const WINBIO_DATABASE_FLAG_REMOVABLE: u32 = 65536;
-pub const WINBIO_DATABASE_TYPE_DBMS: u32 = 2;
-pub const WINBIO_DATABASE_TYPE_FILE: u32 = 1;
-pub const WINBIO_DATABASE_TYPE_MASK: u32 = 65535;
-pub const WINBIO_DATABASE_TYPE_ONCHIP: u32 = 3;
-pub const WINBIO_DATABASE_TYPE_SMARTCARD: u32 = 4;
-pub const WINBIO_DATA_FLAG_INTEGRITY: u8 = 1;
-pub const WINBIO_DATA_FLAG_INTERMEDIATE: u8 = 64;
-pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u8 = 8;
-pub const WINBIO_DATA_FLAG_PRIVACY: u8 = 2;
-pub const WINBIO_DATA_FLAG_PROCESSED: u8 = 128;
-pub const WINBIO_DATA_FLAG_RAW: u8 = 32;
-pub const WINBIO_DATA_FLAG_SIGNED: u8 = 4;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_FLAG_MASK: super::ULONG = 4294901760;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_FLAG_REMOTE: super::ULONG = 131072;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_FLAG_REMOVABLE: super::ULONG = 65536;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_TYPE_DBMS: super::ULONG = 2;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_TYPE_FILE: super::ULONG = 1;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_TYPE_MASK: super::ULONG = 65535;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_TYPE_ONCHIP: super::ULONG = 3;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATABASE_TYPE_SMARTCARD: super::ULONG = 4;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATA_FLAG_INTEGRITY: super::UCHAR = 1;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATA_FLAG_INTERMEDIATE: super::UCHAR = 64;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: super::UCHAR = 8;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATA_FLAG_PRIVACY: super::UCHAR = 2;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATA_FLAG_PROCESSED: super::UCHAR = 128;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATA_FLAG_RAW: super::UCHAR = 32;
+#[cfg(feature = "shared")]
+pub const WINBIO_DATA_FLAG_SIGNED: super::UCHAR = 4;
 pub const WINBIO_DATA_QUALITY_NOT_SET: WINBIO_BIR_QUALITY = -1;
 pub const WINBIO_DATA_QUALITY_NOT_SUPPORTED: WINBIO_BIR_QUALITY = -2;
 pub const WINBIO_DB_BOOTSTRAP: *mut windows_sys::core::GUID = core::ptr::without_provenance_mut::<windows_sys::core::GUID>(2usize);
@@ -705,35 +820,41 @@ pub const WINBIO_ESS_SOURCE_DEFAULT: WINBIO_ESS_STATE_FLAGS = 32768;
 pub type WINBIO_ESS_STATE = u64;
 pub type WINBIO_ESS_STATE_FLAGS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EVENT {
     pub Type: WINBIO_EVENT_TYPE,
     pub Parameters: WINBIO_EVENT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WINBIO_EVENT_0 {
     pub Unclaimed: WINBIO_EVENT_0_0,
     pub UnclaimedIdentify: WINBIO_EVENT_0_1,
     pub Error: WINBIO_EVENT_0_2,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EVENT_0_0 {
     pub UnitId: WINBIO_UNIT_ID,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EVENT_0_1 {
     pub UnitId: WINBIO_UNIT_ID,
@@ -741,12 +862,14 @@ pub struct WINBIO_EVENT_0_1 {
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_EVENT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EVENT_0_2 {
     pub ErrorCode: windows_sys::core::HRESULT,
@@ -756,167 +879,180 @@ pub const WINBIO_EVENT_FP_UNCLAIMED: WINBIO_EVENT_TYPE = 1;
 pub const WINBIO_EVENT_FP_UNCLAIMED_IDENTIFY: WINBIO_EVENT_TYPE = 2;
 pub type WINBIO_EVENT_TYPE = u32;
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub GenericEngineCapabilities: WINBIO_CAPABILITIES,
     pub Factor: WINBIO_BIOMETRIC_TYPE,
     pub Specific: WINBIO_EXTENDED_ENGINE_INFO_0,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for WINBIO_EXTENDED_ENGINE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
-    pub Null: u32,
+    pub Null: super::ULONG32,
     pub FacialFeatures: WINBIO_EXTENDED_ENGINE_INFO_0_0,
     pub Fingerprint: WINBIO_EXTENDED_ENGINE_INFO_0_1,
     pub Iris: WINBIO_EXTENDED_ENGINE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_ENGINE_INFO_0_3,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    pub Null: u32,
+    pub Null: super::ULONG32,
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    pub GeneralSamples: u32,
-    pub Center: u32,
-    pub TopEdge: u32,
-    pub BottomEdge: u32,
-    pub LeftEdge: u32,
-    pub RightEdge: u32,
+    pub GeneralSamples: super::ULONG,
+    pub Center: super::ULONG,
+    pub TopEdge: super::ULONG,
+    pub BottomEdge: super::ULONG,
+    pub LeftEdge: super::ULONG,
+    pub RightEdge: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    pub Null: u32,
+    pub Null: super::ULONG32,
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
 }
 #[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    pub Null: u32,
+    pub Null: super::ULONG32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    pub Size: usize,
+    pub Size: super::SIZE_T,
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub TemplateStatus: windows_sys::core::HRESULT,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
-    pub PercentComplete: u32,
+    pub PercentComplete: super::ULONG,
     pub Factor: WINBIO_BIOMETRIC_TYPE,
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
     pub Specific: WINBIO_EXTENDED_ENROLLMENT_STATUS_0,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    pub Null: u32,
+    pub Null: super::ULONG32,
     pub FacialFeatures: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0,
     pub Fingerprint: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1,
     pub Iris: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2,
     pub Voice: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     pub BoundingBox: super::RECT,
-    pub Distance: i32,
+    pub Distance: super::LONG,
     pub OpaqueEngineData: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub AdapterId: WINBIO_UUID,
-    pub Data: [u32; 78],
+    pub Data: [super::ULONG; 78],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    pub GeneralSamples: u32,
-    pub Center: u32,
-    pub TopEdge: u32,
-    pub BottomEdge: u32,
-    pub LeftEdge: u32,
-    pub RightEdge: u32,
+    pub GeneralSamples: super::ULONG,
+    pub Center: super::ULONG,
+    pub TopEdge: super::ULONG,
+    pub BottomEdge: super::ULONG,
+    pub LeftEdge: super::ULONG,
+    pub RightEdge: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub EyeBoundingBox_1: super::RECT,
     pub EyeBoundingBox_2: super::RECT,
     pub PupilCenter_1: super::POINT,
     pub PupilCenter_2: super::POINT,
-    pub Distance: i32,
-    pub GridPointCompletionPercent: u32,
-    pub GridPointIndex: u16,
+    pub Distance: super::LONG,
+    pub GridPointCompletionPercent: super::ULONG,
+    pub GridPointIndex: super::UINT16,
     pub Point3D: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0,
     pub StopCaptureAndShowCriticalFeedback: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub X: f64,
@@ -924,43 +1060,43 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub Z: f64,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    pub Reserved: u32,
+    pub Reserved: super::ULONG32,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO {
     pub GenericSensorCapabilities: WINBIO_CAPABILITIES,
     pub Factor: WINBIO_BIOMETRIC_TYPE,
     pub Specific: WINBIO_EXTENDED_SENSOR_INFO_0,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_EXTENDED_SENSOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
-    pub Null: u32,
+    pub Null: super::ULONG32,
     pub FacialFeatures: WINBIO_EXTENDED_SENSOR_INFO_0_0,
     pub Fingerprint: WINBIO_EXTENDED_SENSOR_INFO_0_1,
     pub Iris: WINBIO_EXTENDED_SENSOR_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_SENSOR_INFO_0_3,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub FrameSize: super::RECT,
@@ -969,27 +1105,27 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub HardwareInfo: WINBIO_EXTENDED_SENSOR_INFO_0_0_0,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    pub ColorSensorId: [u16; 260],
-    pub InfraredSensorId: [u16; 260],
-    pub InfraredSensorRotationAngle: u32,
+    pub ColorSensorId: [super::WCHAR; 260],
+    pub InfraredSensorId: [super::WCHAR; 260],
+    pub InfraredSensorRotationAngle: super::UINT32,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    pub Reserved: u32,
+    pub Reserved: super::ULONG32,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub FrameSize: super::RECT,
@@ -997,62 +1133,71 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub MandatoryOrientation: WINBIO_ORIENTATION,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    pub Reserved: u32,
+    pub Reserved: super::ULONG32,
 }
 #[repr(C)]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub GenericStorageCapabilities: WINBIO_CAPABILITIES,
     pub Factor: WINBIO_BIOMETRIC_TYPE,
     pub Specific: WINBIO_EXTENDED_STORAGE_INFO_0,
 }
+#[cfg(feature = "basetsd")]
 impl Default for WINBIO_EXTENDED_STORAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
-    pub Null: u32,
+    pub Null: super::ULONG32,
     pub FacialFeatures: WINBIO_EXTENDED_STORAGE_INFO_0_0,
     pub Fingerprint: WINBIO_EXTENDED_STORAGE_INFO_0_1,
     pub Iris: WINBIO_EXTENDED_STORAGE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_STORAGE_INFO_0_3,
 }
+#[cfg(feature = "basetsd")]
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: WINBIO_SENSOR_STATUS,
-    pub ReasonCode: u32,
+    pub ReasonCode: super::ULONG,
 }
 pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: windows_sys::core::HRESULT = 0x8009803D_u32 as _;
 pub const WINBIO_E_AUTO_LOGON_DISABLED: windows_sys::core::HRESULT = 0x80098043_u32 as _;
@@ -1188,54 +1333,63 @@ pub const WINBIO_FP_TOO_SLOW: WINBIO_REJECT_DETAIL = 6;
 pub type WINBIO_FRAMEWORK_CHANGE_TYPE = u32;
 pub const WINBIO_FRAMEWORK_CHANGE_UNIT: WINBIO_FRAMEWORK_CHANGE_TYPE = 1;
 pub const WINBIO_FRAMEWORK_CHANGE_UNIT_STATUS: WINBIO_FRAMEWORK_CHANGE_TYPE = 2;
-pub type WINBIO_FRAMEWORK_HANDLE = WINBIO_SESSION_HANDLE;
+pub type WINBIO_FRAMEWORK_HANDLE = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_GESTURE_METADATA {
-    pub Size: usize,
+    pub Size: super::SIZE_T,
     pub BiometricType: WINBIO_BIOMETRIC_TYPE,
     pub MatchType: WINBIO_MATCH_TYPE,
     pub ProtectionType: WINBIO_PROTECTION_TYPE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_IDENTITY {
     pub Type: WINBIO_IDENTITY_TYPE,
     pub Value: WINBIO_IDENTITY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WINBIO_IDENTITY_0 {
-    pub Null: u32,
-    pub Wildcard: u32,
+    pub Null: super::ULONG,
+    pub Wildcard: super::ULONG,
     pub TemplateGuid: windows_sys::core::GUID,
     pub AccountSid: WINBIO_IDENTITY_0_0,
-    pub SecureId: [u8; 32],
+    pub SecureId: [super::UCHAR; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_IDENTITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_IDENTITY_0_0 {
-    pub Size: u32,
-    pub Data: [u8; 68],
+    pub Size: super::ULONG,
+    pub Data: [super::UCHAR; 68],
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_IDENTITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINBIO_IDENTITY_SECURE_ID_SIZE: u32 = 32;
+#[cfg(feature = "shared")]
+pub const WINBIO_IDENTITY_SECURE_ID_SIZE: super::ULONG = 32;
 pub type WINBIO_IDENTITY_TYPE = u32;
-pub const WINBIO_IDENTITY_WILDCARD: u32 = 621175426;
+#[cfg(feature = "shared")]
+pub const WINBIO_IDENTITY_WILDCARD: super::ULONG = 621175426;
 pub const WINBIO_ID_TYPE_GUID: WINBIO_IDENTITY_TYPE = 2;
 pub const WINBIO_ID_TYPE_NULL: WINBIO_IDENTITY_TYPE = 0;
 pub const WINBIO_ID_TYPE_SECURE_ID: WINBIO_IDENTITY_TYPE = 4;
@@ -1273,15 +1427,21 @@ pub const WINBIO_MATCH_ON_CHIP: WINBIO_MATCH_TYPE = 3;
 pub const WINBIO_MATCH_SOFTWARE: WINBIO_MATCH_TYPE = 1;
 pub const WINBIO_MATCH_TRUSTED_EXECUTION_ENVIRONMENT: WINBIO_MATCH_TYPE = 2;
 pub type WINBIO_MATCH_TYPE = u32;
-pub const WINBIO_MAX_PRIVATE_SENSOR_TYPE_INFO_BUFFER_SIZE: u32 = 4096;
-pub const WINBIO_MAX_SAMPLE_BUFFER_SIZE: u32 = 2147483647;
-pub const WINBIO_MAX_SET_PROPERTY_BUFFER_SIZE: u32 = 4096;
+#[cfg(feature = "shared")]
+pub const WINBIO_MAX_PRIVATE_SENSOR_TYPE_INFO_BUFFER_SIZE: super::ULONG = 4096;
+#[cfg(feature = "shared")]
+pub const WINBIO_MAX_SAMPLE_BUFFER_SIZE: super::ULONG = 2147483647;
+#[cfg(feature = "shared")]
+pub const WINBIO_MAX_SET_PROPERTY_BUFFER_SIZE: super::ULONG = 4096;
 pub const WINBIO_MAX_STRING_LEN: i32 = 256;
-pub const WINBIO_NO_FORMAT_OWNER_AVAILABLE: u16 = 0;
-pub const WINBIO_NO_FORMAT_TYPE_AVAILABLE: u16 = 0;
+#[cfg(feature = "shared")]
+pub const WINBIO_NO_FORMAT_OWNER_AVAILABLE: super::USHORT = 0;
+#[cfg(feature = "shared")]
+pub const WINBIO_NO_FORMAT_TYPE_AVAILABLE: super::USHORT = 0;
 pub const WINBIO_NO_PURPOSE_AVAILABLE: WINBIO_BIR_PURPOSE = 0;
 pub const WINBIO_NO_TYPE_AVAILABLE: WINBIO_BIOMETRIC_TYPE = 0;
-pub const WINBIO_OPAQUE_ENGINE_DATA_ITEM_COUNT: u32 = 78;
+#[cfg(feature = "shared")]
+pub const WINBIO_OPAQUE_ENGINE_DATA_ITEM_COUNT: super::ULONG = 78;
 pub const WINBIO_OPERATION_CAPTURE_SAMPLE: WINBIO_OPERATION_TYPE = 12;
 pub const WINBIO_OPERATION_CLOSE: WINBIO_OPERATION_TYPE = 2;
 pub const WINBIO_OPERATION_CLOSE_FRAMEWORK: WINBIO_OPERATION_TYPE = 21;
@@ -1340,7 +1500,7 @@ pub type WINBIO_POOL_TYPE = u32;
 pub const WINBIO_POOL_UNASSIGNED: WINBIO_POOL_TYPE = 3;
 pub const WINBIO_POOL_UNKNOWN: WINBIO_POOL_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE {
     pub Factor: WINBIO_BIOMETRIC_TYPE,
@@ -1348,25 +1508,25 @@ pub struct WINBIO_PRESENCE {
     pub Status: windows_sys::core::HRESULT,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
     pub Identity: WINBIO_IDENTITY,
-    pub TrackingId: u64,
+    pub TrackingId: super::ULONGLONG,
     pub Ticket: WINBIO_PROTECTION_TICKET,
     pub Properties: WINBIO_PRESENCE_PROPERTIES,
     pub Authorization: WINBIO_PRESENCE_0,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for WINBIO_PRESENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE_0 {
-    pub Size: u32,
-    pub Data: [u8; 32],
+    pub Size: super::ULONG,
+    pub Data: [super::UCHAR; 32],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for WINBIO_PRESENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1380,48 +1540,48 @@ pub const WINBIO_PRESENCE_CHANGE_TYPE_TRACK: WINBIO_PRESENCE_CHANGE = 5;
 pub const WINBIO_PRESENCE_CHANGE_TYPE_UNKNOWN: WINBIO_PRESENCE_CHANGE = 0;
 pub const WINBIO_PRESENCE_CHANGE_TYPE_UPDATE_ALL: WINBIO_PRESENCE_CHANGE = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union WINBIO_PRESENCE_PROPERTIES {
     pub FacialFeatures: WINBIO_PRESENCE_PROPERTIES_0,
     pub Iris: WINBIO_PRESENCE_PROPERTIES_1,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for WINBIO_PRESENCE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
     pub BoundingBox: super::RECT,
-    pub Distance: i32,
+    pub Distance: super::LONG,
     pub OpaqueEngineData: WINBIO_PRESENCE_PROPERTIES_0_0,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub AdapterId: WINBIO_UUID,
-    pub Data: [u32; 78],
+    pub Data: [super::ULONG; 78],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub EyeBoundingBox_1: super::RECT,
     pub EyeBoundingBox_2: super::RECT,
     pub PupilCenter_1: super::POINT,
     pub PupilCenter_2: super::POINT,
-    pub Distance: i32,
+    pub Distance: super::LONG,
 }
 pub const WINBIO_PROPERTY_ANTI_SPOOF_POLICY: WINBIO_PROPERTY_ID = 1;
 pub const WINBIO_PROPERTY_EXTENDED_ENGINE_INFO: WINBIO_PROPERTY_ID = 3;
@@ -1440,15 +1600,17 @@ pub const WINBIO_PROPERTY_TYPE_TEMPLATE: WINBIO_PROPERTY_TYPE = 3;
 pub const WINBIO_PROPERTY_TYPE_UNIT: WINBIO_PROPERTY_TYPE = 2;
 pub const WINBIO_PROPERTY_UNIT_SECURITY_LEVEL: WINBIO_PROPERTY_ID = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_PROTECTION_POLICY {
-    pub Version: u32,
+    pub Version: super::ULONG,
     pub Identity: WINBIO_IDENTITY,
     pub DatabaseId: WINBIO_UUID,
-    pub UserState: u64,
-    pub PolicySize: usize,
-    pub Policy: [u8; 128],
+    pub UserState: super::ULONGLONG,
+    pub PolicySize: super::SIZE_T,
+    pub Policy: [super::UCHAR; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_PROTECTION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1465,10 +1627,11 @@ pub const WINBIO_PURPOSE_ENROLL_FOR_VERIFICATION: WINBIO_BIR_PURPOSE = 8;
 pub const WINBIO_PURPOSE_IDENTIFY: WINBIO_BIR_PURPOSE = 2;
 pub const WINBIO_PURPOSE_VERIFY: WINBIO_BIR_PURPOSE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_REGISTERED_FORMAT {
-    pub Owner: u16,
-    pub Type: u16,
+    pub Owner: super::USHORT,
+    pub Type: super::USHORT,
 }
 pub type WINBIO_REJECT_DETAIL = u32;
 pub const WINBIO_REJECT_DETAIL_ANTI_SPOOF_MASK: WINBIO_REJECT_DETAIL = 4278190080;
@@ -1487,28 +1650,32 @@ pub const WINBIO_SCP_SIGNATURE_SIZE_V1: i32 = 64;
 pub type WINBIO_SCP_VERSION = u16;
 pub const WINBIO_SCP_VERSION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
-    pub Type: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub ValidationTag: u64,
+    pub Type: super::ULONG,
+    pub Size: super::ULONG,
+    pub Flags: super::ULONG,
+    pub ValidationTag: super::ULONGLONG,
 }
-pub const WINBIO_SECURE_BUFFER_TYPE_V1: u32 = 3116236801;
+#[cfg(feature = "shared")]
+pub const WINBIO_SECURE_BUFFER_TYPE_V1: super::ULONG = 3116236801;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
-    pub Size: u32,
+    pub Size: super::DWORD,
     pub Version: WINBIO_SCP_VERSION,
     pub Flags: WINBIO_SCP_FLAGS,
-    pub ModelCertificateSize: u32,
-    pub IntermediateCA1Size: u32,
-    pub IntermediateCA2Size: u32,
+    pub ModelCertificateSize: super::DWORD,
+    pub IntermediateCA1Size: super::DWORD,
+    pub IntermediateCA2Size: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
-    pub PayloadSize: u32,
+    pub PayloadSize: super::DWORD,
     pub Version: WINBIO_SCP_VERSION,
     pub Flags: WINBIO_SCP_FLAGS,
 }
@@ -1541,15 +1708,17 @@ pub const WINBIO_SETTING_TYPE_ESS_ENABLED: WINBIO_SETTING_TYPE = 1;
 pub const WINBIO_SETTING_TYPE_PERIPHERALS_WITH_ESS: WINBIO_SETTING_TYPE = 0;
 pub const WINBIO_STANDARD_TYPE_MASK: WINBIO_BIOMETRIC_TYPE = 16777215;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_STORAGE_SCHEMA {
     pub BiometricFactor: WINBIO_BIOMETRIC_TYPE,
     pub DatabaseId: WINBIO_UUID,
     pub DataFormat: WINBIO_UUID,
-    pub Attributes: u32,
+    pub Attributes: super::ULONG,
     pub FilePath: WINBIO_STRING,
     pub ConnectionString: WINBIO_STRING,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_STORAGE_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1586,6 +1755,7 @@ pub const WINBIO_TYPE_VEIN_PATTERN: WINBIO_BIOMETRIC_TYPE = 262144;
 pub const WINBIO_TYPE_VOICE: WINBIO_BIOMETRIC_TYPE = 4;
 pub type WINBIO_UNIT_ID = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WINBIO_UNIT_SCHEMA {
     pub UnitId: WINBIO_UNIT_ID,
@@ -1600,6 +1770,7 @@ pub struct WINBIO_UNIT_SCHEMA {
     pub SerialNumber: WINBIO_STRING,
     pub FirmwareVersion: WINBIO_VERSION,
 }
+#[cfg(feature = "shared")]
 impl Default for WINBIO_UNIT_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1610,10 +1781,11 @@ pub const WINBIO_UNIT_SECURITY_LEVEL_NORMAL: WINBIO_UNIT_SECURITY_LEVEL = 0;
 pub const WINBIO_UNIT_SECURITY_LEVEL_VBS: WINBIO_UNIT_SECURITY_LEVEL = 1;
 pub type WINBIO_UUID = windows_sys::core::GUID;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WINBIO_VERSION {
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
 }
 pub const WINBIO_VOICE_MAX_UTTERANCE: WINBIO_BIOMETRIC_SUBTYPE = 32;
 pub const WINBIO_VOICE_MIN_UTTERANCE: WINBIO_BIOMETRIC_SUBTYPE = 1;
