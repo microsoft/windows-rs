@@ -30,8 +30,8 @@ mod Windows {
                 class GipFirmwareUpdateResult {
                     IGipFirmwareUpdateResult,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum GipFirmwareUpdateStatus {
                     Completed = 0,
                     UpToDate = 1,
@@ -45,8 +45,8 @@ mod Windows {
                     IGipGameControllerProvider,
                     IGameControllerProvider,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum GipMessageClass {
                     Command = 0,
                     LowLatency = 1,
@@ -60,39 +60,39 @@ mod Windows {
                     IHidGameControllerProvider,
                     IGameControllerProvider,
                 }
-                #[guid(0x69a0ae5e_758e_4cbe_ace6_62155fe9126f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x69a0ae5e_758e_4cbe_ace6_62155fe9126f)]
                 interface ICustomGameControllerFactory {
-                    fn CreateGameController(&self, provider: IGameControllerProvider) -> Object;
-                    fn OnGameControllerAdded(&self, value: super::IGameController);
-                    fn OnGameControllerRemoved(&self, value: super::IGameController);
+                    fn CreateGameController(&self, #[in] provider: IGameControllerProvider) -> Object;
+                    fn OnGameControllerAdded(&self, #[in] value: super::IGameController);
+                    fn OnGameControllerRemoved(&self, #[in] value: super::IGameController);
                 }
-                #[guid(0x36cb66e3_d0a1_4986_a24c_40b137deba9e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameControllerFactoryManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x36cb66e3_d0a1_4986_a24c_40b137deba9e)]
                 interface IGameControllerFactoryManagerStatics {
-                    fn RegisterCustomFactoryForGipInterface(&self, factory: ICustomGameControllerFactory, interfaceId: GUID);
-                    fn RegisterCustomFactoryForHardwareId(&self, factory: ICustomGameControllerFactory, hardwareVendorId: u16, hardwareProductId: u16);
-                    fn RegisterCustomFactoryForXusbType(&self, factory: ICustomGameControllerFactory, xusbType: XusbDeviceType, xusbSubtype: XusbDeviceSubtype);
+                    fn RegisterCustomFactoryForGipInterface(&self, #[in] factory: ICustomGameControllerFactory, #[in] interfaceId: GUID);
+                    fn RegisterCustomFactoryForHardwareId(&self, #[in] factory: ICustomGameControllerFactory, #[in] hardwareVendorId: u16, #[in] hardwareProductId: u16);
+                    fn RegisterCustomFactoryForXusbType(&self, #[in] factory: ICustomGameControllerFactory, #[in] xusbType: XusbDeviceType, #[in] xusbSubtype: XusbDeviceSubtype);
                 }
-                #[guid(0xeace5644_19df_4115_b32a_2793e2aea3bb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameControllerFactoryManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xeace5644_19df_4115_b32a_2793e2aea3bb)]
                 interface IGameControllerFactoryManagerStatics2: IGameControllerFactoryManagerStatics {
-                    fn TryGetFactoryControllerFromGameController(&self, factory: ICustomGameControllerFactory, gameController: super::IGameController) -> super::IGameController;
+                    fn TryGetFactoryControllerFromGameController(&self, #[in] factory: ICustomGameControllerFactory, #[in] gameController: super::IGameController) -> super::IGameController;
                 }
-                #[guid(0x1ff6f922_c640_4c78_a820_9a715c558bcb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x1ff6f922_c640_4c78_a820_9a715c558bcb)]
                 interface IGameControllerInputSink {
-                    fn OnInputResumed(&self, timestamp: u64);
-                    fn OnInputSuspended(&self, timestamp: u64);
+                    fn OnInputResumed(&self, #[in] timestamp: u64);
+                    fn OnInputSuspended(&self, #[in] timestamp: u64);
                 }
-                #[guid(0xe6d73982_2996_4559_b16c_3e57d46e58d6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[guid(0xe6d73982_2996_4559_b16c_3e57d46e58d6)]
                 interface IGameControllerProvider {
                     #[get]
                     FirmwareVersionInfo: GameControllerVersionInfo;
@@ -105,9 +105,9 @@ mod Windows {
                     #[get]
                     IsConnected: bool;
                 }
-                #[guid(0x6b794d32_8553_4292_8e03_e16651a2f8bc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GipFirmwareUpdateResult)]
+                #[guid(0x6b794d32_8553_4292_8e03_e16651a2f8bc)]
                 interface IGipFirmwareUpdateResult {
                     #[get]
                     ExtendedErrorCode: u32;
@@ -116,55 +116,55 @@ mod Windows {
                     #[get]
                     Status: GipFirmwareUpdateStatus;
                 }
-                #[guid(0xa2108abf_09f1_43bc_a140_80f899ec36fb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xa2108abf_09f1_43bc_a140_80f899ec36fb)]
                 interface IGipGameControllerInputSink: IGameControllerInputSink {
-                    fn OnKeyReceived(&self, timestamp: u64, keyCode: u8, isPressed: bool);
-                    fn OnMessageReceived(&self, timestamp: u64, messageClass: GipMessageClass, messageId: u8, sequenceId: u8, messageBuffer: [u8]);
+                    fn OnKeyReceived(&self, #[in] timestamp: u64, #[in] keyCode: u8, #[in] isPressed: bool);
+                    fn OnMessageReceived(&self, #[in] timestamp: u64, #[in] messageClass: GipMessageClass, #[in] messageId: u8, #[in] sequenceId: u8, #[in] messageBuffer: [u8]);
                 }
-                #[guid(0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GipGameControllerProvider)]
+                #[guid(0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc)]
                 interface IGipGameControllerProvider: IGameControllerProvider {
-                    fn SendMessage(&self, messageClass: GipMessageClass, messageId: u8, messageBuffer: [u8]);
-                    fn SendReceiveMessage(&self, messageClass: GipMessageClass, messageId: u8, requestMessageBuffer: [u8], #[out] responseMessageBuffer: [u8]);
+                    fn SendMessage(&self, #[in] messageClass: GipMessageClass, #[in] messageId: u8, #[in] messageBuffer: [u8]);
+                    fn SendReceiveMessage(&self, #[in] messageClass: GipMessageClass, #[in] messageId: u8, #[in] requestMessageBuffer: [u8], #[out] responseMessageBuffer: [u8]);
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn UpdateFirmwareAsync(&self, firmwareImage: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>;
+                    fn UpdateFirmwareAsync(&self, #[in] firmwareImage: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>;
                 }
-                #[guid(0xf754c322_182d_40e4_a126_fcee4ffa1e31)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xf754c322_182d_40e4_a126_fcee4ffa1e31)]
                 interface IHidGameControllerInputSink: IGameControllerInputSink {
-                    fn OnInputReportReceived(&self, timestamp: u64, reportId: u8, reportBuffer: [u8]);
+                    fn OnInputReportReceived(&self, #[in] timestamp: u64, #[in] reportId: u8, #[in] reportBuffer: [u8]);
                 }
-                #[guid(0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HidGameControllerProvider)]
+                #[guid(0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7)]
                 interface IHidGameControllerProvider: IGameControllerProvider {
                     #[get]
                     UsageId: u16;
                     #[get]
                     UsagePage: u16;
-                    fn GetFeatureReport(&self, reportId: u8, #[out] reportBuffer: [u8]);
-                    fn SendFeatureReport(&self, reportId: u8, reportBuffer: [u8]);
-                    fn SendOutputReport(&self, reportId: u8, reportBuffer: [u8]);
+                    fn GetFeatureReport(&self, #[in] reportId: u8, #[out] reportBuffer: [u8]);
+                    fn SendFeatureReport(&self, #[in] reportId: u8, #[in] reportBuffer: [u8]);
+                    fn SendOutputReport(&self, #[in] reportId: u8, #[in] reportBuffer: [u8]);
                 }
-                #[guid(0xb2ac1d95_6ecb_42b3_8aab_025401ca4712)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xb2ac1d95_6ecb_42b3_8aab_025401ca4712)]
                 interface IXusbGameControllerInputSink: IGameControllerInputSink {
-                    fn OnInputReceived(&self, timestamp: u64, reportId: u8, inputBuffer: [u8]);
+                    fn OnInputReceived(&self, #[in] timestamp: u64, #[in] reportId: u8, #[in] inputBuffer: [u8]);
                 }
-                #[guid(0x6e2971eb_0efb_48b4_808b_837643b2f216)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XusbGameControllerProvider)]
+                #[guid(0x6e2971eb_0efb_48b4_808b_837643b2f216)]
                 interface IXusbGameControllerProvider: IGameControllerProvider {
-                    fn SetVibration(&self, lowFrequencyMotorSpeed: f64, highFrequencyMotorSpeed: f64);
+                    fn SetVibration(&self, #[in] lowFrequencyMotorSpeed: f64, #[in] highFrequencyMotorSpeed: f64);
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum XusbDeviceSubtype {
                     Unknown = 0,
                     Gamepad = 1,
@@ -178,9 +178,9 @@ mod Windows {
                     DrumKit = 9,
                     DancePad = 10,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum XusbDeviceType {
                     Unknown = 0,
                     Gamepad = 1,

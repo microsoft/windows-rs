@@ -18,8 +18,8 @@ mod Windows {
                 class DevicePortalConnectionClosedEventArgs {
                     IDevicePortalConnectionClosedEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum DevicePortalConnectionClosedReason {
                     Unknown = 0,
                     ResourceLimitsExceeded = 1,
@@ -36,53 +36,53 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IDevicePortalWebSocketConnectionRequestReceivedEventArgs,
                 }
-                #[guid(0x0f447f51_1198_4da1_8d54_bdef393e09b6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnection)]
+                #[guid(0x0f447f51_1198_4da1_8d54_bdef393e09b6)]
                 interface IDevicePortalConnection {
                     event Closed: super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>;
                     event RequestReceived: super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>;
                 }
-                #[guid(0xfcf70e38_7032_428c_9f50_945c15a9f0cb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnectionClosedEventArgs)]
+                #[guid(0xfcf70e38_7032_428c_9f50_945c15a9f0cb)]
                 interface IDevicePortalConnectionClosedEventArgs {
                     #[get]
                     Reason: DevicePortalConnectionClosedReason;
                 }
-                #[guid(0x64dae045_6fda_4459_9ebd_ecce22e38559)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnectionRequestReceivedEventArgs)]
+                #[guid(0x64dae045_6fda_4459_9ebd_ecce22e38559)]
                 interface IDevicePortalConnectionRequestReceivedEventArgs {
                     #[get]
                     RequestMessage: super::super::super::Web::Http::HttpRequestMessage;
                     #[get]
                     ResponseMessage: super::super::super::Web::Http::HttpResponseMessage;
                 }
-                #[guid(0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnection)]
+                #[guid(0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6)]
                 interface IDevicePortalConnectionStatics {
-                    fn GetForAppServiceConnection(&self, appServiceConnection: super::super::super::ApplicationModel::AppService::AppServiceConnection) -> DevicePortalConnection;
+                    fn GetForAppServiceConnection(&self, #[in] appServiceConnection: super::super::super::ApplicationModel::AppService::AppServiceConnection) -> DevicePortalConnection;
                 }
-                #[guid(0x67657920_d65a_42f0_aef4_787808098b7b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnection)]
+                #[guid(0x67657920_d65a_42f0_aef4_787808098b7b)]
                 interface IDevicePortalWebSocketConnection {
                     #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest")]
-                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    fn GetServerMessageWebSocketForRequest(&self, #[in] request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
                     #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest2")]
-                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    fn GetServerMessageWebSocketForRequest(&self, #[in] request: super::super::super::Web::Http::HttpRequestMessage, #[in] messageType: super::super::super::Networking::Sockets::SocketMessageType, #[in] protocol: String) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
                     #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest3")]
-                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String, outboundBufferSizeInBytes: u32, maxMessageSize: u32, receiveMode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    fn GetServerMessageWebSocketForRequest(&self, #[in] request: super::super::super::Web::Http::HttpRequestMessage, #[in] messageType: super::super::super::Networking::Sockets::SocketMessageType, #[in] protocol: String, #[in] outboundBufferSizeInBytes: u32, #[in] maxMessageSize: u32, #[in] receiveMode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
                     #[Windows::Foundation::Metadata::Overload("GetServerStreamWebSocketForRequest")]
-                    fn GetServerStreamWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
+                    fn GetServerStreamWebSocketForRequest(&self, #[in] request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
                     #[Windows::Foundation::Metadata::Overload("GetServerStreamWebSocketForRequest2")]
-                    fn GetServerStreamWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, protocol: String, outboundBufferSizeInBytes: u32, noDelay: bool) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
+                    fn GetServerStreamWebSocketForRequest(&self, #[in] request: super::super::super::Web::Http::HttpRequestMessage, #[in] protocol: String, #[in] outboundBufferSizeInBytes: u32, #[in] noDelay: bool) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
                 }
-                #[guid(0x79fdcaba_175c_4739_9f74_dda797c35b3f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnectionRequestReceivedEventArgs)]
+                #[guid(0x79fdcaba_175c_4739_9f74_dda797c35b3f)]
                 interface IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
                     #[get]
                     IsWebSocketUpgradeRequest: bool;

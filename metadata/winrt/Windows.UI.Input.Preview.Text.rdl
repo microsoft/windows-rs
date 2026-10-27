@@ -14,30 +14,30 @@ mod Windows {
                     class FocusEnteredEventArgs {
                         IFocusEnteredEventArgs,
                     }
-                    #[guid(0xb49761f9_5b21_513c_b6c0_78f27d26b010)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(ConversionModeChangedEventArgs)]
+                    #[guid(0xb49761f9_5b21_513c_b6c0_78f27d26b010)]
                     interface IConversionModeChangedEventArgs {
                         #[get]
                         NewConversionMode: TextConversionMode;
                     }
-                    #[guid(0xca4dc200_875f_501d_af14_413a0aa1ed5f)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(FocusEnteredEventArgs)]
+                    #[guid(0xca4dc200_875f_501d_af14_413a0aa1ed5f)]
                     interface IFocusEnteredEventArgs {
                         #[get]
                         FocusedTextBoxInfo: TextBoxInfo;
                     }
-                    #[guid(0x4bb448b2_67ba_5215_8783_b444bd28eed3)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InputDelegationModeChangedEventArgs)]
+                    #[guid(0x4bb448b2_67ba_5215_8783_b444bd28eed3)]
                     interface IInputDelegationModeChangedEventArgs {
                         #[get]
                         DelegationOn: bool;
                     }
-                    #[guid(0x0c30f686_a058_5ecc_abd2_9cc861c1185b)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(KeyEventReceivedEventArgs)]
+                    #[guid(0x0c30f686_a058_5ecc_abd2_9cc861c1185b)]
                     interface IKeyEventReceivedEventArgs {
                         #[get]
                         VirtualKey: super::super::super::super::System::VirtualKey;
@@ -47,15 +47,15 @@ mod Windows {
                         Unicode: String;
                         #[get]
                         Source: KeyEventDeviceType;
-                        fn IsKeyPressed(&self, vkey: super::super::super::super::System::VirtualKey) -> bool;
-                        fn IsToggleKeyOn(&self, vkey: super::super::super::super::System::VirtualKey) -> bool;
+                        fn IsKeyPressed(&self, #[in] vkey: super::super::super::super::System::VirtualKey) -> bool;
+                        fn IsToggleKeyOn(&self, #[in] vkey: super::super::super::super::System::VirtualKey) -> bool;
                         #[get]
                         EditSession: TextEditSession;
                         Handled: bool;
                     }
-                    #[guid(0x2afe79b6_5818_50e0_8fa8_81bc96428c46)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardInputProcessor)]
+                    #[guid(0x2afe79b6_5818_50e0_8fa8_81bc96428c46)]
                     interface IKeyboardInputProcessor {
                         #[get]
                         InputProfile: String;
@@ -84,16 +84,16 @@ mod Windows {
                         event CompositionTerminated: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, Object>;
                         event ReconversionRequested: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ReconversionRequestedEventArgs>;
                     }
-                    #[guid(0x73852244_d202_55fe_9edf_beb7ec19f937)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(ReconversionRequestedEventArgs)]
+                    #[guid(0x73852244_d202_55fe_9edf_beb7ec19f937)]
                     interface IReconversionRequestedEventArgs {
                         #[get]
                         Range: super::super::super::Text::Core::CoreTextRange;
                     }
-                    #[guid(0x2cb70a41_5aed_58c5_b4c1_8ee4e1492f9e)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxContentChangedEventArgs)]
+                    #[guid(0x2cb70a41_5aed_58c5_b4c1_8ee4e1492f9e)]
                     interface ITextBoxContentChangedEventArgs {
                         #[get]
                         TextBoxId: TextBoxId;
@@ -101,11 +101,11 @@ mod Windows {
                         Source: TextChangeSource;
                         #[get]
                         SelectionBounds: super::super::super::super::Foundation::Rect;
-                        fn IsContentAttributeChanged(&self, value: TextBoxContentAttribute) -> bool;
+                        fn IsContentAttributeChanged(&self, #[in] value: TextBoxContentAttribute) -> bool;
                     }
-                    #[guid(0xb122443d_e8f7_5f8b_813d_aaa0941d5fa0)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxInfo)]
+                    #[guid(0xb122443d_e8f7_5f8b_813d_aaa0941d5fa0)]
                     interface ITextBoxInfo {
                         #[get]
                         Id: TextBoxId;
@@ -120,16 +120,16 @@ mod Windows {
                         #[get]
                         DisabledFeatures: TextBoxFeatures;
                     }
-                    #[guid(0xac1275af_648c_5bac_b29f_d1ea17e9e6d6)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxInfoChangedEventArgs)]
+                    #[guid(0xac1275af_648c_5bac_b29f_d1ea17e9e6d6)]
                     interface ITextBoxInfoChangedEventArgs {
                         #[get]
                         TextBoxInfo: TextBoxInfo;
                     }
-                    #[guid(0x5cea9aea_524d_50a4_b08a_c83d8d25ec6e)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextComposition)]
+                    #[guid(0x5cea9aea_524d_50a4_b08a_c83d8d25ec6e)]
                     interface ITextComposition {
                         #[get]
                         Text: String;
@@ -138,14 +138,14 @@ mod Windows {
                         #[get]
                         SelectedSegment: TextCompositionSegment;
                         CaretPosition: u32;
-                        fn InsertText(&self, text: String) -> TextCompositionSegment;
+                        fn InsertText(&self, #[in] text: String) -> TextCompositionSegment;
                         fn Complete(&self);
                         fn CompleteUnconverted(&self);
                         fn CompleteFirstSegment(&self);
                     }
-                    #[guid(0x0543f6c6_eb98_56d6_8808_2eca6d02f6a5)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextCompositionSegment)]
+                    #[guid(0x0543f6c6_eb98_56d6_8808_2eca6d02f6a5)]
                     interface ITextCompositionSegment {
                         Text: String;
                         ConvertedText: String;
@@ -158,11 +158,11 @@ mod Windows {
                         #[get]
                         Previous: TextCompositionSegment;
                         fn GetTextStyle(&self) -> TextStyle;
-                        fn SetTextStyle(&self, value: TextStyle);
+                        fn SetTextStyle(&self, #[in] value: TextStyle);
                     }
-                    #[guid(0x0bcad18a_d31b_5787_aff9_995ee743aea8)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextEditSession)]
+                    #[guid(0x0bcad18a_d31b_5787_aff9_995ee743aea8)]
                     interface ITextEditSession {
                         #[get]
                         TextBoxId: TextBoxId;
@@ -171,25 +171,25 @@ mod Windows {
                         #[get]
                         PopulatedRange: super::super::super::Text::Core::CoreTextRange;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn PopulateAsync(&self, range: super::super::super::Text::Core::CoreTextRange) -> super::super::super::super::Foundation::IAsyncAction;
-                        fn GetText(&self, range: super::super::super::Text::Core::CoreTextRange) -> String;
+                        fn PopulateAsync(&self, #[in] range: super::super::super::Text::Core::CoreTextRange) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn GetText(&self, #[in] range: super::super::super::Text::Core::CoreTextRange) -> String;
                         fn GetSelectedRange(&self) -> super::super::super::Text::Core::CoreTextRange;
-                        fn SetSelectedRange(&self, value: super::super::super::Text::Core::CoreTextRange);
-                        fn ReplaceText(&self, replaceRange: super::super::super::Text::Core::CoreTextRange, text: String) -> super::super::super::Text::Core::CoreTextRange;
+                        fn SetSelectedRange(&self, #[in] value: super::super::super::Text::Core::CoreTextRange);
+                        fn ReplaceText(&self, #[in] replaceRange: super::super::super::Text::Core::CoreTextRange, #[in] text: String) -> super::super::super::Text::Core::CoreTextRange;
                         #[get]
                         Composition: TextComposition;
                         fn StartComposition(&self) -> TextComposition;
-                        fn StartReconversion(&self, range: super::super::super::Text::Core::CoreTextRange) -> TextComposition;
+                        fn StartReconversion(&self, #[in] range: super::super::super::Text::Core::CoreTextRange) -> TextComposition;
                         fn SubmitPayload(&self) -> bool;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn SubmitPayloadAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<PayloadResult>;
                     }
-                    #[guid(0xb0885fb7_e9f8_5849_b0ef_f8155ecf60d1)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextInputProvider)]
+                    #[guid(0xb0885fb7_e9f8_5849_b0ef_f8155ecf60d1)]
                     interface ITextInputProvider {
                         fn GetSubscription(&self) -> TextInputServiceSubscription;
-                        fn SetSubscription(&self, subscription: TextInputServiceSubscription);
+                        fn SetSubscription(&self, #[in] subscription: TextInputServiceSubscription);
                         #[get]
                         HasFocusedTextBox: bool;
                         #[get]
@@ -211,16 +211,16 @@ mod Windows {
                         event ReconversionRequested: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, ReconversionRequestedEventArgs>;
                         event InputDelegationModeChanged: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, InputDelegationModeChangedEventArgs>;
                     }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
                     #[guid(0x8e23f89c_ab1f_551a_8751_7d4f29e34d88)]
-                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
                     interface ITextInputService {
-                        fn CreateKeyboardInputProcessor(&self, inputProfile: String) -> KeyboardInputProcessor;
-                        fn CreateTextInputProvider(&self, inputProfile: String) -> TextInputProvider;
+                        fn CreateKeyboardInputProcessor(&self, #[in] inputProfile: String) -> KeyboardInputProcessor;
+                        fn CreateTextInputProvider(&self, #[in] inputProfile: String) -> TextInputProvider;
                     }
-                    #[guid(0x91b68f5e_02ed_4e09_ae89_dfd735cf10bc)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
+                    #[guid(0x91b68f5e_02ed_4e09_ae89_dfd735cf10bc)]
                     interface ITextInputServiceStatics {
                         fn GetForCurrentThread(&self) -> TextInputService;
                     }
@@ -229,8 +229,8 @@ mod Windows {
                     class InputDelegationModeChangedEventArgs {
                         IInputDelegationModeChangedEventArgs,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[repr(i32)]
                     enum KeyEventDeviceType {
                         Undefined = 0,
                         HardwareKeyboard = 1,
@@ -248,8 +248,8 @@ mod Windows {
                     class KeyboardInputProcessor {
                         IKeyboardInputProcessor,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[repr(i32)]
                     enum PayloadResult {
                         InEditing = 0,
                         Pending = 1,
@@ -267,8 +267,8 @@ mod Windows {
                     class ReconversionRequestedEventArgs {
                         IReconversionRequestedEventArgs,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[repr(i32)]
                     enum TextBoxContentAttribute {
                         None = 0,
                         Selection = 1,
@@ -281,9 +281,9 @@ mod Windows {
                     class TextBoxContentChangedEventArgs {
                         ITextBoxContentChangedEventArgs,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[flags]
+                    #[repr(u32)]
                     enum TextBoxFeatures {
                         None = 0,
                         ReadText = 1,
@@ -304,17 +304,17 @@ mod Windows {
                     class TextBoxInfoChangedEventArgs {
                         ITextBoxInfoChangedEventArgs,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[flags]
+                    #[repr(u32)]
                     enum TextBoxSettings {
                         None = 0,
                         Private = 1,
                         Multiline = 2,
                         VerticalWriting = 4,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[repr(i32)]
                     enum TextChangeSource {
                         External = 0,
                         HardwareKeyTyped = 1,
@@ -335,8 +335,8 @@ mod Windows {
                     class TextCompositionSegment {
                         ITextCompositionSegment,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[repr(i32)]
                     enum TextConversionMode {
                         Undefined = 0,
                         AlphanumericHalfWidth = 1,
@@ -381,9 +381,9 @@ mod Windows {
                         underlineColor: super::super::super::Color,
                         underlineType: super::super::super::Text::UnderlineType,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[flags]
+                    #[repr(u32)]
                     enum TextStyleAttributes {
                         None = 0,
                         TextColor = 1,

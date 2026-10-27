@@ -18,9 +18,9 @@ mod Windows {
                 class EnterpriseKeyCredentialRegistrationManager {
                     IEnterpriseKeyCredentialRegistrationManager,
                 }
-                #[guid(0x38321acc_672b_4823_b603_6b3c753daf97)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(EnterpriseKeyCredentialRegistrationInfo)]
+                #[guid(0x38321acc_672b_4823_b603_6b3c753daf97)]
                 interface IEnterpriseKeyCredentialRegistrationInfo {
                     #[get]
                     TenantId: String;
@@ -33,16 +33,16 @@ mod Windows {
                     #[get]
                     KeyName: String;
                 }
-                #[guid(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(EnterpriseKeyCredentialRegistrationManager)]
+                #[guid(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297)]
                 interface IEnterpriseKeyCredentialRegistrationManager {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetRegistrationsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>;
                 }
-                #[guid(0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(EnterpriseKeyCredentialRegistrationManager)]
+                #[guid(0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f)]
                 interface IEnterpriseKeyCredentialRegistrationManagerStatics {
                     #[get]
                     Current: EnterpriseKeyCredentialRegistrationManager;

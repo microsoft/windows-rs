@@ -12,8 +12,8 @@ mod Windows {
             class Buffer {
                 IBuffer,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ByteOrder {
                 LittleEndian = 0,
                 BigEndian = 1,
@@ -34,8 +34,8 @@ mod Windows {
                 super::super::Foundation::IAsyncOperation<u32>,
                 super::super::Foundation::IAsyncInfo,
             }
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(IDataWriterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -56,8 +56,8 @@ mod Windows {
                 IInputStream,
                 super::super::Foundation::IClosable,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum FileOpenDisposition {
                 OpenExisting = 0,
                 OpenAlways = 1,
@@ -80,34 +80,34 @@ mod Windows {
                 super::super::Foundation::IClosable,
                 IInputStream,
             }
-            #[guid(0x905a0fe0_bc53_11df_8c49_001e4fc686da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x905a0fe0_bc53_11df_8c49_001e4fc686da)]
             interface IBuffer {
                 #[get]
                 Capacity: u32;
                 Length: u32;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Buffer)]
             #[guid(0x71af914d_c10f_484b_bc50_14bc623b3a27)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Buffer)]
             interface IBufferFactory {
-                fn Create(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] capacity: u32) -> Buffer;
+                fn Create(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[in] capacity: u32) -> Buffer;
             }
-            #[guid(0xe901e65b_d716_475a_a90a_af7229b1e741)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Buffer)]
+            #[guid(0xe901e65b_d716_475a_a90a_af7229b1e741)]
             interface IBufferStatics {
-                fn CreateCopyFromMemoryBuffer(&self, input: super::super::Foundation::IMemoryBuffer) -> Buffer;
-                fn CreateMemoryBufferOverIBuffer(&self, input: IBuffer) -> super::super::Foundation::MemoryBuffer;
+                fn CreateCopyFromMemoryBuffer(&self, #[in] input: super::super::Foundation::IMemoryBuffer) -> Buffer;
+                fn CreateMemoryBufferOverIBuffer(&self, #[in] input: IBuffer) -> super::super::Foundation::MemoryBuffer;
             }
-            #[guid(0x97d098a5_3b99_4de9_88a5_e11d2f50c795)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x97d098a5_3b99_4de9_88a5_e11d2f50c795)]
             interface IContentTypeProvider {
                 #[get]
                 ContentType: String;
             }
-            #[guid(0xe2b50029_b4c1_4314_a4b8_fb813a2f275e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0xe2b50029_b4c1_4314_a4b8_fb813a2f275e)]
             interface IDataReader {
                 #[get]
                 UnconsumedBufferLength: u32;
@@ -116,7 +116,7 @@ mod Windows {
                 InputStreamOptions: InputStreamOptions;
                 fn ReadByte(&self) -> u8;
                 fn ReadBytes(&self, #[out] value: [u8]);
-                fn ReadBuffer(&self, length: u32) -> IBuffer;
+                fn ReadBuffer(&self, #[in] length: u32) -> IBuffer;
                 fn ReadBoolean(&self) -> bool;
                 fn ReadGuid(&self) -> GUID;
                 fn ReadInt16(&self) -> i16;
@@ -127,53 +127,53 @@ mod Windows {
                 fn ReadUInt64(&self) -> u64;
                 fn ReadSingle(&self) -> f32;
                 fn ReadDouble(&self) -> f64;
-                fn ReadString(&self, codeUnitCount: u32) -> String;
+                fn ReadString(&self, #[in] codeUnitCount: u32) -> String;
                 fn ReadDateTime(&self) -> super::super::Foundation::DateTime;
                 fn ReadTimeSpan(&self) -> super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadAsync(&self, count: u32) -> DataReaderLoadOperation;
+                fn LoadAsync(&self, #[in] count: u32) -> DataReaderLoadOperation;
                 fn DetachBuffer(&self) -> IBuffer;
                 fn DetachStream(&self) -> IInputStream;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataReader)]
             #[guid(0xd7527847_57da_4e15_914c_06806699a098)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DataReader)]
             interface IDataReaderFactory {
-                fn CreateDataReader(&self, inputStream: IInputStream) -> DataReader;
+                fn CreateDataReader(&self, #[in] inputStream: IInputStream) -> DataReader;
             }
-            #[guid(0x11fcbfc8_f93a_471b_b121_f379e349313c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataReader)]
+            #[guid(0x11fcbfc8_f93a_471b_b121_f379e349313c)]
             interface IDataReaderStatics {
-                fn FromBuffer(&self, buffer: IBuffer) -> DataReader;
+                fn FromBuffer(&self, #[in] buffer: IBuffer) -> DataReader;
             }
-            #[guid(0x64b89265_d341_4922_b38a_dd4af8808c4e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x64b89265_d341_4922_b38a_dd4af8808c4e)]
             interface IDataWriter {
                 #[get]
                 UnstoredBufferLength: u32;
                 UnicodeEncoding: UnicodeEncoding;
                 ByteOrder: ByteOrder;
-                fn WriteByte(&self, value: u8);
-                fn WriteBytes(&self, value: [u8]);
+                fn WriteByte(&self, #[in] value: u8);
+                fn WriteBytes(&self, #[in] value: [u8]);
                 #[Windows::Foundation::Metadata::Overload("WriteBuffer")]
-                fn WriteBuffer(&self, buffer: IBuffer);
+                fn WriteBuffer(&self, #[in] buffer: IBuffer);
                 #[Windows::Foundation::Metadata::Overload("WriteBufferRange")]
-                fn WriteBuffer(&self, buffer: IBuffer, start: u32, count: u32);
-                fn WriteBoolean(&self, value: bool);
-                fn WriteGuid(&self, value: GUID);
-                fn WriteInt16(&self, value: i16);
-                fn WriteInt32(&self, value: i32);
-                fn WriteInt64(&self, value: i64);
-                fn WriteUInt16(&self, value: u16);
-                fn WriteUInt32(&self, value: u32);
-                fn WriteUInt64(&self, value: u64);
-                fn WriteSingle(&self, value: f32);
-                fn WriteDouble(&self, value: f64);
-                fn WriteDateTime(&self, value: super::super::Foundation::DateTime);
-                fn WriteTimeSpan(&self, value: super::super::Foundation::TimeSpan);
-                fn WriteString(&self, value: String) -> u32;
-                fn MeasureString(&self, value: String) -> u32;
+                fn WriteBuffer(&self, #[in] buffer: IBuffer, #[in] start: u32, #[in] count: u32);
+                fn WriteBoolean(&self, #[in] value: bool);
+                fn WriteGuid(&self, #[in] value: GUID);
+                fn WriteInt16(&self, #[in] value: i16);
+                fn WriteInt32(&self, #[in] value: i32);
+                fn WriteInt64(&self, #[in] value: i64);
+                fn WriteUInt16(&self, #[in] value: u16);
+                fn WriteUInt32(&self, #[in] value: u32);
+                fn WriteUInt64(&self, #[in] value: u64);
+                fn WriteSingle(&self, #[in] value: f32);
+                fn WriteDouble(&self, #[in] value: f64);
+                fn WriteDateTime(&self, #[in] value: super::super::Foundation::DateTime);
+                fn WriteTimeSpan(&self, #[in] value: super::super::Foundation::TimeSpan);
+                fn WriteString(&self, #[in] value: String) -> u32;
+                fn MeasureString(&self, #[in] value: String) -> u32;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StoreAsync(&self) -> DataWriterStoreOperation;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -181,108 +181,108 @@ mod Windows {
                 fn DetachBuffer(&self) -> IBuffer;
                 fn DetachStream(&self) -> IOutputStream;
             }
-            #[guid(0x338c67c2_8b84_4c2b_9c50_7b8767847a1f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataWriter)]
+            #[guid(0x338c67c2_8b84_4c2b_9c50_7b8767847a1f)]
             interface IDataWriterFactory {
-                fn CreateDataWriter(&self, outputStream: IOutputStream) -> DataWriter;
+                fn CreateDataWriter(&self, #[in] outputStream: IOutputStream) -> DataWriter;
             }
-            #[guid(0x73550107_3b57_4b5d_8345_554d2fc621f0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileRandomAccessStream)]
+            #[guid(0x73550107_3b57_4b5d_8345_554d2fc621f0)]
             interface IFileRandomAccessStreamStatics {
                 #[Windows::Foundation::Metadata::Overload("OpenAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenAsync(&self, filePath: String, accessMode: super::FileAccessMode) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
+                fn OpenAsync(&self, #[in] filePath: String, #[in] accessMode: super::FileAccessMode) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
                 #[Windows::Foundation::Metadata::Overload("OpenWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenAsync(&self, filePath: String, accessMode: super::FileAccessMode, sharingOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
+                fn OpenAsync(&self, #[in] filePath: String, #[in] accessMode: super::FileAccessMode, #[in] sharingOptions: super::StorageOpenOptions, #[in] openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
                 #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenTransactedWriteAsync(&self, filePath: String) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
+                fn OpenTransactedWriteAsync(&self, #[in] filePath: String) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
                 #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenTransactedWriteAsync(&self, filePath: String, openOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
+                fn OpenTransactedWriteAsync(&self, #[in] filePath: String, #[in] openOptions: super::StorageOpenOptions, #[in] openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
                 #[Windows::Foundation::Metadata::Overload("OpenForUserAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenForUserAsync(&self, user: super::super::System::User, filePath: String, accessMode: super::FileAccessMode) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
+                fn OpenForUserAsync(&self, #[in] user: super::super::System::User, #[in] filePath: String, #[in] accessMode: super::FileAccessMode) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
                 #[Windows::Foundation::Metadata::Overload("OpenForUserWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenForUserAsync(&self, user: super::super::System::User, filePath: String, accessMode: super::FileAccessMode, sharingOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
+                fn OpenForUserAsync(&self, #[in] user: super::super::System::User, #[in] filePath: String, #[in] accessMode: super::FileAccessMode, #[in] sharingOptions: super::StorageOpenOptions, #[in] openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<IRandomAccessStream>;
                 #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteForUserAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenTransactedWriteForUserAsync(&self, user: super::super::System::User, filePath: String) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
+                fn OpenTransactedWriteForUserAsync(&self, #[in] user: super::super::System::User, #[in] filePath: String) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
                 #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteForUserWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenTransactedWriteForUserAsync(&self, user: super::super::System::User, filePath: String, openOptions: super::StorageOpenOptions, openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
+                fn OpenTransactedWriteForUserAsync(&self, #[in] user: super::super::System::User, #[in] filePath: String, #[in] openOptions: super::StorageOpenOptions, #[in] openDisposition: FileOpenDisposition) -> super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[guid(0x905a0fe2_bc53_11df_8c49_001e4fc686da)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IInputStream: super::super::Foundation::IClosable {
-                fn ReadAsync(&self, buffer: IBuffer, count: u32, options: InputStreamOptions) -> super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>;
+                fn ReadAsync(&self, #[in] buffer: IBuffer, #[in] count: u32, #[in] options: InputStreamOptions) -> super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>;
             }
-            #[guid(0x43929d18_5ec9_4b5a_919c_4205b0c804b6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x43929d18_5ec9_4b5a_919c_4205b0c804b6)]
             interface IInputStreamReference {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenSequentialReadAsync(&self) -> super::super::Foundation::IAsyncOperation<IInputStream>;
             }
-            #[guid(0x905a0fe6_bc53_11df_8c49_001e4fc686da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x905a0fe6_bc53_11df_8c49_001e4fc686da)]
             interface IOutputStream: super::super::Foundation::IClosable {
-                fn WriteAsync(&self, buffer: IBuffer) -> super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
+                fn WriteAsync(&self, #[in] buffer: IBuffer) -> super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
                 fn FlushAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
-            #[guid(0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[guid(0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77)]
             interface IPropertySetSerializer {
-                fn Serialize(&self, propertySet: super::super::Foundation::Collections::IPropertySet) -> IBuffer;
-                fn Deserialize(&self, propertySet: super::super::Foundation::Collections::IPropertySet, buffer: IBuffer);
+                fn Serialize(&self, #[in] propertySet: super::super::Foundation::Collections::IPropertySet) -> IBuffer;
+                fn Deserialize(&self, #[in] propertySet: super::super::Foundation::Collections::IPropertySet, #[in] buffer: IBuffer);
             }
-            #[guid(0x905a0fe1_bc53_11df_8c49_001e4fc686da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x905a0fe1_bc53_11df_8c49_001e4fc686da)]
             interface IRandomAccessStream: super::super::Foundation::IClosable + IInputStream + IOutputStream {
                 Size: u64;
-                fn GetInputStreamAt(&self, position: u64) -> IInputStream;
-                fn GetOutputStreamAt(&self, position: u64) -> IOutputStream;
+                fn GetInputStreamAt(&self, #[in] position: u64) -> IInputStream;
+                fn GetOutputStreamAt(&self, #[in] position: u64) -> IOutputStream;
                 #[get]
                 Position: u64;
-                fn Seek(&self, position: u64);
+                fn Seek(&self, #[in] position: u64);
                 fn CloneStream(&self) -> IRandomAccessStream;
                 #[get]
                 CanRead: bool;
                 #[get]
                 CanWrite: bool;
             }
-            #[guid(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b)]
             interface IRandomAccessStreamReference {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenReadAsync(&self) -> super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>;
             }
-            #[guid(0x857309dc_3fbf_4e7d_986f_ef3b1a07a964)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RandomAccessStreamReference)]
+            #[guid(0x857309dc_3fbf_4e7d_986f_ef3b1a07a964)]
             interface IRandomAccessStreamReferenceStatics {
-                fn CreateFromFile(&self, file: super::IStorageFile) -> RandomAccessStreamReference;
-                fn CreateFromUri(&self, uri: super::super::Foundation::Uri) -> RandomAccessStreamReference;
-                fn CreateFromStream(&self, stream: IRandomAccessStream) -> RandomAccessStreamReference;
+                fn CreateFromFile(&self, #[in] file: super::IStorageFile) -> RandomAccessStreamReference;
+                fn CreateFromUri(&self, #[in] uri: super::super::Foundation::Uri) -> RandomAccessStreamReference;
+                fn CreateFromStream(&self, #[in] stream: IRandomAccessStream) -> RandomAccessStreamReference;
             }
-            #[guid(0x524cedcf_6e29_4ce5_9573_6b753db66c3a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RandomAccessStream)]
+            #[guid(0x524cedcf_6e29_4ce5_9573_6b753db66c3a)]
             interface IRandomAccessStreamStatics {
                 #[Windows::Foundation::Metadata::Overload("CopyAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CopyAsync(&self, source: IInputStream, destination: IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
+                fn CopyAsync(&self, #[in] source: IInputStream, #[in] destination: IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
                 #[Windows::Foundation::Metadata::Overload("CopySizeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CopyAsync(&self, source: IInputStream, destination: IOutputStream, bytesToCopy: u64) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
+                fn CopyAsync(&self, #[in] source: IInputStream, #[in] destination: IOutputStream, #[in] bytesToCopy: u64) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CopyAndCloseAsync(&self, source: IInputStream, destination: IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
+                fn CopyAndCloseAsync(&self, #[in] source: IInputStream, #[in] destination: IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
             }
-            #[guid(0xcc254827_4b3d_438f_9232_10c76bc7e038)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0xcc254827_4b3d_438f_9232_10c76bc7e038)]
             interface IRandomAccessStreamWithContentType: IRandomAccessStream + super::super::Foundation::IClosable + IInputStream + IOutputStream + IContentTypeProvider {}
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -294,9 +294,9 @@ mod Windows {
                 super::super::Foundation::IClosable,
                 IInputStream,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum InputStreamOptions {
                 None = 0,
                 Partial = 1,
@@ -335,8 +335,8 @@ mod Windows {
             class RandomAccessStreamReference {
                 IRandomAccessStreamReference,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum UnicodeEncoding {
                 Utf8 = 0,
                 Utf16LE = 1,

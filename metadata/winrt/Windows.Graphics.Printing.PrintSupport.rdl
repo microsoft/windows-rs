@@ -3,27 +3,27 @@ mod Windows {
     mod Graphics {
         mod Printing {
             mod PrintSupport {
-                #[guid(0x913cd9e0_cb44_5ae4_b984_f6e80e872320)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x913cd9e0_cb44_5ae4_b984_f6e80e872320)]
                 interface IPrintSupportAppInfo {
                     #[get]
                     AppInfo: super::super::super::ApplicationModel::AppInfo;
                     #[get]
                     SupportedContracts: PrintSupportAppContracts;
                 }
-                #[guid(0x3246a41d_2757_544d_aafa_b38461896270)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x3246a41d_2757_544d_aafa_b38461896270)]
                 interface IPrintSupportAppInfoStatics {
-                    fn GetPrintJobShowsUI(&self, printerName: String, printTicket: super::PrintTicket::WorkflowPrintTicket) -> super::super::super::Foundation::IReference<bool>;
-                    fn FromPrinterName(&self, printerName: String) -> PrintSupportAppInfo;
+                    fn GetPrintJobShowsUI(&self, #[in] printerName: String, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket) -> super::super::super::Foundation::IReference<bool>;
+                    fn FromPrinterName(&self, #[in] printerName: String) -> PrintSupportAppInfo;
                 }
-                #[guid(0x9c90151e_ad1b_5081_a491_4a2d94244f2d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportCommunicationErrorDetectedEventArgs)]
+                #[guid(0x9c90151e_ad1b_5081_a491_4a2d94244f2d)]
                 interface IPrintSupportCommunicationErrorDetectedEventArgs {
                     #[get]
                     ErrorKind: IppCommunicationErrorKind;
@@ -33,16 +33,16 @@ mod Windows {
                     CommunicationConfiguration: PrintSupportIppCommunicationConfiguration;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x6b1c2850_4bf7_5894_89fa_e89d9ea4eb2e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportEnterpriseManagementUIEventArgs)]
+                #[guid(0x6b1c2850_4bf7_5894_89fa_e89d9ea4eb2e)]
                 interface IPrintSupportEnterpriseManagementUIEventArgs {
                     #[get]
                     Printer: super::super::super::Devices::Printers::IppPrintDevice;
                 }
-                #[guid(0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportExtensionSession)]
+                #[guid(0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3)]
                 interface IPrintSupportExtensionSession {
                     #[get]
                     Printer: super::super::super::Devices::Printers::IppPrintDevice;
@@ -50,28 +50,28 @@ mod Windows {
                     event PrintDeviceCapabilitiesChanged: super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>;
                     fn Start(&self);
                 }
-                #[guid(0x10fa8c11_6de8_5765_8fcf_e716e0f27ed1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportExtensionSession)]
+                #[guid(0x10fa8c11_6de8_5765_8fcf_e716e0f27ed1)]
                 interface IPrintSupportExtensionSession2 {
                     event PrinterSelected: super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrinterSelectedEventArgs>;
                 }
-                #[guid(0x0d1b755d_1273_5e14_81d3_b6bb582b9ed8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportExtensionSession)]
+                #[guid(0x0d1b755d_1273_5e14_81d3_b6bb582b9ed8)]
                 interface IPrintSupportExtensionSession3 {
                     event CommunicationErrorDetected: super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportCommunicationErrorDetectedEventArgs>;
                 }
-                #[guid(0xae083711_9b09_55d1_a0ae_2a14c5f83d6a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportExtensionTriggerDetails)]
+                #[guid(0xae083711_9b09_55d1_a0ae_2a14c5f83d6a)]
                 interface IPrintSupportExtensionTriggerDetails {
                     #[get]
                     Session: PrintSupportExtensionSession;
                 }
-                #[guid(0xdbc36e0b_2d90_53b9_90d2_93faf30dafdd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportIppCommunicationConfiguration)]
+                #[guid(0xdbc36e0b_2d90_53b9_90d2_93faf30dafdd)]
                 interface IPrintSupportIppCommunicationConfiguration {
                     #[get]
                     CommunicationKind: IppPrinterCommunicationKind;
@@ -82,17 +82,17 @@ mod Windows {
                     #[get]
                     IppJobTimeouts: PrintSupportIppCommunicationTimeouts;
                 }
-                #[guid(0xa3b2de71_564c_5806_a1a9_c6043ca5d373)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportIppCommunicationTimeouts)]
+                #[guid(0xa3b2de71_564c_5806_a1a9_c6043ca5d373)]
                 interface IPrintSupportIppCommunicationTimeouts {
                     ConnectTimeout: super::super::super::Foundation::TimeSpan;
                     SendTimeout: super::super::super::Foundation::TimeSpan;
                     ReceiveTimeout: super::super::super::Foundation::TimeSpan;
                 }
-                #[guid(0x0e0d0b86_d202_58a3_a1ed_2ef9dbc0f291)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportMxdcImageQualityConfiguration)]
+                #[guid(0x0e0d0b86_d202_58a3_a1ed_2ef9dbc0f291)]
                 interface IPrintSupportMxdcImageQualityConfiguration {
                     NormalOutputQuality: XpsImageQuality;
                     DraftOutputQuality: XpsImageQuality;
@@ -102,119 +102,120 @@ mod Windows {
                     AutomaticOutputQuality: XpsImageQuality;
                     FaxOutputQuality: XpsImageQuality;
                 }
-                #[guid(0x15969bf0_9028_5722_8a37_7d7c34b41dd6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
+                #[guid(0x15969bf0_9028_5722_8a37_7d7c34b41dd6)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
                     fn GetCurrentPrintDeviceCapabilities(&self) -> super::super::super::Data::Xml::Dom::XmlDocument;
-                    fn UpdatePrintDeviceCapabilities(&self, updatedPdc: super::super::super::Data::Xml::Dom::XmlDocument);
+                    fn UpdatePrintDeviceCapabilities(&self, #[in] updatedPdc: super::super::super::Data::Xml::Dom::XmlDocument);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x469df9e7_fd07_5eeb_a07d_9fcc67f089ba)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
+                #[guid(0x469df9e7_fd07_5eeb_a07d_9fcc67f089ba)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
-                    fn SetSupportedPdlPassthroughContentTypes(&self, supportedPdlContentTypes: super::super::super::Foundation::Collections::IIterable<String>);
+                    fn SetSupportedPdlPassthroughContentTypes(&self, #[in] supportedPdlContentTypes: super::super::super::Foundation::Collections::IIterable<String>);
                     #[get]
                     ResourceLanguage: String;
                     fn GetCurrentPrintDeviceResources(&self) -> super::super::super::Data::Xml::Dom::XmlDocument;
-                    fn UpdatePrintDeviceResources(&self, updatedPdr: super::super::super::Data::Xml::Dom::XmlDocument);
-                    fn SetPrintDeviceCapabilitiesUpdatePolicy(&self, updatePolicy: PrintSupportPrintDeviceCapabilitiesUpdatePolicy);
+                    fn UpdatePrintDeviceResources(&self, #[in] updatedPdr: super::super::super::Data::Xml::Dom::XmlDocument);
+                    fn SetPrintDeviceCapabilitiesUpdatePolicy(&self, #[in] updatePolicy: PrintSupportPrintDeviceCapabilitiesUpdatePolicy);
                 }
-                #[guid(0xd4e9b3fc_8094_5cb6_a343_ce7a97187b45)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
+                #[guid(0xd4e9b3fc_8094_5cb6_a343_ce7a97187b45)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3 {
                     #[get]
                     CommunicationConfiguration: PrintSupportIppCommunicationConfiguration;
                 }
-                #[guid(0x31734ad5_9bfb_5bfb_bdef_8476258e3390)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
+                #[guid(0x31734ad5_9bfb_5bfb_bdef_8476258e3390)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4 {
                     #[get]
                     MxdcImageQualityConfiguration: PrintSupportMxdcImageQualityConfiguration;
                 }
-                #[guid(0xbc72f631_8177_5ef0_94c1_929080525b5a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
+                #[guid(0xbc72f631_8177_5ef0_94c1_929080525b5a)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5 {
-                    fn SetPdlPassthroughWithJobAttributesSupported(&self, supported: bool);
+                    fn SetPdlPassthroughWithJobAttributesSupported(&self, #[in] supported: bool);
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
+                #[guid(0x5f5fc025_8c35_5529_8038_8cdc3634bbcd)]
                 interface IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
-                #[guid(0x3d9e1a70_7c39_551f_aa1f_f8ca35b3119e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
+                #[guid(0x3d9e1a70_7c39_551f_aa1f_f8ca35b3119e)]
                 interface IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
-                    fn CreatePeriodicRefresh(&self, updatePeriod: super::super::super::Foundation::TimeSpan) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
-                    fn CreatePrintJobRefresh(&self, numberOfJobs: u32) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
+                    fn CreatePeriodicRefresh(&self, #[in] updatePeriod: super::super::super::Foundation::TimeSpan) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
+                    fn CreatePrintJobRefresh(&self, #[in] numberOfJobs: u32) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
                 }
-                #[guid(0x4b2a4489_730d_5be7_80e6_8332941abf13)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketElement)]
+                #[guid(0x4b2a4489_730d_5be7_80e6_8332941abf13)]
                 interface IPrintSupportPrintTicketElement {
                     LocalName: String;
                     NamespaceUri: String;
                 }
-                #[guid(0x338e4e69_db55_55c7_8338_ef64680a8f90)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketValidationRequestedEventArgs)]
+                #[guid(0x338e4e69_db55_55c7_8338_ef64680a8f90)]
                 interface IPrintSupportPrintTicketValidationRequestedEventArgs {
                     #[get]
                     PrintTicket: super::PrintTicket::WorkflowPrintTicket;
-                    fn SetPrintTicketValidationStatus(&self, status: WorkflowPrintTicketValidationStatus);
+                    fn SetPrintTicketValidationStatus(&self, #[in] status: WorkflowPrintTicketValidationStatus);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x39749075_d02d_5fd1_9c4b_46bb8db7316b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketValidationRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x39749075_d02d_5fd1_9c4b_46bb8db7316b)]
                 interface IPrintSupportPrintTicketValidationRequestedEventArgs2 {
-                    fn SetPrintJobShowsUI(&self, showsUI: bool);
+                    fn SetPrintJobShowsUI(&self, #[in] showsUI: bool);
                 }
-                #[guid(0x7b1cb7d9_a8a4_5c09_adb2_66165f817977)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrinterSelectedEventArgs)]
+                #[guid(0x7b1cb7d9_a8a4_5c09_adb2_66165f817977)]
                 interface IPrintSupportPrinterSelectedEventArgs {
                     #[get]
                     SourceAppInfo: super::super::super::ApplicationModel::AppInfo;
                     PrintTicket: super::PrintTicket::WorkflowPrintTicket;
-                    fn SetAdditionalFeatures(&self, features: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
-                    fn SetAdditionalParameters(&self, parameters: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
+                    fn SetAdditionalFeatures(&self, #[in] features: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
+                    fn SetAdditionalParameters(&self, #[in] parameters: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
                     #[get]
                     AllowedAdditionalFeaturesAndParametersCount: u32;
-                    fn SetAdaptiveCard(&self, adaptiveCard: super::super::super::UI::Shell::IAdaptiveCard);
+                    fn SetAdaptiveCard(&self, #[in] adaptiveCard: super::super::super::UI::Shell::IAdaptiveCard);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x852149af_777d_53e9_9ee9_45d3f4b5be9c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportSessionInfo)]
+                #[guid(0x852149af_777d_53e9_9ee9_45d3f4b5be9c)]
                 interface IPrintSupportSessionInfo {
                     #[get]
                     SourceAppInfo: super::super::super::ApplicationModel::AppInfo;
                     #[get]
                     Printer: super::super::super::Devices::Printers::IppPrintDevice;
                 }
-                #[guid(0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportSettingsActivatedEventArgs)]
+                #[guid(0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1)]
                 interface IPrintSupportSettingsActivatedEventArgs {
                     #[get]
                     Session: PrintSupportSettingsUISession;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xabe45f6e_dc9d_5403_8107_c864d9276367)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportSettingsActivatedEventArgs)]
+                #[guid(0xabe45f6e_dc9d_5403_8107_c864d9276367)]
                 interface IPrintSupportSettingsActivatedEventArgs2 {
                     #[get]
                     OwnerWindowId: super::super::super::UI::WindowId;
                 }
-                #[guid(0xc6da2251_83c3_55e4_a0f8_5de8b062adbf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportSettingsUISession)]
+                #[guid(0xc6da2251_83c3_55e4_a0f8_5de8b062adbf)]
                 interface IPrintSupportSettingsUISession {
                     #[get]
                     SessionPrintTicket: super::PrintTicket::WorkflowPrintTicket;
@@ -222,31 +223,32 @@ mod Windows {
                     DocumentTitle: String;
                     #[get]
                     LaunchKind: SettingsLaunchKind;
-                    fn UpdatePrintTicket(&self, printTicket: super::PrintTicket::WorkflowPrintTicket);
+                    fn UpdatePrintTicket(&self, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket);
                     #[get]
                     SessionInfo: PrintSupportSessionInfo;
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
+                #[repr(i32)]
                 enum IppCommunicationErrorKind {
                     Other = 0,
                     Timeout = 1,
                     ConnectionError = 2,
                     AccessDenied = 3,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
+                #[repr(i32)]
                 enum IppPrinterCommunicationKind {
                     Network = 0,
                     Usb = 1,
                     PrinterConnection = 2,
                     UniversalPrint = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     VirtualPrinter = 4,
                 }
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[flags]
+                #[repr(u32)]
                 enum PrintSupportAppContracts {
                     None = 0,
                     JobBackgroundSession = 1,
@@ -365,21 +367,21 @@ mod Windows {
                 class PrintSupportSettingsUISession {
                     IPrintSupportSettingsUISession,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[repr(i32)]
                 enum SettingsLaunchKind {
                     JobPrintTicket = 0,
                     UserDefaultPrintTicket = 1,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[repr(i32)]
                 enum WorkflowPrintTicketValidationStatus {
                     Resolved = 0,
                     Conflicting = 1,
                     Invalid = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[repr(i32)]
                 enum XpsImageQuality {
                     JpegHighCompression = 0,
                     JpegMediumCompression = 1,

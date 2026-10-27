@@ -3,10 +3,10 @@ mod Windows {
     mod ApplicationModel {
         mod Calls {
             mod Provider {
-                #[guid(0x20613479_0ef9_4454_871c_afb66a14b6a5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneCallOrigin is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneCallOrigin)]
+                #[guid(0x20613479_0ef9_4454_871c_afb66a14b6a5)]
                 interface IPhoneCallOrigin {
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOrigin is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                     Category: String;
@@ -15,51 +15,51 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOrigin is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                     Location: String;
                 }
-                #[guid(0x04c7e980_9ac2_4768_b536_b68da4957d02)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 131072)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneCallOrigin is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneCallOrigin)]
+                #[guid(0x04c7e980_9ac2_4768_b536_b68da4957d02)]
                 interface IPhoneCallOrigin2: IPhoneCallOrigin {
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOrigin is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                     DisplayName: String;
                 }
-                #[guid(0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 196608)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneCallOrigin is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneCallOrigin)]
+                #[guid(0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068)]
                 interface IPhoneCallOrigin3: IPhoneCallOrigin2 + IPhoneCallOrigin {
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOrigin is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                     DisplayPicture: super::super::super::Storage::StorageFile;
                 }
-                #[guid(0xccfc5a0a_9af7_6149_39d0_e076fcce1395)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneCallOriginManager)]
+                #[guid(0xccfc5a0a_9af7_6149_39d0_e076fcce1395)]
                 interface IPhoneCallOriginManagerStatics {
-                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
+                    #[get]
                     IsCurrentAppActiveCallOriginApp: bool;
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                     fn ShowPhoneCallOriginSettingsUI(&self);
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
-                    fn SetCallOrigin(&self, requestId: GUID, callOrigin: PhoneCallOrigin);
+                    fn SetCallOrigin(&self, #[in] requestId: GUID, #[in] callOrigin: PhoneCallOrigin);
                 }
-                #[guid(0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 196608)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneCallOriginManager)]
+                #[guid(0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a)]
                 interface IPhoneCallOriginManagerStatics2: IPhoneCallOriginManagerStatics {
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestSetAsActiveCallOriginAppAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
                 }
-                #[guid(0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 327680)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PhoneCallOriginManager)]
+                #[guid(0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde)]
                 interface IPhoneCallOriginManagerStatics3 {
-                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
+                    #[get]
                     IsSupported: bool;
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
@@ -77,8 +77,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(IPhoneCallOriginManagerStatics, 65536, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::Static(IPhoneCallOriginManagerStatics2, 196608, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
+                #[Windows::Foundation::Metadata::Static(IPhoneCallOriginManagerStatics, 65536, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::Static(IPhoneCallOriginManagerStatics3, 327680, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PhoneCallOriginManager {}

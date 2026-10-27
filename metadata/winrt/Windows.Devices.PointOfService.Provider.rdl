@@ -123,8 +123,8 @@ mod Windows {
                 class BarcodeScannerStopSoftwareTriggerRequestEventArgs {
                     IBarcodeScannerStopSoftwareTriggerRequestEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[repr(i32)]
                 enum BarcodeScannerTriggerState {
                     Released = 0,
                     Pressed = 1,
@@ -142,65 +142,65 @@ mod Windows {
                 class BarcodeSymbologyAttributesBuilder {
                     IBarcodeSymbologyAttributesBuilder,
                 }
-                #[guid(0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerDisableScannerRequest)]
+                #[guid(0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8)]
                 interface IBarcodeScannerDisableScannerRequest {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xccdfe625_65c3_4ccc_b457_f39c7a9ea60d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerDisableScannerRequest)]
+                #[guid(0xccdfe625_65c3_4ccc_b457_f39c7a9ea60d)]
                 interface IBarcodeScannerDisableScannerRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x7006e142_e802_46f5_b604_352a15ce9232)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerDisableScannerRequestEventArgs)]
+                #[guid(0x7006e142_e802_46f5_b604_352a15ce9232)]
                 interface IBarcodeScannerDisableScannerRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerDisableScannerRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xc0b3e9ba_816a_452b_bd77_b7e453ec446d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerEnableScannerRequest)]
+                #[guid(0xc0b3e9ba_816a_452b_bd77_b7e453ec446d)]
                 interface IBarcodeScannerEnableScannerRequest {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x71a4f2a8_9905_41ac_9121_b645916a84a1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerEnableScannerRequest)]
+                #[guid(0x71a4f2a8_9905_41ac_9121_b645916a84a1)]
                 interface IBarcodeScannerEnableScannerRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x956c9419_7b4e_4451_8c41_8e10cfbc5b41)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerEnableScannerRequestEventArgs)]
+                #[guid(0x956c9419_7b4e_4451_8c41_8e10cfbc5b41)]
                 interface IBarcodeScannerEnableScannerRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerEnableScannerRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xdbc72b07_64c3_482b_93c8_65fb33c22208)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerFrameReader)]
+                #[guid(0xdbc72b07_64c3_482b_93c8_65fb33c22208)]
                 interface IBarcodeScannerFrameReader {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn StartAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
@@ -212,73 +212,73 @@ mod Windows {
                     Connection: BarcodeScannerProviderConnection;
                     event FrameArrived: super::super::super::Foundation::TypedEventHandler<BarcodeScannerFrameReader, BarcodeScannerFrameReaderFrameArrivedEventArgs>;
                 }
-                #[guid(0xb0bbd604_54fd_436d_8629_712e787223dd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerFrameReaderFrameArrivedEventArgs)]
+                #[guid(0xb0bbd604_54fd_436d_8629_712e787223dd)]
                 interface IBarcodeScannerFrameReaderFrameArrivedEventArgs {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x9774c46a_58e4_4c5f_b8e9_e41467632700)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerGetSymbologyAttributesRequest)]
+                #[guid(0x9774c46a_58e4_4c5f_b8e9_e41467632700)]
                 interface IBarcodeScannerGetSymbologyAttributesRequest {
                     #[get]
                     Symbology: u32;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, attributes: super::BarcodeSymbologyAttributes) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] attributes: super::BarcodeSymbologyAttributes) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x6a6a2b13_75a8_49fb_b852_bfb93d760af7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerGetSymbologyAttributesRequest)]
+                #[guid(0x6a6a2b13_75a8_49fb_b852_bfb93d760af7)]
                 interface IBarcodeScannerGetSymbologyAttributesRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x7f89de3e_fb5d_493c_b402_356b24d574a6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerGetSymbologyAttributesRequestEventArgs)]
+                #[guid(0x7f89de3e_fb5d_493c_b402_356b24d574a6)]
                 interface IBarcodeScannerGetSymbologyAttributesRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerGetSymbologyAttributesRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerHideVideoPreviewRequest)]
+                #[guid(0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa)]
                 interface IBarcodeScannerHideVideoPreviewRequest {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x7e28435d_9814_431d_a2f2_d6248c5ad4b5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerHideVideoPreviewRequest)]
+                #[guid(0x7e28435d_9814_431d_a2f2_d6248c5ad4b5)]
                 interface IBarcodeScannerHideVideoPreviewRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x16a281fc_d6be_4bc7_9df1_33741f3eadea)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerHideVideoPreviewRequestEventArgs)]
+                #[guid(0x16a281fc_d6be_4bc7_9df1_33741f3eadea)]
                 interface IBarcodeScannerHideVideoPreviewRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerHideVideoPreviewRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xb44acbed_0b3a_4fa3_86c5_491ea30780eb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerProviderConnection)]
+                #[guid(0xb44acbed_0b3a_4fa3_86c5_491ea30780eb)]
                 interface IBarcodeScannerProviderConnection {
                     #[get]
                     Id: String;
@@ -291,15 +291,15 @@ mod Windows {
                     Version: String;
                     fn Start(&self);
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportScannedDataAsync(&self, report: super::BarcodeScannerReport) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportScannedDataAsync(&self, #[in] report: super::BarcodeScannerReport) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportTriggerStateAsync(&self, state: BarcodeScannerTriggerState) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportTriggerStateAsync(&self, #[in] state: BarcodeScannerTriggerState) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportErrorAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportErrorAsync(&self, errorData: super::UnifiedPosErrorData) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportErrorAsync(&self, #[in] errorData: super::UnifiedPosErrorData) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportErrorAsyncWithScanReport")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportErrorAsync(&self, errorData: super::UnifiedPosErrorData, isRetriable: bool, scanReport: super::BarcodeScannerReport) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportErrorAsync(&self, #[in] errorData: super::UnifiedPosErrorData, #[in] isRetriable: bool, #[in] scanReport: super::BarcodeScannerReport) -> super::super::super::Foundation::IAsyncAction;
                     event EnableScannerRequested: super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerEnableScannerRequestEventArgs>;
                     event DisableScannerRequested: super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerDisableScannerRequestEventArgs>;
                     event SetActiveSymbologiesRequested: super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetActiveSymbologiesRequestEventArgs>;
@@ -309,30 +309,30 @@ mod Windows {
                     event SetBarcodeSymbologyAttributesRequested: super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetSymbologyAttributesRequestEventArgs>;
                     event HideVideoPreviewRequested: super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerHideVideoPreviewRequestEventArgs>;
                 }
-                #[guid(0xbe9b53cd_1134_418c_a06b_04423a73f3d7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerProviderConnection)]
+                #[guid(0xbe9b53cd_1134_418c_a06b_04423a73f3d7)]
                 interface IBarcodeScannerProviderConnection2 {
                     #[Windows::Foundation::Metadata::Overload("CreateFrameReaderAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn CreateFrameReaderAsync(&self) -> super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>;
                     #[Windows::Foundation::Metadata::Overload("CreateFrameReaderWithFormatAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFrameReaderAsync(&self, preferredFormat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>;
+                    fn CreateFrameReaderAsync(&self, #[in] preferredFormat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>;
                     #[Windows::Foundation::Metadata::Overload("CreateFrameReaderWithFormatAndSizeAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFrameReaderAsync(&self, preferredFormat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredSize: super::super::super::Graphics::Imaging::BitmapSize) -> super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>;
+                    fn CreateFrameReaderAsync(&self, #[in] preferredFormat: super::super::super::Graphics::Imaging::BitmapPixelFormat, #[in] preferredSize: super::super::super::Graphics::Imaging::BitmapSize) -> super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>;
                 }
-                #[guid(0x50856d82_24e3_48ce_99c7_70aac1cbc9f7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerProviderTriggerDetails)]
+                #[guid(0x50856d82_24e3_48ce_99c7_70aac1cbc9f7)]
                 interface IBarcodeScannerProviderTriggerDetails {
                     #[get]
                     Connection: BarcodeScannerProviderConnection;
                 }
-                #[guid(0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerSetActiveSymbologiesRequest)]
+                #[guid(0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf)]
                 interface IBarcodeScannerSetActiveSymbologiesRequest {
                     #[get]
                     Symbologies: super::super::super::Foundation::Collections::IVectorView<u32>;
@@ -341,28 +341,28 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xf5ff6edf_fa9a_4749_b11b_e8fccb75bc6b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerSetActiveSymbologiesRequest)]
+                #[guid(0xf5ff6edf_fa9a_4749_b11b_e8fccb75bc6b)]
                 interface IBarcodeScannerSetActiveSymbologiesRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x06305afa_7bf6_4d52_801a_330272f60ae1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerSetActiveSymbologiesRequestEventArgs)]
+                #[guid(0x06305afa_7bf6_4d52_801a_330272f60ae1)]
                 interface IBarcodeScannerSetActiveSymbologiesRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerSetActiveSymbologiesRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x32fb814f_a37f_48b0_acea_dce1480f12ae)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerSetSymbologyAttributesRequest)]
+                #[guid(0x32fb814f_a37f_48b0_acea_dce1480f12ae)]
                 interface IBarcodeScannerSetSymbologyAttributesRequest {
                     #[get]
                     Symbology: u32;
@@ -373,84 +373,84 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xdffbbfc1_dba8_4b77_be1e_b56cd72f65b3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerSetSymbologyAttributesRequest)]
+                #[guid(0xdffbbfc1_dba8_4b77_be1e_b56cd72f65b3)]
                 interface IBarcodeScannerSetSymbologyAttributesRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xb2b89809_9824_47d4_85bd_d0077baa7bd2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerSetSymbologyAttributesRequestEventArgs)]
+                #[guid(0xb2b89809_9824_47d4_85bd_d0077baa7bd2)]
                 interface IBarcodeScannerSetSymbologyAttributesRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerSetSymbologyAttributesRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStartSoftwareTriggerRequest)]
+                #[guid(0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7)]
                 interface IBarcodeScannerStartSoftwareTriggerRequest {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xeb72a25c_6658_4765_a68e_327482653deb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStartSoftwareTriggerRequest)]
+                #[guid(0xeb72a25c_6658_4765_a68e_327482653deb)]
                 interface IBarcodeScannerStartSoftwareTriggerRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x2305d843_c88f_4f3b_8c3b_d3df071051ec)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStartSoftwareTriggerRequestEventArgs)]
+                #[guid(0x2305d843_c88f_4f3b_8c3b_d3df071051ec)]
                 interface IBarcodeScannerStartSoftwareTriggerRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerStartSoftwareTriggerRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x6f9faf35_e287_4ca8_b70d_5a91d694f668)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStopSoftwareTriggerRequest)]
+                #[guid(0x6f9faf35_e287_4ca8_b70d_5a91d694f668)]
                 interface IBarcodeScannerStopSoftwareTriggerRequest {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xcb57c5dd_fe50_49f8_a0b4_bdc230814da2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStopSoftwareTriggerRequest)]
+                #[guid(0xcb57c5dd_fe50_49f8_a0b4_bdc230814da2)]
                 interface IBarcodeScannerStopSoftwareTriggerRequest2 {
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ReportFailedWithFailedReasonAndDescriptionAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, reason: i32, failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] reason: i32, #[in] failedReasonDescription: String) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xeac34450_4eb7_481a_9273_147a273b99b8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStopSoftwareTriggerRequestEventArgs)]
+                #[guid(0xeac34450_4eb7_481a_9273_147a273b99b8)]
                 interface IBarcodeScannerStopSoftwareTriggerRequestEventArgs {
                     #[get]
                     Request: BarcodeScannerStopSoftwareTriggerRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x7e585248_9df7_4121_a175_801d8000112e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerVideoFrame)]
+                #[guid(0x7e585248_9df7_4121_a175_801d8000112e)]
                 interface IBarcodeScannerVideoFrame {
                     #[get]
                     Format: super::super::super::Graphics::Imaging::BitmapPixelFormat;
@@ -461,9 +461,9 @@ mod Windows {
                     #[get]
                     PixelData: super::super::super::Storage::Streams::IBuffer;
                 }
-                #[guid(0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeSymbologyAttributesBuilder)]
+                #[guid(0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4)]
                 interface IBarcodeSymbologyAttributesBuilder {
                     IsCheckDigitValidationSupported: bool;
                     IsCheckDigitTransmissionSupported: bool;

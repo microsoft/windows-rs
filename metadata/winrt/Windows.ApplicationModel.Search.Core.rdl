@@ -3,13 +3,13 @@ mod Windows {
     mod ApplicationModel {
         mod Search {
             mod Core {
-                #[guid(0xa1195f27_b1a7_41a2_879d_6a68687e5985)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RequestingFocusOnKeyboardInputEventArgs)]
+                #[guid(0xa1195f27_b1a7_41a2_879d_6a68687e5985)]
                 interface IRequestingFocusOnKeyboardInputEventArgs {}
-                #[guid(0x5b5554b0_1527_437b_95c5_8d18d2b8af55)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestion)]
+                #[guid(0x5b5554b0_1527_437b_95c5_8d18d2b8af55)]
                 interface ISearchSuggestion {
                     #[get]
                     Kind: SearchSuggestionKind;
@@ -24,32 +24,32 @@ mod Windows {
                     #[get]
                     ImageAlternateText: String;
                 }
-                #[guid(0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionManager)]
+                #[guid(0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2)]
                 interface ISearchSuggestionManager {
                     SearchHistoryEnabled: bool;
                     SearchHistoryContext: String;
-                    fn SetLocalContentSuggestionSettings(&self, settings: super::LocalContentSuggestionSettings);
+                    fn SetLocalContentSuggestionSettings(&self, #[in] settings: super::LocalContentSuggestionSettings);
                     #[Windows::Foundation::Metadata::Overload("SetQuery")]
-                    fn SetQuery(&self, queryText: String);
+                    fn SetQuery(&self, #[in] queryText: String);
                     #[Windows::Foundation::Metadata::Overload("SetQueryWithLanguage")]
-                    fn SetQuery(&self, queryText: String, language: String);
+                    fn SetQuery(&self, #[in] queryText: String, #[in] language: String);
                     #[Windows::Foundation::Metadata::Overload("SetQueryWithSearchQueryLinguisticDetails")]
-                    fn SetQuery(&self, queryText: String, language: String, linguisticDetails: super::SearchQueryLinguisticDetails);
+                    fn SetQuery(&self, #[in] queryText: String, #[in] language: String, #[in] linguisticDetails: super::SearchQueryLinguisticDetails);
                     #[get]
                     Suggestions: super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>;
                     #[Windows::Foundation::Metadata::Overload("AddToHistory")]
-                    fn AddToHistory(&self, queryText: String);
+                    fn AddToHistory(&self, #[in] queryText: String);
                     #[Windows::Foundation::Metadata::Overload("AddToHistoryWithLanguage")]
-                    fn AddToHistory(&self, queryText: String, language: String);
+                    fn AddToHistory(&self, #[in] queryText: String, #[in] language: String);
                     fn ClearHistory(&self);
                     event SuggestionsRequested: super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>;
                     event RequestingFocusOnKeyboardInput: super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>;
                 }
-                #[guid(0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionsRequestedEventArgs)]
+                #[guid(0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a)]
                 interface ISearchSuggestionsRequestedEventArgs {
                     #[get]
                     QueryText: String;
@@ -73,8 +73,8 @@ mod Windows {
                 class SearchSuggestion {
                     ISearchSuggestion,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[repr(i32)]
                 enum SearchSuggestionKind {
                     Query = 0,
                     Result = 1,

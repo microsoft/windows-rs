@@ -3,8 +3,8 @@ mod Windows {
     mod ApplicationModel {
         mod Contacts {
             mod Provider {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum AddContactResult {
                     Added = 0,
                     AlreadyAdded = 1,
@@ -20,40 +20,40 @@ mod Windows {
                 class ContactRemovedEventArgs {
                     IContactRemovedEventArgs,
                 }
-                #[guid(0xe2cc1366_cf66_43c4_a96a_a5a112db4746)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
+                #[guid(0xe2cc1366_cf66_43c4_a96a_a5a112db4746)]
                 interface IContactPickerUI {
                     #[Windows::Foundation::Metadata::Deprecated("AddContact may be altered or unavailable for releases after Windows 8.1. Instead, use AddContact without the ID.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn AddContact(&self, id: String, contact: super::Contact) -> AddContactResult;
-                    fn RemoveContact(&self, id: String);
-                    fn ContainsContact(&self, id: String) -> bool;
-                    #[get]
+                    fn AddContact(&self, #[in] id: String, #[in] contact: super::Contact) -> AddContactResult;
+                    fn RemoveContact(&self, #[in] id: String);
+                    fn ContainsContact(&self, #[in] id: String) -> bool;
                     #[Windows::Foundation::Metadata::Deprecated("DesiredFields may be altered or unavailable for releases after Windows 8.1. Instead, use DesiredFieldsWithContactFieldType.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[get]
                     DesiredFields: super::super::super::Foundation::Collections::IVectorView<String>;
                     #[get]
                     SelectionMode: super::ContactSelectionMode;
                     event ContactRemoved: super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>;
                 }
-                #[guid(0x6e449e28_7b25_4999_9b0b_875400a1e8c8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
+                #[guid(0x6e449e28_7b25_4999_9b0b_875400a1e8c8)]
                 interface IContactPickerUI2 {
-                    fn AddContact(&self, contact: super::Contact) -> AddContactResult;
+                    fn AddContact(&self, #[in] contact: super::Contact) -> AddContactResult;
                     #[get]
                     DesiredFieldsWithContactFieldType: super::super::super::Foundation::Collections::IVector<super::ContactFieldType>;
                 }
-                #[guid(0xc44bb54b_732f_5004_8cd7_65d90cf25f42)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[guid(0xc44bb54b_732f_5004_8cd7_65d90cf25f42)]
                 interface IContactProvider {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetContactFromRemoteIdAsync(&self, contactRemoteId: String) -> super::super::super::Foundation::IAsyncOperation<super::Contact>;
+                    fn GetContactFromRemoteIdAsync(&self, #[in] contactRemoteId: String) -> super::super::super::Foundation::IAsyncOperation<super::Contact>;
                     #[get]
                     ContactListId: String;
                 }
-                #[guid(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactRemovedEventArgs)]
+                #[guid(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c)]
                 interface IContactRemovedEventArgs {
                     #[get]
                     Id: String;

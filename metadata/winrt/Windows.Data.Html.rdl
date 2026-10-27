@@ -8,12 +8,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class HtmlUtilities {}
-            #[guid(0xfec00add_2399_4fac_b5a7_05e9acd7181d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HtmlUtilities)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xfec00add_2399_4fac_b5a7_05e9acd7181d)]
             interface IHtmlUtilities {
-                fn ConvertToText(&self, html: String) -> String;
+                fn ConvertToText(&self, #[in] html: String) -> String;
             }
         }
     }

@@ -3,9 +3,9 @@ mod Windows {
     mod ApplicationModel {
         mod DataTransfer {
             mod ShareTarget {
-                #[guid(0x603e4308_f0be_4adc_acc9_8b27ab9cf556)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(QuickLink)]
+                #[guid(0x603e4308_f0be_4adc_acc9_8b27ab9cf556)]
                 interface IQuickLink {
                     Title: String;
                     Thumbnail: super::super::super::Storage::Streams::RandomAccessStreamReference;
@@ -15,9 +15,9 @@ mod Windows {
                     #[get]
                     SupportedFileTypes: super::super::super::Foundation::Collections::IVector<String>;
                 }
-                #[guid(0x2246bab8_d0f8_41c1_a82a_4137db6504fb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
+                #[guid(0x2246bab8_d0f8_41c1_a82a_4137db6504fb)]
                 interface IShareOperation {
                     #[get]
                     Data: super::DataPackageView;
@@ -28,20 +28,20 @@ mod Windows {
                     fn ReportDataRetrieved(&self);
                     fn ReportSubmittedBackgroundTask(&self);
                     #[Windows::Foundation::Metadata::Overload("ReportCompletedWithQuickLink")]
-                    fn ReportCompleted(&self, quicklink: QuickLink);
+                    fn ReportCompleted(&self, #[in] quicklink: QuickLink);
                     #[Windows::Foundation::Metadata::Overload("ReportCompleted")]
                     fn ReportCompleted(&self);
-                    fn ReportError(&self, value: String);
+                    fn ReportError(&self, #[in] value: String);
                 }
-                #[guid(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
+                #[guid(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555)]
                 interface IShareOperation2 {
                     fn DismissUI(&self);
                 }
-                #[guid(0x5ef6b382_b7a7_4571_a2a6_994a034988b2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
+                #[guid(0x5ef6b382_b7a7_4571_a2a6_994a034988b2)]
                 interface IShareOperation3 {
                     #[get]
                     Contacts: super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>;

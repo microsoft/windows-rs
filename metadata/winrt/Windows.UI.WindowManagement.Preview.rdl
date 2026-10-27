@@ -6,13 +6,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WindowManagementPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x4ef55b0d_561d_513c_a67c_2c02b69cef41)]
                 interface IWindowManagementPreview {}
-                #[guid(0x0f9725c6_c004_5a23_8fd2_8d092ce2704a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WindowManagementPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x0f9725c6_c004_5a23_8fd2_8d092ce2704a)]
                 interface IWindowManagementPreviewStatics {
-                    fn SetPreferredMinSize(&self, window: super::AppWindow, preferredFrameMinSize: super::super::super::Foundation::Size);
+                    fn SetPreferredMinSize(&self, #[in] window: super::AppWindow, #[in] preferredFrameMinSize: super::super::super::Foundation::Size);
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

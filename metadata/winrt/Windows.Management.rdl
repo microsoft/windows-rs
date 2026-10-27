@@ -1,9 +1,9 @@
 #[winrt]
 mod Windows {
     mod Management {
-        #[guid(0xb0fbc327_28c1_4b52_a548_c5807caf70b6)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::ExclusiveTo(MdmAlert)]
+        #[guid(0xb0fbc327_28c1_4b52_a548_c5807caf70b6)]
         interface IMdmAlert {
             Data: String;
             Format: MdmAlertDataType;
@@ -14,9 +14,9 @@ mod Windows {
             Target: String;
             Type: String;
         }
-        #[guid(0xfe89314c_8f64_4797_a9d7_9d88f86ae166)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::ExclusiveTo(MdmSession)]
+        #[guid(0xfe89314c_8f64_4797_a9d7_9d88f86ae166)]
         interface IMdmSession {
             #[get]
             Alerts: super::Foundation::Collections::IVectorView<MdmAlert>;
@@ -33,17 +33,17 @@ mod Windows {
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn StartAsync(&self) -> super::Foundation::IAsyncAction;
             #[Windows::Foundation::Metadata::Overload("StartWithAlertsAsync")]
-            fn StartAsync(&self, alerts: super::Foundation::Collections::IIterable<MdmAlert>) -> super::Foundation::IAsyncAction;
+            fn StartAsync(&self, #[in] alerts: super::Foundation::Collections::IIterable<MdmAlert>) -> super::Foundation::IAsyncAction;
         }
-        #[guid(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::ExclusiveTo(MdmSessionManager)]
+        #[guid(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b)]
         interface IMdmSessionManagerStatics {
             #[get]
             SessionIds: super::Foundation::Collections::IVectorView<String>;
             fn TryCreateSession(&self) -> MdmSession;
-            fn DeleteSessionById(&self, sessionId: String);
-            fn GetSessionById(&self, sessionId: String) -> MdmSession;
+            fn DeleteSessionById(&self, #[in] sessionId: String);
+            fn GetSessionById(&self, #[in] sessionId: String) -> MdmSession;
         }
         #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
@@ -52,16 +52,16 @@ mod Windows {
         class MdmAlert {
             IMdmAlert,
         }
-        #[repr(i32)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[repr(i32)]
         enum MdmAlertDataType {
             String = 0,
             Base64 = 1,
             Boolean = 2,
             Integer = 3,
         }
-        #[repr(i32)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[repr(i32)]
         enum MdmAlertMark {
             None = 0,
             Fatal = 1,
@@ -80,8 +80,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
         #[Windows::Foundation::Metadata::Static(IMdmSessionManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
         class MdmSessionManager {}
-        #[repr(i32)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[repr(i32)]
         enum MdmSessionState {
             NotStarted = 0,
             Starting = 1,

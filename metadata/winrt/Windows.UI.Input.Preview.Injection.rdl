@@ -4,9 +4,9 @@ mod Windows {
         mod Input {
             mod Preview {
                 mod Injection {
-                    #[guid(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputGamepadInfo)]
+                    #[guid(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad)]
                     interface IInjectedInputGamepadInfo {
                         Buttons: super::super::super::super::Gaming::Input::GamepadButtons;
                         LeftThumbstickX: f64;
@@ -16,24 +16,24 @@ mod Windows {
                         RightThumbstickY: f64;
                         RightTrigger: f64;
                     }
-                    #[guid(0x59596876_6c39_4ec4_8b2a_29ef7de18aca)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputGamepadInfo)]
+                    #[guid(0x59596876_6c39_4ec4_8b2a_29ef7de18aca)]
                     interface IInjectedInputGamepadInfoFactory {
                         #[Windows::Foundation::Metadata::Overload("CreateInstanceFromGamepadReading")]
-                        fn CreateInstance(&self, reading: super::super::super::super::Gaming::Input::GamepadReading) -> InjectedInputGamepadInfo;
+                        fn CreateInstance(&self, #[in] reading: super::super::super::super::Gaming::Input::GamepadReading) -> InjectedInputGamepadInfo;
                     }
-                    #[guid(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputKeyboardInfo)]
+                    #[guid(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd)]
                     interface IInjectedInputKeyboardInfo {
                         KeyOptions: InjectedInputKeyOptions;
                         ScanCode: u16;
                         VirtualKey: u16;
                     }
-                    #[guid(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputMouseInfo)]
+                    #[guid(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d)]
                     interface IInjectedInputMouseInfo {
                         MouseOptions: InjectedInputMouseOptions;
                         MouseData: u32;
@@ -41,9 +41,9 @@ mod Windows {
                         DeltaX: i32;
                         TimeOffsetInMilliseconds: u32;
                     }
-                    #[guid(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputPenInfo)]
+                    #[guid(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4)]
                     interface IInjectedInputPenInfo {
                         PointerInfo: InjectedInputPointerInfo;
                         PenButtons: InjectedInputPenButtons;
@@ -53,9 +53,9 @@ mod Windows {
                         TiltX: i32;
                         TiltY: i32;
                     }
-                    #[guid(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputTouchInfo)]
+                    #[guid(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28)]
                     interface IInjectedInputTouchInfo {
                         Contact: InjectedInputRectangle;
                         Orientation: i32;
@@ -63,42 +63,42 @@ mod Windows {
                         Pressure: f64;
                         TouchParameters: InjectedInputTouchParameters;
                     }
-                    #[guid(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InputInjector)]
+                    #[guid(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18)]
                     interface IInputInjector {
-                        fn InjectKeyboardInput(&self, input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>);
-                        fn InjectMouseInput(&self, input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>);
-                        fn InitializeTouchInjection(&self, visualMode: InjectedInputVisualizationMode);
-                        fn InjectTouchInput(&self, input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>);
+                        fn InjectKeyboardInput(&self, #[in] input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>);
+                        fn InjectMouseInput(&self, #[in] input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>);
+                        fn InitializeTouchInjection(&self, #[in] visualMode: InjectedInputVisualizationMode);
+                        fn InjectTouchInput(&self, #[in] input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>);
                         fn UninitializeTouchInjection(&self);
-                        fn InitializePenInjection(&self, visualMode: InjectedInputVisualizationMode);
-                        fn InjectPenInput(&self, input: InjectedInputPenInfo);
+                        fn InitializePenInjection(&self, #[in] visualMode: InjectedInputVisualizationMode);
+                        fn InjectPenInput(&self, #[in] input: InjectedInputPenInfo);
                         fn UninitializePenInjection(&self);
-                        fn InjectShortcut(&self, shortcut: InjectedInputShortcut);
+                        fn InjectShortcut(&self, #[in] shortcut: InjectedInputShortcut);
                     }
-                    #[guid(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InputInjector)]
+                    #[guid(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7)]
                     interface IInputInjector2: IInputInjector {
                         fn InitializeGamepadInjection(&self);
-                        fn InjectGamepadInput(&self, input: InjectedInputGamepadInfo);
+                        fn InjectGamepadInput(&self, #[in] input: InjectedInputGamepadInfo);
                         fn UninitializeGamepadInjection(&self);
                     }
-                    #[guid(0xdeae6943_7402_4141_a5c6_0c01aa57b16a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InputInjector)]
+                    #[guid(0xdeae6943_7402_4141_a5c6_0c01aa57b16a)]
                     interface IInputInjectorStatics {
                         fn TryCreate(&self) -> InputInjector;
                     }
-                    #[guid(0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InputInjector)]
+                    #[guid(0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c)]
                     interface IInputInjectorStatics2: IInputInjectorStatics {
                         fn TryCreateForAppBroadcastOnly(&self) -> InputInjector;
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[repr(i32)]
                     enum InjectedInputButtonChangeKind {
                         None = 0,
                         FirstButtonDown = 1,
@@ -118,9 +118,9 @@ mod Windows {
                     class InjectedInputGamepadInfo {
                         IInjectedInputGamepadInfo,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[flags]
+                    #[repr(u32)]
                     enum InjectedInputKeyOptions {
                         None = 0,
                         ExtendedKey = 1,
@@ -138,9 +138,9 @@ mod Windows {
                     class InjectedInputMouseInfo {
                         IInjectedInputMouseInfo,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[flags]
+                    #[repr(u32)]
                     enum InjectedInputMouseOptions {
                         None = 0,
                         Move = 1,
@@ -158,9 +158,9 @@ mod Windows {
                         VirtualDesk = 16384,
                         Absolute = 32768,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[flags]
+                    #[repr(u32)]
                     enum InjectedInputPenButtons {
                         None = 0,
                         Barrel = 1,
@@ -172,9 +172,9 @@ mod Windows {
                     class InjectedInputPenInfo {
                         IInjectedInputPenInfo,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[flags]
+                    #[repr(u32)]
                     enum InjectedInputPenParameters {
                         None = 0,
                         Pressure = 1,
@@ -195,9 +195,9 @@ mod Windows {
                         TimeOffsetInMilliseconds: u32,
                         PerformanceCount: u64,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[flags]
+                    #[repr(u32)]
                     enum InjectedInputPointerOptions {
                         None = 0,
                         New = 1,
@@ -220,8 +220,8 @@ mod Windows {
                         Bottom: i32,
                         Right: i32,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[repr(i32)]
                     enum InjectedInputShortcut {
                         Back = 0,
                         Start = 1,
@@ -232,17 +232,17 @@ mod Windows {
                     class InjectedInputTouchInfo {
                         IInjectedInputTouchInfo,
                     }
-                    #[repr(u32)]
-                    #[flags]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[flags]
+                    #[repr(u32)]
                     enum InjectedInputTouchParameters {
                         None = 0,
                         Contact = 1,
                         Orientation = 2,
                         Pressure = 4,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[repr(i32)]
                     enum InjectedInputVisualizationMode {
                         None = 0,
                         Default = 1,

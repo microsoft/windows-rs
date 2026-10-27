@@ -3,9 +3,9 @@ mod Windows {
     mod Graphics {
         mod Printing {
             mod OptionDetails {
-                #[guid(0xc3f4cc98_9564_4f16_a055_a98b9a49e9d3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintBindingOptionDetails)]
+                #[guid(0xc3f4cc98_9564_4f16_a055_a98b9a49e9d3)]
                 interface IPrintBindingOptionDetails {
                     #[set]
                     WarningText: String;
@@ -16,9 +16,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x4d73bc8f_fb53_4eb2_985f_1d91de0b7639)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintBorderingOptionDetails)]
+                #[guid(0x4d73bc8f_fb53_4eb2_985f_1d91de0b7639)]
                 interface IPrintBorderingOptionDetails {
                     #[set]
                     WarningText: String;
@@ -29,9 +29,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0xd6abb166_a5a6_40dc_acc3_739f28f1e5d3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCollationOptionDetails)]
+                #[guid(0xd6abb166_a5a6_40dc_acc3_739f28f1e5d3)]
                 interface IPrintCollationOptionDetails {
                     #[set]
                     WarningText: String;
@@ -42,9 +42,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0xdba97704_f1d6_4843_a484_9b447cdcf3b6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintColorModeOptionDetails)]
+                #[guid(0xdba97704_f1d6_4843_a484_9b447cdcf3b6)]
                 interface IPrintColorModeOptionDetails {
                     #[set]
                     WarningText: String;
@@ -55,9 +55,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x42053099_4339_4343_898d_2c47b5e0c341)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCopiesOptionDetails)]
+                #[guid(0x42053099_4339_4343_898d_2c47b5e0c341)]
                 interface IPrintCopiesOptionDetails {
                     #[set]
                     WarningText: String;
@@ -68,9 +68,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x5704b637_5c3a_449a_aa36_b3291b1192fd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemDetails)]
+                #[guid(0x5704b637_5c3a_449a_aa36_b3291b1192fd)]
                 interface IPrintCustomItemDetails {
                     #[get]
                     ItemId: String;
@@ -79,21 +79,21 @@ mod Windows {
                     #[get]
                     ItemDisplayName: String;
                 }
-                #[guid(0xa5fafd88_58f2_4ebd_b90f_51e4f2944c5d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
+                #[guid(0xa5fafd88_58f2_4ebd_b90f_51e4f2944c5d)]
                 interface IPrintCustomItemListOptionDetails: IPrintItemListOptionDetails + IPrintOptionDetails + IPrintCustomOptionDetails {
-                    fn AddItem(&self, itemId: String, displayName: String);
+                    fn AddItem(&self, #[in] itemId: String, #[in] displayName: String);
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
                 #[guid(0xc9d6353d_651c_4a39_906e_1091a1801bf1)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
                 interface IPrintCustomItemListOptionDetails2 {
-                    fn AddItem(&self, itemId: String, displayName: String, description: String, icon: super::super::super::Storage::Streams::IRandomAccessStreamWithContentType);
+                    fn AddItem(&self, #[in] itemId: String, #[in] displayName: String, #[in] description: String, #[in] icon: super::super::super::Storage::Streams::IRandomAccessStreamWithContentType);
                 }
-                #[guid(0x4fa1b53f_3c34_4868_a407_fc5eab259b21)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
+                #[guid(0x4fa1b53f_3c34_4868_a407_fc5eab259b21)]
                 interface IPrintCustomItemListOptionDetails3 {
                     #[set]
                     WarningText: String;
@@ -104,26 +104,26 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0xe32bde1c_28af_4b90_95da_a3acf320b929)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0xe32bde1c_28af_4b90_95da_a3acf320b929)]
                 interface IPrintCustomOptionDetails: IPrintOptionDetails {
                     #[set]
                     DisplayName: String;
                     #[get]
                     DisplayName: String;
                 }
-                #[guid(0x2ad171f8_c8bd_4905_9192_0d75136e8b31)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomTextOptionDetails)]
+                #[guid(0x2ad171f8_c8bd_4905_9192_0d75136e8b31)]
                 interface IPrintCustomTextOptionDetails: IPrintCustomOptionDetails + IPrintOptionDetails {
                     #[set]
                     MaxCharacters: u32;
                     #[get]
                     MaxCharacters: u32;
                 }
-                #[guid(0xcea70b54_b977_4718_8338_7ed2b0d86fe3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomTextOptionDetails)]
+                #[guid(0xcea70b54_b977_4718_8338_7ed2b0d86fe3)]
                 interface IPrintCustomTextOptionDetails2 {
                     #[set]
                     WarningText: String;
@@ -134,9 +134,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x9db4d514_e461_4608_8ee9_db6f5ed073c6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomToggleOptionDetails)]
+                #[guid(0x9db4d514_e461_4608_8ee9_db6f5ed073c6)]
                 interface IPrintCustomToggleOptionDetails {
                     #[set]
                     WarningText: String;
@@ -147,9 +147,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0xfcd94591_d4a4_44fa_b3fe_42e0ba28d5ad)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintDuplexOptionDetails)]
+                #[guid(0xfcd94591_d4a4_44fa_b3fe_42e0ba28d5ad)]
                 interface IPrintDuplexOptionDetails {
                     #[set]
                     WarningText: String;
@@ -160,9 +160,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0xa6de1f18_482c_4657_9d71_8ddddbea1e1e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintHolePunchOptionDetails)]
+                #[guid(0xa6de1f18_482c_4657_9d71_8ddddbea1e1e)]
                 interface IPrintHolePunchOptionDetails {
                     #[set]
                     WarningText: String;
@@ -173,15 +173,15 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x9a2257bf_fe61_43d8_a24f_a3f6ab7320e7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0x9a2257bf_fe61_43d8_a24f_a3f6ab7320e7)]
                 interface IPrintItemListOptionDetails: IPrintOptionDetails {
                     #[special]
                     fn get_Items(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::super::Foundation::Collections::IVectorView<Object>;
                 }
-                #[guid(0x6c8d5bcf_c0bf_47c8_b84a_628e7d0d1a1d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintMediaSizeOptionDetails)]
+                #[guid(0x6c8d5bcf_c0bf_47c8_b84a_628e7d0d1a1d)]
                 interface IPrintMediaSizeOptionDetails {
                     #[set]
                     WarningText: String;
@@ -192,9 +192,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0xf8c7000b_abf3_4abc_8e86_22abc5744a43)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintMediaTypeOptionDetails)]
+                #[guid(0xf8c7000b_abf3_4abc_8e86_22abc5744a43)]
                 interface IPrintMediaTypeOptionDetails {
                     #[set]
                     WarningText: String;
@@ -205,16 +205,16 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x4d01bbaf_645c_4de9_965f_6fc6bbc47cab)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0x4d01bbaf_645c_4de9_965f_6fc6bbc47cab)]
                 interface IPrintNumberOptionDetails: IPrintOptionDetails {
                     #[get]
                     MinValue: u32;
                     #[get]
                     MaxValue: u32;
                 }
-                #[guid(0x390686cf_d682_495f_adfe_d7333f5c1808)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0x390686cf_d682_495f_adfe_d7333f5c1808)]
                 interface IPrintOptionDetails {
                     #[get]
                     OptionId: String;
@@ -230,11 +230,11 @@ mod Windows {
                     State: PrintOptionStates;
                     #[special]
                     fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
-                    fn TrySetValue(&self, #[Windows::Foundation::Metadata::Variant] value: Object) -> bool;
+                    fn TrySetValue(&self, #[Windows::Foundation::Metadata::Variant] #[in] value: Object) -> bool;
                 }
-                #[guid(0x46c38879_66e0_4da0_87b4_d25457824eb7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintOrientationOptionDetails)]
+                #[guid(0x46c38879_66e0_4da0_87b4_d25457824eb7)]
                 interface IPrintOrientationOptionDetails {
                     #[set]
                     WarningText: String;
@@ -245,9 +245,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x5a19e4b7_2be8_4aa7_9ea5_defbe8713b4e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintPageRangeOptionDetails)]
+                #[guid(0x5a19e4b7_2be8_4aa7_9ea5_defbe8713b4e)]
                 interface IPrintPageRangeOptionDetails {
                     #[set]
                     WarningText: String;
@@ -258,9 +258,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x2dd06ba1_ce1a_44e6_84f9_3a92ea1e3044)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintQualityOptionDetails)]
+                #[guid(0x2dd06ba1_ce1a_44e6_84f9_3a92ea1e3044)]
                 interface IPrintQualityOptionDetails {
                     #[set]
                     WarningText: String;
@@ -271,9 +271,9 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0xd43175bd_9c0b_44e0_84f6_ceebce653800)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintStapleOptionDetails)]
+                #[guid(0xd43175bd_9c0b_44e0_84f6_ceebce653800)]
                 interface IPrintStapleOptionDetails {
                     #[set]
                     WarningText: String;
@@ -284,38 +284,38 @@ mod Windows {
                     #[get]
                     Description: String;
                 }
-                #[guid(0x65197d05_a5ee_4307_9407_9acad147679c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionChangedEventArgs)]
+                #[guid(0x65197d05_a5ee_4307_9407_9acad147679c)]
                 interface IPrintTaskOptionChangedEventArgs {
                     #[special]
                     fn get_OptionId(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                 }
-                #[guid(0xf5720af1_a89e_42a6_81af_f8e010b38a68)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
+                #[guid(0xf5720af1_a89e_42a6_81af_f8e010b38a68)]
                 interface IPrintTaskOptionDetails {
                     #[get]
                     Options: super::super::super::Foundation::Collections::IMapView<String, IPrintOptionDetails>;
-                    fn CreateItemListOption(&self, optionId: String, displayName: String) -> PrintCustomItemListOptionDetails;
-                    fn CreateTextOption(&self, optionId: String, displayName: String) -> PrintCustomTextOptionDetails;
+                    fn CreateItemListOption(&self, #[in] optionId: String, #[in] displayName: String) -> PrintCustomItemListOptionDetails;
+                    fn CreateTextOption(&self, #[in] optionId: String, #[in] displayName: String) -> PrintCustomTextOptionDetails;
                     event OptionChanged: super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>;
                     event BeginValidation: super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, Object>;
                 }
-                #[guid(0x53730a09_f968_4692_a177_c074597186db)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
+                #[guid(0x53730a09_f968_4692_a177_c074597186db)]
                 interface IPrintTaskOptionDetails2 {
-                    fn CreateToggleOption(&self, optionId: String, displayName: String) -> PrintCustomToggleOptionDetails;
+                    fn CreateToggleOption(&self, #[in] optionId: String, #[in] displayName: String) -> PrintCustomToggleOptionDetails;
                 }
-                #[guid(0x135da193_0961_4b6e_8766_f13b7fbccd58)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
+                #[guid(0x135da193_0961_4b6e_8766_f13b7fbccd58)]
                 interface IPrintTaskOptionDetailsStatic {
-                    fn GetFromPrintTaskOptions(&self, printTaskOptions: super::PrintTaskOptions) -> PrintTaskOptionDetails;
+                    fn GetFromPrintTaskOptions(&self, #[in] printTaskOptions: super::PrintTaskOptions) -> PrintTaskOptionDetails;
                 }
-                #[guid(0xad75e563_5ce4_46bc_9918_ab9fad144c5b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0xad75e563_5ce4_46bc_9918_ab9fad144c5b)]
                 interface IPrintTextOptionDetails: IPrintOptionDetails {
                     #[get]
                     MaxCharacters: u32;
@@ -426,21 +426,22 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IPrintMediaTypeOptionDetails,
                 }
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[flags]
+                #[repr(u32)]
                 enum PrintOptionStates {
                     None = 0,
                     Enabled = 1,
                     Constrained = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum PrintOptionType {
                     Unknown = 0,
                     Number = 1,
                     Text = 2,
                     ItemList = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     Toggle = 4,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
