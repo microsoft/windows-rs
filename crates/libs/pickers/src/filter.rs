@@ -119,9 +119,7 @@ impl PreparedFilters {
     pub fn apply(&self, dialog: &IFileDialog) -> Result<()> {
         if !self.specs.is_empty() {
             unsafe {
-                dialog
-                    .SetFileTypes(self.specs.len() as u32, self.specs.as_ptr())
-                    .ok()?;
+                dialog.SetFileTypes(&self.specs).ok()?;
             }
         }
         if let Some(index) = self.initial {
