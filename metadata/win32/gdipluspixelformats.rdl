@@ -1,0 +1,68 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ALPHA_SHIFT: i32 = 24;
+        type ARGB = u32;
+        const BLUE_SHIFT: i32 = 0;
+        #[packed(8)]
+        struct ColorPalette {
+            Flags: UINT,
+            Count: UINT,
+            Entries: [ARGB; 1],
+        }
+        #[repr(i32)]
+        enum DitherType {
+            DitherTypeNone = 0,
+            DitherTypeSolid = 1,
+            DitherTypeOrdered4x4 = 2,
+            DitherTypeOrdered8x8 = 3,
+            DitherTypeOrdered16x16 = 4,
+            DitherTypeSpiral4x4 = 5,
+            DitherTypeSpiral8x8 = 6,
+            DitherTypeDualSpiral4x4 = 7,
+            DitherTypeDualSpiral8x8 = 8,
+            DitherTypeErrorDiffusion = 9,
+            DitherTypeMax = 10,
+        }
+        const GREEN_SHIFT: i32 = 8;
+        #[repr(i32)]
+        enum PaletteType {
+            PaletteTypeCustom = 0,
+            PaletteTypeOptimal = 1,
+            PaletteTypeFixedBW = 2,
+            PaletteTypeFixedHalftone8 = 3,
+            PaletteTypeFixedHalftone27 = 4,
+            PaletteTypeFixedHalftone64 = 5,
+            PaletteTypeFixedHalftone125 = 6,
+            PaletteTypeFixedHalftone216 = 7,
+            PaletteTypeFixedHalftone252 = 8,
+            PaletteTypeFixedHalftone256 = 9,
+        }
+        type PixelFormat = i32;
+        const PixelFormat16bppARGB1555: i32 = 397319;
+        const PixelFormat16bppGrayScale: i32 = 1052676;
+        const PixelFormat16bppRGB555: i32 = 135173;
+        const PixelFormat16bppRGB565: i32 = 135174;
+        const PixelFormat1bppIndexed: i32 = 196865;
+        const PixelFormat24bppRGB: i32 = 137224;
+        const PixelFormat32bppARGB: i32 = 2498570;
+        const PixelFormat32bppCMYK: i32 = 8207;
+        const PixelFormat32bppPARGB: i32 = 925707;
+        const PixelFormat32bppRGB: i32 = 139273;
+        const PixelFormat48bppRGB: i32 = 1060876;
+        const PixelFormat4bppIndexed: i32 = 197634;
+        const PixelFormat64bppARGB: i32 = 3424269;
+        const PixelFormat64bppPARGB: i32 = 1851406;
+        const PixelFormat8bppIndexed: i32 = 198659;
+        const PixelFormatAlpha: i32 = 262144;
+        const PixelFormatCanonical: i32 = 2097152;
+        const PixelFormatDontCare: i32 = 0;
+        const PixelFormatExtended: i32 = 1048576;
+        const PixelFormatGDI: i32 = 131072;
+        const PixelFormatIndexed: i32 = 65536;
+        const PixelFormatMax: i32 = 16;
+        const PixelFormatPAlpha: i32 = 524288;
+        const PixelFormatUndefined: i32 = 0;
+        const RED_SHIFT: i32 = 16;
+    }
+}

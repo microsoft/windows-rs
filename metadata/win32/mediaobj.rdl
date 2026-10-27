@@ -6,76 +6,75 @@ mod Windows {
             subtype: GUID,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            lSampleSize: u32,
+            lSampleSize: ULONG,
             formattype: GUID,
             pUnk: IUnknown,
-            cbFormat: u32,
-            pbFormat: *mut u8,
+            cbFormat: ULONG,
+            pbFormat: *mut BYTE,
         }
         struct DMO_OUTPUT_DATA_BUFFER {
             pBuffer: IMediaBuffer,
-            dwStatus: u32,
+            dwStatus: DWORD,
             rtTimestamp: REFERENCE_TIME,
             rtTimelength: REFERENCE_TIME,
         }
         #[guid(0x65abea96_cf36_453f_af8a_705e98f16260)]
         interface IDMOQualityControl: IUnknown {
-            fn SetNow(&self, rtNow: REFERENCE_TIME) -> HRESULT;
-            fn SetStatus(&self, dwFlags: u32) -> HRESULT;
-            fn GetStatus(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn SetNow(&self, #[in] rtNow: REFERENCE_TIME) -> HRESULT;
+            fn SetStatus(&self, #[in] dwFlags: DWORD) -> HRESULT;
+            fn GetStatus(&self, #[out] pdwFlags: *mut DWORD) -> HRESULT;
         }
         #[guid(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac)]
         interface IDMOVideoOutputOptimizations: IUnknown {
-            fn QueryOperationModePreferences(&self, ulOutputStreamIndex: u32, pdwRequestedCapabilities: *mut u32) -> HRESULT;
-            fn SetOperationMode(&self, ulOutputStreamIndex: u32, dwEnabledFeatures: u32) -> HRESULT;
-            fn GetCurrentOperationMode(&self, ulOutputStreamIndex: u32, pdwEnabledFeatures: *mut u32) -> HRESULT;
-            fn GetCurrentSampleRequirements(&self, ulOutputStreamIndex: u32, pdwRequestedFeatures: *mut u32) -> HRESULT;
+            fn QueryOperationModePreferences(&self, ulOutputStreamIndex: ULONG, #[out] pdwRequestedCapabilities: *mut DWORD) -> HRESULT;
+            fn SetOperationMode(&self, ulOutputStreamIndex: ULONG, dwEnabledFeatures: DWORD) -> HRESULT;
+            fn GetCurrentOperationMode(&self, ulOutputStreamIndex: ULONG, #[out] pdwEnabledFeatures: *mut DWORD) -> HRESULT;
+            fn GetCurrentSampleRequirements(&self, ulOutputStreamIndex: ULONG, #[out] pdwRequestedFeatures: *mut DWORD) -> HRESULT;
         }
         #[guid(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f)]
         interface IEnumDMO: IUnknown {
-            fn Next(&self, cItemsToFetch: u32, #[len_param(0)] pCLSID: *mut GUID, #[len_param(0)] Names: *mut PWSTR, pcItemsFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, cItemsToSkip: u32) -> HRESULT;
+            fn Next(&self, cItemsToFetch: DWORD, #[out] #[readable(success, *pcItemsFetched)] #[writable(entry, cItemsToFetch)] pCLSID: *mut CLSID, #[out] #[readable(success, *pcItemsFetched)] #[writable(entry, cItemsToFetch)] Names: *mut LPWSTR, #[out] pcItemsFetched: *mut DWORD) -> HRESULT;
+            fn Skip(&self, cItemsToSkip: DWORD) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumDMO) -> HRESULT;
+            fn Clone(&self, #[out] ppEnum: *mut IEnumDMO) -> HRESULT;
         }
         #[guid(0x59eff8b9_938c_4a26_82f2_95cb84cdc837)]
         interface IMediaBuffer: IUnknown {
-            fn SetLength(&self, cbLength: u32) -> HRESULT;
-            fn GetMaxLength(&self, pcbMaxLength: *mut u32) -> HRESULT;
-            fn GetBufferAndLength(&self, ppBuffer: *mut *mut u8, #[opt] pcbLength: *mut u32) -> HRESULT;
+            fn SetLength(&self, cbLength: DWORD) -> HRESULT;
+            fn GetMaxLength(&self, #[out] pcbMaxLength: *mut DWORD) -> HRESULT;
+            fn GetBufferAndLength(&self, #[opt] #[out] #[writable(success, bytes(if_present(*pcbLength)), indirect)] ppBuffer: *mut *mut BYTE, #[opt] #[out] pcbLength: *mut DWORD) -> HRESULT;
         }
         #[guid(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4)]
         interface IMediaObject: IUnknown {
-            fn GetStreamCount(&self, pcInputStreams: *mut u32, pcOutputStreams: *mut u32) -> HRESULT;
-            fn GetInputStreamInfo(&self, dwInputStreamIndex: u32, pdwFlags: *mut u32) -> HRESULT;
-            fn GetOutputStreamInfo(&self, dwOutputStreamIndex: u32, pdwFlags: *mut u32) -> HRESULT;
-            fn GetInputType(&self, dwInputStreamIndex: u32, dwTypeIndex: u32, #[opt] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
-            fn GetOutputType(&self, dwOutputStreamIndex: u32, dwTypeIndex: u32, #[opt] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
-            fn SetInputType(&self, dwInputStreamIndex: u32, #[opt] pmt: *const DMO_MEDIA_TYPE, dwFlags: u32) -> HRESULT;
-            fn SetOutputType(&self, dwOutputStreamIndex: u32, #[opt] pmt: *const DMO_MEDIA_TYPE, dwFlags: u32) -> HRESULT;
-            fn GetInputCurrentType(&self, dwInputStreamIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
-            fn GetOutputCurrentType(&self, dwOutputStreamIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
-            fn GetInputSizeInfo(&self, dwInputStreamIndex: u32, pcbSize: *mut u32, pcbMaxLookahead: *mut u32, pcbAlignment: *mut u32) -> HRESULT;
-            fn GetOutputSizeInfo(&self, dwOutputStreamIndex: u32, pcbSize: *mut u32, pcbAlignment: *mut u32) -> HRESULT;
-            fn GetInputMaxLatency(&self, dwInputStreamIndex: u32, prtMaxLatency: *mut REFERENCE_TIME) -> HRESULT;
-            fn SetInputMaxLatency(&self, dwInputStreamIndex: u32, rtMaxLatency: REFERENCE_TIME) -> HRESULT;
+            fn GetStreamCount(&self, #[out] pcInputStreams: *mut DWORD, #[out] pcOutputStreams: *mut DWORD) -> HRESULT;
+            fn GetInputStreamInfo(&self, dwInputStreamIndex: DWORD, #[out] pdwFlags: *mut DWORD) -> HRESULT;
+            fn GetOutputStreamInfo(&self, dwOutputStreamIndex: DWORD, #[out] pdwFlags: *mut DWORD) -> HRESULT;
+            fn GetInputType(&self, dwInputStreamIndex: DWORD, dwTypeIndex: DWORD, #[opt] #[out] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn GetOutputType(&self, dwOutputStreamIndex: DWORD, dwTypeIndex: DWORD, #[opt] #[out] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn SetInputType(&self, dwInputStreamIndex: DWORD, #[in] #[opt] pmt: *const DMO_MEDIA_TYPE, dwFlags: DWORD) -> HRESULT;
+            fn SetOutputType(&self, dwOutputStreamIndex: DWORD, #[in] #[opt] pmt: *const DMO_MEDIA_TYPE, dwFlags: DWORD) -> HRESULT;
+            fn GetInputCurrentType(&self, dwInputStreamIndex: DWORD, #[out] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn GetOutputCurrentType(&self, dwOutputStreamIndex: DWORD, #[out] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
+            fn GetInputSizeInfo(&self, dwInputStreamIndex: DWORD, #[out] pcbSize: *mut DWORD, #[out] pcbMaxLookahead: *mut DWORD, #[out] pcbAlignment: *mut DWORD) -> HRESULT;
+            fn GetOutputSizeInfo(&self, dwOutputStreamIndex: DWORD, #[out] pcbSize: *mut DWORD, #[out] pcbAlignment: *mut DWORD) -> HRESULT;
+            fn GetInputMaxLatency(&self, dwInputStreamIndex: DWORD, #[out] prtMaxLatency: *mut REFERENCE_TIME) -> HRESULT;
+            fn SetInputMaxLatency(&self, dwInputStreamIndex: DWORD, rtMaxLatency: REFERENCE_TIME) -> HRESULT;
             fn Flush(&self) -> HRESULT;
-            fn Discontinuity(&self, dwInputStreamIndex: u32) -> HRESULT;
+            fn Discontinuity(&self, dwInputStreamIndex: DWORD) -> HRESULT;
             fn AllocateStreamingResources(&self) -> HRESULT;
             fn FreeStreamingResources(&self) -> HRESULT;
-            fn GetInputStatus(&self, dwInputStreamIndex: u32, dwFlags: *mut u32) -> HRESULT;
-            fn ProcessInput(&self, dwInputStreamIndex: u32, pBuffer: IMediaBuffer, dwFlags: u32, rtTimestamp: REFERENCE_TIME, rtTimelength: REFERENCE_TIME) -> HRESULT;
-            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[len_param(1)] #[in] #[out] pOutputBuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
-            fn Lock(&self, bLock: i32) -> HRESULT;
+            fn GetInputStatus(&self, dwInputStreamIndex: DWORD, #[out] dwFlags: *mut DWORD) -> HRESULT;
+            fn ProcessInput(&self, dwInputStreamIndex: DWORD, pBuffer: IMediaBuffer, dwFlags: DWORD, rtTimestamp: REFERENCE_TIME, rtTimelength: REFERENCE_TIME) -> HRESULT;
+            fn ProcessOutput(&self, dwFlags: DWORD, cOutputBufferCount: DWORD, #[in] #[out] #[writable(entry, cOutputBufferCount)] pOutputBuffers: *mut DMO_OUTPUT_DATA_BUFFER, #[out] pdwStatus: *mut DWORD) -> HRESULT;
+            fn Lock(&self, bLock: LONG) -> HRESULT;
         }
         #[guid(0x651b9ad0_0fc7_4aa9_9538_d89931010741)]
         interface IMediaObjectInPlace: IUnknown {
-            fn Process(&self, ulSize: u32, #[size_param(0)] #[in] #[out] pData: *mut u8, refTimeStart: REFERENCE_TIME, dwFlags: u32) -> HRESULT;
-            fn Clone(&self, ppMediaObject: *mut IMediaObjectInPlace) -> HRESULT;
-            fn GetLatency(&self, pLatencyTime: *mut REFERENCE_TIME) -> HRESULT;
+            fn Process(&self, #[in] ulSize: ULONG, #[in] #[out] #[writable(entry, bytes(ulSize))] pData: *mut BYTE, #[in] refTimeStart: REFERENCE_TIME, #[in] dwFlags: DWORD) -> HRESULT;
+            fn Clone(&self, #[out] ppMediaObject: *mut IMediaObjectInPlace) -> HRESULT;
+            fn GetLatency(&self, #[out] pLatencyTime: *mut REFERENCE_TIME) -> HRESULT;
         }
         type PDMO_OUTPUT_DATA_BUFFER = *mut DMO_OUTPUT_DATA_BUFFER;
-        type REFERENCE_TIME = i64;
         #[repr(i32)]
         enum _DMO_INPLACE_PROCESS_FLAGS {
             DMO_INPLACE_NORMAL = 0,

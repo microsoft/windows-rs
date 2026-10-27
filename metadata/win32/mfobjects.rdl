@@ -1,77 +1,78 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        const CLSID_MFByteStreamProxyClassFactory: GUID = 0x770e8e77_4916_441c_a9a7_b342d0eebc71;
         #[guid(0x7dc9d5f9_9ed9_44ec_9bbf_0600bb589fbb)]
         interface IMF2DBuffer: IUnknown {
-            fn Lock2D(&self, ppbScanline0: *mut *mut u8, plPitch: *mut i32) -> HRESULT;
+            fn Lock2D(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "_Inexpressible_(ComputePlaneSize(*plPitch))", "_Inexpressible_(ComputePlaneSize(*plPitch))")] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG) -> HRESULT;
             fn Unlock2D(&self) -> HRESULT;
-            fn GetScanline0AndPitch(&self, pbScanline0: *mut *mut u8, plPitch: *mut i32) -> HRESULT;
-            fn IsContiguousFormat(&self, pfIsContiguous: *mut BOOL) -> HRESULT;
-            fn GetContiguousLength(&self, pcbLength: *mut u32) -> HRESULT;
-            fn ContiguousCopyTo(&self, #[size_param(1)] pbDestBuffer: *mut u8, cbDestBuffer: u32) -> HRESULT;
-            fn ContiguousCopyFrom(&self, #[size_param(1)] pbSrcBuffer: *const u8, cbSrcBuffer: u32) -> HRESULT;
+            fn GetScanline0AndPitch(&self, #[out] pbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG) -> HRESULT;
+            fn IsContiguousFormat(&self, #[out] pfIsContiguous: *mut BOOL) -> HRESULT;
+            fn GetContiguousLength(&self, #[out] pcbLength: *mut DWORD) -> HRESULT;
+            fn ContiguousCopyTo(&self, #[out] #[writable(entry, bytes(cbDestBuffer))] pbDestBuffer: *mut BYTE, #[in] cbDestBuffer: DWORD) -> HRESULT;
+            fn ContiguousCopyFrom(&self, #[in] #[readable(entry, bytes(cbSrcBuffer))] pbSrcBuffer: *const BYTE, #[in] cbSrcBuffer: DWORD) -> HRESULT;
         }
         #[guid(0x33ae5ea6_4316_436f_8ddd_d73d22f829ec)]
         interface IMF2DBuffer2: IMF2DBuffer {
-            fn Lock2DSize(&self, lockFlags: MF2DBuffer_LockFlags, ppbScanline0: *mut *mut u8, plPitch: *mut i32, ppbBufferStart: *mut *mut u8, pcbBufferLength: *mut u32) -> HRESULT;
-            fn Copy2DTo(&self, pDestBuffer: IMF2DBuffer2) -> HRESULT;
+            fn Lock2DSize(&self, #[in] lockFlags: MF2DBuffer_LockFlags, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "_Inexpressible_(ComputePlaneSize(*plPitch))", "_Inexpressible_(ComputePlaneSize(*plPitch))")] #[out] ppbScanline0: *mut *mut BYTE, #[out] plPitch: *mut LONG, #[out] #[writable(success, bytes(*pcbBufferLength), indirect)] ppbBufferStart: *mut *mut BYTE, #[out] pcbBufferLength: *mut DWORD) -> HRESULT;
+            fn Copy2DTo(&self, #[in] pDestBuffer: IMF2DBuffer2) -> HRESULT;
         }
         #[guid(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67)]
         interface IMFActivate: IMFAttributes {
-            fn ActivateObject(&self, riid: *const GUID, #[iid_is] #[retval] ppv: *mut *mut void) -> HRESULT;
+            fn ActivateObject(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] ppv: *mut *mut void) -> HRESULT;
             fn ShutdownObject(&self) -> HRESULT;
             fn DetachObject(&self) -> HRESULT;
         }
         #[guid(0xa27003cf_2354_4f2a_8d6a_ab7cff15437e)]
         interface IMFAsyncCallback: IUnknown {
-            fn GetParameters(&self, pdwFlags: *mut u32, pdwQueue: *mut u32) -> HRESULT;
-            fn Invoke(&self, pAsyncResult: IMFAsyncResult) -> HRESULT;
+            fn GetParameters(&self, #[out] pdwFlags: *mut DWORD, #[out] pdwQueue: *mut DWORD) -> HRESULT;
+            fn Invoke(&self, #[in] #[opt] pAsyncResult: IMFAsyncResult) -> HRESULT;
         }
         #[guid(0xc7a4dca1_f5f0_47b6_b92b_bf0106d25791)]
         interface IMFAsyncCallbackLogging: IMFAsyncCallback {
             fn GetObjectPointer(&self) -> *mut void;
-            fn GetObjectTag(&self) -> u32;
+            fn GetObjectTag(&self) -> DWORD;
         }
         #[guid(0xac6b7889_0740_4d51_8619_905994a55cc6)]
         interface IMFAsyncResult: IUnknown {
-            fn GetState(&self, ppunkState: *mut IUnknown) -> HRESULT;
+            fn GetState(&self, #[out] #[out_ptr] ppunkState: *mut IUnknown) -> HRESULT;
             fn GetStatus(&self) -> HRESULT;
-            fn SetStatus(&self, hrStatus: HRESULT) -> HRESULT;
-            fn GetObject(&self, ppObject: *mut IUnknown) -> HRESULT;
+            fn SetStatus(&self, #[in] hrStatus: HRESULT) -> HRESULT;
+            fn GetObject(&self, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
             fn GetStateNoAddRef(&self) -> IUnknown;
         }
         #[guid(0x2cd2d921_c447_44a7_a13c_4adabfc247e3)]
         interface IMFAttributes: IUnknown {
-            fn GetItem(&self, guidKey: *const GUID, #[in] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetItemType(&self, guidKey: *const GUID, pType: *mut MF_ATTRIBUTE_TYPE) -> HRESULT;
-            fn CompareItem(&self, guidKey: *const GUID, Value: *const PROPVARIANT, pbResult: *mut BOOL) -> HRESULT;
-            fn Compare(&self, pTheirs: IMFAttributes, MatchType: MF_ATTRIBUTES_MATCH_TYPE, pbResult: *mut BOOL) -> HRESULT;
-            fn GetUINT32(&self, guidKey: *const GUID, punValue: *mut u32) -> HRESULT;
-            fn GetUINT64(&self, guidKey: *const GUID, punValue: *mut u64) -> HRESULT;
-            fn GetDouble(&self, guidKey: *const GUID, pfValue: *mut f64) -> HRESULT;
-            fn GetGUID(&self, guidKey: *const GUID, pguidValue: *mut GUID) -> HRESULT;
-            fn GetStringLength(&self, guidKey: *const GUID, pcchLength: *mut u32) -> HRESULT;
-            fn GetString(&self, guidKey: *const GUID, #[out] pwszValue: PWSTR, cchBufSize: u32, #[in] #[out] pcchLength: *mut u32) -> HRESULT;
-            fn GetAllocatedString(&self, guidKey: *const GUID, ppwszValue: *mut PWSTR, pcchLength: *mut u32) -> HRESULT;
-            fn GetBlobSize(&self, guidKey: *const GUID, pcbBlobSize: *mut u32) -> HRESULT;
-            fn GetBlob(&self, guidKey: *const GUID, pBuf: *mut u8, cbBufSize: u32, #[in] #[out] pcbBlobSize: *mut u32) -> HRESULT;
-            fn GetAllocatedBlob(&self, guidKey: *const GUID, ppBuf: *mut *mut u8, pcbSize: *mut u32) -> HRESULT;
-            fn GetUnknown(&self, guidKey: *const GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn SetItem(&self, guidKey: *const GUID, Value: *const PROPVARIANT) -> HRESULT;
-            fn DeleteItem(&self, guidKey: *const GUID) -> HRESULT;
+            fn GetItem(&self, #[in] guidKey: &GUID, #[in] #[opt] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetItemType(&self, #[in] guidKey: &GUID, #[out] pType: *mut MF_ATTRIBUTE_TYPE) -> HRESULT;
+            fn CompareItem(&self, #[in] guidKey: &GUID, #[in] Value: &PROPVARIANT, #[out] pbResult: *mut BOOL) -> HRESULT;
+            fn Compare(&self, #[in] #[opt] pTheirs: IMFAttributes, MatchType: MF_ATTRIBUTES_MATCH_TYPE, #[out] pbResult: *mut BOOL) -> HRESULT;
+            fn GetUINT32(&self, #[in] guidKey: &GUID, #[out] punValue: *mut UINT32) -> HRESULT;
+            fn GetUINT64(&self, #[in] guidKey: &GUID, #[out] punValue: *mut UINT64) -> HRESULT;
+            fn GetDouble(&self, #[in] guidKey: &GUID, #[out] pfValue: *mut f64) -> HRESULT;
+            fn GetGUID(&self, #[in] guidKey: &GUID, #[out] pguidValue: *mut GUID) -> HRESULT;
+            fn GetStringLength(&self, #[in] guidKey: &GUID, #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetString(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cchBufSize)] #[writable(entry, cchBufSize)] #[writable(success, cchBufSize)] pwszValue: LPWSTR, cchBufSize: UINT32, #[in] #[opt] #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetAllocatedString(&self, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcchLength + 1, indirect, nullable)] #[writable(success, *pcchLength + 1, indirect, nullable)] ppwszValue: *mut LPWSTR, #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetBlobSize(&self, #[in] guidKey: &GUID, #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
+            fn GetBlob(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cbBufSize)] #[writable(entry, cbBufSize)] #[writable(success, cbBufSize)] pBuf: *mut UINT8, cbBufSize: UINT32, #[in] #[opt] #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
+            fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbSize, indirect, nullable)] #[writable(success, *pcbSize, indirect, nullable)] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
+            fn GetUnknown(&self, #[in] guidKey: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
+            fn SetItem(&self, #[in] guidKey: &GUID, #[in] Value: &PROPVARIANT) -> HRESULT;
+            fn DeleteItem(&self, #[in] guidKey: &GUID) -> HRESULT;
             fn DeleteAllItems(&self) -> HRESULT;
-            fn SetUINT32(&self, guidKey: *const GUID, unValue: u32) -> HRESULT;
-            fn SetUINT64(&self, guidKey: *const GUID, unValue: u64) -> HRESULT;
-            fn SetDouble(&self, guidKey: *const GUID, fValue: f64) -> HRESULT;
-            fn SetGUID(&self, guidKey: *const GUID, guidValue: *const GUID) -> HRESULT;
-            fn SetString(&self, guidKey: *const GUID, wszValue: PCWSTR) -> HRESULT;
-            fn SetBlob(&self, guidKey: *const GUID, pBuf: *const u8, cbBufSize: u32) -> HRESULT;
-            fn SetUnknown(&self, guidKey: *const GUID, pUnknown: IUnknown) -> HRESULT;
+            fn SetUINT32(&self, #[in] guidKey: &GUID, unValue: UINT32) -> HRESULT;
+            fn SetUINT64(&self, #[in] guidKey: &GUID, unValue: UINT64) -> HRESULT;
+            fn SetDouble(&self, #[in] guidKey: &GUID, fValue: f64) -> HRESULT;
+            fn SetGUID(&self, #[in] guidKey: &GUID, #[in] guidValue: &GUID) -> HRESULT;
+            fn SetString(&self, #[in] guidKey: &GUID, #[in] #[null_terminated(entry)] wszValue: LPCWSTR) -> HRESULT;
+            fn SetBlob(&self, #[in] guidKey: &GUID, #[in] #[readable(entry, cbBufSize)] pBuf: *const UINT8, cbBufSize: UINT32) -> HRESULT;
+            fn SetUnknown(&self, #[in] guidKey: &GUID, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
             fn LockStore(&self) -> HRESULT;
             fn UnlockStore(&self) -> HRESULT;
-            fn GetCount(&self, pcItems: *mut u32) -> HRESULT;
-            fn GetItemByIndex(&self, unIndex: u32, pguidKey: *mut GUID, #[in] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
-            fn CopyAllItems(&self, pDest: IMFAttributes) -> HRESULT;
+            fn GetCount(&self, #[out] pcItems: *mut UINT32) -> HRESULT;
+            fn GetItemByIndex(&self, unIndex: UINT32, #[out] pguidKey: *mut GUID, #[in] #[opt] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn CopyAllItems(&self, #[in] #[opt] pDest: IMFAttributes) -> HRESULT;
         }
         #[guid(0x26a0adc3_ce26_4672_9304_69552edd3faf)]
         interface IMFAudioMediaType: IMFMediaType {
@@ -79,288 +80,288 @@ mod Windows {
         }
         #[guid(0xad4c1b00_4bf7_422f_9175_756693d9130d)]
         interface IMFByteStream: IUnknown {
-            fn GetCapabilities(&self, pdwCapabilities: *mut u32) -> HRESULT;
-            fn GetLength(&self, pqwLength: *mut u64) -> HRESULT;
-            fn SetLength(&self, qwLength: u64) -> HRESULT;
-            fn GetCurrentPosition(&self, pqwPosition: *mut u64) -> HRESULT;
-            fn SetCurrentPosition(&self, qwPosition: u64) -> HRESULT;
-            fn IsEndOfStream(&self, pfEndOfStream: *mut BOOL) -> HRESULT;
-            fn Read(&self, pb: *mut u8, cb: u32, pcbRead: *mut u32) -> HRESULT;
-            fn BeginRead(&self, #[size_param(1)] pb: *mut u8, cb: u32, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
-            fn EndRead(&self, pResult: IMFAsyncResult, pcbRead: *mut u32) -> HRESULT;
-            fn Write(&self, pb: *const u8, cb: u32, pcbWritten: *mut u32) -> HRESULT;
-            fn BeginWrite(&self, #[size_param(1)] pb: *const u8, cb: u32, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
-            fn EndWrite(&self, pResult: IMFAsyncResult, pcbWritten: *mut u32) -> HRESULT;
-            fn Seek(&self, SeekOrigin: MFBYTESTREAM_SEEK_ORIGIN, llSeekOffset: i64, dwSeekFlags: u32, pqwCurrentPosition: *mut u64) -> HRESULT;
+            fn GetCapabilities(&self, #[out] pdwCapabilities: *mut DWORD) -> HRESULT;
+            fn GetLength(&self, #[out] pqwLength: *mut QWORD) -> HRESULT;
+            fn SetLength(&self, #[in] qwLength: QWORD) -> HRESULT;
+            fn GetCurrentPosition(&self, #[out] pqwPosition: *mut QWORD) -> HRESULT;
+            fn SetCurrentPosition(&self, #[in] qwPosition: QWORD) -> HRESULT;
+            fn IsEndOfStream(&self, #[out] pfEndOfStream: *mut BOOL) -> HRESULT;
+            fn Read(&self, #[out] #[readable(success, cb)] #[writable(entry, cb)] #[writable(success, cb)] pb: *mut BYTE, #[in] cb: ULONG, #[out] pcbRead: *mut ULONG) -> HRESULT;
+            fn BeginRead(&self, #[out] #[writable(entry, bytes(cb))] pb: *mut BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndRead(&self, #[in] pResult: IMFAsyncResult, #[out] pcbRead: *mut ULONG) -> HRESULT;
+            fn Write(&self, #[in] #[readable(entry, cb)] pb: *const BYTE, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
+            fn BeginWrite(&self, #[in] #[readable(entry, bytes(cb))] pb: *const BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndWrite(&self, #[in] pResult: IMFAsyncResult, #[out] pcbWritten: *mut ULONG) -> HRESULT;
+            fn Seek(&self, #[in] SeekOrigin: MFBYTESTREAM_SEEK_ORIGIN, #[in] llSeekOffset: LONGLONG, #[in] dwSeekFlags: DWORD, #[out] pqwCurrentPosition: *mut QWORD) -> HRESULT;
             fn Flush(&self) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xa6b43f84_5c0a_42e8_a44d_b1857a76992f)]
         interface IMFByteStreamProxyClassFactory: IUnknown {
-            fn CreateByteStreamProxy(&self, pByteStream: IMFByteStream, pAttributes: IMFAttributes, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateByteStreamProxy(&self, #[in] #[opt] pByteStream: IMFByteStream, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x5bc8a76b_869a_46a3_9b03_fa218a66aebe)]
         interface IMFCollection: IUnknown {
-            fn GetElementCount(&self, pcElements: *mut u32) -> HRESULT;
-            fn GetElement(&self, dwElementIndex: u32, ppUnkElement: *mut IUnknown) -> HRESULT;
-            fn AddElement(&self, pUnkElement: IUnknown) -> HRESULT;
-            fn RemoveElement(&self, dwElementIndex: u32, ppUnkElement: *mut IUnknown) -> HRESULT;
-            fn InsertElementAt(&self, dwIndex: u32, pUnknown: IUnknown) -> HRESULT;
+            fn GetElementCount(&self, #[out] pcElements: *mut DWORD) -> HRESULT;
+            fn GetElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn AddElement(&self, #[in] #[opt] pUnkElement: IUnknown) -> HRESULT;
+            fn RemoveElement(&self, #[in] dwElementIndex: DWORD, #[out] #[out_ptr] ppUnkElement: *mut IUnknown) -> HRESULT;
+            fn InsertElementAt(&self, #[in] dwIndex: DWORD, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
             fn RemoveAllElements(&self) -> HRESULT;
         }
         #[guid(0xe7174cfa_1c9e_48b1_8866_626226bfc258)]
         interface IMFDXGIBuffer: IUnknown {
-            fn GetResource(&self, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
-            fn GetSubresourceIndex(&self, puSubresource: *mut u32) -> HRESULT;
-            fn GetUnknown(&self, guid: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
-            fn SetUnknown(&self, guid: *const GUID, #[opt] pUnkData: IUnknown) -> HRESULT;
+            fn GetResource(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetSubresourceIndex(&self, #[out] puSubresource: *mut UINT) -> HRESULT;
+            fn GetUnknown(&self, #[in] guid: &IID, #[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
+            fn SetUnknown(&self, #[in] guid: &IID, #[in] #[opt] pUnkData: IUnknown) -> HRESULT;
         }
         #[guid(0xb25d03fb_d148_45ef_bfed_f778b7566c07)]
         interface IMFDXGICrossAdapterBuffer: IUnknown {
-            fn GetResourceForDevice(&self, pUnkDevice: IUnknown, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
-            fn GetSubresourceIndexForDevice(&self, pUnkDevice: IUnknown, puSubresource: *mut u32) -> HRESULT;
-            fn GetUnknownForDevice(&self, pUnkDevice: IUnknown, guid: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
-            fn SetUnknownForDevice(&self, pUnkDevice: IUnknown, guid: *const GUID, #[opt] pUnkData: IUnknown) -> HRESULT;
+            fn GetResourceForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetSubresourceIndexForDevice(&self, #[in] pUnkDevice: IUnknown, #[out] puSubresource: *mut UINT) -> HRESULT;
+            fn GetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut LPVOID) -> HRESULT;
+            fn SetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] #[opt] pUnkData: IUnknown) -> HRESULT;
         }
         #[guid(0xeb533d5d_2db6_40f8_97a9_494692014f07)]
         interface IMFDXGIDeviceManager: IUnknown {
-            fn CloseDeviceHandle(&self, hDevice: HANDLE) -> HRESULT;
-            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
-            fn LockDevice(&self, hDevice: HANDLE, riid: *const GUID, ppUnkDevice: *mut *mut void, fBlock: BOOL) -> HRESULT;
-            fn OpenDeviceHandle(&self, phDevice: *mut HANDLE) -> HRESULT;
-            fn ResetDevice(&self, pUnkDevice: IUnknown, resetToken: u32) -> HRESULT;
-            fn TestDevice(&self, hDevice: HANDLE) -> HRESULT;
-            fn UnlockDevice(&self, hDevice: HANDLE, fSaveState: BOOL) -> HRESULT;
+            fn CloseDeviceHandle(&self, #[in] hDevice: HANDLE) -> HRESULT;
+            fn GetVideoService(&self, #[in] hDevice: HANDLE, #[in] riid: &IID, #[out] #[out_ptr] ppService: *mut *mut void) -> HRESULT;
+            fn LockDevice(&self, #[in] hDevice: HANDLE, #[in] riid: &IID, #[out] #[out_ptr] ppUnkDevice: *mut *mut void, #[in] fBlock: BOOL) -> HRESULT;
+            fn OpenDeviceHandle(&self, #[out] phDevice: *mut HANDLE) -> HRESULT;
+            fn ResetDevice(&self, #[in] pUnkDevice: IUnknown, #[in] resetToken: UINT) -> HRESULT;
+            fn TestDevice(&self, #[in] hDevice: HANDLE) -> HRESULT;
+            fn UnlockDevice(&self, #[in] hDevice: HANDLE, #[in] fSaveState: BOOL) -> HRESULT;
         }
         #[guid(0x045fa593_8799_42b8_bc8d_8968c6453507)]
         interface IMFMediaBuffer: IUnknown {
-            fn Lock(&self, ppbBuffer: *mut *mut u8, #[opt] pcbMaxLength: *mut u32, #[opt] pcbCurrentLength: *mut u32) -> HRESULT;
+            fn Lock(&self, #[out] #[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)] #[writable(success, bytes(if_present(*pcbMaxLength)), indirect)] ppbBuffer: *mut *mut BYTE, #[opt] #[out] pcbMaxLength: *mut DWORD, #[opt] #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
             fn Unlock(&self) -> HRESULT;
-            fn GetCurrentLength(&self, pcbCurrentLength: *mut u32) -> HRESULT;
-            fn SetCurrentLength(&self, cbCurrentLength: u32) -> HRESULT;
-            fn GetMaxLength(&self, pcbMaxLength: *mut u32) -> HRESULT;
+            fn GetCurrentLength(&self, #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
+            fn SetCurrentLength(&self, #[in] cbCurrentLength: DWORD) -> HRESULT;
+            fn GetMaxLength(&self, #[out] pcbMaxLength: *mut DWORD) -> HRESULT;
         }
         #[guid(0xdf598932_f10c_4e39_bba2_c308f101daa3)]
         interface IMFMediaEvent: IMFAttributes {
-            fn GetType(&self, pmet: *mut MediaEventType) -> HRESULT;
-            fn GetExtendedType(&self, pguidExtendedType: *mut GUID) -> HRESULT;
-            fn GetStatus(&self, phrStatus: *mut HRESULT) -> HRESULT;
-            fn GetValue(&self, pvValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetType(&self, #[out] pmet: *mut MediaEventType) -> HRESULT;
+            fn GetExtendedType(&self, #[out] pguidExtendedType: *mut GUID) -> HRESULT;
+            fn GetStatus(&self, #[out] phrStatus: *mut HRESULT) -> HRESULT;
+            fn GetValue(&self, #[out] pvValue: *mut PROPVARIANT) -> HRESULT;
         }
         #[guid(0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d)]
         interface IMFMediaEventGenerator: IUnknown {
-            fn GetEvent(&self, dwFlags: u32, ppEvent: *mut IMFMediaEvent) -> HRESULT;
-            fn BeginGetEvent(&self, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
-            fn EndGetEvent(&self, pResult: IMFAsyncResult, ppEvent: *mut IMFMediaEvent) -> HRESULT;
-            fn QueueEvent(&self, met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, pvValue: *const PROPVARIANT) -> HRESULT;
+            fn GetEvent(&self, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn BeginGetEvent(&self, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndGetEvent(&self, #[in] pResult: IMFAsyncResult, #[out] ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn QueueEvent(&self, #[in] met: MediaEventType, #[in] guidExtendedType: &GUID, #[in] hrStatus: HRESULT, #[in] #[opt] pvValue: *const PROPVARIANT) -> HRESULT;
         }
         #[guid(0x36f846fc_2256_48b6_b58e_e2b638316581)]
         interface IMFMediaEventQueue: IUnknown {
-            fn GetEvent(&self, dwFlags: u32, ppEvent: *mut IMFMediaEvent) -> HRESULT;
-            fn BeginGetEvent(&self, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
-            fn EndGetEvent(&self, pResult: IMFAsyncResult, ppEvent: *mut IMFMediaEvent) -> HRESULT;
-            fn QueueEvent(&self, pEvent: IMFMediaEvent) -> HRESULT;
-            fn QueueEventParamVar(&self, met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, pvValue: *const PROPVARIANT) -> HRESULT;
-            fn QueueEventParamUnk(&self, met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, pUnk: IUnknown) -> HRESULT;
+            fn GetEvent(&self, #[in] dwFlags: DWORD, #[out] ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn BeginGetEvent(&self, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn EndGetEvent(&self, #[in] pResult: IMFAsyncResult, #[out] ppEvent: *mut IMFMediaEvent) -> HRESULT;
+            fn QueueEvent(&self, #[in] pEvent: IMFMediaEvent) -> HRESULT;
+            fn QueueEventParamVar(&self, #[in] met: MediaEventType, #[in] guidExtendedType: &GUID, #[in] hrStatus: HRESULT, #[in] pvValue: *const PROPVARIANT) -> HRESULT;
+            fn QueueEventParamUnk(&self, #[in] met: MediaEventType, #[in] guidExtendedType: &GUID, #[in] hrStatus: HRESULT, #[in] pUnk: IUnknown) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0x44ae0fa8_ea31_4109_8d2e_4cae4997c555)]
         interface IMFMediaType: IMFAttributes {
-            fn GetMajorType(&self, pguidMajorType: *mut GUID) -> HRESULT;
-            fn IsCompressedFormat(&self, pfCompressed: *mut BOOL) -> HRESULT;
-            fn IsEqual(&self, pIMediaType: IMFMediaType, pdwFlags: *mut u32) -> HRESULT;
-            fn GetRepresentation(&self, guidRepresentation: GUID, ppvRepresentation: *mut *mut void) -> HRESULT;
-            fn FreeRepresentation(&self, guidRepresentation: GUID, #[in] pvRepresentation: *mut void) -> HRESULT;
+            fn GetMajorType(&self, #[out] pguidMajorType: *mut GUID) -> HRESULT;
+            fn IsCompressedFormat(&self, #[out] pfCompressed: *mut BOOL) -> HRESULT;
+            fn IsEqual(&self, #[in] #[opt] pIMediaType: IMFMediaType, #[out] pdwFlags: *mut DWORD) -> HRESULT;
+            fn GetRepresentation(&self, #[in] guidRepresentation: GUID, #[out] ppvRepresentation: *mut LPVOID) -> HRESULT;
+            fn FreeRepresentation(&self, #[in] guidRepresentation: GUID, #[in] pvRepresentation: LPVOID) -> HRESULT;
         }
         #[guid(0xce8bd576_e440_43b3_be34_1e53f565f7e8)]
         interface IMFMuxStreamAttributesManager: IUnknown {
-            fn GetStreamCount(&self, pdwMuxStreamCount: *mut u32) -> HRESULT;
-            fn GetAttributes(&self, dwMuxStreamIndex: u32, ppStreamAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
+            fn GetAttributes(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppStreamAttributes: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x505a2c72_42f7_4690_aeab_8f513d0ffdb8)]
         interface IMFMuxStreamMediaTypeManager: IUnknown {
-            fn GetStreamCount(&self, pdwMuxStreamCount: *mut u32) -> HRESULT;
-            fn GetMediaType(&self, dwMuxStreamIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetStreamConfigurationCount(&self, pdwCount: *mut u32) -> HRESULT;
-            fn AddStreamConfiguration(&self, ullStreamMask: u64) -> HRESULT;
-            fn RemoveStreamConfiguration(&self, ullStreamMask: u64) -> HRESULT;
-            fn GetStreamConfiguration(&self, ulIndex: u32, pullStreamMask: *mut u64) -> HRESULT;
+            fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
+            fn GetMediaType(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetStreamConfigurationCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
+            fn AddStreamConfiguration(&self, #[in] ullStreamMask: ULONGLONG) -> HRESULT;
+            fn RemoveStreamConfiguration(&self, #[in] ullStreamMask: ULONGLONG) -> HRESULT;
+            fn GetStreamConfiguration(&self, #[in] ulIndex: DWORD, #[out] pullStreamMask: *mut ULONGLONG) -> HRESULT;
         }
         #[guid(0x74abbc19_b1cc_4e41_bb8b_9d9b86a8f6ca)]
         interface IMFMuxStreamSampleManager: IUnknown {
-            fn GetStreamCount(&self, pdwMuxStreamCount: *mut u32) -> HRESULT;
-            fn GetSample(&self, dwMuxStreamIndex: u32, ppSample: *mut IMFSample) -> HRESULT;
-            fn GetStreamConfiguration(&self) -> u64;
+            fn GetStreamCount(&self, #[out] pdwMuxStreamCount: *mut DWORD) -> HRESULT;
+            fn GetSample(&self, #[in] dwMuxStreamIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppSample: *mut IMFSample) -> HRESULT;
+            fn GetStreamConfiguration(&self) -> ULONGLONG;
         }
         #[guid(0x5c6c44bf_1db6_435b_9249_e8cd10fdec96)]
         interface IMFPluginControl: IUnknown {
-            fn GetPreferredClsid(&self, pluginType: u32, selector: PCWSTR, clsid: *mut GUID) -> HRESULT;
-            fn GetPreferredClsidByIndex(&self, pluginType: u32, index: u32, selector: *mut PWSTR, clsid: *mut GUID) -> HRESULT;
-            fn SetPreferredClsid(&self, pluginType: u32, selector: PCWSTR, #[opt] clsid: *const GUID) -> HRESULT;
-            fn IsDisabled(&self, pluginType: u32, clsid: *const GUID) -> HRESULT;
-            fn GetDisabledByIndex(&self, pluginType: u32, index: u32, clsid: *mut GUID) -> HRESULT;
-            fn SetDisabled(&self, pluginType: u32, clsid: *const GUID, disabled: BOOL) -> HRESULT;
+            fn GetPreferredClsid(&self, pluginType: DWORD, #[in] selector: LPCWSTR, #[out] clsid: *mut CLSID) -> HRESULT;
+            fn GetPreferredClsidByIndex(&self, pluginType: DWORD, index: DWORD, #[out] selector: *mut LPWSTR, #[out] clsid: *mut CLSID) -> HRESULT;
+            fn SetPreferredClsid(&self, pluginType: DWORD, #[in] selector: LPCWSTR, #[in] #[opt] clsid: *const CLSID) -> HRESULT;
+            fn IsDisabled(&self, pluginType: DWORD, clsid: &IID) -> HRESULT;
+            fn GetDisabledByIndex(&self, pluginType: DWORD, index: DWORD, #[out] clsid: *mut CLSID) -> HRESULT;
+            fn SetDisabled(&self, pluginType: DWORD, clsid: &IID, disabled: BOOL) -> HRESULT;
         }
         #[guid(0xc6982083_3ddc_45cb_af5e_0f7a8ce4de77)]
         interface IMFPluginControl2: IMFPluginControl {
-            fn SetPolicy(&self, policy: MF_PLUGIN_CONTROL_POLICY) -> HRESULT;
+            fn SetPolicy(&self, #[in] policy: MF_PLUGIN_CONTROL_POLICY) -> HRESULT;
         }
         #[guid(0xa27003d0_2354_4f2a_8d6a_ab7cff15437e)]
         interface IMFRemoteAsyncCallback: IUnknown {
-            fn Invoke(&self, hr: HRESULT, pRemoteResult: IUnknown) -> HRESULT;
+            fn Invoke(&self, #[in] hr: HRESULT, #[in] #[opt] pRemoteResult: IUnknown) -> HRESULT;
         }
         #[guid(0xc40a00f2_b93a_4d80_ae8c_5a1c634f58e4)]
         interface IMFSample: IMFAttributes {
-            fn GetSampleFlags(&self, pdwSampleFlags: *mut u32) -> HRESULT;
-            fn SetSampleFlags(&self, dwSampleFlags: u32) -> HRESULT;
-            fn GetSampleTime(&self, phnsSampleTime: *mut i64) -> HRESULT;
-            fn SetSampleTime(&self, hnsSampleTime: i64) -> HRESULT;
-            fn GetSampleDuration(&self, phnsSampleDuration: *mut i64) -> HRESULT;
-            fn SetSampleDuration(&self, hnsSampleDuration: i64) -> HRESULT;
-            fn GetBufferCount(&self, pdwBufferCount: *mut u32) -> HRESULT;
-            fn GetBufferByIndex(&self, dwIndex: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
-            fn ConvertToContiguousBuffer(&self, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
-            fn AddBuffer(&self, pBuffer: IMFMediaBuffer) -> HRESULT;
-            fn RemoveBufferByIndex(&self, dwIndex: u32) -> HRESULT;
+            fn GetSampleFlags(&self, #[out] pdwSampleFlags: *mut DWORD) -> HRESULT;
+            fn SetSampleFlags(&self, #[in] dwSampleFlags: DWORD) -> HRESULT;
+            fn GetSampleTime(&self, #[out] phnsSampleTime: *mut LONGLONG) -> HRESULT;
+            fn SetSampleTime(&self, #[in] hnsSampleTime: LONGLONG) -> HRESULT;
+            fn GetSampleDuration(&self, #[out] phnsSampleDuration: *mut LONGLONG) -> HRESULT;
+            fn SetSampleDuration(&self, #[in] hnsSampleDuration: LONGLONG) -> HRESULT;
+            fn GetBufferCount(&self, #[out] pdwBufferCount: *mut DWORD) -> HRESULT;
+            fn GetBufferByIndex(&self, #[in] dwIndex: DWORD, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+            fn ConvertToContiguousBuffer(&self, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+            fn AddBuffer(&self, #[in] pBuffer: IMFMediaBuffer) -> HRESULT;
+            fn RemoveBufferByIndex(&self, #[in] dwIndex: DWORD) -> HRESULT;
             fn RemoveAllBuffers(&self) -> HRESULT;
-            fn GetTotalLength(&self, pcbTotalLength: *mut u32) -> HRESULT;
-            fn CopyToBuffer(&self, pBuffer: IMFMediaBuffer) -> HRESULT;
+            fn GetTotalLength(&self, #[out] pcbTotalLength: *mut DWORD) -> HRESULT;
+            fn CopyToBuffer(&self, #[in] pBuffer: IMFMediaBuffer) -> HRESULT;
         }
         #[guid(0x8feed468_6f7e_440d_869a_49bdd283ad0d)]
         interface IMFSampleOutputStream: IUnknown {
-            fn BeginWriteSample(&self, pSample: IMFSample, pCallback: IMFAsyncCallback, punkState: IUnknown) -> HRESULT;
-            fn EndWriteSample(&self, pResult: IMFAsyncResult) -> HRESULT;
+            fn BeginWriteSample(&self, #[in] #[opt] pSample: IMFSample, #[in] #[opt] pCallback: IMFAsyncCallback, #[in] #[opt] punkState: IUnknown) -> HRESULT;
+            fn EndWriteSample(&self, #[in] #[opt] pResult: IMFAsyncResult) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xc1209904_e584_4752_a2d6_7f21693f8b21)]
         interface IMFSecureBuffer: IUnknown {
-            fn GetIdentifier(&self, pGuidIdentifier: *mut GUID) -> HRESULT;
+            fn GetIdentifier(&self, #[out] pGuidIdentifier: *mut GUID) -> HRESULT;
         }
         #[guid(0xb99f381f_a8f9_47a2_a5af_ca3a225a3890)]
         interface IMFVideoMediaType: IMFMediaType {
             fn GetVideoFormat(&self) -> *const MFVIDEOFORMAT;
-            fn GetVideoRepresentation(&self, guidRepresentation: GUID, ppvRepresentation: *mut *mut void, lStride: i32) -> HRESULT;
+            fn GetVideoRepresentation(&self, #[in] guidRepresentation: GUID, #[out] ppvRepresentation: *mut LPVOID, #[in] lStride: LONG) -> HRESULT;
         }
-        const MEAudioSessionDeviceRemoved: MediaEventType = 315;
-        const MEAudioSessionDisconnected: MediaEventType = 320;
-        const MEAudioSessionExclusiveModeOverride: MediaEventType = 321;
-        const MEAudioSessionFormatChanged: MediaEventType = 319;
-        const MEAudioSessionGroupingParamChanged: MediaEventType = 317;
-        const MEAudioSessionIconChanged: MediaEventType = 318;
-        const MEAudioSessionNameChanged: MediaEventType = 313;
-        const MEAudioSessionServerShutdown: MediaEventType = 316;
-        const MEAudioSessionVolumeChanged: MediaEventType = 314;
-        const MEBufferingStarted: MediaEventType = 122;
-        const MEBufferingStopped: MediaEventType = 123;
-        const MEByteStreamCharacteristicsChanged: MediaEventType = 700;
-        const MECaptureAudioSessionDeviceRemoved: MediaEventType = 323;
-        const MECaptureAudioSessionDisconnected: MediaEventType = 325;
-        const MECaptureAudioSessionExclusiveModeOverride: MediaEventType = 326;
-        const MECaptureAudioSessionFormatChanged: MediaEventType = 324;
-        const MECaptureAudioSessionServerShutdown: MediaEventType = 327;
-        const MECaptureAudioSessionVolumeChanged: MediaEventType = 322;
-        const MEConnectEnd: MediaEventType = 125;
-        const MEConnectStart: MediaEventType = 124;
-        const MEContentProtectionMessage: MediaEventType = 402;
-        const MEContentProtectionMetadata: MediaEventType = 900;
-        const MEDeviceThermalStateChanged: MediaEventType = 950;
-        const MEEnablerCompleted: MediaEventType = 119;
-        const MEEnablerProgress: MediaEventType = 118;
-        const MEEncodingParameters: MediaEventType = 803;
-        const MEEndOfPresentation: MediaEventType = 211;
-        const MEEndOfPresentationSegment: MediaEventType = 218;
-        const MEEndOfStream: MediaEventType = 212;
-        const MEError: MediaEventType = 1;
-        const MEExtendedType: MediaEventType = 2;
-        const MEGenericV1Anchor: MediaEventType = 3;
-        const MEIndividualizationCompleted: MediaEventType = 117;
-        const MEIndividualizationStart: MediaEventType = 116;
-        const MELicenseAcquisitionCompleted: MediaEventType = 115;
-        const MELicenseAcquisitionStart: MediaEventType = 114;
-        const MEMediaSample: MediaEventType = 213;
-        const MENewPresentation: MediaEventType = 113;
-        const MENewStream: MediaEventType = 205;
-        const MENonFatalError: MediaEventType = 3;
-        const MEPolicyChanged: MediaEventType = 401;
-        const MEPolicyError: MediaEventType = 120;
-        const MEPolicyReport: MediaEventType = 121;
-        const MEPolicySet: MediaEventType = 403;
-        const MEQualityNotify: MediaEventType = 311;
-        const MEReconnectEnd: MediaEventType = 127;
-        const MEReconnectStart: MediaEventType = 126;
-        const MERendererEvent: MediaEventType = 128;
-        const MEReservedMax: MediaEventType = 10000;
-        const MESequencerSourceTopologyUpdated: MediaEventType = 222;
-        const MESessionCapabilitiesChanged: MediaEventType = 110;
-        const MESessionClosed: MediaEventType = 106;
-        const MESessionEnded: MediaEventType = 107;
-        const MESessionNotifyPresentationTime: MediaEventType = 112;
-        const MESessionPaused: MediaEventType = 104;
-        const MESessionRateChanged: MediaEventType = 108;
-        const MESessionScrubSampleComplete: MediaEventType = 109;
-        const MESessionStarted: MediaEventType = 103;
-        const MESessionStopped: MediaEventType = 105;
-        const MESessionStreamSinkFormatChanged: MediaEventType = 129;
-        const MESessionTopologiesCleared: MediaEventType = 102;
-        const MESessionTopologySet: MediaEventType = 101;
-        const MESessionTopologyStatus: MediaEventType = 111;
-        const MESessionUnknown: MediaEventType = 100;
-        const MESessionV1Anchor: MediaEventType = 129;
-        const MESinkInvalidated: MediaEventType = 312;
-        const MESinkUnknown: MediaEventType = 300;
-        const MESinkV1Anchor: MediaEventType = 321;
-        const MESinkV2Anchor: MediaEventType = 327;
-        const MESourceCharacteristicsChanged: MediaEventType = 219;
-        const MESourceMetadataChanged: MediaEventType = 221;
-        const MESourcePaused: MediaEventType = 209;
-        const MESourceRateChangeRequested: MediaEventType = 220;
-        const MESourceRateChanged: MediaEventType = 217;
-        const MESourceSeeked: MediaEventType = 203;
-        const MESourceStarted: MediaEventType = 201;
-        const MESourceStopped: MediaEventType = 207;
-        const MESourceUnknown: MediaEventType = 200;
-        const MESourceV1Anchor: MediaEventType = 222;
-        const MEStreamFormatChanged: MediaEventType = 216;
-        const MEStreamPaused: MediaEventType = 210;
-        const MEStreamSeeked: MediaEventType = 204;
-        const MEStreamSinkDeviceChanged: MediaEventType = 310;
-        const MEStreamSinkFormatChanged: MediaEventType = 309;
-        const MEStreamSinkFormatInvalidated: MediaEventType = 802;
-        const MEStreamSinkMarker: MediaEventType = 306;
-        const MEStreamSinkPaused: MediaEventType = 303;
-        const MEStreamSinkPrerolled: MediaEventType = 307;
-        const MEStreamSinkRateChanged: MediaEventType = 304;
-        const MEStreamSinkRequestSample: MediaEventType = 305;
-        const MEStreamSinkScrubSampleComplete: MediaEventType = 308;
-        const MEStreamSinkStarted: MediaEventType = 301;
-        const MEStreamSinkStopped: MediaEventType = 302;
-        const MEStreamStarted: MediaEventType = 202;
-        const MEStreamStopped: MediaEventType = 208;
-        const MEStreamThinMode: MediaEventType = 215;
-        const MEStreamTick: MediaEventType = 214;
-        const METransformDrainComplete: MediaEventType = 603;
-        const METransformHaveOutput: MediaEventType = 602;
-        const METransformInputStreamStateChanged: MediaEventType = 605;
-        const METransformMarker: MediaEventType = 604;
-        const METransformNeedInput: MediaEventType = 601;
-        const METransformUnknown: MediaEventType = 600;
-        const METrustUnknown: MediaEventType = 400;
-        const METrustV1Anchor: MediaEventType = 403;
-        const MEUnknown: MediaEventType = 0;
-        const MEUpdatedStream: MediaEventType = 206;
-        const MEVideoCaptureDevicePreempted: MediaEventType = 801;
-        const MEVideoCaptureDeviceRemoved: MediaEventType = 800;
-        const MEWMDRMIndividualizationCompleted: MediaEventType = 508;
-        const MEWMDRMIndividualizationProgress: MediaEventType = 513;
-        const MEWMDRMLicenseAcquisitionCompleted: MediaEventType = 506;
-        const MEWMDRMLicenseBackupCompleted: MediaEventType = 500;
-        const MEWMDRMLicenseBackupProgress: MediaEventType = 501;
-        const MEWMDRMLicenseRestoreCompleted: MediaEventType = 502;
-        const MEWMDRMLicenseRestoreProgress: MediaEventType = 503;
-        const MEWMDRMLicenseStoreCleaned: MediaEventType = 515;
-        const MEWMDRMProximityCompleted: MediaEventType = 514;
-        const MEWMDRMRevocationDownloadCompleted: MediaEventType = 516;
-        const MEWMDRMV1Anchor: MediaEventType = 516;
+        const MEAudioSessionDeviceRemoved: i32 = 315;
+        const MEAudioSessionDisconnected: i32 = 320;
+        const MEAudioSessionExclusiveModeOverride: i32 = 321;
+        const MEAudioSessionFormatChanged: i32 = 319;
+        const MEAudioSessionGroupingParamChanged: i32 = 317;
+        const MEAudioSessionIconChanged: i32 = 318;
+        const MEAudioSessionNameChanged: i32 = 313;
+        const MEAudioSessionServerShutdown: i32 = 316;
+        const MEAudioSessionVolumeChanged: i32 = 314;
+        const MEBufferingStarted: i32 = 122;
+        const MEBufferingStopped: i32 = 123;
+        const MEByteStreamCharacteristicsChanged: i32 = 700;
+        const MECaptureAudioSessionDeviceRemoved: i32 = 323;
+        const MECaptureAudioSessionDisconnected: i32 = 325;
+        const MECaptureAudioSessionExclusiveModeOverride: i32 = 326;
+        const MECaptureAudioSessionFormatChanged: i32 = 324;
+        const MECaptureAudioSessionServerShutdown: i32 = 327;
+        const MECaptureAudioSessionVolumeChanged: i32 = 322;
+        const MEConnectEnd: i32 = 125;
+        const MEConnectStart: i32 = 124;
+        const MEContentProtectionMessage: i32 = 402;
+        const MEContentProtectionMetadata: i32 = 900;
+        const MEDeviceThermalStateChanged: i32 = 950;
+        const MEEnablerCompleted: i32 = 119;
+        const MEEnablerProgress: i32 = 118;
+        const MEEncodingParameters: i32 = 803;
+        const MEEndOfPresentation: i32 = 211;
+        const MEEndOfPresentationSegment: i32 = 218;
+        const MEEndOfStream: i32 = 212;
+        const MEError: i32 = 1;
+        const MEExtendedType: i32 = 2;
+        const MEGenericV1Anchor: i32 = 3;
+        const MEIndividualizationCompleted: i32 = 117;
+        const MEIndividualizationStart: i32 = 116;
+        const MELicenseAcquisitionCompleted: i32 = 115;
+        const MELicenseAcquisitionStart: i32 = 114;
+        const MEMediaSample: i32 = 213;
+        const MENewPresentation: i32 = 113;
+        const MENewStream: i32 = 205;
+        const MENonFatalError: i32 = 3;
+        const MEPolicyChanged: i32 = 401;
+        const MEPolicyError: i32 = 120;
+        const MEPolicyReport: i32 = 121;
+        const MEPolicySet: i32 = 403;
+        const MEQualityNotify: i32 = 311;
+        const MEReconnectEnd: i32 = 127;
+        const MEReconnectStart: i32 = 126;
+        const MERendererEvent: i32 = 128;
+        const MEReservedMax: i32 = 10000;
+        const MESequencerSourceTopologyUpdated: i32 = 222;
+        const MESessionCapabilitiesChanged: i32 = 110;
+        const MESessionClosed: i32 = 106;
+        const MESessionEnded: i32 = 107;
+        const MESessionNotifyPresentationTime: i32 = 112;
+        const MESessionPaused: i32 = 104;
+        const MESessionRateChanged: i32 = 108;
+        const MESessionScrubSampleComplete: i32 = 109;
+        const MESessionStarted: i32 = 103;
+        const MESessionStopped: i32 = 105;
+        const MESessionStreamSinkFormatChanged: i32 = 129;
+        const MESessionTopologiesCleared: i32 = 102;
+        const MESessionTopologySet: i32 = 101;
+        const MESessionTopologyStatus: i32 = 111;
+        const MESessionUnknown: i32 = 100;
+        const MESessionV1Anchor: i32 = 129;
+        const MESinkInvalidated: i32 = 312;
+        const MESinkUnknown: i32 = 300;
+        const MESinkV1Anchor: i32 = 321;
+        const MESinkV2Anchor: i32 = 327;
+        const MESourceCharacteristicsChanged: i32 = 219;
+        const MESourceMetadataChanged: i32 = 221;
+        const MESourcePaused: i32 = 209;
+        const MESourceRateChangeRequested: i32 = 220;
+        const MESourceRateChanged: i32 = 217;
+        const MESourceSeeked: i32 = 203;
+        const MESourceStarted: i32 = 201;
+        const MESourceStopped: i32 = 207;
+        const MESourceUnknown: i32 = 200;
+        const MESourceV1Anchor: i32 = 222;
+        const MEStreamFormatChanged: i32 = 216;
+        const MEStreamPaused: i32 = 210;
+        const MEStreamSeeked: i32 = 204;
+        const MEStreamSinkDeviceChanged: i32 = 310;
+        const MEStreamSinkFormatChanged: i32 = 309;
+        const MEStreamSinkFormatInvalidated: i32 = 802;
+        const MEStreamSinkMarker: i32 = 306;
+        const MEStreamSinkPaused: i32 = 303;
+        const MEStreamSinkPrerolled: i32 = 307;
+        const MEStreamSinkRateChanged: i32 = 304;
+        const MEStreamSinkRequestSample: i32 = 305;
+        const MEStreamSinkScrubSampleComplete: i32 = 308;
+        const MEStreamSinkStarted: i32 = 301;
+        const MEStreamSinkStopped: i32 = 302;
+        const MEStreamStarted: i32 = 202;
+        const MEStreamStopped: i32 = 208;
+        const MEStreamThinMode: i32 = 215;
+        const MEStreamTick: i32 = 214;
+        const METransformDrainComplete: i32 = 603;
+        const METransformHaveOutput: i32 = 602;
+        const METransformInputStreamStateChanged: i32 = 605;
+        const METransformMarker: i32 = 604;
+        const METransformNeedInput: i32 = 601;
+        const METransformUnknown: i32 = 600;
+        const METrustUnknown: i32 = 400;
+        const METrustV1Anchor: i32 = 403;
+        const MEUnknown: i32 = 0;
+        const MEUpdatedStream: i32 = 206;
+        const MEVideoCaptureDevicePreempted: i32 = 801;
+        const MEVideoCaptureDeviceRemoved: i32 = 800;
+        const MEWMDRMIndividualizationCompleted: i32 = 508;
+        const MEWMDRMIndividualizationProgress: i32 = 513;
+        const MEWMDRMLicenseAcquisitionCompleted: i32 = 506;
+        const MEWMDRMLicenseBackupCompleted: i32 = 500;
+        const MEWMDRMLicenseBackupProgress: i32 = 501;
+        const MEWMDRMLicenseRestoreCompleted: i32 = 502;
+        const MEWMDRMLicenseRestoreProgress: i32 = 503;
+        const MEWMDRMLicenseStoreCleaned: i32 = 515;
+        const MEWMDRMProximityCompleted: i32 = 514;
+        const MEWMDRMRevocationDownloadCompleted: i32 = 516;
+        const MEWMDRMV1Anchor: i32 = 516;
         #[repr(i32)]
         enum MF2DBuffer_LockFlags {
             MF2DBuffer_LockFlags_LockTypeMask = 3,
@@ -370,10 +371,10 @@ mod Windows {
             MF2DBuffer_LockFlags_ForceDWORD = 2147483647,
         }
         struct MFARGB {
-            rgbBlue: u8,
-            rgbGreen: u8,
-            rgbRed: u8,
-            rgbAlpha: u8,
+            rgbBlue: BYTE,
+            rgbGreen: BYTE,
+            rgbRed: BYTE,
+            rgbAlpha: BYTE,
         }
         const MFASYNC_BLOCKING_CALLBACK: i32 = 4;
         const MFASYNC_CALLBACK_QUEUE_ALL: u32 = 4294967295;
@@ -390,10 +391,10 @@ mod Windows {
         const MFASYNC_REPLY_CALLBACK: i32 = 8;
         const MFASYNC_SIGNAL_CALLBACK: i32 = 2;
         struct MFAYUVSample {
-            bCrValue: u8,
-            bCbValue: u8,
-            bYValue: u8,
-            bSampleAlpha8: u8,
+            bCrValue: BYTE,
+            bCbValue: BYTE,
+            bYValue: BYTE,
+            bSampleAlpha8: BYTE,
         }
         const MFBYTESTREAM_DOES_NOT_USE_NETWORK: i32 = 2048;
         const MFBYTESTREAM_HAS_SLOW_SEEK: i32 = 256;
@@ -411,7 +412,7 @@ mod Windows {
         }
         const MFBYTESTREAM_SHARE_WRITE: i32 = 1024;
         #[library("MFPlat.DLL")]
-        extern fn MFDeserializeAttributesFromStream(pAttr: IMFAttributes, dwOptions: u32, pStm: IStream) -> HRESULT;
+        extern fn MFDeserializeAttributesFromStream(pAttr: IMFAttributes, dwOptions: DWORD, pStm: IStream) -> HRESULT;
         #[repr(i32)]
         enum MFNominalRange {
             MFNominalRange_Unknown = 0,
@@ -425,7 +426,7 @@ mod Windows {
             MFNominalRange_ForceDWORD = 2147483647,
         }
         struct MFOffset {
-            fract: u16,
+            fract: WORD,
             value: i16,
         }
         union MFPaletteEntry {
@@ -433,11 +434,11 @@ mod Windows {
             AYCbCr: MFAYUVSample,
         }
         struct MFRatio {
-            Numerator: u32,
-            Denominator: u32,
+            Numerator: DWORD,
+            Denominator: DWORD,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFSerializeAttributesToStream(pAttr: IMFAttributes, dwOptions: u32, pStm: IStream) -> HRESULT;
+        extern fn MFSerializeAttributesToStream(pAttr: IMFAttributes, dwOptions: DWORD, pStm: IStream) -> HRESULT;
         #[repr(i32)]
         enum MFStandardVideoFormat {
             MFStdVideoFormat_reserved = 0,
@@ -456,7 +457,7 @@ mod Windows {
             guidSubtype: GUID,
         }
         struct MFVIDEOFORMAT {
-            dwSize: u32,
+            dwSize: DWORD,
             videoInfo: MFVideoInfo,
             guidFormat: GUID,
             compressedInfo: MFVideoCompressedInfo,
@@ -482,9 +483,9 @@ mod Windows {
             MFVideoChromaSubsampling_ForceDWORD = 2147483647,
         }
         struct MFVideoCompressedInfo {
-            AvgBitrate: i64,
-            AvgBitErrorRate: i64,
-            MaxKeyFrameSpacing: u32,
+            AvgBitrate: LONGLONG,
+            AvgBitErrorRate: LONGLONG,
+            MaxKeyFrameSpacing: DWORD,
         }
         #[repr(i32)]
         enum MFVideoFlags {
@@ -510,8 +511,8 @@ mod Windows {
             MFVideoFlags_ForceQWORD = 2147483647,
         }
         struct MFVideoInfo {
-            dwWidth: u32,
-            dwHeight: u32,
+            dwWidth: DWORD,
+            dwHeight: DWORD,
             PixelAspectRatio: MFRatio,
             SourceChromaSubsampling: MFVideoChromaSubsampling,
             InterlaceMode: MFVideoInterlaceMode,
@@ -570,8 +571,8 @@ mod Windows {
             MFVideoPrimaries_ForceDWORD = 2147483647,
         }
         struct MFVideoSurfaceInfo {
-            Format: u32,
-            PaletteEntries: u32,
+            Format: DWORD,
+            PaletteEntries: DWORD,
             Palette: [MFPaletteEntry; 1],
         }
         #[repr(i32)]
@@ -639,6 +640,14 @@ mod Windows {
             MF_ATTRIBUTE_BLOB = 4113,
             MF_ATTRIBUTE_IUNKNOWN = 13,
         }
+        const MF_BYTESTREAM_CONTENT_TYPE: GUID = 0xfc358289_3cb6_460c_a424_b6681260375a;
+        const MF_BYTESTREAM_DLNA_PROFILE_ID: GUID = 0xfc35828d_3cb6_460c_a424_b6681260375a;
+        const MF_BYTESTREAM_DURATION: GUID = 0xfc35828a_3cb6_460c_a424_b6681260375a;
+        const MF_BYTESTREAM_EFFECTIVE_URL: GUID = 0x9afa0209_89d1_42af_8456_1de6b562d691;
+        const MF_BYTESTREAM_IFO_FILE_URI: GUID = 0xfc35828c_3cb6_460c_a424_b6681260375a;
+        const MF_BYTESTREAM_LAST_MODIFIED_TIME: GUID = 0xfc35828b_3cb6_460c_a424_b6681260375a;
+        const MF_BYTESTREAM_ORIGIN_NAME: GUID = 0xfc358288_3cb6_460c_a424_b6681260375a;
+        const MF_BYTESTREAM_TRANSCODED: GUID = 0xb6c5c282_4dc9_4db9_ab48_cf3b6d8bc5e0;
         #[repr(i32)]
         enum MF_DXGI_DEVICE_MANAGER_MODE {
             MF_DXGI_DEVICE_MANAGER_MODE_INVALID = 0,

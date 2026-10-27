@@ -3,15 +3,15 @@ mod Windows {
     mod Win32 {
         #[guid(0xa27003cf_2354_4f2a_8d6a_ab7cff15437e)]
         interface IRtwqAsyncCallback: IUnknown {
-            fn GetParameters(&self, pdwFlags: *mut u32, pdwQueue: *mut u32) -> HRESULT;
-            fn Invoke(&self, pAsyncResult: IRtwqAsyncResult) -> HRESULT;
+            fn GetParameters(&self, #[out] pdwFlags: *mut DWORD, #[out] pdwQueue: *mut DWORD) -> HRESULT;
+            fn Invoke(&self, #[in] pAsyncResult: IRtwqAsyncResult) -> HRESULT;
         }
         #[guid(0xac6b7889_0740_4d51_8619_905994a55cc6)]
         interface IRtwqAsyncResult: IUnknown {
-            fn GetState(&self, ppunkState: *mut IUnknown) -> HRESULT;
+            fn GetState(&self, #[out] ppunkState: *mut IUnknown) -> HRESULT;
             fn GetStatus(&self) -> HRESULT;
             fn SetStatus(&self, hrStatus: HRESULT) -> HRESULT;
-            fn GetObject(&self, ppObject: *mut IUnknown) -> HRESULT;
+            fn GetObject(&self, #[out] ppObject: *mut IUnknown) -> HRESULT;
             fn GetStateNoAddRef(&self) -> IUnknown;
         }
         #[guid(0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b)]
@@ -19,14 +19,6 @@ mod Windows {
             fn InitializationComplete(&self) -> HRESULT;
             fn ShutdownStart(&self) -> HRESULT;
             fn ShutdownComplete(&self) -> HRESULT;
-        }
-        struct RTWQASYNCRESULT {
-            Base: IRtwqAsyncResult,
-            overlapped: OVERLAPPED,
-            pCallback: IRtwqAsyncCallback,
-            hrStatusResult: HRESULT,
-            dwBytesTransferred: u32,
-            hEvent: HANDLE,
         }
         extern fn RTWQPERIODICCALLBACK(context: IUnknown);
         type RTWQWORKITEM_KEY = u64;
@@ -44,69 +36,69 @@ mod Windows {
             RTWQ_MULTITHREADED_WORKQUEUE = 2,
         }
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqAddPeriodicCallback(Callback: RTWQPERIODICCALLBACK, context: IUnknown, #[opt] key: *mut u32) -> HRESULT;
+        extern fn RtwqAddPeriodicCallback(Callback: RTWQPERIODICCALLBACK, context: IUnknown, #[opt] #[out] key: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqAllocateSerialWorkQueue(workQueueIdIn: u32, workQueueIdOut: *mut u32) -> HRESULT;
+        extern fn RtwqAllocateSerialWorkQueue(#[in] workQueueIdIn: DWORD, #[out] workQueueIdOut: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqAllocateWorkQueue(WorkQueueType: RTWQ_WORKQUEUE_TYPE, workQueueId: *mut u32) -> HRESULT;
+        extern fn RtwqAllocateWorkQueue(#[in] WorkQueueType: RTWQ_WORKQUEUE_TYPE, #[out] workQueueId: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqBeginRegisterWorkQueueWithMMCSS(workQueueId: u32, usageClass: PCWSTR, dwTaskId: u32, lPriority: i32, doneCallback: IRtwqAsyncCallback, doneState: IUnknown) -> HRESULT;
+        extern fn RtwqBeginRegisterWorkQueueWithMMCSS(workQueueId: DWORD, #[in] usageClass: PCWSTR, dwTaskId: DWORD, lPriority: LONG, #[in] doneCallback: IRtwqAsyncCallback, #[in] doneState: IUnknown) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqBeginUnregisterWorkQueueWithMMCSS(workQueueId: u32, doneCallback: IRtwqAsyncCallback, doneState: IUnknown) -> HRESULT;
+        extern fn RtwqBeginUnregisterWorkQueueWithMMCSS(workQueueId: DWORD, #[in] doneCallback: IRtwqAsyncCallback, #[in] doneState: IUnknown) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqCancelDeadline(pRequest: HANDLE) -> HRESULT;
+        extern fn RtwqCancelDeadline(#[in] pRequest: HANDLE) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqCancelWorkItem(Key: RTWQWORKITEM_KEY) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqCreateAsyncResult(appObject: IUnknown, callback: IRtwqAsyncCallback, appState: IUnknown, asyncResult: *mut IRtwqAsyncResult) -> HRESULT;
+        extern fn RtwqCreateAsyncResult(#[in] appObject: IUnknown, #[in] callback: IRtwqAsyncCallback, #[in] appState: IUnknown, #[out] asyncResult: *mut IRtwqAsyncResult) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqEndRegisterWorkQueueWithMMCSS(result: IRtwqAsyncResult, taskId: *mut u32) -> HRESULT;
+        extern fn RtwqEndRegisterWorkQueueWithMMCSS(#[in] result: IRtwqAsyncResult, #[out] taskId: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqGetWorkQueueMMCSSClass(workQueueId: u32, #[len_param(2)] #[out] #[opt] usageClass: PWSTR, #[in] #[out] usageClassLength: *mut u32) -> HRESULT;
+        extern fn RtwqGetWorkQueueMMCSSClass(workQueueId: DWORD, #[opt] #[out] #[readable(success, *usageClassLength)] #[writable(entry, *usageClassLength)] usageClass: PWSTR, #[in] #[out] usageClassLength: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqGetWorkQueueMMCSSPriority(workQueueId: u32, priority: *mut i32) -> HRESULT;
+        extern fn RtwqGetWorkQueueMMCSSPriority(workQueueId: DWORD, #[out] priority: *mut LONG) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqGetWorkQueueMMCSSTaskId(workQueueId: u32, taskId: *mut u32) -> HRESULT;
+        extern fn RtwqGetWorkQueueMMCSSTaskId(workQueueId: DWORD, #[out] taskId: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqInvokeCallback(result: IRtwqAsyncResult) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqJoinWorkQueue(workQueueId: u32, hFile: HANDLE, out: *mut HANDLE) -> HRESULT;
+        extern fn RtwqJoinWorkQueue(workQueueId: DWORD, hFile: HANDLE, #[out] out: *mut HANDLE) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqLockPlatform() -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqLockSharedWorkQueue(usageClass: PCWSTR, basePriority: i32, #[in] #[out] taskId: *mut u32, id: *mut u32) -> HRESULT;
+        extern fn RtwqLockSharedWorkQueue(#[in] usageClass: PCWSTR, #[in] basePriority: LONG, #[in] #[out] taskId: *mut DWORD, #[out] id: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqLockWorkQueue(workQueueId: u32) -> HRESULT;
+        extern fn RtwqLockWorkQueue(#[in] workQueueId: DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqPutWaitingWorkItem(hEvent: HANDLE, lPriority: i32, result: IRtwqAsyncResult, #[opt] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
+        extern fn RtwqPutWaitingWorkItem(hEvent: HANDLE, lPriority: LONG, #[in] result: IRtwqAsyncResult, #[opt] #[out] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqPutWorkItem(dwQueue: u32, lPriority: i32, result: IRtwqAsyncResult) -> HRESULT;
+        extern fn RtwqPutWorkItem(dwQueue: DWORD, lPriority: LONG, #[in] result: IRtwqAsyncResult) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqRegisterPlatformEvents(platformEvents: IRtwqPlatformEvents) -> HRESULT;
+        extern fn RtwqRegisterPlatformEvents(#[in] platformEvents: IRtwqPlatformEvents) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqRegisterPlatformWithMMCSS(usageClass: PCWSTR, #[in] #[out] taskId: *mut u32, lPriority: i32) -> HRESULT;
+        extern fn RtwqRegisterPlatformWithMMCSS(#[in] usageClass: PCWSTR, #[in] #[out] taskId: *mut DWORD, #[in] lPriority: LONG) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqRemovePeriodicCallback(dwKey: u32) -> HRESULT;
+        extern fn RtwqRemovePeriodicCallback(dwKey: DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqScheduleWorkItem(result: IRtwqAsyncResult, Timeout: i64, #[opt] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
+        extern fn RtwqScheduleWorkItem(result: IRtwqAsyncResult, Timeout: INT64, #[opt] #[out] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqSetDeadline(workQueueId: u32, deadlineInHNS: i64, pRequest: *mut HANDLE) -> HRESULT;
+        extern fn RtwqSetDeadline(workQueueId: DWORD, deadlineInHNS: LONGLONG, #[out] pRequest: *mut HANDLE) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqSetDeadline2(workQueueId: u32, deadlineInHNS: i64, preDeadlineInHNS: i64, pRequest: *mut HANDLE) -> HRESULT;
+        extern fn RtwqSetDeadline2(workQueueId: DWORD, deadlineInHNS: LONGLONG, preDeadlineInHNS: LONGLONG, #[out] pRequest: *mut HANDLE) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqSetLongRunning(workQueueId: u32, enable: BOOL) -> HRESULT;
+        extern fn RtwqSetLongRunning(workQueueId: DWORD, enable: BOOL) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqShutdown() -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqStartup() -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqUnjoinWorkQueue(workQueueId: u32, hFile: HANDLE) -> HRESULT;
+        extern fn RtwqUnjoinWorkQueue(workQueueId: DWORD, hFile: HANDLE) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqUnlockPlatform() -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqUnlockWorkQueue(workQueueId: u32) -> HRESULT;
+        extern fn RtwqUnlockWorkQueue(#[in] workQueueId: DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqUnregisterPlatformEvents(platformEvents: IRtwqPlatformEvents) -> HRESULT;
+        extern fn RtwqUnregisterPlatformEvents(#[in] platformEvents: IRtwqPlatformEvents) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqUnregisterPlatformFromMMCSS() -> HRESULT;
     }

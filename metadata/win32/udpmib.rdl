@@ -3,135 +3,136 @@ mod Windows {
     mod Win32 {
         struct MIB_UDP6ROW {
             dwLocalAddr: IN6_ADDR,
-            dwLocalScopeId: u32,
-            dwLocalPort: u32,
+            dwLocalScopeId: DWORD,
+            dwLocalPort: DWORD,
         }
         struct MIB_UDP6ROW2 {
-            ucLocalAddr: [u8; 16],
-            dwLocalScopeId: u32,
-            dwLocalPort: u32,
-            dwOwningPid: u32,
+            ucLocalAddr: [UCHAR; 16],
+            dwLocalScopeId: DWORD,
+            dwLocalPort: DWORD,
+            dwOwningPid: DWORD,
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {
-                        SpecificPortBind: 1,
+                        SpecificPortBind: i32: 1,
                     },
                 },
                 dwFlags: i32,
             },
-            OwningModuleInfo: [u64; 16],
-            ucRemoteAddr: [u8; 16],
-            dwRemoteScopeId: u32,
-            dwRemotePort: u32,
+            OwningModuleInfo: [ULONGLONG; 16],
+            ucRemoteAddr: [UCHAR; 16],
+            dwRemoteScopeId: DWORD,
+            dwRemotePort: DWORD,
         }
         struct MIB_UDP6ROW_OWNER_MODULE {
-            ucLocalAddr: [u8; 16],
-            dwLocalScopeId: u32,
-            dwLocalPort: u32,
-            dwOwningPid: u32,
+            ucLocalAddr: [UCHAR; 16],
+            dwLocalScopeId: DWORD,
+            dwLocalPort: DWORD,
+            dwOwningPid: DWORD,
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {
-                        SpecificPortBind: 1,
+                        SpecificPortBind: i32: 1,
                     },
                 },
                 dwFlags: i32,
             },
-            OwningModuleInfo: [u64; 16],
+            OwningModuleInfo: [ULONGLONG; 16],
         }
         struct MIB_UDP6ROW_OWNER_PID {
-            ucLocalAddr: [u8; 16],
-            dwLocalScopeId: u32,
-            dwLocalPort: u32,
-            dwOwningPid: u32,
+            ucLocalAddr: [UCHAR; 16],
+            dwLocalScopeId: DWORD,
+            dwLocalPort: DWORD,
+            dwOwningPid: DWORD,
         }
         struct MIB_UDP6TABLE {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
             table: [MIB_UDP6ROW; 1],
         }
         struct MIB_UDP6TABLE2 {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
             table: [MIB_UDP6ROW2; 1],
         }
         struct MIB_UDP6TABLE_OWNER_MODULE {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
             table: [MIB_UDP6ROW_OWNER_MODULE; 1],
         }
         struct MIB_UDP6TABLE_OWNER_PID {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
+            #[writable(dwNumEntries)]
             table: [MIB_UDP6ROW_OWNER_PID; 1],
         }
         struct MIB_UDPROW {
-            dwLocalAddr: u32,
-            dwLocalPort: u32,
+            dwLocalAddr: DWORD,
+            dwLocalPort: DWORD,
         }
         struct MIB_UDPROW2 {
-            dwLocalAddr: u32,
-            dwLocalPort: u32,
-            dwOwningPid: u32,
+            dwLocalAddr: DWORD,
+            dwLocalPort: DWORD,
+            dwOwningPid: DWORD,
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {
-                        SpecificPortBind: 1,
+                        SpecificPortBind: i32: 1,
                     },
                 },
                 dwFlags: i32,
             },
-            OwningModuleInfo: [u64; 16],
-            dwRemoteAddr: u32,
-            dwRemotePort: u32,
+            OwningModuleInfo: [ULONGLONG; 16],
+            dwRemoteAddr: DWORD,
+            dwRemotePort: DWORD,
         }
         struct MIB_UDPROW_OWNER_MODULE {
-            dwLocalAddr: u32,
-            dwLocalPort: u32,
-            dwOwningPid: u32,
+            dwLocalAddr: DWORD,
+            dwLocalPort: DWORD,
+            dwOwningPid: DWORD,
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {
-                        SpecificPortBind: 1,
+                        SpecificPortBind: i32: 1,
                     },
                 },
                 dwFlags: i32,
             },
-            OwningModuleInfo: [u64; 16],
+            OwningModuleInfo: [ULONGLONG; 16],
         }
         struct MIB_UDPROW_OWNER_PID {
-            dwLocalAddr: u32,
-            dwLocalPort: u32,
-            dwOwningPid: u32,
+            dwLocalAddr: DWORD,
+            dwLocalPort: DWORD,
+            dwOwningPid: DWORD,
         }
         struct MIB_UDPSTATS {
-            dwInDatagrams: u32,
-            dwNoPorts: u32,
-            dwInErrors: u32,
-            dwOutDatagrams: u32,
-            dwNumAddrs: u32,
+            dwInDatagrams: DWORD,
+            dwNoPorts: DWORD,
+            dwInErrors: DWORD,
+            dwOutDatagrams: DWORD,
+            dwNumAddrs: DWORD,
         }
         struct MIB_UDPSTATS2 {
-            dw64InDatagrams: u64,
-            dwNoPorts: u32,
-            dwInErrors: u32,
-            dw64OutDatagrams: u64,
-            dwNumAddrs: u32,
+            dw64InDatagrams: DWORD64,
+            dwNoPorts: DWORD,
+            dwInErrors: DWORD,
+            dw64OutDatagrams: DWORD64,
+            dwNumAddrs: DWORD,
         }
         struct MIB_UDPTABLE {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
             table: [MIB_UDPROW; 1],
         }
         struct MIB_UDPTABLE2 {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
             table: [MIB_UDPROW2; 1],
         }
         struct MIB_UDPTABLE_OWNER_MODULE {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
             table: [MIB_UDPROW_OWNER_MODULE; 1],
         }
         struct MIB_UDPTABLE_OWNER_PID {
-            dwNumEntries: u32,
+            dwNumEntries: DWORD,
             table: [MIB_UDPROW_OWNER_PID; 1],
         }
         type PMIB_UDP6ROW = *mut MIB_UDP6ROW;
@@ -152,5 +153,6 @@ mod Windows {
         type PMIB_UDPTABLE2 = *mut MIB_UDPTABLE2;
         type PMIB_UDPTABLE_OWNER_MODULE = *mut MIB_UDPTABLE_OWNER_MODULE;
         type PMIB_UDPTABLE_OWNER_PID = *mut MIB_UDPTABLE_OWNER_PID;
+        const TCPIP_OWNING_MODULE_SIZE: i32 = 16;
     }
 }

@@ -59,37 +59,37 @@ mod Windows {
         #[guid(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c)]
         interface IFhConfigMgr: IUnknown {
             fn LoadConfiguration(&self) -> HRESULT;
-            fn CreateDefaultConfiguration(&self, OverwriteIfExists: BOOL) -> HRESULT;
+            fn CreateDefaultConfiguration(&self, #[in] OverwriteIfExists: BOOL) -> HRESULT;
             fn SaveConfiguration(&self) -> HRESULT;
-            fn AddRemoveExcludeRule(&self, Add: BOOL, Category: FH_PROTECTED_ITEM_CATEGORY, Item: BSTR) -> HRESULT;
-            fn GetIncludeExcludeRules(&self, Include: BOOL, Category: FH_PROTECTED_ITEM_CATEGORY, Iterator: *mut IFhScopeIterator) -> HRESULT;
-            fn GetLocalPolicy(&self, LocalPolicyType: FH_LOCAL_POLICY_TYPE, PolicyValue: *mut u64) -> HRESULT;
-            fn SetLocalPolicy(&self, LocalPolicyType: FH_LOCAL_POLICY_TYPE, PolicyValue: u64) -> HRESULT;
-            fn GetBackupStatus(&self, BackupStatus: *mut FH_BACKUP_STATUS) -> HRESULT;
-            fn SetBackupStatus(&self, BackupStatus: FH_BACKUP_STATUS) -> HRESULT;
-            fn GetDefaultTarget(&self, DefaultTarget: *mut IFhTarget) -> HRESULT;
-            fn ValidateTarget(&self, TargetUrl: BSTR, #[out] ValidationResult: PFH_DEVICE_VALIDATION_RESULT) -> HRESULT;
-            fn ProvisionAndSetNewTarget(&self, TargetUrl: BSTR, TargetName: BSTR) -> HRESULT;
-            fn ChangeDefaultTargetRecommendation(&self, Recommend: BOOL) -> HRESULT;
-            fn QueryProtectionStatus(&self, ProtectionState: *mut u32, ProtectedUntilTime: *mut BSTR) -> HRESULT;
+            fn AddRemoveExcludeRule(&self, #[in] Add: BOOL, #[in] Category: FH_PROTECTED_ITEM_CATEGORY, #[in] Item: BSTR) -> HRESULT;
+            fn GetIncludeExcludeRules(&self, #[in] Include: BOOL, #[in] Category: FH_PROTECTED_ITEM_CATEGORY, #[out] #[out_ptr] Iterator: *mut IFhScopeIterator) -> HRESULT;
+            fn GetLocalPolicy(&self, #[in] LocalPolicyType: FH_LOCAL_POLICY_TYPE, #[out] PolicyValue: *mut ULONGLONG) -> HRESULT;
+            fn SetLocalPolicy(&self, #[in] LocalPolicyType: FH_LOCAL_POLICY_TYPE, #[in] PolicyValue: ULONGLONG) -> HRESULT;
+            fn GetBackupStatus(&self, #[out] BackupStatus: *mut FH_BACKUP_STATUS) -> HRESULT;
+            fn SetBackupStatus(&self, #[in] BackupStatus: FH_BACKUP_STATUS) -> HRESULT;
+            fn GetDefaultTarget(&self, #[out] #[out_ptr] DefaultTarget: *mut IFhTarget) -> HRESULT;
+            fn ValidateTarget(&self, #[in] TargetUrl: BSTR, #[out] ValidationResult: PFH_DEVICE_VALIDATION_RESULT) -> HRESULT;
+            fn ProvisionAndSetNewTarget(&self, #[in] TargetUrl: BSTR, #[in] TargetName: BSTR) -> HRESULT;
+            fn ChangeDefaultTargetRecommendation(&self, #[in] Recommend: BOOL) -> HRESULT;
+            fn QueryProtectionStatus(&self, #[out] ProtectionState: *mut DWORD, #[out] #[out_ptr] ProtectedUntilTime: *mut BSTR) -> HRESULT;
         }
         #[guid(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee)]
         interface IFhReassociation: IUnknown {
-            fn ValidateTarget(&self, TargetUrl: BSTR, #[out] ValidationResult: PFH_DEVICE_VALIDATION_RESULT) -> HRESULT;
-            fn ScanTargetForConfigurations(&self, TargetUrl: BSTR) -> HRESULT;
-            fn GetConfigurationDetails(&self, Index: u32, UserName: *mut BSTR, PcName: *mut BSTR, BackupTime: *mut FILETIME) -> HRESULT;
-            fn SelectConfiguration(&self, Index: u32) -> HRESULT;
-            fn PerformReassociation(&self, OverwriteIfExists: BOOL) -> HRESULT;
+            fn ValidateTarget(&self, #[in] TargetUrl: BSTR, #[out] ValidationResult: PFH_DEVICE_VALIDATION_RESULT) -> HRESULT;
+            fn ScanTargetForConfigurations(&self, #[in] TargetUrl: BSTR) -> HRESULT;
+            fn GetConfigurationDetails(&self, #[in] Index: DWORD, #[out] #[out_ptr] UserName: *mut BSTR, #[out] #[out_ptr] PcName: *mut BSTR, #[out] BackupTime: *mut FILETIME) -> HRESULT;
+            fn SelectConfiguration(&self, #[in] Index: DWORD) -> HRESULT;
+            fn PerformReassociation(&self, #[in] OverwriteIfExists: BOOL) -> HRESULT;
         }
         #[guid(0x3197abce_532a_44c6_8615_f3666566a720)]
         interface IFhScopeIterator: IUnknown {
             fn MoveToNextItem(&self) -> HRESULT;
-            fn GetItem(&self, Item: *mut BSTR) -> HRESULT;
+            fn GetItem(&self, #[out] #[out_ptr] Item: *mut BSTR) -> HRESULT;
         }
         #[guid(0xd87965fd_2bad_4657_bd3b_9567eb300ced)]
         interface IFhTarget: IUnknown {
-            fn GetStringProperty(&self, PropertyType: FH_TARGET_PROPERTY_TYPE, PropertyValue: *mut BSTR) -> HRESULT;
-            fn GetNumericalProperty(&self, PropertyType: FH_TARGET_PROPERTY_TYPE, PropertyValue: *mut u64) -> HRESULT;
+            fn GetStringProperty(&self, #[in] PropertyType: FH_TARGET_PROPERTY_TYPE, #[out] #[out_ptr] PropertyValue: *mut BSTR) -> HRESULT;
+            fn GetNumericalProperty(&self, #[in] PropertyType: FH_TARGET_PROPERTY_TYPE, #[out] PropertyValue: *mut ULONGLONG) -> HRESULT;
         }
         type PFH_DEVICE_VALIDATION_RESULT = *mut FH_DEVICE_VALIDATION_RESULT;
         type PFH_LOCAL_POLICY_TYPE = *mut FH_LOCAL_POLICY_TYPE;

@@ -2,24 +2,24 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn CheckRemoteDebuggerPresent(hProcess: HANDLE, #[out] pbDebuggerPresent: PBOOL) -> BOOL;
+        extern fn CheckRemoteDebuggerPresent(#[in] hProcess: HANDLE, #[out] pbDebuggerPresent: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ContinueDebugEvent(dwProcessId: u32, dwThreadId: u32, dwContinueStatus: u32) -> BOOL;
+        extern fn ContinueDebugEvent(#[in] dwProcessId: DWORD, #[in] dwThreadId: DWORD, #[in] dwContinueStatus: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DebugActiveProcess(dwProcessId: u32) -> BOOL;
+        extern fn DebugActiveProcess(#[in] dwProcessId: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DebugActiveProcessStop(dwProcessId: u32) -> BOOL;
+        extern fn DebugActiveProcessStop(#[in] dwProcessId: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn DebugBreak();
         #[library("KERNEL32.dll")]
         extern fn IsDebuggerPresent() -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn OutputDebugStringA(#[opt] lpOutputString: PCSTR);
+        extern fn OutputDebugStringA(#[in] #[opt] lpOutputString: LPCSTR);
         #[library("KERNEL32.dll")]
-        extern fn OutputDebugStringW(#[opt] lpOutputString: PCWSTR);
+        extern fn OutputDebugStringW(#[in] #[opt] lpOutputString: LPCWSTR);
         #[library("KERNEL32.dll")]
-        extern fn WaitForDebugEvent(#[out] lpDebugEvent: LPDEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
+        extern fn WaitForDebugEvent(#[out] lpDebugEvent: LPDEBUG_EVENT, #[in] dwMilliseconds: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WaitForDebugEventEx(#[out] lpDebugEvent: LPDEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
+        extern fn WaitForDebugEventEx(#[out] lpDebugEvent: LPDEBUG_EVENT, #[in] dwMilliseconds: DWORD) -> BOOL;
     }
 }

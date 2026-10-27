@@ -1,8 +1,6 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[no_guid]
-        interface CFunctionDiscoveryNotificationWrapper: IFunctionDiscoveryNotification {}
         const FD_EVENTID: i32 = 1000;
         const FD_EVENTID_ASYNCTHREADEXIT: i32 = 1001;
         const FD_EVENTID_IPADDRESSCHANGE: i32 = 1003;

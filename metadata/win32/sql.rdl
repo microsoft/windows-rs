@@ -3,22 +3,24 @@ mod Windows {
     mod Win32 {
         const ODBCVER: i32 = 896;
         #[library("ODBC32.dll")]
-        extern fn SQLAllocConnect(EnvironmentHandle: SQLHENV, ConnectionHandle: *mut SQLHDBC) -> SQLRETURN;
+        extern fn SQLAllocConnect(EnvironmentHandle: SQLHENV, #[out] ConnectionHandle: *mut SQLHDBC) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLAllocEnv(EnvironmentHandle: *mut SQLHENV) -> SQLRETURN;
+        extern fn SQLAllocEnv(#[out] EnvironmentHandle: *mut SQLHENV) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLAllocHandle(HandleType: SQLSMALLINT, InputHandle: SQLHANDLE, OutputHandle: *mut SQLHANDLE) -> SQLRETURN;
+        extern fn SQLAllocHandle(HandleType: SQLSMALLINT, InputHandle: SQLHANDLE, #[out] OutputHandle: *mut SQLHANDLE) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLAllocStmt(ConnectionHandle: SQLHDBC, StatementHandle: *mut SQLHSTMT) -> SQLRETURN;
+        extern fn SQLAllocStmt(ConnectionHandle: SQLHDBC, #[out] StatementHandle: *mut SQLHSTMT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLBindCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[in] #[out] #[opt] TargetValue: SQLPOINTER, BufferLength: SQLLEN, #[in] #[out] #[opt] StrLen_or_Ind: *mut SQLLEN) -> SQLRETURN;
+        extern fn SQLBindCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[in] #[opt] #[out] TargetValue: SQLPOINTER, BufferLength: SQLLEN, #[in] #[opt] #[out] StrLen_or_Ind: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLBindCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[in] #[out] #[opt] TargetValue: SQLPOINTER, BufferLength: SQLINTEGER, #[in] #[out] #[opt] StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLBindCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[in] #[opt] #[out] TargetValue: SQLPOINTER, BufferLength: SQLINTEGER, #[in] #[opt] #[out] StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLBindParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
         extern fn SQLBindParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLULEN, ParameterScale: SQLSMALLINT, ParameterValue: SQLPOINTER, StrLen_or_Ind: *mut SQLLEN) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLBindParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X86)]
         #[library("ODBC32.dll")]
         extern fn SQLBindParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLUINTEGER, ParameterScale: SQLSMALLINT, ParameterValue: SQLPOINTER, StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
@@ -30,34 +32,34 @@ mod Windows {
         extern fn SQLCloseCursor(StatementHandle: SQLHSTMT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLColAttribute(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, FieldIdentifier: SQLUSMALLINT, #[size_param(4)] #[out] #[opt] CharacterAttribute: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] StringLength: *mut SQLSMALLINT, #[opt] NumericAttribute: *mut SQLLEN) -> SQLRETURN;
+        extern fn SQLColAttribute(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, FieldIdentifier: SQLUSMALLINT, #[opt] #[out] #[writable(entry, bytes(BufferLength))] CharacterAttribute: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] #[out] StringLength: *mut SQLSMALLINT, #[opt] #[out] NumericAttribute: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLColAttribute(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, FieldIdentifier: SQLUSMALLINT, #[size_param(4)] #[out] #[opt] CharacterAttribute: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] StringLength: *mut SQLSMALLINT, #[out] #[opt] NumericAttribute: SQLPOINTER) -> SQLRETURN;
+        extern fn SQLColAttribute(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, FieldIdentifier: SQLUSMALLINT, #[opt] #[out] #[writable(entry, bytes(BufferLength))] CharacterAttribute: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] #[out] StringLength: *mut SQLSMALLINT, #[opt] #[out] NumericAttribute: SQLPOINTER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLColumns(StatementHandle: SQLHSTMT, #[len_param(2)] #[in] #[opt] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[len_param(4)] #[in] #[opt] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[len_param(6)] #[in] #[opt] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, #[len_param(8)] #[in] #[opt] ColumnName: *mut SQLCHAR, NameLength4: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLColumns(StatementHandle: SQLHSTMT, #[in] #[opt] #[readable(entry, NameLength1)] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength2)] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength3)] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength4)] ColumnName: *mut SQLCHAR, NameLength4: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLCompleteAsync(HandleType: SQLSMALLINT, Handle: SQLHANDLE, AsyncRetCodePtr: *mut RETCODE) -> SQLRETURN;
+        extern fn SQLCompleteAsync(HandleType: SQLSMALLINT, Handle: SQLHANDLE, #[out] AsyncRetCodePtr: *mut RETCODE) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLConnect(ConnectionHandle: SQLHDBC, #[len_param(2)] #[in] ServerName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[len_param(4)] #[in] UserName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[len_param(6)] #[in] Authentication: *mut SQLCHAR, NameLength3: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLConnect(ConnectionHandle: SQLHDBC, #[in] #[readable(entry, NameLength1)] ServerName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[in] #[readable(entry, NameLength2)] UserName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[in] #[readable(entry, NameLength3)] Authentication: *mut SQLCHAR, NameLength3: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLCopyDesc(SourceDescHandle: SQLHDESC, TargetDescHandle: SQLHDESC) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLDataSources(EnvironmentHandle: SQLHENV, Direction: SQLUSMALLINT, #[len_param(3)] #[opt] ServerName: *mut SQLCHAR, BufferLength1: SQLSMALLINT, #[opt] NameLength1Ptr: *mut SQLSMALLINT, #[len_param(6)] #[opt] Description: *mut SQLCHAR, BufferLength2: SQLSMALLINT, #[opt] NameLength2Ptr: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLDataSources(EnvironmentHandle: SQLHENV, Direction: SQLUSMALLINT, #[opt] #[out] #[writable(entry, BufferLength1)] ServerName: *mut SQLCHAR, BufferLength1: SQLSMALLINT, #[opt] #[out] NameLength1Ptr: *mut SQLSMALLINT, #[opt] #[out] #[writable(entry, BufferLength2)] Description: *mut SQLCHAR, BufferLength2: SQLSMALLINT, #[opt] #[out] NameLength2Ptr: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLDescribeCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, #[len_param(3)] #[opt] ColumnName: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] NameLength: *mut SQLSMALLINT, #[opt] DataType: *mut SQLSMALLINT, #[opt] ColumnSize: *mut SQLULEN, #[opt] DecimalDigits: *mut SQLSMALLINT, #[opt] Nullable: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLDescribeCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, #[opt] #[out] #[writable(entry, BufferLength)] ColumnName: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] #[out] NameLength: *mut SQLSMALLINT, #[opt] #[out] DataType: *mut SQLSMALLINT, #[opt] #[out] ColumnSize: *mut SQLULEN, #[opt] #[out] DecimalDigits: *mut SQLSMALLINT, #[opt] #[out] Nullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLDescribeCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, #[len_param(3)] #[opt] ColumnName: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] NameLength: *mut SQLSMALLINT, #[opt] DataType: *mut SQLSMALLINT, #[opt] ColumnSize: *mut SQLUINTEGER, #[opt] DecimalDigits: *mut SQLSMALLINT, #[opt] Nullable: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLDescribeCol(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, #[opt] #[out] #[writable(entry, BufferLength)] ColumnName: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] #[out] NameLength: *mut SQLSMALLINT, #[opt] #[out] DataType: *mut SQLSMALLINT, #[opt] #[out] ColumnSize: *mut SQLUINTEGER, #[opt] #[out] DecimalDigits: *mut SQLSMALLINT, #[opt] #[out] Nullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLDisconnect(ConnectionHandle: SQLHDBC) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLEndTran(HandleType: SQLSMALLINT, Handle: SQLHANDLE, CompletionType: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLError(EnvironmentHandle: SQLHENV, ConnectionHandle: SQLHDBC, StatementHandle: SQLHSTMT, #[len_const(6)] Sqlstate: *mut SQLCHAR, #[opt] NativeError: *mut SQLINTEGER, #[len_param(6)] #[opt] MessageText: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] TextLength: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLError(EnvironmentHandle: SQLHENV, ConnectionHandle: SQLHDBC, StatementHandle: SQLHSTMT, #[out] #[writable(entry, 6)] Sqlstate: *mut SQLCHAR, #[opt] #[out] NativeError: *mut SQLINTEGER, #[opt] #[out] #[writable(entry, BufferLength)] MessageText: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] #[out] TextLength: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLExecDirect(StatementHandle: SQLHSTMT, #[len_param(2)] #[in] #[opt] StatementText: *mut SQLCHAR, TextLength: SQLINTEGER) -> SQLRETURN;
+        extern fn SQLExecDirect(StatementHandle: SQLHSTMT, #[in] #[opt] #[readable(entry, TextLength)] StatementText: *mut SQLCHAR, TextLength: SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLExecute(StatementHandle: SQLHSTMT) -> SQLRETURN;
         #[library("ODBC32.dll")]
@@ -77,108 +79,114 @@ mod Windows {
         #[library("ODBC32.dll")]
         extern fn SQLFreeStmt(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetConnectAttr(ConnectionHandle: SQLHDBC, Attribute: SQLINTEGER, #[out] #[opt] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] StringLengthPtr: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLGetConnectAttr(ConnectionHandle: SQLHDBC, Attribute: SQLINTEGER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StringLengthPtr: *mut SQLINTEGER) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLGetConnectOption is deprecated. Please use SQLGetConnectAttr instead.", "")]
         #[library("ODBC32.dll")]
         extern fn SQLGetConnectOption(ConnectionHandle: SQLHDBC, Option: SQLUSMALLINT, Value: SQLPOINTER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetCursorName(StatementHandle: SQLHSTMT, #[len_param(2)] #[opt] CursorName: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] NameLengthPtr: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLGetCursorName(StatementHandle: SQLHSTMT, #[opt] #[out] #[writable(entry, BufferLength)] CursorName: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] #[out] NameLengthPtr: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLGetData(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[out] #[opt] TargetValue: SQLPOINTER, BufferLength: SQLLEN, #[opt] StrLen_or_IndPtr: *mut SQLLEN) -> SQLRETURN;
+        extern fn SQLGetData(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] TargetValue: SQLPOINTER, BufferLength: SQLLEN, #[opt] #[out] StrLen_or_IndPtr: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLGetData(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[out] #[opt] TargetValue: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] StrLen_or_IndPtr: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLGetData(StatementHandle: SQLHSTMT, ColumnNumber: SQLUSMALLINT, TargetType: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] TargetValue: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StrLen_or_IndPtr: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetDescField(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, FieldIdentifier: SQLSMALLINT, #[out] #[opt] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] StringLength: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLGetDescField(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, FieldIdentifier: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StringLength: *mut SQLINTEGER) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLGetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, #[len_param(3)] #[opt] Name: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] StringLengthPtr: *mut SQLSMALLINT, #[opt] TypePtr: *mut SQLSMALLINT, #[opt] SubTypePtr: *mut SQLSMALLINT, #[opt] LengthPtr: *mut SQLLEN, #[opt] PrecisionPtr: *mut SQLSMALLINT, #[opt] ScalePtr: *mut SQLSMALLINT, #[opt] NullablePtr: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLGetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, #[opt] #[out] #[writable(entry, BufferLength)] Name: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] #[out] StringLengthPtr: *mut SQLSMALLINT, #[opt] #[out] TypePtr: *mut SQLSMALLINT, #[opt] #[out] SubTypePtr: *mut SQLSMALLINT, #[opt] #[out] LengthPtr: *mut SQLLEN, #[opt] #[out] PrecisionPtr: *mut SQLSMALLINT, #[opt] #[out] ScalePtr: *mut SQLSMALLINT, #[opt] #[out] NullablePtr: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLGetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, #[len_param(3)] #[opt] Name: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] StringLengthPtr: *mut SQLSMALLINT, #[opt] TypePtr: *mut SQLSMALLINT, #[opt] SubTypePtr: *mut SQLSMALLINT, #[opt] LengthPtr: *mut SQLINTEGER, #[opt] PrecisionPtr: *mut SQLSMALLINT, #[opt] ScalePtr: *mut SQLSMALLINT, #[opt] NullablePtr: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLGetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, #[opt] #[out] #[writable(entry, BufferLength)] Name: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] #[out] StringLengthPtr: *mut SQLSMALLINT, #[opt] #[out] TypePtr: *mut SQLSMALLINT, #[opt] #[out] SubTypePtr: *mut SQLSMALLINT, #[opt] #[out] LengthPtr: *mut SQLINTEGER, #[opt] #[out] PrecisionPtr: *mut SQLSMALLINT, #[opt] #[out] ScalePtr: *mut SQLSMALLINT, #[opt] #[out] NullablePtr: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetDiagField(HandleType: SQLSMALLINT, Handle: SQLHANDLE, RecNumber: SQLSMALLINT, DiagIdentifier: SQLSMALLINT, #[out] #[opt] DiagInfo: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] StringLength: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLGetDiagField(HandleType: SQLSMALLINT, Handle: SQLHANDLE, RecNumber: SQLSMALLINT, DiagIdentifier: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] DiagInfo: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] #[out] StringLength: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetDiagRec(HandleType: SQLSMALLINT, Handle: SQLHANDLE, RecNumber: SQLSMALLINT, #[len_const(6)] #[opt] Sqlstate: *mut SQLCHAR, NativeError: *mut SQLINTEGER, #[len_param(6)] #[opt] MessageText: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] TextLength: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLGetDiagRec(HandleType: SQLSMALLINT, Handle: SQLHANDLE, RecNumber: SQLSMALLINT, #[opt] #[out] #[writable(entry, 6)] Sqlstate: *mut SQLCHAR, NativeError: *mut SQLINTEGER, #[opt] #[out] #[writable(entry, BufferLength)] MessageText: *mut SQLCHAR, BufferLength: SQLSMALLINT, #[opt] #[out] TextLength: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetEnvAttr(EnvironmentHandle: SQLHENV, Attribute: SQLINTEGER, #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] StringLength: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLGetEnvAttr(EnvironmentHandle: SQLHENV, Attribute: SQLINTEGER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StringLength: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetFunctions(ConnectionHandle: SQLHDBC, FunctionId: SQLUSMALLINT, #[opt] Supported: *mut SQLUSMALLINT) -> SQLRETURN;
+        extern fn SQLGetFunctions(ConnectionHandle: SQLHDBC, FunctionId: SQLUSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(\"Buffer length pfExists points to depends on fFunction value.\")", "_Inexpressible_(\"Buffer length pfExists points to depends on fFunction value.\")")] #[opt] #[out] Supported: *mut SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetInfo(ConnectionHandle: SQLHDBC, InfoType: SQLUSMALLINT, #[size_param(3)] #[out] #[opt] InfoValue: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] StringLengthPtr: *mut SQLSMALLINT) -> SQLRETURN;
+        #[success(return == 0)]
+        extern fn SQLGetInfo(ConnectionHandle: SQLHDBC, InfoType: SQLUSMALLINT, #[opt] #[out] #[writable(entry, bytes(BufferLength))] InfoValue: SQLPOINTER, BufferLength: SQLSMALLINT, #[opt] #[out] StringLengthPtr: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLGetStmtAttr(StatementHandle: SQLHSTMT, Attribute: SQLINTEGER, #[out] #[opt] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] StringLength: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLGetStmtAttr(StatementHandle: SQLHSTMT, Attribute: SQLINTEGER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[opt] #[out] Value: SQLPOINTER, BufferLength: SQLINTEGER, #[opt] #[out] StringLength: *mut SQLINTEGER) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLGetStmtOption is deprecated. Please use SQLGetStmtAttr instead.", "")]
         #[library("ODBC32.dll")]
         extern fn SQLGetStmtOption(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT, Value: SQLPOINTER) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLGetTypeInfo(StatementHandle: SQLHSTMT, DataType: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLNumResultCols(StatementHandle: SQLHSTMT, ColumnCount: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLNumResultCols(StatementHandle: SQLHSTMT, #[out] ColumnCount: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLParamData(StatementHandle: SQLHSTMT, #[opt] Value: *mut SQLPOINTER) -> SQLRETURN;
+        extern fn SQLParamData(StatementHandle: SQLHSTMT, #[opt] #[out] Value: *mut SQLPOINTER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLPrepare(StatementHandle: SQLHSTMT, #[len_param(2)] #[in] StatementText: *mut SQLCHAR, TextLength: SQLINTEGER) -> SQLRETURN;
+        extern fn SQLPrepare(StatementHandle: SQLHSTMT, #[in] #[readable(entry, TextLength)] StatementText: *mut SQLCHAR, TextLength: SQLINTEGER) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLPutData(StatementHandle: SQLHSTMT, Data: SQLPOINTER, StrLen_or_Ind: SQLLEN) -> SQLRETURN;
+        extern fn SQLPutData(StatementHandle: SQLHSTMT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(StrLen_or_Ind)", "_Inexpressible_(StrLen_or_Ind)")] #[in] Data: SQLPOINTER, StrLen_or_Ind: SQLLEN) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLPutData(StatementHandle: SQLHSTMT, Data: SQLPOINTER, StrLen_or_Ind: SQLINTEGER) -> SQLRETURN;
+        extern fn SQLPutData(StatementHandle: SQLHSTMT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(StrLen_or_Ind)", "_Inexpressible_(StrLen_or_Ind)")] #[in] Data: SQLPOINTER, StrLen_or_Ind: SQLINTEGER) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLRowCount(StatementHandle: SQLHSTMT, RowCount: *mut SQLLEN) -> SQLRETURN;
+        extern fn SQLRowCount(#[in] StatementHandle: SQLHSTMT, #[out] RowCount: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLRowCount(StatementHandle: SQLHSTMT, RowCount: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLRowCount(#[in] StatementHandle: SQLHSTMT, #[out] RowCount: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLSetConnectAttr(ConnectionHandle: SQLHDBC, Attribute: SQLINTEGER, #[size_param(3)] #[opt] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
+        extern fn SQLSetConnectAttr(ConnectionHandle: SQLHDBC, Attribute: SQLINTEGER, #[in] #[opt] #[readable(entry, bytes(StringLength))] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetConnectOption is deprecated. Please use SQLSetConnectAttr instead.", "")]
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
         extern fn SQLSetConnectOption(ConnectionHandle: SQLHDBC, Option: SQLUSMALLINT, Value: SQLULEN) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetConnectOption is deprecated. Please use SQLSetConnectAttr instead.", "")]
         #[arch(X86)]
         #[library("ODBC32.dll")]
         extern fn SQLSetConnectOption(ConnectionHandle: SQLHDBC, Option: SQLUSMALLINT, Value: SQLUINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLSetCursorName(StatementHandle: SQLHSTMT, #[len_param(2)] #[in] CursorName: *mut SQLCHAR, NameLength: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLSetCursorName(StatementHandle: SQLHSTMT, #[in] #[readable(entry, NameLength)] CursorName: *mut SQLCHAR, NameLength: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLSetDescField(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, FieldIdentifier: SQLSMALLINT, Value: SQLPOINTER, BufferLength: SQLINTEGER) -> SQLRETURN;
+        extern fn SQLSetDescField(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, FieldIdentifier: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(BufferLength)", "_Inexpressible_(BufferLength)")] #[in] Value: SQLPOINTER, BufferLength: SQLINTEGER) -> SQLRETURN;
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLSetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, Type: SQLSMALLINT, SubType: SQLSMALLINT, Length: SQLLEN, Precision: SQLSMALLINT, Scale: SQLSMALLINT, #[size_param(4)] #[in] #[out] #[opt] Data: SQLPOINTER, #[in] #[out] #[opt] StringLength: *mut SQLLEN, #[in] #[out] #[opt] Indicator: *mut SQLLEN) -> SQLRETURN;
+        extern fn SQLSetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, Type: SQLSMALLINT, SubType: SQLSMALLINT, Length: SQLLEN, Precision: SQLSMALLINT, Scale: SQLSMALLINT, #[in] #[opt] #[out] #[writable(entry, bytes(Length))] Data: SQLPOINTER, #[in] #[opt] #[out] StringLength: *mut SQLLEN, #[in] #[opt] #[out] Indicator: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLSetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, Type: SQLSMALLINT, SubType: SQLSMALLINT, Length: SQLINTEGER, Precision: SQLSMALLINT, Scale: SQLSMALLINT, #[size_param(4)] #[in] #[out] #[opt] Data: SQLPOINTER, #[in] #[out] #[opt] StringLength: *mut SQLINTEGER, #[in] #[out] #[opt] Indicator: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLSetDescRec(DescriptorHandle: SQLHDESC, RecNumber: SQLSMALLINT, Type: SQLSMALLINT, SubType: SQLSMALLINT, Length: SQLINTEGER, Precision: SQLSMALLINT, Scale: SQLSMALLINT, #[in] #[opt] #[out] #[writable(entry, bytes(Length))] Data: SQLPOINTER, #[in] #[opt] #[out] StringLength: *mut SQLINTEGER, #[in] #[opt] #[out] Indicator: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLSetEnvAttr(EnvironmentHandle: SQLHENV, Attribute: SQLINTEGER, #[size_param(3)] #[opt] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
+        extern fn SQLSetEnvAttr(EnvironmentHandle: SQLHENV, Attribute: SQLINTEGER, #[in] #[opt] #[readable(entry, bytes(StringLength))] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
-        extern fn SQLSetParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLULEN, ParameterScale: SQLSMALLINT, ParameterValue: SQLPOINTER, #[in] #[out] StrLen_or_Ind: *mut SQLLEN) -> SQLRETURN;
+        extern fn SQLSetParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLULEN, ParameterScale: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(*StrLen_or_Ind)", "_Inexpressible_(*StrLen_or_Ind)")] #[in] ParameterValue: SQLPOINTER, #[in] #[out] StrLen_or_Ind: *mut SQLLEN) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetParam is deprecated. Please use SQLBindParameter instead.", "")]
         #[arch(X86)]
         #[library("ODBC32.dll")]
-        extern fn SQLSetParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLUINTEGER, ParameterScale: SQLSMALLINT, ParameterValue: SQLPOINTER, #[in] #[out] StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLSetParam(StatementHandle: SQLHSTMT, ParameterNumber: SQLUSMALLINT, ValueType: SQLSMALLINT, ParameterType: SQLSMALLINT, LengthPrecision: SQLUINTEGER, ParameterScale: SQLSMALLINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(*StrLen_or_Ind)", "_Inexpressible_(*StrLen_or_Ind)")] #[in] ParameterValue: SQLPOINTER, #[in] #[out] StrLen_or_Ind: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLSetStmtAttr(StatementHandle: SQLHSTMT, Attribute: SQLINTEGER, Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
+        extern fn SQLSetStmtAttr(StatementHandle: SQLHSTMT, Attribute: SQLINTEGER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(StringLength)", "_Inexpressible_(StringLength)")] #[in] Value: SQLPOINTER, StringLength: SQLINTEGER) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetStmtOption is deprecated. Please use SQLSetStmtAttr instead.", "")]
         #[arch(X64 | Arm64)]
         #[library("ODBC32.dll")]
         extern fn SQLSetStmtOption(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT, Value: SQLULEN) -> SQLRETURN;
+        #[Windows::Win32::Metadata::NativeDeprecated("ODBC API: SQLSetStmtOption is deprecated. Please use SQLSetStmtAttr instead.", "")]
         #[arch(X86)]
         #[library("ODBC32.dll")]
         extern fn SQLSetStmtOption(StatementHandle: SQLHSTMT, Option: SQLUSMALLINT, Value: SQLUINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLSpecialColumns(StatementHandle: SQLHSTMT, IdentifierType: SQLUSMALLINT, #[len_param(3)] #[in] #[opt] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[len_param(5)] #[in] #[opt] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[len_param(7)] #[in] #[opt] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, Scope: SQLUSMALLINT, Nullable: SQLUSMALLINT) -> SQLRETURN;
+        extern fn SQLSpecialColumns(StatementHandle: SQLHSTMT, IdentifierType: SQLUSMALLINT, #[in] #[opt] #[readable(entry, NameLength1)] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength2)] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength3)] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, Scope: SQLUSMALLINT, Nullable: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLStatistics(StatementHandle: SQLHSTMT, #[len_param(2)] #[in] #[opt] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[len_param(4)] #[in] #[opt] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[len_param(6)] #[in] #[opt] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, Unique: SQLUSMALLINT, Reserved: SQLUSMALLINT) -> SQLRETURN;
+        extern fn SQLStatistics(StatementHandle: SQLHSTMT, #[in] #[opt] #[readable(entry, NameLength1)] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength2)] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength3)] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, Unique: SQLUSMALLINT, Reserved: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLTables(StatementHandle: SQLHSTMT, #[len_param(2)] #[in] #[opt] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[len_param(4)] #[in] #[opt] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[len_param(6)] #[in] #[opt] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, #[len_param(8)] #[in] #[opt] TableType: *mut SQLCHAR, NameLength4: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLTables(StatementHandle: SQLHSTMT, #[in] #[opt] #[readable(entry, NameLength1)] CatalogName: *mut SQLCHAR, NameLength1: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength2)] SchemaName: *mut SQLCHAR, NameLength2: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength3)] TableName: *mut SQLCHAR, NameLength3: SQLSMALLINT, #[in] #[opt] #[readable(entry, NameLength4)] TableType: *mut SQLCHAR, NameLength4: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLTransact(EnvironmentHandle: SQLHENV, ConnectionHandle: SQLHDBC, CompletionType: SQLUSMALLINT) -> SQLRETURN;
         const SQL_ACCESSIBLE_PROCEDURES: i32 = 20;
         const SQL_ACCESSIBLE_TABLES: i32 = 19;
         const SQL_ALL_TYPES: i32 = 0;
         const SQL_ALTER_TABLE: i32 = 86;
-        const SQL_AM_CONNECTION: i32 = 1;
-        const SQL_AM_NONE: i32 = 0;
-        const SQL_AM_STATEMENT: i32 = 2;
         const SQL_APD_TYPE: i32 = -100;
         const SQL_API_SQLALLOCCONNECT: i32 = 1;
         const SQL_API_SQLALLOCENV: i32 = 2;

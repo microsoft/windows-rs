@@ -3,6 +3,7 @@ mod Windows {
     mod Win32 {
         #[library("RPCNS4.dll")]
         extern fn I_RpcNsGetBuffer(Message: PRPC_MESSAGE) -> RPC_STATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Analysis_noreturn_", "", "")]
         #[library("RPCNS4.dll")]
         extern fn I_RpcNsRaiseException(Message: PRPC_MESSAGE, Status: RPC_STATUS);
         #[library("RPCNS4.dll")]
@@ -10,6 +11,7 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn I_RpcReBindBuffer(Message: PRPC_MESSAGE) -> RPC_STATUS;
         type PRPC_IMPORT_CONTEXT_P = *mut RPC_IMPORT_CONTEXT_P;
+        #[packed(8)]
         struct RPC_IMPORT_CONTEXT_P {
             LookupContext: RPC_NS_HANDLE,
             ProposedHandle: RPC_BINDING_HANDLE,

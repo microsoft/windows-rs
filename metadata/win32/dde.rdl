@@ -3,72 +3,72 @@ mod Windows {
     mod Win32 {
         struct DDEACK {
             _bitfield: u16 {
-                bAppReturnCode: 8,
-                reserved: 6,
-                fBusy: 1,
-                fAck: 1,
+                bAppReturnCode: u16: 8,
+                reserved: u16: 6,
+                fBusy: u16: 1,
+                fAck: u16: 1,
             },
         }
         struct DDEADVISE {
             _bitfield: u16 {
-                reserved: 14,
-                fDeferUpd: 1,
-                fAckReq: 1,
+                reserved: u16: 14,
+                fDeferUpd: u16: 1,
+                fAckReq: u16: 1,
             },
             cfFormat: i16,
         }
         struct DDEDATA {
             _bitfield: u16 {
-                unused: 12,
-                fResponse: 1,
-                fRelease: 1,
-                reserved: 1,
-                fAckReq: 1,
+                unused: u16: 12,
+                fResponse: u16: 1,
+                fRelease: u16: 1,
+                reserved: u16: 1,
+                fAckReq: u16: 1,
             },
             cfFormat: i16,
-            Value: [u8; 1],
+            Value: [BYTE; 1],
         }
         struct DDELN {
             _bitfield: u16 {
-                unused: 13,
-                fRelease: 1,
-                fDeferUpd: 1,
-                fAckReq: 1,
+                unused: u16: 13,
+                fRelease: u16: 1,
+                fDeferUpd: u16: 1,
+                fAckReq: u16: 1,
             },
             cfFormat: i16,
         }
         struct DDEPOKE {
             _bitfield: u16 {
-                unused: 13,
-                fRelease: 1,
-                fReserved: 2,
+                unused: u16: 13,
+                fRelease: u16: 1,
+                fReserved: u16: 2,
             },
             cfFormat: i16,
-            Value: [u8; 1],
+            Value: [BYTE; 1],
         }
         struct DDEUP {
             _bitfield: u16 {
-                unused: 12,
-                fAck: 1,
-                fRelease: 1,
-                fReserved: 1,
-                fAckReq: 1,
+                unused: u16: 12,
+                fAck: u16: 1,
+                fRelease: u16: 1,
+                fReserved: u16: 1,
+                fAckReq: u16: 1,
             },
             cfFormat: i16,
-            rgb: [u8; 1],
+            rgb: [BYTE; 1],
         }
         #[library("USER32.dll")]
         extern fn DdeSetQualityOfService(hwndClient: HWND, pqosNew: *const SECURITY_QUALITY_OF_SERVICE, pqosPrev: PSECURITY_QUALITY_OF_SERVICE) -> BOOL;
         #[library("USER32.dll")]
-        extern fn FreeDDElParam(msg: u32, lParam: LPARAM) -> BOOL;
+        extern fn FreeDDElParam(#[in] msg: UINT, #[in] lParam: LPARAM) -> BOOL;
         #[library("USER32.dll")]
         extern fn ImpersonateDdeClientWindow(hWndClient: HWND, hWndServer: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn PackDDElParam(msg: u32, uiLo: usize, uiHi: usize) -> LPARAM;
+        extern fn PackDDElParam(#[in] msg: UINT, #[in] uiLo: UINT_PTR, #[in] uiHi: UINT_PTR) -> LPARAM;
         #[library("USER32.dll")]
-        extern fn ReuseDDElParam(lParam: LPARAM, msgIn: u32, msgOut: u32, uiLo: usize, uiHi: usize) -> LPARAM;
+        extern fn ReuseDDElParam(lParam: LPARAM, msgIn: UINT, msgOut: UINT, uiLo: UINT_PTR, uiHi: UINT_PTR) -> LPARAM;
         #[library("USER32.dll")]
-        extern fn UnpackDDElParam(msg: u32, lParam: LPARAM, #[out] puiLo: PUINT_PTR, #[out] puiHi: PUINT_PTR) -> BOOL;
+        extern fn UnpackDDElParam(#[in] msg: UINT, #[in] lParam: LPARAM, #[out] puiLo: PUINT_PTR, #[out] puiHi: PUINT_PTR) -> BOOL;
         const WM_DDE_ACK: i32 = 996;
         const WM_DDE_ADVISE: i32 = 994;
         const WM_DDE_DATA: i32 = 997;

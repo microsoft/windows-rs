@@ -1,0 +1,29 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DebugEventLevel {
+            DebugEventLevelFatal = 0,
+            DebugEventLevelWarning = 1,
+        }
+        extern fn DebugEventProc(level: DebugEventLevel, message: *mut CHAR);
+        #[library("gdiplus.dll")]
+        extern fn GdiplusShutdown(token: ULONG_PTR);
+        #[library("gdiplus.dll")]
+        extern fn GdiplusStartup(token: *mut ULONG_PTR, input: *const GdiplusStartupInput, output: *mut GdiplusStartupOutput) -> Status;
+        #[packed(8)]
+        struct GdiplusStartupInput {
+            GdiplusVersion: UINT32,
+            DebugEventCallback: DebugEventProc,
+            SuppressBackgroundThread: BOOL,
+            SuppressExternalCodecs: BOOL,
+        }
+        #[packed(8)]
+        struct GdiplusStartupOutput {
+            NotificationHook: NotificationHookProc,
+            NotificationUnhook: NotificationUnhookProc,
+        }
+        extern fn NotificationHookProc(token: *mut ULONG_PTR) -> Status;
+        extern fn NotificationUnhookProc(token: ULONG_PTR);
+    }
+}

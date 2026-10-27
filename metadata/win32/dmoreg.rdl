@@ -12,15 +12,15 @@ mod Windows {
         const DMOCATEGORY_VIDEO_EFFECT: GUID = 0xd990ee14_776c_4723_be46_3da2f56f10b9;
         const DMOCATEGORY_VIDEO_ENCODER: GUID = 0x33d9a760_90c8_11d0_bd43_00a0c911ce86;
         #[library("msdmo.dll")]
-        extern fn DMOEnum(guidCategory: *const GUID, dwFlags: u32, cInTypes: u32, pInTypes: *const DMO_PARTIAL_MEDIATYPE, cOutTypes: u32, pOutTypes: *const DMO_PARTIAL_MEDIATYPE, ppEnum: *mut IEnumDMO) -> HRESULT;
+        extern fn DMOEnum(guidCategory: &GUID, dwFlags: DWORD, cInTypes: DWORD, pInTypes: *const DMO_PARTIAL_MEDIATYPE, cOutTypes: DWORD, pOutTypes: *const DMO_PARTIAL_MEDIATYPE, ppEnum: *mut IEnumDMO) -> HRESULT;
         #[library("msdmo.dll")]
-        extern fn DMOGetName(clsidDMO: *const GUID, #[len_const(80)] szName: *mut u16) -> HRESULT;
+        extern fn DMOGetName(clsidDMO: &IID, #[out] #[writable(entry, 80)] szName: *mut WCHAR) -> HRESULT;
         #[library("msdmo.dll")]
-        extern fn DMOGetTypes(clsidDMO: *const GUID, ulInputTypesRequested: u32, pulInputTypesSupplied: *mut u32, pInputTypes: *mut DMO_PARTIAL_MEDIATYPE, ulOutputTypesRequested: u32, pulOutputTypesSupplied: *mut u32, pOutputTypes: *mut DMO_PARTIAL_MEDIATYPE) -> HRESULT;
+        extern fn DMOGetTypes(clsidDMO: &IID, ulInputTypesRequested: u32, pulInputTypesSupplied: *mut u32, pInputTypes: *mut DMO_PARTIAL_MEDIATYPE, ulOutputTypesRequested: u32, pulOutputTypesSupplied: *mut u32, pOutputTypes: *mut DMO_PARTIAL_MEDIATYPE) -> HRESULT;
         #[library("msdmo.dll")]
-        extern fn DMORegister(szName: PCWSTR, clsidDMO: *const GUID, guidCategory: *const GUID, dwFlags: u32, cInTypes: u32, pInTypes: *const DMO_PARTIAL_MEDIATYPE, cOutTypes: u32, pOutTypes: *const DMO_PARTIAL_MEDIATYPE) -> HRESULT;
+        extern fn DMORegister(szName: LPCWSTR, clsidDMO: &IID, guidCategory: &GUID, dwFlags: DWORD, cInTypes: DWORD, pInTypes: *const DMO_PARTIAL_MEDIATYPE, cOutTypes: DWORD, pOutTypes: *const DMO_PARTIAL_MEDIATYPE) -> HRESULT;
         #[library("msdmo.dll")]
-        extern fn DMOUnregister(clsidDMO: *const GUID, guidCategory: *const GUID) -> HRESULT;
+        extern fn DMOUnregister(clsidDMO: &IID, guidCategory: &GUID) -> HRESULT;
         #[repr(i32)]
         enum DMO_ENUM_FLAGS {
             DMO_ENUMF_INCLUDE_KEYED = 1,

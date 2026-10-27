@@ -1,6 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[packed(8)]
         struct ARRAY_INFO {
             Dimension: i32,
             BufferConformanceMark: *mut u32,
@@ -9,10 +10,12 @@ mod Windows {
             OffsetArray: *mut u32,
             ActualCountArray: *mut u32,
         }
+        #[packed(8)]
         union CLIENT_CALL_RETURN {
             Pointer: *mut void,
-            Simple: isize,
+            Simple: LONG_PTR,
         }
+        #[packed(8)]
         struct COMM_FAULT_OFFSETS {
             CommOffset: i16,
             FaultOffset: i16,
@@ -23,12 +26,14 @@ mod Windows {
         extern fn CS_TYPE_NET_SIZE_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, ulLocalBufferSize: u32, conversionType: *mut IDL_CS_CONVERT, pulNetworkBufferSize: *mut u32, pStatus: *mut error_status_t);
         extern fn CS_TYPE_TO_NETCS_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, pLocalData: *mut void, ulLocalDataLength: u32, pNetworkData: *mut byte, pulNetworkDataLength: *mut u32, pStatus: *mut error_status_t);
         extern fn EXPR_EVAL(param0: *mut MIDL_STUB_MESSAGE);
+        #[packed(8)]
         struct FULL_PTR_XLAT_TABLES {
             RefIdToPointer: *mut void,
             PointerToRefId: *mut void,
             NextRefId: u32,
             XlatSide: XLAT_SIDE,
         }
+        #[packed(8)]
         struct GENERIC_BINDING_INFO {
             pObj: *mut void,
             Size: u32,
@@ -36,6 +41,7 @@ mod Windows {
             pfnUnbind: GENERIC_UNBIND_ROUTINE,
         }
         extern fn GENERIC_BINDING_ROUTINE(param0: *mut void) -> *mut void;
+        #[packed(8)]
         struct GENERIC_BINDING_ROUTINE_PAIR {
             pfnBind: GENERIC_BINDING_ROUTINE,
             pfnUnbind: GENERIC_UNBIND_ROUTINE,
@@ -47,14 +53,12 @@ mod Windows {
             IDL_CS_IN_PLACE_CONVERT = 1,
             IDL_CS_NEW_BUFFER_CONVERT = 2,
         }
+        #[packed(8)]
         struct MALLOC_FREE_STRUCT {
-            pfnAllocate: *mut u8,
-            pfnFree: *mut u8,
+            pfnAllocate: extern fn(size_t) -> *mut void,
+            pfnFree: EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
         }
-        struct MIDL_FORMAT_STRING {
-            Pad: i16,
-            Format: [u8; 0],
-        }
+        #[packed(8)]
         struct MIDL_INTERCEPTION_INFO {
             Version: u32,
             ProcString: PFORMAT_STRING,
@@ -62,18 +66,22 @@ mod Windows {
             ProcCount: u32,
             TypeString: PFORMAT_STRING,
         }
+        #[packed(8)]
         struct MIDL_INTERFACE_METHOD_PROPERTIES {
             MethodCount: u16,
             MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
         }
+        #[packed(8)]
         struct MIDL_METHOD_PROPERTY {
             Id: u32,
-            Value: usize,
+            Value: ULONG_PTR,
         }
+        #[packed(8)]
         struct MIDL_METHOD_PROPERTY_MAP {
             Count: u32,
             Properties: *const MIDL_METHOD_PROPERTY,
         }
+        #[packed(8)]
         struct MIDL_SERVER_INFO {
             pStubDesc: PMIDL_STUB_DESC,
             DispatchTable: *const SERVER_ROUTINE,
@@ -81,22 +89,24 @@ mod Windows {
             FmtStringOffset: *const u16,
             ThunkTable: *const STUB_THUNK,
             pTransferSyntax: PRPC_SYNTAX_IDENTIFIER,
-            nCount: usize,
+            nCount: ULONG_PTR,
             pSyntaxInfo: PMIDL_SYNTAX_INFO,
         }
+        #[packed(8)]
         struct MIDL_STUBLESS_PROXY_INFO {
             pStubDesc: PMIDL_STUB_DESC,
             ProcFormatString: PFORMAT_STRING,
             FormatStringOffset: *const u16,
             pTransferSyntax: PRPC_SYNTAX_IDENTIFIER,
-            nCount: usize,
+            nCount: ULONG_PTR,
             pSyntaxInfo: PMIDL_SYNTAX_INFO,
         }
+        #[packed(8)]
         struct MIDL_STUB_DESC {
             RpcInterfaceInformation: *mut void,
-            pfnAllocate: *mut u8,
-            pfnFree: *mut u8,
-            IMPLICIT_HANDLE_INFO: union {
+            pfnAllocate: extern fn(size_t) -> *mut void,
+            pfnFree: EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
+            IMPLICIT_HANDLE_INFO: #[packed(8)] union {
                 pAutoHandle: *mut handle_t,
                 pPrimitiveHandle: *mut handle_t,
                 pGenericBindingInfo: PGENERIC_BINDING_INFO,
@@ -113,11 +123,12 @@ mod Windows {
             CommFaultOffsets: *const COMM_FAULT_OFFSETS,
             aUserMarshalQuadruple: *const USER_MARSHAL_ROUTINE_QUADRUPLE,
             NotifyRoutineTable: *const NDR_NOTIFY_ROUTINE,
-            mFlags: usize,
+            mFlags: ULONG_PTR,
             CsRoutineTables: *const NDR_CS_ROUTINES,
             ProxyServerInfo: *mut void,
             pExprInfo: *const NDR_EXPR_DESC,
         }
+        #[packed(8)]
         struct MIDL_STUB_MESSAGE {
             RpcMsg: PRPC_MESSAGE,
             Buffer: *mut u8,
@@ -138,11 +149,11 @@ mod Windows {
             CorrDespIncrement: u8,
             uFlags: u8,
             UniquePtrCount: u16,
-            MaxCount: usize,
+            MaxCount: ULONG_PTR,
             Offset: u32,
             ActualCount: u32,
-            pfnAllocate: *mut u8,
-            pfnFree: *mut u8,
+            pfnAllocate: extern fn(size_t) -> *mut void,
+            pfnFree: EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
             StackTop: *mut u8,
             pPresentedType: *mut u8,
             pTransmitType: *mut u8,
@@ -152,21 +163,21 @@ mod Windows {
             FullPtrRefId: u32,
             PointerLength: u32,
             _bitfield: u32 {
-                fInDontFree: 1,
-                fDontCallFreeInst: 1,
-                fUnused1: 1,
-                fHasReturn: 1,
-                fHasExtensions: 1,
-                fHasNewCorrDesc: 1,
-                fIsIn: 1,
-                fIsOut: 1,
-                fIsOicf: 1,
-                fBufferValid: 1,
-                fHasMemoryValidateCallback: 1,
-                fInFree: 1,
-                fNeedMCCP: 1,
-                fUnused2: 3,
-                fUnused3: 16,
+                fInDontFree: u32: 1,
+                fDontCallFreeInst: u32: 1,
+                fUnused1: u32: 1,
+                fHasReturn: u32: 1,
+                fHasExtensions: u32: 1,
+                fHasNewCorrDesc: u32: 1,
+                fIsIn: u32: 1,
+                fIsOut: u32: 1,
+                fIsOicf: u32: 1,
+                fBufferValid: u32: 1,
+                fHasMemoryValidateCallback: u32: 1,
+                fInFree: u32: 1,
+                fNeedMCCP: u32: 1,
+                fUnused2: u32: 3,
+                fUnused3: u32: 16,
             },
             dwDestContext: u32,
             pvDestContext: *mut void,
@@ -184,17 +195,18 @@ mod Windows {
             pCorrInfo: PNDR_CORRELATION_INFO,
             pCorrMemory: *mut u8,
             pMemoryList: *mut void,
-            pCSInfo: isize,
+            pCSInfo: INT_PTR,
             ConformanceMark: *mut u8,
             VarianceMark: *mut u8,
-            Unused: isize,
+            Unused: INT_PTR,
             pContext: *mut _NDR_PROC_CONTEXT,
             ContextHandleHash: *mut void,
             pUserMarshalList: *mut void,
             pFullPtrFormat: *mut u8,
-            Reserved51_4: isize,
-            Reserved51_5: isize,
+            Reserved51_4: INT_PTR,
+            Reserved51_5: INT_PTR,
         }
+        #[packed(8)]
         struct MIDL_SYNTAX_INFO {
             TransferSyntax: RPC_SYNTAX_IDENTIFIER,
             DispatchTable: *mut RPC_DISPATCH_TABLE,
@@ -203,8 +215,9 @@ mod Windows {
             TypeString: PFORMAT_STRING,
             aUserMarshalQuadruple: *const void,
             pMethodProperties: *const MIDL_INTERFACE_METHOD_PROPERTIES,
-            pReserved2: usize,
+            pReserved2: ULONG_PTR,
         }
+        #[packed(8)]
         struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
             Version: u32,
             TypeFormatString: PFORMAT_STRING,
@@ -216,34 +229,34 @@ mod Windows {
         const MidlInterceptionInfoVersionOne: i32 = 1;
         const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1;
         #[library("RPCRT4.dll")]
-        extern fn NDRCContextBinding(CContext: NDR_CCONTEXT) -> RPC_BINDING_HANDLE;
+        extern fn NDRCContextBinding(#[in] CContext: NDR_CCONTEXT) -> RPC_BINDING_HANDLE;
         #[library("RPCRT4.dll")]
-        extern fn NDRCContextMarshall(#[opt] CContext: NDR_CCONTEXT, pBuff: *mut void);
+        extern fn NDRCContextMarshall(#[in] #[opt] CContext: NDR_CCONTEXT, #[out] pBuff: *mut void);
         #[library("RPCRT4.dll")]
-        extern fn NDRCContextUnmarshall(#[in] #[out] #[opt] pCContext: *mut NDR_CCONTEXT, hBinding: RPC_BINDING_HANDLE, #[in] pBuff: *mut void, DataRepresentation: u32);
+        extern fn NDRCContextUnmarshall(#[in] #[opt] #[out] pCContext: *mut NDR_CCONTEXT, #[in] hBinding: RPC_BINDING_HANDLE, #[in] pBuff: *mut void, #[in] DataRepresentation: u32);
         #[library("RPCRT4.dll")]
-        extern fn NDRSContextMarshall(CContext: NDR_SCONTEXT, pBuff: *mut void, userRunDownIn: NDR_RUNDOWN);
+        extern fn NDRSContextMarshall(#[in] CContext: NDR_SCONTEXT, #[out] pBuff: *mut void, #[in] userRunDownIn: NDR_RUNDOWN);
         #[library("RPCRT4.dll")]
-        extern fn NDRSContextMarshall2(BindingHandle: RPC_BINDING_HANDLE, CContext: NDR_SCONTEXT, pBuff: *mut void, userRunDownIn: NDR_RUNDOWN, #[in] #[opt] CtxGuard: *mut void, Flags: u32);
+        extern fn NDRSContextMarshall2(#[in] BindingHandle: RPC_BINDING_HANDLE, #[in] CContext: NDR_SCONTEXT, #[out] pBuff: *mut void, #[in] userRunDownIn: NDR_RUNDOWN, #[in] #[opt] CtxGuard: *mut void, #[in] Flags: u32);
         #[library("RPCRT4.dll")]
-        extern fn NDRSContextMarshallEx(BindingHandle: RPC_BINDING_HANDLE, CContext: NDR_SCONTEXT, pBuff: *mut void, userRunDownIn: NDR_RUNDOWN);
+        extern fn NDRSContextMarshallEx(#[in] BindingHandle: RPC_BINDING_HANDLE, #[in] CContext: NDR_SCONTEXT, #[out] pBuff: *mut void, #[in] userRunDownIn: NDR_RUNDOWN);
         #[library("RPCRT4.dll")]
-        extern fn NDRSContextUnmarshall(#[in] pBuff: *mut void, DataRepresentation: u32) -> NDR_SCONTEXT;
+        extern fn NDRSContextUnmarshall(#[in] pBuff: *mut void, #[in] DataRepresentation: u32) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]
-        extern fn NDRSContextUnmarshall2(BindingHandle: RPC_BINDING_HANDLE, #[in] #[opt] pBuff: *mut void, DataRepresentation: u32, #[in] #[opt] CtxGuard: *mut void, Flags: u32) -> NDR_SCONTEXT;
+        extern fn NDRSContextUnmarshall2(#[in] BindingHandle: RPC_BINDING_HANDLE, #[in] #[opt] pBuff: *mut void, #[in] DataRepresentation: u32, #[in] #[opt] CtxGuard: *mut void, #[in] Flags: u32) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]
-        extern fn NDRSContextUnmarshallEx(BindingHandle: RPC_BINDING_HANDLE, #[in] pBuff: *mut void, DataRepresentation: u32) -> NDR_SCONTEXT;
+        extern fn NDRSContextUnmarshallEx(#[in] BindingHandle: RPC_BINDING_HANDLE, #[in] pBuff: *mut void, #[in] DataRepresentation: u32) -> NDR_SCONTEXT;
         struct NDR_ALLOC_ALL_NODES_CONTEXT {}
         const NDR_ASCII_CHAR: u32 = 0;
-        struct NDR_ASYNC_MESSAGE {}
         const NDR_BIG_ENDIAN: u32 = 0;
         type NDR_CCONTEXT = *mut void;
         const NDR_CHAR_REP_MASK: u32 = 15;
-        struct NDR_CORRELATION_INFO {}
+        #[packed(8)]
         struct NDR_CS_ROUTINES {
             pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
             pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
         }
+        #[packed(8)]
         struct NDR_CS_SIZE_CONVERT_ROUTINES {
             pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
             pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
@@ -251,6 +264,7 @@ mod Windows {
             pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
         }
         const NDR_EBCDIC_CHAR: u32 = 1;
+        #[packed(8)]
         struct NDR_EXPR_DESC {
             pOffset: *const u16,
             pFormatExpr: PFORMAT_STRING,
@@ -262,40 +276,51 @@ mod Windows {
         const NDR_LITTLE_ENDIAN: u32 = 16;
         const NDR_LOCAL_DATA_REPRESENTATION: u32 = 16;
         const NDR_LOCAL_ENDIAN: u32 = 16;
-        extern fn NDR_NOTIFY2_ROUTINE(flag: u8);
+        extern fn NDR_NOTIFY2_ROUTINE(flag: boolean);
         extern fn NDR_NOTIFY_ROUTINE();
         struct NDR_POINTER_QUEUE_STATE {}
         extern fn NDR_RUNDOWN(context: *mut void);
         type NDR_SCONTEXT = *mut _NDR_SCONTEXT;
+        #[packed(8)]
         struct NDR_USER_MARSHAL_INFO {
             InformationLevel: u32,
-            Anonymous: union {
+            Anonymous: #[packed(8)] union {
                 Level1: NDR_USER_MARSHAL_INFO_LEVEL1,
             },
         }
+        #[packed(8)]
         struct NDR_USER_MARSHAL_INFO_LEVEL1 {
+            #[writable(bytes(BufferSize))]
             Buffer: *mut void,
             BufferSize: u32,
-            pfnAllocate: *mut u8,
-            pfnFree: *mut u8,
+            pfnAllocate: extern fn(size_t) -> *mut void,
+            pfnFree: EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
             pRpcChannelBuffer: IRpcChannelBuffer,
-            Reserved: [usize; 5],
+            Reserved: [ULONG_PTR; 5],
         }
         const NDR_VAX_FLOAT: u32 = 256;
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern "C" fn Ndr64AsyncClientCall(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern fn Ndr64AsyncServerCall64(pRpcMsg: PRPC_MESSAGE);
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern fn Ndr64AsyncServerCallAll(pRpcMsg: PRPC_MESSAGE);
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern "C" fn Ndr64DcomAsyncClientCall(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern fn Ndr64DcomAsyncStubCall(pThis: IRpcStubBuffer, pChannel: IRpcChannelBuffer, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
         #[library("RPCRT4.dll")]
-        extern fn NdrAllocate(pStubMsg: PMIDL_STUB_MESSAGE, Len: usize) -> *mut void;
+        extern fn NdrAllocate(pStubMsg: PMIDL_STUB_MESSAGE, Len: size_t) -> *mut void;
         #[library("RPCRT4.dll")]
         extern "C" fn NdrAsyncClientCall(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrAsyncClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrAsyncServerCall(pRpcMsg: PRPC_MESSAGE);
         #[library("RPCRT4.dll")]
@@ -308,10 +333,17 @@ mod Windows {
         extern fn NdrByteCountPointerUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: PFORMAT_STRING, fMustAlloc: u8) -> *mut u8;
         #[library("RPCRT4.dll")]
         extern fn NdrClearOutParameters(pStubMsg: PMIDL_STUB_MESSAGE, pFormat: PFORMAT_STRING, ArgAddr: *mut void);
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrClientCall(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern "C" fn NdrClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern "C" fn NdrClientCall3(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrClientCall4(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrClientContextMarshall(pStubMsg: PMIDL_STUB_MESSAGE, ContextHandle: NDR_CCONTEXT, fCheck: i32);
         #[library("RPCRT4.dll")]
@@ -389,7 +421,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrConformantVaryingStructUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: PFORMAT_STRING, fMustAlloc: u8) -> *mut u8;
         #[library("RPCRT4.dll")]
-        extern fn NdrContextHandleInitialize(pStubMsg: PMIDL_STUB_MESSAGE, pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
+        extern fn NdrContextHandleInitialize(#[in] pStubMsg: PMIDL_STUB_MESSAGE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(2)", "_Inexpressible_(2)")] #[in] pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]
         extern fn NdrContextHandleSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);
         #[library("RPCRT4.dll")]
@@ -403,9 +435,12 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrCorrelationPass(pStubMsg: PMIDL_STUB_MESSAGE);
         #[library("RPCRT4.dll")]
-        extern fn NdrCreateServerInterfaceFromStub(pStub: IRpcStubBuffer, #[in] #[out] pServerIf: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+        extern fn NdrCreateServerInterfaceFromStub(#[in] pStub: IRpcStubBuffer, #[in] #[out] pServerIf: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern "C" fn NdrDcomAsyncClientCall(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrDcomAsyncClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrDcomAsyncStubCall(pThis: IRpcStubBuffer, pChannel: IRpcChannelBuffer, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
         #[library("RPCRT4.dll")]
@@ -439,7 +474,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrGetDcomProtocolVersion(pStubMsg: PMIDL_STUB_MESSAGE, pVersion: *mut RPC_VERSION) -> HRESULT;
         #[library("RPCRT4.dll")]
-        extern fn NdrGetUserMarshalInfo(#[in] pFlags: *mut u32, InformationLevel: u32, pMarshalInfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS;
+        extern fn NdrGetUserMarshalInfo(#[in] pFlags: *mut u32, #[in] InformationLevel: u32, #[out] pMarshalInfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn NdrInterfacePointerBufferSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);
         #[library("RPCRT4.dll")]
@@ -452,6 +487,9 @@ mod Windows {
         extern fn NdrInterfacePointerUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: PFORMAT_STRING, fMustAlloc: u8) -> *mut u8;
         #[library("RPCRT4.dll")]
         extern fn NdrMapCommAndFaultStatus(pStubMsg: PMIDL_STUB_MESSAGE, pCommStatus: *mut u32, pFaultStatus: *mut u32, Status: RPC_STATUS) -> RPC_STATUS;
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrMesProcEncodeDecode4(Handle: handle_t, pStubDescriptor: *const MIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrNonConformantStringBufferSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);
         #[library("RPCRT4.dll")]
@@ -475,7 +513,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrNsSendReceive(pStubMsg: PMIDL_STUB_MESSAGE, pBufferEnd: *mut u8, pAutoHandle: *mut RPC_BINDING_HANDLE) -> *mut u8;
         #[library("RPCRT4.dll")]
-        extern fn NdrOleAllocate(Size: usize) -> *mut void;
+        extern fn NdrOleAllocate(#[in] Size: size_t) -> *mut void;
         #[library("RPCRT4.dll")]
         extern fn NdrOleFree(#[in] NodeToFree: *mut void);
         #[library("RPCRT4.dll")]
@@ -499,13 +537,13 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrRangeUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: PFORMAT_STRING, fMustAlloc: u8) -> *mut u8;
         #[library("RPCRT4.dll")]
-        extern fn NdrRpcSmClientAllocate(Size: usize) -> *mut void;
+        extern fn NdrRpcSmClientAllocate(#[in] Size: size_t) -> *mut void;
         #[library("RPCRT4.dll")]
         extern fn NdrRpcSmClientFree(#[in] NodeToFree: *mut void);
         #[library("RPCRT4.dll")]
         extern fn NdrRpcSmSetClientToOsf(pMessage: PMIDL_STUB_MESSAGE);
         #[library("RPCRT4.dll")]
-        extern fn NdrRpcSsDefaultAllocate(Size: usize) -> *mut void;
+        extern fn NdrRpcSsDefaultAllocate(#[in] Size: size_t) -> *mut void;
         #[library("RPCRT4.dll")]
         extern fn NdrRpcSsDefaultFree(#[in] NodeToFree: *mut void);
         #[library("RPCRT4.dll")]
@@ -514,10 +552,15 @@ mod Windows {
         extern fn NdrRpcSsEnableAllocate(pMessage: PMIDL_STUB_MESSAGE);
         #[library("RPCRT4.dll")]
         extern fn NdrSendReceive(pStubMsg: PMIDL_STUB_MESSAGE, pBufferEnd: *mut u8) -> *mut u8;
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerCall(pRpcMsg: PRPC_MESSAGE);
         #[library("RPCRT4.dll")]
         extern fn NdrServerCall2(pRpcMsg: PRPC_MESSAGE);
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern fn NdrServerCallAll(pRpcMsg: PRPC_MESSAGE);
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern fn NdrServerCallNdr64(pRpcMsg: PRPC_MESSAGE);
         #[library("RPCRT4.dll")]
@@ -525,7 +568,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NdrServerContextNewMarshall(pStubMsg: PMIDL_STUB_MESSAGE, ContextHandle: NDR_SCONTEXT, RundownRoutine: NDR_RUNDOWN, pFormat: PFORMAT_STRING);
         #[library("RPCRT4.dll")]
-        extern fn NdrServerContextNewUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
+        extern fn NdrServerContextNewUnmarshall(#[in] pStubMsg: PMIDL_STUB_MESSAGE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(2)", "_Inexpressible_(2)")] #[in] pFormat: PFORMAT_STRING) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]
         extern fn NdrServerContextUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE) -> NDR_SCONTEXT;
         #[library("RPCRT4.dll")]
@@ -538,6 +581,12 @@ mod Windows {
         extern fn NdrServerInitializePartial(pRpcMsg: PRPC_MESSAGE, pStubMsg: PMIDL_STUB_MESSAGE, pStubDescriptor: PMIDL_STUB_DESC, RequestedBufferSize: u32);
         #[library("RPCRT4.dll")]
         extern fn NdrServerInitializeUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, pStubDescriptor: PMIDL_STUB_DESC, pRpcMsg: PRPC_MESSAGE) -> *mut u8;
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerMarshall(pThis: *mut void, pChannel: *mut void, pStubMsg: PMIDL_STUB_MESSAGE, pFormat: PFORMAT_STRING);
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerUnmarshall(pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pStubMsg: PMIDL_STUB_MESSAGE, pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, pParamList: *mut void) -> i32;
         #[library("RPCRT4.dll")]
         extern fn NdrSimpleStructBufferSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);
         #[library("RPCRT4.dll")]
@@ -552,8 +601,12 @@ mod Windows {
         extern fn NdrSimpleTypeMarshall(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, FormatChar: u8);
         #[library("RPCRT4.dll")]
         extern fn NdrSimpleTypeUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, FormatChar: u8);
+        #[arch(X86)]
+        #[library("RPCRT4.dll")]
+        extern fn NdrStubCall(pThis: *mut void, pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
         #[library("RPCRT4.dll")]
         extern fn NdrStubCall2(pThis: *mut void, pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
+        #[arch(X64 | Arm64)]
         #[library("RPCRT4.dll")]
         extern fn NdrStubCall3(pThis: *mut void, pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
         #[library("RPCRT4.dll")]
@@ -604,8 +657,8 @@ mod Windows {
         type PMIDL_SYNTAX_INFO = *mut MIDL_SYNTAX_INFO;
         type PMIDL_WINRT_TYPE_SERIALIZATION_INFO = *mut MIDL_WINRT_TYPE_SERIALIZATION_INFO;
         type PMIDL_XMIT_TYPE = *mut void;
-        type PNDR_ASYNC_MESSAGE = *mut NDR_ASYNC_MESSAGE;
-        type PNDR_CORRELATION_INFO = *mut NDR_CORRELATION_INFO;
+        type PNDR_ASYNC_MESSAGE = *mut _NDR_ASYNC_MESSAGE;
+        type PNDR_CORRELATION_INFO = *mut _NDR_CORRELATION_INFO;
         type PPARAM_OFFSETTABLE = *mut u16;
         #[repr(i32)]
         enum PROXY_PHASE {
@@ -618,12 +671,12 @@ mod Windows {
         type PSCONTEXT_QUEUE = *mut SCONTEXT_QUEUE;
         type PXMIT_ROUTINE_QUINTUPLE = *mut XMIT_ROUTINE_QUINTUPLE;
         type RPC_BUFPTR = *mut u8;
-        extern fn RPC_CLIENT_ALLOC(Size: usize) -> *mut void;
+        extern fn RPC_CLIENT_ALLOC(#[in] Size: size_t) -> *mut void;
         extern fn RPC_CLIENT_FREE(#[in] Ptr: *mut void);
         type RPC_LENGTH = u32;
         type RPC_SS_THREAD_HANDLE = *mut void;
         #[library("RPCRT4.dll")]
-        extern fn RpcSmAllocate(Size: usize, pStatus: *mut RPC_STATUS) -> *mut void;
+        extern fn RpcSmAllocate(#[in] Size: size_t, #[out] pStatus: *mut RPC_STATUS) -> *mut void;
         #[library("RPCRT4.dll")]
         extern fn RpcSmClientFree(#[in] pNodeToFree: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -635,15 +688,15 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn RpcSmFree(#[in] NodeToFree: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSmGetThreadHandle(pStatus: *mut RPC_STATUS) -> RPC_SS_THREAD_HANDLE;
+        extern fn RpcSmGetThreadHandle(#[out] pStatus: *mut RPC_STATUS) -> RPC_SS_THREAD_HANDLE;
         #[library("RPCRT4.dll")]
-        extern fn RpcSmSetClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE) -> RPC_STATUS;
+        extern fn RpcSmSetClientAllocFree(#[in] ClientAlloc: RPC_CLIENT_ALLOC, #[in] ClientFree: RPC_CLIENT_FREE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSmSetThreadHandle(Id: RPC_SS_THREAD_HANDLE) -> RPC_STATUS;
+        extern fn RpcSmSetThreadHandle(#[in] Id: RPC_SS_THREAD_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSmSwapClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE, OldClientAlloc: *mut RPC_CLIENT_ALLOC, OldClientFree: *mut RPC_CLIENT_FREE) -> RPC_STATUS;
+        extern fn RpcSmSwapClientAllocFree(#[in] ClientAlloc: RPC_CLIENT_ALLOC, #[in] ClientFree: RPC_CLIENT_FREE, #[out] OldClientAlloc: *mut RPC_CLIENT_ALLOC, #[out] OldClientFree: *mut RPC_CLIENT_FREE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSsAllocate(Size: usize) -> *mut void;
+        extern fn RpcSsAllocate(#[in] Size: size_t) -> *mut void;
         #[library("RPCRT4.dll")]
         extern fn RpcSsDestroyClientContext(#[in] ContextHandle: *mut *mut void);
         #[library("RPCRT4.dll")]
@@ -655,13 +708,14 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn RpcSsGetThreadHandle() -> RPC_SS_THREAD_HANDLE;
         #[library("RPCRT4.dll")]
-        extern fn RpcSsSetClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE);
+        extern fn RpcSsSetClientAllocFree(#[in] ClientAlloc: RPC_CLIENT_ALLOC, #[in] ClientFree: RPC_CLIENT_FREE);
         #[library("RPCRT4.dll")]
-        extern fn RpcSsSetThreadHandle(Id: RPC_SS_THREAD_HANDLE);
+        extern fn RpcSsSetThreadHandle(#[in] Id: RPC_SS_THREAD_HANDLE);
         #[library("RPCRT4.dll")]
-        extern fn RpcSsSwapClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE, OldClientAlloc: *mut RPC_CLIENT_ALLOC, OldClientFree: *mut RPC_CLIENT_FREE);
+        extern fn RpcSsSwapClientAllocFree(#[in] ClientAlloc: RPC_CLIENT_ALLOC, #[in] ClientFree: RPC_CLIENT_FREE, #[out] OldClientAlloc: *mut RPC_CLIENT_ALLOC, #[out] OldClientFree: *mut RPC_CLIENT_FREE);
         #[library("RPCRT4.dll")]
         extern fn RpcUserFree(AsyncHandle: handle_t, pBuffer: *mut void);
+        #[packed(8)]
         struct SCONTEXT_QUEUE {
             NumberOfObjects: u32,
             ArrayOfObjects: *mut NDR_SCONTEXT,
@@ -688,6 +742,7 @@ mod Windows {
         const TARGET_IS_NT63_OR_LATER: i32 = 1;
         const USER_CALL_IS_ASYNC: i32 = 256;
         const USER_CALL_NEW_CORRELATION_DESC: i32 = 512;
+        #[packed(8)]
         struct USER_MARSHAL_CB {
             Flags: u32,
             pStubMsg: PMIDL_STUB_MESSAGE,
@@ -719,6 +774,7 @@ mod Windows {
         const USER_MARSHAL_FC_WCHAR: i32 = 5;
         extern fn USER_MARSHAL_FREEING_ROUTINE(param0: *mut u32, param1: *mut void);
         extern fn USER_MARSHAL_MARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
+        #[packed(8)]
         struct USER_MARSHAL_ROUTINE_QUADRUPLE {
             pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
             pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
@@ -733,22 +789,26 @@ mod Windows {
             XLAT_CLIENT = 2,
         }
         extern fn XMIT_HELPER_ROUTINE(param0: PMIDL_STUB_MESSAGE);
+        #[packed(8)]
         struct XMIT_ROUTINE_QUINTUPLE {
             pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
             pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
             pfnFreeXmit: XMIT_HELPER_ROUTINE,
             pfnFreeInst: XMIT_HELPER_ROUTINE,
         }
+        struct _NDR_ASYNC_MESSAGE {}
+        struct _NDR_CORRELATION_INFO {}
         struct _NDR_PROC_CONTEXT {}
+        #[packed(8)]
         struct _NDR_SCONTEXT {
             pad: [*mut void; 2],
             userContext: *mut void,
         }
         const __RPCNDR_H_VERSION__: i32 = 501;
+        type boolean = u8;
         type byte = u8;
         const cbNDRContext: i32 = 20;
-        type cs_byte = byte;
-        type error_status_t = u32;
+        type cs_byte = u8;
         #[repr(i32)]
         enum system_handle_t {
             SYSTEM_HANDLE_FILE = 0,

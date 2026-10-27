@@ -1,6 +1,140 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_AERCapabilityPresent: DEVPROPKEY = 17;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_AcsCapabilityRegister: DEVPROPKEY = 32;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_AcsCompatibleUpHierarchy: DEVPROPKEY = 31;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_AcsSupport: DEVPROPKEY = 29;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_AriSupport: DEVPROPKEY = 30;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_AtomicsSupported: DEVPROPKEY = 35;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_AtsSupport: DEVPROPKEY = 33;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_BarTypes: DEVPROPKEY = 16;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_BaseClass: DEVPROPKEY = 3;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_Correctable_Error_Mask: DEVPROPKEY = 21;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_CurrentLinkSpeed: DEVPROPKEY = 9;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_CurrentLinkWidth: DEVPROPKEY = 10;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_CurrentPayloadSize: DEVPROPKEY = 6;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_CurrentSpeedAndMode: DEVPROPKEY = 2;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_D3ColdSupport: DEVPROPKEY = 38;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_DeviceType: DEVPROPKEY = 1;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_ECRC_Errors: DEVPROPKEY = 22;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_Error_Reporting: DEVPROPKEY = 23;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_ExpressSpecVersion: DEVPROPKEY = 13;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_FirmwareErrorHandling: DEVPROPKEY = 18;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_InterruptMessageMaximum: DEVPROPKEY = 15;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_InterruptSupport: DEVPROPKEY = 14;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_IsTunneledDevice: DEVPROPKEY = 47;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_Label_Id: DEVPROPKEY = 27;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_Label_String: DEVPROPKEY = 28;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_MaxLinkSpeed: DEVPROPKEY = 11;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_MaxLinkWidth: DEVPROPKEY = 12;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_MaxPayloadSize: DEVPROPKEY = 7;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_MaxReadRequestSize: DEVPROPKEY = 8;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_OnPostPath: DEVPROPKEY = 37;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_ParentSerialNumber: DEVPROPKEY = 45;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_ProgIf: DEVPROPKEY = 5;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_RequiresReservedMemoryRegion: DEVPROPKEY = 34;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_RootError_Reporting: DEVPROPKEY = 24;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_S0WakeupSupported: DEVPROPKEY = 25;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_SerialNumber: DEVPROPKEY = 40;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_SriovSupport: DEVPROPKEY = 26;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_SubClass: DEVPROPKEY = 4;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_SupportedLinkSubState: DEVPROPKEY = 36;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_SupportsDmwrOnEntireDeviceTree: DEVPROPKEY = 46;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_TeeIOSupported: DEVPROPKEY = 48;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_Uncorrectable_Error_Mask: DEVPROPKEY = 19;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_Uncorrectable_Error_Severity: DEVPROPKEY = 20;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_UsbComponentRelation: DEVPROPKEY = 43;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_UsbDvsecPortSpecificAttributes: DEVPROPKEY = 42;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_UsbDvsecPortType: DEVPROPKEY = 41;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_UsbHostRouterName: DEVPROPKEY = 44;
+        #[guid(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62)]
+        const DEVPKEY_PciDevice_VirtualChannelControlRegisters: DEVPROPKEY = 39;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_ASPMSupport: DEVPROPKEY = 8;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_ClockPowerManagementSupport: DEVPROPKEY = 9;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_CurrentSpeedAndMode: DEVPROPKEY = 2;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_DeviceIDMessagingCapable: DEVPROPKEY = 4;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_ExtendedConfigAvailable: DEVPROPKEY = 6;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_ExtendedPCIConfigOpRegionSupport: DEVPROPKEY = 7;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_MSISupport: DEVPROPKEY = 11;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_NativePciExpressControl: DEVPROPKEY = 17;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_PCIExpressAERControl: DEVPROPKEY = 15;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_PCIExpressCapabilityControl: DEVPROPKEY = 16;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_PCIExpressNativeHotPlugControl: DEVPROPKEY = 12;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_PCIExpressNativePMEControl: DEVPROPKEY = 14;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_PCISegmentGroupsSupport: DEVPROPKEY = 10;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_SHPCNativeHotPlugControl: DEVPROPKEY = 13;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_SecondaryBusWidth: DEVPROPKEY = 5;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_SecondaryInterface: DEVPROPKEY = 1;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_Segment: DEVPROPKEY = 19;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_SupportedSpeedsAndModes: DEVPROPKEY = 3;
+        #[guid(0xd817fc28_793e_4b9e_9970_469d8be63073)]
+        const DEVPKEY_PciRootBus_SystemMsiSupport: DEVPROPKEY = 18;
         const DevProp_PciDevice_AcsCompatibleUpHierarchy_Enhanced: i32 = 4;
         const DevProp_PciDevice_AcsCompatibleUpHierarchy_NoP2PSupported: i32 = 2;
         const DevProp_PciDevice_AcsCompatibleUpHierarchy_NotSupported: i32 = 0;

@@ -3,10 +3,10 @@ mod Windows {
     mod Win32 {
         const COLORMGMTDLGORD: i32 = 1551;
         struct CRGB {
-            bRed: u8,
-            bGreen: u8,
-            bBlue: u8,
-            bExtra: u8,
+            bRed: BYTE,
+            bGreen: BYTE,
+            bBlue: BYTE,
+            bExtra: BYTE,
         }
         const FILEOPENORD: i32 = 1536;
         const FINDDLGORD: i32 = 1540;

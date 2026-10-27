@@ -8,124 +8,124 @@ mod Windows {
         const GXFPF_ROUND_NEAREST: i32 = 1;
         #[guid(0x0feb7e34_5a60_4356_8ef7_abdec2ff7cf8)]
         interface IAnchor: IUnknown {
-            fn SetGravity(&self, gravity: TsGravity) -> HRESULT;
-            fn GetGravity(&self, pgravity: *mut TsGravity) -> HRESULT;
-            fn IsEqual(&self, paWith: IAnchor, pfEqual: *mut BOOL) -> HRESULT;
-            fn Compare(&self, paWith: IAnchor, plResult: *mut i32) -> HRESULT;
-            fn Shift(&self, dwFlags: u32, cchReq: i32, pcch: *mut i32, paHaltAnchor: IAnchor) -> HRESULT;
-            fn ShiftTo(&self, paSite: IAnchor) -> HRESULT;
-            fn ShiftRegion(&self, dwFlags: u32, dir: TsShiftDir, pfNoRegion: *mut BOOL) -> HRESULT;
-            fn SetChangeHistoryMask(&self, dwMask: u32) -> HRESULT;
-            fn GetChangeHistory(&self, pdwHistory: *mut u32) -> HRESULT;
+            fn SetGravity(&self, #[in] gravity: TsGravity) -> HRESULT;
+            fn GetGravity(&self, #[out] pgravity: *mut TsGravity) -> HRESULT;
+            fn IsEqual(&self, #[in] #[opt] paWith: IAnchor, #[out] pfEqual: *mut BOOL) -> HRESULT;
+            fn Compare(&self, #[in] #[opt] paWith: IAnchor, #[out] plResult: *mut LONG) -> HRESULT;
+            fn Shift(&self, #[in] dwFlags: DWORD, #[in] cchReq: LONG, #[out] pcch: *mut LONG, #[in] #[opt] paHaltAnchor: IAnchor) -> HRESULT;
+            fn ShiftTo(&self, #[in] #[opt] paSite: IAnchor) -> HRESULT;
+            fn ShiftRegion(&self, #[in] dwFlags: DWORD, #[in] dir: TsShiftDir, #[out] pfNoRegion: *mut BOOL) -> HRESULT;
+            fn SetChangeHistoryMask(&self, #[in] dwMask: DWORD) -> HRESULT;
+            fn GetChangeHistory(&self, #[out] pdwHistory: *mut DWORD) -> HRESULT;
             fn ClearChangeHistory(&self) -> HRESULT;
-            fn Clone(&self, ppaClone: *mut IAnchor) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] ppaClone: *mut IAnchor) -> HRESULT;
         }
         #[guid(0x28888fe3_c2a0_483a_a3ea_8cb1ce51ff3d)]
         interface ITextStoreACP: IUnknown {
-            fn AdviseSink(&self, riid: *const GUID, punk: IUnknown, dwMask: u32) -> HRESULT;
-            fn UnadviseSink(&self, punk: IUnknown) -> HRESULT;
-            fn RequestLock(&self, dwLockFlags: u32, phrSession: *mut HRESULT) -> HRESULT;
-            fn GetStatus(&self, pdcs: *mut TS_STATUS) -> HRESULT;
-            fn QueryInsert(&self, acpTestStart: i32, acpTestEnd: i32, cch: u32, pacpResultStart: *mut i32, pacpResultEnd: *mut i32) -> HRESULT;
-            fn GetSelection(&self, ulIndex: u32, ulCount: u32, pSelection: *mut TS_SELECTION_ACP, pcFetched: *mut u32) -> HRESULT;
-            fn SetSelection(&self, ulCount: u32, pSelection: *const TS_SELECTION_ACP) -> HRESULT;
-            fn GetText(&self, acpStart: i32, acpEnd: i32, pchPlain: *mut u16, cchPlainReq: u32, pcchPlainRet: *mut u32, prgRunInfo: *mut TS_RUNINFO, cRunInfoReq: u32, pcRunInfoRet: *mut u32, pacpNext: *mut i32) -> HRESULT;
-            fn SetText(&self, dwFlags: u32, acpStart: i32, acpEnd: i32, pchText: *const u16, cch: u32, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn GetFormattedText(&self, acpStart: i32, acpEnd: i32, ppDataObject: *mut IDataObject) -> HRESULT;
-            fn GetEmbedded(&self, acpPos: i32, rguidService: *const GUID, riid: *const GUID, #[iid_is] ppunk: *mut *mut void) -> HRESULT;
-            fn QueryInsertEmbedded(&self, pguidService: *const GUID, pFormatEtc: *const FORMATETC, pfInsertable: *mut BOOL) -> HRESULT;
-            fn InsertEmbedded(&self, dwFlags: u32, acpStart: i32, acpEnd: i32, pDataObject: IDataObject, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn InsertTextAtSelection(&self, dwFlags: u32, pchText: *const u16, cch: u32, pacpStart: *mut i32, pacpEnd: *mut i32, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn InsertEmbeddedAtSelection(&self, dwFlags: u32, pDataObject: IDataObject, pacpStart: *mut i32, pacpEnd: *mut i32, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn RequestSupportedAttrs(&self, dwFlags: u32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID) -> HRESULT;
-            fn RequestAttrsAtPosition(&self, acpPos: i32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32) -> HRESULT;
-            fn RequestAttrsTransitioningAtPosition(&self, acpPos: i32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32) -> HRESULT;
-            fn FindNextAttrTransition(&self, acpStart: i32, acpHalt: i32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32, pacpNext: *mut i32, pfFound: *mut BOOL, plFoundOffset: *mut i32) -> HRESULT;
-            fn RetrieveRequestedAttrs(&self, ulCount: u32, paAttrVals: *mut TS_ATTRVAL, pcFetched: *mut u32) -> HRESULT;
-            fn GetEndACP(&self, pacp: *mut i32) -> HRESULT;
-            fn GetActiveView(&self, pvcView: *mut TsViewCookie) -> HRESULT;
-            fn GetACPFromPoint(&self, vcView: TsViewCookie, ptScreen: *const POINT, dwFlags: u32, pacp: *mut i32) -> HRESULT;
-            fn GetTextExt(&self, vcView: TsViewCookie, acpStart: i32, acpEnd: i32, prc: *mut RECT, pfClipped: *mut BOOL) -> HRESULT;
-            fn GetScreenExt(&self, vcView: TsViewCookie, prc: *mut RECT) -> HRESULT;
-            fn GetWnd(&self, vcView: TsViewCookie, phwnd: *mut HWND) -> HRESULT;
+            fn AdviseSink(&self, #[in] riid: &IID, #[in] #[opt] punk: IUnknown, #[in] dwMask: DWORD) -> HRESULT;
+            fn UnadviseSink(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
+            fn RequestLock(&self, #[in] dwLockFlags: DWORD, #[out] phrSession: *mut HRESULT) -> HRESULT;
+            fn GetStatus(&self, #[out] pdcs: *mut TS_STATUS) -> HRESULT;
+            fn QueryInsert(&self, #[in] acpTestStart: LONG, #[in] acpTestEnd: LONG, #[in] cch: ULONG, #[out] pacpResultStart: *mut LONG, #[out] pacpResultEnd: *mut LONG) -> HRESULT;
+            fn GetSelection(&self, #[in] ulIndex: ULONG, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pSelection: *mut TS_SELECTION_ACP, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn SetSelection(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] pSelection: *const TS_SELECTION_ACP) -> HRESULT;
+            fn GetText(&self, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[out] #[readable(success, *pcchPlainRet)] #[writable(entry, cchPlainReq)] #[writable(success, cchPlainReq)] pchPlain: *mut WCHAR, #[in] cchPlainReq: ULONG, #[out] pcchPlainRet: *mut ULONG, #[out] #[readable(success, *pcRunInfoRet)] #[writable(entry, cRunInfoReq)] #[writable(success, cRunInfoReq)] prgRunInfo: *mut TS_RUNINFO, #[in] cRunInfoReq: ULONG, #[out] pcRunInfoRet: *mut ULONG, #[out] pacpNext: *mut LONG) -> HRESULT;
+            fn SetText(&self, #[in] dwFlags: DWORD, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[in] #[readable(entry, cch)] pchText: *const WCHAR, #[in] cch: ULONG, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn GetFormattedText(&self, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[out] #[out_ptr] ppDataObject: *mut IDataObject) -> HRESULT;
+            fn GetEmbedded(&self, #[in] acpPos: LONG, #[in] rguidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn QueryInsertEmbedded(&self, #[in] pguidService: *const GUID, #[in] pFormatEtc: *const FORMATETC, #[out] pfInsertable: *mut BOOL) -> HRESULT;
+            fn InsertEmbedded(&self, #[in] dwFlags: DWORD, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[in] #[opt] pDataObject: IDataObject, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn InsertTextAtSelection(&self, #[in] dwFlags: DWORD, #[in] #[readable(entry, cch)] pchText: *const WCHAR, #[in] cch: ULONG, #[out] pacpStart: *mut LONG, #[out] pacpEnd: *mut LONG, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn InsertEmbeddedAtSelection(&self, #[in] dwFlags: DWORD, #[in] #[opt] pDataObject: IDataObject, #[out] pacpStart: *mut LONG, #[out] pacpEnd: *mut LONG, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn RequestSupportedAttrs(&self, #[in] dwFlags: DWORD, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID) -> HRESULT;
+            fn RequestAttrsAtPosition(&self, #[in] acpPos: LONG, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD) -> HRESULT;
+            fn RequestAttrsTransitioningAtPosition(&self, #[in] acpPos: LONG, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD) -> HRESULT;
+            fn FindNextAttrTransition(&self, #[in] acpStart: LONG, #[in] acpHalt: LONG, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD, #[out] pacpNext: *mut LONG, #[out] pfFound: *mut BOOL, #[out] plFoundOffset: *mut LONG) -> HRESULT;
+            fn RetrieveRequestedAttrs(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] paAttrVals: *mut TS_ATTRVAL, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn GetEndACP(&self, #[out] pacp: *mut LONG) -> HRESULT;
+            fn GetActiveView(&self, #[out] pvcView: *mut TsViewCookie) -> HRESULT;
+            fn GetACPFromPoint(&self, #[in] vcView: TsViewCookie, #[in] ptScreen: *const POINT, #[in] dwFlags: DWORD, #[out] pacp: *mut LONG) -> HRESULT;
+            fn GetTextExt(&self, #[in] vcView: TsViewCookie, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[out] prc: *mut RECT, #[out] pfClipped: *mut BOOL) -> HRESULT;
+            fn GetScreenExt(&self, #[in] vcView: TsViewCookie, #[out] prc: *mut RECT) -> HRESULT;
+            fn GetWnd(&self, #[in] vcView: TsViewCookie, #[out] #[out_ptr] phwnd: *mut HWND) -> HRESULT;
         }
         #[guid(0xf86ad89f_5fe4_4b8d_bb9f_ef3797a84f1f)]
         interface ITextStoreACP2: IUnknown {
-            fn AdviseSink(&self, riid: *const GUID, punk: IUnknown, dwMask: u32) -> HRESULT;
-            fn UnadviseSink(&self, punk: IUnknown) -> HRESULT;
-            fn RequestLock(&self, dwLockFlags: u32, phrSession: *mut HRESULT) -> HRESULT;
-            fn GetStatus(&self, pdcs: *mut TS_STATUS) -> HRESULT;
-            fn QueryInsert(&self, acpTestStart: i32, acpTestEnd: i32, cch: u32, pacpResultStart: *mut i32, pacpResultEnd: *mut i32) -> HRESULT;
-            fn GetSelection(&self, ulIndex: u32, ulCount: u32, pSelection: *mut TS_SELECTION_ACP, pcFetched: *mut u32) -> HRESULT;
-            fn SetSelection(&self, ulCount: u32, pSelection: *const TS_SELECTION_ACP) -> HRESULT;
-            fn GetText(&self, acpStart: i32, acpEnd: i32, pchPlain: *mut u16, cchPlainReq: u32, pcchPlainRet: *mut u32, prgRunInfo: *mut TS_RUNINFO, cRunInfoReq: u32, pcRunInfoRet: *mut u32, pacpNext: *mut i32) -> HRESULT;
-            fn SetText(&self, dwFlags: u32, acpStart: i32, acpEnd: i32, pchText: *const u16, cch: u32, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn GetFormattedText(&self, acpStart: i32, acpEnd: i32, ppDataObject: *mut IDataObject) -> HRESULT;
-            fn GetEmbedded(&self, acpPos: i32, rguidService: *const GUID, riid: *const GUID, #[iid_is] ppunk: *mut *mut void) -> HRESULT;
-            fn QueryInsertEmbedded(&self, pguidService: *const GUID, pFormatEtc: *const FORMATETC, pfInsertable: *mut BOOL) -> HRESULT;
-            fn InsertEmbedded(&self, dwFlags: u32, acpStart: i32, acpEnd: i32, pDataObject: IDataObject, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn InsertTextAtSelection(&self, dwFlags: u32, pchText: *const u16, cch: u32, pacpStart: *mut i32, pacpEnd: *mut i32, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn InsertEmbeddedAtSelection(&self, dwFlags: u32, pDataObject: IDataObject, pacpStart: *mut i32, pacpEnd: *mut i32, pChange: *mut TS_TEXTCHANGE) -> HRESULT;
-            fn RequestSupportedAttrs(&self, dwFlags: u32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID) -> HRESULT;
-            fn RequestAttrsAtPosition(&self, acpPos: i32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32) -> HRESULT;
-            fn RequestAttrsTransitioningAtPosition(&self, acpPos: i32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32) -> HRESULT;
-            fn FindNextAttrTransition(&self, acpStart: i32, acpHalt: i32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32, pacpNext: *mut i32, pfFound: *mut BOOL, plFoundOffset: *mut i32) -> HRESULT;
-            fn RetrieveRequestedAttrs(&self, ulCount: u32, paAttrVals: *mut TS_ATTRVAL, pcFetched: *mut u32) -> HRESULT;
-            fn GetEndACP(&self, pacp: *mut i32) -> HRESULT;
-            fn GetActiveView(&self, pvcView: *mut TsViewCookie) -> HRESULT;
-            fn GetACPFromPoint(&self, vcView: TsViewCookie, ptScreen: *const POINT, dwFlags: u32, pacp: *mut i32) -> HRESULT;
-            fn GetTextExt(&self, vcView: TsViewCookie, acpStart: i32, acpEnd: i32, prc: *mut RECT, pfClipped: *mut BOOL) -> HRESULT;
-            fn GetScreenExt(&self, vcView: TsViewCookie, prc: *mut RECT) -> HRESULT;
+            fn AdviseSink(&self, #[in] riid: &IID, #[in] #[opt] punk: IUnknown, #[in] dwMask: DWORD) -> HRESULT;
+            fn UnadviseSink(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
+            fn RequestLock(&self, #[in] dwLockFlags: DWORD, #[out] phrSession: *mut HRESULT) -> HRESULT;
+            fn GetStatus(&self, #[out] pdcs: *mut TS_STATUS) -> HRESULT;
+            fn QueryInsert(&self, #[in] acpTestStart: LONG, #[in] acpTestEnd: LONG, #[in] cch: ULONG, #[out] pacpResultStart: *mut LONG, #[out] pacpResultEnd: *mut LONG) -> HRESULT;
+            fn GetSelection(&self, #[in] ulIndex: ULONG, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pSelection: *mut TS_SELECTION_ACP, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn SetSelection(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] pSelection: *const TS_SELECTION_ACP) -> HRESULT;
+            fn GetText(&self, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[out] #[readable(success, *pcchPlainRet)] #[writable(entry, cchPlainReq)] #[writable(success, cchPlainReq)] pchPlain: *mut WCHAR, #[in] cchPlainReq: ULONG, #[out] pcchPlainRet: *mut ULONG, #[out] #[readable(success, *pcRunInfoRet)] #[writable(entry, cRunInfoReq)] #[writable(success, cRunInfoReq)] prgRunInfo: *mut TS_RUNINFO, #[in] cRunInfoReq: ULONG, #[out] pcRunInfoRet: *mut ULONG, #[out] pacpNext: *mut LONG) -> HRESULT;
+            fn SetText(&self, #[in] dwFlags: DWORD, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[in] #[readable(entry, cch)] pchText: *const WCHAR, #[in] cch: ULONG, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn GetFormattedText(&self, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[out] #[out_ptr] ppDataObject: *mut IDataObject) -> HRESULT;
+            fn GetEmbedded(&self, #[in] acpPos: LONG, #[in] rguidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn QueryInsertEmbedded(&self, #[in] pguidService: *const GUID, #[in] pFormatEtc: *const FORMATETC, #[out] pfInsertable: *mut BOOL) -> HRESULT;
+            fn InsertEmbedded(&self, #[in] dwFlags: DWORD, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[in] #[opt] pDataObject: IDataObject, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn InsertTextAtSelection(&self, #[in] dwFlags: DWORD, #[in] #[readable(entry, cch)] pchText: *const WCHAR, #[in] cch: ULONG, #[out] pacpStart: *mut LONG, #[out] pacpEnd: *mut LONG, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn InsertEmbeddedAtSelection(&self, #[in] dwFlags: DWORD, #[in] #[opt] pDataObject: IDataObject, #[out] pacpStart: *mut LONG, #[out] pacpEnd: *mut LONG, #[out] pChange: *mut TS_TEXTCHANGE) -> HRESULT;
+            fn RequestSupportedAttrs(&self, #[in] dwFlags: DWORD, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID) -> HRESULT;
+            fn RequestAttrsAtPosition(&self, #[in] acpPos: LONG, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD) -> HRESULT;
+            fn RequestAttrsTransitioningAtPosition(&self, #[in] acpPos: LONG, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD) -> HRESULT;
+            fn FindNextAttrTransition(&self, #[in] acpStart: LONG, #[in] acpHalt: LONG, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD, #[out] pacpNext: *mut LONG, #[out] pfFound: *mut BOOL, #[out] plFoundOffset: *mut LONG) -> HRESULT;
+            fn RetrieveRequestedAttrs(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] paAttrVals: *mut TS_ATTRVAL, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn GetEndACP(&self, #[out] pacp: *mut LONG) -> HRESULT;
+            fn GetActiveView(&self, #[out] pvcView: *mut TsViewCookie) -> HRESULT;
+            fn GetACPFromPoint(&self, #[in] vcView: TsViewCookie, #[in] ptScreen: *const POINT, #[in] dwFlags: DWORD, #[out] pacp: *mut LONG) -> HRESULT;
+            fn GetTextExt(&self, #[in] vcView: TsViewCookie, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[out] prc: *mut RECT, #[out] pfClipped: *mut BOOL) -> HRESULT;
+            fn GetScreenExt(&self, #[in] vcView: TsViewCookie, #[out] prc: *mut RECT) -> HRESULT;
         }
         #[guid(0x22d44c94_a419_4542_a272_ae26093ececf)]
         interface ITextStoreACPSink: IUnknown {
-            fn OnTextChange(&self, dwFlags: u32, pChange: *const TS_TEXTCHANGE) -> HRESULT;
+            fn OnTextChange(&self, #[in] dwFlags: DWORD, #[in] pChange: *const TS_TEXTCHANGE) -> HRESULT;
             fn OnSelectionChange(&self) -> HRESULT;
-            fn OnLayoutChange(&self, lcode: TsLayoutCode, vcView: TsViewCookie) -> HRESULT;
-            fn OnStatusChange(&self, dwFlags: u32) -> HRESULT;
-            fn OnAttrsChange(&self, acpStart: i32, acpEnd: i32, cAttrs: u32, paAttrs: *const TS_ATTRID) -> HRESULT;
-            fn OnLockGranted(&self, dwLockFlags: u32) -> HRESULT;
+            fn OnLayoutChange(&self, #[in] lcode: TsLayoutCode, #[in] vcView: TsViewCookie) -> HRESULT;
+            fn OnStatusChange(&self, #[in] dwFlags: DWORD) -> HRESULT;
+            fn OnAttrsChange(&self, #[in] acpStart: LONG, #[in] acpEnd: LONG, #[in] cAttrs: ULONG, #[in] #[readable(entry, cAttrs)] paAttrs: *const TS_ATTRID) -> HRESULT;
+            fn OnLockGranted(&self, #[in] dwLockFlags: DWORD) -> HRESULT;
             fn OnStartEditTransaction(&self) -> HRESULT;
             fn OnEndEditTransaction(&self) -> HRESULT;
         }
         #[guid(0x9b2077b0_5f18_4dec_bee9_3cc722f5dfe0)]
         interface ITextStoreAnchor: IUnknown {
-            fn AdviseSink(&self, riid: *const GUID, punk: IUnknown, dwMask: u32) -> HRESULT;
-            fn UnadviseSink(&self, punk: IUnknown) -> HRESULT;
-            fn RequestLock(&self, dwLockFlags: u32, phrSession: *mut HRESULT) -> HRESULT;
-            fn GetStatus(&self, pdcs: *mut TS_STATUS) -> HRESULT;
-            fn QueryInsert(&self, paTestStart: IAnchor, paTestEnd: IAnchor, cch: u32, ppaResultStart: *mut IAnchor, ppaResultEnd: *mut IAnchor) -> HRESULT;
-            fn GetSelection(&self, ulIndex: u32, ulCount: u32, pSelection: *mut TS_SELECTION_ANCHOR, pcFetched: *mut u32) -> HRESULT;
-            fn SetSelection(&self, ulCount: u32, pSelection: *const TS_SELECTION_ANCHOR) -> HRESULT;
-            fn GetText(&self, dwFlags: u32, paStart: IAnchor, paEnd: IAnchor, pchText: *mut u16, cchReq: u32, pcch: *mut u32, fUpdateAnchor: BOOL) -> HRESULT;
-            fn SetText(&self, dwFlags: u32, paStart: IAnchor, paEnd: IAnchor, pchText: *const u16, cch: u32) -> HRESULT;
-            fn GetFormattedText(&self, paStart: IAnchor, paEnd: IAnchor, ppDataObject: *mut IDataObject) -> HRESULT;
-            fn GetEmbedded(&self, dwFlags: u32, paPos: IAnchor, rguidService: *const GUID, riid: *const GUID, #[iid_is] ppunk: *mut *mut void) -> HRESULT;
-            fn InsertEmbedded(&self, dwFlags: u32, paStart: IAnchor, paEnd: IAnchor, pDataObject: IDataObject) -> HRESULT;
-            fn RequestSupportedAttrs(&self, dwFlags: u32, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID) -> HRESULT;
-            fn RequestAttrsAtPosition(&self, paPos: IAnchor, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32) -> HRESULT;
-            fn RequestAttrsTransitioningAtPosition(&self, paPos: IAnchor, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32) -> HRESULT;
-            fn FindNextAttrTransition(&self, paStart: IAnchor, paHalt: IAnchor, cFilterAttrs: u32, paFilterAttrs: *const TS_ATTRID, dwFlags: u32, pfFound: *mut BOOL, plFoundOffset: *mut i32) -> HRESULT;
-            fn RetrieveRequestedAttrs(&self, ulCount: u32, paAttrVals: *mut TS_ATTRVAL, pcFetched: *mut u32) -> HRESULT;
-            fn GetStart(&self, ppaStart: *mut IAnchor) -> HRESULT;
-            fn GetEnd(&self, ppaEnd: *mut IAnchor) -> HRESULT;
-            fn GetActiveView(&self, pvcView: *mut TsViewCookie) -> HRESULT;
-            fn GetAnchorFromPoint(&self, vcView: TsViewCookie, ptScreen: *const POINT, dwFlags: u32, ppaSite: *mut IAnchor) -> HRESULT;
-            fn GetTextExt(&self, vcView: TsViewCookie, paStart: IAnchor, paEnd: IAnchor, prc: *mut RECT, pfClipped: *mut BOOL) -> HRESULT;
-            fn GetScreenExt(&self, vcView: TsViewCookie, prc: *mut RECT) -> HRESULT;
-            fn GetWnd(&self, vcView: TsViewCookie, phwnd: *mut HWND) -> HRESULT;
-            fn QueryInsertEmbedded(&self, pguidService: *const GUID, pFormatEtc: *const FORMATETC, pfInsertable: *mut BOOL) -> HRESULT;
-            fn InsertTextAtSelection(&self, dwFlags: u32, pchText: *const u16, cch: u32, ppaStart: *mut IAnchor, ppaEnd: *mut IAnchor) -> HRESULT;
-            fn InsertEmbeddedAtSelection(&self, dwFlags: u32, pDataObject: IDataObject, ppaStart: *mut IAnchor, ppaEnd: *mut IAnchor) -> HRESULT;
+            fn AdviseSink(&self, #[in] riid: &IID, #[in] #[opt] punk: IUnknown, #[in] dwMask: DWORD) -> HRESULT;
+            fn UnadviseSink(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
+            fn RequestLock(&self, #[in] dwLockFlags: DWORD, #[out] phrSession: *mut HRESULT) -> HRESULT;
+            fn GetStatus(&self, #[out] pdcs: *mut TS_STATUS) -> HRESULT;
+            fn QueryInsert(&self, #[in] #[opt] paTestStart: IAnchor, #[in] #[opt] paTestEnd: IAnchor, #[in] cch: ULONG, #[out] #[out_ptr] ppaResultStart: *mut IAnchor, #[out] #[out_ptr] ppaResultEnd: *mut IAnchor) -> HRESULT;
+            fn GetSelection(&self, #[in] ulIndex: ULONG, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pSelection: *mut TS_SELECTION_ANCHOR, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn SetSelection(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] pSelection: *const TS_SELECTION_ANCHOR) -> HRESULT;
+            fn GetText(&self, #[in] dwFlags: DWORD, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paEnd: IAnchor, #[out] #[readable(success, *pcch)] #[writable(entry, cchReq)] #[writable(success, cchReq)] pchText: *mut WCHAR, #[in] cchReq: ULONG, #[out] pcch: *mut ULONG, #[in] fUpdateAnchor: BOOL) -> HRESULT;
+            fn SetText(&self, #[in] dwFlags: DWORD, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paEnd: IAnchor, #[in] #[readable(entry, cch)] pchText: *const WCHAR, #[in] cch: ULONG) -> HRESULT;
+            fn GetFormattedText(&self, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paEnd: IAnchor, #[out] #[out_ptr] ppDataObject: *mut IDataObject) -> HRESULT;
+            fn GetEmbedded(&self, #[in] dwFlags: DWORD, #[in] #[opt] paPos: IAnchor, #[in] rguidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn InsertEmbedded(&self, #[in] dwFlags: DWORD, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paEnd: IAnchor, #[in] #[opt] pDataObject: IDataObject) -> HRESULT;
+            fn RequestSupportedAttrs(&self, #[in] dwFlags: DWORD, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID) -> HRESULT;
+            fn RequestAttrsAtPosition(&self, #[in] #[opt] paPos: IAnchor, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD) -> HRESULT;
+            fn RequestAttrsTransitioningAtPosition(&self, #[in] #[opt] paPos: IAnchor, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD) -> HRESULT;
+            fn FindNextAttrTransition(&self, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paHalt: IAnchor, #[in] cFilterAttrs: ULONG, #[in] #[opt] #[readable(entry, cFilterAttrs)] paFilterAttrs: *const TS_ATTRID, #[in] dwFlags: DWORD, #[out] pfFound: *mut BOOL, #[out] plFoundOffset: *mut LONG) -> HRESULT;
+            fn RetrieveRequestedAttrs(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] paAttrVals: *mut TS_ATTRVAL, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn GetStart(&self, #[out] #[out_ptr] ppaStart: *mut IAnchor) -> HRESULT;
+            fn GetEnd(&self, #[out] #[out_ptr] ppaEnd: *mut IAnchor) -> HRESULT;
+            fn GetActiveView(&self, #[out] pvcView: *mut TsViewCookie) -> HRESULT;
+            fn GetAnchorFromPoint(&self, #[in] vcView: TsViewCookie, #[in] ptScreen: *const POINT, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppaSite: *mut IAnchor) -> HRESULT;
+            fn GetTextExt(&self, #[in] vcView: TsViewCookie, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paEnd: IAnchor, #[out] prc: *mut RECT, #[out] pfClipped: *mut BOOL) -> HRESULT;
+            fn GetScreenExt(&self, #[in] vcView: TsViewCookie, #[out] prc: *mut RECT) -> HRESULT;
+            fn GetWnd(&self, #[in] vcView: TsViewCookie, #[out] #[out_ptr] phwnd: *mut HWND) -> HRESULT;
+            fn QueryInsertEmbedded(&self, #[in] pguidService: *const GUID, #[in] pFormatEtc: *const FORMATETC, #[out] pfInsertable: *mut BOOL) -> HRESULT;
+            fn InsertTextAtSelection(&self, #[in] dwFlags: DWORD, #[in] #[readable(entry, cch)] pchText: *const WCHAR, #[in] cch: ULONG, #[out] #[out_ptr] ppaStart: *mut IAnchor, #[out] #[out_ptr] ppaEnd: *mut IAnchor) -> HRESULT;
+            fn InsertEmbeddedAtSelection(&self, #[in] dwFlags: DWORD, #[in] #[opt] pDataObject: IDataObject, #[out] #[out_ptr] ppaStart: *mut IAnchor, #[out] #[out_ptr] ppaEnd: *mut IAnchor) -> HRESULT;
         }
         #[guid(0xaa80e905_2021_11d2_93e0_0060b067b86e)]
         interface ITextStoreAnchorSink: IUnknown {
-            fn OnTextChange(&self, dwFlags: u32, paStart: IAnchor, paEnd: IAnchor) -> HRESULT;
+            fn OnTextChange(&self, #[in] dwFlags: DWORD, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paEnd: IAnchor) -> HRESULT;
             fn OnSelectionChange(&self) -> HRESULT;
-            fn OnLayoutChange(&self, lcode: TsLayoutCode, vcView: TsViewCookie) -> HRESULT;
-            fn OnStatusChange(&self, dwFlags: u32) -> HRESULT;
-            fn OnAttrsChange(&self, paStart: IAnchor, paEnd: IAnchor, cAttrs: u32, paAttrs: *const TS_ATTRID) -> HRESULT;
-            fn OnLockGranted(&self, dwLockFlags: u32) -> HRESULT;
+            fn OnLayoutChange(&self, #[in] lcode: TsLayoutCode, #[in] vcView: TsViewCookie) -> HRESULT;
+            fn OnStatusChange(&self, #[in] dwFlags: DWORD) -> HRESULT;
+            fn OnAttrsChange(&self, #[in] #[opt] paStart: IAnchor, #[in] #[opt] paEnd: IAnchor, #[in] cAttrs: ULONG, #[in] #[readable(entry, cAttrs)] paAttrs: *const TS_ATTRID) -> HRESULT;
+            fn OnLockGranted(&self, #[in] dwLockFlags: DWORD) -> HRESULT;
             fn OnStartEditTransaction(&self) -> HRESULT;
             fn OnEndEditTransaction(&self) -> HRESULT;
         }
@@ -138,7 +138,7 @@ mod Windows {
         type TS_ATTRID = GUID;
         struct TS_ATTRVAL {
             idAttr: TS_ATTRID,
-            dwOverlapId: u32,
+            dwOverlapId: DWORD,
             varValue: VARIANT,
         }
         const TS_ATTR_FIND_BACKWARDS: i32 = 1;
@@ -152,7 +152,7 @@ mod Windows {
         const TS_CHAR_REPLACEMENT: i32 = 65533;
         const TS_CH_FOLLOWING_DEL: i32 = 2;
         const TS_CH_PRECEDING_DEL: i32 = 1;
-        const TS_DEFAULT_SELECTION: u32 = 4294967295;
+        const TS_DEFAULT_SELECTION: ULONG = 4294967295;
         const TS_E_FORMAT: HRESULT = -2147220982;
         const TS_E_INVALIDPOINT: HRESULT = -2147220985;
         const TS_E_INVALIDPOS: HRESULT = -2147220992;
@@ -174,7 +174,7 @@ mod Windows {
         const TS_LF_READWRITE: i32 = 6;
         const TS_LF_SYNC: i32 = 1;
         struct TS_RUNINFO {
-            uCount: u32,
+            uCount: ULONG,
             r#type: TsRunType,
         }
         const TS_SD_DISABLEWRITINGSUGGESTIONS: i32 = 512;
@@ -193,8 +193,8 @@ mod Windows {
             fInterimChar: BOOL,
         }
         struct TS_SELECTION_ACP {
-            acpStart: i32,
-            acpEnd: i32,
+            acpStart: LONG,
+            acpEnd: LONG,
             style: TS_SELECTIONSTYLE,
         }
         struct TS_SELECTION_ANCHOR {
@@ -215,16 +215,16 @@ mod Windows {
         const TS_SS_TRANSITORY: i32 = 4;
         const TS_SS_UWPCONTROL: i32 = 64;
         struct TS_STATUS {
-            dwDynamicFlags: u32,
-            dwStaticFlags: u32,
+            dwDynamicFlags: DWORD,
+            dwStaticFlags: DWORD,
         }
         const TS_ST_CORRECTION: i32 = 1;
         const TS_S_ASYNC: HRESULT = 262912;
         const TS_TC_CORRECTION: i32 = 1;
         struct TS_TEXTCHANGE {
-            acpStart: i32,
-            acpOldEnd: i32,
-            acpNewEnd: i32,
+            acpStart: LONG,
+            acpOldEnd: LONG,
+            acpNewEnd: LONG,
         }
         const TS_VCOOKIE_NUL: u32 = 4294967295;
         #[repr(i32)]

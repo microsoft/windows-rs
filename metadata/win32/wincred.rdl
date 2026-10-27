@@ -3,79 +3,80 @@ mod Windows {
     mod Win32 {
         const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
         struct BINARY_BLOB_CREDENTIAL_INFO {
-            cbBlob: u32,
+            cbBlob: ULONG,
             pbBlob: LPBYTE,
         }
         struct CERT_CREDENTIAL_INFO {
-            cbSize: u32,
-            rgbHashOfCert: [u8; 20],
+            cbSize: ULONG,
+            rgbHashOfCert: [UCHAR; 20],
         }
         const CERT_HASH_LENGTH: i32 = 20;
         type CREDENTIAL = CREDENTIALA;
         struct CREDENTIALA {
-            Flags: u32,
-            Type: u32,
-            TargetName: PSTR,
-            Comment: PSTR,
+            Flags: DWORD,
+            Type: DWORD,
+            TargetName: LPSTR,
+            Comment: LPSTR,
             LastWritten: FILETIME,
-            CredentialBlobSize: u32,
+            CredentialBlobSize: DWORD,
+            #[writable(bytes(CredentialBlobSize))]
             CredentialBlob: LPBYTE,
-            Persist: u32,
-            AttributeCount: u32,
+            Persist: DWORD,
+            AttributeCount: DWORD,
             Attributes: PCREDENTIAL_ATTRIBUTEA,
-            TargetAlias: PSTR,
-            UserName: PSTR,
+            TargetAlias: LPSTR,
+            UserName: LPSTR,
         }
         struct CREDENTIALW {
-            Flags: u32,
-            Type: u32,
-            TargetName: PWSTR,
-            Comment: PWSTR,
+            Flags: DWORD,
+            Type: DWORD,
+            TargetName: LPWSTR,
+            Comment: LPWSTR,
             LastWritten: FILETIME,
-            CredentialBlobSize: u32,
+            CredentialBlobSize: DWORD,
             CredentialBlob: LPBYTE,
-            Persist: u32,
-            AttributeCount: u32,
+            Persist: DWORD,
+            AttributeCount: DWORD,
             Attributes: PCREDENTIAL_ATTRIBUTEW,
-            TargetAlias: PWSTR,
-            UserName: PWSTR,
+            TargetAlias: LPWSTR,
+            UserName: LPWSTR,
         }
         type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
         struct CREDENTIAL_ATTRIBUTEA {
-            Keyword: PSTR,
-            Flags: u32,
-            ValueSize: u32,
+            Keyword: LPSTR,
+            Flags: DWORD,
+            ValueSize: DWORD,
             Value: LPBYTE,
         }
         struct CREDENTIAL_ATTRIBUTEW {
-            Keyword: PWSTR,
-            Flags: u32,
-            ValueSize: u32,
+            Keyword: LPWSTR,
+            Flags: DWORD,
+            ValueSize: DWORD,
             Value: LPBYTE,
         }
         type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
         struct CREDENTIAL_TARGET_INFORMATIONA {
-            TargetName: PSTR,
-            NetbiosServerName: PSTR,
-            DnsServerName: PSTR,
-            NetbiosDomainName: PSTR,
-            DnsDomainName: PSTR,
-            DnsTreeName: PSTR,
-            PackageName: PSTR,
-            Flags: u32,
-            CredTypeCount: u32,
+            TargetName: LPSTR,
+            NetbiosServerName: LPSTR,
+            DnsServerName: LPSTR,
+            NetbiosDomainName: LPSTR,
+            DnsDomainName: LPSTR,
+            DnsTreeName: LPSTR,
+            PackageName: LPSTR,
+            Flags: ULONG,
+            CredTypeCount: DWORD,
             CredTypes: LPDWORD,
         }
         struct CREDENTIAL_TARGET_INFORMATIONW {
-            TargetName: PWSTR,
-            NetbiosServerName: PWSTR,
-            DnsServerName: PWSTR,
-            NetbiosDomainName: PWSTR,
-            DnsDomainName: PWSTR,
-            DnsTreeName: PWSTR,
-            PackageName: PWSTR,
-            Flags: u32,
-            CredTypeCount: u32,
+            TargetName: LPWSTR,
+            NetbiosServerName: LPWSTR,
+            DnsServerName: LPWSTR,
+            NetbiosDomainName: LPWSTR,
+            DnsDomainName: LPWSTR,
+            DnsTreeName: LPWSTR,
+            PackageName: LPWSTR,
+            Flags: ULONG,
+            CredTypeCount: DWORD,
             CredTypes: LPDWORD,
         }
         const CREDUIWIN_AUTHPACKAGE_ONLY: i32 = 16;
@@ -112,14 +113,14 @@ mod Windows {
         const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: i32 = 212664322;
         type CREDUI_INFO = CREDUI_INFOA;
         struct CREDUI_INFOA {
-            cbSize: u32,
+            cbSize: DWORD,
             hwndParent: HWND,
             pszMessageText: PCSTR,
             pszCaptionText: PCSTR,
             hbmBanner: HBITMAP,
         }
         struct CREDUI_INFOW {
-            cbSize: u32,
+            cbSize: DWORD,
             hwndParent: HWND,
             pszMessageText: PCWSTR,
             pszCaptionText: PCWSTR,
@@ -328,122 +329,124 @@ mod Windows {
         const CRED_UNPROTECT_AS_SELF: i32 = 1;
         const CRED_UNPROTECT_VALID_FLAGS: i32 = 3;
         #[library("ADVAPI32.dll")]
-        extern fn CredDeleteA(TargetName: PCSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        extern fn CredDeleteA(#[in] TargetName: LPCSTR, #[in] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredDeleteW(TargetName: PCWSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        extern fn CredDeleteW(#[in] TargetName: LPCWSTR, #[in] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredEnumerateA(#[opt] Filter: PCSTR, #[reserved] Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        extern fn CredEnumerateA(#[in] #[opt] Filter: LPCSTR, #[reserved] Flags: DWORD, #[out] Count: *mut DWORD, #[out] #[writable(success, *Count, indirect)] Credential: *mut *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredEnumerateW(#[opt] Filter: PCWSTR, #[reserved] Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALW) -> BOOL;
+        extern fn CredEnumerateW(#[in] #[opt] Filter: LPCWSTR, #[reserved] Flags: DWORD, #[out] Count: *mut DWORD, #[out] #[writable(success, *Count, indirect)] Credential: *mut *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredFindBestCredentialA(TargetName: PCSTR, Type: u32, Flags: u32, Credential: *mut PCREDENTIALA) -> BOOL;
+        extern fn CredFindBestCredentialA(#[in] TargetName: LPCSTR, #[in] Type: DWORD, #[in] Flags: DWORD, #[out] Credential: *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredFindBestCredentialW(TargetName: PCWSTR, Type: u32, Flags: u32, Credential: *mut PCREDENTIALW) -> BOOL;
+        extern fn CredFindBestCredentialW(#[in] TargetName: LPCWSTR, #[in] Type: DWORD, #[in] Flags: DWORD, #[out] Credential: *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredFree(#[in] Buffer: *mut void);
+        extern fn CredFree(#[in] Buffer: PVOID);
         #[library("ADVAPI32.dll")]
-        extern fn CredGetSessionTypes(MaximumPersistCount: u32, #[len_param(0)] #[out] MaximumPersist: LPDWORD) -> BOOL;
+        extern fn CredGetSessionTypes(#[in] MaximumPersistCount: DWORD, #[out] #[writable(entry, MaximumPersistCount)] MaximumPersist: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredGetTargetInfoA(TargetName: PCSTR, Flags: u32, TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONA) -> BOOL;
+        extern fn CredGetTargetInfoA(#[in] TargetName: LPCSTR, #[in] Flags: DWORD, #[out] TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredGetTargetInfoW(TargetName: PCWSTR, Flags: u32, TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONW) -> BOOL;
+        extern fn CredGetTargetInfoW(#[in] TargetName: LPCWSTR, #[in] Flags: DWORD, #[out] TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsMarshaledCredentialA(MarshaledCredential: PCSTR) -> BOOL;
+        extern fn CredIsMarshaledCredentialA(#[in] MarshaledCredential: LPCSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsMarshaledCredentialW(MarshaledCredential: PCWSTR) -> BOOL;
+        extern fn CredIsMarshaledCredentialW(#[in] MarshaledCredential: LPCWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsProtectedA(pszProtectedCredentials: PCSTR, pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        extern fn CredIsProtectedA(#[in] pszProtectedCredentials: LPSTR, #[out] pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsProtectedW(pszProtectedCredentials: PCWSTR, pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        extern fn CredIsProtectedW(#[in] pszProtectedCredentials: LPWSTR, #[out] pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredMarshalCredentialA(CredType: CRED_MARSHAL_TYPE, #[in] Credential: *mut void, MarshaledCredential: *mut PSTR) -> BOOL;
+        extern fn CredMarshalCredentialA(#[in] CredType: CRED_MARSHAL_TYPE, #[in] Credential: PVOID, #[out] MarshaledCredential: *mut LPSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredMarshalCredentialW(CredType: CRED_MARSHAL_TYPE, #[in] Credential: *mut void, MarshaledCredential: *mut PWSTR) -> BOOL;
+        extern fn CredMarshalCredentialW(#[in] CredType: CRED_MARSHAL_TYPE, #[in] Credential: PVOID, #[out] MarshaledCredential: *mut LPWSTR) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredPackAuthenticationBufferA(dwFlags: u32, pszUserName: PCSTR, pszPassword: PCSTR, #[size_param(4)] #[out] #[opt] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut u32) -> BOOL;
+        extern fn CredPackAuthenticationBufferA(#[in] dwFlags: DWORD, #[in] pszUserName: LPSTR, #[in] pszPassword: LPSTR, #[opt] #[out] #[writable(entry, bytes(*pcbPackedCredentials))] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut DWORD) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredPackAuthenticationBufferW(dwFlags: u32, pszUserName: PCWSTR, pszPassword: PCWSTR, #[size_param(4)] #[out] #[opt] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut u32) -> BOOL;
+        extern fn CredPackAuthenticationBufferW(#[in] dwFlags: DWORD, #[in] pszUserName: LPWSTR, #[in] pszPassword: LPWSTR, #[opt] #[out] #[writable(entry, bytes(*pcbPackedCredentials))] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredProtectA(fAsSelf: BOOL, #[len_param(2)] pszCredentials: PCSTR, cchCredentials: u32, #[len_param(4)] #[out] pszProtectedCredentials: PSTR, #[in] #[out] pcchMaxChars: *mut u32, #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        extern fn CredProtectA(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchCredentials)] pszCredentials: LPSTR, #[in] cchCredentials: DWORD, #[out] #[writable(entry, *pcchMaxChars)] pszProtectedCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD, #[opt] #[out] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredProtectW(fAsSelf: BOOL, #[len_param(2)] pszCredentials: PCWSTR, cchCredentials: u32, #[len_param(4)] #[out] pszProtectedCredentials: PWSTR, #[in] #[out] pcchMaxChars: *mut u32, #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        #[success(return != 0)]
+        extern fn CredProtectW(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchCredentials)] pszCredentials: LPWSTR, #[in] cchCredentials: DWORD, #[out] #[readable(success, *pcchMaxChars)] #[writable(entry, *pcchMaxChars)] pszProtectedCredentials: LPWSTR, #[in] #[out] pcchMaxChars: *mut DWORD, #[opt] #[out] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadA(TargetName: PCSTR, Type: u32, #[reserved] Flags: u32, Credential: *mut PCREDENTIALA) -> BOOL;
+        extern fn CredReadA(#[in] TargetName: LPCSTR, #[in] Type: DWORD, #[reserved] Flags: DWORD, #[out] Credential: *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadDomainCredentialsA(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        extern fn CredReadDomainCredentialsA(#[in] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, #[in] Flags: DWORD, #[out] Count: *mut DWORD, #[out] #[writable(success, *Count, indirect)] Credential: *mut *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadDomainCredentialsW(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALW) -> BOOL;
+        extern fn CredReadDomainCredentialsW(#[in] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, #[in] Flags: DWORD, #[out] Count: *mut DWORD, #[out] #[writable(success, *Count, indirect)] Credential: *mut *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadW(TargetName: PCWSTR, Type: u32, #[reserved] Flags: u32, Credential: *mut PCREDENTIALW) -> BOOL;
+        extern fn CredReadW(#[in] TargetName: LPCWSTR, #[in] Type: DWORD, #[reserved] Flags: DWORD, #[out] Credential: *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredRenameA(OldTargetName: PCSTR, NewTargetName: PCSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        extern fn CredRenameA(#[in] OldTargetName: LPCSTR, #[in] NewTargetName: LPCSTR, #[in] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredRenameW(OldTargetName: PCWSTR, NewTargetName: PCWSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
+        extern fn CredRenameW(#[in] OldTargetName: LPCWSTR, #[in] NewTargetName: LPCWSTR, #[in] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredUICmdLinePromptForCredentialsA(#[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(4)] #[in] #[out] UserName: PSTR, ulUserBufferSize: u32, #[len_param(6)] #[in] #[out] pszPassword: PSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] pfSave: PBOOL, dwFlags: u32) -> u32;
+        extern fn CredUICmdLinePromptForCredentialsA(#[in] #[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, #[in] dwAuthError: DWORD, #[in] #[out] #[writable(entry, ulUserBufferSize)] UserName: PSTR, #[in] ulUserBufferSize: ULONG, #[in] #[out] #[writable(entry, ulPasswordBufferSize)] pszPassword: PSTR, #[in] ulPasswordBufferSize: ULONG, #[in] #[opt] #[out] pfSave: PBOOL, #[in] dwFlags: DWORD) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUICmdLinePromptForCredentialsW(#[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(4)] #[in] #[out] UserName: PWSTR, ulUserBufferSize: u32, #[len_param(6)] #[in] #[out] pszPassword: PWSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] pfSave: PBOOL, dwFlags: u32) -> u32;
+        extern fn CredUICmdLinePromptForCredentialsW(#[in] #[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, #[in] dwAuthError: DWORD, #[in] #[out] #[writable(entry, ulUserBufferSize)] UserName: PWSTR, #[in] ulUserBufferSize: ULONG, #[in] #[out] #[writable(entry, ulPasswordBufferSize)] pszPassword: PWSTR, #[in] ulPasswordBufferSize: ULONG, #[in] #[opt] #[out] pfSave: PBOOL, #[in] dwFlags: DWORD) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIConfirmCredentialsA(pszTargetName: PCSTR, bConfirm: BOOL) -> u32;
+        extern fn CredUIConfirmCredentialsA(#[in] pszTargetName: PCSTR, #[in] bConfirm: BOOL) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIConfirmCredentialsW(pszTargetName: PCWSTR, bConfirm: BOOL) -> u32;
+        extern fn CredUIConfirmCredentialsW(#[in] pszTargetName: PCWSTR, #[in] bConfirm: BOOL) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIParseUserNameA(userName: PCSTR, #[len_param(2)] user: *mut i8, userBufferSize: u32, #[len_param(4)] domain: *mut i8, domainBufferSize: u32) -> u32;
+        extern fn CredUIParseUserNameA(#[in] userName: PCSTR, #[out] #[writable(entry, userBufferSize)] user: *mut CHAR, #[in] userBufferSize: ULONG, #[out] #[writable(entry, domainBufferSize)] domain: *mut CHAR, #[in] domainBufferSize: ULONG) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIParseUserNameW(UserName: PCWSTR, #[len_param(2)] user: *mut u16, userBufferSize: u32, #[len_param(4)] domain: *mut u16, domainBufferSize: u32) -> u32;
+        extern fn CredUIParseUserNameW(#[in] UserName: PCWSTR, #[out] #[writable(entry, userBufferSize)] user: *mut WCHAR, #[in] userBufferSize: ULONG, #[out] #[writable(entry, domainBufferSize)] domain: *mut WCHAR, #[in] domainBufferSize: ULONG) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIPromptForCredentialsA(#[opt] pUiInfo: PCREDUI_INFOA, #[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(5)] #[in] #[out] pszUserName: PSTR, ulUserNameBufferSize: u32, #[len_param(7)] #[in] #[out] pszPassword: PSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] save: *mut BOOL, dwFlags: u32) -> u32;
+        extern fn CredUIPromptForCredentialsA(#[in] #[opt] pUiInfo: PCREDUI_INFOA, #[in] #[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, #[in] dwAuthError: DWORD, #[in] #[out] #[writable(entry, ulUserNameBufferSize)] pszUserName: PSTR, #[in] ulUserNameBufferSize: ULONG, #[in] #[out] #[writable(entry, ulPasswordBufferSize)] pszPassword: PSTR, #[in] ulPasswordBufferSize: ULONG, #[in] #[opt] #[out] save: *mut BOOL, #[in] dwFlags: DWORD) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIPromptForCredentialsW(#[opt] pUiInfo: PCREDUI_INFOW, #[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(5)] #[in] #[out] pszUserName: PWSTR, ulUserNameBufferSize: u32, #[len_param(7)] #[in] #[out] pszPassword: PWSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] save: *mut BOOL, dwFlags: u32) -> u32;
+        extern fn CredUIPromptForCredentialsW(#[in] #[opt] pUiInfo: PCREDUI_INFOW, #[in] #[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, #[in] dwAuthError: DWORD, #[in] #[out] #[writable(entry, ulUserNameBufferSize)] pszUserName: PWSTR, #[in] ulUserNameBufferSize: ULONG, #[in] #[out] #[writable(entry, ulPasswordBufferSize)] pszPassword: PWSTR, #[in] ulPasswordBufferSize: ULONG, #[in] #[opt] #[out] save: *mut BOOL, #[in] dwFlags: DWORD) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIPromptForWindowsCredentialsA(#[opt] pUiInfo: PCREDUI_INFOA, dwAuthError: u32, #[in] #[out] pulAuthPackage: *mut u32, #[size_param(4)] #[opt] pvInAuthBuffer: LPCVOID, ulInAuthBufferSize: u32, ppvOutAuthBuffer: *mut *mut void, pulOutAuthBufferSize: *mut u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
+        extern fn CredUIPromptForWindowsCredentialsA(#[in] #[opt] pUiInfo: PCREDUI_INFOA, #[in] dwAuthError: DWORD, #[in] #[out] pulAuthPackage: *mut ULONG, #[in] #[opt] #[readable(entry, bytes(ulInAuthBufferSize))] pvInAuthBuffer: LPCVOID, #[in] ulInAuthBufferSize: ULONG, #[out] #[readable(success, bytes(*pulOutAuthBufferSize), indirect)] #[writable(success, bytes(*pulOutAuthBufferSize), indirect)] ppvOutAuthBuffer: *mut LPVOID, #[out] pulOutAuthBufferSize: *mut ULONG, #[in] #[opt] #[out] pfSave: *mut BOOL, #[in] dwFlags: DWORD) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIPromptForWindowsCredentialsW(#[opt] pUiInfo: PCREDUI_INFOW, dwAuthError: u32, #[in] #[out] pulAuthPackage: *mut u32, #[size_param(4)] #[opt] pvInAuthBuffer: LPCVOID, ulInAuthBufferSize: u32, ppvOutAuthBuffer: *mut *mut void, pulOutAuthBufferSize: *mut u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
+        extern fn CredUIPromptForWindowsCredentialsW(#[in] #[opt] pUiInfo: PCREDUI_INFOW, #[in] dwAuthError: DWORD, #[in] #[out] pulAuthPackage: *mut ULONG, #[in] #[opt] #[readable(entry, bytes(ulInAuthBufferSize))] pvInAuthBuffer: LPCVOID, #[in] ulInAuthBufferSize: ULONG, #[out] #[readable(success, bytes(*pulOutAuthBufferSize), indirect)] #[writable(success, bytes(*pulOutAuthBufferSize), indirect)] ppvOutAuthBuffer: *mut LPVOID, #[out] pulOutAuthBufferSize: *mut ULONG, #[in] #[opt] #[out] pfSave: *mut BOOL, #[in] dwFlags: DWORD) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIReadSSOCredW(#[opt] pszRealm: PCWSTR, ppszUsername: *mut PWSTR) -> u32;
+        extern fn CredUIReadSSOCredW(#[in] #[opt] pszRealm: PCWSTR, #[out] #[out_ptr] ppszUsername: *mut PWSTR) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUIStoreSSOCredW(#[opt] pszRealm: PCWSTR, pszUsername: PCWSTR, pszPassword: PCWSTR, bPersist: BOOL) -> u32;
+        extern fn CredUIStoreSSOCredW(#[in] #[opt] pszRealm: PCWSTR, #[in] pszUsername: PCWSTR, #[in] pszPassword: PCWSTR, #[in] bPersist: BOOL) -> DWORD;
         #[library("credui.dll")]
-        extern fn CredUnPackAuthenticationBufferA(dwFlags: u32, #[size_param(2)] #[in] pAuthBuffer: *mut void, cbAuthBuffer: u32, #[len_param(4)] #[out] #[opt] pszUserName: PSTR, #[in] #[out] pcchlMaxUserName: *mut u32, #[len_param(6)] #[out] #[opt] pszDomainName: PSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut u32, #[len_param(8)] #[out] #[opt] pszPassword: PSTR, #[in] #[out] pcchMaxPassword: *mut u32) -> BOOL;
+        extern fn CredUnPackAuthenticationBufferA(#[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbAuthBuffer))] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[opt] #[out] #[writable(entry, *pcchlMaxUserName)] pszUserName: LPSTR, #[in] #[out] pcchlMaxUserName: *mut DWORD, #[opt] #[out] #[writable(entry, if_present(*pcchMaxDomainName))] pszDomainName: LPSTR, #[in] #[opt] #[out] pcchMaxDomainName: *mut DWORD, #[opt] #[out] #[writable(entry, *pcchMaxPassword)] pszPassword: LPSTR, #[in] #[out] pcchMaxPassword: *mut DWORD) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredUnPackAuthenticationBufferW(dwFlags: u32, #[size_param(2)] #[in] pAuthBuffer: *mut void, cbAuthBuffer: u32, #[len_param(4)] #[out] #[opt] pszUserName: PWSTR, #[in] #[out] pcchMaxUserName: *mut u32, #[len_param(6)] #[out] #[opt] pszDomainName: PWSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut u32, #[len_param(8)] #[out] #[opt] pszPassword: PWSTR, #[in] #[out] pcchMaxPassword: *mut u32) -> BOOL;
+        extern fn CredUnPackAuthenticationBufferW(#[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbAuthBuffer))] pAuthBuffer: PVOID, #[in] cbAuthBuffer: DWORD, #[opt] #[out] #[writable(entry, *pcchMaxUserName)] pszUserName: LPWSTR, #[in] #[out] pcchMaxUserName: *mut DWORD, #[opt] #[out] #[writable(entry, if_present(*pcchMaxDomainName))] pszDomainName: LPWSTR, #[in] #[opt] #[out] pcchMaxDomainName: *mut DWORD, #[opt] #[out] #[writable(entry, *pcchMaxPassword)] pszPassword: LPWSTR, #[in] #[out] pcchMaxPassword: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnmarshalCredentialA(MarshaledCredential: PCSTR, #[out] CredType: PCRED_MARSHAL_TYPE, Credential: *mut *mut void) -> BOOL;
+        extern fn CredUnmarshalCredentialA(#[in] MarshaledCredential: LPCSTR, #[out] CredType: PCRED_MARSHAL_TYPE, #[out] Credential: *mut PVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnmarshalCredentialW(MarshaledCredential: PCWSTR, #[out] CredType: PCRED_MARSHAL_TYPE, Credential: *mut *mut void) -> BOOL;
+        extern fn CredUnmarshalCredentialW(#[in] MarshaledCredential: LPCWSTR, #[out] CredType: PCRED_MARSHAL_TYPE, #[out] Credential: *mut PVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnprotectA(fAsSelf: BOOL, #[len_param(2)] pszProtectedCredentials: PCSTR, cchProtectedCredentials: u32, #[len_param(4)] #[out] #[opt] pszCredentials: PSTR, #[in] #[out] pcchMaxChars: *mut u32) -> BOOL;
+        extern fn CredUnprotectA(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchProtectedCredentials)] pszProtectedCredentials: LPSTR, #[in] cchProtectedCredentials: DWORD, #[opt] #[out] #[writable(entry, *pcchMaxChars)] pszCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnprotectW(fAsSelf: BOOL, #[len_param(2)] pszProtectedCredentials: PCWSTR, cchProtectedCredentials: u32, #[len_param(4)] #[out] #[opt] pszCredentials: PWSTR, #[in] #[out] pcchMaxChars: *mut u32) -> BOOL;
+        #[success(return != 0)]
+        extern fn CredUnprotectW(#[in] fAsSelf: BOOL, #[in] #[readable(entry, cchProtectedCredentials)] pszProtectedCredentials: LPWSTR, #[in] cchProtectedCredentials: DWORD, #[opt] #[out] #[readable(success, *pcchMaxChars)] #[writable(entry, *pcchMaxChars)] pszCredentials: LPWSTR, #[in] #[out] pcchMaxChars: *mut DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteA(Credential: PCREDENTIALA, Flags: u32) -> BOOL;
+        extern fn CredWriteA(#[in] Credential: PCREDENTIALA, #[in] Flags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteDomainCredentialsA(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, Credential: PCREDENTIALA, Flags: u32) -> BOOL;
+        extern fn CredWriteDomainCredentialsA(#[in] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, #[in] Credential: PCREDENTIALA, #[in] Flags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteDomainCredentialsW(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, Credential: PCREDENTIALW, Flags: u32) -> BOOL;
+        extern fn CredWriteDomainCredentialsW(#[in] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, #[in] Credential: PCREDENTIALW, #[in] Flags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteW(Credential: PCREDENTIALW, Flags: u32) -> BOOL;
+        extern fn CredWriteW(#[in] Credential: PCREDENTIALW, #[in] Flags: DWORD) -> BOOL;
         const NERR_BASE: i32 = 2100;
         const NERR_PasswordExpired: i32 = 2242;
         type PBINARY_BLOB_CREDENTIAL_INFO = *mut BINARY_BLOB_CREDENTIAL_INFO;
         type PCERT_CREDENTIAL_INFO = *mut CERT_CREDENTIAL_INFO;
-        type PCREDENTIAL = PCREDENTIALA;
+        type PCREDENTIAL = *mut CREDENTIALA;
         type PCREDENTIALA = *mut CREDENTIALA;
         type PCREDENTIALW = *mut CREDENTIALW;
-        type PCREDENTIAL_ATTRIBUTE = PCREDENTIAL_ATTRIBUTEA;
+        type PCREDENTIAL_ATTRIBUTE = *mut CREDENTIAL_ATTRIBUTEA;
         type PCREDENTIAL_ATTRIBUTEA = *mut CREDENTIAL_ATTRIBUTEA;
         type PCREDENTIAL_ATTRIBUTEW = *mut CREDENTIAL_ATTRIBUTEW;
-        type PCREDENTIAL_TARGET_INFORMATION = PCREDENTIAL_TARGET_INFORMATIONA;
+        type PCREDENTIAL_TARGET_INFORMATION = *mut CREDENTIAL_TARGET_INFORMATIONA;
         type PCREDENTIAL_TARGET_INFORMATIONA = *mut CREDENTIAL_TARGET_INFORMATIONA;
         type PCREDENTIAL_TARGET_INFORMATIONW = *mut CREDENTIAL_TARGET_INFORMATIONW;
-        type PCREDUI_INFO = PCREDUI_INFOA;
+        type PCREDUI_INFO = *mut CREDUI_INFOA;
         type PCREDUI_INFOA = *mut CREDUI_INFOA;
         type PCREDUI_INFOW = *mut CREDUI_INFOW;
         type PCRED_MARSHAL_TYPE = *mut CRED_MARSHAL_TYPE;
         type PCRED_PROTECTION_TYPE = *mut CRED_PROTECTION_TYPE;
         type PUSERNAME_TARGET_CREDENTIAL_INFO = *mut USERNAME_TARGET_CREDENTIAL_INFO;
         struct USERNAME_TARGET_CREDENTIAL_INFO {
-            UserName: PWSTR,
+            UserName: LPWSTR,
         }
     }
 }

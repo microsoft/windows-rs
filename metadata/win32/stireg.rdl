@@ -28,14 +28,24 @@ mod Windows {
         const REGSTR_VAL_FRIENDLY_NAME_W: String = "FriendlyName";
         #[encoding("utf-16")]
         const REGSTR_VAL_GENERIC_CAPS_W: String = "Capabilities";
+        #[encoding("ansi")]
+        const REGSTR_VAL_GUID: String = "GUID";
         #[encoding("utf-16")]
         const REGSTR_VAL_GUID_W: String = "GUID";
+        #[encoding("ansi")]
+        const REGSTR_VAL_HARDWARE: String = "HardwareConfig";
         #[encoding("utf-16")]
         const REGSTR_VAL_HARDWARE_W: String = "HardwareConfig";
+        #[encoding("ansi")]
+        const REGSTR_VAL_LAUNCHABLE: String = "Launchable";
         #[encoding("utf-16")]
         const REGSTR_VAL_LAUNCHABLE_W: String = "Launchable";
+        #[encoding("ansi")]
+        const REGSTR_VAL_LAUNCH_APPS: String = "LaunchApplications";
         #[encoding("utf-16")]
         const REGSTR_VAL_LAUNCH_APPS_W: String = "LaunchApplications";
+        #[encoding("ansi")]
+        const REGSTR_VAL_SHUTDOWNDELAY: String = "ShutdownIfUnusedDelay";
         #[encoding("utf-16")]
         const REGSTR_VAL_SHUTDOWNDELAY_W: String = "ShutdownIfUnusedDelay";
         #[encoding("utf-16")]

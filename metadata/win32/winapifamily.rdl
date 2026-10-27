@@ -9,12 +9,12 @@ mod Windows {
         const WINAPI_FAMILY_PHONE_APP: i32 = 3;
         const WINAPI_FAMILY_SERVER: i32 = 5;
         const WINAPI_FAMILY_SYSTEM: i32 = 4;
-        const WINAPI_PARTITION_APP: u32 = 1;
-        const WINAPI_PARTITION_DESKTOP: u32 = 1;
-        const WINAPI_PARTITION_GAMES: u32 = 1;
-        const WINAPI_PARTITION_PC_APP: u32 = 1;
-        const WINAPI_PARTITION_PHONE: u32 = 0;
-        const WINAPI_PARTITION_PHONE_APP: u32 = 0;
-        const WINAPI_PARTITION_SYSTEM: u32 = 0;
+        const WINAPI_PARTITION_APP: bool = true;
+        const WINAPI_PARTITION_DESKTOP: bool = true;
+        const WINAPI_PARTITION_GAMES: bool = true;
+        const WINAPI_PARTITION_PC_APP: bool = true;
+        const WINAPI_PARTITION_PHONE: bool = false;
+        const WINAPI_PARTITION_PHONE_APP: bool = false;
+        const WINAPI_PARTITION_SYSTEM: bool = false;
     }
 }

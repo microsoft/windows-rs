@@ -2,40 +2,42 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn AddVectoredContinueHandler(First: u32, Handler: PVECTORED_EXCEPTION_HANDLER) -> *mut void;
+        extern fn AddVectoredContinueHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> #[nullable] PVOID;
         #[library("KERNEL32.dll")]
-        extern fn AddVectoredExceptionHandler(First: u32, Handler: PVECTORED_EXCEPTION_HANDLER) -> *mut void;
+        extern fn AddVectoredExceptionHandler(#[in] First: ULONG, #[in] Handler: PVECTORED_EXCEPTION_HANDLER) -> #[nullable] PVOID;
         #[library("KERNEL32.dll")]
-        extern fn FatalAppExitA(uAction: u32, lpMessageText: PCSTR);
+        extern fn FatalAppExitA(#[in] uAction: UINT, #[in] lpMessageText: LPCSTR);
         #[library("KERNEL32.dll")]
-        extern fn FatalAppExitW(uAction: u32, lpMessageText: PCWSTR);
+        extern fn FatalAppExitW(#[in] uAction: UINT, #[in] lpMessageText: LPCWSTR);
         #[library("KERNEL32.dll")]
-        extern fn GetErrorMode() -> u32;
+        extern fn GetErrorMode() -> UINT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_equals_last_error_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn GetLastError() -> u32;
+        #[must_use]
+        extern fn GetLastError() -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadErrorMode() -> u32;
-        type LPTOP_LEVEL_EXCEPTION_FILTER = PTOP_LEVEL_EXCEPTION_FILTER;
-        extern fn PTOP_LEVEL_EXCEPTION_FILTER(#[in] ExceptionInfo: *mut EXCEPTION_POINTERS) -> i32;
+        extern fn GetThreadErrorMode() -> DWORD;
+        extern fn LPTOP_LEVEL_EXCEPTION_FILTER(#[in] ExceptionInfo: *mut EXCEPTION_POINTERS) -> LONG;
+        extern fn PTOP_LEVEL_EXCEPTION_FILTER(#[in] ExceptionInfo: *mut EXCEPTION_POINTERS) -> LONG;
         #[library("KERNEL32.dll")]
-        extern fn RaiseException(dwExceptionCode: u32, dwExceptionFlags: u32, nNumberOfArguments: u32, #[len_param(2)] #[opt] lpArguments: *const usize);
+        extern fn RaiseException(#[in] dwExceptionCode: DWORD, #[in] dwExceptionFlags: DWORD, #[in] nNumberOfArguments: DWORD, #[in] #[opt] #[readable(entry, nNumberOfArguments)] lpArguments: *const ULONG_PTR);
         #[library("KERNEL32.dll")]
-        extern fn RaiseFailFastException(#[opt] pExceptionRecord: PEXCEPTION_RECORD, #[opt] pContextRecord: PCONTEXT, dwFlags: u32);
+        extern fn RaiseFailFastException(#[in] #[opt] pExceptionRecord: PEXCEPTION_RECORD, #[in] #[opt] pContextRecord: PCONTEXT, #[in] dwFlags: DWORD);
         #[library("KERNEL32.dll")]
-        extern fn RemoveVectoredContinueHandler(#[in] Handle: *mut void) -> u32;
+        extern fn RemoveVectoredContinueHandler(#[in] Handle: PVOID) -> ULONG;
         #[library("KERNEL32.dll")]
-        extern fn RemoveVectoredExceptionHandler(#[in] Handle: *mut void) -> u32;
+        extern fn RemoveVectoredExceptionHandler(#[in] Handle: PVOID) -> ULONG;
         #[library("KERNEL32.dll")]
-        extern fn SetErrorMode(uMode: u32) -> u32;
+        extern fn SetErrorMode(#[in] uMode: UINT) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn SetLastError(dwErrCode: u32);
+        extern fn SetLastError(#[in] dwErrCode: DWORD);
         #[library("KERNEL32.dll")]
-        extern fn SetThreadErrorMode(dwNewMode: u32, #[opt] lpOldMode: LPDWORD) -> BOOL;
+        extern fn SetThreadErrorMode(#[in] dwNewMode: DWORD, #[in] #[opt] lpOldMode: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetUnhandledExceptionFilter(#[opt] lpTopLevelExceptionFilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER;
+        extern fn SetUnhandledExceptionFilter(#[in] #[opt] lpTopLevelExceptionFilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER;
         #[library("api-ms-win-core-errorhandling-l1-1-3.dll")]
-        extern fn TerminateProcessOnMemoryExhaustion(FailedAllocationSize: usize);
+        extern fn TerminateProcessOnMemoryExhaustion(#[in] FailedAllocationSize: SIZE_T);
         #[library("KERNEL32.dll")]
-        extern fn UnhandledExceptionFilter(#[in] ExceptionInfo: *mut EXCEPTION_POINTERS) -> i32;
+        extern fn UnhandledExceptionFilter(#[in] ExceptionInfo: *mut EXCEPTION_POINTERS) -> LONG;
     }
 }

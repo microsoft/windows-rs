@@ -2,14 +2,16 @@
 mod Windows {
     mod Win32 {
         #[arch(X86)]
+        #[packed(8)]
         struct ADDRESS {
-            Offset: u32,
-            Segment: u16,
+            Offset: DWORD,
+            Segment: WORD,
             Mode: ADDRESS_MODE,
         }
+        #[packed(8)]
         struct ADDRESS64 {
-            Offset: u64,
-            Segment: u16,
+            Offset: DWORD64,
+            Segment: WORD,
             Mode: ADDRESS_MODE,
         }
         #[repr(i32)]
@@ -19,11 +21,12 @@ mod Windows {
             AddrModeReal = 2,
             AddrModeFlat = 3,
         }
+        #[packed(8)]
         struct API_VERSION {
-            MajorVersion: u16,
-            MinorVersion: u16,
-            Revision: u16,
-            Reserved: u16,
+            MajorVersion: USHORT,
+            MinorVersion: USHORT,
+            Revision: USHORT,
+            Reserved: USHORT,
         }
         const API_VERSION_NUMBER: i32 = 12;
         const CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE: u32 = 2147483648;
@@ -46,6 +49,7 @@ mod Windows {
         const CBA_SYMBOLS_UNLOADED: i32 = 4;
         const CBA_UPDATE_STATUS_BAR: i32 = 1342177280;
         const CBA_XML_LOG: u32 = 2415919104;
+        #[packed(8)]
         struct DBGHELP_DATA_REPORT_STRUCT {
             pBinPathNonExist: PCWSTR,
             pSymbolPathNonExist: PCWSTR,
@@ -53,16 +57,17 @@ mod Windows {
         const DBHHEADER_CVMISC: i32 = 2;
         const DBHHEADER_DEBUGDIRS: i32 = 1;
         const DBHHEADER_PDBGUID: i32 = 3;
+        #[packed(8)]
         struct DISCRIMINATEDUNION_TAG_VALUE {
-            value: [u8; 16],
-            valueSizeBytes: u8,
+            value: [BYTE; 16],
+            valueSizeBytes: BYTE,
         }
         const DSLFLAG_MISMATCHED_DBG: i32 = 2;
         const DSLFLAG_MISMATCHED_PDB: i32 = 1;
         #[library("dbghelp.dll")]
-        extern fn DbgHelpCreateUserDump(#[opt] FileName: PCSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] UserData: *mut void) -> BOOL;
+        extern fn DbgHelpCreateUserDump(#[in] #[opt] FileName: LPCSTR, #[in] Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] UserData: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn DbgHelpCreateUserDumpW(#[opt] FileName: PCWSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] UserData: *mut void) -> BOOL;
+        extern fn DbgHelpCreateUserDumpW(#[in] #[opt] FileName: LPCWSTR, #[in] Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[in] #[opt] UserData: PVOID) -> BOOL;
         const ERROR_IMAGE_NOT_STRIPPED: i32 = 34816;
         const ERROR_NO_DBG_POINTER: i32 = 34817;
         const ERROR_NO_PDB_POINTER: i32 = 34818;
@@ -76,104 +81,117 @@ mod Windows {
         const EVENT_SRCSPEW_START: i32 = 100;
         const EXT_OUTPUT_VER: i32 = 1;
         #[library("dbghelp.dll")]
-        extern fn EnumDirTree(#[opt] hProcess: HANDLE, RootPath: PCSTR, InputPathName: PCSTR, #[out] #[opt] OutputPathBuffer: PSTR, #[opt] cb: PENUMDIRTREE_CALLBACK, #[in] #[opt] data: *mut void) -> BOOL;
+        extern fn EnumDirTree(#[in] #[opt] hProcess: HANDLE, #[in] RootPath: PCSTR, #[in] InputPathName: PCSTR, #[opt] #[out] #[writable(entry, 261)] OutputPathBuffer: PSTR, #[in] #[opt] cb: PENUMDIRTREE_CALLBACK, #[in] #[opt] data: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumDirTreeW(#[opt] hProcess: HANDLE, RootPath: PCWSTR, InputPathName: PCWSTR, #[out] #[opt] OutputPathBuffer: PWSTR, #[opt] cb: PENUMDIRTREE_CALLBACKW, #[in] #[opt] data: *mut void) -> BOOL;
+        extern fn EnumDirTreeW(#[in] #[opt] hProcess: HANDLE, #[in] RootPath: PCWSTR, #[in] InputPathName: PCWSTR, #[opt] #[out] #[writable(entry, 261)] OutputPathBuffer: PWSTR, #[in] #[opt] cb: PENUMDIRTREE_CALLBACKW, #[in] #[opt] data: PVOID) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "EnumerateLoadedModules64")]
+        extern fn EnumerateLoadedModules(#[in] hProcess: HANDLE, #[in] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModules(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModules(#[in] hProcess: HANDLE, #[in] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModules64(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModules64(#[in] hProcess: HANDLE, #[in] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModulesEx(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModulesEx(#[in] hProcess: HANDLE, #[in] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModulesExW(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModulesExW(#[in] hProcess: HANDLE, #[in] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn EnumerateLoadedModulesW64(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn EnumerateLoadedModulesW64(#[in] hProcess: HANDLE, #[in] EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         const FLAG_ENGINE_PRESENT: i32 = 4;
         const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
         const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFile(FileName: PCSTR, SymbolPath: PCSTR, #[out] DebugFilePath: PSTR) -> HANDLE;
+        extern fn FindDebugInfoFile(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] DebugFilePath: PSTR) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFileEx(FileName: PCSTR, SymbolPath: PCSTR, #[out] DebugFilePath: PSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn FindDebugInfoFileEx(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] DebugFilePath: PSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindDebugInfoFileExW(FileName: PCWSTR, SymbolPath: PCWSTR, #[out] DebugFilePath: PWSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn FindDebugInfoFileExW(#[in] FileName: PCWSTR, #[in] SymbolPath: PCWSTR, #[out] #[writable(entry, 261)] DebugFilePath: PWSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImage(FileName: PCSTR, SymbolPath: PCSTR, #[out] ImageFilePath: PSTR) -> HANDLE;
+        extern fn FindExecutableImage(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] ImageFilePath: PSTR) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImageEx(FileName: PCSTR, SymbolPath: PCSTR, #[out] ImageFilePath: PSTR, #[opt] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn FindExecutableImageEx(#[in] FileName: PCSTR, #[in] SymbolPath: PCSTR, #[out] #[writable(entry, 261)] ImageFilePath: PSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn FindExecutableImageExW(FileName: PCWSTR, SymbolPath: PCWSTR, #[out] ImageFilePath: PWSTR, #[opt] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: *mut void) -> HANDLE;
+        extern fn FindExecutableImageExW(#[in] FileName: PCWSTR, #[in] SymbolPath: PCWSTR, #[out] #[writable(entry, 261)] ImageFilePath: PWSTR, #[in] #[opt] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: PVOID) -> HANDLE;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn FindFileInPath(hprocess: HANDLE, SearchPathA: PCSTR, FileName: PCSTR, #[in] id: *mut void, two: u32, three: u32, flags: u32, #[out] FilePath: PSTR) -> BOOL;
+        extern fn FindFileInPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[out] #[writable(entry, 261)] FilePath: PSTR) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn FindFileInSearchPath(hprocess: HANDLE, SearchPathA: PCSTR, FileName: PCSTR, one: u32, two: u32, three: u32, #[out] FilePath: PSTR) -> BOOL;
+        extern fn FindFileInSearchPath(#[in] hprocess: HANDLE, #[in] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] one: DWORD, #[in] two: DWORD, #[in] three: DWORD, #[out] #[writable(entry, 261)] FilePath: PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn GetSymLoadError() -> u32;
+        extern fn GetSymLoadError() -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn GetTimestampForLoadedLibrary(Module: HMODULE) -> u32;
+        extern fn GetTimestampForLoadedLibrary(#[in] Module: HMODULE) -> DWORD;
+        #[packed(8)]
         struct IMAGEHLP_CBA_EVENT {
-            severity: u32,
-            code: u32,
+            severity: DWORD,
+            code: DWORD,
             desc: PCHAR,
-            object: *mut void,
+            object: PVOID,
         }
+        #[packed(8)]
         struct IMAGEHLP_CBA_EVENTW {
-            severity: u32,
-            code: u32,
+            severity: DWORD,
+            code: DWORD,
             desc: PCWSTR,
-            object: *mut void,
+            object: PVOID,
         }
+        #[packed(8)]
         struct IMAGEHLP_CBA_READ_MEMORY {
-            addr: u64,
-            buf: *mut void,
-            bytes: u32,
-            bytesread: *mut u32,
+            addr: DWORD64,
+            buf: PVOID,
+            bytes: DWORD,
+            bytesread: *mut DWORD,
         }
         type IMAGEHLP_CONTEXT = void;
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
-            SizeOfStruct: u32,
-            BaseOfImage: u32,
-            CheckSum: u32,
-            TimeDateStamp: u32,
-            FileName: [i8; 260],
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD,
+            CheckSum: DWORD,
+            TimeDateStamp: DWORD,
+            FileName: [CHAR; 260],
             Reparse: BOOLEAN,
             hFile: HANDLE,
         }
+        #[packed(8)]
         struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            CheckSum: u32,
-            TimeDateStamp: u32,
-            FileName: [i8; 260],
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            CheckSum: DWORD,
+            TimeDateStamp: DWORD,
+            FileName: [CHAR; 260],
             Reparse: BOOLEAN,
             hFile: HANDLE,
-            Flags: u32,
+            Flags: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            CheckSum: u32,
-            TimeDateStamp: u32,
-            FileName: [u16; 261],
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            CheckSum: DWORD,
+            TimeDateStamp: DWORD,
+            FileName: [WCHAR; 261],
             Reparse: BOOLEAN,
             hFile: HANDLE,
-            Flags: u32,
+            Flags: DWORD,
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_DUPLICATE_SYMBOL {
-            SizeOfStruct: u32,
-            NumberOfDups: u32,
+            SizeOfStruct: DWORD,
+            NumberOfDups: DWORD,
             Symbol: PIMAGEHLP_SYMBOL,
-            SelectedSymbol: u32,
+            SelectedSymbol: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_DUPLICATE_SYMBOL64 {
-            SizeOfStruct: u32,
-            NumberOfDups: u32,
+            SizeOfStruct: DWORD,
+            NumberOfDups: DWORD,
             Symbol: PIMAGEHLP_SYMBOL64,
-            SelectedSymbol: u32,
+            SelectedSymbol: DWORD,
         }
         #[repr(i32)]
         enum IMAGEHLP_EXTENDED_OPTIONS {
@@ -185,24 +203,25 @@ mod Windows {
             SYMOPT_EX_MAX = 5,
         }
         const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
+        #[packed(8)]
         struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
-            SizeOfStruct: u32,
-            Flags: u32,
-            NumIds: u32,
+            SizeOfStruct: ULONG,
+            Flags: ULONG,
+            NumIds: ULONG,
             TypeIds: PULONG,
-            TagFilter: u64,
-            NumReqs: u32,
+            TagFilter: ULONG64,
+            NumReqs: ULONG,
             ReqKinds: *mut IMAGEHLP_SYMBOL_TYPE_INFO,
             ReqOffsets: PULONG_PTR,
             ReqSizes: PULONG,
-            ReqStride: usize,
-            BufferSize: usize,
-            Buffer: *mut void,
-            EntriesMatched: u32,
-            EntriesFilled: u32,
-            TagsFound: u64,
-            AllReqsValid: u64,
-            NumReqsValid: u32,
+            ReqStride: ULONG_PTR,
+            BufferSize: ULONG_PTR,
+            Buffer: PVOID,
+            EntriesMatched: ULONG,
+            EntriesFilled: ULONG,
+            TagsFound: ULONG64,
+            AllReqsValid: ULONG64,
+            NumReqsValid: ULONG,
             ReqsValid: PULONG64,
         }
         const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
@@ -213,71 +232,78 @@ mod Windows {
             hdSrc = 2,
             hdMax = 3,
         }
+        #[packed(8)]
         struct IMAGEHLP_JIT_SYMBOLMAP {
-            SizeOfStruct: u32,
-            Address: u64,
-            BaseOfImage: u64,
+            SizeOfStruct: DWORD,
+            Address: DWORD64,
+            BaseOfImage: DWORD64,
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_LINE {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PCHAR,
-            Address: u32,
+            Address: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_LINE64 {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PCHAR,
-            Address: u64,
+            Address: DWORD64,
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_LINEW {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PCHAR,
-            Address: u64,
+            Address: DWORD64,
         }
+        #[packed(8)]
         struct IMAGEHLP_LINEW64 {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            LineNumber: u32,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            LineNumber: DWORD,
             FileName: PWSTR,
-            Address: u64,
+            Address: DWORD64,
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_MODULE {
-            SizeOfStruct: u32,
-            BaseOfImage: u32,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [i8; 32],
-            ImageName: [i8; 256],
-            LoadedImageName: [i8; 256],
+            ModuleName: [CHAR; 32],
+            ImageName: [CHAR; 256],
+            LoadedImageName: [CHAR; 256],
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULE64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [i8; 32],
-            ImageName: [i8; 256],
-            LoadedImageName: [i8; 256],
-            LoadedPdbName: [i8; 256],
-            CVSig: u32,
-            CVData: [i8; 780],
-            PdbSig: u32,
+            ModuleName: [CHAR; 32],
+            ImageName: [CHAR; 256],
+            LoadedImageName: [CHAR; 256],
+            LoadedPdbName: [CHAR; 256],
+            CVSig: DWORD,
+            CVData: [CHAR; 780],
+            PdbSig: DWORD,
             PdbSig70: GUID,
-            PdbAge: u32,
+            PdbAge: DWORD,
             PdbUnmatched: BOOL,
             DbgUnmatched: BOOL,
             LineNumbers: BOOL,
@@ -285,43 +311,46 @@ mod Windows {
             TypeInfo: BOOL,
             SourceIndexed: BOOL,
             Publics: BOOL,
-            MachineType: u32,
-            Reserved: u32,
+            MachineType: DWORD,
+            Reserved: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULE64_EX {
             Module: IMAGEHLP_MODULE64,
-            RegionFlags: u32,
+            RegionFlags: DWORD,
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_MODULEW {
-            SizeOfStruct: u32,
-            BaseOfImage: u32,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [u16; 32],
-            ImageName: [u16; 256],
-            LoadedImageName: [u16; 256],
+            ModuleName: [WCHAR; 32],
+            ImageName: [WCHAR; 256],
+            LoadedImageName: [WCHAR; 256],
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULEW64 {
-            SizeOfStruct: u32,
-            BaseOfImage: u64,
-            ImageSize: u32,
-            TimeDateStamp: u32,
-            CheckSum: u32,
-            NumSyms: u32,
+            SizeOfStruct: DWORD,
+            BaseOfImage: DWORD64,
+            ImageSize: DWORD,
+            TimeDateStamp: DWORD,
+            CheckSum: DWORD,
+            NumSyms: DWORD,
             SymType: SYM_TYPE,
-            ModuleName: [u16; 32],
-            ImageName: [u16; 256],
-            LoadedImageName: [u16; 256],
-            LoadedPdbName: [u16; 256],
-            CVSig: u32,
-            CVData: [u16; 780],
-            PdbSig: u32,
+            ModuleName: [WCHAR; 32],
+            ImageName: [WCHAR; 256],
+            LoadedImageName: [WCHAR; 256],
+            LoadedPdbName: [WCHAR; 256],
+            CVSig: DWORD,
+            CVData: [WCHAR; 780],
+            PdbSig: DWORD,
             PdbSig70: GUID,
-            PdbAge: u32,
+            PdbAge: DWORD,
             PdbUnmatched: BOOL,
             DbgUnmatched: BOOL,
             LineNumbers: BOOL,
@@ -329,12 +358,13 @@ mod Windows {
             TypeInfo: BOOL,
             SourceIndexed: BOOL,
             Publics: BOOL,
-            MachineType: u32,
-            Reserved: u32,
+            MachineType: DWORD,
+            Reserved: DWORD,
         }
+        #[packed(8)]
         struct IMAGEHLP_MODULEW64_EX {
             Module: IMAGEHLP_MODULEW64,
-            RegionFlags: u32,
+            RegionFlags: DWORD,
         }
         const IMAGEHLP_MODULE_REGION_ADDITIONAL: i32 = 4;
         const IMAGEHLP_MODULE_REGION_ALL: i32 = 255;
@@ -357,64 +387,72 @@ mod Windows {
             sfMpd = 3,
             sfMax = 4,
         }
+        #[packed(8)]
         struct IMAGEHLP_STACK_FRAME {
-            InstructionOffset: u64,
-            ReturnOffset: u64,
-            FrameOffset: u64,
-            StackOffset: u64,
-            BackingStoreOffset: u64,
-            FuncTableEntry: u64,
-            Params: [u64; 4],
-            Reserved: [u64; 5],
+            InstructionOffset: ULONG64,
+            ReturnOffset: ULONG64,
+            FrameOffset: ULONG64,
+            StackOffset: ULONG64,
+            BackingStoreOffset: ULONG64,
+            FuncTableEntry: ULONG64,
+            Params: [ULONG64; 4],
+            Reserved: [ULONG64; 5],
             Virtual: BOOL,
-            Reserved2: u32,
+            Reserved2: ULONG,
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL {
-            SizeOfStruct: u32,
-            Address: u32,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [i8; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [CHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL64 {
-            SizeOfStruct: u32,
-            Address: u64,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [i8; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD64,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [CHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL64_PACKAGE {
             sym: IMAGEHLP_SYMBOL64,
-            name: [i8; 2001],
+            name: [CHAR; 2001],
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_SYMBOLW {
-            SizeOfStruct: u32,
-            Address: u32,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [u16; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [WCHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOLW64 {
-            SizeOfStruct: u32,
-            Address: u64,
-            Size: u32,
-            Flags: u32,
-            MaxNameLength: u32,
-            Name: [u16; 1],
+            SizeOfStruct: DWORD,
+            Address: DWORD64,
+            Size: DWORD,
+            Flags: DWORD,
+            MaxNameLength: DWORD,
+            Name: [WCHAR; 1],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOLW64_PACKAGE {
             sym: IMAGEHLP_SYMBOLW64,
-            name: [u16; 2001],
+            name: [WCHAR; 2001],
         }
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_SYMBOLW_PACKAGE {
             sym: IMAGEHLP_SYMBOLW,
-            name: [u16; 2001],
+            name: [WCHAR; 2001],
         }
         const IMAGEHLP_SYMBOL_FUNCTION: i32 = 2048;
         const IMAGEHLP_SYMBOL_INFO_CONSTANT: i32 = 256;
@@ -426,13 +464,15 @@ mod Windows {
         const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: i32 = 16384;
         const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: i32 = 1;
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL_PACKAGE {
             sym: IMAGEHLP_SYMBOL,
-            name: [i8; 2001],
+            name: [CHAR; 2001],
         }
+        #[packed(8)]
         struct IMAGEHLP_SYMBOL_SRC {
-            sizeofstruct: u32,
-            r#type: u32,
+            sizeofstruct: DWORD,
+            r#type: DWORD,
             file: [i8; 260],
         }
         const IMAGEHLP_SYMBOL_THUNK: i32 = 8192;
@@ -481,188 +521,201 @@ mod Windows {
         }
         const IMAGEHLP_SYMBOL_VIRTUAL: i32 = 4096;
         #[arch(X86)]
+        #[packed(8)]
         struct IMAGE_DEBUG_INFORMATION {
             List: LIST_ENTRY,
-            ReservedSize: u32,
-            ReservedMappedBase: *mut void,
-            ReservedMachine: u16,
-            ReservedCharacteristics: u16,
-            ReservedCheckSum: u32,
-            ImageBase: u32,
-            SizeOfImage: u32,
-            ReservedNumberOfSections: u32,
+            ReservedSize: DWORD,
+            ReservedMappedBase: PVOID,
+            ReservedMachine: USHORT,
+            ReservedCharacteristics: USHORT,
+            ReservedCheckSum: DWORD,
+            ImageBase: DWORD,
+            SizeOfImage: DWORD,
+            ReservedNumberOfSections: DWORD,
             ReservedSections: PIMAGE_SECTION_HEADER,
-            ReservedExportedNamesSize: u32,
+            ReservedExportedNamesSize: DWORD,
             ReservedExportedNames: PSTR,
-            ReservedNumberOfFunctionTableEntries: u32,
+            ReservedNumberOfFunctionTableEntries: DWORD,
             ReservedFunctionTableEntries: PIMAGE_FUNCTION_ENTRY,
-            ReservedLowestFunctionStartingAddress: u32,
-            ReservedHighestFunctionEndingAddress: u32,
-            ReservedNumberOfFpoTableEntries: u32,
+            ReservedLowestFunctionStartingAddress: DWORD,
+            ReservedHighestFunctionEndingAddress: DWORD,
+            ReservedNumberOfFpoTableEntries: DWORD,
             ReservedFpoTableEntries: PFPO_DATA,
-            SizeOfCoffSymbols: u32,
+            SizeOfCoffSymbols: DWORD,
             CoffSymbols: PIMAGE_COFF_SYMBOLS_HEADER,
-            ReservedSizeOfCodeViewSymbols: u32,
-            ReservedCodeViewSymbols: *mut void,
+            ReservedSizeOfCodeViewSymbols: DWORD,
+            ReservedCodeViewSymbols: PVOID,
             ImageFilePath: PSTR,
             ImageFileName: PSTR,
             ReservedDebugFilePath: PSTR,
-            ReservedTimeDateStamp: u32,
+            ReservedTimeDateStamp: DWORD,
             ReservedRomImage: BOOL,
             ReservedDebugDirectory: PIMAGE_DEBUG_DIRECTORY,
-            ReservedNumberOfDebugDirectories: u32,
-            ReservedOriginalFunctionTableBaseAddress: u32,
-            Reserved: [u32; 2],
+            ReservedNumberOfDebugDirectories: DWORD,
+            ReservedOriginalFunctionTableBaseAddress: DWORD,
+            Reserved: [DWORD; 2],
         }
         const IMAGE_SEPARATION: i32 = 65536;
         const INLINE_FRAME_CONTEXT_IGNORE: u32 = 4294967295;
         const INLINE_FRAME_CONTEXT_INIT: i32 = 0;
         #[library("dbghelp.dll")]
-        extern fn ImageDirectoryEntryToData(#[in] Base: *mut void, MappedAsImage: BOOLEAN, DirectoryEntry: u16, #[out] Size: PULONG) -> *mut void;
+        extern fn ImageDirectoryEntryToData(#[in] Base: PVOID, #[in] MappedAsImage: BOOLEAN, #[in] DirectoryEntry: USHORT, #[out] Size: PULONG) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn ImageDirectoryEntryToDataEx(#[in] Base: *mut void, MappedAsImage: BOOLEAN, DirectoryEntry: u16, #[out] Size: PULONG, #[opt] FoundHeader: *mut PIMAGE_SECTION_HEADER) -> *mut void;
+        extern fn ImageDirectoryEntryToDataEx(#[in] Base: PVOID, #[in] MappedAsImage: BOOLEAN, #[in] DirectoryEntry: USHORT, #[out] Size: PULONG, #[opt] #[out] FoundHeader: *mut PIMAGE_SECTION_HEADER) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn ImageNtHeader(#[in] Base: *mut void) -> PIMAGE_NT_HEADERS;
+        extern fn ImageNtHeader(#[in] Base: PVOID) -> PIMAGE_NT_HEADERS;
         #[library("dbghelp.dll")]
-        extern fn ImageRvaToSection(NtHeaders: PIMAGE_NT_HEADERS, #[in] Base: *mut void, Rva: u32) -> PIMAGE_SECTION_HEADER;
+        extern fn ImageRvaToSection(#[in] NtHeaders: PIMAGE_NT_HEADERS, #[in] Base: PVOID, #[in] Rva: ULONG) -> PIMAGE_SECTION_HEADER;
         #[library("dbghelp.dll")]
-        extern fn ImageRvaToVa(NtHeaders: PIMAGE_NT_HEADERS, #[in] Base: *mut void, Rva: u32, #[in] #[out] #[opt] LastRvaSection: *mut PIMAGE_SECTION_HEADER) -> *mut void;
+        extern fn ImageRvaToVa(#[in] NtHeaders: PIMAGE_NT_HEADERS, #[in] Base: PVOID, #[in] Rva: ULONG, #[in] #[opt] LastRvaSection: *mut PIMAGE_SECTION_HEADER) -> PVOID;
         #[library("dbghelp.dll")]
         extern fn ImagehlpApiVersion() -> LPAPI_VERSION;
         #[library("dbghelp.dll")]
-        extern fn ImagehlpApiVersionEx(AppVersion: LPAPI_VERSION) -> LPAPI_VERSION;
+        extern fn ImagehlpApiVersionEx(#[in] AppVersion: LPAPI_VERSION) -> LPAPI_VERSION;
         #[arch(X86)]
+        #[packed(8)]
         struct KDHELP {
-            Thread: u32,
-            ThCallbackStack: u32,
-            NextCallback: u32,
-            FramePointer: u32,
-            KiCallUserMode: u32,
-            KeUserCallbackDispatcher: u32,
-            SystemRangeStart: u32,
-            ThCallbackBStore: u32,
-            KiUserExceptionDispatcher: u32,
-            StackBase: u32,
-            StackLimit: u32,
-            Reserved: [u32; 5],
+            Thread: DWORD,
+            ThCallbackStack: DWORD,
+            NextCallback: DWORD,
+            FramePointer: DWORD,
+            KiCallUserMode: DWORD,
+            KeUserCallbackDispatcher: DWORD,
+            SystemRangeStart: DWORD,
+            ThCallbackBStore: DWORD,
+            KiUserExceptionDispatcher: DWORD,
+            StackBase: DWORD,
+            StackLimit: DWORD,
+            Reserved: [DWORD; 5],
         }
+        #[packed(8)]
         struct KDHELP64 {
-            Thread: u64,
-            ThCallbackStack: u32,
-            ThCallbackBStore: u32,
-            NextCallback: u32,
-            FramePointer: u32,
-            KiCallUserMode: u64,
-            KeUserCallbackDispatcher: u64,
-            SystemRangeStart: u64,
-            KiUserExceptionDispatcher: u64,
-            StackBase: u64,
-            StackLimit: u64,
-            BuildVersion: u32,
-            RetpolineStubFunctionTableSize: u32,
-            RetpolineStubFunctionTable: u64,
-            RetpolineStubOffset: u32,
-            RetpolineStubSize: u32,
-            Reserved0: [u64; 2],
+            Thread: DWORD64,
+            ThCallbackStack: DWORD,
+            ThCallbackBStore: DWORD,
+            NextCallback: DWORD,
+            FramePointer: DWORD,
+            KiCallUserMode: DWORD64,
+            KeUserCallbackDispatcher: DWORD64,
+            SystemRangeStart: DWORD64,
+            KiUserExceptionDispatcher: DWORD64,
+            StackBase: DWORD64,
+            StackLimit: DWORD64,
+            BuildVersion: DWORD,
+            RetpolineStubFunctionTableSize: DWORD,
+            RetpolineStubFunctionTable: DWORD64,
+            RetpolineStubOffset: DWORD,
+            RetpolineStubSize: DWORD,
+            Reserved0: [DWORD64; 2],
         }
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct LOADED_IMAGE {
             ModuleName: PSTR,
             hFile: HANDLE,
             MappedAddress: PUCHAR,
             FileHeader: PIMAGE_NT_HEADERS64,
             LastRvaSection: PIMAGE_SECTION_HEADER,
-            NumberOfSections: u32,
+            NumberOfSections: ULONG,
             Sections: PIMAGE_SECTION_HEADER,
-            Characteristics: u32,
+            Characteristics: ULONG,
             fSystemImage: BOOLEAN,
             fDOSImage: BOOLEAN,
             fReadOnly: BOOLEAN,
-            Version: u8,
+            Version: UCHAR,
             Links: LIST_ENTRY,
-            SizeOfImage: u32,
+            SizeOfImage: ULONG,
         }
         #[arch(X86)]
+        #[packed(8)]
         struct LOADED_IMAGE {
             ModuleName: PSTR,
             hFile: HANDLE,
             MappedAddress: PUCHAR,
             FileHeader: PIMAGE_NT_HEADERS32,
             LastRvaSection: PIMAGE_SECTION_HEADER,
-            NumberOfSections: u32,
+            NumberOfSections: ULONG,
             Sections: PIMAGE_SECTION_HEADER,
-            Characteristics: u32,
+            Characteristics: ULONG,
             fSystemImage: BOOLEAN,
             fDOSImage: BOOLEAN,
             fReadOnly: BOOLEAN,
-            Version: u8,
+            Version: UCHAR,
             Links: LIST_ENTRY,
-            SizeOfImage: u32,
+            SizeOfImage: ULONG,
         }
         #[arch(X86)]
         type LPADDRESS = *mut ADDRESS;
         type LPADDRESS64 = *mut ADDRESS64;
         type LPAPI_VERSION = *mut API_VERSION;
-        extern fn LPCALL_BACK_USER_INTERRUPT_ROUTINE() -> u32;
+        extern fn LPCALL_BACK_USER_INTERRUPT_ROUTINE() -> ULONG;
         #[arch(X86)]
         type LPSTACKFRAME = *mut STACKFRAME;
         type LPSTACKFRAME64 = *mut STACKFRAME64;
         type LPSTACKFRAME_EX = *mut STACKFRAME_EX;
         const MAX_SYM_NAME: i32 = 2000;
+        #[packed(8)]
         struct MODLOAD_CVMISC {
-            oCV: u32,
-            cCV: usize,
-            oMisc: u32,
-            cMisc: usize,
-            dtImage: u32,
-            cImage: u32,
+            oCV: DWORD,
+            cCV: size_t,
+            oMisc: DWORD,
+            cMisc: size_t,
+            dtImage: DWORD,
+            cImage: DWORD,
         }
+        #[packed(8)]
         struct MODLOAD_DATA {
-            ssize: u32,
-            ssig: u32,
-            data: *mut void,
-            size: u32,
-            flags: u32,
+            ssize: DWORD,
+            ssig: DWORD,
+            data: PVOID,
+            size: DWORD,
+            flags: DWORD,
         }
+        #[packed(8)]
         struct MODLOAD_PDBGUID_PDBAGE {
             PdbGuid: GUID,
-            PdbAge: u32,
+            PdbAge: DWORD,
         }
+        #[packed(8)]
         struct MODULE_TYPE_INFO {
-            dataLength: u16,
-            leaf: u16,
-            data: [u8; 1],
+            dataLength: USHORT,
+            leaf: USHORT,
+            data: [BYTE; 1],
         }
         #[library("dbghelp.dll")]
-        extern fn MakeSureDirectoryPathExists(DirPath: PCSTR) -> BOOL;
+        extern fn MakeSureDirectoryPathExists(#[in] DirPath: PCSTR) -> BOOL;
+        #[arch(X86)]
+        #[library("dbghelp.dll")]
+        extern fn MapDebugInformation(#[in] #[opt] FileHandle: HANDLE, #[in] FileName: PCSTR, #[in] #[opt] SymbolPath: PCSTR, #[in] ImageBase: ULONG) -> PIMAGE_DEBUG_INFORMATION;
         const NONGAMESPARTITIONS: i32 = 1;
         const NUM_SSRVOPTS: i32 = 32;
+        #[packed(8)]
         struct OMAP {
-            rva: u32,
-            rvaTo: u32,
+            rva: ULONG,
+            rvaTo: ULONG,
         }
-        extern fn PDBGHELP_CREATE_USER_DUMP_CALLBACK(DataType: u32, #[in] Data: *mut *mut void, #[out] DataLength: LPDWORD, #[in] #[opt] UserData: *mut void) -> BOOL;
+        extern fn PDBGHELP_CREATE_USER_DUMP_CALLBACK(#[in] DataType: DWORD, #[in] Data: *mut PVOID, #[out] DataLength: LPDWORD, #[in] #[opt] UserData: PVOID) -> BOOL;
         type PDBGHELP_DATA_REPORT_STRUCT = *mut DBGHELP_DATA_REPORT_STRUCT;
-        extern fn PENUMDIRTREE_CALLBACK(FilePath: PCSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
-        extern fn PENUMDIRTREE_CALLBACKW(FilePath: PCWSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
+        extern fn PENUMDIRTREE_CALLBACK(#[in] FilePath: PCSTR, #[in] #[opt] CallerData: PVOID) -> BOOL;
+        extern fn PENUMDIRTREE_CALLBACKW(#[in] FilePath: PCWSTR, #[in] #[opt] CallerData: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PENUMLOADED_MODULES_CALLBACK(ModuleName: PCSTR, ModuleBase: u32, ModuleSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PENUMLOADED_MODULES_CALLBACK64(ModuleName: PCSTR, ModuleBase: u64, ModuleSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PENUMLOADED_MODULES_CALLBACKW64(ModuleName: PCWSTR, ModuleBase: u64, ModuleSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PENUMSOURCEFILETOKENSCALLBACK(#[in] token: *mut void, size: usize) -> BOOL;
-        extern fn PFINDFILEINPATHCALLBACK(filename: PCSTR, #[in] context: *mut void) -> BOOL;
-        extern fn PFINDFILEINPATHCALLBACKW(filename: PCWSTR, #[in] context: *mut void) -> BOOL;
-        extern fn PFIND_DEBUG_FILE_CALLBACK(FileHandle: HANDLE, FileName: PCSTR, #[in] CallerData: *mut void) -> BOOL;
-        extern fn PFIND_DEBUG_FILE_CALLBACKW(FileHandle: HANDLE, FileName: PCWSTR, #[in] CallerData: *mut void) -> BOOL;
-        extern fn PFIND_EXE_FILE_CALLBACK(FileHandle: HANDLE, FileName: PCSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
-        extern fn PFIND_EXE_FILE_CALLBACKW(FileHandle: HANDLE, FileName: PCWSTR, #[in] #[opt] CallerData: *mut void) -> BOOL;
+        extern fn PENUMLOADED_MODULES_CALLBACK(#[in] ModuleName: PCSTR, #[in] ModuleBase: ULONG, #[in] ModuleSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PENUMLOADED_MODULES_CALLBACK64(#[in] ModuleName: PCSTR, #[in] ModuleBase: DWORD64, #[in] ModuleSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PENUMLOADED_MODULES_CALLBACKW64(#[in] ModuleName: PCWSTR, #[in] ModuleBase: DWORD64, #[in] ModuleSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PENUMSOURCEFILETOKENSCALLBACK(#[in] token: PVOID, #[in] size: size_t) -> BOOL;
+        extern fn PFINDFILEINPATHCALLBACK(#[in] filename: PCSTR, #[in] context: PVOID) -> BOOL;
+        extern fn PFINDFILEINPATHCALLBACKW(#[in] filename: PCWSTR, #[in] context: PVOID) -> BOOL;
+        extern fn PFIND_DEBUG_FILE_CALLBACK(#[in] FileHandle: HANDLE, #[in] FileName: PCSTR, #[in] CallerData: PVOID) -> BOOL;
+        extern fn PFIND_DEBUG_FILE_CALLBACKW(#[in] FileHandle: HANDLE, #[in] FileName: PCWSTR, #[in] CallerData: PVOID) -> BOOL;
+        extern fn PFIND_EXE_FILE_CALLBACK(#[in] FileHandle: HANDLE, #[in] FileName: PCSTR, #[in] #[opt] CallerData: PVOID) -> BOOL;
+        extern fn PFIND_EXE_FILE_CALLBACKW(#[in] FileHandle: HANDLE, #[in] FileName: PCWSTR, #[in] #[opt] CallerData: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE(hProcess: HANDLE, AddrBase: u32) -> *mut void;
-        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE64(ahProcess: HANDLE, AddrBase: u64) -> *mut void;
+        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE(#[in] hProcess: HANDLE, #[in] AddrBase: DWORD) -> PVOID;
+        extern fn PFUNCTION_TABLE_ACCESS_ROUTINE64(#[in] ahProcess: HANDLE, #[in] AddrBase: DWORD64) -> PVOID;
         #[arch(X86)]
-        extern fn PGET_MODULE_BASE_ROUTINE(hProcess: HANDLE, Address: u32) -> u32;
-        extern fn PGET_MODULE_BASE_ROUTINE64(hProcess: HANDLE, Address: u64) -> u64;
-        extern fn PGET_TARGET_ATTRIBUTE_VALUE64(hProcess: HANDLE, Attribute: u32, AttributeData: u64, AttributeValue: *mut u64) -> BOOL;
+        extern fn PGET_MODULE_BASE_ROUTINE(#[in] hProcess: HANDLE, #[in] Address: DWORD) -> DWORD;
+        extern fn PGET_MODULE_BASE_ROUTINE64(#[in] hProcess: HANDLE, #[in] Address: DWORD64) -> DWORD64;
+        extern fn PGET_TARGET_ATTRIBUTE_VALUE64(#[in] hProcess: HANDLE, #[in] Attribute: DWORD, #[in] AttributeData: DWORD64, #[out] AttributeValue: *mut DWORD64) -> BOOL;
         type PIMAGEHLP_CBA_EVENT = *mut IMAGEHLP_CBA_EVENT;
         type PIMAGEHLP_CBA_EVENTW = *mut IMAGEHLP_CBA_EVENTW;
         type PIMAGEHLP_CBA_READ_MEMORY = *mut IMAGEHLP_CBA_READ_MEMORY;
@@ -716,8 +769,8 @@ mod Windows {
         type PMODULE_TYPE_INFO = *mut MODULE_TYPE_INFO;
         type POMAP = *mut OMAP;
         #[arch(X86)]
-        extern fn PREAD_PROCESS_MEMORY_ROUTINE(hProcess: HANDLE, lpBaseAddress: u32, #[size_param(3)] lpBuffer: *mut void, nSize: u32, #[out] lpNumberOfBytesRead: PDWORD) -> BOOL;
-        extern fn PREAD_PROCESS_MEMORY_ROUTINE64(hProcess: HANDLE, qwBaseAddress: u64, #[size_param(3)] lpBuffer: *mut void, nSize: u32, #[out] lpNumberOfBytesRead: LPDWORD) -> BOOL;
+        extern fn PREAD_PROCESS_MEMORY_ROUTINE(#[in] hProcess: HANDLE, #[in] lpBaseAddress: DWORD, #[out] #[writable(entry, bytes(nSize))] lpBuffer: PVOID, #[in] nSize: DWORD, #[out] lpNumberOfBytesRead: PDWORD) -> BOOL;
+        extern fn PREAD_PROCESS_MEMORY_ROUTINE64(#[in] hProcess: HANDLE, #[in] qwBaseAddress: DWORD64, #[out] #[writable(entry, bytes(nSize))] lpBuffer: PVOID, #[in] nSize: DWORD, #[out] lpNumberOfBytesRead: LPDWORD) -> BOOL;
         type PSOURCEFILE = *mut SOURCEFILE;
         type PSOURCEFILEW = *mut SOURCEFILEW;
         type PSRCCODEINFO = *mut SRCCODEINFO;
@@ -725,113 +778,117 @@ mod Windows {
         extern fn PSYMBOLSERVERBYINDEXPROC(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR) -> BOOL;
         extern fn PSYMBOLSERVERBYINDEXPROCA(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR) -> BOOL;
         extern fn PSYMBOLSERVERBYINDEXPROCW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERCALLBACKPROC(action: usize, data: u64, context: u64) -> BOOL;
+        extern fn PSYMBOLSERVERCALLBACKPROC(action: UINT_PTR, data: ULONG64, context: ULONG64) -> BOOL;
         extern fn PSYMBOLSERVERCLOSEPROC() -> BOOL;
-        extern fn PSYMBOLSERVERDELTANAME(param0: PCSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: PSTR, param8: usize) -> BOOL;
-        extern fn PSYMBOLSERVERDELTANAMEW(param0: PCWSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: PWSTR, param8: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETINDEXSTRING(param0: *mut void, param1: u32, param2: u32, param3: PSTR, param4: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETINDEXSTRINGW(param0: *mut void, param1: u32, param2: u32, param3: PWSTR, param4: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETOPTIONDATAPROC(param0: usize, param1: PULONG64) -> BOOL;
-        extern fn PSYMBOLSERVERGETOPTIONSPROC() -> usize;
-        extern fn PSYMBOLSERVERGETSUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: usize) -> BOOL;
-        extern fn PSYMBOLSERVERGETSUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: usize) -> BOOL;
+        extern fn PSYMBOLSERVERDELTANAME(param0: PCSTR, param1: PVOID, param2: DWORD, param3: DWORD, param4: PVOID, param5: DWORD, param6: DWORD, param7: PSTR, param8: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERDELTANAMEW(param0: PCWSTR, param1: PVOID, param2: DWORD, param3: DWORD, param4: PVOID, param5: DWORD, param6: DWORD, param7: PWSTR, param8: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETINDEXSTRING(param0: PVOID, param1: DWORD, param2: DWORD, param3: PSTR, param4: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETINDEXSTRINGW(param0: PVOID, param1: DWORD, param2: DWORD, param3: PWSTR, param4: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETOPTIONDATAPROC(param0: UINT_PTR, param1: PULONG64) -> BOOL;
+        extern fn PSYMBOLSERVERGETOPTIONSPROC() -> UINT_PTR;
+        extern fn PSYMBOLSERVERGETSUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: size_t) -> BOOL;
+        extern fn PSYMBOLSERVERGETSUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: size_t) -> BOOL;
         extern fn PSYMBOLSERVERGETVERSION(param0: LPAPI_VERSION) -> BOOL;
         extern fn PSYMBOLSERVERISSTORE(param0: PCSTR) -> BOOL;
         extern fn PSYMBOLSERVERISSTOREW(param0: PCWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERMESSAGEPROC(action: usize, data: u64, context: u64) -> BOOL;
+        extern fn PSYMBOLSERVERMESSAGEPROC(action: UINT_PTR, data: ULONG64, context: ULONG64) -> BOOL;
         extern fn PSYMBOLSERVEROPENPROC() -> BOOL;
         extern fn PSYMBOLSERVERPINGPROC(param0: PCSTR) -> BOOL;
         extern fn PSYMBOLSERVERPINGPROCA(param0: PCSTR) -> BOOL;
         extern fn PSYMBOLSERVERPINGPROCW(param0: PCWSTR) -> BOOL;
         extern fn PSYMBOLSERVERPINGPROCWEX(param0: PCWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERPROC(param0: PCSTR, param1: PCSTR, param2: *mut void, param3: u32, param4: u32, param5: PSTR) -> BOOL;
-        extern fn PSYMBOLSERVERPROCA(param0: PCSTR, param1: PCSTR, param2: *mut void, param3: u32, param4: u32, param5: PSTR) -> BOOL;
-        extern fn PSYMBOLSERVERPROCW(param0: PCWSTR, param1: PCWSTR, param2: *mut void, param3: u32, param4: u32, param5: PWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERSETHTTPAUTHHEADER(pszAuthHeader: PCWSTR) -> BOOL;
-        extern fn PSYMBOLSERVERSETOPTIONSPROC(param0: usize, param1: u64) -> BOOL;
-        extern fn PSYMBOLSERVERSETOPTIONSWPROC(param0: usize, param1: u64) -> BOOL;
-        extern fn PSYMBOLSERVERSTOREFILE(param0: PCSTR, param1: PCSTR, param2: *mut void, param3: u32, param4: u32, param5: PSTR, param6: usize, param7: u32) -> BOOL;
-        extern fn PSYMBOLSERVERSTOREFILEW(param0: PCWSTR, param1: PCWSTR, param2: *mut void, param3: u32, param4: u32, param5: PWSTR, param6: usize, param7: u32) -> BOOL;
-        extern fn PSYMBOLSERVERSTORESUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: usize, param5: u32) -> BOOL;
-        extern fn PSYMBOLSERVERSTORESUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: usize, param5: u32) -> BOOL;
-        extern fn PSYMBOLSERVERVERSION() -> u32;
-        extern fn PSYMBOLSERVERWEXPROC(param0: PCWSTR, param1: PCWSTR, param2: *mut void, param3: u32, param4: u32, param5: PWSTR, param6: PSYMSRV_EXTENDED_OUTPUT_DATA) -> BOOL;
-        extern fn PSYMBOL_FUNCENTRY_CALLBACK(hProcess: HANDLE, AddrBase: u32, #[in] #[opt] UserContext: *mut void) -> *mut void;
-        extern fn PSYMBOL_FUNCENTRY_CALLBACK64(hProcess: HANDLE, AddrBase: u64, UserContext: u64) -> *mut void;
+        extern fn PSYMBOLSERVERPROC(param0: PCSTR, param1: PCSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PSTR) -> BOOL;
+        extern fn PSYMBOLSERVERPROCA(param0: PCSTR, param1: PCSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PSTR) -> BOOL;
+        extern fn PSYMBOLSERVERPROCW(param0: PCWSTR, param1: PCWSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PWSTR) -> BOOL;
+        extern fn PSYMBOLSERVERSETHTTPAUTHHEADER(#[in] pszAuthHeader: PCWSTR) -> BOOL;
+        extern fn PSYMBOLSERVERSETOPTIONSPROC(param0: UINT_PTR, param1: ULONG64) -> BOOL;
+        extern fn PSYMBOLSERVERSETOPTIONSWPROC(param0: UINT_PTR, param1: ULONG64) -> BOOL;
+        extern fn PSYMBOLSERVERSTOREFILE(param0: PCSTR, param1: PCSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PSTR, param6: size_t, param7: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERSTOREFILEW(param0: PCWSTR, param1: PCWSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PWSTR, param6: size_t, param7: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERSTORESUPPLEMENT(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PSTR, param4: size_t, param5: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERSTORESUPPLEMENTW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PWSTR, param4: size_t, param5: DWORD) -> BOOL;
+        extern fn PSYMBOLSERVERVERSION() -> DWORD;
+        extern fn PSYMBOLSERVERWEXPROC(param0: PCWSTR, param1: PCWSTR, param2: PVOID, param3: DWORD, param4: DWORD, param5: PWSTR, param6: PSYMSRV_EXTENDED_OUTPUT_DATA) -> BOOL;
+        extern fn PSYMBOL_FUNCENTRY_CALLBACK(#[in] hProcess: HANDLE, #[in] AddrBase: DWORD, #[in] #[opt] UserContext: PVOID) -> PVOID;
+        extern fn PSYMBOL_FUNCENTRY_CALLBACK64(#[in] hProcess: HANDLE, #[in] AddrBase: ULONG64, #[in] UserContext: ULONG64) -> PVOID;
         type PSYMBOL_INFO = *mut SYMBOL_INFO;
         type PSYMBOL_INFOW = *mut SYMBOL_INFOW;
         type PSYMBOL_INFO_PACKAGE = *mut SYMBOL_INFO_PACKAGE;
         type PSYMBOL_INFO_PACKAGEW = *mut SYMBOL_INFO_PACKAGEW;
         #[arch(X86)]
-        extern fn PSYMBOL_REGISTERED_CALLBACK(hProcess: HANDLE, ActionCode: u32, #[in] #[opt] CallbackData: *mut void, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYMBOL_REGISTERED_CALLBACK64(hProcess: HANDLE, ActionCode: u32, #[opt] CallbackData: u64, #[opt] UserContext: u64) -> BOOL;
+        extern fn PSYMBOL_REGISTERED_CALLBACK(#[in] hProcess: HANDLE, #[in] ActionCode: ULONG, #[in] #[opt] CallbackData: PVOID, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYMBOL_REGISTERED_CALLBACK64(#[in] hProcess: HANDLE, #[in] ActionCode: ULONG, #[in] #[opt] CallbackData: ULONG64, #[in] #[opt] UserContext: ULONG64) -> BOOL;
         type PSYMSRV_EXTENDED_OUTPUT_DATA = *mut SYMSRV_EXTENDED_OUTPUT_DATA;
         type PSYMSRV_INDEX_INFO = *mut SYMSRV_INDEX_INFO;
         type PSYMSRV_INDEX_INFOW = *mut SYMSRV_INDEX_INFOW;
-        extern fn PSYM_ENUMERATESYMBOLS_CALLBACK(pSymInfo: PSYMBOL_INFO, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMERATESYMBOLS_CALLBACKW(pSymInfo: PSYMBOL_INFOW, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMLINES_CALLBACK(LineInfo: PSRCCODEINFO, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMLINES_CALLBACKW(LineInfo: PSRCCODEINFOW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMERATESYMBOLS_CALLBACK(#[in] pSymInfo: PSYMBOL_INFO, #[in] SymbolSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMERATESYMBOLS_CALLBACKW(#[in] pSymInfo: PSYMBOL_INFOW, #[in] SymbolSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMLINES_CALLBACK(#[in] LineInfo: PSRCCODEINFO, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMLINES_CALLBACKW(#[in] LineInfo: PSRCCODEINFOW, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PSYM_ENUMMODULES_CALLBACK(ModuleName: PCSTR, BaseOfDll: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMMODULES_CALLBACK64(ModuleName: PCSTR, BaseOfDll: u64, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMMODULES_CALLBACKW64(ModuleName: PCWSTR, BaseOfDll: u64, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMPROCESSES_CALLBACK(hProcess: HANDLE, #[in] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSOURCEFILES_CALLBACK(pSourceFile: PSOURCEFILE, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSOURCEFILES_CALLBACKW(pSourceFile: PSOURCEFILEW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMMODULES_CALLBACK(#[in] ModuleName: PCSTR, #[in] BaseOfDll: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMMODULES_CALLBACK64(#[in] ModuleName: PCSTR, #[in] BaseOfDll: DWORD64, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMMODULES_CALLBACKW64(#[in] ModuleName: PCWSTR, #[in] BaseOfDll: DWORD64, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMPROCESSES_CALLBACK(#[in] hProcess: HANDLE, #[in] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSOURCEFILES_CALLBACK(#[in] pSourceFile: PSOURCEFILE, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSOURCEFILES_CALLBACKW(#[in] pSourceFile: PSOURCEFILEW, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PSYM_ENUMSYMBOLS_CALLBACK(SymbolName: PCSTR, SymbolAddress: u32, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSYMBOLS_CALLBACK64(SymbolName: PCSTR, SymbolAddress: u64, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
-        extern fn PSYM_ENUMSYMBOLS_CALLBACK64W(SymbolName: PCWSTR, SymbolAddress: u64, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACK(#[in] SymbolName: PCSTR, #[in] SymbolAddress: ULONG, #[in] SymbolSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACK64(#[in] SymbolName: PCSTR, #[in] SymbolAddress: DWORD64, #[in] SymbolSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACK64W(#[in] SymbolName: PCWSTR, #[in] SymbolAddress: DWORD64, #[in] SymbolSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PSYM_ENUMSYMBOLS_CALLBACKW(SymbolName: PCWSTR, SymbolAddress: u32, SymbolSize: u32, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn PSYM_ENUMSYMBOLS_CALLBACKW(#[in] SymbolName: PCWSTR, #[in] SymbolAddress: ULONG, #[in] SymbolSize: ULONG, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
-        extern fn PTRANSLATE_ADDRESS_ROUTINE(hProcess: HANDLE, hThread: HANDLE, #[out] lpaddr: LPADDRESS) -> u32;
-        extern fn PTRANSLATE_ADDRESS_ROUTINE64(hProcess: HANDLE, hThread: HANDLE, lpaddr: LPADDRESS64) -> u64;
+        extern fn PTRANSLATE_ADDRESS_ROUTINE(#[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[out] lpaddr: LPADDRESS) -> DWORD;
+        extern fn PTRANSLATE_ADDRESS_ROUTINE64(#[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] lpaddr: LPADDRESS64) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn RangeMapAddPeImageSections(#[in] RmapHandle: *mut void, #[opt] ImageName: PCWSTR, #[size_param(3)] #[in] MappedImage: *mut void, MappingBytes: u32, ImageBase: u64, UserTag: u64, MappingFlags: u32) -> BOOL;
+        extern fn RangeMapAddPeImageSections(#[in] RmapHandle: PVOID, #[in] #[opt] ImageName: PCWSTR, #[in] #[readable(entry, bytes(MappingBytes))] MappedImage: PVOID, #[in] MappingBytes: DWORD, #[in] ImageBase: DWORD64, #[in] UserTag: DWORD64, #[in] MappingFlags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RangeMapCreate() -> *mut void;
+        extern fn RangeMapCreate() -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn RangeMapFree(#[in] #[opt] RmapHandle: *mut void);
+        extern fn RangeMapFree(#[in] #[opt] RmapHandle: PVOID);
         #[library("dbghelp.dll")]
-        extern fn RangeMapRead(#[in] RmapHandle: *mut void, Offset: u64, #[size_param(3)] Buffer: *mut void, RequestBytes: u32, Flags: u32, #[out] #[opt] DoneBytes: PDWORD) -> BOOL;
+        extern fn RangeMapRead(#[in] RmapHandle: PVOID, #[in] Offset: DWORD64, #[out] #[readable(success, bytes(if_present(*DoneBytes)))] #[writable(entry, bytes(RequestBytes))] Buffer: PVOID, #[in] RequestBytes: DWORD, #[in] Flags: DWORD, #[opt] #[out] DoneBytes: PDWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RangeMapRemove(#[in] RmapHandle: *mut void, UserTag: u64) -> BOOL;
+        extern fn RangeMapRemove(#[in] RmapHandle: PVOID, #[in] UserTag: DWORD64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RangeMapWrite(#[in] RmapHandle: *mut void, Offset: u64, #[size_param(3)] #[in] Buffer: *mut void, RequestBytes: u32, Flags: u32, #[out] #[opt] DoneBytes: PDWORD) -> BOOL;
+        extern fn RangeMapWrite(#[in] RmapHandle: PVOID, #[in] Offset: DWORD64, #[in] #[readable(entry, bytes(RequestBytes))] Buffer: PVOID, #[in] RequestBytes: DWORD, #[in] Flags: DWORD, #[opt] #[out] DoneBytes: PDWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn RemoveInvalidModuleList(hProcess: HANDLE);
+        extern fn RemoveInvalidModuleList(#[in] hProcess: HANDLE);
         #[library("dbghelp.dll")]
-        extern fn ReportSymbolLoadSummary(hProcess: HANDLE, #[opt] pLoadModule: PCWSTR, pSymbolData: PDBGHELP_DATA_REPORT_STRUCT) -> BOOL;
+        extern fn ReportSymbolLoadSummary(#[in] hProcess: HANDLE, #[in] #[opt] pLoadModule: PCWSTR, #[in] pSymbolData: PDBGHELP_DATA_REPORT_STRUCT) -> BOOL;
         const SLMFLAG_ALT_INDEX: i32 = 2;
         const SLMFLAG_NO_SYMBOLS: i32 = 4;
         const SLMFLAG_VIRTUAL: i32 = 1;
+        #[packed(8)]
         struct SOURCEFILE {
-            ModBase: u64,
+            ModBase: DWORD64,
             FileName: PCHAR,
         }
+        #[packed(8)]
         struct SOURCEFILEW {
-            ModBase: u64,
+            ModBase: DWORD64,
             FileName: PWSTR,
         }
+        #[packed(8)]
         struct SRCCODEINFO {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            ModBase: u64,
-            Obj: [i8; 261],
-            FileName: [i8; 261],
-            LineNumber: u32,
-            Address: u64,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            ModBase: DWORD64,
+            Obj: [CHAR; 261],
+            FileName: [CHAR; 261],
+            LineNumber: DWORD,
+            Address: DWORD64,
         }
+        #[packed(8)]
         struct SRCCODEINFOW {
-            SizeOfStruct: u32,
-            Key: *mut void,
-            ModBase: u64,
-            Obj: [u16; 261],
-            FileName: [u16; 261],
-            LineNumber: u32,
-            Address: u64,
+            SizeOfStruct: DWORD,
+            Key: PVOID,
+            ModBase: DWORD64,
+            Obj: [WCHAR; 261],
+            FileName: [WCHAR; 261],
+            LineNumber: DWORD,
+            Address: DWORD64,
         }
         const SSRVACTION_CHECKSUMSTATUS: i32 = 8;
         const SSRVACTION_EVENT: i32 = 3;
@@ -865,9 +922,9 @@ mod Windows {
         const SSRVOPT_PROXY: i32 = 4096;
         const SSRVOPT_PROXYW: i32 = 262144;
         #[arch(X64 | Arm64)]
-        const SSRVOPT_RESET: usize = 18446744073709551615;
+        const SSRVOPT_RESET: ULONG_PTR = 18446744073709551615;
         #[arch(X86)]
-        const SSRVOPT_RESET: usize = 4294967295;
+        const SSRVOPT_RESET: ULONG_PTR = 4294967295;
         const SSRVOPT_RESETTOU: i32 = 32768;
         const SSRVOPT_RETRY_APP_HANG: u32 = 2147483648;
         const SSRVOPT_SECURE: i32 = 512;
@@ -895,90 +952,97 @@ mod Windows {
         const SSRVURI_UNC_MSFZ0: i32 = 128;
         const SSRVURI_UNC_NORMAL: i32 = 16;
         #[arch(X86)]
+        #[packed(8)]
         struct STACKFRAME {
             AddrPC: ADDRESS,
             AddrReturn: ADDRESS,
             AddrFrame: ADDRESS,
             AddrStack: ADDRESS,
-            FuncTableEntry: *mut void,
-            Params: [u32; 4],
+            FuncTableEntry: PVOID,
+            Params: [DWORD; 4],
             Far: BOOL,
             Virtual: BOOL,
-            Reserved: [u32; 3],
+            Reserved: [DWORD; 3],
             KdHelp: KDHELP,
             AddrBStore: ADDRESS,
         }
+        #[packed(8)]
         struct STACKFRAME64 {
             AddrPC: ADDRESS64,
             AddrReturn: ADDRESS64,
             AddrFrame: ADDRESS64,
             AddrStack: ADDRESS64,
             AddrBStore: ADDRESS64,
-            FuncTableEntry: *mut void,
-            Params: [u64; 4],
+            FuncTableEntry: PVOID,
+            Params: [DWORD64; 4],
             Far: BOOL,
             Virtual: BOOL,
-            Reserved: [u64; 3],
+            Reserved: [DWORD64; 3],
             KdHelp: KDHELP64,
         }
+        #[packed(8)]
         struct STACKFRAME_EX {
             AddrPC: ADDRESS64,
             AddrReturn: ADDRESS64,
             AddrFrame: ADDRESS64,
             AddrStack: ADDRESS64,
             AddrBStore: ADDRESS64,
-            FuncTableEntry: *mut void,
-            Params: [u64; 4],
+            FuncTableEntry: PVOID,
+            Params: [DWORD64; 4],
             Far: BOOL,
             Virtual: BOOL,
-            Reserved: [u64; 3],
+            Reserved: [DWORD64; 3],
             KdHelp: KDHELP64,
-            StackFrameSize: u32,
-            InlineFrameContext: u32,
+            StackFrameSize: DWORD,
+            InlineFrameContext: DWORD,
         }
-        extern fn SYMADDSOURCESTREAM(param0: HANDLE, param1: u64, param2: PCSTR, param3: PBYTE, param4: usize) -> BOOL;
-        extern fn SYMADDSOURCESTREAMA(param0: HANDLE, param1: u64, param2: PCSTR, param3: PBYTE, param4: usize) -> BOOL;
+        extern fn SYMADDSOURCESTREAM(param0: HANDLE, param1: ULONG64, param2: PCSTR, param3: PBYTE, param4: size_t) -> BOOL;
+        extern fn SYMADDSOURCESTREAMA(param0: HANDLE, param1: ULONG64, param2: PCSTR, param3: PBYTE, param4: size_t) -> BOOL;
+        #[packed(8)]
         struct SYMBOL_INFO {
-            SizeOfStruct: u32,
-            TypeIndex: u32,
-            Reserved: [u64; 2],
-            Index: u32,
-            Size: u32,
-            ModBase: u64,
-            Flags: u32,
-            Value: u64,
-            Address: u64,
-            Register: u32,
-            Scope: u32,
-            Tag: u32,
-            NameLen: u32,
-            MaxNameLen: u32,
-            Name: [i8; 1],
+            SizeOfStruct: ULONG,
+            TypeIndex: ULONG,
+            Reserved: [ULONG64; 2],
+            Index: ULONG,
+            Size: ULONG,
+            ModBase: ULONG64,
+            Flags: ULONG,
+            Value: ULONG64,
+            Address: ULONG64,
+            Register: ULONG,
+            Scope: ULONG,
+            Tag: ULONG,
+            NameLen: ULONG,
+            MaxNameLen: ULONG,
+            Name: [CHAR; 1],
         }
+        #[packed(8)]
         struct SYMBOL_INFOW {
-            SizeOfStruct: u32,
-            TypeIndex: u32,
-            Reserved: [u64; 2],
-            Index: u32,
-            Size: u32,
-            ModBase: u64,
-            Flags: u32,
-            Value: u64,
-            Address: u64,
-            Register: u32,
-            Scope: u32,
-            Tag: u32,
-            NameLen: u32,
-            MaxNameLen: u32,
-            Name: [u16; 1],
+            SizeOfStruct: ULONG,
+            TypeIndex: ULONG,
+            Reserved: [ULONG64; 2],
+            Index: ULONG,
+            Size: ULONG,
+            ModBase: ULONG64,
+            Flags: ULONG,
+            Value: ULONG64,
+            Address: ULONG64,
+            Register: ULONG,
+            Scope: ULONG,
+            Tag: ULONG,
+            NameLen: ULONG,
+            MaxNameLen: ULONG,
+            Name: [WCHAR; 1],
         }
+        #[packed(8)]
         struct SYMBOL_INFO_PACKAGE {
             si: SYMBOL_INFO,
-            name: [i8; 2001],
+            name: [CHAR; 2001],
         }
+        #[packed(8)]
         struct SYMBOL_INFO_PACKAGEW {
             si: SYMBOL_INFOW,
-            name: [u16; 2001],
+            name: [WCHAR; 2001],
         }
         const SYMENUM_OPTIONS_DEFAULT: i32 = 1;
         const SYMENUM_OPTIONS_INLINE: i32 = 2;
@@ -1058,34 +1122,37 @@ mod Windows {
         const SYMSEARCH_GLOBALSONLY: i32 = 4;
         const SYMSEARCH_MASKOBJS: i32 = 1;
         const SYMSEARCH_RECURSE: i32 = 2;
+        #[packed(8)]
         struct SYMSRV_EXTENDED_OUTPUT_DATA {
-            sizeOfStruct: u32,
-            version: u32,
-            filePtrMsg: [u16; 261],
+            sizeOfStruct: DWORD,
+            version: DWORD,
+            filePtrMsg: [WCHAR; 261],
         }
+        #[packed(8)]
         struct SYMSRV_INDEX_INFO {
-            sizeofstruct: u32,
+            sizeofstruct: DWORD,
             file: [i8; 261],
             stripped: BOOL,
-            timestamp: u32,
-            size: u32,
+            timestamp: DWORD,
+            size: DWORD,
             dbgfile: [i8; 261],
             pdbfile: [i8; 261],
             guid: GUID,
-            sig: u32,
-            age: u32,
+            sig: DWORD,
+            age: DWORD,
         }
+        #[packed(8)]
         struct SYMSRV_INDEX_INFOW {
-            sizeofstruct: u32,
-            file: [u16; 261],
+            sizeofstruct: DWORD,
+            file: [WCHAR; 261],
             stripped: BOOL,
-            timestamp: u32,
-            size: u32,
-            dbgfile: [u16; 261],
-            pdbfile: [u16; 261],
+            timestamp: DWORD,
+            size: DWORD,
+            dbgfile: [WCHAR; 261],
+            pdbfile: [WCHAR; 261],
             guid: GUID,
-            sig: u32,
-            age: u32,
+            sig: DWORD,
+            age: DWORD,
         }
         const SYMSRV_VERSION: i32 = 2;
         const SYMSTOREOPT_ALT_INDEX: i32 = 16;
@@ -1118,392 +1185,467 @@ mod Windows {
             NumSymTypes = 9,
         }
         #[library("dbghelp.dll")]
-        extern fn SearchTreeForFile(RootPath: PCSTR, InputPathName: PCSTR, #[out] OutputPathBuffer: PSTR) -> BOOL;
+        extern fn SearchTreeForFile(#[in] RootPath: PCSTR, #[in] InputPathName: PCSTR, #[out] #[writable(entry, 261)] OutputPathBuffer: PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SearchTreeForFileW(RootPath: PCWSTR, InputPathName: PCWSTR, #[out] OutputPathBuffer: PWSTR) -> BOOL;
+        extern fn SearchTreeForFileW(#[in] RootPath: PCWSTR, #[in] InputPathName: PCWSTR, #[out] #[writable(entry, 261)] OutputPathBuffer: PWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SetCheckUserInterruptShared(lpStartAddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
+        extern fn SetCheckUserInterruptShared(#[in] lpStartAddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
         #[library("dbghelp.dll")]
-        extern fn SetSymLoadError(error: u32);
+        extern fn SetSymLoadError(#[in] error: DWORD);
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "StackWalk64")]
+        extern fn StackWalk(#[in] MachineType: DWORD, #[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME64, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn StackWalk(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE) -> BOOL;
+        extern fn StackWalk(MachineType: DWORD, #[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE, #[in] #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE, #[in] #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE, #[in] #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn StackWalk2(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, #[opt] GetTargetAttributeValue: PGET_TARGET_ATTRIBUTE_VALUE64, Flags: u32) -> BOOL;
+        extern fn StackWalk2(#[in] MachineType: DWORD, #[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, #[in] #[opt] GetTargetAttributeValue: PGET_TARGET_ATTRIBUTE_VALUE64, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn StackWalk64(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME64, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64) -> BOOL;
+        extern fn StackWalk64(#[in] MachineType: DWORD, #[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME64, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn StackWalkEx(MachineType: u32, hProcess: HANDLE, hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: *mut void, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, Flags: u32) -> BOOL;
+        extern fn StackWalkEx(#[in] MachineType: DWORD, #[in] hProcess: HANDLE, #[in] hThread: HANDLE, #[in] #[out] StackFrame: LPSTACKFRAME_EX, #[in] #[out] ContextRecord: PVOID, #[in] #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] FunctionTableAccessRoutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, #[in] #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64, #[in] #[opt] TranslateAddress: PTRANSLATE_ADDRESS_ROUTINE64, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStream(hProcess: HANDLE, Base: u64, #[opt] StreamFile: PCSTR, #[size_param(4)] #[opt] Buffer: PBYTE, Size: usize) -> BOOL;
+        extern fn SymAddSourceStream(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] StreamFile: PCSTR, #[in] #[opt] #[readable(entry, bytes(Size))] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStreamA(hProcess: HANDLE, Base: u64, #[opt] StreamFile: PCSTR, #[size_param(4)] #[opt] Buffer: PBYTE, Size: usize) -> BOOL;
+        extern fn SymAddSourceStreamA(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] StreamFile: PCSTR, #[in] #[opt] #[readable(entry, bytes(Size))] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSourceStreamW(hProcess: HANDLE, Base: u64, #[opt] FileSpec: PCWSTR, #[size_param(4)] #[opt] Buffer: PBYTE, Size: usize) -> BOOL;
+        extern fn SymAddSourceStreamW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] FileSpec: PCWSTR, #[in] #[opt] #[readable(entry, bytes(Size))] Buffer: PBYTE, #[in] Size: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSymbol(hProcess: HANDLE, BaseOfDll: u64, Name: PCSTR, Address: u64, Size: u32, Flags: u32) -> BOOL;
+        extern fn SymAddSymbol(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Name: PCSTR, #[in] Address: DWORD64, #[in] Size: DWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddSymbolW(hProcess: HANDLE, BaseOfDll: u64, Name: PCWSTR, Address: u64, Size: u32, Flags: u32) -> BOOL;
+        extern fn SymAddSymbolW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Name: PCWSTR, #[in] Address: DWORD64, #[in] Size: DWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymAddrIncludeInlineTrace(hProcess: HANDLE, Address: u64) -> u32;
+        extern fn SymAddrIncludeInlineTrace(#[in] hProcess: HANDLE, #[in] Address: DWORD64) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymCleanup(hProcess: HANDLE) -> BOOL;
+        extern fn SymCleanup(#[in] hProcess: HANDLE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymCompareInlineTrace(hProcess: HANDLE, Address1: u64, InlineContext1: u32, RetAddress1: u64, Address2: u64, RetAddress2: u64) -> u32;
+        extern fn SymCompareInlineTrace(#[in] hProcess: HANDLE, #[in] Address1: DWORD64, #[in] InlineContext1: DWORD, #[in] RetAddress1: DWORD64, #[in] Address2: DWORD64, #[in] RetAddress2: DWORD64) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymDeleteSymbol(hProcess: HANDLE, BaseOfDll: u64, #[opt] Name: PCSTR, Address: u64, Flags: u32) -> BOOL;
+        extern fn SymDeleteSymbol(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Name: PCSTR, #[in] Address: DWORD64, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymDeleteSymbolW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Name: PCWSTR, Address: u64, Flags: u32) -> BOOL;
+        extern fn SymDeleteSymbolW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Name: PCWSTR, #[in] Address: DWORD64, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumLines(hProcess: HANDLE, Base: u64, #[opt] Obj: PCSTR, #[opt] File: PCSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumLines(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Obj: PCSTR, #[in] #[opt] File: PCSTR, #[in] EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumLinesW(hProcess: HANDLE, Base: u64, #[opt] Obj: PCWSTR, #[opt] File: PCWSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumLinesW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Obj: PCWSTR, #[in] #[opt] File: PCWSTR, #[in] EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumProcesses(EnumProcessesCallback: PSYM_ENUMPROCESSES_CALLBACK, #[in] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumProcesses(#[in] EnumProcessesCallback: PSYM_ENUMPROCESSES_CALLBACK, #[in] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceFileTokens(hProcess: HANDLE, Base: u64, Callback: PENUMSOURCEFILETOKENSCALLBACK) -> BOOL;
+        extern fn SymEnumSourceFileTokens(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] Callback: PENUMSOURCEFILETOKENSCALLBACK) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceFiles(hProcess: HANDLE, ModBase: u64, #[opt] Mask: PCSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceFiles(#[in] hProcess: HANDLE, #[in] ModBase: ULONG64, #[in] #[opt] Mask: PCSTR, #[in] cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceFilesW(hProcess: HANDLE, ModBase: u64, #[opt] Mask: PCWSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceFilesW(#[in] hProcess: HANDLE, #[in] ModBase: ULONG64, #[in] #[opt] Mask: PCWSTR, #[in] cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceLines(hProcess: HANDLE, Base: u64, #[opt] Obj: PCSTR, #[opt] File: PCSTR, #[opt] Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceLines(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Obj: PCSTR, #[in] #[opt] File: PCSTR, #[in] #[opt] Line: DWORD, #[in] Flags: DWORD, #[in] EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSourceLinesW(hProcess: HANDLE, Base: u64, #[opt] Obj: PCWSTR, #[opt] File: PCWSTR, #[opt] Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSourceLinesW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Obj: PCWSTR, #[in] #[opt] File: PCWSTR, #[in] #[opt] Line: DWORD, #[in] Flags: DWORD, #[in] EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumSym(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSym(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbols(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbols(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Mask: PCSTR, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsEx(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymEnumSymbolsEx(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Mask: PCSTR, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID, #[in] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsExW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymEnumSymbolsExW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Mask: PCWSTR, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID, #[in] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsForAddr(hProcess: HANDLE, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbolsForAddr(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsForAddrW(hProcess: HANDLE, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbolsForAddrW(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumSymbolsW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Mask: PCWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumSymbolsW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Mask: PCWSTR, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypes(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypes(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypesByName(hProcess: HANDLE, BaseOfDll: u64, #[opt] mask: PCSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypesByName(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] mask: PCSTR, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypesByNameW(hProcess: HANDLE, BaseOfDll: u64, #[opt] mask: PCWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypesByNameW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] mask: PCWSTR, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumTypesW(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumTypesW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymEnumerateModules64")]
+        extern fn SymEnumerateModules(#[in] hProcess: HANDLE, #[in] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateModules(hProcess: HANDLE, EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateModules(#[in] hProcess: HANDLE, #[in] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateModules64(hProcess: HANDLE, EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateModules64(#[in] hProcess: HANDLE, #[in] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateModulesW64(hProcess: HANDLE, EnumModulesCallback: PSYM_ENUMMODULES_CALLBACKW64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateModulesW64(#[in] hProcess: HANDLE, #[in] EnumModulesCallback: PSYM_ENUMMODULES_CALLBACKW64, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymEnumerateSymbols64")]
+        extern fn SymEnumerateSymbols(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbols(hProcess: HANDLE, BaseOfDll: u32, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateSymbols(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbols64(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateSymbols64(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymEnumerateSymbolsW64")]
+        extern fn SymEnumerateSymbolsW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbolsW(hProcess: HANDLE, BaseOfDll: u32, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateSymbolsW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID) -> BOOL;
+        #[Windows::Win32::Metadata::NativeDeprecated("", "")]
         #[library("dbghelp.dll")]
-        extern fn SymEnumerateSymbolsW64(hProcess: HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymEnumerateSymbolsW64(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] EnumSymbolsCallback: PSYM_ENUMSYMBOLS_CALLBACK64W, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFindDebugInfoFile(hProcess: HANDLE, FileName: PCSTR, #[out] DebugFilePath: PSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindDebugInfoFile(#[in] hProcess: HANDLE, #[in] FileName: PCSTR, #[out] #[writable(entry, 261)] DebugFilePath: PSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACK, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindDebugInfoFileW(hProcess: HANDLE, FileName: PCWSTR, #[out] DebugFilePath: PWSTR, #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindDebugInfoFileW(#[in] hProcess: HANDLE, #[in] FileName: PCWSTR, #[out] #[writable(entry, 261)] DebugFilePath: PWSTR, #[in] #[opt] Callback: PFIND_DEBUG_FILE_CALLBACKW, #[in] #[opt] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindExecutableImage(hProcess: HANDLE, FileName: PCSTR, #[out] ImageFilePath: PSTR, Callback: PFIND_EXE_FILE_CALLBACK, #[in] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindExecutableImage(#[in] hProcess: HANDLE, #[in] FileName: PCSTR, #[out] #[writable(entry, 261)] ImageFilePath: PSTR, #[in] Callback: PFIND_EXE_FILE_CALLBACK, #[in] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindExecutableImageW(hProcess: HANDLE, FileName: PCWSTR, #[out] ImageFilePath: PWSTR, Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: *mut void) -> HANDLE;
+        extern fn SymFindExecutableImageW(#[in] hProcess: HANDLE, #[in] FileName: PCWSTR, #[out] #[writable(entry, 261)] ImageFilePath: PWSTR, #[in] Callback: PFIND_EXE_FILE_CALLBACKW, #[in] CallerData: PVOID) -> HANDLE;
         #[library("dbghelp.dll")]
-        extern fn SymFindFileInPath(hprocess: HANDLE, #[opt] SearchPathA: PCSTR, FileName: PCSTR, #[in] #[opt] id: *mut void, two: u32, three: u32, flags: u32, #[out] FoundFile: PSTR, #[opt] callback: PFINDFILEINPATHCALLBACK, #[in] #[opt] context: *mut void) -> BOOL;
+        extern fn SymFindFileInPath(#[in] hprocess: HANDLE, #[in] #[opt] SearchPath: PCSTR, #[in] FileName: PCSTR, #[in] #[opt] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[out] #[writable(entry, 261)] FoundFile: PSTR, #[in] #[opt] callback: PFINDFILEINPATHCALLBACK, #[in] #[opt] context: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFindFileInPathW(hprocess: HANDLE, #[opt] SearchPathA: PCWSTR, FileName: PCWSTR, #[in] #[opt] id: *mut void, two: u32, three: u32, flags: u32, #[out] FoundFile: PWSTR, #[opt] callback: PFINDFILEINPATHCALLBACKW, #[in] #[opt] context: *mut void) -> BOOL;
+        extern fn SymFindFileInPathW(#[in] hprocess: HANDLE, #[in] #[opt] SearchPath: PCWSTR, #[in] FileName: PCWSTR, #[in] #[opt] id: PVOID, #[in] two: DWORD, #[in] three: DWORD, #[in] flags: DWORD, #[out] #[writable(entry, 261)] FoundFile: PWSTR, #[in] #[opt] callback: PFINDFILEINPATHCALLBACKW, #[in] #[opt] context: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromAddr(hProcess: HANDLE, Address: u64, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromAddr(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[opt] #[out] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromAddrW(hProcess: HANDLE, Address: u64, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromAddrW(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[opt] #[out] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromIndex(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromIndex(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromIndexW(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromIndexW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromInlineContext(hProcess: HANDLE, Address: u64, InlineContext: u32, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromInlineContext(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[in] InlineContext: ULONG, #[opt] #[out] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromInlineContextW(hProcess: HANDLE, Address: u64, InlineContext: u32, #[out] #[opt] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromInlineContextW(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[in] InlineContext: ULONG, #[opt] #[out] Displacement: PDWORD64, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromName(hProcess: HANDLE, Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromName(#[in] hProcess: HANDLE, #[in] Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromNameW(hProcess: HANDLE, Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromNameW(#[in] hProcess: HANDLE, #[in] Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromToken(hProcess: HANDLE, Base: u64, Token: u32, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymFromToken(#[in] hProcess: HANDLE, #[in] Base: DWORD64, #[in] Token: DWORD, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymFromTokenW(hProcess: HANDLE, Base: u64, Token: u32, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymFromTokenW(#[in] hProcess: HANDLE, #[in] Base: DWORD64, #[in] Token: DWORD, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymFunctionTableAccess64")]
+        extern fn SymFunctionTableAccess(#[in] hProcess: HANDLE, #[in] AddrBase: DWORD64) -> PVOID;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymFunctionTableAccess(hProcess: HANDLE, AddrBase: u32) -> *mut void;
+        extern fn SymFunctionTableAccess(#[in] hProcess: HANDLE, #[in] AddrBase: DWORD) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn SymFunctionTableAccess64(hProcess: HANDLE, AddrBase: u64) -> *mut void;
+        extern fn SymFunctionTableAccess64(#[in] hProcess: HANDLE, #[in] AddrBase: DWORD64) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn SymFunctionTableAccess64AccessRoutines(hProcess: HANDLE, AddrBase: u64, #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64) -> *mut void;
+        extern fn SymFunctionTableAccess64AccessRoutines(#[in] hProcess: HANDLE, #[in] AddrBase: DWORD64, #[in] #[opt] ReadMemoryRoutine: PREAD_PROCESS_MEMORY_ROUTINE64, #[in] #[opt] GetModuleBaseRoutine: PGET_MODULE_BASE_ROUTINE64) -> PVOID;
         #[library("dbghelp.dll")]
-        extern fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> BOOL;
+        extern fn SymGetExtendedOption(#[in] option: IMAGEHLP_EXTENDED_OPTIONS) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetFileLineOffsets64(hProcess: HANDLE, #[opt] ModuleName: PCSTR, FileName: PCSTR, #[len_param(4)] #[out] Buffer: PDWORD64, BufferLines: u32) -> u32;
+        extern fn SymGetFileLineOffsets64(#[in] hProcess: HANDLE, #[in] #[opt] ModuleName: PCSTR, #[in] FileName: PCSTR, #[out] #[writable(entry, BufferLines)] Buffer: PDWORD64, #[in] BufferLines: ULONG) -> ULONG;
         #[library("dbghelp.dll")]
-        extern fn SymGetHomeDirectory(r#type: u32, #[len_param(2)] #[out] dir: PSTR, size: usize) -> PCHAR;
+        extern fn SymGetHomeDirectory(#[in] r#type: DWORD, #[out] #[writable(entry, size)] dir: PSTR, #[in] size: size_t) -> PCHAR;
         #[library("dbghelp.dll")]
-        extern fn SymGetHomeDirectoryW(r#type: u32, #[len_param(2)] #[out] dir: PWSTR, size: usize) -> PWSTR;
+        extern fn SymGetHomeDirectoryW(#[in] r#type: DWORD, #[out] #[writable(entry, size)] dir: PWSTR, #[in] size: size_t) -> PWSTR;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetLineFromAddr64")]
+        extern fn SymGetLineFromAddr(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromAddr(hProcess: HANDLE, dwAddr: u32, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLineFromAddr(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromAddr64(hProcess: HANDLE, qwAddr: u64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineFromAddr64(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetLineFromAddrW64")]
+        extern fn SymGetLineFromAddrW(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromAddrW64(hProcess: HANDLE, dwAddr: u64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        extern fn SymGetLineFromAddrW64(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromInlineContext(hProcess: HANDLE, qwAddr: u64, InlineContext: u32, #[opt] qwModuleBaseAddress: u64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineFromInlineContext(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[in] InlineContext: ULONG, #[in] #[opt] qwModuleBaseAddress: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line64: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromInlineContextW(hProcess: HANDLE, dwAddr: u64, InlineContext: u32, #[opt] qwModuleBaseAddress: u64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        extern fn SymGetLineFromInlineContextW(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD64, #[in] InlineContext: ULONG, #[in] #[opt] qwModuleBaseAddress: DWORD64, #[out] pdwDisplacement: PDWORD, #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetLineFromName64")]
+        extern fn SymGetLineFromName(#[in] hProcess: HANDLE, #[in] #[opt] ModuleName: PCSTR, #[in] #[opt] FileName: PCSTR, #[in] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromName(hProcess: HANDLE, #[opt] ModuleName: PCSTR, #[opt] FileName: PCSTR, dwLineNumber: u32, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLineFromName(#[in] hProcess: HANDLE, #[in] #[opt] ModuleName: PCSTR, #[in] #[opt] FileName: PCSTR, #[in] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromName64(hProcess: HANDLE, #[opt] ModuleName: PCSTR, #[opt] FileName: PCSTR, dwLineNumber: u32, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineFromName64(#[in] hProcess: HANDLE, #[in] #[opt] ModuleName: PCSTR, #[in] #[opt] FileName: PCSTR, #[in] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineFromNameW64(hProcess: HANDLE, #[opt] ModuleName: PCWSTR, #[opt] FileName: PCWSTR, dwLineNumber: u32, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        extern fn SymGetLineFromNameW64(#[in] hProcess: HANDLE, #[in] #[opt] ModuleName: PCWSTR, #[in] #[opt] FileName: PCWSTR, #[in] dwLineNumber: DWORD, #[out] plDisplacement: PLONG, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetLineNext64")]
+        extern fn SymGetLineNext(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetLineNext(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLineNext(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineNext64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLineNext64(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLineNextW64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        extern fn SymGetLineNextW64(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetLinePrev64")]
+        extern fn SymGetLinePrev(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetLinePrev(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
+        extern fn SymGetLinePrev(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLinePrev64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
+        extern fn SymGetLinePrev64(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINE64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetLinePrevW64(hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        extern fn SymGetLinePrevW64(#[in] hProcess: HANDLE, #[in] #[out] Line: PIMAGEHLP_LINEW64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetModuleBase64")]
+        extern fn SymGetModuleBase(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64) -> DWORD64;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleBase(hProcess: HANDLE, dwAddr: u32) -> u32;
+        extern fn SymGetModuleBase(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleBase64(hProcess: HANDLE, qwAddr: u64) -> u64;
+        extern fn SymGetModuleBase64(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64) -> DWORD64;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetModuleInfo64")]
+        extern fn SymGetModuleInfo(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULE64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfo(hProcess: HANDLE, dwAddr: u32, #[out] ModuleInfo: PIMAGEHLP_MODULE) -> BOOL;
+        extern fn SymGetModuleInfo(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD, #[out] ModuleInfo: PIMAGEHLP_MODULE) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfo64(hProcess: HANDLE, qwAddr: u64, #[out] ModuleInfo: PIMAGEHLP_MODULE64) -> BOOL;
+        extern fn SymGetModuleInfo64(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULE64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetModuleInfoW64")]
+        extern fn SymGetModuleInfoW(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULEW64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfoW(hProcess: HANDLE, dwAddr: u32, #[out] ModuleInfo: PIMAGEHLP_MODULEW) -> BOOL;
+        extern fn SymGetModuleInfoW(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD, #[out] ModuleInfo: PIMAGEHLP_MODULEW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetModuleInfoW64(hProcess: HANDLE, qwAddr: u64, #[out] ModuleInfo: PIMAGEHLP_MODULEW64) -> BOOL;
+        extern fn SymGetModuleInfoW64(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[out] ModuleInfo: PIMAGEHLP_MODULEW64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetOmaps(hProcess: HANDLE, BaseOfDll: u64, OmapTo: *mut POMAP, #[out] cOmapTo: PDWORD64, OmapFrom: *mut POMAP, #[out] cOmapFrom: PDWORD64) -> BOOL;
+        extern fn SymGetOmaps(#[in] hProcess: HANDLE, #[in] BaseOfDll: DWORD64, #[out] OmapTo: *mut POMAP, #[out] cOmapTo: PDWORD64, #[out] OmapFrom: *mut POMAP, #[out] cOmapFrom: PDWORD64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetOptions() -> u32;
+        extern fn SymGetOptions() -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymGetParentWindow(pHwnd: *mut HWND) -> BOOL;
+        extern fn SymGetParentWindow(#[out] pHwnd: *mut HWND) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetScope(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymGetScope(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetScopeW(hProcess: HANDLE, BaseOfDll: u64, Index: u32, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymGetScopeW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Index: DWORD, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSearchPath(hProcess: HANDLE, #[len_param(2)] #[out] SearchPathA: PSTR, SearchPathLength: u32) -> BOOL;
+        extern fn SymGetSearchPath(#[in] hProcess: HANDLE, #[out] #[writable(entry, SearchPathLength)] SearchPath: PSTR, #[in] SearchPathLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSearchPathW(hProcess: HANDLE, #[len_param(2)] #[out] SearchPathA: PWSTR, SearchPathLength: u32) -> BOOL;
+        extern fn SymGetSearchPathW(#[in] hProcess: HANDLE, #[out] #[writable(entry, SearchPathLength)] SearchPath: PWSTR, #[in] SearchPathLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFile(hProcess: HANDLE, Base: u64, #[opt] Params: PCSTR, FileSpec: PCSTR, #[len_param(5)] #[out] FilePath: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFile(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Params: PCSTR, #[in] FileSpec: PCSTR, #[out] #[writable(entry, Size)] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileChecksum(hProcess: HANDLE, Base: u64, FileSpec: PCSTR, pCheckSumType: *mut u32, #[len_param(5)] pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileChecksum(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] pCheckSumType: *mut DWORD, #[out] #[writable(entry, checksumSize)] pChecksum: *mut BYTE, #[in] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileChecksumW(hProcess: HANDLE, Base: u64, FileSpec: PCWSTR, pCheckSumType: *mut u32, #[len_param(5)] pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileChecksumW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] pCheckSumType: *mut DWORD, #[out] #[writable(entry, checksumSize)] pChecksum: *mut BYTE, #[in] checksumSize: DWORD, #[out] pActualBytesWritten: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromToken(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCSTR, #[len_param(4)] #[out] FilePath: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileFromToken(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCSTR, #[out] #[writable(entry, Size)] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenByTokenName(hProcess: HANDLE, #[in] Token: *mut void, #[opt] TokenName: PCSTR, #[opt] Params: PCSTR, #[len_param(5)] #[out] FilePath: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileFromTokenByTokenName(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] TokenName: PCSTR, #[in] #[opt] Params: PCSTR, #[out] #[writable(entry, Size)] FilePath: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenByTokenNameW(hProcess: HANDLE, #[in] Token: *mut void, #[opt] TokenName: PCWSTR, #[opt] Params: PCWSTR, #[len_param(5)] #[out] FilePath: PWSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileFromTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] TokenName: PCWSTR, #[in] #[opt] Params: PCWSTR, #[out] #[writable(entry, Size)] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileFromTokenW(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCWSTR, #[len_param(4)] #[out] FilePath: PWSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileFromTokenW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCWSTR, #[out] #[writable(entry, Size)] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileToken(hProcess: HANDLE, Base: u64, FileSpec: PCSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileToken(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenName(hProcess: HANDLE, Base: u64, FileSpec: PCSTR, TokenName: PCSTR, #[opt] TokenParameters: PCSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenName(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCSTR, #[in] TokenName: PCSTR, #[in] #[opt] TokenParameters: PCSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenByTokenNameW(hProcess: HANDLE, Base: u64, FileSpec: PCWSTR, TokenName: PCWSTR, #[opt] TokenParameters: PCWSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileTokenByTokenNameW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[in] TokenName: PCWSTR, #[in] #[opt] TokenParameters: PCWSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileTokenW(hProcess: HANDLE, Base: u64, FileSpec: PCWSTR, Token: *mut *mut void, Size: *mut u32) -> BOOL;
+        extern fn SymGetSourceFileTokenW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] FileSpec: PCWSTR, #[out] #[out_ptr] Token: *mut PVOID, #[out] Size: *mut DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceFileW(hProcess: HANDLE, Base: u64, #[opt] Params: PCWSTR, FileSpec: PCWSTR, #[len_param(5)] #[out] FilePath: PWSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceFileW(#[in] hProcess: HANDLE, #[in] Base: ULONG64, #[in] #[opt] Params: PCWSTR, #[in] FileSpec: PCWSTR, #[out] #[writable(entry, Size)] FilePath: PWSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceVarFromToken(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCSTR, VarName: PCSTR, #[len_param(5)] #[out] Value: PSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceVarFromToken(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCSTR, #[in] VarName: PCSTR, #[out] #[writable(entry, Size)] Value: PSTR, #[in] Size: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSourceVarFromTokenW(hProcess: HANDLE, #[in] Token: *mut void, #[opt] Params: PCWSTR, VarName: PCWSTR, #[len_param(5)] #[out] Value: PWSTR, Size: u32) -> BOOL;
+        extern fn SymGetSourceVarFromTokenW(#[in] hProcess: HANDLE, #[in] Token: PVOID, #[in] #[opt] Params: PCWSTR, #[in] VarName: PCWSTR, #[out] #[writable(entry, Size)] Value: PWSTR, #[in] Size: DWORD) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetSymFromAddr64")]
+        extern fn SymGetSymFromAddr(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[opt] #[out] pdwDisplacement: PDWORD64, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromAddr(hProcess: HANDLE, dwAddr: u32, #[out] #[opt] pdwDisplacement: PDWORD, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymFromAddr(#[in] hProcess: HANDLE, #[in] dwAddr: DWORD, #[opt] #[out] pdwDisplacement: PDWORD, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromAddr64(hProcess: HANDLE, qwAddr: u64, #[out] #[opt] pdwDisplacement: PDWORD64, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        extern fn SymGetSymFromAddr64(#[in] hProcess: HANDLE, #[in] qwAddr: DWORD64, #[opt] #[out] pdwDisplacement: PDWORD64, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetSymFromName64")]
+        extern fn SymGetSymFromName(#[in] hProcess: HANDLE, #[in] Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromName(hProcess: HANDLE, Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymFromName(#[in] hProcess: HANDLE, #[in] Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymFromName64(hProcess: HANDLE, Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        extern fn SymGetSymFromName64(#[in] hProcess: HANDLE, #[in] Name: PCSTR, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetSymNext64")]
+        extern fn SymGetSymNext(#[in] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetSymNext(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymNext(#[in] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymNext64(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        extern fn SymGetSymNext64(#[in] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymGetSymPrev64")]
+        extern fn SymGetSymPrev(#[in] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymGetSymPrev(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
+        extern fn SymGetSymPrev(#[in] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymPrev64(hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
+        extern fn SymGetSymPrev64(#[in] hProcess: HANDLE, #[in] #[out] Symbol: PIMAGEHLP_SYMBOL64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymbolFile(#[opt] hProcess: HANDLE, #[opt] SymPath: PCSTR, ImageFile: PCSTR, Type: u32, #[len_param(5)] #[out] SymbolFile: PSTR, cSymbolFile: usize, #[len_param(7)] #[out] DbgFile: PSTR, cDbgFile: usize) -> BOOL;
+        extern fn SymGetSymbolFile(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] SymPath: PCSTR, #[in] ImageFile: PCSTR, #[in] Type: DWORD, #[out] #[writable(entry, cSymbolFile)] SymbolFile: PSTR, #[in] cSymbolFile: size_t, #[out] #[writable(entry, cDbgFile)] DbgFile: PSTR, #[in] cDbgFile: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetSymbolFileW(#[opt] hProcess: HANDLE, #[opt] SymPath: PCWSTR, ImageFile: PCWSTR, Type: u32, #[len_param(5)] #[out] SymbolFile: PWSTR, cSymbolFile: usize, #[len_param(7)] #[out] DbgFile: PWSTR, cDbgFile: usize) -> BOOL;
+        extern fn SymGetSymbolFileW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] SymPath: PCWSTR, #[in] ImageFile: PCWSTR, #[in] Type: DWORD, #[out] #[writable(entry, cSymbolFile)] SymbolFile: PWSTR, #[in] cSymbolFile: size_t, #[out] #[writable(entry, cDbgFile)] DbgFile: PWSTR, #[in] cDbgFile: size_t) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeFromName(hProcess: HANDLE, BaseOfDll: u64, Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
+        extern fn SymGetTypeFromName(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Name: PCSTR, #[in] #[out] Symbol: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeFromNameW(hProcess: HANDLE, BaseOfDll: u64, Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymGetTypeFromNameW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Name: PCWSTR, #[in] #[out] Symbol: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeInfo(hProcess: HANDLE, ModBase: u64, TypeId: u32, GetType: IMAGEHLP_SYMBOL_TYPE_INFO, pInfo: *mut void) -> BOOL;
+        extern fn SymGetTypeInfo(#[in] hProcess: HANDLE, #[in] ModBase: DWORD64, #[in] TypeId: ULONG, #[in] GetType: IMAGEHLP_SYMBOL_TYPE_INFO, #[out] pInfo: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetTypeInfoEx(hProcess: HANDLE, ModBase: u64, #[in] #[out] Params: PIMAGEHLP_GET_TYPE_INFO_PARAMS) -> BOOL;
+        extern fn SymGetTypeInfoEx(#[in] hProcess: HANDLE, #[in] ModBase: DWORD64, #[in] #[out] Params: PIMAGEHLP_GET_TYPE_INFO_PARAMS) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymGetUnwindInfo(hProcess: HANDLE, Address: u64, #[size_param(3)] #[opt] Buffer: *mut void, #[in] #[out] Size: PULONG) -> BOOL;
+        extern fn SymGetUnwindInfo(#[in] hProcess: HANDLE, #[in] Address: DWORD64, #[opt] #[out] #[writable(entry, bytes(*Size))] Buffer: PVOID, #[in] #[out] Size: PULONG) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymInitialize(hProcess: HANDLE, #[opt] UserSearchPath: PCSTR, fInvadeProcess: BOOL) -> BOOL;
+        extern fn SymInitialize(#[in] hProcess: HANDLE, #[in] #[opt] UserSearchPath: PCSTR, #[in] fInvadeProcess: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymInitializeW(hProcess: HANDLE, #[opt] UserSearchPath: PCWSTR, fInvadeProcess: BOOL) -> BOOL;
+        extern fn SymInitializeW(#[in] hProcess: HANDLE, #[in] #[opt] UserSearchPath: PCWSTR, #[in] fInvadeProcess: BOOL) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymLoadModule64")]
+        extern fn SymLoadModule(#[in] hProcess: HANDLE, #[in] #[opt] hFile: HANDLE, #[in] #[opt] ImageName: PCSTR, #[in] #[opt] ModuleName: PCSTR, #[in] BaseOfDll: DWORD64, #[in] SizeOfDll: DWORD) -> DWORD64;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymLoadModule(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCSTR, #[opt] ModuleName: PCSTR, BaseOfDll: u32, SizeOfDll: u32) -> u32;
+        extern fn SymLoadModule(#[in] hProcess: HANDLE, #[in] #[opt] hFile: HANDLE, #[in] #[opt] ImageName: PCSTR, #[in] #[opt] ModuleName: PCSTR, #[in] BaseOfDll: DWORD, #[in] SizeOfDll: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymLoadModule64(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCSTR, #[opt] ModuleName: PCSTR, BaseOfDll: u64, SizeOfDll: u32) -> u64;
+        extern fn SymLoadModule64(#[in] hProcess: HANDLE, #[in] #[opt] hFile: HANDLE, #[in] #[opt] ImageName: PCSTR, #[in] #[opt] ModuleName: PCSTR, #[in] BaseOfDll: DWORD64, #[in] SizeOfDll: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymLoadModuleEx(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCSTR, #[opt] ModuleName: PCSTR, BaseOfDll: u64, DllSize: u32, #[opt] Data: PMODLOAD_DATA, #[opt] Flags: u32) -> u64;
+        extern fn SymLoadModuleEx(#[in] hProcess: HANDLE, #[in] #[opt] hFile: HANDLE, #[in] #[opt] ImageName: PCSTR, #[in] #[opt] ModuleName: PCSTR, #[in] BaseOfDll: DWORD64, #[in] DllSize: DWORD, #[in] #[opt] Data: PMODLOAD_DATA, #[in] #[opt] Flags: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymLoadModuleExW(hProcess: HANDLE, #[opt] hFile: HANDLE, #[opt] ImageName: PCWSTR, #[opt] ModuleName: PCWSTR, BaseOfDll: u64, DllSize: u32, #[opt] Data: PMODLOAD_DATA, #[opt] Flags: u32) -> u64;
+        extern fn SymLoadModuleExW(#[in] hProcess: HANDLE, #[in] #[opt] hFile: HANDLE, #[in] #[opt] ImageName: PCWSTR, #[in] #[opt] ModuleName: PCWSTR, #[in] BaseOfDll: DWORD64, #[in] DllSize: DWORD, #[in] #[opt] Data: PMODLOAD_DATA, #[in] #[opt] Flags: DWORD) -> DWORD64;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileName(FileName: PCSTR, Match: PCSTR, FileNameStop: *mut PSTR, MatchStop: *mut PSTR) -> BOOL;
+        extern fn SymMatchFileName(#[in] FileName: PCSTR, #[in] Match: PCSTR, #[opt] #[out] #[out_ptr] FileNameStop: *mut PSTR, #[opt] #[out] #[out_ptr] MatchStop: *mut PSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchFileNameW(FileName: PCWSTR, Match: PCWSTR, FileNameStop: *mut PWSTR, MatchStop: *mut PWSTR) -> BOOL;
+        extern fn SymMatchFileNameW(#[in] FileName: PCWSTR, #[in] Match: PCWSTR, #[opt] #[out] #[out_ptr] FileNameStop: *mut PWSTR, #[opt] #[out] #[out_ptr] MatchStop: *mut PWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchString(string: PCSTR, expression: PCSTR, fCase: BOOL) -> BOOL;
+        extern fn SymMatchString(#[in] string: PCSTR, #[in] expression: PCSTR, #[in] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchStringA(string: PCSTR, expression: PCSTR, fCase: BOOL) -> BOOL;
+        extern fn SymMatchStringA(#[in] string: PCSTR, #[in] expression: PCSTR, #[in] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymMatchStringW(string: PCWSTR, expression: PCWSTR, fCase: BOOL) -> BOOL;
+        extern fn SymMatchStringW(#[in] string: PCWSTR, #[in] expression: PCWSTR, #[in] fCase: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymNext(hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
+        extern fn SymNext(#[in] hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymNextW(hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymNextW(#[in] hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymPrev(hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
+        extern fn SymPrev(#[in] hProcess: HANDLE, #[in] #[out] si: PSYMBOL_INFO) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymPrevW(hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
+        extern fn SymPrevW(#[in] hProcess: HANDLE, #[in] #[out] siw: PSYMBOL_INFOW) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymQueryInlineTrace(hProcess: HANDLE, StartAddress: u64, StartContext: u32, StartRetAddress: u64, CurAddress: u64, #[out] CurContext: LPDWORD, #[out] CurFrameIndex: LPDWORD) -> BOOL;
+        extern fn SymQueryInlineTrace(#[in] hProcess: HANDLE, #[in] StartAddress: DWORD64, #[in] StartContext: DWORD, #[in] StartRetAddress: DWORD64, #[in] CurAddress: DWORD64, #[out] CurContext: LPDWORD, #[out] CurFrameIndex: LPDWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRefreshModuleList(hProcess: HANDLE) -> BOOL;
+        extern fn SymRefreshModuleList(#[in] hProcess: HANDLE) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymRegisterCallback64")]
+        extern fn SymRegisterCallback(#[in] hProcess: HANDLE, #[in] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, #[in] UserContext: ULONG64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymRegisterCallback(hProcess: HANDLE, CallbackFunction: PSYMBOL_REGISTERED_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymRegisterCallback(#[in] hProcess: HANDLE, #[in] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterCallback64(hProcess: HANDLE, CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, UserContext: u64) -> BOOL;
+        extern fn SymRegisterCallback64(#[in] hProcess: HANDLE, #[in] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, #[in] UserContext: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterCallbackW64(hProcess: HANDLE, CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, UserContext: u64) -> BOOL;
+        extern fn SymRegisterCallbackW64(#[in] hProcess: HANDLE, #[in] CallbackFunction: PSYMBOL_REGISTERED_CALLBACK64, #[in] UserContext: ULONG64) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymRegisterFunctionEntryCallback64")]
+        extern fn SymRegisterFunctionEntryCallback(#[in] hProcess: HANDLE, #[in] CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK64, #[in] UserContext: ULONG64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymRegisterFunctionEntryCallback(hProcess: HANDLE, CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK, #[in] #[opt] UserContext: *mut void) -> BOOL;
+        extern fn SymRegisterFunctionEntryCallback(#[in] hProcess: HANDLE, #[in] CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK, #[in] #[opt] UserContext: PVOID) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymRegisterFunctionEntryCallback64(hProcess: HANDLE, CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK64, UserContext: u64) -> BOOL;
+        extern fn SymRegisterFunctionEntryCallback64(#[in] hProcess: HANDLE, #[in] CallbackFunction: PSYMBOL_FUNCENTRY_CALLBACK64, #[in] UserContext: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSearch(hProcess: HANDLE, BaseOfDll: u64, #[opt] Index: u32, #[opt] SymTag: u32, #[opt] Mask: PCSTR, #[opt] Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymSearch(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Index: DWORD, #[in] #[opt] SymTag: DWORD, #[in] #[opt] Mask: PCSTR, #[in] #[opt] Address: DWORD64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, #[in] #[opt] UserContext: PVOID, #[in] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSearchW(hProcess: HANDLE, BaseOfDll: u64, #[opt] Index: u32, #[opt] SymTag: u32, #[opt] Mask: PCWSTR, #[opt] Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: *mut void, Options: u32) -> BOOL;
+        extern fn SymSearchW(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] #[opt] Index: DWORD, #[in] #[opt] SymTag: DWORD, #[in] #[opt] Mask: PCWSTR, #[in] #[opt] Address: DWORD64, #[in] EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, #[in] #[opt] UserContext: PVOID, #[in] Options: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetContext(hProcess: HANDLE, StackFrame: PIMAGEHLP_STACK_FRAME, #[opt] Context: PIMAGEHLP_CONTEXT) -> BOOL;
+        extern fn SymSetContext(#[in] hProcess: HANDLE, #[in] StackFrame: PIMAGEHLP_STACK_FRAME, #[in] #[opt] Context: PIMAGEHLP_CONTEXT) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS, value: BOOL) -> BOOL;
+        extern fn SymSetExtendedOption(#[in] option: IMAGEHLP_EXTENDED_OPTIONS, #[in] value: BOOL) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetHomeDirectory(#[opt] hProcess: HANDLE, #[opt] dir: PCSTR) -> PCHAR;
+        extern fn SymSetHomeDirectory(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] dir: PCSTR) -> PCHAR;
         #[library("dbghelp.dll")]
-        extern fn SymSetHomeDirectoryW(#[opt] hProcess: HANDLE, #[opt] dir: PCWSTR) -> PWSTR;
+        extern fn SymSetHomeDirectoryW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] dir: PCWSTR) -> PWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSetOptions(SymOptions: u32) -> u32;
+        extern fn SymSetOptions(#[in] SymOptions: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn SymSetParentWindow(hwnd: HWND) -> BOOL;
+        extern fn SymSetParentWindow(#[in] hwnd: HWND) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetScopeFromAddr(hProcess: HANDLE, Address: u64) -> BOOL;
+        extern fn SymSetScopeFromAddr(#[in] hProcess: HANDLE, #[in] Address: ULONG64) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetScopeFromIndex(hProcess: HANDLE, BaseOfDll: u64, Index: u32) -> BOOL;
+        extern fn SymSetScopeFromIndex(#[in] hProcess: HANDLE, #[in] BaseOfDll: ULONG64, #[in] Index: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetScopeFromInlineContext(hProcess: HANDLE, Address: u64, InlineContext: u32) -> BOOL;
+        extern fn SymSetScopeFromInlineContext(#[in] hProcess: HANDLE, #[in] Address: ULONG64, #[in] InlineContext: ULONG) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetSearchPath(hProcess: HANDLE, #[opt] SearchPathA: PCSTR) -> BOOL;
+        extern fn SymSetSearchPath(#[in] hProcess: HANDLE, #[in] #[opt] SearchPath: PCSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSetSearchPathW(hProcess: HANDLE, #[opt] SearchPathA: PCWSTR) -> BOOL;
+        extern fn SymSetSearchPathW(#[in] hProcess: HANDLE, #[in] #[opt] SearchPath: PCWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvDeltaName(hProcess: HANDLE, #[opt] SymPath: PCSTR, Type: PCSTR, File1: PCSTR, File2: PCSTR) -> PCSTR;
+        extern fn SymSrvDeltaName(#[in] hProcess: HANDLE, #[in] #[opt] SymPath: PCSTR, #[in] Type: PCSTR, #[in] File1: PCSTR, #[in] File2: PCSTR) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvDeltaNameW(hProcess: HANDLE, #[opt] SymPath: PCWSTR, Type: PCWSTR, File1: PCWSTR, File2: PCWSTR) -> PCWSTR;
+        extern fn SymSrvDeltaNameW(#[in] hProcess: HANDLE, #[in] #[opt] SymPath: PCWSTR, #[in] Type: PCWSTR, #[in] File1: PCWSTR, #[in] File2: PCWSTR) -> PCWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexInfo(File: PCSTR, #[out] Info: PSYMSRV_INDEX_INFO, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexInfo(#[in] File: PCSTR, #[out] Info: PSYMSRV_INDEX_INFO, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexInfoW(File: PCWSTR, #[out] Info: PSYMSRV_INDEX_INFOW, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexInfoW(#[in] File: PCWSTR, #[out] Info: PSYMSRV_INDEX_INFOW, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexString(hProcess: HANDLE, #[opt] SrvPath: PCSTR, File: PCSTR, #[len_param(4)] #[out] Index: PSTR, Size: usize, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexString(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCSTR, #[in] File: PCSTR, #[out] #[writable(entry, Size)] Index: PSTR, #[in] Size: size_t, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexStringW(hProcess: HANDLE, #[opt] SrvPath: PCWSTR, File: PCWSTR, #[len_param(4)] #[out] Index: PWSTR, Size: usize, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexStringW(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCWSTR, #[in] File: PCWSTR, #[out] #[writable(entry, Size)] Index: PWSTR, #[in] Size: size_t, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexes(File: PCSTR, Id: *mut GUID, #[out] Val1: PDWORD, #[out] #[opt] Val2: PDWORD, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexes(#[in] File: PCSTR, #[out] Id: *mut GUID, #[out] Val1: PDWORD, #[opt] #[out] Val2: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetFileIndexesW(File: PCWSTR, Id: *mut GUID, #[out] Val1: PDWORD, #[out] #[opt] Val2: PDWORD, Flags: u32) -> BOOL;
+        extern fn SymSrvGetFileIndexesW(#[in] File: PCWSTR, #[out] Id: *mut GUID, #[out] Val1: PDWORD, #[opt] #[out] Val2: PDWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetSupplement(hProcess: HANDLE, #[opt] SymPath: PCSTR, Node: PCSTR, File: PCSTR) -> PCSTR;
+        extern fn SymSrvGetSupplement(#[in] hProcess: HANDLE, #[in] #[opt] SymPath: PCSTR, #[in] Node: PCSTR, #[in] File: PCSTR) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvGetSupplementW(hProcess: HANDLE, #[opt] SymPath: PCWSTR, Node: PCWSTR, File: PCWSTR) -> PCWSTR;
+        extern fn SymSrvGetSupplementW(#[in] hProcess: HANDLE, #[in] #[opt] SymPath: PCWSTR, #[in] Node: PCWSTR, #[in] File: PCWSTR) -> PCWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvIsStore(#[opt] hProcess: HANDLE, path: PCSTR) -> BOOL;
+        extern fn SymSrvIsStore(#[in] #[opt] hProcess: HANDLE, #[in] path: PCSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvIsStoreW(#[opt] hProcess: HANDLE, path: PCWSTR) -> BOOL;
+        extern fn SymSrvIsStoreW(#[in] #[opt] hProcess: HANDLE, #[in] path: PCWSTR) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreFile(hProcess: HANDLE, #[opt] SrvPath: PCSTR, File: PCSTR, Flags: u32) -> PCSTR;
+        extern fn SymSrvStoreFile(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCSTR, #[in] File: PCSTR, #[in] Flags: DWORD) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreFileW(hProcess: HANDLE, #[opt] SrvPath: PCWSTR, File: PCWSTR, Flags: u32) -> PCWSTR;
+        extern fn SymSrvStoreFileW(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCWSTR, #[in] File: PCWSTR, #[in] Flags: DWORD) -> PCWSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreSupplement(hProcess: HANDLE, #[opt] SrvPath: PCSTR, Node: PCSTR, File: PCSTR, Flags: u32) -> PCSTR;
+        extern fn SymSrvStoreSupplement(#[in] hProcess: HANDLE, #[in] #[opt] SrvPath: PCSTR, #[in] Node: PCSTR, #[in] File: PCSTR, #[in] Flags: DWORD) -> PCSTR;
         #[library("dbghelp.dll")]
-        extern fn SymSrvStoreSupplementW(hProcess: HANDLE, #[opt] SymPath: PCWSTR, Node: PCWSTR, File: PCWSTR, Flags: u32) -> PCWSTR;
+        extern fn SymSrvStoreSupplementW(#[in] hProcess: HANDLE, #[in] #[opt] SymPath: PCWSTR, #[in] Node: PCWSTR, #[in] File: PCWSTR, #[in] Flags: DWORD) -> PCWSTR;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymUnDName64")]
+        extern fn SymUnDName(#[in] sym: PIMAGEHLP_SYMBOL64, #[out] #[writable(entry, UnDecNameLength)] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymUnDName(sym: PIMAGEHLP_SYMBOL, #[len_param(2)] #[out] UnDecName: PSTR, UnDecNameLength: u32) -> BOOL;
+        extern fn SymUnDName(#[in] sym: PIMAGEHLP_SYMBOL, #[out] #[writable(entry, UnDecNameLength)] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymUnDName64(sym: PIMAGEHLP_SYMBOL64, #[len_param(2)] #[out] UnDecName: PSTR, UnDecNameLength: u32) -> BOOL;
+        extern fn SymUnDName64(#[in] sym: PIMAGEHLP_SYMBOL64, #[out] #[writable(entry, UnDecNameLength)] UnDecName: PSTR, #[in] UnDecNameLength: DWORD) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("dbghelp.dll", import = "SymUnloadModule64")]
+        extern fn SymUnloadModule(#[in] hProcess: HANDLE, #[in] BaseOfDll: DWORD64) -> BOOL;
         #[arch(X86)]
         #[library("dbghelp.dll")]
-        extern fn SymUnloadModule(hProcess: HANDLE, BaseOfDll: u32) -> BOOL;
+        extern fn SymUnloadModule(#[in] hProcess: HANDLE, #[in] BaseOfDll: DWORD) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn SymUnloadModule64(hProcess: HANDLE, BaseOfDll: u64) -> BOOL;
+        extern fn SymUnloadModule64(#[in] hProcess: HANDLE, #[in] BaseOfDll: DWORD64) -> BOOL;
         const TARGET_ATTRIBUTE_PACMASK: i32 = 1;
         const TARGET_ATTRIBUTE_PACMASK_LIVETARGET: u64 = 18446744073709551615;
+        #[packed(8)]
         struct TI_FINDCHILDREN_PARAMS {
-            Count: u32,
-            Start: u32,
-            ChildId: [u32; 1],
+            Count: ULONG,
+            Start: ULONG,
+            ChildId: [ULONG; 1],
         }
+        #[packed(8)]
         struct TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
-            Count: u32,
-            Start: u32,
+            Count: ULONG,
+            Start: ULONG,
             Range: [DISCRIMINATEDUNION_TAG_VALUE; 1],
         }
         const UNDNAME_32_BIT_DECODE: i32 = 2048;
@@ -1524,9 +1666,12 @@ mod Windows {
         const UNDNAME_NO_THISTYPE: i32 = 96;
         const UNDNAME_NO_THROW_SIGNATURES: i32 = 256;
         #[library("dbghelp.dll")]
-        extern fn UnDecorateSymbolName(name: PCSTR, #[len_param(2)] #[out] outputString: PSTR, maxStringLength: u32, flags: u32) -> u32;
+        extern fn UnDecorateSymbolName(#[in] name: PCSTR, #[out] #[writable(entry, maxStringLength)] outputString: PSTR, #[in] maxStringLength: DWORD, #[in] flags: DWORD) -> DWORD;
         #[library("dbghelp.dll")]
-        extern fn UnDecorateSymbolNameW(name: PCWSTR, #[len_param(2)] #[out] outputString: PWSTR, maxStringLength: u32, flags: u32) -> u32;
+        extern fn UnDecorateSymbolNameW(#[in] name: PCWSTR, #[out] #[writable(entry, maxStringLength)] outputString: PWSTR, #[in] maxStringLength: DWORD, #[in] flags: DWORD) -> DWORD;
+        #[arch(X86)]
+        #[library("dbghelp.dll")]
+        extern fn UnmapDebugInformation(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(unknown)", "_Inexpressible_(unknown)")] #[out] DebugInfo: PIMAGE_DEBUG_INFORMATION) -> BOOL;
         const sevAttn: i32 = 2;
         const sevFatal: i32 = 3;
         const sevInfo: i32 = 0;

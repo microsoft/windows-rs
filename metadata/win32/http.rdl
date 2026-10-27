@@ -2,15 +2,15 @@
 mod Windows {
     mod Win32 {
         struct HTTP2_SETTINGS_LIMITS_PARAM {
-            Http2MaxSettingsPerFrame: u32,
-            Http2MaxSettingsPerMinute: u32,
+            Http2MaxSettingsPerFrame: DWORD,
+            Http2MaxSettingsPerMinute: DWORD,
         }
         struct HTTP2_WINDOW_SIZE_PARAM {
-            Http2ReceiveWindowSize: u32,
+            Http2ReceiveWindowSize: DWORD,
         }
         struct HTTPAPI_VERSION {
-            HttpApiMajorVersion: u16,
-            HttpApiMinorVersion: u16,
+            HttpApiMajorVersion: USHORT,
+            HttpApiMinorVersion: USHORT,
         }
         #[repr(i32)]
         enum HTTP_503_RESPONSE_VERBOSITY {
@@ -40,7 +40,7 @@ mod Windows {
         }
         struct HTTP_BANDWIDTH_LIMIT_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            MaxBandwidth: u32,
+            MaxBandwidth: ULONG,
         }
         struct HTTP_BINDING_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
@@ -50,10 +50,10 @@ mod Windows {
             StartingOffset: ULARGE_INTEGER,
             Length: ULARGE_INTEGER,
         }
-        const HTTP_BYTE_RANGE_TO_EOF: u64 = 18446744073709551615;
+        const HTTP_BYTE_RANGE_TO_EOF: ULONGLONG = 18446744073709551615;
         struct HTTP_CACHE_POLICY {
             Policy: HTTP_CACHE_POLICY_TYPE,
-            SecondsToLive: u32,
+            SecondsToLive: ULONG,
         }
         #[repr(i32)]
         enum HTTP_CACHE_POLICY_TYPE {
@@ -69,39 +69,39 @@ mod Windows {
         const HTTP_CERT_CHECK_MODE_NO_USAGE_CHECK: i32 = 65536;
         const HTTP_CERT_CHECK_MODE_USE_REVOCATION_FRESHNESS: i32 = 4;
         struct HTTP_CERT_CONFIG_ENTRY {
-            CertHash: [u8; 20],
-            CertStoreName: [u16; 128],
+            CertHash: [BYTE; 20],
+            CertStoreName: [WCHAR; 128],
         }
         struct HTTP_CERT_CONFIG_PARAM {
-            CertConfigCount: u32,
+            CertConfigCount: ULONG,
             CertConfigs: PHTTP_CERT_CONFIG_ENTRY,
         }
         const HTTP_CHANNEL_BIND_CLIENT_SERVICE: i32 = 16;
         const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: i32 = 4;
         struct HTTP_CHANNEL_BIND_INFO {
             Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
-            Flags: u32,
+            Flags: ULONG,
             ServiceNames: *mut PHTTP_SERVICE_BINDING_BASE,
-            NumberOfServiceNames: u32,
+            NumberOfServiceNames: ULONG,
         }
         const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: i32 = 2;
         const HTTP_CHANNEL_BIND_PROXY: i32 = 1;
         const HTTP_CHANNEL_BIND_PROXY_COHOSTING: i32 = 32;
         const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: i32 = 8;
-        type HTTP_CLIENT_CONNECTION_ID = HTTP_OPAQUE_ID;
-        type HTTP_CLIENT_CREDENTIAL_ID = HTTP_OPAQUE_ID;
-        type HTTP_CLIENT_REQUEST_ID = HTTP_OPAQUE_ID;
-        type HTTP_CLIENT_STREAM_ID = HTTP_OPAQUE_ID;
-        type HTTP_CONNECTION_ID = HTTP_OPAQUE_ID;
+        type HTTP_CLIENT_CONNECTION_ID = u64;
+        type HTTP_CLIENT_CREDENTIAL_ID = u64;
+        type HTTP_CLIENT_REQUEST_ID = u64;
+        type HTTP_CLIENT_STREAM_ID = u64;
+        type HTTP_CONNECTION_ID = u64;
         struct HTTP_CONNECTION_LIMIT_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            MaxConnections: u32,
+            MaxConnections: ULONG,
         }
         struct HTTP_COOKED_URL {
-            FullUrlLength: u16,
-            HostLength: u16,
-            AbsPathLength: u16,
-            QueryStringLength: u16,
+            FullUrlLength: USHORT,
+            HostLength: USHORT,
+            AbsPathLength: USHORT,
+            QueryStringLength: USHORT,
             pFullUrl: PCWSTR,
             pHost: PCWSTR,
             pAbsPath: PCWSTR,
@@ -117,22 +117,22 @@ mod Windows {
         }
         struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
             PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
-            PropertyInfoLength: u32,
-            PropertyInfo: *mut void,
+            PropertyInfoLength: ULONG,
+            PropertyInfo: PVOID,
         }
         struct HTTP_DATA_CHUNK {
             DataChunkType: HTTP_DATA_CHUNK_TYPE,
             Anonymous: union {
                 FromMemory: struct {
-                    pBuffer: *mut void,
-                    BufferLength: u32,
+                    pBuffer: PVOID,
+                    BufferLength: ULONG,
                 },
                 FromFileHandle: struct {
                     ByteRange: HTTP_BYTE_RANGE,
                     FileHandle: HANDLE,
                 },
                 FromFragmentCache: struct {
-                    FragmentNameLength: u16,
+                    FragmentNameLength: USHORT,
                     pFragmentName: PCWSTR,
                 },
                 FromFragmentCacheEx: struct {
@@ -140,7 +140,7 @@ mod Windows {
                     pFragmentName: PCWSTR,
                 },
                 Trailers: struct {
-                    TrailerCount: u16,
+                    TrailerCount: USHORT,
                     pTrailers: PHTTP_UNKNOWN_HEADER,
                 },
                 FromWinHttpFastForwarding: struct {
@@ -165,8 +165,8 @@ mod Windows {
         }
         struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
             PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
-            PropertyInfoLength: u32,
-            PropertyInfo: *mut void,
+            PropertyInfoLength: ULONG,
+            PropertyInfo: PVOID,
         }
         const HTTP_DEMAND_CBT: i32 = 4;
         #[repr(i32)]
@@ -175,8 +175,8 @@ mod Windows {
             HttpEnabledStateInactive = 1,
         }
         struct HTTP_ERROR_HEADERS_PARAM {
-            StatusCode: u16,
-            HeaderCount: u16,
+            StatusCode: USHORT,
+            HeaderCount: USHORT,
             Headers: PHTTP_UNKNOWN_HEADER,
         }
         struct HTTP_FAST_FORWARD_INFO {
@@ -208,9 +208,9 @@ mod Windows {
         }
         struct HTTP_FLOWRATE_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            MaxBandwidth: u32,
-            MaxPeakBandwidth: u32,
-            BurstSize: u32,
+            MaxBandwidth: ULONG,
+            MaxPeakBandwidth: ULONG,
+            BurstSize: ULONG,
         }
         const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: i32 = 1;
         #[repr(i32)]
@@ -273,10 +273,10 @@ mod Windows {
         const HTTP_INITIALIZE_CONFIG: i32 = 2;
         const HTTP_INITIALIZE_SERVER: i32 = 1;
         struct HTTP_KNOWN_HEADER {
-            RawValueLength: u16,
+            RawValueLength: USHORT,
             pRawValue: PCSTR,
         }
-        const HTTP_LIMIT_INFINITE: u32 = 4294967295;
+        const HTTP_LIMIT_INFINITE: ULONG = 4294967295;
         struct HTTP_LISTEN_ENDPOINT_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
             EnableSharing: BOOLEAN,
@@ -287,18 +287,18 @@ mod Windows {
         const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: i32 = 2;
         struct HTTP_LOGGING_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            LoggingFlags: u32,
+            LoggingFlags: ULONG,
             SoftwareName: PCWSTR,
-            SoftwareNameLength: u16,
-            DirectoryNameLength: u16,
+            SoftwareNameLength: USHORT,
+            DirectoryNameLength: USHORT,
             DirectoryName: PCWSTR,
             Format: HTTP_LOGGING_TYPE,
-            Fields: u32,
-            pExtFields: *mut void,
-            NumOfExtFields: u16,
-            MaxRecordSize: u16,
+            Fields: ULONG,
+            pExtFields: PVOID,
+            NumOfExtFields: USHORT,
+            MaxRecordSize: USHORT,
             RolloverType: HTTP_LOGGING_ROLLOVER_TYPE,
-            RolloverSize: u32,
+            RolloverSize: ULONG,
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
         }
         #[repr(i32)]
@@ -325,18 +325,18 @@ mod Windows {
         }
         struct HTTP_LOG_FIELDS_DATA {
             Base: HTTP_LOG_DATA,
-            UserNameLength: u16,
-            UriStemLength: u16,
-            ClientIpLength: u16,
-            ServerNameLength: u16,
-            ServiceNameLength: u16,
-            ServerIpLength: u16,
-            MethodLength: u16,
-            UriQueryLength: u16,
-            HostLength: u16,
-            UserAgentLength: u16,
-            CookieLength: u16,
-            ReferrerLength: u16,
+            UserNameLength: USHORT,
+            UriStemLength: USHORT,
+            ClientIpLength: USHORT,
+            ServerNameLength: USHORT,
+            ServiceNameLength: USHORT,
+            ServerIpLength: USHORT,
+            MethodLength: USHORT,
+            UriQueryLength: USHORT,
+            HostLength: USHORT,
+            UserAgentLength: USHORT,
+            CookieLength: USHORT,
+            ReferrerLength: USHORT,
             UserName: PWCHAR,
             UriStem: PWCHAR,
             ClientIp: PCHAR,
@@ -349,11 +349,11 @@ mod Windows {
             UserAgent: PCHAR,
             Cookie: PCHAR,
             Referrer: PCHAR,
-            ServerPort: u16,
-            ProtocolStatus: u16,
-            Win32Status: u32,
+            ServerPort: USHORT,
+            ProtocolStatus: USHORT,
+            Win32Status: ULONG,
             MethodNum: HTTP_VERB,
-            SubStatus: u16,
+            SubStatus: USHORT,
         }
         const HTTP_LOG_FIELD_BYTES_RECV: i32 = 8192;
         const HTTP_LOG_FIELD_BYTES_SENT: i32 = 4096;
@@ -389,21 +389,21 @@ mod Windows {
         const HTTP_LOG_FIELD_VERSION: i32 = 524288;
         const HTTP_LOG_FIELD_WIN32_STATUS: i32 = 2048;
         const HTTP_MAX_SERVER_QUEUE_LENGTH: i32 = 2147483647;
-        const HTTP_MIN_ALLOWED_BANDWIDTH_THROTTLING_RATE: u32 = 1024;
-        const HTTP_MIN_ALLOWED_LOG_FILE_ROLLOVER_SIZE: u32 = 1048576;
+        const HTTP_MIN_ALLOWED_BANDWIDTH_THROTTLING_RATE: ULONG = 1024;
+        const HTTP_MIN_ALLOWED_LOG_FILE_ROLLOVER_SIZE: ULONG = 1048576;
         const HTTP_MIN_SERVER_QUEUE_LENGTH: i32 = 1;
         struct HTTP_MULTIPLE_KNOWN_HEADERS {
             HeaderId: HTTP_HEADER_ID,
-            Flags: u32,
-            KnownHeaderCount: u16,
+            Flags: ULONG,
+            KnownHeaderCount: USHORT,
             KnownHeaders: PHTTP_KNOWN_HEADER,
         }
         const HTTP_NULL_ID: u64 = 0;
         type HTTP_OPAQUE_ID = u64;
         struct HTTP_PERFORMANCE_PARAM {
             Type: HTTP_PERFORMANCE_PARAM_TYPE,
-            BufferSize: u32,
-            Buffer: *mut void,
+            BufferSize: ULONG,
+            Buffer: PVOID,
         }
         #[repr(i32)]
         enum HTTP_PERFORMANCE_PARAM_TYPE {
@@ -417,7 +417,7 @@ mod Windows {
         }
         struct HTTP_PROPERTY_FLAGS {
             _bitfield: u32 {
-                Present: 1,
+                Present: ULONG: 1,
             },
         }
         struct HTTP_PROTECTION_LEVEL_INFO {
@@ -432,7 +432,7 @@ mod Windows {
         }
         struct HTTP_QOS_SETTING_INFO {
             QosType: HTTP_QOS_SETTING_TYPE,
-            QosSetting: *mut void,
+            QosSetting: PVOID,
         }
         #[repr(i32)]
         enum HTTP_QOS_SETTING_TYPE {
@@ -441,62 +441,62 @@ mod Windows {
             HttpQosSettingTypeFlowRate = 2,
         }
         struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-            Freshness: u64,
+            Freshness: ULONGLONG,
         }
         struct HTTP_QUERY_REQUEST_QUALIFIER_TCP {
-            Freshness: u64,
+            Freshness: ULONGLONG,
         }
         struct HTTP_QUIC_API_TIMINGS {
             ConnectionTimings: HTTP_QUIC_CONNECTION_API_TIMINGS,
             StreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
         }
         struct HTTP_QUIC_CONNECTION_API_TIMINGS {
-            OpenTime: u64,
-            CloseTime: u64,
-            StartTime: u64,
-            ShutdownTime: u64,
-            SecConfigCreateTime: u64,
-            SecConfigDeleteTime: u64,
-            GetParamCount: u64,
-            GetParamSum: u64,
-            SetParamCount: u64,
-            SetParamSum: u64,
-            SetCallbackHandlerCount: u64,
-            SetCallbackHandlerSum: u64,
+            OpenTime: ULONGLONG,
+            CloseTime: ULONGLONG,
+            StartTime: ULONGLONG,
+            ShutdownTime: ULONGLONG,
+            SecConfigCreateTime: ULONGLONG,
+            SecConfigDeleteTime: ULONGLONG,
+            GetParamCount: ULONGLONG,
+            GetParamSum: ULONGLONG,
+            SetParamCount: ULONGLONG,
+            SetParamSum: ULONGLONG,
+            SetCallbackHandlerCount: ULONGLONG,
+            SetCallbackHandlerSum: ULONGLONG,
             ControlStreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
         }
-        const HTTP_QUIC_KEEPALIVE_TIMEOUT_DISABLED: u32 = 4294967295;
+        const HTTP_QUIC_KEEPALIVE_TIMEOUT_DISABLED: ULONG = 4294967295;
         struct HTTP_QUIC_STREAM_API_TIMINGS {
-            OpenCount: u64,
-            OpenSum: u64,
-            CloseCount: u64,
-            CloseSum: u64,
-            StartCount: u64,
-            StartSum: u64,
-            ShutdownCount: u64,
-            ShutdownSum: u64,
-            SendCount: u64,
-            SendSum: u64,
-            ReceiveSetEnabledCount: u64,
-            ReceiveSetEnabledSum: u64,
-            GetParamCount: u64,
-            GetParamSum: u64,
-            SetParamCount: u64,
-            SetParamSum: u64,
-            SetCallbackHandlerCount: u64,
-            SetCallbackHandlerSum: u64,
+            OpenCount: ULONGLONG,
+            OpenSum: ULONGLONG,
+            CloseCount: ULONGLONG,
+            CloseSum: ULONGLONG,
+            StartCount: ULONGLONG,
+            StartSum: ULONGLONG,
+            ShutdownCount: ULONGLONG,
+            ShutdownSum: ULONGLONG,
+            SendCount: ULONGLONG,
+            SendSum: ULONGLONG,
+            ReceiveSetEnabledCount: ULONGLONG,
+            ReceiveSetEnabledSum: ULONGLONG,
+            GetParamCount: ULONGLONG,
+            GetParamSum: ULONGLONG,
+            SetParamCount: ULONGLONG,
+            SetParamSum: ULONGLONG,
+            SetCallbackHandlerCount: ULONGLONG,
+            SetCallbackHandlerSum: ULONGLONG,
         }
         struct HTTP_QUIC_STREAM_REQUEST_STATS {
-            StreamWaitStart: u64,
-            StreamWaitEnd: u64,
-            RequestHeadersCompressionStart: u64,
-            RequestHeadersCompressionEnd: u64,
-            ResponseHeadersDecompressionStart: u64,
-            ResponseHeadersDecompressionEnd: u64,
-            RequestHeadersCompressedSize: u64,
-            ResponseHeadersCompressedSize: u64,
+            StreamWaitStart: ULONGLONG,
+            StreamWaitEnd: ULONGLONG,
+            RequestHeadersCompressionStart: ULONGLONG,
+            RequestHeadersCompressionEnd: ULONGLONG,
+            ResponseHeadersDecompressionStart: ULONGLONG,
+            ResponseHeadersDecompressionEnd: ULONGLONG,
+            RequestHeadersCompressedSize: ULONGLONG,
+            ResponseHeadersCompressedSize: ULONGLONG,
         }
-        type HTTP_RAW_CONNECTION_ID = HTTP_OPAQUE_ID;
+        type HTTP_RAW_CONNECTION_ID = u64;
         const HTTP_RECEIVE_FULL_CHAIN: i32 = 2;
         const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: i32 = 1;
         const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: i32 = 1;
@@ -507,16 +507,16 @@ mod Windows {
         struct HTTP_REQUEST_AUTH_INFO {
             AuthStatus: HTTP_AUTH_STATUS,
             SecStatus: SECURITY_STATUS,
-            Flags: u32,
+            Flags: ULONG,
             AuthType: HTTP_REQUEST_AUTH_TYPE,
             AccessToken: HANDLE,
-            ContextAttributes: u32,
-            PackedContextLength: u32,
-            PackedContextType: u32,
-            PackedContext: *mut void,
-            MutualAuthDataLength: u32,
+            ContextAttributes: ULONG,
+            PackedContextLength: ULONG,
+            PackedContextType: ULONG,
+            PackedContext: PVOID,
+            MutualAuthDataLength: ULONG,
             pMutualAuthData: PCHAR,
-            PackageNameLength: u16,
+            PackageNameLength: USHORT,
             pPackageName: PWSTR,
         }
         #[repr(i32)]
@@ -531,11 +531,11 @@ mod Windows {
         struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
             ServiceName: PHTTP_SERVICE_BINDING_BASE,
             ChannelToken: PUCHAR,
-            ChannelTokenSize: u32,
-            Flags: u32,
+            ChannelTokenSize: ULONG,
+            Flags: ULONG,
         }
         struct HTTP_REQUEST_DSCP_INFO {
-            DscpTag: u8,
+            DscpTag: BYTE,
         }
         const HTTP_REQUEST_FLAG_FAST_FORWARDING_ALLOWED: i32 = 16;
         const HTTP_REQUEST_FLAG_FAST_FORWARDING_RESPONSE_ALLOWED: i32 = 16;
@@ -544,22 +544,22 @@ mod Windows {
         const HTTP_REQUEST_FLAG_IP_ROUTED: i32 = 2;
         const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: i32 = 1;
         struct HTTP_REQUEST_HEADERS {
-            UnknownHeaderCount: u16,
+            UnknownHeaderCount: USHORT,
             pUnknownHeaders: PHTTP_UNKNOWN_HEADER,
-            TrailerCount: u16,
+            TrailerCount: USHORT,
             pTrailers: PHTTP_UNKNOWN_HEADER,
             KnownHeaders: [HTTP_KNOWN_HEADER; 41],
         }
-        type HTTP_REQUEST_ID = HTTP_OPAQUE_ID;
+        type HTTP_REQUEST_ID = u64;
         struct HTTP_REQUEST_INFO {
             InfoType: HTTP_REQUEST_INFO_TYPE,
-            InfoLength: u32,
-            pInfo: *mut void,
+            InfoLength: ULONG,
+            pInfo: PVOID,
         }
         const HTTP_REQUEST_INFO_FLAG_INITIAL_TTL: u64 = 1;
         struct HTTP_REQUEST_INFO_PROPERTY_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            RequestInfoFlags: u64,
+            RequestInfoFlags: ULONGLONG,
         }
         #[repr(i32)]
         enum HTTP_REQUEST_INFO_TYPE {
@@ -580,7 +580,7 @@ mod Windows {
             HttpRequestInfoTypeInitialPacketTtl = 14,
         }
         struct HTTP_REQUEST_INITIAL_PACKET_TTL_INFO {
-            InitialPacketTtl: u8,
+            InitialPacketTtl: BYTE,
         }
         #[repr(i32)]
         enum HTTP_REQUEST_PROPERTY {
@@ -601,20 +601,20 @@ mod Windows {
             HttpRequestPropertyTlsCipherInfo = 14,
         }
         struct HTTP_REQUEST_PROPERTY_SNI {
-            Hostname: [u16; 256],
-            Flags: u32,
+            Hostname: [WCHAR; 256],
+            Flags: ULONG,
         }
         const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: i32 = 2;
         const HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED: i32 = 1;
         const HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH: i32 = 255;
         struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
-            ErrorCode: u32,
+            ErrorCode: ULONG,
         }
         struct HTTP_REQUEST_SIZING_INFO {
-            Flags: u64,
-            RequestIndex: u32,
-            RequestSizingCount: u32,
-            RequestSizing: [u64; 5],
+            Flags: ULONGLONG,
+            RequestIndex: ULONG,
+            RequestSizingCount: ULONG,
+            RequestSizing: [ULONGLONG; 5],
         }
         const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: i32 = 8;
         const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: i32 = 1;
@@ -630,8 +630,8 @@ mod Windows {
             HttpRequestSizingTypeMax = 5,
         }
         struct HTTP_REQUEST_TIMING_INFO {
-            RequestTimingCount: u32,
-            RequestTiming: [u64; 30],
+            RequestTimingCount: ULONG,
+            RequestTiming: [ULONGLONG; 30],
         }
         #[repr(i32)]
         enum HTTP_REQUEST_TIMING_TYPE {
@@ -669,53 +669,54 @@ mod Windows {
         }
         struct HTTP_REQUEST_TOKEN_BINDING_INFO {
             TokenBinding: PUCHAR,
-            TokenBindingSize: u32,
+            TokenBindingSize: ULONG,
             EKM: PUCHAR,
-            EKMSize: u32,
-            KeyType: u8,
+            EKMSize: ULONG,
+            KeyType: UCHAR,
         }
         struct HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
-            TransportIdleConnectionTimeout: u16,
+            TransportIdleConnectionTimeout: USHORT,
         }
         struct HTTP_REQUEST_V1 {
-            Flags: u32,
+            Flags: ULONG,
             ConnectionId: HTTP_CONNECTION_ID,
             RequestId: HTTP_REQUEST_ID,
             UrlContext: HTTP_URL_CONTEXT,
             Version: HTTP_VERSION,
             Verb: HTTP_VERB,
-            UnknownVerbLength: u16,
-            RawUrlLength: u16,
+            UnknownVerbLength: USHORT,
+            RawUrlLength: USHORT,
             pUnknownVerb: PCSTR,
             pRawUrl: PCSTR,
             CookedUrl: HTTP_COOKED_URL,
             Address: HTTP_TRANSPORT_ADDRESS,
             Headers: HTTP_REQUEST_HEADERS,
-            BytesReceived: u64,
-            EntityChunkCount: u16,
+            BytesReceived: ULONGLONG,
+            EntityChunkCount: USHORT,
             pEntityChunks: PHTTP_DATA_CHUNK,
             RawConnectionId: HTTP_RAW_CONNECTION_ID,
             pSslInfo: PHTTP_SSL_INFO,
         }
         struct HTTP_REQUEST_V2 {
-            Base: HTTP_REQUEST_V1,
-            RequestInfoCount: u16,
+            #[Windows::Win32::Metadata::NativeBase]
+            base: HTTP_REQUEST_V1,
+            RequestInfoCount: USHORT,
             pRequestInfo: PHTTP_REQUEST_INFO,
         }
         type HTTP_RESPONSE = HTTP_RESPONSE_V2;
         const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: i32 = 2;
         const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: i32 = 1;
         struct HTTP_RESPONSE_HEADERS {
-            UnknownHeaderCount: u16,
+            UnknownHeaderCount: USHORT,
             pUnknownHeaders: PHTTP_UNKNOWN_HEADER,
-            TrailerCount: u16,
+            TrailerCount: USHORT,
             pTrailers: PHTTP_UNKNOWN_HEADER,
             KnownHeaders: [HTTP_KNOWN_HEADER; 30],
         }
         struct HTTP_RESPONSE_INFO {
             Type: HTTP_RESPONSE_INFO_TYPE,
-            Length: u32,
-            pInfo: *mut void,
+            Length: ULONG,
+            pInfo: PVOID,
         }
         const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: i32 = 1;
         #[repr(i32)]
@@ -726,18 +727,19 @@ mod Windows {
             HttpResponseInfoTypeChannelBind = 3,
         }
         struct HTTP_RESPONSE_V1 {
-            Flags: u32,
+            Flags: ULONG,
             Version: HTTP_VERSION,
-            StatusCode: u16,
-            ReasonLength: u16,
+            StatusCode: USHORT,
+            ReasonLength: USHORT,
             pReason: PCSTR,
             Headers: HTTP_RESPONSE_HEADERS,
-            EntityChunkCount: u16,
+            EntityChunkCount: USHORT,
             pEntityChunks: PHTTP_DATA_CHUNK,
         }
         struct HTTP_RESPONSE_V2 {
-            Base: HTTP_RESPONSE_V1,
-            ResponseInfoCount: u16,
+            #[Windows::Win32::Metadata::NativeBase]
+            base: HTTP_RESPONSE_V1,
+            ResponseInfoCount: USHORT,
             pResponseInfo: PHTTP_RESPONSE_INFO,
         }
         #[repr(i32)]
@@ -755,22 +757,22 @@ mod Windows {
         const HTTP_SEND_RESPONSE_FLAG_OPAQUE: i32 = 64;
         const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: i32 = 32;
         struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-            RealmLength: u16,
+            RealmLength: USHORT,
             Realm: PWSTR,
         }
         struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-            DomainNameLength: u16,
+            DomainNameLength: USHORT,
             DomainName: PWSTR,
-            RealmLength: u16,
+            RealmLength: USHORT,
             Realm: PWSTR,
         }
         struct HTTP_SERVER_AUTHENTICATION_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            AuthSchemes: u32,
+            AuthSchemes: ULONG,
             ReceiveMutualAuth: BOOLEAN,
             ReceiveContextHandle: BOOLEAN,
             DisableNTLMCredentialCaching: BOOLEAN,
-            ExFlags: u8,
+            ExFlags: UCHAR,
             DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
             BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
         }
@@ -792,11 +794,11 @@ mod Windows {
             HttpServerFastForwardingProperty = 18,
             HttpServerRequestInfoProperty = 19,
         }
-        type HTTP_SERVER_SESSION_ID = HTTP_OPAQUE_ID;
+        type HTTP_SERVER_SESSION_ID = u64;
         struct HTTP_SERVICE_BINDING_A {
             Base: HTTP_SERVICE_BINDING_BASE,
             Buffer: PCHAR,
-            BufferSize: u32,
+            BufferSize: ULONG,
         }
         struct HTTP_SERVICE_BINDING_BASE {
             Type: HTTP_SERVICE_BINDING_TYPE,
@@ -810,7 +812,7 @@ mod Windows {
         struct HTTP_SERVICE_BINDING_W {
             Base: HTTP_SERVICE_BINDING_BASE,
             Buffer: PWCHAR,
-            BufferSize: u32,
+            BufferSize: ULONG,
         }
         #[repr(i32)]
         enum HTTP_SERVICE_CONFIG_CACHE_KEY {
@@ -840,11 +842,11 @@ mod Windows {
             HttpServiceConfigMax = 13,
         }
         struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-            AddrLength: u16,
+            AddrLength: USHORT,
             pAddress: PSOCKADDR,
         }
         struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-            AddrCount: u32,
+            AddrCount: ULONG,
             AddrList: [SOCKADDR_STORAGE; 1],
         }
         #[repr(i32)]
@@ -869,12 +871,12 @@ mod Windows {
         struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
             QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
             KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-            dwToken: u32,
+            dwToken: DWORD,
         }
         struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
             QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
             KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-            dwToken: u32,
+            dwToken: DWORD,
             ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
         }
         struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
@@ -907,20 +909,20 @@ mod Windows {
             IpPort: SOCKADDR_STORAGE,
         }
         struct HTTP_SERVICE_CONFIG_SSL_PARAM {
-            SslHashLength: u32,
-            pSslHash: *mut void,
+            SslHashLength: ULONG,
+            pSslHash: PVOID,
             AppId: GUID,
             pSslCertStoreName: PWSTR,
-            DefaultCertCheckMode: u32,
-            DefaultRevocationFreshnessTime: u32,
-            DefaultRevocationUrlRetrievalTimeout: u32,
+            DefaultCertCheckMode: DWORD,
+            DefaultRevocationFreshnessTime: DWORD,
+            DefaultRevocationUrlRetrievalTimeout: DWORD,
             pDefaultSslCtlIdentifier: PWSTR,
             pDefaultSslCtlStoreName: PWSTR,
-            DefaultFlags: u32,
+            DefaultFlags: DWORD,
         }
         struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
             ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
-            Flags: u64,
+            Flags: ULONGLONG,
             Anonymous: union {
                 Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
                 Http2SettingsLimitsParam: HTTP2_SETTINGS_LIMITS_PARAM,
@@ -934,12 +936,12 @@ mod Windows {
         struct HTTP_SERVICE_CONFIG_SSL_QUERY {
             QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
             KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
-            dwToken: u32,
+            dwToken: DWORD,
         }
         struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
             QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
             KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
-            dwToken: u32,
+            dwToken: DWORD,
             ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
         }
         struct HTTP_SERVICE_CONFIG_SSL_SET {
@@ -957,12 +959,12 @@ mod Windows {
         struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
             QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
             KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-            dwToken: u32,
+            dwToken: DWORD,
         }
         struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
             QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
             KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-            dwToken: u32,
+            dwToken: DWORD,
             ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
         }
         struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
@@ -992,7 +994,7 @@ mod Windows {
         struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
             QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
             KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
-            dwToken: u32,
+            dwToken: DWORD,
         }
         struct HTTP_SERVICE_CONFIG_URLACL_SET {
             KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
@@ -1001,30 +1003,30 @@ mod Windows {
         const HTTP_SSL_CERT_SHA_HASH_LENGTH: i32 = 20;
         const HTTP_SSL_CERT_STORE_NAME_LENGTH: i32 = 128;
         struct HTTP_SSL_CLIENT_CERT_INFO {
-            CertFlags: u32,
-            CertEncodedSize: u32,
+            CertFlags: ULONG,
+            CertEncodedSize: ULONG,
             pCertEncoded: PUCHAR,
             Token: HANDLE,
             CertDeniedByMapper: BOOLEAN,
         }
         struct HTTP_SSL_INFO {
-            ServerCertKeySize: u16,
-            ConnectionKeySize: u16,
-            ServerCertIssuerSize: u32,
-            ServerCertSubjectSize: u32,
+            ServerCertKeySize: USHORT,
+            ConnectionKeySize: USHORT,
+            ServerCertIssuerSize: ULONG,
+            ServerCertSubjectSize: ULONG,
             pServerCertIssuer: PCSTR,
             pServerCertSubject: PCSTR,
             pClientCertInfo: PHTTP_SSL_CLIENT_CERT_INFO,
-            SslClientCertNegotiated: u32,
+            SslClientCertNegotiated: ULONG,
         }
         struct HTTP_SSL_PROTOCOL_INFO {
-            Protocol: u32,
-            CipherType: u32,
-            CipherStrength: u32,
-            HashType: u32,
-            HashStrength: u32,
-            KeyExchangeType: u32,
-            KeyExchangeStrength: u32,
+            Protocol: ULONG,
+            CipherType: ULONG,
+            CipherStrength: ULONG,
+            HashType: ULONG,
+            HashStrength: ULONG,
+            KeyExchangeType: ULONG,
+            KeyExchangeStrength: ULONG,
         }
         #[repr(i32)]
         enum HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
@@ -1043,34 +1045,34 @@ mod Windows {
         }
         struct HTTP_TIMEOUT_LIMIT_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            EntityBody: u16,
-            DrainEntityBody: u16,
-            RequestQueue: u16,
-            IdleConnection: u16,
-            HeaderWait: u16,
-            MinSendRate: u32,
+            EntityBody: USHORT,
+            DrainEntityBody: USHORT,
+            RequestQueue: USHORT,
+            IdleConnection: USHORT,
+            HeaderWait: USHORT,
+            MinSendRate: ULONG,
         }
         struct HTTP_TLS_RESTRICTIONS_PARAM {
-            RestrictionCount: u32,
-            TlsRestrictions: *mut void,
+            RestrictionCount: ULONG,
+            TlsRestrictions: PVOID,
         }
         struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-            SessionTicketKeyCount: u32,
-            SessionTicketKeys: *mut void,
+            SessionTicketKeyCount: ULONG,
+            SessionTicketKeys: PVOID,
         }
         struct HTTP_TRANSPORT_ADDRESS {
             pRemoteAddress: PSOCKADDR,
             pLocalAddress: PSOCKADDR,
         }
         struct HTTP_UNKNOWN_HEADER {
-            NameLength: u16,
-            RawValueLength: u16,
+            NameLength: USHORT,
+            RawValueLength: USHORT,
             pName: PCSTR,
             pRawValue: PCSTR,
         }
         type HTTP_URL_CONTEXT = u64;
         const HTTP_URL_FLAG_REMOVE_ALL: i32 = 1;
-        type HTTP_URL_GROUP_ID = HTTP_OPAQUE_ID;
+        type HTTP_URL_GROUP_ID = u64;
         #[repr(i32)]
         enum HTTP_VERB {
             HttpVerbUnparsed = 0,
@@ -1095,117 +1097,117 @@ mod Windows {
             HttpVerbSEARCH = 19,
             HttpVerbMaximum = 20,
         }
-        #[encoding("ansi")]
-        const HTTP_VERSION: String = "HTTP/1.0";
         struct HTTP_VERSION {
-            MajorVersion: u16,
-            MinorVersion: u16,
+            MajorVersion: USHORT,
+            MinorVersion: USHORT,
         }
         struct HTTP_WINHTTP_FAST_FORWARDING_DATA {
-            Reserved: [u8; 16],
+            Reserved: [UCHAR; 16],
         }
         struct HTTP_WSK_API_TIMINGS {
-            ConnectCount: u64,
-            ConnectSum: u64,
-            DisconnectCount: u64,
-            DisconnectSum: u64,
-            SendCount: u64,
-            SendSum: u64,
-            ReceiveCount: u64,
-            ReceiveSum: u64,
-            ReleaseCount: u64,
-            ReleaseSum: u64,
-            ControlSocketCount: u64,
-            ControlSocketSum: u64,
+            ConnectCount: ULONGLONG,
+            ConnectSum: ULONGLONG,
+            DisconnectCount: ULONGLONG,
+            DisconnectSum: ULONGLONG,
+            SendCount: ULONGLONG,
+            SendSum: ULONGLONG,
+            ReceiveCount: ULONGLONG,
+            ReceiveSum: ULONGLONG,
+            ReleaseCount: ULONGLONG,
+            ReleaseSum: ULONGLONG,
+            ControlSocketCount: ULONGLONG,
+            ControlSocketSum: ULONGLONG,
         }
         #[library("HTTPAPI.dll")]
-        extern fn HttpAddFragmentToCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, DataChunk: PHTTP_DATA_CHUNK, CachePolicy: PHTTP_CACHE_POLICY, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpAddFragmentToCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, DataChunk: PHTTP_DATA_CHUNK, CachePolicy: PHTTP_CACHE_POLICY, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpAddUrl(RequestQueueHandle: HANDLE, FullyQualifiedUrl: PCWSTR, #[reserved] Reserved: *mut void) -> u32;
+        extern fn HttpAddUrl(RequestQueueHandle: HANDLE, FullyQualifiedUrl: PCWSTR, #[reserved] Reserved: PVOID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpAddUrlToUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID, pFullyQualifiedUrl: PCWSTR, #[opt] UrlContext: HTTP_URL_CONTEXT, #[reserved] Reserved: u32) -> u32;
+        extern fn HttpAddUrlToUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID, pFullyQualifiedUrl: PCWSTR, UrlContext: HTTP_URL_CONTEXT, #[reserved] Reserved: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCancelHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpCancelHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCloseRequestQueue(RequestQueueHandle: HANDLE) -> u32;
+        extern fn HttpCloseRequestQueue(RequestQueueHandle: HANDLE) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCloseServerSession(ServerSessionId: HTTP_SERVER_SESSION_ID) -> u32;
+        extern fn HttpCloseServerSession(ServerSessionId: HTTP_SERVER_SESSION_ID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCloseUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID) -> u32;
+        extern fn HttpCloseUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateHttpHandle(#[out] RequestQueueHandle: PHANDLE, #[reserved] Reserved: u32) -> u32;
+        extern fn HttpCreateHttpHandle(RequestQueueHandle: PHANDLE, #[reserved] Reserved: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateRequestQueue(Version: HTTPAPI_VERSION, #[opt] Name: PCWSTR, #[opt] SecurityAttributes: PSECURITY_ATTRIBUTES, #[opt] Flags: u32, #[out] RequestQueueHandle: PHANDLE) -> u32;
+        extern fn HttpCreateRequestQueue(Version: HTTPAPI_VERSION, Name: PCWSTR, SecurityAttributes: PSECURITY_ATTRIBUTES, Flags: ULONG, RequestQueueHandle: PHANDLE) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateServerSession(Version: HTTPAPI_VERSION, #[out] ServerSessionId: PHTTP_SERVER_SESSION_ID, #[reserved] Reserved: u32) -> u32;
+        extern fn HttpCreateServerSession(Version: HTTPAPI_VERSION, ServerSessionId: PHTTP_SERVER_SESSION_ID, #[reserved] Reserved: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateUrlGroup(ServerSessionId: HTTP_SERVER_SESSION_ID, #[out] pUrlGroupId: PHTTP_URL_GROUP_ID, #[reserved] Reserved: u32) -> u32;
+        extern fn HttpCreateUrlGroup(ServerSessionId: HTTP_SERVER_SESSION_ID, pUrlGroupId: PHTTP_URL_GROUP_ID, #[reserved] Reserved: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpDeclarePush(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Verb: HTTP_VERB, Path: PCWSTR, #[opt] Query: PCSTR, #[opt] Headers: PHTTP_REQUEST_HEADERS) -> u32;
+        extern fn HttpDeclarePush(#[in] RequestQueueHandle: HANDLE, #[in] RequestId: HTTP_REQUEST_ID, #[in] Verb: HTTP_VERB, #[in] Path: PCWSTR, #[in] #[opt] Query: PCSTR, #[in] #[opt] Headers: PHTTP_REQUEST_HEADERS) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpDelegateRequestEx(RequestQueueHandle: HANDLE, DelegateQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, DelegateUrlGroupId: HTTP_URL_GROUP_ID, PropertyInfoSetSize: u32, PropertyInfoSet: PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32;
+        extern fn HttpDelegateRequestEx(#[in] RequestQueueHandle: HANDLE, #[in] DelegateQueueHandle: HANDLE, #[in] RequestId: HTTP_REQUEST_ID, #[in] DelegateUrlGroupId: HTTP_URL_GROUP_ID, #[in] PropertyInfoSetSize: ULONG, #[in] PropertyInfoSet: PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpDeleteServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] pConfigInformation: *mut void, ConfigInformationLength: u32, #[reserved] pOverlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpDeleteServiceConfiguration(#[reserved] ServiceHandle: HANDLE, #[in] ConfigId: HTTP_SERVICE_CONFIG_ID, #[in] #[readable(entry, bytes(ConfigInformationLength))] pConfigInformation: PVOID, #[in] ConfigInformationLength: ULONG, #[reserved] pOverlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpFindUrlGroupId(FullyQualifiedUrl: PCWSTR, RequestQueueHandle: HANDLE, #[out] UrlGroupId: PHTTP_URL_GROUP_ID) -> u32;
+        extern fn HttpFindUrlGroupId(#[in] FullyQualifiedUrl: PCWSTR, #[in] RequestQueueHandle: HANDLE, #[out] UrlGroupId: PHTTP_URL_GROUP_ID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpFlushResponseCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, Flags: u32, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpFlushResponseCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, Flags: ULONG, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpGetExtension(Version: HTTPAPI_VERSION, Extension: u32, Buffer: *mut void, BufferSize: u32) -> u32;
+        extern fn HttpGetExtension(#[in] Version: HTTPAPI_VERSION, #[in] Extension: ULONG, #[Windows::Win32::Metadata::NativeSal("1", "__bcount", "BufferSize", "BufferSize")] #[out] Buffer: PVOID, #[in] BufferSize: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpInitialize(Version: HTTPAPI_VERSION, Flags: u32, #[reserved] #[in] #[out] pReserved: *mut void) -> u32;
+        extern fn HttpInitialize(Version: HTTPAPI_VERSION, Flags: ULONG, #[reserved] pReserved: PVOID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpIsFeatureSupported(FeatureId: HTTP_FEATURE_ID) -> BOOL;
+        extern fn HttpIsFeatureSupported(#[in] FeatureId: HTTP_FEATURE_ID) -> BOOL;
         #[library("HTTPAPI.dll")]
-        extern fn HttpPrepareUrl(#[reserved] Reserved: *mut void, #[reserved] Flags: u32, Url: PCWSTR, PreparedUrl: *mut PWSTR) -> u32;
+        extern fn HttpPrepareUrl(#[reserved] Reserved: PVOID, #[reserved] Flags: ULONG, #[in] Url: PCWSTR, #[out] #[out_ptr] PreparedUrl: *mut PWSTR) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryRequestProperty(RequestQueueHandle: HANDLE, Id: HTTP_OPAQUE_ID, PropertyId: HTTP_REQUEST_PROPERTY, #[size_param(4)] #[opt] Qualifier: *const void, QualifierSize: u32, #[size_param(6)] #[opt] Output: *mut void, OutputBufferSize: u32, #[out] #[opt] BytesReturned: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpQueryRequestProperty(#[in] RequestQueueHandle: HANDLE, #[in] Id: HTTP_OPAQUE_ID, #[in] PropertyId: HTTP_REQUEST_PROPERTY, #[in] #[opt] #[readable(entry, bytes(QualifierSize))] Qualifier: *const void, #[in] QualifierSize: ULONG, #[opt] #[out] #[readable(success, bytes(if_present(*BytesReturned)))] #[writable(entry, bytes(OutputBufferSize))] Output: PVOID, #[in] OutputBufferSize: ULONG, #[opt] #[out] BytesReturned: PULONG, #[in] #[opt] Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryRequestQueueProperty(RequestQueueHandle: HANDLE, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[reserved] Reserved1: u32, #[out] #[opt] ReturnLength: PULONG, #[reserved] Reserved2: *mut void) -> u32;
+        extern fn HttpQueryRequestQueueProperty(#[in] RequestQueueHandle: HANDLE, #[in] Property: HTTP_SERVER_PROPERTY, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, #[in] PropertyInformationLength: ULONG, #[reserved] Reserved1: ULONG, #[opt] #[out] ReturnLength: PULONG, #[reserved] Reserved2: PVOID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> u32;
+        #[success(return == 0)]
+        extern fn HttpQueryServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, PropertyInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] #[opt] pInput: *mut void, InputLength: u32, #[size_param(5)] #[opt] pOutput: *mut void, OutputLength: u32, #[out] #[opt] pReturnLength: PULONG, #[reserved] pOverlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpQueryServiceConfiguration(#[reserved] ServiceHandle: HANDLE, #[in] ConfigId: HTTP_SERVICE_CONFIG_ID, #[in] #[opt] #[readable(entry, bytes(InputLength))] pInput: PVOID, #[in] InputLength: ULONG, #[opt] #[out] #[readable(success, bytes(if_present(*pReturnLength)))] #[writable(entry, bytes(OutputLength))] pOutput: PVOID, #[in] OutputLength: ULONG, #[opt] #[out] pReturnLength: PULONG, #[reserved] pOverlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> u32;
+        #[success(return == 0)]
+        extern fn HttpQueryUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[opt] #[out] #[readable(success, bytes(if_present(*ReturnLength)))] #[writable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, PropertyInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReadFragmentFromCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, #[opt] ByteRange: PHTTP_BYTE_RANGE, #[size_param(4)] Buffer: *mut void, BufferLength: u32, #[out] #[opt] BytesRead: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpReadFragmentFromCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, ByteRange: PHTTP_BYTE_RANGE, #[out] #[readable(success, bytes(if_present(*BytesRead)))] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, BufferLength: ULONG, #[opt] #[out] BytesRead: PULONG, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReceiveClientCertificate(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, Flags: u32, #[size_param(4)] #[out] SslClientCertInfo: PHTTP_SSL_CLIENT_CERT_INFO, SslClientCertInfoSize: u32, #[out] #[opt] BytesReceived: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpReceiveClientCertificate(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, Flags: ULONG, #[out] #[readable(success, bytes(if_present(*BytesReceived)))] #[writable(entry, bytes(SslClientCertInfoSize))] SslClientCertInfo: PHTTP_SSL_CLIENT_CERT_INFO, SslClientCertInfoSize: ULONG, #[opt] #[out] BytesReceived: PULONG, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReceiveHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[size_param(4)] #[out] RequestBuffer: PHTTP_REQUEST, RequestBufferLength: u32, #[out] #[opt] BytesReturned: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpReceiveHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: ULONG, #[out] #[readable(success, bytes(if_present(*BytesReturned)))] #[writable(entry, bytes(RequestBufferLength))] RequestBuffer: PHTTP_REQUEST, RequestBufferLength: ULONG, #[opt] #[out] BytesReturned: PULONG, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReceiveRequestEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[size_param(4)] EntityBuffer: *mut void, EntityBufferLength: u32, #[out] #[opt] BytesReturned: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpReceiveRequestEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: ULONG, #[out] #[readable(success, bytes(if_present(*BytesReturned)))] #[writable(entry, bytes(EntityBufferLength))] EntityBuffer: PVOID, EntityBufferLength: ULONG, #[opt] #[out] BytesReturned: PULONG, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpRemoveUrl(RequestQueueHandle: HANDLE, FullyQualifiedUrl: PCWSTR) -> u32;
+        extern fn HttpRemoveUrl(RequestQueueHandle: HANDLE, FullyQualifiedUrl: PCWSTR) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpRemoveUrlFromUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID, pFullyQualifiedUrl: PCWSTR, Flags: u32) -> u32;
+        extern fn HttpRemoveUrlFromUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID, pFullyQualifiedUrl: PCWSTR, Flags: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSendHttpResponse(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, HttpResponse: PHTTP_RESPONSE, #[opt] CachePolicy: PHTTP_CACHE_POLICY, #[out] #[opt] BytesSent: PULONG, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32, #[opt] Overlapped: LPOVERLAPPED, #[opt] LogData: PHTTP_LOG_DATA) -> u32;
+        extern fn HttpSendHttpResponse(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: ULONG, HttpResponse: PHTTP_RESPONSE, CachePolicy: PHTTP_CACHE_POLICY, BytesSent: PULONG, #[reserved] Reserved1: PVOID, #[reserved] Reserved2: ULONG, Overlapped: LPOVERLAPPED, LogData: PHTTP_LOG_DATA) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSendResponseEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[opt] EntityChunkCount: u16, #[len_param(3)] #[opt] EntityChunks: PHTTP_DATA_CHUNK, #[out] #[opt] BytesSent: PULONG, #[reserved] #[opt] Reserved1: *mut void, #[reserved] #[opt] Reserved2: u32, #[opt] Overlapped: LPOVERLAPPED, #[opt] LogData: PHTTP_LOG_DATA) -> u32;
+        extern fn HttpSendResponseEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: ULONG, EntityChunkCount: USHORT, #[in] #[opt] #[readable(entry, EntityChunkCount)] EntityChunks: PHTTP_DATA_CHUNK, BytesSent: PULONG, #[reserved] Reserved1: PVOID, #[reserved] Reserved2: ULONG, Overlapped: LPOVERLAPPED, LogData: PHTTP_LOG_DATA) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetRequestProperty(RequestQueueHandle: HANDLE, Id: HTTP_OPAQUE_ID, PropertyId: HTTP_REQUEST_PROPERTY, #[size_param(4)] #[in] #[opt] Input: *mut void, InputPropertySize: u32, Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpSetRequestProperty(#[in] RequestQueueHandle: HANDLE, #[in] Id: HTTP_OPAQUE_ID, #[in] PropertyId: HTTP_REQUEST_PROPERTY, #[in] #[opt] #[readable(entry, bytes(InputPropertySize))] Input: PVOID, #[in] InputPropertySize: ULONG, #[in] Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetRequestQueueProperty(RequestQueueHandle: HANDLE, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[in] PropertyInformation: *mut void, PropertyInformationLength: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *mut void) -> u32;
+        extern fn HttpSetRequestQueueProperty(#[in] RequestQueueHandle: HANDLE, #[in] Property: HTTP_SERVER_PROPERTY, #[in] #[readable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, #[in] PropertyInformationLength: ULONG, #[reserved] Reserved1: ULONG, #[reserved] Reserved2: PVOID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[in] PropertyInformation: *mut void, PropertyInformationLength: u32) -> u32;
+        extern fn HttpSetServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[in] #[readable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, PropertyInformationLength: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] pConfigInformation: *mut void, ConfigInformationLength: u32, #[reserved] pOverlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpSetServiceConfiguration(#[reserved] ServiceHandle: HANDLE, #[in] ConfigId: HTTP_SERVICE_CONFIG_ID, #[in] #[readable(entry, bytes(ConfigInformationLength))] pConfigInformation: PVOID, #[in] ConfigInformationLength: ULONG, #[reserved] pOverlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[in] PropertyInformation: *mut void, PropertyInformationLength: u32) -> u32;
+        extern fn HttpSetUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[in] #[readable(entry, bytes(PropertyInformationLength))] PropertyInformation: PVOID, PropertyInformationLength: ULONG) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpShutdownRequestQueue(RequestQueueHandle: HANDLE) -> u32;
+        extern fn HttpShutdownRequestQueue(RequestQueueHandle: HANDLE) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpTerminate(Flags: u32, #[reserved] #[in] #[out] pReserved: *mut void) -> u32;
+        extern fn HttpTerminate(Flags: ULONG, #[reserved] pReserved: PVOID) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpUpdateServiceConfiguration(#[reserved] Handle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] ConfigInfo: *mut void, ConfigInfoLength: u32, #[reserved] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpUpdateServiceConfiguration(#[reserved] Handle: HANDLE, #[in] ConfigId: HTTP_SERVICE_CONFIG_ID, #[in] #[readable(entry, bytes(ConfigInfoLength))] ConfigInfo: PVOID, #[in] ConfigInfoLength: ULONG, #[reserved] Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpWaitForDemandStart(RequestQueueHandle: HANDLE, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpWaitForDemandStart(RequestQueueHandle: HANDLE, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpWaitForDisconnect(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpWaitForDisconnect(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, Overlapped: LPOVERLAPPED) -> ULONG;
         #[library("HTTPAPI.dll")]
-        extern fn HttpWaitForDisconnectEx(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, #[reserved] #[opt] Reserved: u32, #[opt] Overlapped: LPOVERLAPPED) -> u32;
+        extern fn HttpWaitForDisconnectEx(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, #[reserved] Reserved: ULONG, Overlapped: LPOVERLAPPED) -> ULONG;
         type PHTTP2_SETTINGS_LIMITS_PARAM = *mut HTTP2_SETTINGS_LIMITS_PARAM;
         type PHTTP2_WINDOW_SIZE_PARAM = *mut HTTP2_WINDOW_SIZE_PARAM;
         type PHTTPAPI_VERSION = *mut HTTPAPI_VERSION;
@@ -1219,11 +1221,11 @@ mod Windows {
         type PHTTP_CERT_CONFIG_ENTRY = *mut HTTP_CERT_CONFIG_ENTRY;
         type PHTTP_CERT_CONFIG_PARAM = *mut HTTP_CERT_CONFIG_PARAM;
         type PHTTP_CHANNEL_BIND_INFO = *mut HTTP_CHANNEL_BIND_INFO;
-        type PHTTP_CLIENT_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
-        type PHTTP_CLIENT_CREDENTIAL_ID = *mut HTTP_OPAQUE_ID;
-        type PHTTP_CLIENT_REQUEST_ID = *mut HTTP_OPAQUE_ID;
-        type PHTTP_CLIENT_STREAM_ID = *mut HTTP_OPAQUE_ID;
-        type PHTTP_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
+        type PHTTP_CLIENT_CONNECTION_ID = *mut u64;
+        type PHTTP_CLIENT_CREDENTIAL_ID = *mut u64;
+        type PHTTP_CLIENT_REQUEST_ID = *mut u64;
+        type PHTTP_CLIENT_STREAM_ID = *mut u64;
+        type PHTTP_CONNECTION_ID = *mut u64;
         type PHTTP_CONNECTION_LIMIT_INFO = *mut HTTP_CONNECTION_LIMIT_INFO;
         type PHTTP_COOKED_URL = *mut HTTP_COOKED_URL;
         type PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID;
@@ -1261,14 +1263,14 @@ mod Windows {
         type PHTTP_QUIC_CONNECTION_API_TIMINGS = *mut HTTP_QUIC_CONNECTION_API_TIMINGS;
         type PHTTP_QUIC_STREAM_API_TIMINGS = *mut HTTP_QUIC_STREAM_API_TIMINGS;
         type PHTTP_QUIC_STREAM_REQUEST_STATS = *mut HTTP_QUIC_STREAM_REQUEST_STATS;
-        type PHTTP_RAW_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
-        type PHTTP_REQUEST = *mut HTTP_REQUEST;
+        type PHTTP_RAW_CONNECTION_ID = *mut u64;
+        type PHTTP_REQUEST = *mut HTTP_REQUEST_V2;
         type PHTTP_REQUEST_AUTH_INFO = *mut HTTP_REQUEST_AUTH_INFO;
         type PHTTP_REQUEST_AUTH_TYPE = *mut HTTP_REQUEST_AUTH_TYPE;
         type PHTTP_REQUEST_CHANNEL_BIND_STATUS = *mut HTTP_REQUEST_CHANNEL_BIND_STATUS;
         type PHTTP_REQUEST_DSCP_INFO = *mut HTTP_REQUEST_DSCP_INFO;
         type PHTTP_REQUEST_HEADERS = *mut HTTP_REQUEST_HEADERS;
-        type PHTTP_REQUEST_ID = *mut HTTP_OPAQUE_ID;
+        type PHTTP_REQUEST_ID = *mut u64;
         type PHTTP_REQUEST_INFO = *mut HTTP_REQUEST_INFO;
         type PHTTP_REQUEST_INFO_PROPERTY_INFO = *mut HTTP_REQUEST_INFO_PROPERTY_INFO;
         type PHTTP_REQUEST_INFO_TYPE = *mut HTTP_REQUEST_INFO_TYPE;
@@ -1284,7 +1286,7 @@ mod Windows {
         type PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO = *mut HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO;
         type PHTTP_REQUEST_V1 = *mut HTTP_REQUEST_V1;
         type PHTTP_REQUEST_V2 = *mut HTTP_REQUEST_V2;
-        type PHTTP_RESPONSE = *mut HTTP_RESPONSE;
+        type PHTTP_RESPONSE = *mut HTTP_RESPONSE_V2;
         type PHTTP_RESPONSE_HEADERS = *mut HTTP_RESPONSE_HEADERS;
         type PHTTP_RESPONSE_INFO = *mut HTTP_RESPONSE_INFO;
         type PHTTP_RESPONSE_INFO_TYPE = *mut HTTP_RESPONSE_INFO_TYPE;
@@ -1294,7 +1296,7 @@ mod Windows {
         type PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS;
         type PHTTP_SERVER_AUTHENTICATION_INFO = *mut HTTP_SERVER_AUTHENTICATION_INFO;
         type PHTTP_SERVER_PROPERTY = *mut HTTP_SERVER_PROPERTY;
-        type PHTTP_SERVER_SESSION_ID = *mut HTTP_OPAQUE_ID;
+        type PHTTP_SERVER_SESSION_ID = *mut u64;
         type PHTTP_SERVICE_BINDING_A = *mut HTTP_SERVICE_BINDING_A;
         type PHTTP_SERVICE_BINDING_BASE = *mut HTTP_SERVICE_BINDING_BASE;
         type PHTTP_SERVICE_BINDING_W = *mut HTTP_SERVICE_BINDING_W;
@@ -1344,7 +1346,7 @@ mod Windows {
         type PHTTP_TRANSPORT_ADDRESS = *mut HTTP_TRANSPORT_ADDRESS;
         type PHTTP_UNKNOWN_HEADER = *mut HTTP_UNKNOWN_HEADER;
         type PHTTP_URI_SCHEME = *mut HTTP_SCHEME;
-        type PHTTP_URL_GROUP_ID = *mut HTTP_OPAQUE_ID;
+        type PHTTP_URL_GROUP_ID = *mut u64;
         type PHTTP_VERB = *mut HTTP_VERB;
         type PHTTP_VERSION = *mut HTTP_VERSION;
         type PHTTP_WINHTTP_FAST_FORWARDING_DATA = *mut HTTP_WINHTTP_FAST_FORWARDING_DATA;

@@ -2,5 +2,7 @@
 mod Windows {
     mod Win32 {
         const CLSID_InternetShortcut: GUID = 0xfbf23b40_e3f0_101b_8488_00aa003e56f8;
+        const IID_IUniformResourceLocatorA: GUID = 0xfbf23b80_e3f0_101b_8488_00aa003e56f8;
+        const IID_IUniformResourceLocatorW: GUID = 0xcabb0da0_da57_11cf_9974_0020afd79762;
     }
 }

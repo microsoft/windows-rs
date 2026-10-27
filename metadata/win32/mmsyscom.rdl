@@ -8,16 +8,15 @@ mod Windows {
         const CALLBACK_THREAD: i32 = 131072;
         const CALLBACK_TYPEMASK: i32 = 458752;
         const CALLBACK_WINDOW: i32 = 65536;
-        extern fn DRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        extern fn DRVCALLBACK(hdrvr: HDRVR, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
         type HDRVR = *mut HDRVR__;
         #[packed(1)]
         struct HDRVR__ {
             unused: i32,
         }
         const JOYERR_BASE: i32 = 160;
-        extern fn LPDRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        extern fn LPDRVCALLBACK(hdrvr: HDRVR, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
         type LPMMTIME = *mut MMTIME;
-        type LPUINT = *mut u32;
         const MAXERRORLENGTH: i32 = 256;
         const MAXPNAMELEN: i32 = 32;
         const MAX_JOYSTICKOEMVXDNAME: i32 = 260;
@@ -29,6 +28,7 @@ mod Windows {
         const MCI_WAVE_OFFSET: i32 = 1152;
         const MIDIERR_BASE: i32 = 64;
         const MIXERR_BASE: i32 = 1024;
+        #[success(return == 0)]
         type MMRESULT = u32;
         const MMSYSERR_ALLOCATED: i32 = 4;
         const MMSYSERR_BADDB: i32 = 14;
@@ -56,23 +56,23 @@ mod Windows {
         const MMSYSERR_WRITEERROR: i32 = 17;
         #[packed(1)]
         struct MMTIME {
-            wType: u32,
+            wType: UINT,
             u: #[packed(1)] union {
-                ms: u32,
-                sample: u32,
-                cb: u32,
-                ticks: u32,
-                smpte: struct {
-                    hour: u8,
-                    min: u8,
-                    sec: u8,
-                    frame: u8,
-                    fps: u8,
-                    dummy: u8,
-                    pad: [u8; 2],
+                ms: DWORD,
+                sample: DWORD,
+                cb: DWORD,
+                ticks: DWORD,
+                smpte: #[packed(1)] struct {
+                    hour: BYTE,
+                    min: BYTE,
+                    sec: BYTE,
+                    frame: BYTE,
+                    fps: BYTE,
+                    dummy: BYTE,
+                    pad: [BYTE; 2],
                 },
                 midi: #[packed(1)] struct {
-                    songptrpos: u32,
+                    songptrpos: DWORD,
                 },
             },
         }
@@ -115,7 +115,7 @@ mod Windows {
         const MM_WOM_DONE: i32 = 957;
         const MM_WOM_OPEN: i32 = 955;
         type NPMMTIME = *mut MMTIME;
-        extern fn PDRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        extern fn PDRVCALLBACK(hdrvr: HDRVR, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
         type PMMTIME = *mut MMTIME;
         const TIMERR_BASE: i32 = 96;
         const TIME_BYTES: i32 = 4;

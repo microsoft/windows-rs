@@ -1,54 +1,63 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ElementType: i32 = 0;
-        const TextType: i32 = 1;
-        struct WSDXML_ATTRIBUTE {
+        type WSDXML_ATTRIBUTE = _WSDXML_ATTRIBUTE;
+        type WSDXML_ELEMENT = _WSDXML_ELEMENT;
+        type WSDXML_ELEMENT_LIST = _WSDXML_ELEMENT_LIST;
+        type WSDXML_NAME = _WSDXML_NAME;
+        type WSDXML_NAMESPACE = _WSDXML_NAMESPACE;
+        type WSDXML_NODE = _WSDXML_NODE;
+        type WSDXML_PREFIX_MAPPING = _WSDXML_PREFIX_MAPPING;
+        type WSDXML_TEXT = _WSDXML_TEXT;
+        type WSDXML_TYPE = _WSDXML_TYPE;
+        struct _WSDXML_ATTRIBUTE {
             Element: *mut WSDXML_ELEMENT,
             Next: *mut WSDXML_ATTRIBUTE,
             Name: *mut WSDXML_NAME,
-            Value: *mut u16,
+            Value: *mut WCHAR,
         }
-        struct WSDXML_ELEMENT {
+        struct _WSDXML_ELEMENT {
             Node: WSDXML_NODE,
             Name: *mut WSDXML_NAME,
             FirstAttribute: *mut WSDXML_ATTRIBUTE,
             FirstChild: *mut WSDXML_NODE,
             PrefixMappings: *mut WSDXML_PREFIX_MAPPING,
         }
-        struct WSDXML_ELEMENT_LIST {
+        struct _WSDXML_ELEMENT_LIST {
             Next: *mut WSDXML_ELEMENT_LIST,
             Element: *mut WSDXML_ELEMENT,
         }
-        struct WSDXML_NAME {
+        struct _WSDXML_NAME {
             Space: *mut WSDXML_NAMESPACE,
-            LocalName: *mut u16,
+            LocalName: *mut WCHAR,
         }
-        struct WSDXML_NAMESPACE {
-            Uri: *const u16,
-            PreferredPrefix: *const u16,
+        struct _WSDXML_NAMESPACE {
+            Uri: *const WCHAR,
+            PreferredPrefix: *const WCHAR,
             Names: *mut WSDXML_NAME,
-            NamesCount: u16,
-            Encoding: u16,
+            NamesCount: WORD,
+            Encoding: WORD,
         }
-        struct WSDXML_NODE {
+        struct _WSDXML_NODE {
             Type: i32,
             Parent: *mut WSDXML_ELEMENT,
             Next: *mut WSDXML_NODE,
+            const ElementType: i32 = 0;
+            const TextType: i32 = 1;
         }
-        struct WSDXML_PREFIX_MAPPING {
-            Refs: u32,
+        struct _WSDXML_PREFIX_MAPPING {
+            Refs: DWORD,
             Next: *mut WSDXML_PREFIX_MAPPING,
             Space: *mut WSDXML_NAMESPACE,
-            Prefix: *mut u16,
+            Prefix: *mut WCHAR,
         }
-        struct WSDXML_TEXT {
+        struct _WSDXML_TEXT {
             Node: WSDXML_NODE,
-            Text: *mut u16,
+            Text: *mut WCHAR,
         }
-        struct WSDXML_TYPE {
-            Uri: *const u16,
-            Table: *const u8,
+        struct _WSDXML_TYPE {
+            Uri: *const WCHAR,
+            Table: *const BYTE,
         }
     }
 }

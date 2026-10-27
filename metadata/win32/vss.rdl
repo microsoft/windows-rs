@@ -4,15 +4,15 @@ mod Windows {
         #[guid(0x507c37b4_cf5b_4e95_b0af_14eb9767467e)]
         interface IVssAsync: IUnknown {
             fn Cancel(&self) -> HRESULT;
-            fn Wait(&self, dwMilliseconds: u32) -> HRESULT;
-            fn QueryStatus(&self, pHrResult: *mut HRESULT, #[in] #[out] pReserved: *mut i32) -> HRESULT;
+            fn Wait(&self, #[in] dwMilliseconds: DWORD) -> HRESULT;
+            fn QueryStatus(&self, #[out] pHrResult: *mut HRESULT, #[in] #[opt] #[out] pReserved: *mut INT) -> HRESULT;
         }
         #[guid(0xae1c7110_2f60_11d3_8a39_00c04f72d8e3)]
         interface IVssEnumObject: IUnknown {
-            fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut VSS_OBJECT_PROP, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[in] #[out] ppenum: *mut IVssEnumObject) -> HRESULT;
+            fn Clone(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppenum: *mut IVssEnumObject) -> HRESULT;
         }
         type PVSS_APPLICATION_LEVEL = *mut VSS_APPLICATION_LEVEL;
         type PVSS_BACKUP_SCHEMA = *mut VSS_BACKUP_SCHEMA;
@@ -97,6 +97,7 @@ mod Windows {
             VSS_ONLUNSTATECHANGE_DO_MASK_LUNS = 2048,
         }
         type VSS_ID = GUID;
+        #[packed(8)]
         struct VSS_OBJECT_PROP {
             Type: VSS_OBJECT_TYPE,
             Obj: VSS_OBJECT_UNION,
@@ -110,6 +111,7 @@ mod Windows {
             VSS_OBJECT_PROVIDER = 4,
             VSS_OBJECT_TYPE_COUNT = 5,
         }
+        #[packed(8)]
         union VSS_OBJECT_UNION {
             Snap: VSS_SNAPSHOT_PROP,
             Prov: VSS_PROVIDER_PROP,
@@ -127,13 +129,14 @@ mod Windows {
             VSS_PRV_CAPABILITY_DIFFERENTIAL = 256,
             VSS_PRV_CAPABILITY_CLUSTERED = 512,
         }
+        #[packed(8)]
         struct VSS_PROVIDER_PROP {
             m_ProviderId: VSS_ID,
             m_pwszProviderName: VSS_PWSZ,
             m_eProviderType: VSS_PROVIDER_TYPE,
             m_pwszProviderVersion: VSS_PWSZ,
             m_ProviderVersionId: VSS_ID,
-            m_ClassId: GUID,
+            m_ClassId: CLSID,
         }
         #[repr(i32)]
         enum VSS_PROVIDER_TYPE {
@@ -143,6 +146,8 @@ mod Windows {
             VSS_PROV_HARDWARE = 3,
             VSS_PROV_FILESHARE = 4,
         }
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type VSS_PWSZ = *mut u16;
         #[repr(i32)]
         enum VSS_RECOVERY_OPTIONS {
@@ -178,10 +183,11 @@ mod Windows {
             VSS_CTX_CLIENT_ACCESSIBLE_WRITERS = 13,
             VSS_CTX_ALL = -1,
         }
+        #[packed(8)]
         struct VSS_SNAPSHOT_PROP {
             m_SnapshotId: VSS_ID,
             m_SnapshotSetId: VSS_ID,
-            m_lSnapshotsCount: i32,
+            m_lSnapshotsCount: LONG,
             m_pwszSnapshotDeviceObject: VSS_PWSZ,
             m_pwszOriginalVolumeName: VSS_PWSZ,
             m_pwszOriginatingMachine: VSS_PWSZ,
@@ -189,7 +195,7 @@ mod Windows {
             m_pwszExposedName: VSS_PWSZ,
             m_pwszExposedPath: VSS_PWSZ,
             m_ProviderId: VSS_ID,
-            m_lSnapshotAttributes: i32,
+            m_lSnapshotAttributes: LONG,
             m_tsCreationTimestamp: VSS_TIMESTAMP,
             m_eStatus: VSS_SNAPSHOT_STATE,
         }

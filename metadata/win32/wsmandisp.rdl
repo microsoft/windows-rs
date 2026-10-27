@@ -3,135 +3,135 @@ mod Windows {
     mod Win32 {
         #[guid(0x190d8637_5cd3_496d_ad24_69636bb5a3b5)]
         interface IWSMan: IDispatch {
-            fn CreateSession(&self, connection: BSTR, flags: i32, connectionOptions: IDispatch, #[retval] session: *mut IDispatch) -> HRESULT;
-            fn CreateConnectionOptions(&self, #[retval] connectionOptions: *mut IDispatch) -> HRESULT;
+            fn CreateSession(&self, #[in] connection: BSTR, #[in] flags: i32, #[in] connectionOptions: IDispatch, #[out] #[retval] session: *mut IDispatch) -> HRESULT;
+            fn CreateConnectionOptions(&self, #[out] #[retval] connectionOptions: *mut IDispatch) -> HRESULT;
             #[special]
-            fn get_CommandLine(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_CommandLine(&self, #[out] #[retval] value: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_Error(&self, #[out] #[retval] value: *mut BSTR) -> HRESULT;
         }
         #[guid(0xf704e861_9e52_464f_b786_da5eb2320fdd)]
         interface IWSManConnectionOptions: IDispatch {
             #[special]
-            fn get_UserName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_UserName(&self, #[out] #[retval] name: *mut BSTR) -> HRESULT;
             #[special]
-            fn put_UserName(&self, name: BSTR) -> HRESULT;
+            fn put_UserName(&self, #[in] name: BSTR) -> HRESULT;
             #[special]
-            fn put_Password(&self, password: BSTR) -> HRESULT;
+            fn put_Password(&self, #[in] password: BSTR) -> HRESULT;
         }
         #[guid(0xef43edf7_2a48_4d93_9526_8bd6ab6d4a6b)]
         interface IWSManConnectionOptionsEx: IWSManConnectionOptions {
             #[special]
-            fn get_CertificateThumbprint(&self, #[retval] thumbprint: *mut BSTR) -> HRESULT;
+            fn get_CertificateThumbprint(&self, #[out] #[retval] thumbprint: *mut BSTR) -> HRESULT;
             #[special]
-            fn put_CertificateThumbprint(&self, thumbprint: BSTR) -> HRESULT;
+            fn put_CertificateThumbprint(&self, #[in] thumbprint: BSTR) -> HRESULT;
         }
         #[guid(0xf500c9ec_24ee_48ab_b38d_fc9a164c658e)]
         interface IWSManConnectionOptionsEx2: IWSManConnectionOptionsEx {
-            fn SetProxy(&self, accessType: i32, authenticationMechanism: i32, userName: BSTR, password: BSTR) -> HRESULT;
-            fn ProxyIEConfig(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn ProxyWinHttpConfig(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn ProxyAutoDetect(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn ProxyNoProxyServer(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn ProxyAuthenticationUseNegotiate(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn ProxyAuthenticationUseBasic(&self, #[retval] value: *mut i32) -> HRESULT;
-            fn ProxyAuthenticationUseDigest(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn SetProxy(&self, #[in] accessType: i32, #[in] authenticationMechanism: i32, #[in] userName: BSTR, #[in] password: BSTR) -> HRESULT;
+            fn ProxyIEConfig(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyWinHttpConfig(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAutoDetect(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyNoProxyServer(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAuthenticationUseNegotiate(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAuthenticationUseBasic(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAuthenticationUseDigest(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0xf3457ca9_abb9_4fa5_b850_90e8ca300e7f)]
         interface IWSManEnumerator: IDispatch {
-            fn ReadItem(&self, #[retval] resource: *mut BSTR) -> HRESULT;
+            fn ReadItem(&self, #[out] #[retval] resource: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_AtEndOfStream(&self, #[retval] eos: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_AtEndOfStream(&self, #[out] #[retval] eos: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_Error(&self, #[out] #[retval] value: *mut BSTR) -> HRESULT;
         }
         #[guid(0x2d53bdaa_798e_49e6_a1aa_74d01256f411)]
         interface IWSManEx: IWSMan {
-            fn CreateResourceLocator(&self, strResourceLocator: BSTR, #[retval] newResourceLocator: *mut IDispatch) -> HRESULT;
-            fn SessionFlagUTF8(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagCredUsernamePassword(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagSkipCACheck(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagSkipCNCheck(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagUseDigest(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagUseNegotiate(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagUseBasic(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagUseKerberos(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagNoEncryption(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagEnableSPNServerPort(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagUseNoAuthentication(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagNonXmlText(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagReturnEPR(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagReturnObjectAndEPR(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn GetErrorMessage(&self, errorNumber: u32, #[retval] errorMessage: *mut BSTR) -> HRESULT;
-            fn EnumerationFlagHierarchyDeep(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagHierarchyShallow(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagHierarchyDeepBasePropsOnly(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagReturnObject(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn CreateResourceLocator(&self, #[in] strResourceLocator: BSTR, #[out] #[retval] newResourceLocator: *mut IDispatch) -> HRESULT;
+            fn SessionFlagUTF8(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagCredUsernamePassword(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagSkipCACheck(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagSkipCNCheck(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseDigest(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseNegotiate(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseBasic(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseKerberos(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagNoEncryption(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagEnableSPNServerPort(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseNoAuthentication(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagNonXmlText(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagReturnEPR(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagReturnObjectAndEPR(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn GetErrorMessage(&self, #[in] errorNumber: DWORD, #[out] #[retval] errorMessage: *mut BSTR) -> HRESULT;
+            fn EnumerationFlagHierarchyDeep(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagHierarchyShallow(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagHierarchyDeepBasePropsOnly(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagReturnObject(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
         }
         #[guid(0x1d1b5ae0_42d9_4021_8261_3987619512e9)]
         interface IWSManEx2: IWSManEx {
-            fn SessionFlagUseClientCertificate(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseClientCertificate(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
         }
         #[guid(0x6400e966_011d_4eac_8474_049e0848afad)]
         interface IWSManEx3: IWSManEx2 {
-            fn SessionFlagUTF16(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagUseCredSsp(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagAssociationInstance(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn EnumerationFlagAssociatedInstance(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagSkipRevocationCheck(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagAllowNegotiateImplicitCredentials(&self, #[retval] flags: *mut i32) -> HRESULT;
-            fn SessionFlagUseSsl(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUTF16(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseCredSsp(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagAssociationInstance(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagAssociatedInstance(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagSkipRevocationCheck(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagAllowNegotiateImplicitCredentials(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseSsl(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
         }
         #[guid(0x04ae2b1d_9954_4d99_94a9_a961e72c3a13)]
         interface IWSManInternal: IDispatch {
-            fn ConfigSDDL(&self, session: IDispatch, resourceUri: VARIANT, flags: i32, #[retval] resource: *mut BSTR) -> HRESULT;
+            fn ConfigSDDL(&self, #[in] session: IDispatch, #[in] resourceUri: VARIANT, #[in] flags: i32, #[out] #[retval] resource: *mut BSTR) -> HRESULT;
         }
         #[guid(0xa7a1ba28_de41_466a_ad0a_c4059ead7428)]
         interface IWSManResourceLocator: IDispatch {
             #[special]
-            fn put_ResourceURI(&self, uri: BSTR) -> HRESULT;
+            fn put_ResourceURI(&self, #[in] uri: BSTR) -> HRESULT;
             #[special]
-            fn get_ResourceURI(&self, #[retval] uri: *mut BSTR) -> HRESULT;
-            fn AddSelector(&self, resourceSelName: BSTR, selValue: VARIANT) -> HRESULT;
+            fn get_ResourceURI(&self, #[out] #[retval] uri: *mut BSTR) -> HRESULT;
+            fn AddSelector(&self, #[in] resourceSelName: BSTR, #[in] selValue: VARIANT) -> HRESULT;
             fn ClearSelectors(&self) -> HRESULT;
             #[special]
-            fn get_FragmentPath(&self, #[retval] text: *mut BSTR) -> HRESULT;
+            fn get_FragmentPath(&self, #[out] #[retval] text: *mut BSTR) -> HRESULT;
             #[special]
-            fn put_FragmentPath(&self, text: BSTR) -> HRESULT;
+            fn put_FragmentPath(&self, #[in] text: BSTR) -> HRESULT;
             #[special]
-            fn get_FragmentDialect(&self, #[retval] text: *mut BSTR) -> HRESULT;
+            fn get_FragmentDialect(&self, #[out] #[retval] text: *mut BSTR) -> HRESULT;
             #[special]
-            fn put_FragmentDialect(&self, text: BSTR) -> HRESULT;
-            fn AddOption(&self, OptionName: BSTR, OptionValue: VARIANT, mustComply: BOOL) -> HRESULT;
+            fn put_FragmentDialect(&self, #[in] text: BSTR) -> HRESULT;
+            fn AddOption(&self, #[in] OptionName: BSTR, #[in] OptionValue: VARIANT, #[in] mustComply: BOOL) -> HRESULT;
             #[special]
-            fn put_MustUnderstandOptions(&self, mustUnderstand: BOOL) -> HRESULT;
+            fn put_MustUnderstandOptions(&self, #[in] mustUnderstand: BOOL) -> HRESULT;
             #[special]
-            fn get_MustUnderstandOptions(&self, #[retval] mustUnderstand: *mut BOOL) -> HRESULT;
+            fn get_MustUnderstandOptions(&self, #[out] #[retval] mustUnderstand: *mut BOOL) -> HRESULT;
             fn ClearOptions(&self) -> HRESULT;
             #[special]
-            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_Error(&self, #[out] #[retval] value: *mut BSTR) -> HRESULT;
         }
         #[guid(0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb)]
         interface IWSManResourceLocatorInternal: IUnknown {}
         #[guid(0xfc84fc58_1286_40c4_9da0_c8ef6ec241e0)]
         interface IWSManSession: IDispatch {
-            fn Get(&self, resourceUri: VARIANT, flags: i32, #[retval] resource: *mut BSTR) -> HRESULT;
-            fn Put(&self, resourceUri: VARIANT, resource: BSTR, flags: i32, #[retval] resultResource: *mut BSTR) -> HRESULT;
-            fn Create(&self, resourceUri: VARIANT, resource: BSTR, flags: i32, #[retval] newUri: *mut BSTR) -> HRESULT;
-            fn Delete(&self, resourceUri: VARIANT, flags: i32) -> HRESULT;
-            fn Invoke(&self, actionUri: BSTR, resourceUri: VARIANT, parameters: BSTR, flags: i32, #[retval] result: *mut BSTR) -> HRESULT;
-            fn Enumerate(&self, resourceUri: VARIANT, filter: BSTR, dialect: BSTR, flags: i32, #[retval] resultSet: *mut IDispatch) -> HRESULT;
-            fn Identify(&self, flags: i32, #[retval] result: *mut BSTR) -> HRESULT;
+            fn Get(&self, #[in] resourceUri: VARIANT, #[in] flags: i32, #[out] #[retval] resource: *mut BSTR) -> HRESULT;
+            fn Put(&self, #[in] resourceUri: VARIANT, #[in] resource: BSTR, #[in] flags: i32, #[out] #[retval] resultResource: *mut BSTR) -> HRESULT;
+            fn Create(&self, #[in] resourceUri: VARIANT, #[in] resource: BSTR, #[in] flags: i32, #[out] #[retval] newUri: *mut BSTR) -> HRESULT;
+            fn Delete(&self, #[in] resourceUri: VARIANT, #[in] flags: i32) -> HRESULT;
+            fn Invoke(&self, #[in] actionUri: BSTR, #[in] resourceUri: VARIANT, #[in] parameters: BSTR, #[in] flags: i32, #[out] #[retval] result: *mut BSTR) -> HRESULT;
+            fn Enumerate(&self, #[in] resourceUri: VARIANT, #[in] filter: BSTR, #[in] dialect: BSTR, #[in] flags: i32, #[out] #[retval] resultSet: *mut IDispatch) -> HRESULT;
+            fn Identify(&self, #[in] flags: i32, #[out] #[retval] result: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_Error(&self, #[out] #[retval] value: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_BatchItems(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn get_BatchItems(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
             #[special]
-            fn put_BatchItems(&self, value: i32) -> HRESULT;
+            fn put_BatchItems(&self, #[in] value: i32) -> HRESULT;
             #[special]
-            fn get_Timeout(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn get_Timeout(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
             #[special]
-            fn put_Timeout(&self, value: i32) -> HRESULT;
+            fn put_Timeout(&self, #[in] value: i32) -> HRESULT;
         }
         const WSMan: GUID = 0xbced617b_ec03_420b_8508_977dc7a686bd;
         #[repr(i32)]

@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[repr(u32)]
         #[flags]
+        #[repr(i32)]
         enum D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
             D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAG_NONE = 0,
         }
@@ -12,8 +12,8 @@ mod Windows {
         struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
             DecoderDesc: D3D11_VIDEO_DECODER_DESC,
             Components: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS,
-            BinCount: u32,
-            CounterBitDepth: u32,
+            BinCount: UINT,
+            CounterBitDepth: UINT,
         }
         #[repr(i32)]
         enum D3D11_FEATURE_VIDEO {
@@ -21,14 +21,16 @@ mod Windows {
         }
         struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
             BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
-            DataOffset: u32,
-            DataSize: u32,
+            DataOffset: UINT,
+            DataSize: UINT,
+            #[writable(IVSize, nullable)]
             pIV: *mut void,
-            IVSize: u32,
+            IVSize: UINT,
+            #[writable(SubSampleMappingCount, nullable)]
             pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
-            SubSampleMappingCount: u32,
-            cBlocksStripeEncrypted: u32,
-            cBlocksStripeClear: u32,
+            SubSampleMappingCount: UINT,
+            cBlocksStripeEncrypted: UINT,
+            cBlocksStripeClear: UINT,
         }
         #[repr(i32)]
         enum D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
@@ -40,8 +42,8 @@ mod Windows {
             D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_B = 2,
             D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_A = 3,
         }
-        #[repr(u32)]
         #[flags]
+        #[repr(i32)]
         enum D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
             D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_NONE = 0,
             D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_Y = 1,
@@ -54,37 +56,43 @@ mod Windows {
         }
         #[guid(0x8992ab71_02e6_4b8d_ba48_b056dcda42c4)]
         interface ID3D11Device4: ID3D11Device3 {
-            fn RegisterDeviceRemovedEvent(&self, hEvent: HANDLE, pdwCookie: *mut u32) -> HRESULT;
-            fn UnregisterDeviceRemoved(&self, dwCookie: u32);
+            fn RegisterDeviceRemovedEvent(&self, #[in] hEvent: HANDLE, #[out] pdwCookie: *mut DWORD) -> HRESULT;
+            fn UnregisterDeviceRemoved(&self, #[in] dwCookie: DWORD);
         }
         #[guid(0x8ffde202_a0e7_45df_9e01_e837801b5ea0)]
         interface ID3D11Device5: ID3D11Device4 {
-            fn OpenSharedFence(&self, hFence: HANDLE, ReturnedInterface: *const GUID, #[iid_is] #[opt] ppFence: *mut *mut void) -> HRESULT;
-            fn CreateFence(&self, InitialValue: u64, Flags: D3D11_FENCE_FLAG, ReturnedInterface: *const GUID, #[iid_is] #[opt] ppFence: *mut *mut void) -> HRESULT;
+            fn OpenSharedFence(&self, #[in] hFence: HANDLE, #[in] ReturnedInterface: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppFence: *mut *mut void) -> HRESULT;
+            fn CreateFence(&self, #[in] InitialValue: UINT64, #[in] Flags: D3D11_FENCE_FLAG, #[in] ReturnedInterface: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0x9b7e4e00_342c_4106_a19f_4f2704f689f0)]
         interface ID3D11Multithread: IUnknown {
             fn Enter(&self);
             fn Leave(&self);
-            fn SetMultithreadProtected(&self, bMTProtect: BOOL) -> BOOL;
+            fn SetMultithreadProtected(&self, #[in] bMTProtect: BOOL) -> BOOL;
             fn GetMultithreadProtected(&self) -> BOOL;
         }
         #[guid(0xc4e7374c_6243_4d1b_ae87_52b4f740e261)]
         interface ID3D11VideoContext2: ID3D11VideoContext1 {
-            fn VideoProcessorSetOutputHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, Type: DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(2)] #[opt] pHDRMetaData: *const void);
-            fn VideoProcessorGetOutputHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, pType: *mut DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(2)] #[opt] pMetaData: *mut void);
-            fn VideoProcessorSetStreamHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Type: DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(3)] #[opt] pHDRMetaData: *const void);
-            fn VideoProcessorGetStreamHDRMetaData(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pType: *mut DXGI_HDR_METADATA_TYPE, Size: u32, #[size_param(3)] #[opt] pMetaData: *mut void);
+            fn VideoProcessorSetOutputHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] Type: DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pHDRMetaData: *const void);
+            fn VideoProcessorGetOutputHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[out] pType: *mut DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[opt] #[out] #[writable(entry, bytes(Size))] pMetaData: *mut void);
+            fn VideoProcessorSetStreamHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[in] Type: DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pHDRMetaData: *const void);
+            fn VideoProcessorGetStreamHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[out] pType: *mut DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[opt] #[out] #[writable(entry, bytes(Size))] pMetaData: *mut void);
         }
         #[guid(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e)]
         interface ID3D11VideoContext3: ID3D11VideoContext2 {
-            fn DecoderBeginFrame1(&self, pDecoder: ID3D11VideoDecoder, pView: ID3D11VideoDecoderOutputView, ContentKeySize: u32, #[size_param(2)] #[opt] pContentKey: *const void, NumComponentHistograms: u32, #[len_param(4)] #[opt] pHistogramOffsets: *const u32, #[len_param(4)] #[opt] ppHistogramBuffers: *const ID3D11Buffer) -> HRESULT;
-            fn SubmitDecoderBuffers2(&self, pDecoder: ID3D11VideoDecoder, NumBuffers: u32, #[len_param(1)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> HRESULT;
+            fn DecoderBeginFrame1(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] pView: ID3D11VideoDecoderOutputView, ContentKeySize: UINT, #[in] #[opt] #[readable(entry, bytes(ContentKeySize))] pContentKey: *const void, #[range(entry, 0..=4)] NumComponentHistograms: UINT, #[in] #[opt] #[readable(entry, NumComponentHistograms)] pHistogramOffsets: *const UINT, #[in] #[opt] #[readable(entry, NumComponentHistograms)] ppHistogramBuffers: *const ID3D11Buffer) -> HRESULT;
+            fn SubmitDecoderBuffers2(&self, #[in] pDecoder: ID3D11VideoDecoder, #[in] NumBuffers: UINT, #[in] #[readable(entry, NumBuffers)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> HRESULT;
         }
         #[guid(0x59c0cb01_35f0_4a70_8f67_87905c906a53)]
         interface ID3D11VideoDevice2: ID3D11VideoDevice1 {
-            fn CheckFeatureSupport(&self, Feature: D3D11_FEATURE_VIDEO, #[size_param(2)] pFeatureSupportData: *mut void, FeatureSupportDataSize: u32) -> HRESULT;
-            fn NegotiateCryptoSessionKeyExchangeMT(&self, pCryptoSession: ID3D11CryptoSession, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, DataSize: u32, #[size_param(2)] #[in] #[out] pData: *mut void) -> HRESULT;
+            fn CheckFeatureSupport(&self, Feature: D3D11_FEATURE_VIDEO, #[out] #[writable(entry, bytes(FeatureSupportDataSize))] pFeatureSupportData: *mut void, FeatureSupportDataSize: UINT) -> HRESULT;
+            fn NegotiateCryptoSessionKeyExchangeMT(&self, #[in] pCryptoSession: ID3D11CryptoSession, #[in] flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, #[in] DataSize: UINT, #[in] #[out] #[writable(entry, bytes(DataSize))] pData: *mut void) -> HRESULT;
         }
+        const IID_ID3D11Device4: GUID = 0x8992ab71_02e6_4b8d_ba48_b056dcda42c4;
+        const IID_ID3D11Device5: GUID = 0x8ffde202_a0e7_45df_9e01_e837801b5ea0;
+        const IID_ID3D11Multithread: GUID = 0x9b7e4e00_342c_4106_a19f_4f2704f689f0;
+        const IID_ID3D11VideoContext2: GUID = 0xc4e7374c_6243_4d1b_ae87_52b4f740e261;
+        const IID_ID3D11VideoContext3: GUID = 0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e;
+        const IID_ID3D11VideoDevice2: GUID = 0x59c0cb01_35f0_4a70_8f67_87905c906a53;
     }
 }

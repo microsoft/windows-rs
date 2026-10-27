@@ -13,13 +13,13 @@ mod Windows {
         const EXITEVENT_STARTUP: i32 = 128;
         #[guid(0xe19ae1a0_7364_11d0_8816_00a0c903b83c)]
         interface ICertExit: IDispatch {
-            fn Initialize(&self, strConfig: BSTR, #[retval] pEventMask: *mut i32) -> HRESULT;
-            fn Notify(&self, ExitEvent: i32, Context: i32) -> HRESULT;
-            fn GetDescription(&self, #[retval] pstrDescription: *mut BSTR) -> HRESULT;
+            fn Initialize(&self, #[in] strConfig: BSTR, #[out] #[retval] pEventMask: *mut LONG) -> HRESULT;
+            fn Notify(&self, #[in] ExitEvent: LONG, #[in] Context: LONG) -> HRESULT;
+            fn GetDescription(&self, #[out] #[out_ptr] #[retval] pstrDescription: *mut BSTR) -> HRESULT;
         }
         #[guid(0x0abf484b_d049_464d_a7ed_552e7529b0ff)]
         interface ICertExit2: ICertExit {
-            fn GetManageModule(&self, #[retval] ppManageModule: *mut ICertManageModule) -> HRESULT;
+            fn GetManageModule(&self, #[out] #[out_ptr] #[retval] ppManageModule: *mut ICertManageModule) -> HRESULT;
         }
     }
 }

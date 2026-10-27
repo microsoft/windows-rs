@@ -15,7 +15,7 @@ mod Windows {
         struct COMPRESS_ALLOCATION_ROUTINES {
             Allocate: PFN_COMPRESS_ALLOCATE,
             Free: PFN_COMPRESS_FREE,
-            UserContext: *mut void,
+            UserContext: PVOID,
         }
         #[repr(i32)]
         enum COMPRESS_INFORMATION_CLASS {
@@ -25,34 +25,34 @@ mod Windows {
         }
         const COMPRESS_RAW: i32 = 536870912;
         #[library("Cabinet.dll")]
-        extern fn CloseCompressor(CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
+        extern fn CloseCompressor(#[in] CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn CloseDecompressor(DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
+        extern fn CloseDecompressor(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn Compress(CompressorHandle: COMPRESSOR_HANDLE, #[size_param(2)] #[opt] UncompressedData: LPCVOID, UncompressedDataSize: usize, #[size_param(4)] #[opt] CompressedBuffer: *mut void, CompressedBufferSize: usize, #[out] CompressedDataSize: PSIZE_T) -> BOOL;
+        extern fn Compress(#[in] CompressorHandle: COMPRESSOR_HANDLE, #[in] #[opt] #[readable(entry, bytes(UncompressedDataSize))] UncompressedData: LPCVOID, #[in] UncompressedDataSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(CompressedBufferSize))] CompressedBuffer: PVOID, #[in] CompressedBufferSize: SIZE_T, #[out] CompressedDataSize: PSIZE_T) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn CreateCompressor(Algorithm: u32, #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] CompressorHandle: PCOMPRESSOR_HANDLE) -> BOOL;
+        extern fn CreateCompressor(#[in] Algorithm: DWORD, #[in] #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] CompressorHandle: PCOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn CreateDecompressor(Algorithm: u32, #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] DecompressorHandle: PDECOMPRESSOR_HANDLE) -> BOOL;
-        type DECOMPRESSOR_HANDLE = COMPRESSOR_HANDLE;
+        extern fn CreateDecompressor(#[in] Algorithm: DWORD, #[in] #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] DecompressorHandle: PDECOMPRESSOR_HANDLE) -> BOOL;
+        type DECOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE__;
         #[library("Cabinet.dll")]
-        extern fn Decompress(DecompressorHandle: DECOMPRESSOR_HANDLE, #[size_param(2)] #[opt] CompressedData: LPCVOID, CompressedDataSize: usize, #[size_param(4)] #[opt] UncompressedBuffer: *mut void, UncompressedBufferSize: usize, #[out] #[opt] UncompressedDataSize: PSIZE_T) -> BOOL;
-        type PCOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE;
+        extern fn Decompress(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] #[opt] #[readable(entry, bytes(CompressedDataSize))] CompressedData: LPCVOID, #[in] CompressedDataSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(UncompressedBufferSize))] UncompressedBuffer: PVOID, #[in] UncompressedBufferSize: SIZE_T, #[opt] #[out] UncompressedDataSize: PSIZE_T) -> BOOL;
+        type PCOMPRESSOR_HANDLE = *mut *mut COMPRESSOR_HANDLE__;
         type PCOMPRESS_ALLOCATION_ROUTINES = *mut COMPRESS_ALLOCATION_ROUTINES;
-        type PDECOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE;
-        extern "C" fn PFN_COMPRESS_ALLOCATE(#[in] UserContext: *mut void, Size: usize) -> *mut void;
-        extern "C" fn PFN_COMPRESS_FREE(#[in] UserContext: *mut void, #[in] Memory: *mut void);
+        type PDECOMPRESSOR_HANDLE = *mut *mut COMPRESSOR_HANDLE__;
+        extern "C" fn PFN_COMPRESS_ALLOCATE(#[in] UserContext: PVOID, #[in] Size: SIZE_T) -> PVOID;
+        extern "C" fn PFN_COMPRESS_FREE(#[in] UserContext: PVOID, #[in] Memory: PVOID);
         #[library("Cabinet.dll")]
-        extern fn QueryCompressorInformation(CompressorHandle: COMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: *mut void, CompressInformationSize: usize) -> BOOL;
+        extern fn QueryCompressorInformation(#[in] CompressorHandle: COMPRESSOR_HANDLE, #[in] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[out] #[writable(entry, bytes(CompressInformationSize))] CompressInformation: PVOID, #[in] CompressInformationSize: SIZE_T) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn QueryDecompressorInformation(DecompressorHandle: DECOMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: *mut void, CompressInformationSize: usize) -> BOOL;
+        extern fn QueryDecompressorInformation(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[out] #[writable(entry, bytes(CompressInformationSize))] CompressInformation: PVOID, #[in] CompressInformationSize: SIZE_T) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn ResetCompressor(CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
+        extern fn ResetCompressor(#[in] CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn ResetDecompressor(DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
+        extern fn ResetDecompressor(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn SetCompressorInformation(CompressorHandle: COMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: LPCVOID, CompressInformationSize: usize) -> BOOL;
+        extern fn SetCompressorInformation(#[in] CompressorHandle: COMPRESSOR_HANDLE, #[in] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[in] #[readable(entry, bytes(CompressInformationSize))] CompressInformation: LPCVOID, #[in] CompressInformationSize: SIZE_T) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn SetDecompressorInformation(DecompressorHandle: DECOMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: LPCVOID, CompressInformationSize: usize) -> BOOL;
+        extern fn SetDecompressorInformation(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[in] #[readable(entry, bytes(CompressInformationSize))] CompressInformation: LPCVOID, #[in] CompressInformationSize: SIZE_T) -> BOOL;
     }
 }

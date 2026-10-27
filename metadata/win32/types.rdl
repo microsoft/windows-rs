@@ -2,8 +2,10 @@
 mod Windows {
     mod Win32 {
         type NDIS_HANDLE = *mut void;
+        #[success(return >= 0)]
         type NDIS_STATUS = i32;
         type PNDIS_HANDLE = *mut *mut void;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
         type PNDIS_STATUS = *mut i32;
     }
 }

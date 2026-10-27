@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ColorChannelFlags {
+            ColorChannelFlagsC = 0,
+            ColorChannelFlagsM = 1,
+            ColorChannelFlagsY = 2,
+            ColorChannelFlagsK = 3,
+            ColorChannelFlagsLast = 4,
+        }
+    }
+}
