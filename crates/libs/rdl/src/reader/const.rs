@@ -57,7 +57,7 @@ impl Encoder<'_> {
             _ if has_guid_attr => {
                 self.encode_const_property_key(&ty, item, &name)?;
             }
-            _ => self.encode_const_value(&ty, item, &name, None)?,
+            _ => self.encode_const_value(&ty, item, &name)?,
         }
 
         Ok(())
@@ -104,7 +104,6 @@ impl Encoder<'_> {
         ty: &windows_metadata::Type,
         item: &Const,
         name: &str,
-        enclosing_arch: Option<i32>,
     ) -> Result<(), Error> {
         let field = self.output.Field(
             name,
@@ -115,8 +114,7 @@ impl Encoder<'_> {
         );
 
         if let Some(expr) = &item.expr {
-            let arch = self.read_arch(&item.attrs)?.or(enclosing_arch);
-            let value = self.encode_value_for_arch(ty, expr, arch)?;
+            let value = self.encode_value(ty, expr)?;
             self.output
                 .Constant(metadata::writer::HasConstant::Field(field), &value);
         }

@@ -66,14 +66,11 @@ fn write_record(
         .iter()
         .filter(|child| !inline_names.contains(child.name()))
         .map(|child| match child.category() {
-            metadata::reader::TypeCategory::Enum => {
-                write_enum_scoped(namespace, child, Some(item.arches()))
-            }
             metadata::reader::TypeCategory::Struct => {
                 write_record(namespace, child, false, Some(item.arches()))
             }
             _ => Err(writer_err!(
-                "only nested records and enums are supported: {}",
+                "only nested records are supported: {}",
                 child.name()
             )),
         })

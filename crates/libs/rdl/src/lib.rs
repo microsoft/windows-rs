@@ -108,48 +108,28 @@ pub(crate) fn pseudo_for_metadata(name: &str, arg_names: &[String]) -> Option<&'
     fallback
 }
 
-/// Creates a [`Reader`] that compiles RDL files into `.winmd` metadata.
 /// Finds type definitions by `/`-separated nested name, such as `Outer/Inner`.
 pub(crate) fn get_nested<'a>(
     index: &'a metadata::reader::Index,
     namespace: &str,
     name: &str,
 ) -> Vec<metadata::reader::TypeDef<'a>> {
-    get_nested_arches(index, namespace, name)
-        .into_iter()
-        .map(|(def, _)| def)
-        .collect()
-}
-
-/// Like [`get_nested`], pairing each definition with the architectures it shares with its owners.
-pub(crate) fn get_nested_arches<'a>(
-    index: &'a metadata::reader::Index,
-    namespace: &str,
-    name: &str,
-) -> Vec<(metadata::reader::TypeDef<'a>, i32)> {
-    let arches = |def: &metadata::reader::TypeDef| match metadata::HasAttributes::arches(def) {
-        0 => 7,
-        arches => arches,
-    };
     let mut names = name.split('/');
-    let mut candidates: Vec<_> = index
-        .get(namespace, names.next().unwrap())
-        .map(|def| (def, arches(&def)))
-        .collect();
+    let mut candidates: Vec<_> = index.get(namespace, names.next().unwrap()).collect();
     for name in names {
         candidates = candidates
             .into_iter()
-            .flat_map(|(parent, mask)| {
+            .flat_map(|parent| {
                 index
                     .nested(parent)
                     .filter(move |child| child.name() == name)
-                    .map(move |child| (child, mask & arches(&child)))
             })
             .collect();
     }
     candidates
 }
 
+/// Creates a [`Reader`] that compiles RDL files into `.winmd` metadata.
 pub fn reader() -> Reader {
     Reader::new()
 }

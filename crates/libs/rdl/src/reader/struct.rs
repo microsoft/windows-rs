@@ -32,10 +32,9 @@ impl syn::parse::Parse for Struct {
 
 #[derive(Clone, Copy)]
 pub struct Enclosing<'a> {
-    pub(super) outer: metadata::writer::TypeDef,
-    pub(super) arch: Option<i32>,
-    pub(super) name: &'a str,
-    pub(super) winrt: bool,
+    outer: metadata::writer::TypeDef,
+    arch: Option<i32>,
+    name: &'a str,
 }
 
 impl Encoder<'_> {
@@ -112,25 +111,22 @@ impl Encoder<'_> {
                 return self.err(record.name.as_ref().unwrap(), "duplicate nested type name");
             }
         }
-        for enumeration in &body.enums {
-            if !nested_names.insert(enumeration.name.unraw_to_string()) {
-                return self.err(&enumeration.name, "duplicate nested type name");
-            }
-        }
-        let field_names: HashSet<_> = fields
+        let mut value_names: HashSet<_> = fields
             .iter()
             .map(|field| field.name.unraw_to_string())
             .collect();
-        // Same-name constants are architecture variants when their architectures are disjoint.
-        let mut constant_arches: HashMap<String, i32> = HashMap::new();
         for constant in &body.constants {
-            let name = constant.name.unraw_to_string();
-            let arches = self.read_arch(&constant.attrs)?.unwrap_or(7);
-            let seen = constant_arches.entry(name.clone()).or_default();
-            if field_names.contains(&name) || *seen & arches != 0 {
+            if !value_names.insert(constant.name.unraw_to_string()) {
                 return self.err(&constant.name, "duplicate record member name");
             }
-            *seen |= arches;
+            // Record constants share their record's architecture.
+            if let Some(attr) = constant
+                .attrs
+                .iter()
+                .find(|attr| attr.path().is_ident("arch"))
+            {
+                return self.err(attr, "record constants inherit the record's architecture");
+            }
         }
         for (index, field) in fields.iter().enumerate() {
             let field_name = field.name.unraw_to_string();
@@ -193,18 +189,12 @@ impl Encoder<'_> {
                 return self.err(&constant.name, "record constants require a value");
             }
             let ty = self.encode_type(&constant.ty)?;
-            self.encode_const_value(
-                &ty,
-                constant,
-                &constant.name.unraw_to_string(),
-                effective_arch,
-            )?;
+            self.encode_const_value(&ty, constant, &constant.name.unraw_to_string())?;
         }
         let enclosing = Enclosing {
             outer: type_def,
             arch: effective_arch,
             name: &full_name,
-            winrt,
         };
         for (child_name, rec) in deferred {
             self.encode_record(
@@ -215,9 +205,6 @@ impl Encoder<'_> {
                 &rec.attrs,
                 Some(enclosing),
             )?;
-        }
-        for enumeration in &body.enums {
-            self.encode_enum_scoped(enumeration, Some(enclosing))?;
         }
 
         Ok(type_def)

@@ -9,7 +9,6 @@ pub struct Index<'a> {
 pub struct Namespace<'a> {
     pub types: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
     nested: BTreeMap<String, bool>,
-    nested_enums: BTreeMap<String, Vec<(&'a Enum, &'a [syn::Attribute])>>,
     pub functions: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
     pub constants: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
 }
@@ -37,14 +36,12 @@ impl<'a> Index<'a> {
                     &record.name.unraw_to_string(),
                     &record.body,
                     record.winrt,
-                    &record.attrs,
                 ),
                 Item::Union(record) => self.insert_nested(
                     namespace,
                     &record.name.unraw_to_string(),
                     &record.body,
                     false,
-                    &record.attrs,
                 ),
                 _ => {}
             }
@@ -76,14 +73,7 @@ impl<'a> Index<'a> {
         }
     }
 
-    fn insert_nested(
-        &mut self,
-        namespace: &str,
-        parent: &str,
-        body: &'a RecordBody,
-        winrt: bool,
-        arch_attrs: &'a [syn::Attribute],
-    ) {
+    fn insert_nested(&mut self, namespace: &str, parent: &str, body: &'a RecordBody, winrt: bool) {
         let inline = body
             .fields
             .iter()
@@ -109,45 +99,8 @@ impl<'a> Index<'a> {
                 .nested
                 .entry(name.clone())
                 .or_insert(winrt);
-            let arch_attrs = if record.attrs.iter().any(|attr| attr.path().is_ident("arch")) {
-                &record.attrs
-            } else {
-                arch_attrs
-            };
-            self.insert_nested(namespace, &name, &record.body, winrt, arch_attrs);
+            self.insert_nested(namespace, &name, &record.body, winrt);
         }
-        for enumeration in &body.enums {
-            let name = format!("{parent}/{}", enumeration.name.unraw_to_string());
-            let namespace = self.namespaces.entry(namespace.to_string()).or_default();
-            namespace.nested.insert(name.clone(), winrt);
-            let arch_attrs = if enumeration
-                .attrs
-                .iter()
-                .any(|attr| attr.path().is_ident("arch"))
-            {
-                &enumeration.attrs
-            } else {
-                arch_attrs
-            };
-            namespace
-                .nested_enums
-                .entry(name)
-                .or_default()
-                .push((enumeration, arch_attrs));
-        }
-    }
-
-    pub fn nested_enums(
-        &self,
-        namespace: &str,
-        name: &str,
-    ) -> impl Iterator<Item = (&Enum, &[syn::Attribute])> {
-        self.namespaces
-            .get(namespace)
-            .and_then(|namespace| namespace.nested_enums.get(name))
-            .into_iter()
-            .flatten()
-            .copied()
     }
 
     pub fn contains(&self, namespace: &str, name: &str) -> bool {

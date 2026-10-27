@@ -1,14 +1,7 @@
 use super::*;
 
 pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
-    write_enum_scoped(item.namespace(), item, None)
-}
-
-pub(super) fn write_enum_scoped(
-    namespace: &str,
-    item: &metadata::reader::TypeDef,
-    parent_arches: Option<i32>,
-) -> Result<TokenStream, Error> {
+    let namespace = item.namespace();
     let name = write_ident(item.name());
 
     let repr_field = item
@@ -37,11 +30,7 @@ pub(super) fn write_enum_scoped(
 
     let has_flags = item.attributes().any(is_flags_attr);
 
-    let arch_attr = if parent_arches == Some(item.arches()) {
-        quote! {}
-    } else {
-        write_arch_attr(item.arches())
-    };
+    let arch_attr = write_arch_attr(item.arches());
     let custom_attrs = write_custom_attributes_except(
         item.attributes().filter(|attr| !is_flags_attr(*attr)),
         namespace,

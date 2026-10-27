@@ -33,7 +33,6 @@ pub struct RecordBody {
     pub fields: Vec<Field>,
     pub records: Vec<NestedRecord>,
     pub constants: Vec<Const>,
-    pub enums: Vec<Enum>,
 }
 
 impl syn::parse::Parse for Field {
@@ -128,7 +127,7 @@ impl NestedRecord {
     }
 }
 
-/// Parses record fields, named nested records, nested enums, and record constants.
+/// Parses record fields, named nested records, and record constants.
 pub fn parse_record_body(input: syn::parse::ParseStream) -> syn::Result<RecordBody> {
     let mut body = RecordBody::default();
     while !input.is_empty() {
@@ -140,7 +139,7 @@ pub fn parse_record_body(input: syn::parse::ParseStream) -> syn::Result<RecordBo
         } else if fork.peek(syn::Token![const]) {
             body.constants.push(input.parse()?);
         } else if fork.peek(syn::Token![enum]) {
-            body.enums.push(input.parse()?);
+            return Err(fork.error("nested enums are not supported"));
         } else {
             body.fields.push(input.parse()?);
             if !input.is_empty() {

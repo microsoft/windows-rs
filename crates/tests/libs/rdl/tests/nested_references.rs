@@ -344,44 +344,6 @@ fn nested_paths_start_at_the_namespace() {
 }
 
 #[test]
-fn referenced_nested_enums() {
-    let dependency = std::path::Path::new(env!("OUT_DIR")).join("nested-enum-dependency.winmd");
-    windows_rdl::reader()
-        .input_text(
-            "#[win32] mod Dep { attribute ModeAttribute { fn(mode: Options::Mode); } struct Options { #[flags] #[repr(u32)] enum Mode { A = 1, B = 2, } value: u32, } }",
-        )
-        .output(&dependency)
-        .write()
-        .unwrap();
-    let source = "#[win32]\nmod Consumer {\n    const Both: Dep::Options::Mode = 3;\n    struct Record {\n        #[Dep::Mode(B | A)]\n        value: u32,\n    }\n}\n";
-    let consumer = dependency.with_file_name("nested-enum-consumer.winmd");
-    windows_rdl::reader()
-        .reference(&dependency)
-        .input_text(source)
-        .output(&consumer)
-        .write()
-        .unwrap();
-    let index = Index::read(&consumer).unwrap();
-    let mode = TypeName::named("Dep", "Options/Mode");
-    let field = index.expect("Consumer", "Record").fields().next().unwrap();
-    assert_eq!(
-        field.attributes().next().unwrap().value(),
-        [(
-            String::new(),
-            Value::EnumValue(mode, Box::new(Value::I32(3)))
-        )]
-    );
-    let rdl = consumer.with_extension("rdl");
-    windows_rdl::writer()
-        .input(&consumer)
-        .reference(&dependency)
-        .output(&rdl)
-        .write()
-        .unwrap();
-    assert_eq!(std::fs::read_to_string(&rdl).unwrap(), source);
-}
-
-#[test]
 fn inline_positions_skip_record_constants() {
     let mut file = writer::File::new("inline_positions");
     let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
@@ -427,83 +389,12 @@ fn inline_positions_skip_record_constants() {
 }
 
 #[test]
-fn referenced_constants_use_their_architecture_backing() {
-    let dependency = std::path::Path::new(env!("OUT_DIR")).join("arch-backing-dependency.winmd");
+fn glob_imports_apply_to_single_segment_names() {
+    let dependency = "#[win32] mod Dep { struct Inner { value: i32, } struct Outer { struct Inner { value: u8, } value: u32, } }";
+    let path = std::path::Path::new(env!("OUT_DIR")).join("glob-single.winmd");
     windows_rdl::reader()
-        .input_text(include_str!("../input/record_constants_arch.rdl"))
-        .output(&dependency)
-        .write()
-        .unwrap();
-    let consumer = dependency.with_file_name("arch-backing-consumer.winmd");
-    windows_rdl::reader()
-        .reference(&dependency)
-        .input_text(
-            "#[win32] mod Consumer { #[arch(X86)] const Signed: Test::Holder::E = -1; #[arch(X64 | Arm64)] const Unsigned: Test::Holder::E = 4294967295; struct Holder { #[arch(X86)] const Nested: Test::Holder::E = -1; } }",
-        )
-        .output(&consumer)
-        .write()
-        .unwrap();
-    let index = Index::read(&consumer).unwrap();
-    let values: Vec<_> = index
-        .types()
-        .flat_map(|ty| ty.fields())
-        .map(|field| (field.name().to_string(), field.constant().unwrap().value()))
-        .collect();
-    assert!(values.contains(&("Signed".to_string(), Value::I32(-1))));
-    assert!(values.contains(&("Unsigned".to_string(), Value::U32(u32::MAX))));
-    assert!(values.contains(&("Nested".to_string(), Value::I32(-1))));
-
-    let error = windows_rdl::reader()
-        .reference(&dependency)
-        .input_text("#[win32] mod Consumer { const Any: Test::Holder::E = 1; }")
-        .output(consumer.with_file_name("arch-backing-conflict.winmd"))
-        .write()
-        .unwrap_err();
-    assert!(
-        error.message.contains("architecture-dependent backing"),
-        "{error}"
-    );
-}
-
-#[test]
-fn local_attributes_resolve_nested_types_in_their_namespace() {
-    let path = std::path::Path::new(env!("OUT_DIR")).join("attribute-nested-namespace.winmd");
-    windows_rdl::reader()
-        .input_text(
-            "#[win32] mod Def { attribute ModeAttribute { fn(mode: Options::Mode); kind: Options::Mode, } struct Options { #[repr(i32)] enum Mode { A = 1, B = 2, } value: u32, } }",
-        )
-        .input_text("#[win32] mod Consumer { struct Record { #[Def::Mode(A, kind = B)] value: u32, } }")
-        .output(&path)
-        .write()
-        .unwrap();
-    let index = Index::read(&path).unwrap();
-    let mode = TypeName::named("Def", "Options/Mode");
-    let field = index.expect("Consumer", "Record").fields().next().unwrap();
-    assert_eq!(
-        field.attributes().next().unwrap().value(),
-        [
-            (
-                String::new(),
-                Value::EnumValue(mode.clone(), Box::new(Value::I32(1)))
-            ),
-            (
-                "kind".to_string(),
-                Value::EnumValue(mode, Box::new(Value::I32(2)))
-            ),
-        ]
-    );
-}
-
-#[test]
-fn glob_imports_keep_qualified_prefixes() {
-    let path = std::path::Path::new(env!("OUT_DIR")).join("glob-qualified.winmd");
-    windows_rdl::reader()
-        .input_text(
-            "#[win32] mod Dep { struct Inner { value: i32, } struct Outer { struct Inner { value: u8, } value: u32, } mod Child { struct Leaf { value: u16, } } }",
-        )
-        .input_text(
-            "use Dep::*;\n#[win32] mod Consumer { struct Record { nested: Outer::Inner, plain: Inner, child: Child::Leaf, } }",
-        )
+        .input_text(dependency)
+        .input_text("use Dep::*;\n#[win32] mod Consumer { struct Record { plain: Inner, } }")
         .output(&path)
         .write()
         .unwrap();
@@ -514,42 +405,16 @@ fn glob_imports_keep_qualified_prefixes() {
             .fields()
             .map(|field| field.ty())
             .collect::<Vec<_>>(),
-        [
-            Type::value_named("Dep", "Outer/Inner"),
-            Type::value_named("Dep", "Inner"),
-            Type::value_named("Dep.Child", "Leaf"),
-        ]
+        [Type::value_named("Dep", "Inner")]
     );
-}
 
-#[test]
-fn record_constants_with_disjoint_architectures() {
-    let index = roundtrip_nested(
-        "record-constant-variants",
-        "#[win32]\nmod Test {\n    struct Shared {\n        value: i32,\n        #[arch(X86)]\n        const Value: u32 = 1;\n        #[arch(X64 | Arm64)]\n        const Value: u32 = 2;\n    }\n}\n",
-    );
-    let values: Vec<_> = index
-        .expect("Test", "Shared")
-        .fields()
-        .filter_map(|field| field.constant().map(|c| (field.arches(), c.value())))
-        .collect();
-    assert_eq!(values, [(1, Value::U32(1)), (6, Value::U32(2))]);
-
-    for body in [
-        "#[arch(X86)] const Value: u32 = 1; #[arch(X86 | X64)] const Value: u32 = 2;",
-        "const Value: u32 = 1; #[arch(X64)] const Value: u32 = 2;",
-        "#[arch(X86)] const value: u32 = 1; value: i32,",
-    ] {
-        let error = windows_rdl::reader()
-            .input_text(&format!(
-                "#[win32] mod Test {{ struct Shared {{ {body} }} }}"
-            ))
-            .output(std::path::Path::new(env!("OUT_DIR")).join("record-constant-conflict.winmd"))
-            .write()
-            .unwrap_err();
-        assert!(
-            error.message.contains("duplicate record member name"),
-            "{error}"
-        );
-    }
+    let error = windows_rdl::reader()
+        .input_text(dependency)
+        .input_text(
+            "use Dep::*;\n#[win32] mod Consumer { struct Record { nested: Outer::Inner, } }",
+        )
+        .output(path.with_file_name("glob-qualified.winmd"))
+        .write()
+        .unwrap_err();
+    assert!(error.message.contains("type not found"), "{error}");
 }

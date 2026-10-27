@@ -384,31 +384,26 @@ struct Outer {
 
 Both fields reference the same nested TypeDef. Nested declarations do not occupy field positions.
 The reader supports forward references. A nested type is named by its owner-qualified path from the
-namespace, such as `Outer::Inner`, or through the namespace-qualified, `super::`, and glob `use`
-forms that apply to namespace types. A glob import keeps a qualified path's prefix, so `use Dep::*;`
-resolves `Outer::Inner` as `Dep::Outer::Inner`. There is no lookup relative to the enclosing record:
-a bare `Inner` inside `Outer` does not resolve, and `Outer::Inner` inside `Outer` names the same
-type as it does at namespace level. A path that matches a nested type and any other type is an
-`ambiguous type reference` error. Raw identifiers such as `Outer::r#type` name the unescaped nested
-type. Nested structs and unions can contain further records, and references can occur inside arrays,
-pointers, and function signatures. Other references to an inline record use its generated name, such
-as `*mut Outer::Outer_0`; the position counts instance fields only.
+namespace, such as `Outer::Inner`, or through the namespace-qualified and `super::` forms that apply
+to namespace types. Glob `use` imports apply only to single-segment names, so they never resolve a
+nested type. There is no lookup relative to the enclosing record: a bare `Inner` inside `Outer` does
+not resolve, and `Outer::Inner` inside `Outer` names the same type as it does at namespace level. A
+path that matches a nested type and any other type is an `ambiguous type reference` error. Raw
+identifiers such as `Outer::r#type` name the unescaped nested type. Nested structs and unions can
+contain further records, and references can occur inside arrays, pointers, and function signatures.
+Other references to an inline record use its generated name, such as `*mut Outer::Outer_0`; the
+position counts instance fields only. Nested enums are not supported.
 
-Record bodies also accept `const` declarations and nested enums. Constants retain their values and
-public/static/literal flags without occupying instance storage. Constants can share a name when
-their architectures are disjoint; a name cannot overlap another constant's architectures or an
-instance field. Nested enum signatures use the same enclosing-TypeRef chains. Enum-typed constants
-select local and referenced backing types using their own or enclosing record's architecture, and
-reject variants with different backings. Record constants are unsupported in WinRT metadata. Nested
-enums, including those from reference metadata, can type constants and attribute arguments,
-including attributes declared in another namespace; enum variants and flag combinations resolve
-through the nested path.
+Record bodies also accept `const` declarations. Constants retain their values and
+public/static/literal flags without occupying instance storage. They share their record's
+architecture, so `#[arch]` on a record constant is an error, and a name cannot repeat another
+constant or an instance field. Record constants are unsupported in WinRT metadata.
 
 `test_rdl::nested_references` checks physical TypeRef scopes before and after the text round trip,
-shared identity, owner-qualified lookup, ambiguity, reference assemblies, inline positions, and
-name collisions, alongside the canonical `struct_nested_anon.rdl`, `struct_nested_named.rdl`,
-`struct_nested_raw.rdl`, and `nested_enum_attribute.rdl` fixtures. `test_rdl::record_constants`
-checks constants, architecture variants, duplicate names and missing values.
+shared identity, owner-qualified lookup, ambiguity, glob imports, inline positions, and name
+collisions, alongside the canonical `struct_nested_anon.rdl`, `struct_nested_named.rdl`, and
+`struct_nested_raw.rdl` fixtures. `test_rdl::record_constants` checks constants, duplicate names,
+missing values, and rejected forms.
 `test_metadata::nested_references` independently covers the underlying signature reader, merge,
 and namespace remapper.
 
