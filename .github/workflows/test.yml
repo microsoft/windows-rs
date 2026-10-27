@@ -36,9 +36,9 @@ jobs:
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
             runner: windows-2025-vs2026
-            # The pinned libclang packages do not include an x86 DLL. The native x64 and Arm64
-            # jobs cover this host-tool crate; its output is target-independent.
-            clang-exclude: "--exclude windows-clang --exclude test_clang"
+            # The native Clang pair supports x64 and Arm64 hosts, not x86 processes.
+            # Both native jobs exercise x86, x64, and Arm64 parsing targets.
+            clang-exclude: "--exclude windows-clang --exclude test_clang --exclude test_clang_sys"
           - name: stable arm64
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
@@ -55,8 +55,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable-${{ matrix.host }}
-      - name: Add toolchain target
-        run: rustup target add ${{ matrix.target }}
+      - name: Add toolchain targets
+        # Ordinary metadata fixtures compile generated Rust for all three architectures.
+        run: rustup target add i686-pc-windows-msvc x86_64-pc-windows-msvc aarch64-pc-windows-msvc
       - name: Install fmt
         run: rustup component add rustfmt
       - name: Fix environment
@@ -81,10 +82,12 @@ jobs:
         with:
           key: ${{ matrix.target }}
       - name: Provision libclang (Windows)
-        # Export LIBCLANG_PATH from the pinned NuGet build (the same one the scrapers use) for the
-        # windows-clang tests. After rust-cache so the tool-clang build is cache-accelerated.
+        # Build the pinned libclang/windows_clang pair used by the scrapers and native tests.
+        # After rust-cache so the tool-clang build is cache-accelerated.
         if: runner.os == 'Windows'
-        run: echo "LIBCLANG_PATH=$(cargo run -q -p tool-clang -- path)" >> "$GITHUB_ENV"
+        run: |
+          path=$(cargo run -q -p tool-clang -- path)
+          echo "LIBCLANG_PATH=$path" >> "$GITHUB_ENV"
         shell: bash
       - name: Test
         # The system Composition graph is excluded because Reactor consumers select the
@@ -92,6 +95,18 @@ jobs:
         run: cargo test --all --target ${{ matrix.target }} ${{ matrix.clang-exclude }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
+      - name: Test Clang SDK contracts
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          cargo test -p tool-win32 sdk_ -- --include-ignored
+      - name: Test bindgen cross-target fixtures
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          cargo test -p test_bindgen --test package -- --ignored &&
+          cargo test -p test_bindgen --test bindgen enum_constant_shadow_styles -- --ignored &&
+          cargo test -p test_bindgen --test errors invalid_target_bitfield_width -- --ignored
       - name: Check diff
         shell: bash
         run: |
