@@ -1,5 +1,7 @@
-windows_link::link!("advapi32.dll" "system" fn RegGetValueA(hkey : HKEY, lpsubkey : PCSTR, lpvalue : PCSTR, dwflags : u32, pdwtype : LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : LPDWORD) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegGetValueA(hkey : HKEY, lpsubkey : PCSTR, lpvalue : PCSTR, dwflags : DWORD, pdwtype : LPDWORD, pvdata : PVOID, pcbdata : LPDWORD) -> LSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : PRTL_OSVERSIONINFOW) -> NTSTATUS);
+pub type BYTE = u8;
+pub type DWORD = u32;
 pub type HKEY = *mut HKEY__;
 pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646 as _;
 #[repr(C)]
@@ -10,42 +12,46 @@ pub struct HKEY__ {
 pub type LPDWORD = *mut u32;
 pub type LSTATUS = i32;
 pub type NTSTATUS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOEXW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-impl Default for OSVERSIONINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OSVERSIONINFOW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-}
-impl Default for OSVERSIONINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type OSVERSIONINFOEXW = _OSVERSIONINFOEXW;
 pub type PCSTR = *const u8;
-pub type PRTL_OSVERSIONINFOW = *mut OSVERSIONINFOW;
+pub type PRTL_OSVERSIONINFOW = *mut _OSVERSIONINFOW;
+pub type PVOID = *mut core::ffi::c_void;
 pub const RRF_RT_REG_DWORD: i32 = 16;
 pub const VER_NT_WORKSTATION: i32 = 1;
+pub type WCHAR = u16;
+pub type WORD = u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _OSVERSIONINFOEXW {
+    pub dwOSVersionInfoSize: DWORD,
+    pub dwMajorVersion: DWORD,
+    pub dwMinorVersion: DWORD,
+    pub dwBuildNumber: DWORD,
+    pub dwPlatformId: DWORD,
+    pub szCSDVersion: [WCHAR; 128],
+    pub wServicePackMajor: WORD,
+    pub wServicePackMinor: WORD,
+    pub wSuiteMask: WORD,
+    pub wProductType: BYTE,
+    pub wReserved: BYTE,
+}
+impl Default for _OSVERSIONINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _OSVERSIONINFOW {
+    pub dwOSVersionInfoSize: DWORD,
+    pub dwMajorVersion: DWORD,
+    pub dwMinorVersion: DWORD,
+    pub dwBuildNumber: DWORD,
+    pub dwPlatformId: DWORD,
+    pub szCSDVersion: [WCHAR; 128],
+}
+impl Default for _OSVERSIONINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
