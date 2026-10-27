@@ -27,6 +27,7 @@ pub struct Writer {
     input: Vec<PathBuf>,
     input_default: bool,
     input_bytes: Vec<Vec<u8>>,
+    reference: Vec<PathBuf>,
     filter: Vec<String>,
     output: PathBuf,
     split: bool,
@@ -66,6 +67,24 @@ impl Writer {
     /// Adds the default Windows metadata inputs.
     pub fn input_default(&mut self) -> &mut Self {
         self.input_default = true;
+        self
+    }
+
+    /// Adds a `.winmd` reference file or directory for resolution, without emitting its definitions.
+    pub fn reference(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.reference.push(input.as_ref().to_path_buf());
+        self
+    }
+
+    /// Adds multiple resolution-only `.winmd` reference files or directories.
+    pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.reference(input);
+        }
         self
     }
 
@@ -149,8 +168,25 @@ impl Writer {
             );
         }
 
+        let input_files = files.len();
+        for file_name in &expand_input_files(&self.reference, "winmd")? {
+            let source = file_name.to_string_lossy();
+            files.push(
+                metadata::reader::File::read(file_name)
+                    .ok_or_else(|| Error::new("invalid reference", &source, 0, 0))?,
+            );
+        }
+
         let index = metadata::reader::Index::new(files);
         let rules = resolve_filter(&self.filter, &index);
+        let is_input = |item: metadata::reader::Item<'_>| {
+            let file = match item {
+                metadata::reader::Item::Type(item) => item.to_row().file,
+                metadata::reader::Item::Fn(item) => item.to_row().file,
+                metadata::reader::Item::Const(item) => item.to_row().file,
+            };
+            file < input_files
+        };
 
         if let Some(map) = &self.partition {
             if let Ok(entries) = std::fs::read_dir(&self.output) {
@@ -171,7 +207,7 @@ impl Writer {
                     continue;
                 }
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     let Some(stem) = map.get(name) else {
@@ -221,7 +257,7 @@ impl Writer {
                 let mut layout = Layout::new();
 
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     for (item_name, tokens) in write_items(namespace, item)? {
@@ -246,7 +282,7 @@ impl Writer {
 
             for namespace in index.namespaces() {
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     for (item_name, tokens) in write_items(namespace, item)? {
@@ -452,6 +488,12 @@ fn write_type_def_items(
     namespace: &str,
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
+    if item
+        .flags()
+        .contains(metadata::TypeAttributes::NestedPublic)
+    {
+        return Ok(vec![]);
+    }
     if item.category() == metadata::reader::TypeCategory::Struct {
         // Native typedefs round-trip as `type NAME = TYPE;`.
         if item.attributes().any(|attr| {
@@ -464,7 +506,13 @@ fn write_type_def_items(
                 .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
-            let tokens = quote! { #arch_attr type #name = #ty; };
+            let attrs = write_custom_attributes_except(
+                item.attributes(),
+                namespace,
+                item.index(),
+                &["SupportedArchitectureAttribute"],
+            )?;
+            let tokens = quote! { #arch_attr #(#attrs)* type #name = #ty; };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)

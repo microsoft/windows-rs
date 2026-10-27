@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn Mixed(value: *mut *const i32) -> *const *mut i32;
+    struct Pointers {
+        mutable: *mut *const i32,
+        constant: *const *mut i32,
+        deep_mutable: *mut *mut *const i32,
+        deep_constant: *const *const *mut i32,
+        alternating: *const *mut *const *mut i32,
+        array: [*mut *const i32; 3],
+        array_pointer: *const [*const *mut i32; 3],
+        opaque: *const *mut void,
+    }
+    #[library("test.dll")]
+    extern fn References(value: &mut *mut *const i32, other: &*const *mut i32);
+}

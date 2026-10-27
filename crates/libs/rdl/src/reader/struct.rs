@@ -5,7 +5,7 @@ pub struct Struct {
     pub attrs: Vec<syn::Attribute>,
     pub span: Span,
     pub name: syn::Ident,
-    pub fields: Vec<Field>,
+    pub body: RecordBody,
     pub winrt: bool,
 }
 
@@ -18,16 +18,13 @@ impl syn::parse::Parse for Struct {
         let content;
         syn::braced!(content in input);
 
-        let fields = content
-            .parse_terminated(Field::parse, syn::Token![,])?
-            .into_iter()
-            .collect();
+        let body = parse_record_body(&content)?;
 
         Ok(Self {
             attrs,
             span: token.span,
             name,
-            fields,
+            body,
             winrt: false,
         })
     }
@@ -43,7 +40,7 @@ pub struct Enclosing<'a> {
 impl Encoder<'_> {
     pub fn encode_struct(&mut self, item: &Struct) -> Result<(), Error> {
         let name = item.name.to_string();
-        self.encode_record(&name, item.winrt, false, &item.fields, &item.attrs, None)?;
+        self.encode_record(&name, item.winrt, false, &item.body, &item.attrs, None)?;
         Ok(())
     }
 
@@ -52,10 +49,11 @@ impl Encoder<'_> {
         name: &str,
         winrt: bool,
         is_union: bool,
-        fields: &[Field],
+        body: &RecordBody,
         attrs: &[syn::Attribute],
         enclosing: Option<Enclosing<'_>>,
     ) -> Result<metadata::writer::TypeDef, Error> {
+        let fields = &body.fields;
         let value_type = self.output.TypeRef("System", "ValueType");
 
         let layout_flag = if is_union {
@@ -102,7 +100,34 @@ impl Encoder<'_> {
         self.apply_record_attrs(type_def, attrs, effective_arch)?;
 
         // Defer nested TypeDefs until this record's FieldList is complete.
-        let mut deferred: Vec<(String, &NestedRecord)> = vec![];
+        let mut deferred: Vec<(String, &NestedRecord)> = body
+            .records
+            .iter()
+            .map(|record| (record.name.as_ref().unwrap().unraw_to_string(), record))
+            .collect();
+        let mut nested_names = HashSet::new();
+        for (name, record) in &deferred {
+            if !nested_names.insert(name.clone()) {
+                return self.err(record.name.as_ref().unwrap(), "duplicate nested type name");
+            }
+        }
+        let mut value_names: HashSet<_> = fields
+            .iter()
+            .map(|field| field.name.unraw_to_string())
+            .collect();
+        for constant in &body.constants {
+            if !value_names.insert(constant.name.unraw_to_string()) {
+                return self.err(&constant.name, "duplicate record member name");
+            }
+            // Record constants share their record's architecture.
+            if let Some(attr) = constant
+                .attrs
+                .iter()
+                .find(|attr| attr.path().is_ident("arch"))
+            {
+                return self.err(attr, "record constants inherit the record's architecture");
+            }
+        }
         for (index, field) in fields.iter().enumerate() {
             let field_name = field.name.unraw_to_string();
             let mt = match &field.ty {
@@ -115,6 +140,12 @@ impl Encoder<'_> {
                 }
                 FieldType::Nested(rec) => {
                     let child_name = format!("{name}_{index}");
+                    if !nested_names.insert(child_name.clone()) {
+                        return self.err(
+                            &field.name,
+                            "inline nested type name collides with a declaration",
+                        );
+                    }
                     let mt = metadata::Type::value_named(
                         self.namespace,
                         &format!("{full_name}/{child_name}"),
@@ -150,18 +181,29 @@ impl Encoder<'_> {
             }
         }
 
+        for constant in &body.constants {
+            if winrt {
+                return self.err(&constant.name, "record constants require Win32 metadata");
+            }
+            if constant.expr.is_none() {
+                return self.err(&constant.name, "record constants require a value");
+            }
+            let ty = self.encode_type(&constant.ty)?;
+            self.encode_const_value(&ty, constant, &constant.name.unraw_to_string())?;
+        }
+        let enclosing = Enclosing {
+            outer: type_def,
+            arch: effective_arch,
+            name: &full_name,
+        };
         for (child_name, rec) in deferred {
             self.encode_record(
                 &child_name,
                 winrt,
                 rec.is_union,
-                &rec.fields,
+                &rec.body,
                 &rec.attrs,
-                Some(Enclosing {
-                    outer: type_def,
-                    arch: effective_arch,
-                    name: &full_name,
-                }),
+                Some(enclosing),
             )?;
         }
 

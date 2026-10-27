@@ -1,7 +1,7 @@
 use super::guid;
 use super::*;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Const {
     pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
@@ -99,7 +99,7 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    fn encode_const_value(
+    pub(super) fn encode_const_value(
         &mut self,
         ty: &windows_metadata::Type,
         item: &Const,

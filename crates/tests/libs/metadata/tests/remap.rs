@@ -51,7 +51,7 @@ fn remapper_routes_attribute_type_values() {
     let output = dir.join("output.winmd");
     windows_rdl::reader()
         .input_text(
-            "#[win32] mod Flat {\n                attribute MemberAttribute {\n                    fn(ty: Type);\n                    MemberType: Type,\n                }\n                #[repr(i32)]\n                enum Mode { A = 0 }\n                struct Bits {\n                    #[Member(Mode, MemberType = Mode)]\n                    named: u32,\n                }\n            }",
+            "#[win32] mod Flat {\n                attribute MemberAttribute {\n                    fn(ty: Type);\n                    MemberType: Type,\n                }\n                #[repr(i32)]\n                enum Mode { A = 0 }\n                struct Bits {\n                    #[Member(Mode, MemberType = Mode)]\n                    named: u32,\n                    #[Member(i32, MemberType = i32)]\n                    primitive: u32,\n                }\n            }",
         )
         .output(&input)
         .write()
@@ -66,21 +66,20 @@ fn remapper_routes_attribute_type_values() {
         .remap()
         .unwrap();
     let index = reader::Index::read(output.to_str().unwrap()).unwrap();
-    let field = index
-        .expect("Flat.Records", "Bits")
-        .fields()
-        .next()
-        .unwrap();
-    let attr = field.attributes().next().unwrap();
-    assert_eq!(attr.namespace(), "Flat.Attributes");
-    let expected = TypeName::named("Flat.Enums", "Mode");
-    assert_eq!(
-        attr.value(),
-        [
-            (String::new(), Value::TypeName(expected.clone())),
-            ("MemberType".into(), Value::TypeName(expected)),
-        ]
-    );
+    for (field, expected) in index.expect("Flat.Records", "Bits").fields().zip([
+        TypeName::named("Flat.Enums", "Mode"),
+        TypeName::named("System", "Int32"),
+    ]) {
+        let attr = field.attributes().next().unwrap();
+        assert_eq!(attr.namespace(), "Flat.Attributes");
+        assert_eq!(
+            attr.value(),
+            [
+                (String::new(), Value::TypeName(expected.clone())),
+                ("MemberType".into(), Value::TypeName(expected)),
+            ]
+        );
+    }
     std::fs::remove_file(input).unwrap();
     std::fs::remove_file(output).unwrap();
 }

@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    struct Color {
+        const AliceBlue: u32 = 4293982463;
+        const Opaque: u8 = 255;
+    }
+    struct Palette {
+        selected: u32,
+        value: u32,
+        const Default: u32 = 7;
+    }
+}

@@ -785,7 +785,7 @@ impl Encoder<'_> {
                 self.encode_path(&path).ok()
             }
             Item::Struct(s) => {
-                let mut fields = s.fields.iter();
+                let mut fields = s.body.fields.iter();
 
                 if let Some(field) = fields.next()
                     && fields.next().is_none()
@@ -1053,12 +1053,6 @@ impl Encoder<'_> {
             metadata::Type::PtrConst(inner, pointers) if !is_mut => {
                 metadata::Type::PtrConst(inner, pointers + 1)
             }
-            metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..) => {
-                return self.err(
-                    ty.elem.as_ref(),
-                    "mixed `*mut` and `*const` pointer chains are not representable",
-                );
-            }
             _ => {
                 if is_mut {
                     metadata::Type::PtrMut(Box::new(encoded), 1)
@@ -1072,25 +1066,33 @@ impl Encoder<'_> {
     }
 
     fn encode_type_path(&self, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
+        if ty.qself.is_some() {
+            return self.err(ty, "qualified associated types are not supported");
+        }
         self.encode_path(&ty.path)
     }
 
     fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {
         let mut path = vec![];
+        // Nested type names are indexed without raw identifier prefixes.
+        let mut unraw = vec![];
 
         for segment in &ty.segments {
             if segment.ident == "super" {
                 if path.is_empty() {
                     for part in self.namespace.split('.') {
                         path.push(part.to_string());
+                        unraw.push(part.to_string());
                     }
                 }
 
                 if path.pop().is_none() {
                     return self.err(ty, "too many leading `super` keywords");
                 }
+                unraw.pop();
             } else {
                 path.push(segment.ident.to_string());
+                unraw.push(segment.ident.unraw_to_string());
             }
         }
 
@@ -1138,6 +1140,60 @@ impl Encoder<'_> {
             }
         }
 
+        let nested = |namespace: &str, name: &str| -> Result<Option<metadata::Type>, Error> {
+            if !name.contains('/') {
+                return Ok(None);
+            }
+            let local = self.index.contains(namespace, name);
+            let reference = if local {
+                None
+            } else {
+                self.nested_reference(namespace, name)
+            };
+            if local || reference.is_some() {
+                if ty
+                    .segments
+                    .iter()
+                    .any(|segment| !segment.arguments.is_empty())
+                {
+                    return self.err(ty, "nested types cannot have generic arguments");
+                }
+                if reference
+                    .is_some_and(|def| def.category() != metadata::reader::TypeCategory::Struct)
+                {
+                    return self.err(ty, "only nested record references are supported");
+                }
+                return Ok(Some(metadata::Type::value_named(namespace, name)));
+            }
+            Ok(None)
+        };
+        // The owner keeps its spelling; nested segments use their unraw names.
+        let nested_name = |start: usize| {
+            std::iter::once(path[start].as_str())
+                .chain(unraw[start + 1..].iter().map(String::as_str))
+                .collect::<Vec<_>>()
+                .join("/")
+        };
+        let mut candidates: Vec<(String, metadata::Type)> = vec![];
+        let mut add = |namespace: &str, name: &str| -> Result<(), Error> {
+            if let Some(ty) = nested(namespace, name)?
+                && !candidates.iter().any(|(_, existing)| *existing == ty)
+            {
+                candidates.push((rdl_path(namespace, name), ty));
+            }
+            Ok(())
+        };
+        for split in 0..path.len().saturating_sub(1) {
+            let name = nested_name(split);
+            if split == 0 {
+                add(self.namespace, &name)?;
+            } else {
+                let namespace = path[..split].join(".");
+                add(&namespace, &name)?;
+                add(&format!("{}.{namespace}", self.namespace), &name)?;
+            }
+        }
+
         let (name, namespace) = path.split_last().unwrap();
 
         let namespace = if namespace.is_empty() {
@@ -1168,21 +1224,36 @@ impl Encoder<'_> {
             }
         };
 
-        if let Some(ty) = make_type(&namespace) {
-            return Ok(ty);
-        }
+        let relative = format!("{}.{}", self.namespace, namespace);
+        // Glob imports apply only to single-segment names.
+        let found = make_type(&namespace)
+            .or_else(|| make_type(&relative))
+            .or_else(|| {
+                (path.len() == 1)
+                    .then(|| {
+                        self.file
+                            .uses
+                            .iter()
+                            .filter_map(glob_use_namespace)
+                            .find_map(|ns| make_type(&ns))
+                    })
+                    .flatten()
+            });
 
-        let namespace = format!("{}.{}", self.namespace, namespace);
-
-        if let Some(ty) = make_type(&namespace) {
-            return Ok(ty);
-        }
-
-        for use_item in &self.file.uses {
-            if let Some(ns) = glob_use_namespace(use_item)
-                && let Some(ty) = make_type(&ns)
-            {
-                return Ok(ty);
+        match (candidates.as_slice(), found) {
+            ([(_, nested)], None) => return Ok(nested.clone()),
+            ([], Some(ty)) => return Ok(ty),
+            ([], None) => {}
+            (candidates, found) => {
+                let mut names: Vec<String> =
+                    candidates.iter().map(|(name, _)| name.clone()).collect();
+                if let Some(metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn)) = found {
+                    names.push(rdl_path(&tn.namespace, &tn.name));
+                }
+                return self.err(
+                    ty,
+                    &format!("ambiguous type reference: {}", names.join(", ")),
+                );
             }
         }
 
@@ -1199,6 +1270,16 @@ impl Encoder<'_> {
         }
 
         Err(self.error(ty, "type not found"))
+    }
+
+    fn nested_reference(
+        &self,
+        namespace: &str,
+        name: &str,
+    ) -> Option<metadata::reader::TypeDef<'_>> {
+        get_nested(self.output.reference()?, namespace, name)
+            .into_iter()
+            .next()
     }
 
     fn encode_return_type(&self, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
@@ -1227,8 +1308,7 @@ impl Encoder<'_> {
                     if !is_winrt {
                         return self.err(span, "WinRT types cannot refer to non-WinRT types");
                     }
-                } else if let Some(reference) = self.output.reference()
-                    && let Some(def) = reference.get(&tn.namespace, &tn.name).next()
+                } else if let Some(def) = self.nested_reference(&tn.namespace, &tn.name)
                     && !def
                         .flags()
                         .contains(metadata::TypeAttributes::WindowsRuntime)
@@ -1423,4 +1503,12 @@ mod Other {
         .output(&output)
         .write()
         .unwrap();
+}
+
+fn rdl_path(namespace: &str, name: &str) -> String {
+    format!(
+        "{}::{}",
+        namespace.replace('.', "::"),
+        name.replace('/', "::")
+    )
 }

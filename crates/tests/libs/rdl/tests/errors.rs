@@ -105,34 +105,6 @@ fn integer_constants_reinterpret_bits_across_partitions() {
 }
 
 #[test]
-fn mixed_pointer_constness_is_rejected() {
-    for (name, ty, column) in [
-        ("mut_const", "*mut *const i32", 32),
-        ("const_mut", "*const *mut i32", 34),
-        ("deep_mut_const", "*mut *mut *const i32", 37),
-        ("deep_const_mut", "*const *const *mut i32", 41),
-        ("behind_reference", "&mut *mut *const i32", 37),
-    ] {
-        let source = format!(
-            "#[win32]\nmod Test {{\n    #[library(\"test.dll\")]\n    extern fn Mixed(value: {ty});\n}}\n"
-        );
-        let error = windows_rdl::reader()
-            .input_text(&source)
-            .output(out_path(name))
-            .write()
-            .unwrap_err();
-
-        assert_eq!(
-            error.message,
-            "mixed `*mut` and `*const` pointer chains are not representable"
-        );
-        assert_eq!(error.file_name, ".rdl");
-        assert_eq!(error.line, 4);
-        assert_eq!(error.column, column);
-    }
-}
-
-#[test]
 fn reference_base_class_must_be_unsealed() {
     let compile = |base: &str| {
         windows_rdl::reader()

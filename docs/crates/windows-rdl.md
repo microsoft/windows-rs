@@ -42,6 +42,9 @@ implementation support. `crates/samples/robot/component_cpp` sends the same kind
 Reader references resolve names but are not emitted as definitions. Use `reference_default` for
 the bundled standard metadata, or the path and byte reference methods for custom dependencies.
 Writer inputs are definitions to render; `input_default` renders the bundled metadata.
+Writer `reference` and `references` methods add resolution-only WinMD files or directories, such
+as the metadata defining external attribute types or nested records named by the inputs.
+Referenced definitions are excluded from single-file, split and partitioned output.
 
 Writer filters accept namespace prefixes, qualified or unqualified names, and `!` exclusions.
 `split` writes one file per namespace. `partition` accepts an item-name -> file-stem map and writes
@@ -96,6 +99,15 @@ struct Callbacks {
     notify: extern fn(u32),
 }
 ```
+
+Custom attributes on `type Name = Type;` declarations attach to the metadata typedef and survive
+RDL/WinMD round trips, including architecture-specific aliases. Field-owned `AlignmentAttribute`
+uses the `#[align(N)]` short form, as on records; record `#[packed(N)]` and `#[align(N)]` remain
+separate metadata requests.
+
+`System.Type` attribute arguments accept primitive type names such as `u32` as well as named
+types. Primitives are stored as their `System` names, for example `System.UInt32`, and the writer
+renders them back as primitive RDL names.
 
 Struct bit fields use their own syntax. A run of bit fields packed into one backing integer is
 written as a C-like block on that field. Each member uses `Name: width`. Anonymous padding uses
@@ -215,8 +227,7 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 - RDL references must be supplied separately; naming an external type does not locate its winmd.
 - The reader rejects unsupported types, constants, callback ABIs, variadic callback parameters,
   and function ABIs instead of dropping them.
-- Pointer chains have one constness bit plus depth. Uniform `*mut *mut T` and
-  `*const *const T` chains work; mixed chains do not.
+- Mixed pointer chains require a metadata reader that understands per-level `IsConst` modifiers.
 - `len_param` and `size_param` store raw zero-based signature positions. Update the attribute when
   parameters move.
 - RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
@@ -348,16 +359,53 @@ RDL stable.
 The reader rejects unsupported forms with errors. It does not silently drop them. Examples include
 unsupported types, constants, callback ABIs, variadic callback parameters, and function ABIs.
 
-### Inline nested records
+### Nested records
 
 Inline structs and unions have nested TypeDefs linked by `NestedClass` rows. Their field
 signatures reference those definitions through enclosing-TypeRef chains, including every level
-of nesting. The writer matches the qualified identity to the containing record and renders the
-same inline syntax. It also accepts the unscoped leaf references in existing metadata.
+of nesting. The reader names an inline record `{Outer}_{N}`, where `N` is its field position.
+The writer renders a nested struct inline only when it has that generated name and exactly one
+by-value field at position `N` uses it. It also accepts the unscoped leaf references in existing
+metadata.
+
+Shared, named, and indirectly referenced records use declarations inside their owning record:
+
+```text
+struct Outer {
+    struct Inner {
+        value: i32,
+        next: *mut Outer::Inner,
+    }
+    first: Outer::Inner,
+    second: Outer::Inner,
+    callback: extern "C" fn(*mut Outer::Inner),
+}
+```
+
+Both fields reference the same nested TypeDef. Nested declarations do not occupy field positions.
+The reader supports forward references. A nested type is named by its owner-qualified path from the
+namespace, such as `Outer::Inner`, or through the namespace-qualified and `super::` forms that apply
+to namespace types. Glob `use` imports apply only to single-segment names, so they never resolve a
+nested type. There is no lookup relative to the enclosing record: a bare `Inner` inside `Outer` does
+not resolve, and `Outer::Inner` inside `Outer` names the same type as it does at namespace level. A
+path that matches a nested type and any other type is an `ambiguous type reference` error. Raw
+identifiers such as `Outer::r#type` name the unescaped nested type. Nested structs and unions can
+contain further records, and references can occur inside arrays, pointers, and function signatures.
+Other references to an inline record use its generated name, such as `*mut Outer::Outer_0`; the
+position counts instance fields only. Nested enums are not supported.
+
+Record bodies also accept `const` declarations. Constants retain their values and
+public/static/literal flags without occupying instance storage. They share their record's
+architecture, so `#[arch]` on a record constant is an error, and a name cannot repeat another
+constant or an instance field. Record constants are unsupported in WinRT metadata.
 
 `test_rdl::nested_references` checks physical TypeRef scopes before and after the text round trip,
-alongside the canonical `struct_nested_anon.rdl` fixture. `test_metadata::nested_references`
-independently covers the underlying signature reader, merge, and namespace remapper.
+shared identity, owner-qualified lookup, ambiguity, glob imports, inline positions, and name
+collisions, alongside the canonical `struct_nested_anon.rdl`, `struct_nested_named.rdl`, and
+`struct_nested_raw.rdl` fixtures. `test_rdl::record_constants` checks constants, duplicate names,
+missing values, and rejected forms.
+`test_metadata::nested_references` independently covers the underlying signature reader, merge,
+and namespace remapper.
 
 ### Method parameter rows
 
@@ -386,6 +434,6 @@ WDK metadata has at least one representable direction flag.
   to carry them, so attributes on its sequence 0 row are not represented.
 - **Count relationships:** `#[len_param(N)]` and `#[size_param(N)]` store raw zero-based signature
   positions. Reordering parameters without updating `N` changes the relationship.
-- **Pointer constness:** `metadata::Type` stores one constness bit with a pointer depth. Uniform
-  chains such as `*mut *mut T` and `*const *const T` round-trip. Mixed chains are rejected before
-  metadata is written, including chains nested inside a reference.
+- **Pointer constness:** Win32 pointer types keep qualifiers at each depth: `*mut *const T` and
+  `*const *mut T` have different metadata signatures and round-trip without flattening. Mixed
+  chains use per-level modifiers; see [pointer constness](windows-metadata.md#pointer-constness).

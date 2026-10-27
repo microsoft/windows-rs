@@ -1,5 +1,6 @@
 #[win32]
 mod Test {
+    #[TemplatePart(Name = "Value", Type = u32)]
     interface IPart {
         fn Method(&self) -> i32;
     }

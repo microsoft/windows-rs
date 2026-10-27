@@ -83,6 +83,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         metadata: "NativeEncodingAttribute",
         prop: None,
     },
+    PseudoAttr {
+        short: "align",
+        metadata: "AlignmentAttribute",
+        prop: None,
+    },
 ];
 
 pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {
@@ -101,6 +106,27 @@ pub(crate) fn pseudo_for_metadata(name: &str, arg_names: &[String]) -> Option<&'
         }
     }
     fallback
+}
+
+/// Finds type definitions by `/`-separated nested name, such as `Outer/Inner`.
+pub(crate) fn get_nested<'a>(
+    index: &'a metadata::reader::Index,
+    namespace: &str,
+    name: &str,
+) -> Vec<metadata::reader::TypeDef<'a>> {
+    let mut names = name.split('/');
+    let mut candidates: Vec<_> = index.get(namespace, names.next().unwrap()).collect();
+    for name in names {
+        candidates = candidates
+            .into_iter()
+            .flat_map(|parent| {
+                index
+                    .nested(parent)
+                    .filter(move |child| child.name() == name)
+            })
+            .collect();
+    }
+    candidates
 }
 
 /// Creates a [`Reader`] that compiles RDL files into `.winmd` metadata.
