@@ -322,8 +322,11 @@ StackPanel::new().children((
 ```
 
 Keep owned bytes in component state and clone the value when describing the view. Equal sources
-share native images within a runtime. `Image::on_opened` and `on_failed` report loading outcomes
-for each assignment, including when a shared source has already loaded.
+share native images within a window. A window keeps an image decoded from `EncodedImage` bytes
+while the app holds those bytes, so images that leave the view and return render without decoding
+again; static bytes stay decoded for the window's lifetime. Reactor holds URI and file sources only
+while shown. `Image::on_opened` and `on_failed` report loading outcomes for each assignment,
+including when a shared source has already loaded.
 
 The [`image-sources`](../../crates/samples/reactor/image-sources) sample compares the source
 builders across images and icon slots. [`image-reuse`](../../crates/samples/reactor/image-reuse)

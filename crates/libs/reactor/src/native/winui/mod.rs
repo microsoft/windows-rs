@@ -1321,31 +1321,129 @@ struct ImageSubscription {
     _callback: Option<Rc<dyn Fn(bool)>>,
 }
 
-struct ImageKey(ImageSourceValue);
+/// Native image sources shared by a window's controls.
+///
+/// A URI source lives while a control uses it. A source decoded from [`EncodedImage`] bytes also
+/// lives while the app holds those bytes, so controls that leave and return render without
+/// decoding again. While a control uses it, the cache keeps the bytes alive so content-equal images
+/// can share it.
+struct ImageCache<T = NativeImageSource> {
+    entries: HashMap<u64, Vec<ImageCacheEntry<T>>>,
+}
 
-impl PartialEq for ImageKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
+impl<T> Default for ImageCache<T> {
+    fn default() -> Self {
+        Self {
+            entries: HashMap::new(),
+        }
     }
 }
 
-impl Eq for ImageKey {}
+enum ImageCacheEntry<T> {
+    Uri {
+        uri: Rc<str>,
+        image: Weak<T>,
+    },
+    Bytes {
+        svg: bool,
+        bytes: ImageCacheBytes,
+        image: Rc<T>,
+    },
+}
 
-impl std::hash::Hash for ImageKey {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        std::mem::discriminant(&self.0).hash(state);
-        match &self.0 {
-            ImageSourceValue::Uri(value) => value.hash(state),
-            ImageSourceValue::Encoded(value) | ImageSourceValue::Svg(value) => {
-                // Hash a bounded sample; equality compares the full bytes.
-                let bytes = value.as_bytes();
-                bytes.len().hash(state);
-                for byte in bytes.iter().step_by(bytes.len() / 64 + 1) {
-                    byte.hash(state);
+enum ImageCacheBytes {
+    Pinned(EncodedImage),
+    Released(WeakEncodedImage),
+}
+
+impl<T> ImageCache<T> {
+    fn get_or_insert<E>(
+        &mut self,
+        source: &ImageSourceValue,
+        create: impl FnOnce() -> Result<T, E>,
+    ) -> Result<Rc<T>, E> {
+        let entries = self.entries.entry(image_hash(source)).or_default();
+        for entry in entries.iter_mut() {
+            match (source, entry) {
+                (ImageSourceValue::Uri(value), ImageCacheEntry::Uri { uri, image }) => {
+                    if value == uri
+                        && let Some(image) = image.upgrade()
+                    {
+                        return Ok(image);
+                    }
                 }
+                (
+                    ImageSourceValue::Encoded(value) | ImageSourceValue::Svg(value),
+                    ImageCacheEntry::Bytes { svg, bytes, image },
+                ) => {
+                    let matches = *svg == matches!(source, ImageSourceValue::Svg(_))
+                        && match bytes {
+                            ImageCacheBytes::Pinned(bytes) => bytes == value,
+                            ImageCacheBytes::Released(bytes) => {
+                                bytes.upgrade().is_some_and(|bytes| bytes == *value)
+                            }
+                        };
+                    if matches {
+                        *bytes = ImageCacheBytes::Pinned(value.clone());
+                        return Ok(Rc::clone(image));
+                    }
+                }
+                _ => {}
+            }
+        }
+        let image = Rc::new(create()?);
+        entries.push(match source {
+            ImageSourceValue::Uri(uri) => ImageCacheEntry::Uri {
+                uri: Rc::clone(uri),
+                image: Rc::downgrade(&image),
+            },
+            ImageSourceValue::Encoded(bytes) | ImageSourceValue::Svg(bytes) => {
+                ImageCacheEntry::Bytes {
+                    svg: matches!(source, ImageSourceValue::Svg(_)),
+                    bytes: ImageCacheBytes::Pinned(bytes.clone()),
+                    image: Rc::clone(&image),
+                }
+            }
+        });
+        Ok(image)
+    }
+
+    /// Releases bytes no control uses and drops sources that nothing keeps alive.
+    fn prune(&mut self) {
+        self.entries.retain(|_, entries| {
+            entries.retain_mut(|entry| match entry {
+                ImageCacheEntry::Uri { image, .. } => image.strong_count() != 0,
+                ImageCacheEntry::Bytes { bytes, image, .. } => {
+                    if Rc::strong_count(image) > 1 {
+                        return true;
+                    }
+                    if let ImageCacheBytes::Pinned(pinned) = bytes {
+                        *bytes = ImageCacheBytes::Released(pinned.downgrade());
+                    }
+                    matches!(bytes, ImageCacheBytes::Released(bytes) if bytes.upgrade().is_some())
+                }
+            });
+            !entries.is_empty()
+        });
+    }
+}
+
+fn image_hash(source: &ImageSourceValue) -> u64 {
+    use std::hash::{Hash, Hasher};
+    let mut state = std::hash::DefaultHasher::new();
+    std::mem::discriminant(source).hash(&mut state);
+    match source {
+        ImageSourceValue::Uri(value) => value.hash(&mut state),
+        ImageSourceValue::Encoded(value) | ImageSourceValue::Svg(value) => {
+            // Hash a bounded sample; lookup compares the full bytes.
+            let bytes = value.as_bytes();
+            bytes.len().hash(&mut state);
+            for byte in bytes.iter().step_by(bytes.len() / 64 + 1) {
+                byte.hash(&mut state);
             }
         }
     }
+    state.finish()
 }
 
 #[derive(Default)]
@@ -1762,7 +1860,7 @@ fn observe_xaml_scale(
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
     image_subscriptions: HashMap<ObjectId, ImageSubscription>,
-    images: HashMap<ImageKey, Weak<NativeImageSource>>,
+    images: ImageCache,
     released_images: Vec<Rc<NativeImageSource>>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
     /// Index properties written by the batch being applied. Reactor writes an index after the
@@ -1809,7 +1907,7 @@ impl Default for WinUiAdapter {
         Self {
             handles: HashMap::new(),
             image_subscriptions: HashMap::new(),
-            images: HashMap::new(),
+            images: ImageCache::default(),
             released_images: Vec::new(),
             owners: HashMap::new(),
             index_writes: HashSet::new(),

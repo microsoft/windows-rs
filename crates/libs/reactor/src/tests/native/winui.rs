@@ -1,6 +1,63 @@
 use super::*;
 
 #[test]
+fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
+    let created = Cell::new(0);
+    let get = |cache: &mut ImageCache<u32>, source: &ImageSourceValue| {
+        cache
+            .get_or_insert(source, || {
+                created.set(created.get() + 1);
+                Ok::<_, ()>(created.get())
+            })
+            .unwrap()
+    };
+    let svg = |bytes: &[u8]| ImageSourceValue::Svg(EncodedImage::new(bytes.to_vec()));
+    let mut cache = ImageCache::default();
+
+    // Bytes the app holds stay decoded after their controls go away.
+    let held = svg(b"<svg/>");
+    let shown = get(&mut cache, &held);
+    drop(shown);
+    cache.prune();
+    assert_eq!(*get(&mut cache, &held), 1);
+
+    // While a control uses the source, the cache keeps the bytes for content-equal images.
+    let shown = get(&mut cache, &svg(b"<svg id='a'/>"));
+    cache.prune();
+    assert_eq!(get(&mut cache, &svg(b"<svg id='a'/>")), shown);
+    assert_eq!(*shown, 2);
+
+    // Once no control uses it and the app drops the bytes, the source is released.
+    drop(shown);
+    cache.prune();
+    assert_eq!(*get(&mut cache, &svg(b"<svg id='a'/>")), 3);
+
+    // The same bytes as a bitmap are a different source.
+    let bitmap = ImageSourceValue::Encoded(EncodedImage::new(b"<svg/>".to_vec()));
+    assert_eq!(*get(&mut cache, &bitmap), 4);
+
+    // Static bytes are always held.
+    let fixed = ImageSourceValue::Encoded(EncodedImage::from_static(b"png"));
+    drop(get(&mut cache, &fixed));
+    cache.prune();
+    assert_eq!(
+        *get(
+            &mut cache,
+            &ImageSourceValue::Encoded(EncodedImage::from_static(b"png"))
+        ),
+        5
+    );
+
+    // URI sources live only while a control uses them.
+    let uri = ImageSourceValue::Uri(Rc::from("ms-appx:///icon.png"));
+    let shown = get(&mut cache, &uri);
+    assert_eq!(get(&mut cache, &uri), shown);
+    drop(shown);
+    cache.prune();
+    assert_eq!(*get(&mut cache, &uri), 7);
+}
+
+#[test]
 fn image_load_subscriptions_complete_once_and_do_not_retain_controls() {
     let state = ImageLoadState::default();
     let values = Rc::new(RefCell::new(Vec::new()));

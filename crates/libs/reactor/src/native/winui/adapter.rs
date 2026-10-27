@@ -265,10 +265,8 @@ impl Adapter for WinUiAdapter {
 
     fn apply(&mut self, mutations: &[Mutation]) {
         self.apply_mutations(mutations).unwrap();
-        if !self.released_images.is_empty() {
-            self.released_images.clear();
-            self.images.retain(|_, image| image.strong_count() != 0);
-        }
+        self.released_images.clear();
+        self.images.prune();
     }
 
     fn imperative(&mut self, request: ImperativeRequest) {
@@ -553,7 +551,7 @@ impl WinUiAdapter {
                     )),
                 };
                 if result.is_ok() && self.image_subscriptions.remove(&object).is_some() {
-                    self.images.retain(|_, image| image.strong_count() != 0);
+                    self.images.prune();
                 }
                 completion.call(result.map_err(integration_error));
             }

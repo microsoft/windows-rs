@@ -338,13 +338,8 @@ impl WinUiAdapter {
         &mut self,
         source: &ImageSource,
     ) -> Result<Rc<NativeImageSource>, WinUiError> {
-        let key = ImageKey(source.value().clone());
-        if let Some(image) = self.images.get(&key).and_then(Weak::upgrade) {
-            return Ok(image);
-        }
-        let image = Rc::new(NativeImageSource::new(source.value())?);
-        self.images.insert(key, Rc::downgrade(&image));
-        Ok(image)
+        self.images
+            .get_or_insert(source.value(), || NativeImageSource::new(source.value()))
     }
 
     fn shared_icon_image(
