@@ -38,7 +38,8 @@ pub unsafe trait Interface: Sized + Clone {
     #[doc(hidden)]
     #[inline(always)]
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
-        unsafe { &**(self.as_raw() as *mut *mut T::Vtable) }
+        // COM objects may be packed even though their vtables are aligned.
+        unsafe { &*self.as_raw().cast::<*const T::Vtable>().read_unaligned() }
     }
 
     /// Returns the borrowed COM interface pointer.
