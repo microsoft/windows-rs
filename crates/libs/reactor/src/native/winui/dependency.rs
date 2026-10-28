@@ -1,9 +1,11 @@
+use super::*;
+
 // Most declared properties map to a WinUI dependency property. The generated
 // `GeneratedHandle::dependency_property` table names the property and how to box the value; this
 // file performs the boxing and calls `SetValue` or `ClearValue`.
 
 #[derive(Clone, Copy)]
-enum Conversion {
+pub(super) enum Conversion {
     Value,
     FontFamily,
     NativeColor,
@@ -13,7 +15,7 @@ enum Conversion {
     Uri,
 }
 
-fn set_dependency_property(
+pub(super) fn set_dependency_property(
     element: &native::UIElement,
     kind: ObjectType,
     property: PropertyId,

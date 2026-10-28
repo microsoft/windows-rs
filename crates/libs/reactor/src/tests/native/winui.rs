@@ -266,14 +266,14 @@ fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
         bottom: 400,
     };
     for (x, y) in [(0, 0), (48, 0), (0, 40), (48, 40)] {
-        let workspace = window_placement::translate_rect(screen, -x, -y).unwrap();
-        let restored = window_placement::translate_rect(workspace, x, y).unwrap();
+        let workspace = placement::translate_rect(screen, -x, -y).unwrap();
+        let restored = placement::translate_rect(workspace, x, y).unwrap();
         assert_eq!(restored, screen);
         assert_eq!(workspace.left, screen.left - x);
         assert_eq!(workspace.top, screen.top - y);
     }
     assert!(
-        window_placement::translate_rect(
+        placement::translate_rect(
             native::RECT {
                 left: i32::MAX,
                 ..Default::default()

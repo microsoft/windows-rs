@@ -7,7 +7,7 @@ fn invalid_bounds() -> windows_core::Error {
     )
 }
 
-pub(super) fn translate_rect(
+pub(in crate::native::winui) fn translate_rect(
     rect: native::RECT,
     x: i32,
     y: i32,

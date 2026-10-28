@@ -1,3 +1,5 @@
+use super::*;
+
 fn is_implicit_transition(id: PropertyId) -> bool {
     matches!(
         id,
@@ -8,12 +10,11 @@ fn is_implicit_transition(id: PropertyId) -> bool {
 }
 
 impl WinUiAdapter {
-    fn create(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
+    pub(super) fn create(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
         if self.handles.contains_key(&object) {
             return Err(WinUiError::DuplicateObject(object));
         }
-        let handle = if let Some(handle) =
-            GeneratedHandle::create(kind, object, &self.event_queue)?
+        let handle = if let Some(handle) = GeneratedHandle::create(kind, object, &self.event_queue)?
         {
             if let GeneratedHandle::ListView(list) = &handle {
                 list.value
@@ -71,7 +72,10 @@ impl WinUiAdapter {
                     let values = BTreeMap::from([
                         (self.data_text_key.clone(), Some(data_string(""))),
                         (self.data_content_key.clone(), None),
-                        (self.data_text_visibility_key.clone(), Some(data_string("Visible"))),
+                        (
+                            self.data_text_visibility_key.clone(),
+                            Some(data_string("Visible")),
+                        ),
                     ]);
                     Handle::Data(values.into())
                 }
@@ -102,7 +106,10 @@ impl WinUiAdapter {
         for (id, value) in clear
             .iter()
             .map(|id| (*id, None))
-            .chain(set.iter().map(|property| (property.id, Some(&property.value))))
+            .chain(
+                set.iter()
+                    .map(|property| (property.id, Some(&property.value))),
+            )
             .filter(|(id, _)| is_implicit_transition(*id))
         {
             let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
@@ -115,7 +122,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn set_properties(
+    pub(super) fn set_properties(
         &mut self,
         object: ObjectId,
         set: &[Property],
@@ -147,14 +154,20 @@ impl WinUiAdapter {
         let properties = clear
             .iter()
             .map(|id| (*id, None))
-            .chain(set.iter().map(|property| (property.id, Some(&property.value))))
+            .chain(
+                set.iter()
+                    .map(|property| (property.id, Some(&property.value))),
+            )
             .filter(|(id, _)| !is_implicit_transition(*id));
         for (property, value) in properties {
             // Reactor's write raises the event that reports it; drop it and record the native
             // value the write produced instead.
             let feedback = reporting_event(kind, property);
             if let Some(event) = feedback {
-                self.event_queue.feedback.borrow_mut().suppress(object, event);
+                self.event_queue
+                    .feedback
+                    .borrow_mut()
+                    .suppress(object, event);
             }
             let suppressed = match self.selection_feedback(object, property)? {
                 Some(feedback) => Some(feedback),
@@ -183,7 +196,10 @@ impl WinUiAdapter {
                 self.event_queue.feedback.borrow_mut().release(owner, event);
             }
             if let Some(event) = feedback {
-                self.event_queue.feedback.borrow_mut().release(object, event);
+                self.event_queue
+                    .feedback
+                    .borrow_mut()
+                    .release(object, event);
             }
             result?;
             if let Some(event) = feedback
@@ -216,7 +232,8 @@ impl WinUiAdapter {
             && let Some(Handle::Generated(GeneratedHandle::Image(control))) =
                 self.handles.get(&object)
         {
-            self.event_queue.discard_events(object, &IMAGE_SOURCE_EVENTS);
+            self.event_queue
+                .discard_events(object, &IMAGE_SOURCE_EVENTS);
             control.source.set(false);
         }
         match (property, value) {
@@ -249,8 +266,8 @@ impl WinUiAdapter {
         }) {
             match value {
                 Some(PropertyValue::Brush(Brush::Theme(value))) => {
-                    let Some(result) =
-                        element.and_then(|element| set_dependency_property(element, kind, property, None))
+                    let Some(result) = element
+                        .and_then(|element| set_dependency_property(element, kind, property, None))
                     else {
                         return Err(WinUiError::InvalidObject(object));
                     };
@@ -298,7 +315,8 @@ impl WinUiAdapter {
             }
             return Ok(());
         }
-        if property == PropertyId::Text && matches!(self.handles.get(&object), Some(Handle::Data(_)))
+        if property == PropertyId::Text
+            && matches!(self.handles.get(&object), Some(Handle::Data(_)))
         {
             match value {
                 None => return self.set_data_text(object, ""),
@@ -334,34 +352,13 @@ impl WinUiAdapter {
         }
     }
 
-    fn shared_image(
-        &mut self,
-        source: &ImageSource,
-    ) -> Result<Rc<NativeImageSource>, WinUiError> {
-        self.images
-            .get_or_insert(source.value(), || NativeImageSource::new(source.value()))
-    }
-
-    fn shared_icon_image(
-        &mut self,
-        icon: &Icon,
-    ) -> Result<Option<Rc<NativeImageSource>>, WinUiError> {
-        match icon.value() {
-            IconValue::Image(source) => self.shared_image(source).map(Some),
-            _ => Ok(None),
-        }
-    }
-
-    fn release_image(&mut self, object: ObjectId) {
-        // Keep released images until the batch completes so replacement controls can share them.
-        if let Some(subscription) = self.image_subscriptions.remove(&object) {
-            self.released_images.push(subscription.image);
-        }
-    }
-
     /// Drops all adapter state for an object whose handle was just removed. Destroy, retirement
     /// completion, and replacement all end an object's native lifetime through this path.
-    fn release_object(&mut self, object: ObjectId, handle: Handle) -> Result<(), WinUiError> {
+    pub(super) fn release_object(
+        &mut self,
+        object: ObjectId,
+        handle: Handle,
+    ) -> Result<(), WinUiError> {
         self.release_image(object);
         self.live_regions.remove(&object);
         self.resource_override_keys.remove(&object);
@@ -392,60 +389,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn set_image_source(&mut self, object: ObjectId, source: &ImageSource) -> Result<(), WinUiError> {
-        let image = self.shared_image(source)?;
-        let callback = match self.handles.get(&object) {
-            Some(Handle::Generated(GeneratedHandle::Image(control))) => {
-                control.value.SetSource(&image.value)?;
-                self.event_queue.discard_events(object, &IMAGE_SOURCE_EVENTS);
-                control.source.set(true);
-                let opened = Rc::clone(&control.image_opened);
-                let failed = Rc::clone(&control.image_failed);
-                let event_queue = Rc::clone(&self.event_queue);
-                let callback: Rc<dyn Fn(bool)> = Rc::new(move |success| {
-                    let (event, id) = if success {
-                        (&opened, EventId::ImageOpened)
-                    } else {
-                        (&failed, EventId::ImageFailed)
-                    };
-                    Self::dispatch(event, &event_queue, object, id, None, ());
-                });
-                Some(callback)
-            }
-            Some(Handle::Generated(GeneratedHandle::ImageIcon(control))) => {
-                control.SetSource(&image.value)?;
-                None
-            }
-            _ => return Err(WinUiError::InvalidObject(object)),
-        };
-        self.release_image(object);
-        let result = callback
-            .as_ref()
-            .and_then(|callback| image.state.subscribe(callback));
-        let replay = callback.as_ref().map(Rc::downgrade);
-        self.image_subscriptions.insert(
-            object,
-            ImageSubscription {
-                property: PropertyId::Source,
-                image,
-                _callback: callback,
-            },
-        );
-        if let (Some(result), Some(replay)) = (result, replay) {
-            // Replay a completed load after the current batch applies event handlers.
-            let handler = native::DispatcherQueueHandler::new(move || {
-                if let Some(callback) = replay.upgrade() {
-                    callback(result);
-                }
-            });
-            // The replay is dropped if the dispatcher is shutting down.
-            native::DispatcherQueue::GetForCurrentThread()?
-                .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
-        }
-        Ok(())
-    }
-
-    fn replace(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
+    pub(super) fn replace(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
         if self.tooltips.contains_key(&object)
             || self.tooltip_owners.contains_key(&object)
             || self.flyouts.contains_key(&object)
@@ -463,9 +407,7 @@ impl WinUiAdapter {
             .copied()
             .ok_or(WinUiError::InvalidReplacement(object))?;
         let contract = relation_contract(self.kind(parent)?, relation)?;
-        if contract.realization != Realization::Owned
-            || contract.child != object_category(kind)
-        {
+        if contract.realization != Realization::Owned || contract.child != object_category(kind) {
             return Err(WinUiError::InvalidReplacement(object));
         }
         let previous = self.ui_element(object)?;
@@ -538,6 +480,65 @@ impl WinUiAdapter {
                 .insert(object, NativeItem { owner, identity });
         }
         self.event_queue.discard_object(object);
+        Ok(())
+    }
+}
+
+impl WinUiAdapter {
+    fn set_key_accelerators(
+        &self,
+        object: ObjectId,
+        accelerators: &KeyAccelerators,
+    ) -> Result<(), WinUiError> {
+        let element = self.ui_element(object)?;
+        let values = element.KeyboardAccelerators()?;
+        values.Clear()?;
+        element.SetKeyboardAcceleratorPlacementMode(
+            native::KeyboardAcceleratorPlacementMode::Hidden,
+        )?;
+        for accelerator in accelerators.values() {
+            let value = native::KeyboardAccelerator::new()?;
+            value.SetKey(match accelerator.key {
+                AcceleratorKey::Left => native::VirtualKey::Left,
+                AcceleratorKey::Up => native::VirtualKey::Up,
+                AcceleratorKey::Right => native::VirtualKey::Right,
+                AcceleratorKey::Down => native::VirtualKey::Down,
+                AcceleratorKey::Space => native::VirtualKey::Space,
+                AcceleratorKey::N => native::VirtualKey::N,
+                AcceleratorKey::P => native::VirtualKey::P,
+                AcceleratorKey::R => native::VirtualKey::R,
+                AcceleratorKey::NumberPad0 => native::VirtualKey::NumberPad0,
+                AcceleratorKey::NumberPad1 => native::VirtualKey::NumberPad1,
+                AcceleratorKey::NumberPad2 => native::VirtualKey::NumberPad2,
+                AcceleratorKey::NumberPad3 => native::VirtualKey::NumberPad3,
+                AcceleratorKey::NumberPad4 => native::VirtualKey::NumberPad4,
+                AcceleratorKey::NumberPad5 => native::VirtualKey::NumberPad5,
+                AcceleratorKey::NumberPad6 => native::VirtualKey::NumberPad6,
+                AcceleratorKey::NumberPad7 => native::VirtualKey::NumberPad7,
+                AcceleratorKey::NumberPad8 => native::VirtualKey::NumberPad8,
+                AcceleratorKey::NumberPad9 => native::VirtualKey::NumberPad9,
+                AcceleratorKey::Divide => native::VirtualKey::Divide,
+                AcceleratorKey::Multiply => native::VirtualKey::Multiply,
+                AcceleratorKey::Subtract => native::VirtualKey::Subtract,
+                AcceleratorKey::Add => native::VirtualKey::Add,
+                AcceleratorKey::Decimal => native::VirtualKey::Decimal,
+                AcceleratorKey::Enter => native::VirtualKey::Enter,
+            })?;
+            value.SetModifiers(match accelerator.modifiers {
+                AcceleratorModifiers::None => native::VirtualKeyModifiers::None,
+                AcceleratorModifiers::Control => native::VirtualKeyModifiers::Control,
+            })?;
+            let callback = accelerator.callback.clone();
+            value
+                .Invoked(move |_, args| {
+                    if let Some(args) = args.as_ref() {
+                        _ = args.SetHandled(true);
+                    }
+                    callback.call(());
+                })?
+                .into_token();
+            values.Append(&value)?;
+        }
         Ok(())
     }
 }

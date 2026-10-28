@@ -1,13 +1,15 @@
+use super::*;
+
 /// Live-region activity collected while applying one mutation batch.
 #[derive(Default)]
-struct LiveRegionBatch {
+pub(super) struct LiveRegionBatch {
     text_changed: Vec<ObjectId>,
     became_live: Vec<ObjectId>,
 }
 
 impl WinUiAdapter {
     /// Tracks live settings and text changes for one `SetProperties` mutation.
-    fn record_live_regions(
+    pub(super) fn record_live_regions(
         &mut self,
         batch: &mut LiveRegionBatch,
         object: ObjectId,
@@ -42,7 +44,7 @@ impl WinUiAdapter {
 
     /// Raises `LiveRegionChanged` once for each live region whose text, or text in its content,
     /// changed in the batch. Regions that became live in the batch do not announce.
-    fn raise_live_regions(&self, batch: LiveRegionBatch) -> Result<(), WinUiError> {
+    pub(super) fn raise_live_regions(&self, batch: LiveRegionBatch) -> Result<(), WinUiError> {
         if batch.text_changed.is_empty() {
             return Ok(());
         }
@@ -73,7 +75,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn notify(
+    pub(super) fn notify(
         &self,
         object: ObjectId,
         notification: &AutomationNotification,

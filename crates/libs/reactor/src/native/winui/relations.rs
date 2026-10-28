@@ -1,5 +1,7 @@
+use super::*;
+
 impl WinUiAdapter {
-    fn attach(
+    pub(super) fn attach(
         &mut self,
         parent: ObjectId,
         relation: RelationId,
@@ -27,8 +29,7 @@ impl WinUiAdapter {
                 parent.content = Some(child);
             }
             (Handle::Data(parent), RelationId::Content) => {
-                let properties =
-                    parent.cast::<IMap<HSTRING, IInspectable>>()?;
+                let properties = parent.cast::<IMap<HSTRING, IInspectable>>()?;
                 let content: IInspectable = child_element.cast()?;
                 properties.Insert(&data_content_key, &content)?;
                 properties.Insert(&self.data_text_visibility_key, &data_string("Collapsed"))?;
@@ -39,7 +40,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn detach(
+    pub(super) fn detach(
         &mut self,
         parent: ObjectId,
         relation: RelationId,
@@ -62,8 +63,7 @@ impl WinUiAdapter {
                 parent.content = None;
             }
             (Handle::Data(parent), RelationId::Content) => {
-                let properties =
-                    parent.cast::<IMap<HSTRING, IInspectable>>()?;
+                let properties = parent.cast::<IMap<HSTRING, IInspectable>>()?;
                 properties.Insert(&data_content_key, None)?;
                 properties.Insert(&self.data_text_visibility_key, &data_string("Visible"))?;
             }
@@ -117,7 +117,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn insert(
+    pub(super) fn insert(
         &mut self,
         parent: ObjectId,
         relation: RelationId,
@@ -151,8 +151,8 @@ impl WinUiAdapter {
             .map(|selection| self.selection_item_is_selected(child, selection))
             .transpose()?
             .unwrap_or(false);
-        let tracked = selection_item.is_some()
-            || reorder_event(self.kind(parent)?, relation).is_some();
+        let tracked =
+            selection_item.is_some() || reorder_event(self.kind(parent)?, relation).is_some();
         let identity = tracked
             .then(|| self.item_identity(parent, relation, child))
             .transpose()?;
@@ -195,7 +195,7 @@ impl WinUiAdapter {
         result
     }
 
-    fn remove(
+    pub(super) fn remove(
         &mut self,
         parent: ObjectId,
         relation: RelationId,
@@ -258,7 +258,7 @@ impl WinUiAdapter {
         result
     }
 
-    fn reorder(
+    pub(super) fn reorder(
         &mut self,
         parent: ObjectId,
         relation: RelationId,
@@ -393,7 +393,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn selection_feedback(
+    pub(super) fn selection_feedback(
         &self,
         object: ObjectId,
         property: PropertyId,
@@ -498,13 +498,13 @@ impl WinUiAdapter {
             .unwrap_or(Err(WinUiError::InvalidObject(object)))
     }
 
-    fn handle(&mut self, object: ObjectId) -> Result<&mut Handle, WinUiError> {
+    pub(super) fn handle(&mut self, object: ObjectId) -> Result<&mut Handle, WinUiError> {
         self.handles
             .get_mut(&object)
             .ok_or(WinUiError::MissingObject(object))
     }
 
-    fn kind(&self, object: ObjectId) -> Result<ObjectType, WinUiError> {
+    pub(super) fn kind(&self, object: ObjectId) -> Result<ObjectType, WinUiError> {
         Ok(
             match self
                 .handles
@@ -519,7 +519,7 @@ impl WinUiAdapter {
         )
     }
 
-    fn ui_element(&self, object: ObjectId) -> Result<native::UIElement, WinUiError> {
+    pub(super) fn ui_element(&self, object: ObjectId) -> Result<native::UIElement, WinUiError> {
         match self
             .handles
             .get(&object)
@@ -576,7 +576,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn owned_collection(
+    pub(super) fn owned_collection(
         &self,
         object: ObjectId,
         relation: RelationId,
@@ -593,10 +593,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn tree_nodes(
-        &self,
-        object: ObjectId,
-    ) -> Result<IVector<native::TreeViewNode>, WinUiError> {
+    fn tree_nodes(&self, object: ObjectId) -> Result<IVector<native::TreeViewNode>, WinUiError> {
         match self
             .handles
             .get(&object)
@@ -621,7 +618,7 @@ impl WinUiAdapter {
         }
     }
 
-    fn set_data_text(&mut self, object: ObjectId, text: &str) -> Result<(), WinUiError> {
+    pub(super) fn set_data_text(&mut self, object: ObjectId, text: &str) -> Result<(), WinUiError> {
         let text_key = self.data_text_key.clone();
         let Handle::Data(value) = self.handle(object)? else {
             return Err(WinUiError::InvalidObject(object));
@@ -631,7 +628,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn tree_template(&mut self) -> Result<native::DataTemplate, WinUiError> {
+    pub(super) fn tree_template(&mut self) -> Result<native::DataTemplate, WinUiError> {
         if let Some(template) = &self.tree_template {
             return Ok(template.clone());
         }
@@ -647,7 +644,7 @@ impl WinUiAdapter {
         Ok(template)
     }
 
-    fn list_template(&mut self) -> Result<native::DataTemplate, WinUiError> {
+    pub(super) fn list_template(&mut self) -> Result<native::DataTemplate, WinUiError> {
         if let Some(template) = &self.list_template {
             return Ok(template.clone());
         }
@@ -665,7 +662,7 @@ impl WinUiAdapter {
         Ok(template)
     }
 
-    fn start_retirement(
+    pub(super) fn start_retirement(
         &mut self,
         root: ObjectId,
         nodes: Vec<ObjectId>,
@@ -679,8 +676,7 @@ impl WinUiAdapter {
         {
             return Err(WinUiError::MissingObject(root));
         }
-        let duration =
-            TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
+        let duration = TimeSpan::try_from(duration).map_err(|_| WinUiError::InvalidDuration)?;
         let root_element = self.ui_element(root)?;
         let transition = native::ScalarTransition::new()?;
         transition.SetDuration(duration)?;
@@ -723,7 +719,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn complete_retirement(
+    pub(super) fn complete_retirement(
         &mut self,
         root: ObjectId,
         nodes: &[ObjectId],
@@ -760,7 +756,7 @@ impl WinUiAdapter {
         Ok(())
     }
 
-    fn native_event(&self, queued: &QueuedNativeEvent) -> Option<NativeEvent> {
+    pub(super) fn native_event(&self, queued: &QueuedNativeEvent) -> Option<NativeEvent> {
         if let Some(completion) = queued.retirement {
             return Some(NativeEvent::retirement(completion));
         }
@@ -788,7 +784,8 @@ impl WinUiAdapter {
             let callback = match (&queued.handler, queued.event) {
                 (QueuedHandler::Presentation(revision), EventId::MenuItemInvoked) => {
                     let menu = self.menus.get(&queued.object)?;
-                    (menu.revision == *revision).then(|| EventValue::Key(menu.menu.on_click.clone()))
+                    (menu.revision == *revision)
+                        .then(|| EventValue::Key(menu.menu.on_click.clone()))
                 }
                 (QueuedHandler::Presentation(revision), EventId::CommandInvoked) => {
                     let flyout = self.command_bar_flyouts.get(&queued.object)?;
@@ -849,6 +846,6 @@ impl WinUiAdapter {
     }
 }
 
-fn data_string(value: &str) -> IInspectable {
+pub(super) fn data_string(value: &str) -> IInspectable {
     windows_reference::IReference::from(HSTRING::from(value)).into()
 }
