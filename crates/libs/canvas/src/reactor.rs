@@ -627,13 +627,7 @@ impl CanvasRuntime {
             let Some(state) = state_slot.as_mut() else {
                 return;
             };
-            let raw = match state.chain.raw_swap_chain().cast::<IUnknown>() {
-                Ok(raw) => raw,
-                Err(error) => {
-                    report_error_ref(&self.input, &self.error, native_error(&error));
-                    return;
-                }
-            };
+            let raw: IUnknown = state.chain.raw_swap_chain().clone().into();
             let chain = state.chain_generation;
             let Some(request) = state.lifecycle.begin_attachment(panel, chain) else {
                 return;
