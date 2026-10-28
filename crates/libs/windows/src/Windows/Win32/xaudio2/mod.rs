@@ -266,8 +266,8 @@ impl<T: IXAudio2EngineCallback_Impl> IXAudio2EngineCallback_ImplVtbl<T> {
 impl IXAudio2EngineCallback {
     pub fn new<'a, T: IXAudio2EngineCallback_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2EngineCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
@@ -386,8 +386,8 @@ impl<T: IXAudio2MasteringVoice_Impl> IXAudio2MasteringVoice_ImplVtbl<T> {
 impl IXAudio2MasteringVoice {
     pub fn new<'a, T: IXAudio2MasteringVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2MasteringVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(IXAudio2SourceVoice, IXAudio2SourceVoice_Vtbl);
@@ -590,8 +590,8 @@ impl<T: IXAudio2SourceVoice_Impl> IXAudio2SourceVoice_ImplVtbl<T> {
 impl IXAudio2SourceVoice {
     pub fn new<'a, T: IXAudio2SourceVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2SourceVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(IXAudio2SubmixVoice, IXAudio2SubmixVoice_Vtbl);
@@ -625,8 +625,8 @@ impl<T: IXAudio2SubmixVoice_Impl> IXAudio2SubmixVoice_ImplVtbl<T> {
 impl IXAudio2SubmixVoice {
     pub fn new<'a, T: IXAudio2SubmixVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2SubmixVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(IXAudio2Voice, IXAudio2Voice_Vtbl);
@@ -1001,8 +1001,8 @@ impl<T: IXAudio2Voice_Impl> IXAudio2Voice_ImplVtbl<T> {
 impl IXAudio2Voice {
     pub fn new<'a, T: IXAudio2Voice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2Voice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(IXAudio2VoiceCallback, IXAudio2VoiceCallback_Vtbl);
@@ -1141,8 +1141,8 @@ impl<T: IXAudio2VoiceCallback_Impl> IXAudio2VoiceCallback_ImplVtbl<T> {
 impl IXAudio2VoiceCallback {
     pub fn new<'a, T: IXAudio2VoiceCallback_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2VoiceCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 pub const LowPassFilter: XAUDIO2_FILTER_TYPE = 0;

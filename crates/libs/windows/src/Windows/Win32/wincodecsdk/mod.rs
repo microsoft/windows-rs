@@ -641,16 +641,16 @@ impl IWICMetadataHandlerInfo {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetContainerFormats(&self, pguidcontainerformats: Option<&mut [windows_core::GUID]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContainerFormats)(windows_core::Interface::as_raw(self), pguidcontainerformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pguidcontainerformats.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetContainerFormats(&self, mut pguidcontainerformats: Option<&mut [windows_core::GUID]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContainerFormats)(windows_core::Interface::as_raw(self), pguidcontainerformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pguidcontainerformats.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), wzdevicemanufacturer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemanufacturer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetDeviceManufacturer(&self, mut wzdevicemanufacturer: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), wzdevicemanufacturer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemanufacturer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceModels(&self, wzdevicemodels: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemodels.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetDeviceModels(&self, mut wzdevicemodels: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemodels.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     pub unsafe fn DoesRequireFullStream(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {

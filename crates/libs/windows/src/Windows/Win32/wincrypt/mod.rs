@@ -963,9 +963,9 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CryptEncrypt(hkey: HCRYPTKEY, hhash: HCRYPTHASH, r#final: bool, dwflags: super::DWORD, pbdata: Option<&mut [u8]>, pdwdatalen: *mut super::DWORD) -> windows_core::BOOL {
+pub unsafe fn CryptEncrypt(hkey: HCRYPTKEY, hhash: HCRYPTHASH, r#final: bool, dwflags: super::DWORD, mut pbdata: Option<&mut [u8]>, pdwdatalen: *mut super::DWORD) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CryptEncrypt(hkey : HCRYPTKEY, hhash : HCRYPTHASH, r#final : windows_core::BOOL, dwflags : super::DWORD, pbdata : *mut super::BYTE, pdwdatalen : *mut super::DWORD, dwbuflen : super::DWORD) -> windows_core::BOOL);
-    unsafe { CryptEncrypt(hkey, hhash, r#final.into(), dwflags, core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pdwdatalen as _, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CryptEncrypt(hkey, hhash, r#final.into(), dwflags, core::mem::transmute(pbdata.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pdwdatalen as _, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]

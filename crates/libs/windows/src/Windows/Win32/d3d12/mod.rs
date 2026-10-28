@@ -14035,8 +14035,8 @@ impl<T: ID3D12FunctionParameterReflection_Impl> ID3D12FunctionParameterReflectio
 impl ID3D12FunctionParameterReflection {
     pub fn new<'a, T: ID3D12FunctionParameterReflection_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12FunctionParameterReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(ID3D12FunctionReflection, ID3D12FunctionReflection_Vtbl);
@@ -14186,8 +14186,8 @@ impl<T: ID3D12FunctionReflection_Impl> ID3D12FunctionReflection_ImplVtbl<T> {
 impl ID3D12FunctionReflection {
     pub fn new<'a, T: ID3D12FunctionReflection_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12FunctionReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(ID3D12GBVDiagnostics, ID3D12GBVDiagnostics_Vtbl, 0x597985ab_9b75_4dbb_be23_0761195bebee);
@@ -18538,8 +18538,8 @@ impl<T: ID3D12ShaderReflectionConstantBuffer_Impl> ID3D12ShaderReflectionConstan
 impl ID3D12ShaderReflectionConstantBuffer {
     pub fn new<'a, T: ID3D12ShaderReflectionConstantBuffer_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(ID3D12ShaderReflectionType, ID3D12ShaderReflectionType_Vtbl);
@@ -18744,8 +18744,8 @@ impl<T: ID3D12ShaderReflectionType_Impl> ID3D12ShaderReflectionType_ImplVtbl<T> 
 impl ID3D12ShaderReflectionType {
     pub fn new<'a, T: ID3D12ShaderReflectionType_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(ID3D12ShaderReflectionVariable, ID3D12ShaderReflectionVariable_Vtbl);
@@ -18830,8 +18830,8 @@ impl<T: ID3D12ShaderReflectionVariable_Impl> ID3D12ShaderReflectionVariable_Impl
 impl ID3D12ShaderReflectionVariable {
     pub fn new<'a, T: ID3D12ShaderReflectionVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 windows_core::imp::define_interface!(ID3D12SharingContract, ID3D12SharingContract_Vtbl, 0x0adf7d52_929c_4e61_addb_ffed30de66ef);

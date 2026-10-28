@@ -62,9 +62,9 @@ pub unsafe fn BCryptDecapsulate(hkey: BCRYPT_KEY_HANDLE, pbciphertext: &[u8], pb
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pbiv: Option<&mut [u8]>, pboutput: Option<super::PUCHAR>, cboutput: super::ULONG, pcbresult: *mut super::ULONG, dwflags: super::ULONG) -> windows_core::NTSTATUS {
+pub unsafe fn BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, mut pbiv: Option<&mut [u8]>, pboutput: Option<super::PUCHAR>, cboutput: super::ULONG, pcbresult: *mut super::ULONG, dwflags: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptDecrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : super::ULONG, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : super::ULONG, pboutput : super::PUCHAR, cboutput : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { BCryptDecrypt(hkey as _, core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbiv.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
+    unsafe { BCryptDecrypt(hkey as _, core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbiv.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -131,9 +131,9 @@ pub unsafe fn BCryptEncapsulate(hkey: BCRYPT_KEY_HANDLE, pbsecretkey: Option<sup
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pbiv: Option<&mut [u8]>, pboutput: Option<super::PUCHAR>, cboutput: super::ULONG, pcbresult: *mut super::ULONG, dwflags: super::ULONG) -> windows_core::NTSTATUS {
+pub unsafe fn BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, mut pbiv: Option<&mut [u8]>, pboutput: Option<super::PUCHAR>, cboutput: super::ULONG, pcbresult: *mut super::ULONG, dwflags: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptEncrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : super::ULONG, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : super::ULONG, pboutput : super::PUCHAR, cboutput : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_core::NTSTATUS);
-    unsafe { BCryptEncrypt(hkey as _, core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbiv.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
+    unsafe { BCryptEncrypt(hkey as _, core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbiv.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
 #[cfg(feature = "shared")]
 #[inline]

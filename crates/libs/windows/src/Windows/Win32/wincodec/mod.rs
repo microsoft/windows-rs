@@ -29,18 +29,18 @@ pub unsafe fn WICCreateBitmapFromSectionEx(width: super::UINT, height: super::UI
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, wzname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, mut wzname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_core::GUID, cchname : super::UINT, wzname : *mut super::WCHAR, pcchactual : *mut super::UINT) -> windows_core::HRESULT);
-    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, wzname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT
+pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, mut wzname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_core::GUID, pwzschema : windows_core::PCWSTR, cchname : super::UINT, wzname : *mut super::WCHAR, pcchactual : *mut super::UINT) -> windows_core::HRESULT);
-    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
 }
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0) -> windows_core::Result<windows_core::GUID>
@@ -349,28 +349,28 @@ impl IWICBitmapCodecInfo {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPixelFormats(&self, pguidpixelformats: Option<&mut [windows_core::GUID]>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), pguidpixelformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pguidpixelformats.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcactual as _) }
+    pub unsafe fn GetPixelFormats(&self, mut pguidpixelformats: Option<&mut [windows_core::GUID]>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), pguidpixelformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pguidpixelformats.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetColorManagementVersion(&self, wzcolormanagementversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColorManagementVersion)(windows_core::Interface::as_raw(self), wzcolormanagementversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzcolormanagementversion.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetColorManagementVersion(&self, mut wzcolormanagementversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorManagementVersion)(windows_core::Interface::as_raw(self), wzcolormanagementversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzcolormanagementversion.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), wzdevicemanufacturer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemanufacturer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetDeviceManufacturer(&self, mut wzdevicemanufacturer: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceManufacturer)(windows_core::Interface::as_raw(self), wzdevicemanufacturer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemanufacturer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetDeviceModels(&self, wzdevicemodels: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemodels.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetDeviceModels(&self, mut wzdevicemodels: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceModels)(windows_core::Interface::as_raw(self), wzdevicemodels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzdevicemodels.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetMimeTypes(&self, wzmimetypes: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMimeTypes)(windows_core::Interface::as_raw(self), wzmimetypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzmimetypes.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetMimeTypes(&self, mut wzmimetypes: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMimeTypes)(windows_core::Interface::as_raw(self), wzmimetypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzmimetypes.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetFileExtensions(&self, wzfileextensions: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFileExtensions)(windows_core::Interface::as_raw(self), wzfileextensions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzfileextensions.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetFileExtensions(&self, mut wzfileextensions: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFileExtensions)(windows_core::Interface::as_raw(self), wzfileextensions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzfileextensions.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     pub unsafe fn DoesSupportAnimation(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -678,8 +678,8 @@ impl IWICBitmapDecoder {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetColorContexts(&self, ppicolorcontexts: Option<&mut [Option<IWICColorContext>]>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontexts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppicolorcontexts.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcactualcount as _) }
+    pub unsafe fn GetColorContexts(&self, mut ppicolorcontexts: Option<&mut [Option<IWICColorContext>]>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontexts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppicolorcontexts.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pcactualcount as _) }
     }
     pub unsafe fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource> {
         unsafe {
@@ -1422,8 +1422,8 @@ impl IWICBitmapFrameDecode {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetColorContexts(&self, ppicolorcontexts: Option<&mut [Option<IWICColorContext>]>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontexts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppicolorcontexts.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcactualcount as _) }
+    pub unsafe fn GetColorContexts(&self, mut ppicolorcontexts: Option<&mut [Option<IWICColorContext>]>, pcactualcount: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontexts.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppicolorcontexts.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pcactualcount as _) }
     }
     pub unsafe fn GetThumbnail(&self) -> windows_core::Result<IWICBitmapSource> {
         unsafe {
@@ -2183,8 +2183,8 @@ impl IWICColorContext {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetProfileBytes(&self, pbbuffer: Option<&mut [super::BYTE]>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProfileBytes)(windows_core::Interface::as_raw(self), pbbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcbactual as _) }
+    pub unsafe fn GetProfileBytes(&self, mut pbbuffer: Option<&mut [super::BYTE]>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProfileBytes)(windows_core::Interface::as_raw(self), pbbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbbuffer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcbactual as _) }
     }
     #[cfg(feature = "shared")]
     pub unsafe fn GetExifColorSpace(&self) -> windows_core::Result<super::UINT> {
@@ -2362,8 +2362,8 @@ impl IWICComponentInfo {
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetAuthor(&self, wzauthor: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAuthor)(windows_core::Interface::as_raw(self), wzauthor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzauthor.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetAuthor(&self, mut wzauthor: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAuthor)(windows_core::Interface::as_raw(self), wzauthor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzauthor.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     pub unsafe fn GetVendorGUID(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -2372,16 +2372,16 @@ impl IWICComponentInfo {
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetVersion(&self, wzversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), wzversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzversion.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetVersion(&self, mut wzversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), wzversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzversion.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetSpecVersion(&self, wzspecversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecVersion)(windows_core::Interface::as_raw(self), wzspecversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzspecversion.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetSpecVersion(&self, mut wzspecversion: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSpecVersion)(windows_core::Interface::as_raw(self), wzspecversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzspecversion.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetFriendlyName(&self, wzfriendlyname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), wzfriendlyname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzfriendlyname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
+    pub unsafe fn GetFriendlyName(&self, mut wzfriendlyname: Option<&mut [super::WCHAR]>, pcchactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), wzfriendlyname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzfriendlyname.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactual as _) }
     }
 }
 #[repr(C)]
@@ -3893,8 +3893,8 @@ impl core::ops::Deref for IWICFormatConverterInfo {
 windows_core::imp::interface_hierarchy!(IWICFormatConverterInfo, windows_core::IUnknown, IWICComponentInfo);
 impl IWICFormatConverterInfo {
     #[cfg(feature = "shared")]
-    pub unsafe fn GetPixelFormats(&self, ppixelformatguids: Option<&mut [WICPixelFormatGUID]>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), ppixelformatguids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppixelformatguids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcactual as _) }
+    pub unsafe fn GetPixelFormats(&self, mut ppixelformatguids: Option<&mut [WICPixelFormatGUID]>, pcactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelFormats)(windows_core::Interface::as_raw(self), ppixelformatguids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppixelformatguids.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcactual as _) }
     }
     pub unsafe fn CreateInstance(&self) -> windows_core::Result<IWICFormatConverter> {
         unsafe {
@@ -5041,8 +5041,8 @@ impl IWICMetadataQueryReader {
         }
     }
     #[cfg(all(feature = "shared", feature = "winnt"))]
-    pub unsafe fn GetLocation(&self, wznamespace: Option<&mut [super::WCHAR]>, pcchactuallength: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), wznamespace.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wznamespace.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactuallength as _) }
+    pub unsafe fn GetLocation(&self, mut wznamespace: Option<&mut [super::WCHAR]>, pcchactuallength: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), wznamespace.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wznamespace.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcchactuallength as _) }
     }
     #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: Option<*mut super::PROPVARIANT>) -> windows_core::HRESULT
@@ -5450,8 +5450,8 @@ impl IWICPixelFormatInfo {
         }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn GetChannelMask(&self, uichannelindex: super::UINT, pbmaskbuffer: Option<&mut [super::BYTE]>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), uichannelindex, pbmaskbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbmaskbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcbactual as _) }
+    pub unsafe fn GetChannelMask(&self, uichannelindex: super::UINT, mut pbmaskbuffer: Option<&mut [super::BYTE]>, pcbactual: *mut super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), uichannelindex, pbmaskbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbmaskbuffer.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pcbactual as _) }
     }
 }
 #[repr(C)]

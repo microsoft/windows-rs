@@ -128,8 +128,8 @@ impl Interface {
             vtable: &Interface_ImplVtbl::<T>::VTABLE as *const _ as *const _,
             this: this as *const _ as *const _,
         };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+        let this = windows_core::imp::box_into_raw(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(this)) }
     }
 }
 #[repr(C)]

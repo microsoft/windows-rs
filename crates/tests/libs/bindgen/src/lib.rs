@@ -12,6 +12,9 @@ include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 #[cfg(test)]
 mod com_results_tests;
 
+#[cfg(test)]
+mod provenance_tests;
+
 #[test]
 fn enum_constants_use_explicit_values() {
     use enum_constant_shadow::*;
