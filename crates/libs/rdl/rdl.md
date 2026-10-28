@@ -2,7 +2,7 @@
 
 > A Rust-like source format for Windows metadata.
 
-- [windows-rdl crate docs](../../../docs/crates/windows-rdl.md)
+- [windows-rdl getting started](https://github.com/microsoft/windows-rs/blob/master/crates/libs/rdl/readme.md)
 - [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
 
 `windows-rdl` parses RDL (Rust Definition Language), a small Rust-like syntax for Windows APIs. It

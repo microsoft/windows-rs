@@ -75,8 +75,8 @@ change the generated metadata.
 ## Windows SDK, WDK, and WinRT contracts
 
 Each feeds an in-house generator producing a committed `.winmd` in `windows-default`. The metadata
-is embedded for Rust build tools and remains available as files for external tools. Provenance is
-documented in [`crates/libs/default/readme.md`](../crates/libs/default/readme.md).
+is embedded for Rust build tools and remains available as files for external tools. See
+[windows-default](../crates/libs/default/readme.md) for using the embedded metadata.
 
 `windows-bindgen`, `windows-rdl`, and `windows-clang` depend on `windows-default` so their builders
 can select this metadata without filesystem paths. Binaries linking those crates include both
@@ -125,7 +125,7 @@ metadata and runtime projection DLL are separate artifacts.
 - **`Core.winmd`** is refreshed into the shared Reactor metadata by `tool-reactor-metadata` at
   `WEBVIEW2_VERSION` (see below).
 
-For the full pipeline and COM<->WinRT bridge, see [windows-webview](crates/windows-webview.md).
+For browser hosting, see [windows-webview](../crates/libs/webview/readme.md).
 
 ## WinUI / Windows App SDK
 
@@ -172,8 +172,8 @@ Windows App Runtime for these tests.
 - `resources.pri` is staged from the App SDK runtime package only for self-contained deployment via
   `as_self_contained`; framework-dependent staging does not copy it.
 
-See [windows-reactor](crates/windows-reactor.md) and
-[windows-reactor-setup](crates/windows-reactor-setup.md).
+See [windows-reactor](../crates/libs/reactor/readme.md) and
+[windows-reactor-setup](../crates/libs/reactor-setup/readme.md) for application setup.
 
 ## Download mechanisms
 

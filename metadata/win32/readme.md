@@ -26,8 +26,5 @@ the scraper, and commit the resulting diff. Hand edits will be overwritten on th
 tool clears the generated partitions in this directory and re-emits the whole closure. The seed
 lives one level up (`metadata/metadata.rdl`) so it survives that clear.
 
-See [`docs/crates/windows-clang.md`](../../docs/crates/windows-clang.md) for the scraper design -
-how the metadata matches the SDK headers, header partitioning, and the documented deviations from
-the reference - and [`docs/crates/windows-rdl.md`](../../docs/crates/windows-rdl.md) for the winmd
-artifact and layout of the in-house metadata pipeline that replaces the external `win32metadata`
-project.
+See [windows-clang](../../crates/libs/clang/readme.md) for header-to-RDL generation and
+[windows-rdl](../../crates/libs/rdl/readme.md) for compiling RDL into `.winmd` files.

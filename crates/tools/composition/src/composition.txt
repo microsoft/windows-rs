@@ -10,7 +10,7 @@
 // The lifted build also reads the interop metadata generated from interop.rdl.
 // One filter defines both stacks; the wrapper source (visual.rs, shape.rs, ...)
 // is compiled against whichever module the crate's features select (see
-// docs/crates/windows-composition.md). Prune or extend the safe surface by
+// crates/libs/composition/readme.md). Prune or extend the safe surface by
 // editing this file, then re-run cargo run -p tool-composition.
 //
 // The system stack - unlike lifted Microsoft.UI.Composition - can host a visual

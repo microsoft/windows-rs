@@ -1,16 +1,18 @@
-## windows-window
+# windows-window
 
-The [windows-window](https://crates.io/crates/windows-window) crate provides basic window creation
-and message-loop support for Canvas, WebView2, and custom rendering.
+Create a desktop window and run its message loop. Use it to host graphics, WebView2, or another
+API that accepts an `HWND`; it is not a control toolkit.
 
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-window.md)
+- 📦 [crates.io](https://crates.io/crates/windows-window)
+- 📖 [docs.rs](https://docs.rs/windows-window)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/window-message)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/window)
 
-Start by adding the following to your Cargo.toml file:
+## Get started
 
 ```toml
-[dependencies.windows-window]
-version = "0.100"
+[dependencies]
+windows-window = "0.100"
 ```
 
 ```rust,no_run
@@ -22,16 +24,37 @@ fn main() -> Result<()> {
         .on_resize(|width, height| {
             println!("resized to {width} x {height}");
         })
-        .on_close(|| {
-            println!("release HWND-hosted resources here");
-        })
-        .quit_on_close(true)
         .create()?;
 
-    // `window.hwnd()` can be handed to windows-canvas, WebView2, Direct2D, etc.
     println!("created window {:?}", window.hwnd());
-
     run();
     Ok(())
 }
 ```
+
+## Attach content and choose a loop
+
+Create and drive the window on its owning thread. Use `hwnd()` as a borrowed handle and
+`client_size()` for the initial content size. Register `on_resize` to update hosted bounds and
+`on_close` to release content that requires a live parent.
+
+Builder `size` sets outer dimensions; builder `client_size` sets content dimensions.
+Resize callbacks report physical pixels. Set any custom DPI policy before creating the first window.
+
+| Loop | Use |
+| --- | --- |
+| `run()` | Event-driven content; waits for messages. |
+| `run_with(render)` | Return `Ok(true)` for another frame or `Ok(false)` to wait. |
+| `pump()` | An external loop owns the wait; returns false after quit. |
+
+Closing a window quits by default. Use `quit_on_close(false)` when application and window lifetimes
+differ, then call `quit()` explicitly. Dropping a window destroys it without posting quit.
+
+`on_message` returns `Some(result)` only for fully handled messages; `None` allows normal
+processing and focused callbacks. Handling `WM_CLOSE` yourself bypasses `on_close`.
+Nested messages use default processing rather than re-entering your handler. Keep callbacks short
+and do not let panics escape them.
+
+See [standalone Canvas][canvas] and [windows-webview](https://docs.rs/windows-webview) for hosts.
+
+[canvas]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/standalone

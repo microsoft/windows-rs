@@ -11,7 +11,7 @@ fn main() {
     // System stack: Windows.UI.Composition lives in Windows.winmd; Windows.Win32.winmd
     // supplies ICompositorDesktopInterop and the HWND/BOOL types used to host a visual
     // tree in a plain window. Flat + minimal keeps the crate's own surface small and
-    // namespace-free (see docs/crates/windows-composition.md).
+    // namespace-free.
     builder()
         .input_default()
         .output("crates/libs/composition/src/bindings.rs")

@@ -1,12 +1,16 @@
-## windows-pickers
+# windows-pickers
 
-Windows Pickers provides file and folder pickers backed by the Windows Common Item Dialog. It
-supports standalone Windows applications and components built with `windows-reactor`.
+Windows file-open, folder, and file-save dialogs that return filesystem paths.
+The application remains responsible for reading or writing selected files.
 
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-pickers.md)
+- 📦 [crates.io](https://crates.io/crates/windows-pickers)
+- 📖 [docs.rs](https://docs.rs/windows-pickers)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/pickers)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/pickers)
 
-Start by adding the following to your Cargo.toml file:
+## Pick a file
+
+The default `system` feature accepts a `windows-window` owner:
 
 ```toml
 [dependencies]
@@ -30,11 +34,41 @@ fn pick_rust_file(window: &Window) -> Result<()> {
     if let Some(path) = path {
         println!("{}", path.display());
     }
-
     Ok(())
 }
 # }
 ```
 
-The calling thread must be a COM single-threaded apartment (STA). Cancellation returns `Ok(None)`;
-other Windows failures are returned as errors.
+The UI thread must use a COM STA. Follow an existing framework's apartment setup or retain a
+`windows_core::init_sta()` guard. Keep the owner window alive until the synchronous modal call
+returns.
+
+## Configure a picker
+
+| Picker | Result |
+| --- | --- |
+| `OpenFilePicker` | One file, or several through `show_multiple` |
+| `FolderPicker` | One folder, or several through `show_multiple` |
+| `SaveFilePicker` | A proposed save path |
+
+Use `suggested_name` and `default_extension` for save names. Use `default_folder` when the Shell
+has no remembered location, or `folder` to force the initial location. A stable `client_id` GUID
+lets related pickers share Shell history. `initial_filter` is a zero-based index.
+
+Single-selection methods return `Ok(None)` on cancellation; multiple-selection methods return an
+empty vector. Other failures remain errors. A save result is only a path: opening it can still
+fail or race with another process, even after overwrite confirmation.
+
+## Use another host
+
+For another HWND owner, disable default features and use `show_for_hwnd`. The handle must belong
+to the calling UI thread and remain valid throughout the dialog.
+
+For Reactor, enable `reactor` and use `request` or `request_multiple` to map the result into a
+component message. Do not call modal `show` inline during an update. A request returning `false`
+was not staged; each window accepts one pending native window operation at a time.
+
+See the [standalone][standalone] or [Reactor][reactor] sample.
+
+[standalone]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/pickers/standalone
+[reactor]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/pickers/reactor

@@ -1,31 +1,44 @@
-## windows-future
+# windows-future
 
-The [windows-future](https://crates.io/crates/windows-future) crate adapts WinRT asynchronous
-operations to Rust futures.
+WinRT asynchronous operations that Rust can await, consume with callbacks, or produce from closures.
+This crate is not an async executor.
 
-* [Getting
-  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-future.md)
+- 📦 [crates.io](https://crates.io/crates/windows-future)
+- 📖 [docs.rs](https://docs.rs/windows-future)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/future)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/future)
 
-Start by adding the following to your Cargo.toml file:
+## Get started
 
 ```toml
-[dependencies.windows-future]
-version = "0.100"
+[dependencies]
+windows-future = "0.100"
 ```
 
-Use the Windows async types as needed:
-
 ```rust,no_run
-use windows_future::*;
+use windows_future::IAsyncOperation;
 
-// This result will be available immediately.
 let ready = IAsyncOperation::ready(Ok(123));
 assert_eq!(ready.join().unwrap(), 123);
 
-let ready = IAsyncOperation::spawn(|| {
-    // Some lengthy operation goes here...
-    Ok(456)
-});
-
-assert_eq!(ready.join().unwrap(), 456);
+let operation = IAsyncOperation::spawn(|| Ok(456));
+assert_eq!(operation.join().unwrap(), 456);
 ```
+
+## Choose a completion style
+
+| API | Use |
+| --- | --- |
+| `.await` | Wait within a Rust async function. |
+| `join()` | Block a thread that does not need to pump UI work. |
+| `when(callback)` | Receive a result without blocking. |
+
+These styles also apply to `IAsyncAction` and the progress interfaces. Each delivers a Windows
+`Result`. Choose one style per operation: WinRT permits assigning its completion handler only
+once. Do not block a UI thread with `join`.
+
+`spawn` runs a `Send + 'static` closure on the Windows thread pool. It does not make apartment-bound
+objects safe to use there. Cancelling an operation created with `spawn` does not interrupt the
+closure. The progress variants of `spawn` do not report intermediate progress.
+
+The default `std` feature supplies `.await`, `ready`, and `spawn`.
