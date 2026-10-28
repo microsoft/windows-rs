@@ -1,10 +1,5 @@
 extras::ISwapChainPanelNative::SetSwapChain
 extras::IWindowNative::get_WindowHandle
-extras::WINDOWSAPPSDK_RUNTIME_VERSION_BUILD
-extras::WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR
-extras::WINDOWSAPPSDK_RUNTIME_VERSION_MINOR
-extras::WINDOWSAPPSDK_RUNTIME_VERSION_REVISION
-extras::WINDOWSAPPSDK_RUNTIME_VERSION_UINT64
 Microsoft::UI::WindowId
 Microsoft::UI::Composition::Compositor::{}
 Microsoft::UI::Composition::ICompositionObject::get_Compositor

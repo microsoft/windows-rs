@@ -811,7 +811,7 @@ impl CanvasImageSource {
         )?;
         let native: reactor_bindings::ISurfaceImageSourceNativeWithD2D = source.cast()?;
         unsafe {
-            native.SetDevice(device.d2d_device().as_raw()).ok()?;
+            native.SetDevice(device.d2d_device()).ok()?;
         }
         Ok(Self {
             source,
@@ -836,16 +836,14 @@ impl CanvasImageSource {
             bottom: self.pixel_height,
         };
         let mut offset = reactor_bindings::POINT::default();
-        let mut object = std::ptr::null_mut();
         let begin = unsafe {
             self.native
-                .BeginDraw(&update, &ID2D1DeviceContext::IID, &mut object, &mut offset)
+                .BeginDraw::<ID2D1DeviceContext>(&update, &mut offset)
         };
-        if is_device_lost(begin) {
+        if check_device_lost(&begin) {
             return Ok(false);
         }
-        begin.ok()?;
-        let context = unsafe { ID2D1DeviceContext::from_raw(object) };
+        let context = begin?;
         let guard = EndImageDraw(&self.native);
         let session = DrawingSession::from_borrowed_context_with_dpi(
             &context,

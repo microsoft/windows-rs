@@ -5,6 +5,17 @@ use windows_core::*;
 const FRAMEWORK_FAMILY: PCWSTR = w!("Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe");
 const PACKAGE_DEPENDENCY_LIFETIME_KIND_PROCESS: i32 = 0;
 
+// Minimum framework version. `tool-reactor-metadata` checks it against the Windows App SDK pin.
+const RUNTIME_VERSION: &str = "2.6.4";
+
+/// Packs a dotted version into a `PACKAGE_VERSION` value with 16 bits per part.
+fn pack_version(version: &str) -> u64 {
+    let mut parts = version.split('.').map(|part| part.parse().unwrap());
+    (0..4).fold(0, |packed, _| {
+        packed << 16 | parts.next().unwrap_or(0_u16) as u64
+    })
+}
+
 static BOOTSTRAPPED: Mutex<bool> = Mutex::new(false);
 
 pub(super) fn bootstrap() -> Result<()> {
@@ -25,7 +36,7 @@ unsafe fn bootstrap_inner() -> Result<()> {
             FRAMEWORK_FAMILY,
             PACKAGE_VERSION {
                 Anonymous: PACKAGE_VERSION_0 {
-                    Version: WINDOWSAPPSDK_RUNTIME_VERSION_UINT64,
+                    Version: pack_version(RUNTIME_VERSION),
                 },
             },
             process_architecture().flags | PackageDependencyProcessorArchitectures_Neutral,
@@ -124,10 +135,8 @@ fn process_caption() -> HSTRING {
 fn show_install_dialog() {
     let caption = process_caption();
     let text = HSTRING::from(format!(
-        "You must install Windows App Runtime \
-         ({WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR}.{WINDOWSAPPSDK_RUNTIME_VERSION_MINOR}.\
-         {WINDOWSAPPSDK_RUNTIME_VERSION_BUILD}.{WINDOWSAPPSDK_RUNTIME_VERSION_REVISION}, {}) \
-         to run this application.\n\nDo you want to download it now?",
+        "You must install Windows App Runtime ({RUNTIME_VERSION}, {}) to run this \
+         application.\n\nDo you want to download it now?",
         process_architecture().display
     ));
     let result = unsafe {
@@ -151,3 +160,7 @@ fn show_install_dialog() {
         }
     }
 }
+
+#[cfg(test)]
+#[path = "../tests/native/bootstrap.rs"]
+mod tests;

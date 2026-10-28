@@ -92,29 +92,35 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ISurfaceImageSourceNativeWithD2D, windows_core::IUnknown);
 impl ISurfaceImageSourceNativeWithD2D {
-    pub(crate) unsafe fn SetDevice(&self, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub(crate) unsafe fn SetDevice<P0>(&self, device: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::IUnknown>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).SetDevice)(
                 windows_core::Interface::as_raw(self),
-                device as _,
+                device.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn BeginDraw(
+    pub(crate) unsafe fn BeginDraw<T>(
         &self,
         updaterect: *const RECT,
-        iid: *const windows_core::GUID,
-        updateobject: *mut *mut core::ffi::c_void,
         offset: *mut POINT,
-    ) -> windows_core::HRESULT {
+    ) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
         unsafe {
             (windows_core::Interface::vtable(self).BeginDraw)(
                 windows_core::Interface::as_raw(self),
                 updaterect,
-                iid,
-                updateobject as _,
+                &T::IID,
+                &mut result__,
                 offset as _,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn EndDraw(&self) -> windows_core::HRESULT {

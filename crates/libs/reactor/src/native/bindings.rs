@@ -8575,6 +8575,68 @@ impl windows_core::RuntimeType for ICoreWebView2InitializedEventArgs {
 pub struct ICoreWebView2InitializedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+windows_core::imp::define_interface!(
+    IDXGIDeviceSubObject,
+    IDXGIDeviceSubObject_Vtbl,
+    0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6
+);
+impl core::ops::Deref for IDXGIDeviceSubObject {
+    type Target = IDXGIObject;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDXGIDeviceSubObject, windows_core::IUnknown, IDXGIObject);
+#[repr(C)]
+pub struct IDXGIDeviceSubObject_Vtbl {
+    pub base__: IDXGIObject_Vtbl,
+    GetDevice: usize,
+}
+windows_core::imp::define_interface!(
+    IDXGIObject,
+    IDXGIObject_Vtbl,
+    0xaec22fb8_76f3_4639_9be0_28eb43a67a2e
+);
+windows_core::imp::interface_hierarchy!(IDXGIObject, windows_core::IUnknown);
+#[repr(C)]
+pub struct IDXGIObject_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    SetPrivateData: usize,
+    SetPrivateDataInterface: usize,
+    GetPrivateData: usize,
+    GetParent: usize,
+}
+windows_core::imp::define_interface!(
+    IDXGISwapChain,
+    IDXGISwapChain_Vtbl,
+    0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a
+);
+impl core::ops::Deref for IDXGISwapChain {
+    type Target = IDXGIDeviceSubObject;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    IDXGISwapChain,
+    windows_core::IUnknown,
+    IDXGIObject,
+    IDXGIDeviceSubObject
+);
+#[repr(C)]
+pub struct IDXGISwapChain_Vtbl {
+    pub base__: IDXGIDeviceSubObject_Vtbl,
+    Present: usize,
+    GetBuffer: usize,
+    SetFullscreenState: usize,
+    GetFullscreenState: usize,
+    GetDesc: usize,
+    ResizeBuffers: usize,
+    ResizeTarget: usize,
+    GetContainingOutput: usize,
+    GetFrameStatistics: usize,
+    GetLastPresentCount: usize,
+}
 pub const IDYES: i32 = 6;
 windows_core::imp::define_interface!(
     IDataPackageView,
@@ -17112,14 +17174,14 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ISwapChainPanelNative, windows_core::IUnknown);
 impl ISwapChainPanelNative {
-    pub(crate) unsafe fn SetSwapChain(
-        &self,
-        swapchain: *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
+    pub(crate) unsafe fn SetSwapChain<P0>(&self, swapchain: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IDXGISwapChain>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).SetSwapChain)(
                 windows_core::Interface::as_raw(self),
-                swapchain as _,
+                swapchain.param().abi(),
             )
         }
     }
@@ -21200,25 +21262,22 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IWindowNative, windows_core::IUnknown);
 impl IWindowNative {
-    pub(crate) unsafe fn WindowHandle(
-        &self,
-        hwnd: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
+    pub(crate) unsafe fn WindowHandle(&self) -> windows_core::Result<HWND> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WindowHandle)(
                 windows_core::Interface::as_raw(self),
-                hwnd as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct IWindowNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub WindowHandle: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    pub WindowHandle:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IXamlBindingHelper,
@@ -30723,11 +30782,6 @@ pub struct WINDOWPLACEMENT {
     pub ptMaxPosition: POINT,
     pub rcNormalPosition: RECT,
 }
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 4;
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 6;
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562975723487232;
 pub const WM_SETICON: i32 = 128;
 pub const WM_SETTINGCHANGE: i32 = 26;
 pub const WM_THEMECHANGED: i32 = 794;

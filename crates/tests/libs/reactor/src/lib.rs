@@ -5,6 +5,7 @@ mod accessibility;
 mod application;
 mod background;
 mod canvas;
+mod canvas_image;
 mod controlled;
 mod dialog;
 mod dialog_theme;
@@ -289,6 +290,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "exit-with-window" => application::exit_with_open_window(false)?,
         "error-with-window" => application::exit_with_open_window(true)?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
+        "canvas-image" => App::run_component::<canvas_image::CanvasImageFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
         "radio" => App::run_component::<controlled::RadioFixture>(())?,
         "controlled-input" => App::run_component::<controlled::InputFixture>(())?,

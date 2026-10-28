@@ -509,14 +509,12 @@ impl WinUiAdapter {
                 let result = match self.handles.get(&object) {
                     Some(Handle::Generated(GeneratedHandle::SwapChainPanel(control))) => control
                         .cast::<native::ISwapChainPanelNative>()
-                        .and_then(|panel| unsafe {
-                            panel
-                                .SetSwapChain(
-                                    swap_chain
-                                        .as_ref()
-                                        .map_or(std::ptr::null_mut(), Interface::as_raw),
-                                )
-                                .ok()
+                        .and_then(|panel| {
+                            let swap_chain = swap_chain
+                                .as_ref()
+                                .map(Interface::cast::<native::IDXGISwapChain>)
+                                .transpose()?;
+                            unsafe { panel.SetSwapChain(swap_chain.as_ref()).ok() }
                         }),
                     _ => Err(windows_core::Error::new(
                         HRESULT(0x8000000E_u32 as i32),

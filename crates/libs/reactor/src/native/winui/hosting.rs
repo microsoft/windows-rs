@@ -951,14 +951,8 @@ impl WinUiAdapter {
 
         let needs_metrics = policy.client_size.is_some() || policy.minimum_client_size.is_some();
         if needs_metrics {
-            let mut hwnd = std::ptr::null_mut();
-            unsafe {
-                window
-                    .cast::<native::IWindowNative>()?
-                    .WindowHandle(&mut hwnd)
-                    .ok()?;
-            }
-            let dpi = unsafe { native::GetDpiForWindow(hwnd.cast()) }.max(96);
+            let hwnd = unsafe { window.cast::<native::IWindowNative>()?.WindowHandle()? };
+            let dpi = unsafe { native::GetDpiForWindow(hwnd) }.max(96);
             let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
             let client_window = app_window.cast::<native::IAppWindow2>()?;
 
