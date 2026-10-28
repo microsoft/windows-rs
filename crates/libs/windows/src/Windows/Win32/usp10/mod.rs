@@ -6,9 +6,9 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: &[SCRIPT_DIGITSUBSTITUTE; 1], p
 }
 #[cfg(all(feature = "shared", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], pabc: Option<&mut [super::ABC; 1]>, pijustify: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const super::WORD, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], mut pabc: Option<&mut [super::ABC; 1]>, pijustify: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const super::WORD, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::ABC, pijustify : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa.as_ptr(), pabc.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pijustify as _) }
+    unsafe { ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa.as_ptr(), pabc.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pijustify as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]

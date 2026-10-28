@@ -6,9 +6,9 @@ pub unsafe fn AllocateUserPhysicalPages(hprocess: super::HANDLE, numberofpages: 
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AllocateUserPhysicalPages2(objecthandle: super::HANDLE, numberofpages: super::PULONG_PTR, pagearray: super::PULONG_PTR, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::BOOL {
+pub unsafe fn AllocateUserPhysicalPages2(objecthandle: super::HANDLE, numberofpages: super::PULONG_PTR, pagearray: super::PULONG_PTR, mut extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::BOOL {
     windows_core::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR, extendedparameters : super::PMEM_EXTENDED_PARAMETER, extendedparametercount : super::ULONG) -> windows_core::BOOL);
-    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, core::mem::transmute(extendedparameters.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -18,12 +18,12 @@ pub unsafe fn AllocateUserPhysicalPagesNuma(hprocess: super::HANDLE, numberofpag
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFileMapping2<P6>(file: super::HANDLE, securityattributes: Option<*const super::SECURITY_ATTRIBUTES>, desiredaccess: super::ULONG, pageprotection: super::ULONG, allocationattributes: super::ULONG, maximumsize: super::ULONG64, name: P6, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::HANDLE
+pub unsafe fn CreateFileMapping2<P6>(file: super::HANDLE, securityattributes: Option<*const super::SECURITY_ATTRIBUTES>, desiredaccess: super::ULONG, pageprotection: super::ULONG, allocationattributes: super::ULONG, maximumsize: super::ULONG64, name: P6, mut extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::HANDLE
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn CreateFileMapping2(file : super::HANDLE, securityattributes : *const super::SECURITY_ATTRIBUTES, desiredaccess : super::ULONG, pageprotection : super::ULONG, allocationattributes : super::ULONG, maximumsize : super::ULONG64, name : windows_core::PCWSTR, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, parametercount : super::ULONG) -> super::HANDLE);
-    unsafe { CreateFileMapping2(file, securityattributes.unwrap_or(core::mem::zeroed()) as _, desiredaccess, pageprotection, allocationattributes, maximumsize, name.param().abi(), extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CreateFileMapping2(file, securityattributes.unwrap_or(core::mem::zeroed()) as _, desiredaccess, pageprotection, allocationattributes, maximumsize, name.param().abi(), extendedparameters.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -156,15 +156,15 @@ pub unsafe fn MapViewOfFile(hfilemappingobject: super::HANDLE, dwdesiredaccess: 
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MapViewOfFile3(filemapping: super::HANDLE, process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, offset: super::ULONG64, viewsize: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
+pub unsafe fn MapViewOfFile3(filemapping: super::HANDLE, process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, offset: super::ULONG64, viewsize: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, mut extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3(filemapping : super::HANDLE, process : super::HANDLE, baseaddress : super::PVOID, offset : super::ULONG64, viewsize : super::SIZE_T, allocationtype : super::ULONG, pageprotection : super::ULONG, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, parametercount : super::ULONG) -> super::PVOID);
-    unsafe { MapViewOfFile3(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MapViewOfFile3(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, extendedparameters.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MapViewOfFile3FromApp(filemapping: super::HANDLE, process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, offset: super::ULONG64, viewsize: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
+pub unsafe fn MapViewOfFile3FromApp(filemapping: super::HANDLE, process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, offset: super::ULONG64, viewsize: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, mut extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3FromApp(filemapping : super::HANDLE, process : super::HANDLE, baseaddress : super::PVOID, offset : super::ULONG64, viewsize : super::SIZE_T, allocationtype : super::ULONG, pageprotection : super::ULONG, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, parametercount : super::ULONG) -> super::PVOID);
-    unsafe { MapViewOfFile3FromApp(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MapViewOfFile3FromApp(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, extendedparameters.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -324,15 +324,15 @@ pub unsafe fn VirtualAlloc(lpaddress: Option<super::LPVOID>, dwsize: super::SIZE
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn VirtualAlloc2(process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, size: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
+pub unsafe fn VirtualAlloc2(process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, size: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, mut extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2(process : super::HANDLE, baseaddress : super::PVOID, size : super::SIZE_T, allocationtype : super::ULONG, pageprotection : super::ULONG, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, parametercount : super::ULONG) -> super::PVOID);
-    unsafe { VirtualAlloc2(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { VirtualAlloc2(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, extendedparameters.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn VirtualAlloc2FromApp(process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, size: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
+pub unsafe fn VirtualAlloc2FromApp(process: Option<super::HANDLE>, baseaddress: Option<super::PVOID>, size: super::SIZE_T, allocationtype: super::ULONG, pageprotection: super::ULONG, mut extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> super::PVOID {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2FromApp(process : super::HANDLE, baseaddress : super::PVOID, size : super::SIZE_T, allocationtype : super::ULONG, pageprotection : super::ULONG, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, parametercount : super::ULONG) -> super::PVOID);
-    unsafe { VirtualAlloc2FromApp(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { VirtualAlloc2FromApp(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, extendedparameters.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]

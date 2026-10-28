@@ -632,6 +632,18 @@ impl CppMethod {
             }
 
             let name = param.write_ident();
+            let name = if matches!(
+                self.param_hints[position],
+                ParamHint::ArrayFixed(_)
+                    | ParamHint::ArrayRelativeLen(_)
+                    | ParamHint::ArrayRelativeByteLen(_)
+            ) && param.is_optional_or_reserved()
+                && !param.is_input_only()
+            {
+                quote! { mut #name }
+            } else {
+                name
+            };
 
             match self.param_hints[position] {
                 ParamHint::ArrayRaw => {
@@ -769,7 +781,7 @@ impl CppMethod {
                                 if param.is_input_only() {
                                     quote! { #name.map_or(core::ptr::null(), |slice|slice.as_ptr()) }
                                 } else {
-                                    quote! { #name.as_deref().map_or(core::ptr::null_mut(), |slice|slice.as_ptr().cast_mut()) }
+                                    quote! { #name.as_mut().map_or(core::ptr::null_mut(), |slice|slice.as_mut_ptr()) }
                                 }
                             } else if param.is_input_only() {
                                 quote! { #name.as_ptr() }

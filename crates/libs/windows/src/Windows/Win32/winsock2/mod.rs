@@ -5,9 +5,9 @@ pub unsafe fn GetHostNameW(name: windows_core::PWSTR, namelen: i32) -> i32 {
 }
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ProcessSocketNotifications(completionport: super::HANDLE, registrationinfos: Option<&mut [SOCK_NOTIFY_REGISTRATION]>, timeoutms: super::UINT32, completioncount: super::ULONG, completionportentries: Option<*mut super::OVERLAPPED_ENTRY>, receivedentrycount: Option<*mut super::UINT32>) -> super::DWORD {
+pub unsafe fn ProcessSocketNotifications(completionport: super::HANDLE, mut registrationinfos: Option<&mut [SOCK_NOTIFY_REGISTRATION]>, timeoutms: super::UINT32, completioncount: super::ULONG, completionportentries: Option<*mut super::OVERLAPPED_ENTRY>, receivedentrycount: Option<*mut super::UINT32>) -> super::DWORD {
     windows_core::link!("ws2_32.dll" "system" fn ProcessSocketNotifications(completionport : super::HANDLE, registrationcount : super::UINT32, registrationinfos : *mut SOCK_NOTIFY_REGISTRATION, timeoutms : super::UINT32, completioncount : super::ULONG, completionportentries : *mut super::OVERLAPPED_ENTRY, receivedentrycount : *mut super::UINT32) -> super::DWORD);
-    unsafe { ProcessSocketNotifications(completionport, registrationinfos.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), registrationinfos.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), timeoutms, completioncount, completionportentries.unwrap_or(core::mem::zeroed()) as _, receivedentrycount.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ProcessSocketNotifications(completionport, registrationinfos.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), registrationinfos.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), timeoutms, completioncount, completionportentries.unwrap_or(core::mem::zeroed()) as _, receivedentrycount.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "qos", feature = "shared", feature = "ws2"))]
 #[inline]

@@ -11,7 +11,7 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: super::LPVOID, objecttypename: P2, objectname: P3, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::DWORD, audittype: super::AUDIT_EVENT_TYPE, flags: super::DWORD, objecttypelist: Option<&mut [super::OBJECT_TYPE_LIST]>, genericmapping: super::PGENERIC_MAPPING, objectcreation: bool, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL, pfgenerateonclose: super::LPBOOL) -> windows_core::BOOL
+pub unsafe fn AccessCheckByTypeAndAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: super::LPVOID, objecttypename: P2, objectname: P3, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::DWORD, audittype: super::AUDIT_EVENT_TYPE, flags: super::DWORD, mut objecttypelist: Option<&mut [super::OBJECT_TYPE_LIST]>, genericmapping: super::PGENERIC_MAPPING, objectcreation: bool, grantedaccess: super::LPDWORD, accessstatus: super::LPBOOL, pfgenerateonclose: super::LPBOOL) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -29,7 +29,7 @@ where
             desiredaccess,
             audittype,
             flags,
-            core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
+            core::mem::transmute(objecttypelist.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())),
             objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             genericmapping,
             objectcreation.into(),

@@ -1259,9 +1259,9 @@ pub unsafe fn JetRetrieveColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid
     unsafe { JetRetrieveColumn(sesid, tableid, columnid, pvdata.unwrap_or(core::mem::zeroed()) as _, cbdata, pcbactual.unwrap_or(core::mem::zeroed()) as _, grbit, pretinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, pretrievecolumn: Option<&mut [JET_RETRIEVECOLUMN]>) -> JET_ERR {
+pub unsafe fn JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, mut pretrievecolumn: Option<&mut [JET_RETRIEVECOLUMN]>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetRetrieveColumns(sesid : JET_SESID, tableid : JET_TABLEID, pretrievecolumn : *mut JET_RETRIEVECOLUMN, cretrievecolumn : JET_UINT32) -> JET_ERR);
-    unsafe { JetRetrieveColumns(sesid, tableid, pretrievecolumn.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pretrievecolumn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { JetRetrieveColumns(sesid, tableid, pretrievecolumn.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr()), pretrievecolumn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn JetRetrieveKey(sesid: JET_SESID, tableid: JET_TABLEID, pvkey: Option<JET_PVOID>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {

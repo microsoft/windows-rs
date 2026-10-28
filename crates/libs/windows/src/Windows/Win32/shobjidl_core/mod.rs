@@ -19930,12 +19930,12 @@ impl ITransferAdviseSink {
         unsafe { (windows_core::Interface::vtable(self).ConfirmEncryptionLoss)(windows_core::Interface::as_raw(self), psisource.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn FileFailure<P0, P1>(&self, psi: P0, pszitem: P1, hrerror: windows_core::HRESULT, pszrename: Option<&mut [u16]>) -> windows_core::HRESULT
+    pub unsafe fn FileFailure<P0, P1>(&self, psi: P0, pszitem: P1, hrerror: windows_core::HRESULT, mut pszrename: Option<&mut [u16]>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FileFailure)(windows_core::Interface::as_raw(self), psi.param().abi(), pszitem.param().abi(), hrerror, core::mem::transmute(pszrename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszrename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).FileFailure)(windows_core::Interface::as_raw(self), psi.param().abi(), pszitem.param().abi(), hrerror, core::mem::transmute(pszrename.as_mut().map_or(core::ptr::null_mut(), |slice| slice.as_mut_ptr())), pszrename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
     pub unsafe fn SubStreamFailure<P0, P1>(&self, psi: P0, pszstreamname: P1, hrerror: windows_core::HRESULT) -> windows_core::HRESULT
     where
