@@ -13,26 +13,26 @@ mod Windows {
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IForegroundEnergyDiagnosticsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 class ForegroundEnergyDiagnostics {}
-                #[guid(0xd7663702_d3a6_46e0_8f9b_50b95bb4f9c5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundEnergyDiagnostics)]
+                #[guid(0xd7663702_d3a6_46e0_8f9b_50b95bb4f9c5)]
                 interface IBackgroundEnergyDiagnosticsStatics {
-                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    #[get]
                     DeviceSpecificConversionFactor: f64;
                     #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                     fn ComputeTotalEnergyUsage(&self) -> u64;
                     #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                     fn ResetTotalEnergyUsage(&self);
                 }
-                #[guid(0x23ca0917_cd07_4609_be15_8fe894c5e41e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ForegroundEnergyDiagnostics)]
+                #[guid(0x23ca0917_cd07_4609_be15_8fe894c5e41e)]
                 interface IForegroundEnergyDiagnosticsStatics {
-                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    #[get]
                     DeviceSpecificConversionFactor: f64;
                     #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                     fn ComputeTotalEnergyUsage(&self) -> u64;

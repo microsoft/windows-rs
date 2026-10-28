@@ -2,9 +2,9 @@
 mod Windows {
     mod ApplicationModel {
         mod UserDataAccounts {
-            #[guid(0xb9c4367e_b348_4910_be94_4ad4bba6dea7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccount)]
+            #[guid(0xb9c4367e_b348_4910_be94_4ad4bba6dea7)]
             interface IUserDataAccount {
                 #[get]
                 Id: String;
@@ -29,26 +29,26 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindContactAnnotationListsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactAnnotationList>>;
             }
-            #[guid(0x078cd89f_de82_404b_8195_c8a3ac198f60)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccount)]
+            #[guid(0x078cd89f_de82_404b_8195_c8a3ac198f60)]
             interface IUserDataAccount2: IUserDataAccount {
                 #[get]
                 EnterpriseId: String;
                 #[get]
                 IsProtectedUnderLock: bool;
             }
-            #[guid(0x01533845_6c43_4286_9d69_3e1709a1f266)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccount)]
+            #[guid(0x01533845_6c43_4286_9d69_3e1709a1f266)]
             interface IUserDataAccount3 {
                 #[get]
                 ExplictReadAccessPackageFamilyNames: super::super::Foundation::Collections::IVector<String>;
                 DisplayName: String;
             }
-            #[guid(0xc4315210_eae5_4f0a_a8b2_1cca115e008f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccount)]
+            #[guid(0xc4315210_eae5_4f0a_a8b2_1cca115e008f)]
             interface IUserDataAccount4 {
                 CanShowCreateContactGroup: bool;
                 #[get]
@@ -64,65 +64,65 @@ mod Windows {
                 #[set]
                 Icon: super::super::Storage::Streams::IRandomAccessStreamReference;
             }
-            #[guid(0x56a6e8db_db8f_41ab_a65f_8c5971aac982)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountManagerForUser)]
+            #[guid(0x56a6e8db_db8f_41ab_a65f_8c5971aac982)]
             interface IUserDataAccountManagerForUser {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
+                fn RequestStoreAsync(&self, #[in] storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
                 #[get]
                 User: super::super::System::User;
             }
-            #[guid(0x0d9b89ea_1928_4a20_86d5_3c737f7dc3b0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountManager)]
+            #[guid(0x0d9b89ea_1928_4a20_86d5_3c737f7dc3b0)]
             interface IUserDataAccountManagerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
+                fn RequestStoreAsync(&self, #[in] storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAddAccountAsync(&self, contentKinds: UserDataAccountContentKinds) -> super::super::Foundation::IAsyncOperation<String>;
+                fn ShowAddAccountAsync(&self, #[in] contentKinds: UserDataAccountContentKinds) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAccountSettingsAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                fn ShowAccountSettingsAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAccountErrorResolverAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                fn ShowAccountErrorResolverAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x6a3ded88_316b_435e_b534_f7d4b4b7dba6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountManager)]
+            #[guid(0x6a3ded88_316b_435e_b534_f7d4b4b7dba6)]
             interface IUserDataAccountManagerStatics2 {
-                fn GetForUser(&self, user: super::super::System::User) -> UserDataAccountManagerForUser;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> UserDataAccountManagerForUser;
             }
-            #[guid(0x2073b0ad_7d0a_4e76_bf45_2368f978a59a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountStore)]
+            #[guid(0x2073b0ad_7d0a_4e76_bf45_2368f978a59a)]
             interface IUserDataAccountStore {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAccountsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataAccount>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAccountAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn GetAccountAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountAsync(&self, #[in] userDisplayName: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
             }
-            #[guid(0xb1e0aef7_9560_4631_8af0_061d30161469)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountStore)]
+            #[guid(0xb1e0aef7_9560_4631_8af0_061d30161469)]
             interface IUserDataAccountStore2: IUserDataAccountStore {
                 #[Windows::Foundation::Metadata::Overload("CreateAccountWithPackageRelativeAppIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String, packageRelativeAppId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountAsync(&self, #[in] userDisplayName: String, #[in] packageRelativeAppId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
                 event StoreChanged: super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>;
             }
-            #[guid(0x8142c094_f3c9_478b_b117_6585bebb6789)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountStore)]
+            #[guid(0x8142c094_f3c9_478b_b117_6585bebb6789)]
             interface IUserDataAccountStore3: IUserDataAccountStore {
                 #[Windows::Foundation::Metadata::Overload("CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String, packageRelativeAppId: String, enterpriseId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountAsync(&self, #[in] userDisplayName: String, #[in] packageRelativeAppId: String, #[in] enterpriseId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
             }
-            #[guid(0x84e3e2e5_8820_4512_b1f6_2e035be1072c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountStoreChangedEventArgs)]
+            #[guid(0x84e3e2e5_8820_4512_b1f6_2e035be1072c)]
             interface IUserDataAccountStoreChangedEventArgs {
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
@@ -138,9 +138,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IUserDataAccount4,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum UserDataAccountContentKinds {
                 Email = 1,
                 Contact = 2,
@@ -148,8 +148,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IUserDataAccountManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IUserDataAccountManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IUserDataAccountManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataAccountManager {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -157,11 +157,12 @@ mod Windows {
             class UserDataAccountManagerForUser {
                 IUserDataAccountManagerForUser,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum UserDataAccountOtherAppReadAccess {
                 SystemOnly = 0,
                 Full = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 None = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -174,8 +175,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IUserDataAccountStore3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum UserDataAccountStoreAccessType {
                 AllAccountsReadOnly = 0,
                 AppAccountsReadWrite = 1,

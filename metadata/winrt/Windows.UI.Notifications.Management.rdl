@@ -3,23 +3,23 @@ mod Windows {
     mod UI {
         mod Notifications {
             mod Management {
-                #[guid(0x62553e41_8a06_4cef_8215_6033a5be4b03)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserNotificationListener)]
+                #[guid(0x62553e41_8a06_4cef_8215_6033a5be4b03)]
                 interface IUserNotificationListener {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestAccessAsync(&self) -> super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>;
                     fn GetAccessStatus(&self) -> UserNotificationListenerAccessStatus;
                     event NotificationChanged: super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>;
-                    fn GetNotification(&self, notificationId: u32) -> super::UserNotification;
+                    fn GetNotificationsAsync(&self, #[in] kinds: super::NotificationKinds) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>;
+                    fn GetNotification(&self, #[in] notificationId: u32) -> super::UserNotification;
                     fn ClearNotifications(&self);
-                    fn RemoveNotification(&self, notificationId: u32);
+                    fn RemoveNotification(&self, #[in] notificationId: u32);
                 }
-                #[guid(0xff6123cf_4386_4aa3_b73d_b804e5b63b23)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserNotificationListener)]
+                #[guid(0xff6123cf_4386_4aa3_b73d_b804e5b63b23)]
                 interface IUserNotificationListenerStatics {
                     #[get]
                     Current: UserNotificationListener;
@@ -31,8 +31,8 @@ mod Windows {
                 class UserNotificationListener {
                     IUserNotificationListener,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum UserNotificationListenerAccessStatus {
                     Unspecified = 0,
                     Allowed = 1,

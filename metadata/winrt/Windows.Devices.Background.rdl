@@ -14,9 +14,9 @@ mod Windows {
             class DeviceUseDetails {
                 IDeviceUseDetails,
             }
-            #[guid(0x4aabee29_2344_4ac4_8527_4a8ef6905645)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceServicingDetails)]
+            #[guid(0x4aabee29_2344_4ac4_8527_4a8ef6905645)]
             interface IDeviceServicingDetails {
                 #[get]
                 DeviceId: String;
@@ -25,9 +25,9 @@ mod Windows {
                 #[get]
                 ExpectedDuration: super::super::Foundation::TimeSpan;
             }
-            #[guid(0x7d565141_557e_4154_b994_e4f7a11fb323)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceUseDetails)]
+            #[guid(0x7d565141_557e_4154_b994_e4f7a11fb323)]
             interface IDeviceUseDetails {
                 #[get]
                 DeviceId: String;

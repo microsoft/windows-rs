@@ -8,13 +8,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(ICoreUserActivityManagerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CoreUserActivityManager {}
-                #[guid(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreUserActivityManager)]
+                #[guid(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb)]
                 interface ICoreUserActivityManagerStatics {
-                    fn CreateUserActivitySessionInBackground(&self, activity: super::UserActivity) -> super::UserActivitySession;
+                    fn CreateUserActivitySessionInBackground(&self, #[in] activity: super::UserActivity) -> super::UserActivitySession;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DeleteUserActivitySessionsInTimeRangeAsync(&self, channel: super::UserActivityChannel, startTime: super::super::super::Foundation::DateTime, endTime: super::super::super::Foundation::DateTime) -> super::super::super::Foundation::IAsyncAction;
+                    fn DeleteUserActivitySessionsInTimeRangeAsync(&self, #[in] channel: super::UserActivityChannel, #[in] startTime: super::super::super::Foundation::DateTime, #[in] endTime: super::super::super::Foundation::DateTime) -> super::super::super::Foundation::IAsyncAction;
                 }
             }
         }

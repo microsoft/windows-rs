@@ -29,9 +29,9 @@ mod Windows {
                 class CustomSensorReadingChangedEventArgs {
                     ICustomSensorReadingChangedEventArgs,
                 }
-                #[guid(0xa136f9ad_4034_4b4d_99dd_531aac649c09)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensor)]
+                #[guid(0xa136f9ad_4034_4b4d_99dd_531aac649c09)]
                 interface ICustomSensor {
                     fn GetCurrentReading(&self) -> CustomSensorReading;
                     #[get]
@@ -44,9 +44,9 @@ mod Windows {
                     DeviceId: String;
                     event ReadingChanged: super::super::super::Foundation::TypedEventHandler<CustomSensor, CustomSensorReadingChangedEventArgs>;
                 }
-                #[guid(0x20db3111_ec58_4d9f_bfbd_e77825088510)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensor)]
+                #[guid(0x20db3111_ec58_4d9f_bfbd_e77825088510)]
                 interface ICustomSensor2 {
                     #[set]
                     ReportLatency: u32;
@@ -55,36 +55,36 @@ mod Windows {
                     #[get]
                     MaxBatchSize: u32;
                 }
-                #[guid(0x64004f4d_446a_4366_a87a_5f963268ec53)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReading)]
+                #[guid(0x64004f4d_446a_4366_a87a_5f963268ec53)]
                 interface ICustomSensorReading {
                     #[get]
                     Timestamp: super::super::super::Foundation::DateTime;
                     #[get]
                     Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
                 }
-                #[guid(0x223c98ea_bf73_4992_9a48_d3c897594ccb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReading)]
+                #[guid(0x223c98ea_bf73_4992_9a48_d3c897594ccb)]
                 interface ICustomSensorReading2 {
                     #[get]
                     PerformanceCount: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                 }
-                #[guid(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReadingChangedEventArgs)]
+                #[guid(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc)]
                 interface ICustomSensorReadingChangedEventArgs {
                     #[get]
                     Reading: CustomSensorReading;
                 }
-                #[guid(0x992052cf_f422_4c7d_836b_e7dc74a7124b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensor)]
+                #[guid(0x992052cf_f422_4c7d_836b_e7dc74a7124b)]
                 interface ICustomSensorStatics {
-                    fn GetDeviceSelector(&self, interfaceId: GUID) -> String;
+                    fn GetDeviceSelector(&self, #[in] interfaceId: GUID) -> String;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FromIdAsync(&self, sensorId: String) -> super::super::super::Foundation::IAsyncOperation<CustomSensor>;
+                    fn FromIdAsync(&self, #[in] sensorId: String) -> super::super::super::Foundation::IAsyncOperation<CustomSensor>;
                 }
             }
         }

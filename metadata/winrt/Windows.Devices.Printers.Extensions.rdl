@@ -6,9 +6,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ApiContract]
                 #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 struct ExtensionsContract {}
-                #[guid(0xc56f74bd_3669_4a66_ab42_c8151930cd34)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Print3DWorkflow)]
+                #[guid(0xc56f74bd_3669_4a66_ab42_c8151930cd34)]
                 interface IPrint3DWorkflow {
                     #[get]
                     DeviceID: String;
@@ -16,70 +16,70 @@ mod Windows {
                     IsPrintReady: bool;
                     event PrintRequested: super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>;
                 }
-                #[guid(0xa2a6c54f_8ac1_4918_9741_e34f3004239e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Print3DWorkflow)]
+                #[guid(0xa2a6c54f_8ac1_4918_9741_e34f3004239e)]
                 interface IPrint3DWorkflow2 {
                     event PrinterChanged: super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>;
                 }
-                #[guid(0x19f8c858_5ac8_4b55_8a5f_e61567dafb4d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Print3DWorkflowPrintRequestedEventArgs)]
+                #[guid(0x19f8c858_5ac8_4b55_8a5f_e61567dafb4d)]
                 interface IPrint3DWorkflowPrintRequestedEventArgs {
                     #[get]
                     Status: Print3DWorkflowStatus;
-                    fn SetExtendedStatus(&self, value: Print3DWorkflowDetail);
-                    fn SetSource(&self, source: Object);
-                    fn SetSourceChanged(&self, value: bool);
+                    fn SetExtendedStatus(&self, #[in] value: Print3DWorkflowDetail);
+                    fn SetSource(&self, #[in] source: Object);
+                    fn SetSourceChanged(&self, #[in] value: bool);
                 }
-                #[guid(0x45226402_95fc_4847_93b3_134dbf5c60f7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Print3DWorkflowPrinterChangedEventArgs)]
+                #[guid(0x45226402_95fc_4847_93b3_134dbf5c60f7)]
                 interface IPrint3DWorkflowPrinterChangedEventArgs {
                     #[get]
                     NewDeviceId: String;
                 }
-                #[guid(0xe70d9fc1_ff79_4aa4_8c9b_0c93aedfde8a)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintExtensionContext)]
+                #[guid(0xe70d9fc1_ff79_4aa4_8c9b_0c93aedfde8a)]
                 interface IPrintExtensionContextStatic {
-                    fn FromDeviceId(&self, deviceId: String) -> Object;
+                    fn FromDeviceId(&self, #[in] deviceId: String) -> Object;
                 }
-                #[guid(0xe00e4c8a_4828_4da1_8bb8_8672df8515e7)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintNotificationEventDetails)]
+                #[guid(0xe00e4c8a_4828_4da1_8bb8_8672df8515e7)]
                 interface IPrintNotificationEventDetails {
                     #[get]
                     PrinterName: String;
                     EventData: String;
                 }
-                #[guid(0xe3c22451_3aa4_4885_9240_311f5f8fbe9d)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskConfiguration)]
+                #[guid(0xe3c22451_3aa4_4885_9240_311f5f8fbe9d)]
                 interface IPrintTaskConfiguration {
                     #[get]
                     PrinterExtensionContext: Object;
                     event SaveRequested: super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>;
                 }
-                #[guid(0xeeaf2fcb_621e_4b62_ac77_b281cce08d60)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskConfigurationSaveRequest)]
+                #[guid(0xeeaf2fcb_621e_4b62_ac77_b281cce08d60)]
                 interface IPrintTaskConfigurationSaveRequest {
                     fn Cancel(&self);
-                    fn Save(&self, printerExtensionContext: Object);
+                    fn Save(&self, #[in] printerExtensionContext: Object);
                     fn GetDeferral(&self) -> PrintTaskConfigurationSaveRequestedDeferral;
                     #[get]
                     Deadline: super::super::super::Foundation::DateTime;
                 }
-                #[guid(0xe959d568_f729_44a4_871d_bd0628696a33)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskConfigurationSaveRequestedDeferral)]
+                #[guid(0xe959d568_f729_44a4_871d_bd0628696a33)]
                 interface IPrintTaskConfigurationSaveRequestedDeferral {
                     fn Complete(&self);
                 }
-                #[guid(0xe06c2879_0d61_4938_91d0_96a45bee8479)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskConfigurationSaveRequestedEventArgs)]
+                #[guid(0xe06c2879_0d61_4938_91d0_96a45bee8479)]
                 interface IPrintTaskConfigurationSaveRequestedEventArgs {
                     #[get]
                     Request: PrintTaskConfigurationSaveRequest;
@@ -92,8 +92,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     IPrint3DWorkflow2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[repr(i32)]
                 enum Print3DWorkflowDetail {
                     Unknown = 0,
                     ModelExceedsPrintBed = 1,
@@ -115,8 +115,8 @@ mod Windows {
                 class Print3DWorkflowPrinterChangedEventArgs {
                     IPrint3DWorkflowPrinterChangedEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[repr(i32)]
                 enum Print3DWorkflowStatus {
                     Abandoned = 0,
                     Canceled = 1,

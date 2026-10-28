@@ -2,20 +2,26 @@
 mod Windows {
     mod Media {
         mod Render {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum AudioRenderCategory {
                 Other = 0,
+                #[Windows::Foundation::Metadata::Deprecated("ForegroundOnlyMedia is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 ForegroundOnlyMedia = 1,
+                #[Windows::Foundation::Metadata::Deprecated("BackgroundCapableMedia is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 BackgroundCapableMedia = 2,
                 Communications = 3,
                 Alerts = 4,
                 SoundEffects = 5,
                 GameEffects = 6,
                 GameMedia = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 GameChat = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Speech = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Movie = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Media = 11,
             }
         }

@@ -41,8 +41,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSourceCreationResult2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum AdaptiveMediaSourceCreationStatus {
                     Success = 0,
                     ManifestDownloadFailure = 1,
@@ -63,8 +63,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IAdaptiveMediaSourceDiagnosticAvailableEventArgs3,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum AdaptiveMediaSourceDiagnosticType {
                     ManifestUnchangedUponReload = 0,
                     ManifestMismatchUponReload = 1,
@@ -74,6 +74,7 @@ mod Windows {
                     ResourceTimedOut = 5,
                     ResourceParsingError = 6,
                     BitrateDisabled = 7,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     FatalMediaSourceError = 8,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -92,8 +93,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum AdaptiveMediaSourceDownloadBitrateChangedReason {
                     SufficientInboundBitsPerSecond = 0,
                     InsufficientInboundBitsPerSecond = 1,
@@ -166,19 +167,20 @@ mod Windows {
                 class AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
                     IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum AdaptiveMediaSourceResourceType {
                     Manifest = 0,
                     InitializationSegment = 1,
                     MediaSegment = 2,
                     Key = 3,
                     InitializationVector = 4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     MediaSegmentIndex = 5,
                 }
-                #[guid(0x4c7332ef_d39f_4396_b4d9_043957a7c964)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                #[guid(0x4c7332ef_d39f_4396_b4d9_043957a7c964)]
                 interface IAdaptiveMediaSource: super::super::Core::IMediaSource {
                     #[get]
                     IsLive: bool;
@@ -203,16 +205,16 @@ mod Windows {
                     event DownloadCompleted: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadCompletedEventArgs>;
                     event DownloadFailed: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadFailedEventArgs>;
                 }
-                #[guid(0x17890342_6760_4bb9_a58a_f7aa98b08c0e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                #[guid(0x17890342_6760_4bb9_a58a_f7aa98b08c0e)]
                 interface IAdaptiveMediaSource2 {
                     #[get]
                     AdvancedSettings: AdaptiveMediaSourceAdvancedSettings;
                 }
-                #[guid(0xba7023fd_c334_461b_a36e_c99f54f7174a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                #[guid(0xba7023fd_c334_461b_a36e_c99f54f7174a)]
                 interface IAdaptiveMediaSource3 {
                     #[get]
                     MinLiveOffset: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
@@ -223,17 +225,17 @@ mod Windows {
                     Diagnostics: AdaptiveMediaSourceDiagnostics;
                     fn GetCorrelatedTimes(&self) -> AdaptiveMediaSourceCorrelatedTimes;
                 }
-                #[guid(0x55db1680_1aeb_47dc_aa08_9a11610ba45a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceAdvancedSettings)]
+                #[guid(0x55db1680_1aeb_47dc_aa08_9a11610ba45a)]
                 interface IAdaptiveMediaSourceAdvancedSettings {
                     AllSegmentsIndependent: bool;
                     DesiredBitrateHeadroomRatio: super::super::super::Foundation::IReference<f64>;
                     BitrateDowngradeTriggerRatio: super::super::super::Foundation::IReference<f64>;
                 }
-                #[guid(0x05108787_e032_48e1_ab8d_002b0b3051df)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceCorrelatedTimes)]
+                #[guid(0x05108787_e032_48e1_ab8d_002b0b3051df)]
                 interface IAdaptiveMediaSourceCorrelatedTimes {
                     #[get]
                     Position: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
@@ -242,9 +244,9 @@ mod Windows {
                     #[get]
                     ProgramDateTime: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
                 }
-                #[guid(0x4686b6b2_800f_4e31_9093_76d4782013e7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceCreationResult)]
+                #[guid(0x4686b6b2_800f_4e31_9093_76d4782013e7)]
                 interface IAdaptiveMediaSourceCreationResult {
                     #[get]
                     Status: AdaptiveMediaSourceCreationStatus;
@@ -253,16 +255,16 @@ mod Windows {
                     #[get]
                     HttpResponseMessage: super::super::super::Web::Http::HttpResponseMessage;
                 }
-                #[guid(0x1c3243bf_1c44_404b_a201_df45ac7898e8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceCreationResult)]
+                #[guid(0x1c3243bf_1c44_404b_a201_df45ac7898e8)]
                 interface IAdaptiveMediaSourceCreationResult2 {
                     #[get]
                     ExtendedError: HRESULT;
                 }
-                #[guid(0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnosticAvailableEventArgs)]
+                #[guid(0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68)]
                 interface IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
                     #[get]
                     DiagnosticType: AdaptiveMediaSourceDiagnosticType;
@@ -283,47 +285,47 @@ mod Windows {
                     #[get]
                     Bitrate: super::super::super::Foundation::IReference<u32>;
                 }
-                #[guid(0x8c6dd857_16a5_4d9f_810e_00bd901b3ef9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnosticAvailableEventArgs)]
+                #[guid(0x8c6dd857_16a5_4d9f_810e_00bd901b3ef9)]
                 interface IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 {
                     #[get]
                     ExtendedError: HRESULT;
                 }
-                #[guid(0xc3650cd5_daeb_4103_84da_68769ad513ff)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnosticAvailableEventArgs)]
+                #[guid(0xc3650cd5_daeb_4103_84da_68769ad513ff)]
                 interface IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
                     #[get]
                     ResourceDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                     #[get]
                     ResourceContentType: String;
                 }
-                #[guid(0x9b24ee68_962e_448c_aebf_b29b56098e23)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnostics)]
+                #[guid(0x9b24ee68_962e_448c_aebf_b29b56098e23)]
                 interface IAdaptiveMediaSourceDiagnostics {
                     event DiagnosticAvailable: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSourceDiagnostics, AdaptiveMediaSourceDiagnosticAvailableEventArgs>;
                 }
-                #[guid(0x670c0a44_e04e_4eff_816a_17399f78f4ba)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadBitrateChangedEventArgs)]
+                #[guid(0x670c0a44_e04e_4eff_816a_17399f78f4ba)]
                 interface IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
                     #[get]
                     OldValue: u32;
                     #[get]
                     NewValue: u32;
                 }
-                #[guid(0xf3f1f444_96ae_4de0_b540_2b3246e6968c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadBitrateChangedEventArgs)]
+                #[guid(0xf3f1f444_96ae_4de0_b540_2b3246e6968c)]
                 interface IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
                     #[get]
                     Reason: AdaptiveMediaSourceDownloadBitrateChangedReason;
                 }
-                #[guid(0x19240dc3_5b37_4a1a_8970_d621cb6ca83b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadCompletedEventArgs)]
+                #[guid(0x19240dc3_5b37_4a1a_8970_d621cb6ca83b)]
                 interface IAdaptiveMediaSourceDownloadCompletedEventArgs {
                     #[get]
                     ResourceType: AdaptiveMediaSourceResourceType;
@@ -336,9 +338,9 @@ mod Windows {
                     #[get]
                     HttpResponseMessage: super::super::super::Web::Http::HttpResponseMessage;
                 }
-                #[guid(0x704744c4_964a_40e4_af95_9177dd6dfa00)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadCompletedEventArgs)]
+                #[guid(0x704744c4_964a_40e4_af95_9177dd6dfa00)]
                 interface IAdaptiveMediaSourceDownloadCompletedEventArgs2 {
                     #[get]
                     RequestId: i32;
@@ -347,18 +349,18 @@ mod Windows {
                     #[get]
                     Position: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                 }
-                #[guid(0x0f8a8bd1_93b2_47c6_badc_8be2c8f7f6e8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadCompletedEventArgs)]
+                #[guid(0x0f8a8bd1_93b2_47c6_badc_8be2c8f7f6e8)]
                 interface IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
                     #[get]
                     ResourceDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                     #[get]
                     ResourceContentType: String;
                 }
-                #[guid(0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadFailedEventArgs)]
+                #[guid(0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1)]
                 interface IAdaptiveMediaSourceDownloadFailedEventArgs {
                     #[get]
                     ResourceType: AdaptiveMediaSourceResourceType;
@@ -371,9 +373,9 @@ mod Windows {
                     #[get]
                     HttpResponseMessage: super::super::super::Web::Http::HttpResponseMessage;
                 }
-                #[guid(0x70919568_967c_4986_90c5_c6fc4b31e2d8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadFailedEventArgs)]
+                #[guid(0x70919568_967c_4986_90c5_c6fc4b31e2d8)]
                 interface IAdaptiveMediaSourceDownloadFailedEventArgs2 {
                     #[get]
                     RequestId: i32;
@@ -384,24 +386,24 @@ mod Windows {
                     #[get]
                     Position: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                 }
-                #[guid(0xd0354549_1132_4a10_915a_c2211b5b9409)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadFailedEventArgs)]
+                #[guid(0xd0354549_1132_4a10_915a_c2211b5b9409)]
                 interface IAdaptiveMediaSourceDownloadFailedEventArgs3 {
                     #[get]
                     ResourceDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                     #[get]
                     ResourceContentType: String;
                 }
-                #[guid(0x05c68f64_fa20_4dbd_9821_4bf4c9bf77ab)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedDeferral)]
+                #[guid(0x05c68f64_fa20_4dbd_9821_4bf4c9bf77ab)]
                 interface IAdaptiveMediaSourceDownloadRequestedDeferral {
                     fn Complete(&self);
                 }
-                #[guid(0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedEventArgs)]
+                #[guid(0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf)]
                 interface IAdaptiveMediaSourceDownloadRequestedEventArgs {
                     #[get]
                     ResourceType: AdaptiveMediaSourceResourceType;
@@ -415,27 +417,27 @@ mod Windows {
                     Result: AdaptiveMediaSourceDownloadResult;
                     fn GetDeferral(&self) -> AdaptiveMediaSourceDownloadRequestedDeferral;
                 }
-                #[guid(0xb37d8bfe_aa44_4d82_825b_611de3bcfecb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedEventArgs)]
+                #[guid(0xb37d8bfe_aa44_4d82_825b_611de3bcfecb)]
                 interface IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
                     #[get]
                     RequestId: i32;
                     #[get]
                     Position: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                 }
-                #[guid(0x333c50fd_4f62_4481_ab44_1e47b0574225)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedEventArgs)]
+                #[guid(0x333c50fd_4f62_4481_ab44_1e47b0574225)]
                 interface IAdaptiveMediaSourceDownloadRequestedEventArgs3 {
                     #[get]
                     ResourceDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                     #[get]
                     ResourceContentType: String;
                 }
-                #[guid(0xf4afdc73_bcee_4a6a_9f0a_fec41e2339b0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadResult)]
+                #[guid(0xf4afdc73_bcee_4a6a_9f0a_fec41e2339b0)]
                 interface IAdaptiveMediaSourceDownloadResult {
                     ResourceUri: super::super::super::Foundation::Uri;
                     InputStream: super::super::super::Storage::Streams::IInputStream;
@@ -443,16 +445,16 @@ mod Windows {
                     ContentType: String;
                     ExtendedStatus: u32;
                 }
-                #[guid(0x15552cb7_7b80_4ac4_8660_a4b97f7c70f0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadResult)]
+                #[guid(0x15552cb7_7b80_4ac4_8660_a4b97f7c70f0)]
                 interface IAdaptiveMediaSourceDownloadResult2 {
                     ResourceByteRangeOffset: super::super::super::Foundation::IReference<u64>;
                     ResourceByteRangeLength: super::super::super::Foundation::IReference<u64>;
                 }
-                #[guid(0xa306cefb_e96a_4dff_a9b8_1ae08c01ae98)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadStatistics)]
+                #[guid(0xa306cefb_e96a_4dff_a9b8_1ae08c01ae98)]
                 interface IAdaptiveMediaSourceDownloadStatistics {
                     #[get]
                     ContentBytesReceivedCount: u64;
@@ -463,9 +465,9 @@ mod Windows {
                     #[get]
                     TimeToLastByteReceived: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                 }
-                #[guid(0x23a29f6d_7dda_4a51_87a9_6fa8c5b292be)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourcePlaybackBitrateChangedEventArgs)]
+                #[guid(0x23a29f6d_7dda_4a51_87a9_6fa8c5b292be)]
                 interface IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
                     #[get]
                     OldValue: u32;
@@ -474,23 +476,23 @@ mod Windows {
                     #[get]
                     AudioOnly: bool;
                 }
-                #[guid(0x50a6bd5d_66ef_4cd3_9579_9e660507dc3f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                #[guid(0x50a6bd5d_66ef_4cd3_9579_9e660507dc3f)]
                 interface IAdaptiveMediaSourceStatics {
-                    fn IsContentTypeSupported(&self, contentType: String) -> bool;
+                    fn IsContentTypeSupported(&self, #[in] contentType: String) -> bool;
                     #[Windows::Foundation::Metadata::Overload("CreateFromUriAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFromUriAsync(&self, uri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    fn CreateFromUriAsync(&self, #[in] uri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
                     #[Windows::Foundation::Metadata::Overload("CreateFromUriWithDownloaderAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFromUriAsync(&self, uri: super::super::super::Foundation::Uri, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    fn CreateFromUriAsync(&self, #[in] uri: super::super::super::Foundation::Uri, #[in] httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
                     #[Windows::Foundation::Metadata::Overload("CreateFromStreamAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFromStreamAsync(&self, stream: super::super::super::Storage::Streams::IInputStream, uri: super::super::super::Foundation::Uri, contentType: String) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    fn CreateFromStreamAsync(&self, #[in] stream: super::super::super::Storage::Streams::IInputStream, #[in] uri: super::super::super::Foundation::Uri, #[in] contentType: String) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
                     #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithDownloaderAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateFromStreamAsync(&self, stream: super::super::super::Storage::Streams::IInputStream, uri: super::super::super::Foundation::Uri, contentType: String, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    fn CreateFromStreamAsync(&self, #[in] stream: super::super::super::Storage::Streams::IInputStream, #[in] uri: super::super::super::Foundation::Uri, #[in] contentType: String, #[in] httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
                 }
             }
         }

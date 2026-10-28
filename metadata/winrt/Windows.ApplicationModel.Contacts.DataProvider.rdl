@@ -65,52 +65,52 @@ mod Windows {
                 class ContactListSyncManagerSyncRequestEventArgs {
                     IContactListSyncManagerSyncRequestEventArgs,
                 }
-                #[guid(0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactDataProviderConnection)]
+                #[guid(0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30)]
                 interface IContactDataProviderConnection {
                     event SyncRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>;
                     event ServerSearchReadBatchRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>;
                     fn Start(&self);
                 }
-                #[guid(0xa1d327b0_196c_4bfd_8f0f_c68d67f249d3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactDataProviderConnection)]
+                #[guid(0xa1d327b0_196c_4bfd_8f0f_c68d67f249d3)]
                 interface IContactDataProviderConnection2 {
                     event CreateOrUpdateContactRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>;
                     event DeleteContactRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>;
                 }
-                #[guid(0x527104be_3c62_43c8_9ae7_db531685cd99)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactDataProviderTriggerDetails)]
+                #[guid(0x527104be_3c62_43c8_9ae7_db531685cd99)]
                 interface IContactDataProviderTriggerDetails {
                     #[get]
                     Connection: ContactDataProviderConnection;
                 }
-                #[guid(0xb4af411f_c849_47d0_b119_91cf605b2f2a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListCreateOrUpdateContactRequest)]
+                #[guid(0xb4af411f_c849_47d0_b119_91cf605b2f2a)]
                 interface IContactListCreateOrUpdateContactRequest {
                     #[get]
                     ContactListId: String;
                     #[get]
                     Contact: super::Contact;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, createdOrUpdatedContact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] createdOrUpdatedContact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x851c1690_1a51_4b0c_aeef_1240ac5bed75)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListCreateOrUpdateContactRequestEventArgs)]
+                #[guid(0x851c1690_1a51_4b0c_aeef_1240ac5bed75)]
                 interface IContactListCreateOrUpdateContactRequestEventArgs {
                     #[get]
                     Request: ContactListCreateOrUpdateContactRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x5e114687_ce03_4de5_8557_9ccf552d472a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListDeleteContactRequest)]
+                #[guid(0x5e114687_ce03_4de5_8557_9ccf552d472a)]
                 interface IContactListDeleteContactRequest {
                     #[get]
                     ContactListId: String;
@@ -121,17 +121,17 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListDeleteContactRequestEventArgs)]
+                #[guid(0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee)]
                 interface IContactListDeleteContactRequestEventArgs {
                     #[get]
                     Request: ContactListDeleteContactRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xba776a97_4030_4925_9fb4_143b295e653b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListServerSearchReadBatchRequest)]
+                #[guid(0xba776a97_4030_4925_9fb4_143b295e653b)]
                 interface IContactListServerSearchReadBatchRequest {
                     #[get]
                     SessionId: String;
@@ -142,23 +142,23 @@ mod Windows {
                     #[get]
                     SuggestedBatchSize: u32;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SaveContactAsync(&self, contact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
+                    fn SaveContactAsync(&self, #[in] contact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, batchStatus: super::ContactBatchStatus) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] batchStatus: super::ContactBatchStatus) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x1a27e87b_69d7_4e4e_8042_861cba61471e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListServerSearchReadBatchRequestEventArgs)]
+                #[guid(0x1a27e87b_69d7_4e4e_8042_861cba61471e)]
                 interface IContactListServerSearchReadBatchRequestEventArgs {
                     #[get]
                     Request: ContactListServerSearchReadBatchRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManagerSyncRequest)]
+                #[guid(0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a)]
                 interface IContactListSyncManagerSyncRequest {
                     #[get]
                     ContactListId: String;
@@ -167,9 +167,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x158e4dac_446d_4f10_afc2_02683ec533a6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManagerSyncRequestEventArgs)]
+                #[guid(0x158e4dac_446d_4f10_afc2_02683ec533a6)]
                 interface IContactListSyncManagerSyncRequestEventArgs {
                     #[get]
                     Request: ContactListSyncManagerSyncRequest;

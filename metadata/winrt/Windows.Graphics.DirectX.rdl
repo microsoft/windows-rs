@@ -2,16 +2,16 @@
 mod Windows {
     mod Graphics {
         mod DirectX {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[repr(i32)]
             enum DirectXAlphaMode {
                 Unspecified = 0,
                 Premultiplied = 1,
                 Straight = 2,
                 Ignore = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[repr(i32)]
             enum DirectXColorSpace {
                 RgbFullG22NoneP709 = 0,
                 RgbFullG10NoneP709 = 1,
@@ -39,8 +39,8 @@ mod Windows {
                 YccStudioG24LeftP2020 = 23,
                 YccStudioG24TopLeftP2020 = 24,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum DirectXPixelFormat {
                 Unknown = 0,
                 R32G32B32A32Typeless = 1,
@@ -161,12 +161,15 @@ mod Windows {
                 P208 = 130,
                 V208 = 131,
                 V408 = 132,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 SamplerFeedbackMinMipOpaque = 189,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 SamplerFeedbackMipRegionUsedOpaque = 190,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1048576)]
                 A4B4G4R4 = 191,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum DirectXPrimitiveTopology {
                 Undefined = 0,
                 PointList = 1,

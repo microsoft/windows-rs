@@ -10,47 +10,47 @@ mod Windows {
                 attribute BindableAttribute {
                     fn();
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBindingFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class Binding: BindingBase {
                     IBinding,
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     IBinding2,
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBindingBaseFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class BindingBase: super::DependencyObject {
                     IBindingBase,
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBindingExpressionFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class BindingExpression: BindingExpressionBase {
                     IBindingExpression,
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBindingExpressionBaseFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class BindingExpressionBase {
                     IBindingExpressionBase,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum BindingMode {
                     OneWay = 1,
                     OneTime = 2,
@@ -73,23 +73,23 @@ mod Windows {
                 class CollectionViewSource: super::DependencyObject {
                     ICollectionViewSource,
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICurrentChangingEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class CurrentChangingEventArgs {
                     ICurrentChangingEventArgs,
                 }
-                #[guid(0xf3888db8_139f_4dce_8dc9_f7f1444d1185)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                delegate fn CurrentChangingEventHandler(sender: Object, e: CurrentChangingEventArgs);
-                #[guid(0x3f7a0c6b_d00f_4730_8c1d_48e16c46f9ca)]
+                #[guid(0xf3888db8_139f_4dce_8dc9_f7f1444d1185)]
+                delegate fn CurrentChangingEventHandler(#[in] sender: Object, #[in] e: CurrentChangingEventArgs);
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Binding)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x3f7a0c6b_d00f_4730_8c1d_48e16c46f9ca)]
                 interface IBinding {
                     Path: super::PropertyPath;
                     Mode: BindingMode;
@@ -100,31 +100,31 @@ mod Windows {
                     ConverterParameter: Object;
                     ConverterLanguage: String;
                 }
-                #[guid(0x34f96fcb_0406_48b3_9e82_f333ec4c6910)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Binding)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x34f96fcb_0406_48b3_9e82_f333ec4c6910)]
                 interface IBinding2 {
                     FallbackValue: Object;
                     TargetNullValue: Object;
                     UpdateSourceTrigger: UpdateSourceTrigger;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BindingBase)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[guid(0x1589a2ab_3d15_49bc_a447_8a5448e58870)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BindingBase)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBindingBase {}
-                #[guid(0x22dafc3a_7701_4666_a1ba_9859bdcfec34)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BindingBase)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x22dafc3a_7701_4666_a1ba_9859bdcfec34)]
                 interface IBindingBaseFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> BindingBase;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> BindingBase;
                 }
-                #[guid(0x516a19a5_c2fd_4a9e_9fd3_9aa42f995a3c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BindingExpression)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x516a19a5_c2fd_4a9e_9fd3_9aa42f995a3c)]
                 interface IBindingExpression {
                     #[get]
                     DataItem: Object;
@@ -132,43 +132,43 @@ mod Windows {
                     ParentBinding: Binding;
                     fn UpdateSource(&self);
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BindingExpressionBase)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[guid(0xfded3154_e954_4f67_8fb6_6ed79b3a1cb3)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BindingExpressionBase)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBindingExpressionBase {}
-                #[guid(0xea7116a7_c2d9_4375_b471_66b9c48c7930)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BindingExpressionBase)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xea7116a7_c2d9_4375_b471_66b9c48c7930)]
                 interface IBindingExpressionBaseFactory {}
-                #[guid(0x1cb55cd9_db72_40b3_a2b5_24ee6ea5c328)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BindingExpression)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x1cb55cd9_db72_40b3_a2b5_24ee6ea5c328)]
                 interface IBindingExpressionFactory {}
-                #[guid(0xff42bb08_c39e_4f7e_8434_a1569083883c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Binding)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xff42bb08_c39e_4f7e_8434_a1569083883c)]
                 interface IBindingFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Binding;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Binding;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BindingOperations)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[guid(0x6fffd738_9839_419c_a17a_4b3604e1524e)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BindingOperations)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBindingOperations {}
-                #[guid(0xe155ef73_95a0_4aab_8c7d_2a47da073c79)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BindingOperations)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xe155ef73_95a0_4aab_8c7d_2a47da073c79)]
                 interface IBindingOperationsStatics {
-                    fn SetBinding(&self, target: super::DependencyObject, dp: super::DependencyProperty, binding: BindingBase);
+                    fn SetBinding(&self, #[in] target: super::DependencyObject, #[in] dp: super::DependencyProperty, #[in] binding: BindingBase);
                 }
-                #[guid(0x8be8bfe4_dbef_44df_8126_a31a89121ddc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x8be8bfe4_dbef_44df_8126_a31a89121ddc)]
                 interface ICollectionView: super::super::super::Foundation::Collections::IObservableVector<Object> + super::super::super::Foundation::Collections::IVector<Object> + super::super::super::Foundation::Collections::IIterable<Object> {
                     #[get]
                     CurrentItem: Object;
@@ -184,34 +184,34 @@ mod Windows {
                     HasMoreItems: bool;
                     event CurrentChanged: super::super::super::Foundation::EventHandler<Object>;
                     event CurrentChanging: CurrentChangingEventHandler;
-                    fn MoveCurrentTo(&self, item: Object) -> bool;
-                    fn MoveCurrentToPosition(&self, index: i32) -> bool;
+                    fn MoveCurrentTo(&self, #[in] item: Object) -> bool;
+                    fn MoveCurrentToPosition(&self, #[in] index: i32) -> bool;
                     fn MoveCurrentToFirst(&self) -> bool;
                     fn MoveCurrentToLast(&self) -> bool;
                     fn MoveCurrentToNext(&self) -> bool;
                     fn MoveCurrentToPrevious(&self) -> bool;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadMoreItemsAsync(&self, count: u32) -> super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>;
+                    fn LoadMoreItemsAsync(&self, #[in] count: u32) -> super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>;
                 }
-                #[guid(0x34d4aaf4_8e72_4950_9192_ecd07d399d0a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x34d4aaf4_8e72_4950_9192_ecd07d399d0a)]
                 interface ICollectionViewFactory {
                     fn CreateView(&self) -> ICollectionView;
                 }
-                #[guid(0x7e01b9d8_d7b5_48b6_b31c_5bb5bdf5f09b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x7e01b9d8_d7b5_48b6_b31c_5bb5bdf5f09b)]
                 interface ICollectionViewGroup {
                     #[get]
                     Group: Object;
                     #[get]
                     GroupItems: super::super::super::Foundation::Collections::IObservableVector<Object>;
                 }
-                #[guid(0xa66a1146_d2fb_4ead_be9f_3578a466dcfe)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CollectionViewSource)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xa66a1146_d2fb_4ead_be9f_3578a466dcfe)]
                 interface ICollectionViewSource {
                     Source: Object;
                     #[get]
@@ -219,10 +219,10 @@ mod Windows {
                     IsSourceGrouped: bool;
                     ItemsPath: super::PropertyPath;
                 }
-                #[guid(0x173a0710_46af_4c0c_818b_21b6ef81bf65)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CollectionViewSource)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x173a0710_46af_4c0c_818b_21b6ef81bf65)]
                 interface ICollectionViewSourceStatics {
                     #[get]
                     SourceProperty: super::DependencyProperty;
@@ -233,54 +233,54 @@ mod Windows {
                     #[get]
                     ItemsPathProperty: super::DependencyProperty;
                 }
-                #[guid(0xf9891e29_51cc_47dd_a5b9_35dc4914af69)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CurrentChangingEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xf9891e29_51cc_47dd_a5b9_35dc4914af69)]
                 interface ICurrentChangingEventArgs {
                     Cancel: bool;
                     #[get]
                     IsCancelable: bool;
                 }
-                #[guid(0x153bbeee_62f3_48cf_8183_8be26de3a66e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CurrentChangingEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x153bbeee_62f3_48cf_8183_8be26de3a66e)]
                 interface ICurrentChangingEventArgsFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> CurrentChangingEventArgs;
-                    fn CreateWithCancelableParameter(&self, isCancelable: bool, baseInterface: Object, innerInterface: &mut Object) -> CurrentChangingEventArgs;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CurrentChangingEventArgs;
+                    fn CreateWithCancelableParameter(&self, #[in] isCancelable: bool, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CurrentChangingEventArgs;
                 }
-                #[guid(0x30da92c0_23e8_42a0_ae7c_734a0e5d2782)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x30da92c0_23e8_42a0_ae7c_734a0e5d2782)]
                 interface ICustomProperty {
                     #[get]
                     Type: super::Interop::TypeName;
                     #[get]
                     Name: String;
-                    fn GetValue(&self, target: Object) -> Object;
-                    fn SetValue(&self, target: Object, value: Object);
-                    fn GetIndexedValue(&self, target: Object, index: Object) -> Object;
-                    fn SetIndexedValue(&self, target: Object, value: Object, index: Object);
+                    fn GetValue(&self, #[in] target: Object) -> Object;
+                    fn SetValue(&self, #[in] target: Object, #[in] value: Object);
+                    fn GetIndexedValue(&self, #[in] target: Object, #[in] index: Object) -> Object;
+                    fn SetIndexedValue(&self, #[in] target: Object, #[in] value: Object, #[in] index: Object);
                     #[get]
                     CanWrite: bool;
                     #[get]
                     CanRead: bool;
                 }
-                #[guid(0x7c925755_3e48_42b4_8677_76372267033f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x7c925755_3e48_42b4_8677_76372267033f)]
                 interface ICustomPropertyProvider {
-                    fn GetCustomProperty(&self, name: String) -> ICustomProperty;
-                    fn GetIndexedProperty(&self, name: String, r#type: super::Interop::TypeName) -> ICustomProperty;
+                    fn GetCustomProperty(&self, #[in] name: String) -> ICustomProperty;
+                    fn GetIndexedProperty(&self, #[in] name: String, #[in] r#type: super::Interop::TypeName) -> ICustomProperty;
                     fn GetStringRepresentation(&self) -> String;
                     #[get]
                     Type: super::Interop::TypeName;
                 }
-                #[guid(0x83b834be_0583_4a26_9b64_8bf4a2f65704)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ItemIndexRange)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x83b834be_0583_4a26_9b64_8bf4a2f65704)]
                 interface IItemIndexRange {
                     #[get]
                     FirstIndex: i32;
@@ -289,85 +289,85 @@ mod Windows {
                     #[get]
                     LastIndex: i32;
                 }
-                #[guid(0x86e2c440_2e7a_4c7d_a664_e8abf07bfc7e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ItemIndexRange)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x86e2c440_2e7a_4c7d_a664_e8abf07bfc7e)]
                 interface IItemIndexRangeFactory {
-                    fn CreateInstance(&self, firstIndex: i32, length: u32, baseInterface: Object, innerInterface: &mut Object) -> ItemIndexRange;
+                    fn CreateInstance(&self, #[in] firstIndex: i32, #[in] length: u32, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ItemIndexRange;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[guid(0xf05f5665_71fd_45a2_be13_a081d294a68d)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IItemsRangeInfo: super::super::super::Foundation::IClosable {
-                    fn RangesChanged(&self, visibleRange: ItemIndexRange, trackedItems: super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>);
+                    fn RangesChanged(&self, #[in] visibleRange: ItemIndexRange, #[in] trackedItems: super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>);
                 }
-                #[guid(0xcf75d69c_f2f4_486b_b302_bb4c09baebfa)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xcf75d69c_f2f4_486b_b302_bb4c09baebfa)]
                 interface INotifyPropertyChanged {
                     event PropertyChanged: PropertyChangedEventHandler;
                 }
-                #[guid(0x4f33a9a0_5cf4_47a4_b16f_d7faaf17457e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PropertyChangedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x4f33a9a0_5cf4_47a4_b16f_d7faaf17457e)]
                 interface IPropertyChangedEventArgs {
                     #[get]
                     PropertyName: String;
                 }
-                #[guid(0x6dcc9c03_e0c7_4eee_8ea9_37e3406eeb1c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PropertyChangedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x6dcc9c03_e0c7_4eee_8ea9_37e3406eeb1c)]
                 interface IPropertyChangedEventArgsFactory {
-                    fn CreateInstance(&self, name: String, baseInterface: Object, innerInterface: &mut Object) -> PropertyChangedEventArgs;
+                    fn CreateInstance(&self, #[in] name: String, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> PropertyChangedEventArgs;
                 }
-                #[guid(0x2397ce84_2822_483a_b499_d0f031e06c6b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RelativeSource)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x2397ce84_2822_483a_b499_d0f031e06c6b)]
                 interface IRelativeSource {
                     Mode: RelativeSourceMode;
                 }
-                #[guid(0xef8392cd_446e_4f93_aacb_9b1255577460)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RelativeSource)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xef8392cd_446e_4f93_aacb_9b1255577460)]
                 interface IRelativeSourceFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> RelativeSource;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RelativeSource;
                 }
-                #[guid(0x2e12ca86_e1ed_4245_be49_207e42aec524)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x2e12ca86_e1ed_4245_be49_207e42aec524)]
                 interface ISelectionInfo {
-                    fn SelectRange(&self, itemIndexRange: ItemIndexRange);
-                    fn DeselectRange(&self, itemIndexRange: ItemIndexRange);
-                    fn IsSelected(&self, index: i32) -> bool;
+                    fn SelectRange(&self, #[in] itemIndexRange: ItemIndexRange);
+                    fn DeselectRange(&self, #[in] itemIndexRange: ItemIndexRange);
+                    fn IsSelected(&self, #[in] index: i32) -> bool;
                     fn GetSelectedRanges(&self) -> super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>;
                 }
-                #[guid(0x7f5ee992_7694_4e6c_a51b_e34bf43de743)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x7f5ee992_7694_4e6c_a51b_e34bf43de743)]
                 interface ISupportIncrementalLoading {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadMoreItemsAsync(&self, count: u32) -> super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>;
+                    fn LoadMoreItemsAsync(&self, #[in] count: u32) -> super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>;
                     #[get]
                     HasMoreItems: bool;
                 }
-                #[guid(0xe6f2fef0_0712_487f_b313_f300b8d79aa1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xe6f2fef0_0712_487f_b313_f300b8d79aa1)]
                 interface IValueConverter {
-                    fn Convert(&self, value: Object, targetType: super::Interop::TypeName, parameter: Object, language: String) -> Object;
-                    fn ConvertBack(&self, value: Object, targetType: super::Interop::TypeName, parameter: Object, language: String) -> Object;
+                    fn Convert(&self, #[in] value: Object, #[in] targetType: super::Interop::TypeName, #[in] parameter: Object, #[in] language: String) -> Object;
+                    fn ConvertBack(&self, #[in] value: Object, #[in] targetType: super::Interop::TypeName, #[in] parameter: Object, #[in] language: String) -> Object;
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IItemIndexRangeFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class ItemIndexRange {
                     IItemIndexRange,
                 }
@@ -376,43 +376,44 @@ mod Windows {
                 struct LoadMoreItemsResult {
                     Count: u32,
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPropertyChangedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class PropertyChangedEventArgs {
                     IPropertyChangedEventArgs,
                 }
-                #[guid(0x50f19c16_0a22_4d8e_a089_1ea9951657d2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                delegate fn PropertyChangedEventHandler(sender: Object, e: PropertyChangedEventArgs);
-                #[unsealed]
+                #[guid(0x50f19c16_0a22_4d8e_a089_1ea9951657d2)]
+                delegate fn PropertyChangedEventHandler(#[in] sender: Object, #[in] e: PropertyChangedEventArgs);
                 #[Windows::Foundation::Metadata::Composable(IRelativeSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class RelativeSource: super::DependencyObject {
                     IRelativeSource,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum RelativeSourceMode {
                     None = 0,
                     TemplatedParent = 1,
                     Self_ = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum UpdateSourceTrigger {
                     Default = 0,
                     PropertyChanged = 1,
                     Explicit = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     LostFocus = 3,
                 }
             }

@@ -10,18 +10,18 @@ mod Windows {
                 class GeolocationProvider {
                     IGeolocationProvider,
                 }
-                #[guid(0xe4cf071d_3f64_509f_8dc2_0b74a059829d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GeolocationProvider)]
+                #[guid(0xe4cf071d_3f64_509f_8dc2_0b74a059829d)]
                 interface IGeolocationProvider {
                     #[get]
                     IsOverridden: bool;
-                    fn SetOverridePosition(&self, newPosition: super::BasicGeoposition, positionSource: super::PositionSource, accuracyInMeters: f64) -> LocationOverrideStatus;
+                    fn SetOverridePosition(&self, #[in] newPosition: super::BasicGeoposition, #[in] positionSource: super::PositionSource, #[in] accuracyInMeters: f64) -> LocationOverrideStatus;
                     fn ClearOverridePosition(&self);
                     event IsOverriddenChanged: super::super::super::Foundation::EventHandler<Object>;
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
+                #[repr(i32)]
                 enum LocationOverrideStatus {
                     Success = 0,
                     AccessDenied = 1,

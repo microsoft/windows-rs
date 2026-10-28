@@ -26,34 +26,34 @@ mod Windows {
             class AutomationTextRange {
                 IAutomationTextRange,
             }
-            #[guid(0xaad262ed_0ef4_5d43_97be_a834e27b65b9)]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnection)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xaad262ed_0ef4_5d43_97be_a834e27b65b9)]
             interface IAutomationConnection {
-                #[get]
                 #[Windows::Foundation::Metadata::NoException]
+                #[get]
                 IsRemoteSystem: bool;
                 #[get]
                 AppUserModelId: String;
                 #[get]
                 ExecutableFileName: String;
             }
-            #[guid(0x5e8558fb_ca52_5b65_9830_dd2905816093)]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnectionBoundObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x5e8558fb_ca52_5b65_9830_dd2905816093)]
             interface IAutomationConnectionBoundObject {
                 #[get]
                 Connection: AutomationConnection;
             }
-            #[guid(0xa1898370_2c07_56fd_993f_61a72a08058c)]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElement)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xa1898370_2c07_56fd_993f_61a72a08058c)]
             interface IAutomationElement {
-                #[get]
                 #[Windows::Foundation::Metadata::NoException]
+                #[get]
                 IsRemoteSystem: bool;
                 #[get]
                 AppUserModelId: String;
@@ -63,6 +63,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationTextRange)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98)]
             interface IAutomationTextRange {}
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(131072)]

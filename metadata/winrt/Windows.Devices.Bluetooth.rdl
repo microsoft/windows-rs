@@ -16,15 +16,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 IBluetoothAdapter4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[repr(i32)]
             enum BluetoothAddressType {
                 Public = 0,
                 Random = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 Unspecified = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BluetoothCacheMode {
                 Cached = 0,
                 Uncached = 1,
@@ -37,8 +38,8 @@ mod Windows {
             class BluetoothClassOfDevice {
                 IBluetoothClassOfDevice,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BluetoothConnectionStatus {
                 Disconnected = 0,
                 Connected = 1,
@@ -46,8 +47,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IBluetoothDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBluetoothDeviceStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBluetoothDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothDevice {
                 IBluetoothDevice,
@@ -69,8 +70,8 @@ mod Windows {
             class BluetoothDeviceId {
                 IBluetoothDeviceId,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BluetoothError {
                 Success = 0,
                 RadioNotAvailable = 1,
@@ -79,8 +80,11 @@ mod Windows {
                 OtherError = 4,
                 DisabledByPolicy = 5,
                 NotSupported = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 DisabledByUser = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ConsentRequired = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 TransportNotSupported = 9,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -124,8 +128,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IBluetoothLEDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBluetoothLEDeviceStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBluetoothLEDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothLEDevice {
                 IBluetoothLEDevice,
@@ -156,16 +160,16 @@ mod Windows {
                 IBluetoothLEPreferredConnectionParametersRequest,
                 super::super::Foundation::IClosable,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[repr(i32)]
             enum BluetoothLEPreferredConnectionParametersRequestStatus {
                 Unspecified = 0,
                 Success = 1,
                 DeviceNotAvailable = 2,
                 AccessDenied = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BluetoothMajorClass {
                 Miscellaneous = 0,
                 Computer = 1,
@@ -178,8 +182,8 @@ mod Windows {
                 Toy = 8,
                 Health = 9,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BluetoothMinorClass {
                 Uncategorized = 0,
                 ComputerDesktop = 1,
@@ -253,9 +257,9 @@ mod Windows {
                 HealthGenericHealthManager = 14,
                 HealthPersonalMobilityDevice = 15,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum BluetoothServiceCapabilities {
                 None = 0,
                 LimitedDiscoverableMode = 1,
@@ -282,9 +286,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IBluetoothUuidHelperStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothUuidHelper {}
-            #[guid(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothAdapter)]
+            #[guid(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b)]
             interface IBluetoothAdapter {
                 #[get]
                 DeviceId: String;
@@ -303,46 +307,46 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetRadioAsync(&self) -> super::super::Foundation::IAsyncOperation<super::Radios::Radio>;
             }
-            #[guid(0xac94cecc_24d5_41b3_916d_1097c50b102b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothAdapter)]
+            #[guid(0xac94cecc_24d5_41b3_916d_1097c50b102b)]
             interface IBluetoothAdapter2 {
                 #[get]
                 AreClassicSecureConnectionsSupported: bool;
                 #[get]
                 AreLowEnergySecureConnectionsSupported: bool;
             }
-            #[guid(0x8f8624e0_cba9_5211_9f89_3aac62b4c6b8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothAdapter)]
+            #[guid(0x8f8624e0_cba9_5211_9f89_3aac62b4c6b8)]
             interface IBluetoothAdapter3 {
                 #[get]
                 IsExtendedAdvertisingSupported: bool;
                 #[get]
                 MaxAdvertisementDataLength: u32;
             }
-            #[guid(0xf875f3e1_6d9a_5d5e_aee5_a17248e5f6dd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothAdapter)]
+            #[guid(0xf875f3e1_6d9a_5d5e_aee5_a17248e5f6dd)]
             interface IBluetoothAdapter4 {
                 #[get]
                 IsLowEnergyUncoded2MPhySupported: bool;
                 #[get]
                 IsLowEnergyCodedPhySupported: bool;
             }
-            #[guid(0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothAdapter)]
+            #[guid(0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f)]
             interface IBluetoothAdapterStatics {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<BluetoothAdapter>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<BluetoothAdapter>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<BluetoothAdapter>;
             }
-            #[guid(0xd640227e_d7d7_4661_9454_65039ca17a2b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothClassOfDevice)]
+            #[guid(0xd640227e_d7d7_4661_9454_65039ca17a2b)]
             interface IBluetoothClassOfDevice {
                 #[get]
                 RawValue: u32;
@@ -353,16 +357,16 @@ mod Windows {
                 #[get]
                 ServiceCapabilities: BluetoothServiceCapabilities;
             }
-            #[guid(0xe46135bd_0fa2_416c_91b4_c1e48ca061c1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothClassOfDevice)]
+            #[guid(0xe46135bd_0fa2_416c_91b4_c1e48ca061c1)]
             interface IBluetoothClassOfDeviceStatics {
-                fn FromRawValue(&self, rawValue: u32) -> BluetoothClassOfDevice;
-                fn FromParts(&self, majorClass: BluetoothMajorClass, minorClass: BluetoothMinorClass, serviceCapabilities: BluetoothServiceCapabilities) -> BluetoothClassOfDevice;
+                fn FromRawValue(&self, #[in] rawValue: u32) -> BluetoothClassOfDevice;
+                fn FromParts(&self, #[in] majorClass: BluetoothMajorClass, #[in] minorClass: BluetoothMinorClass, #[in] serviceCapabilities: BluetoothServiceCapabilities) -> BluetoothClassOfDevice;
             }
-            #[guid(0x2335b156_90d2_4a04_aef5_0e20b9e6b707)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDevice)]
+            #[guid(0x2335b156_90d2_4a04_aef5_0e20b9e6b707)]
             interface IBluetoothDevice {
                 #[get]
                 DeviceId: String;
@@ -374,8 +378,8 @@ mod Windows {
                 ClassOfDevice: BluetoothClassOfDevice;
                 #[get]
                 SdpRecords: super::super::Foundation::Collections::IVectorView<super::super::Storage::Streams::IBuffer>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use GetRfcommServicesAsync instead of RfcommServices.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RfcommServices: super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>;
                 #[get]
                 ConnectionStatus: BluetoothConnectionStatus;
@@ -385,16 +389,16 @@ mod Windows {
                 event SdpRecordsChanged: super::super::Foundation::TypedEventHandler<BluetoothDevice, Object>;
                 event ConnectionStatusChanged: super::super::Foundation::TypedEventHandler<BluetoothDevice, Object>;
             }
-            #[guid(0x0133f954_b156_4dd0_b1f5_c11bc31a5163)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDevice)]
+            #[guid(0x0133f954_b156_4dd0_b1f5_c11bc31a5163)]
             interface IBluetoothDevice2 {
                 #[get]
                 DeviceInformation: super::Enumeration::DeviceInformation;
             }
-            #[guid(0x57fff78b_651a_4454_b90f_eb21ef0b0d71)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDevice)]
+            #[guid(0x57fff78b_651a_4454_b90f_eb21ef0b0d71)]
             interface IBluetoothDevice3 {
                 #[get]
                 DeviceAccessInformation: super::Enumeration::DeviceAccessInformation;
@@ -405,31 +409,31 @@ mod Windows {
                 fn GetRfcommServicesAsync(&self) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
                 #[Windows::Foundation::Metadata::Overload("GetRfcommServicesWithCacheModeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetRfcommServicesAsync(&self, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
+                fn GetRfcommServicesAsync(&self, #[in] cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
                 #[Windows::Foundation::Metadata::Overload("GetRfcommServicesForIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetRfcommServicesForIdAsync(&self, serviceId: Rfcomm::RfcommServiceId) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
+                fn GetRfcommServicesForIdAsync(&self, #[in] serviceId: Rfcomm::RfcommServiceId) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
                 #[Windows::Foundation::Metadata::Overload("GetRfcommServicesForIdWithCacheModeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetRfcommServicesForIdAsync(&self, serviceId: Rfcomm::RfcommServiceId, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
+                fn GetRfcommServicesForIdAsync(&self, #[in] serviceId: Rfcomm::RfcommServiceId, #[in] cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>;
             }
-            #[guid(0x817c34ad_0e9c_42b2_a8dc_3e8094940d12)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDevice)]
+            #[guid(0x817c34ad_0e9c_42b2_a8dc_3e8094940d12)]
             interface IBluetoothDevice4 {
                 #[get]
                 BluetoothDeviceId: BluetoothDeviceId;
             }
-            #[guid(0xb5e0b385_5e85_4559_a10d_1c7281379f96)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDevice)]
+            #[guid(0xb5e0b385_5e85_4559_a10d_1c7281379f96)]
             interface IBluetoothDevice5 {
                 #[get]
                 WasSecureConnectionUsedForPairing: bool;
             }
-            #[guid(0xc17949af_57c1_4642_bcce_e6c06b20ae76)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDeviceId)]
+            #[guid(0xc17949af_57c1_4642_bcce_e6c06b20ae76)]
             interface IBluetoothDeviceId {
                 #[get]
                 Id: String;
@@ -438,37 +442,37 @@ mod Windows {
                 #[get]
                 IsLowEnergyDevice: bool;
             }
-            #[guid(0xa7884e67_3efb_4f31_bbc2_810e09977404)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDeviceId)]
+            #[guid(0xa7884e67_3efb_4f31_bbc2_810e09977404)]
             interface IBluetoothDeviceIdStatics {
-                fn FromId(&self, deviceId: String) -> BluetoothDeviceId;
+                fn FromId(&self, #[in] deviceId: String) -> BluetoothDeviceId;
             }
-            #[guid(0x0991df51_57db_4725_bbd7_84f64327ec2c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDevice)]
+            #[guid(0x0991df51_57db_4725_bbd7_84f64327ec2c)]
             interface IBluetoothDeviceStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<BluetoothDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<BluetoothDevice>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromHostNameAsync(&self, hostName: super::super::Networking::HostName) -> super::super::Foundation::IAsyncOperation<BluetoothDevice>;
+                fn FromHostNameAsync(&self, #[in] hostName: super::super::Networking::HostName) -> super::super::Foundation::IAsyncOperation<BluetoothDevice>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromBluetoothAddressAsync(&self, address: u64) -> super::super::Foundation::IAsyncOperation<BluetoothDevice>;
+                fn FromBluetoothAddressAsync(&self, #[in] address: u64) -> super::super::Foundation::IAsyncOperation<BluetoothDevice>;
                 fn GetDeviceSelector(&self) -> String;
             }
-            #[guid(0xc29e8e2f_4e14_4477_aa1b_b8b47e5b7ece)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothDevice)]
+            #[guid(0xc29e8e2f_4e14_4477_aa1b_b8b47e5b7ece)]
             interface IBluetoothDeviceStatics2 {
-                fn GetDeviceSelectorFromPairingState(&self, pairingState: bool) -> String;
-                fn GetDeviceSelectorFromConnectionStatus(&self, connectionStatus: BluetoothConnectionStatus) -> String;
-                fn GetDeviceSelectorFromDeviceName(&self, deviceName: String) -> String;
-                fn GetDeviceSelectorFromBluetoothAddress(&self, bluetoothAddress: u64) -> String;
-                fn GetDeviceSelectorFromClassOfDevice(&self, classOfDevice: BluetoothClassOfDevice) -> String;
+                fn GetDeviceSelectorFromPairingState(&self, #[in] pairingState: bool) -> String;
+                fn GetDeviceSelectorFromConnectionStatus(&self, #[in] connectionStatus: BluetoothConnectionStatus) -> String;
+                fn GetDeviceSelectorFromDeviceName(&self, #[in] deviceName: String) -> String;
+                fn GetDeviceSelectorFromBluetoothAddress(&self, #[in] bluetoothAddress: u64) -> String;
+                fn GetDeviceSelectorFromClassOfDevice(&self, #[in] classOfDevice: BluetoothClassOfDevice) -> String;
             }
-            #[guid(0x5d2079f2_66a8_4258_985e_02b4d9509f18)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAppearance)]
+            #[guid(0x5d2079f2_66a8_4258_985e_02b4d9509f18)]
             interface IBluetoothLEAppearance {
                 #[get]
                 RawValue: u16;
@@ -477,9 +481,9 @@ mod Windows {
                 #[get]
                 SubCategory: u16;
             }
-            #[guid(0x6d4d54fe_046a_4185_aab6_824cf0610861)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAppearanceCategories)]
+            #[guid(0x6d4d54fe_046a_4185_aab6_824cf0610861)]
             interface IBluetoothLEAppearanceCategoriesStatics {
                 #[get]
                 Uncategorized: u16;
@@ -526,16 +530,16 @@ mod Windows {
                 #[get]
                 OutdoorSportActivity: u16;
             }
-            #[guid(0xa193c0c7_4504_4f4a_9ba5_cd1054e5e065)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAppearance)]
+            #[guid(0xa193c0c7_4504_4f4a_9ba5_cd1054e5e065)]
             interface IBluetoothLEAppearanceStatics {
-                fn FromRawValue(&self, rawValue: u16) -> BluetoothLEAppearance;
-                fn FromParts(&self, appearanceCategory: u16, appearanceSubCategory: u16) -> BluetoothLEAppearance;
+                fn FromRawValue(&self, #[in] rawValue: u16) -> BluetoothLEAppearance;
+                fn FromParts(&self, #[in] appearanceCategory: u16, #[in] appearanceSubCategory: u16) -> BluetoothLEAppearance;
             }
-            #[guid(0xe57ba606_2144_415a_8312_71ccf291f8d1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAppearanceSubcategories)]
+            #[guid(0xe57ba606_2144_415a_8312_71ccf291f8d1)]
             interface IBluetoothLEAppearanceSubcategoriesStatics {
                 #[get]
                 Generic: u16;
@@ -594,9 +598,9 @@ mod Windows {
                 #[get]
                 LocationNavigationPod: u16;
             }
-            #[guid(0x33cb0771_8da9_508f_a366_1ca388c929ab)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEConnectionParameters)]
+            #[guid(0x33cb0771_8da9_508f_a366_1ca388c929ab)]
             interface IBluetoothLEConnectionParameters {
                 #[get]
                 LinkTimeout: u16;
@@ -605,18 +609,18 @@ mod Windows {
                 #[get]
                 ConnectionInterval: u16;
             }
-            #[guid(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEConnectionPhy)]
+            #[guid(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9)]
             interface IBluetoothLEConnectionPhy {
                 #[get]
                 TransmitInfo: BluetoothLEConnectionPhyInfo;
                 #[get]
                 ReceiveInfo: BluetoothLEConnectionPhyInfo;
             }
-            #[guid(0x9a100bdd_602e_5c27_a1ae_b230015a6394)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEConnectionPhyInfo)]
+            #[guid(0x9a100bdd_602e_5c27_a1ae_b230015a6394)]
             interface IBluetoothLEConnectionPhyInfo {
                 #[get]
                 IsUncoded1MPhy: bool;
@@ -625,30 +629,30 @@ mod Windows {
                 #[get]
                 IsCodedPhy: bool;
             }
-            #[guid(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887)]
             interface IBluetoothLEDevice {
                 #[get]
                 DeviceId: String;
                 #[get]
                 Name: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use GetGattServicesAsync instead of GattServices.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 GattServices: super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>;
                 #[get]
                 ConnectionStatus: BluetoothConnectionStatus;
                 #[get]
                 BluetoothAddress: u64;
                 #[Windows::Foundation::Metadata::Deprecated("Use GetGattServicesForUuidAsync instead of GetGattService.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn GetGattService(&self, serviceUuid: GUID) -> GenericAttributeProfile::GattDeviceService;
+                fn GetGattService(&self, #[in] serviceUuid: GUID) -> GenericAttributeProfile::GattDeviceService;
                 event NameChanged: super::super::Foundation::TypedEventHandler<BluetoothLEDevice, Object>;
                 event GattServicesChanged: super::super::Foundation::TypedEventHandler<BluetoothLEDevice, Object>;
                 event ConnectionStatusChanged: super::super::Foundation::TypedEventHandler<BluetoothLEDevice, Object>;
             }
-            #[guid(0x26f062b3_7aee_4d31_baba_b1b9775f5916)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0x26f062b3_7aee_4d31_baba_b1b9775f5916)]
             interface IBluetoothLEDevice2 {
                 #[get]
                 DeviceInformation: super::Enumeration::DeviceInformation;
@@ -657,9 +661,9 @@ mod Windows {
                 #[get]
                 BluetoothAddressType: BluetoothAddressType;
             }
-            #[guid(0xaee9e493_44ac_40dc_af33_b2c13c01ca46)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0xaee9e493_44ac_40dc_af33_b2c13c01ca46)]
             interface IBluetoothLEDevice3 {
                 #[get]
                 DeviceAccessInformation: super::Enumeration::DeviceAccessInformation;
@@ -670,68 +674,68 @@ mod Windows {
                 fn GetGattServicesAsync(&self) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
                 #[Windows::Foundation::Metadata::Overload("GetGattServicesWithCacheModeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGattServicesAsync(&self, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
+                fn GetGattServicesAsync(&self, #[in] cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
                 #[Windows::Foundation::Metadata::Overload("GetGattServicesForUuidAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGattServicesForUuidAsync(&self, serviceUuid: GUID) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
+                fn GetGattServicesForUuidAsync(&self, #[in] serviceUuid: GUID) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
                 #[Windows::Foundation::Metadata::Overload("GetGattServicesForUuidWithCacheModeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGattServicesForUuidAsync(&self, serviceUuid: GUID, cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
+                fn GetGattServicesForUuidAsync(&self, #[in] serviceUuid: GUID, #[in] cacheMode: BluetoothCacheMode) -> super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>;
             }
-            #[guid(0x2b605031_2248_4b2f_acf0_7cee36fc5870)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0x2b605031_2248_4b2f_acf0_7cee36fc5870)]
             interface IBluetoothLEDevice4 {
                 #[get]
                 BluetoothDeviceId: BluetoothDeviceId;
             }
-            #[guid(0x9d6a1260_5287_458e_95ba_17c8b7bb326e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0x9d6a1260_5287_458e_95ba_17c8b7bb326e)]
             interface IBluetoothLEDevice5 {
                 #[get]
                 WasSecureConnectionUsedForPairing: bool;
             }
-            #[guid(0xca7190ef_0cae_573c_a1ca_e1fc5bfc39e2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0xca7190ef_0cae_573c_a1ca_e1fc5bfc39e2)]
             interface IBluetoothLEDevice6 {
                 fn GetConnectionParameters(&self) -> BluetoothLEConnectionParameters;
                 fn GetConnectionPhy(&self) -> BluetoothLEConnectionPhy;
-                fn RequestPreferredConnectionParameters(&self, preferredConnectionParameters: BluetoothLEPreferredConnectionParameters) -> BluetoothLEPreferredConnectionParametersRequest;
+                fn RequestPreferredConnectionParameters(&self, #[in] preferredConnectionParameters: BluetoothLEPreferredConnectionParameters) -> BluetoothLEPreferredConnectionParametersRequest;
                 event ConnectionParametersChanged: super::super::Foundation::TypedEventHandler<BluetoothLEDevice, Object>;
                 event ConnectionPhyChanged: super::super::Foundation::TypedEventHandler<BluetoothLEDevice, Object>;
             }
-            #[guid(0xc8cf1a19_f0b6_4bf0_8689_41303de2d9f4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0xc8cf1a19_f0b6_4bf0_8689_41303de2d9f4)]
             interface IBluetoothLEDeviceStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
                 #[Windows::Foundation::Metadata::Overload("FromBluetoothAddressAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromBluetoothAddressAsync(&self, bluetoothAddress: u64) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
+                fn FromBluetoothAddressAsync(&self, #[in] bluetoothAddress: u64) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
                 fn GetDeviceSelector(&self) -> String;
             }
-            #[guid(0x5f12c06b_3bac_43e8_ad16_563271bd41c2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEDevice)]
+            #[guid(0x5f12c06b_3bac_43e8_ad16_563271bd41c2)]
             interface IBluetoothLEDeviceStatics2 {
-                fn GetDeviceSelectorFromPairingState(&self, pairingState: bool) -> String;
-                fn GetDeviceSelectorFromConnectionStatus(&self, connectionStatus: BluetoothConnectionStatus) -> String;
-                fn GetDeviceSelectorFromDeviceName(&self, deviceName: String) -> String;
+                fn GetDeviceSelectorFromPairingState(&self, #[in] pairingState: bool) -> String;
+                fn GetDeviceSelectorFromConnectionStatus(&self, #[in] connectionStatus: BluetoothConnectionStatus) -> String;
+                fn GetDeviceSelectorFromDeviceName(&self, #[in] deviceName: String) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromBluetoothAddress")]
-                fn GetDeviceSelectorFromBluetoothAddress(&self, bluetoothAddress: u64) -> String;
+                fn GetDeviceSelectorFromBluetoothAddress(&self, #[in] bluetoothAddress: u64) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType")]
-                fn GetDeviceSelectorFromBluetoothAddress(&self, bluetoothAddress: u64, bluetoothAddressType: BluetoothAddressType) -> String;
-                fn GetDeviceSelectorFromAppearance(&self, appearance: BluetoothLEAppearance) -> String;
+                fn GetDeviceSelectorFromBluetoothAddress(&self, #[in] bluetoothAddress: u64, #[in] bluetoothAddressType: BluetoothAddressType) -> String;
+                fn GetDeviceSelectorFromAppearance(&self, #[in] appearance: BluetoothLEAppearance) -> String;
                 #[Windows::Foundation::Metadata::Overload("FromBluetoothAddressWithBluetoothAddressTypeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromBluetoothAddressAsync(&self, bluetoothAddress: u64, bluetoothAddressType: BluetoothAddressType) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
+                fn FromBluetoothAddressAsync(&self, #[in] bluetoothAddress: u64, #[in] bluetoothAddressType: BluetoothAddressType) -> super::super::Foundation::IAsyncOperation<BluetoothLEDevice>;
             }
-            #[guid(0xf2f44344_7372_5f7b_9b34_29c944f5a715)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEPreferredConnectionParameters)]
+            #[guid(0xf2f44344_7372_5f7b_9b34_29c944f5a715)]
             interface IBluetoothLEPreferredConnectionParameters {
                 #[get]
                 LinkTimeout: u16;
@@ -742,16 +746,16 @@ mod Windows {
                 #[get]
                 MaxConnectionInterval: u16;
             }
-            #[guid(0x8a375276_a528_5266_b661_cce6a5ff9739)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEPreferredConnectionParametersRequest)]
+            #[guid(0x8a375276_a528_5266_b661_cce6a5ff9739)]
             interface IBluetoothLEPreferredConnectionParametersRequest {
                 #[get]
                 Status: BluetoothLEPreferredConnectionParametersRequestStatus;
             }
-            #[guid(0x0e3e8edc_2751_55aa_a838_8faeee818d72)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEPreferredConnectionParameters)]
+            #[guid(0x0e3e8edc_2751_55aa_a838_8faeee818d72)]
             interface IBluetoothLEPreferredConnectionParametersStatics {
                 #[get]
                 Balanced: BluetoothLEPreferredConnectionParameters;
@@ -760,21 +764,21 @@ mod Windows {
                 #[get]
                 PowerOptimized: BluetoothLEPreferredConnectionParameters;
             }
-            #[guid(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothSignalStrengthFilter)]
+            #[guid(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f)]
             interface IBluetoothSignalStrengthFilter {
                 InRangeThresholdInDBm: super::super::Foundation::IReference<i16>;
                 OutOfRangeThresholdInDBm: super::super::Foundation::IReference<i16>;
                 OutOfRangeTimeout: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
                 SamplingInterval: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
             }
-            #[guid(0x17df0cd8_cf74_4b21_afe6_f57a11bcdea0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothUuidHelper)]
+            #[guid(0x17df0cd8_cf74_4b21_afe6_f57a11bcdea0)]
             interface IBluetoothUuidHelperStatics {
-                fn FromShortId(&self, shortId: u32) -> GUID;
-                fn TryGetShortId(&self, uuid: GUID) -> super::super::Foundation::IReference<u32>;
+                fn FromShortId(&self, #[in] shortId: u32) -> GUID;
+                fn TryGetShortId(&self, #[in] uuid: GUID) -> super::super::Foundation::IReference<u32>;
             }
         }
     }

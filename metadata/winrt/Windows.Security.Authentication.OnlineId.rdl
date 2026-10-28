@@ -3,21 +3,21 @@ mod Windows {
     mod Security {
         mod Authentication {
             mod OnlineId {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum CredentialPromptType {
                     PromptIfNeeded = 0,
                     RetypeCredentials = 1,
                     DoNotPrompt = 2,
                 }
-                #[guid(0xa003f58a_29ab_4817_b884_d7516dad18b9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdAuthenticator)]
+                #[guid(0xa003f58a_29ab_4817_b884_d7516dad18b9)]
                 interface IOnlineIdAuthenticator {
                     #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsync")]
-                    fn AuthenticateUserAsync(&self, request: OnlineIdServiceTicketRequest) -> UserAuthenticationOperation;
+                    fn AuthenticateUserAsync(&self, #[in] request: OnlineIdServiceTicketRequest) -> UserAuthenticationOperation;
                     #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsyncAdvanced")]
-                    fn AuthenticateUserAsync(&self, requests: super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>, credentialPromptType: CredentialPromptType) -> UserAuthenticationOperation;
+                    fn AuthenticateUserAsync(&self, #[in] requests: super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>, #[in] credentialPromptType: CredentialPromptType) -> UserAuthenticationOperation;
                     fn SignOutUserAsync(&self) -> SignOutUserOperation;
                     #[set]
                     ApplicationId: GUID;
@@ -28,9 +28,9 @@ mod Windows {
                     #[get]
                     AuthenticatedSafeCustomerId: String;
                 }
-                #[guid(0xc95c547f_d781_4a94_acb8_c59874238c26)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdServiceTicket)]
+                #[guid(0xc95c547f_d781_4a94_acb8_c59874238c26)]
                 interface IOnlineIdServiceTicket {
                     #[get]
                     Value: String;
@@ -39,29 +39,29 @@ mod Windows {
                     #[get]
                     ErrorCode: i32;
                 }
-                #[guid(0x297445d3_fb63_4135_8909_4e354c061466)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdServiceTicketRequest)]
+                #[guid(0x297445d3_fb63_4135_8909_4e354c061466)]
                 interface IOnlineIdServiceTicketRequest {
                     #[get]
                     Service: String;
                     #[get]
                     Policy: String;
                 }
-                #[guid(0xbebb0a08_9e73_4077_9614_08614c0bc245)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdServiceTicketRequest)]
+                #[guid(0xbebb0a08_9e73_4077_9614_08614c0bc245)]
                 interface IOnlineIdServiceTicketRequestFactory {
-                    fn CreateOnlineIdServiceTicketRequest(&self, service: String, policy: String) -> OnlineIdServiceTicketRequest;
-                    fn CreateOnlineIdServiceTicketRequestAdvanced(&self, service: String) -> OnlineIdServiceTicketRequest;
+                    fn CreateOnlineIdServiceTicketRequest(&self, #[in] service: String, #[in] policy: String) -> OnlineIdServiceTicketRequest;
+                    fn CreateOnlineIdServiceTicketRequestAdvanced(&self, #[in] service: String) -> OnlineIdServiceTicketRequest;
                 }
-                #[guid(0x5798befb_1de4_4186_a2e6_b563f86aaf44)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemAuthenticatorForUser)]
+                #[guid(0x5798befb_1de4_4186_a2e6_b563f86aaf44)]
                 interface IOnlineIdSystemAuthenticatorForUser {
                     #[Windows::Foundation::Metadata::Overload("GetTicketAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetTicketAsync(&self, request: OnlineIdServiceTicketRequest) -> super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>;
+                    fn GetTicketAsync(&self, #[in] request: OnlineIdServiceTicketRequest) -> super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>;
                     #[set]
                     ApplicationId: GUID;
                     #[get]
@@ -69,26 +69,26 @@ mod Windows {
                     #[get]
                     User: super::super::super::System::User;
                 }
-                #[guid(0x85047792_f634_41e3_96a4_5164e902c740)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemAuthenticator)]
+                #[guid(0x85047792_f634_41e3_96a4_5164e902c740)]
                 interface IOnlineIdSystemAuthenticatorStatics {
                     #[get]
                     Default: OnlineIdSystemAuthenticatorForUser;
-                    fn GetForUser(&self, user: super::super::super::System::User) -> OnlineIdSystemAuthenticatorForUser;
+                    fn GetForUser(&self, #[in] user: super::super::super::System::User) -> OnlineIdSystemAuthenticatorForUser;
                 }
-                #[guid(0x743cd20d_b6ca_434d_8124_53ea12685307)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemIdentity)]
+                #[guid(0x743cd20d_b6ca_434d_8124_53ea12685307)]
                 interface IOnlineIdSystemIdentity {
                     #[get]
                     Ticket: OnlineIdServiceTicket;
                     #[get]
                     Id: String;
                 }
-                #[guid(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemTicketResult)]
+                #[guid(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6)]
                 interface IOnlineIdSystemTicketResult {
                     #[get]
                     Identity: OnlineIdSystemIdentity;
@@ -97,9 +97,9 @@ mod Windows {
                     #[get]
                     ExtendedError: HRESULT;
                 }
-                #[guid(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserIdentity)]
+                #[guid(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88)]
                 interface IUserIdentity {
                     #[get]
                     Tickets: super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>;
@@ -160,8 +160,8 @@ mod Windows {
                 class OnlineIdSystemTicketResult {
                     IOnlineIdSystemTicketResult,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum OnlineIdSystemTicketStatus {
                     Success = 0,
                     Error = 1,

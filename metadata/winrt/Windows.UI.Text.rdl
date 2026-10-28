@@ -2,8 +2,8 @@
 mod Windows {
     mod UI {
         mod Text {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum CaretType {
                 Normal = 0,
                 Null = 1,
@@ -15,16 +15,16 @@ mod Windows {
             class ContentLinkInfo {
                 IContentLinkInfo,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum FindOptions {
                 None = 0,
                 Word = 2,
                 Case = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum FontStretch {
                 Undefined = 0,
                 UltraCondensed = 1,
@@ -37,8 +37,8 @@ mod Windows {
                 ExtraExpanded = 8,
                 UltraExpanded = 9,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum FontStyle {
                 Normal = 0,
                 Oblique = 1,
@@ -56,24 +56,24 @@ mod Windows {
             class FontWeights {
                 IFontWeights,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum FormatEffect {
                 Off = 0,
                 On = 1,
                 Toggle = 2,
                 Undefined = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum HorizontalCharacterAlignment {
                 Left = 0,
                 Right = 1,
                 Center = 2,
             }
-            #[guid(0x1ed52525_1c5f_48cb_b335_78b50a2ee642)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkInfo)]
+            #[guid(0x1ed52525_1c5f_48cb_b335_78b50a2ee642)]
             interface IContentLinkInfo {
                 Id: u32;
                 DisplayText: String;
@@ -81,15 +81,15 @@ mod Windows {
                 Uri: super::super::Foundation::Uri;
                 LinkContentKind: String;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FontWeights)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0x7880a444_01ab_4997_8517_df822a0c45f1)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FontWeights)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IFontWeights {}
-            #[guid(0xb3b579d5_1ba9_48eb_9dad_c095e8c23ba3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FontWeights)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xb3b579d5_1ba9_48eb_9dad_c095e8c23ba3)]
             interface IFontWeightsStatics {
                 #[get]
                 Black: FontWeight;
@@ -114,16 +114,16 @@ mod Windows {
                 #[get]
                 Thin: FontWeight;
             }
-            #[guid(0x374e3515_ba8a_4a6e_8c59_0dde3d0cf5cd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextRange)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x374e3515_ba8a_4a6e_8c59_0dde3d0cf5cd)]
             interface IRichEditTextRange {
                 ContentLinkInfo: ContentLinkInfo;
             }
-            #[guid(0x5adef3db_05fb_442d_8065_642afea02ced)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x5adef3db_05fb_442d_8065_642afea02ced)]
             interface ITextCharacterFormat {
                 AllCaps: FormatEffect;
                 BackgroundColor: super::Color;
@@ -150,14 +150,14 @@ mod Windows {
                 TextScript: TextScript;
                 Underline: UnderlineType;
                 Weight: i32;
-                fn SetClone(&self, value: ITextCharacterFormat);
+                fn SetClone(&self, #[in] value: ITextCharacterFormat);
                 fn GetClone(&self) -> ITextCharacterFormat;
-                fn IsEqual(&self, format: ITextCharacterFormat) -> bool;
+                fn IsEqual(&self, #[in] format: ITextCharacterFormat) -> bool;
             }
-            #[guid(0x779e7c33_189d_4bfa_97c8_10db135d976e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TextConstants)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x779e7c33_189d_4bfa_97c8_10db135d976e)]
             interface ITextConstantsStatics {
                 #[get]
                 AutoColor: super::Color;
@@ -176,9 +176,9 @@ mod Windows {
                 #[get]
                 UndefinedFontStyle: FontStyle;
             }
-            #[guid(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4)]
             interface ITextDocument {
                 CaretType: CaretType;
                 DefaultTabStop: f32;
@@ -195,44 +195,44 @@ mod Windows {
                 fn EndUndoGroup(&self);
                 fn GetDefaultCharacterFormat(&self) -> ITextCharacterFormat;
                 fn GetDefaultParagraphFormat(&self) -> ITextParagraphFormat;
-                fn GetRange(&self, startPosition: i32, endPosition: i32) -> ITextRange;
-                fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ITextRange;
-                fn GetText(&self, options: TextGetOptions, value: &mut String);
-                fn LoadFromStream(&self, options: TextSetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
+                fn GetRange(&self, #[in] startPosition: i32, #[in] endPosition: i32) -> ITextRange;
+                fn GetRangeFromPoint(&self, #[in] point: super::super::Foundation::Point, #[in] options: PointOptions) -> ITextRange;
+                fn GetText(&self, #[in] options: TextGetOptions, #[out] value: &mut String);
+                fn LoadFromStream(&self, #[in] options: TextSetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
                 fn Redo(&self);
-                fn SaveToStream(&self, options: TextGetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn SetDefaultCharacterFormat(&self, value: ITextCharacterFormat);
-                fn SetDefaultParagraphFormat(&self, value: ITextParagraphFormat);
-                fn SetText(&self, options: TextSetOptions, value: String);
+                fn SaveToStream(&self, #[in] options: TextGetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn SetDefaultCharacterFormat(&self, #[in] value: ITextCharacterFormat);
+                fn SetDefaultParagraphFormat(&self, #[in] value: ITextParagraphFormat);
+                fn SetText(&self, #[in] options: TextSetOptions, #[in] value: String);
                 fn Undo(&self);
             }
-            #[guid(0xf2311112_8c89_49c9_9118_f057cbb814ee)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xf2311112_8c89_49c9_9118_f057cbb814ee)]
             interface ITextDocument2 {
                 AlignmentIncludesTrailingWhitespace: bool;
                 IgnoreTrailingCharacterSpacing: bool;
             }
-            #[guid(0x75ab03a1_a6f8_441d_aa18_0a851d6e5e3c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x75ab03a1_a6f8_441d_aa18_0a851d6e5e3c)]
             interface ITextDocument3 {
                 fn ClearUndoRedoHistory(&self);
             }
-            #[guid(0x619c20f2_cb3b_4521_981f_2865b1b93f04)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x619c20f2_cb3b_4521_981f_2865b1b93f04)]
             interface ITextDocument4 {
-                fn SetMath(&self, value: String);
-                fn GetMath(&self, value: &mut String);
-                fn SetMathMode(&self, mode: RichEditMathMode);
+                fn SetMath(&self, #[in] value: String);
+                fn GetMath(&self, #[out] value: &mut String);
+                fn SetMathMode(&self, #[in] mode: RichEditMathMode);
             }
-            #[guid(0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883)]
             interface ITextParagraphFormat {
                 Alignment: ParagraphAlignment;
                 #[get]
@@ -261,19 +261,19 @@ mod Windows {
                 WidowControl: FormatEffect;
                 #[get]
                 TabCount: i32;
-                fn AddTab(&self, position: f32, align: TabAlignment, leader: TabLeader);
+                fn AddTab(&self, #[in] position: f32, #[in] align: TabAlignment, #[in] leader: TabLeader);
                 fn ClearAllTabs(&self);
-                fn DeleteTab(&self, position: f32);
+                fn DeleteTab(&self, #[in] position: f32);
                 fn GetClone(&self) -> ITextParagraphFormat;
-                fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader);
-                fn IsEqual(&self, format: ITextParagraphFormat) -> bool;
-                fn SetClone(&self, format: ITextParagraphFormat);
-                fn SetIndents(&self, start: f32, left: f32, right: f32);
-                fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32);
+                fn GetTab(&self, #[in] index: i32, #[out] position: &mut f32, #[out] align: &mut TabAlignment, #[out] leader: &mut TabLeader);
+                fn IsEqual(&self, #[in] format: ITextParagraphFormat) -> bool;
+                fn SetClone(&self, #[in] format: ITextParagraphFormat);
+                fn SetIndents(&self, #[in] start: f32, #[in] left: f32, #[in] right: f32);
+                fn SetLineSpacing(&self, #[in] rule: LineSpacingRule, #[in] spacing: f32);
             }
-            #[guid(0x5b9e4e57_c072_42a0_8945_af503ee54768)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x5b9e4e57_c072_42a0_8945_af503ee54768)]
             interface ITextRange {
                 Character: Char16;
                 CharacterFormat: ITextCharacterFormat;
@@ -288,62 +288,62 @@ mod Windows {
                 #[get]
                 StoryLength: i32;
                 Text: String;
-                fn CanPaste(&self, format: i32) -> bool;
-                fn ChangeCase(&self, value: LetterCase);
-                fn Collapse(&self, value: bool);
+                fn CanPaste(&self, #[in] format: i32) -> bool;
+                fn ChangeCase(&self, #[in] value: LetterCase);
+                fn Collapse(&self, #[in] value: bool);
                 fn Copy(&self);
                 fn Cut(&self);
-                fn Delete(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn EndOf(&self, unit: TextRangeUnit, extend: bool) -> i32;
-                fn Expand(&self, unit: TextRangeUnit) -> i32;
-                fn FindText(&self, value: String, scanLength: i32, options: FindOptions) -> i32;
-                fn GetCharacterUtf32(&self, value: &mut u32, offset: i32);
+                fn Delete(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn EndOf(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
+                fn Expand(&self, #[in] unit: TextRangeUnit) -> i32;
+                fn FindText(&self, #[in] value: String, #[in] scanLength: i32, #[in] options: FindOptions) -> i32;
+                fn GetCharacterUtf32(&self, #[out] value: &mut u32, #[in] offset: i32);
                 fn GetClone(&self) -> ITextRange;
-                fn GetIndex(&self, unit: TextRangeUnit) -> i32;
-                fn GetPoint(&self, horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point);
-                fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32);
-                fn GetText(&self, options: TextGetOptions, value: &mut String);
-                fn GetTextViaStream(&self, options: TextGetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn InRange(&self, range: ITextRange) -> bool;
-                fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalAlign: VerticalCharacterAlignment, alternateText: String, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn InStory(&self, range: ITextRange) -> bool;
-                fn IsEqual(&self, range: ITextRange) -> bool;
-                fn Move(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn Paste(&self, format: i32);
-                fn ScrollIntoView(&self, value: PointOptions);
+                fn GetIndex(&self, #[in] unit: TextRangeUnit) -> i32;
+                fn GetPoint(&self, #[in] horizontalAlign: HorizontalCharacterAlignment, #[in] verticalAlign: VerticalCharacterAlignment, #[in] options: PointOptions, #[out] point: &mut super::super::Foundation::Point);
+                fn GetRect(&self, #[in] options: PointOptions, #[out] rect: &mut super::super::Foundation::Rect, #[out] hit: &mut i32);
+                fn GetText(&self, #[in] options: TextGetOptions, #[out] value: &mut String);
+                fn GetTextViaStream(&self, #[in] options: TextGetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn InRange(&self, #[in] range: ITextRange) -> bool;
+                fn InsertImage(&self, #[in] width: i32, #[in] height: i32, #[in] ascent: i32, #[in] verticalAlign: VerticalCharacterAlignment, #[in] alternateText: String, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn InStory(&self, #[in] range: ITextRange) -> bool;
+                fn IsEqual(&self, #[in] range: ITextRange) -> bool;
+                fn Move(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn MoveEnd(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn MoveStart(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn Paste(&self, #[in] format: i32);
+                fn ScrollIntoView(&self, #[in] value: PointOptions);
                 fn MatchSelection(&self);
-                fn SetIndex(&self, unit: TextRangeUnit, index: i32, extend: bool);
-                fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool);
-                fn SetRange(&self, startPosition: i32, endPosition: i32);
-                fn SetText(&self, options: TextSetOptions, value: String);
-                fn SetTextViaStream(&self, options: TextSetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> i32;
+                fn SetIndex(&self, #[in] unit: TextRangeUnit, #[in] index: i32, #[in] extend: bool);
+                fn SetPoint(&self, #[in] point: super::super::Foundation::Point, #[in] options: PointOptions, #[in] extend: bool);
+                fn SetRange(&self, #[in] startPosition: i32, #[in] endPosition: i32);
+                fn SetText(&self, #[in] options: TextSetOptions, #[in] value: String);
+                fn SetTextViaStream(&self, #[in] options: TextSetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn StartOf(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
             }
-            #[guid(0xa6d36724_f28f_430a_b2cf_c343671ec0e9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xa6d36724_f28f_430a_b2cf_c343671ec0e9)]
             interface ITextSelection: ITextRange {
                 Options: SelectionOptions;
                 #[get]
                 Type: SelectionType;
-                fn EndKey(&self, unit: TextRangeUnit, extend: bool) -> i32;
-                fn HomeKey(&self, unit: TextRangeUnit, extend: bool) -> i32;
-                fn MoveDown(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn MoveLeft(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn MoveRight(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn MoveUp(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn TypeText(&self, value: String);
+                fn EndKey(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
+                fn HomeKey(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
+                fn MoveDown(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn MoveLeft(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn MoveRight(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn MoveUp(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn TypeText(&self, #[in] value: String);
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum LetterCase {
                 Lower = 0,
                 Upper = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum LineSpacingRule {
                 Undefined = 0,
                 Single = 1,
@@ -354,8 +354,8 @@ mod Windows {
                 Multiple = 6,
                 Percent = 7,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum LinkType {
                 Undefined = 0,
                 NotALink = 1,
@@ -367,16 +367,16 @@ mod Windows {
                 AutoLinkPhone = 7,
                 AutoLinkPath = 8,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MarkerAlignment {
                 Undefined = 0,
                 Left = 1,
                 Center = 2,
                 Right = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MarkerStyle {
                 Undefined = 0,
                 Parenthesis = 1,
@@ -386,8 +386,8 @@ mod Windows {
                 Minus = 5,
                 NoNumber = 6,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MarkerType {
                 Undefined = 0,
                 None = 1,
@@ -415,8 +415,8 @@ mod Windows {
                 DevanagariConsonant = 23,
                 DevanagariNumeric = 24,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ParagraphAlignment {
                 Undefined = 0,
                 Left = 1,
@@ -424,8 +424,8 @@ mod Windows {
                 Right = 3,
                 Justify = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ParagraphStyle {
                 Undefined = 0,
                 None = 1,
@@ -440,9 +440,9 @@ mod Windows {
                 Heading8 = 10,
                 Heading9 = 11,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum PointOptions {
                 None = 0,
                 IncludeInset = 1,
@@ -453,8 +453,8 @@ mod Windows {
                 NoHorizontalScroll = 65536,
                 NoVerticalScroll = 262144,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum RangeGravity {
                 UIBehavior = 0,
                 Backward = 1,
@@ -462,8 +462,8 @@ mod Windows {
                 Inward = 3,
                 Outward = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[repr(i32)]
             enum RichEditMathMode {
                 NoMath = 0,
                 MathOnly = 1,
@@ -490,9 +490,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IRichEditTextRange,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum SelectionOptions {
                 StartActive = 1,
                 AtEndOfLine = 2,
@@ -500,8 +500,8 @@ mod Windows {
                 Active = 8,
                 Replace = 16,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum SelectionType {
                 None = 0,
                 InsertionPoint = 1,
@@ -509,8 +509,8 @@ mod Windows {
                 InlineShape = 7,
                 Shape = 8,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum TabAlignment {
                 Left = 0,
                 Center = 1,
@@ -518,8 +518,8 @@ mod Windows {
                 Decimal = 3,
                 Bar = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum TabLeader {
                 Spaces = 0,
                 Dots = 1,
@@ -534,18 +534,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class TextConstants {}
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[flags]
+            #[repr(u32)]
             enum TextDecorations {
                 None = 0,
                 Underline = 1,
                 Strikethrough = 2,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum TextGetOptions {
                 None = 0,
                 AdjustCrlf = 1,
@@ -555,10 +555,11 @@ mod Windows {
                 NoHidden = 32,
                 IncludeNumbering = 64,
                 FormatRtf = 8192,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 UseLf = 16777216,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum TextRangeUnit {
                 Character = 0,
                 Word = 1,
@@ -592,10 +593,11 @@ mod Windows {
                 Superscript = 29,
                 FontBound = 30,
                 LinkProtected = 31,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ContentLink = 32,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum TextScript {
                 Undefined = 0,
                 Ansi = 1,
@@ -662,9 +664,9 @@ mod Windows {
                 Deseret = 62,
                 Tifinagh = 63,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum TextSetOptions {
                 None = 0,
                 UnicodeBidi = 1,
@@ -674,8 +676,8 @@ mod Windows {
                 FormatRtf = 8192,
                 ApplyRtfDocumentDefaults = 16384,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum UnderlineType {
                 Undefined = 0,
                 None = 1,
@@ -698,8 +700,8 @@ mod Windows {
                 ThickDotted = 18,
                 ThickLongDash = 19,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum VerticalCharacterAlignment {
                 Top = 0,
                 Baseline = 1,

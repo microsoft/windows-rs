@@ -10,10 +10,10 @@ mod Windows {
                 class CompositionDebugHeatMaps {
                     ICompositionDebugHeatMaps,
                 }
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[flags]
+                #[repr(u32)]
                 enum CompositionDebugOverdrawContentKinds {
                     None = 0,
                     OffscreenRendered = 1,
@@ -34,30 +34,30 @@ mod Windows {
                 class CompositionDebugSettings {
                     ICompositionDebugSettings,
                 }
-                #[guid(0xe49c90ac_2ff3_5805_718c_b725ee07650f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDebugHeatMaps)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xe49c90ac_2ff3_5805_718c_b725ee07650f)]
                 interface ICompositionDebugHeatMaps {
-                    fn Hide(&self, subtree: super::Visual);
-                    fn ShowMemoryUsage(&self, subtree: super::Visual);
-                    fn ShowOverdraw(&self, subtree: super::Visual, contentKinds: CompositionDebugOverdrawContentKinds);
-                    fn ShowRedraw(&self, subtree: super::Visual);
+                    fn Hide(&self, #[in] subtree: super::Visual);
+                    fn ShowMemoryUsage(&self, #[in] subtree: super::Visual);
+                    fn ShowOverdraw(&self, #[in] subtree: super::Visual, #[in] contentKinds: CompositionDebugOverdrawContentKinds);
+                    fn ShowRedraw(&self, #[in] subtree: super::Visual);
                 }
-                #[guid(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDebugSettings)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1)]
                 interface ICompositionDebugSettings {
                     #[get]
                     HeatMaps: CompositionDebugHeatMaps;
                 }
-                #[guid(0x64ec1f1e_6af8_4af8_b814_c870fd5a9505)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDebugSettings)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x64ec1f1e_6af8_4af8_b814_c870fd5a9505)]
                 interface ICompositionDebugSettingsStatics {
-                    fn TryGetSettings(&self, compositor: super::Compositor) -> CompositionDebugSettings;
+                    fn TryGetSettings(&self, #[in] compositor: super::Compositor) -> CompositionDebugSettings;
                 }
             }
         }

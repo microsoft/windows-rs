@@ -2,22 +2,22 @@
 mod Windows {
     mod ApplicationModel {
         mod LockScreen {
-            #[guid(0x38ee31ad_d94f_4e7c_81fa_4f4436506281)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LockApplicationHost)]
+            #[guid(0x38ee31ad_d94f_4e7c_81fa_4f4436506281)]
             interface ILockApplicationHost {
                 fn RequestUnlock(&self);
                 event Unlocking: super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>;
             }
-            #[guid(0xf48fab8e_23d7_4e63_96a1_666ff52d3b2c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LockApplicationHost)]
+            #[guid(0xf48fab8e_23d7_4e63_96a1_666ff52d3b2c)]
             interface ILockApplicationHostStatics {
                 fn GetForCurrentView(&self) -> LockApplicationHost;
             }
-            #[guid(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenBadge)]
+            #[guid(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a)]
             interface ILockScreenBadge {
                 #[get]
                 Logo: super::super::Storage::Streams::IRandomAccessStream;
@@ -29,9 +29,9 @@ mod Windows {
                 AutomationName: String;
                 fn LaunchApp(&self);
             }
-            #[guid(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenInfo)]
+            #[guid(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0)]
             interface ILockScreenInfo {
                 event LockScreenImageChanged: super::super::Foundation::TypedEventHandler<LockScreenInfo, Object>;
                 #[get]
@@ -46,15 +46,15 @@ mod Windows {
                 #[get]
                 AlarmIcon: super::super::Storage::Streams::IRandomAccessStream;
             }
-            #[guid(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenUnlockingDeferral)]
+            #[guid(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe)]
             interface ILockScreenUnlockingDeferral {
                 fn Complete(&self);
             }
-            #[guid(0x44e6c007_75fb_4abb_9f8b_824748900c71)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenUnlockingEventArgs)]
+            #[guid(0x44e6c007_75fb_4abb_9f8b_824748900c71)]
             interface ILockScreenUnlockingEventArgs {
                 fn GetDeferral(&self) -> LockScreenUnlockingDeferral;
                 #[get]

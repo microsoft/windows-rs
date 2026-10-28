@@ -8,8 +8,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IGameBarStatics, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class GameBar {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[repr(i32)]
             enum GameChatMessageOrigin {
                 Voice = 0,
                 Text = 1,
@@ -36,8 +36,8 @@ mod Windows {
             class GameChatOverlayMessageSource {
                 IGameChatOverlayMessageSource,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[repr(i32)]
             enum GameChatOverlayPosition {
                 BottomCenter = 0,
                 BottomLeft = 1,
@@ -58,9 +58,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct GamingUIProviderContract {}
-            #[guid(0x1db9a292_cc78_4173_be45_b61e67283ea7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GameBar)]
+            #[guid(0x1db9a292_cc78_4173_be45_b61e67283ea7)]
             interface IGameBarStatics {
                 event VisibilityChanged: super::super::Foundation::EventHandler<Object>;
                 event IsInputRedirectedChanged: super::super::Foundation::EventHandler<Object>;
@@ -69,9 +69,9 @@ mod Windows {
                 #[get]
                 IsInputRedirected: bool;
             }
-            #[guid(0xa28201f1_3fb9_4e42_a403_7afce2023b1e)]
             #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GameChatMessageReceivedEventArgs)]
+            #[guid(0xa28201f1_3fb9_4e42_a403_7afce2023b1e)]
             interface IGameChatMessageReceivedEventArgs {
                 #[get]
                 AppId: String;
@@ -84,33 +84,33 @@ mod Windows {
                 #[get]
                 Origin: GameChatMessageOrigin;
             }
-            #[guid(0xfbc64865_f6fc_4a48_ae07_03ac6ed43704)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
+            #[guid(0xfbc64865_f6fc_4a48_ae07_03ac6ed43704)]
             interface IGameChatOverlay {
                 DesiredPosition: GameChatOverlayPosition;
-                fn AddMessage(&self, sender: String, message: String, origin: GameChatMessageOrigin);
+                fn AddMessage(&self, #[in] sender: String, #[in] message: String, #[in] origin: GameChatMessageOrigin);
             }
-            #[guid(0x1e177397_59fb_4f4f_8e9a_80acf817743c)]
             #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlayMessageSource)]
+            #[guid(0x1e177397_59fb_4f4f_8e9a_80acf817743c)]
             interface IGameChatOverlayMessageSource {
                 event MessageReceived: super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>;
-                fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan);
+                fn SetDelayBeforeClosingAfterMessageReceived(&self, #[in] value: super::super::Foundation::TimeSpan);
             }
-            #[guid(0x89acf614_7867_49f7_9687_25d9dbf444d1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
+            #[guid(0x89acf614_7867_49f7_9687_25d9dbf444d1)]
             interface IGameChatOverlayStatics {
                 fn GetDefault(&self) -> GameChatOverlay;
             }
-            #[guid(0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5)]
             #[Windows::Foundation::Metadata::ContractVersion(GamingUIProviderContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GameUIProviderActivatedEventArgs)]
+            #[guid(0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5)]
             interface IGameUIProviderActivatedEventArgs: super::super::ApplicationModel::Activation::IActivatedEventArgs {
                 #[get]
                 GameUIArgs: super::super::Foundation::Collections::ValueSet;
-                fn ReportCompleted(&self, results: super::super::Foundation::Collections::ValueSet);
+                fn ReportCompleted(&self, #[in] results: super::super::Foundation::Collections::ValueSet);
             }
         }
     }

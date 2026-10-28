@@ -17,8 +17,8 @@ mod Windows {
                 class AppCapabilityAccessChangedEventArgs {
                     IAppCapabilityAccessChangedEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[repr(i32)]
                 enum AppCapabilityAccessStatus {
                     DeniedBySystem = 0,
                     NotDeclaredByApp = 1,
@@ -26,9 +26,9 @@ mod Windows {
                     UserPromptRequired = 3,
                     Allowed = 4,
                 }
-                #[guid(0x4c49d915_8a2a_4295_9437_2df7c396aff4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppCapability)]
+                #[guid(0x4c49d915_8a2a_4295_9437_2df7c396aff4)]
                 interface IAppCapability {
                     #[get]
                     CapabilityName: String;
@@ -39,26 +39,26 @@ mod Windows {
                     fn CheckAccess(&self) -> AppCapabilityAccessStatus;
                     event AccessChanged: super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>;
                 }
-                #[guid(0x11c7ccb6_c74f_50a3_b960_88008767d939)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppCapability)]
+                #[guid(0x11c7ccb6_c74f_50a3_b960_88008767d939)]
                 interface IAppCapability2 {
                     DisplayMessage: String;
                 }
-                #[guid(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppCapabilityAccessChangedEventArgs)]
+                #[guid(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944)]
                 interface IAppCapabilityAccessChangedEventArgs {}
-                #[guid(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppCapability)]
+                #[guid(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22)]
                 interface IAppCapabilityStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestAccessForCapabilitiesAsync(&self, capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
+                    fn RequestAccessForCapabilitiesAsync(&self, #[in] capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestAccessForCapabilitiesForUserAsync(&self, user: super::super::super::System::User, capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
-                    fn Create(&self, capabilityName: String) -> AppCapability;
-                    fn CreateWithProcessIdForUser(&self, user: super::super::super::System::User, capabilityName: String, pid: u32) -> AppCapability;
+                    fn RequestAccessForCapabilitiesForUserAsync(&self, #[in] user: super::super::super::System::User, #[in] capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
+                    fn Create(&self, #[in] capabilityName: String) -> AppCapability;
+                    fn CreateWithProcessIdForUser(&self, #[in] user: super::super::super::System::User, #[in] capabilityName: String, #[in] pid: u32) -> AppCapability;
                 }
             }
         }

@@ -2,8 +2,8 @@
 mod Windows {
     mod Media {
         mod ClosedCaptioning {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ClosedCaptionColor {
                 Default = 0,
                 White = 1,
@@ -15,8 +15,8 @@ mod Windows {
                 Magenta = 7,
                 Cyan = 8,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ClosedCaptionEdgeEffect {
                 Default = 0,
                 None = 1,
@@ -25,8 +25,8 @@ mod Windows {
                 Uniform = 4,
                 DropShadow = 5,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ClosedCaptionOpacity {
                 Default = 0,
                 OneHundredPercent = 1,
@@ -36,12 +36,12 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ClosedCaptionProperties {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ClosedCaptionSize {
                 Default = 0,
                 FiftyPercent = 1,
@@ -49,8 +49,8 @@ mod Windows {
                 OneHundredFiftyPercent = 3,
                 TwoHundredPercent = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ClosedCaptionStyle {
                 Default = 0,
                 MonospacedWithSerifs = 1,
@@ -69,9 +69,9 @@ mod Windows {
             class ClosedCaptionTheme {
                 IClosedCaptionTheme,
             }
-            #[guid(0x10aa1f84_cc30_4141_b503_5272289e0c20)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionProperties)]
+            #[guid(0x10aa1f84_cc30_4141_b503_5272289e0c20)]
             interface IClosedCaptionPropertiesStatics {
                 #[get]
                 FontColor: ClosedCaptionColor;
@@ -98,15 +98,15 @@ mod Windows {
                 #[get]
                 RegionOpacity: ClosedCaptionOpacity;
             }
-            #[guid(0x9de26870_37de_4197_8845_9a48dc5ac317)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionProperties)]
+            #[guid(0x9de26870_37de_4197_8845_9a48dc5ac317)]
             interface IClosedCaptionPropertiesStatics2 {
                 event PropertiesChanged: super::super::Foundation::EventHandler<Object>;
             }
-            #[guid(0xd3974055_b9b5_52a4_b655_30661f73d1c1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
+            #[guid(0xd3974055_b9b5_52a4_b655_30661f73d1c1)]
             interface IClosedCaptionTheme {
                 #[get]
                 Id: String;
@@ -137,13 +137,13 @@ mod Windows {
                 #[get]
                 RegionOpacity: ClosedCaptionOpacity;
             }
-            #[guid(0x0938ae0f_214e_5760_88c9_bb3f1b54f3c7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
+            #[guid(0x0938ae0f_214e_5760_88c9_bb3f1b54f3c7)]
             interface IClosedCaptionThemeStatics {
                 fn GetAvailableThemes(&self) -> [ClosedCaptionTheme];
                 fn GetSelectedTheme(&self) -> ClosedCaptionTheme;
-                fn TrySetSelectedTheme(&self, value: ClosedCaptionTheme) -> bool;
+                fn TrySetSelectedTheme(&self, #[in] value: ClosedCaptionTheme) -> bool;
                 event ThemesChanged: super::super::Foundation::EventHandler<Object>;
                 event SelectedThemeChanged: super::super::Foundation::EventHandler<Object>;
             }

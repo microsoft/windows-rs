@@ -3,9 +3,9 @@ mod Windows {
     mod Graphics {
         mod Printing {
             mod ProtectedPrint {
-                #[guid(0xa7d212f3_4168_5485_98ab_d89d04603b40)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WindowsProtectedPrintInfo)]
+                #[guid(0xa7d212f3_4168_5485_98ab_d89d04603b40)]
                 interface IWindowsProtectedPrintInfoStatics {
                     #[get]
                     IsProtectedPrintEnabled: bool;

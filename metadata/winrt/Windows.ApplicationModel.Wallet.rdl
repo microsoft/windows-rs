@@ -2,40 +2,40 @@
 mod Windows {
     mod ApplicationModel {
         mod Wallet {
-            #[guid(0x4f857b29_de80_4ea4_a1cd_81cd084dac27)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletBarcode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletBarcode)]
+            #[guid(0x4f857b29_de80_4ea4_a1cd_81cd084dac27)]
             interface IWalletBarcode {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletBarcode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Symbology: WalletBarcodeSymbology;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletBarcode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Value: String;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletBarcode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetImageAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>;
             }
-            #[guid(0x30117161_ed9c_469e_bbfd_306c95ea7108)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletBarcodeFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletBarcode)]
+            #[guid(0x30117161_ed9c_469e_bbfd_306c95ea7108)]
             interface IWalletBarcodeFactory {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletBarcodeFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                fn CreateWalletBarcode(&self, symbology: WalletBarcodeSymbology, value: String) -> WalletBarcode;
+                fn CreateWalletBarcode(&self, #[in] symbology: WalletBarcodeSymbology, #[in] value: String) -> WalletBarcode;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletBarcodeFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                fn CreateCustomWalletBarcode(&self, streamToBarcodeImage: super::super::Storage::Streams::IRandomAccessStreamReference) -> WalletBarcode;
+                fn CreateCustomWalletBarcode(&self, #[in] streamToBarcodeImage: super::super::Storage::Streams::IRandomAccessStreamReference) -> WalletBarcode;
             }
-            #[guid(0x20b54be8_118d_4ec4_996c_b963e7bd3e74)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletItem)]
+            #[guid(0x20b54be8_118d_4ec4_996c_b963e7bd3e74)]
             interface IWalletItem {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 DisplayName: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Id: String;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 IsAcknowledged: bool;
@@ -43,8 +43,8 @@ mod Windows {
                 IssuerDisplayName: String;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 LastUpdated: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Kind: WalletItemKind;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 Barcode: WalletBarcode;
@@ -82,25 +82,25 @@ mod Windows {
                 RelevantDate: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 RelevantDateDisplayMessage: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 TransactionHistory: super::super::Foundation::Collections::IMap<String, WalletTransaction>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RelevantLocations: super::super::Foundation::Collections::IMap<String, WalletRelevantLocation>;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 IsMoreTransactionHistoryLaunchable: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DisplayProperties: super::super::Foundation::Collections::IMap<String, WalletItemCustomProperty>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Verbs: super::super::Foundation::Collections::IMap<String, WalletVerb>;
             }
-            #[guid(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletItemCustomProperty is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemCustomProperty)]
+            #[guid(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7)]
             interface IWalletItemCustomProperty {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemCustomProperty is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 Name: String;
@@ -113,36 +113,36 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemCustomProperty is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 SummaryViewPosition: WalletSummaryViewPosition;
             }
-            #[guid(0xd0046a44_61a1_41aa_b259_a5610ab5d575)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletItemCustomProperty is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemCustomProperty)]
+            #[guid(0xd0046a44_61a1_41aa_b259_a5610ab5d575)]
             interface IWalletItemCustomPropertyFactory {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemCustomProperty is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                fn CreateWalletItemCustomProperty(&self, name: String, value: String) -> WalletItemCustomProperty;
+                fn CreateWalletItemCustomProperty(&self, #[in] name: String, #[in] value: String) -> WalletItemCustomProperty;
             }
-            #[guid(0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletItemFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletItem)]
+            #[guid(0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4)]
             interface IWalletItemFactory {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                fn CreateWalletItem(&self, kind: WalletItemKind, displayName: String) -> WalletItem;
+                fn CreateWalletItem(&self, #[in] kind: WalletItemKind, #[in] displayName: String) -> WalletItem;
             }
-            #[guid(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemStore)]
+            #[guid(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4)]
             interface IWalletItemStore {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn AddAsync(&self, id: String, item: WalletItem) -> super::super::Foundation::IAsyncAction;
+                fn AddAsync(&self, #[in] id: String, #[in] item: WalletItem) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ClearAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetWalletItemAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<WalletItem>;
+                fn GetWalletItemAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<WalletItem>;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -150,13 +150,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("GetItemsWithKindAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetItemsAsync(&self, kind: WalletItemKind) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>;
+                fn GetItemsAsync(&self, #[in] kind: WalletItemKind) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ImportItemAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<WalletItem>;
+                fn ImportItemAsync(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<WalletItem>;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                fn DeleteAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -164,42 +164,42 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowItemAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                fn ShowAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UpdateAsync(&self, item: WalletItem) -> super::super::Foundation::IAsyncAction;
+                fn UpdateAsync(&self, #[in] item: WalletItem) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x65e682f0_7009_4a15_bd54_4fff379bffe2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore2 is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemStore)]
+            #[guid(0x65e682f0_7009_4a15_bd54_4fff379bffe2)]
             interface IWalletItemStore2 {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemStore2 is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 event ItemsChanged: super::super::Foundation::TypedEventHandler<WalletItemStore, Object>;
             }
-            #[guid(0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletManagerStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletManager)]
+            #[guid(0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d)]
             interface IWalletManagerStatics {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletManagerStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestStoreAsync(&self) -> super::super::Foundation::IAsyncOperation<WalletItemStore>;
             }
-            #[guid(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletRelevantLocation is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletRelevantLocation)]
+            #[guid(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3)]
             interface IWalletRelevantLocation {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletRelevantLocation is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 Position: super::super::Devices::Geolocation::BasicGeoposition;
                 #[Windows::Foundation::Metadata::Deprecated("IWalletRelevantLocation is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 DisplayMessage: String;
             }
-            #[guid(0x40e1e940_2606_4519_81cb_bff1c60d1f79)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletTransaction is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletTransaction)]
+            #[guid(0x40e1e940_2606_4519_81cb_bff1c60d1f79)]
             interface IWalletTransaction {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletTransaction is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 Description: String;
@@ -214,25 +214,25 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletTransaction is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 IsLaunchable: bool;
             }
-            #[guid(0x17b826d6_e3c1_4c74_8a94_217aadbc4884)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletVerb is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletVerb)]
+            #[guid(0x17b826d6_e3c1_4c74_8a94_217aadbc4884)]
             interface IWalletVerb {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletVerb is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 Name: String;
             }
-            #[guid(0x76012771_be58_4d5e_83ed_58b1669c7ad9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletVerbFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(WalletVerb)]
+            #[guid(0x76012771_be58_4d5e_83ed_58b1669c7ad9)]
             interface IWalletVerbFactory {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletVerbFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                fn CreateWalletVerb(&self, name: String) -> WalletVerb;
+                fn CreateWalletVerb(&self, #[in] name: String) -> WalletVerb;
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(WalletContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("WalletActionKind is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
+            #[repr(i32)]
             enum WalletActionKind {
                 OpenItem = 0,
                 Transaction = 1,
@@ -247,9 +247,9 @@ mod Windows {
             class WalletBarcode {
                 IWalletBarcode,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("WalletBarcodeSymbology is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+            #[repr(i32)]
             enum WalletBarcodeSymbology {
                 Invalid = 0,
                 Upca = 1,
@@ -267,9 +267,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(131072)]
             struct WalletContract {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("WalletDetailViewPosition is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+            #[repr(i32)]
             enum WalletDetailViewPosition {
                 Hidden = 0,
                 HeaderField1 = 1,
@@ -301,9 +301,9 @@ mod Windows {
             class WalletItemCustomProperty {
                 IWalletItemCustomProperty,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("WalletItemKind is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+            #[repr(i32)]
             enum WalletItemKind {
                 Invalid = 0,
                 Deal = 1,
@@ -331,9 +331,9 @@ mod Windows {
             class WalletRelevantLocation {
                 IWalletRelevantLocation,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("WalletSummaryViewPosition is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+            #[repr(i32)]
             enum WalletSummaryViewPosition {
                 Hidden = 0,
                 Field1 = 1,
