@@ -39,3 +39,12 @@ pub(crate) unsafe fn allocate(value: &str) -> Result<PWSTR> {
     unsafe { std::ptr::copy_nonoverlapping(encoded.as_ptr(), buffer, encoded.len()) };
     Ok(PWSTR(buffer))
 }
+
+#[test]
+fn allocated_strings_roundtrip() {
+    for value in ["", "WebView2", "\u{03bb}\u{1f600}"] {
+        let buffer = unsafe { allocate(value).unwrap() };
+        assert!(!buffer.is_null());
+        assert_eq!(unsafe { take(buffer) }, value);
+    }
+}
