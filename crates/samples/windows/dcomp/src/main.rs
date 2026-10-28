@@ -452,7 +452,7 @@ fn main() -> windows::core::Result<()> {
     fn create_image() -> Result<IWICFormatConverter> {
         unsafe {
             let factory: IWICImagingFactory2 =
-                CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
+                CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER as u32)?;
 
             let path = if PathFileExistsW(w!("image.jpg")).as_bool() {
                 w!("image.jpg")
@@ -462,7 +462,7 @@ fn main() -> windows::core::Result<()> {
 
             let decoder = factory.CreateDecoderFromFilename(
                 path,
-                core::ptr::null(),
+                None,
                 GENERIC_READ,
                 WICDecodeMetadataCacheOnDemand,
             )?;

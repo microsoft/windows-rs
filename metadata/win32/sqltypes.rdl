@@ -1,10 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[arch(X64 | Arm64)]
-        type BOOKMARK = SQLULEN;
-        #[arch(X86)]
-        type BOOKMARK = SQLUINTEGER;
+        type BOOKMARK = usize;
         struct DATE_STRUCT {
             year: SQLSMALLINT,
             month: SQLUSMALLINT,
@@ -29,11 +26,11 @@ mod Windows {
         type SQLFLOAT = f64;
         type SQLGUID = GUID;
         type SQLHANDLE = *mut void;
-        type SQLHDBC = SQLHANDLE;
-        type SQLHDESC = SQLHANDLE;
-        type SQLHENV = SQLHANDLE;
-        type SQLHSTMT = SQLHANDLE;
-        type SQLHWND = HWND;
+        type SQLHDBC = *mut void;
+        type SQLHDESC = *mut void;
+        type SQLHENV = *mut void;
+        type SQLHSTMT = *mut void;
+        type SQLHWND = *mut HWND__;
         type SQLINTEGER = i32;
         #[repr(i32)]
         enum SQLINTERVAL {
@@ -56,30 +53,18 @@ mod Windows {
         type SQLNUMERIC = u8;
         type SQLPOINTER = *mut void;
         type SQLREAL = f32;
-        type SQLRETURN = SQLSMALLINT;
-        #[arch(X64 | Arm64)]
-        type SQLROWCOUNT = SQLULEN;
-        #[arch(X86)]
-        type SQLROWCOUNT = SQLUINTEGER;
-        #[arch(X64 | Arm64)]
-        type SQLROWOFFSET = SQLLEN;
-        #[arch(X86)]
-        type SQLROWOFFSET = SQLINTEGER;
-        #[arch(X64 | Arm64)]
-        type SQLROWSETSIZE = SQLULEN;
-        #[arch(X86)]
-        type SQLROWSETSIZE = SQLUINTEGER;
+        type SQLRETURN = i16;
+        type SQLROWCOUNT = usize;
+        type SQLROWOFFSET = isize;
+        type SQLROWSETSIZE = usize;
         type SQLSCHAR = i8;
         #[arch(X64 | Arm64)]
         type SQLSETPOSIROW = u64;
         type SQLSMALLINT = i16;
-        type SQLTCHAR = SQLCHAR;
+        type SQLTCHAR = u8;
         type SQLTIME = u8;
         type SQLTIMESTAMP = u8;
-        #[arch(X64 | Arm64)]
-        type SQLTRANSID = SQLULEN;
-        #[arch(X86)]
-        type SQLTRANSID = SQLUINTEGER;
+        type SQLTRANSID = usize;
         type SQLUBIGINT = u64;
         type SQLUINTEGER = u32;
         #[arch(X64 | Arm64)]

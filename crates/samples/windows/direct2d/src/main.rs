@@ -158,7 +158,7 @@ fn main() -> windows::core::Result<()> {
                     a: 1.0,
                 }));
 
-                let previous = target.GetTarget()?;
+                let previous = target.GetTarget().ok_or_else(Error::empty)?;
                 target.SetTarget(clock);
                 target.Clear(None);
                 self.draw_clock()?;

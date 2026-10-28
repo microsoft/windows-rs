@@ -1,40 +1,40 @@
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServiceControl<P0, P1>(servername: P0, service: P1, opcode: u32, arg: u32, bufptr: *mut super::LPBYTE) -> u32
+pub unsafe fn NetServiceControl<P0, P1>(servername: P0, service: P1, opcode: super::DWORD, arg: super::DWORD, bufptr: *mut super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServiceControl(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, opcode : u32, arg : u32, bufptr : *mut super::LPBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServiceControl(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, opcode : super::DWORD, arg : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
     unsafe { NetServiceControl(servername.param().abi(), service.param().abi(), opcode, arg, bufptr as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetServiceEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetServiceEnum<P0>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE, prefmaxlen: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServiceEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServiceEnum(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
     unsafe { NetServiceEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServiceGetInfo<P0, P1>(servername: P0, service: P1, level: u32, bufptr: *mut super::LPBYTE) -> u32
+pub unsafe fn NetServiceGetInfo<P0, P1>(servername: P0, service: P1, level: super::DWORD, bufptr: *mut super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServiceGetInfo(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServiceGetInfo(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
     unsafe { NetServiceGetInfo(servername.param().abi(), service.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServiceInstall<P0, P1>(servername: P0, service: P1, argv: &[windows_core::PCWSTR], bufptr: *mut super::LPBYTE) -> u32
+pub unsafe fn NetServiceInstall<P0, P1>(servername: P0, service: P1, argv: &[windows_core::PCWSTR], bufptr: *mut super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, argc : u32, argv : *const windows_core::PCWSTR, bufptr : *mut super::LPBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, argc : super::DWORD, argv : *const windows_core::PCWSTR, bufptr : *mut super::LPBYTE) -> super::DWORD);
     unsafe { NetServiceInstall(servername.param().abi(), service.param().abi(), argv.len().try_into().unwrap(), argv.as_ptr(), bufptr as _) }
 }
 pub const LM20_SERVICE_ACTIVE: i32 = 0;
@@ -44,10 +44,14 @@ pub const LM20_SERVICE_PAUSE_PENDING: i32 = 8;
 pub const LOWER_GET_HINT_MASK: i32 = 65280;
 pub const LOWER_HINT_MASK: i32 = 255;
 pub type LPSERVICE_INFO_0 = *mut SERVICE_INFO_0;
+#[cfg(feature = "shared")]
 pub type LPSERVICE_INFO_1 = *mut SERVICE_INFO_1;
+#[cfg(feature = "shared")]
 pub type LPSERVICE_INFO_2 = *mut SERVICE_INFO_2;
 pub type PSERVICE_INFO_0 = *mut SERVICE_INFO_0;
+#[cfg(feature = "shared")]
 pub type PSERVICE_INFO_1 = *mut SERVICE_INFO_1;
+#[cfg(feature = "shared")]
 pub type PSERVICE_INFO_2 = *mut SERVICE_INFO_2;
 pub const SERVICE2_BASE: i32 = 5600;
 pub const SERVICE_BASE: i32 = 3050;
@@ -69,22 +73,24 @@ pub struct SERVICE_INFO_0 {
     pub svci0_name: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_1 {
     pub svci1_name: windows_core::PWSTR,
-    pub svci1_status: u32,
-    pub svci1_code: u32,
-    pub svci1_pid: u32,
+    pub svci1_status: super::DWORD,
+    pub svci1_code: super::DWORD,
+    pub svci1_pid: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_2 {
     pub svci2_name: windows_core::PWSTR,
-    pub svci2_status: u32,
-    pub svci2_code: u32,
-    pub svci2_pid: u32,
+    pub svci2_status: super::DWORD,
+    pub svci2_code: super::DWORD,
+    pub svci2_pid: super::DWORD,
     pub svci2_text: windows_core::PWSTR,
-    pub svci2_specific_error: u32,
+    pub svci2_specific_error: super::DWORD,
     pub svci2_display_name: windows_core::PWSTR,
 }
 pub const SERVICE_INSTALLED: i32 = 3;

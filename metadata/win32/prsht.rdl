@@ -10,66 +10,91 @@ mod Windows {
         type HPROPSHEETPAGE = *mut _PSP;
         const ID_PSREBOOTSYSTEM: i32 = 3;
         const ID_PSRESTARTWINDOWS: i32 = 2;
-        type LPCPROPSHEETHEADERA = LPCPROPSHEETHEADERA_V2;
+        type LPCPROPSHEETHEADERA = *const PROPSHEETHEADERA_V2;
         type LPCPROPSHEETHEADERA_V1 = *const PROPSHEETHEADERA_V1;
         type LPCPROPSHEETHEADERA_V2 = *const PROPSHEETHEADERA_V2;
-        type LPCPROPSHEETHEADERW = LPCPROPSHEETHEADERW_V2;
+        type LPCPROPSHEETHEADERW = *const PROPSHEETHEADERW_V2;
         type LPCPROPSHEETHEADERW_V1 = *const PROPSHEETHEADERW_V1;
         type LPCPROPSHEETHEADERW_V2 = *const PROPSHEETHEADERW_V2;
-        type LPCPROPSHEETPAGEA = LPCPROPSHEETPAGEA_V4;
-        type LPCPROPSHEETPAGEA_LATEST = LPCPROPSHEETPAGEA_V4;
+        type LPCPROPSHEETPAGEA = *const PROPSHEETPAGEA_V4;
+        type LPCPROPSHEETPAGEA_LATEST = *const PROPSHEETPAGEA_V4;
         type LPCPROPSHEETPAGEA_V1 = *const PROPSHEETPAGEA_V1;
         type LPCPROPSHEETPAGEA_V2 = *const PROPSHEETPAGEA_V2;
         type LPCPROPSHEETPAGEA_V3 = *const PROPSHEETPAGEA_V3;
         type LPCPROPSHEETPAGEA_V4 = *const PROPSHEETPAGEA_V4;
-        type LPCPROPSHEETPAGEW = LPCPROPSHEETPAGEW_V4;
-        type LPCPROPSHEETPAGEW_LATEST = LPCPROPSHEETPAGEW_V4;
+        type LPCPROPSHEETPAGEW = *const PROPSHEETPAGEW_V4;
+        type LPCPROPSHEETPAGEW_LATEST = *const PROPSHEETPAGEW_V4;
         type LPCPROPSHEETPAGEW_V1 = *const PROPSHEETPAGEW_V1;
         type LPCPROPSHEETPAGEW_V2 = *const PROPSHEETPAGEW_V2;
         type LPCPROPSHEETPAGEW_V3 = *const PROPSHEETPAGEW_V3;
         type LPCPROPSHEETPAGEW_V4 = *const PROPSHEETPAGEW_V4;
         extern fn LPFNADDPROPSHEETPAGE(param0: HPROPSHEETPAGE, param1: LPARAM) -> BOOL;
-        extern fn LPFNADDPROPSHEETPAGES(param0: *mut void, param1: LPFNADDPROPSHEETPAGE, param2: LPARAM) -> BOOL;
-        extern fn LPFNPSPCALLBACKA(hwnd: HWND, uMsg: u32, ppsp: *mut PROPSHEETPAGEA_V4) -> u32;
-        extern fn LPFNPSPCALLBACKW(hwnd: HWND, uMsg: u32, ppsp: *mut PROPSHEETPAGEW_V4) -> u32;
-        type LPPROPSHEETHEADERA = LPPROPSHEETHEADERA_V2;
+        extern fn LPFNADDPROPSHEETPAGES(param0: LPVOID, param1: LPFNADDPROPSHEETPAGE, param2: LPARAM) -> BOOL;
+        extern fn LPFNPSPCALLBACKA(hwnd: HWND, uMsg: UINT, ppsp: *mut PROPSHEETPAGEA_V4) -> UINT;
+        extern fn LPFNPSPCALLBACKW(hwnd: HWND, uMsg: UINT, ppsp: *mut PROPSHEETPAGEW_V4) -> UINT;
+        type LPPROPSHEETHEADERA = *mut PROPSHEETHEADERA_V2;
         type LPPROPSHEETHEADERA_V1 = *mut PROPSHEETHEADERA_V1;
         type LPPROPSHEETHEADERA_V2 = *mut PROPSHEETHEADERA_V2;
-        type LPPROPSHEETHEADERW = LPPROPSHEETHEADERW_V2;
+        type LPPROPSHEETHEADERW = *mut PROPSHEETHEADERW_V2;
         type LPPROPSHEETHEADERW_V1 = *mut PROPSHEETHEADERW_V1;
         type LPPROPSHEETHEADERW_V2 = *mut PROPSHEETHEADERW_V2;
-        type LPPROPSHEETPAGEA = LPPROPSHEETPAGEA_V4;
-        type LPPROPSHEETPAGEA_LATEST = LPPROPSHEETPAGEA_V4;
+        type LPPROPSHEETPAGEA = *mut PROPSHEETPAGEA_V4;
+        type LPPROPSHEETPAGEA_LATEST = *mut PROPSHEETPAGEA_V4;
         type LPPROPSHEETPAGEA_V1 = *mut PROPSHEETPAGEA_V1;
         type LPPROPSHEETPAGEA_V2 = *mut PROPSHEETPAGEA_V2;
         type LPPROPSHEETPAGEA_V3 = *mut PROPSHEETPAGEA_V3;
         type LPPROPSHEETPAGEA_V4 = *mut PROPSHEETPAGEA_V4;
-        type LPPROPSHEETPAGEW = LPPROPSHEETPAGEW_V4;
-        type LPPROPSHEETPAGEW_LATEST = LPPROPSHEETPAGEW_V4;
+        type LPPROPSHEETPAGEW = *mut PROPSHEETPAGEW_V4;
+        type LPPROPSHEETPAGEW_LATEST = *mut PROPSHEETPAGEW_V4;
         type LPPROPSHEETPAGEW_V1 = *mut PROPSHEETPAGEW_V1;
         type LPPROPSHEETPAGEW_V2 = *mut PROPSHEETPAGEW_V2;
         type LPPROPSHEETPAGEW_V3 = *mut PROPSHEETPAGEW_V3;
         type LPPROPSHEETPAGEW_V4 = *mut PROPSHEETPAGEW_V4;
         type LPPSHNOTIFY = *mut PSHNOTIFY;
         const MAXPROPPAGES: i32 = 100;
-        extern fn PFNPROPSHEETCALLBACK(param0: HWND, param1: u32, param2: LPARAM) -> i32;
+        extern fn PFNPROPSHEETCALLBACK(param0: HWND, param1: UINT, param2: LPARAM) -> i32;
         type PROPSHEETHEADERA = PROPSHEETHEADERA_V2;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETHEADERA_V1 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hwndParent: HWND,
             hInstance: HINSTANCE,
-            Anonymous: union {
+            Anonymous: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCSTR,
+                pszIcon: LPCSTR,
             },
-            pszCaption: PCSTR,
-            nPages: u32,
-            Anonymous2: union {
-                nStartPage: u32,
-                pStartPage: PCSTR,
+            pszCaption: LPCSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(8)] union {
+                nStartPage: UINT,
+                pStartPage: LPCSTR,
             },
-            Anonymous3: union {
+            Anonymous3: #[packed(8)] union {
+                ppsp: LPCPROPSHEETPAGEA,
+                phpage: *mut HPROPSHEETPAGE,
+            },
+            pfnCallback: PFNPROPSHEETCALLBACK,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETHEADERA_V1 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hwndParent: HWND,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCSTR,
+            },
+            pszCaption: LPCSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(4)] union {
+                nStartPage: UINT,
+                pStartPage: LPCSTR,
+            },
+            Anonymous3: #[packed(4)] union {
                 ppsp: LPCPROPSHEETPAGEA,
                 phpage: *mut HPROPSHEETPAGE,
             },
@@ -79,34 +104,68 @@ mod Windows {
         const PROPSHEETHEADERA_V1_SIZE: u64 = 72;
         #[arch(X86)]
         const PROPSHEETHEADERA_V1_SIZE: u32 = 40;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETHEADERA_V2 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hwndParent: HWND,
             hInstance: HINSTANCE,
-            Anonymous: union {
+            Anonymous: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCSTR,
+                pszIcon: LPCSTR,
             },
-            pszCaption: PCSTR,
-            nPages: u32,
-            Anonymous2: union {
-                nStartPage: u32,
-                pStartPage: PCSTR,
+            pszCaption: LPCSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(8)] union {
+                nStartPage: UINT,
+                pStartPage: LPCSTR,
             },
-            Anonymous3: union {
+            Anonymous3: #[packed(8)] union {
                 ppsp: LPCPROPSHEETPAGEA,
                 phpage: *mut HPROPSHEETPAGE,
             },
             pfnCallback: PFNPROPSHEETCALLBACK,
-            Anonymous4: union {
+            Anonymous4: #[packed(8)] union {
                 hbmWatermark: HBITMAP,
-                pszbmWatermark: PCSTR,
+                pszbmWatermark: LPCSTR,
             },
             hplWatermark: HPALETTE,
-            Anonymous5: union {
+            Anonymous5: #[packed(8)] union {
                 hbmHeader: HBITMAP,
-                pszbmHeader: PCSTR,
+                pszbmHeader: LPCSTR,
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETHEADERA_V2 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hwndParent: HWND,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCSTR,
+            },
+            pszCaption: LPCSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(4)] union {
+                nStartPage: UINT,
+                pStartPage: LPCSTR,
+            },
+            Anonymous3: #[packed(4)] union {
+                ppsp: LPCPROPSHEETPAGEA,
+                phpage: *mut HPROPSHEETPAGE,
+            },
+            pfnCallback: PFNPROPSHEETCALLBACK,
+            Anonymous4: #[packed(4)] union {
+                hbmWatermark: HBITMAP,
+                pszbmWatermark: LPCSTR,
+            },
+            hplWatermark: HPALETTE,
+            Anonymous5: #[packed(4)] union {
+                hbmHeader: HBITMAP,
+                pszbmHeader: LPCSTR,
             },
         }
         #[arch(X64 | Arm64)]
@@ -114,22 +173,47 @@ mod Windows {
         #[arch(X86)]
         const PROPSHEETHEADERA_V2_SIZE: u32 = 52;
         type PROPSHEETHEADERW = PROPSHEETHEADERW_V2;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETHEADERW_V1 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hwndParent: HWND,
             hInstance: HINSTANCE,
-            Anonymous: union {
+            Anonymous: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCWSTR,
+                pszIcon: LPCWSTR,
             },
-            pszCaption: PCWSTR,
-            nPages: u32,
-            Anonymous2: union {
-                nStartPage: u32,
-                pStartPage: PCWSTR,
+            pszCaption: LPCWSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(8)] union {
+                nStartPage: UINT,
+                pStartPage: LPCWSTR,
             },
-            Anonymous3: union {
+            Anonymous3: #[packed(8)] union {
+                ppsp: LPCPROPSHEETPAGEW,
+                phpage: *mut HPROPSHEETPAGE,
+            },
+            pfnCallback: PFNPROPSHEETCALLBACK,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETHEADERW_V1 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hwndParent: HWND,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCWSTR,
+            },
+            pszCaption: LPCWSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(4)] union {
+                nStartPage: UINT,
+                pStartPage: LPCWSTR,
+            },
+            Anonymous3: #[packed(4)] union {
                 ppsp: LPCPROPSHEETPAGEW,
                 phpage: *mut HPROPSHEETPAGE,
             },
@@ -139,34 +223,68 @@ mod Windows {
         const PROPSHEETHEADERW_V1_SIZE: u64 = 72;
         #[arch(X86)]
         const PROPSHEETHEADERW_V1_SIZE: u32 = 40;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETHEADERW_V2 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hwndParent: HWND,
             hInstance: HINSTANCE,
-            Anonymous: union {
+            Anonymous: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCWSTR,
+                pszIcon: LPCWSTR,
             },
-            pszCaption: PCWSTR,
-            nPages: u32,
-            Anonymous2: union {
-                nStartPage: u32,
-                pStartPage: PCWSTR,
+            pszCaption: LPCWSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(8)] union {
+                nStartPage: UINT,
+                pStartPage: LPCWSTR,
             },
-            Anonymous3: union {
+            Anonymous3: #[packed(8)] union {
                 ppsp: LPCPROPSHEETPAGEW,
                 phpage: *mut HPROPSHEETPAGE,
             },
             pfnCallback: PFNPROPSHEETCALLBACK,
-            Anonymous4: union {
+            Anonymous4: #[packed(8)] union {
                 hbmWatermark: HBITMAP,
-                pszbmWatermark: PCWSTR,
+                pszbmWatermark: LPCWSTR,
             },
             hplWatermark: HPALETTE,
-            Anonymous5: union {
+            Anonymous5: #[packed(8)] union {
                 hbmHeader: HBITMAP,
-                pszbmHeader: PCWSTR,
+                pszbmHeader: LPCWSTR,
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETHEADERW_V2 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hwndParent: HWND,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCWSTR,
+            },
+            pszCaption: LPCWSTR,
+            nPages: UINT,
+            Anonymous2: #[packed(4)] union {
+                nStartPage: UINT,
+                pStartPage: LPCWSTR,
+            },
+            Anonymous3: #[packed(4)] union {
+                ppsp: LPCPROPSHEETPAGEW,
+                phpage: *mut HPROPSHEETPAGE,
+            },
+            pfnCallback: PFNPROPSHEETCALLBACK,
+            Anonymous4: #[packed(4)] union {
+                hbmWatermark: HBITMAP,
+                pszbmWatermark: LPCWSTR,
+            },
+            hplWatermark: HPALETTE,
+            Anonymous5: #[packed(4)] union {
+                hbmHeader: HBITMAP,
+                pszbmHeader: LPCWSTR,
             },
         }
         #[arch(X64 | Arm64)]
@@ -183,100 +301,200 @@ mod Windows {
         const PROPSHEETHEADER_V2_SIZE: u32 = 52;
         type PROPSHEETPAGEA = PROPSHEETPAGEA_V4;
         type PROPSHEETPAGEA_LATEST = PROPSHEETPAGEA_V4;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEA_V1 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCSTR,
+                pszIcon: LPCSTR,
             },
-            pszTitle: PCSTR,
+            pszTitle: LPCSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKA,
-            pcRefParent: *mut u32,
+            pcRefParent: *mut UINT,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEA_V1 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCSTR,
+            },
+            pszTitle: LPCSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKA,
+            pcRefParent: *mut UINT,
         }
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGEA_V1_SIZE: u64 = 72;
         #[arch(X86)]
         const PROPSHEETPAGEA_V1_SIZE: u32 = 40;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEA_V2 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCSTR,
+                pszIcon: LPCSTR,
             },
-            pszTitle: PCSTR,
+            pszTitle: LPCSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKA,
-            pcRefParent: *mut u32,
-            pszHeaderTitle: PCSTR,
-            pszHeaderSubTitle: PCSTR,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCSTR,
+            pszHeaderSubTitle: LPCSTR,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEA_V2 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCSTR,
+            },
+            pszTitle: LPCSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKA,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCSTR,
+            pszHeaderSubTitle: LPCSTR,
         }
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGEA_V2_SIZE: u64 = 88;
         #[arch(X86)]
         const PROPSHEETPAGEA_V2_SIZE: u32 = 48;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEA_V3 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCSTR,
+                pszIcon: LPCSTR,
             },
-            pszTitle: PCSTR,
+            pszTitle: LPCSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKA,
-            pcRefParent: *mut u32,
-            pszHeaderTitle: PCSTR,
-            pszHeaderSubTitle: PCSTR,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCSTR,
+            pszHeaderSubTitle: LPCSTR,
+            hActCtx: HANDLE,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEA_V3 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCSTR,
+            },
+            pszTitle: LPCSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKA,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCSTR,
+            pszHeaderSubTitle: LPCSTR,
             hActCtx: HANDLE,
         }
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGEA_V3_SIZE: u64 = 96;
         #[arch(X86)]
         const PROPSHEETPAGEA_V3_SIZE: u32 = 52;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEA_V4 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCSTR,
+                pszIcon: LPCSTR,
             },
-            pszTitle: PCSTR,
+            pszTitle: LPCSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKA,
-            pcRefParent: *mut u32,
-            pszHeaderTitle: PCSTR,
-            pszHeaderSubTitle: PCSTR,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCSTR,
+            pszHeaderSubTitle: LPCSTR,
             hActCtx: HANDLE,
-            Anonymous3: union {
+            Anonymous3: #[packed(8)] union {
                 hbmHeader: HBITMAP,
-                pszbmHeader: PCSTR,
+                pszbmHeader: LPCSTR,
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEA_V4 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCSTR,
+            },
+            pszTitle: LPCSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKA,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCSTR,
+            pszHeaderSubTitle: LPCSTR,
+            hActCtx: HANDLE,
+            Anonymous3: #[packed(4)] union {
+                hbmHeader: HBITMAP,
+                pszbmHeader: LPCSTR,
             },
         }
         #[arch(X64 | Arm64)]
@@ -285,107 +503,207 @@ mod Windows {
         const PROPSHEETPAGEA_V4_SIZE: u32 = 56;
         type PROPSHEETPAGEW = PROPSHEETPAGEW_V4;
         type PROPSHEETPAGEW_LATEST = PROPSHEETPAGEW_V4;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEW_V1 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCWSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCWSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCWSTR,
+                pszIcon: LPCWSTR,
             },
-            pszTitle: PCWSTR,
+            pszTitle: LPCWSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKW,
-            pcRefParent: *mut u32,
+            pcRefParent: *mut UINT,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEW_V1 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCWSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCWSTR,
+            },
+            pszTitle: LPCWSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKW,
+            pcRefParent: *mut UINT,
         }
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGEW_V1_SIZE: u64 = 72;
         #[arch(X86)]
         const PROPSHEETPAGEW_V1_SIZE: u32 = 40;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEW_V2 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCWSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCWSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCWSTR,
+                pszIcon: LPCWSTR,
             },
-            pszTitle: PCWSTR,
+            pszTitle: LPCWSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKW,
-            pcRefParent: *mut u32,
-            pszHeaderTitle: PCWSTR,
-            pszHeaderSubTitle: PCWSTR,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCWSTR,
+            pszHeaderSubTitle: LPCWSTR,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEW_V2 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCWSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCWSTR,
+            },
+            pszTitle: LPCWSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKW,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCWSTR,
+            pszHeaderSubTitle: LPCWSTR,
         }
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGEW_V2_SIZE: u64 = 88;
         #[arch(X86)]
         const PROPSHEETPAGEW_V2_SIZE: u32 = 48;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEW_V3 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCWSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCWSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCWSTR,
+                pszIcon: LPCWSTR,
             },
-            pszTitle: PCWSTR,
+            pszTitle: LPCWSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKW,
-            pcRefParent: *mut u32,
-            pszHeaderTitle: PCWSTR,
-            pszHeaderSubTitle: PCWSTR,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCWSTR,
+            pszHeaderSubTitle: LPCWSTR,
+            hActCtx: HANDLE,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEW_V3 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCWSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCWSTR,
+            },
+            pszTitle: LPCWSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKW,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCWSTR,
+            pszHeaderSubTitle: LPCWSTR,
             hActCtx: HANDLE,
         }
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGEW_V3_SIZE: u64 = 96;
         #[arch(X86)]
         const PROPSHEETPAGEW_V3_SIZE: u32 = 52;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PROPSHEETPAGEW_V4 {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             hInstance: HINSTANCE,
-            Anonymous: union {
-                pszTemplate: PCWSTR,
+            Anonymous: #[packed(8)] union {
+                pszTemplate: LPCWSTR,
                 pResource: PROPSHEETPAGE_RESOURCE,
             },
-            Anonymous2: union {
+            Anonymous2: #[packed(8)] union {
                 hIcon: HICON,
-                pszIcon: PCWSTR,
+                pszIcon: LPCWSTR,
             },
-            pszTitle: PCWSTR,
+            pszTitle: LPCWSTR,
             pfnDlgProc: DLGPROC,
             lParam: LPARAM,
             pfnCallback: LPFNPSPCALLBACKW,
-            pcRefParent: *mut u32,
-            pszHeaderTitle: PCWSTR,
-            pszHeaderSubTitle: PCWSTR,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCWSTR,
+            pszHeaderSubTitle: LPCWSTR,
             hActCtx: HANDLE,
-            Anonymous3: union {
+            Anonymous3: #[packed(8)] union {
                 hbmHeader: HBITMAP,
-                pszbmHeader: PCWSTR,
+                pszbmHeader: LPCWSTR,
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct PROPSHEETPAGEW_V4 {
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            hInstance: HINSTANCE,
+            Anonymous: #[packed(4)] union {
+                pszTemplate: LPCWSTR,
+                pResource: PROPSHEETPAGE_RESOURCE,
+            },
+            Anonymous2: #[packed(4)] union {
+                hIcon: HICON,
+                pszIcon: LPCWSTR,
+            },
+            pszTitle: LPCWSTR,
+            pfnDlgProc: DLGPROC,
+            lParam: LPARAM,
+            pfnCallback: LPFNPSPCALLBACKW,
+            pcRefParent: *mut UINT,
+            pszHeaderTitle: LPCWSTR,
+            pszHeaderSubTitle: LPCWSTR,
+            hActCtx: HANDLE,
+            Anonymous3: #[packed(4)] union {
+                hbmHeader: HBITMAP,
+                pszbmHeader: LPCWSTR,
             },
         }
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGEW_V4_SIZE: u64 = 104;
         #[arch(X86)]
         const PROPSHEETPAGEW_V4_SIZE: u32 = 56;
-        type PROPSHEETPAGE_RESOURCE = LPCDLGTEMPLATE;
+        type PROPSHEETPAGE_RESOURCE = *const DLGTEMPLATE;
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGE_V1_SIZE: u64 = 72;
         #[arch(X86)]
@@ -411,6 +729,14 @@ mod Windows {
         const PSCB_BUTTONPRESSED: i32 = 3;
         const PSCB_INITIALIZED: i32 = 1;
         const PSCB_PRECREATE: i32 = 2;
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct PSHNOTIFY {
+            hdr: NMHDR,
+            lParam: LPARAM,
+        }
+        #[arch(X86)]
+        #[packed(4)]
         struct PSHNOTIFY {
             hdr: NMHDR,
             lParam: LPARAM,
@@ -529,11 +855,11 @@ mod Windows {
         const PSWIZB_NEXT: i32 = 2;
         const PSWIZB_RESTORE: i32 = 1;
         const PSWIZB_SHOW: i32 = 0;
-        const PSWIZF_SETCOLOR: u32 = 4294967295;
+        const PSWIZF_SETCOLOR: UINT = 4294967295;
         #[library("COMCTL32.dll")]
-        extern fn PropertySheetA(param0: LPCPROPSHEETHEADERA) -> isize;
+        extern fn PropertySheetA(param0: LPCPROPSHEETHEADERA) -> INT_PTR;
         #[library("COMCTL32.dll")]
-        extern fn PropertySheetW(param0: LPCPROPSHEETHEADERW) -> isize;
+        extern fn PropertySheetW(param0: LPCPROPSHEETHEADERW) -> INT_PTR;
         const WIZ_BODYCX: i32 = 184;
         const WIZ_BODYX: i32 = 92;
         const WIZ_CXBMP: i32 = 80;

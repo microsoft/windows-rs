@@ -1,0 +1,13 @@
+#[win32]
+mod Fixture {
+    struct A {
+        value: i32,
+    }
+    type First = A;
+    type Pointer = *mut A;
+    type Second = A;
+    struct User {
+        first: First,
+        second: Second,
+    }
+}

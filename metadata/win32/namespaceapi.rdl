@@ -2,17 +2,17 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn AddSIDToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, RequiredSid: PSID) -> BOOL;
+        extern fn AddSIDToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, #[in] RequiredSid: PSID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ClosePrivateNamespace(Handle: HANDLE, Flags: u32) -> BOOLEAN;
+        extern fn ClosePrivateNamespace(#[in] Handle: HANDLE, #[in] Flags: ULONG) -> BOOLEAN;
         #[library("KERNEL32.dll")]
-        extern fn CreateBoundaryDescriptorW(Name: PCWSTR, Flags: u32) -> HANDLE;
+        extern fn CreateBoundaryDescriptorW(#[in] Name: LPCWSTR, #[in] Flags: ULONG) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreatePrivateNamespaceW(#[opt] lpPrivateNamespaceAttributes: LPSECURITY_ATTRIBUTES, #[in] lpBoundaryDescriptor: *mut void, lpAliasPrefix: PCWSTR) -> HANDLE;
+        extern fn CreatePrivateNamespaceW(#[in] #[opt] lpPrivateNamespaceAttributes: LPSECURITY_ATTRIBUTES, #[in] lpBoundaryDescriptor: LPVOID, #[in] lpAliasPrefix: LPCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn DeleteBoundaryDescriptor(BoundaryDescriptor: HANDLE);
+        extern fn DeleteBoundaryDescriptor(#[in] BoundaryDescriptor: HANDLE);
         #[library("KERNEL32.dll")]
-        extern fn OpenPrivateNamespaceW(#[in] lpBoundaryDescriptor: *mut void, lpAliasPrefix: PCWSTR) -> HANDLE;
+        extern fn OpenPrivateNamespaceW(#[in] lpBoundaryDescriptor: LPVOID, #[in] lpAliasPrefix: LPCWSTR) -> HANDLE;
         const PRIVATE_NAMESPACE_FLAG_DESTROY: i32 = 1;
     }
 }

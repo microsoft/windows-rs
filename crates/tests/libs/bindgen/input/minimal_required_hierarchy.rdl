@@ -19,31 +19,41 @@ mod Test {
         IUnrelated,
         IClose,
     }
+    #[guid(auto)]
     interface IClose {
         fn Close(&self);
     }
+    #[guid(auto)]
     interface IExplicit {}
+    #[guid(auto)]
     interface IProducer {
         fn GetClose(&self) -> IClose;
     }
+    #[guid(auto)]
     interface IStream: IClose {
         fn Read(&self) -> i32;
     }
+    #[guid(auto)]
     interface IUnrelated {
         fn Value(&self) -> i32;
     }
+    #[guid(auto)]
     interface IWhole: IWholeMiddle {
         fn Derived(&self);
     }
+    #[guid(auto)]
     interface IWholeMiddle: IWholeBase {
         fn Middle(&self);
     }
+    #[guid(auto)]
     interface IWholeBase {
         fn Base(&self);
     }
+    #[guid(auto)]
     interface IGeneric<T>: IGenericBase<T> {
         fn Derived(&self);
     }
+    #[guid(auto)]
     interface IGenericBase<T> {
         fn Base(&self);
     }

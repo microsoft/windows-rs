@@ -1,0 +1,22 @@
+#[win32]
+mod Fixture {
+    struct RestrictedPointer {
+        value: *mut i32,
+    }
+    struct SafePointer {
+        value: *mut i32,
+    }
+    struct VolatileAliasField {
+        value: VolatileInt,
+    }
+    struct VolatileArray {
+        values: [i32; 2],
+    }
+    struct VolatileField {
+        value: i32,
+    }
+    type VolatileInt = i32;
+    struct VolatilePointer {
+        value: *mut i32,
+    }
+}

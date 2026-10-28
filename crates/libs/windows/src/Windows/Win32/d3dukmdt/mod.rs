@@ -1,39 +1,39 @@
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
     pub MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-    pub MultisampleQuality: u32,
+    pub MultisampleQuality: super::UINT,
     pub pSurfList: *const D3DDDI_SURFACEINFO,
-    pub SurfCount: u32,
-    pub MipLevels: u32,
-    pub Fvf: u32,
+    pub SurfCount: super::UINT,
+    pub MipLevels: super::UINT,
+    pub Fvf: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub RefreshRate: D3DDDI_RATIONAL,
     pub hResource: super::HANDLE,
     pub Flags: D3DDDI_RESOURCEFLAGS,
     pub Rotation: D3DDDI_ROTATION,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDIARG_CREATERESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
     pub MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-    pub MultisampleQuality: u32,
+    pub MultisampleQuality: super::UINT,
     pub pSurfList: *const D3DDDI_SURFACEINFO,
-    pub SurfCount: u32,
-    pub MipLevels: u32,
-    pub Fvf: u32,
+    pub SurfCount: super::UINT,
+    pub MipLevels: super::UINT,
+    pub Fvf: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub RefreshRate: D3DDDI_RATIONAL,
     pub hResource: super::HANDLE,
@@ -41,254 +41,278 @@ pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Rotation: D3DDDI_ROTATION,
     pub Flags2: D3DDDI_RESOURCEFLAGS2,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDIARG_CREATERESOURCE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
-    pub fn AssumeNotInUse(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn AssumeNotInUse(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_AssumeNotInUse(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_AssumeNotInUse(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn SynchronousDestroy(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn SynchronousDestroy(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_SynchronousDestroy(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_SynchronousDestroy(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
-        (self._bitfield << 1) >> 3
+    pub fn Reserved(&self) -> super::UINT {
+        (self._bitfield >> 2) & 536870911
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(536870911 << 2)) | ((value & 536870911) << 2);
     }
-    pub fn SystemUseOnly(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn SystemUseOnly(&self) -> super::UINT {
+        self._bitfield >> 31
     }
-    pub fn set_SystemUseOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_SystemUseOnly(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCK2FLAGS {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCK2FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_LOCK2FLAGS_0 {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCK2FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_LOCK2FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDICB_LOCK2FLAGS_0_0 {
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield
     }
-    pub fn set_Reserved(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !4294967295) | (value & 4294967295);
+    pub fn set_Reserved(&mut self, value: super::UINT) {
+        self._bitfield = value;
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCKFLAGS {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCKFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_LOCKFLAGS_0 {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCKFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_LOCKFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDICB_LOCKFLAGS_0_0 {
-    pub fn ReadOnly(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ReadOnly(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_ReadOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_ReadOnly(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn WriteOnly(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn WriteOnly(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_WriteOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_WriteOnly(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn DonotWait(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn DonotWait(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_DonotWait(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_DonotWait(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn IgnoreSync(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn IgnoreSync(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_IgnoreSync(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_IgnoreSync(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn LockEntire(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn LockEntire(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_LockEntire(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_LockEntire(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn DonotEvict(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn DonotEvict(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_DonotEvict(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_DonotEvict(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn AcquireAperture(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn AcquireAperture(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_AcquireAperture(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_AcquireAperture(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Discard(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Discard(&self) -> super::UINT {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_Discard(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_Discard(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn NoExistingReference(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn NoExistingReference(&self) -> super::UINT {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_NoExistingReference(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_NoExistingReference(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn UseAlternateVA(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn UseAlternateVA(&self) -> super::UINT {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_UseAlternateVA(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_UseAlternateVA(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn IgnoreReadSync(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn IgnoreReadSync(&self) -> super::UINT {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_IgnoreReadSync(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    pub fn set_IgnoreReadSync(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 11
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2097151 << 11)) | ((value & 2097151) << 11);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_SIGNALFLAGS {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_SIGNALFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_SIGNALFLAGS_0 {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_SIGNALFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_SIGNALFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDICB_SIGNALFLAGS_0_0 {
-    pub fn SignalAtSubmission(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SignalAtSubmission(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_SignalAtSubmission(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SignalAtSubmission(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EnqueueCpuEvent(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn EnqueueCpuEvent(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_EnqueueCpuEvent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_EnqueueCpuEvent(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn AllowFenceRewind(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn AllowFenceRewind(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_AllowFenceRewind(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_AllowFenceRewind(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
-        (self._bitfield << 1) >> 4
+    pub fn Reserved(&self) -> super::UINT {
+        (self._bitfield >> 3) & 268435455
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(268435455 << 3)) | ((value & 268435455) << 3);
     }
-    pub fn DXGK_SIGNAL_FLAG_INTERNAL0(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn DXGK_SIGNAL_FLAG_INTERNAL0(&self) -> super::UINT {
+        self._bitfield >> 31
     }
-    pub fn set_DXGK_SIGNAL_FLAG_INTERNAL0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_DXGK_SIGNAL_FLAG_INTERNAL0(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
 pub const D3DDDIFMT_A1: D3DDDIFORMAT = 118;
@@ -400,66 +424,72 @@ pub const D3DDDIFMT_X8R8G8B8: D3DDDIFORMAT = 22;
 pub const D3DDDIFMT_YUY2: D3DDDIFORMAT = 844715353;
 pub type D3DDDIFORMAT = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0,
-    pub Value: u64,
+    pub Value: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "shared")]
 impl D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
-    pub fn Write(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Write(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_Write(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_Write(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Execute(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Execute(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Execute(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_Execute(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Zero(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Zero(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Zero(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_Zero(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn NoAccess(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn NoAccess(&self) -> super::UINT64 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_NoAccess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_NoAccess(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SystemUseOnly(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SystemUseOnly(&self) -> super::UINT64 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SystemUseOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_SystemUseOnly(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 5
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(576460752303423487 << 5)) | ((value & 576460752303423487) << 5);
     }
 }
@@ -492,206 +522,219 @@ pub const D3DDDIPOOL_STAGINGMEM: D3DDDI_POOL = 5;
 pub const D3DDDIPOOL_SYSTEMMEM: D3DDDI_POOL = 1;
 pub const D3DDDIPOOL_VIDEOMEMORY: D3DDDI_POOL = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDIRECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: super::LONG,
+    pub top: super::LONG,
+    pub right: super::LONG,
+    pub bottom: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub pSystemMem: *const core::ffi::c_void,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Flags: D3DDDI_ALLOCATIONINFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO_0 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_ALLOCATIONINFO_0_0 {
-    pub fn Primary(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Primary(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Primary(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Primary(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Stereo(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Stereo(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Stereo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Stereo(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO2 {
     pub hAllocation: D3DKMT_HANDLE,
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_0,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Flags: D3DDDI_ALLOCATIONINFO2_1,
     pub GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub Anonymous2: D3DDDI_ALLOCATIONINFO2_2,
-    pub Reserved: [usize; 5],
+    pub Reserved: [super::ULONG_PTR; 5],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_0 {
     pub hSection: super::HANDLE,
     pub pSystemMem: *const core::ffi::c_void,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl D3DDDI_ALLOCATIONINFO2_1_0 {
-    pub fn Primary(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Primary(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Primary(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Primary(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Stereo(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Stereo(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Stereo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Stereo(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn OverridePriority(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn OverridePriority(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_OverridePriority(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_OverridePriority(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_2 {
-    pub Priority: u32,
-    pub Unused: usize,
+    pub Priority: super::UINT,
+    pub Unused: super::ULONG_PTR,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONLIST {
     pub hAllocation: D3DKMT_HANDLE,
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONLIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_ALLOCATIONLIST_0_0 {
-    pub fn WriteOperation(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn WriteOperation(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_WriteOperation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_WriteOperation(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn DoNotRetireInstance(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn DoNotRetireInstance(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_DoNotRetireInstance(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_DoNotRetireInstance(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn OfferPriority(&self) -> u32 {
-        (self._bitfield << 27) >> 29
+    pub fn OfferPriority(&self) -> super::UINT {
+        (self._bitfield >> 2) & 7
     }
-    pub fn set_OfferPriority(&mut self, value: u32) {
+    pub fn set_OfferPriority(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 5
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
@@ -701,42 +744,48 @@ pub const D3DDDI_ALLOCATIONPRIORITY_MAXIMUM: u32 = 3355443200;
 pub const D3DDDI_ALLOCATIONPRIORITY_MINIMUM: i32 = 671088640;
 pub const D3DDDI_ALLOCATIONPRIORITY_NORMAL: i32 = 2013265920;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS {
     pub Anonymous: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0 {
     pub Anonymous: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0_0 {
-    pub fn HardwareQueue(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn HardwareQueue(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_HardwareQueue(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_HardwareQueue(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
@@ -770,258 +819,282 @@ pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_
 pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = 18;
 pub const D3DDDI_CPU_NOTIFICATION: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATECONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATECONTEXTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATECONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATECONTEXTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATECONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_CREATECONTEXTFLAGS_0_0 {
-    pub fn NullRendering(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn NullRendering(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_NullRendering(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_NullRendering(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn InitialData(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn InitialData(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_InitialData(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_InitialData(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn DisableGpuTimeout(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn DisableGpuTimeout(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_DisableGpuTimeout(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_DisableGpuTimeout(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn SynchronizationOnly(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn SynchronizationOnly(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_SynchronizationOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_SynchronizationOnly(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn HwQueueSupported(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn HwQueueSupported(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_HwQueueSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_HwQueueSupported(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn NoKmdAccess(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn NoKmdAccess(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_NoKmdAccess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_NoKmdAccess(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn TestContext(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn TestContext(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_TestContext(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_TestContext(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 7
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWCONTEXTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield
     }
-    pub fn set_Reserved(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !4294967295) | (value & 4294967295);
+    pub fn set_Reserved(&mut self, value: super::UINT) {
+        self._bitfield = value;
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWQUEUEFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
-    pub fn DisableGpuTimeout(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DisableGpuTimeout(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_DisableGpuTimeout(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DisableGpuTimeout(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn NoBroadcastSignal(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn NoBroadcastSignal(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_NoBroadcastSignal(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_NoBroadcastSignal(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn NoBroadcastWait(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn NoBroadcastWait(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_NoBroadcastWait(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_NoBroadcastWait(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn NoKmdAccess(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn NoKmdAccess(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_NoKmdAccess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_NoKmdAccess(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn UserModeSubmission(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn UserModeSubmission(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_UserModeSubmission(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_UserModeSubmission(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn NativeProgressFence(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn NativeProgressFence(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_NativeProgressFence(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_NativeProgressFence(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn TestQueue(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn TestQueue(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_TestQueue(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_TestQueue(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 7
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0_0 {
-    pub fn DisableGpuTimeout(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DisableGpuTimeout(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_DisableGpuTimeout(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DisableGpuTimeout(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn NoBroadcastSignal(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn NoBroadcastSignal(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_NoBroadcastSignal(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_NoBroadcastSignal(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn NoBroadcastWait(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn NoBroadcastWait(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_NoBroadcastWait(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_NoBroadcastWait(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn NoKmdAccess(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn NoKmdAccess(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_NoKmdAccess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_NoKmdAccess(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn TestQueue(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn TestQueue(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_TestQueue(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_TestQueue(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn DoorbellRequiresSecondaryCpuVA(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn DoorbellRequiresSecondaryCpuVA(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_DoorbellRequiresSecondaryCpuVA(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_DoorbellRequiresSecondaryCpuVA(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
     }
 }
@@ -1049,6 +1122,7 @@ pub const D3DDDI_DRIVERESCAPETYPE_MAX: D3DDDI_DRIVERESCAPETYPE = 4;
 pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE: D3DDDI_DRIVERESCAPETYPE = 0;
 pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE: D3DDDI_DRIVERESCAPETYPE = 1;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
@@ -1056,26 +1130,29 @@ pub struct D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
     pub hContext: D3DKMT_HANDLE,
     pub Flags: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS,
     pub Command: D3DDDI_TESTCOMMANDBUFFER,
-    pub pDmaBuffer: *mut core::ffi::c_void,
-    pub pDmaBufferPrivateData: *mut core::ffi::c_void,
-    pub DmaBufferSize: u32,
-    pub DmaBufferPrivateDataSize: u32,
-    pub HardwareProgressFenceId: u64,
-    pub HardwareProgressFenceGpuVa: u64,
+    pub pDmaBuffer: super::PVOID,
+    pub pDmaBufferPrivateData: super::PVOID,
+    pub DmaBufferSize: super::UINT,
+    pub DmaBufferPrivateDataSize: super::UINT,
+    pub HardwareProgressFenceId: super::UINT64,
+    pub HardwareProgressFenceGpuVa: super::UINT64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hSyncObject: D3DKMT_HANDLE,
-    pub hKmdCpuEvent: u64,
-    pub Usage: [u32; 8],
+    pub hKmdCpuEvent: super::UINT64,
+    pub Usage: [super::UINT; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1101,130 +1178,142 @@ pub struct D3DDDI_DXGI_RGB {
     pub Blue: f32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ESCAPEFLAGS {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ESCAPEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ESCAPEFLAGS_0 {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ESCAPEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ESCAPEFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_ESCAPEFLAGS_0_0 {
-    pub fn HardwareAccess(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn HardwareAccess(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_HardwareAccess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_HardwareAccess(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn DeviceStatusQuery(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn DeviceStatusQuery(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_DeviceStatusQuery(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_DeviceStatusQuery(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ChangeFrameLatency(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn ChangeFrameLatency(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_ChangeFrameLatency(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_ChangeFrameLatency(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn NoAdapterSynchronization(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn NoAdapterSynchronization(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_NoAdapterSynchronization(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_NoAdapterSynchronization(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Reserved(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn Reserved(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_Reserved(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_Reserved(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn VirtualMachineData(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn VirtualMachineData(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_VirtualMachineData(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_VirtualMachineData(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn DriverKnownEscape(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn DriverKnownEscape(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_DriverKnownEscape(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_DriverKnownEscape(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn DriverCommonEscape(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn DriverCommonEscape(&self) -> super::UINT {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_DriverCommonEscape(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_DriverCommonEscape(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn Reserved2(&self) -> u32 {
+    pub fn Reserved2(&self) -> super::UINT {
         self._bitfield >> 8
     }
-    pub fn set_Reserved2(&mut self, value: u32) {
+    pub fn set_Reserved2(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_EVICT_FLAGS {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_EVICT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_EVICT_FLAGS_0 {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_EVICT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_EVICT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_EVICT_FLAGS_0_0 {
-    pub fn EvictOnlyIfNecessary(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EvictOnlyIfNecessary(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_EvictOnlyIfNecessary(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EvictOnlyIfNecessary(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn NotWrittenTo(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn NotWrittenTo(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_NotWrittenTo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_NotWrittenTo(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
@@ -1256,46 +1345,53 @@ impl Default for D3DDDI_GAMMA_RAMP_DXGI_1 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
-    pub Red: [u16; 256],
-    pub Green: [u16; 256],
-    pub Blue: [u16; 256],
+    pub Red: [super::USHORT; 256],
+    pub Green: [super::USHORT; 256],
+    pub Blue: [super::USHORT; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     pub hResource: D3DKMT_HANDLE,
-    pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut core::ffi::c_void,
+    pub PrivateDriverDataSize: super::UINT,
+    pub pPrivateDriverData: super::PVOID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_HDR_METADATA_HDR10 {
-    pub RedPrimary: [u16; 2],
-    pub GreenPrimary: [u16; 2],
-    pub BluePrimary: [u16; 2],
-    pub WhitePoint: [u16; 2],
-    pub MaxMasteringLuminance: u32,
-    pub MinMasteringLuminance: u32,
-    pub MaxContentLightLevel: u16,
-    pub MaxFrameAverageLightLevel: u16,
+    pub RedPrimary: [super::UINT16; 2],
+    pub GreenPrimary: [super::UINT16; 2],
+    pub BluePrimary: [super::UINT16; 2],
+    pub WhitePoint: [super::UINT16; 2],
+    pub MaxMasteringLuminance: super::UINT,
+    pub MinMasteringLuminance: super::UINT,
+    pub MaxContentLightLevel: super::UINT16,
+    pub MaxFrameAverageLightLevel: super::UINT16,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_HDR_METADATA_HDR10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_HDR_METADATA_HDR10PLUS {
-    pub Data: [u8; 72],
+    pub Data: [super::BYTE; 72],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_HDR_METADATA_HDR10PLUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1305,82 +1401,96 @@ pub type D3DDDI_HDR_METADATA_TYPE = i32;
 pub const D3DDDI_HDR_METADATA_TYPE_HDR10: D3DDDI_HDR_METADATA_TYPE = 1;
 pub const D3DDDI_HDR_METADATA_TYPE_HDR10PLUS: D3DDDI_HDR_METADATA_TYPE = 2;
 pub const D3DDDI_HDR_METADATA_TYPE_NONE: D3DDDI_HDR_METADATA_TYPE = 0;
-pub const D3DDDI_ID_ALL: u32 = 4294967293;
-pub const D3DDDI_ID_ANY: u32 = 4294967294;
-pub const D3DDDI_ID_NOTAPPLICABLE: u32 = 0;
-pub const D3DDDI_ID_UNINITIALIZED: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_ALL: super::UINT = 4294967293;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_ANY: super::UINT = 4294967294;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_NOTAPPLICABLE: super::UINT = 0;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_UNINITIALIZED: super::UINT = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_KERNELOVERLAYINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub DstRect: D3DDDIRECT,
     pub SrcRect: D3DDDIRECT,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT {
     pub hPagingQueue: D3DKMT_HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub AllocationList: *const D3DKMT_HANDLE,
-    pub PriorityList: *const u32,
+    pub PriorityList: *const super::UINT,
     pub Flags: D3DDDI_MAKERESIDENT_FLAGS,
-    pub PagingFenceValue: u64,
-    pub NumBytesToTrim: u64,
+    pub PagingFenceValue: super::UINT64,
+    pub NumBytesToTrim: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAKERESIDENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAKERESIDENT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_MAKERESIDENT_FLAGS_0 {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAKERESIDENT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_MAKERESIDENT_FLAGS_0_0 {
-    pub fn CantTrimFurther(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn CantTrimFurther(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_CantTrimFurther(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_CantTrimFurther(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn MustSucceed(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn MustSucceed(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_MustSucceed(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_MustSucceed(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub hPagingQueue: D3DKMT_HANDLE,
@@ -1391,12 +1501,13 @@ pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub OffsetInPages: D3DGPU_SIZE_T,
     pub SizeInPages: D3DGPU_SIZE_T,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-    pub DriverProtection: u64,
-    pub Reserved0: u32,
-    pub Reserved1: u64,
+    pub DriverProtection: super::UINT64,
+    pub Reserved0: super::UINT,
+    pub Reserved1: super::UINT64,
     pub VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub PagingFenceValue: u64,
+    pub PagingFenceValue: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAPGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1411,49 +1522,56 @@ pub const D3DDDI_MAX_OBJECT_WAITED_ON: i32 = 32;
 pub const D3DDDI_MAX_WRITTEN_PRIMARIES: i32 = 16;
 pub const D3DDDI_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_MULTISAMPLINGMETHOD {
-    pub NumSamples: u32,
-    pub NumQualityLevels: u32,
+    pub NumSamples: super::UINT,
+    pub NumQualityLevels: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_NATIVEFENCEINFO {
-    pub InitialFenceValue: u64,
-    pub EngineAffinity: u32,
+    pub InitialFenceValue: super::UINT64,
+    pub EngineAffinity: super::UINT,
     pub Type: D3DDDI_NATIVEFENCE_TYPE,
     pub Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
-    pub PhysicalAdapterIndex: u32,
-    pub Reserved: [u8; 24],
+    pub PhysicalAdapterIndex: super::UINT,
+    pub Reserved: [super::BYTE; 24],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_NATIVEFENCEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_NATIVEFENCELOGDETAIL {
-    pub WaitLogNumberOfEntries: u32,
-    pub SignalLogNumberOfEntries: u32,
+    pub WaitLogNumberOfEntries: super::UINT32,
+    pub SignalLogNumberOfEntries: super::UINT32,
     pub WaitLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub SignalLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub Reserved: [u8; 64],
+    pub Reserved: [super::BYTE; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_NATIVEFENCELOGDETAIL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_NATIVEFENCEMAPPING {
     pub CurrentValueCpuVa: *mut core::ffi::c_void,
     pub CurrentValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
     pub MonitoredValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
-    pub Reserved: [u8; 32],
+    pub Reserved: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_NATIVEFENCEMAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1465,42 +1583,48 @@ pub const D3DDDI_NATIVEFENCE_TYPE_INTRA_GPU: D3DDDI_NATIVEFENCE_TYPE = 1;
 pub const D3DDDI_NATIVE_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 7;
 pub const D3DDDI_NATIVE_FENCE_PDD_SIZE: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_OFFER_FLAGS {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_OFFER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_OFFER_FLAGS_0 {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_OFFER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_OFFER_FLAGS_0_0 {
-    pub fn AllowDecommit(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn AllowDecommit(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_AllowDecommit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_AllowDecommit(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
@@ -1511,21 +1635,24 @@ pub const D3DDDI_OFFER_PRIORITY_LOW: D3DDDI_OFFER_PRIORITY = 1;
 pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = 0;
 pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub hAllocation: D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub Reserved: [usize; 6],
+    pub Reserved: [super::ULONG_PTR; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_OPENALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1544,47 +1671,53 @@ pub const D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY 
 pub const D3DDDI_PAGINGQUEUE_PRIORITY_BELOW_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = -1;
 pub const D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_PATCHLOCATIONLIST {
-    pub AllocationIndex: u32,
+    pub AllocationIndex: super::UINT,
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0,
-    pub DriverId: u32,
-    pub AllocationOffset: u32,
-    pub PatchOffset: u32,
-    pub SplitOffset: u32,
+    pub DriverId: super::UINT,
+    pub AllocationOffset: super::UINT,
+    pub PatchOffset: super::UINT,
+    pub SplitOffset: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_PATCHLOCATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_PATCHLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_PATCHLOCATIONLIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_PATCHLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_PATCHLOCATIONLIST_0_0 {
-    pub fn SlotId(&self) -> u32 {
-        (self._bitfield << 8) >> 8
+    pub fn SlotId(&self) -> super::UINT {
+        (self._bitfield) & 16777215
     }
-    pub fn set_SlotId(&mut self, value: u32) {
+    pub fn set_SlotId(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !16777215) | (value & 16777215);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 24
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
     }
 }
@@ -1594,76 +1727,86 @@ pub const D3DDDI_QUERYREGISTRY_ADAPTERKEY: D3DDDI_QUERYREGISTRY_TYPE = 1;
 pub const D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH: D3DDDI_QUERYREGISTRY_TYPE = 3;
 pub const D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH: D3DDDI_QUERYREGISTRY_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_QUERYREGISTRY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_QUERYREGISTRY_FLAGS_0 {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_QUERYREGISTRY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
-    pub fn TranslatePath(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn TranslatePath(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_TranslatePath(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_TranslatePath(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn MutableValue(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn MutableValue(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_MutableValue(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_MutableValue(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_INFO {
     pub QueryType: D3DDDI_QUERYREGISTRY_TYPE,
     pub QueryFlags: D3DDDI_QUERYREGISTRY_FLAGS,
-    pub ValueName: [u16; 260],
-    pub ValueType: u32,
-    pub PhysicalAdapterIndex: u32,
-    pub OutputValueSize: u32,
+    pub ValueName: [super::WCHAR; 260],
+    pub ValueType: super::ULONG,
+    pub PhysicalAdapterIndex: super::ULONG,
+    pub OutputValueSize: super::ULONG,
     pub Status: D3DDDI_QUERYREGISTRY_STATUS,
     pub Anonymous: D3DDDI_QUERYREGISTRY_INFO_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_QUERYREGISTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_QUERYREGISTRY_INFO_0 {
-    pub OutputDword: u32,
-    pub OutputQword: u64,
-    pub OutputString: [u16; 1],
-    pub OutputBinary: [u8; 1],
+    pub OutputDword: super::DWORD,
+    pub OutputQword: super::UINT64,
+    pub OutputString: [super::WCHAR; 1],
+    pub OutputBinary: [super::BYTE; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_QUERYREGISTRY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1678,16 +1821,18 @@ pub const D3DDDI_QUERYREGISTRY_STATUS_MAX: D3DDDI_QUERYREGISTRY_STATUS = 3;
 pub const D3DDDI_QUERYREGISTRY_STATUS_SUCCESS: D3DDDI_QUERYREGISTRY_STATUS = 0;
 pub type D3DDDI_QUERYREGISTRY_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_RATIONAL {
-    pub Numerator: u32,
-    pub Denominator: u32,
+    pub Numerator: super::UINT,
+    pub Denominator: super::UINT,
 }
 pub type D3DDDI_RECLAIM_RESULT = i32;
 pub const D3DDDI_RECLAIM_RESULT_DISCARDED: D3DDDI_RECLAIM_RESULT = 1;
 pub const D3DDDI_RECLAIM_RESULT_NOT_COMMITTED: D3DDDI_RECLAIM_RESULT = 2;
 pub const D3DDDI_RECLAIM_RESULT_OK: D3DDDI_RECLAIM_RESULT = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub Anonymous: D3DDDI_RESERVEGPUVIRTUALADDRESS_0,
@@ -1700,330 +1845,351 @@ pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub Anonymous4: D3DDDI_RESERVEGPUVIRTUALADDRESS_3,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     pub hPagingQueue: D3DKMT_HANDLE,
     pub hAdapter: D3DKMT_HANDLE,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     pub ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
-    pub Reserved0: u32,
+    pub Reserved0: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
-    pub DriverProtection: u64,
-    pub Reserved1: u64,
+    pub DriverProtection: super::UINT64,
+    pub Reserved1: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
-    pub PagingFenceValue: u64,
-    pub Reserved2: u64,
+    pub PagingFenceValue: super::UINT64,
+    pub Reserved2: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESOURCEFLAGS_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_RESOURCEFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_RESOURCEFLAGS_0_0 {
-    pub fn RenderTarget(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn RenderTarget(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_RenderTarget(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_RenderTarget(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ZBuffer(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn ZBuffer(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_ZBuffer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_ZBuffer(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Dynamic(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Dynamic(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Dynamic(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_Dynamic(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn HintStatic(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn HintStatic(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_HintStatic(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_HintStatic(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn AutogenMipmap(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn AutogenMipmap(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_AutogenMipmap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_AutogenMipmap(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn DMap(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn DMap(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_DMap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_DMap(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn WriteOnly(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn WriteOnly(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_WriteOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_WriteOnly(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn NotLockable(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn NotLockable(&self) -> super::UINT {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_NotLockable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_NotLockable(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn Points(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn Points(&self) -> super::UINT {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_Points(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_Points(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn RtPatches(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn RtPatches(&self) -> super::UINT {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_RtPatches(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_RtPatches(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn NPatches(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn NPatches(&self) -> super::UINT {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_NPatches(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    pub fn set_NPatches(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn SharedResource(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn SharedResource(&self) -> super::UINT {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_SharedResource(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    pub fn set_SharedResource(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn DiscardRenderTarget(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn DiscardRenderTarget(&self) -> super::UINT {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_DiscardRenderTarget(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    pub fn set_DiscardRenderTarget(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn Video(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
+    pub fn Video(&self) -> super::UINT {
+        (self._bitfield >> 13) & 1
     }
-    pub fn set_Video(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    pub fn set_Video(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
     }
-    pub fn CaptureBuffer(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
+    pub fn CaptureBuffer(&self) -> super::UINT {
+        (self._bitfield >> 14) & 1
     }
-    pub fn set_CaptureBuffer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    pub fn set_CaptureBuffer(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
     }
-    pub fn Primary(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn Primary(&self) -> super::UINT {
+        (self._bitfield >> 15) & 1
     }
-    pub fn set_Primary(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    pub fn set_Primary(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
-    pub fn Texture(&self) -> bool {
-        (self._bitfield >> 16) & 1 != 0
+    pub fn Texture(&self) -> super::UINT {
+        (self._bitfield >> 16) & 1
     }
-    pub fn set_Texture(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    pub fn set_Texture(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
     }
-    pub fn CubeMap(&self) -> bool {
-        (self._bitfield >> 17) & 1 != 0
+    pub fn CubeMap(&self) -> super::UINT {
+        (self._bitfield >> 17) & 1
     }
-    pub fn set_CubeMap(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    pub fn set_CubeMap(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
     }
-    pub fn Volume(&self) -> bool {
-        (self._bitfield >> 18) & 1 != 0
+    pub fn Volume(&self) -> super::UINT {
+        (self._bitfield >> 18) & 1
     }
-    pub fn set_Volume(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    pub fn set_Volume(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
     }
-    pub fn VertexBuffer(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
+    pub fn VertexBuffer(&self) -> super::UINT {
+        (self._bitfield >> 19) & 1
     }
-    pub fn set_VertexBuffer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    pub fn set_VertexBuffer(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
     }
-    pub fn IndexBuffer(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn IndexBuffer(&self) -> super::UINT {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_IndexBuffer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    pub fn set_IndexBuffer(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn DecodeRenderTarget(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
+    pub fn DecodeRenderTarget(&self) -> super::UINT {
+        (self._bitfield >> 21) & 1
     }
-    pub fn set_DecodeRenderTarget(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    pub fn set_DecodeRenderTarget(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
     }
-    pub fn DecodeCompressedBuffer(&self) -> bool {
-        (self._bitfield >> 22) & 1 != 0
+    pub fn DecodeCompressedBuffer(&self) -> super::UINT {
+        (self._bitfield >> 22) & 1
     }
-    pub fn set_DecodeCompressedBuffer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    pub fn set_DecodeCompressedBuffer(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
     }
-    pub fn VideoProcessRenderTarget(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
+    pub fn VideoProcessRenderTarget(&self) -> super::UINT {
+        (self._bitfield >> 23) & 1
     }
-    pub fn set_VideoProcessRenderTarget(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    pub fn set_VideoProcessRenderTarget(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
     }
-    pub fn CpuOptimized(&self) -> bool {
-        (self._bitfield >> 24) & 1 != 0
+    pub fn CpuOptimized(&self) -> super::UINT {
+        (self._bitfield >> 24) & 1
     }
-    pub fn set_CpuOptimized(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    pub fn set_CpuOptimized(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value & 1) << 24);
     }
-    pub fn MightDrawFromLocked(&self) -> bool {
-        (self._bitfield >> 25) & 1 != 0
+    pub fn MightDrawFromLocked(&self) -> super::UINT {
+        (self._bitfield >> 25) & 1
     }
-    pub fn set_MightDrawFromLocked(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    pub fn set_MightDrawFromLocked(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value & 1) << 25);
     }
-    pub fn Overlay(&self) -> bool {
-        (self._bitfield >> 26) & 1 != 0
+    pub fn Overlay(&self) -> super::UINT {
+        (self._bitfield >> 26) & 1
     }
-    pub fn set_Overlay(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    pub fn set_Overlay(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value & 1) << 26);
     }
-    pub fn MatchGdiPrimary(&self) -> bool {
-        (self._bitfield >> 27) & 1 != 0
+    pub fn MatchGdiPrimary(&self) -> super::UINT {
+        (self._bitfield >> 27) & 1
     }
-    pub fn set_MatchGdiPrimary(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    pub fn set_MatchGdiPrimary(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
     }
-    pub fn InterlacedRefresh(&self) -> bool {
-        (self._bitfield >> 28) & 1 != 0
+    pub fn InterlacedRefresh(&self) -> super::UINT {
+        (self._bitfield >> 28) & 1
     }
-    pub fn set_InterlacedRefresh(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u32) << 28);
+    pub fn set_InterlacedRefresh(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
     }
-    pub fn TextApi(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
+    pub fn TextApi(&self) -> super::UINT {
+        (self._bitfield >> 29) & 1
     }
-    pub fn set_TextApi(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    pub fn set_TextApi(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
     }
-    pub fn RestrictedContent(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
+    pub fn RestrictedContent(&self) -> super::UINT {
+        (self._bitfield >> 30) & 1
     }
-    pub fn set_RestrictedContent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    pub fn set_RestrictedContent(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
     }
-    pub fn RestrictSharedAccess(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn RestrictSharedAccess(&self) -> super::UINT {
+        self._bitfield >> 31
     }
-    pub fn set_RestrictSharedAccess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_RestrictSharedAccess(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS2 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESOURCEFLAGS2_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_RESOURCEFLAGS2_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_RESOURCEFLAGS2_0_0 {
-    pub fn VideoEncoder(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn VideoEncoder(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_VideoEncoder(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_VideoEncoder(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn UserMemory(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn UserMemory(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_UserMemory(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_UserMemory(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn CrossAdapter(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn CrossAdapter(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_CrossAdapter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_CrossAdapter(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn IsDisplayable(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn IsDisplayable(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_IsDisplayable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_IsDisplayable(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
@@ -2037,156 +2203,171 @@ pub const D3DDDI_SCANLINEORDERING_INTERLACED: D3DDDI_SCANLINEORDERING = 2;
 pub const D3DDDI_SCANLINEORDERING_PROGRESSIVE: D3DDDI_SCANLINEORDERING = 1;
 pub const D3DDDI_SCANLINEORDERING_UNKNOWN: D3DDDI_SCANLINEORDERING = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SEGMENTPREFERENCE {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SEGMENTPREFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SEGMENTPREFERENCE_0 {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SEGMENTPREFERENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SEGMENTPREFERENCE_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_SEGMENTPREFERENCE_0_0 {
-    pub fn SegmentId0(&self) -> u32 {
-        (self._bitfield << 27) >> 27
+    pub fn SegmentId0(&self) -> super::UINT {
+        (self._bitfield) & 31
     }
-    pub fn set_SegmentId0(&mut self, value: u32) {
+    pub fn set_SegmentId0(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !31) | (value & 31);
     }
-    pub fn Direction0(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn Direction0(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_Direction0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_Direction0(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn SegmentId1(&self) -> u32 {
-        (self._bitfield << 21) >> 27
+    pub fn SegmentId1(&self) -> super::UINT {
+        (self._bitfield >> 6) & 31
     }
-    pub fn set_SegmentId1(&mut self, value: u32) {
+    pub fn set_SegmentId1(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(31 << 6)) | ((value & 31) << 6);
     }
-    pub fn Direction1(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn Direction1(&self) -> super::UINT {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_Direction1(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    pub fn set_Direction1(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn SegmentId2(&self) -> u32 {
-        (self._bitfield << 15) >> 27
+    pub fn SegmentId2(&self) -> super::UINT {
+        (self._bitfield >> 12) & 31
     }
-    pub fn set_SegmentId2(&mut self, value: u32) {
+    pub fn set_SegmentId2(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(31 << 12)) | ((value & 31) << 12);
     }
-    pub fn Direction2(&self) -> bool {
-        (self._bitfield >> 17) & 1 != 0
+    pub fn Direction2(&self) -> super::UINT {
+        (self._bitfield >> 17) & 1
     }
-    pub fn set_Direction2(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    pub fn set_Direction2(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
     }
-    pub fn SegmentId3(&self) -> u32 {
-        (self._bitfield << 9) >> 27
+    pub fn SegmentId3(&self) -> super::UINT {
+        (self._bitfield >> 18) & 31
     }
-    pub fn set_SegmentId3(&mut self, value: u32) {
+    pub fn set_SegmentId3(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(31 << 18)) | ((value & 31) << 18);
     }
-    pub fn Direction3(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
+    pub fn Direction3(&self) -> super::UINT {
+        (self._bitfield >> 23) & 1
     }
-    pub fn set_Direction3(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    pub fn set_Direction3(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
     }
-    pub fn SegmentId4(&self) -> u32 {
-        (self._bitfield << 3) >> 27
+    pub fn SegmentId4(&self) -> super::UINT {
+        (self._bitfield >> 24) & 31
     }
-    pub fn set_SegmentId4(&mut self, value: u32) {
+    pub fn set_SegmentId4(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(31 << 24)) | ((value & 31) << 24);
     }
-    pub fn Direction4(&self) -> bool {
-        (self._bitfield >> 29) & 1 != 0
+    pub fn Direction4(&self) -> super::UINT {
+        (self._bitfield >> 29) & 1
     }
-    pub fn set_Direction4(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    pub fn set_Direction4(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value & 1) << 29);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 30
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(3 << 30)) | ((value & 3) << 30);
     }
 }
 pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SURFACEINFO {
-    pub Width: u32,
-    pub Height: u32,
-    pub Depth: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Depth: super::UINT,
     pub pSysMem: *const core::ffi::c_void,
-    pub SysMemPitch: u32,
-    pub SysMemSlicePitch: u32,
+    pub SysMemPitch: super::UINT,
+    pub SysMemSlicePitch: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub InitialState: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
-    pub MaxCount: u32,
-    pub InitialCount: u32,
+    pub MaxCount: super::UINT,
+    pub InitialCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
-    pub Reserved: [u32; 16],
+    pub Reserved: [super::UINT; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
@@ -2194,14 +2375,14 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0,
     pub SharedHandle: D3DKMT_HANDLE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0,
@@ -2212,175 +2393,181 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub InitialState: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    pub MaxCount: u32,
-    pub InitialCount: u32,
+    pub MaxCount: super::UINT,
+    pub InitialCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
-    pub InitialFenceValue: u64,
+    pub InitialFenceValue: super::UINT64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub EngineAffinity: u32,
-    pub Padding: u32,
+    pub EngineAffinity: super::UINT,
+    pub Padding: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub hAdapter: D3DKMT_HANDLE,
     pub VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
-    pub Time: u64,
+    pub Time: super::UINT64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub EngineAffinity: u32,
-    pub Padding: u32,
+    pub EngineAffinity: super::UINT,
+    pub Padding: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
-    pub fn Shared(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Shared(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Shared(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Shared(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn NtSecuritySharing(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn NtSecuritySharing(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_NtSecuritySharing(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_NtSecuritySharing(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn CrossAdapter(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn CrossAdapter(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_CrossAdapter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_CrossAdapter(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn TopOfPipeline(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn TopOfPipeline(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_TopOfPipeline(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_TopOfPipeline(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn NoSignal(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn NoSignal(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_NoSignal(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_NoSignal(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn NoWait(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn NoWait(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_NoWait(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_NoWait(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn NoSignalMaxValueOnTdr(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn NoSignalMaxValueOnTdr(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_NoSignalMaxValueOnTdr(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_NoSignalMaxValueOnTdr(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn NoGPUAccess(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn NoGPUAccess(&self) -> super::UINT {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_NoGPUAccess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_NoGPUAccess(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn SignalByKmd(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn SignalByKmd(&self) -> super::UINT {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_SignalByKmd(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_SignalByKmd(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn Unused(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn Unused(&self) -> super::UINT {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_Unused(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_Unused(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn UnwaitCpuWaitersOnlyOnDestroy(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn UnwaitCpuWaitersOnlyOnDestroy(&self) -> super::UINT {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_UnwaitCpuWaitersOnlyOnDestroy(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    pub fn set_UnwaitCpuWaitersOnlyOnDestroy(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn Reserved(&self) -> u32 {
-        (self._bitfield << 1) >> 12
+    pub fn Reserved(&self) -> super::UINT {
+        (self._bitfield >> 11) & 1048575
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1048575 << 11)) | ((value & 1048575) << 11);
     }
-    pub fn Reserved0(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_RESERVED0(&self) -> super::UINT {
+        self._bitfield >> 31
     }
-    pub fn set_Reserved0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_RESERVED0(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
 pub type D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = i32;
@@ -2390,24 +2577,28 @@ pub const D3DDDI_SYNC_OBJECT_ALL_ACCESS: i32 = 2031619;
 pub const D3DDDI_SYNC_OBJECT_SIGNAL: i32 = 2;
 pub const D3DDDI_SYNC_OBJECT_WAIT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_TESTCOMMANDBUFFER {
     pub Anonymous: D3DDDI_TESTCOMMANDBUFFER_0,
     pub Operation: D3DDDI_TESTCOMMANDBUFFEROP,
-    pub Reserved1: u32,
+    pub Reserved1: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TESTCOMMANDBUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_TESTCOMMANDBUFFER_0 {
     pub Copy: D3DDDI_TESTCOMMANDBUFFER_COPY,
     pub Fill: D3DDDI_TESTCOMMANDBUFFER_FILL,
     pub Reserved: [i8; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TESTCOMMANDBUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2422,179 +2613,199 @@ pub const D3DDDI_TESTCOMMANDBUFFEROP_INFINITE_PREEMPTABLE_LOOP: D3DDDI_TESTCOMMA
 pub const D3DDDI_TESTCOMMANDBUFFEROP_INVALID: D3DDDI_TESTCOMMANDBUFFEROP = 0;
 pub const D3DDDI_TESTCOMMANDBUFFEROP_MAX: D3DDDI_TESTCOMMANDBUFFEROP = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_TESTCOMMANDBUFFER_COPY {
     pub SrcAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub NumBytes: u32,
+    pub NumBytes: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_TESTCOMMANDBUFFER_FILL {
     pub DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub NumBytes: u32,
-    pub Pattern: u32,
+    pub NumBytes: super::UINT,
+    pub Pattern: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
-    pub fn PeriodicTrim(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn PeriodicTrim(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_PeriodicTrim(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_PeriodicTrim(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn RestartPeriodicTrim(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn RestartPeriodicTrim(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_RestartPeriodicTrim(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_RestartPeriodicTrim(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn TrimToBudget(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn TrimToBudget(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_TrimToBudget(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_TrimToBudget(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
 pub const D3DDDI_UMS_PDD_SIZE: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY {
     pub hPagingQueue: D3DKMT_HANDLE,
     pub hAllocation: D3DKMT_HANDLE,
-    pub SupportedSegmentSet: u32,
+    pub SupportedSegmentSet: super::UINT,
     pub PreferredSegment: D3DDDI_SEGMENTPREFERENCE,
     pub Flags: D3DDDI_UPDATEALLOCPROPERTY_FLAGS,
-    pub PagingFenceValue: u64,
+    pub PagingFenceValue: super::UINT64,
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEALLOCPROPERTY_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0_0,
-    pub PropertyMaskValue: u32,
+    pub PropertyMaskValue: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_UPDATEALLOCPROPERTY_0_0 {
-    pub fn SetAccessedPhysically(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SetAccessedPhysically(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_SetAccessedPhysically(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SetAccessedPhysically(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn SetSupportedSegmentSet(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn SetSupportedSegmentSet(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_SetSupportedSegmentSet(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_SetSupportedSegmentSet(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn SetPreferredSegment(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn SetPreferredSegment(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_SetPreferredSegment(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_SetPreferredSegment(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn SetUnmoveable(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn SetUnmoveable(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_SetUnmoveable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_SetUnmoveable(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
-    pub fn AccessedPhysically(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn AccessedPhysically(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_AccessedPhysically(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_AccessedPhysically(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Unmoveable(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Unmoveable(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Unmoveable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Unmoveable(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
@@ -2602,17 +2813,20 @@ pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY: D3DDDI_UPDATEGPUVIRTUALADDRESS_OP
 pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = 0;
 pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     pub OperationType: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE,
     pub Anonymous: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Map: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0,
@@ -2620,12 +2834,14 @@ pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Unmap: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2,
     pub Copy: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -2635,6 +2851,7 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub AllocationSizeInBytes: D3DGPU_SIZE_T,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -2643,26 +2860,30 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub AllocationOffsetInBytes: D3DGPU_SIZE_T,
     pub AllocationSizeInBytes: D3DGPU_SIZE_T,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-    pub DriverProtection: u64,
+    pub DriverProtection: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: D3DGPU_SIZE_T,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     pub SourceAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -2680,52 +2901,59 @@ pub const D3DDDI_VSSLO_OTHER: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 255;
 pub const D3DDDI_VSSLO_PROGRESSIVE: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 1;
 pub const D3DDDI_VSSLO_UNINITIALIZED: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
-    pub fn WaitAny(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn WaitAny(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_WaitAny(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_WaitAny(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 pub const D3DGPU_NULL: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
-    pub SegmentId: u32,
-    pub Padding: u32,
-    pub SegmentOffset: u64,
+    pub SegmentId: super::UINT,
+    pub Padding: super::UINT,
+    pub SegmentOffset: super::UINT64,
 }
 pub type D3DGPU_SIZE_T = u64;
 pub const D3DGPU_UNIQUE_DRIVER_PROTECTION: u64 = 9223372036854775808;
@@ -2766,8 +2994,7 @@ pub const D3DKMDT_MAX_VIDPN_SOURCES_BITCOUNT: i32 = 4;
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: i32 = 4;
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: i32 = 128;
 pub type D3DKMT_HANDLE = u32;
-#[cfg(feature = "winnt")]
-pub type D3DKMT_PTR_TYPE = super::HANDLE;
+pub type D3DKMT_PTR_TYPE = *mut core::ffi::c_void;
 pub type D3DKMT_SIZE_T = usize;
 pub type D3DKMT_UINT_PTR = usize;
 pub type D3DKMT_ULONG_PTR = usize;
@@ -2843,95 +3070,95 @@ pub const DXGKDDI_INTERFACE_VERSION_WDDM3_2: i32 = 69640;
 pub const DXGKDDI_INTERFACE_VERSION_WIN7: i32 = 8197;
 pub const DXGKDDI_INTERFACE_VERSION_WIN8: i32 = 12302;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub VmGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_PAUSE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::LUID,
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGKVGPU_ESCAPE_PAUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DXGKVGPU_ESCAPE_PAUSE_0 {
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0_0,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGKVGPU_ESCAPE_PAUSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl DXGKVGPU_ESCAPE_PAUSE_0_0 {
-    pub fn GuestVmRunning(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn GuestVmRunning(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_GuestVmRunning(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_GuestVmRunning(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
-    pub PowerState: u32,
+    pub PowerState: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
-    pub Offset: u32,
-    pub Size: u32,
+    pub Offset: super::UINT,
+    pub Size: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RESUME {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 pub type DXGKVGPU_ESCAPE_TYPE = i32;
 pub const DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE: DXGKVGPU_ESCAPE_TYPE = 4;
@@ -2943,40 +3170,44 @@ pub const DXGKVGPU_ESCAPE_TYPE_RELEASE: DXGKVGPU_ESCAPE_TYPE = 3;
 pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = 7;
 pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
-    pub Offset: u32,
-    pub Size: u32,
+    pub Offset: super::UINT,
+    pub Size: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_DETAILED_FEATURE_ID {
     pub Anonymous: DXGK_DETAILED_FEATURE_ID_0,
     pub Value: DXGK_FEATURE_ID,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_DETAILED_FEATURE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_DETAILED_FEATURE_ID_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_DETAILED_FEATURE_ID_0 {
-    pub fn Feature(&self) -> u32 {
-        (self._bitfield << 4) >> 4
+    pub fn Feature(&self) -> super::UINT32 {
+        (self._bitfield) & 268435455
     }
-    pub fn set_Feature(&mut self, value: u32) {
+    pub fn set_Feature(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !268435455) | (value & 268435455);
     }
-    pub fn Category(&self) -> u32 {
+    pub fn Category(&self) -> super::UINT32 {
         self._bitfield >> 28
     }
-    pub fn set_Category(&mut self, value: u32) {
+    pub fn set_Category(&mut self, value: super::UINT32) {
         self._bitfield = (self._bitfield & !(15 << 28)) | ((value & 15) << 28);
     }
 }
@@ -3085,73 +3316,79 @@ pub const DXGK_FEATURE_UNIFIED_SCHEDULING_MODEL: DXGK_FEATURE_ID = 42;
 pub const DXGK_FEATURE_USER_MODE_SUBMISSION: DXGK_FEATURE_ID = 4;
 pub type DXGK_FEATURE_VERSION = u16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_ISFEATUREENABLED_RESULT {
-    pub Version: u16,
+    pub Version: super::UINT16,
     pub Anonymous: DXGK_ISFEATUREENABLED_RESULT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_ISFEATUREENABLED_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_ISFEATUREENABLED_RESULT_0 {
     pub Anonymous: DXGK_ISFEATUREENABLED_RESULT_0_0,
     pub Value: DXGK_FEATURE_VERSION,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_ISFEATUREENABLED_RESULT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_ISFEATUREENABLED_RESULT_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl DXGK_ISFEATUREENABLED_RESULT_0_0 {
-    pub fn Enabled(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Enabled(&self) -> super::UINT16 {
+        (self._bitfield) & 1
     }
-    pub fn set_Enabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u16);
+    pub fn set_Enabled(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn KnownFeature(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn KnownFeature(&self) -> super::UINT16 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_KnownFeature(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    pub fn set_KnownFeature(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn SupportedByDriver(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn SupportedByDriver(&self) -> super::UINT16 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_SupportedByDriver(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    pub fn set_SupportedByDriver(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn SupportedOnCurrentConfig(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn SupportedOnCurrentConfig(&self) -> super::UINT16 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_SupportedOnCurrentConfig(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    pub fn set_SupportedOnCurrentConfig(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Available(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn Available(&self) -> super::UINT16 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_Available(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    pub fn set_Available(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Experimental(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn Experimental(&self) -> super::UINT16 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_Experimental(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    pub fn set_Experimental(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u16 {
+    pub fn Reserved(&self) -> super::UINT16 {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u16) {
+    pub fn set_Reserved(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(1023 << 6)) | ((value & 1023) << 6);
     }
 }
@@ -3159,43 +3396,49 @@ pub const DXGK_MAX_GPU_VA_BIT_COUNT: i32 = 63;
 pub const DXGK_MAX_PAGE_TABLE_LEVEL_COUNT: i32 = 6;
 pub const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_MIRACAST_CHUNK_ID {
     pub Anonymous: DXGK_MIRACAST_CHUNK_ID_0,
-    pub Value: u64,
+    pub Value: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_MIRACAST_CHUNK_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_MIRACAST_CHUNK_ID_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "shared")]
 impl DXGK_MIRACAST_CHUNK_ID_0 {
-    pub fn FrameNumber(&self) -> u64 {
-        (self._bitfield << 24) >> 24
+    pub fn FrameNumber(&self) -> super::UINT64 {
+        (self._bitfield) & 1099511627775
     }
-    pub fn set_FrameNumber(&mut self, value: u64) {
+    pub fn set_FrameNumber(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !1099511627775) | (value & 1099511627775);
     }
-    pub fn PartNumber(&self) -> u64 {
+    pub fn PartNumber(&self) -> super::UINT64 {
         self._bitfield >> 40
     }
-    pub fn set_PartNumber(&mut self, value: u64) {
+    pub fn set_PartNumber(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(16777215 << 40)) | ((value & 16777215) << 40);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_MIRACAST_CHUNK_INFO {
     pub ChunkType: DXGK_MIRACAST_CHUNK_TYPE,
     pub ChunkId: DXGK_MIRACAST_CHUNK_ID,
-    pub ProcessingTime: u32,
-    pub EncodeRate: u32,
+    pub ProcessingTime: super::UINT,
+    pub EncodeRate: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_MIRACAST_CHUNK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3210,63 +3453,64 @@ pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = 4;
 pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = 3;
 pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_BUFFER {
     pub Header: DXGK_NATIVE_FENCE_LOG_HEADER,
     pub Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGK_NATIVE_FENCE_LOG_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_NATIVE_FENCE_LOG_ENTRY {
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
     pub hNativeFence: D3DKMT_HANDLE,
-    pub OperationType: u32,
-    pub Reserved0: u64,
-    pub FenceObservedGpuTimestamp: u64,
-    pub Reserved1: u64,
-    pub FenceEndGpuTimestamp: u64,
+    pub OperationType: super::UINT,
+    pub Reserved0: super::UINT64,
+    pub FenceObservedGpuTimestamp: super::UINT64,
+    pub Reserved1: super::UINT64,
+    pub FenceEndGpuTimestamp: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0,
     pub Type: DXGK_NATIVE_FENCE_LOG_TYPE,
-    pub NumberOfEntries: u64,
-    pub Reserved: [u64; 2],
+    pub NumberOfEntries: super::UINT64,
+    pub Reserved: [super::UINT64; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0_0,
     pub AtomicWraparoundAndEntryIndex: super::ULARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER_0_0 {
-    pub FirstFreeEntryIndex: u32,
-    pub WraparoundCount: u32,
+    pub FirstFreeEntryIndex: super::UINT32,
+    pub WraparoundCount: super::UINT32,
 }
 pub type DXGK_NATIVE_FENCE_LOG_OPERATION = i32;
 pub const DXGK_NATIVE_FENCE_LOG_OPERATION_SIGNAL_EXECUTED: DXGK_NATIVE_FENCE_LOG_OPERATION = 0;
@@ -3285,112 +3529,120 @@ pub const DXGK_OS_FEATURE_READONLY_EXISTINGSYSMEM: DXGK_OS_FEATURE = 6;
 pub const DXGK_OS_FEATURE_RESERVE_GPUVA_ZERO_BASE_ADDRESS: DXGK_OS_FEATURE = 1;
 pub const DXGK_OS_FEATURE_SUPPRESSVSYNC_INTERRUPTS: DXGK_OS_FEATURE = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_PTE {
     pub Anonymous: DXGK_PTE_0,
     pub Anonymous2: DXGK_PTE_1,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_PTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_PTE_0 {
     pub Anonymous: DXGK_PTE_0_0,
-    pub Flags: u64,
+    pub Flags: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_PTE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_PTE_0_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "shared")]
 impl DXGK_PTE_0_0 {
-    pub fn Valid(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Valid(&self) -> super::ULONGLONG {
+        (self._bitfield) & 1
     }
-    pub fn set_Valid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_Valid(&mut self, value: super::ULONGLONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Zero(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Zero(&self) -> super::ULONGLONG {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Zero(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_Zero(&mut self, value: super::ULONGLONG) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn CacheCoherent(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn CacheCoherent(&self) -> super::ULONGLONG {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_CacheCoherent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_CacheCoherent(&mut self, value: super::ULONGLONG) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn ReadOnly(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn ReadOnly(&self) -> super::ULONGLONG {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_ReadOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    pub fn set_ReadOnly(&mut self, value: super::ULONGLONG) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn NoExecute(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn NoExecute(&self) -> super::ULONGLONG {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_NoExecute(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    pub fn set_NoExecute(&mut self, value: super::ULONGLONG) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Segment(&self) -> u64 {
-        (self._bitfield << 54) >> 59
+    pub fn Segment(&self) -> super::ULONGLONG {
+        (self._bitfield >> 5) & 31
     }
-    pub fn set_Segment(&mut self, value: u64) {
+    pub fn set_Segment(&mut self, value: super::ULONGLONG) {
         self._bitfield = (self._bitfield & !(31 << 5)) | ((value & 31) << 5);
     }
-    pub fn LargePage(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn LargePage(&self) -> super::ULONGLONG {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_LargePage(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    pub fn set_LargePage(&mut self, value: super::ULONGLONG) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn PhysicalAdapterIndex(&self) -> u64 {
-        (self._bitfield << 47) >> 58
+    pub fn PhysicalAdapterIndex(&self) -> super::ULONGLONG {
+        (self._bitfield >> 11) & 63
     }
-    pub fn set_PhysicalAdapterIndex(&mut self, value: u64) {
+    pub fn set_PhysicalAdapterIndex(&mut self, value: super::ULONGLONG) {
         self._bitfield = (self._bitfield & !(63 << 11)) | ((value & 63) << 11);
     }
-    pub fn PageTablePageSize(&self) -> u64 {
-        (self._bitfield << 45) >> 62
+    pub fn PageTablePageSize(&self) -> super::ULONGLONG {
+        (self._bitfield >> 17) & 3
     }
-    pub fn set_PageTablePageSize(&mut self, value: u64) {
+    pub fn set_PageTablePageSize(&mut self, value: super::ULONGLONG) {
         self._bitfield = (self._bitfield & !(3 << 17)) | ((value & 3) << 17);
     }
-    pub fn SystemReserved0(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
+    pub fn SystemReserved0(&self) -> super::ULONGLONG {
+        (self._bitfield >> 19) & 1
     }
-    pub fn set_SystemReserved0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
+    pub fn set_SystemReserved0(&mut self, value: super::ULONGLONG) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
     }
-    pub fn BlockAccessMode(&self) -> u64 {
-        (self._bitfield << 42) >> 62
+    pub fn BlockAccessMode(&self) -> super::ULONGLONG {
+        (self._bitfield >> 20) & 3
     }
-    pub fn set_BlockAccessMode(&mut self, value: u64) {
+    pub fn set_BlockAccessMode(&mut self, value: super::ULONGLONG) {
         self._bitfield = (self._bitfield & !(3 << 20)) | ((value & 3) << 20);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::ULONGLONG {
         self._bitfield >> 22
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::ULONGLONG) {
         self._bitfield = (self._bitfield & !(4398046511103 << 22)) | ((value & 4398046511103) << 22);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_PTE_1 {
-    pub PageAddress: u64,
-    pub PageTableAddress: u64,
+    pub PageAddress: super::ULONGLONG,
+    pub PageTableAddress: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_PTE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3404,7 +3656,7 @@ pub type DXGK_PTE_PAGE_SIZE = i32;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = 0;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::LUID,
@@ -3413,5 +3665,5 @@ pub const IOCTL_GPUP_DRIVER_ESCAPE: i32 = 2253920;
 pub type PD3DDDI_3x4_COLORSPACE_TRANSFORM = *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM;
 pub type PD3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 = *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2;
 pub type PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = *mut D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGPUP_DRIVER_ESCAPE_INPUT = *mut GPUP_DRIVER_ESCAPE_INPUT;

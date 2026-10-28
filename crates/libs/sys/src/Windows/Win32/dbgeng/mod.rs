@@ -1,7 +1,11 @@
-windows_link::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_sys::core::PCSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_sys::core::PCWSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+windows_link::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_sys::core::PCSTR, interfaceid : *const super::IID, interface : *mut super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+windows_link::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_sys::core::PCWSTR, interfaceid : *const super::IID, interface : *mut super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+windows_link::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const super::IID, interface : *mut super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+windows_link::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const super::IID, dbgengoptions : super::DWORD, interface : *mut super::PVOID) -> windows_sys::core::HRESULT);
 pub const DBG_FRAME_DEFAULT: i32 = 0;
 pub const DBG_FRAME_IGNORE_INLINE: u32 = 4294967295;
 pub const DEBUG_ADDSYNTHMOD_DEFAULT: i32 = 0;
@@ -33,20 +37,21 @@ pub const DEBUG_BREAKPOINT_GO_ONLY: i32 = 1;
 pub const DEBUG_BREAKPOINT_INLINE: i32 = 3;
 pub const DEBUG_BREAKPOINT_ONE_SHOT: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
-    pub Offset: u64,
-    pub Id: u32,
-    pub BreakType: u32,
-    pub ProcType: u32,
-    pub Flags: u32,
-    pub DataSize: u32,
-    pub DataAccessType: u32,
-    pub PassCount: u32,
-    pub CurrentPassCount: u32,
-    pub MatchThread: u32,
-    pub CommandSize: u32,
-    pub OffsetExpressionSize: u32,
+    pub Offset: super::ULONG64,
+    pub Id: super::ULONG,
+    pub BreakType: super::ULONG,
+    pub ProcType: super::ULONG,
+    pub Flags: super::ULONG,
+    pub DataSize: super::ULONG,
+    pub DataAccessType: super::ULONG,
+    pub PassCount: super::ULONG,
+    pub CurrentPassCount: super::ULONG,
+    pub MatchThread: super::ULONG,
+    pub CommandSize: super::ULONG,
+    pub OffsetExpressionSize: super::ULONG,
 }
 pub const DEBUG_BREAKPOINT_TIME: i32 = 2;
 pub const DEBUG_BREAK_EXECUTE: i32 = 4;
@@ -54,13 +59,14 @@ pub const DEBUG_BREAK_IO: i32 = 8;
 pub const DEBUG_BREAK_READ: i32 = 1;
 pub const DEBUG_BREAK_WRITE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_CACHED_SYMBOL_INFO {
-    pub ModBase: u64,
-    pub Arg1: u64,
-    pub Arg2: u64,
-    pub Id: u32,
-    pub Arg3: u32,
+    pub ModBase: super::ULONG64,
+    pub Arg1: super::ULONG64,
+    pub Arg2: super::ULONG64,
+    pub Id: super::ULONG,
+    pub Arg3: super::ULONG,
 }
 pub const DEBUG_CDS_ALL: u32 = 4294967295;
 pub const DEBUG_CDS_DATA: i32 = 2;
@@ -107,10 +113,11 @@ pub const DEBUG_CLASS_UNINITIALIZED: i32 = 0;
 pub const DEBUG_CLASS_USER_WINDOWS: i32 = 2;
 pub const DEBUG_CLIENT_CDB: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_CLIENT_CONTEXT {
-    pub cbSize: u32,
-    pub eClient: u32,
+    pub cbSize: super::UINT,
+    pub eClient: super::UINT,
 }
 pub const DEBUG_CLIENT_KD: i32 = 5;
 pub const DEBUG_CLIENT_NTKD: i32 = 3;
@@ -128,12 +135,13 @@ pub const DEBUG_CONNECT_SESSION_NO_ANNOUNCE: i32 = 2;
 pub const DEBUG_CONNECT_SESSION_NO_VERSION: i32 = 1;
 pub const DEBUG_CREATE_PROCESS_NO_DEBUG_HEAP: i32 = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
-    pub CreateFlags: u32,
-    pub EngCreateFlags: u32,
-    pub VerifierFlags: u32,
-    pub Reserved: u32,
+    pub CreateFlags: super::ULONG,
+    pub EngCreateFlags: super::ULONG,
+    pub VerifierFlags: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const DEBUG_CREATE_PROCESS_THROUGH_RTL: i32 = 65536;
 pub const DEBUG_CSS_ALL: u32 = 4294967295;
@@ -338,12 +346,13 @@ pub const DEBUG_EVENT_CHANGE_DEBUGGEE_STATE: i32 = 1024;
 pub const DEBUG_EVENT_CHANGE_ENGINE_STATE: i32 = 2048;
 pub const DEBUG_EVENT_CHANGE_SYMBOL_STATE: i32 = 4096;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_EVENT_CONTEXT {
-    pub Size: u32,
-    pub ProcessEngineId: u32,
-    pub ThreadEngineId: u32,
-    pub FrameEngineId: u32,
+    pub Size: super::ULONG,
+    pub ProcessEngineId: super::ULONG,
+    pub ThreadEngineId: super::ULONG,
+    pub FrameEngineId: super::ULONG,
 }
 pub const DEBUG_EVENT_CREATE_PROCESS: i32 = 16;
 pub const DEBUG_EVENT_CREATE_THREAD: i32 = 4;
@@ -356,14 +365,15 @@ pub const DEBUG_EVENT_SESSION_STATUS: i32 = 512;
 pub const DEBUG_EVENT_SYSTEM_ERROR: i32 = 256;
 pub const DEBUG_EVENT_UNLOAD_MODULE: i32 = 128;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
-    pub ExecutionOption: u32,
-    pub ContinueOption: u32,
-    pub TextSize: u32,
-    pub CommandSize: u32,
-    pub SecondCommandSize: u32,
-    pub ExceptionCode: u32,
+    pub ExecutionOption: super::ULONG,
+    pub ContinueOption: super::ULONG,
+    pub TextSize: super::ULONG,
+    pub CommandSize: super::ULONG,
+    pub SecondCommandSize: super::ULONG,
+    pub ExceptionCode: super::ULONG,
 }
 pub const DEBUG_EXECUTE_DEFAULT: i32 = 0;
 pub const DEBUG_EXECUTE_ECHO: i32 = 1;
@@ -452,12 +462,14 @@ pub const DEBUG_GET_PROC_FULL_MATCH: i32 = 1;
 pub const DEBUG_GET_PROC_ONLY_MATCH: i32 = 2;
 pub const DEBUG_GET_PROC_SERVICE_NAME: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
-    pub Flags: u32,
-    pub MatchCountLimit: u32,
-    pub Reserved: [u64; 3],
+    pub Flags: super::ULONG,
+    pub MatchCountLimit: super::ULONG,
+    pub Reserved: [super::ULONG64; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_GET_TEXT_COMPLETIONS_IN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -470,14 +482,16 @@ pub const DEBUG_GET_TEXT_COMPLETIONS_NO_DOT_COMMANDS: i32 = 1;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_EXTENSION_COMMANDS: i32 = 2;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_SYMBOLS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
-    pub Flags: u32,
-    pub ReplaceIndex: u32,
-    pub MatchCount: u32,
-    pub Reserved1: u32,
-    pub Reserved2: [u64; 2],
+    pub Flags: super::ULONG,
+    pub ReplaceIndex: super::ULONG,
+    pub MatchCount: super::ULONG,
+    pub Reserved1: super::ULONG,
+    pub Reserved2: [super::ULONG64; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_GET_TEXT_COMPLETIONS_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -490,14 +504,15 @@ pub const DEBUG_GSEL_INLINE_CALLSITE: i32 = 16;
 pub const DEBUG_GSEL_NEAREST_ONLY: i32 = 8;
 pub const DEBUG_GSEL_NO_SYMBOL_LOADS: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_HANDLE_DATA_BASIC {
-    pub TypeNameSize: u32,
-    pub ObjectNameSize: u32,
-    pub Attributes: u32,
-    pub GrantedAccess: u32,
-    pub HandleCount: u32,
-    pub PointerCount: u32,
+    pub TypeNameSize: super::ULONG,
+    pub ObjectNameSize: super::ULONG,
+    pub Attributes: super::ULONG,
+    pub GrantedAccess: super::ULONG,
+    pub HandleCount: super::ULONG,
+    pub PointerCount: super::ULONG,
 }
 pub const DEBUG_HANDLE_DATA_TYPE_ALL_HANDLE_OPERATIONS: i32 = 10;
 pub const DEBUG_HANDLE_DATA_TYPE_BASIC: i32 = 0;
@@ -518,7 +533,8 @@ pub const DEBUG_HANDLE_DATA_TYPE_TYPE_NAME_WIDE: i32 = 4;
 pub const DEBUG_INTERRUPT_ACTIVE: i32 = 0;
 pub const DEBUG_INTERRUPT_EXIT: i32 = 2;
 pub const DEBUG_INTERRUPT_PASSIVE: i32 = 1;
-pub const DEBUG_INVALID_OFFSET: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const DEBUG_INVALID_OFFSET: super::ULONG64 = 18446744073709551615;
 pub const DEBUG_IOUTPUT_ADDR_TRANSLATE: i32 = 134217728;
 pub const DEBUG_IOUTPUT_BREAKPOINT: i32 = 536870912;
 pub const DEBUG_IOUTPUT_EVENT: i32 = 268435456;
@@ -539,49 +555,56 @@ pub const DEBUG_KNOWN_STRUCT_GET_NAMES: i32 = 1;
 pub const DEBUG_KNOWN_STRUCT_GET_SINGLE_LINE_OUTPUT: i32 = 2;
 pub const DEBUG_KNOWN_STRUCT_SUPPRESS_TYPE_NAME: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
-    pub Id: u32,
+    pub Id: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::EXCEPTION_RECORD64,
-    pub FirstChance: u32,
+    pub FirstChance: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
-    pub ExitCode: u32,
+    pub ExitCode: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
-    pub ExitCode: u32,
+    pub ExitCode: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
-    pub Base: u64,
+    pub Base: super::ULONG64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
-    pub Kind: u32,
-    pub DataSize: u32,
-    pub Address: u64,
+    pub Kind: super::ULONG,
+    pub DataSize: super::ULONG,
+    pub Address: super::ULONG64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
-    pub Error: u32,
-    pub Level: u32,
+    pub Error: super::ULONG,
+    pub Level: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
-    pub Base: u64,
+    pub Base: super::ULONG64,
 }
 pub const DEBUG_LEVEL_ASSEMBLY: i32 = 1;
 pub const DEBUG_LEVEL_SOURCE: i32 = 0;
@@ -604,30 +627,33 @@ pub const DEBUG_MODNAME_MAPPED_IMAGE: i32 = 4;
 pub const DEBUG_MODNAME_MODULE: i32 = 1;
 pub const DEBUG_MODNAME_SYMBOL_FILE: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_MODULE_AND_ID {
-    pub ModuleBase: u64,
-    pub Id: u64,
+    pub ModuleBase: super::ULONG64,
+    pub Id: super::ULONG64,
 }
 pub const DEBUG_MODULE_EXE_MODULE: i32 = 4;
 pub const DEBUG_MODULE_EXPLICIT: i32 = 8;
 pub const DEBUG_MODULE_LOADED: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_MODULE_PARAMETERS {
-    pub Base: u64,
-    pub Size: u32,
-    pub TimeDateStamp: u32,
-    pub Checksum: u32,
-    pub Flags: u32,
-    pub SymbolType: u32,
-    pub ImageNameSize: u32,
-    pub ModuleNameSize: u32,
-    pub LoadedImageNameSize: u32,
-    pub SymbolFileNameSize: u32,
-    pub MappedImageNameSize: u32,
-    pub Reserved: [u64; 2],
+    pub Base: super::ULONG64,
+    pub Size: super::ULONG,
+    pub TimeDateStamp: super::ULONG,
+    pub Checksum: super::ULONG,
+    pub Flags: super::ULONG,
+    pub SymbolType: super::ULONG,
+    pub ImageNameSize: super::ULONG,
+    pub ModuleNameSize: super::ULONG,
+    pub LoadedImageNameSize: super::ULONG,
+    pub SymbolFileNameSize: super::ULONG,
+    pub MappedImageNameSize: super::ULONG,
+    pub Reserved: [super::ULONG64; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_MODULE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -643,10 +669,11 @@ pub const DEBUG_NOTIFY_SESSION_ACTIVE: i32 = 0;
 pub const DEBUG_NOTIFY_SESSION_INACCESSIBLE: i32 = 3;
 pub const DEBUG_NOTIFY_SESSION_INACTIVE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_OFFSET_REGION {
-    pub Base: u64,
-    pub Size: u64,
+    pub Base: super::ULONG64,
+    pub Size: super::ULONG64,
 }
 pub const DEBUG_OFFSINFO_VIRTUAL_SOURCE: i32 = 1;
 pub const DEBUG_OUTCBF_COMBINED_EXPLICIT_FLUSH: i32 = 1;
@@ -719,6 +746,7 @@ pub const DEBUG_PHYSICAL_DEFAULT: i32 = 0;
 pub const DEBUG_PHYSICAL_UNCACHED: i32 = 2;
 pub const DEBUG_PHYSICAL_WRITE_COMBINED: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
@@ -728,76 +756,88 @@ pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Arm: DEBUG_PROCESSOR_IDENTIFICATION_ARM,
     pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
-    pub Type: u32,
-    pub Revision: u32,
+    pub Type: super::ULONG,
+    pub Revision: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
-    pub Family: u32,
-    pub Model: u32,
-    pub Stepping: u32,
-    pub VendorString: [i8; 16],
+    pub Family: super::ULONG,
+    pub Model: super::ULONG,
+    pub Stepping: super::ULONG,
+    pub VendorString: [super::CHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
-    pub Model: u32,
-    pub Revision: u32,
-    pub VendorString: [i8; 16],
+    pub Model: super::ULONG,
+    pub Revision: super::ULONG,
+    pub VendorString: [super::CHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
-    pub Model: u32,
-    pub Revision: u32,
-    pub VendorString: [i8; 16],
+    pub Model: super::ULONG,
+    pub Revision: super::ULONG,
+    pub VendorString: [super::CHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
-    pub Model: u32,
-    pub Revision: u32,
-    pub Family: u32,
-    pub ArchRev: u32,
-    pub VendorString: [i8; 16],
+    pub Model: super::ULONG,
+    pub Revision: super::ULONG,
+    pub Family: super::ULONG,
+    pub ArchRev: super::ULONG,
+    pub VendorString: [super::CHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
-    pub Family: u32,
-    pub Model: u32,
-    pub Stepping: u32,
-    pub VendorString: [i8; 16],
+    pub Family: super::ULONG,
+    pub Model: super::ULONG,
+    pub Stepping: super::ULONG,
+    pub VendorString: [super::CHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -815,14 +855,15 @@ pub const DEBUG_PROC_DESC_NO_USER_NAME: i32 = 32;
 pub const DEBUG_PROC_DESC_WITH_ARCHITECTURE: i32 = 128;
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: i32 = 64;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
-    pub StreamType: u32,
-    pub Flags: u32,
-    pub Offset: u64,
-    pub Buffer: *mut core::ffi::c_void,
-    pub BufferSize: u32,
-    pub BufferUsed: u32,
+    pub StreamType: super::ULONG,
+    pub Flags: super::ULONG,
+    pub Offset: super::ULONG64,
+    pub Buffer: super::PVOID,
+    pub BufferSize: super::ULONG,
+    pub BufferUsed: super::ULONG,
 }
 pub const DEBUG_REGISTERS_ALL: i32 = 7;
 pub const DEBUG_REGISTERS_DEFAULT: i32 = 0;
@@ -830,15 +871,16 @@ pub const DEBUG_REGISTERS_FLOAT: i32 = 4;
 pub const DEBUG_REGISTERS_INT32: i32 = 1;
 pub const DEBUG_REGISTERS_INT64: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_REGISTER_DESCRIPTION {
-    pub Type: u32,
-    pub Flags: u32,
-    pub SubregMaster: u32,
-    pub SubregLength: u32,
-    pub SubregMask: u64,
-    pub SubregShift: u32,
-    pub Reserved0: u32,
+    pub Type: super::ULONG,
+    pub Flags: super::ULONG,
+    pub SubregMaster: super::ULONG,
+    pub SubregLength: super::ULONG,
+    pub SubregMask: super::ULONG64,
+    pub SubregShift: super::ULONG,
+    pub Reserved0: super::ULONG,
 }
 pub const DEBUG_REGISTER_SUB_REGISTER: i32 = 1;
 pub const DEBUG_REGSRC_DEBUGGEE: i32 = 0;
@@ -902,13 +944,14 @@ pub const DEBUG_SESSION_HIBERNATE: i32 = 6;
 pub const DEBUG_SESSION_REBOOT: i32 = 5;
 pub const DEBUG_SOURCE_IS_STATEMENT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
-    pub ExecutionOption: u32,
-    pub ContinueOption: u32,
-    pub TextSize: u32,
-    pub CommandSize: u32,
-    pub ArgumentSize: u32,
+    pub ExecutionOption: super::ULONG,
+    pub ContinueOption: super::ULONG,
+    pub TextSize: super::ULONG,
+    pub CommandSize: super::ULONG,
+    pub ArgumentSize: super::ULONG,
 }
 pub const DEBUG_SRCFILE_SYMBOL_CHECKSUMINFO: i32 = 2;
 pub const DEBUG_SRCFILE_SYMBOL_TOKEN: i32 = 0;
@@ -917,18 +960,20 @@ pub const DEBUG_STACK_ARGUMENTS: i32 = 1;
 pub const DEBUG_STACK_COLUMN_NAMES: i32 = 16;
 pub const DEBUG_STACK_DML: i32 = 2048;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_STACK_FRAME {
-    pub InstructionOffset: u64,
-    pub ReturnOffset: u64,
-    pub FrameOffset: u64,
-    pub StackOffset: u64,
-    pub FuncTableEntry: u64,
-    pub Params: [u64; 4],
-    pub Reserved: [u64; 6],
+    pub InstructionOffset: super::ULONG64,
+    pub ReturnOffset: super::ULONG64,
+    pub FrameOffset: super::ULONG64,
+    pub StackOffset: super::ULONG64,
+    pub FuncTableEntry: super::ULONG64,
+    pub Params: [super::ULONG64; 4],
+    pub Reserved: [super::ULONG64; 6],
     pub Virtual: windows_sys::core::BOOL,
-    pub FrameNumber: u32,
+    pub FrameNumber: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_STACK_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -938,20 +983,22 @@ pub const DEBUG_STACK_FRAME_ADDRESSES: i32 = 8;
 pub const DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY: i32 = 256;
 pub const DEBUG_STACK_FRAME_ARCH: i32 = 16384;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_STACK_FRAME_EX {
-    pub InstructionOffset: u64,
-    pub ReturnOffset: u64,
-    pub FrameOffset: u64,
-    pub StackOffset: u64,
-    pub FuncTableEntry: u64,
-    pub Params: [u64; 4],
-    pub Reserved: [u64; 6],
+    pub InstructionOffset: super::ULONG64,
+    pub ReturnOffset: super::ULONG64,
+    pub FrameOffset: super::ULONG64,
+    pub StackOffset: super::ULONG64,
+    pub FuncTableEntry: super::ULONG64,
+    pub Params: [super::ULONG64; 4],
+    pub Reserved: [super::ULONG64; 6],
     pub Virtual: windows_sys::core::BOOL,
-    pub FrameNumber: u32,
-    pub InlineFrameContext: u32,
-    pub FrameMachine: u32,
+    pub FrameNumber: super::ULONG,
+    pub InlineFrameContext: super::ULONG,
+    pub FrameMachine: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_STACK_FRAME_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -988,20 +1035,21 @@ pub const DEBUG_STATUS_TIMEOUT: i32 = 17;
 pub const DEBUG_STATUS_WAIT_INPUT: i32 = 16;
 pub const DEBUG_STATUS_WAIT_TIMEOUT: i64 = 8589934592;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_SYMBOL_ENTRY {
-    pub ModuleBase: u64,
-    pub Offset: u64,
-    pub Id: u64,
-    pub Arg64: u64,
-    pub Size: u32,
-    pub Flags: u32,
-    pub TypeId: u32,
-    pub NameSize: u32,
-    pub Token: u32,
-    pub Tag: u32,
-    pub Arg32: u32,
-    pub Reserved: u32,
+    pub ModuleBase: super::ULONG64,
+    pub Offset: super::ULONG64,
+    pub Id: super::ULONG64,
+    pub Arg64: super::ULONG64,
+    pub Size: super::ULONG,
+    pub Flags: super::ULONG,
+    pub TypeId: super::ULONG,
+    pub NameSize: super::ULONG,
+    pub Token: super::ULONG,
+    pub Tag: super::ULONG,
+    pub Arg32: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const DEBUG_SYMBOL_EXPANDED: i32 = 16;
 pub const DEBUG_SYMBOL_EXPANSION_LEVEL_MASK: i32 = 15;
@@ -1010,31 +1058,33 @@ pub const DEBUG_SYMBOL_IS_ARRAY: i32 = 64;
 pub const DEBUG_SYMBOL_IS_FLOAT: i32 = 128;
 pub const DEBUG_SYMBOL_IS_LOCAL: i32 = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_SYMBOL_PARAMETERS {
-    pub Module: u64,
-    pub TypeId: u32,
-    pub ParentSymbol: u32,
-    pub SubElements: u32,
-    pub Flags: u32,
-    pub Reserved: u64,
+    pub Module: super::ULONG64,
+    pub TypeId: super::ULONG,
+    pub ParentSymbol: super::ULONG,
+    pub SubElements: super::ULONG,
+    pub Flags: super::ULONG,
+    pub Reserved: super::ULONG64,
 }
 pub const DEBUG_SYMBOL_READ_ONLY: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
-    pub ModuleBase: u64,
-    pub Offset: u64,
-    pub FileNameId: u64,
-    pub EngineInternal: u64,
-    pub Size: u32,
-    pub Flags: u32,
-    pub FileNameSize: u32,
-    pub StartLine: u32,
-    pub EndLine: u32,
-    pub StartColumn: u32,
-    pub EndColumn: u32,
-    pub Reserved: u32,
+    pub ModuleBase: super::ULONG64,
+    pub Offset: super::ULONG64,
+    pub FileNameId: super::ULONG64,
+    pub EngineInternal: super::ULONG64,
+    pub Size: super::ULONG,
+    pub Flags: super::ULONG,
+    pub FileNameSize: super::ULONG,
+    pub StartLine: super::ULONG,
+    pub EndLine: super::ULONG,
+    pub StartColumn: super::ULONG,
+    pub EndColumn: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const DEBUG_SYMENT_IS_CODE: i32 = 1;
 pub const DEBUG_SYMENT_IS_DATA: i32 = 2;
@@ -1067,18 +1117,19 @@ pub const DEBUG_TBINFO_PRIORITY_CLASS: i32 = 2;
 pub const DEBUG_TBINFO_START_OFFSET: i32 = 16;
 pub const DEBUG_TBINFO_TIMES: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_THREAD_BASIC_INFORMATION {
-    pub Valid: u32,
-    pub ExitStatus: u32,
-    pub PriorityClass: u32,
-    pub Priority: u32,
-    pub CreateTime: u64,
-    pub ExitTime: u64,
-    pub KernelTime: u64,
-    pub UserTime: u64,
-    pub StartOffset: u64,
-    pub Affinity: u64,
+    pub Valid: super::ULONG,
+    pub ExitStatus: super::ULONG,
+    pub PriorityClass: super::ULONG,
+    pub Priority: super::ULONG,
+    pub CreateTime: super::ULONG64,
+    pub ExitTime: super::ULONG64,
+    pub KernelTime: super::ULONG64,
+    pub UserTime: super::ULONG64,
+    pub StartOffset: super::ULONG64,
+    pub Affinity: super::ULONG64,
 }
 pub const DEBUG_TYPEOPTS_FORCERADIX_OUTPUT: i32 = 4;
 pub const DEBUG_TYPEOPTS_LONGSTATUS_DISPLAY: i32 = 2;
@@ -1092,61 +1143,68 @@ pub const DEBUG_USER_WINDOWS_PROCESS_SERVER: i32 = 1;
 pub const DEBUG_USER_WINDOWS_REPT: i32 = 3;
 pub const DEBUG_USER_WINDOWS_SMALL_DUMP: i32 = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_VALUE {
     pub Anonymous: DEBUG_VALUE_0,
-    pub TailOfRawBytes: u32,
-    pub Type: u32,
+    pub TailOfRawBytes: super::ULONG,
+    pub Type: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DEBUG_VALUE_0 {
-    pub I8: u8,
-    pub I16: u16,
-    pub I32: u32,
+    pub I8: super::UCHAR,
+    pub I16: super::USHORT,
+    pub I32: super::ULONG,
     pub Anonymous: DEBUG_VALUE_0_0,
     pub F32: f32,
     pub F64: f64,
-    pub F80Bytes: [u8; 10],
-    pub F82Bytes: [u8; 11],
-    pub F128Bytes: [u8; 16],
-    pub VI8: [u8; 16],
-    pub VI16: [u16; 8],
-    pub VI32: [u32; 4],
-    pub VI64: [u64; 2],
+    pub F80Bytes: [super::UCHAR; 10],
+    pub F82Bytes: [super::UCHAR; 11],
+    pub F128Bytes: [super::UCHAR; 16],
+    pub VI8: [super::UCHAR; 16],
+    pub VI16: [super::USHORT; 8],
+    pub VI32: [super::ULONG; 4],
+    pub VI64: [super::ULONG64; 2],
     pub VF32: [f32; 4],
     pub VF64: [f64; 2],
     pub I64Parts32: DEBUG_VALUE_0_1,
     pub F128Parts64: DEBUG_VALUE_0_2,
-    pub RawBytes: [u8; 24],
+    pub RawBytes: [super::UCHAR; 24],
 }
+#[cfg(feature = "shared")]
 impl Default for DEBUG_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_VALUE_0_0 {
-    pub I64: u64,
+    pub I64: super::ULONG64,
     pub Nat: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_VALUE_0_1 {
-    pub LowPart: u32,
-    pub HighPart: u32,
+    pub LowPart: super::ULONG,
+    pub HighPart: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_VALUE_0_2 {
-    pub LowPart: u64,
-    pub HighPart: i64,
+    pub LowPart: super::ULONG64,
+    pub HighPart: super::LONG64,
 }
 pub const DEBUG_VALUE_FLOAT128: i32 = 9;
 pub const DEBUG_VALUE_FLOAT32: i32 = 5;
@@ -1170,139 +1228,280 @@ pub const DEBUG_VSOURCE_MAPPED_IMAGE: i32 = 2;
 pub const DEBUG_WAIT_DEFAULT: i32 = 0;
 pub const ERROR_DBG_CANCELLED: u32 = 3221226695;
 pub const ERROR_DBG_TIMEOUT: u32 = 3221226932;
+pub const IID_IDebugAdvanced: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2df5f53_071f_47bd_9de6_5734c3fed689);
+pub const IID_IDebugAdvanced2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x716d14c9_119b_4ba5_af1f_0890e672416a);
+pub const IID_IDebugAdvanced3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcba4abb4_84c4_444d_87ca_a04e13286739);
+pub const IID_IDebugAdvanced4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd1069067_2a65_4bf0_ae97_76184b67856b);
+pub const IID_IDebugBreakpoint: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5bd9d474_5975_423a_b88b_65a8e7110e65);
+pub const IID_IDebugBreakpoint2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b278d20_79f2_426e_a3f9_c1ddf375d48e);
+pub const IID_IDebugBreakpoint3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38f5c249_b448_43bb_9835_579d4ec02249);
+pub const IID_IDebugClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x27fe5639_8407_4f47_8364_ee118fb08ac8);
+pub const IID_IDebugClient2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xedbed635_372e_4dab_bbfe_ed0d2f63be81);
+pub const IID_IDebugClient3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd492d7f_71b8_4ad6_a8dc_1c887479ff91);
+pub const IID_IDebugClient4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xca83c3de_5089_4cf8_93c8_d892387f2a5e);
+pub const IID_IDebugClient5: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3acb9d7_7ec2_4f0c_a0da_e81e0cbbe628);
+pub const IID_IDebugClient6: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfd28b4c5_c498_4686_a28e_62cad2154eb3);
+pub const IID_IDebugClient7: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13586be3_542e_481e_b1f2_8497ba74f9a9);
+pub const IID_IDebugClient8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcec43add_6375_469e_83d5_414e4033c19a);
+pub const IID_IDebugClient9: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c24cd5b_4d9e_4df4_8a70_3d37440d119f);
+pub const IID_IDebugControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5182e668_105e_416e_ad92_24ef800424ba);
+pub const IID_IDebugControl2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd4366723_44df_4bed_8c7e_4c05424f4588);
+pub const IID_IDebugControl3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7df74a86_b03f_407f_90ab_a20dadcead08);
+pub const IID_IDebugControl4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3);
+pub const IID_IDebugControl5: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
+pub const IID_IDebugControl6: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
+pub const IID_IDebugControl7: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
+pub const IID_IDebugDataSpaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
+pub const IID_IDebugDataSpaces2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a5e852f_96e9_468f_ac1b_0b3addc4a049);
+pub const IID_IDebugDataSpaces3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x23f79d6c_8aaf_4f7c_a607_9995f5407e63);
+pub const IID_IDebugDataSpaces4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd98ada1f_29e9_4ef5_a6c0_e53349883212);
+pub const IID_IDebugEventCallbacks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa);
+pub const IID_IDebugEventCallbacksWide: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0690e046_9c23_45ac_a04f_987ac29ad0d3);
+pub const IID_IDebugEventContextCallbacks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x61a4905b_23f9_4247_b3c5_53d087529ab7);
+pub const IID_IDebugInputCallbacks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f50e42c_f136_499e_9a97_73036c94ed2d);
+pub const IID_IDebugOutputCallbacks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4bf58045_d654_4c40_b0af_683090f356dc);
+pub const IID_IDebugOutputCallbacks2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x67721fe9_56d2_4a44_a325_2b65513ce6eb);
+pub const IID_IDebugOutputCallbacksWide: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4c7fd663_c394_4e26_8ef1_34ad5ed3764c);
+pub const IID_IDebugOutputStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7782d8f2_2b85_4059_ab88_28ceddca1c80);
+pub const IID_IDebugPlmClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa02b66c4_aea3_4234_a9f7_fe4c383d4e29);
+pub const IID_IDebugPlmClient2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x597c980d_e7bd_4309_962c_9d9b69a7372c);
 pub const IID_IDebugPlmClient3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcdf48669_901f_4791_b868_7d2cb3a2d7fc);
+pub const IID_IDebugRegisters: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce289126_9e84_45a7_937e_67bb18691493);
+pub const IID_IDebugRegisters2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1656afa9_19c6_4e3a_97e7_5dc9160cf9c4);
+pub const IID_IDebugSymbolGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2528316_0f1a_4431_aeed_11d096e1e2ab);
+pub const IID_IDebugSymbolGroup2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a7ccc5f_fb5e_4dcc_b41c_6c20307bccc7);
+pub const IID_IDebugSymbols: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c31e98c_983a_48a5_9016_6fe5d667a950);
+pub const IID_IDebugSymbols2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a707211_afdd_4495_ad4f_56fecdf8163f);
+pub const IID_IDebugSymbols3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf02fbecc_50ac_4f36_9ad9_c975e8f32ff8);
+pub const IID_IDebugSymbols4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe391bbd8_9d8c_4418_840b_c006592a1752);
+pub const IID_IDebugSymbols5: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc65fa83e_1e69_475e_8e0e_b5d79e9cc17e);
+pub const IID_IDebugSystemObjects: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b86fe2c_2c4f_4f0c_9da2_174311acc327);
+pub const IID_IDebugSystemObjects2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0ae9f5ff_1852_4679_b055_494bee6407ee);
+pub const IID_IDebugSystemObjects3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9676e2f_e286_4ea3_b0f9_dfe5d9fc330e);
+pub const IID_IDebugSystemObjects4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x489468e6_7d0f_4af5_87ab_25207454d553);
 pub const IMAGE_FILE_MACHINE_ARM64EC: i32 = 42561;
 pub const IMAGE_FILE_MACHINE_ARM64X: i32 = 42574;
 pub const IMAGE_FILE_MACHINE_CHPE_X86: i32 = 14948;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union INLINE_FRAME_CONTEXT {
-    pub ContextValue: u32,
+    pub ContextValue: super::DWORD,
     pub Anonymous: INLINE_FRAME_CONTEXT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for INLINE_FRAME_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INLINE_FRAME_CONTEXT_0 {
-    pub FrameId: u8,
-    pub FrameType: u8,
-    pub FrameSignature: u16,
+    pub FrameId: super::BYTE,
+    pub FrameType: super::BYTE,
+    pub FrameSignature: super::WORD,
 }
 pub const MODULE_ORDERS_LOADTIME: i32 = 268435456;
 pub const MODULE_ORDERS_MASK: u32 = 4026531840;
 pub const MODULE_ORDERS_MODULENAME: i32 = 536870912;
+pub type PDEBUG_ADVANCED = *mut core::ffi::c_void;
+pub type PDEBUG_ADVANCED2 = *mut core::ffi::c_void;
+pub type PDEBUG_ADVANCED3 = *mut core::ffi::c_void;
+pub type PDEBUG_ADVANCED4 = *mut core::ffi::c_void;
+pub type PDEBUG_BREAKPOINT = *mut core::ffi::c_void;
+pub type PDEBUG_BREAKPOINT2 = *mut core::ffi::c_void;
+pub type PDEBUG_BREAKPOINT3 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_BREAKPOINT_PARAMETERS = *mut DEBUG_BREAKPOINT_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEBUG_CACHED_SYMBOL_INFO = *mut DEBUG_CACHED_SYMBOL_INFO;
+pub type PDEBUG_CLIENT = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT2 = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT3 = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT4 = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT5 = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT6 = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT7 = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT8 = *mut core::ffi::c_void;
+pub type PDEBUG_CLIENT9 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_CLIENT_CONTEXT = *mut DEBUG_CLIENT_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PDEBUG_CREATE_PROCESS_OPTIONS = *mut DEBUG_CREATE_PROCESS_OPTIONS;
-#[cfg(feature = "minwindef")]
-pub type PDEBUG_ENTENSION_KNOWNSTRUCT = PDEBUG_EXTENSION_KNOWN_STRUCT;
+pub type PDEBUG_DATA_SPACES = *mut core::ffi::c_void;
+pub type PDEBUG_DATA_SPACES2 = *mut core::ffi::c_void;
+pub type PDEBUG_DATA_SPACES3 = *mut core::ffi::c_void;
+pub type PDEBUG_DATA_SPACES4 = *mut core::ffi::c_void;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PDEBUG_ENTENSION_KNOWNSTRUCT = Option<unsafe extern "system" fn(flags: super::ULONG, offset: super::ULONG64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: super::PULONG) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EVENT_CALLBACKS = *mut core::ffi::c_void;
+pub type PDEBUG_EVENT_CALLBACKS_WIDE = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_EVENT_CONTEXT = *mut DEBUG_EVENT_CONTEXT;
+pub type PDEBUG_EVENT_CONTEXT_CALLBACKS = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_EXCEPTION_FILTER_PARAMETERS = *mut DEBUG_EXCEPTION_FILTER_PARAMETERS;
-pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: PDEBUG_CLIENT, args: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
 #[cfg(feature = "minwindef")]
 pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: super::PULONG, flags: super::PULONG) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_ISEXTENSIONAPI = Option<unsafe extern "system" fn(name: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-#[cfg(feature = "minwindef")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: super::PULONG) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "minwindef")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: super::PULONG) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, name: windows_sys::core::PCWSTR, value: super::PULONG64, typemodbase: super::PULONG64, typeid: super::PULONG, typeflags: super::PULONG) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "minwindef")]
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, buffer: windows_sys::core::PWSTR, bufferchars: u32, bufferneeded: super::PULONG) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: super::ULONG, offset: super::ULONG64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: super::PULONG) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: PDEBUG_CLIENT, flags: super::ULONG, offset: super::ULONG64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: super::PULONG) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "shared")]
+pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: super::ULONG, argument: super::ULONG64)>;
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared"))]
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: PDEBUG_CLIENT, flags: super::ULONG, name: windows_sys::core::PCWSTR, value: super::PULONG64, typemodbase: super::PULONG64, typeid: super::PULONG, typeflags: super::PULONG) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: PDEBUG_CLIENT, flags: super::ULONG, buffer: windows_sys::core::PWSTR, bufferchars: super::ULONG, bufferneeded: super::PULONG) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
+#[cfg(feature = "shared")]
 pub type PDEBUG_GET_TEXT_COMPLETIONS_IN = *mut DEBUG_GET_TEXT_COMPLETIONS_IN;
+#[cfg(feature = "shared")]
 pub type PDEBUG_GET_TEXT_COMPLETIONS_OUT = *mut DEBUG_GET_TEXT_COMPLETIONS_OUT;
+#[cfg(feature = "shared")]
 pub type PDEBUG_HANDLE_DATA_BASIC = *mut DEBUG_HANDLE_DATA_BASIC;
+pub type PDEBUG_INPUT_CALLBACKS = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_LAST_EVENT_INFO_BREAKPOINT = *mut DEBUG_LAST_EVENT_INFO_BREAKPOINT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEBUG_LAST_EVENT_INFO_EXCEPTION = *mut DEBUG_LAST_EVENT_INFO_EXCEPTION;
+#[cfg(feature = "shared")]
 pub type PDEBUG_LAST_EVENT_INFO_EXIT_PROCESS = *mut DEBUG_LAST_EVENT_INFO_EXIT_PROCESS;
+#[cfg(feature = "shared")]
 pub type PDEBUG_LAST_EVENT_INFO_EXIT_THREAD = *mut DEBUG_LAST_EVENT_INFO_EXIT_THREAD;
+#[cfg(feature = "shared")]
 pub type PDEBUG_LAST_EVENT_INFO_LOAD_MODULE = *mut DEBUG_LAST_EVENT_INFO_LOAD_MODULE;
+#[cfg(feature = "shared")]
 pub type PDEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION = *mut DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION;
+#[cfg(feature = "shared")]
 pub type PDEBUG_LAST_EVENT_INFO_SYSTEM_ERROR = *mut DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR;
+#[cfg(feature = "shared")]
 pub type PDEBUG_LAST_EVENT_INFO_UNLOAD_MODULE = *mut DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE;
+#[cfg(feature = "shared")]
 pub type PDEBUG_MODULE_AND_ID = *mut DEBUG_MODULE_AND_ID;
+#[cfg(feature = "shared")]
 pub type PDEBUG_MODULE_PARAMETERS = *mut DEBUG_MODULE_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEBUG_OFFSET_REGION = *mut DEBUG_OFFSET_REGION;
+pub type PDEBUG_OUTPUT_CALLBACKS = *mut core::ffi::c_void;
+pub type PDEBUG_OUTPUT_CALLBACKS2 = *mut core::ffi::c_void;
+pub type PDEBUG_OUTPUT_CALLBACKS_WIDE = *mut core::ffi::c_void;
+pub type PDEBUG_OUTPUT_STREAM = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_PROCESSOR_IDENTIFICATION_ALL = *mut DEBUG_PROCESSOR_IDENTIFICATION_ALL;
+#[cfg(feature = "shared")]
 pub type PDEBUG_PROCESSOR_IDENTIFICATION_ALPHA = *mut DEBUG_PROCESSOR_IDENTIFICATION_ALPHA;
+#[cfg(feature = "shared")]
 pub type PDEBUG_PROCESSOR_IDENTIFICATION_AMD64 = *mut DEBUG_PROCESSOR_IDENTIFICATION_AMD64;
+#[cfg(feature = "shared")]
 pub type PDEBUG_PROCESSOR_IDENTIFICATION_ARM = *mut DEBUG_PROCESSOR_IDENTIFICATION_ARM;
+#[cfg(feature = "shared")]
 pub type PDEBUG_PROCESSOR_IDENTIFICATION_ARM64 = *mut DEBUG_PROCESSOR_IDENTIFICATION_ARM64;
+#[cfg(feature = "shared")]
 pub type PDEBUG_PROCESSOR_IDENTIFICATION_IA64 = *mut DEBUG_PROCESSOR_IDENTIFICATION_IA64;
+#[cfg(feature = "shared")]
 pub type PDEBUG_PROCESSOR_IDENTIFICATION_X86 = *mut DEBUG_PROCESSOR_IDENTIFICATION_X86;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEBUG_READ_USER_MINIDUMP_STREAM = *mut DEBUG_READ_USER_MINIDUMP_STREAM;
+pub type PDEBUG_REGISTERS = *mut core::ffi::c_void;
+pub type PDEBUG_REGISTERS2 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_REGISTER_DESCRIPTION = *mut DEBUG_REGISTER_DESCRIPTION;
+#[cfg(feature = "shared")]
 pub type PDEBUG_SPECIFIC_FILTER_PARAMETERS = *mut DEBUG_SPECIFIC_FILTER_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEBUG_STACK_FRAME = *mut DEBUG_STACK_FRAME;
+#[cfg(feature = "shared")]
 pub type PDEBUG_STACK_FRAME_EX = *mut DEBUG_STACK_FRAME_EX;
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: super::ULONG, minidumpstreambuffer: super::PVOID, buffersize: super::ULONG) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+#[cfg(feature = "shared")]
 pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: PSTACK_SYM_FRAME_INFO) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "minwindef")]
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: PDEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut PSTACK_SYM_FRAME_INFO, stacksymframesfilled: super::PULONG) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: super::ULONG, nativeframes: PDEBUG_STACK_FRAME_EX, countnativeframes: super::ULONG, stacksymframes: *mut PSTACK_SYM_FRAME_INFO, stacksymframesfilled: super::PULONG) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_SYMBOLS = *mut core::ffi::c_void;
+pub type PDEBUG_SYMBOLS2 = *mut core::ffi::c_void;
+pub type PDEBUG_SYMBOLS3 = *mut core::ffi::c_void;
+pub type PDEBUG_SYMBOLS4 = *mut core::ffi::c_void;
+pub type PDEBUG_SYMBOLS5 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_SYMBOL_ENTRY = *mut DEBUG_SYMBOL_ENTRY;
+pub type PDEBUG_SYMBOL_GROUP = *mut core::ffi::c_void;
+pub type PDEBUG_SYMBOL_GROUP2 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_SYMBOL_PARAMETERS = *mut DEBUG_SYMBOL_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEBUG_SYMBOL_SOURCE_ENTRY = *mut DEBUG_SYMBOL_SOURCE_ENTRY;
+pub type PDEBUG_SYSTEM_OBJECTS = *mut core::ffi::c_void;
+pub type PDEBUG_SYSTEM_OBJECTS2 = *mut core::ffi::c_void;
+pub type PDEBUG_SYSTEM_OBJECTS3 = *mut core::ffi::c_void;
+pub type PDEBUG_SYSTEM_OBJECTS4 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDEBUG_THREAD_BASIC_INFORMATION = *mut DEBUG_THREAD_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PDEBUG_VALUE = *mut DEBUG_VALUE;
+pub type PIDEBUG_PLMCLIENT = *mut core::ffi::c_void;
+pub type PIDEBUG_PLMCLIENT2 = *mut core::ffi::c_void;
+pub type PIDEBUG_PLMCLIENT3 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PPROCESS_NAME_ENTRY = *mut PROCESS_NAME_ENTRY;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PROCESS_NAME_ENTRY {
-    pub ProcessId: u32,
-    pub NameOffset: u32,
-    pub NameSize: u32,
-    pub NextEntry: u32,
+    pub ProcessId: super::ULONG,
+    pub NameOffset: super::ULONG,
+    pub NameSize: super::ULONG,
+    pub NextEntry: super::ULONG,
 }
+#[cfg(feature = "shared")]
 pub type PSTACK_SRC_INFO = *mut STACK_SRC_INFO;
+#[cfg(feature = "shared")]
 pub type PSTACK_SYM_FRAME_INFO = *mut STACK_SYM_FRAME_INFO;
+#[cfg(feature = "shared")]
 pub type PSYMBOL_INFO_EX = *mut SYMBOL_INFO_EX;
-#[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
-pub type PWINDBG_EXTENSION_APIS32 = *mut super::WINDBG_EXTENSION_APIS32;
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
-pub type PWINDBG_EXTENSION_APIS64 = *mut super::WINDBG_EXTENSION_APIS64;
 pub const STACK_FRAME_TYPE_IGNORE: i32 = 255;
 pub const STACK_FRAME_TYPE_INIT: i32 = 0;
 pub const STACK_FRAME_TYPE_INLINE: i32 = 2;
 pub const STACK_FRAME_TYPE_RA: i32 = 128;
 pub const STACK_FRAME_TYPE_STACK: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct STACK_SRC_INFO {
     pub ImagePath: windows_sys::core::PCWSTR,
     pub ModuleName: windows_sys::core::PCWSTR,
     pub Function: windows_sys::core::PCWSTR,
-    pub Displacement: u32,
-    pub Row: u32,
-    pub Column: u32,
+    pub Displacement: super::ULONG,
+    pub Row: super::ULONG,
+    pub Column: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SYMBOL_INFO_EX {
-    pub SizeOfStruct: u32,
-    pub TypeOfInfo: u32,
-    pub Offset: u64,
-    pub Line: u32,
-    pub Displacement: u32,
-    pub Reserved: [u32; 4],
+    pub SizeOfStruct: super::ULONG,
+    pub TypeOfInfo: super::ULONG,
+    pub Offset: super::ULONG64,
+    pub Line: super::ULONG,
+    pub Displacement: super::ULONG,
+    pub Reserved: [super::ULONG; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for SYMBOL_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

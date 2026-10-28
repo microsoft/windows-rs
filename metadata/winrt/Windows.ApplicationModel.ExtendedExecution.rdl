@@ -2,15 +2,15 @@
 mod Windows {
     mod ApplicationModel {
         mod ExtendedExecution {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ExtendedExecutionReason {
                 Unspecified = 0,
                 LocationTracking = 1,
                 SavingData = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ExtendedExecutionResult {
                 Allowed = 0,
                 Denied = 1,
@@ -21,8 +21,8 @@ mod Windows {
             class ExtendedExecutionRevokedEventArgs {
                 IExtendedExecutionRevokedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ExtendedExecutionRevokedReason {
                 Resumed = 0,
                 SystemPolicy = 1,
@@ -35,16 +35,16 @@ mod Windows {
                 IExtendedExecutionSession,
                 super::super::Foundation::IClosable,
             }
-            #[guid(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ExtendedExecutionRevokedEventArgs)]
+            #[guid(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3)]
             interface IExtendedExecutionRevokedEventArgs {
                 #[get]
                 Reason: ExtendedExecutionRevokedReason;
             }
-            #[guid(0xaf908a2d_118b_48f1_9308_0c4fc41e200f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ExtendedExecutionSession)]
+            #[guid(0xaf908a2d_118b_48f1_9308_0c4fc41e200f)]
             interface IExtendedExecutionSession: super::super::Foundation::IClosable {
                 Reason: ExtendedExecutionReason;
                 Description: String;

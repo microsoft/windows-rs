@@ -1,0 +1,21 @@
+#[win32]
+mod Fixture {
+    type Count = u32;
+    type FieldAlias = FieldBuffers;
+    struct FieldBuffers {
+        capacity: Count,
+        readable: Count,
+        #[writable(capacity)]
+        values: [u16; 8],
+    }
+    struct OuterFields {
+        struct Inner {
+            capacity: Count,
+            readable: Count,
+            #[writable(capacity)]
+            values: [u16; 8],
+        }
+        capacity: Count,
+        inner: OuterFields::Inner,
+    }
+}

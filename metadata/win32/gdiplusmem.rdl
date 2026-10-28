@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("gdiplus.dll")]
+        extern fn GdipAlloc(size: size_t) -> *mut void;
+        #[library("gdiplus.dll")]
+        extern fn GdipFree(ptr: *mut void);
+    }
+}

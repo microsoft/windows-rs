@@ -2,6 +2,8 @@
 mod Windows {
     mod Win32 {
         const ALERTSZ: i32 = 128;
+        #[encoding("ansi")]
+        const BACKUP_MSG_FILENAME: String = "BAK.MSG";
         const CLTYPE_LEN: i32 = 12;
         const CNLEN: i32 = 15;
         const CRYPT_KEY_LEN: i32 = 7;
@@ -11,6 +13,8 @@ mod Windows {
         const ENCRYPTED_PWLEN: i32 = 16;
         const EVLEN: i32 = 16;
         const GNLEN: i32 = 256;
+        #[encoding("ansi")]
+        const HELP_MSG_FILENAME: String = "NETH";
         const LM20_CNLEN: i32 = 15;
         const LM20_DEVLEN: i32 = 8;
         const LM20_DNLEN: i32 = 15;
@@ -32,14 +36,17 @@ mod Windows {
         #[arch(X86)]
         const MAXDEVENTRIES: u32 = 32;
         const MAX_LANMAN_MESSAGE_ID: i32 = 5899;
-        const MAX_PREFERRED_LENGTH: u32 = 4294967295;
+        const MAX_PREFERRED_LENGTH: DWORD = 4294967295;
+        #[encoding("ansi")]
+        const MESSAGE_FILENAME: String = "NETMSG";
         const MIN_LANMAN_MESSAGE_ID: i32 = 2100;
         const NETBIOS_NAME_LEN: i32 = 16;
-        const NNLEN: i32 = 80;
+        #[encoding("ansi")]
+        const OS2MSG_FILENAME: String = "BASE";
         const PARMNUM_ALL: i32 = 0;
         const PARMNUM_BASE_INFOLEVEL: i32 = 1000;
         const PARM_ERROR_NONE: i32 = 0;
-        const PARM_ERROR_UNKNOWN: u32 = 4294967295;
+        const PARM_ERROR_UNKNOWN: DWORD = 4294967295;
         const PATHLEN: i32 = 256;
         const PLATFORM_ID_DOS: i32 = 300;
         const PLATFORM_ID_NT: i32 = 500;

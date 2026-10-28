@@ -9,7 +9,7 @@ fn main() -> windows::core::Result<()> {
             return Ok(());
         }
 
-        let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL)?;
+        let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL as u32)?;
         let element: IUIAutomationElement = automation.ElementFromHandle(window as UIA_HWND)?;
 
         let name = element.CurrentName()?;

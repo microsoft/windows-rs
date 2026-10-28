@@ -4,6 +4,7 @@
 // with a bare `Test::IThing`, which would project `Value` in full.
 #[win32]
 mod Test {
+    #[guid(auto)]
     interface IThing {
         fn Value(&self) -> i32;
     }

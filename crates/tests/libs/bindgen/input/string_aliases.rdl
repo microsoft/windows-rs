@@ -1,0 +1,22 @@
+//! --filter Windows.Win32 Other --flat --minimal
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPSTR = *mut i8;
+        type LPCSTR = *const i8;
+        type LPWSTR = *mut u16;
+        type LPCWSTR = *const u16;
+        #[guid(0x9a3517db_6b83_48c3_999a_89b06bb04e0e)]
+        interface IStringAliases {
+            fn get_Language(&self, #[out] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn put_Language(&self, #[in] value: LPCWSTR) -> HRESULT;
+            fn get_Ansi(&self, #[out] #[retval] value: *mut LPSTR) -> HRESULT;
+            fn put_Ansi(&self, #[in] value: LPCSTR) -> HRESULT;
+            fn Buffer(&self, #[in] value: *const u16) -> HRESULT;
+        }
+    }
+}
+#[win32]
+mod Other {
+    type LPCWSTR = *const u16;
+}

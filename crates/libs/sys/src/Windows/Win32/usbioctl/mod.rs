@@ -14,97 +14,100 @@ pub const DeviceNotEnoughPower: USB_CONNECTION_STATUS = 5;
 pub const DeviceReset: USB_CONNECTION_STATUS = 10;
 pub const EnumerationFailure: USB_NOTIFICATION_TYPE = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct HCD_ISO_STAT_COUNTERS {
-    pub LateUrbs: u16,
-    pub DoubleBufferedPackets: u16,
-    pub TransfersCF_5ms: u16,
-    pub TransfersCF_2ms: u16,
-    pub TransfersCF_1ms: u16,
-    pub MaxInterruptLatency: u16,
-    pub BadStartFrame: u16,
-    pub StaleUrbs: u16,
-    pub IsoPacketNotAccesed: u16,
-    pub IsoPacketHWError: u16,
-    pub SmallestUrbPacketCount: u16,
-    pub LargestUrbPacketCount: u16,
-    pub IsoCRC_Error: u16,
-    pub IsoOVERRUN_Error: u16,
-    pub IsoINTERNAL_Error: u16,
-    pub IsoUNKNOWN_Error: u16,
-    pub IsoBytesTransferred: u32,
-    pub LateMissedCount: u16,
-    pub HWIsoMissedCount: u16,
-    pub Reserved7: [u32; 8],
+    pub LateUrbs: super::USHORT,
+    pub DoubleBufferedPackets: super::USHORT,
+    pub TransfersCF_5ms: super::USHORT,
+    pub TransfersCF_2ms: super::USHORT,
+    pub TransfersCF_1ms: super::USHORT,
+    pub MaxInterruptLatency: super::USHORT,
+    pub BadStartFrame: super::USHORT,
+    pub StaleUrbs: super::USHORT,
+    pub IsoPacketNotAccesed: super::USHORT,
+    pub IsoPacketHWError: super::USHORT,
+    pub SmallestUrbPacketCount: super::USHORT,
+    pub LargestUrbPacketCount: super::USHORT,
+    pub IsoCRC_Error: super::USHORT,
+    pub IsoOVERRUN_Error: super::USHORT,
+    pub IsoINTERNAL_Error: super::USHORT,
+    pub IsoUNKNOWN_Error: super::USHORT,
+    pub IsoBytesTransferred: super::ULONG,
+    pub LateMissedCount: super::USHORT,
+    pub HWIsoMissedCount: super::USHORT,
+    pub Reserved7: [super::ULONG; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for HCD_ISO_STAT_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HCD_STAT_COUNTERS {
-    pub BytesTransferred: u32,
-    pub IsoMissedCount: u16,
-    pub DataOverrunErrorCount: u16,
-    pub CrcErrorCount: u16,
-    pub ScheduleOverrunCount: u16,
-    pub TimeoutErrorCount: u16,
-    pub InternalHcErrorCount: u16,
-    pub BufferOverrunErrorCount: u16,
-    pub SWErrorCount: u16,
-    pub StallPidCount: u16,
-    pub PortDisableCount: u16,
+    pub BytesTransferred: super::ULONG,
+    pub IsoMissedCount: super::USHORT,
+    pub DataOverrunErrorCount: super::USHORT,
+    pub CrcErrorCount: super::USHORT,
+    pub ScheduleOverrunCount: super::USHORT,
+    pub TimeoutErrorCount: super::USHORT,
+    pub InternalHcErrorCount: super::USHORT,
+    pub BufferOverrunErrorCount: super::USHORT,
+    pub SWErrorCount: super::USHORT,
+    pub StallPidCount: super::USHORT,
+    pub PortDisableCount: super::USHORT,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HCD_STAT_INFORMATION_1 {
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub ResetCounters: u32,
+    pub Reserved1: super::ULONG,
+    pub Reserved2: super::ULONG,
+    pub ResetCounters: super::ULONG,
     pub TimeRead: super::LARGE_INTEGER,
     pub Counters: HCD_STAT_COUNTERS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HCD_STAT_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HCD_STAT_INFORMATION_2 {
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub ResetCounters: u32,
+    pub Reserved1: super::ULONG,
+    pub Reserved2: super::ULONG,
+    pub ResetCounters: super::ULONG,
     pub TimeRead: super::LARGE_INTEGER,
-    pub LockedMemoryUsed: i32,
+    pub LockedMemoryUsed: super::LONG,
     pub Counters: HCD_STAT_COUNTERS,
     pub IsoCounters: HCD_ISO_STAT_COUNTERS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HCD_STAT_INFORMATION_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HUB_DEVICE_CONFIG_INFO {
-    pub Version: u32,
-    pub Length: u32,
+    pub Version: super::ULONG,
+    pub Length: super::ULONG,
     pub HubFlags: USB_HUB_CAP_FLAGS,
     pub HardwareIds: USB_ID_STRING,
     pub CompatibleIds: USB_ID_STRING,
     pub DeviceDescription: USB_ID_STRING,
-    pub Reserved: [u32; 19],
+    pub Reserved: [super::ULONG; 19],
     pub UxdSettings: USB_HUB_DEVICE_UXD_SETTINGS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HUB_DEVICE_CONFIG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -178,78 +181,109 @@ pub const InsufficentPower: USB_NOTIFICATION_TYPE = 2;
 pub const ModernDeviceInLegacyHub: USB_NOTIFICATION_TYPE = 11;
 pub const NoDeviceConnected: USB_CONNECTION_STATUS = 0;
 pub const OverCurrent: USB_NOTIFICATION_TYPE = 3;
+#[cfg(feature = "shared")]
 pub type PHCD_ISO_STAT_COUNTERS = *mut HCD_ISO_STAT_COUNTERS;
+#[cfg(feature = "shared")]
 pub type PHCD_STAT_COUNTERS = *mut HCD_STAT_COUNTERS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHCD_STAT_INFORMATION_1 = *mut HCD_STAT_INFORMATION_1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHCD_STAT_INFORMATION_2 = *mut HCD_STAT_INFORMATION_2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHUB_DEVICE_CONFIG_INFO = *mut HUB_DEVICE_CONFIG_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_ACQUIRE_INFO = *mut USB_ACQUIRE_INFO;
+#[cfg(feature = "shared")]
 pub type PUSB_BUS_NOTIFICATION = *mut USB_BUS_NOTIFICATION;
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_COMPOSITE_DEVICE_INFO = *mut USB_COMPOSITE_DEVICE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PUSB_COMPOSITE_FUNCTION_INFO = *mut USB_COMPOSITE_FUNCTION_INFO;
+#[cfg(feature = "shared")]
 pub type PUSB_CONNECTION_NOTIFICATION = *mut USB_CONNECTION_NOTIFICATION;
 pub type PUSB_CONNECTION_STATUS = *mut USB_CONNECTION_STATUS;
+#[cfg(feature = "shared")]
 pub type PUSB_CONTROLLER_DEVICE_INFO = *mut USB_CONTROLLER_DEVICE_INFO;
+#[cfg(feature = "shared")]
 pub type PUSB_CYCLE_PORT_PARAMS = *mut USB_CYCLE_PORT_PARAMS;
+#[cfg(feature = "shared")]
 pub type PUSB_DESCRIPTOR_REQUEST = *mut USB_DESCRIPTOR_REQUEST;
+#[cfg(feature = "shared")]
 pub type PUSB_DEVICE_CHARACTERISTICS = *mut USB_DEVICE_CHARACTERISTICS;
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 pub type PUSB_DEVICE_INFO = *mut USB_DEVICE_INFO;
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 pub type PUSB_DEVICE_NODE_INFO = *mut USB_DEVICE_NODE_INFO;
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 pub type PUSB_DEVICE_PERFORMANCE_INFO = *mut USB_DEVICE_PERFORMANCE_INFO;
+#[cfg(feature = "shared")]
 pub type PUSB_DEVICE_STATE = *mut USB_DEVICE_STATE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION = *mut USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_HCD_DRIVERKEY_NAME = *mut USB_HCD_DRIVERKEY_NAME;
+#[cfg(feature = "shared")]
 pub type PUSB_HUB_CAPABILITIES = *mut USB_HUB_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PUSB_HUB_CAPABILITIES_EX = *mut USB_HUB_CAPABILITIES_EX;
+#[cfg(feature = "shared")]
 pub type PUSB_HUB_CAP_FLAGS = *mut USB_HUB_CAP_FLAGS;
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_HUB_DEVICE_INFO = *mut USB_HUB_DEVICE_INFO;
+#[cfg(feature = "shared")]
 pub type PUSB_HUB_DEVICE_UXD_SETTINGS = *mut USB_HUB_DEVICE_UXD_SETTINGS;
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_HUB_INFORMATION = *mut USB_HUB_INFORMATION;
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_HUB_INFORMATION_EX = *mut USB_HUB_INFORMATION_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_HUB_NAME = *mut USB_HUB_NAME;
+#[cfg(feature = "shared")]
 pub type PUSB_HUB_PORT_INFORMATION = *mut USB_HUB_PORT_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_ID_STRING = *mut USB_ID_STRING;
+#[cfg(feature = "shared")]
 pub type PUSB_MI_PARENT_INFORMATION = *mut USB_MI_PARENT_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PUSB_NODE_CONNECTION_ATTRIBUTES = *mut USB_NODE_CONNECTION_ATTRIBUTES;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_NODE_CONNECTION_DRIVERKEY_NAME = *mut USB_NODE_CONNECTION_DRIVERKEY_NAME;
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_NODE_CONNECTION_INFORMATION = *mut USB_NODE_CONNECTION_INFORMATION;
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_NODE_CONNECTION_INFORMATION_EX = *mut USB_NODE_CONNECTION_INFORMATION_EX;
+#[cfg(feature = "shared")]
 pub type PUSB_NODE_CONNECTION_INFORMATION_EX_V2 = *mut USB_NODE_CONNECTION_INFORMATION_EX_V2;
+#[cfg(feature = "shared")]
 pub type PUSB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS = *mut USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_NODE_CONNECTION_NAME = *mut USB_NODE_CONNECTION_NAME;
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION = *mut USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION;
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_NODE_INFORMATION = *mut USB_NODE_INFORMATION;
 pub type PUSB_NOTIFICATION = *mut USB_NOTIFICATION;
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 pub type PUSB_PIPE_INFO = *mut USB_PIPE_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_PORT_CONNECTOR_PROPERTIES = *mut USB_PORT_CONNECTOR_PROPERTIES;
+#[cfg(feature = "shared")]
 pub type PUSB_PORT_PROPERTIES = *mut USB_PORT_PROPERTIES;
+#[cfg(feature = "shared")]
 pub type PUSB_PROTOCOLS = *mut USB_PROTOCOLS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_ROOT_HUB_NAME = *mut USB_ROOT_HUB_NAME;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSB_START_TRACKING_FOR_TIME_SYNC_INFORMATION = *mut USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PUSB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION = *mut USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PUSB_TOPOLOGY_ADDRESS = *mut USB_TOPOLOGY_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PUSB_TRANSPORT_CHARACTERISTICS = *mut USB_TRANSPORT_CHARACTERISTICS;
+#[cfg(feature = "shared")]
 pub type PUSB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION = *mut USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION;
+#[cfg(feature = "shared")]
 pub type PUSB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION = *mut USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION;
 pub type PUSB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION = *mut USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION;
 pub type PUSB_WMI_DEVICE_NODE_TYPE = *mut USB_WMI_DEVICE_NODE_TYPE;
@@ -257,24 +291,27 @@ pub const ResetOvercurrent: USB_NOTIFICATION_TYPE = 4;
 pub const USBD_PORT_CONNECTED: i32 = 2;
 pub const USBD_PORT_ENABLED: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_ACQUIRE_INFO {
     pub NotificationType: USB_NOTIFICATION_TYPE,
-    pub TotalSize: u32,
-    pub Buffer: [u16; 1],
+    pub TotalSize: super::ULONG,
+    pub Buffer: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_ACQUIRE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_BUS_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
-    pub TotalBandwidth: u32,
-    pub ConsumedBandwidth: u32,
-    pub ControllerNameLength: u32,
+    pub TotalBandwidth: super::ULONG,
+    pub ConsumedBandwidth: super::ULONG,
+    pub ControllerNameLength: super::ULONG,
 }
 pub type USB_CHANGE_REGISTRATION_HANDLE = *mut USB_CHANGE_REGISTRATION_HANDLE__;
 #[repr(C, packed(1))]
@@ -282,87 +319,95 @@ pub type USB_CHANGE_REGISTRATION_HANDLE = *mut USB_CHANGE_REGISTRATION_HANDLE__;
 pub struct USB_CHANGE_REGISTRATION_HANDLE__ {
     pub unused: i32,
 }
-#[repr(C)]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub struct USB_COMPOSITE_DEVICE_INFO {
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
     pub CurrentConfigDescriptor: super::USB_CONFIGURATION_DESCRIPTOR,
-    pub CurrentConfigurationValue: u8,
-    pub NumberOfFunctions: u8,
+    pub CurrentConfigurationValue: super::UCHAR,
+    pub NumberOfFunctions: super::UCHAR,
     pub FunctionInfo: [USB_COMPOSITE_FUNCTION_INFO; 1],
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_COMPOSITE_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_COMPOSITE_FUNCTION_INFO {
-    pub FunctionNumber: u8,
-    pub BaseInterfaceNumber: u8,
-    pub NumberOfInterfaces: u8,
+    pub FunctionNumber: super::UCHAR,
+    pub BaseInterfaceNumber: super::UCHAR,
+    pub NumberOfInterfaces: super::UCHAR,
     pub FunctionIsIdle: super::BOOLEAN,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CONNECTION_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
-    pub ConnectionNumber: u32,
-    pub RequestedBandwidth: u32,
-    pub EnumerationFailReason: u32,
-    pub PowerRequested: u32,
-    pub HubNameLength: u32,
+    pub ConnectionNumber: super::ULONG,
+    pub RequestedBandwidth: super::ULONG,
+    pub EnumerationFailReason: super::ULONG,
+    pub PowerRequested: super::ULONG,
+    pub HubNameLength: super::ULONG,
 }
 pub type USB_CONNECTION_STATUS = i32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CONTROLLER_DEVICE_INFO {
-    pub PciVendorId: u32,
-    pub PciDeviceId: u32,
-    pub PciRevision: u32,
-    pub NumberOfRootPorts: u32,
-    pub HcFeatureFlags: u32,
+    pub PciVendorId: super::ULONG,
+    pub PciDeviceId: super::ULONG,
+    pub PciRevision: super::ULONG,
+    pub NumberOfRootPorts: super::ULONG,
+    pub HcFeatureFlags: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CYCLE_PORT_PARAMS {
-    pub ConnectionIndex: u32,
-    pub StatusReturned: u32,
+    pub ConnectionIndex: super::ULONG,
+    pub StatusReturned: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct USB_DESCRIPTOR_REQUEST {
-    pub ConnectionIndex: u32,
+    pub ConnectionIndex: super::ULONG,
     pub SetupPacket: USB_DESCRIPTOR_REQUEST_0,
-    pub Data: [u8; 0],
+    pub Data: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for USB_DESCRIPTOR_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DESCRIPTOR_REQUEST_0 {
-    pub bmRequest: u8,
-    pub bRequest: u8,
-    pub wValue: u16,
-    pub wIndex: u16,
-    pub wLength: u16,
+    pub bmRequest: super::UCHAR,
+    pub bRequest: super::UCHAR,
+    pub wValue: super::USHORT,
+    pub wIndex: super::USHORT,
+    pub wLength: super::USHORT,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CHARACTERISTICS {
-    pub Version: u32,
-    pub Reserved: [u32; 2],
-    pub UsbDeviceCharacteristicsFlags: u32,
-    pub MaximumSendPathDelayInMilliSeconds: u32,
-    pub MaximumCompletionPathDelayInMilliSeconds: u32,
+    pub Version: super::ULONG,
+    pub Reserved: [super::ULONG; 2],
+    pub UsbDeviceCharacteristicsFlags: super::ULONG,
+    pub MaximumSendPathDelayInMilliSeconds: super::ULONG,
+    pub MaximumCompletionPathDelayInMilliSeconds: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_DEVICE_CHARACTERISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -371,241 +416,254 @@ impl Default for USB_DEVICE_CHARACTERISTICS {
 pub const USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE: i32 = 1;
 pub const USB_DEVICE_CHARACTERISTICS_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_INFO {
     pub DeviceState: USB_DEVICE_STATE,
-    pub PortNumber: u16,
+    pub PortNumber: super::USHORT,
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
-    pub CurrentConfigurationValue: u8,
+    pub CurrentConfigurationValue: super::UCHAR,
     pub Speed: super::USB_DEVICE_SPEED,
-    pub DeviceAddress: u16,
-    pub ConnectionIndex: u32,
+    pub DeviceAddress: super::USHORT,
+    pub ConnectionIndex: super::ULONG,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
-    pub PnpHardwareId: [u16; 128],
-    pub PnpCompatibleId: [u16; 128],
-    pub SerialNumberId: [u16; 128],
-    pub PnpDeviceDescription: [u16; 128],
-    pub NumberOfOpenPipes: u32,
+    pub PnpHardwareId: [super::WCHAR; 128],
+    pub PnpCompatibleId: [super::WCHAR; 128],
+    pub SerialNumberId: [super::WCHAR; 128],
+    pub PnpDeviceDescription: [super::WCHAR; 128],
+    pub NumberOfOpenPipes: super::ULONG,
     pub PipeList: [USB_PIPE_INFO; 1],
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for USB_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_NODE_INFO {
-    pub Sig: u32,
-    pub LengthInBytes: u32,
-    pub DeviceDescription: [u16; 40],
+    pub Sig: super::ULONG,
+    pub LengthInBytes: super::ULONG,
+    pub DeviceDescription: [super::WCHAR; 40],
     pub NodeType: USB_WMI_DEVICE_NODE_TYPE,
     pub BusAddress: USB_TOPOLOGY_ADDRESS,
     pub Anonymous: USB_DEVICE_NODE_INFO_0,
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for USB_DEVICE_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_NODE_INFO_0 {
     pub UsbDeviceInfo: USB_DEVICE_INFO,
     pub HubDeviceInfo: USB_HUB_DEVICE_INFO,
     pub CompositeDeviceInfo: USB_COMPOSITE_DEVICE_INFO,
     pub ControllerDeviceInfo: USB_CONTROLLER_DEVICE_INFO,
-    pub DeviceInformation: [u8; 4],
+    pub DeviceInformation: [super::UCHAR; 4],
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for USB_DEVICE_NODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_PERFORMANCE_INFO {
-    pub BulkBytes: u32,
-    pub ControlDataBytes: u32,
-    pub IsoBytes: u32,
-    pub InterruptBytes: u32,
-    pub BulkUrbCount: u32,
-    pub ControlUrbCount: u32,
-    pub IsoUrbCount: u32,
-    pub InterruptUrbCount: u32,
-    pub AllocedInterrupt: [u32; 6],
-    pub AllocedIso: u32,
-    pub Total32secBandwidth: u32,
-    pub TotalTtBandwidth: u32,
-    pub DeviceDescription: [u16; 60],
+    pub BulkBytes: super::ULONG,
+    pub ControlDataBytes: super::ULONG,
+    pub IsoBytes: super::ULONG,
+    pub InterruptBytes: super::ULONG,
+    pub BulkUrbCount: super::ULONG,
+    pub ControlUrbCount: super::ULONG,
+    pub IsoUrbCount: super::ULONG,
+    pub InterruptUrbCount: super::ULONG,
+    pub AllocedInterrupt: [super::ULONG; 6],
+    pub AllocedIso: super::ULONG,
+    pub Total32secBandwidth: super::ULONG,
+    pub TotalTtBandwidth: super::ULONG,
+    pub DeviceDescription: [super::WCHAR; 60],
     pub DeviceSpeed: super::USB_DEVICE_SPEED,
-    pub TotalIsoLatency: u32,
-    pub DroppedIsoPackets: u32,
-    pub TransferErrors: u32,
-    pub PciInterruptCount: u32,
-    pub HcIdleState: u32,
-    pub HcAsyncIdleState: u32,
-    pub HcAsyncCacheFlushCount: u32,
-    pub HcPeriodicIdleState: u32,
-    pub HcPeriodicCacheFlushCount: u32,
+    pub TotalIsoLatency: super::ULONG,
+    pub DroppedIsoPackets: super::ULONG,
+    pub TransferErrors: super::ULONG,
+    pub PciInterruptCount: super::ULONG,
+    pub HcIdleState: super::ULONG,
+    pub HcAsyncIdleState: super::ULONG,
+    pub HcAsyncCacheFlushCount: super::ULONG,
+    pub HcPeriodicIdleState: super::ULONG,
+    pub HcPeriodicCacheFlushCount: super::ULONG,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for USB_DEVICE_PERFORMANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_STATE {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::HANDLE,
-    pub InputFrameNumber: u32,
-    pub InputMicroFrameNumber: u32,
+    pub InputFrameNumber: super::ULONG,
+    pub InputMicroFrameNumber: super::ULONG,
     pub QueryPerformanceCounterAtInputFrameOrMicroFrame: super::LARGE_INTEGER,
     pub QueryPerformanceCounterFrequency: super::LARGE_INTEGER,
-    pub PredictedAccuracyInMicroSeconds: u32,
-    pub CurrentGenerationID: u32,
+    pub PredictedAccuracyInMicroSeconds: super::ULONG,
+    pub CurrentGenerationID: super::ULONG,
     pub CurrentQueryPerformanceCounter: super::LARGE_INTEGER,
-    pub CurrentHardwareFrameNumber: u32,
-    pub CurrentHardwareMicroFrameNumber: u32,
-    pub CurrentUSBFrameNumber: u32,
+    pub CurrentHardwareFrameNumber: super::ULONG,
+    pub CurrentHardwareMicroFrameNumber: super::ULONG,
+    pub CurrentUSBFrameNumber: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_HCD_DRIVERKEY_NAME {
-    pub ActualLength: u32,
-    pub DriverKeyName: [u16; 1],
+    pub ActualLength: super::ULONG,
+    pub DriverKeyName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_HCD_DRIVERKEY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_CAPABILITIES {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_CAPABILITIES_EX {
     pub CapabilityFlags: USB_HUB_CAP_FLAGS,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_HUB_CAPABILITIES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union USB_HUB_CAP_FLAGS {
-    pub ul: u32,
+    pub ul: super::ULONG,
     pub Anonymous: USB_HUB_CAP_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_HUB_CAP_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_CAP_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_DEVICE_INFO {
     pub HubDescriptor: super::USB_HUB_DESCRIPTOR,
-    pub HubNumber: u32,
-    pub DeviceAddress: u16,
+    pub HubNumber: super::ULONG,
+    pub DeviceAddress: super::USHORT,
     pub HubIsSelfPowered: super::BOOLEAN,
     pub HubIsRootHub: super::BOOLEAN,
     pub HubCapabilities: USB_HUB_CAPABILITIES,
-    pub NumberOfHubPorts: u32,
+    pub NumberOfHubPorts: super::ULONG,
     pub PortInfo: [USB_HUB_PORT_INFORMATION; 1],
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_HUB_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_DEVICE_UXD_SETTINGS {
-    pub Version: u32,
+    pub Version: super::ULONG,
     pub PnpGuid: windows_sys::core::GUID,
     pub OwnerGuid: windows_sys::core::GUID,
-    pub DeleteOnShutdown: u32,
-    pub DeleteOnReload: u32,
-    pub DeleteOnDisconnect: u32,
-    pub Reserved: [u32; 5],
+    pub DeleteOnShutdown: super::ULONG,
+    pub DeleteOnReload: super::ULONG,
+    pub DeleteOnDisconnect: super::ULONG,
+    pub Reserved: [super::ULONG; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for USB_HUB_DEVICE_UXD_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_INFORMATION {
     pub HubDescriptor: super::USB_HUB_DESCRIPTOR,
     pub HubIsBusPowered: super::BOOLEAN,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_INFORMATION_EX {
     pub HubType: USB_HUB_TYPE,
-    pub HighestPortNumber: u16,
+    pub HighestPortNumber: super::USHORT,
     pub u: USB_HUB_INFORMATION_EX_0,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_HUB_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "usbspec")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub union USB_HUB_INFORMATION_EX_0 {
     pub UsbHubDescriptor: super::USB_HUB_DESCRIPTOR,
     pub Usb30HubDescriptor: super::USB_30_HUB_DESCRIPTOR,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_HUB_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_NAME {
-    pub ActualLength: u32,
-    pub HubName: [u16; 1],
+    pub ActualLength: super::ULONG,
+    pub HubName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_HUB_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -613,167 +671,179 @@ impl Default for USB_HUB_NAME {
 }
 pub type USB_HUB_NODE = i32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_PORT_INFORMATION {
     pub DeviceState: USB_DEVICE_STATE,
-    pub PortNumber: u16,
-    pub DeviceAddress: u16,
-    pub ConnectionIndex: u32,
+    pub PortNumber: super::USHORT,
+    pub DeviceAddress: super::USHORT,
+    pub ConnectionIndex: super::ULONG,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
 }
 pub type USB_HUB_TYPE = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_ID_STRING {
-    pub LanguageId: u16,
-    pub Pad: u16,
-    pub LengthInBytes: u32,
+    pub LanguageId: super::USHORT,
+    pub Pad: super::USHORT,
+    pub LengthInBytes: super::ULONG,
     pub Buffer: super::PWCHAR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_MI_PARENT_INFORMATION {
-    pub NumberOfInterfaces: u32,
+    pub NumberOfInterfaces: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_NODE_CONNECTION_ATTRIBUTES {
-    pub ConnectionIndex: u32,
+    pub ConnectionIndex: super::ULONG,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
-    pub PortAttributes: u32,
+    pub PortAttributes: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_DRIVERKEY_NAME {
-    pub ConnectionIndex: u32,
-    pub ActualLength: u32,
-    pub DriverKeyName: [u16; 1],
+    pub ConnectionIndex: super::ULONG,
+    pub ActualLength: super::ULONG,
+    pub DriverKeyName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_NODE_CONNECTION_DRIVERKEY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION {
-    pub ConnectionIndex: u32,
+    pub ConnectionIndex: super::ULONG,
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
-    pub CurrentConfigurationValue: u8,
+    pub CurrentConfigurationValue: super::UCHAR,
     pub LowSpeed: super::BOOLEAN,
     pub DeviceIsHub: super::BOOLEAN,
-    pub DeviceAddress: u16,
-    pub NumberOfOpenPipes: u32,
+    pub DeviceAddress: super::USHORT,
+    pub NumberOfOpenPipes: super::ULONG,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PipeList: [USB_PIPE_INFO; 0],
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_NODE_CONNECTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX {
-    pub ConnectionIndex: u32,
+    pub ConnectionIndex: super::ULONG,
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
-    pub CurrentConfigurationValue: u8,
-    pub Speed: u8,
+    pub CurrentConfigurationValue: super::UCHAR,
+    pub Speed: super::UCHAR,
     pub DeviceIsHub: super::BOOLEAN,
-    pub DeviceAddress: u16,
-    pub NumberOfOpenPipes: u32,
+    pub DeviceAddress: super::USHORT,
+    pub NumberOfOpenPipes: super::ULONG,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PipeList: [USB_PIPE_INFO; 0],
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_NODE_CONNECTION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX_V2 {
-    pub ConnectionIndex: u32,
-    pub Length: u32,
+    pub ConnectionIndex: super::ULONG,
+    pub Length: super::ULONG,
     pub SupportedUsbProtocols: USB_PROTOCOLS,
     pub Flags: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_NODE_CONNECTION_INFORMATION_EX_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
-    pub ul: u32,
+    pub ul: super::ULONG,
     pub Anonymous: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_NAME {
-    pub ConnectionIndex: u32,
-    pub ActualLength: u32,
-    pub NodeName: [u16; 1],
+    pub ConnectionIndex: super::ULONG,
+    pub ActualLength: super::ULONG,
+    pub NodeName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_NODE_CONNECTION_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
-    pub ConnectionIndex: u32,
-    pub Length: u32,
+    pub ConnectionIndex: super::ULONG,
+    pub Length: super::ULONG,
     pub RxSuperSpeedPlus: super::USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED,
-    pub RxLaneCount: u32,
+    pub RxLaneCount: super::ULONG,
     pub TxSuperSpeedPlus: super::USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED,
-    pub TxLaneCount: u32,
+    pub TxLaneCount: super::ULONG,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_INFORMATION {
     pub NodeType: USB_HUB_NODE,
     pub u: USB_NODE_INFORMATION_0,
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy)]
 pub union USB_NODE_INFORMATION_0 {
     pub HubInformation: USB_HUB_INFORMATION,
     pub MiParentInformation: USB_MI_PARENT_INFORMATION,
 }
-#[cfg(all(feature = "usbspec", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 impl Default for USB_NODE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -787,55 +857,63 @@ pub struct USB_NOTIFICATION {
 }
 pub type USB_NOTIFICATION_TYPE = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec"))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PIPE_INFO {
     pub EndpointDescriptor: super::USB_ENDPOINT_DESCRIPTOR,
-    pub ScheduleOffset: u32,
+    pub ScheduleOffset: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_PORT_CONNECTOR_PROPERTIES {
-    pub ConnectionIndex: u32,
-    pub ActualLength: u32,
+    pub ConnectionIndex: super::ULONG,
+    pub ActualLength: super::ULONG,
     pub UsbPortProperties: USB_PORT_PROPERTIES,
-    pub CompanionIndex: u16,
-    pub CompanionPortNumber: u16,
-    pub CompanionHubSymbolicLinkName: [u16; 1],
+    pub CompanionIndex: super::USHORT,
+    pub CompanionPortNumber: super::USHORT,
+    pub CompanionHubSymbolicLinkName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_PORT_CONNECTOR_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union USB_PORT_PROPERTIES {
-    pub ul: u32,
+    pub ul: super::ULONG,
     pub Anonymous: USB_PORT_PROPERTIES_0,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_PORT_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PORT_PROPERTIES_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union USB_PROTOCOLS {
-    pub ul: u32,
+    pub ul: super::ULONG,
     pub Anonymous: USB_PROTOCOLS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_PROTOCOLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PROTOCOLS_0 {
     pub _bitfield: u32,
@@ -843,18 +921,20 @@ pub struct USB_PROTOCOLS_0 {
 pub const USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE: i32 = 2;
 pub const USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USB_ROOT_HUB_NAME {
-    pub ActualLength: u32,
-    pub RootHubName: [u16; 1],
+    pub ActualLength: super::ULONG,
+    pub RootHubName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USB_ROOT_HUB_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::HANDLE,
@@ -867,40 +947,45 @@ pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::HANDLE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct USB_TOPOLOGY_ADDRESS {
-    pub PciBusNumber: u32,
-    pub PciDeviceNumber: u32,
-    pub PciFunctionNumber: u32,
-    pub Reserved: u32,
-    pub RootHubPortNumber: u16,
-    pub HubPortNumber: [u16; 5],
-    pub Reserved2: u16,
+    pub PciBusNumber: super::ULONG,
+    pub PciDeviceNumber: super::ULONG,
+    pub PciFunctionNumber: super::ULONG,
+    pub Reserved: super::ULONG,
+    pub RootHubPortNumber: super::USHORT,
+    pub HubPortNumber: [super::USHORT; 5],
+    pub Reserved2: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for USB_TOPOLOGY_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_TRANSPORT_CHARACTERISTICS {
-    pub Version: u32,
-    pub TransportCharacteristicsFlags: u32,
-    pub CurrentRoundtripLatencyInMilliSeconds: u64,
-    pub MaxPotentialBandwidth: u64,
+    pub Version: super::ULONG,
+    pub TransportCharacteristicsFlags: super::ULONG,
+    pub CurrentRoundtripLatencyInMilliSeconds: super::ULONG64,
+    pub MaxPotentialBandwidth: super::ULONG64,
 }
 pub const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: i32 = 2;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
     pub UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
-    pub ChangeNotificationInputFlags: u32,
+    pub ChangeNotificationInputFlags: super::ULONG,
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
     pub UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
 }

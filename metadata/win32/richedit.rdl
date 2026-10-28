@@ -12,11 +12,12 @@ mod Windows {
         const AURL_ENABLEEMAILADDR: i32 = 2;
         const AURL_ENABLETELNO: i32 = 4;
         const AURL_ENABLEURL: i32 = 1;
-        extern fn AutoCorrectProc(langid: LANGID, pszBefore: *const u16, pszAfter: *mut u16, cchAfter: i32, pcchReplaced: *mut i32) -> i32;
+        extern fn AutoCorrectProc(langid: LANGID, pszBefore: *const WCHAR, pszAfter: *mut WCHAR, cchAfter: LONG, pcchReplaced: *mut LONG) -> i32;
+        #[packed(4)]
         struct BIDIOPTIONS {
-            cbSize: u32,
-            wMask: u16,
-            wEffects: u16,
+            cbSize: UINT,
+            wMask: WORD,
+            wEffects: WORD,
         }
         const BOE_CONTEXTALIGNMENT: i32 = 16;
         const BOE_CONTEXTREADING: i32 = 8;
@@ -122,85 +123,93 @@ mod Windows {
         const CFU_UNDERLINETHICKLONGDASH: i32 = 18;
         const CFU_UNDERLINEWAVE: i32 = 8;
         const CFU_UNDERLINEWORD: i32 = 2;
+        #[encoding("ansi")]
+        const CF_RETEXTOBJ: String = "RichEdit Text and Objects";
+        #[encoding("ansi")]
+        const CF_RTF: String = "Rich Text Format";
+        #[encoding("ansi")]
+        const CF_RTFNOOBJS: String = "Rich Text Format Without Objects";
+        #[packed(4)]
         struct CHARFORMAT2A {
-            Base: CHARFORMATA,
-            wWeight: u16,
-            sSpacing: i16,
+            #[Windows::Win32::Metadata::NativeBase]
+            base: CHARFORMATA,
+            wWeight: WORD,
+            sSpacing: SHORT,
             crBackColor: COLORREF,
             lcid: LCID,
-            Anonymous: union {
-                dwReserved: u32,
-                dwCookie: u32,
+            Anonymous: #[packed(4)] union {
+                dwReserved: DWORD,
+                dwCookie: DWORD,
             },
-            sStyle: i16,
-            wKerning: u16,
-            bUnderlineType: u8,
-            bAnimation: u8,
-            bRevAuthor: u8,
-            bUnderlineColor: u8,
+            sStyle: SHORT,
+            wKerning: WORD,
+            bUnderlineType: BYTE,
+            bAnimation: BYTE,
+            bRevAuthor: BYTE,
+            bUnderlineColor: BYTE,
         }
+        #[packed(4)]
         struct CHARFORMAT2W {
-            Base: CHARFORMATW,
-            wWeight: u16,
-            sSpacing: i16,
+            #[Windows::Win32::Metadata::NativeBase]
+            base: CHARFORMATW,
+            wWeight: WORD,
+            sSpacing: SHORT,
             crBackColor: COLORREF,
             lcid: LCID,
-            Anonymous: union {
-                dwReserved: u32,
-                dwCookie: u32,
+            Anonymous: #[packed(4)] union {
+                dwReserved: DWORD,
+                dwCookie: DWORD,
             },
-            sStyle: i16,
-            wKerning: u16,
-            bUnderlineType: u8,
-            bAnimation: u8,
-            bRevAuthor: u8,
-            bUnderlineColor: u8,
+            sStyle: SHORT,
+            wKerning: WORD,
+            bUnderlineType: BYTE,
+            bAnimation: BYTE,
+            bRevAuthor: BYTE,
+            bUnderlineColor: BYTE,
         }
+        #[packed(4)]
         struct CHARFORMATA {
-            cbSize: u32,
-            dwMask: u32,
-            dwEffects: u32,
-            yHeight: i32,
-            yOffset: i32,
+            cbSize: UINT,
+            dwMask: DWORD,
+            dwEffects: DWORD,
+            yHeight: LONG,
+            yOffset: LONG,
             crTextColor: COLORREF,
-            bCharSet: u8,
-            bPitchAndFamily: u8,
+            bCharSet: BYTE,
+            bPitchAndFamily: BYTE,
             szFaceName: [i8; 32],
         }
         #[arch(X64 | Arm64)]
         const CHARFORMATDELTA: u64 = 24;
         #[arch(X86)]
         const CHARFORMATDELTA: u32 = 24;
+        #[packed(4)]
         struct CHARFORMATW {
-            cbSize: u32,
-            dwMask: u32,
-            dwEffects: u32,
-            yHeight: i32,
-            yOffset: i32,
+            cbSize: UINT,
+            dwMask: DWORD,
+            dwEffects: DWORD,
+            yHeight: LONG,
+            yOffset: LONG,
             crTextColor: COLORREF,
-            bCharSet: u8,
-            bPitchAndFamily: u8,
-            szFaceName: [u16; 32],
+            bCharSet: BYTE,
+            bPitchAndFamily: BYTE,
+            szFaceName: [WCHAR; 32],
         }
+        #[packed(4)]
         struct CHARRANGE {
-            cpMin: i32,
-            cpMax: i32,
+            cpMin: LONG,
+            cpMax: LONG,
         }
-        #[arch(X86)]
+        #[packed(4)]
         struct CLIPBOARDFORMAT {
             nmhdr: NMHDR,
             cf: CLIPFORMAT,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct CLIPBOARDFORMAT {
-            nmhdr: NMHDR,
-            cf: CLIPFORMAT,
-        }
         struct COMPCOLOR {
             crText: COLORREF,
             crBackground: COLORREF,
-            dwEffects: u32,
+            dwEffects: DWORD,
         }
         const CTFMODEBIAS_CONVERSATION: i32 = 5;
         const CTFMODEBIAS_DATETIME: i32 = 4;
@@ -230,21 +239,14 @@ mod Windows {
         const ECO_SELECTIONBAR: i32 = 16777216;
         const ECO_VERTICAL: i32 = 4194304;
         const ECO_WANTRETURN: i32 = 4096;
-        #[arch(X86)]
-        struct EDITSTREAM {
-            dwCookie: usize,
-            dwError: u32,
-            pfnCallback: EDITSTREAMCALLBACK,
-        }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct EDITSTREAM {
-            dwCookie: usize,
-            dwError: u32,
+            dwCookie: DWORD_PTR,
+            dwError: DWORD,
             pfnCallback: EDITSTREAMCALLBACK,
         }
-        extern fn EDITSTREAMCALLBACK(dwCookie: usize, pbBuff: LPBYTE, cb: i32, pcb: *mut i32) -> u32;
-        extern "C" fn EDITWORDBREAKPROCEX(pchText: *mut i8, cchText: i32, bCharSet: u8, action: i32) -> i32;
+        extern fn EDITSTREAMCALLBACK(dwCookie: DWORD_PTR, pbBuff: LPBYTE, cb: LONG, pcb: *mut LONG) -> DWORD;
+        extern "C" fn EDITWORDBREAKPROCEX(pchText: *mut i8, cchText: LONG, bCharSet: BYTE, action: INT) -> LONG;
         const ELLIPSIS_END: i32 = 1;
         const ELLIPSIS_MASK: i32 = 3;
         const ELLIPSIS_NONE: i32 = 0;
@@ -314,6 +316,7 @@ mod Windows {
         const EM_GETVIEWKIND: i32 = 1250;
         const EM_GETWORDBREAKPROCEX: i32 = 1104;
         const EM_GETWORDWRAPMODE: i32 = 1127;
+        const EM_GETZOOM: i32 = 1248;
         const EM_HIDESELECTION: i32 = 1087;
         const EM_INSERTIMAGE: i32 = 1338;
         const EM_INSERTTABLE: i32 = 1256;
@@ -363,73 +366,38 @@ mod Windows {
         const EM_SETVIEWKIND: i32 = 1251;
         const EM_SETWORDBREAKPROCEX: i32 = 1105;
         const EM_SETWORDWRAPMODE: i32 = 1126;
+        const EM_SETZOOM: i32 = 1249;
         const EM_SHOWSCROLLBAR: i32 = 1120;
         const EM_STOPGROUPTYPING: i32 = 1112;
         const EM_STREAMIN: i32 = 1097;
         const EM_STREAMOUT: i32 = 1098;
-        #[arch(X86)]
+        #[packed(4)]
         struct ENCORRECTTEXT {
             nmhdr: NMHDR,
             chrg: CHARRANGE,
-            seltyp: u16,
+            seltyp: WORD,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct ENCORRECTTEXT {
-            nmhdr: NMHDR,
-            chrg: CHARRANGE,
-            seltyp: u16,
-        }
-        #[arch(X86)]
         struct ENDCOMPOSITIONNOTIFY {
             nmhdr: NMHDR,
-            dwCode: u32,
+            dwCode: DWORD,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct ENDCOMPOSITIONNOTIFY {
-            nmhdr: NMHDR,
-            dwCode: u32,
-        }
-        #[arch(X86)]
         struct ENDROPFILES {
             nmhdr: NMHDR,
             hDrop: HANDLE,
-            cp: i32,
+            cp: LONG,
             fProtected: BOOL,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct ENDROPFILES {
-            nmhdr: NMHDR,
-            hDrop: HANDLE,
-            cp: i32,
-            fProtected: BOOL,
-        }
-        #[arch(X86)]
         struct ENLINK {
             nmhdr: NMHDR,
-            msg: u32,
+            msg: UINT,
             wParam: WPARAM,
             lParam: LPARAM,
             chrg: CHARRANGE,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct ENLINK {
-            nmhdr: NMHDR,
-            msg: u32,
-            wParam: WPARAM,
-            lParam: LPARAM,
-            chrg: CHARRANGE,
-        }
-        #[arch(X86)]
-        struct ENLOWFIRTF {
-            nmhdr: NMHDR,
-            szControl: *mut i8,
-        }
-        #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct ENLOWFIRTF {
             nmhdr: NMHDR,
             szControl: *mut i8,
@@ -459,50 +427,26 @@ mod Windows {
         const ENM_SELCHANGE: i32 = 524288;
         const ENM_STARTCOMPOSITION: i32 = 268435456;
         const ENM_UPDATE: i32 = 2;
-        #[arch(X86)]
+        #[packed(4)]
         struct ENOLEOPFAILED {
             nmhdr: NMHDR,
-            iob: i32,
-            lOper: i32,
+            iob: LONG,
+            lOper: LONG,
             hr: HRESULT,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct ENOLEOPFAILED {
-            nmhdr: NMHDR,
-            iob: i32,
-            lOper: i32,
-            hr: HRESULT,
-        }
-        #[arch(X86)]
         struct ENPROTECTED {
             nmhdr: NMHDR,
-            msg: u32,
+            msg: UINT,
             wParam: WPARAM,
             lParam: LPARAM,
             chrg: CHARRANGE,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct ENPROTECTED {
-            nmhdr: NMHDR,
-            msg: u32,
-            wParam: WPARAM,
-            lParam: LPARAM,
-            chrg: CHARRANGE,
-        }
-        #[arch(X86)]
         struct ENSAVECLIPBOARD {
             nmhdr: NMHDR,
-            cObjectCount: i32,
-            cch: i32,
-        }
-        #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct ENSAVECLIPBOARD {
-            nmhdr: NMHDR,
-            cObjectCount: i32,
-            cch: i32,
+            cObjectCount: LONG,
+            cch: LONG,
         }
         const EN_ALIGNLTR: i32 = 1808;
         const EN_ALIGNRTL: i32 = 1809;
@@ -539,64 +483,29 @@ mod Windows {
         const ES_SELFIME: i32 = 262144;
         const ES_SUNKEN: i32 = 16384;
         const ES_VERTICAL: i32 = 4194304;
-        #[arch(X86)]
+        #[packed(4)]
         struct FINDTEXTA {
             chrg: CHARRANGE,
-            lpstrText: PCSTR,
+            lpstrText: LPCSTR,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct FINDTEXTA {
-            chrg: CHARRANGE,
-            lpstrText: PCSTR,
-        }
-        #[arch(X86)]
         struct FINDTEXTEXA {
             chrg: CHARRANGE,
-            lpstrText: PCSTR,
+            lpstrText: LPCSTR,
             chrgText: CHARRANGE,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct FINDTEXTEXA {
-            chrg: CHARRANGE,
-            lpstrText: PCSTR,
-            chrgText: CHARRANGE,
-        }
-        #[arch(X86)]
         struct FINDTEXTEXW {
             chrg: CHARRANGE,
-            lpstrText: PCWSTR,
+            lpstrText: LPCWSTR,
             chrgText: CHARRANGE,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct FINDTEXTEXW {
-            chrg: CHARRANGE,
-            lpstrText: PCWSTR,
-            chrgText: CHARRANGE,
-        }
-        #[arch(X86)]
         struct FINDTEXTW {
             chrg: CHARRANGE,
-            lpstrText: PCWSTR,
+            lpstrText: LPCWSTR,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct FINDTEXTW {
-            chrg: CHARRANGE,
-            lpstrText: PCWSTR,
-        }
-        #[arch(X86)]
-        struct FORMATRANGE {
-            hdc: HDC,
-            hdcTarget: HDC,
-            rc: RECT,
-            rcPage: RECT,
-            chrg: CHARRANGE,
-        }
-        #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct FORMATRANGE {
             hdc: HDC,
             hdcTarget: HDC,
@@ -611,49 +520,27 @@ mod Windows {
         const GCM_MOUSEMENU: i32 = 8192;
         const GCM_RIGHTMOUSEDROP: i32 = 32768;
         const GCM_TOUCHMENU: i32 = 16384;
-        #[arch(X86)]
+        #[packed(4)]
         struct GETCONTEXTMENUEX {
             chrg: CHARRANGE,
-            dwFlags: u32,
+            dwFlags: DWORD,
             pt: POINT,
             pvReserved: *mut void,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct GETCONTEXTMENUEX {
-            chrg: CHARRANGE,
-            dwFlags: u32,
-            pt: POINT,
-            pvReserved: *mut void,
-        }
-        #[arch(X86)]
         struct GETTEXTEX {
-            cb: u32,
-            flags: u32,
-            codepage: u32,
-            lpDefaultChar: PCSTR,
+            cb: DWORD,
+            flags: DWORD,
+            codepage: UINT,
+            lpDefaultChar: LPCSTR,
             lpUsedDefChar: LPBOOL,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct GETTEXTEX {
-            cb: u32,
-            flags: u32,
-            codepage: u32,
-            lpDefaultChar: PCSTR,
-            lpUsedDefChar: LPBOOL,
-        }
         struct GETTEXTLENGTHEX {
-            flags: u32,
-            codepage: u32,
-        }
-        #[arch(X86)]
-        struct GROUPTYPINGCHANGE {
-            nmhdr: NMHDR,
-            fGroupTyping: BOOL,
+            flags: DWORD,
+            codepage: UINT,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct GROUPTYPINGCHANGE {
             nmhdr: NMHDR,
             fGroupTyping: BOOL,
@@ -669,23 +556,17 @@ mod Windows {
         const GT_RAWTEXT: i32 = 4;
         const GT_SELECTION: i32 = 2;
         const GT_USECRLF: i32 = 1;
-        #[arch(X86)]
+        #[packed(4)]
         struct HYPHENATEINFO {
-            cbSize: i16,
-            dxHyphenateZone: i16,
-            pfnHyphenate: *mut u8,
+            cbSize: SHORT,
+            dxHyphenateZone: SHORT,
+            pfnHyphenate: extern fn(*mut WCHAR, LANGID, i32, *mut HYPHRESULT),
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct HYPHENATEINFO {
-            cbSize: i16,
-            dxHyphenateZone: i16,
-            pfnHyphenate: *mut u8,
-        }
         struct HYPHRESULT {
             khyph: KHYPH,
             ichHyph: i32,
-            chHyph: u16,
+            chHyph: WCHAR,
         }
         const ICM_CTF: i32 = 5;
         const ICM_LEVEL2: i32 = 2;
@@ -694,9 +575,10 @@ mod Windows {
         const ICM_LEVEL3: i32 = 1;
         const ICM_NOTOPEN: i32 = 0;
         const ICT_RESULTREADSTR: i32 = 1;
+        #[packed(4)]
         struct IMECOMPTEXT {
-            cb: i32,
-            flags: u32,
+            cb: LONG,
+            flags: DWORD,
         }
         const IMF_AUTOFONT: i32 = 2;
         const IMF_AUTOFONTSIZEADJUST: i32 = 16;
@@ -736,66 +618,54 @@ mod Windows {
         const MAX_TAB_STOPS: i32 = 32;
         #[encoding("utf-16")]
         const MSFTEDIT_CLASS: String = "RICHEDIT50W";
-        #[arch(X86)]
+        #[packed(4)]
         struct MSGFILTER {
             nmhdr: NMHDR,
-            msg: u32,
+            msg: UINT,
             wParam: WPARAM,
             lParam: LPARAM,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct MSGFILTER {
-            nmhdr: NMHDR,
-            msg: u32,
-            wParam: WPARAM,
-            lParam: LPARAM,
-        }
-        #[arch(X86)]
         struct OBJECTPOSITIONS {
             nmhdr: NMHDR,
-            cObjectCount: i32,
-            pcpPositions: *mut i32,
-        }
-        #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct OBJECTPOSITIONS {
-            nmhdr: NMHDR,
-            cObjectCount: i32,
-            pcpPositions: *mut i32,
+            cObjectCount: LONG,
+            pcpPositions: *mut LONG,
         }
         const OLEOP_DOVERB: i32 = 1;
+        #[packed(4)]
         struct PARAFORMAT {
-            cbSize: u32,
-            dwMask: u32,
-            wNumbering: u16,
-            Anonymous: union {
-                wReserved: u16,
-                wEffects: u16,
+            cbSize: UINT,
+            dwMask: DWORD,
+            wNumbering: WORD,
+            Anonymous: #[packed(4)] union {
+                wReserved: WORD,
+                wEffects: WORD,
             },
-            dxStartIndent: i32,
-            dxRightIndent: i32,
-            dxOffset: i32,
-            wAlignment: u16,
-            cTabCount: i16,
-            rgxTabs: [i32; 32],
+            dxStartIndent: LONG,
+            dxRightIndent: LONG,
+            dxOffset: LONG,
+            wAlignment: WORD,
+            cTabCount: SHORT,
+            rgxTabs: [LONG; 32],
         }
+        #[packed(4)]
         struct PARAFORMAT2 {
-            Base: PARAFORMAT,
-            dySpaceBefore: i32,
-            dySpaceAfter: i32,
-            dyLineSpacing: i32,
-            sStyle: i16,
-            bLineSpacingRule: u8,
-            bOutlineLevel: u8,
-            wShadingWeight: u16,
-            wShadingStyle: u16,
-            wNumberingStart: u16,
-            wNumberingStyle: u16,
-            wNumberingTab: u16,
-            wBorderSpace: u16,
-            wBorderWidth: u16,
-            wBorders: u16,
+            #[Windows::Win32::Metadata::NativeBase]
+            base: PARAFORMAT,
+            dySpaceBefore: LONG,
+            dySpaceAfter: LONG,
+            dyLineSpacing: LONG,
+            sStyle: SHORT,
+            bLineSpacingRule: BYTE,
+            bOutlineLevel: BYTE,
+            wShadingWeight: WORD,
+            wShadingStyle: WORD,
+            wNumberingStart: WORD,
+            wNumberingStyle: WORD,
+            wNumberingTab: WORD,
+            wBorderSpace: WORD,
+            wBorderWidth: WORD,
+            wBorders: WORD,
         }
         const PC_DELIMITER: i32 = 4;
         const PC_FOLLOWING: i32 = 1;
@@ -869,35 +739,17 @@ mod Windows {
         const PFN_LCROMAN: i32 = 5;
         const PFN_UCLETTER: i32 = 4;
         const PFN_UCROMAN: i32 = 6;
-        #[arch(X86)]
+        #[packed(4)]
         struct PUNCTUATION {
-            iSize: u32,
-            szPunctuation: PSTR,
+            iSize: UINT,
+            szPunctuation: LPSTR,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct PUNCTUATION {
-            iSize: u32,
-            szPunctuation: PSTR,
-        }
-        #[arch(X86)]
         struct REPASTESPECIAL {
-            dwAspect: u32,
-            dwParam: usize,
+            dwAspect: DWORD,
+            dwParam: DWORD_PTR,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct REPASTESPECIAL {
-            dwAspect: u32,
-            dwParam: usize,
-        }
-        #[arch(X86)]
-        struct REQRESIZE {
-            nmhdr: NMHDR,
-            rc: RECT,
-        }
-        #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct REQRESIZE {
             nmhdr: NMHDR,
             rc: RECT,
@@ -912,23 +764,13 @@ mod Windows {
         const RICHEDIT_CLASSA: String = "RichEdit20A";
         #[encoding("utf-16")]
         const RICHEDIT_CLASSW: String = "RichEdit20W";
-        #[arch(X86)]
-        struct RICHEDIT_IMAGE_PARAMETERS {
-            xWidth: i32,
-            yHeight: i32,
-            Ascent: i32,
-            Type: i32,
-            pwszAlternateText: PCWSTR,
-            pIStream: IStream,
-        }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct RICHEDIT_IMAGE_PARAMETERS {
-            xWidth: i32,
-            yHeight: i32,
-            Ascent: i32,
-            Type: i32,
-            pwszAlternateText: PCWSTR,
+            xWidth: LONG,
+            yHeight: LONG,
+            Ascent: LONG,
+            Type: LONG,
+            pwszAlternateText: LPCWSTR,
             pIStream: IStream,
         }
         const RTO_DISABLEHANDLES: i32 = 2;
@@ -944,18 +786,11 @@ mod Windows {
         const SCF_SMARTFONT: i32 = 128;
         const SCF_USEUIRULES: i32 = 8;
         const SCF_WORD: i32 = 2;
-        #[arch(X86)]
-        struct SELCHANGE {
-            nmhdr: NMHDR,
-            chrg: CHARRANGE,
-            seltyp: u16,
-        }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
         struct SELCHANGE {
             nmhdr: NMHDR,
             chrg: CHARRANGE,
-            seltyp: u16,
+            seltyp: WORD,
         }
         const SEL_EMPTY: i32 = 0;
         const SEL_MULTICHAR: i32 = 4;
@@ -1005,9 +840,10 @@ mod Windows {
         const SES_USECTF: i32 = 65536;
         const SES_WORDDRAGDROP: i32 = 33554432;
         const SES_XLTCRCRLFTOCR: i32 = 16384;
+        #[packed(4)]
         struct SETTEXTEX {
-            flags: u32,
-            codepage: u32,
+            flags: DWORD,
+            codepage: UINT,
         }
         const SFF_KEEPDOCINFO: i32 = 4096;
         const SFF_PERSISTVIEWSCALE: i32 = 8192;
@@ -1030,21 +866,22 @@ mod Windows {
         const ST_NEWCHARS: i32 = 4;
         const ST_SELECTION: i32 = 2;
         const ST_UNICODE: i32 = 8;
+        #[packed(4)]
         struct TABLECELLPARMS {
-            dxWidth: i32,
+            dxWidth: LONG,
             _bitfield: u16 {
-                nVertAlign: 2,
-                fMergeTop: 1,
-                fMergePrev: 1,
-                fVertical: 1,
-                fMergeStart: 1,
-                fMergeCont: 1,
+                nVertAlign: WORD: 2,
+                fMergeTop: WORD: 1,
+                fMergePrev: WORD: 1,
+                fVertical: WORD: 1,
+                fMergeStart: WORD: 1,
+                fMergeCont: WORD: 1,
             },
-            wShading: u16,
-            dxBrdrLeft: i16,
-            dyBrdrTop: i16,
-            dxBrdrRight: i16,
-            dyBrdrBottom: i16,
+            wShading: WORD,
+            dxBrdrLeft: SHORT,
+            dyBrdrTop: SHORT,
+            dxBrdrRight: SHORT,
+            dyBrdrBottom: SHORT,
             crBrdrLeft: COLORREF,
             crBrdrTop: COLORREF,
             crBrdrRight: COLORREF,
@@ -1052,25 +889,26 @@ mod Windows {
             crBackPat: COLORREF,
             crForePat: COLORREF,
         }
+        #[packed(4)]
         struct TABLEROWPARMS {
-            cbRow: u8,
-            cbCell: u8,
-            cCell: u8,
-            cRow: u8,
-            dxCellMargin: i32,
-            dxIndent: i32,
-            dyHeight: i32,
+            cbRow: BYTE,
+            cbCell: BYTE,
+            cCell: BYTE,
+            cRow: BYTE,
+            dxCellMargin: LONG,
+            dxIndent: LONG,
+            dyHeight: LONG,
             _bitfield: u32 {
-                nAlignment: 3,
-                fRTL: 1,
-                fKeep: 1,
-                fKeepFollow: 1,
-                fWrap: 1,
-                fIdentCells: 1,
+                nAlignment: DWORD: 3,
+                fRTL: DWORD: 1,
+                fKeep: DWORD: 1,
+                fKeepFollow: DWORD: 1,
+                fWrap: DWORD: 1,
+                fIdentCells: DWORD: 1,
             },
-            cpStartRow: i32,
-            bTableLevel: u8,
-            iCell: u8,
+            cpStartRow: LONG,
+            bTableLevel: BYTE,
+            iCell: BYTE,
         }
         #[repr(i32)]
         enum TEXTMODE {
@@ -1081,27 +919,15 @@ mod Windows {
             TM_SINGLECODEPAGE = 16,
             TM_MULTICODEPAGE = 32,
         }
-        #[arch(X86)]
+        #[packed(4)]
         struct TEXTRANGEA {
             chrg: CHARRANGE,
-            lpstrText: PSTR,
+            lpstrText: LPSTR,
         }
         #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct TEXTRANGEA {
-            chrg: CHARRANGE,
-            lpstrText: PSTR,
-        }
-        #[arch(X86)]
         struct TEXTRANGEW {
             chrg: CHARRANGE,
-            lpstrText: PWSTR,
-        }
-        #[packed(4)]
-        #[arch(X64 | Arm64)]
-        struct TEXTRANGEW {
-            chrg: CHARRANGE,
-            lpstrText: PWSTR,
+            lpstrText: LPWSTR,
         }
         const TO_ADVANCEDLAYOUT: i32 = 8;
         const TO_ADVANCEDTYPOGRAPHY: i32 = 1;
@@ -1120,11 +946,11 @@ mod Windows {
         const VM_NORMAL: i32 = 4;
         const VM_OUTLINE: i32 = 2;
         const VM_PAGE: i32 = 9;
-        const WBF_BREAKAFTER: u8 = 64;
-        const WBF_BREAKLINE: u8 = 32;
-        const WBF_CLASS: u8 = 15;
+        const WBF_BREAKAFTER: BYTE = 64;
+        const WBF_BREAKLINE: BYTE = 32;
+        const WBF_CLASS: BYTE = 15;
         const WBF_CUSTOM: i32 = 512;
-        const WBF_ISWHITE: u8 = 16;
+        const WBF_ISWHITE: BYTE = 16;
         const WBF_LEVEL1: i32 = 128;
         const WBF_LEVEL2: i32 = 256;
         const WBF_OVERFLOW: i32 = 64;
@@ -1139,7 +965,7 @@ mod Windows {
         const WB_NEXTBREAK: i32 = 7;
         const WB_PREVBREAK: i32 = 6;
         const WB_RIGHTBREAK: i32 = 7;
-        const WCH_EMBEDDING: u16 = 65532;
+        const WCH_EMBEDDING: WCHAR = 65532;
         const _RICHEDIT_VER: i32 = 2064;
         const cchTextLimitDefault: i32 = 32767;
         const lDefaultTab: i32 = 720;

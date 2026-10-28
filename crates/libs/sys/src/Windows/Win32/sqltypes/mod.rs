@@ -1,7 +1,4 @@
-#[cfg(target_arch = "x86")]
-pub type BOOKMARK = SQLUINTEGER;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type BOOKMARK = SQLULEN;
+pub type BOOKMARK = usize;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DATE_STRUCT {
@@ -28,12 +25,12 @@ pub type SQLDOUBLE = f64;
 pub type SQLFLOAT = f64;
 pub type SQLGUID = windows_sys::core::GUID;
 pub type SQLHANDLE = *mut core::ffi::c_void;
-pub type SQLHDBC = SQLHANDLE;
-pub type SQLHDESC = SQLHANDLE;
-pub type SQLHENV = SQLHANDLE;
-pub type SQLHSTMT = SQLHANDLE;
+pub type SQLHDBC = *mut core::ffi::c_void;
+pub type SQLHDESC = *mut core::ffi::c_void;
+pub type SQLHENV = *mut core::ffi::c_void;
+pub type SQLHSTMT = *mut core::ffi::c_void;
 #[cfg(feature = "windef")]
-pub type SQLHWND = super::HWND;
+pub type SQLHWND = *mut super::HWND__;
 pub type SQLINTEGER = i32;
 pub type SQLINTERVAL = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -41,30 +38,18 @@ pub type SQLLEN = i64;
 pub type SQLNUMERIC = u8;
 pub type SQLPOINTER = *mut core::ffi::c_void;
 pub type SQLREAL = f32;
-pub type SQLRETURN = SQLSMALLINT;
-#[cfg(target_arch = "x86")]
-pub type SQLROWCOUNT = SQLUINTEGER;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type SQLROWCOUNT = SQLULEN;
-#[cfg(target_arch = "x86")]
-pub type SQLROWOFFSET = SQLINTEGER;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type SQLROWOFFSET = SQLLEN;
-#[cfg(target_arch = "x86")]
-pub type SQLROWSETSIZE = SQLUINTEGER;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type SQLROWSETSIZE = SQLULEN;
+pub type SQLRETURN = i16;
+pub type SQLROWCOUNT = usize;
+pub type SQLROWOFFSET = isize;
+pub type SQLROWSETSIZE = usize;
 pub type SQLSCHAR = i8;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type SQLSETPOSIROW = u64;
 pub type SQLSMALLINT = i16;
-pub type SQLTCHAR = SQLCHAR;
+pub type SQLTCHAR = u8;
 pub type SQLTIME = u8;
 pub type SQLTIMESTAMP = u8;
-#[cfg(target_arch = "x86")]
-pub type SQLTRANSID = SQLUINTEGER;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type SQLTRANSID = SQLULEN;
+pub type SQLTRANSID = usize;
 pub type SQLUBIGINT = u64;
 pub type SQLUINTEGER = u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

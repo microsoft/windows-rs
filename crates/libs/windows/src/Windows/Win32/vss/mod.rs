@@ -4,11 +4,13 @@ impl IVssAsync {
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Wait(&self, dwmilliseconds: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), dwmilliseconds) }
     }
-    pub unsafe fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, preserved: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), phrresult as _, preserved as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, preserved: Option<*mut super::INT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), phrresult as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -16,14 +18,22 @@ impl IVssAsync {
 pub struct IVssAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Wait: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Wait: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Wait: usize,
+    #[cfg(feature = "shared")]
+    pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut super::INT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    QueryStatus: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IVssAsync_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self) -> windows_core::Result<()>;
-    fn Wait(&self, dwmilliseconds: u32) -> windows_core::Result<()>;
-    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, preserved: *mut i32) -> windows_core::Result<()>;
+    fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::Result<()>;
+    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, preserved: *mut super::INT) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IVssAsync_Vtbl {
     pub const fn new<Identity: IVssAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Cancel<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -32,13 +42,13 @@ impl IVssAsync_Vtbl {
                 IVssAsync_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Wait<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Wait<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVssAsync_Impl::Wait(this, core::mem::transmute_copy(&dwmilliseconds)).into()
             }
         }
-        unsafe extern "system" fn QueryStatus<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT, preserved: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryStatus<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT, preserved: *mut super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVssAsync_Impl::QueryStatus(this, core::mem::transmute_copy(&phrresult), core::mem::transmute_copy(&preserved)).into()
@@ -55,14 +65,17 @@ impl IVssAsync_Vtbl {
         iid == &<IVssAsync as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IVssAsync {}
 windows_core::imp::define_interface!(IVssEnumObject, IVssEnumObject_Vtbl, 0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
 windows_core::imp::interface_hierarchy!(IVssEnumObject, windows_core::IUnknown);
 impl IVssEnumObject {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -76,26 +89,34 @@ impl IVssEnumObject {
 #[doc(hidden)]
 pub struct IVssEnumObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut VSS_OBJECT_PROP, *mut u32) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut VSS_OBJECT_PROP, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    Next: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IVssEnumObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self, ppenum: windows_core::OutRef<IVssEnumObject>) -> windows_core::Result<()>;
+    fn Clone(&self, ppenum: *mut Option<IVssEnumObject>) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IVssEnumObject_Vtbl {
     pub const fn new<Identity: IVssEnumObject_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVssEnumObject_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVssEnumObject_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
@@ -125,21 +146,25 @@ impl IVssEnumObject_Vtbl {
         iid == &<IVssEnumObject as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IVssEnumObject {}
 pub type PVSS_APPLICATION_LEVEL = *mut VSS_APPLICATION_LEVEL;
 pub type PVSS_BACKUP_SCHEMA = *mut VSS_BACKUP_SCHEMA;
 pub type PVSS_BACKUP_TYPE = *mut VSS_BACKUP_TYPE;
 pub type PVSS_FILE_SPEC_BACKUP_TYPE = *mut VSS_FILE_SPEC_BACKUP_TYPE;
 pub type PVSS_HARDWARE_OPTIONS = *mut VSS_HARDWARE_OPTIONS;
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type PVSS_OBJECT_PROP = *mut VSS_OBJECT_PROP;
 pub type PVSS_OBJECT_TYPE = *mut VSS_OBJECT_TYPE;
 pub type PVSS_PROVIDER_CAPABILITIES = *mut VSS_PROVIDER_CAPABILITIES;
+#[cfg(feature = "guiddef")]
 pub type PVSS_PROVIDER_PROP = *mut VSS_PROVIDER_PROP;
 pub type PVSS_PROVIDER_TYPE = *mut VSS_PROVIDER_TYPE;
 pub type PVSS_RECOVERY_OPTIONS = *mut VSS_RECOVERY_OPTIONS;
 pub type PVSS_RESTORE_TYPE = *mut VSS_RESTORE_TYPE;
 pub type PVSS_ROLLFORWARD_TYPE = *mut VSS_ROLLFORWARD_TYPE;
 pub type PVSS_SNAPSHOT_CONTEXT = *mut VSS_SNAPSHOT_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PVSS_SNAPSHOT_PROP = *mut VSS_SNAPSHOT_PROP;
 pub type PVSS_SNAPSHOT_PROPERTY_ID = *mut VSS_SNAPSHOT_PROPERTY_ID;
 pub type PVSS_SNAPSHOT_STATE = *mut VSS_SNAPSHOT_STATE;
@@ -203,12 +228,14 @@ pub const VSS_FSBT_LOG_SNAPSHOT_REQUIRED: VSS_FILE_SPEC_BACKUP_TYPE = 2048;
 pub type VSS_HARDWARE_OPTIONS = i32;
 pub type VSS_ID = windows_core::GUID;
 pub const VSS_OBJECT_NONE: VSS_OBJECT_TYPE = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct VSS_OBJECT_PROP {
     pub Type: VSS_OBJECT_TYPE,
     pub Obj: VSS_OBJECT_UNION,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl Default for VSS_OBJECT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -219,12 +246,14 @@ pub const VSS_OBJECT_SNAPSHOT: VSS_OBJECT_TYPE = 3;
 pub const VSS_OBJECT_SNAPSHOT_SET: VSS_OBJECT_TYPE = 2;
 pub type VSS_OBJECT_TYPE = i32;
 pub const VSS_OBJECT_TYPE_COUNT: VSS_OBJECT_TYPE = 5;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union VSS_OBJECT_UNION {
     pub Snap: VSS_SNAPSHOT_PROP,
     pub Prov: VSS_PROVIDER_PROP,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl Default for VSS_OBJECT_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -236,15 +265,16 @@ pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_POST_RECOVERY: VSS_HARDWARE_OPTIONS = 
 pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY: VSS_HARDWARE_OPTIONS = 512;
 pub const VSS_ONLUNSTATECHANGE_NOTIFY_READ_WRITE: VSS_HARDWARE_OPTIONS = 256;
 pub type VSS_PROVIDER_CAPABILITIES = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "guiddef")]
+#[derive(Clone, Copy, Default)]
 pub struct VSS_PROVIDER_PROP {
     pub m_ProviderId: VSS_ID,
     pub m_pwszProviderName: VSS_PWSZ,
     pub m_eProviderType: VSS_PROVIDER_TYPE,
     pub m_pwszProviderVersion: VSS_PWSZ,
     pub m_ProviderVersionId: VSS_ID,
-    pub m_ClassId: windows_core::GUID,
+    pub m_ClassId: super::CLSID,
 }
 pub type VSS_PROVIDER_TYPE = i32;
 pub const VSS_PROV_FILESHARE: VSS_PROVIDER_TYPE = 4;
@@ -280,12 +310,13 @@ pub const VSS_SC_DISABLE_CONTENTINDEX: VSS_SNAPSHOT_COMPATIBILITY = 2;
 pub const VSS_SC_DISABLE_DEFRAG: VSS_SNAPSHOT_COMPATIBILITY = 1;
 pub type VSS_SNAPSHOT_COMPATIBILITY = i32;
 pub type VSS_SNAPSHOT_CONTEXT = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct VSS_SNAPSHOT_PROP {
     pub m_SnapshotId: VSS_ID,
     pub m_SnapshotSetId: VSS_ID,
-    pub m_lSnapshotsCount: i32,
+    pub m_lSnapshotsCount: super::LONG,
     pub m_pwszSnapshotDeviceObject: VSS_PWSZ,
     pub m_pwszOriginalVolumeName: VSS_PWSZ,
     pub m_pwszOriginatingMachine: VSS_PWSZ,
@@ -293,7 +324,7 @@ pub struct VSS_SNAPSHOT_PROP {
     pub m_pwszExposedName: VSS_PWSZ,
     pub m_pwszExposedPath: VSS_PWSZ,
     pub m_ProviderId: VSS_ID,
-    pub m_lSnapshotAttributes: i32,
+    pub m_lSnapshotAttributes: super::LONG,
     pub m_tsCreationTimestamp: VSS_TIMESTAMP,
     pub m_eStatus: VSS_SNAPSHOT_STATE,
 }

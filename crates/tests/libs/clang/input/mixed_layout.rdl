@@ -1,0 +1,84 @@
+#[win32]
+mod Fixture {
+    #[align(16)]
+    struct Aligned {
+        value: i32,
+    }
+    struct Container {
+        values: [PackedMixed; 2],
+        tail: i8,
+    }
+    struct Inherited {
+        value: Aligned,
+    }
+    #[packed(4)]
+    struct PackedArray {
+        tag: i8,
+        values: [Aligned; 2],
+    }
+    #[packed(4)]
+    struct PackedBitfields {
+        tag: i8,
+        _bitfield: u64 {
+            low: 3,
+            high: 5,
+        },
+        value: Aligned,
+    }
+    #[packed(4)]
+    struct PackedChild {
+        tag: i8,
+        value: Aligned,
+    }
+    #[packed(4)]
+    struct PackedInherited {
+        tag: i8,
+        value: Inherited,
+    }
+    #[packed(4)]
+    struct PackedMember {
+        tag: i8,
+        #[align(16)]
+        value: i32,
+        tail: i8,
+    }
+    #[packed(4)]
+    struct PackedMixed {
+        tag: i8,
+        pointer: *mut void,
+        value: Aligned,
+        tail: i8,
+    }
+    #[packed(4)]
+    struct PackedNames {
+        __padding_1: i8,
+        #[align(16)]
+        value: i32,
+    }
+    #[packed(4)]
+    struct PackedNatural {
+        tag: i8,
+        value: i64,
+    }
+    #[packed(4)]
+    struct PackedStandard {
+        tag: i8,
+        value: StandardAligned,
+    }
+    #[packed(4)]
+    union PackedUnion {
+        aligned: Aligned,
+        number: i64,
+        bytes: [i8; 19],
+    }
+    #[align(16)]
+    #[packed(4)]
+    struct PackedWhole {
+        tag: i8,
+        value: i64,
+    }
+    #[align(16)]
+    struct StandardAligned {
+        value: i32,
+    }
+}

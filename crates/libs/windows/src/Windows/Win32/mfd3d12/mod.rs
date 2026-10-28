@@ -1,10 +1,11 @@
-#[cfg(feature = "d3d12")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "d3d12", feature = "guiddef"))]
 #[inline]
-pub unsafe fn MFCreateD3D12SynchronizationObject<P0>(pdevice: P0, riid: *const windows_core::GUID, ppvsyncobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn MFCreateD3D12SynchronizationObject<P0>(pdevice: P0, riid: *const super::IID, ppvsyncobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::ID3D12Device>,
 {
-    windows_core::link!("mfplat.dll" "C" fn MFCreateD3D12SynchronizationObject(pdevice : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "C" fn MFCreateD3D12SynchronizationObject(pdevice : *mut core::ffi::c_void, riid : *const super::IID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateD3D12SynchronizationObject(pdevice.param().abi(), riid, ppvsyncobject as _) }
 }
 windows_core::imp::define_interface!(IMFD3D12SynchronizationObject, IMFD3D12SynchronizationObject_Vtbl, 0x802302b0_82de_45e1_b421_f19ee5bdaf23);
@@ -12,7 +13,7 @@ windows_core::imp::interface_hierarchy!(IMFD3D12SynchronizationObject, windows_c
 impl IMFD3D12SynchronizationObject {
     #[cfg(feature = "winnt")]
     pub unsafe fn SignalEventOnFinalResourceRelease(&self, hevent: super::HANDLE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SignalEventOnFinalResourceRelease)(windows_core::Interface::as_raw(self), hevent) }
+        unsafe { (windows_core::Interface::vtable(self).SignalEventOnFinalResourceRelease)(windows_core::Interface::as_raw(self), hevent as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
@@ -79,7 +80,7 @@ impl IMFD3D12SynchronizationObjectCommands {
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn SignalEventOnResourceReady(&self, hevent: super::HANDLE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SignalEventOnResourceReady)(windows_core::Interface::as_raw(self), hevent) }
+        unsafe { (windows_core::Interface::vtable(self).SignalEventOnResourceReady)(windows_core::Interface::as_raw(self), hevent as _) }
     }
     #[cfg(feature = "d3d12")]
     pub unsafe fn EnqueueResourceRelease<P0>(&self, pconsumercommandqueue: P0) -> windows_core::HRESULT
@@ -160,4 +161,19 @@ impl IMFD3D12SynchronizationObjectCommands_Vtbl {
 impl windows_core::RuntimeName for IMFD3D12SynchronizationObjectCommands {}
 pub const MF_D3D11_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = 0;
 pub const MF_D3D12_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = 1;
+pub const MF_D3D12_SYNCHRONIZATION_OBJECT: windows_core::GUID = windows_core::GUID::from_u128(0x2a7c8d6a_85a6_494d_a046_06ea1a138f4b);
+pub const MF_MT_D3D12_CPU_READBACK: windows_core::GUID = windows_core::GUID::from_u128(0x28ee9fe3_d481_46a6_b98a_7f69d5280e82);
+pub const MF_MT_D3D12_RESOURCE_DIMENSION: windows_core::GUID = windows_core::GUID::from_u128(0x5f772624_16ca_4b89_9651_5ddf769f8ab8);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: windows_core::GUID = windows_core::GUID::from_u128(0xa6a1e439_2f96_4ab5_98dc_adf74973505d);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: windows_core::GUID = windows_core::GUID::from_u128(0xb1138dc3_01d5_4c14_9bdc_cdc9336f55b9);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: windows_core::GUID = windows_core::GUID::from_u128(0xeeac2585_3430_498c_84a2_77b1bba570f6);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS: windows_core::GUID = windows_core::GUID::from_u128(0x0a4940b2_cfd6_4738_9d02_98113734015a);
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: windows_core::GUID = windows_core::GUID::from_u128(0x82c85647_5057_4960_9559_f45b8e271427);
+pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: windows_core::GUID = windows_core::GUID::from_u128(0xba06bfac_ffe3_474a_ab55_161ee4417a2e);
+pub const MF_MT_D3D12_TEXTURE_LAYOUT: windows_core::GUID = windows_core::GUID::from_u128(0x97c85caa_0beb_4ee1_9715_f22fad8c10f5);
+pub const MF_MT_D3D_RESOURCE_VERSION: windows_core::GUID = windows_core::GUID::from_u128(0x174f1e85_fe26_453d_b52e_5bdd4e55b944);
 pub type MF_MT_D3D_RESOURCE_VERSION_ENUM = i32;
+pub const MF_SA_D3D12_AWARE: windows_core::GUID = windows_core::GUID::from_u128(0x77f0bacb_17a8_4a50_9a7d_a5cc09d39d44);
+pub const MF_SA_D3D12_CLEAR_VALUE: windows_core::GUID = windows_core::GUID::from_u128(0x86ba9a39_0526_495d_9ab5_54ec9fad6fc3);
+pub const MF_SA_D3D12_HEAP_FLAGS: windows_core::GUID = windows_core::GUID::from_u128(0x496b3266_d28f_4f8c_93a7_4a596b1a31a1);
+pub const MF_SA_D3D12_HEAP_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x56f26a76_bbc1_4ce0_bb11_e22368d874ed);

@@ -12,47 +12,47 @@ pub struct SPGRAMMARHANDLE__ {
     pub unused: i32,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPARSEINFO {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub hRule: SPRULEHANDLE,
-    pub ullAudioStreamPosition: u64,
-    pub ulAudioSize: u32,
-    pub cTransitions: u32,
+    pub ullAudioStreamPosition: super::ULONGLONG,
+    pub ulAudioSize: super::ULONG,
+    pub cTransitions: super::ULONG,
     pub pPath: *mut SPPATHENTRY,
     pub SREngineID: windows_sys::core::GUID,
-    pub ulSREnginePrivateDataSize: u32,
-    pub pSREnginePrivateData: *const u8,
+    pub ulSREnginePrivateDataSize: super::ULONG,
+    pub pSREnginePrivateData: *const super::BYTE,
     pub fHypothesis: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPATHENTRY {
     pub hTransition: SPTRANSITIONID,
     pub elem: super::SPPHRASEELEMENT,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEALT {
     pub pPhrase: *mut core::ffi::c_void,
-    pub ulStartElementInParent: u32,
-    pub cElementsInParent: u32,
-    pub cElementsInAlternate: u32,
+    pub ulStartElementInParent: super::ULONG,
+    pub cElementsInParent: super::ULONG,
+    pub cElementsInAlternate: super::ULONG,
     pub pvAltExtra: *mut core::ffi::c_void,
-    pub cbAltExtra: u32,
+    pub cbAltExtra: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEALTREQUEST {
-    pub ulStartElement: u32,
-    pub cElements: u32,
-    pub ulRequestAltCount: u32,
+    pub ulStartElement: super::ULONG,
+    pub cElements: super::ULONG,
+    pub ulRequestAltCount: super::ULONG,
     pub pvResultExtra: *mut core::ffi::c_void,
-    pub cbResultExtra: u32,
+    pub cbResultExtra: super::ULONG,
     pub pPhrase: *mut core::ffi::c_void,
     pub pRecoContext: *mut core::ffi::c_void,
 }
@@ -80,29 +80,29 @@ pub struct SPRECOCONTEXTHANDLE__ {
 }
 pub const SPRECOEXTENSION: windows_sys::core::PCWSTR = windows_sys::core::w!("RecoExtension");
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPRECORESULTINFO {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub eResultType: SPRESULTTYPE,
     pub fHypothesis: windows_sys::core::BOOL,
     pub fProprietaryAutoPause: windows_sys::core::BOOL,
-    pub ullStreamPosStart: u64,
-    pub ullStreamPosEnd: u64,
+    pub ullStreamPosStart: super::ULONGLONG,
+    pub ullStreamPosEnd: super::ULONGLONG,
     pub hGrammar: SPGRAMMARHANDLE,
-    pub ulSizeEngineData: u32,
+    pub ulSizeEngineData: super::ULONG,
     pub pvEngineData: *mut core::ffi::c_void,
     pub pPhrase: *mut core::ffi::c_void,
     pub aPhraseAlts: *mut SPPHRASEALT,
-    pub ulNumAlts: u32,
+    pub ulNumAlts: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPRECORESULTINFOEX {
-    pub Base: SPRECORESULTINFO,
-    pub ullStreamTimeStart: u64,
-    pub ullStreamTimeEnd: u64,
+    pub base: SPRECORESULTINFO,
+    pub ullStreamTimeStart: super::ULONGLONG,
+    pub ullStreamTimeEnd: super::ULONGLONG,
 }
 pub type SPRESULTTYPE = i32;
 pub const SPRIO_NONE: SPRULEINFOOPT = 0;
@@ -114,12 +114,12 @@ pub const SPRT_PROPRIETARY: SPRESULTTYPE = 2;
 pub const SPRT_SLM: SPRESULTTYPE = 1;
 pub const SPRT_TYPE_MASK: SPRESULTTYPE = 3;
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPRULEENTRY {
     pub hRule: SPRULEHANDLE,
     pub hInitialState: super::SPSTATEHANDLE,
-    pub Attributes: u32,
+    pub Attributes: super::DWORD,
     pub pvClientRuleContext: *mut core::ffi::c_void,
     pub pvClientGrammarContext: *mut core::ffi::c_void,
 }
@@ -131,66 +131,67 @@ pub struct SPRULEHANDLE__ {
 }
 pub type SPRULEINFOOPT = i32;
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPSTATEINFO {
-    pub cAllocatedEntries: u32,
+    pub cAllocatedEntries: super::ULONG,
     pub pTransitions: *mut SPTRANSITIONENTRY,
-    pub cEpsilons: u32,
-    pub cRules: u32,
-    pub cWords: u32,
-    pub cSpecialTransitions: u32,
+    pub cEpsilons: super::ULONG,
+    pub cRules: super::ULONG,
+    pub cWords: super::ULONG,
+    pub cSpecialTransitions: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPTMTHREADINFO {
     pub lPoolSize: i32,
     pub lPriority: i32,
-    pub ulConcurrencyLimit: u32,
-    pub ulMaxQuickAllocThreads: u32,
+    pub ulConcurrencyLimit: super::ULONG,
+    pub ulMaxQuickAllocThreads: super::ULONG,
 }
 pub const SPTRANSDICTATION: SPTRANSITIONTYPE = 5;
 pub const SPTRANSEPSILON: SPTRANSITIONTYPE = 0;
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct SPTRANSITIONENTRY {
     pub ID: SPTRANSITIONID,
     pub hNextState: super::SPSTATEHANDLE,
-    pub Type: u8,
+    pub Type: super::BYTE,
     pub RequiredConfidence: i8,
     pub Anonymous: SPTRANSITIONENTRY_0,
     pub Weight: f32,
     pub Anonymous2: SPTRANSITIONENTRY_1,
 }
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 impl Default for SPTRANSITIONENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPTRANSITIONENTRY_0 {
-    pub fHasProperty: u32,
+    pub fHasProperty: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union SPTRANSITIONENTRY_1 {
     pub Anonymous: SPTRANSITIONENTRY_1_0,
     pub Anonymous2: SPTRANSITIONENTRY_1_1,
     pub Anonymous3: SPTRANSITIONENTRY_1_2,
 }
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 impl Default for SPTRANSITIONENTRY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPTRANSITIONENTRY_1_0 {
     pub hRuleInitialState: super::SPSTATEHANDLE,
@@ -198,14 +199,14 @@ pub struct SPTRANSITIONENTRY_1_0 {
     pub pvClientRuleContext: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPTRANSITIONENTRY_1_1 {
     pub hWord: SPWORDHANDLE,
     pub pvClientWordContext: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPTRANSITIONENTRY_1_2 {
     pub pvGrammarCookie: *mut core::ffi::c_void,
@@ -217,15 +218,15 @@ pub struct SPTRANSITIONID__ {
     pub unused: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPTRANSITIONPROPERTY {
     pub pszName: windows_sys::core::PCWSTR,
-    pub ulId: u32,
+    pub ulId: super::ULONG,
     pub pszValue: windows_sys::core::PCWSTR,
     pub vValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPTRANSITIONPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -245,25 +246,25 @@ pub const SPVES_VOLUME: SPVESACTIONS = 8;
 pub type SPVSKIPTYPE = i32;
 pub const SPVST_SENTENCE: SPVSKIPTYPE = 1;
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPVTEXTFRAG {
     pub pNext: *mut Self,
     pub State: super::SPVSTATE,
     pub pTextStart: windows_sys::core::PCWSTR,
-    pub ulTextLen: u32,
-    pub ulTextSrcOffset: u32,
+    pub ulTextLen: super::ULONG,
+    pub ulTextSrcOffset: super::ULONG,
 }
 pub const SPWIO_NONE: SPWORDINFOOPT = 0;
 pub const SPWIO_WANT_TEXT: SPWORDINFOOPT = 1;
 #[repr(C)]
-#[cfg(feature = "sapi")]
+#[cfg(all(feature = "sapi", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPWORDENTRY {
     pub hWord: SPWORDHANDLE,
-    pub LangID: u16,
-    pub pszDisplayText: *mut u16,
-    pub pszLexicalForm: *mut u16,
+    pub LangID: super::WORD,
+    pub pszDisplayText: *mut super::WCHAR,
+    pub pszLexicalForm: *mut super::WCHAR,
     pub aPhoneId: *mut super::SPPHONEID,
     pub pvClientContext: *mut core::ffi::c_void,
 }

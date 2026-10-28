@@ -187,6 +187,7 @@ pub const CODECAPI_AVEncStatAudioAverageBPS: windows_sys::core::GUID = windows_s
 pub const CODECAPI_AVEncStatAudioAveragePCMValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x979272f8_d17f_4e32_bb73_4e731c68ba2d);
 pub const CODECAPI_AVEncStatAudioPeakPCMValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdce7fd34_dc00_4c16_821b_35d9eb00fb1a);
 pub const CODECAPI_AVEncStatAverageBPS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xca6724db_7059_4351_8b43_f82198826a14);
+pub const CODECAPI_AVEncStatBandwidthProcessorUtilitization: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0124ba9b_dc41_4826_b45f_18ac01b3d5a8);
 pub const CODECAPI_AVEncStatCommonCompletedPasses: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3e5de533_9df7_438c_854f_9f7dd3683d34);
 pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0124ba9b_dc41_4826_b45f_18ac01b3d5a8);
 pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x995dc027_cb95_49e6_b91b_5967753cdcb8);

@@ -1,0 +1,13 @@
+#[win32]
+mod Fixture {
+    extern "C" fn ByteExtent(#[iid_is] #[out] #[out_ptr(null_on_failure)] #[readable(success, bytes(unknown()), indirect)] value: *mut *mut void);
+    extern "C" fn Conditional(enabled: i32, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "enabled,_Out_", "enabled,_Out_")] #[iid_is] #[out] #[out_ptr(null_on_failure)] #[readable(success, unknown(), indirect)] value: *mut *mut void);
+    extern "C" fn DataExtent(#[readable(success, unknown(), indirect)] value: *mut *mut u8);
+    extern "C" fn Entry(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*value,_Pre_readable_size_(_Inexpressible_(varies))", "*value,_Pre_readable_size_(_Inexpressible_(varies))")] #[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn KnownCount(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*value,_Post_readable_size_(1)", "*value,_Post_readable_size_(1)")] #[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn Mixed(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*value,_Post_readable_size_(_Inexpressible_(varies)) _Post_writable_size_(1)", "*value,_Post_readable_size_(_Inexpressible_(varies)) _Post_writable_size_(1)")] #[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn OtherSubject(other: *mut *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*other,_Post_readable_size_(_Inexpressible_(varies))", "*other,_Post_readable_size_(_Inexpressible_(varies))")] #[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn QueryExtent(#[iid_is] #[out] #[out_ptr(null_on_failure)] #[readable(success, unknown(), indirect)] value: *mut *mut void);
+    extern "C" fn Scoped(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*value,_Post_readable_size_(_Inexpressible_(varies))", "*value,_Post_readable_size_(_Inexpressible_(varies))", Modifiers = "_Pre_")] #[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+    extern "C" fn Slot(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "value,_Post_readable_size_(_Inexpressible_(varies))", "value,_Post_readable_size_(_Inexpressible_(varies))")] #[iid_is] #[out] #[out_ptr(null_on_failure)] value: *mut *mut void);
+}

@@ -1,325 +1,351 @@
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW {
     pub State: MIB_TCP_STATE,
     pub LocalAddr: super::IN6_ADDR,
-    pub dwLocalScopeId: u32,
-    pub dwLocalPort: u32,
+    pub dwLocalScopeId: super::DWORD,
+    pub dwLocalPort: super::DWORD,
     pub RemoteAddr: super::IN6_ADDR,
-    pub dwRemoteScopeId: u32,
-    pub dwRemotePort: u32,
+    pub dwRemoteScopeId: super::DWORD,
+    pub dwRemotePort: super::DWORD,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for MIB_TCP6ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW2 {
     pub LocalAddr: super::IN6_ADDR,
-    pub dwLocalScopeId: u32,
-    pub dwLocalPort: u32,
+    pub dwLocalScopeId: super::DWORD,
+    pub dwLocalPort: super::DWORD,
     pub RemoteAddr: super::IN6_ADDR,
-    pub dwRemoteScopeId: u32,
-    pub dwRemotePort: u32,
+    pub dwRemoteScopeId: super::DWORD,
+    pub dwRemotePort: super::DWORD,
     pub State: MIB_TCP_STATE,
-    pub dwOwningPid: u32,
+    pub dwOwningPid: super::DWORD,
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for MIB_TCP6ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW_OWNER_MODULE {
-    pub ucLocalAddr: [u8; 16],
-    pub dwLocalScopeId: u32,
-    pub dwLocalPort: u32,
-    pub ucRemoteAddr: [u8; 16],
-    pub dwRemoteScopeId: u32,
-    pub dwRemotePort: u32,
-    pub dwState: u32,
-    pub dwOwningPid: u32,
+    pub ucLocalAddr: [super::UCHAR; 16],
+    pub dwLocalScopeId: super::DWORD,
+    pub dwLocalPort: super::DWORD,
+    pub ucRemoteAddr: [super::UCHAR; 16],
+    pub dwRemoteScopeId: super::DWORD,
+    pub dwRemotePort: super::DWORD,
+    pub dwState: super::DWORD,
+    pub dwOwningPid: super::DWORD,
     pub liCreateTimestamp: super::LARGE_INTEGER,
-    pub OwningModuleInfo: [u64; 16],
+    pub OwningModuleInfo: [super::ULONGLONG; 16],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIB_TCP6ROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW_OWNER_PID {
-    pub ucLocalAddr: [u8; 16],
-    pub dwLocalScopeId: u32,
-    pub dwLocalPort: u32,
-    pub ucRemoteAddr: [u8; 16],
-    pub dwRemoteScopeId: u32,
-    pub dwRemotePort: u32,
-    pub dwState: u32,
-    pub dwOwningPid: u32,
+    pub ucLocalAddr: [super::UCHAR; 16],
+    pub dwLocalScopeId: super::DWORD,
+    pub dwLocalPort: super::DWORD,
+    pub ucRemoteAddr: [super::UCHAR; 16],
+    pub dwRemoteScopeId: super::DWORD,
+    pub dwRemotePort: super::DWORD,
+    pub dwState: super::DWORD,
+    pub dwOwningPid: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCP6ROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCP6ROW; 1],
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for MIB_TCP6TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE2 {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCP6ROW2; 1],
 }
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 impl Default for MIB_TCP6TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE_OWNER_MODULE {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCP6ROW_OWNER_MODULE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIB_TCP6TABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE_OWNER_PID {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCP6ROW_OWNER_PID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCP6TABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type MIB_TCPROW = MIB_TCPROW_LH;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_TCPROW2 {
-    pub dwState: u32,
-    pub dwLocalAddr: u32,
-    pub dwLocalPort: u32,
-    pub dwRemoteAddr: u32,
-    pub dwRemotePort: u32,
-    pub dwOwningPid: u32,
+    pub dwState: super::DWORD,
+    pub dwLocalAddr: super::DWORD,
+    pub dwLocalPort: super::DWORD,
+    pub dwRemoteAddr: super::DWORD,
+    pub dwRemotePort: super::DWORD,
+    pub dwOwningPid: super::DWORD,
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPROW_LH {
     pub Anonymous: MIB_TCPROW_LH_0,
-    pub dwLocalAddr: u32,
-    pub dwLocalPort: u32,
-    pub dwRemoteAddr: u32,
-    pub dwRemotePort: u32,
+    pub dwLocalAddr: super::DWORD,
+    pub dwLocalPort: super::DWORD,
+    pub dwRemoteAddr: super::DWORD,
+    pub dwRemotePort: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCPROW_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MIB_TCPROW_LH_0 {
-    pub dwState: u32,
+    pub dwState: super::DWORD,
     pub State: MIB_TCP_STATE,
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCPROW_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPROW_OWNER_MODULE {
-    pub dwState: u32,
-    pub dwLocalAddr: u32,
-    pub dwLocalPort: u32,
-    pub dwRemoteAddr: u32,
-    pub dwRemotePort: u32,
-    pub dwOwningPid: u32,
+    pub dwState: super::DWORD,
+    pub dwLocalAddr: super::DWORD,
+    pub dwLocalPort: super::DWORD,
+    pub dwRemoteAddr: super::DWORD,
+    pub dwRemotePort: super::DWORD,
+    pub dwOwningPid: super::DWORD,
     pub liCreateTimestamp: super::LARGE_INTEGER,
-    pub OwningModuleInfo: [u64; 16],
+    pub OwningModuleInfo: [super::ULONGLONG; 16],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIB_TCPROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_TCPROW_OWNER_PID {
-    pub dwState: u32,
-    pub dwLocalAddr: u32,
-    pub dwLocalPort: u32,
-    pub dwRemoteAddr: u32,
-    pub dwRemotePort: u32,
-    pub dwOwningPid: u32,
+    pub dwState: super::DWORD,
+    pub dwLocalAddr: super::DWORD,
+    pub dwLocalPort: super::DWORD,
+    pub dwRemoteAddr: super::DWORD,
+    pub dwRemotePort: super::DWORD,
+    pub dwOwningPid: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_TCPROW_W2K {
-    pub dwState: u32,
-    pub dwLocalAddr: u32,
-    pub dwLocalPort: u32,
-    pub dwRemoteAddr: u32,
-    pub dwRemotePort: u32,
+    pub dwState: super::DWORD,
+    pub dwLocalAddr: super::DWORD,
+    pub dwLocalPort: super::DWORD,
+    pub dwRemoteAddr: super::DWORD,
+    pub dwRemotePort: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type MIB_TCPSTATS = MIB_TCPSTATS_LH;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_TCPSTATS2 {
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
-    pub dwRtoMin: u32,
-    pub dwRtoMax: u32,
-    pub dwMaxConn: u32,
-    pub dwActiveOpens: u32,
-    pub dwPassiveOpens: u32,
-    pub dwAttemptFails: u32,
-    pub dwEstabResets: u32,
-    pub dwCurrEstab: u32,
-    pub dw64InSegs: u64,
-    pub dw64OutSegs: u64,
-    pub dwRetransSegs: u32,
-    pub dwInErrs: u32,
-    pub dwOutRsts: u32,
-    pub dwNumConns: u32,
+    pub dwRtoMin: super::DWORD,
+    pub dwRtoMax: super::DWORD,
+    pub dwMaxConn: super::DWORD,
+    pub dwActiveOpens: super::DWORD,
+    pub dwPassiveOpens: super::DWORD,
+    pub dwAttemptFails: super::DWORD,
+    pub dwEstabResets: super::DWORD,
+    pub dwCurrEstab: super::DWORD,
+    pub dw64InSegs: super::DWORD64,
+    pub dw64OutSegs: super::DWORD64,
+    pub dwRetransSegs: super::DWORD,
+    pub dwInErrs: super::DWORD,
+    pub dwOutRsts: super::DWORD,
+    pub dwNumConns: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPSTATS_LH {
     pub Anonymous: MIB_TCPSTATS_LH_0,
-    pub dwRtoMin: u32,
-    pub dwRtoMax: u32,
-    pub dwMaxConn: u32,
-    pub dwActiveOpens: u32,
-    pub dwPassiveOpens: u32,
-    pub dwAttemptFails: u32,
-    pub dwEstabResets: u32,
-    pub dwCurrEstab: u32,
-    pub dwInSegs: u32,
-    pub dwOutSegs: u32,
-    pub dwRetransSegs: u32,
-    pub dwInErrs: u32,
-    pub dwOutRsts: u32,
-    pub dwNumConns: u32,
+    pub dwRtoMin: super::DWORD,
+    pub dwRtoMax: super::DWORD,
+    pub dwMaxConn: super::DWORD,
+    pub dwActiveOpens: super::DWORD,
+    pub dwPassiveOpens: super::DWORD,
+    pub dwAttemptFails: super::DWORD,
+    pub dwEstabResets: super::DWORD,
+    pub dwCurrEstab: super::DWORD,
+    pub dwInSegs: super::DWORD,
+    pub dwOutSegs: super::DWORD,
+    pub dwRetransSegs: super::DWORD,
+    pub dwInErrs: super::DWORD,
+    pub dwOutRsts: super::DWORD,
+    pub dwNumConns: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCPSTATS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MIB_TCPSTATS_LH_0 {
-    pub dwRtoAlgorithm: u32,
+    pub dwRtoAlgorithm: super::DWORD,
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCPSTATS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_TCPSTATS_W2K {
-    pub dwRtoAlgorithm: u32,
-    pub dwRtoMin: u32,
-    pub dwRtoMax: u32,
-    pub dwMaxConn: u32,
-    pub dwActiveOpens: u32,
-    pub dwPassiveOpens: u32,
-    pub dwAttemptFails: u32,
-    pub dwEstabResets: u32,
-    pub dwCurrEstab: u32,
-    pub dwInSegs: u32,
-    pub dwOutSegs: u32,
-    pub dwRetransSegs: u32,
-    pub dwInErrs: u32,
-    pub dwOutRsts: u32,
-    pub dwNumConns: u32,
+    pub dwRtoAlgorithm: super::DWORD,
+    pub dwRtoMin: super::DWORD,
+    pub dwRtoMax: super::DWORD,
+    pub dwMaxConn: super::DWORD,
+    pub dwActiveOpens: super::DWORD,
+    pub dwPassiveOpens: super::DWORD,
+    pub dwAttemptFails: super::DWORD,
+    pub dwEstabResets: super::DWORD,
+    pub dwCurrEstab: super::DWORD,
+    pub dwInSegs: super::DWORD,
+    pub dwOutSegs: super::DWORD,
+    pub dwRetransSegs: super::DWORD,
+    pub dwInErrs: super::DWORD,
+    pub dwOutRsts: super::DWORD,
+    pub dwNumConns: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPTABLE {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCPROW; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCPTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPTABLE2 {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCPROW2; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCPTABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPTABLE_OWNER_MODULE {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCPROW_OWNER_MODULE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIB_TCPTABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_TCPTABLE_OWNER_PID {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_TCPROW_OWNER_PID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_TCPTABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MIB_TCP_MAXCONN_DYNAMIC: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const MIB_TCP_MAXCONN_DYNAMIC: super::ULONG = 4294967295;
 pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = 2;
 pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = 1;
 pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = 3;
@@ -338,39 +364,52 @@ pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = 100;
 pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = 4;
 pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = 3;
 pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PMIB_TCP6ROW = *mut MIB_TCP6ROW;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PMIB_TCP6ROW2 = *mut MIB_TCP6ROW2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIB_TCP6ROW_OWNER_MODULE = *mut MIB_TCP6ROW_OWNER_MODULE;
+#[cfg(feature = "shared")]
 pub type PMIB_TCP6ROW_OWNER_PID = *mut MIB_TCP6ROW_OWNER_PID;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PMIB_TCP6TABLE = *mut MIB_TCP6TABLE;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type PMIB_TCP6TABLE2 = *mut MIB_TCP6TABLE2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIB_TCP6TABLE_OWNER_MODULE = *mut MIB_TCP6TABLE_OWNER_MODULE;
+#[cfg(feature = "shared")]
 pub type PMIB_TCP6TABLE_OWNER_PID = *mut MIB_TCP6TABLE_OWNER_PID;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPROW = *mut MIB_TCPROW_LH;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPROW2 = *mut MIB_TCPROW2;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPROW_LH = *mut MIB_TCPROW_LH;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIB_TCPROW_OWNER_MODULE = *mut MIB_TCPROW_OWNER_MODULE;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPROW_OWNER_PID = *mut MIB_TCPROW_OWNER_PID;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPROW_W2K = *mut MIB_TCPROW_W2K;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPSTATS = *mut MIB_TCPSTATS_LH;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPSTATS2 = *mut MIB_TCPSTATS2;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPSTATS_LH = *mut MIB_TCPSTATS_LH;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPSTATS_W2K = *mut MIB_TCPSTATS_W2K;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPTABLE = *mut MIB_TCPTABLE;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPTABLE2 = *mut MIB_TCPTABLE2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIB_TCPTABLE_OWNER_MODULE = *mut MIB_TCPTABLE_OWNER_MODULE;
+#[cfg(feature = "shared")]
 pub type PMIB_TCPTABLE_OWNER_PID = *mut MIB_TCPTABLE_OWNER_PID;
 pub type PTCP_CONNECTION_OFFLOAD_STATE = *mut TCP_CONNECTION_OFFLOAD_STATE;
 pub type PTCP_RTO_ALGORITHM = *mut TCP_RTO_ALGORITHM;
-pub const TCPIP_OWNING_MODULE_SIZE: i32 = 16;
 pub type TCP_CONNECTION_OFFLOAD_STATE = i32;
 pub type TCP_RTO_ALGORITHM = i32;
 pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = 0;

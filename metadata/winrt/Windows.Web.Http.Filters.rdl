@@ -28,22 +28,23 @@ mod Windows {
                 class HttpCacheControl {
                     IHttpCacheControl,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum HttpCacheReadBehavior {
                     Default = 0,
                     MostRecent = 1,
                     OnlyFromCache = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     NoCache = 3,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum HttpCacheWriteBehavior {
                     Default = 0,
                     NoCache = 1,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[repr(i32)]
                 enum HttpCookieUsageBehavior {
                     Default = 0,
                     NoCookies = 1,
@@ -54,9 +55,9 @@ mod Windows {
                 class HttpServerCustomValidationRequestedEventArgs {
                     IHttpServerCustomValidationRequestedEventArgs,
                 }
-                #[guid(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[guid(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb)]
                 interface IHttpBaseProtocolFilter {
                     AllowAutoRedirect: bool;
                     AllowUI: bool;
@@ -73,54 +74,54 @@ mod Windows {
                     ServerCredential: super::super::super::Security::Credentials::PasswordCredential;
                     UseProxy: bool;
                 }
-                #[guid(0x2ec30013_9427_4900_a017_fa7da3b5c9ae)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[guid(0x2ec30013_9427_4900_a017_fa7da3b5c9ae)]
                 interface IHttpBaseProtocolFilter2 {
                     MaxVersion: super::HttpVersion;
                 }
-                #[guid(0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[guid(0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937)]
                 interface IHttpBaseProtocolFilter3 {
                     CookieUsageBehavior: HttpCookieUsageBehavior;
                 }
-                #[guid(0x9fe36ccf_2983_4893_941f_eb518ca8cef9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[guid(0x9fe36ccf_2983_4893_941f_eb518ca8cef9)]
                 interface IHttpBaseProtocolFilter4 {
                     event ServerCustomValidationRequested: super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>;
                     fn ClearAuthenticationCache(&self);
                 }
-                #[guid(0x416e4993_31e3_4816_bf09_e018ee8dc1f5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[guid(0x416e4993_31e3_4816_bf09_e018ee8dc1f5)]
                 interface IHttpBaseProtocolFilter5 {
                     #[get]
                     User: super::super::super::System::User;
                 }
-                #[guid(0x6d4dee0c_e908_494e_b5a3_1263c9b8242a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[guid(0x6d4dee0c_e908_494e_b5a3_1263c9b8242a)]
                 interface IHttpBaseProtocolFilterStatics {
-                    fn CreateForUser(&self, user: super::super::super::System::User) -> HttpBaseProtocolFilter;
+                    fn CreateForUser(&self, #[in] user: super::super::super::System::User) -> HttpBaseProtocolFilter;
                 }
-                #[guid(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpCacheControl)]
+                #[guid(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7)]
                 interface IHttpCacheControl {
                     ReadBehavior: HttpCacheReadBehavior;
                     WriteBehavior: HttpCacheWriteBehavior;
                 }
-                #[guid(0xa4cb6dd5_0902_439e_bfd7_e12552b165ce)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0xa4cb6dd5_0902_439e_bfd7_e12552b165ce)]
                 interface IHttpFilter: super::super::super::Foundation::IClosable {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SendRequestAsync(&self, request: super::HttpRequestMessage) -> super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>;
+                    fn SendRequestAsync(&self, #[in] request: super::HttpRequestMessage) -> super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>;
                 }
-                #[guid(0x3165fe32_e7dd_48b7_a361_939c750e63cc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpServerCustomValidationRequestedEventArgs)]
+                #[guid(0x3165fe32_e7dd_48b7_a361_939c750e63cc)]
                 interface IHttpServerCustomValidationRequestedEventArgs {
                     #[get]
                     RequestMessage: super::HttpRequestMessage;

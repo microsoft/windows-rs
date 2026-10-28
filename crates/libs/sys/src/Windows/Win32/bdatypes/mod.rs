@@ -7,9 +7,10 @@ pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = 4;
 pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = 2;
 pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDANODE_DESCRIPTOR {
-    pub ulBdaNodeType: u32,
+    pub ulBdaNodeType: super::ULONG,
     pub guidFunction: windows_sys::core::GUID,
     pub guidName: windows_sys::core::GUID,
 }
@@ -31,63 +32,73 @@ pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = 15;
 pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = 0;
 pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = -1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_BUFFER {
     pub lResult: PBDARESULT,
-    pub ulBufferSize: u32,
-    pub argbBuffer: [u8; 1],
+    pub ulBufferSize: super::ULONG,
+    pub argbBuffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_CAS_CHECK_ENTITLEMENTTOKEN {
     pub lResult: PBDARESULT,
-    pub ulDescrambleStatus: u32,
+    pub ulDescrambleStatus: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_CAS_CLOSEMMIDATA {
-    pub ulDialogNumber: u32,
+    pub ulDialogNumber: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_CAS_CLOSE_MMIDIALOG {
     pub lResult: PBDARESULT,
-    pub SessionResult: u32,
+    pub SessionResult: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_CAS_OPENMMIDATA {
-    pub ulDialogNumber: u32,
-    pub ulDialogRequest: u32,
+    pub ulDialogNumber: super::ULONG,
+    pub ulDialogRequest: super::ULONG,
     pub uuidDialogType: windows_sys::core::GUID,
-    pub usDialogDataLength: u16,
-    pub argbDialogData: [u8; 1],
+    pub usDialogDataLength: super::USHORT,
+    pub argbDialogData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_CAS_OPENMMIDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_CAS_REQUESTTUNERDATA {
-    pub ucRequestPriority: u8,
-    pub ucRequestReason: u8,
-    pub ucRequestConsequences: u8,
-    pub ulEstimatedTime: u32,
+    pub ucRequestPriority: super::UCHAR,
+    pub ucRequestReason: super::UCHAR,
+    pub ucRequestConsequences: super::UCHAR,
+    pub ulEstimatedTime: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_CA_MODULE_UI {
-    pub ulFormat: u32,
-    pub ulbcDesc: u32,
-    pub ulDesc: [u32; 1],
+    pub ulFormat: super::ULONG,
+    pub ulbcDesc: super::ULONG,
+    pub ulDesc: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_CA_MODULE_UI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -109,81 +120,93 @@ pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = 1;
 pub type BDA_DISCOVERY_STATE = i32;
 pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_DISEQC_RESPONSE {
-    pub ulRequestId: u32,
-    pub ulPacketLength: u32,
-    pub argbPacketData: [u8; 8],
+    pub ulRequestId: super::ULONG,
+    pub ulPacketLength: super::ULONG,
+    pub argbPacketData: [super::BYTE; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_DISEQC_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_DISEQC_SEND {
-    pub ulRequestId: u32,
-    pub ulPacketLength: u32,
-    pub argbPacketData: [u8; 8],
+    pub ulRequestId: super::ULONG,
+    pub ulPacketLength: super::ULONG,
+    pub argbPacketData: [super::BYTE; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_DISEQC_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_DRM_DRMSTATUS {
     pub lResult: PBDARESULT,
     pub DRMuuid: windows_sys::core::GUID,
-    pub ulDrmUuidListStringSize: u32,
+    pub ulDrmUuidListStringSize: super::ULONG,
     pub argbDrmUuidListString: [windows_sys::core::GUID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_DRM_DRMSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_DVBT2_L1_SIGNALLING_DATA {
-    pub L1Pre_TYPE: u8,
-    pub L1Pre_BWT_S1_S2: u8,
-    pub L1Pre_REPETITION_GUARD_PAPR: u8,
-    pub L1Pre_MOD_COD_FEC: u8,
-    pub L1Pre_POSTSIZE_INFO_PILOT: [u8; 5],
-    pub L1Pre_TX_ID_AVAIL: u8,
-    pub L1Pre_CELL_ID: [u8; 2],
-    pub L1Pre_NETWORK_ID: [u8; 2],
-    pub L1Pre_T2SYSTEM_ID: [u8; 2],
-    pub L1Pre_NUM_T2_FRAMES: u8,
-    pub L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT: [u8; 2],
-    pub L1Pre_NUMRF_CURRENTRF_RESERVED: [u8; 2],
-    pub L1Pre_CRC32: [u8; 4],
-    pub L1PostData: [u8; 1],
+    pub L1Pre_TYPE: super::BYTE,
+    pub L1Pre_BWT_S1_S2: super::BYTE,
+    pub L1Pre_REPETITION_GUARD_PAPR: super::BYTE,
+    pub L1Pre_MOD_COD_FEC: super::BYTE,
+    pub L1Pre_POSTSIZE_INFO_PILOT: [super::BYTE; 5],
+    pub L1Pre_TX_ID_AVAIL: super::BYTE,
+    pub L1Pre_CELL_ID: [super::BYTE; 2],
+    pub L1Pre_NETWORK_ID: [super::BYTE; 2],
+    pub L1Pre_T2SYSTEM_ID: [super::BYTE; 2],
+    pub L1Pre_NUM_T2_FRAMES: super::BYTE,
+    pub L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT: [super::BYTE; 2],
+    pub L1Pre_NUMRF_CURRENTRF_RESERVED: [super::BYTE; 2],
+    pub L1Pre_CRC32: [super::BYTE; 4],
+    pub L1PostData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_DVBT2_L1_SIGNALLING_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_ETHERNET_ADDRESS {
-    pub rgbAddress: [u8; 6],
+    pub rgbAddress: [super::BYTE; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_ETHERNET_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_ETHERNET_ADDRESS_LIST {
-    pub ulcAddresses: u32,
+    pub ulcAddresses: super::ULONG,
     pub rgAddressl: [BDA_ETHERNET_ADDRESS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_ETHERNET_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -226,13 +249,15 @@ pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = -1;
 pub type BDA_Frequency = i32;
 pub type BDA_Frequency_Multiplier = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_GDDS_DATA {
     pub lResult: PBDARESULT,
-    pub ulDataLength: u32,
-    pub ulPercentageProgress: u32,
-    pub argbData: [u8; 1],
+    pub ulDataLength: super::ULONG,
+    pub ulPercentageProgress: super::ULONG,
+    pub argbData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_GDDS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -261,88 +286,102 @@ pub const BDA_HALPHA_MAX: HierarchyAlpha = 4;
 pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = 0;
 pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = -1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_IPv4_ADDRESS {
-    pub rgbAddress: [u8; 4],
+    pub rgbAddress: [super::BYTE; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_IPv4_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_IPv4_ADDRESS_LIST {
-    pub ulcAddresses: u32,
+    pub ulcAddresses: super::ULONG,
     pub rgAddressl: [BDA_IPv4_ADDRESS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_IPv4_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_IPv6_ADDRESS {
-    pub rgbAddress: [u8; 6],
+    pub rgbAddress: [super::BYTE; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_IPv6_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_IPv6_ADDRESS_LIST {
-    pub ulcAddresses: u32,
+    pub ulcAddresses: super::ULONG,
     pub rgAddressl: [BDA_IPv6_ADDRESS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_IPv6_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_ISDBCAS_EMG_REQ {
-    pub bCLA: u8,
-    pub bINS: u8,
-    pub bP1: u8,
-    pub bP2: u8,
-    pub bLC: u8,
-    pub bCardId: [u8; 6],
-    pub bProtocol: u8,
-    pub bCABroadcasterGroupId: u8,
-    pub bMessageControl: u8,
-    pub bMessageCode: [u8; 1],
+    pub bCLA: super::BYTE,
+    pub bINS: super::BYTE,
+    pub bP1: super::BYTE,
+    pub bP2: super::BYTE,
+    pub bLC: super::BYTE,
+    pub bCardId: [super::BYTE; 6],
+    pub bProtocol: super::BYTE,
+    pub bCABroadcasterGroupId: super::BYTE,
+    pub bMessageControl: super::BYTE,
+    pub bMessageCode: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_ISDBCAS_EMG_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_ISDBCAS_REQUESTHEADER {
-    pub bInstruction: u8,
-    pub bReserved: [u8; 3],
-    pub ulDataLength: u32,
-    pub argbIsdbCommand: [u8; 1],
+    pub bInstruction: super::BYTE,
+    pub bReserved: [super::BYTE; 3],
+    pub ulDataLength: super::ULONG,
+    pub argbIsdbCommand: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_ISDBCAS_REQUESTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_ISDBCAS_RESPONSEDATA {
     pub lResult: PBDARESULT,
-    pub ulRequestID: u32,
-    pub ulIsdbStatus: u32,
-    pub ulIsdbDataSize: u32,
-    pub argbIsdbCommandData: [u8; 1],
+    pub ulRequestID: super::ULONG,
+    pub ulIsdbStatus: super::ULONG,
+    pub ulIsdbDataSize: super::ULONG,
+    pub argbIsdbCommandData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_ISDBCAS_RESPONSEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -395,31 +434,36 @@ pub const BDA_MOD_QPSK: ModulationType = 20;
 pub const BDA_MOD_RF: ModulationType = 28;
 pub type BDA_MULTICAST_MODE = i32;
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_MUX_PIDLISTITEM {
-    pub usPIDNumber: u16,
-    pub usProgramNumber: u16,
+    pub usPIDNumber: super::USHORT,
+    pub usProgramNumber: super::USHORT,
     pub ePIDType: MUX_PID_TYPE,
 }
 pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_PID_MAP {
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
-    pub ulcPIDs: u32,
-    pub aulPIDs: [u32; 1],
+    pub ulcPIDs: super::ULONG,
+    pub aulPIDs: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_PID_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_PID_UNMAP {
-    pub ulcPIDs: u32,
-    pub aulPIDs: [u32; 1],
+    pub ulcPIDs: super::ULONG,
+    pub aulPIDs: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_PID_UNMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -439,12 +483,14 @@ pub const BDA_POLARISATION_MAX: Polarisation = 5;
 pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = 0;
 pub const BDA_POLARISATION_NOT_SET: Polarisation = -1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_PROGRAM_PID_LIST {
-    pub ulProgramNumber: u32,
-    pub ulcPIDs: u32,
-    pub ulPID: [u32; 1],
+    pub ulProgramNumber: super::ULONG,
+    pub ulcPIDs: super::ULONG,
+    pub ulPID: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_PROGRAM_PID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -454,11 +500,13 @@ pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = 0;
 pub const BDA_RANGE_NOT_DEFINED: BDA_Range = 0;
 pub const BDA_RANGE_NOT_SET: BDA_Range = -1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_RATING_PINRESET {
-    pub bPinLength: u8,
-    pub argbNewPin: [u8; 1],
+    pub bPinLength: super::BYTE,
+    pub argbNewPin: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_RATING_PINRESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -472,10 +520,11 @@ pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = 0;
 pub const BDA_ROLL_OFF_NOT_SET: RollOff = -1;
 pub type BDA_Range = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_SCAN_CAPABILTIES {
     pub lResult: PBDARESULT,
-    pub ul64AnalogStandardsSupported: u64,
+    pub ul64AnalogStandardsSupported: super::UINT64,
 }
 pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = 262144;
 pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = 32;
@@ -508,29 +557,32 @@ pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = 2097152;
 pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = 524288;
 pub const BDA_SCAN_MOD_RF: ScanModulationTypes = 134217728;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_SCAN_START {
     pub lResult: PBDARESULT,
-    pub LowerFrequency: u32,
-    pub HigerFrequency: u32,
+    pub LowerFrequency: super::ULONG,
+    pub HigerFrequency: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_SCAN_STATE {
     pub lResult: PBDARESULT,
-    pub ulSignalLock: u32,
-    pub ulSecondsLeft: u32,
-    pub ulCurrentFrequency: u32,
+    pub ulSignalLock: super::ULONG,
+    pub ulSecondsLeft: super::ULONG,
+    pub ulCurrentFrequency: super::ULONG,
 }
 pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = 2;
 pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = 1;
 pub type BDA_SIGNAL_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_SIGNAL_TIMEOUTS {
-    pub ulCarrierTimeoutMs: u32,
-    pub ulScanningTimeoutMs: u32,
-    pub ulTuningTimeoutMs: u32,
+    pub ulCarrierTimeoutMs: super::ULONG,
+    pub ulScanningTimeoutMs: super::ULONG,
+    pub ulTuningTimeoutMs: super::ULONG,
 }
 pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = 0;
 pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = 1;
@@ -540,83 +592,96 @@ pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = 2;
 pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = 0;
 pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = -1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_STRING {
     pub lResult: PBDARESULT,
-    pub ulStringSize: u32,
-    pub argbString: [u8; 1],
+    pub ulStringSize: super::ULONG,
+    pub argbString: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_TABLE_SECTION {
-    pub ulPrimarySectionId: u32,
-    pub ulSecondarySectionId: u32,
-    pub ulcbSectionLength: u32,
-    pub argbSectionData: [u32; 1],
+    pub ulPrimarySectionId: super::ULONG,
+    pub ulSecondarySectionId: super::ULONG,
+    pub ulcbSectionLength: super::ULONG,
+    pub argbSectionData: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_TABLE_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_TEMPLATE_CONNECTION {
-    pub FromNodeType: u32,
-    pub FromNodePinType: u32,
-    pub ToNodeType: u32,
-    pub ToNodePinType: u32,
+    pub FromNodeType: super::ULONG,
+    pub FromNodePinType: super::ULONG,
+    pub ToNodeType: super::ULONG,
+    pub ToNodePinType: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_TEMPLATE_PIN_JOINT {
-    pub uliTemplateConnection: u32,
-    pub ulcInstancesMax: u32,
+    pub uliTemplateConnection: super::ULONG,
+    pub ulcInstancesMax: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_TS_SELECTORINFO {
-    pub bTSInfolength: u8,
-    pub bReserved: [u8; 2],
+    pub bTSInfolength: super::BYTE,
+    pub bReserved: [super::BYTE; 2],
     pub guidNetworkType: windows_sys::core::GUID,
-    pub bTSIDCount: u8,
-    pub usTSID: [u16; 1],
+    pub bTSIDCount: super::BYTE,
+    pub usTSID: [super::USHORT; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_TS_SELECTORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_TS_SELECTORINFO_ISDBS_EXT {
-    pub bTMCC: [u8; 48],
+    pub bTMCC: [super::BYTE; 48],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_TS_SELECTORINFO_ISDBS_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_TUNER_DIAGNOSTICS {
     pub lResult: PBDARESULT,
-    pub ulSignalLevel: u32,
-    pub ulSignalLevelQuality: u32,
-    pub ulSignalNoiseRatio: u32,
+    pub ulSignalLevel: super::ULONG,
+    pub ulSignalLevelQuality: super::ULONG,
+    pub ulSignalNoiseRatio: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_TUNER_TUNERSTATE {
     pub lResult: PBDARESULT,
-    pub ulTuneLength: u32,
-    pub argbTuneData: [u8; 1],
+    pub ulTuneLength: super::ULONG,
+    pub argbTuneData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_TUNER_TUNERSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -625,10 +690,11 @@ impl Default for BDA_TUNER_TUNERSTATE {
 pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = -1;
 pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = -1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_USERACTIVITY_INTERVAL {
     pub lResult: PBDARESULT,
-    pub ulActivityInterval: u32,
+    pub ulActivityInterval: super::ULONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -637,56 +703,63 @@ pub struct BDA_WMDRMTUNER_PIDPROTECTION {
     pub uuidKeyID: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub lResult: PBDARESULT,
-    pub ulDescrambleStatus: u32,
-    pub ulCaptureTokenLength: u32,
-    pub argbCaptureTokenBuffer: [u8; 1],
+    pub ulDescrambleStatus: super::ULONG,
+    pub ulCaptureTokenLength: super::ULONG,
+    pub argbCaptureTokenBuffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_WMDRM_KEYINFOLIST {
     pub lResult: PBDARESULT,
-    pub ulKeyuuidBufferLen: u32,
+    pub ulKeyuuidBufferLen: super::ULONG,
     pub argKeyuuidBuffer: [windows_sys::core::GUID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_WMDRM_KEYINFOLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BDA_WMDRM_RENEWLICENSE {
     pub lResult: PBDARESULT,
-    pub ulDescrambleStatus: u32,
-    pub ulXmrLicenseOutputLength: u32,
-    pub argbXmrLicenceOutputBuffer: [u8; 1],
+    pub ulDescrambleStatus: super::ULONG,
+    pub ulXmrLicenseOutputLength: super::ULONG,
+    pub argbXmrLicenceOutputBuffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BDA_WMDRM_RENEWLICENSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BDA_WMDRM_STATUS {
     pub lResult: PBDARESULT,
-    pub ulMaxCaptureTokenSize: u32,
-    pub uMaxStreamingPid: u32,
-    pub ulMaxLicense: u32,
-    pub ulMinSecurityLevel: u32,
-    pub ulRevInfoSequenceNumber: u32,
-    pub ulRevInfoIssuedTime: u64,
-    pub ulRevListVersion: u32,
-    pub ulRevInfoTTL: u32,
-    pub ulState: u32,
+    pub ulMaxCaptureTokenSize: super::ULONG,
+    pub uMaxStreamingPid: super::ULONG,
+    pub ulMaxLicense: super::ULONG,
+    pub ulMinSecurityLevel: super::ULONG,
+    pub ulRevInfoSequenceNumber: super::ULONG,
+    pub ulRevInfoIssuedTime: super::ULONGLONG,
+    pub ulRevListVersion: super::ULONG,
+    pub ulRevInfoTTL: super::ULONG,
+    pub ulState: super::ULONG,
 }
 pub const BDA_XMIT_MODE_16K: TransmissionMode = 7;
 pub const BDA_XMIT_MODE_1K: TransmissionMode = 6;
@@ -766,14 +839,15 @@ pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = 128;
 pub const ITU_T_H264: MPEG2StreamType = 27;
 pub const ITU_T_REC_H_222_1: MPEG2StreamType = 9;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_BDA_FRAME_INFO {
-    pub ExtendedHeaderSize: u32,
-    pub dwFrameFlags: u32,
-    pub ulEvent: u32,
-    pub ulChannelNumber: u32,
-    pub ulSubchannelNumber: u32,
-    pub ulReason: u32,
+    pub ExtendedHeaderSize: super::ULONG,
+    pub dwFrameFlags: super::DWORD,
+    pub ulEvent: super::ULONG,
+    pub ulChannelNumber: super::ULONG,
+    pub ulSubchannelNumber: super::ULONG,
+    pub ulReason: super::ULONG,
 }
 pub type LNB_Source = i32;
 pub const MEDIA_ELEMENTARY_STREAM: MEDIA_SAMPLE_CONTENT = 1;
@@ -789,77 +863,125 @@ pub const METADATA_IN_SECTION: MPEG2StreamType = 22;
 pub const MIN_DIMENSION: i32 = 1;
 pub type MPEG2StreamType = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MPEG2_TRANSPORT_STRIDE {
-    pub dwOffset: u32,
-    pub dwPacketLength: u32,
-    pub dwStride: u32,
+    pub dwOffset: super::DWORD,
+    pub dwPacketLength: super::DWORD,
+    pub dwStride: super::DWORD,
 }
 pub const MPEG_H_AUDIO: MPEG2StreamType = 45;
 pub const MPEG_H_AUDIO_MS: MPEG2StreamType = 46;
 pub type MUX_PID_TYPE = i32;
 pub type ModulationType = i32;
+#[cfg(feature = "shared")]
 pub type PBDANODE_DESCRIPTOR = *mut BDANODE_DESCRIPTOR;
 pub type PBDARESULT = i32;
+#[cfg(feature = "shared")]
 pub type PBDA_BUFFER = *mut BDA_BUFFER;
+#[cfg(feature = "shared")]
 pub type PBDA_CAS_CHECK_ENTITLEMENTTOKEN = *mut BDA_CAS_CHECK_ENTITLEMENTTOKEN;
+#[cfg(feature = "shared")]
 pub type PBDA_CAS_CLOSEMMIDATA = *mut BDA_CAS_CLOSEMMIDATA;
+#[cfg(feature = "shared")]
 pub type PBDA_CAS_CLOSE_MMIDIALOG = *mut BDA_CAS_CLOSE_MMIDIALOG;
+#[cfg(feature = "shared")]
 pub type PBDA_CAS_OPENMMIDATA = *mut BDA_CAS_OPENMMIDATA;
+#[cfg(feature = "shared")]
 pub type PBDA_CAS_REQUESTTUNERDATA = *mut BDA_CAS_REQUESTTUNERDATA;
+#[cfg(feature = "shared")]
 pub type PBDA_CA_MODULE_UI = *mut BDA_CA_MODULE_UI;
 pub type PBDA_CHANGE_STATE = *mut BDA_CHANGE_STATE;
+#[cfg(feature = "shared")]
 pub type PBDA_DISEQC_RESPONSE = *mut BDA_DISEQC_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PBDA_DISEQC_SEND = *mut BDA_DISEQC_SEND;
+#[cfg(feature = "shared")]
 pub type PBDA_DRM_DRMSTATUS = *mut BDA_DRM_DRMSTATUS;
+#[cfg(feature = "shared")]
 pub type PBDA_DVBT2_L1_SIGNALLING_DATA = *mut BDA_DVBT2_L1_SIGNALLING_DATA;
+#[cfg(feature = "shared")]
 pub type PBDA_ETHERNET_ADDRESS = *mut BDA_ETHERNET_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PBDA_ETHERNET_ADDRESS_LIST = *mut BDA_ETHERNET_ADDRESS_LIST;
 pub type PBDA_EVENT_ID = *mut BDA_EVENT_ID;
+#[cfg(feature = "shared")]
 pub type PBDA_IPv4_ADDRESS = *mut BDA_IPv4_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PBDA_IPv4_ADDRESS_LIST = *mut BDA_IPv4_ADDRESS_LIST;
+#[cfg(feature = "shared")]
 pub type PBDA_IPv6_ADDRESS = *mut BDA_IPv6_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PBDA_IPv6_ADDRESS_LIST = *mut BDA_IPv6_ADDRESS_LIST;
+#[cfg(feature = "shared")]
 pub type PBDA_ISDBCAS_EMG_REQ = *mut BDA_ISDBCAS_EMG_REQ;
+#[cfg(feature = "shared")]
 pub type PBDA_ISDBCAS_REQUESTHEADER = *mut BDA_ISDBCAS_REQUESTHEADER;
+#[cfg(feature = "shared")]
 pub type PBDA_ISDBCAS_RESPONSEDATA = *mut BDA_ISDBCAS_RESPONSEDATA;
 pub type PBDA_MULTICAST_MODE = *mut BDA_MULTICAST_MODE;
+#[cfg(feature = "shared")]
 pub type PBDA_MUX_PIDLISTITEM = *mut BDA_MUX_PIDLISTITEM;
+#[cfg(feature = "shared")]
 pub type PBDA_PID_MAP = *mut BDA_PID_MAP;
+#[cfg(feature = "shared")]
 pub type PBDA_PID_UNMAP = *mut BDA_PID_UNMAP;
+#[cfg(feature = "shared")]
 pub type PBDA_PROGRAM_PID_LIST = *mut BDA_PROGRAM_PID_LIST;
+#[cfg(feature = "shared")]
 pub type PBDA_RATING_PINRESET = *mut BDA_RATING_PINRESET;
+#[cfg(feature = "shared")]
 pub type PBDA_SCAN_CAPABILTIES = *mut BDA_SCAN_CAPABILTIES;
+#[cfg(feature = "shared")]
 pub type PBDA_SCAN_START = *mut BDA_SCAN_START;
+#[cfg(feature = "shared")]
 pub type PBDA_SCAN_STATE = *mut BDA_SCAN_STATE;
 pub type PBDA_SIGNAL_STATE = *mut BDA_SIGNAL_STATE;
+#[cfg(feature = "shared")]
 pub type PBDA_SIGNAL_TIMEOUTS = *mut BDA_SIGNAL_TIMEOUTS;
+#[cfg(feature = "shared")]
 pub type PBDA_STRING = *mut BDA_STRING;
+#[cfg(feature = "shared")]
 pub type PBDA_TABLE_SECTION = *mut BDA_TABLE_SECTION;
+#[cfg(feature = "shared")]
 pub type PBDA_TEMPLATE_CONNECTION = *mut BDA_TEMPLATE_CONNECTION;
+#[cfg(feature = "shared")]
 pub type PBDA_TEMPLATE_PIN_JOINT = *mut BDA_TEMPLATE_PIN_JOINT;
+#[cfg(feature = "shared")]
 pub type PBDA_TS_SELECTORINFO = *mut BDA_TS_SELECTORINFO;
+#[cfg(feature = "shared")]
 pub type PBDA_TS_SELECTORINFO_ISDBS_EXT = *mut BDA_TS_SELECTORINFO_ISDBS_EXT;
+#[cfg(feature = "shared")]
 pub type PBDA_TUNER_DIAGNOSTICS = *mut BDA_TUNER_DIAGNOSTICS;
+#[cfg(feature = "shared")]
 pub type PBDA_TUNER_TUNERSTATE = *mut BDA_TUNER_TUNERSTATE;
 pub type PBDA_WMDRMTUNER_PIDPROTECTION = *mut BDA_WMDRMTUNER_PIDPROTECTION;
+#[cfg(feature = "shared")]
 pub type PBDA_WMDRMTUNER_PURCHASEENTITLEMENT = *mut BDA_WMDRMTUNER_PURCHASEENTITLEMENT;
+#[cfg(feature = "shared")]
 pub type PBDA_WMDRM_KEYINFOLIST = *mut BDA_WMDRM_KEYINFOLIST;
+#[cfg(feature = "shared")]
 pub type PBDA_WMDRM_RENEWLICENSE = *mut BDA_WMDRM_RENEWLICENSE;
+#[cfg(feature = "shared")]
 pub type PBDA_WMDRM_STATUS = *mut BDA_WMDRM_STATUS;
 pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PID_MAP {
-    pub ulPID: u32,
+    pub ulPID: super::ULONG,
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
 }
 pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = 1;
 pub const PID_OTHER: MUX_PID_TYPE = -1;
+#[cfg(feature = "shared")]
 pub type PKS_BDA_FRAME_INFO = *mut KS_BDA_FRAME_INFO;
+#[cfg(feature = "shared")]
 pub type PMPEG2_TRANSPORT_STRIDE = *mut MPEG2_TRANSPORT_STRIDE;
+#[cfg(feature = "shared")]
 pub type P_BDA_GDDS_DATA = *mut BDA_GDDS_DATA;
 pub type P_BDA_GDDS_DATATYPE = *mut BDA_GDDS_DATATYPE;
+#[cfg(feature = "shared")]
 pub type P_BDA_USERACTIVITY_INTERVAL = *mut BDA_USERACTIVITY_INTERVAL;
 pub type Pilot = i32;
 pub type Polarisation = i32;

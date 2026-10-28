@@ -19,9 +19,13 @@ impl<I: Interface> Weak<I> {
 
     /// Attempts to upgrade the weak reference to a strong reference.
     pub fn upgrade(&self) -> Option<I> {
-        self.0
-            .as_ref()
-            .and_then(|inner| unsafe { inner.Resolve().ok() })
+        self.0.as_ref().and_then(|inner| unsafe {
+            let mut value = core::ptr::null_mut();
+            // Resolve returns the interface selected by the IID, not necessarily IInspectable.
+            (inner.vtable().Resolve)(inner.as_raw(), &I::IID, &mut value)
+                .and_then(|| Type::from_abi(value))
+                .ok()
+        })
     }
 
     pub(crate) fn downgrade(source: &imp::IWeakReferenceSource) -> Self {

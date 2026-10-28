@@ -92,8 +92,8 @@ fn test() -> Result<()> {
         d.GetData(&Default::default())?;
         d.GetDataHere(&Default::default(), &mut Default::default())
             .ok()?;
-        d.QueryGetData(&Default::default()).ok()?;
-        d.GetCanonicalFormatEtc(&Default::default(), &mut Default::default())
+        d.QueryGetData(Some(&Default::default())).ok()?;
+        d.GetCanonicalFormatEtc(Some(&Default::default()), &mut Default::default())
             .ok()?;
         d.SetData(&Default::default(), &Default::default(), false)
             .ok()?;

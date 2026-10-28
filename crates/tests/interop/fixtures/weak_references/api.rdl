@@ -3,8 +3,9 @@ use Windows::Foundation::Metadata::*;
 #[winrt]
 mod WeakReferences {
     // Implemented by the clients.
+    #[guid(auto)]
     interface IObserver {
-        fn Notify(&self, value: i32);
+        fn Notify(&self, #[in] value: i32);
     }
 
     #[Activatable(1)]
@@ -13,11 +14,12 @@ mod WeakReferences {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Holds a weak reference to `observer`, so the widget does not keep it alive.
-        fn Observe(&self, observer: IObserver);
+        fn Observe(&self, #[in] observer: IObserver);
 
         // Notifies the observer if it is still alive, and returns whether it was.
-        fn Notify(&self, value: i32) -> bool;
+        fn Notify(&self, #[in] value: i32) -> bool;
     }
 }

@@ -1,5 +1,0 @@
-#[win32]
-mod NonFiniteFloats {
-    const FINITE_FLOAT: f32 = 1.5;
-    const FINITE_MACRO: f64 = 2.5;
-}

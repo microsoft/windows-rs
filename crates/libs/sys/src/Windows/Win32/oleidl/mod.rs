@@ -1,25 +1,10 @@
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserFree(param0 : *mut u32, param1 : *mut super::HGLOBAL));
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserFree64(param0 : *mut u32, param1 : *mut super::HGLOBAL));
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HGLOBAL) -> *mut u8);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HGLOBAL) -> *mut u8);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HGLOBAL) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HGLOBAL) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HGLOBAL) -> *mut u8);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ole32.dll" "system" fn HGLOBAL_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HGLOBAL) -> *mut u8);
 pub type BINDSPEED = i32;
 pub const BINDSPEED_IMMEDIATE: BINDSPEED = 3;
 pub const BINDSPEED_INDEFINITE: BINDSPEED = 1;
 pub const BINDSPEED_MODERATE: BINDSPEED = 2;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type BORDERWIDTHS = super::RECT;
+pub const CFSTR_ENTERPRISE_ID: windows_sys::core::PCSTR = windows_sys::core::s!("EnterpriseDataProtectionId");
 pub const DD_DEFDRAGDELAY: i32 = 200;
 pub const DD_DEFDRAGMINDIST: i32 = 2;
 pub const DD_DEFSCROLLDELAY: i32 = 50;
@@ -35,28 +20,60 @@ pub const DROPEFFECT_MOVE: i32 = 2;
 pub const DROPEFFECT_NEWTARGET: i32 = 1073741824;
 pub const DROPEFFECT_NONE: i32 = 0;
 pub const DROPEFFECT_SCROLL: u32 = 2147483648;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type HOLEMENU = super::HGLOBAL;
-#[cfg(feature = "windef")]
-pub type LINKSRCDESCRIPTOR = tagOBJECTDESCRIPTOR;
-#[cfg(feature = "windef")]
-pub type LPBORDERWIDTHS = super::LPRECT;
-#[cfg(feature = "windef")]
-pub type LPCBORDERWIDTHS = super::LPCRECT;
-#[cfg(feature = "windef")]
-pub type LPLINKSRCDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
-#[cfg(feature = "windef")]
-pub type LPOBJECTDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
-#[cfg(feature = "windef")]
+pub type HOLEMENU = *mut core::ffi::c_void;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+pub type LINKSRCDESCRIPTOR = OBJECTDESCRIPTOR;
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPBORDERWIDTHS = *mut super::RECT;
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPCBORDERWIDTHS = *const super::RECT;
+pub type LPDROPSOURCE = *mut core::ffi::c_void;
+pub type LPDROPTARGET = *mut core::ffi::c_void;
+pub type LPENUMOLEVERB = *mut core::ffi::c_void;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+pub type LPLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+pub type LPOBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
+pub type LPOLEADVISEHOLDER = *mut core::ffi::c_void;
+pub type LPOLECACHE = *mut core::ffi::c_void;
+pub type LPOLECACHE2 = *mut core::ffi::c_void;
+pub type LPOLECACHECONTROL = *mut core::ffi::c_void;
+pub type LPOLECLIENTSITE = *mut core::ffi::c_void;
+pub type LPOLECONTAINER = *mut core::ffi::c_void;
+pub type LPOLEINPLACEACTIVEOBJECT = *mut core::ffi::c_void;
+pub type LPOLEINPLACEFRAME = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPOLEINPLACEFRAMEINFO = *mut OLEINPLACEFRAMEINFO;
+pub type LPOLEINPLACEOBJECT = *mut core::ffi::c_void;
+pub type LPOLEINPLACESITE = *mut core::ffi::c_void;
+pub type LPOLEINPLACEUIWINDOW = *mut core::ffi::c_void;
+pub type LPOLEITEMCONTAINER = *mut core::ffi::c_void;
+pub type LPOLELINK = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type LPOLEMENUGROUPWIDTHS = *mut OLEMENUGROUPWIDTHS;
+pub type LPOLEOBJECT = *mut core::ffi::c_void;
 pub type LPOLERENDER = *mut OLERENDER;
 pub type LPOLEUPDATE = *mut OLEUPDATE;
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub type LPOLEVERB = *mut OLEVERB;
+pub type LPOLEWINDOW = *mut core::ffi::c_void;
+pub type LPPARSEDISPLAYNAME = *mut core::ffi::c_void;
+pub type LPVIEWOBJECT = *mut core::ffi::c_void;
+pub type LPVIEWOBJECT2 = *mut core::ffi::c_void;
 pub const MK_ALT: i32 = 32;
-#[cfg(feature = "windef")]
-pub type OBJECTDESCRIPTOR = tagOBJECTDESCRIPTOR;
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
+pub struct OBJECTDESCRIPTOR {
+    pub cbSize: super::ULONG,
+    pub clsid: super::CLSID,
+    pub dwDrawAspect: super::DWORD,
+    pub sizel: super::SIZEL,
+    pub pointl: super::POINTL,
+    pub dwStatus: super::DWORD,
+    pub dwFullUserTypeName: super::DWORD,
+    pub dwSrcOfCopy: super::DWORD,
+}
 pub type OLECLOSE = i32;
 pub const OLECLOSE_NOSAVE: OLECLOSE = 1;
 pub const OLECLOSE_PROMPTSAVE: OLECLOSE = 2;
@@ -72,23 +89,25 @@ pub const OLEGETMONIKER_FORCEASSIGN: OLEGETMONIKER = 2;
 pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = 1;
 pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3;
-#[repr(C)]
-#[cfg(feature = "windef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct OLEINPLACEFRAMEINFO {
-    pub cb: u32,
+    pub cb: super::UINT,
     pub fMDIApp: windows_sys::core::BOOL,
     pub hwndFrame: super::HWND,
     pub haccel: super::HACCEL,
-    pub cAccelEntries: u32,
+    pub cAccelEntries: super::UINT,
 }
 pub type OLELINKBIND = i32;
 pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct OLEMENUGROUPWIDTHS {
-    pub width: [i32; 6],
+    pub width: [super::LONG; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for OLEMENUGROUPWIDTHS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -125,14 +144,14 @@ pub const OLERENDER_NONE: OLERENDER = 0;
 pub type OLEUPDATE = i32;
 pub const OLEUPDATE_ALWAYS: OLEUPDATE = 1;
 pub const OLEUPDATE_ONCALL: OLEUPDATE = 3;
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct OLEVERB {
-    pub lVerb: i32,
+    pub lVerb: super::LONG,
     pub lpszVerbName: super::LPOLESTR,
-    pub fuFlags: u32,
-    pub grfAttribs: u32,
+    pub fuFlags: super::DWORD,
+    pub grfAttribs: super::DWORD,
 }
 pub type OLEVERBATTRIB = i32;
 pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = 1;
@@ -141,13 +160,15 @@ pub type OLEWHICHMK = i32;
 pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = 1;
 pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = 3;
 pub const OLEWHICHMK_OBJREL: OLEWHICHMK = 2;
-#[cfg(feature = "windef")]
-pub type PLINKSRCDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
-#[cfg(feature = "windef")]
-pub type POBJECTDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+pub type PLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+pub type POBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
 pub type POLEUPDATE = *mut OLEUPDATE;
-pub const UPDFCACHE_ALL: u32 = 2147483647;
-pub const UPDFCACHE_ALLBUTNODATACACHE: u32 = 2147483646;
+#[cfg(feature = "shared")]
+pub const UPDFCACHE_ALL: super::DWORD = 2147483647;
+#[cfg(feature = "shared")]
+pub const UPDFCACHE_ALLBUTNODATACACHE: super::DWORD = 2147483646;
 pub const UPDFCACHE_IFBLANK: i32 = 16;
 pub const UPDFCACHE_IFBLANKORONSAVECACHE: i32 = 18;
 pub const UPDFCACHE_NODATACACHE: i32 = 1;
@@ -159,16 +180,3 @@ pub type USERCLASSTYPE = i32;
 pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = 3;
 pub const USERCLASSTYPE_FULL: USERCLASSTYPE = 1;
 pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = 2;
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
-pub struct tagOBJECTDESCRIPTOR {
-    pub cbSize: u32,
-    pub clsid: windows_sys::core::GUID,
-    pub dwDrawAspect: u32,
-    pub sizel: super::SIZEL,
-    pub pointl: super::POINTL,
-    pub dwStatus: u32,
-    pub dwFullUserTypeName: u32,
-    pub dwSrcOfCopy: u32,
-}

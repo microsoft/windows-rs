@@ -1,0 +1,69 @@
+#[win32]
+mod Fixture {
+    struct BoolBits {
+        _bitfield: u8 {
+            enabled: bool: 1,
+            wide: bool: 3,
+            other: u8: 4,
+        },
+    }
+    struct DependentBits {
+        mixed: MixedBits,
+        flags: BoolBits,
+    }
+    struct FullSignedBits {
+        _bitfield: i64 {
+            value: WideInt: 64,
+        },
+    }
+    struct KeywordBits {
+        _bitfield: i32 {
+            "self": i32: 1,
+            "crate": i32: 1,
+            "_": i32: 1,
+            r#type: i32: 1,
+        },
+    }
+    struct MixedBits {
+        _bitfield: u32 {
+            positive: u32: 3,
+            negative: i32: 5,
+            flag: u32: 1,
+            sign: i32: 1,
+            mode: Mode: 3,
+            state: State: 2,
+            alias: OtherInt: 5,
+            alternate: ModeAlias: 3,
+        },
+    }
+    #[repr(i32)]
+    #[scoped]
+    enum Mode {
+        Negative = -1,
+        Positive = 1,
+    }
+    type ModeAlias = Mode;
+    type NativeInt = i32;
+    type OtherInt = i32;
+    struct ReverseBits {
+        _bitfield: i32 {
+            negative: i32: 5,
+            positive: u32: 3,
+        },
+    }
+    #[repr(u32)]
+    enum State {
+        Off = 0,
+        On = 1,
+    }
+    union TypedUnion {
+        _bitfield1: i32 {
+            mode: Mode: 3,
+        },
+        _bitfield2: i32 {
+            sign: i32: 1,
+        },
+        storage: u32,
+    }
+    type WideInt = i64;
+}

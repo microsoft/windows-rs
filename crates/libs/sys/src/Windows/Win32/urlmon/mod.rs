@@ -1,69 +1,94 @@
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn CoGetClassObjectFromURL(rclassid : *const windows_sys::core::GUID, szcode : windows_sys::core::PCWSTR, dwfileversionms : u32, dwfileversionls : u32, sztype : windows_sys::core::PCWSTR, pbindctx : *mut core::ffi::c_void, dwclscontext : u32, pvreserved : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetCombineIUri(pbaseuri : *mut core::ffi::c_void, prelativeuri : *mut core::ffi::c_void, dwcombineflags : u32, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : usize) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetCombineUrl(pwzbaseurl : windows_sys::core::PCWSTR, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : u32, pszresult : windows_sys::core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetCombineUrlEx(pbaseuri : *mut core::ffi::c_void, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : u32, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : usize) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetCompareUrl(pwzurl1 : windows_sys::core::PCWSTR, pwzurl2 : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetCreateSecurityManager(psp : *mut core::ffi::c_void, ppsm : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetCreateZoneManager(psp : *mut core::ffi::c_void, ppzm : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetGetProtocolFlags(pwzurl : windows_sys::core::PCWSTR, pdwflags : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetGetSecurityUrl(pwszurl : windows_sys::core::PCWSTR, ppwszsecurl : *mut windows_sys::core::PWSTR, psuaction : PSUACTION, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetGetSecurityUrlEx(puri : *mut core::ffi::c_void, ppsecuri : *mut *mut core::ffi::c_void, psuaction : PSUACTION, dwreserved : usize) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetGetSession(dwsessionmode : u32, ppiinternetsession : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureEnabledForIUri(featureentry : INTERNETFEATURELIST, dwflags : u32, piuri : *mut core::ffi::c_void, psecmgr : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureEnabledForUrl(featureentry : INTERNETFEATURELIST, dwflags : u32, szurl : windows_sys::core::PCWSTR, psecmgr : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureZoneElevationEnabled(szfromurl : windows_sys::core::PCWSTR, sztourl : windows_sys::core::PCWSTR, psecmgr : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetParseIUri(piuri : *mut core::ffi::c_void, parseaction : PARSEACTION, dwflags : u32, pwzresult : windows_sys::core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : usize) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetParseUrl(pwzurl : windows_sys::core::PCWSTR, parseaction : PARSEACTION, dwflags : u32, pszresult : windows_sys::core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetQueryInfo(pwzurl : windows_sys::core::PCWSTR, queryoptions : QUERYOPTION, dwqueryflags : u32, pvbuffer : *mut core::ffi::c_void, cbbuffer : u32, pcbbuffer : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : u32, fenable : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CompareSecurityIds(pbsecurityid1 : *const u8, dwlen1 : u32, pbsecurityid2 : *const u8, dwlen2 : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const windows_sys::core::GUID, pdwcompatflags : super::LPDWORD, pdwmiscstatusflags : super::LPDWORD) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CoGetClassObjectFromURL(rclassid : *const super::IID, szcode : windows_sys::core::PCWSTR, dwfileversionms : super::DWORD, dwfileversionls : super::DWORD, sztype : windows_sys::core::PCWSTR, pbindctx : super::LPBINDCTX, dwclscontext : super::DWORD, pvreserved : super::LPVOID, riid : *const super::IID, ppv : *mut super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetCombineIUri(pbaseuri : *mut core::ffi::c_void, prelativeuri : *mut core::ffi::c_void, dwcombineflags : super::DWORD, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : super::DWORD_PTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetCombineUrl(pwzbaseurl : windows_sys::core::PCWSTR, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : super::DWORD, pszresult : windows_sys::core::PWSTR, cchresult : super::DWORD, pcchresult : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetCombineUrlEx(pbaseuri : *mut core::ffi::c_void, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : super::DWORD, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : super::DWORD_PTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetCompareUrl(pwzurl1 : windows_sys::core::PCWSTR, pwzurl2 : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "servprov", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CoInternetCreateSecurityManager(psp : *mut core::ffi::c_void, ppsm : *mut *mut core::ffi::c_void, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "servprov", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CoInternetCreateZoneManager(psp : *mut core::ffi::c_void, ppzm : *mut *mut core::ffi::c_void, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetGetProtocolFlags(pwzurl : windows_sys::core::PCWSTR, pdwflags : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetGetSecurityUrl(pwszurl : windows_sys::core::PCWSTR, ppwszsecurl : *mut windows_sys::core::PWSTR, psuaction : PSUACTION, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetGetSecurityUrlEx(puri : *mut core::ffi::c_void, ppsecuri : *mut *mut core::ffi::c_void, psuaction : PSUACTION, dwreserved : super::DWORD_PTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetGetSession(dwsessionmode : super::DWORD, ppiinternetsession : *mut *mut core::ffi::c_void, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureEnabledForIUri(featureentry : INTERNETFEATURELIST, dwflags : super::DWORD, piuri : *mut core::ffi::c_void, psecmgr : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureEnabledForUrl(featureentry : INTERNETFEATURELIST, dwflags : super::DWORD, szurl : windows_sys::core::PCWSTR, psecmgr : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetIsFeatureZoneElevationEnabled(szfromurl : windows_sys::core::PCWSTR, sztourl : windows_sys::core::PCWSTR, psecmgr : *mut core::ffi::c_void, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetParseIUri(piuri : *mut core::ffi::c_void, parseaction : PARSEACTION, dwflags : super::DWORD, pwzresult : windows_sys::core::PWSTR, cchresult : super::DWORD, pcchresult : *mut super::DWORD, dwreserved : super::DWORD_PTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetParseUrl(pwzurl : windows_sys::core::PCWSTR, parseaction : PARSEACTION, dwflags : super::DWORD, pszresult : windows_sys::core::PWSTR, cchresult : super::DWORD, pcchresult : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CoInternetQueryInfo(pwzurl : windows_sys::core::PCWSTR, queryoptions : QUERYOPTION, dwqueryflags : super::DWORD, pvbuffer : super::LPVOID, cbbuffer : super::DWORD, pcbbuffer : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CoInternetSetFeatureEnabled(featureentry : INTERNETFEATURELIST, dwflags : super::DWORD, fenable : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CompareSecurityIds(pbsecurityid1 : *const super::BYTE, dwlen1 : super::DWORD, pbsecurityid2 : *const super::BYTE, dwlen2 : super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const super::CLSID, pdwcompatflags : super::LPDWORD, pdwmiscstatusflags : super::LPDWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const BINDINFO, pbidest : *mut BINDINFO) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super::STGMEDIUM, pstgmeddest : *mut super::STGMEDIUM) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : super::DWORD, pbscb : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CreateAsyncBindCtxEx(pbc : *mut core::ffi::c_void, dwoptions : super::DWORD, pbscb : *mut core::ffi::c_void, penum : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void, reserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
+windows_link::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : super::UINT, rgfmtetc : *const super::FORMATETC, ppenumfmtetc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CreateIUriBuilder(piuri : *mut core::ffi::c_void, dwflags : super::DWORD, dwreserved : super::DWORD_PTR, ppiuribuilder : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : u32, pbscb : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn CreateAsyncBindCtxEx(pbc : *mut core::ffi::c_void, dwoptions : u32, pbscb : *mut core::ffi::c_void, penum : *mut core::ffi::c_void, ppbc : *mut *mut core::ffi::c_void, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "wtypes"))]
-windows_link::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : u32, rgfmtetc : *const super::FORMATETC, ppenumfmtetc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CreateIUriBuilder(piuri : *mut core::ffi::c_void, dwflags : u32, dwreserved : usize, ppiuribuilder : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn CreateURLMoniker(pmkctx : *mut core::ffi::c_void, szurl : windows_sys::core::PCWSTR, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn CreateURLMonikerEx(pmkctx : *mut core::ffi::c_void, szurl : windows_sys::core::PCWSTR, ppmk : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn CreateURLMonikerEx2(pmkctx : *mut core::ffi::c_void, puri : *mut core::ffi::c_void, ppmk : *mut *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CreateUri(pwzuri : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : windows_sys::core::PCSTR, dwencodingflags : u32, dwcodepage : u32, dwcreateflags : u32, dwreserved : usize, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : windows_sys::core::PCWSTR, pwzfragment : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("urlmon.dll" "system" fn FaultInIEFeature(hwnd : super::HWND, pclassspec : *const super::uCLSSPEC, pquery : *mut super::QUERYCONTEXT, dwflags : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("urlmon.dll" "system" fn CreateURLMoniker(pmkctx : super::LPMONIKER, szurl : windows_sys::core::PCWSTR, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CreateURLMonikerEx(pmkctx : super::LPMONIKER, szurl : windows_sys::core::PCWSTR, ppmk : *mut super::LPMONIKER, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn CreateURLMonikerEx2(pmkctx : super::LPMONIKER, puri : *mut core::ffi::c_void, ppmk : *mut super::LPMONIKER, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CreateUri(pwzuri : windows_sys::core::PCWSTR, dwflags : super::DWORD, dwreserved : super::DWORD_PTR, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : windows_sys::core::PCSTR, dwencodingflags : super::DWORD, dwcodepage : super::DWORD, dwcreateflags : super::DWORD, dwreserved : super::DWORD_PTR, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : windows_sys::core::PCWSTR, pwzfragment : windows_sys::core::PCWSTR, dwflags : super::DWORD, dwreserved : super::DWORD_PTR, ppuri : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("urlmon.dll" "system" fn FaultInIEFeature(hwnd : super::HWND, pclassspec : *const super::uCLSSPEC, pquery : *mut super::QUERYCONTEXT, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypes")]
 windows_link::link!("urlmon.dll" "system" fn FindMediaType(rgsztypes : windows_sys::core::PCSTR, rgcftypes : *mut super::CLIPFORMAT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn FindMediaTypeClass(pbc : *mut core::ffi::c_void, sztype : windows_sys::core::PCSTR, pclsid : *mut windows_sys::core::GUID, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn FindMimeFromData(pbc : *mut core::ffi::c_void, pwzurl : windows_sys::core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, pwzmimeproposed : windows_sys::core::PCWSTR, dwmimeflags : u32, ppwzmimeout : *mut windows_sys::core::PWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn GetClassFileOrMime(pbc : *mut core::ffi::c_void, szfilename : windows_sys::core::PCWSTR, pbuffer : *const core::ffi::c_void, cbsize : u32, szmime : windows_sys::core::PCWSTR, dwreserved : u32, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn GetClassURL(szurl : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn FindMediaTypeClass(pbc : super::LPBC, sztype : windows_sys::core::PCSTR, pclsid : *mut super::CLSID, reserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn FindMimeFromData(pbc : super::LPBC, pwzurl : windows_sys::core::PCWSTR, pbuffer : super::LPVOID, cbsize : super::DWORD, pwzmimeproposed : windows_sys::core::PCWSTR, dwmimeflags : super::DWORD, ppwzmimeout : *mut windows_sys::core::PWSTR, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn GetClassFileOrMime(pbc : super::LPBC, szfilename : windows_sys::core::PCWSTR, pbuffer : super::LPVOID, cbsize : super::DWORD, szmime : windows_sys::core::PCWSTR, dwreserved : super::DWORD, pclsid : *mut super::CLSID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("urlmon.dll" "system" fn GetClassURL(szurl : windows_sys::core::PCWSTR, pclsid : *mut super::CLSID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("urlmon.dll" "system" fn GetComponentIDFromCLSSPEC(pclassspec : *const super::uCLSSPEC, ppszcomponentid : *mut windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("urlmon.dll" "system" fn GetSoftwareUpdateInfo(szdistunit : windows_sys::core::PCWSTR, psdi : LPSOFTDISTINFO) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn HlinkGoBack(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn HlinkGoForward(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
 windows_link::link!("urlmon.dll" "system" fn HlinkNavigateMoniker(punk : *mut core::ffi::c_void, pmktarget : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn HlinkNavigateString(punk : *mut core::ffi::c_void, sztarget : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToMoniker(pmktarget : *mut core::ffi::c_void, szlocation : windows_sys::core::PCWSTR, sztargetframename : windows_sys::core::PCWSTR, punk : *mut core::ffi::c_void, pbc : *mut core::ffi::c_void, param5 : *mut core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToString(sztarget : windows_sys::core::PCWSTR, szlocation : windows_sys::core::PCWSTR, sztargetframename : windows_sys::core::PCWSTR, punk : *mut core::ffi::c_void, pbc : *mut core::ffi::c_void, param5 : *mut core::ffi::c_void, grfhlnf : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToMoniker(pmktarget : *mut core::ffi::c_void, szlocation : windows_sys::core::PCWSTR, sztargetframename : windows_sys::core::PCWSTR, punk : *mut core::ffi::c_void, pbc : *mut core::ffi::c_void, param5 : *mut core::ffi::c_void, grfhlnf : super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn HlinkSimpleNavigateToString(sztarget : windows_sys::core::PCWSTR, szlocation : windows_sys::core::PCWSTR, sztargetframename : windows_sys::core::PCWSTR, punk : *mut core::ffi::c_void, pbc : *mut core::ffi::c_void, param5 : *mut core::ffi::c_void, grfhlnf : super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn IEGetUserPrivateNamespaceName() -> windows_sys::core::PWSTR);
 #[cfg(feature = "minwindef")]
 windows_link::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : super::LPDWORD) -> windows_sys::core::HRESULT);
@@ -71,53 +96,80 @@ windows_link::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : super::LP
 windows_link::link!("urlmon.dll" "system" fn IsAsyncMoniker(pmk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("urlmon.dll" "system" fn IsLoggingEnabledA(pszurl : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("urlmon.dll" "system" fn IsLoggingEnabledW(pwszurl : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn IsValidURL(pbc : *mut core::ffi::c_void, szurl : windows_sys::core::PCWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn MkParseDisplayNameEx(pbc : *mut core::ffi::c_void, szdisplayname : windows_sys::core::PCWSTR, pcheaten : *mut u32, ppmk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn ObtainUserAgentString(dwoption : u32, pszuaout : windows_sys::core::PSTR, cbsize : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn RegisterBindStatusCallback(pbc : *mut core::ffi::c_void, pbscb : *mut core::ffi::c_void, ppbscbprev : *mut *mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn RegisterFormatEnumerator(pbc : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn RegisterMediaTypeClass(pbc : *mut core::ffi::c_void, ctypes : u32, rgsztypes : *const windows_sys::core::PCSTR, rgclsid : *const windows_sys::core::GUID, reserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "wtypes")]
-windows_link::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const windows_sys::core::PCSTR, rgcftypes : *mut super::CLIPFORMAT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn IsValidURL(pbc : super::LPBC, szurl : windows_sys::core::PCWSTR, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn MkParseDisplayNameEx(pbc : *mut core::ffi::c_void, szdisplayname : windows_sys::core::PCWSTR, pcheaten : *mut super::ULONG, ppmk : *mut super::LPMONIKER) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" "CoInternetCombineIUri" fn OInetCombineIUri(pbaseuri : *mut core::ffi::c_void, prelativeuri : *mut core::ffi::c_void, dwcombineflags : super::DWORD, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : super::DWORD_PTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" "CoInternetCombineUrl" fn OInetCombineUrl(pwzbaseurl : windows_sys::core::PCWSTR, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : super::DWORD, pszresult : windows_sys::core::PWSTR, cchresult : super::DWORD, pcchresult : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" "CoInternetCombineUrlEx" fn OInetCombineUrlEx(pbaseuri : *mut core::ffi::c_void, pwzrelativeurl : windows_sys::core::PCWSTR, dwcombineflags : super::DWORD, ppcombineduri : *mut *mut core::ffi::c_void, dwreserved : super::DWORD_PTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" "CoInternetCompareUrl" fn OInetCompareUrl(pwzurl1 : windows_sys::core::PCWSTR, pwzurl2 : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" "CoInternetGetSession" fn OInetGetSession(dwsessionmode : super::DWORD, ppiinternetsession : *mut *mut core::ffi::c_void, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" "CoInternetParseUrl" fn OInetParseUrl(pwzurl : windows_sys::core::PCWSTR, parseaction : PARSEACTION, dwflags : super::DWORD, pszresult : windows_sys::core::PWSTR, cchresult : super::DWORD, pcchresult : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" "CoInternetQueryInfo" fn OInetQueryInfo(pwzurl : windows_sys::core::PCWSTR, queryoptions : QUERYOPTION, dwqueryflags : super::DWORD, pvbuffer : super::LPVOID, cbbuffer : super::DWORD, pcbbuffer : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn ObtainUserAgentString(dwoption : super::DWORD, pszuaout : windows_sys::core::PSTR, cbsize : *mut super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn RegisterBindStatusCallback(pbc : super::LPBC, pbscb : *mut core::ffi::c_void, ppbscbprev : *mut *mut core::ffi::c_void, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn RegisterFormatEnumerator(pbc : super::LPBC, pefetc : *mut core::ffi::c_void, reserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn RegisterMediaTypeClass(pbc : super::LPBC, ctypes : super::UINT, rgsztypes : *const windows_sys::core::PCSTR, rgclsid : *const super::CLSID, reserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+windows_link::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : super::UINT, rgsztypes : *const windows_sys::core::PCSTR, rgcftypes : *mut super::CLIPFORMAT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut BINDINFO));
 #[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn RevokeBindStatusCallback(pbc : *mut core::ffi::c_void, pbscb : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("urlmon.dll" "system" fn RevokeBindStatusCallback(pbc : super::LPBC, pbscb : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
-windows_link::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : *mut core::ffi::c_void, pefetc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("urlmon.dll" "system" fn SetAccessForIEAppContainer(hobject : super::HANDLE, ieobjecttype : IEObjectType, dwaccessmask : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn SetSoftwareUpdateAdvertisementState(szdistunit : windows_sys::core::PCWSTR, dwadstate : u32, dwadvertisedversionms : u32, dwadvertisedversionls : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLDownloadToCacheFileA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PSTR, cchfilename : u32, param4 : u32, param5 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLDownloadToCacheFileW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PWSTR, cchfilename : u32, param4 : u32, param5 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLDownloadToFileA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PCSTR, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLDownloadToFileW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PCWSTR, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("urlmon.dll" "system" fn URLOpenBlockingStreamA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : *mut *mut core::ffi::c_void, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("urlmon.dll" "system" fn URLOpenBlockingStreamW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : *mut *mut core::ffi::c_void, param3 : u32, param4 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLOpenPullStreamA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLOpenPullStreamW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLOpenStreamA(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCSTR, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn URLOpenStreamW(param0 : *mut core::ffi::c_void, param1 : windows_sys::core::PCWSTR, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption : u32, pbuffer : *mut core::ffi::c_void, dwbufferlength : u32, pdwbufferlengthout : *mut u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwinbase")]
+windows_link::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : super::LPBC, pefetc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("urlmon.dll" "system" fn SetAccessForIEAppContainer(hobject : super::HANDLE, ieobjecttype : IEObjectType, dwaccessmask : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("urlmon.dll" "system" fn SetSoftwareUpdateAdvertisementState(szdistunit : windows_sys::core::PCWSTR, dwadstate : super::DWORD, dwadvertisedversionms : super::DWORD, dwadvertisedversionls : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLDownloadToCacheFileA(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PSTR, cchfilename : super::DWORD, param4 : super::DWORD, param5 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLDownloadToCacheFileW(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PWSTR, cchfilename : super::DWORD, param4 : super::DWORD, param5 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLDownloadToFileA(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PCSTR, param3 : super::DWORD, param4 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLDownloadToFileW(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PCWSTR, param3 : super::DWORD, param4 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLOpenBlockingStreamA(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCSTR, param2 : *mut super::LPSTREAM, param3 : super::DWORD, param4 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLOpenBlockingStreamW(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCWSTR, param2 : *mut super::LPSTREAM, param3 : super::DWORD, param4 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLOpenPullStreamA(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCSTR, param2 : super::DWORD, param3 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLOpenPullStreamW(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCWSTR, param2 : super::DWORD, param3 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLOpenStreamA(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCSTR, param2 : super::DWORD, param3 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("urlmon.dll" "system" fn URLOpenStreamW(param0 : super::LPUNKNOWN, param1 : windows_sys::core::PCWSTR, param2 : super::DWORD, param3 : LPBINDSTATUSCALLBACK) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption : super::DWORD, pbuffer : super::LPVOID, dwbufferlength : super::DWORD, pdwbufferlengthout : *mut super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : super::DWORD, pbuffer : super::LPVOID, dwbufferlength : super::DWORD, dwreserved : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 windows_link::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : LPHIT_LOGGING_INFO) -> windows_sys::core::BOOL);
 pub type AUTHENTICATEF = i32;
 pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = 2;
 pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = 4;
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AUTHENTICATEINFO {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
+    pub dwFlags: super::DWORD,
+    pub dwReserved: super::DWORD,
 }
 pub type BINDF = i32;
 pub type BINDF2 = i32;
@@ -190,26 +242,26 @@ pub type BINDHANDLETYPES = i32;
 pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = 0;
 pub const BINDHANDLETYPES_COUNT: BINDHANDLETYPES = 2;
 pub const BINDHANDLETYPES_DEPENDENCY: BINDHANDLETYPES = 1;
-#[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct BINDINFO {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub szExtraInfo: windows_sys::core::PWSTR,
     pub stgmedData: super::STGMEDIUM,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
+    pub grfBindInfoF: super::DWORD,
+    pub dwBindVerb: super::DWORD,
     pub szCustomVerb: windows_sys::core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
+    pub cbstgmedData: super::DWORD,
+    pub dwOptions: super::DWORD,
+    pub dwOptionsFlags: super::DWORD,
+    pub dwCodePage: super::DWORD,
     pub securityAttributes: super::SECURITY_ATTRIBUTES,
-    pub iid: windows_sys::core::GUID,
+    pub iid: super::IID,
     pub pUnk: *mut core::ffi::c_void,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for BINDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -355,7 +407,53 @@ pub const BSCF_FIRSTDATANOTIFICATION: BSCF = 1;
 pub const BSCF_INTERMEDIATEDATANOTIFICATION: BSCF = 2;
 pub const BSCF_LASTDATANOTIFICATION: BSCF = 4;
 pub const BSCF_SKIPDRAINDATAFORFILEURLS: BSCF = 32;
+pub const CFSTR_MIME_AIFF: windows_sys::core::PCSTR = windows_sys::core::s!("audio/aiff");
+pub const CFSTR_MIME_APPLICATION_JAVASCRIPT: windows_sys::core::PCSTR = windows_sys::core::s!("application/javascript");
+pub const CFSTR_MIME_APP_XML: windows_sys::core::PCSTR = windows_sys::core::s!("application/xml");
+pub const CFSTR_MIME_AVI: windows_sys::core::PCSTR = windows_sys::core::s!("video/avi");
+pub const CFSTR_MIME_BASICAUDIO: windows_sys::core::PCSTR = windows_sys::core::s!("audio/basic");
+pub const CFSTR_MIME_BMP: windows_sys::core::PCSTR = windows_sys::core::s!("image/bmp");
+pub const CFSTR_MIME_DDS: windows_sys::core::PCSTR = windows_sys::core::s!("image/vnd.ms-dds");
+pub const CFSTR_MIME_FRACTALS: windows_sys::core::PCSTR = windows_sys::core::s!("application/fractals");
+pub const CFSTR_MIME_GIF: windows_sys::core::PCSTR = windows_sys::core::s!("image/gif");
+pub const CFSTR_MIME_HTA: windows_sys::core::PCSTR = windows_sys::core::s!("application/hta");
+pub const CFSTR_MIME_HTML: windows_sys::core::PCSTR = windows_sys::core::s!("text/html");
+pub const CFSTR_MIME_JPEG: windows_sys::core::PCSTR = windows_sys::core::s!("image/jpeg");
+pub const CFSTR_MIME_JPEG_XR: windows_sys::core::PCSTR = windows_sys::core::s!("image/vnd.ms-photo");
+pub const CFSTR_MIME_MANIFEST: windows_sys::core::PCSTR = windows_sys::core::s!("text/cache-manifest");
+pub const CFSTR_MIME_MPEG: windows_sys::core::PCSTR = windows_sys::core::s!("video/mpeg");
 pub const CFSTR_MIME_NULL: i32 = 0;
+pub const CFSTR_MIME_PDF: windows_sys::core::PCSTR = windows_sys::core::s!("application/pdf");
+pub const CFSTR_MIME_PJPEG: windows_sys::core::PCSTR = windows_sys::core::s!("image/pjpeg");
+pub const CFSTR_MIME_PNG: windows_sys::core::PCSTR = windows_sys::core::s!("image/png");
+pub const CFSTR_MIME_POSTSCRIPT: windows_sys::core::PCSTR = windows_sys::core::s!("application/postscript");
+pub const CFSTR_MIME_QUICKTIME: windows_sys::core::PCSTR = windows_sys::core::s!("video/quicktime");
+pub const CFSTR_MIME_RAWDATA: windows_sys::core::PCSTR = windows_sys::core::s!("application/octet-stream");
+pub const CFSTR_MIME_RAWDATASTRM: windows_sys::core::PCSTR = windows_sys::core::s!("application/octet-stream");
+pub const CFSTR_MIME_RICHTEXT: windows_sys::core::PCSTR = windows_sys::core::s!("text/richtext");
+pub const CFSTR_MIME_SVG_XML: windows_sys::core::PCSTR = windows_sys::core::s!("image/svg+xml");
+pub const CFSTR_MIME_TEXT: windows_sys::core::PCSTR = windows_sys::core::s!("text/plain");
+pub const CFSTR_MIME_TEXT_JSON: windows_sys::core::PCSTR = windows_sys::core::s!("text/json");
+pub const CFSTR_MIME_TIFF: windows_sys::core::PCSTR = windows_sys::core::s!("image/tiff");
+pub const CFSTR_MIME_TTAF: windows_sys::core::PCSTR = windows_sys::core::s!("application/ttaf+xml");
+pub const CFSTR_MIME_TTML: windows_sys::core::PCSTR = windows_sys::core::s!("application/ttml+xml");
+pub const CFSTR_MIME_WAV: windows_sys::core::PCSTR = windows_sys::core::s!("audio/wav");
+pub const CFSTR_MIME_WEBVTT: windows_sys::core::PCSTR = windows_sys::core::s!("text/vtt");
+pub const CFSTR_MIME_XBM: windows_sys::core::PCSTR = windows_sys::core::s!("image/xbm");
+pub const CFSTR_MIME_XHTML: windows_sys::core::PCSTR = windows_sys::core::s!("application/xhtml+xml");
+pub const CFSTR_MIME_XML: windows_sys::core::PCSTR = windows_sys::core::s!("text/xml");
+pub const CFSTR_MIME_X_AIFF: windows_sys::core::PCSTR = windows_sys::core::s!("audio/x-aiff");
+pub const CFSTR_MIME_X_BITMAP: windows_sys::core::PCSTR = windows_sys::core::s!("image/x-xbitmap");
+pub const CFSTR_MIME_X_EMF: windows_sys::core::PCSTR = windows_sys::core::s!("image/x-emf");
+pub const CFSTR_MIME_X_ICON: windows_sys::core::PCSTR = windows_sys::core::s!("image/x-icon");
+pub const CFSTR_MIME_X_JAVASCRIPT: windows_sys::core::PCSTR = windows_sys::core::s!("application/x-javascript");
+pub const CFSTR_MIME_X_MIXED_REPLACE: windows_sys::core::PCSTR = windows_sys::core::s!("multipart/x-mixed-replace");
+pub const CFSTR_MIME_X_MSVIDEO: windows_sys::core::PCSTR = windows_sys::core::s!("video/x-msvideo");
+pub const CFSTR_MIME_X_PNG: windows_sys::core::PCSTR = windows_sys::core::s!("image/x-png");
+pub const CFSTR_MIME_X_REALAUDIO: windows_sys::core::PCSTR = windows_sys::core::s!("audio/x-pn-realaudio");
+pub const CFSTR_MIME_X_SGI_MOVIE: windows_sys::core::PCSTR = windows_sys::core::s!("video/x-sgi-movie");
+pub const CFSTR_MIME_X_WAV: windows_sys::core::PCSTR = windows_sys::core::s!("audio/x-wav");
+pub const CFSTR_MIME_X_WMF: windows_sys::core::PCSTR = windows_sys::core::s!("image/x-wmf");
 pub const CF_NULL: i32 = 0;
 pub const CIP_ACCESS_DENIED: CIP_STATUS = 1;
 pub const CIP_DISK_FULL: CIP_STATUS = 0;
@@ -369,31 +467,34 @@ pub type CIP_STATUS = i32;
 pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = 5;
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CODEBASEHOLD {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub szDistUnit: windows_sys::core::PWSTR,
     pub szCodeBase: windows_sys::core::PWSTR,
-    pub dwVersionMS: u32,
-    pub dwVersionLS: u32,
-    pub dwStyle: u32,
+    pub dwVersionMS: super::DWORD,
+    pub dwVersionLS: super::DWORD,
+    pub dwStyle: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CONFIRMSAFETY {
-    pub clsid: windows_sys::core::GUID,
+    pub clsid: super::CLSID,
     pub pUnk: *mut core::ffi::c_void,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 pub const CONFIRMSAFETYACTION_LOADOBJECT: i32 = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DATAINFO {
-    pub ulTotalSize: u32,
-    pub ulavrPacketSize: u32,
-    pub ulConnectSpeed: u32,
-    pub ulProcessorSpeed: u32,
+    pub ulTotalSize: super::ULONG,
+    pub ulavrPacketSize: super::ULONG,
+    pub ulConnectSpeed: super::ULONG,
+    pub ulProcessorSpeed: super::ULONG,
 }
 pub const FEATURE_ADDON_MANAGEMENT: INTERNETFEATURELIST = 13;
 pub const FEATURE_BEHAVIORS: INTERNETFEATURELIST = 6;
@@ -445,11 +546,11 @@ pub const GET_FEATURE_FROM_THREAD_INTRANET: i32 = 16;
 pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: i32 = 8;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: i32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: i32 = 32;
-#[repr(C)]
-#[cfg(feature = "minwinbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct HIT_LOGGING_INFO {
-    pub dwStructSize: u32,
+    pub dwStructSize: super::DWORD,
     pub lpszLoggedUrlName: windows_sys::core::PSTR,
     pub StartTime: super::SYSTEMTIME,
     pub EndTime: super::SYSTEMTIME,
@@ -464,9 +565,13 @@ pub const IE_EPM_OBJECT_REGISTRY: IEObjectType = 7;
 pub const IE_EPM_OBJECT_SEMAPHORE: IEObjectType = 2;
 pub const IE_EPM_OBJECT_SHARED_MEMORY: IEObjectType = 3;
 pub const IE_EPM_OBJECT_WAITABLE_TIMER: IEObjectType = 4;
+pub const INET_E_AUTHENTICATION_REQUIRED: windows_sys::core::HRESULT = 0x800C0009_u32 as _;
 pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: windows_sys::core::HRESULT = 0x800C0506_u32 as _;
 pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: windows_sys::core::HRESULT = 0x800C0505_u32 as _;
 pub const INET_E_BLOCKED_REDIRECT_XSECURITYID: windows_sys::core::HRESULT = 0x800C001B_u32 as _;
+pub const INET_E_CANNOT_CONNECT: windows_sys::core::HRESULT = 0x800C0004_u32 as _;
+pub const INET_E_CANNOT_INSTANTIATE_OBJECT: windows_sys::core::HRESULT = 0x800C0010_u32 as _;
+pub const INET_E_CANNOT_LOAD_DATA: windows_sys::core::HRESULT = 0x800C000F_u32 as _;
 pub const INET_E_CANNOT_LOCK_REQUEST: windows_sys::core::HRESULT = 0x800C0016_u32 as _;
 pub const INET_E_CANNOT_REPLACE_SFP_FILE: windows_sys::core::HRESULT = 0x800C0300_u32 as _;
 pub const INET_E_CODE_DOWNLOAD_DECLINED: windows_sys::core::HRESULT = 0x800C0100_u32 as _;
@@ -475,36 +580,94 @@ pub const INET_E_CODE_INSTALL_BLOCKED_BITNESS: windows_sys::core::HRESULT = 0x80
 pub const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: windows_sys::core::HRESULT = 0x800C0500_u32 as _;
 pub const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: windows_sys::core::HRESULT = 0x800C0502_u32 as _;
 pub const INET_E_CODE_INSTALL_SUPPRESSED: windows_sys::core::HRESULT = 0x800C0400_u32 as _;
+pub const INET_E_CONNECTION_TIMEOUT: windows_sys::core::HRESULT = 0x800C000B_u32 as _;
+pub const INET_E_DATA_NOT_AVAILABLE: windows_sys::core::HRESULT = 0x800C0007_u32 as _;
 pub const INET_E_DEFAULT_ACTION: windows_sys::core::HRESULT = 0x800C0011_u32 as _;
 pub const INET_E_DOMINJECTIONVALIDATION: windows_sys::core::HRESULT = 0x800C001C_u32 as _;
 pub const INET_E_DOWNLOAD_BLOCKED_BY_CSP: windows_sys::core::HRESULT = 0x800C0508_u32 as _;
 pub const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: windows_sys::core::HRESULT = 0x800C0501_u32 as _;
+pub const INET_E_DOWNLOAD_FAILURE: windows_sys::core::HRESULT = 0x800C0008_u32 as _;
 pub const INET_E_ERROR_FIRST: windows_sys::core::HRESULT = 0x800C0002_u32 as _;
 pub const INET_E_ERROR_LAST: windows_sys::core::HRESULT = 0x800C0508_u32 as _;
 pub const INET_E_FORBIDFRAMING: windows_sys::core::HRESULT = 0x800C0503_u32 as _;
 pub const INET_E_HSTS_CERTIFICATE_ERROR: windows_sys::core::HRESULT = 0x800C001E_u32 as _;
+pub const INET_E_INVALID_CERTIFICATE: windows_sys::core::HRESULT = 0x800C0019_u32 as _;
+pub const INET_E_INVALID_REQUEST: windows_sys::core::HRESULT = 0x800C000C_u32 as _;
+pub const INET_E_INVALID_URL: windows_sys::core::HRESULT = 0x800C0002_u32 as _;
+pub const INET_E_NO_SESSION: windows_sys::core::HRESULT = 0x800C0003_u32 as _;
+pub const INET_E_NO_VALID_MEDIA: windows_sys::core::HRESULT = 0x800C000A_u32 as _;
+pub const INET_E_OBJECT_NOT_FOUND: windows_sys::core::HRESULT = 0x800C0006_u32 as _;
 pub const INET_E_QUERYOPTION_UNKNOWN: windows_sys::core::HRESULT = 0x800C0013_u32 as _;
 pub const INET_E_REDIRECTING: windows_sys::core::HRESULT = 0x800C0014_u32 as _;
+pub const INET_E_REDIRECT_FAILED: windows_sys::core::HRESULT = 0x800C0014_u32 as _;
+pub const INET_E_REDIRECT_TO_DIR: windows_sys::core::HRESULT = 0x800C0015_u32 as _;
 pub const INET_E_RESERVED_1: windows_sys::core::HRESULT = 0x800C001A_u32 as _;
 pub const INET_E_RESERVED_2: windows_sys::core::HRESULT = 0x800C001F_u32 as _;
 pub const INET_E_RESERVED_3: windows_sys::core::HRESULT = 0x800C0020_u32 as _;
 pub const INET_E_RESERVED_4: windows_sys::core::HRESULT = 0x800C0021_u32 as _;
 pub const INET_E_RESERVED_5: windows_sys::core::HRESULT = 0x800C0022_u32 as _;
+pub const INET_E_RESOURCE_NOT_FOUND: windows_sys::core::HRESULT = 0x800C0005_u32 as _;
 pub const INET_E_RESULT_DISPATCHED: windows_sys::core::HRESULT = 0x800C0200_u32 as _;
+pub const INET_E_SECURITY_PROBLEM: windows_sys::core::HRESULT = 0x800C000E_u32 as _;
 pub const INET_E_TERMINATED_BIND: windows_sys::core::HRESULT = 0x800C0018_u32 as _;
+pub const INET_E_UNKNOWN_PROTOCOL: windows_sys::core::HRESULT = 0x800C000D_u32 as _;
 pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: windows_sys::core::HRESULT = 0x800C0011_u32 as _;
 pub const INET_E_USE_DEFAULT_SETTING: windows_sys::core::HRESULT = 0x800C0012_u32 as _;
 pub const INET_E_USE_EXTEND_BINDING: windows_sys::core::HRESULT = 0x800C0017_u32 as _;
 pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: windows_sys::core::HRESULT = 0x800C001D_u32 as _;
 pub type INTERNETFEATURELIST = i32;
-pub const INVALID_P_ROOT_SECURITY_ID: *mut u8 = core::ptr::without_provenance_mut::<u8>((-1i32) as usize);
+#[cfg(feature = "shared")]
+pub const INVALID_P_ROOT_SECURITY_ID: *mut super::BYTE = core::ptr::without_provenance_mut::<super::BYTE>((-1i32) as usize);
+pub type LPAUTHENTICATION = *mut core::ffi::c_void;
+pub type LPAUTHENTICATIONEX = *mut core::ffi::c_void;
+pub type LPBINDCALLBACKREDIRECT = *mut core::ffi::c_void;
+pub type LPBINDHOST = *mut core::ffi::c_void;
+pub type LPBINDING = *mut core::ffi::c_void;
+pub type LPBINDPROTOCOL = *mut core::ffi::c_void;
+pub type LPBINDSTATUSCALLBACK = *mut core::ffi::c_void;
+pub type LPBINDSTATUSCALLBACKEX = *mut core::ffi::c_void;
+pub type LPCATALOGFILEINFO = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type LPCODEBASEHOLD = *mut CODEBASEHOLD;
-#[cfg(feature = "minwinbase")]
+pub type LPCODEINSTALL = *mut core::ffi::c_void;
+pub type LPDATAFILTER = *mut core::ffi::c_void;
+pub type LPENCODINGFILTERFACTORY = *mut core::ffi::c_void;
+pub type LPGETBINDHANDLE = *mut core::ffi::c_void;
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 pub type LPHIT_LOGGING_INFO = *mut HIT_LOGGING_INFO;
+pub type LPHTTPNEGOTIATE = *mut core::ffi::c_void;
+pub type LPHTTPNEGOTIATE2 = *mut core::ffi::c_void;
+pub type LPHTTPNEGOTIATE3 = *mut core::ffi::c_void;
+pub type LPHTTPSECURITY = *mut core::ffi::c_void;
+pub type LPIINTERNET = *mut core::ffi::c_void;
+pub type LPIINTERNETBINDINFO = *mut core::ffi::c_void;
+pub type LPIINTERNETBINDINFOEX = *mut core::ffi::c_void;
+pub type LPIINTERNETPRIORITY = *mut core::ffi::c_void;
+pub type LPIINTERNETPROTOCOL = *mut core::ffi::c_void;
+pub type LPIINTERNETPROTOCOLINFO = *mut core::ffi::c_void;
+pub type LPIINTERNETPROTOCOLROOT = *mut core::ffi::c_void;
+pub type LPIINTERNETPROTOCOLSINK = *mut core::ffi::c_void;
+pub type LPIINTERNETPROTOCOLSINKStackable = *mut core::ffi::c_void;
+pub type LPIINTERNETSESSION = *mut core::ffi::c_void;
+pub type LPIINTERNETTHREADSWITCH = *mut core::ffi::c_void;
+pub type LPIWRAPPEDPROTOCOL = *mut core::ffi::c_void;
+pub type LPMONIKERPROP = *mut core::ffi::c_void;
+pub type LPPERSISTMONIKER = *mut core::ffi::c_void;
 pub type LPPROTOCOL_ARGUMENT = *mut PROTOCOL_ARGUMENT;
+#[cfg(feature = "shared")]
 pub type LPREMFORMATETC = *mut RemFORMATETC;
+#[cfg(feature = "shared")]
 pub type LPREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type LPSOFTDISTINFO = *mut SOFTDISTINFO;
+pub type LPURLZONEMANAGER = *mut core::ffi::c_void;
+pub type LPWINDOWFORBINDINGUI = *mut core::ffi::c_void;
+pub type LPWININETCACHEHINTS = *mut core::ffi::c_void;
+pub type LPWININETCACHEHINTS2 = *mut core::ffi::c_void;
+pub type LPWININETFILESTREAM = *mut core::ffi::c_void;
+pub type LPWININETHTTPINFO = *mut core::ffi::c_void;
+pub type LPWININETINFO = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPZONEATTRIBUTES = *mut ZONEATTRIBUTES;
 pub const MAX_SIZE_SECURITY_ID: i32 = 512;
 pub const MAX_ZONE_DESCRIPTION: i32 = 200;
@@ -566,26 +729,29 @@ pub const PI_PREFERDEFAULTHANDLER: PI_FLAGS = 131072;
 pub const PI_SYNCHRONOUS: PI_FLAGS = 128;
 pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
+#[cfg(feature = "shared")]
 pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROTOCOLDATA {
-    pub grfFlags: u32,
-    pub dwState: u32,
-    pub pData: *mut core::ffi::c_void,
-    pub cbData: u32,
+    pub grfFlags: super::DWORD,
+    pub dwState: super::DWORD,
+    pub pData: super::LPVOID,
+    pub cbData: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PROTOCOLFILTERDATA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub pProtocolSink: *mut core::ffi::c_void,
     pub pProtocol: *mut core::ffi::c_void,
     pub pUnk: *mut core::ffi::c_void,
-    pub dwFilterFlags: u32,
+    pub dwFilterFlags: super::DWORD,
 }
 pub const PROTOCOLFLAG_NO_PICS_CHECK: i32 = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[derive(Clone, Copy, Default)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_sys::core::PCWSTR,
@@ -636,38 +802,41 @@ pub const QUERY_TIME_OF_LAST_CHANGE: QUERYOPTION = 2;
 pub const QUERY_USES_CACHE: QUERYOPTION = 12;
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = 15;
 pub const QUERY_USES_NETWORK: QUERYOPTION = 8;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct REMSECURITY_ATTRIBUTES {
-    pub nLength: u32,
-    pub lpSecurityDescriptor: u32,
+    pub nLength: super::DWORD,
+    pub lpSecurityDescriptor: super::DWORD,
     pub bInheritHandle: windows_sys::core::BOOL,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct RemBINDINFO {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub szExtraInfo: windows_sys::core::PWSTR,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
+    pub grfBindInfoF: super::DWORD,
+    pub dwBindVerb: super::DWORD,
     pub szCustomVerb: windows_sys::core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
+    pub cbstgmedData: super::DWORD,
+    pub dwOptions: super::DWORD,
+    pub dwOptionsFlags: super::DWORD,
+    pub dwCodePage: super::DWORD,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
-    pub iid: windows_sys::core::GUID,
+    pub iid: super::IID,
     pub pUnk: *mut core::ffi::c_void,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RemFORMATETC {
-    pub cfFormat: u32,
-    pub ptd: u32,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
+    pub cfFormat: super::DWORD,
+    pub ptd: super::DWORD,
+    pub dwAspect: super::DWORD,
+    pub lindex: super::LONG,
+    pub tymed: super::DWORD,
 }
 pub const SECURITY_IE_STATE_GREEN: i32 = 0;
 pub const SECURITY_IE_STATE_RED: i32 = 1;
@@ -679,22 +848,23 @@ pub const SET_FEATURE_ON_THREAD_INTRANET: i32 = 16;
 pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: i32 = 8;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: i32 = 128;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: i32 = 32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOFTDISTINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwAdState: u32,
+    pub cbSize: super::ULONG,
+    pub dwFlags: super::DWORD,
+    pub dwAdState: super::DWORD,
     pub szTitle: windows_sys::core::PWSTR,
     pub szAbstract: windows_sys::core::PWSTR,
     pub szHREF: windows_sys::core::PWSTR,
-    pub dwInstalledVersionMS: u32,
-    pub dwInstalledVersionLS: u32,
-    pub dwUpdateVersionMS: u32,
-    pub dwUpdateVersionLS: u32,
-    pub dwAdvertisedVersionMS: u32,
-    pub dwAdvertisedVersionLS: u32,
-    pub dwReserved: u32,
+    pub dwInstalledVersionMS: super::DWORD,
+    pub dwInstalledVersionLS: super::DWORD,
+    pub dwUpdateVersionMS: super::DWORD,
+    pub dwUpdateVersionLS: super::DWORD,
+    pub dwAdvertisedVersionMS: super::DWORD,
+    pub dwAdvertisedVersionLS: super::DWORD,
+    pub dwReserved: super::DWORD,
 }
 pub const SOFTDIST_ADSTATE_AVAILABLE: i32 = 1;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: i32 = 2;
@@ -707,12 +877,14 @@ pub const SOFTDIST_FLAG_USAGE_PRECACHE: i32 = 2;
 pub const SZM_CREATE: SZM_FLAGS = 0;
 pub const SZM_DELETE: SZM_FLAGS = 1;
 pub type SZM_FLAGS = i32;
+pub const SZ_ASYNC_CALLEE: windows_sys::core::PCWSTR = windows_sys::core::w!("AsyncCallee");
+pub const SZ_URLCONTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("URL Context");
 pub const S_ASYNCHRONOUS: windows_sys::core::HRESULT = 0x401E8_u32 as _;
-#[repr(C)]
-#[cfg(feature = "objidl")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "objidl"))]
 #[derive(Clone, Copy, Default)]
 pub struct StartParam {
-    pub iid: windows_sys::core::GUID,
+    pub iid: super::IID,
     pub pIBindCtx: *mut core::ffi::c_void,
     pub pItf: *mut core::ffi::c_void,
 }
@@ -1021,18 +1193,20 @@ pub const ZAFLAGS_SUPPORTS_VERIFICATION: ZAFLAGS = 64;
 pub const ZAFLAGS_UNC_AS_INTRANET: ZAFLAGS = 128;
 pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = 65536;
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = 131072;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ZONEATTRIBUTES {
-    pub cbSize: u32,
-    pub szDisplayName: [u16; 260],
-    pub szDescription: [u16; 200],
-    pub szIconPath: [u16; 260],
-    pub dwTemplateMinLevel: u32,
-    pub dwTemplateRecommended: u32,
-    pub dwTemplateCurrentLevel: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::ULONG,
+    pub szDisplayName: [super::WCHAR; 260],
+    pub szDescription: [super::WCHAR; 200],
+    pub szIconPath: [super::WCHAR; 260],
+    pub dwTemplateMinLevel: super::DWORD,
+    pub dwTemplateRecommended: super::DWORD,
+    pub dwTemplateCurrentLevel: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for ZONEATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

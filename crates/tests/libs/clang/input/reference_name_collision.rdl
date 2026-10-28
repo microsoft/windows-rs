@@ -1,0 +1,13 @@
+#[win32]
+mod Fixture {
+    struct CollisionConsumer {
+        local: IBuffer,
+        external: External::IBuffer,
+        value: Handler,
+    }
+    type Handler = i32;
+    #[guid(0x905a0fef_bc53_11df_8c49_001e4fc686db)]
+    interface IBuffer: IUnknown {
+        fn Read(&self, value: *mut i32) -> i32;
+    }
+}

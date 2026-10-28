@@ -1,147 +1,163 @@
-#[repr(C)]
-#[cfg(feature = "wtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct CABOOL {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::VARIANT_BOOL,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CABSTR {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut windows_sys::core::BSTR,
 }
-#[repr(C)]
-#[cfg(feature = "wtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct CABSTRBLOB {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::BSTRBLOB,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CAC {
-    pub cElems: u32,
-    pub pElems: *mut i8,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::CHAR,
 }
-#[repr(C)]
-#[cfg(feature = "wtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct CACLIPDATA {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::CLIPDATA,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CACLSID {
-    pub cElems: u32,
-    pub pElems: *mut windows_sys::core::GUID,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::CLSID,
 }
-#[repr(C)]
-#[cfg(feature = "wtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct CACY {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::CY,
 }
-#[repr(C)]
-#[cfg(feature = "wtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct CADATE {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::DATE,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct CADBL {
-    pub cElems: u32,
-    pub pElems: *mut f64,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::DOUBLE,
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CAFILETIME {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::FILETIME,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CAFLT {
-    pub cElems: u32,
-    pub pElems: *mut f32,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::FLOAT,
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CAH {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::LARGE_INTEGER,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CAI {
-    pub cElems: u32,
-    pub pElems: *mut i16,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::SHORT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CAL {
-    pub cElems: u32,
-    pub pElems: *mut i32,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::LONG,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CALPSTR {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut windows_sys::core::PSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CALPWSTR {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut windows_sys::core::PWSTR,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct CAPROPVARIANT {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut PROPVARIANT,
 }
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct CASCODE {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::SCODE,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CAUB {
-    pub cElems: u32,
-    pub pElems: *mut u8,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::UCHAR,
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CAUH {
-    pub cElems: u32,
+    pub cElems: super::ULONG,
     pub pElems: *mut super::ULARGE_INTEGER,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CAUI {
-    pub cElems: u32,
-    pub pElems: *mut u16,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::USHORT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CAUL {
-    pub cElems: u32,
-    pub pElems: *mut u32,
+    pub cElems: super::ULONG,
+    pub pElems: *mut super::ULONG,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-pub type LPPROPVARIANT = *mut PROPVARIANT;
+pub type LPENUMSTATPROPSETSTG = *mut core::ffi::c_void;
+pub type LPENUMSTATPROPSTG = *mut core::ffi::c_void;
+pub type LPPROPERTYSETSTORAGE = *mut core::ffi::c_void;
+pub type LPPROPERTYSTORAGE = *mut core::ffi::c_void;
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+pub type LPPROPVARIANT = *mut tagPROPVARIANT;
 #[cfg(feature = "objidlbase")]
 pub type LPVERSIONEDSTREAM = *mut VERSIONEDSTREAM;
 pub const PID_BEHAVIOR: u32 = 2147483651;
@@ -162,96 +178,131 @@ pub const PROPSETFLAG_NONSIMPLE: i32 = 1;
 pub const PROPSETFLAG_UNBUFFERED: i32 = 4;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295;
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: i32 = 1;
-#[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct PROPSPEC {
-    pub ulKind: u32,
+    pub ulKind: super::ULONG,
     pub Anonymous: PROPSPEC_0,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
     pub propid: super::PROPID,
     pub lpwstr: super::LPOLESTR,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PROPSPEC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub struct PROPVARIANT {
-    pub Anonymous: PROPVARIANT_0,
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+pub type PROPVARIANT = tagPROPVARIANT;
+pub type PROPVAR_PAD1 = u16;
+pub type PROPVAR_PAD2 = u16;
+pub type PROPVAR_PAD3 = u16;
+pub const PRSPEC_INVALID: u32 = 4294967295;
+pub const PRSPEC_LPWSTR: i32 = 0;
+pub const PRSPEC_PROPID: i32 = 1;
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct STATPROPSETSTG {
+    pub fmtid: super::FMTID,
+    pub clsid: super::CLSID,
+    pub grfFlags: super::DWORD,
+    pub mtime: super::FILETIME,
+    pub ctime: super::FILETIME,
+    pub atime: super::FILETIME,
+    pub dwOSVersion: super::DWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for PROPVARIANT {
+#[repr(C, packed(8))]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
+pub struct STATPROPSTG {
+    pub lpwstrName: super::LPOLESTR,
+    pub propid: super::PROPID,
+    pub vt: super::VARTYPE,
+}
+#[repr(C, packed(8))]
+#[cfg(feature = "objidlbase")]
+#[derive(Clone, Copy, Default)]
+pub struct VERSIONEDSTREAM {
+    pub guidVersion: windows_sys::core::GUID,
+    pub pStream: *mut core::ffi::c_void,
+}
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub struct tagPROPVARIANT {
+    pub Anonymous: tagPROPVARIANT_0,
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for tagPROPVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
-pub union PROPVARIANT_0 {
-    pub Anonymous: PROPVARIANT_0_0,
+pub union tagPROPVARIANT_0 {
+    pub Anonymous: tagPROPVARIANT_0_0,
     pub decVal: super::DECIMAL,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for PROPVARIANT_0 {
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for tagPROPVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
-pub struct PROPVARIANT_0_0 {
+pub struct tagPROPVARIANT_0_0 {
     pub vt: super::VARTYPE,
     pub wReserved1: PROPVAR_PAD1,
     pub wReserved2: PROPVAR_PAD2,
     pub wReserved3: PROPVAR_PAD3,
-    pub Anonymous: PROPVARIANT_0_0_0,
+    pub Anonymous: tagPROPVARIANT_0_0_0,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for PROPVARIANT_0_0 {
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for tagPROPVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
-pub union PROPVARIANT_0_0_0 {
-    pub cVal: i8,
-    pub bVal: u8,
-    pub iVal: i16,
-    pub uiVal: u16,
-    pub lVal: i32,
-    pub ulVal: u32,
-    pub intVal: i32,
-    pub uintVal: u32,
+pub union tagPROPVARIANT_0_0_0 {
+    pub cVal: super::CHAR,
+    pub bVal: super::UCHAR,
+    pub iVal: super::SHORT,
+    pub uiVal: super::USHORT,
+    pub lVal: super::LONG,
+    pub ulVal: super::ULONG,
+    pub intVal: super::INT,
+    pub uintVal: super::UINT,
     pub hVal: super::LARGE_INTEGER,
     pub uhVal: super::ULARGE_INTEGER,
-    pub fltVal: f32,
-    pub dblVal: f64,
+    pub fltVal: super::FLOAT,
+    pub dblVal: super::DOUBLE,
     pub boolVal: super::VARIANT_BOOL,
     pub __OBSOLETE__VARIANT_BOOL: super::VARIANT_BOOL,
     pub scode: super::SCODE,
     pub cyVal: super::CY,
     pub date: super::DATE,
     pub filetime: super::FILETIME,
-    pub puuid: *mut windows_sys::core::GUID,
+    pub puuid: *mut super::CLSID,
     pub pclipdata: *mut super::CLIPDATA,
     pub bstrVal: windows_sys::core::BSTR,
     pub bstrblobVal: super::BSTRBLOB,
@@ -286,16 +337,16 @@ pub union PROPVARIANT_0_0_0 {
     pub calpstr: CALPSTR,
     pub calpwstr: CALPWSTR,
     pub capropvar: CAPROPVARIANT,
-    pub pcVal: *mut i8,
-    pub pbVal: *mut u8,
-    pub piVal: *mut i16,
-    pub puiVal: *mut u16,
-    pub plVal: *mut i32,
-    pub pulVal: *mut u32,
-    pub pintVal: *mut i32,
-    pub puintVal: *mut u32,
-    pub pfltVal: *mut f32,
-    pub pdblVal: *mut f64,
+    pub pcVal: *mut super::CHAR,
+    pub pbVal: *mut super::UCHAR,
+    pub piVal: *mut super::SHORT,
+    pub puiVal: *mut super::USHORT,
+    pub plVal: *mut super::LONG,
+    pub pulVal: *mut super::ULONG,
+    pub pintVal: *mut super::INT,
+    pub puintVal: *mut super::UINT,
+    pub pfltVal: *mut super::FLOAT,
+    pub pdblVal: *mut super::DOUBLE,
     pub pboolVal: *mut super::VARIANT_BOOL,
     pub pdecVal: *mut super::DECIMAL,
     pub pscode: *mut super::SCODE,
@@ -307,42 +358,9 @@ pub union PROPVARIANT_0_0_0 {
     pub pparray: *mut super::LPSAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for PROPVARIANT_0_0_0 {
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for tagPROPVARIANT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-pub type PROPVAR_PAD1 = u16;
-pub type PROPVAR_PAD2 = u16;
-pub type PROPVAR_PAD3 = u16;
-pub const PRSPEC_INVALID: u32 = 4294967295;
-pub const PRSPEC_LPWSTR: i32 = 0;
-pub const PRSPEC_PROPID: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
-pub struct STATPROPSETSTG {
-    pub fmtid: windows_sys::core::GUID,
-    pub clsid: windows_sys::core::GUID,
-    pub grfFlags: u32,
-    pub mtime: super::FILETIME,
-    pub ctime: super::FILETIME,
-    pub atime: super::FILETIME,
-    pub dwOSVersion: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
-pub struct STATPROPSTG {
-    pub lpwstrName: super::LPOLESTR,
-    pub propid: super::PROPID,
-    pub vt: super::VARTYPE,
-}
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Default)]
-pub struct VERSIONEDSTREAM {
-    pub guidVersion: windows_sys::core::GUID,
-    pub pStream: *mut core::ffi::c_void,
 }

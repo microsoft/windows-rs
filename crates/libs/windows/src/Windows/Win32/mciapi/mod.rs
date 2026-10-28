@@ -1,17 +1,19 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn mciDriverNotify(hwndcallback: super::HANDLE, wdeviceid: MCIDEVICEID, ustatus: u32) -> windows_core::BOOL {
-    windows_core::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::HANDLE, wdeviceid : MCIDEVICEID, ustatus : u32) -> windows_core::BOOL);
-    unsafe { mciDriverNotify(hwndcallback, wdeviceid, ustatus) }
+pub unsafe fn mciDriverNotify(hwndcallback: super::HANDLE, wdeviceid: MCIDEVICEID, ustatus: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::HANDLE, wdeviceid : MCIDEVICEID, ustatus : super::UINT) -> windows_core::BOOL);
+    unsafe { mciDriverNotify(hwndcallback as _, wdeviceid, ustatus) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciDriverYield(wdeviceid: MCIDEVICEID) -> u32 {
-    windows_core::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : MCIDEVICEID) -> u32);
+pub unsafe fn mciDriverYield(wdeviceid: MCIDEVICEID) -> super::UINT {
+    windows_core::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : MCIDEVICEID) -> super::UINT);
     unsafe { mciDriverYield(wdeviceid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciFreeCommandResource(wtable: u32) -> windows_core::BOOL {
-    windows_core::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> windows_core::BOOL);
+pub unsafe fn mciFreeCommandResource(wtable: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : super::UINT) -> windows_core::BOOL);
     unsafe { mciFreeCommandResource(wtable) }
 }
 #[cfg(feature = "minwindef")]
@@ -28,20 +30,22 @@ where
     windows_core::link!("winmm.dll" "system" fn mciGetDeviceIDA(pszdevice : windows_core::PCSTR) -> MCIDEVICEID);
     unsafe { mciGetDeviceIDA(pszdevice.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciGetDeviceIDFromElementIDA<P1>(dwelementid: u32, lpstrtype: P1) -> MCIDEVICEID
+pub unsafe fn mciGetDeviceIDFromElementIDA<P1>(dwelementid: super::DWORD, lpstrtype: P1) -> MCIDEVICEID
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : u32, lpstrtype : windows_core::PCSTR) -> MCIDEVICEID);
+    windows_core::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : super::DWORD, lpstrtype : windows_core::PCSTR) -> MCIDEVICEID);
     unsafe { mciGetDeviceIDFromElementIDA(dwelementid, lpstrtype.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciGetDeviceIDFromElementIDW<P1>(dwelementid: u32, lpstrtype: P1) -> MCIDEVICEID
+pub unsafe fn mciGetDeviceIDFromElementIDW<P1>(dwelementid: super::DWORD, lpstrtype: P1) -> MCIDEVICEID
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDW(dwelementid : u32, lpstrtype : windows_core::PCWSTR) -> MCIDEVICEID);
+    windows_core::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDW(dwelementid : super::DWORD, lpstrtype : windows_core::PCWSTR) -> MCIDEVICEID);
     unsafe { mciGetDeviceIDFromElementIDW(dwelementid, lpstrtype.param().abi()) }
 }
 #[inline]
@@ -52,152 +56,194 @@ where
     windows_core::link!("winmm.dll" "system" fn mciGetDeviceIDW(pszdevice : windows_core::PCWSTR) -> MCIDEVICEID);
     unsafe { mciGetDeviceIDW(pszdevice.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciGetDriverData(wdeviceid: MCIDEVICEID) -> usize {
-    windows_core::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : MCIDEVICEID) -> usize);
+pub unsafe fn mciGetDriverData(wdeviceid: MCIDEVICEID) -> super::DWORD_PTR {
+    windows_core::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : MCIDEVICEID) -> super::DWORD_PTR);
     unsafe { mciGetDriverData(wdeviceid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciGetErrorStringA(mcierr: MCIERROR, psztext: windows_core::PSTR, cchtext: u32) -> windows_core::BOOL {
-    windows_core::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : MCIERROR, psztext : windows_core::PSTR, cchtext : u32) -> windows_core::BOOL);
+pub unsafe fn mciGetErrorStringA(mcierr: MCIERROR, psztext: windows_core::PSTR, cchtext: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : MCIERROR, psztext : windows_core::PSTR, cchtext : super::UINT) -> windows_core::BOOL);
     unsafe { mciGetErrorStringA(mcierr, psztext, cchtext) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciGetErrorStringW(mcierr: MCIERROR, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::BOOL {
-    windows_core::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : MCIERROR, psztext : windows_core::PWSTR, cchtext : u32) -> windows_core::BOOL);
+pub unsafe fn mciGetErrorStringW(mcierr: MCIERROR, psztext: windows_core::PWSTR, cchtext: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : MCIERROR, psztext : windows_core::PWSTR, cchtext : super::UINT) -> windows_core::BOOL);
     unsafe { mciGetErrorStringW(mcierr, psztext, cchtext) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn mciGetYieldProc(mciid: MCIDEVICEID, pdwyielddata: super::LPDWORD) -> YIELDPROC {
     windows_core::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : MCIDEVICEID, pdwyielddata : super::LPDWORD) -> YIELDPROC);
     unsafe { mciGetYieldProc(mciid, pdwyielddata) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn mciLoadCommandResource<P1>(hinstance: super::HANDLE, lpresname: P1, wtype: u32) -> u32
+pub unsafe fn mciLoadCommandResource<P1>(hinstance: super::HANDLE, lpresname: P1, wtype: super::UINT) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::HANDLE, lpresname : windows_core::PCWSTR, wtype : u32) -> u32);
-    unsafe { mciLoadCommandResource(hinstance, lpresname.param().abi(), wtype) }
+    windows_core::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::HANDLE, lpresname : windows_core::PCWSTR, wtype : super::UINT) -> super::UINT);
+    unsafe { mciLoadCommandResource(hinstance as _, lpresname.param().abi(), wtype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciSendCommandA(mciid: MCIDEVICEID, umsg: u32, dwparam1: Option<usize>, dwparam2: Option<usize>) -> MCIERROR {
-    windows_core::link!("winmm.dll" "system" fn mciSendCommandA(mciid : MCIDEVICEID, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> MCIERROR);
+pub unsafe fn mciSendCommandA(mciid: MCIDEVICEID, umsg: super::UINT, dwparam1: Option<super::DWORD_PTR>, dwparam2: Option<super::DWORD_PTR>) -> MCIERROR {
+    windows_core::link!("winmm.dll" "system" fn mciSendCommandA(mciid : MCIDEVICEID, umsg : super::UINT, dwparam1 : super::DWORD_PTR, dwparam2 : super::DWORD_PTR) -> MCIERROR);
     unsafe { mciSendCommandA(mciid, umsg, dwparam1.unwrap_or(core::mem::zeroed()) as _, dwparam2.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciSendCommandW(mciid: MCIDEVICEID, umsg: u32, dwparam1: Option<usize>, dwparam2: Option<usize>) -> MCIERROR {
-    windows_core::link!("winmm.dll" "system" fn mciSendCommandW(mciid : MCIDEVICEID, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> MCIERROR);
+pub unsafe fn mciSendCommandW(mciid: MCIDEVICEID, umsg: super::UINT, dwparam1: Option<super::DWORD_PTR>, dwparam2: Option<super::DWORD_PTR>) -> MCIERROR {
+    windows_core::link!("winmm.dll" "system" fn mciSendCommandW(mciid : MCIDEVICEID, umsg : super::UINT, dwparam1 : super::DWORD_PTR, dwparam2 : super::DWORD_PTR) -> MCIERROR);
     unsafe { mciSendCommandW(mciid, umsg, dwparam1.unwrap_or(core::mem::zeroed()) as _, dwparam2.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn mciSendStringA<P0>(lpstrcommand: P0, lpstrreturnstring: Option<windows_core::PSTR>, ureturnlength: u32, hwndcallback: Option<super::HWND>) -> MCIERROR
+pub unsafe fn mciSendStringA<P0>(lpstrcommand: P0, lpstrreturnstring: Option<windows_core::PSTR>, ureturnlength: super::UINT, hwndcallback: Option<super::HWND>) -> MCIERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_core::PCSTR, lpstrreturnstring : windows_core::PSTR, ureturnlength : u32, hwndcallback : super::HWND) -> MCIERROR);
+    windows_core::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_core::PCSTR, lpstrreturnstring : windows_core::PSTR, ureturnlength : super::UINT, hwndcallback : super::HWND) -> MCIERROR);
     unsafe { mciSendStringA(lpstrcommand.param().abi(), lpstrreturnstring.unwrap_or(core::mem::zeroed()) as _, ureturnlength, hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn mciSendStringW<P0>(lpstrcommand: P0, lpstrreturnstring: Option<windows_core::PWSTR>, ureturnlength: u32, hwndcallback: Option<super::HWND>) -> MCIERROR
+pub unsafe fn mciSendStringW<P0>(lpstrcommand: P0, lpstrreturnstring: Option<windows_core::PWSTR>, ureturnlength: super::UINT, hwndcallback: Option<super::HWND>) -> MCIERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_core::PCWSTR, lpstrreturnstring : windows_core::PWSTR, ureturnlength : u32, hwndcallback : super::HWND) -> MCIERROR);
+    windows_core::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_core::PCWSTR, lpstrreturnstring : windows_core::PWSTR, ureturnlength : super::UINT, hwndcallback : super::HWND) -> MCIERROR);
     unsafe { mciSendStringW(lpstrcommand.param().abi(), lpstrreturnstring.unwrap_or(core::mem::zeroed()) as _, ureturnlength, hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciSetDriverData(wdeviceid: MCIDEVICEID, dwdata: usize) -> windows_core::BOOL {
-    windows_core::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : MCIDEVICEID, dwdata : usize) -> windows_core::BOOL);
+pub unsafe fn mciSetDriverData(wdeviceid: MCIDEVICEID, dwdata: super::DWORD_PTR) -> windows_core::BOOL {
+    windows_core::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : MCIDEVICEID, dwdata : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { mciSetDriverData(wdeviceid, dwdata) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn mciSetYieldProc(mciid: MCIDEVICEID, fpyieldproc: YIELDPROC, dwyielddata: u32) -> windows_core::BOOL {
-    windows_core::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : MCIDEVICEID, fpyieldproc : YIELDPROC, dwyielddata : u32) -> windows_core::BOOL);
+pub unsafe fn mciSetYieldProc(mciid: MCIDEVICEID, fpyieldproc: YIELDPROC, dwyielddata: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : MCIDEVICEID, fpyieldproc : YIELDPROC, dwyielddata : super::DWORD) -> windows_core::BOOL);
     unsafe { mciSetYieldProc(mciid, fpyieldproc, dwyielddata) }
 }
-#[cfg(feature = "windef")]
-pub type LPMCI_ANIM_OPEN_PARMS = LPMCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMCI_ANIM_OPEN_PARMS = *mut MCI_ANIM_OPEN_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
+#[cfg(feature = "shared")]
 pub type LPMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
-#[cfg(feature = "windef")]
-pub type LPMCI_ANIM_WINDOW_PARMS = LPMCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMCI_ANIM_WINDOW_PARMS = *mut MCI_ANIM_WINDOW_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
-pub type LPMCI_INFO_PARMS = LPMCI_INFO_PARMSA;
+#[cfg(feature = "shared")]
+pub type LPMCI_INFO_PARMS = *mut MCI_INFO_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_INFO_PARMSA = *mut MCI_INFO_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_INFO_PARMSW = *mut MCI_INFO_PARMSW;
-pub type LPMCI_LOAD_PARMS = LPMCI_LOAD_PARMSA;
+#[cfg(feature = "shared")]
+pub type LPMCI_LOAD_PARMS = *mut MCI_LOAD_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
-pub type LPMCI_OPEN_PARMS = LPMCI_OPEN_PARMSA;
+#[cfg(feature = "shared")]
+pub type LPMCI_OPEN_PARMS = *mut MCI_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
-#[cfg(feature = "windef")]
-pub type LPMCI_OVLY_LOAD_PARMS = LPMCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMCI_OVLY_LOAD_PARMS = *mut MCI_OVLY_LOAD_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
-#[cfg(feature = "windef")]
-pub type LPMCI_OVLY_OPEN_PARMS = LPMCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMCI_OVLY_OPEN_PARMS = *mut MCI_OVLY_OPEN_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
-#[cfg(feature = "windef")]
-pub type LPMCI_OVLY_SAVE_PARMS = LPMCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMCI_OVLY_SAVE_PARMS = *mut MCI_OVLY_SAVE_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
-#[cfg(feature = "windef")]
-pub type LPMCI_OVLY_WINDOW_PARMS = LPMCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMCI_OVLY_WINDOW_PARMS = *mut MCI_OVLY_WINDOW_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
+#[cfg(feature = "shared")]
 pub type LPMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_RECORD_PARMS = *mut MCI_RECORD_PARMS;
-pub type LPMCI_SAVE_PARMS = LPMCI_SAVE_PARMSA;
+#[cfg(feature = "shared")]
+pub type LPMCI_SAVE_PARMS = *mut MCI_SAVE_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
+#[cfg(feature = "shared")]
 pub type LPMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_SET_PARMS = *mut MCI_SET_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
-pub type LPMCI_SYSINFO_PARMS = LPMCI_SYSINFO_PARMSA;
+#[cfg(feature = "shared")]
+pub type LPMCI_SYSINFO_PARMS = *mut MCI_SYSINFO_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
-pub type LPMCI_VD_ESCAPE_PARMS = LPMCI_VD_ESCAPE_PARMSA;
+#[cfg(feature = "shared")]
+pub type LPMCI_VD_ESCAPE_PARMS = *mut MCI_VD_ESCAPE_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
+#[cfg(feature = "shared")]
 pub type LPMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
+#[cfg(feature = "shared")]
 pub type LPMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
-pub type LPMCI_WAVE_OPEN_PARMS = LPMCI_WAVE_OPEN_PARMSA;
+#[cfg(feature = "shared")]
+pub type LPMCI_WAVE_OPEN_PARMS = *mut MCI_WAVE_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type LPMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
+#[cfg(feature = "shared")]
 pub type LPMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
 pub type MCIDEVICEID = u32;
 pub type MCIERROR = u32;
@@ -288,41 +334,42 @@ pub const MCI_ANIM_GETDEVCAPS_SLOW_RATE: i32 = 16387;
 pub const MCI_ANIM_INFO_TEXT: i32 = 65536;
 pub const MCI_ANIM_OPEN_NOSTATIC: i32 = 262144;
 pub const MCI_ANIM_OPEN_PARENT: i32 = 131072;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MCI_ANIM_OPEN_PARMS = MCI_ANIM_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_OPEN_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCSTR,
     pub lpstrElementName: windows_core::PCSTR,
     pub lpstrAlias: windows_core::PCSTR,
-    pub dwStyle: u32,
+    pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_OPEN_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCWSTR,
     pub lpstrElementName: windows_core::PCWSTR,
     pub lpstrAlias: windows_core::PCWSTR,
-    pub dwStyle: u32,
+    pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
 }
 pub const MCI_ANIM_OPEN_WS: i32 = 65536;
 pub const MCI_ANIM_PLAY_FAST: i32 = 262144;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub dwSpeed: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwFrom: super::DWORD,
+    pub dwTo: super::DWORD,
+    pub dwSpeed: super::DWORD,
 }
 pub const MCI_ANIM_PLAY_REVERSE: i32 = 131072;
 pub const MCI_ANIM_PLAY_SCAN: i32 = 1048576;
@@ -334,10 +381,10 @@ pub const MCI_ANIM_REALIZE_BKGD: i32 = 131072;
 pub const MCI_ANIM_REALIZE_NORM: i32 = 65536;
 pub const MCI_ANIM_RECT: i32 = 65536;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_RECT_PARMS {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub rc: super::RECT,
 }
 pub const MCI_ANIM_STATUS_FORWARD: i32 = 16386;
@@ -347,18 +394,19 @@ pub const MCI_ANIM_STATUS_SPEED: i32 = 16385;
 pub const MCI_ANIM_STATUS_STRETCH: i32 = 16389;
 pub const MCI_ANIM_STEP_FRAMES: i32 = 131072;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwFrames: super::DWORD,
 }
 pub const MCI_ANIM_STEP_REVERSE: i32 = 65536;
 pub const MCI_ANIM_UPDATE_HDC: i32 = 131072;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_UPDATE_PARMS {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub rc: super::RECT,
     pub hDC: super::HDC,
 }
@@ -368,24 +416,24 @@ pub const MCI_ANIM_WINDOW_DEFAULT: i32 = 0;
 pub const MCI_ANIM_WINDOW_DISABLE_STRETCH: i32 = 2097152;
 pub const MCI_ANIM_WINDOW_ENABLE_STRETCH: i32 = 1048576;
 pub const MCI_ANIM_WINDOW_HWND: i32 = 65536;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MCI_ANIM_WINDOW_PARMS = MCI_ANIM_WINDOW_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
-    pub nCmdShow: u32,
+    pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
-    pub nCmdShow: u32,
+    pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCWSTR,
 }
 pub const MCI_ANIM_WINDOW_STATE: i32 = 262144;
@@ -395,10 +443,10 @@ pub const MCI_BREAK_HWND: i32 = 512;
 pub const MCI_BREAK_KEY: i32 = 256;
 pub const MCI_BREAK_OFF: i32 = 1024;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_BREAK_PARMS {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub nVirtKey: i32,
     pub hwndBreak: super::HWND,
 }
@@ -440,9 +488,10 @@ pub const MCI_FORMAT_TMSF: i32 = 10;
 pub const MCI_FREEZE: i32 = 2116;
 pub const MCI_FROM: i32 = 4;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_GENERIC_PARMS {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
 }
 pub const MCI_GETDEVCAPS: i32 = 2059;
 pub const MCI_GETDEVCAPS_CAN_EJECT: i32 = 7;
@@ -455,11 +504,12 @@ pub const MCI_GETDEVCAPS_HAS_AUDIO: i32 = 2;
 pub const MCI_GETDEVCAPS_HAS_VIDEO: i32 = 3;
 pub const MCI_GETDEVCAPS_ITEM: i32 = 256;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_GETDEVCAPS_PARMS {
-    pub dwCallback: usize,
-    pub dwReturn: u32,
-    pub dwItem: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwReturn: super::DWORD,
+    pub dwItem: super::DWORD,
 }
 pub const MCI_GETDEVCAPS_USES_FILES: i32 = 5;
 pub const MCI_INFO: i32 = 2058;
@@ -468,36 +518,42 @@ pub const MCI_INFO_FILE: i32 = 512;
 pub const MCI_INFO_MEDIA_IDENTITY: i32 = 2048;
 pub const MCI_INFO_MEDIA_UPC: i32 = 1024;
 pub const MCI_INFO_NAME: i32 = 4096;
+#[cfg(feature = "shared")]
 pub type MCI_INFO_PARMS = MCI_INFO_PARMSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_INFO_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpstrReturn: windows_core::PSTR,
-    pub dwRetSize: u32,
+    pub dwRetSize: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_INFO_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpstrReturn: windows_core::PWSTR,
-    pub dwRetSize: u32,
+    pub dwRetSize: super::DWORD,
 }
 pub const MCI_INFO_PRODUCT: i32 = 256;
 pub const MCI_LAST: i32 = 4095;
 pub const MCI_LOAD: i32 = 2128;
 pub const MCI_LOAD_FILE: i32 = 256;
+#[cfg(feature = "shared")]
 pub type MCI_LOAD_PARMS = MCI_LOAD_PARMSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_LOAD_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_LOAD_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCWSTR,
 }
 pub const MCI_MODE_NOT_READY: i32 = 524;
@@ -516,20 +572,23 @@ pub const MCI_OPEN: i32 = 2051;
 pub const MCI_OPEN_ALIAS: i32 = 1024;
 pub const MCI_OPEN_ELEMENT: i32 = 512;
 pub const MCI_OPEN_ELEMENT_ID: i32 = 2048;
+#[cfg(feature = "shared")]
 pub type MCI_OPEN_PARMS = MCI_OPEN_PARMSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OPEN_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCSTR,
     pub lpstrElementName: windows_core::PCSTR,
     pub lpstrAlias: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OPEN_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCWSTR,
     pub lpstrElementName: windows_core::PCWSTR,
@@ -542,49 +601,49 @@ pub const MCI_OVLY_GETDEVCAPS_CAN_FREEZE: i32 = 16386;
 pub const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: i32 = 16385;
 pub const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: i32 = 16387;
 pub const MCI_OVLY_INFO_TEXT: i32 = 65536;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MCI_OVLY_LOAD_PARMS = MCI_OVLY_LOAD_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_LOAD_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCSTR,
     pub rc: super::RECT,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_LOAD_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCWSTR,
     pub rc: super::RECT,
 }
 pub const MCI_OVLY_OPEN_PARENT: i32 = 131072;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MCI_OVLY_OPEN_PARMS = MCI_OVLY_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_OPEN_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCSTR,
     pub lpstrElementName: windows_core::PCSTR,
     pub lpstrAlias: windows_core::PCSTR,
-    pub dwStyle: u32,
+    pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_OPEN_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCWSTR,
     pub lpstrElementName: windows_core::PCWSTR,
     pub lpstrAlias: windows_core::PCWSTR,
-    pub dwStyle: u32,
+    pub dwStyle: super::DWORD,
     pub hWndParent: super::HWND,
 }
 pub const MCI_OVLY_OPEN_WS: i32 = 65536;
@@ -594,27 +653,27 @@ pub const MCI_OVLY_PUT_SOURCE: i32 = 131072;
 pub const MCI_OVLY_PUT_VIDEO: i32 = 1048576;
 pub const MCI_OVLY_RECT: i32 = 65536;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_RECT_PARMS {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub rc: super::RECT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MCI_OVLY_SAVE_PARMS = MCI_OVLY_SAVE_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_SAVE_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCSTR,
     pub rc: super::RECT,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_SAVE_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCWSTR,
     pub rc: super::RECT,
 }
@@ -628,24 +687,24 @@ pub const MCI_OVLY_WINDOW_DEFAULT: i32 = 0;
 pub const MCI_OVLY_WINDOW_DISABLE_STRETCH: i32 = 2097152;
 pub const MCI_OVLY_WINDOW_ENABLE_STRETCH: i32 = 1048576;
 pub const MCI_OVLY_WINDOW_HWND: i32 = 65536;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MCI_OVLY_WINDOW_PARMS = MCI_OVLY_WINDOW_PARMSA;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
-    pub nCmdShow: u32,
+    pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub hWnd: super::HWND,
-    pub nCmdShow: u32,
+    pub nCmdShow: super::UINT,
     pub lpstrText: windows_core::PCWSTR,
 }
 pub const MCI_OVLY_WINDOW_STATE: i32 = 262144;
@@ -654,11 +713,12 @@ pub const MCI_PASTE: i32 = 2131;
 pub const MCI_PAUSE: i32 = 2057;
 pub const MCI_PLAY: i32 = 2054;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwFrom: super::DWORD,
+    pub dwTo: super::DWORD,
 }
 pub const MCI_PUT: i32 = 2114;
 pub const MCI_REALIZE: i32 = 2112;
@@ -666,34 +726,39 @@ pub const MCI_RECORD: i32 = 2063;
 pub const MCI_RECORD_INSERT: i32 = 256;
 pub const MCI_RECORD_OVERWRITE: i32 = 512;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_RECORD_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwFrom: super::DWORD,
+    pub dwTo: super::DWORD,
 }
 pub const MCI_RESUME: i32 = 2133;
 pub const MCI_SAVE: i32 = 2067;
 pub const MCI_SAVE_FILE: i32 = 256;
+#[cfg(feature = "shared")]
 pub type MCI_SAVE_PARMS = MCI_SAVE_PARMSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SAVE_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SAVE_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpfilename: windows_core::PCWSTR,
 }
 pub const MCI_SEEK: i32 = 2055;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SEEK_PARMS {
-    pub dwCallback: usize,
-    pub dwTo: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwTo: super::DWORD,
 }
 pub const MCI_SEEK_TO_END: i32 = 512;
 pub const MCI_SEEK_TO_START: i32 = 256;
@@ -710,16 +775,17 @@ pub const MCI_SEQ_NONE: i32 = 65533;
 pub const MCI_SEQ_SET_MASTER: i32 = 524288;
 pub const MCI_SEQ_SET_OFFSET: i32 = 16777216;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SEQ_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub dwTempo: u32,
-    pub dwPort: u32,
-    pub dwSlave: u32,
-    pub dwMaster: u32,
-    pub dwOffset: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwTimeFormat: super::DWORD,
+    pub dwAudio: super::DWORD,
+    pub dwTempo: super::DWORD,
+    pub dwPort: super::DWORD,
+    pub dwSlave: super::DWORD,
+    pub dwMaster: super::DWORD,
+    pub dwOffset: super::DWORD,
 }
 pub const MCI_SEQ_SET_PORT: i32 = 131072;
 pub const MCI_SEQ_SET_SLAVE: i32 = 262144;
@@ -743,11 +809,12 @@ pub const MCI_SET_DOOR_OPEN: i32 = 256;
 pub const MCI_SET_OFF: i32 = 16384;
 pub const MCI_SET_ON: i32 = 8192;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwTimeFormat: super::DWORD,
+    pub dwAudio: super::DWORD,
 }
 pub const MCI_SET_TIME_FORMAT: i32 = 1024;
 pub const MCI_SET_VIDEO: i32 = 4096;
@@ -759,12 +826,13 @@ pub const MCI_STATUS_MEDIA_PRESENT: i32 = 5;
 pub const MCI_STATUS_MODE: i32 = 4;
 pub const MCI_STATUS_NUMBER_OF_TRACKS: i32 = 3;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_PARMS {
-    pub dwCallback: usize,
-    pub dwReturn: usize,
-    pub dwItem: u32,
-    pub dwTrack: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwReturn: super::DWORD_PTR,
+    pub dwItem: super::DWORD,
+    pub dwTrack: super::DWORD,
 }
 pub const MCI_STATUS_POSITION: i32 = 2;
 pub const MCI_STATUS_READY: i32 = 7;
@@ -776,24 +844,27 @@ pub const MCI_SYSINFO: i32 = 2064;
 pub const MCI_SYSINFO_INSTALLNAME: i32 = 2048;
 pub const MCI_SYSINFO_NAME: i32 = 1024;
 pub const MCI_SYSINFO_OPEN: i32 = 512;
+#[cfg(feature = "shared")]
 pub type MCI_SYSINFO_PARMS = MCI_SYSINFO_PARMSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SYSINFO_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpstrReturn: windows_core::PSTR,
-    pub dwRetSize: u32,
-    pub dwNumber: u32,
-    pub wDeviceType: u32,
+    pub dwRetSize: super::DWORD,
+    pub dwNumber: super::DWORD,
+    pub wDeviceType: super::UINT,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SYSINFO_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpstrReturn: windows_core::PWSTR,
-    pub dwRetSize: u32,
-    pub dwNumber: u32,
-    pub wDeviceType: u32,
+    pub dwRetSize: super::DWORD,
+    pub dwNumber: super::DWORD,
+    pub wDeviceType: super::UINT,
 }
 pub const MCI_SYSINFO_QUANTITY: i32 = 256;
 pub const MCI_TO: i32 = 8;
@@ -801,17 +872,20 @@ pub const MCI_TRACK: i32 = 16;
 pub const MCI_UNFREEZE: i32 = 2117;
 pub const MCI_UPDATE: i32 = 2132;
 pub const MCI_USER_MESSAGES: i32 = 3072;
+#[cfg(feature = "shared")]
 pub type MCI_VD_ESCAPE_PARMS = MCI_VD_ESCAPE_PARMSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_VD_ESCAPE_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpstrCommand: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_VD_ESCAPE_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub lpstrCommand: windows_core::PCWSTR,
 }
 pub const MCI_VD_ESCAPE_STRING: i32 = 256;
@@ -828,12 +902,13 @@ pub const MCI_VD_MEDIA_OTHER: i32 = 1028;
 pub const MCI_VD_MODE_PARK: i32 = 1025;
 pub const MCI_VD_PLAY_FAST: i32 = 131072;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_VD_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub dwSpeed: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwFrom: super::DWORD,
+    pub dwTo: super::DWORD,
+    pub dwSpeed: super::DWORD,
 }
 pub const MCI_VD_PLAY_REVERSE: i32 = 65536;
 pub const MCI_VD_PLAY_SCAN: i32 = 524288;
@@ -849,45 +924,50 @@ pub const MCI_VD_STATUS_SIDE: i32 = 16389;
 pub const MCI_VD_STATUS_SPEED: i32 = 16386;
 pub const MCI_VD_STEP_FRAMES: i32 = 65536;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_VD_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwFrames: super::DWORD,
 }
 pub const MCI_VD_STEP_REVERSE: i32 = 131072;
 pub const MCI_WAIT: i32 = 2;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_DELETE_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwFrom: super::DWORD,
+    pub dwTo: super::DWORD,
 }
 pub const MCI_WAVE_GETDEVCAPS_INPUTS: i32 = 16385;
 pub const MCI_WAVE_GETDEVCAPS_OUTPUTS: i32 = 16386;
 pub const MCI_WAVE_INPUT: i32 = 4194304;
 pub const MCI_WAVE_MAPPER: i32 = 1153;
 pub const MCI_WAVE_OPEN_BUFFER: i32 = 65536;
+#[cfg(feature = "shared")]
 pub type MCI_WAVE_OPEN_PARMS = MCI_WAVE_OPEN_PARMSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_OPEN_PARMSA {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCSTR,
     pub lpstrElementName: windows_core::PCSTR,
     pub lpstrAlias: windows_core::PCSTR,
-    pub dwBufferSeconds: u32,
+    pub dwBufferSeconds: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_OPEN_PARMSW {
-    pub dwCallback: usize,
+    pub dwCallback: super::DWORD_PTR,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_core::PCWSTR,
     pub lpstrElementName: windows_core::PCWSTR,
     pub lpstrAlias: windows_core::PCWSTR,
-    pub dwBufferSeconds: u32,
+    pub dwBufferSeconds: super::DWORD,
 }
 pub const MCI_WAVE_OUTPUT: i32 = 8388608;
 pub const MCI_WAVE_PCM: i32 = 1152;
@@ -899,23 +979,24 @@ pub const MCI_WAVE_SET_BLOCKALIGN: i32 = 1048576;
 pub const MCI_WAVE_SET_CHANNELS: i32 = 131072;
 pub const MCI_WAVE_SET_FORMATTAG: i32 = 65536;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub wInput: u32,
-    pub wOutput: u32,
-    pub wFormatTag: u16,
-    pub wReserved2: u16,
-    pub nChannels: u16,
-    pub wReserved3: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-    pub wReserved4: u16,
-    pub wBitsPerSample: u16,
-    pub wReserved5: u16,
+    pub dwCallback: super::DWORD_PTR,
+    pub dwTimeFormat: super::DWORD,
+    pub dwAudio: super::DWORD,
+    pub wInput: super::UINT,
+    pub wOutput: super::UINT,
+    pub wFormatTag: super::WORD,
+    pub wReserved2: super::WORD,
+    pub nChannels: super::WORD,
+    pub wReserved3: super::WORD,
+    pub nSamplesPerSec: super::DWORD,
+    pub nAvgBytesPerSec: super::DWORD,
+    pub nBlockAlign: super::WORD,
+    pub wReserved4: super::WORD,
+    pub wBitsPerSample: super::WORD,
+    pub wReserved5: super::WORD,
 }
 pub const MCI_WAVE_SET_SAMPLESPERSEC: i32 = 262144;
 pub const MCI_WAVE_STATUS_AVGBYTESPERSEC: i32 = 16388;
@@ -927,79 +1008,111 @@ pub const MCI_WAVE_STATUS_LEVEL: i32 = 16391;
 pub const MCI_WAVE_STATUS_SAMPLESPERSEC: i32 = 16387;
 pub const MCI_WHERE: i32 = 2115;
 pub const MCI_WINDOW: i32 = 2113;
-#[cfg(feature = "windef")]
-pub type PMCI_ANIM_OPEN_PARMS = PMCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PMCI_ANIM_OPEN_PARMS = *mut MCI_ANIM_OPEN_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
+#[cfg(feature = "shared")]
 pub type PMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
-#[cfg(feature = "windef")]
-pub type PMCI_ANIM_WINDOW_PARMS = PMCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PMCI_ANIM_WINDOW_PARMS = *mut MCI_ANIM_WINDOW_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
-pub type PMCI_LOAD_PARMS = PMCI_LOAD_PARMSA;
+#[cfg(feature = "shared")]
+pub type PMCI_LOAD_PARMS = *mut MCI_LOAD_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
-pub type PMCI_OPEN_PARMS = PMCI_OPEN_PARMSA;
+#[cfg(feature = "shared")]
+pub type PMCI_OPEN_PARMS = *mut MCI_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
-#[cfg(feature = "windef")]
-pub type PMCI_OVLY_LOAD_PARMS = PMCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PMCI_OVLY_LOAD_PARMS = *mut MCI_OVLY_LOAD_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
-#[cfg(feature = "windef")]
-pub type PMCI_OVLY_OPEN_PARMS = PMCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PMCI_OVLY_OPEN_PARMS = *mut MCI_OVLY_OPEN_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
-#[cfg(feature = "windef")]
-pub type PMCI_OVLY_SAVE_PARMS = PMCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PMCI_OVLY_SAVE_PARMS = *mut MCI_OVLY_SAVE_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
-#[cfg(feature = "windef")]
-pub type PMCI_OVLY_WINDOW_PARMS = PMCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PMCI_OVLY_WINDOW_PARMS = *mut MCI_OVLY_WINDOW_PARMSA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
+#[cfg(feature = "shared")]
 pub type PMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
-pub type PMCI_SAVE_PARMS = PMCI_SAVE_PARMSA;
+#[cfg(feature = "shared")]
+pub type PMCI_SAVE_PARMS = *mut MCI_SAVE_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
+#[cfg(feature = "shared")]
 pub type PMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_SET_PARMS = *mut MCI_SET_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
-pub type PMCI_SYSINFO_PARMS = PMCI_SYSINFO_PARMSA;
+#[cfg(feature = "shared")]
+pub type PMCI_SYSINFO_PARMS = *mut MCI_SYSINFO_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
-pub type PMCI_VD_ESCAPE_PARMS = PMCI_VD_ESCAPE_PARMSA;
+#[cfg(feature = "shared")]
+pub type PMCI_VD_ESCAPE_PARMS = *mut MCI_VD_ESCAPE_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
+#[cfg(feature = "shared")]
 pub type PMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
+#[cfg(feature = "shared")]
 pub type PMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
-pub type PMCI_WAVE_OPEN_PARMS = PMCI_WAVE_OPEN_PARMSA;
+#[cfg(feature = "shared")]
+pub type PMCI_WAVE_OPEN_PARMS = *mut MCI_WAVE_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
+#[cfg(feature = "shared")]
 pub type PMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
+#[cfg(feature = "shared")]
 pub type PMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
-pub type YIELDPROC = Option<unsafe extern "system" fn(mciid: MCIDEVICEID, dwyielddata: u32) -> u32>;
+#[cfg(feature = "shared")]
+pub type YIELDPROC = Option<unsafe extern "system" fn(mciid: MCIDEVICEID, dwyielddata: super::DWORD) -> super::UINT>;

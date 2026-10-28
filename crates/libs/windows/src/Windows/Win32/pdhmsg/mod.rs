@@ -85,4 +85,5 @@ pub const PDH_UNKNOWN_LOGSVC_COMMAND: u32 = 3221228503;
 pub const PDH_UNKNOWN_LOG_FORMAT: u32 = 3221228502;
 pub const PDH_UNMATCHED_APPEND_COUNTER: u32 = 3221228540;
 pub const PDH_WBEM_ERROR: u32 = 3221228506;
+pub const S_PDH: windows_core::GUID = windows_core::GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c);
 pub const S_PDH_Traits: i32 = 0;

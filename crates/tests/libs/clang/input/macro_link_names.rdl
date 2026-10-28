@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern "C" fn PrivateValue(value: i32) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn PublicValue(value: i32) -> i32;
+}

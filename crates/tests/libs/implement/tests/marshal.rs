@@ -46,13 +46,14 @@ fn test() {
         CoRegisterClassObject(
             &CLSID_SAMPLE,
             &factory,
-            CLSCTX_LOCAL_SERVER,
-            REGCLS_AGILE | REGCLS_MULTIPLEUSE,
+            CLSCTX_LOCAL_SERVER as u32,
+            (REGCLS_AGILE | REGCLS_MULTIPLEUSE) as u32,
         )
         .expect("CoRegisterClassObject");
 
         let stringable: IStringable =
-            CoCreateInstance(&CLSID_SAMPLE, None, CLSCTX_LOCAL_SERVER).expect("CoCreateInstance");
+            CoCreateInstance(&CLSID_SAMPLE, None, CLSCTX_LOCAL_SERVER as u32)
+                .expect("CoCreateInstance");
 
         assert_eq!(stringable.ToString().unwrap(), "Stringable");
 

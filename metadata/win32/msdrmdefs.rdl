@@ -1,24 +1,29 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        const DRMACTSERVINFOVERSION: UINT = 0;
         #[repr(i32)]
         enum DRMATTESTTYPE {
             DRMATTESTTYPE_FULLENVIRONMENT = 0,
             DRMATTESTTYPE_HASHONLY = 1,
         }
+        const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: DWORD = 1;
         struct DRMBOUNDLICENSEPARAMS {
-            uVersion: u32,
+            uVersion: UINT,
             hEnablingPrincipal: DRMHANDLE,
             hSecureStore: DRMHANDLE,
             wszRightsRequested: PWSTR,
             wszRightsGroup: PWSTR,
             idResource: DRMID,
-            cAuthenticatorCount: u32,
+            cAuthenticatorCount: UINT,
             rghAuthenticators: *mut DRMHANDLE,
             wszDefaultEnablingPrincipalCredentials: PWSTR,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
+        const DRMBOUNDLICENSEPARAMSVERSION: UINT = 1;
         extern fn DRMCALLBACK(param0: DRM_STATUS_MSG, param1: HRESULT, param2: *mut void, param3: *mut void) -> HRESULT;
+        const DRMCALLBACKVERSION: UINT = 1;
+        const DRMCLIENTSTRUCTVERSION: UINT = 1;
         #[repr(i32)]
         enum DRMENCODINGTYPE {
             DRMENCODINGTYPE_BASE64 = 0,
@@ -40,10 +45,12 @@ mod Windows {
         type DRMHSESSION = u32;
         const DRMHSESSION_INVALID: i32 = 0;
         struct DRMID {
-            uVersion: u32,
+            uVersion: UINT,
             wszIDType: PWSTR,
             wszID: PWSTR,
         }
+        const DRMIDVERSION: UINT = 0;
+        const DRMLICENSEACQDATAVERSION: UINT = 0;
         type DRMPUBHANDLE = u32;
         const DRMPUBHANDLE_INVALID: i32 = 0;
         type DRMQUERYHANDLE = u32;
@@ -70,7 +77,7 @@ mod Windows {
         const DRM_ACTIVATE_SILENT: i32 = 16;
         const DRM_ACTIVATE_TEMPORARY: i32 = 4;
         struct DRM_ACTSERV_INFO {
-            uVersion: u32,
+            uVersion: UINT,
             wszPubKey: PWSTR,
             wszURL: PWSTR,
         }
@@ -86,11 +93,11 @@ mod Windows {
         const DRM_AL_NOUI: i32 = 16;
         const DRM_AUTO_GENERATE_KEY: i32 = 16;
         struct DRM_CLIENT_VERSION_INFO {
-            uStructVersion: u32,
-            dwVersion: [u32; 4],
-            wszHierarchy: [u16; 256],
-            wszProductId: [u16; 256],
-            wszProductDescription: [u16; 256],
+            uStructVersion: UINT,
+            dwVersion: [DWORD; 4],
+            wszHierarchy: [WCHAR; 256],
+            wszProductId: [WCHAR; 256],
+            wszProductDescription: [WCHAR; 256],
         }
         #[encoding("utf-16")]
         const DRM_DEFAULTGROUPIDTYPE_PASSPORT: String = "PassportAuthProvider";
@@ -119,11 +126,11 @@ mod Windows {
         const DRM_EL_SPECIFIED_CLIENTLICENSOR: i32 = 512;
         const DRM_EL_SPECIFIED_GROUPIDENTITY: i32 = 16;
         struct DRM_LICENSE_ACQ_DATA {
-            uVersion: u32,
+            uVersion: UINT,
             wszURL: PWSTR,
             wszLocalFilename: PWSTR,
-            pbPostData: *mut u8,
-            dwPostDataSize: u32,
+            pbPostData: *mut BYTE,
+            dwPostDataSize: DWORD,
             wszFriendlyName: PWSTR,
         }
         const DRM_LOCKBOXTYPE_BLACKBOX: i32 = 2;

@@ -6,6 +6,7 @@ use alloc::boxed::Box;
 mod agile;
 mod array_slice;
 #[cfg_attr(not(windows), allow(dead_code))]
+#[cfg_attr(windows, expect(dead_code))]
 mod bindings;
 mod can_into;
 #[cfg(windows_cast_diagnostics)]
@@ -41,7 +42,7 @@ pub use weak_ref_count::*;
 pub fn encode_pointer(ptr: *const core::ffi::c_void) -> i64 {
     #[cfg(windows)]
     unsafe {
-        EncodePointer(ptr) as i64
+        EncodePointer(ptr.cast_mut()) as i64
     }
     #[cfg(not(windows))]
     {

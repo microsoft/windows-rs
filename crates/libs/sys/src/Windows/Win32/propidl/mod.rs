@@ -1,7 +1,7 @@
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut super::PROPVARIANT, pma : *const core::ffi::c_void) -> super::BOOLEAN);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const super::PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : super::PROPID, freserved : super::BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : super::USHORT, pvar : *mut super::PROPVARIANT, pma : *const PMemoryAllocator) -> super::BOOLEAN);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const super::PROPVARIANT, codepage : super::USHORT, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut super::ULONG, pid : super::PROPID, freserved : super::BOOLEAN, pcindirect : *mut super::ULONG) -> *mut SERIALIZEDPROPERTYVALUE);
 pub const PIDDI_THUMBNAIL: i32 = 2;
 pub const PIDDSI_BYTECOUNT: i32 = 4;
 pub const PIDDSI_CATEGORY: i32 = 2;
@@ -58,11 +58,16 @@ pub const PIDSI_THUMBNAIL: i32 = 17;
 pub const PIDSI_TITLE: i32 = 2;
 pub const PIDSI_WORDCOUNT: i32 = 15;
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PMemoryAllocator(pub u8);
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SERIALIZEDPROPERTYVALUE {
-    pub dwType: u32,
-    pub rgb: [u8; 1],
+    pub dwType: super::DWORD,
+    pub rgb: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SERIALIZEDPROPERTYVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

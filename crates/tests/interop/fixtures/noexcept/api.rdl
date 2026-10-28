@@ -4,6 +4,7 @@ use Windows::Foundation::Metadata::*;
 mod Noexcept {
     // Members that cannot fail, so projections return values without an error path. Implemented
     // by both the clients and the component, so each calls the other's objects.
+    #[guid(auto)]
     interface IValue {
         #[NoException]
         Number: i32;
@@ -28,8 +29,9 @@ mod Noexcept {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Calls each member of the client's `value`, which must start empty.
-        fn Check(&self, value: IValue);
+        fn Check(&self, #[in] value: IValue);
     }
 }

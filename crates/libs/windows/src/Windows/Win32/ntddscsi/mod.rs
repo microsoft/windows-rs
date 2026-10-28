@@ -5,65 +5,46 @@ pub const ATA_FLAGS_DRDY_REQUIRED: i32 = 1;
 pub const ATA_FLAGS_NO_MULTIPLE: i32 = 32;
 pub const ATA_FLAGS_USE_DMA: i32 = 16;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATA_PASS_THROUGH_DIRECT {
-    pub Length: u16,
-    pub AtaFlags: u16,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub ReservedAsUchar: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub ReservedAsUlong: u32,
-    pub DataBuffer: *mut core::ffi::c_void,
-    pub PreviousTaskFile: [u8; 8],
-    pub CurrentTaskFile: [u8; 8],
+    pub Length: super::USHORT,
+    pub AtaFlags: super::USHORT,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
+    pub ReservedAsUchar: super::UCHAR,
+    pub DataTransferLength: super::ULONG,
+    pub TimeOutValue: super::ULONG,
+    pub ReservedAsUlong: super::ULONG,
+    pub DataBuffer: super::PVOID,
+    pub PreviousTaskFile: [super::UCHAR; 8],
+    pub CurrentTaskFile: [super::UCHAR; 8],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for ATA_PASS_THROUGH_DIRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ATA_PASS_THROUGH_DIRECT32 {
-    pub Length: u16,
-    pub AtaFlags: u16,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub ReservedAsUchar: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub ReservedAsUlong: u32,
-    pub DataBuffer: *mut core::ffi::c_void,
-    pub PreviousTaskFile: [u8; 8],
-    pub CurrentTaskFile: [u8; 8],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ATA_PASS_THROUGH_DIRECT32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATA_PASS_THROUGH_EX {
-    pub Length: u16,
-    pub AtaFlags: u16,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub ReservedAsUchar: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub ReservedAsUlong: u32,
-    pub DataBufferOffset: usize,
-    pub PreviousTaskFile: [u8; 8],
-    pub CurrentTaskFile: [u8; 8],
+    pub Length: super::USHORT,
+    pub AtaFlags: super::USHORT,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
+    pub ReservedAsUchar: super::UCHAR,
+    pub DataTransferLength: super::ULONG,
+    pub TimeOutValue: super::ULONG,
+    pub ReservedAsUlong: super::ULONG,
+    pub DataBufferOffset: super::ULONG_PTR,
+    pub PreviousTaskFile: [super::UCHAR; 8],
+    pub CurrentTaskFile: [super::UCHAR; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for ATA_PASS_THROUGH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -71,22 +52,24 @@ impl Default for ATA_PASS_THROUGH_EX {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATA_PASS_THROUGH_EX32 {
-    pub Length: u16,
-    pub AtaFlags: u16,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub ReservedAsUchar: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub ReservedAsUlong: u32,
-    pub DataBufferOffset: u32,
-    pub PreviousTaskFile: [u8; 8],
-    pub CurrentTaskFile: [u8; 8],
+    pub Length: super::USHORT,
+    pub AtaFlags: super::USHORT,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
+    pub ReservedAsUchar: super::UCHAR,
+    pub DataTransferLength: super::ULONG,
+    pub TimeOutValue: super::ULONG,
+    pub ReservedAsUlong: super::ULONG,
+    pub DataBufferOffset: super::ULONG32,
+    pub PreviousTaskFile: [super::UCHAR; 8],
+    pub CurrentTaskFile: [super::UCHAR; 8],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for ATA_PASS_THROUGH_EX32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -96,14 +79,15 @@ pub const BOOT_PARTITION_FUNCTION_ACTIVATE: i32 = 2;
 pub const BOOT_PARTITION_FUNCTION_DOWNLOAD: i32 = 1;
 pub const BOOT_PARTITION_FUNCTION_GET_INFO: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BOOT_PARTITION_REQUEST_BLOCK {
-    pub Version: u32,
-    pub Size: u32,
-    pub Function: u32,
-    pub Flags: u32,
-    pub DataBufferOffset: u32,
-    pub DataBufferLength: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub Function: super::ULONG,
+    pub Flags: super::ULONG,
+    pub DataBufferOffset: super::ULONG,
+    pub DataBufferLength: super::ULONG,
 }
 pub const BOOT_PARTITION_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
 pub const BOOT_PARTITION_STATUS_ERROR: i32 = 1;
@@ -118,44 +102,49 @@ pub const BOOT_PARTITION_STATUS_SUCCESS: i32 = 0;
 pub const BOOT_PARTITION_STATUS_WRITE_PROHIBITED: i32 = 9;
 pub const DD_SCSI_DEVICE_NAME: windows_core::PCSTR = windows_core::s!("\\Device\\ScsiPort");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
-    pub Size: u32,
-    pub Version: u32,
-    pub NotifyFlags: u32,
-    pub DataSetProfile: u32,
-    pub Reserved: [u32; 3],
-    pub DataSetRangesCount: u32,
+    pub Size: super::ULONG,
+    pub Version: super::ULONG,
+    pub NotifyFlags: super::ULONG,
+    pub DataSetProfile: super::ULONG,
+    pub Reserved: [super::ULONG; 3],
+    pub DataSetRangesCount: super::ULONG,
     pub DataSetRanges: [MP_DEVICE_DATA_SET_RANGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DSM_NOTIFICATION_REQUEST_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> i32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type DUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID) -> super::LONG>;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_DRIVER {
-    pub DumpDriverList: *mut core::ffi::c_void,
-    pub DriverName: [u16; 15],
-    pub BaseName: [u16; 15],
+    pub DumpDriverList: super::PVOID,
+    pub DriverName: [super::WCHAR; 15],
+    pub BaseName: [super::WCHAR; 15],
 }
+#[cfg(feature = "winnt")]
 impl Default for DUMP_DRIVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_DRIVER_EX {
-    pub DumpDriverList: *mut core::ffi::c_void,
-    pub DriverName: [u16; 15],
-    pub BaseName: [u16; 15],
+    pub DumpDriverList: super::PVOID,
+    pub DriverName: [super::WCHAR; 15],
+    pub BaseName: [super::WCHAR; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DUMP_DRIVER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -167,64 +156,69 @@ pub const DUMP_EX_FLAG_RESUME_SUPPORT: i32 = 4;
 pub const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: i32 = 1;
 pub const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DUMP_POINTERS {
     pub AdapterObject: *mut _ADAPTER_OBJECT,
-    pub MappedRegisterBase: *mut core::ffi::c_void,
-    pub DumpData: *mut core::ffi::c_void,
-    pub CommonBufferVa: *mut core::ffi::c_void,
+    pub MappedRegisterBase: super::PVOID,
+    pub DumpData: super::PVOID,
+    pub CommonBufferVa: super::PVOID,
     pub CommonBufferPa: super::LARGE_INTEGER,
-    pub CommonBufferSize: u32,
+    pub CommonBufferSize: super::ULONG,
     pub AllocateCommonBuffers: super::BOOLEAN,
     pub UseDiskDump: super::BOOLEAN,
-    pub Spare1: [u8; 2],
-    pub DeviceObject: *mut core::ffi::c_void,
+    pub Spare1: [super::UCHAR; 2],
+    pub DeviceObject: super::PVOID,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DUMP_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
-    pub DumpData: *mut core::ffi::c_void,
-    pub CommonBufferVa: *mut core::ffi::c_void,
-    pub CommonBufferSize: u32,
+    pub DumpData: super::PVOID,
+    pub CommonBufferVa: super::PVOID,
+    pub CommonBufferSize: super::ULONG,
     pub AllocateCommonBuffers: super::BOOLEAN,
-    pub DeviceObject: *mut core::ffi::c_void,
-    pub DriverList: *mut core::ffi::c_void,
-    pub dwPortFlags: u32,
-    pub MaxDeviceDumpSectionSize: u32,
-    pub MaxDeviceDumpLevel: u32,
-    pub MaxTransferSize: u32,
-    pub AdapterObject: *mut core::ffi::c_void,
-    pub MappedRegisterBase: *mut core::ffi::c_void,
+    pub DeviceObject: super::PVOID,
+    pub DriverList: super::PVOID,
+    pub dwPortFlags: super::ULONG,
+    pub MaxDeviceDumpSectionSize: super::ULONG,
+    pub MaxDeviceDumpLevel: super::ULONG,
+    pub MaxTransferSize: super::ULONG,
+    pub AdapterObject: super::PVOID,
+    pub MappedRegisterBase: super::PVOID,
     pub DeviceReady: super::PBOOLEAN,
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
-    pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
+    pub DumpDevicePowerOnContext: super::PVOID,
 }
 #[cfg(target_arch = "x86")]
-pub const DUMP_POINTERS_EX_V2_SIZE: u32 = 32;
+#[cfg(feature = "shared")]
+pub const DUMP_POINTERS_EX_V2_SIZE: super::ULONG = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const DUMP_POINTERS_EX_V2_SIZE: u32 = 48;
+#[cfg(feature = "shared")]
+pub const DUMP_POINTERS_EX_V2_SIZE: super::ULONG = 48;
 #[cfg(target_arch = "x86")]
-pub const DUMP_POINTERS_EX_V3_SIZE: u32 = 60;
+#[cfg(feature = "shared")]
+pub const DUMP_POINTERS_EX_V3_SIZE: super::ULONG = 60;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const DUMP_POINTERS_EX_V3_SIZE: u32 = 88;
+#[cfg(feature = "shared")]
+pub const DUMP_POINTERS_EX_V3_SIZE: super::ULONG = 88;
 #[cfg(target_arch = "x86")]
 pub const DUMP_POINTERS_EX_V4_SIZE: u32 = 68;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DUMP_POINTERS_EX_V4_SIZE: u64 = 104;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUMP_POINTERS_VERSION {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
 }
 pub const DUMP_POINTERS_VERSION_1: i32 = 1;
 pub const DUMP_POINTERS_VERSION_2: i32 = 2;
@@ -235,14 +229,15 @@ pub const FIRMWARE_FUNCTION_ACTIVATE: i32 = 3;
 pub const FIRMWARE_FUNCTION_DOWNLOAD: i32 = 2;
 pub const FIRMWARE_FUNCTION_GET_INFO: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIRMWARE_REQUEST_BLOCK {
-    pub Version: u32,
-    pub Size: u32,
-    pub Function: u32,
-    pub Flags: u32,
-    pub DataBufferOffset: u32,
-    pub DataBufferLength: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub Function: super::ULONG,
+    pub Flags: super::ULONG,
+    pub DataBufferOffset: super::ULONG,
+    pub DataBufferLength: super::ULONG,
 }
 pub const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
 pub const FIRMWARE_REQUEST_FLAG_CONTROLLER: i32 = 1;
@@ -272,23 +267,25 @@ pub const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: i32 = 32;
 pub const FIRMWARE_STATUS_SUCCESS: i32 = 0;
 pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: i32 = 129;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_DEMOTE_BY_SIZE {
-    pub Version: u32,
-    pub Size: u32,
-    pub SourcePriority: u8,
-    pub TargetPriority: u8,
-    pub Reserved0: u16,
-    pub Reserved1: u32,
-    pub LbaCount: u64,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub SourcePriority: super::UCHAR,
+    pub TargetPriority: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub Reserved1: super::ULONG,
+    pub LbaCount: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_DIRTY_THRESHOLDS {
-    pub Version: u32,
-    pub Size: u32,
-    pub DirtyLowThreshold: u32,
-    pub DirtyHighThreshold: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub DirtyLowThreshold: super::ULONG,
+    pub DirtyHighThreshold: super::ULONG,
 }
 pub const HYBRID_FUNCTION_DEMOTE_BY_SIZE: i32 = 19;
 pub const HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM: i32 = 16;
@@ -296,135 +293,136 @@ pub const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: i32 = 17;
 pub const HYBRID_FUNCTION_GET_INFO: i32 = 1;
 pub const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: i32 = 18;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
     pub HybridSupported: super::BOOLEAN,
     pub Status: NVCACHE_STATUS,
     pub CacheTypeEffective: NVCACHE_TYPE,
     pub CacheTypeDefault: NVCACHE_TYPE,
-    pub FractionBase: u32,
-    pub CacheSize: u64,
+    pub FractionBase: super::ULONG,
+    pub CacheSize: super::ULONGLONG,
     pub Attributes: HYBRID_INFORMATION_0,
     pub Priorities: HYBRID_INFORMATION_1,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl HYBRID_INFORMATION_0 {
-    pub fn WriteCacheChangeable(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn WriteCacheChangeable(&self) -> super::ULONG {
+        (self._bitfield) & 1
     }
-    pub fn set_WriteCacheChangeable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_WriteCacheChangeable(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn WriteThroughIoSupported(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn WriteThroughIoSupported(&self) -> super::ULONG {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_WriteThroughIoSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_WriteThroughIoSupported(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn FlushCacheSupported(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn FlushCacheSupported(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_FlushCacheSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_FlushCacheSupported(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Removable(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn Removable(&self) -> super::ULONG {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_Removable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_Removable(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn ReservedBits(&self) -> u32 {
+    pub fn ReservedBits(&self) -> super::ULONG {
         self._bitfield >> 4
     }
-    pub fn set_ReservedBits(&mut self, value: u32) {
+    pub fn set_ReservedBits(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_1 {
-    pub PriorityLevelCount: u8,
+    pub PriorityLevelCount: super::UCHAR,
     pub MaxPriorityBehavior: super::BOOLEAN,
-    pub OptimalWriteGranularity: u8,
-    pub Reserved: u8,
-    pub DirtyThresholdLow: u32,
-    pub DirtyThresholdHigh: u32,
+    pub OptimalWriteGranularity: super::UCHAR,
+    pub Reserved: super::UCHAR,
+    pub DirtyThresholdLow: super::ULONG,
+    pub DirtyThresholdHigh: super::ULONG,
     pub SupportedCommands: HYBRID_INFORMATION_1_0,
     pub Priority: [NVCACHE_PRIORITY_LEVEL_DESCRIPTOR; 0],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for HYBRID_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
-    pub MaxEvictCommands: u32,
-    pub MaxLbaRangeCountForEvict: u32,
-    pub MaxLbaRangeCountForChangeLba: u32,
+    pub MaxEvictCommands: super::ULONG,
+    pub MaxLbaRangeCountForEvict: super::ULONG,
+    pub MaxLbaRangeCountForChangeLba: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl HYBRID_INFORMATION_1_0 {
-    pub fn CacheDisable(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn CacheDisable(&self) -> super::ULONG {
+        (self._bitfield) & 1
     }
-    pub fn set_CacheDisable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_CacheDisable(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn SetDirtyThreshold(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn SetDirtyThreshold(&self) -> super::ULONG {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_SetDirtyThreshold(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_SetDirtyThreshold(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn PriorityDemoteBySize(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn PriorityDemoteBySize(&self) -> super::ULONG {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_PriorityDemoteBySize(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_PriorityDemoteBySize(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn PriorityChangeByLbaRange(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn PriorityChangeByLbaRange(&self) -> super::ULONG {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_PriorityChangeByLbaRange(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_PriorityChangeByLbaRange(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Evict(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn Evict(&self) -> super::ULONG {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_Evict(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_Evict(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn ReservedBits(&self) -> u32 {
+    pub fn ReservedBits(&self) -> super::ULONG {
         self._bitfield >> 5
     }
-    pub fn set_ReservedBits(&mut self, value: u32) {
+    pub fn set_ReservedBits(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_REQUEST_BLOCK {
-    pub Version: u32,
-    pub Size: u32,
-    pub Function: u32,
-    pub Flags: u32,
-    pub DataBufferOffset: u32,
-    pub DataBufferLength: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub Function: super::ULONG,
+    pub Flags: super::ULONG,
+    pub DataBufferOffset: super::ULONG,
+    pub DataBufferLength: super::ULONG,
 }
 pub const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
 pub const HYBRID_REQUEST_INFO_STRUCTURE_VERSION: i32 = 1;
@@ -434,15 +432,17 @@ pub const HYBRID_STATUS_INVALID_PARAMETER: i32 = 2;
 pub const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: i32 = 3;
 pub const HYBRID_STATUS_SUCCESS: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IDE_IO_CONTROL {
-    pub HeaderLength: u32,
-    pub Signature: [u8; 8],
-    pub Timeout: u32,
-    pub ControlCode: u32,
-    pub ReturnStatus: u32,
-    pub DataLength: u32,
+    pub HeaderLength: super::ULONG,
+    pub Signature: [super::UCHAR; 8],
+    pub Timeout: super::ULONG,
+    pub ControlCode: super::ULONG,
+    pub ReturnStatus: super::ULONG,
+    pub DataLength: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for IDE_IO_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -487,14 +487,14 @@ pub const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: i32 = 315464;
 pub const IOCTL_SCSI_PASS_THROUGH_EX: i32 = 315460;
 pub const IOCTL_SCSI_RESCAN_BUS: i32 = 266268;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SCSI_CAPABILITIES {
-    pub Length: u32,
-    pub MaximumTransferLength: u32,
-    pub MaximumPhysicalPages: u32,
-    pub SupportedAsynchronousEvents: u32,
-    pub AlignmentMask: u32,
+    pub Length: super::ULONG,
+    pub MaximumTransferLength: super::ULONG,
+    pub MaximumPhysicalPages: super::ULONG,
+    pub SupportedAsynchronousEvents: super::ULONG,
+    pub AlignmentMask: super::ULONG,
     pub TaggedQueuing: super::BOOLEAN,
     pub AdapterScansDown: super::BOOLEAN,
     pub AdapterUsesPio: super::BOOLEAN,
@@ -511,94 +511,91 @@ pub const MPIO_IOCTL_FLAG_INVOLVE_DSM: i32 = 4;
 pub const MPIO_IOCTL_FLAG_USE_PATHID: i32 = 1;
 pub const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH {
     pub PassThrough: SCSI_PASS_THROUGH,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
+    pub Version: super::ULONG,
+    pub Length: super::USHORT,
+    pub Flags: super::UCHAR,
+    pub PortNumber: super::UCHAR,
+    pub MpioPathId: super::ULONGLONG,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH32 {
     pub PassThrough: SCSI_PASS_THROUGH32,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
+    pub Version: super::ULONG,
+    pub Length: super::USHORT,
+    pub Flags: super::UCHAR,
+    pub PortNumber: super::UCHAR,
+    pub MpioPathId: super::ULONGLONG,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH32_EX {
-    pub PassThroughOffset: u32,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
+    pub PassThroughOffset: super::ULONG,
+    pub Version: super::ULONG,
+    pub Length: super::USHORT,
+    pub Flags: super::UCHAR,
+    pub PortNumber: super::UCHAR,
+    pub MpioPathId: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
+    pub Version: super::ULONG,
+    pub Length: super::USHORT,
+    pub Flags: super::UCHAR,
+    pub PortNumber: super::UCHAR,
+    pub MpioPathId: super::ULONGLONG,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
-    pub PassThrough: SCSI_PASS_THROUGH_DIRECT32,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
-    pub PassThroughOffset: u32,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
+    pub PassThroughOffset: super::ULONG,
+    pub Version: super::ULONG,
+    pub Length: super::USHORT,
+    pub Flags: super::UCHAR,
+    pub PortNumber: super::UCHAR,
+    pub MpioPathId: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
-    pub PassThroughOffset: u32,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
+    pub PassThroughOffset: super::ULONG,
+    pub Version: super::ULONG,
+    pub Length: super::USHORT,
+    pub Flags: super::UCHAR,
+    pub PortNumber: super::UCHAR,
+    pub MpioPathId: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_EX {
-    pub PassThroughOffset: u32,
-    pub Version: u32,
-    pub Length: u16,
-    pub Flags: u8,
-    pub PortNumber: u8,
-    pub MpioPathId: u64,
+    pub PassThroughOffset: super::ULONG,
+    pub Version: super::ULONG,
+    pub Length: super::USHORT,
+    pub Flags: super::UCHAR,
+    pub PortNumber: super::UCHAR,
+    pub MpioPathId: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MP_DEVICE_DATA_SET_RANGE {
-    pub StartingOffset: i64,
-    pub LengthInBytes: u64,
+    pub StartingOffset: super::LONGLONG,
+    pub LengthInBytes: super::ULONGLONG,
 }
 pub type MP_STORAGE_DIAGNOSTIC_LEVEL = i32;
 pub type MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = i32;
@@ -632,63 +629,68 @@ pub const NRB_OUTPUT_DATA_OVERRUN: i32 = 5;
 pub const NRB_OUTPUT_DATA_UNDERRUN: i32 = 6;
 pub const NRB_SUCCESS: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTSCSI_UNICODE_STRING {
-    pub Length: u16,
-    pub MaximumLength: u16,
+    pub Length: super::USHORT,
+    pub MaximumLength: super::USHORT,
     pub Buffer: super::PWCH,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct NVCACHE_HINT_PAYLOAD {
-    pub Command: u8,
-    pub Feature7_0: u8,
-    pub Feature15_8: u8,
-    pub Count15_8: u8,
-    pub LBA7_0: u8,
-    pub LBA15_8: u8,
-    pub LBA23_16: u8,
-    pub LBA31_24: u8,
-    pub LBA39_32: u8,
-    pub LBA47_40: u8,
-    pub Auxiliary7_0: u8,
-    pub Auxiliary23_16: u8,
-    pub Reserved: [u8; 4],
+    pub Command: super::UCHAR,
+    pub Feature7_0: super::UCHAR,
+    pub Feature15_8: super::UCHAR,
+    pub Count15_8: super::UCHAR,
+    pub LBA7_0: super::UCHAR,
+    pub LBA15_8: super::UCHAR,
+    pub LBA23_16: super::UCHAR,
+    pub LBA31_24: super::UCHAR,
+    pub LBA39_32: super::UCHAR,
+    pub LBA47_40: super::UCHAR,
+    pub Auxiliary7_0: super::UCHAR,
+    pub Auxiliary23_16: super::UCHAR,
+    pub Reserved: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for NVCACHE_HINT_PAYLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
-    pub PriorityLevel: u8,
-    pub Reserved0: [u8; 3],
-    pub ConsumedNVMSizeFraction: u32,
-    pub ConsumedMappingResourcesFraction: u32,
-    pub ConsumedNVMSizeForDirtyDataFraction: u32,
-    pub ConsumedMappingResourcesForDirtyDataFraction: u32,
-    pub Reserved1: u32,
+    pub PriorityLevel: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
+    pub ConsumedNVMSizeFraction: super::ULONG,
+    pub ConsumedMappingResourcesFraction: super::ULONG,
+    pub ConsumedNVMSizeForDirtyDataFraction: super::ULONG,
+    pub ConsumedMappingResourcesForDirtyDataFraction: super::ULONG,
+    pub Reserved1: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVCACHE_REQUEST_BLOCK {
-    pub NRBSize: u32,
-    pub Function: u16,
-    pub NRBFlags: u32,
-    pub NRBStatus: u32,
-    pub Count: u32,
-    pub LBA: u64,
-    pub DataBufSize: u32,
-    pub NVCacheStatus: u32,
-    pub NVCacheSubStatus: u32,
+    pub NRBSize: super::ULONG,
+    pub Function: super::USHORT,
+    pub NRBFlags: super::ULONG,
+    pub NRBStatus: super::ULONG,
+    pub Count: super::ULONG,
+    pub LBA: super::ULONGLONG,
+    pub DataBufSize: super::ULONG,
+    pub NVCacheStatus: super::ULONG,
+    pub NVCacheSubStatus: super::ULONG,
 }
 pub type NVCACHE_STATUS = i32;
 pub type NVCACHE_TYPE = i32;
@@ -697,79 +699,86 @@ pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = 0;
 pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2;
 pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_FEATURE_PARAMETER {
-    pub NVPowerModeEnabled: u16,
-    pub NVParameterReserv1: u16,
-    pub NVCmdEnabled: u16,
-    pub NVParameterReserv2: u16,
-    pub NVPowerModeVer: u16,
-    pub NVCmdVer: u16,
-    pub NVSize: u32,
-    pub NVReadSpeed: u16,
-    pub NVWrtSpeed: u16,
-    pub DeviceSpinUpTime: u32,
+    pub NVPowerModeEnabled: super::USHORT,
+    pub NVParameterReserv1: super::USHORT,
+    pub NVCmdEnabled: super::USHORT,
+    pub NVParameterReserv2: super::USHORT,
+    pub NVPowerModeVer: super::USHORT,
+    pub NVCmdVer: super::USHORT,
+    pub NVSize: super::ULONG,
+    pub NVReadSpeed: super::USHORT,
+    pub NVWrtSpeed: super::USHORT,
+    pub DeviceSpinUpTime: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NV_SEP_CACHE_PARAMETER {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
     pub Flags: NV_SEP_CACHE_PARAMETER_0,
-    pub WriteCacheType: u8,
-    pub WriteCacheTypeEffective: u8,
-    pub ParameterReserve1: [u8; 3],
+    pub WriteCacheType: super::UCHAR,
+    pub WriteCacheTypeEffective: super::UCHAR,
+    pub ParameterReserve1: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for NV_SEP_CACHE_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NV_SEP_CACHE_PARAMETER_0 {
     pub CacheFlags: NV_SEP_CACHE_PARAMETER_0_0,
-    pub CacheFlagsSet: u8,
+    pub CacheFlagsSet: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NV_SEP_CACHE_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_SEP_CACHE_PARAMETER_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "shared")]
 impl NV_SEP_CACHE_PARAMETER_0_0 {
-    pub fn WriteCacheEnabled(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn WriteCacheEnabled(&self) -> super::UCHAR {
+        (self._bitfield) & 1
     }
-    pub fn set_WriteCacheEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_WriteCacheEnabled(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn WriteCacheChangeable(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn WriteCacheChangeable(&self) -> super::UCHAR {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_WriteCacheChangeable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_WriteCacheChangeable(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn WriteThroughIOSupported(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn WriteThroughIOSupported(&self) -> super::UCHAR {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_WriteThroughIOSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    pub fn set_WriteThroughIOSupported(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn FlushCacheSupported(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn FlushCacheSupported(&self) -> super::UCHAR {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_FlushCacheSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    pub fn set_FlushCacheSupported(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn ReservedBits(&self) -> u8 {
+    pub fn ReservedBits(&self) -> super::UCHAR {
         self._bitfield >> 4
     }
-    pub fn set_ReservedBits(&mut self, value: u8) {
+    pub fn set_ReservedBits(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
     }
 }
@@ -784,130 +793,171 @@ pub const NvCacheTypeNone: NVCACHE_TYPE = 1;
 pub const NvCacheTypeUnknown: NVCACHE_TYPE = 0;
 pub const NvCacheTypeWriteBack: NVCACHE_TYPE = 2;
 pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = 3;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PATA_PASS_THROUGH_DIRECT = *mut ATA_PASS_THROUGH_DIRECT;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PATA_PASS_THROUGH_DIRECT32 = *mut ATA_PASS_THROUGH_DIRECT32;
+#[cfg(feature = "shared")]
 pub type PATA_PASS_THROUGH_EX = *mut ATA_PASS_THROUGH_EX;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PATA_PASS_THROUGH_EX32 = *mut ATA_PASS_THROUGH_EX32;
+#[cfg(feature = "shared")]
 pub type PBOOT_PARTITION_REQUEST_BLOCK = *mut BOOT_PARTITION_REQUEST_BLOCK;
+#[cfg(feature = "shared")]
 pub type PDSM_NOTIFICATION_REQUEST_BLOCK = *mut DSM_NOTIFICATION_REQUEST_BLOCK;
-pub type PDUMP_DEVICE_POWERON_ROUTINE = *mut u8;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID) -> super::LONG>;
+#[cfg(feature = "winnt")]
 pub type PDUMP_DRIVER = *mut DUMP_DRIVER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDUMP_DRIVER_EX = *mut DUMP_DRIVER_EX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDUMP_POINTERS = *mut DUMP_POINTERS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDUMP_POINTERS_EX = *mut DUMP_POINTERS_EX;
+#[cfg(feature = "shared")]
 pub type PDUMP_POINTERS_VERSION = *mut DUMP_POINTERS_VERSION;
+#[cfg(feature = "shared")]
 pub type PFIRMWARE_REQUEST_BLOCK = *mut FIRMWARE_REQUEST_BLOCK;
+#[cfg(feature = "shared")]
 pub type PHYBRID_DEMOTE_BY_SIZE = *mut HYBRID_DEMOTE_BY_SIZE;
+#[cfg(feature = "shared")]
 pub type PHYBRID_DIRTY_THRESHOLDS = *mut HYBRID_DIRTY_THRESHOLDS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PHYBRID_INFORMATION = *mut HYBRID_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PHYBRID_REQUEST_BLOCK = *mut HYBRID_REQUEST_BLOCK;
+#[cfg(feature = "shared")]
 pub type PIDE_IO_CONTROL = *mut IDE_IO_CONTROL;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PIO_SCSI_CAPABILITIES = *mut IO_SCSI_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PMPIO_PASS_THROUGH_PATH = *mut MPIO_PASS_THROUGH_PATH;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMPIO_PASS_THROUGH_PATH32 = *mut MPIO_PASS_THROUGH_PATH32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PMPIO_PASS_THROUGH_PATH32_EX = *mut MPIO_PASS_THROUGH_PATH32_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMPIO_PASS_THROUGH_PATH_DIRECT = *mut MPIO_PASS_THROUGH_PATH_DIRECT;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PMPIO_PASS_THROUGH_PATH_DIRECT32 = *mut MPIO_PASS_THROUGH_PATH_DIRECT32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PMPIO_PASS_THROUGH_PATH_DIRECT32_EX = *mut MPIO_PASS_THROUGH_PATH_DIRECT32_EX;
+#[cfg(feature = "shared")]
 pub type PMPIO_PASS_THROUGH_PATH_DIRECT_EX = *mut MPIO_PASS_THROUGH_PATH_DIRECT_EX;
+#[cfg(feature = "shared")]
 pub type PMPIO_PASS_THROUGH_PATH_EX = *mut MPIO_PASS_THROUGH_PATH_EX;
+#[cfg(feature = "shared")]
 pub type PMP_DEVICE_DATA_SET_RANGE = *mut MP_DEVICE_DATA_SET_RANGE;
 pub type PMP_STORAGE_DIAGNOSTIC_LEVEL = *mut MP_STORAGE_DIAGNOSTIC_LEVEL;
 pub type PMP_STORAGE_DIAGNOSTIC_TARGET_TYPE = *mut MP_STORAGE_DIAGNOSTIC_TARGET_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNTSCSI_UNICODE_STRING = *mut NTSCSI_UNICODE_STRING;
+#[cfg(feature = "shared")]
 pub type PNVCACHE_HINT_PAYLOAD = *mut NVCACHE_HINT_PAYLOAD;
+#[cfg(feature = "shared")]
 pub type PNVCACHE_PRIORITY_LEVEL_DESCRIPTOR = *mut NVCACHE_PRIORITY_LEVEL_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PNVCACHE_REQUEST_BLOCK = *mut NVCACHE_REQUEST_BLOCK;
+#[cfg(feature = "shared")]
 pub type PNV_FEATURE_PARAMETER = *mut NV_FEATURE_PARAMETER;
+#[cfg(feature = "shared")]
 pub type PNV_SEP_CACHE_PARAMETER = *mut NV_SEP_CACHE_PARAMETER;
 pub type PNV_SEP_WRITE_CACHE_TYPE = *mut NV_SEP_WRITE_CACHE_TYPE;
+#[cfg(feature = "shared")]
 pub type PSCSI_ADAPTER_BUS_INFO = *mut SCSI_ADAPTER_BUS_INFO;
+#[cfg(feature = "shared")]
 pub type PSCSI_ADDRESS = *mut SCSI_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PSCSI_BUS_DATA = *mut SCSI_BUS_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSCSI_INQUIRY_DATA = *mut SCSI_INQUIRY_DATA;
+#[cfg(feature = "shared")]
 pub type PSCSI_PASS_THROUGH = *mut SCSI_PASS_THROUGH;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PSCSI_PASS_THROUGH32 = *mut SCSI_PASS_THROUGH32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PSCSI_PASS_THROUGH32_EX = *mut SCSI_PASS_THROUGH32_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCSI_PASS_THROUGH_DIRECT = *mut SCSI_PASS_THROUGH_DIRECT;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PSCSI_PASS_THROUGH_DIRECT32 = *mut SCSI_PASS_THROUGH_DIRECT32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PSCSI_PASS_THROUGH_DIRECT32_EX = *mut SCSI_PASS_THROUGH_DIRECT32_EX;
+#[cfg(feature = "shared")]
 pub type PSCSI_PASS_THROUGH_DIRECT_EX = *mut SCSI_PASS_THROUGH_DIRECT_EX;
+#[cfg(feature = "shared")]
 pub type PSCSI_PASS_THROUGH_EX = *mut SCSI_PASS_THROUGH_EX;
+#[cfg(feature = "shared")]
 pub type PSRB_IO_CONTROL = *mut SRB_IO_CONTROL;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_BOOT_PARTITION_ACTIVATE = *mut STORAGE_BOOT_PARTITION_ACTIVATE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_BOOT_PARTITION_DOWNLOAD = *mut STORAGE_BOOT_PARTITION_DOWNLOAD;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_BOOT_PARTITION_INFO = *mut STORAGE_BOOT_PARTITION_INFO;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DIAGNOSTIC_MP_REQUEST = *mut STORAGE_DIAGNOSTIC_MP_REQUEST;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ENDURANCE_DATA_DESCRIPTOR = *mut STORAGE_ENDURANCE_DATA_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ENDURANCE_INFO = *mut STORAGE_ENDURANCE_INFO;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FIRMWARE_ACTIVATE = *mut STORAGE_FIRMWARE_ACTIVATE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FIRMWARE_DOWNLOAD = *mut STORAGE_FIRMWARE_DOWNLOAD;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FIRMWARE_DOWNLOAD_V2 = *mut STORAGE_FIRMWARE_DOWNLOAD_V2;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FIRMWARE_INFO = *mut STORAGE_FIRMWARE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FIRMWARE_INFO_V2 = *mut STORAGE_FIRMWARE_INFO_V2;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FIRMWARE_SLOT_INFO = *mut STORAGE_FIRMWARE_SLOT_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FIRMWARE_SLOT_INFO_V2 = *mut STORAGE_FIRMWARE_SLOT_INFO_V2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_ADAPTER_BUS_INFO {
-    pub NumberOfBuses: u8,
+    pub NumberOfBuses: super::UCHAR,
     pub BusData: [SCSI_BUS_DATA; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCSI_ADAPTER_BUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCSI_ADDRESS {
-    pub Length: u32,
-    pub PortNumber: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
+    pub Length: super::ULONG,
+    pub PortNumber: super::UCHAR,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCSI_BUS_DATA {
-    pub NumberOfLogicalUnits: u8,
-    pub InitiatorBusId: u8,
-    pub InquiryDataOffset: u32,
+    pub NumberOfLogicalUnits: super::UCHAR,
+    pub InitiatorBusId: super::UCHAR,
+    pub InquiryDataOffset: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_INQUIRY_DATA {
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
     pub DeviceClaimed: super::BOOLEAN,
-    pub InquiryDataLength: u32,
-    pub NextInquiryDataOffset: u32,
-    pub InquiryData: [u8; 1],
+    pub InquiryDataLength: super::ULONG,
+    pub NextInquiryDataOffset: super::ULONG,
+    pub InquiryData: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SCSI_INQUIRY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -918,22 +968,24 @@ pub const SCSI_IOCTL_DATA_IN: i32 = 1;
 pub const SCSI_IOCTL_DATA_OUT: i32 = 0;
 pub const SCSI_IOCTL_DATA_UNSPECIFIED: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH {
-    pub Length: u16,
-    pub ScsiStatus: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub CdbLength: u8,
-    pub SenseInfoLength: u8,
-    pub DataIn: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub DataBufferOffset: usize,
-    pub SenseInfoOffset: u32,
-    pub Cdb: [u8; 16],
+    pub Length: super::USHORT,
+    pub ScsiStatus: super::UCHAR,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
+    pub CdbLength: super::UCHAR,
+    pub SenseInfoLength: super::UCHAR,
+    pub DataIn: super::UCHAR,
+    pub DataTransferLength: super::ULONG,
+    pub TimeOutValue: super::ULONG,
+    pub DataBufferOffset: super::ULONG_PTR,
+    pub SenseInfoOffset: super::ULONG,
+    pub Cdb: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for SCSI_PASS_THROUGH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -941,23 +993,25 @@ impl Default for SCSI_PASS_THROUGH {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH32 {
-    pub Length: u16,
-    pub ScsiStatus: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub CdbLength: u8,
-    pub SenseInfoLength: u8,
-    pub DataIn: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub DataBufferOffset: u32,
-    pub SenseInfoOffset: u32,
-    pub Cdb: [u8; 16],
+    pub Length: super::USHORT,
+    pub ScsiStatus: super::UCHAR,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
+    pub CdbLength: super::UCHAR,
+    pub SenseInfoLength: super::UCHAR,
+    pub DataIn: super::UCHAR,
+    pub DataTransferLength: super::ULONG,
+    pub TimeOutValue: super::ULONG,
+    pub DataBufferOffset: super::ULONG32,
+    pub SenseInfoOffset: super::ULONG,
+    pub Cdb: [super::UCHAR; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for SCSI_PASS_THROUGH32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -965,177 +1019,138 @@ impl Default for SCSI_PASS_THROUGH32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH32_EX {
-    pub Version: u32,
-    pub Length: u32,
-    pub CdbLength: u32,
-    pub StorAddressLength: u32,
-    pub ScsiStatus: u8,
-    pub SenseInfoLength: u8,
-    pub DataDirection: u8,
-    pub Reserved: u8,
-    pub TimeOutValue: u32,
-    pub StorAddressOffset: u32,
-    pub SenseInfoOffset: u32,
-    pub DataOutTransferLength: u32,
-    pub DataInTransferLength: u32,
-    pub DataOutBufferOffset: u32,
-    pub DataInBufferOffset: u32,
-    pub Cdb: [u8; 1],
+    pub Version: super::ULONG,
+    pub Length: super::ULONG,
+    pub CdbLength: super::ULONG,
+    pub StorAddressLength: super::ULONG,
+    pub ScsiStatus: super::UCHAR,
+    pub SenseInfoLength: super::UCHAR,
+    pub DataDirection: super::UCHAR,
+    pub Reserved: super::UCHAR,
+    pub TimeOutValue: super::ULONG,
+    pub StorAddressOffset: super::ULONG,
+    pub SenseInfoOffset: super::ULONG,
+    pub DataOutTransferLength: super::ULONG,
+    pub DataInTransferLength: super::ULONG,
+    pub DataOutBufferOffset: super::ULONG32,
+    pub DataInBufferOffset: super::ULONG32,
+    pub Cdb: [super::UCHAR; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for SCSI_PASS_THROUGH32_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT {
-    pub Length: u16,
-    pub ScsiStatus: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub CdbLength: u8,
-    pub SenseInfoLength: u8,
-    pub DataIn: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub DataBuffer: *mut core::ffi::c_void,
-    pub SenseInfoOffset: u32,
-    pub Cdb: [u8; 16],
+    pub Length: super::USHORT,
+    pub ScsiStatus: super::UCHAR,
+    pub PathId: super::UCHAR,
+    pub TargetId: super::UCHAR,
+    pub Lun: super::UCHAR,
+    pub CdbLength: super::UCHAR,
+    pub SenseInfoLength: super::UCHAR,
+    pub DataIn: super::UCHAR,
+    pub DataTransferLength: super::ULONG,
+    pub TimeOutValue: super::ULONG,
+    pub DataBuffer: super::PVOID,
+    pub SenseInfoOffset: super::ULONG,
+    pub Cdb: [super::UCHAR; 16],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCSI_PASS_THROUGH_DIRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SCSI_PASS_THROUGH_DIRECT32 {
-    pub Length: u16,
-    pub ScsiStatus: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub CdbLength: u8,
-    pub SenseInfoLength: u8,
-    pub DataIn: u8,
-    pub DataTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub DataBuffer: *mut core::ffi::c_void,
-    pub SenseInfoOffset: u32,
-    pub Cdb: [u8; 16],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SCSI_PASS_THROUGH_DIRECT32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
-    pub Version: u32,
-    pub Length: u32,
-    pub CdbLength: u32,
-    pub StorAddressLength: u32,
-    pub ScsiStatus: u8,
-    pub SenseInfoLength: u8,
-    pub DataDirection: u8,
-    pub Reserved: u8,
-    pub TimeOutValue: u32,
-    pub StorAddressOffset: u32,
-    pub SenseInfoOffset: u32,
-    pub DataOutTransferLength: u32,
-    pub DataInTransferLength: u32,
-    pub DataOutBuffer: *mut core::ffi::c_void,
-    pub DataInBuffer: *mut core::ffi::c_void,
-    pub Cdb: [u8; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SCSI_PASS_THROUGH_DIRECT32_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT_EX {
-    pub Version: u32,
-    pub Length: u32,
-    pub CdbLength: u32,
-    pub StorAddressLength: u32,
-    pub ScsiStatus: u8,
-    pub SenseInfoLength: u8,
-    pub DataDirection: u8,
-    pub Reserved: u8,
-    pub TimeOutValue: u32,
-    pub StorAddressOffset: u32,
-    pub SenseInfoOffset: u32,
-    pub DataOutTransferLength: u32,
-    pub DataInTransferLength: u32,
+    pub Version: super::ULONG,
+    pub Length: super::ULONG,
+    pub CdbLength: super::ULONG,
+    pub StorAddressLength: super::ULONG,
+    pub ScsiStatus: super::UCHAR,
+    pub SenseInfoLength: super::UCHAR,
+    pub DataDirection: super::UCHAR,
+    pub Reserved: super::UCHAR,
+    pub TimeOutValue: super::ULONG,
+    pub StorAddressOffset: super::ULONG,
+    pub SenseInfoOffset: super::ULONG,
+    pub DataOutTransferLength: super::ULONG,
+    pub DataInTransferLength: super::ULONG,
     pub DataOutBuffer: *mut core::ffi::c_void,
     pub DataInBuffer: *mut core::ffi::c_void,
-    pub Cdb: [u8; 1],
+    pub Cdb: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCSI_PASS_THROUGH_DIRECT_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_EX {
-    pub Version: u32,
-    pub Length: u32,
-    pub CdbLength: u32,
-    pub StorAddressLength: u32,
-    pub ScsiStatus: u8,
-    pub SenseInfoLength: u8,
-    pub DataDirection: u8,
-    pub Reserved: u8,
-    pub TimeOutValue: u32,
-    pub StorAddressOffset: u32,
-    pub SenseInfoOffset: u32,
-    pub DataOutTransferLength: u32,
-    pub DataInTransferLength: u32,
-    pub DataOutBufferOffset: usize,
-    pub DataInBufferOffset: usize,
-    pub Cdb: [u8; 1],
+    pub Version: super::ULONG,
+    pub Length: super::ULONG,
+    pub CdbLength: super::ULONG,
+    pub StorAddressLength: super::ULONG,
+    pub ScsiStatus: super::UCHAR,
+    pub SenseInfoLength: super::UCHAR,
+    pub DataDirection: super::UCHAR,
+    pub Reserved: super::UCHAR,
+    pub TimeOutValue: super::ULONG,
+    pub StorAddressOffset: super::ULONG,
+    pub SenseInfoOffset: super::ULONG,
+    pub DataOutTransferLength: super::ULONG,
+    pub DataInTransferLength: super::ULONG,
+    pub DataOutBufferOffset: super::ULONG_PTR,
+    pub DataInBufferOffset: super::ULONG_PTR,
+    pub Cdb: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCSI_PASS_THROUGH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRB_IO_CONTROL {
-    pub HeaderLength: u32,
-    pub Signature: [u8; 8],
-    pub Timeout: u32,
-    pub ControlCode: u32,
-    pub ReturnCode: u32,
-    pub Length: u32,
+    pub HeaderLength: super::ULONG,
+    pub Signature: [super::UCHAR; 8],
+    pub Timeout: super::ULONG,
+    pub ControlCode: super::ULONG,
+    pub ReturnCode: super::ULONG,
+    pub Length: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for SRB_IO_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_BOOT_PARTITION_ACTIVATE {
-    pub Version: u32,
-    pub Size: u32,
-    pub BPID: u8,
-    pub Reserved0: [u8; 3],
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub BPID: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_BOOT_PARTITION_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1143,15 +1158,17 @@ impl Default for STORAGE_BOOT_PARTITION_ACTIVATE {
 }
 pub const STORAGE_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_BOOT_PARTITION_DOWNLOAD {
-    pub Version: u32,
-    pub Size: u32,
-    pub BPID: u8,
-    pub Offset: u64,
-    pub BufferSize: u64,
-    pub ImageBuffer: [u8; 1],
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub BPID: super::UCHAR,
+    pub Offset: super::ULONGLONG,
+    pub BufferSize: super::ULONGLONG,
+    pub ImageBuffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_BOOT_PARTITION_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1160,28 +1177,31 @@ impl Default for STORAGE_BOOT_PARTITION_DOWNLOAD {
 pub const STORAGE_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
 pub const STORAGE_BOOT_PARTITION_GET_INFO_STRUCTURE_VERSION_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_BOOT_PARTITION_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub BPSZ: u64,
-    pub ImagePayloadAlignment: u32,
-    pub ImagePayloadMaxSize: u32,
-    pub SlotCount: u8,
-    pub ABPID: u8,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub BPSZ: super::ULONGLONG,
+    pub ImagePayloadAlignment: super::ULONG,
+    pub ImagePayloadMaxSize: super::ULONG,
+    pub SlotCount: super::UCHAR,
+    pub ABPID: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
     pub TargetType: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE,
     pub Level: MP_STORAGE_DIAGNOSTIC_LEVEL,
     pub ProviderId: windows_core::GUID,
-    pub BufferSize: u32,
-    pub Reserved: u32,
-    pub DataBuffer: [u8; 1],
+    pub BufferSize: super::ULONG,
+    pub Reserved: super::ULONG,
+    pub DataBuffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DIAGNOSTIC_MP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1195,54 +1215,61 @@ pub const STORAGE_DIAGNOSTIC_STATUS_MORE_DATA: i32 = 6;
 pub const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: i32 = 0;
 pub const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
     pub EnduranceInfo: STORAGE_ENDURANCE_INFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_ENDURANCE_INFO {
-    pub ValidFields: u32,
-    pub GroupId: u32,
+    pub ValidFields: super::ULONG,
+    pub GroupId: super::ULONG,
     pub Flags: STORAGE_ENDURANCE_INFO_0,
-    pub LifePercentage: u32,
-    pub BytesReadCount: [u8; 16],
-    pub ByteWriteCount: [u8; 16],
+    pub LifePercentage: super::ULONG,
+    pub BytesReadCount: [super::UCHAR; 16],
+    pub ByteWriteCount: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_ENDURANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl STORAGE_ENDURANCE_INFO_0 {
-    pub fn Shared(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Shared(&self) -> super::ULONG {
+        (self._bitfield) & 1
     }
-    pub fn set_Shared(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Shared(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::ULONG {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_ACTIVATE {
-    pub Version: u32,
-    pub Size: u32,
-    pub SlotToActivate: u8,
-    pub Reserved0: [u8; 3],
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub SlotToActivate: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1250,14 +1277,16 @@ impl Default for STORAGE_FIRMWARE_ACTIVATE {
 }
 pub const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD {
-    pub Version: u32,
-    pub Size: u32,
-    pub Offset: u64,
-    pub BufferSize: u64,
-    pub ImageBuffer: [u8; 0],
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub Offset: super::ULONGLONG,
+    pub BufferSize: super::ULONGLONG,
+    pub ImageBuffer: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1266,36 +1295,38 @@ impl Default for STORAGE_FIRMWARE_DOWNLOAD {
 pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
 pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
-    pub Version: u32,
-    pub Size: u32,
-    pub Offset: u64,
-    pub BufferSize: u64,
-    pub Slot: u8,
-    pub Reserved: [u8; 3],
-    pub ImageSize: u32,
-    pub ImageBuffer: [u8; 0],
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
+    pub Offset: super::ULONGLONG,
+    pub BufferSize: super::ULONGLONG,
+    pub Slot: super::UCHAR,
+    pub Reserved: [super::UCHAR; 3],
+    pub ImageSize: super::ULONG,
+    pub ImageBuffer: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_INFO {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
     pub UpgradeSupport: super::BOOLEAN,
-    pub SlotCount: u8,
-    pub ActiveSlot: u8,
-    pub PendingActivateSlot: u8,
-    pub Reserved: u32,
+    pub SlotCount: super::UCHAR,
+    pub ActiveSlot: super::UCHAR,
+    pub PendingActivateSlot: super::UCHAR,
+    pub Reserved: super::ULONG,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO; 0],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1305,65 +1336,65 @@ pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: i32 = 255;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: i32 = 1;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_INFO_V2 {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::ULONG,
+    pub Size: super::ULONG,
     pub UpgradeSupport: super::BOOLEAN,
-    pub SlotCount: u8,
-    pub ActiveSlot: u8,
-    pub PendingActivateSlot: u8,
+    pub SlotCount: super::UCHAR,
+    pub ActiveSlot: super::UCHAR,
+    pub PendingActivateSlot: super::UCHAR,
     pub FirmwareShared: super::BOOLEAN,
-    pub Reserved: [u8; 3],
-    pub ImagePayloadAlignment: u32,
-    pub ImagePayloadMaxSize: u32,
+    pub Reserved: [super::UCHAR; 3],
+    pub ImagePayloadAlignment: super::ULONG,
+    pub ImagePayloadMaxSize: super::ULONG,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO_V2; 0],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO {
-    pub SlotNumber: u8,
+    pub SlotNumber: super::UCHAR,
     pub ReadOnly: super::BOOLEAN,
-    pub Reserved: [u8; 6],
+    pub Reserved: [super::UCHAR; 6],
     pub Revision: STORAGE_FIRMWARE_SLOT_INFO_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_SLOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
-    pub Info: [u8; 8],
-    pub AsUlonglong: u64,
+    pub Info: [super::UCHAR; 8],
+    pub AsUlonglong: super::ULONGLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
-    pub SlotNumber: u8,
+    pub SlotNumber: super::UCHAR,
     pub ReadOnly: super::BOOLEAN,
-    pub Reserved: [u8; 6],
-    pub Revision: [u8; 16],
+    pub Reserved: [super::UCHAR; 6],
+    pub Revision: [super::UCHAR; 16],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

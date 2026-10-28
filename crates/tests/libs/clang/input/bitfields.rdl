@@ -1,0 +1,132 @@
+#[win32]
+mod Fixture {
+    struct Anonymous {
+        _bitfield: u32,
+        tail: u32,
+    }
+    struct Computed {
+        _bitfield: u32 {
+            value: 16,
+        },
+    }
+    struct Full {
+        _bitfield: u64 {
+            value: 64,
+        },
+    }
+    union Overlay {
+        _bitfield1: u32 {
+            a: 3,
+        },
+        _bitfield2: i32 {
+            b: 5,
+        },
+        whole: u32,
+    }
+    #[packed(1)]
+    struct Packed {
+        lead: i8,
+        _bitfield: u32 {
+            a: 3,
+            b: 5,
+        },
+        tail: i16,
+    }
+    #[packed(1)]
+    union PackedOverlay {
+        _bitfield1: u8 {
+            small: 3,
+        },
+        _bitfield2: u64 {
+            large: 40,
+        },
+    }
+    struct Padding {
+        _bitfield: u32 {
+            _: 5,
+            value: 3,
+        },
+    }
+    #[arch(X64 | Arm64)]
+    struct Platform {
+        _bitfield: u64 {
+            value: 40,
+        },
+    }
+    #[arch(X86)]
+    struct Platform {
+        _bitfield: u32 {
+            value: 7,
+        },
+    }
+    #[arch(X64 | Arm64)]
+    union PlatformOverlay {
+        _bitfield: u64 {
+            value: 40,
+        },
+        whole: u64,
+    }
+    #[arch(X86)]
+    union PlatformOverlay {
+        _bitfield: u32 {
+            value: 7,
+        },
+        whole: u32,
+    }
+    struct Separated {
+        _bitfield1: u32 {
+            first: 3,
+        },
+        _bitfield2: u32 {
+            second: 7,
+        },
+        tail: i8,
+    }
+    struct Signed {
+        _bitfield: i32 {
+            low: 3,
+            high: 5,
+        },
+    }
+    struct SignedPadding {
+        _bitfield: i32 {
+            _: 5,
+            value: 3,
+        },
+    }
+    struct Trailing {
+        _bitfield: u32 {
+            value: 4,
+        },
+    }
+    struct Unsigned {
+        _bitfield: u32 {
+            low: 3,
+            _: 2,
+            high: 5,
+        },
+        tail: u32,
+    }
+    struct UnsignedPadding {
+        _bitfield: u32 {
+            _: 5,
+            value: 3,
+            _: 7,
+            next: 4,
+        },
+    }
+    struct Widths {
+        _bitfield1: u8 {
+            a: 3,
+        },
+        _bitfield2: u16 {
+            b: 9,
+        },
+        _bitfield3: u32 {
+            c: 18,
+        },
+        _bitfield4: u64 {
+            d: 40,
+        },
+    }
+}

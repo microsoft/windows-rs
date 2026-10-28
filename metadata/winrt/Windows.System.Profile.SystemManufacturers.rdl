@@ -3,9 +3,9 @@ mod Windows {
     mod System {
         mod Profile {
             mod SystemManufacturers {
-                #[guid(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OemSupportInfo)]
+                #[guid(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9)]
                 interface IOemSupportInfo {
                     #[get]
                     SupportLink: super::super::super::Foundation::Uri;
@@ -14,16 +14,16 @@ mod Windows {
                     #[get]
                     SupportProvider: String;
                 }
-                #[guid(0x080cca7c_637c_48c4_b728_f9273812db8e)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SmbiosInformation)]
+                #[guid(0x080cca7c_637c_48c4_b728_f9273812db8e)]
                 interface ISmbiosInformationStatics {
                     #[get]
                     SerialNumber: String;
                 }
-                #[guid(0x05880b99_8247_441b_a996_a1784bab79a8)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportDeviceInfo)]
+                #[guid(0x05880b99_8247_441b_a996_a1784bab79a8)]
                 interface ISystemSupportDeviceInfo {
                     #[get]
                     OperatingSystem: String;
@@ -40,18 +40,18 @@ mod Windows {
                     #[get]
                     SystemFirmwareVersion: String;
                 }
-                #[guid(0xef750974_c422_45d7_a44d_5c1c0043a2b3)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportInfo)]
+                #[guid(0xef750974_c422_45d7_a44d_5c1c0043a2b3)]
                 interface ISystemSupportInfoStatics {
                     #[get]
                     LocalSystemEdition: String;
                     #[get]
                     OemSupportInfo: OemSupportInfo;
                 }
-                #[guid(0x33f349a4_3fa1_4986_aa4b_057420455e6d)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportInfo)]
+                #[guid(0x33f349a4_3fa1_4986_aa4b_057420455e6d)]
                 interface ISystemSupportInfoStatics2 {
                     #[get]
                     LocalDeviceInfo: SystemSupportDeviceInfo;

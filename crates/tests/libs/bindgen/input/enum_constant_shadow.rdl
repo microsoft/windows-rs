@@ -1,0 +1,31 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Pool {
+        Default = 0,
+        Aligned = 4,
+        Unshadowed = 8,
+        Replaced = 9,
+    }
+    #[arch(Arm64)]
+    const Default: Pool = 512;
+    #[arch(Arm64)]
+    const Aligned: Pool = 516;
+    const Replaced: i32 = 10;
+
+    #[repr(i32)]
+    #[arch(X64 | Arm64)]
+    enum Partial {
+        PartialValue = 20,
+    }
+    #[arch(Arm64)]
+    const PartialValue: Partial = 21;
+
+    #[repr(i32)]
+    #[scoped]
+    enum Scoped {
+        ScopedValue = 40,
+    }
+    const ScopedValue: i32 = 41;
+}

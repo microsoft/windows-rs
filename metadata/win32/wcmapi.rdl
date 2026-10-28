@@ -30,7 +30,7 @@ mod Windows {
             WCM_CONNECTION_COST_APPROACHINGDATALIMIT = 524288,
         }
         struct WCM_CONNECTION_COST_DATA {
-            ConnectionCost: u32,
+            ConnectionCost: DWORD,
             CostSource: WCM_CONNECTION_COST_SOURCE,
         }
         #[repr(i32)]
@@ -42,12 +42,12 @@ mod Windows {
         }
         struct WCM_DATAPLAN_STATUS {
             UsageData: WCM_USAGE_DATA,
-            DataLimitInMegabytes: u32,
-            InboundBandwidthInKbps: u32,
-            OutboundBandwidthInKbps: u32,
+            DataLimitInMegabytes: DWORD,
+            InboundBandwidthInKbps: DWORD,
+            OutboundBandwidthInKbps: DWORD,
             BillingCycle: WCM_BILLING_CYCLE_INFO,
-            MaxTransferSizeInMegabytes: u32,
-            Reserved: u32,
+            MaxTransferSizeInMegabytes: DWORD,
+            Reserved: DWORD,
         }
         const WCM_MAX_PROFILE_NAME: i32 = 256;
         #[repr(i32)]
@@ -64,12 +64,13 @@ mod Windows {
             fIsGroupPolicy: BOOL,
         }
         struct WCM_PROFILE_INFO {
-            strProfileName: [u16; 256],
+            strProfileName: [WCHAR; 256],
             AdapterGUID: GUID,
             Media: WCM_MEDIA_TYPE,
         }
         struct WCM_PROFILE_INFO_LIST {
-            dwNumberOfItems: u32,
+            dwNumberOfItems: DWORD,
+            #[writable(dwNumberOfItems)]
             ProfileInfo: [WCM_PROFILE_INFO; 1],
         }
         #[repr(i32)]
@@ -83,28 +84,28 @@ mod Windows {
             wcm_intf_property_hotspot_profile = 6,
         }
         struct WCM_TIME_INTERVAL {
-            wYear: u16,
-            wMonth: u16,
-            wDay: u16,
-            wHour: u16,
-            wMinute: u16,
-            wSecond: u16,
-            wMilliseconds: u16,
+            wYear: WORD,
+            wMonth: WORD,
+            wDay: WORD,
+            wHour: WORD,
+            wMinute: WORD,
+            wSecond: WORD,
+            wMilliseconds: WORD,
         }
         const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
         struct WCM_USAGE_DATA {
-            UsageInMegabytes: u32,
+            UsageInMegabytes: DWORD,
             LastSyncTime: FILETIME,
         }
         #[library("wcmapi.dll")]
-        extern fn WcmFreeMemory(pMemory: *mut void);
+        extern fn WcmFreeMemory(#[Windows::Win32::Metadata::NativeSal("L", "__deallocate", "Mem", "Mem")] pMemory: *mut void);
         #[library("wcmapi.dll")]
-        extern fn WcmGetProfileList(#[reserved] pReserved: *mut void, ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
+        extern fn WcmGetProfileList(#[reserved] pReserved: *mut void, #[out] #[out_ptr] ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> DWORD;
         #[library("wcmapi.dll")]
-        extern fn WcmQueryProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, ppData: *mut PBYTE) -> u32;
+        extern fn WcmQueryProperty(#[in] #[opt] pInterface: *const GUID, #[in] #[opt] strProfileName: LPCWSTR, #[in] Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, #[out] #[writable(success, *pdwDataSize, indirect, nullable)] ppData: *mut PBYTE) -> DWORD;
         #[library("wcmapi.dll")]
-        extern fn WcmSetProfileList(#[in] pProfileList: *mut WCM_PROFILE_INFO_LIST, dwPosition: u32, fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *mut void) -> u32;
+        extern fn WcmSetProfileList(#[in] pProfileList: *mut WCM_PROFILE_INFO_LIST, #[in] dwPosition: DWORD, #[in] fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *mut void) -> DWORD;
         #[library("wcmapi.dll")]
-        extern fn WcmSetProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, dwDataSize: u32, #[len_param(4)] #[opt] pbData: *const u8) -> u32;
+        extern fn WcmSetProperty(#[in] #[opt] pInterface: *const GUID, #[in] #[opt] strProfileName: LPCWSTR, #[in] Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[in] dwDataSize: DWORD, #[in] #[opt] #[readable(entry, dwDataSize)] pbData: *const BYTE) -> DWORD;
     }
 }

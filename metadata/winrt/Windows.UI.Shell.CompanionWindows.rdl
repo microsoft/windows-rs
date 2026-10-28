@@ -28,9 +28,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Experimental]
                     ICompanionWindowRequestResult,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[repr(i32)]
                 enum CompanionWindowRequestResultStatus {
                     Success = 0,
                     UnknownFailure = 1,
@@ -41,39 +41,39 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ApiContract]
                 #[Windows::Foundation::Metadata::ContractVersion(65536)]
                 struct CompanionWindowsContract {}
-                #[guid(0x05620e87_b0f7_59ba_b3a5_d614bdc1ebe3)]
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowCoordinator)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x05620e87_b0f7_59ba_b3a5_d614bdc1ebe3)]
                 interface ICompanionWindowCoordinator {
-                    fn RequestWindowFromAppAsync(&self, appId: String) -> super::super::super::Foundation::IAsyncOperation<CompanionWindowRequestResult>;
+                    fn RequestWindowFromAppAsync(&self, #[in] appId: String) -> super::super::super::Foundation::IAsyncOperation<CompanionWindowRequestResult>;
                     fn DetachCompanionWindow(&self);
                     #[get]
                     CompanionWindowId: super::super::WindowId;
                     event Changed: super::super::super::Foundation::TypedEventHandler<CompanionWindowCoordinator, Object>;
                 }
-                #[guid(0x964022fa_380e_518c_bfc8_0f3b84fafea3)]
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowCoordinator)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x964022fa_380e_518c_bfc8_0f3b84fafea3)]
                 interface ICompanionWindowCoordinatorStatics {
-                    fn GetForWindow(&self, windowId: super::super::WindowId) -> CompanionWindowCoordinator;
+                    fn GetForWindow(&self, #[in] windowId: super::super::WindowId) -> CompanionWindowCoordinator;
                 }
-                #[guid(0xd92c351a_2d66_59a8_b345_78489562c4d8)]
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowRequest)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0xd92c351a_2d66_59a8_b345_78489562c4d8)]
                 interface ICompanionWindowRequest {
-                    fn Accept(&self, windowId: super::super::WindowId) -> CompanionWindowCoordinator;
+                    fn Accept(&self, #[in] windowId: super::super::WindowId) -> CompanionWindowCoordinator;
                     fn Reject(&self);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                     #[get]
                     RequestingWindowId: super::super::WindowId;
                 }
-                #[guid(0xd728d2ef_e6d4_5cc0_9ff4_20c17a2ce72d)]
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowRequestResult)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0xd728d2ef_e6d4_5cc0_9ff4_20c17a2ce72d)]
                 interface ICompanionWindowRequestResult {
                     #[get]
                     Succeeded: bool;
@@ -84,12 +84,12 @@ mod Windows {
                     #[get]
                     CompanionWindowId: super::super::WindowId;
                 }
-                #[guid(0x585e4544_d474_506a_96c2_3597a44882da)]
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowRequest)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x585e4544_d474_506a_96c2_3597a44882da)]
                 interface ICompanionWindowRequestStatics {
-                    fn GetFromLaunchUri(&self, launchUri: super::super::super::Foundation::Uri) -> CompanionWindowRequest;
+                    fn GetFromLaunchUri(&self, #[in] launchUri: super::super::super::Foundation::Uri) -> CompanionWindowRequest;
                 }
             }
         }

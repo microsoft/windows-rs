@@ -1,0 +1,9 @@
+#[win32]
+mod Fixture {
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c4)]
+    interface IBase {
+        fn Ping(&self) -> i32;
+    }
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c5)]
+    interface IEmpty: IBase {}
+}

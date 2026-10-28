@@ -1,14 +1,14 @@
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("rasdlg.dll" "system" fn RasDialDlgA(lpszphonebook : windows_sys::core::PCSTR, lpszentry : windows_sys::core::PCSTR, lpszphonenumber : windows_sys::core::PCSTR, lpinfo : *mut tagRASDIALDLG) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("rasdlg.dll" "system" fn RasDialDlgW(lpszphonebook : windows_sys::core::PCWSTR, lpszentry : windows_sys::core::PCWSTR, lpszphonenumber : windows_sys::core::PCWSTR, lpinfo : *mut tagRASDIALDLG) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("rasdlg.dll" "system" fn RasEntryDlgA(lpszphonebook : windows_sys::core::PCSTR, lpszentry : windows_sys::core::PCSTR, lpinfo : *mut tagRASENTRYDLGA) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("rasdlg.dll" "system" fn RasEntryDlgW(lpszphonebook : windows_sys::core::PCWSTR, lpszentry : windows_sys::core::PCWSTR, lpinfo : *mut tagRASENTRYDLGW) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("rasdlg.dll" "system" fn RasPhonebookDlgA(lpszphonebook : windows_sys::core::PCSTR, lpszentry : windows_sys::core::PCSTR, lpinfo : *mut tagRASPBDLGA) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("rasdlg.dll" "system" fn RasPhonebookDlgW(lpszphonebook : windows_sys::core::PCWSTR, lpszentry : windows_sys::core::PCWSTR, lpinfo : *mut tagRASPBDLGW) -> windows_sys::core::BOOL);
 pub const RASDDFLAG_AoacRedial: i32 = 4;
 pub const RASDDFLAG_LinkFailure: u32 = 2147483648;
@@ -36,221 +36,129 @@ pub const RASPBDFLAG_ForceCloseOnDial: i32 = 2;
 pub const RASPBDFLAG_NoUser: i32 = 16;
 pub const RASPBDFLAG_PositionDlg: i32 = 1;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648;
-pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void)>;
-pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void)>;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type RasCustomDialDlgFn = Option<unsafe extern "system" fn(hinstdll: super::HINSTANCE, dwflags: u32, lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, lpszphonenumber: windows_sys::core::PCWSTR, lpinfo: *mut tagRASDIALDLG, pvinfo: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super::HINSTANCE, lpszphonebook: windows_sys::core::PCWSTR, lpszentry: windows_sys::core::PCWSTR, lpinfo: *mut tagRASENTRYDLGA, dwflags: u32) -> windows_sys::core::BOOL>;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: super::ULONG_PTR, param1: super::DWORD, param2: windows_sys::core::PSTR, param3: super::LPVOID)>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: super::ULONG_PTR, param1: super::DWORD, param2: windows_sys::core::PWSTR, param3: super::LPVOID)>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+pub type RasCustomDialDlgFn = Option<unsafe extern "system" fn(hinstdll: super::HINSTANCE, dwflags: super::DWORD, lpszphonebook: windows_sys::core::PWSTR, lpszentry: windows_sys::core::PWSTR, lpszphonenumber: windows_sys::core::PWSTR, lpinfo: *mut tagRASDIALDLG, pvinfo: super::PVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super::HINSTANCE, lpszphonebook: windows_sys::core::PWSTR, lpszentry: windows_sys::core::PWSTR, lpinfo: *mut tagRASENTRYDLGA, dwflags: super::DWORD) -> windows_sys::core::BOOL>;
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASDIALDLG {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwSubEntry: u32,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
+    pub dwFlags: super::DWORD,
+    pub xDlg: super::LONG,
+    pub yDlg: super::LONG,
+    pub dwSubEntry: super::DWORD,
+    pub dwError: super::DWORD,
+    pub reserved: super::ULONG_PTR,
+    pub reserved2: super::ULONG_PTR,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
-pub struct tagRASDIALDLG {
-    pub dwSize: u32,
-    pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwSubEntry: u32,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct tagRASENTRYDLGA {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub szEntry: [i8; 257],
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
+    pub dwFlags: super::DWORD,
+    pub xDlg: super::LONG,
+    pub yDlg: super::LONG,
+    pub szEntry: [super::CHAR; 257],
+    pub dwError: super::DWORD,
+    pub reserved: super::ULONG_PTR,
+    pub reserved2: super::ULONG_PTR,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for tagRASENTRYDLGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
-pub struct tagRASENTRYDLGA {
-    pub dwSize: u32,
-    pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub szEntry: [i8; 257],
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for tagRASENTRYDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct tagRASENTRYDLGW {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub szEntry: [u16; 257],
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
+    pub dwFlags: super::DWORD,
+    pub xDlg: super::LONG,
+    pub yDlg: super::LONG,
+    pub szEntry: [super::WCHAR; 257],
+    pub dwError: super::DWORD,
+    pub reserved: super::ULONG_PTR,
+    pub reserved2: super::ULONG_PTR,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for tagRASENTRYDLGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
-pub struct tagRASENTRYDLGW {
-    pub dwSize: u32,
-    pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub szEntry: [u16; 257],
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for tagRASENTRYDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct tagRASNOUSERA {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwTimeoutMs: u32,
-    pub szUserName: [i8; 257],
-    pub szPassword: [i8; 257],
-    pub szDomain: [i8; 16],
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwTimeoutMs: super::DWORD,
+    pub szUserName: [super::CHAR; 257],
+    pub szPassword: [super::CHAR; 257],
+    pub szDomain: [super::CHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for tagRASNOUSERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct tagRASNOUSERW {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwTimeoutMs: u32,
-    pub szUserName: [u16; 257],
-    pub szPassword: [u16; 257],
-    pub szDomain: [u16; 16],
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwTimeoutMs: super::DWORD,
+    pub szUserName: [super::WCHAR; 257],
+    pub szPassword: [super::WCHAR; 257],
+    pub szDomain: [super::WCHAR; 16],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for tagRASNOUSERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGA {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwCallbackId: usize,
+    pub dwFlags: super::DWORD,
+    pub xDlg: super::LONG,
+    pub yDlg: super::LONG,
+    pub dwCallbackId: super::ULONG_PTR,
     pub pCallback: RASPBDLGFUNCA,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
+    pub dwError: super::DWORD,
+    pub reserved: super::ULONG_PTR,
+    pub reserved2: super::ULONG_PTR,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
-pub struct tagRASPBDLGA {
-    pub dwSize: u32,
-    pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwCallbackId: usize,
-    pub pCallback: RASPBDLGFUNCA,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGW {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwCallbackId: usize,
+    pub dwFlags: super::DWORD,
+    pub xDlg: super::LONG,
+    pub yDlg: super::LONG,
+    pub dwCallbackId: super::ULONG_PTR,
     pub pCallback: RASPBDLGFUNCW,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
-pub struct tagRASPBDLGW {
-    pub dwSize: u32,
-    pub hwndOwner: super::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwCallbackId: usize,
-    pub pCallback: RASPBDLGFUNCW,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
+    pub dwError: super::DWORD,
+    pub reserved: super::ULONG_PTR,
+    pub reserved2: super::ULONG_PTR,
 }

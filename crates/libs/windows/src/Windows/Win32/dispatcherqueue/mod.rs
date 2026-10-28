@@ -1,6 +1,6 @@
-#[cfg(feature = "System")]
+#[cfg(all(feature = "System", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> windows_core::Result<super::super::System::IDispatcherQueueController> {
+pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> windows_core::Result<PDISPATCHERQUEUECONTROLLER> {
     windows_core::link!("coremessaging.dll" "system" fn CreateDispatcherQueueController(options : DispatcherQueueOptions, dispatcherqueuecontroller : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -15,9 +15,14 @@ pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 2;
 pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = 2;
 pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DispatcherQueueOptions {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
     pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
+#[cfg(feature = "System")]
+pub type PDISPATCHERQUEUE = super::super::System::IDispatcherQueue;
+#[cfg(feature = "System")]
+pub type PDISPATCHERQUEUECONTROLLER = super::super::System::IDispatcherQueueController;

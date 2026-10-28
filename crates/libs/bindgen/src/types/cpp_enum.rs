@@ -33,7 +33,7 @@ impl CppEnum {
         // Unscoped C enums are bare integer aliases; scoped enums keep newtype projection.
         if !is_scoped {
             let cfg = write_simple_cfg(self, config);
-            return config.write_cpp_handle(self.def, &cfg);
+            return config.write_cpp_handle(&Type::CppEnum(self.clone()), self.def, &cfg);
         }
 
         let name = to_ident(tn.name());

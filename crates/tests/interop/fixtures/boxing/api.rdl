@@ -9,13 +9,14 @@ mod Boxing {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Unboxes a value boxed by the client: "i32 1", "String a", or "null".
-        fn Describe(&self, value: Object) -> String;
+        fn Describe(&self, #[in] value: Object) -> String;
 
         // Values boxed by the component.
-        fn BoxInt32(&self, value: i32) -> Object;
-        fn BoxString(&self, value: String) -> Object;
+        fn BoxInt32(&self, #[in] value: i32) -> Object;
+        fn BoxString(&self, #[in] value: String) -> Object;
 
         // A nullable value, initially null.
         Optional: IReference<i32>;

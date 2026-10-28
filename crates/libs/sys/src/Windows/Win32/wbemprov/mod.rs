@@ -1,5 +1,5 @@
 pub type WBEM_BATCH_TYPE = i32;
-pub type WBEM_CWSTR = windows_sys::core::PCWSTR;
+pub type WBEM_CWSTR = *const u16;
 pub type WBEM_EXTRA_RETURN_CODES = i32;
 pub const WBEM_E_RESOURCE_CONTENTION: WBEM_EXTRA_RETURN_CODES = -2147209214;
 pub const WBEM_E_RETRY_LATER: WBEM_EXTRA_RETURN_CODES = -2147209215;
@@ -16,9 +16,9 @@ pub const WBEM_S_INDIRECTLY_UPDATED: WBEM_EXTRA_RETURN_CODES = 274434;
 pub const WBEM_S_INITIALIZED: WBEM_EXTRA_RETURN_CODES = 0;
 pub const WBEM_S_LIMITED_SERVICE: WBEM_EXTRA_RETURN_CODES = 274433;
 pub const WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = 274435;
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-pub type WBEM_VARIANT = super::VARIANT;
-pub type WBEM_WSTR = windows_sys::core::PWSTR;
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+pub type WBEM_VARIANT = super::tagVARIANT;
+pub type WBEM_WSTR = *mut u16;
 pub const WbemAdministrativeLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
 pub const WbemAuthenticatedLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
 pub const WbemDecoupledBasicEventProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);

@@ -1,127 +1,128 @@
-#[cfg(feature = "objidlbase")]
-windows_link::link!("mfplat.dll" "system" fn MFDeserializeAttributesFromStream(pattr : *mut core::ffi::c_void, dwoptions : u32, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("mfplat.dll" "system" fn MFSerializeAttributesToStream(pattr : *mut core::ffi::c_void, dwoptions : u32, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub const MEAudioSessionDeviceRemoved: MediaEventType = 315;
-pub const MEAudioSessionDisconnected: MediaEventType = 320;
-pub const MEAudioSessionExclusiveModeOverride: MediaEventType = 321;
-pub const MEAudioSessionFormatChanged: MediaEventType = 319;
-pub const MEAudioSessionGroupingParamChanged: MediaEventType = 317;
-pub const MEAudioSessionIconChanged: MediaEventType = 318;
-pub const MEAudioSessionNameChanged: MediaEventType = 313;
-pub const MEAudioSessionServerShutdown: MediaEventType = 316;
-pub const MEAudioSessionVolumeChanged: MediaEventType = 314;
-pub const MEBufferingStarted: MediaEventType = 122;
-pub const MEBufferingStopped: MediaEventType = 123;
-pub const MEByteStreamCharacteristicsChanged: MediaEventType = 700;
-pub const MECaptureAudioSessionDeviceRemoved: MediaEventType = 323;
-pub const MECaptureAudioSessionDisconnected: MediaEventType = 325;
-pub const MECaptureAudioSessionExclusiveModeOverride: MediaEventType = 326;
-pub const MECaptureAudioSessionFormatChanged: MediaEventType = 324;
-pub const MECaptureAudioSessionServerShutdown: MediaEventType = 327;
-pub const MECaptureAudioSessionVolumeChanged: MediaEventType = 322;
-pub const MEConnectEnd: MediaEventType = 125;
-pub const MEConnectStart: MediaEventType = 124;
-pub const MEContentProtectionMessage: MediaEventType = 402;
-pub const MEContentProtectionMetadata: MediaEventType = 900;
-pub const MEDeviceThermalStateChanged: MediaEventType = 950;
-pub const MEEnablerCompleted: MediaEventType = 119;
-pub const MEEnablerProgress: MediaEventType = 118;
-pub const MEEncodingParameters: MediaEventType = 803;
-pub const MEEndOfPresentation: MediaEventType = 211;
-pub const MEEndOfPresentationSegment: MediaEventType = 218;
-pub const MEEndOfStream: MediaEventType = 212;
-pub const MEError: MediaEventType = 1;
-pub const MEExtendedType: MediaEventType = 2;
-pub const MEGenericV1Anchor: MediaEventType = 3;
-pub const MEIndividualizationCompleted: MediaEventType = 117;
-pub const MEIndividualizationStart: MediaEventType = 116;
-pub const MELicenseAcquisitionCompleted: MediaEventType = 115;
-pub const MELicenseAcquisitionStart: MediaEventType = 114;
-pub const MEMediaSample: MediaEventType = 213;
-pub const MENewPresentation: MediaEventType = 113;
-pub const MENewStream: MediaEventType = 205;
-pub const MENonFatalError: MediaEventType = 3;
-pub const MEPolicyChanged: MediaEventType = 401;
-pub const MEPolicyError: MediaEventType = 120;
-pub const MEPolicyReport: MediaEventType = 121;
-pub const MEPolicySet: MediaEventType = 403;
-pub const MEQualityNotify: MediaEventType = 311;
-pub const MEReconnectEnd: MediaEventType = 127;
-pub const MEReconnectStart: MediaEventType = 126;
-pub const MERendererEvent: MediaEventType = 128;
-pub const MEReservedMax: MediaEventType = 10000;
-pub const MESequencerSourceTopologyUpdated: MediaEventType = 222;
-pub const MESessionCapabilitiesChanged: MediaEventType = 110;
-pub const MESessionClosed: MediaEventType = 106;
-pub const MESessionEnded: MediaEventType = 107;
-pub const MESessionNotifyPresentationTime: MediaEventType = 112;
-pub const MESessionPaused: MediaEventType = 104;
-pub const MESessionRateChanged: MediaEventType = 108;
-pub const MESessionScrubSampleComplete: MediaEventType = 109;
-pub const MESessionStarted: MediaEventType = 103;
-pub const MESessionStopped: MediaEventType = 105;
-pub const MESessionStreamSinkFormatChanged: MediaEventType = 129;
-pub const MESessionTopologiesCleared: MediaEventType = 102;
-pub const MESessionTopologySet: MediaEventType = 101;
-pub const MESessionTopologyStatus: MediaEventType = 111;
-pub const MESessionUnknown: MediaEventType = 100;
-pub const MESessionV1Anchor: MediaEventType = 129;
-pub const MESinkInvalidated: MediaEventType = 312;
-pub const MESinkUnknown: MediaEventType = 300;
-pub const MESinkV1Anchor: MediaEventType = 321;
-pub const MESinkV2Anchor: MediaEventType = 327;
-pub const MESourceCharacteristicsChanged: MediaEventType = 219;
-pub const MESourceMetadataChanged: MediaEventType = 221;
-pub const MESourcePaused: MediaEventType = 209;
-pub const MESourceRateChangeRequested: MediaEventType = 220;
-pub const MESourceRateChanged: MediaEventType = 217;
-pub const MESourceSeeked: MediaEventType = 203;
-pub const MESourceStarted: MediaEventType = 201;
-pub const MESourceStopped: MediaEventType = 207;
-pub const MESourceUnknown: MediaEventType = 200;
-pub const MESourceV1Anchor: MediaEventType = 222;
-pub const MEStreamFormatChanged: MediaEventType = 216;
-pub const MEStreamPaused: MediaEventType = 210;
-pub const MEStreamSeeked: MediaEventType = 204;
-pub const MEStreamSinkDeviceChanged: MediaEventType = 310;
-pub const MEStreamSinkFormatChanged: MediaEventType = 309;
-pub const MEStreamSinkFormatInvalidated: MediaEventType = 802;
-pub const MEStreamSinkMarker: MediaEventType = 306;
-pub const MEStreamSinkPaused: MediaEventType = 303;
-pub const MEStreamSinkPrerolled: MediaEventType = 307;
-pub const MEStreamSinkRateChanged: MediaEventType = 304;
-pub const MEStreamSinkRequestSample: MediaEventType = 305;
-pub const MEStreamSinkScrubSampleComplete: MediaEventType = 308;
-pub const MEStreamSinkStarted: MediaEventType = 301;
-pub const MEStreamSinkStopped: MediaEventType = 302;
-pub const MEStreamStarted: MediaEventType = 202;
-pub const MEStreamStopped: MediaEventType = 208;
-pub const MEStreamThinMode: MediaEventType = 215;
-pub const MEStreamTick: MediaEventType = 214;
-pub const METransformDrainComplete: MediaEventType = 603;
-pub const METransformHaveOutput: MediaEventType = 602;
-pub const METransformInputStreamStateChanged: MediaEventType = 605;
-pub const METransformMarker: MediaEventType = 604;
-pub const METransformNeedInput: MediaEventType = 601;
-pub const METransformUnknown: MediaEventType = 600;
-pub const METrustUnknown: MediaEventType = 400;
-pub const METrustV1Anchor: MediaEventType = 403;
-pub const MEUnknown: MediaEventType = 0;
-pub const MEUpdatedStream: MediaEventType = 206;
-pub const MEVideoCaptureDevicePreempted: MediaEventType = 801;
-pub const MEVideoCaptureDeviceRemoved: MediaEventType = 800;
-pub const MEWMDRMIndividualizationCompleted: MediaEventType = 508;
-pub const MEWMDRMIndividualizationProgress: MediaEventType = 513;
-pub const MEWMDRMLicenseAcquisitionCompleted: MediaEventType = 506;
-pub const MEWMDRMLicenseBackupCompleted: MediaEventType = 500;
-pub const MEWMDRMLicenseBackupProgress: MediaEventType = 501;
-pub const MEWMDRMLicenseRestoreCompleted: MediaEventType = 502;
-pub const MEWMDRMLicenseRestoreProgress: MediaEventType = 503;
-pub const MEWMDRMLicenseStoreCleaned: MediaEventType = 515;
-pub const MEWMDRMProximityCompleted: MediaEventType = 514;
-pub const MEWMDRMRevocationDownloadCompleted: MediaEventType = 516;
-pub const MEWMDRMV1Anchor: MediaEventType = 516;
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
+windows_link::link!("mfplat.dll" "system" fn MFDeserializeAttributesFromStream(pattr : *mut core::ffi::c_void, dwoptions : super::DWORD, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
+windows_link::link!("mfplat.dll" "system" fn MFSerializeAttributesToStream(pattr : *mut core::ffi::c_void, dwoptions : super::DWORD, pstm : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub const CLSID_MFByteStreamProxyClassFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x770e8e77_4916_441c_a9a7_b342d0eebc71);
+pub const MEAudioSessionDeviceRemoved: i32 = 315;
+pub const MEAudioSessionDisconnected: i32 = 320;
+pub const MEAudioSessionExclusiveModeOverride: i32 = 321;
+pub const MEAudioSessionFormatChanged: i32 = 319;
+pub const MEAudioSessionGroupingParamChanged: i32 = 317;
+pub const MEAudioSessionIconChanged: i32 = 318;
+pub const MEAudioSessionNameChanged: i32 = 313;
+pub const MEAudioSessionServerShutdown: i32 = 316;
+pub const MEAudioSessionVolumeChanged: i32 = 314;
+pub const MEBufferingStarted: i32 = 122;
+pub const MEBufferingStopped: i32 = 123;
+pub const MEByteStreamCharacteristicsChanged: i32 = 700;
+pub const MECaptureAudioSessionDeviceRemoved: i32 = 323;
+pub const MECaptureAudioSessionDisconnected: i32 = 325;
+pub const MECaptureAudioSessionExclusiveModeOverride: i32 = 326;
+pub const MECaptureAudioSessionFormatChanged: i32 = 324;
+pub const MECaptureAudioSessionServerShutdown: i32 = 327;
+pub const MECaptureAudioSessionVolumeChanged: i32 = 322;
+pub const MEConnectEnd: i32 = 125;
+pub const MEConnectStart: i32 = 124;
+pub const MEContentProtectionMessage: i32 = 402;
+pub const MEContentProtectionMetadata: i32 = 900;
+pub const MEDeviceThermalStateChanged: i32 = 950;
+pub const MEEnablerCompleted: i32 = 119;
+pub const MEEnablerProgress: i32 = 118;
+pub const MEEncodingParameters: i32 = 803;
+pub const MEEndOfPresentation: i32 = 211;
+pub const MEEndOfPresentationSegment: i32 = 218;
+pub const MEEndOfStream: i32 = 212;
+pub const MEError: i32 = 1;
+pub const MEExtendedType: i32 = 2;
+pub const MEGenericV1Anchor: i32 = 3;
+pub const MEIndividualizationCompleted: i32 = 117;
+pub const MEIndividualizationStart: i32 = 116;
+pub const MELicenseAcquisitionCompleted: i32 = 115;
+pub const MELicenseAcquisitionStart: i32 = 114;
+pub const MEMediaSample: i32 = 213;
+pub const MENewPresentation: i32 = 113;
+pub const MENewStream: i32 = 205;
+pub const MENonFatalError: i32 = 3;
+pub const MEPolicyChanged: i32 = 401;
+pub const MEPolicyError: i32 = 120;
+pub const MEPolicyReport: i32 = 121;
+pub const MEPolicySet: i32 = 403;
+pub const MEQualityNotify: i32 = 311;
+pub const MEReconnectEnd: i32 = 127;
+pub const MEReconnectStart: i32 = 126;
+pub const MERendererEvent: i32 = 128;
+pub const MEReservedMax: i32 = 10000;
+pub const MESequencerSourceTopologyUpdated: i32 = 222;
+pub const MESessionCapabilitiesChanged: i32 = 110;
+pub const MESessionClosed: i32 = 106;
+pub const MESessionEnded: i32 = 107;
+pub const MESessionNotifyPresentationTime: i32 = 112;
+pub const MESessionPaused: i32 = 104;
+pub const MESessionRateChanged: i32 = 108;
+pub const MESessionScrubSampleComplete: i32 = 109;
+pub const MESessionStarted: i32 = 103;
+pub const MESessionStopped: i32 = 105;
+pub const MESessionStreamSinkFormatChanged: i32 = 129;
+pub const MESessionTopologiesCleared: i32 = 102;
+pub const MESessionTopologySet: i32 = 101;
+pub const MESessionTopologyStatus: i32 = 111;
+pub const MESessionUnknown: i32 = 100;
+pub const MESessionV1Anchor: i32 = 129;
+pub const MESinkInvalidated: i32 = 312;
+pub const MESinkUnknown: i32 = 300;
+pub const MESinkV1Anchor: i32 = 321;
+pub const MESinkV2Anchor: i32 = 327;
+pub const MESourceCharacteristicsChanged: i32 = 219;
+pub const MESourceMetadataChanged: i32 = 221;
+pub const MESourcePaused: i32 = 209;
+pub const MESourceRateChangeRequested: i32 = 220;
+pub const MESourceRateChanged: i32 = 217;
+pub const MESourceSeeked: i32 = 203;
+pub const MESourceStarted: i32 = 201;
+pub const MESourceStopped: i32 = 207;
+pub const MESourceUnknown: i32 = 200;
+pub const MESourceV1Anchor: i32 = 222;
+pub const MEStreamFormatChanged: i32 = 216;
+pub const MEStreamPaused: i32 = 210;
+pub const MEStreamSeeked: i32 = 204;
+pub const MEStreamSinkDeviceChanged: i32 = 310;
+pub const MEStreamSinkFormatChanged: i32 = 309;
+pub const MEStreamSinkFormatInvalidated: i32 = 802;
+pub const MEStreamSinkMarker: i32 = 306;
+pub const MEStreamSinkPaused: i32 = 303;
+pub const MEStreamSinkPrerolled: i32 = 307;
+pub const MEStreamSinkRateChanged: i32 = 304;
+pub const MEStreamSinkRequestSample: i32 = 305;
+pub const MEStreamSinkScrubSampleComplete: i32 = 308;
+pub const MEStreamSinkStarted: i32 = 301;
+pub const MEStreamSinkStopped: i32 = 302;
+pub const MEStreamStarted: i32 = 202;
+pub const MEStreamStopped: i32 = 208;
+pub const MEStreamThinMode: i32 = 215;
+pub const MEStreamTick: i32 = 214;
+pub const METransformDrainComplete: i32 = 603;
+pub const METransformHaveOutput: i32 = 602;
+pub const METransformInputStreamStateChanged: i32 = 605;
+pub const METransformMarker: i32 = 604;
+pub const METransformNeedInput: i32 = 601;
+pub const METransformUnknown: i32 = 600;
+pub const METrustUnknown: i32 = 400;
+pub const METrustV1Anchor: i32 = 403;
+pub const MEUnknown: i32 = 0;
+pub const MEUpdatedStream: i32 = 206;
+pub const MEVideoCaptureDevicePreempted: i32 = 801;
+pub const MEVideoCaptureDeviceRemoved: i32 = 800;
+pub const MEWMDRMIndividualizationCompleted: i32 = 508;
+pub const MEWMDRMIndividualizationProgress: i32 = 513;
+pub const MEWMDRMLicenseAcquisitionCompleted: i32 = 506;
+pub const MEWMDRMLicenseBackupCompleted: i32 = 500;
+pub const MEWMDRMLicenseBackupProgress: i32 = 501;
+pub const MEWMDRMLicenseRestoreCompleted: i32 = 502;
+pub const MEWMDRMLicenseRestoreProgress: i32 = 503;
+pub const MEWMDRMLicenseStoreCleaned: i32 = 515;
+pub const MEWMDRMProximityCompleted: i32 = 514;
+pub const MEWMDRMRevocationDownloadCompleted: i32 = 516;
+pub const MEWMDRMV1Anchor: i32 = 516;
 pub type MF2DBuffer_LockFlags = i32;
 pub const MF2DBuffer_LockFlags_ForceDWORD: MF2DBuffer_LockFlags = 2147483647;
 pub const MF2DBuffer_LockFlags_LockTypeMask: MF2DBuffer_LockFlags = 3;
@@ -129,12 +130,13 @@ pub const MF2DBuffer_LockFlags_Read: MF2DBuffer_LockFlags = 1;
 pub const MF2DBuffer_LockFlags_ReadWrite: MF2DBuffer_LockFlags = 3;
 pub const MF2DBuffer_LockFlags_Write: MF2DBuffer_LockFlags = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MFARGB {
-    pub rgbBlue: u8,
-    pub rgbGreen: u8,
-    pub rgbRed: u8,
-    pub rgbAlpha: u8,
+    pub rgbBlue: super::BYTE,
+    pub rgbGreen: super::BYTE,
+    pub rgbRed: super::BYTE,
+    pub rgbAlpha: super::BYTE,
 }
 pub const MFASYNC_BLOCKING_CALLBACK: i32 = 4;
 pub const MFASYNC_CALLBACK_QUEUE_ALL: u32 = 4294967295;
@@ -151,12 +153,13 @@ pub const MFASYNC_LOCALIZE_REMOTE_CALLBACK: i32 = 16;
 pub const MFASYNC_REPLY_CALLBACK: i32 = 8;
 pub const MFASYNC_SIGNAL_CALLBACK: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MFAYUVSample {
-    pub bCrValue: u8,
-    pub bCbValue: u8,
-    pub bYValue: u8,
-    pub bSampleAlpha8: u8,
+    pub bCrValue: super::BYTE,
+    pub bCbValue: super::BYTE,
+    pub bYValue: super::BYTE,
+    pub bSampleAlpha8: super::BYTE,
 }
 pub const MFBYTESTREAM_DOES_NOT_USE_NETWORK: i32 = 2048;
 pub const MFBYTESTREAM_HAS_SLOW_SEEK: i32 = 256;
@@ -180,27 +183,31 @@ pub const MFNominalRange_Normal: MFNominalRange = 1;
 pub const MFNominalRange_Unknown: MFNominalRange = 0;
 pub const MFNominalRange_Wide: MFNominalRange = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MFOffset {
-    pub fract: u16,
+    pub fract: super::WORD,
     pub value: i16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MFPaletteEntry {
     pub ARGB: MFARGB,
     pub AYCbCr: MFAYUVSample,
 }
+#[cfg(feature = "shared")]
 impl Default for MFPaletteEntry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MFRatio {
-    pub Numerator: u32,
-    pub Denominator: u32,
+    pub Numerator: super::DWORD,
+    pub Denominator: super::DWORD,
 }
 pub type MFStandardVideoFormat = i32;
 pub const MFStdVideoFormat_ATSC_HD1080i: MFStandardVideoFormat = 8;
@@ -220,23 +227,23 @@ pub struct MFT_REGISTER_TYPE_INFO {
     pub guidSubtype: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct MFVIDEOFORMAT {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub videoInfo: MFVideoInfo,
     pub guidFormat: windows_sys::core::GUID,
     pub compressedInfo: MFVideoCompressedInfo,
     pub surfaceInfo: MFVideoSurfaceInfo,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for MFVIDEOFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
@@ -256,11 +263,12 @@ pub const MFVideoChromaSubsampling_Unknown: MFVideoChromaSubsampling = 0;
 pub const MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes: MFVideoChromaSubsampling = 1;
 pub const MFVideoChromaSubsampling_Vertically_Cosited: MFVideoChromaSubsampling = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MFVideoCompressedInfo {
-    pub AvgBitrate: i64,
-    pub AvgBitErrorRate: i64,
-    pub MaxKeyFrameSpacing: u32,
+    pub AvgBitrate: super::LONGLONG,
+    pub AvgBitErrorRate: super::LONGLONG,
+    pub MaxKeyFrameSpacing: super::DWORD,
 }
 pub const MFVideoFlag_AnalogProtected: MFVideoFlags = 32;
 pub const MFVideoFlag_BottomUpLinearRep: MFVideoFlags = 524288;
@@ -284,11 +292,11 @@ pub const MFVideoFlags_DXVASurface: MFVideoFlags = 1048576;
 pub const MFVideoFlags_ForceQWORD: MFVideoFlags = 2147483647;
 pub const MFVideoFlags_RenderTargetSurface: MFVideoFlags = 4194304;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MFVideoInfo {
-    pub dwWidth: u32,
-    pub dwHeight: u32,
+    pub dwWidth: super::DWORD,
+    pub dwHeight: super::DWORD,
     pub PixelAspectRatio: MFRatio,
     pub SourceChromaSubsampling: MFVideoChromaSubsampling,
     pub InterlaceMode: MFVideoInterlaceMode,
@@ -341,12 +349,14 @@ pub const MFVideoPrimaries_Unknown: MFVideoPrimaries = 0;
 pub const MFVideoPrimaries_XYZ: MFVideoPrimaries = 10;
 pub const MFVideoPrimaries_reserved: MFVideoPrimaries = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MFVideoSurfaceInfo {
-    pub Format: u32,
-    pub PaletteEntries: u32,
+    pub Format: super::DWORD,
+    pub PaletteEntries: super::DWORD,
     pub Palette: [MFPaletteEntry; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MFVideoSurfaceInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -410,6 +420,14 @@ pub const MF_ATTRIBUTE_STRING: MF_ATTRIBUTE_TYPE = 31;
 pub type MF_ATTRIBUTE_TYPE = i32;
 pub const MF_ATTRIBUTE_UINT32: MF_ATTRIBUTE_TYPE = 19;
 pub const MF_ATTRIBUTE_UINT64: MF_ATTRIBUTE_TYPE = 21;
+pub const MF_BYTESTREAM_CONTENT_TYPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc358289_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_DLNA_PROFILE_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc35828d_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_DURATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc35828a_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_EFFECTIVE_URL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9afa0209_89d1_42af_8456_1de6b562d691);
+pub const MF_BYTESTREAM_IFO_FILE_URI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc35828c_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_LAST_MODIFIED_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc35828b_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_ORIGIN_NAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc358288_3cb6_460c_a424_b6681260375a);
+pub const MF_BYTESTREAM_TRANSCODED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6c5c282_4dc9_4db9_ab48_cf3b6d8bc5e0);
 pub type MF_DXGI_DEVICE_MANAGER_MODE = i32;
 pub const MF_DXGI_DEVICE_MANAGER_MODE_D3D11: MF_DXGI_DEVICE_MANAGER_MODE = 1;
 pub const MF_DXGI_DEVICE_MANAGER_MODE_D3D12: MF_DXGI_DEVICE_MANAGER_MODE = 2;

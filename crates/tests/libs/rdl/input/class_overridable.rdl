@@ -1,11 +1,14 @@
 #[winrt]
 mod Test {
+    #[guid(0xfe352eb8_7c4c_5021_979b_1a8a3d238244)]
     interface IWidget {
         fn Name(&self) -> String;
     }
+    #[guid(0xccedf5e3_5a44_5228_95a4_2ffc2c3c8e77)]
     interface IWidgetOverrides {
         fn OnName(&self) -> String;
     }
+    #[guid(0x593a1732_c26c_5276_9646_f52212b88fe1)]
     interface IWidgetProtected {
         fn Reset(&self);
     }

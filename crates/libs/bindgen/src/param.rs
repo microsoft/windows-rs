@@ -5,6 +5,9 @@ pub struct Param {
     pub def: Option<MethodParam>,
     pub name: String,
     pub ty: Type,
+    pub native_reference: bool,
+    /// Unspecified native direction whose type passes no caller-writable storage.
+    pub implied_input: bool,
 }
 
 impl std::ops::Deref for Param {
@@ -54,19 +57,20 @@ impl Param {
         self.ty.ireference_inner_for_sugar(reader)
     }
 
-    /// Returns whether the Rust projection treats this parameter as input-only.
-    ///
-    /// An unspecified direction uses the existing input fallback. `InputOutput` takes the
-    /// output-capable branch so mutable pointers and slices stay mutable.
+    /// Returns whether metadata marks this parameter as input-only, or its unspecified direction
+    /// is implied input by its native type.
     pub fn is_input_only(&self) -> bool {
-        matches!(
-            self.def.map_or(
-                windows_metadata::reader::ParamDirection::Unspecified,
-                |def| def.direction()
-            ),
-            windows_metadata::reader::ParamDirection::Unspecified
-                | windows_metadata::reader::ParamDirection::Input
-        )
+        self.implied_input
+            || self.def.is_some_and(|def| {
+                def.direction() == windows_metadata::reader::ParamDirection::Input
+            })
+    }
+
+    pub fn has_direction(&self) -> bool {
+        self.implied_input
+            || self.def.is_some_and(|def| {
+                def.direction() != windows_metadata::reader::ParamDirection::Unspecified
+            })
     }
 
     /// Returns whether metadata marks this parameter as `Output` without `Input`.
@@ -90,6 +94,114 @@ impl Param {
         self.def?.buffer_relationship()
     }
 
+    pub fn has_buffer_attributes(&self) -> bool {
+        self.buffer_attributes().next().is_some()
+    }
+
+    fn buffer_attributes(
+        &self,
+    ) -> impl Iterator<Item = windows_metadata::reader::Attribute<'static>> + '_ {
+        self.attributes().filter(|attribute| {
+            matches!(
+                attribute.name(),
+                "BufferExtentAttribute" | "NativeArrayInfoAttribute" | "MemorySizeAttribute"
+            )
+        })
+    }
+
+    pub fn has_query_buffer_attributes(&self) -> bool {
+        use windows_metadata::{BufferAccess, BufferCount, BufferExtent, BufferPhase};
+
+        let returned_pointer = self.attributes().any(|attribute| {
+            attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "NativeReturnedPointerAttribute"
+        });
+        self.buffer_attributes().any(|attribute| {
+            if attribute.namespace() != "Windows.Win32.Metadata"
+                || attribute.name() != "BufferExtentAttribute"
+                || !returned_pointer
+            {
+                return true;
+            }
+            let Some(extent) = BufferExtent::from_values(&attribute.value()) else {
+                return true;
+            };
+            !(extent.access == BufferAccess::Read
+                && extent.phase == BufferPhase::Success
+                && extent.indirect
+                && extent.count == BufferCount::Unknown
+                && extent.nullable == self.result_may_be_null())
+        })
+    }
+
+    pub fn has_unresolved_contracts(&self) -> bool {
+        self.attributes().any(|attribute| {
+            attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "NativeSalAttribute"
+        })
+    }
+
+    fn returned_pointer_flag(&self, name: &str) -> bool {
+        self.attributes().any(|attribute| {
+            attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "NativeReturnedPointerAttribute"
+                && attribute
+                    .value()
+                    .iter()
+                    .any(|(key, value)| key == name && *value == Value::Bool(true))
+        })
+    }
+
+    pub fn result_may_be_null(&self) -> bool {
+        self.returned_pointer_flag("MayBeNull")
+    }
+
+    pub fn result_null_on_failure(&self) -> bool {
+        self.returned_pointer_flag("NullOnFailure")
+    }
+
+    pub fn write_result_type(&self, config: &Config) -> TokenStream {
+        let ty = self.projection_pointee(config.reader);
+        let name = ty.write_name(config);
+        if self.result_may_be_null() && ty.is_interface_with_reader(config.reader) {
+            quote! { Option<#name> }
+        } else {
+            name
+        }
+    }
+
+    pub fn write_interface_result(&self) -> TokenStream {
+        if self.result_may_be_null() {
+            quote! {
+                if result__.is_null() {
+                    None
+                } else {
+                    Some(windows_core::Interface::from_raw(result__))
+                }
+            }
+        } else {
+            quote! { windows_core::imp::Type::from_abi(result__) }
+        }
+    }
+
+    pub fn write_query_result_map(&self) -> TokenStream {
+        let value = self.write_interface_result();
+        if self.result_may_be_null() {
+            quote! { map(|| #value) }
+        } else {
+            quote! { and_then(|| #value) }
+        }
+    }
+
+    pub fn write_result_map(&self, reader: &Reader) -> TokenStream {
+        let ty = self.projection_pointee(reader).projection_type(reader);
+        if ty.is_interface_with_reader(reader) {
+            self.write_query_result_map()
+        } else {
+            ty.write_result_map(reader)
+        }
+    }
+
     pub fn is_explicit_retval_candidate(&self, reader: &Reader) -> bool {
         self.is_retval_candidate(reader, true)
     }
@@ -99,6 +211,9 @@ impl Param {
     }
 
     fn is_retval_candidate(&self, reader: &Reader, explicit: bool) -> bool {
+        if self.native_reference && !explicit {
+            return false;
+        }
         let ty = self.projection_type(reader);
 
         if !ty.is_pointer() {
@@ -120,13 +235,8 @@ impl Param {
             return false;
         }
 
-        for attribute in self.attributes() {
-            if matches!(
-                attribute.name(),
-                "NativeArrayInfoAttribute" | "MemorySizeAttribute"
-            ) {
-                return false;
-            }
+        if self.has_buffer_attributes() || self.has_unresolved_contracts() {
+            return false;
         }
 
         // Void-pointee and size limits are only heuristics for unmarked trailing pointers. An

@@ -36,44 +36,45 @@ pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCop
 pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = 2;
 pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioMetadataItemsInfo {
-    pub FrameCount: u16,
-    pub ItemCount: u16,
-    pub MaxItemCount: u16,
-    pub MaxValueBufferLength: u32,
+    pub FrameCount: super::UINT16,
+    pub ItemCount: super::UINT16,
+    pub MaxItemCount: super::UINT16,
+    pub MaxValueBufferLength: super::UINT32,
 }
 pub type SpatialAudioMetadataWriterOverflowMode = i32;
 pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = 0;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::AudioObjectType,
-    pub MinDynamicObjectCount: u32,
-    pub MaxDynamicObjectCount: u32,
+    pub MinDynamicObjectCount: super::UINT32,
+    pub MaxDynamicObjectCount: super::UINT32,
     pub Category: super::AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::HANDLE,
     pub MetadataFormatId: windows_sys::core::GUID,
-    pub MaxMetadataItemCount: u16,
+    pub MaxMetadataItemCount: super::UINT16,
     pub MetadataActivationParams: *const super::PROPVARIANT,
     pub NotifyObject: *mut core::ffi::c_void,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::AudioObjectType,
-    pub MinDynamicObjectCount: u32,
-    pub MaxDynamicObjectCount: u32,
+    pub MinDynamicObjectCount: super::UINT32,
+    pub MaxDynamicObjectCount: super::UINT32,
     pub Category: super::AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::HANDLE,
     pub MetadataFormatId: windows_sys::core::GUID,
-    pub MaxMetadataItemCount: u32,
+    pub MaxMetadataItemCount: super::UINT32,
     pub MetadataActivationParams: *const super::PROPVARIANT,
     pub NotifyObject: *mut core::ffi::c_void,
     pub Options: super::SPATIAL_AUDIO_STREAM_OPTIONS,

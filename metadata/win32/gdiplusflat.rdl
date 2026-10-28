@@ -1,0 +1,1247 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathArc(path: *mut GpPath, x: REAL, y: REAL, width: REAL, height: REAL, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathArcI(path: *mut GpPath, x: INT, y: INT, width: INT, height: INT, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathBezier(path: *mut GpPath, x1: REAL, y1: REAL, x2: REAL, y2: REAL, x3: REAL, y3: REAL, x4: REAL, y4: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathBezierI(path: *mut GpPath, x1: INT, y1: INT, x2: INT, y2: INT, x3: INT, y3: INT, x4: INT, y4: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathBeziers(path: *mut GpPath, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathBeziersI(path: *mut GpPath, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathClosedCurve(path: *mut GpPath, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathClosedCurve2(path: *mut GpPath, points: *const GpPointF, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathClosedCurve2I(path: *mut GpPath, points: *const GpPoint, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathClosedCurveI(path: *mut GpPath, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathCurve(path: *mut GpPath, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathCurve2(path: *mut GpPath, points: *const GpPointF, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathCurve2I(path: *mut GpPath, points: *const GpPoint, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathCurve3(path: *mut GpPath, points: *const GpPointF, count: INT, offset: INT, numberOfSegments: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathCurve3I(path: *mut GpPath, points: *const GpPoint, count: INT, offset: INT, numberOfSegments: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathCurveI(path: *mut GpPath, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathEllipse(path: *mut GpPath, x: REAL, y: REAL, width: REAL, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathEllipseI(path: *mut GpPath, x: INT, y: INT, width: INT, height: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathLine(path: *mut GpPath, x1: REAL, y1: REAL, x2: REAL, y2: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathLine2(path: *mut GpPath, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathLine2I(path: *mut GpPath, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathLineI(path: *mut GpPath, x1: INT, y1: INT, x2: INT, y2: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathPath(path: *mut GpPath, addingPath: *const GpPath, connect: BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathPie(path: *mut GpPath, x: REAL, y: REAL, width: REAL, height: REAL, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathPieI(path: *mut GpPath, x: INT, y: INT, width: INT, height: INT, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathPolygon(path: *mut GpPath, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathPolygonI(path: *mut GpPath, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathRectangle(path: *mut GpPath, x: REAL, y: REAL, width: REAL, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathRectangleI(path: *mut GpPath, x: INT, y: INT, width: INT, height: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathRectangles(path: *mut GpPath, rects: *const GpRectF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathRectanglesI(path: *mut GpPath, rects: *const GpRect, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathString(path: *mut GpPath, string: *const WCHAR, length: INT, family: *const GpFontFamily, style: INT, emSize: REAL, layoutRect: *const RectF, format: *const GpStringFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipAddPathStringI(path: *mut GpPath, string: *const WCHAR, length: INT, family: *const GpFontFamily, style: INT, emSize: REAL, layoutRect: *const Rect, format: *const GpStringFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBeginContainer(graphics: *mut GpGraphics, dstrect: *const GpRectF, srcrect: *const GpRectF, unit: GpUnit, state: *mut GraphicsContainer) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBeginContainer2(graphics: *mut GpGraphics, state: *mut GraphicsContainer) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBeginContainerI(graphics: *mut GpGraphics, dstrect: *const GpRect, srcrect: *const GpRect, unit: GpUnit, state: *mut GraphicsContainer) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapApplyEffect(bitmap: *mut GpBitmap, effect: *mut CGpEffect, roi: *mut RECT, useAuxData: BOOL, auxData: *mut *mut void, auxDataSize: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapConvertFormat(pInputBitmap: *mut GpBitmap, format: PixelFormat, dithertype: DitherType, palettetype: PaletteType, palette: *mut ColorPalette, alphaThresholdPercent: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapCreateApplyEffect(inputBitmaps: *mut *mut GpBitmap, numInputs: INT, effect: *mut CGpEffect, roi: *mut RECT, outputRect: *mut RECT, outputBitmap: *mut *mut GpBitmap, useAuxData: BOOL, auxData: *mut *mut void, auxDataSize: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapGetHistogram(bitmap: *mut GpBitmap, format: HistogramFormat, NumberOfEntries: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel0: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel1: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel2: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(UINT)*256", "sizeof(UINT)*256")] #[out] channel3: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapGetHistogramSize(format: HistogramFormat, NumberOfEntries: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapGetPixel(bitmap: *mut GpBitmap, x: INT, y: INT, color: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapLockBits(bitmap: *mut GpBitmap, rect: *const GpRect, flags: UINT, format: PixelFormat, lockedBitmapData: *mut BitmapData) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapSetPixel(bitmap: *mut GpBitmap, x: INT, y: INT, color: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapSetResolution(bitmap: *mut GpBitmap, xdpi: REAL, ydpi: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipBitmapUnlockBits(bitmap: *mut GpBitmap, lockedBitmapData: *mut BitmapData) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipClearPathMarkers(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneBitmapArea(x: REAL, y: REAL, width: REAL, height: REAL, format: PixelFormat, srcBitmap: *mut GpBitmap, dstBitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneBitmapAreaI(x: INT, y: INT, width: INT, height: INT, format: PixelFormat, srcBitmap: *mut GpBitmap, dstBitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneBrush(brush: *mut GpBrush, cloneBrush: *mut *mut GpBrush) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneCustomLineCap(customCap: *mut GpCustomLineCap, clonedCap: *mut *mut GpCustomLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneFont(font: *mut GpFont, cloneFont: *mut *mut GpFont) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneFontFamily(fontFamily: *mut GpFontFamily, clonedFontFamily: *mut *mut GpFontFamily) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneImage(image: *mut GpImage, cloneImage: *mut *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneImageAttributes(imageattr: *const GpImageAttributes, cloneImageattr: *mut *mut GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneMatrix(matrix: *mut GpMatrix, cloneMatrix: *mut *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipClonePath(path: *mut GpPath, clonePath: *mut *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipClonePen(pen: *mut GpPen, clonepen: *mut *mut GpPen) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneRegion(region: *mut GpRegion, cloneRegion: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCloneStringFormat(format: *const GpStringFormat, newFormat: *mut *mut GpStringFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipClosePathFigure(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipClosePathFigures(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCombineRegionPath(region: *mut GpRegion, path: *mut GpPath, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCombineRegionRect(region: *mut GpRegion, rect: *const GpRectF, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCombineRegionRectI(region: *mut GpRegion, rect: *const GpRect, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCombineRegionRegion(region: *mut GpRegion, region2: *mut GpRegion, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipComment(graphics: *mut GpGraphics, sizeData: UINT, data: *const BYTE) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipConvertToEmfPlus(refGraphics: *const GpGraphics, metafile: *mut GpMetafile, conversionFailureFlag: *mut INT, emfType: EmfType, description: *const WCHAR, out_metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipConvertToEmfPlusToFile(refGraphics: *const GpGraphics, metafile: *mut GpMetafile, conversionFailureFlag: *mut INT, filename: *const WCHAR, emfType: EmfType, description: *const WCHAR, out_metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipConvertToEmfPlusToStream(refGraphics: *const GpGraphics, metafile: *mut GpMetafile, conversionFailureFlag: *mut INT, stream: IStream, emfType: EmfType, description: *const WCHAR, out_metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateAdjustableArrowCap(height: REAL, width: REAL, isFilled: BOOL, cap: *mut *mut GpAdjustableArrowCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromDirectDrawSurface(surface: IDirectDrawSurface7, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromFile(filename: *const WCHAR, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromFileICM(filename: *const WCHAR, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromGdiDib(gdiBitmapInfo: *const BITMAPINFO, gdiBitmapData: *mut void, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromGraphics(width: INT, height: INT, target: *mut GpGraphics, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromHBITMAP(hbm: HBITMAP, hpal: HPALETTE, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromHICON(hicon: HICON, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromResource(hInstance: HINSTANCE, lpBitmapName: *const WCHAR, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromScan0(width: INT, height: INT, stride: INT, format: PixelFormat, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(\"height * stride\")", "_Inexpressible_(\"height * stride\")")] #[in] #[opt] scan0: *mut BYTE, #[out] #[out_ptr] bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromStream(stream: IStream, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateBitmapFromStreamICM(stream: IStream, bitmap: *mut *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateCachedBitmap(bitmap: *mut GpBitmap, graphics: *mut GpGraphics, cachedBitmap: *mut *mut GpCachedBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateCustomLineCap(fillPath: *mut GpPath, strokePath: *mut GpPath, baseCap: GpLineCap, baseInset: REAL, customCap: *mut *mut GpCustomLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFont(fontFamily: *const GpFontFamily, emSize: REAL, style: INT, unit: Unit, font: *mut *mut GpFont) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFontFamilyFromName(name: *const WCHAR, fontCollection: *mut GpFontCollection, fontFamily: *mut *mut GpFontFamily) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFontFromDC(hdc: HDC, font: *mut *mut GpFont) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFontFromLogfontA(hdc: HDC, logfont: *const LOGFONTA, font: *mut *mut GpFont) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFontFromLogfontW(hdc: HDC, logfont: *const LOGFONTW, font: *mut *mut GpFont) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFromHDC(hdc: HDC, graphics: *mut *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFromHDC2(hdc: HDC, hDevice: HANDLE, graphics: *mut *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFromHWND(hwnd: HWND, graphics: *mut *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateFromHWNDICM(hwnd: HWND, graphics: *mut *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateHBITMAPFromBitmap(bitmap: *mut GpBitmap, hbmReturn: *mut HBITMAP, background: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateHICONFromBitmap(bitmap: *mut GpBitmap, hbmReturn: *mut HICON) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateHalftonePalette() -> HPALETTE;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateHatchBrush(hatchstyle: GpHatchStyle, forecol: ARGB, backcol: ARGB, brush: *mut *mut GpHatch) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateImageAttributes(imageattr: *mut *mut GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateLineBrush(point1: *const GpPointF, point2: *const GpPointF, color1: ARGB, color2: ARGB, wrapMode: GpWrapMode, lineGradient: *mut *mut GpLineGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateLineBrushFromRect(rect: *const GpRectF, color1: ARGB, color2: ARGB, mode: LinearGradientMode, wrapMode: GpWrapMode, lineGradient: *mut *mut GpLineGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateLineBrushFromRectI(rect: *const GpRect, color1: ARGB, color2: ARGB, mode: LinearGradientMode, wrapMode: GpWrapMode, lineGradient: *mut *mut GpLineGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateLineBrushFromRectWithAngle(rect: *const GpRectF, color1: ARGB, color2: ARGB, angle: REAL, isAngleScalable: BOOL, wrapMode: GpWrapMode, lineGradient: *mut *mut GpLineGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateLineBrushFromRectWithAngleI(rect: *const GpRect, color1: ARGB, color2: ARGB, angle: REAL, isAngleScalable: BOOL, wrapMode: GpWrapMode, lineGradient: *mut *mut GpLineGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateLineBrushI(point1: *const GpPoint, point2: *const GpPoint, color1: ARGB, color2: ARGB, wrapMode: GpWrapMode, lineGradient: *mut *mut GpLineGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMatrix(matrix: *mut *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMatrix2(m11: REAL, m12: REAL, m21: REAL, m22: REAL, dx: REAL, dy: REAL, matrix: *mut *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMatrix3(rect: *const GpRectF, dstplg: *const GpPointF, matrix: *mut *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMatrix3I(rect: *const GpRect, dstplg: *const GpPoint, matrix: *mut *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMetafileFromEmf(hEmf: HENHMETAFILE, deleteEmf: BOOL, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMetafileFromFile(file: *const WCHAR, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMetafileFromStream(stream: IStream, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMetafileFromWmf(hWmf: HMETAFILE, deleteWmf: BOOL, wmfPlaceableFileHeader: *const WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateMetafileFromWmfFile(file: *const WCHAR, wmfPlaceableFileHeader: *const WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePath(brushMode: GpFillMode, path: *mut *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePath2(param0: *const GpPointF, param1: *const BYTE, param2: INT, param3: GpFillMode, path: *mut *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePath2I(param0: *const GpPoint, param1: *const BYTE, param2: INT, param3: GpFillMode, path: *mut *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePathGradient(points: *const GpPointF, count: INT, wrapMode: GpWrapMode, polyGradient: *mut *mut GpPathGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePathGradientFromPath(path: *const GpPath, polyGradient: *mut *mut GpPathGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePathGradientI(points: *const GpPoint, count: INT, wrapMode: GpWrapMode, polyGradient: *mut *mut GpPathGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePathIter(iterator: *mut *mut GpPathIterator, path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePen1(color: ARGB, width: REAL, unit: GpUnit, pen: *mut *mut GpPen) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreatePen2(brush: *mut GpBrush, width: REAL, unit: GpUnit, pen: *mut *mut GpPen) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateRegion(region: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateRegionHrgn(hRgn: HRGN, region: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateRegionPath(path: *mut GpPath, region: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateRegionRect(rect: *const GpRectF, region: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateRegionRectI(rect: *const GpRect, region: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateRegionRgnData(regionData: *const BYTE, size: INT, region: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateSolidFill(color: ARGB, brush: *mut *mut GpSolidFill) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateStreamOnFile(filename: *const WCHAR, access: UINT, stream: *mut IStream) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateStringFormat(formatAttributes: INT, language: LANGID, format: *mut *mut GpStringFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateTexture(image: *mut GpImage, wrapmode: GpWrapMode, texture: *mut *mut GpTexture) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateTexture2(image: *mut GpImage, wrapmode: GpWrapMode, x: REAL, y: REAL, width: REAL, height: REAL, texture: *mut *mut GpTexture) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateTexture2I(image: *mut GpImage, wrapmode: GpWrapMode, x: INT, y: INT, width: INT, height: INT, texture: *mut *mut GpTexture) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateTextureIA(image: *mut GpImage, imageAttributes: *const GpImageAttributes, x: REAL, y: REAL, width: REAL, height: REAL, texture: *mut *mut GpTexture) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateTextureIAI(image: *mut GpImage, imageAttributes: *const GpImageAttributes, x: INT, y: INT, width: INT, height: INT, texture: *mut *mut GpTexture) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteBrush(brush: *mut GpBrush) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteCachedBitmap(cachedBitmap: *mut GpCachedBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteCustomLineCap(customCap: *mut GpCustomLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteFont(font: *mut GpFont) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteFontFamily(fontFamily: *mut GpFontFamily) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteGraphics(graphics: *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteMatrix(matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeletePath(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeletePathIter(iterator: *mut GpPathIterator) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeletePen(pen: *mut GpPen) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeletePrivateFontCollection(fontCollection: *mut *mut GpFontCollection) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteRegion(region: *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteStringFormat(format: *mut GpStringFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDisposeImage(image: *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDisposeImageAttributes(imageattr: *mut GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawArc(graphics: *mut GpGraphics, pen: *mut GpPen, x: REAL, y: REAL, width: REAL, height: REAL, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawArcI(graphics: *mut GpGraphics, pen: *mut GpPen, x: INT, y: INT, width: INT, height: INT, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawBezier(graphics: *mut GpGraphics, pen: *mut GpPen, x1: REAL, y1: REAL, x2: REAL, y2: REAL, x3: REAL, y3: REAL, x4: REAL, y4: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawBezierI(graphics: *mut GpGraphics, pen: *mut GpPen, x1: INT, y1: INT, x2: INT, y2: INT, x3: INT, y3: INT, x4: INT, y4: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawBeziers(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawBeziersI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawCachedBitmap(graphics: *mut GpGraphics, cachedBitmap: *mut GpCachedBitmap, x: INT, y: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawClosedCurve(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawClosedCurve2(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawClosedCurve2I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawClosedCurveI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawCurve(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawCurve2(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawCurve2I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawCurve3(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT, offset: INT, numberOfSegments: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawCurve3I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT, offset: INT, numberOfSegments: INT, tension: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawCurveI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawDriverString(graphics: *mut GpGraphics, text: *const UINT16, length: INT, font: *const GpFont, brush: *const GpBrush, positions: *const PointF, flags: INT, matrix: *const GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawEllipse(graphics: *mut GpGraphics, pen: *mut GpPen, x: REAL, y: REAL, width: REAL, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawEllipseI(graphics: *mut GpGraphics, pen: *mut GpPen, x: INT, y: INT, width: INT, height: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImage(graphics: *mut GpGraphics, image: *mut GpImage, x: REAL, y: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImageFX(graphics: *mut GpGraphics, image: *mut GpImage, source: *mut GpRectF, xForm: *mut GpMatrix, effect: *mut CGpEffect, imageAttributes: *mut GpImageAttributes, srcUnit: GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImageI(graphics: *mut GpGraphics, image: *mut GpImage, x: INT, y: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImagePointRect(graphics: *mut GpGraphics, image: *mut GpImage, x: REAL, y: REAL, srcx: REAL, srcy: REAL, srcwidth: REAL, srcheight: REAL, srcUnit: GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImagePointRectI(graphics: *mut GpGraphics, image: *mut GpImage, x: INT, y: INT, srcx: INT, srcy: INT, srcwidth: INT, srcheight: INT, srcUnit: GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImagePoints(graphics: *mut GpGraphics, image: *mut GpImage, dstpoints: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImagePointsI(graphics: *mut GpGraphics, image: *mut GpImage, dstpoints: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImagePointsRect(graphics: *mut GpGraphics, image: *mut GpImage, points: *const GpPointF, count: INT, srcx: REAL, srcy: REAL, srcwidth: REAL, srcheight: REAL, srcUnit: GpUnit, imageAttributes: *const GpImageAttributes, callback: DrawImageAbort, callbackData: *mut void) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImagePointsRectI(graphics: *mut GpGraphics, image: *mut GpImage, points: *const GpPoint, count: INT, srcx: INT, srcy: INT, srcwidth: INT, srcheight: INT, srcUnit: GpUnit, imageAttributes: *const GpImageAttributes, callback: DrawImageAbort, callbackData: *mut void) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImageRect(graphics: *mut GpGraphics, image: *mut GpImage, x: REAL, y: REAL, width: REAL, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImageRectI(graphics: *mut GpGraphics, image: *mut GpImage, x: INT, y: INT, width: INT, height: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImageRectRect(graphics: *mut GpGraphics, image: *mut GpImage, dstx: REAL, dsty: REAL, dstwidth: REAL, dstheight: REAL, srcx: REAL, srcy: REAL, srcwidth: REAL, srcheight: REAL, srcUnit: GpUnit, imageAttributes: *const GpImageAttributes, callback: DrawImageAbort, callbackData: *mut void) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawImageRectRectI(graphics: *mut GpGraphics, image: *mut GpImage, dstx: INT, dsty: INT, dstwidth: INT, dstheight: INT, srcx: INT, srcy: INT, srcwidth: INT, srcheight: INT, srcUnit: GpUnit, imageAttributes: *const GpImageAttributes, callback: DrawImageAbort, callbackData: *mut void) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawLine(graphics: *mut GpGraphics, pen: *mut GpPen, x1: REAL, y1: REAL, x2: REAL, y2: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawLineI(graphics: *mut GpGraphics, pen: *mut GpPen, x1: INT, y1: INT, x2: INT, y2: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawLines(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawLinesI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawPath(graphics: *mut GpGraphics, pen: *mut GpPen, path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawPie(graphics: *mut GpGraphics, pen: *mut GpPen, x: REAL, y: REAL, width: REAL, height: REAL, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawPieI(graphics: *mut GpGraphics, pen: *mut GpPen, x: INT, y: INT, width: INT, height: INT, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawPolygon(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawPolygonI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawRectangle(graphics: *mut GpGraphics, pen: *mut GpPen, x: REAL, y: REAL, width: REAL, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawRectangleI(graphics: *mut GpGraphics, pen: *mut GpPen, x: INT, y: INT, width: INT, height: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawRectangles(graphics: *mut GpGraphics, pen: *mut GpPen, rects: *const GpRectF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawRectanglesI(graphics: *mut GpGraphics, pen: *mut GpPen, rects: *const GpRect, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipDrawString(graphics: *mut GpGraphics, string: *const WCHAR, length: INT, font: *const GpFont, layoutRect: *const RectF, stringFormat: *const GpStringFormat, brush: *const GpBrush) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEmfToWmfBits(hemf: HENHMETAFILE, cbData16: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cbData16,return", "cbData16,return")] #[opt] #[out] #[writable(entry, cbData16)] pData16: LPBYTE, iMapMode: INT, eFlags: INT) -> UINT;
+        #[library("gdiplus.dll")]
+        extern fn GdipEndContainer(graphics: *mut GpGraphics, state: GraphicsContainer) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileDestPoint(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoint: &PointF, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileDestPointI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoint: &Point, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileDestPoints(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoints: *const PointF, count: INT, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileDestPointsI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoints: *const Point, count: INT, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileDestRect(graphics: *mut GpGraphics, metafile: *const GpMetafile, destRect: &RectF, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileDestRectI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destRect: &Rect, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileSrcRectDestPoint(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoint: &PointF, srcRect: &RectF, srcUnit: Unit, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileSrcRectDestPointI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoint: &Point, srcRect: &Rect, srcUnit: Unit, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileSrcRectDestPoints(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoints: *const PointF, count: INT, srcRect: &RectF, srcUnit: Unit, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileSrcRectDestPointsI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destPoints: *const Point, count: INT, srcRect: &Rect, srcUnit: Unit, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileSrcRectDestRect(graphics: *mut GpGraphics, metafile: *const GpMetafile, destRect: &RectF, srcRect: &RectF, srcUnit: Unit, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipEnumerateMetafileSrcRectDestRectI(graphics: *mut GpGraphics, metafile: *const GpMetafile, destRect: &Rect, srcRect: &Rect, srcUnit: Unit, callback: EnumerateMetafileProc, callbackData: *mut void, imageAttributes: *const GpImageAttributes) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillClosedCurve(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillClosedCurve2(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPointF, count: INT, tension: REAL, fillMode: GpFillMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillClosedCurve2I(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPoint, count: INT, tension: REAL, fillMode: GpFillMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillClosedCurveI(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillEllipse(graphics: *mut GpGraphics, brush: *mut GpBrush, x: REAL, y: REAL, width: REAL, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillEllipseI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: INT, y: INT, width: INT, height: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillPath(graphics: *mut GpGraphics, brush: *mut GpBrush, path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillPie(graphics: *mut GpGraphics, brush: *mut GpBrush, x: REAL, y: REAL, width: REAL, height: REAL, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillPieI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: INT, y: INT, width: INT, height: INT, startAngle: REAL, sweepAngle: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillPolygon(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPointF, count: INT, fillMode: GpFillMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillPolygon2(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillPolygon2I(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillPolygonI(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *const GpPoint, count: INT, fillMode: GpFillMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillRectangle(graphics: *mut GpGraphics, brush: *mut GpBrush, x: REAL, y: REAL, width: REAL, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillRectangleI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: INT, y: INT, width: INT, height: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillRectangles(graphics: *mut GpGraphics, brush: *mut GpBrush, rects: *const GpRectF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillRectanglesI(graphics: *mut GpGraphics, brush: *mut GpBrush, rects: *const GpRect, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFillRegion(graphics: *mut GpGraphics, brush: *mut GpBrush, region: *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFindFirstImageItem(image: *mut GpImage, item: *mut ImageItemData) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFindNextImageItem(image: *mut GpImage, item: *mut ImageItemData) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFlattenPath(path: *mut GpPath, matrix: *mut GpMatrix, flatness: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipFlush(graphics: *mut GpGraphics, intention: GpFlushIntention) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetAdjustableArrowCapFillState(cap: *mut GpAdjustableArrowCap, fillState: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetAdjustableArrowCapHeight(cap: *mut GpAdjustableArrowCap, height: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetAdjustableArrowCapMiddleInset(cap: *mut GpAdjustableArrowCap, middleInset: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetAdjustableArrowCapWidth(cap: *mut GpAdjustableArrowCap, width: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetAllPropertyItems(image: *mut GpImage, totalBufferSize: UINT, numProperties: UINT, allItems: *mut PropertyItem) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetBrushType(brush: *mut GpBrush, r#type: *mut GpBrushType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCellAscent(family: *const GpFontFamily, style: INT, CellAscent: *mut UINT16) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCellDescent(family: *const GpFontFamily, style: INT, CellDescent: *mut UINT16) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetClip(graphics: *mut GpGraphics, region: *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetClipBounds(graphics: *mut GpGraphics, rect: *mut GpRectF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetClipBoundsI(graphics: *mut GpGraphics, rect: *mut GpRect) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCompositingMode(graphics: *mut GpGraphics, compositingMode: *mut CompositingMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCompositingQuality(graphics: *mut GpGraphics, compositingQuality: *mut CompositingQuality) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCustomLineCapBaseCap(customCap: *mut GpCustomLineCap, baseCap: *mut GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCustomLineCapBaseInset(customCap: *mut GpCustomLineCap, inset: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCustomLineCapStrokeCaps(customCap: *mut GpCustomLineCap, startCap: *mut GpLineCap, endCap: *mut GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCustomLineCapStrokeJoin(customCap: *mut GpCustomLineCap, lineJoin: *mut GpLineJoin) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCustomLineCapType(customCap: *mut GpCustomLineCap, capType: *mut CustomLineCapType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetCustomLineCapWidthScale(customCap: *mut GpCustomLineCap, widthScale: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetDC(graphics: *mut GpGraphics, hdc: *mut HDC) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetDpiX(graphics: *mut GpGraphics, dpi: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetDpiY(graphics: *mut GpGraphics, dpi: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetEmHeight(family: *const GpFontFamily, style: INT, EmHeight: *mut UINT16) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetEncoderParameterList(image: *mut GpImage, clsidEncoder: *const CLSID, size: UINT, buffer: *mut EncoderParameters) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetEncoderParameterListSize(image: *mut GpImage, clsidEncoder: *const CLSID, size: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFamily(font: *mut GpFont, family: *mut *mut GpFontFamily) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFamilyName(family: *const GpFontFamily, #[out] #[writable(entry, 32)] name: LPWSTR, language: LANGID) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFontCollectionFamilyCount(fontCollection: *mut GpFontCollection, numFound: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFontCollectionFamilyList(#[in] fontCollection: *mut GpFontCollection, #[in] numSought: INT, #[out] #[readable(success, *numFound)] #[writable(entry, numSought)] gpfamilies: *mut *mut GpFontFamily, #[out] numFound: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFontHeight(font: *const GpFont, graphics: *const GpGraphics, height: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFontHeightGivenDPI(font: *const GpFont, dpi: REAL, height: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFontSize(font: *mut GpFont, size: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFontStyle(font: *mut GpFont, style: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetFontUnit(font: *mut GpFont, unit: *mut Unit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetGenericFontFamilyMonospace(nativeFamily: *mut *mut GpFontFamily) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetGenericFontFamilySansSerif(nativeFamily: *mut *mut GpFontFamily) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetGenericFontFamilySerif(nativeFamily: *mut *mut GpFontFamily) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetHatchBackgroundColor(brush: *mut GpHatch, backcol: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetHatchForegroundColor(brush: *mut GpHatch, forecol: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetHatchStyle(brush: *mut GpHatch, hatchstyle: *mut GpHatchStyle) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetHemfFromMetafile(metafile: *mut GpMetafile, hEmf: *mut HENHMETAFILE) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageAttributesAdjustedPalette(imageAttr: *mut GpImageAttributes, colorPalette: *mut ColorPalette, colorAdjustType: ColorAdjustType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageBounds(image: *mut GpImage, srcRect: *mut GpRectF, srcUnit: *mut GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageDecoders(#[in] numDecoders: UINT, #[in] size: UINT, #[out] #[writable(entry, bytes(size))] decoders: *mut ImageCodecInfo) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageDecodersSize(#[out] numDecoders: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", ">=,(*numDecoders) * sizeof(ImageCodecInfo)", ">=,(*numDecoders) * sizeof(ImageCodecInfo)")] #[out] size: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageDimension(image: *mut GpImage, width: *mut REAL, height: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageEncoders(#[in] numEncoders: UINT, #[in] size: UINT, #[out] #[writable(entry, bytes(size))] encoders: *mut ImageCodecInfo) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageEncodersSize(#[out] numEncoders: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", ">=,(*numEncoders) * sizeof(ImageCodecInfo)", ">=,(*numEncoders) * sizeof(ImageCodecInfo)")] #[out] size: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageFlags(image: *mut GpImage, flags: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageGraphicsContext(image: *mut GpImage, graphics: *mut *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageHeight(image: *mut GpImage, height: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageHorizontalResolution(image: *mut GpImage, resolution: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageItemData(image: *mut GpImage, item: *mut ImageItemData) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImagePalette(image: *mut GpImage, palette: *mut ColorPalette, size: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImagePaletteSize(image: *mut GpImage, size: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImagePixelFormat(image: *mut GpImage, format: *mut PixelFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageRawFormat(image: *mut GpImage, format: *mut GUID) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageThumbnail(image: *mut GpImage, thumbWidth: UINT, thumbHeight: UINT, thumbImage: *mut *mut GpImage, callback: GetThumbnailImageAbort, callbackData: *mut void) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageType(image: *mut GpImage, r#type: *mut ImageType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageVerticalResolution(image: *mut GpImage, resolution: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetImageWidth(image: *mut GpImage, width: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetInterpolationMode(graphics: *mut GpGraphics, interpolationMode: *mut InterpolationMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineBlend(brush: *mut GpLineGradient, blend: *mut REAL, positions: *mut REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineBlendCount(brush: *mut GpLineGradient, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineColors(brush: *mut GpLineGradient, colors: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineGammaCorrection(brush: *mut GpLineGradient, useGammaCorrection: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLinePresetBlend(brush: *mut GpLineGradient, blend: *mut ARGB, positions: *mut REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLinePresetBlendCount(brush: *mut GpLineGradient, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineRect(brush: *mut GpLineGradient, rect: *mut GpRectF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineRectI(brush: *mut GpLineGradient, rect: *mut GpRect) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineSpacing(family: *const GpFontFamily, style: INT, LineSpacing: *mut UINT16) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineTransform(brush: *mut GpLineGradient, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLineWrapMode(brush: *mut GpLineGradient, wrapmode: *mut GpWrapMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLogFontA(font: *mut GpFont, graphics: *mut GpGraphics, logfontA: *mut LOGFONTA) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetLogFontW(font: *mut GpFont, graphics: *mut GpGraphics, logfontW: *mut LOGFONTW) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetMatrixElements(matrix: *const GpMatrix, matrixOut: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetMetafileDownLevelRasterizationLimit(metafile: *const GpMetafile, metafileRasterizationLimitDpi: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetMetafileHeaderFromEmf(hEmf: HENHMETAFILE, header: *mut MetafileHeader) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetMetafileHeaderFromFile(filename: *const WCHAR, header: *mut MetafileHeader) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetMetafileHeaderFromMetafile(metafile: *mut GpMetafile, header: *mut MetafileHeader) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetMetafileHeaderFromStream(stream: IStream, header: *mut MetafileHeader) -> GpStatus;
+        #[arch(X64 | Arm64)]
+        #[library("gdiplus.dll")]
+        extern "C" fn GdipGetMetafileHeaderFromWmf(hWmf: HMETAFILE, wmfPlaceableFileHeader: *const WmfPlaceableFileHeader, header: *mut MetafileHeader) -> GpStatus;
+        #[arch(X86)]
+        #[library("gdiplus.dll")]
+        extern fn GdipGetMetafileHeaderFromWmf(hWmf: HMETAFILE, wmfPlaceableFileHeader: *const WmfPlaceableFileHeader, header: *mut MetafileHeader) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetNearestColor(graphics: *mut GpGraphics, argb: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPageScale(graphics: *mut GpGraphics, scale: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPageUnit(graphics: *mut GpGraphics, unit: *mut GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathData(path: *mut GpPath, pathData: *mut GpPathData) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathFillMode(path: *mut GpPath, fillmode: *mut GpFillMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientBlend(brush: *mut GpPathGradient, blend: *mut REAL, positions: *mut REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientBlendCount(brush: *mut GpPathGradient, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientCenterColor(brush: *mut GpPathGradient, colors: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientCenterPoint(brush: *mut GpPathGradient, points: *mut GpPointF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientCenterPointI(brush: *mut GpPathGradient, points: *mut GpPoint) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientFocusScales(brush: *mut GpPathGradient, xScale: *mut REAL, yScale: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientGammaCorrection(brush: *mut GpPathGradient, useGammaCorrection: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientPath(brush: *mut GpPathGradient, path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientPointCount(brush: *mut GpPathGradient, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientPresetBlend(brush: *mut GpPathGradient, blend: *mut ARGB, positions: *mut REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientPresetBlendCount(brush: *mut GpPathGradient, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientRect(brush: *mut GpPathGradient, rect: *mut GpRectF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientRectI(brush: *mut GpPathGradient, rect: *mut GpRect) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientSurroundColorCount(brush: *mut GpPathGradient, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientSurroundColorsWithCount(#[in] brush: *mut GpPathGradient, #[out] #[readable(success, *count)] #[writable(entry, *count)] color: *mut ARGB, #[in] #[out] count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathGradientWrapMode(brush: *mut GpPathGradient, wrapmode: *mut GpWrapMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathLastPoint(path: *mut GpPath, lastPoint: *mut GpPointF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathPoints(param0: *mut GpPath, points: *mut GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathPointsI(param0: *mut GpPath, points: *mut GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathTypes(#[in] path: *mut GpPath, #[out] #[writable(entry, bytes(count))] types: *mut BYTE, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathWorldBounds(path: *mut GpPath, bounds: *mut GpRectF, matrix: *const GpMatrix, pen: *const GpPen) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPathWorldBoundsI(path: *mut GpPath, bounds: *mut GpRect, matrix: *const GpMatrix, pen: *const GpPen) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenBrushFill(pen: *mut GpPen, brush: *mut *mut GpBrush) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenColor(pen: *mut GpPen, argb: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenCompoundArray(pen: *mut GpPen, dash: *mut REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenCompoundCount(pen: *mut GpPen, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenCustomEndCap(pen: *mut GpPen, customCap: *mut *mut GpCustomLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenCustomStartCap(pen: *mut GpPen, customCap: *mut *mut GpCustomLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenDashArray(pen: *mut GpPen, dash: *mut REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenDashCap197819(pen: *mut GpPen, dashCap: *mut GpDashCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenDashCount(pen: *mut GpPen, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenDashOffset(pen: *mut GpPen, offset: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenDashStyle(pen: *mut GpPen, dashstyle: *mut GpDashStyle) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenEndCap(pen: *mut GpPen, endCap: *mut GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenFillType(pen: *mut GpPen, r#type: *mut GpPenType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenLineJoin(pen: *mut GpPen, lineJoin: *mut GpLineJoin) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenMiterLimit(pen: *mut GpPen, miterLimit: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenMode(pen: *mut GpPen, penMode: *mut GpPenAlignment) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenStartCap(pen: *mut GpPen, startCap: *mut GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenTransform(pen: *mut GpPen, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenUnit(pen: *mut GpPen, unit: *mut GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPenWidth(pen: *mut GpPen, width: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPixelOffsetMode(graphics: *mut GpGraphics, pixelOffsetMode: *mut PixelOffsetMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPointCount(path: *mut GpPath, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPropertyCount(image: *mut GpImage, numOfProperty: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPropertyIdList(image: *mut GpImage, numOfProperty: UINT, list: *mut PROPID) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPropertyItem(image: *mut GpImage, propId: PROPID, propSize: UINT, buffer: *mut PropertyItem) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPropertyItemSize(image: *mut GpImage, propId: PROPID, size: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetPropertySize(image: *mut GpImage, totalBufferSize: *mut UINT, numProperties: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionBounds(region: *mut GpRegion, graphics: *mut GpGraphics, rect: *mut GpRectF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionBoundsI(region: *mut GpRegion, graphics: *mut GpGraphics, rect: *mut GpRect) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionData(region: *mut GpRegion, #[out] #[readable(success, if_present(*sizeFilled))] #[writable(entry, bufferSize)] buffer: *mut BYTE, bufferSize: UINT, #[opt] #[out] sizeFilled: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionDataSize(region: *mut GpRegion, bufferSize: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionHRgn(region: *mut GpRegion, graphics: *mut GpGraphics, hRgn: *mut HRGN) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionScans(region: *mut GpRegion, rects: *mut GpRectF, count: *mut INT, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionScansCount(region: *mut GpRegion, count: *mut UINT, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRegionScansI(region: *mut GpRegion, rects: *mut GpRect, count: *mut INT, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetRenderingOrigin(graphics: *mut GpGraphics, x: *mut INT, y: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetSmoothingMode(graphics: *mut GpGraphics, smoothingMode: *mut SmoothingMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetSolidFillColor(brush: *mut GpSolidFill, color: *mut ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatAlign(format: *const GpStringFormat, align: *mut StringAlignment) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatDigitSubstitution(format: *const GpStringFormat, language: *mut LANGID, substitute: *mut StringDigitSubstitute) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatFlags(format: *const GpStringFormat, flags: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatHotkeyPrefix(format: *const GpStringFormat, hotkeyPrefix: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatLineAlign(format: *const GpStringFormat, align: *mut StringAlignment) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatMeasurableCharacterRangeCount(format: *const GpStringFormat, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatTabStopCount(format: *const GpStringFormat, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatTabStops(format: *const GpStringFormat, count: INT, firstTabOffset: *mut REAL, tabStops: *mut REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetStringFormatTrimming(format: *const GpStringFormat, trimming: *mut StringTrimming) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetTextContrast(graphics: *mut GpGraphics, contrast: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetTextRenderingHint(graphics: *mut GpGraphics, mode: *mut TextRenderingHint) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetTextureImage(brush: *mut GpTexture, image: *mut *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetTextureTransform(brush: *mut GpTexture, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetTextureWrapMode(brush: *mut GpTexture, wrapmode: *mut GpWrapMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetVisibleClipBounds(graphics: *mut GpGraphics, rect: *mut GpRectF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetVisibleClipBoundsI(graphics: *mut GpGraphics, rect: *mut GpRect) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetWorldTransform(graphics: *mut GpGraphics, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGraphicsClear(graphics: *mut GpGraphics, color: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipGraphicsSetAbort(pGraphics: *mut GpGraphics, pIAbort: GdiplusAbort) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipImageForceValidation(image: *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipImageGetFrameCount(image: *mut GpImage, dimensionID: *const GUID, count: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipImageGetFrameDimensionsCount(image: *mut GpImage, count: *mut UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipImageGetFrameDimensionsList(image: *mut GpImage, dimensionIDs: *mut GUID, count: UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipImageRotateFlip(image: *mut GpImage, rfType: RotateFlipType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipImageSelectActiveFrame(image: *mut GpImage, dimensionID: *const GUID, frameIndex: UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipImageSetAbort(pImage: *mut GpImage, pIAbort: GdiplusAbort) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipInitializePalette(palette: *mut ColorPalette, palettetype: PaletteType, optimalColors: INT, useTransparentColor: BOOL, bitmap: *mut GpBitmap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipInvertMatrix(matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsClipEmpty(graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsEmptyRegion(region: *mut GpRegion, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsEqualRegion(region: *mut GpRegion, region2: *mut GpRegion, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsInfiniteRegion(region: *mut GpRegion, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsMatrixEqual(matrix: *const GpMatrix, matrix2: *const GpMatrix, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsMatrixIdentity(matrix: *const GpMatrix, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsMatrixInvertible(matrix: *const GpMatrix, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsOutlineVisiblePathPoint(path: *mut GpPath, x: REAL, y: REAL, pen: *mut GpPen, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsOutlineVisiblePathPointI(path: *mut GpPath, x: INT, y: INT, pen: *mut GpPen, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsStyleAvailable(family: *const GpFontFamily, style: INT, IsStyleAvailable: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisibleClipEmpty(graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisiblePathPoint(path: *mut GpPath, x: REAL, y: REAL, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisiblePathPointI(path: *mut GpPath, x: INT, y: INT, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisiblePoint(graphics: *mut GpGraphics, x: REAL, y: REAL, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisiblePointI(graphics: *mut GpGraphics, x: INT, y: INT, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisibleRect(graphics: *mut GpGraphics, x: REAL, y: REAL, width: REAL, height: REAL, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisibleRectI(graphics: *mut GpGraphics, x: INT, y: INT, width: INT, height: INT, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisibleRegionPoint(region: *mut GpRegion, x: REAL, y: REAL, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisibleRegionPointI(region: *mut GpRegion, x: INT, y: INT, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisibleRegionRect(region: *mut GpRegion, x: REAL, y: REAL, width: REAL, height: REAL, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipIsVisibleRegionRectI(region: *mut GpRegion, x: INT, y: INT, width: INT, height: INT, graphics: *mut GpGraphics, result: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipLoadImageFromFile(filename: *const WCHAR, image: *mut *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipLoadImageFromFileICM(filename: *const WCHAR, image: *mut *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipLoadImageFromStream(stream: IStream, image: *mut *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipLoadImageFromStreamICM(stream: IStream, image: *mut *mut GpImage) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMeasureCharacterRanges(graphics: *mut GpGraphics, string: *const WCHAR, length: INT, font: *const GpFont, layoutRect: &RectF, stringFormat: *const GpStringFormat, regionCount: INT, regions: *mut *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMeasureDriverString(graphics: *mut GpGraphics, text: *const UINT16, length: INT, font: *const GpFont, positions: *const PointF, flags: INT, matrix: *const GpMatrix, boundingBox: *mut RectF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMeasureString(graphics: *mut GpGraphics, string: *const WCHAR, length: INT, font: *const GpFont, layoutRect: *const RectF, stringFormat: *const GpStringFormat, boundingBox: *mut RectF, codepointsFitted: *mut INT, linesFilled: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMultiplyLineTransform(brush: *mut GpLineGradient, matrix: *const GpMatrix, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMultiplyMatrix(matrix: *mut GpMatrix, matrix2: *mut GpMatrix, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMultiplyPathGradientTransform(brush: *mut GpPathGradient, matrix: *const GpMatrix, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMultiplyPenTransform(pen: *mut GpPen, matrix: *const GpMatrix, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMultiplyTextureTransform(brush: *mut GpTexture, matrix: *const GpMatrix, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipMultiplyWorldTransform(graphics: *mut GpGraphics, matrix: *const GpMatrix, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipNewInstalledFontCollection(fontCollection: *mut *mut GpFontCollection) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipNewPrivateFontCollection(fontCollection: *mut *mut GpFontCollection) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterCopyData(iterator: *mut GpPathIterator, #[out] resultCount: *mut INT, #[out] #[readable(success, *resultCount)] #[writable(entry, endIndex - startIndex + 1)] points: *mut GpPointF, #[out] #[readable(success, *resultCount)] #[writable(entry, endIndex - startIndex + 1)] types: *mut BYTE, startIndex: INT, endIndex: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterEnumerate(iterator: *mut GpPathIterator, #[out] resultCount: *mut INT, #[out] #[readable(success, *resultCount)] #[writable(entry, count)] points: *mut GpPointF, #[out] #[readable(success, *resultCount)] #[writable(entry, count)] types: *mut BYTE, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterGetCount(iterator: *mut GpPathIterator, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterGetSubpathCount(iterator: *mut GpPathIterator, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterHasCurve(iterator: *mut GpPathIterator, hasCurve: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterIsValid(iterator: *mut GpPathIterator, valid: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterNextMarker(iterator: *mut GpPathIterator, resultCount: *mut INT, startIndex: *mut INT, endIndex: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterNextMarkerPath(iterator: *mut GpPathIterator, resultCount: *mut INT, path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterNextPathType(iterator: *mut GpPathIterator, #[out] resultCount: *mut INT, #[out] pathType: *mut BYTE, #[out] startIndex: *mut INT, #[out] endIndex: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterNextSubpath(iterator: *mut GpPathIterator, resultCount: *mut INT, startIndex: *mut INT, endIndex: *mut INT, isClosed: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterNextSubpathPath(iterator: *mut GpPathIterator, resultCount: *mut INT, path: *mut GpPath, isClosed: *mut BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPathIterRewind(iterator: *mut GpPathIterator) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPlayMetafileRecord(metafile: *const GpMetafile, recordType: EmfPlusRecordType, flags: UINT, dataSize: UINT, data: *const BYTE) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPrivateAddFontFile(fontCollection: *mut GpFontCollection, filename: *const WCHAR) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipPrivateAddMemoryFont(fontCollection: *mut GpFontCollection, memory: *const void, length: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRecordMetafile(referenceHdc: HDC, r#type: EmfType, frameRect: *const GpRectF, frameUnit: MetafileFrameUnit, description: *const WCHAR, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRecordMetafileFileName(fileName: *const WCHAR, referenceHdc: HDC, r#type: EmfType, frameRect: *const GpRectF, frameUnit: MetafileFrameUnit, description: *const WCHAR, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRecordMetafileFileNameI(fileName: *const WCHAR, referenceHdc: HDC, r#type: EmfType, frameRect: *const GpRect, frameUnit: MetafileFrameUnit, description: *const WCHAR, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRecordMetafileI(referenceHdc: HDC, r#type: EmfType, frameRect: *const GpRect, frameUnit: MetafileFrameUnit, description: *const WCHAR, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRecordMetafileStream(stream: IStream, referenceHdc: HDC, r#type: EmfType, frameRect: *const GpRectF, frameUnit: MetafileFrameUnit, description: *const WCHAR, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRecordMetafileStreamI(stream: IStream, referenceHdc: HDC, r#type: EmfType, frameRect: *const GpRect, frameUnit: MetafileFrameUnit, description: *const WCHAR, metafile: *mut *mut GpMetafile) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipReleaseDC(graphics: *mut GpGraphics, hdc: HDC) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRemovePropertyItem(image: *mut GpImage, propId: PROPID) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetClip(graphics: *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetImageAttributes(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetLineTransform(brush: *mut GpLineGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetPageTransform(graphics: *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetPath(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetPathGradientTransform(brush: *mut GpPathGradient) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetPenTransform(pen: *mut GpPen) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetTextureTransform(brush: *mut GpTexture) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipResetWorldTransform(graphics: *mut GpGraphics) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRestoreGraphics(graphics: *mut GpGraphics, state: GraphicsState) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipReversePath(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRotateLineTransform(brush: *mut GpLineGradient, angle: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRotateMatrix(matrix: *mut GpMatrix, angle: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRotatePathGradientTransform(brush: *mut GpPathGradient, angle: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRotatePenTransform(pen: *mut GpPen, angle: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRotateTextureTransform(brush: *mut GpTexture, angle: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipRotateWorldTransform(graphics: *mut GpGraphics, angle: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSaveAdd(image: *mut GpImage, encoderParams: *const EncoderParameters) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSaveAddImage(image: *mut GpImage, newImage: *mut GpImage, encoderParams: *const EncoderParameters) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSaveGraphics(graphics: *mut GpGraphics, state: *mut GraphicsState) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSaveImageToFile(image: *mut GpImage, filename: *const WCHAR, clsidEncoder: *const CLSID, encoderParams: *const EncoderParameters) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSaveImageToStream(image: *mut GpImage, stream: IStream, clsidEncoder: *const CLSID, encoderParams: *const EncoderParameters) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipScaleLineTransform(brush: *mut GpLineGradient, sx: REAL, sy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipScaleMatrix(matrix: *mut GpMatrix, scaleX: REAL, scaleY: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipScalePathGradientTransform(brush: *mut GpPathGradient, sx: REAL, sy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipScalePenTransform(pen: *mut GpPen, sx: REAL, sy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipScaleTextureTransform(brush: *mut GpTexture, sx: REAL, sy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipScaleWorldTransform(graphics: *mut GpGraphics, sx: REAL, sy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetAdjustableArrowCapFillState(cap: *mut GpAdjustableArrowCap, fillState: BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetAdjustableArrowCapHeight(cap: *mut GpAdjustableArrowCap, height: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetAdjustableArrowCapMiddleInset(cap: *mut GpAdjustableArrowCap, middleInset: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetAdjustableArrowCapWidth(cap: *mut GpAdjustableArrowCap, width: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetClipGraphics(graphics: *mut GpGraphics, srcgraphics: *mut GpGraphics, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetClipHrgn(graphics: *mut GpGraphics, hRgn: HRGN, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetClipPath(graphics: *mut GpGraphics, path: *mut GpPath, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetClipRect(graphics: *mut GpGraphics, x: REAL, y: REAL, width: REAL, height: REAL, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetClipRectI(graphics: *mut GpGraphics, x: INT, y: INT, width: INT, height: INT, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetClipRegion(graphics: *mut GpGraphics, region: *mut GpRegion, combineMode: CombineMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetCompositingMode(graphics: *mut GpGraphics, compositingMode: CompositingMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetCompositingQuality(graphics: *mut GpGraphics, compositingQuality: CompositingQuality) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetCustomLineCapBaseCap(customCap: *mut GpCustomLineCap, baseCap: GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetCustomLineCapBaseInset(customCap: *mut GpCustomLineCap, inset: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetCustomLineCapStrokeCaps(customCap: *mut GpCustomLineCap, startCap: GpLineCap, endCap: GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetCustomLineCapStrokeJoin(customCap: *mut GpCustomLineCap, lineJoin: GpLineJoin) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetCustomLineCapWidthScale(customCap: *mut GpCustomLineCap, widthScale: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetEmpty(region: *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesCachedBackground(imageattr: *mut GpImageAttributes, enableFlag: BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesColorKeys(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: BOOL, colorLow: ARGB, colorHigh: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesColorMatrix(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: BOOL, colorMatrix: *const ColorMatrix, grayMatrix: *const ColorMatrix, flags: ColorMatrixFlags) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesGamma(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: BOOL, gamma: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesNoOp(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesOutputChannel(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: BOOL, channelFlags: ColorChannelFlags) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesOutputChannelColorProfile(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: BOOL, colorProfileFilename: *const WCHAR) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesThreshold(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: BOOL, threshold: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesToIdentity(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImageAttributesWrapMode(imageAttr: *mut GpImageAttributes, wrap: WrapMode, argb: ARGB, clamp: BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetImagePalette(image: *mut GpImage, palette: *const ColorPalette) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetInfinite(region: *mut GpRegion) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetInterpolationMode(graphics: *mut GpGraphics, interpolationMode: InterpolationMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLineBlend(brush: *mut GpLineGradient, blend: *const REAL, positions: *const REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLineColors(brush: *mut GpLineGradient, color1: ARGB, color2: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLineGammaCorrection(brush: *mut GpLineGradient, useGammaCorrection: BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLineLinearBlend(brush: *mut GpLineGradient, focus: REAL, scale: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLinePresetBlend(brush: *mut GpLineGradient, blend: *const ARGB, positions: *const REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLineSigmaBlend(brush: *mut GpLineGradient, focus: REAL, scale: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLineTransform(brush: *mut GpLineGradient, matrix: *const GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetLineWrapMode(brush: *mut GpLineGradient, wrapmode: GpWrapMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetMatrixElements(matrix: *mut GpMatrix, m11: REAL, m12: REAL, m21: REAL, m22: REAL, dx: REAL, dy: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetMetafileDownLevelRasterizationLimit(metafile: *mut GpMetafile, metafileRasterizationLimitDpi: UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPageScale(graphics: *mut GpGraphics, scale: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPageUnit(graphics: *mut GpGraphics, unit: GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathFillMode(path: *mut GpPath, fillmode: GpFillMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientBlend(brush: *mut GpPathGradient, blend: *const REAL, positions: *const REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientCenterColor(brush: *mut GpPathGradient, colors: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientCenterPoint(brush: *mut GpPathGradient, points: *const GpPointF) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientCenterPointI(brush: *mut GpPathGradient, points: *const GpPoint) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientFocusScales(brush: *mut GpPathGradient, xScale: REAL, yScale: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientGammaCorrection(brush: *mut GpPathGradient, useGammaCorrection: BOOL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientLinearBlend(brush: *mut GpPathGradient, focus: REAL, scale: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientPath(brush: *mut GpPathGradient, path: *const GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientPresetBlend(brush: *mut GpPathGradient, blend: *const ARGB, positions: *const REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientSigmaBlend(brush: *mut GpPathGradient, focus: REAL, scale: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientSurroundColorsWithCount(brush: *mut GpPathGradient, color: *const ARGB, count: *mut INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathGradientWrapMode(brush: *mut GpPathGradient, wrapmode: GpWrapMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPathMarker(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenBrushFill(pen: *mut GpPen, brush: *mut GpBrush) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenColor(pen: *mut GpPen, argb: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenCompoundArray(pen: *mut GpPen, dash: *const REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenCustomEndCap(pen: *mut GpPen, customCap: *mut GpCustomLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenCustomStartCap(pen: *mut GpPen, customCap: *mut GpCustomLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenDashArray(pen: *mut GpPen, dash: *const REAL, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenDashCap197819(pen: *mut GpPen, dashCap: GpDashCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenDashOffset(pen: *mut GpPen, offset: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenDashStyle(pen: *mut GpPen, dashstyle: GpDashStyle) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenEndCap(pen: *mut GpPen, endCap: GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenLineCap197819(pen: *mut GpPen, startCap: GpLineCap, endCap: GpLineCap, dashCap: GpDashCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenLineJoin(pen: *mut GpPen, lineJoin: GpLineJoin) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenMiterLimit(pen: *mut GpPen, miterLimit: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenMode(pen: *mut GpPen, penMode: GpPenAlignment) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenStartCap(pen: *mut GpPen, startCap: GpLineCap) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenTransform(pen: *mut GpPen, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenUnit(pen: *mut GpPen, unit: GpUnit) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPenWidth(pen: *mut GpPen, width: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPixelOffsetMode(graphics: *mut GpGraphics, pixelOffsetMode: PixelOffsetMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetPropertyItem(image: *mut GpImage, item: *const PropertyItem) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetRenderingOrigin(graphics: *mut GpGraphics, x: INT, y: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetSmoothingMode(graphics: *mut GpGraphics, smoothingMode: SmoothingMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetSolidFillColor(brush: *mut GpSolidFill, color: ARGB) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatAlign(format: *mut GpStringFormat, align: StringAlignment) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatDigitSubstitution(format: *mut GpStringFormat, language: LANGID, substitute: StringDigitSubstitute) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatFlags(format: *mut GpStringFormat, flags: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatHotkeyPrefix(format: *mut GpStringFormat, hotkeyPrefix: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatLineAlign(format: *mut GpStringFormat, align: StringAlignment) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatMeasurableCharacterRanges(format: *mut GpStringFormat, rangeCount: INT, ranges: *const CharacterRange) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatTabStops(format: *mut GpStringFormat, firstTabOffset: REAL, count: INT, tabStops: *const REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetStringFormatTrimming(format: *mut GpStringFormat, trimming: StringTrimming) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetTextContrast(graphics: *mut GpGraphics, contrast: UINT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetTextRenderingHint(graphics: *mut GpGraphics, mode: TextRenderingHint) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetTextureTransform(brush: *mut GpTexture, matrix: *const GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetTextureWrapMode(brush: *mut GpTexture, wrapmode: GpWrapMode) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetWorldTransform(graphics: *mut GpGraphics, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipShearMatrix(matrix: *mut GpMatrix, shearX: REAL, shearY: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipStartPathFigure(path: *mut GpPath) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipStringFormatGetGenericDefault(format: *mut *mut GpStringFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipStringFormatGetGenericTypographic(format: *mut *mut GpStringFormat) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTestControl(control: GpTestControlEnum, param: *mut void) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTransformMatrixPoints(matrix: *mut GpMatrix, pts: *mut GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTransformMatrixPointsI(matrix: *mut GpMatrix, pts: *mut GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTransformPath(path: *mut GpPath, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTransformPoints(graphics: *mut GpGraphics, destSpace: GpCoordinateSpace, srcSpace: GpCoordinateSpace, points: *mut GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTransformPointsI(graphics: *mut GpGraphics, destSpace: GpCoordinateSpace, srcSpace: GpCoordinateSpace, points: *mut GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTransformRegion(region: *mut GpRegion, matrix: *mut GpMatrix) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateClip(graphics: *mut GpGraphics, dx: REAL, dy: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateClipI(graphics: *mut GpGraphics, dx: INT, dy: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateLineTransform(brush: *mut GpLineGradient, dx: REAL, dy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateMatrix(matrix: *mut GpMatrix, offsetX: REAL, offsetY: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslatePathGradientTransform(brush: *mut GpPathGradient, dx: REAL, dy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslatePenTransform(pen: *mut GpPen, dx: REAL, dy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateRegion(region: *mut GpRegion, dx: REAL, dy: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateRegionI(region: *mut GpRegion, dx: INT, dy: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateTextureTransform(brush: *mut GpTexture, dx: REAL, dy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipTranslateWorldTransform(graphics: *mut GpGraphics, dx: REAL, dy: REAL, order: GpMatrixOrder) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipVectorTransformMatrixPoints(matrix: *mut GpMatrix, pts: *mut GpPointF, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipVectorTransformMatrixPointsI(matrix: *mut GpMatrix, pts: *mut GpPoint, count: INT) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipWarpPath(path: *mut GpPath, matrix: *mut GpMatrix, points: *const GpPointF, count: INT, srcx: REAL, srcy: REAL, srcwidth: REAL, srcheight: REAL, warpMode: WarpMode, flatness: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipWidenPath(nativePath: *mut GpPath, pen: *mut GpPen, matrix: *mut GpMatrix, flatness: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdipWindingModeOutline(path: *mut GpPath, matrix: *mut GpMatrix, flatness: REAL) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdiplusNotificationHook(token: *mut ULONG_PTR) -> GpStatus;
+        #[library("gdiplus.dll")]
+        extern fn GdiplusNotificationUnhook(token: ULONG_PTR);
+    }
+}

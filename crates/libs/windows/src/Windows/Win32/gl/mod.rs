@@ -439,13 +439,9 @@ pub unsafe fn glEvalPoint2(i: GLint, j: GLint) {
     unsafe { glEvalPoint2(i, j) }
 }
 #[inline]
-pub unsafe fn glFeedbackBuffer(size: GLsizei, r#type: GLenum) -> GLfloat {
+pub unsafe fn glFeedbackBuffer(size: GLsizei, r#type: GLenum, buffer: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glFeedbackBuffer(size : GLsizei, r#type : GLenum, buffer : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glFeedbackBuffer(size, r#type, &mut result__);
-        result__
-    }
+    unsafe { glFeedbackBuffer(size, r#type, buffer as _) }
 }
 #[inline]
 pub unsafe fn glFinish() {
@@ -493,40 +489,24 @@ pub unsafe fn glGenLists(range: GLsizei) -> GLuint {
     unsafe { glGenLists(range) }
 }
 #[inline]
-pub unsafe fn glGenTextures(n: GLsizei) -> GLuint {
+pub unsafe fn glGenTextures(n: GLsizei, textures: *mut GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glGenTextures(n : GLsizei, textures : *mut GLuint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGenTextures(n, &mut result__);
-        result__
-    }
+    unsafe { glGenTextures(n, textures as _) }
 }
 #[inline]
-pub unsafe fn glGetBooleanv(pname: GLenum) -> GLboolean {
+pub unsafe fn glGetBooleanv(pname: GLenum, params: *mut GLboolean) {
     windows_core::link!("opengl32.dll" "system" fn glGetBooleanv(pname : GLenum, params : *mut GLboolean));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetBooleanv(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetBooleanv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetClipPlane(plane: GLenum) -> GLdouble {
+pub unsafe fn glGetClipPlane(plane: GLenum, equation: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetClipPlane(plane : GLenum, equation : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetClipPlane(plane, &mut result__);
-        result__
-    }
+    unsafe { glGetClipPlane(plane, equation as _) }
 }
 #[inline]
-pub unsafe fn glGetDoublev(pname: GLenum) -> GLdouble {
+pub unsafe fn glGetDoublev(pname: GLenum, params: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetDoublev(pname : GLenum, params : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetDoublev(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetDoublev(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetError() -> GLenum {
@@ -534,112 +514,64 @@ pub unsafe fn glGetError() -> GLenum {
     unsafe { glGetError() }
 }
 #[inline]
-pub unsafe fn glGetFloatv(pname: GLenum) -> GLfloat {
+pub unsafe fn glGetFloatv(pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetFloatv(pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetFloatv(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetFloatv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetIntegerv(pname: GLenum) -> GLint {
+pub unsafe fn glGetIntegerv(pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetIntegerv(pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetIntegerv(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetIntegerv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetLightfv(light: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetLightfv(light: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetLightfv(light : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetLightfv(light, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetLightfv(light, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetLightiv(light: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetLightiv(light: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetLightiv(light : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetLightiv(light, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetLightiv(light, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetMapdv(target: GLenum, query: GLenum) -> GLdouble {
+pub unsafe fn glGetMapdv(target: GLenum, query: GLenum, v: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetMapdv(target : GLenum, query : GLenum, v : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMapdv(target, query, &mut result__);
-        result__
-    }
+    unsafe { glGetMapdv(target, query, v as _) }
 }
 #[inline]
-pub unsafe fn glGetMapfv(target: GLenum, query: GLenum) -> GLfloat {
+pub unsafe fn glGetMapfv(target: GLenum, query: GLenum, v: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetMapfv(target : GLenum, query : GLenum, v : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMapfv(target, query, &mut result__);
-        result__
-    }
+    unsafe { glGetMapfv(target, query, v as _) }
 }
 #[inline]
-pub unsafe fn glGetMapiv(target: GLenum, query: GLenum) -> GLint {
+pub unsafe fn glGetMapiv(target: GLenum, query: GLenum, v: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetMapiv(target : GLenum, query : GLenum, v : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMapiv(target, query, &mut result__);
-        result__
-    }
+    unsafe { glGetMapiv(target, query, v as _) }
 }
 #[inline]
-pub unsafe fn glGetMaterialfv(face: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetMaterialfv(face: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetMaterialfv(face : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMaterialfv(face, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetMaterialfv(face, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetMaterialiv(face: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetMaterialiv(face: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetMaterialiv(face : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMaterialiv(face, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetMaterialiv(face, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetPixelMapfv(map: GLenum) -> GLfloat {
+pub unsafe fn glGetPixelMapfv(map: GLenum, values: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetPixelMapfv(map : GLenum, values : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPixelMapfv(map, &mut result__);
-        result__
-    }
+    unsafe { glGetPixelMapfv(map, values as _) }
 }
 #[inline]
-pub unsafe fn glGetPixelMapuiv(map: GLenum) -> GLuint {
+pub unsafe fn glGetPixelMapuiv(map: GLenum, values: *mut GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glGetPixelMapuiv(map : GLenum, values : *mut GLuint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPixelMapuiv(map, &mut result__);
-        result__
-    }
+    unsafe { glGetPixelMapuiv(map, values as _) }
 }
 #[inline]
-pub unsafe fn glGetPixelMapusv(map: GLenum) -> GLushort {
+pub unsafe fn glGetPixelMapusv(map: GLenum, values: *mut GLushort) {
     windows_core::link!("opengl32.dll" "system" fn glGetPixelMapusv(map : GLenum, values : *mut GLushort));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPixelMapusv(map, &mut result__);
-        result__
-    }
+    unsafe { glGetPixelMapusv(map, values as _) }
 }
 #[inline]
 pub unsafe fn glGetPointerv(pname: GLenum, params: *mut *mut GLvoid) {
@@ -647,13 +579,9 @@ pub unsafe fn glGetPointerv(pname: GLenum, params: *mut *mut GLvoid) {
     unsafe { glGetPointerv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetPolygonStipple() -> GLubyte {
+pub unsafe fn glGetPolygonStipple(mask: *mut GLubyte) {
     windows_core::link!("opengl32.dll" "system" fn glGetPolygonStipple(mask : *mut GLubyte));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPolygonStipple(&mut result__);
-        result__
-    }
+    unsafe { glGetPolygonStipple(mask as _) }
 }
 #[inline]
 pub unsafe fn glGetString(name: GLenum) -> *const GLubyte {
@@ -661,49 +589,29 @@ pub unsafe fn glGetString(name: GLenum) -> *const GLubyte {
     unsafe { glGetString(name) }
 }
 #[inline]
-pub unsafe fn glGetTexEnvfv(target: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexEnvfv(target: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexEnvfv(target : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexEnvfv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexEnvfv(target, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexEnviv(target: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexEnviv(target: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexEnviv(target : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexEnviv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexEnviv(target, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexGendv(coord: GLenum, pname: GLenum) -> GLdouble {
+pub unsafe fn glGetTexGendv(coord: GLenum, pname: GLenum, params: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexGendv(coord : GLenum, pname : GLenum, params : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexGendv(coord, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexGendv(coord, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexGenfv(coord: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexGenfv(coord: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexGenfv(coord : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexGenfv(coord, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexGenfv(coord, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexGeniv(coord: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexGeniv(coord: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexGeniv(coord : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexGeniv(coord, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexGeniv(coord, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetTexImage(target: GLenum, level: GLint, format: GLenum, r#type: GLenum, pixels: *mut GLvoid) {
@@ -711,40 +619,24 @@ pub unsafe fn glGetTexImage(target: GLenum, level: GLint, format: GLenum, r#type
     unsafe { glGetTexImage(target, level, format, r#type, pixels as _) }
 }
 #[inline]
-pub unsafe fn glGetTexLevelParameterfv(target: GLenum, level: GLint, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexLevelParameterfv(target: GLenum, level: GLint, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexLevelParameterfv(target : GLenum, level : GLint, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexLevelParameterfv(target, level, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexLevelParameterfv(target, level, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexLevelParameteriv(target: GLenum, level: GLint, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexLevelParameteriv(target: GLenum, level: GLint, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexLevelParameteriv(target : GLenum, level : GLint, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexLevelParameteriv(target, level, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexLevelParameteriv(target, level, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexParameterfv(target: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexParameterfv(target: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexParameterfv(target : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexParameterfv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexParameterfv(target, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexParameteriv(target: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexParameteriv(target: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexParameteriv(target : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexParameteriv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexParameteriv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glHint(target: GLenum, mode: GLenum) {
@@ -1367,13 +1259,9 @@ pub unsafe fn glScissor(x: GLint, y: GLint, width: GLsizei, height: GLsizei) {
     unsafe { glScissor(x, y, width, height) }
 }
 #[inline]
-pub unsafe fn glSelectBuffer(size: GLsizei) -> GLuint {
+pub unsafe fn glSelectBuffer(size: GLsizei, buffer: *mut GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glSelectBuffer(size : GLsizei, buffer : *mut GLuint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glSelectBuffer(size, &mut result__);
-        result__
-    }
+    unsafe { glSelectBuffer(size, buffer as _) }
 }
 #[inline]
 pub unsafe fn glShadeModel(mode: GLenum) {

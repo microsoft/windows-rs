@@ -6,6 +6,7 @@ where
     windows_core::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WerAddExcludedApplication(pwzexename.param().abi(), ballusers.into()) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerFreeString<P0>(pwszstr: P0)
 where
@@ -23,9 +24,10 @@ pub unsafe fn WerGetFlags(hprocess: super::HANDLE) -> windows_core::Result<u32> 
         WerGetFlags(hprocess, &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> windows_core::HRESULT {
-    windows_core::link!("kernel32.dll" "system" fn WerRegisterAdditionalProcess(processid : u32, captureextrainfoforthreadid : u32) -> windows_core::HRESULT);
+pub unsafe fn WerRegisterAdditionalProcess(processid: super::DWORD, captureextrainfoforthreadid: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("kernel32.dll" "system" fn WerRegisterAdditionalProcess(processid : super::DWORD, captureextrainfoforthreadid : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerRegisterAdditionalProcess(processid, captureextrainfoforthreadid) }
 }
 #[inline]
@@ -45,30 +47,34 @@ where
     windows_core::link!("kernel32.dll" "system" fn WerRegisterCustomMetadata(key : windows_core::PCWSTR, value : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WerRegisterCustomMetadata(key.param().abi(), value.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const core::ffi::c_void, size: u32) -> windows_core::HRESULT {
-    windows_core::link!("kernel32.dll" "system" fn WerRegisterExcludedMemoryBlock(address : *const core::ffi::c_void, size : u32) -> windows_core::HRESULT);
+pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const core::ffi::c_void, size: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("kernel32.dll" "system" fn WerRegisterExcludedMemoryBlock(address : *const core::ffi::c_void, size : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerRegisterExcludedMemoryBlock(address, size) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerRegisterFile<P0>(pwzfile: P0, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: u32) -> windows_core::HRESULT
+pub unsafe fn WerRegisterFile<P0>(pwzfile: P0, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn WerRegisterFile(pwzfile : windows_core::PCWSTR, regfiletype : WER_REGISTER_FILE_TYPE, dwflags : u32) -> windows_core::HRESULT);
+    windows_core::link!("kernel32.dll" "system" fn WerRegisterFile(pwzfile : windows_core::PCWSTR, regfiletype : WER_REGISTER_FILE_TYPE, dwflags : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerRegisterFile(pwzfile.param().abi(), regfiletype, dwflags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const core::ffi::c_void, dwsize: u32) -> windows_core::HRESULT {
-    windows_core::link!("kernel32.dll" "system" fn WerRegisterMemoryBlock(pvaddress : *const core::ffi::c_void, dwsize : u32) -> windows_core::HRESULT);
+pub unsafe fn WerRegisterMemoryBlock(pvaddress: super::PVOID, dwsize: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("kernel32.dll" "system" fn WerRegisterMemoryBlock(pvaddress : super::PVOID, dwsize : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerRegisterMemoryBlock(pvaddress, dwsize) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn WerRegisterRuntimeExceptionModule<P0>(pwszoutofprocesscallbackdll: P0, pcontext: *const core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn WerRegisterRuntimeExceptionModule<P0>(pwszoutofprocesscallbackdll: P0, pcontext: super::PVOID) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("kernel32.dll" "system" fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_core::PCWSTR, pcontext : super::PVOID) -> windows_core::HRESULT);
     unsafe { WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.param().abi(), pcontext) }
 }
 #[inline]
@@ -79,28 +85,27 @@ where
     windows_core::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WerRemoveExcludedApplication(pwzexename.param().abi(), ballusers.into()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::HANDLE, hthread: Option<super::HANDLE>, dumptype: WER_DUMP_TYPE, pexceptionparam: Option<PWER_EXCEPTION_INFORMATION>, pdumpcustomoptions: Option<PWER_DUMP_CUSTOM_OPTIONS>, dwflags: u32) -> windows_core::HRESULT {
-    windows_core::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::HANDLE, hthread : super::HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : PWER_EXCEPTION_INFORMATION, pdumpcustomoptions : PWER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_core::HRESULT);
+pub unsafe fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::HANDLE, hthread: Option<super::HANDLE>, dumptype: WER_DUMP_TYPE, pexceptionparam: Option<PWER_EXCEPTION_INFORMATION>, pdumpcustomoptions: Option<PWER_DUMP_CUSTOM_OPTIONS>, dwflags: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::HANDLE, hthread : super::HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : PWER_EXCEPTION_INFORMATION, pdumpcustomoptions : PWER_DUMP_CUSTOM_OPTIONS, dwflags : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerReportAddDump(hreporthandle, hprocess, hthread.unwrap_or(core::mem::zeroed()) as _, dumptype, pexceptionparam.unwrap_or(core::mem::zeroed()) as _, pdumpcustomoptions.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerReportAddFile<P1>(hreporthandle: HREPORT, pwzpath: P1, repfiletype: WER_FILE_TYPE, dwfileflags: u32) -> windows_core::HRESULT
+pub unsafe fn WerReportAddFile<P1>(hreporthandle: HREPORT, pwzpath: P1, repfiletype: WER_FILE_TYPE, dwfileflags: super::DWORD) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "system" fn WerReportAddFile(hreporthandle : HREPORT, pwzpath : windows_core::PCWSTR, repfiletype : WER_FILE_TYPE, dwfileflags : u32) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerReportAddFile(hreporthandle : HREPORT, pwzpath : windows_core::PCWSTR, repfiletype : WER_FILE_TYPE, dwfileflags : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerReportAddFile(hreporthandle, pwzpath.param().abi(), repfiletype, dwfileflags) }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WerReportCloseHandle(hreporthandle: HREPORT) -> windows_core::HRESULT {
     windows_core::link!("wer.dll" "system" fn WerReportCloseHandle(hreporthandle : HREPORT) -> windows_core::HRESULT);
     unsafe { WerReportCloseHandle(hreporthandle) }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WerReportCreate<P0>(pwzeventtype: P0, reptype: WER_REPORT_TYPE, preportinformation: Option<PWER_REPORT_INFORMATION>, phreporthandle: *mut HREPORT) -> windows_core::HRESULT
 where
@@ -109,17 +114,16 @@ where
     windows_core::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : windows_core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : PWER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> windows_core::HRESULT);
     unsafe { WerReportCreate(pwzeventtype.param().abi(), reptype, preportinformation.unwrap_or(core::mem::zeroed()) as _, phreporthandle as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerReportSetParameter<P2, P3>(hreporthandle: HREPORT, dwparamid: u32, pwzname: P2, pwzvalue: P3) -> windows_core::HRESULT
+pub unsafe fn WerReportSetParameter<P2, P3>(hreporthandle: HREPORT, dwparamid: super::DWORD, pwzname: P2, pwzvalue: P3) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "system" fn WerReportSetParameter(hreporthandle : HREPORT, dwparamid : u32, pwzname : windows_core::PCWSTR, pwzvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerReportSetParameter(hreporthandle : HREPORT, dwparamid : super::DWORD, pwzname : windows_core::PCWSTR, pwzvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WerReportSetParameter(hreporthandle, dwparamid, pwzname.param().abi(), pwzvalue.param().abi()) }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WerReportSetUIOption<P2>(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: P2) -> windows_core::HRESULT
 where
@@ -128,22 +132,25 @@ where
     windows_core::link!("wer.dll" "system" fn WerReportSetUIOption(hreporthandle : HREPORT, repuitypeid : WER_REPORT_UI, pwzvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WerReportSetUIOption(hreporthandle, repuitypeid, pwzvalue.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: u32, psubmitresult: Option<PWER_SUBMIT_RESULT>) -> windows_core::HRESULT {
-    windows_core::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : u32, psubmitresult : PWER_SUBMIT_RESULT) -> windows_core::HRESULT);
+pub unsafe fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: super::DWORD, psubmitresult: Option<PWER_SUBMIT_RESULT>) -> windows_core::HRESULT {
+    windows_core::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : super::DWORD, psubmitresult : PWER_SUBMIT_RESULT) -> windows_core::HRESULT);
     unsafe { WerReportSubmit(hreporthandle, consent, dwflags, psubmitresult.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerSetFlags(dwflags: u32) -> windows_core::HRESULT {
-    windows_core::link!("kernel32.dll" "system" fn WerSetFlags(dwflags : u32) -> windows_core::HRESULT);
+pub unsafe fn WerSetFlags(dwflags: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("kernel32.dll" "system" fn WerSetFlags(dwflags : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerSetFlags(dwflags) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreClose(hreportstore: Option<HREPORTSTORE>) {
     windows_core::link!("wer.dll" "C" fn WerStoreClose(hreportstore : HREPORTSTORE));
     unsafe { WerStoreClose(hreportstore.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PCWSTR> {
     windows_core::link!("wer.dll" "C" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
@@ -152,6 +159,7 @@ pub unsafe fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE) -> windows_c
         WerStoreGetFirstReportKey(hreportstore, &mut result__).map(|| result__)
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PCWSTR> {
     windows_core::link!("wer.dll" "C" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
@@ -160,33 +168,40 @@ pub unsafe fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE) -> windows_co
         WerStoreGetNextReportKey(hreportstore, &mut result__).map(|| result__)
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerStoreGetReportCount(hreportstore: HREPORTSTORE) -> windows_core::Result<u32> {
-    windows_core::link!("wer.dll" "C" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn WerStoreGetReportCount(hreportstore: HREPORTSTORE) -> windows_core::Result<super::DWORD> {
+    windows_core::link!("wer.dll" "C" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WerStoreGetReportCount(hreportstore, &mut result__).map(|| result__)
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE) -> windows_core::Result<u64> {
-    windows_core::link!("wer.dll" "C" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut u64) -> windows_core::HRESULT);
+pub unsafe fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE) -> windows_core::Result<super::ULONGLONG> {
+    windows_core::link!("wer.dll" "C" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut super::ULONGLONG) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WerStoreGetSizeOnDisk(hreportstore, &mut result__).map(|| result__)
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: PHREPORTSTORE) -> windows_core::HRESULT {
     windows_core::link!("wer.dll" "C" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : PHREPORTSTORE) -> windows_core::HRESULT);
     unsafe { WerStoreOpen(repstoretype, phreportstore as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WerStorePurge() -> windows_core::HRESULT {
     windows_core::link!("wer.dll" "C" fn WerStorePurge() -> windows_core::HRESULT);
     unsafe { WerStorePurge() }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV1<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: PWER_REPORT_METADATA_V1) -> windows_core::HRESULT
 where
@@ -195,7 +210,8 @@ where
     windows_core::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V1) -> windows_core::HRESULT);
     unsafe { WerStoreQueryReportMetadataV1(hreportstore, pszreportkey.param().abi(), preportmetadata as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV2<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: PWER_REPORT_METADATA_V2) -> windows_core::HRESULT
 where
@@ -204,7 +220,8 @@ where
     windows_core::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V2) -> windows_core::HRESULT);
     unsafe { WerStoreQueryReportMetadataV2(hreportstore, pszreportkey.param().abi(), preportmetadata as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV3<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: PWER_REPORT_METADATA_V3) -> windows_core::HRESULT
 where
@@ -213,17 +230,20 @@ where
     windows_core::link!("wer.dll" "C" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : PWER_REPORT_METADATA_V3) -> windows_core::HRESULT);
     unsafe { WerStoreQueryReportMetadataV3(hreportstore, pszreportkey.param().abi(), preportmetadata as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerStoreUploadReport<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, dwflags: u32, psubmitresult: Option<PWER_SUBMIT_RESULT>) -> windows_core::HRESULT
+pub unsafe fn WerStoreUploadReport<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, dwflags: super::DWORD, psubmitresult: Option<PWER_SUBMIT_RESULT>) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wer.dll" "C" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, dwflags : u32, psubmitresult : PWER_SUBMIT_RESULT) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "C" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, dwflags : super::DWORD, psubmitresult : PWER_SUBMIT_RESULT) -> windows_core::HRESULT);
     unsafe { WerStoreUploadReport(hreportstore, pszreportkey.param().abi(), dwflags, psubmitresult.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> windows_core::HRESULT {
-    windows_core::link!("kernel32.dll" "system" fn WerUnregisterAdditionalProcess(processid : u32) -> windows_core::HRESULT);
+pub unsafe fn WerUnregisterAdditionalProcess(processid: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("kernel32.dll" "system" fn WerUnregisterAdditionalProcess(processid : super::DWORD) -> windows_core::HRESULT);
     unsafe { WerUnregisterAdditionalProcess(processid) }
 }
 #[inline]
@@ -252,17 +272,19 @@ where
     windows_core::link!("kernel32.dll" "system" fn WerUnregisterFile(pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WerUnregisterFile(pwzfilepath.param().abi()) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("kernel32.dll" "system" fn WerUnregisterMemoryBlock(pvaddress : *const core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn WerUnregisterMemoryBlock(pvaddress: super::PVOID) -> windows_core::HRESULT {
+    windows_core::link!("kernel32.dll" "system" fn WerUnregisterMemoryBlock(pvaddress : super::PVOID) -> windows_core::HRESULT);
     unsafe { WerUnregisterMemoryBlock(pvaddress) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn WerUnregisterRuntimeExceptionModule<P0>(pwszoutofprocesscallbackdll: P0, pcontext: *const core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn WerUnregisterRuntimeExceptionModule<P0>(pwszoutofprocesscallbackdll: P0, pcontext: super::PVOID) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("kernel32.dll" "system" fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_core::PCWSTR, pcontext : super::PVOID) -> windows_core::HRESULT);
     unsafe { WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.param().abi(), pcontext) }
 }
 pub const APPCRASH_EVENT: windows_core::PCWSTR = windows_core::w!("APPCRASH");
@@ -271,46 +293,49 @@ pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = 2;
 pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3;
 pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0;
 pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1;
-#[cfg(feature = "winnt")]
-pub type HREPORT = super::HANDLE;
+pub type HREPORT = *mut core::ffi::c_void;
 pub type HREPORTSTORE = *mut core::ffi::c_void;
 pub const PACKAGED_APPCRASH_EVENT: windows_core::PCWSTR = windows_core::w!("MoAppCrash");
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCWER_DUMP_CUSTOM_OPTIONS_V3 = *const WER_DUMP_CUSTOM_OPTIONS_V3;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PCWER_REPORT_INFORMATION_V4 = *const WER_REPORT_INFORMATION_V4;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PCWER_REPORT_INFORMATION_V5 = *const WER_REPORT_INFORMATION_V5;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "C" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: PWER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: super::PBOOL, pwszdebuggerlaunch: windows_core::PWSTR, pchdebuggerlaunch: super::PDWORD, pbisdebuggerautolaunch: super::PBOOL) -> windows_core::HRESULT>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "C" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: PWER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut windows_core::BOOL, pwszeventname: windows_core::PWSTR, pchsize: super::PDWORD, pdwsignaturecount: super::PDWORD) -> windows_core::HRESULT>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "C" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: PWER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: windows_core::PWSTR, pchname: super::PDWORD, pwszvalue: windows_core::PWSTR, pchvalue: super::PDWORD) -> windows_core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "C" fn(pcontext: super::PVOID, pexceptioninformation: PWER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: super::PBOOL, pwszdebuggerlaunch: windows_core::PWSTR, pchdebuggerlaunch: super::PDWORD, pbisdebuggerautolaunch: super::PBOOL) -> windows_core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "C" fn(pcontext: super::PVOID, pexceptioninformation: PWER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut windows_core::BOOL, pwszeventname: windows_core::PWSTR, pchsize: super::PDWORD, pdwsignaturecount: super::PDWORD) -> windows_core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "C" fn(pcontext: super::PVOID, pexceptioninformation: PWER_RUNTIME_EXCEPTION_INFORMATION, dwindex: super::DWORD, pwszname: windows_core::PWSTR, pchname: super::PDWORD, pwszvalue: windows_core::PWSTR, pchvalue: super::PDWORD) -> windows_core::HRESULT>;
 pub type PHREPORTSTORE = *mut *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWER_DUMP_CUSTOM_OPTIONS = *mut WER_DUMP_CUSTOM_OPTIONS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWER_DUMP_CUSTOM_OPTIONS_V2 = *mut WER_DUMP_CUSTOM_OPTIONS_V2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWER_DUMP_CUSTOM_OPTIONS_V3 = *mut WER_DUMP_CUSTOM_OPTIONS_V3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWER_EXCEPTION_INFORMATION = *mut WER_EXCEPTION_INFORMATION;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION = *mut WER_REPORT_INFORMATION;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION_V3 = *mut WER_REPORT_INFORMATION_V3;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION_V4 = *mut WER_REPORT_INFORMATION_V4;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PWER_REPORT_INFORMATION_V5 = *mut WER_REPORT_INFORMATION_V5;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PWER_REPORT_METADATA_V1 = *mut WER_REPORT_METADATA_V1;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PWER_REPORT_METADATA_V2 = *mut WER_REPORT_METADATA_V2;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PWER_REPORT_METADATA_V3 = *mut WER_REPORT_METADATA_V3;
-pub type PWER_REPORT_PARAMETER = _WER_REPORT_PARAMETER;
-pub type PWER_REPORT_SIGNATURE = *mut WER_REPORT_SIGNATURE;
 #[cfg(feature = "winnt")]
+pub type PWER_REPORT_PARAMETER = _WER_REPORT_PARAMETER;
+#[cfg(feature = "winnt")]
+pub type PWER_REPORT_SIGNATURE = *mut WER_REPORT_SIGNATURE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWER_RUNTIME_EXCEPTION_INFORMATION = *mut WER_RUNTIME_EXCEPTION_INFORMATION;
 pub type PWER_SUBMIT_RESULT = *mut WER_SUBMIT_RESULT;
 pub type REPORT_STORE_TYPES = i32;
@@ -318,69 +343,73 @@ pub type WER_CONSENT = i32;
 pub const WER_DUMP_AUXILIARY: i32 = 2;
 pub const WER_DUMP_AUX_PROMOTE: i32 = 4;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
-    pub dwSize: u32,
-    pub dwMask: u32,
-    pub dwDumpFlags: u32,
+    pub dwSize: super::DWORD,
+    pub dwMask: super::DWORD,
+    pub dwDumpFlags: super::DWORD,
     pub bOnlyThisThread: windows_core::BOOL,
-    pub dwExceptionThreadFlags: u32,
-    pub dwOtherThreadFlags: u32,
-    pub dwExceptionThreadExFlags: u32,
-    pub dwOtherThreadExFlags: u32,
-    pub dwPreferredModuleFlags: u32,
-    pub dwOtherModuleFlags: u32,
-    pub wzPreferredModuleList: [u16; 256],
+    pub dwExceptionThreadFlags: super::DWORD,
+    pub dwOtherThreadFlags: super::DWORD,
+    pub dwExceptionThreadExFlags: super::DWORD,
+    pub dwOtherThreadExFlags: super::DWORD,
+    pub dwPreferredModuleFlags: super::DWORD,
+    pub dwOtherModuleFlags: super::DWORD,
+    pub wzPreferredModuleList: [super::WCHAR; 256],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WER_DUMP_CUSTOM_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
-    pub dwSize: u32,
-    pub dwMask: u32,
-    pub dwDumpFlags: u32,
+    pub dwSize: super::DWORD,
+    pub dwMask: super::DWORD,
+    pub dwDumpFlags: super::DWORD,
     pub bOnlyThisThread: windows_core::BOOL,
-    pub dwExceptionThreadFlags: u32,
-    pub dwOtherThreadFlags: u32,
-    pub dwExceptionThreadExFlags: u32,
-    pub dwOtherThreadExFlags: u32,
-    pub dwPreferredModuleFlags: u32,
-    pub dwOtherModuleFlags: u32,
-    pub wzPreferredModuleList: [u16; 256],
-    pub dwPreferredModuleResetFlags: u32,
-    pub dwOtherModuleResetFlags: u32,
+    pub dwExceptionThreadFlags: super::DWORD,
+    pub dwOtherThreadFlags: super::DWORD,
+    pub dwExceptionThreadExFlags: super::DWORD,
+    pub dwOtherThreadExFlags: super::DWORD,
+    pub dwPreferredModuleFlags: super::DWORD,
+    pub dwOtherModuleFlags: super::DWORD,
+    pub wzPreferredModuleList: [super::WCHAR; 256],
+    pub dwPreferredModuleResetFlags: super::DWORD,
+    pub dwOtherModuleResetFlags: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
-    pub dwSize: u32,
-    pub dwMask: u32,
-    pub dwDumpFlags: u32,
+    pub dwSize: super::DWORD,
+    pub dwMask: super::DWORD,
+    pub dwDumpFlags: super::DWORD,
     pub bOnlyThisThread: windows_core::BOOL,
-    pub dwExceptionThreadFlags: u32,
-    pub dwOtherThreadFlags: u32,
-    pub dwExceptionThreadExFlags: u32,
-    pub dwOtherThreadExFlags: u32,
-    pub dwPreferredModuleFlags: u32,
-    pub dwOtherModuleFlags: u32,
-    pub wzPreferredModuleList: [u16; 256],
-    pub dwPreferredModuleResetFlags: u32,
-    pub dwOtherModuleResetFlags: u32,
-    pub pvDumpKey: *mut core::ffi::c_void,
+    pub dwExceptionThreadFlags: super::DWORD,
+    pub dwOtherThreadFlags: super::DWORD,
+    pub dwExceptionThreadExFlags: super::DWORD,
+    pub dwOtherThreadExFlags: super::DWORD,
+    pub dwPreferredModuleFlags: super::DWORD,
+    pub dwOtherModuleFlags: super::DWORD,
+    pub wzPreferredModuleList: [super::WCHAR; 256],
+    pub dwPreferredModuleResetFlags: super::DWORD,
+    pub dwOtherModuleResetFlags: super::DWORD,
+    pub pvDumpKey: super::PVOID,
     pub hSnapshot: super::HANDLE,
-    pub dwThreadID: u32,
+    pub dwThreadID: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -399,7 +428,7 @@ pub const WER_DUMP_MASK_THREADFLAGS_EX: i32 = 8;
 pub const WER_DUMP_NOHEAP_ONQUEUE: i32 = 1;
 pub type WER_DUMP_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: super::PEXCEPTION_POINTERS,
@@ -457,161 +486,164 @@ pub const WER_P8: i32 = 8;
 pub const WER_P9: i32 = 9;
 pub type WER_REGISTER_FILE_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hProcess: super::HANDLE,
-    pub wzConsentKey: [u16; 64],
-    pub wzFriendlyEventName: [u16; 128],
-    pub wzApplicationName: [u16; 128],
-    pub wzApplicationPath: [u16; 260],
-    pub wzDescription: [u16; 512],
+    pub wzConsentKey: [super::WCHAR; 64],
+    pub wzFriendlyEventName: [super::WCHAR; 128],
+    pub wzApplicationName: [super::WCHAR; 128],
+    pub wzApplicationPath: [super::WCHAR; 260],
+    pub wzDescription: [super::WCHAR; 512],
     pub hwndParent: super::HWND,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION_V3 {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hProcess: super::HANDLE,
-    pub wzConsentKey: [u16; 64],
-    pub wzFriendlyEventName: [u16; 128],
-    pub wzApplicationName: [u16; 128],
-    pub wzApplicationPath: [u16; 260],
-    pub wzDescription: [u16; 512],
+    pub wzConsentKey: [super::WCHAR; 64],
+    pub wzFriendlyEventName: [super::WCHAR; 128],
+    pub wzApplicationName: [super::WCHAR; 128],
+    pub wzApplicationPath: [super::WCHAR; 260],
+    pub wzDescription: [super::WCHAR; 512],
     pub hwndParent: super::HWND,
-    pub wzNamespacePartner: [u16; 64],
-    pub wzNamespaceGroup: [u16; 64],
+    pub wzNamespacePartner: [super::WCHAR; 64],
+    pub wzNamespaceGroup: [super::WCHAR; 64],
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION_V4 {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hProcess: super::HANDLE,
-    pub wzConsentKey: [u16; 64],
-    pub wzFriendlyEventName: [u16; 128],
-    pub wzApplicationName: [u16; 128],
-    pub wzApplicationPath: [u16; 260],
-    pub wzDescription: [u16; 512],
+    pub wzConsentKey: [super::WCHAR; 64],
+    pub wzFriendlyEventName: [super::WCHAR; 128],
+    pub wzApplicationName: [super::WCHAR; 128],
+    pub wzApplicationPath: [super::WCHAR; 260],
+    pub wzDescription: [super::WCHAR; 512],
     pub hwndParent: super::HWND,
-    pub wzNamespacePartner: [u16; 64],
-    pub wzNamespaceGroup: [u16; 64],
-    pub rgbApplicationIdentity: [u8; 16],
+    pub wzNamespacePartner: [super::WCHAR; 64],
+    pub wzNamespaceGroup: [super::WCHAR; 64],
+    pub rgbApplicationIdentity: [super::BYTE; 16],
     pub hSnapshot: super::HANDLE,
     pub hDeleteFilesImpersonationToken: super::HANDLE,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_INFORMATION_V5 {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hProcess: super::HANDLE,
-    pub wzConsentKey: [u16; 64],
-    pub wzFriendlyEventName: [u16; 128],
-    pub wzApplicationName: [u16; 128],
-    pub wzApplicationPath: [u16; 260],
-    pub wzDescription: [u16; 512],
+    pub wzConsentKey: [super::WCHAR; 64],
+    pub wzFriendlyEventName: [super::WCHAR; 128],
+    pub wzApplicationName: [super::WCHAR; 128],
+    pub wzApplicationPath: [super::WCHAR; 260],
+    pub wzDescription: [super::WCHAR; 512],
     pub hwndParent: super::HWND,
-    pub wzNamespacePartner: [u16; 64],
-    pub wzNamespaceGroup: [u16; 64],
-    pub rgbApplicationIdentity: [u8; 16],
+    pub wzNamespacePartner: [super::WCHAR; 64],
+    pub wzNamespaceGroup: [super::WCHAR; 64],
+    pub rgbApplicationIdentity: [super::BYTE; 16],
     pub hSnapshot: super::HANDLE,
     pub hDeleteFilesImpersonationToken: super::HANDLE,
     pub submitResultMax: WER_SUBMIT_RESULT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for WER_REPORT_INFORMATION_V5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_core::GUID,
     pub ReportId: windows_core::GUID,
     pub CreationTime: super::FILETIME,
-    pub SizeInBytes: u64,
+    pub SizeInBytes: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_METADATA_V2 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_core::GUID,
     pub ReportId: windows_core::GUID,
     pub CreationTime: super::FILETIME,
-    pub SizeInBytes: u64,
-    pub CabId: [u16; 260],
-    pub ReportStatus: u32,
+    pub SizeInBytes: super::ULONGLONG,
+    pub CabId: [super::WCHAR; 260],
+    pub ReportStatus: super::DWORD,
     pub ReportIntegratorId: windows_core::GUID,
-    pub NumberOfFiles: u32,
-    pub SizeOfFileNames: u32,
-    pub FileNames: *mut u16,
+    pub NumberOfFiles: super::DWORD,
+    pub SizeOfFileNames: super::DWORD,
+    pub FileNames: *mut super::WCHAR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for WER_REPORT_METADATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_METADATA_V3 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_core::GUID,
     pub ReportId: windows_core::GUID,
     pub CreationTime: super::FILETIME,
-    pub SizeInBytes: u64,
-    pub CabId: [u16; 260],
-    pub ReportStatus: u32,
+    pub SizeInBytes: super::ULONGLONG,
+    pub CabId: [super::WCHAR; 260],
+    pub ReportStatus: super::DWORD,
     pub ReportIntegratorId: windows_core::GUID,
-    pub NumberOfFiles: u32,
-    pub SizeOfFileNames: u32,
-    pub FileNames: *mut u16,
-    pub FriendlyEventName: [u16; 128],
-    pub ApplicationName: [u16; 128],
-    pub ApplicationPath: [u16; 260],
-    pub Description: [u16; 512],
-    pub BucketIdString: [u16; 260],
-    pub LegacyBucketId: u64,
+    pub NumberOfFiles: super::DWORD,
+    pub SizeOfFileNames: super::DWORD,
+    pub FileNames: *mut super::WCHAR,
+    pub FriendlyEventName: [super::WCHAR; 128],
+    pub ApplicationName: [super::WCHAR; 128],
+    pub ApplicationPath: [super::WCHAR; 260],
+    pub Description: [super::WCHAR; 512],
+    pub BucketIdString: [super::WCHAR; 260],
+    pub LegacyBucketId: super::ULONGLONG,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for WER_REPORT_METADATA_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "winnt")]
 pub type WER_REPORT_PARAMETER = _WER_REPORT_PARAMETER;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WER_REPORT_SIGNATURE {
-    pub EventName: [u16; 65],
+    pub EventName: [super::WCHAR; 65],
     pub Parameters: [WER_REPORT_PARAMETER; 10],
 }
+#[cfg(feature = "winnt")]
 impl Default for WER_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -623,19 +655,19 @@ pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: windows_core::PCSTR = windows_c
 pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: windows_core::PCSTR = windows_core::s!("OutOfProcessExceptionEventCallback");
 pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: windows_core::PCSTR = windows_core::s!("OutOfProcessExceptionEventSignatureCallback");
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub hProcess: super::HANDLE,
     pub hThread: super::HANDLE,
     pub exceptionRecord: super::EXCEPTION_RECORD,
     pub context: super::CONTEXT,
     pub pwszReportId: windows_core::PCWSTR,
     pub bIsFatal: windows_core::BOOL,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -715,11 +747,13 @@ pub const WerUIMax: WER_REPORT_UI = 11;
 pub const WerUIOfflineSolutionCheckText: WER_REPORT_UI = 6;
 pub const WerUIOnlineSolutionCheckText: WER_REPORT_UI = 5;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WER_REPORT_PARAMETER {
-    pub Name: [u16; 129],
-    pub Value: [u16; 260],
+    pub Name: [super::WCHAR; 129],
+    pub Value: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for _WER_REPORT_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1,35 +1,39 @@
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn IsDestinationReachableA<P0>(lpszdestination: P0, lpqocinfo: LPQOCINFO) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_core::PCSTR, lpqocinfo : LPQOCINFO) -> windows_core::BOOL);
-    unsafe { IsDestinationReachableA(lpszdestination.param().abi(), lpqocinfo) }
+    unsafe { IsDestinationReachableA(lpszdestination.param().abi(), lpqocinfo as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: LPQOCINFO) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_core::PCWSTR, lpqocinfo : LPQOCINFO) -> windows_core::BOOL);
-    unsafe { IsDestinationReachableW(lpszdestination.param().abi(), lpqocinfo) }
+    unsafe { IsDestinationReachableW(lpszdestination.param().abi(), lpqocinfo as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: super::LPDWORD) -> windows_core::BOOL {
     windows_core::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : super::LPDWORD) -> windows_core::BOOL);
-    unsafe { IsNetworkAlive(lpdwflags) }
+    unsafe { IsNetworkAlive(lpdwflags as _) }
 }
+#[cfg(feature = "shared")]
 pub type LPQOCINFO = *mut QOCINFO;
 pub const NETWORK_ALIVE_AOL: i32 = 4;
 pub const NETWORK_ALIVE_INTERNET: i32 = 8;
 pub const NETWORK_ALIVE_LAN: i32 = 1;
 pub const NETWORK_ALIVE_WAN: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOCINFO {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwInSpeed: u32,
-    pub dwOutSpeed: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwInSpeed: super::DWORD,
+    pub dwOutSpeed: super::DWORD,
 }

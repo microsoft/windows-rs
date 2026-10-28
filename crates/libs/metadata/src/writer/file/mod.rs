@@ -488,30 +488,50 @@ impl File {
                 self.Type(ty, buffer);
             }
 
-            Type::PtrMut(..) | Type::PtrConst(..) => {
+            Type::PtrMut(..) | Type::PtrConst(..) | Type::Ptr64(..) => {
                 let mut inner = ty;
                 let mut pointers = Vec::new();
-                while let Type::PtrMut(next, count) | Type::PtrConst(next, count) = inner {
-                    let constant = matches!(inner, Type::PtrConst(..));
-                    pointers.extend(std::iter::repeat_n(constant, *count));
-                    inner = next;
+                loop {
+                    match inner {
+                        Type::PtrMut(next, count) | Type::PtrConst(next, count) => {
+                            pointers.extend(std::iter::repeat_n(
+                                (matches!(inner, Type::PtrConst(..)), false),
+                                *count,
+                            ));
+                            inner = next;
+                        }
+                        Type::Ptr64(next, constant) => {
+                            pointers.push((*constant, true));
+                            inner = next;
+                        }
+                        _ => break,
+                    }
                 }
-                let constant = pointers[0];
-                if pointers.iter().all(|value| *value == constant) {
+                let constant = pointers[0].0;
+                let mixed = pointers
+                    .iter()
+                    .any(|(value, fixed)| *fixed || *value != constant);
+                if mixed {
+                    // ECMA-335 II.23.2.12 permits modifiers after each PTR.
+                    for (constant, fixed) in pointers {
+                        buffer.push(ELEMENT_TYPE_PTR);
+                        if fixed {
+                            buffer.push(ELEMENT_TYPE_CMOD_REQD);
+                            let pos =
+                                self.TypeRef("Windows.Win32.Metadata", "NativePointer64Attribute");
+                            buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                        }
+                        if constant {
+                            self.IsConst(buffer);
+                        }
+                    }
+                } else {
                     // Homogeneous runs keep the leading-modifier encoding.
                     if constant {
                         self.IsConst(buffer);
                     }
                     for _ in pointers {
                         buffer.push(ELEMENT_TYPE_PTR);
-                    }
-                } else {
-                    // ECMA-335 II.23.2.12 permits modifiers after each PTR.
-                    for constant in pointers {
-                        buffer.push(ELEMENT_TYPE_PTR);
-                        if constant {
-                            self.IsConst(buffer);
-                        }
                     }
                 }
 

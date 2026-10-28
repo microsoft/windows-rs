@@ -1,7 +1,7 @@
 #[win32]
 mod Test {
-    #[repr(u32)]
     #[flags]
+    #[repr(u32)]
     enum Options {
         None = 0,
         Read = 1,

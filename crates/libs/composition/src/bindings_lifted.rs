@@ -2949,6 +2949,7 @@ impl windows_core::RuntimeName for KeyFrameAnimation {
 }
 unsafe impl Send for KeyFrameAnimation {}
 unsafe impl Sync for KeyFrameAnimation {}
+pub type LONG = i32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LinearEasingFunction(windows_core::IUnknown);
@@ -2984,22 +2985,22 @@ unsafe impl Sync for LinearEasingFunction {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
-    pub x: i32,
-    pub y: i32,
+    pub x: LONG,
+    pub y: LONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: LONG,
+    pub top: LONG,
+    pub right: LONG,
+    pub bottom: LONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIZE {
-    pub cx: i32,
-    pub cy: i32,
+    pub cx: LONG,
+    pub cy: LONG,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

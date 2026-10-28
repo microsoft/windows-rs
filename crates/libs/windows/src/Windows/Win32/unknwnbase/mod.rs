@@ -1,33 +1,37 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IUnknown_AddRef_Proxy<P0>(this: P0) -> u32
+pub unsafe fn IUnknown_AddRef_Proxy<P0>(this: P0) -> super::ULONG
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("rpcrt4.dll" "system" fn IUnknown_AddRef_Proxy(this : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("rpcrt4.dll" "system" fn IUnknown_AddRef_Proxy(this : *mut core::ffi::c_void) -> super::ULONG);
     unsafe { IUnknown_AddRef_Proxy(this.param().abi()) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
 pub unsafe fn IUnknown_QueryInterface_Proxy<P0, T>(this: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     T: windows_core::Interface,
 {
-    windows_core::link!("rpcrt4.dll" "system" fn IUnknown_QueryInterface_Proxy(this : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("rpcrt4.dll" "system" fn IUnknown_QueryInterface_Proxy(this : *mut core::ffi::c_void, riid : *const super::IID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
     unsafe { IUnknown_QueryInterface_Proxy(this.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IUnknown_Release_Proxy<P0>(this: P0) -> u32
+pub unsafe fn IUnknown_Release_Proxy<P0>(this: P0) -> super::ULONG
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("rpcrt4.dll" "system" fn IUnknown_Release_Proxy(this : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("rpcrt4.dll" "system" fn IUnknown_Release_Proxy(this : *mut core::ffi::c_void) -> super::ULONG);
     unsafe { IUnknown_Release_Proxy(this.param().abi()) }
 }
 windows_core::imp::define_interface!(AsyncIUnknown, AsyncIUnknown_Vtbl, 0x000e0000_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(AsyncIUnknown, windows_core::IUnknown);
 impl AsyncIUnknown {
-    pub unsafe fn Begin_QueryInterface(&self, riid: *const windows_core::GUID) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn Begin_QueryInterface(&self, riid: *const super::IID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Begin_QueryInterface)(windows_core::Interface::as_raw(self), riid) }
     }
     pub unsafe fn Finish_QueryInterface(&self, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -36,13 +40,15 @@ impl AsyncIUnknown {
     pub unsafe fn Begin_AddRef(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Begin_AddRef)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Finish_AddRef(&self) -> u32 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Finish_AddRef(&self) -> super::ULONG {
         unsafe { (windows_core::Interface::vtable(self).Finish_AddRef)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Begin_Release(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Begin_Release)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Finish_Release(&self) -> u32 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Finish_Release(&self) -> super::ULONG {
         unsafe { (windows_core::Interface::vtable(self).Finish_Release)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -50,24 +56,35 @@ impl AsyncIUnknown {
 #[doc(hidden)]
 pub struct AsyncIUnknown_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Begin_QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub Begin_QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    Begin_QueryInterface: usize,
     pub Finish_QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Begin_AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Finish_AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "shared")]
+    pub Finish_AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::ULONG,
+    #[cfg(not(feature = "shared"))]
+    Finish_AddRef: usize,
     pub Begin_Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Finish_Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "shared")]
+    pub Finish_Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::ULONG,
+    #[cfg(not(feature = "shared"))]
+    Finish_Release: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait AsyncIUnknown_Impl: windows_core::IUnknownImpl {
-    fn Begin_QueryInterface(&self, riid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn Begin_QueryInterface(&self, riid: *const super::IID) -> windows_core::Result<()>;
     fn Finish_QueryInterface(&self, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Begin_AddRef(&self) -> windows_core::Result<()>;
-    fn Finish_AddRef(&self) -> u32;
+    fn Finish_AddRef(&self) -> super::ULONG;
     fn Begin_Release(&self) -> windows_core::Result<()>;
-    fn Finish_Release(&self) -> u32;
+    fn Finish_Release(&self) -> super::ULONG;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl AsyncIUnknown_Vtbl {
     pub const fn new<Identity: AsyncIUnknown_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_QueryInterface<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_QueryInterface<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIUnknown_Impl::Begin_QueryInterface(this, core::mem::transmute_copy(&riid)).into()
@@ -85,7 +102,7 @@ impl AsyncIUnknown_Vtbl {
                 AsyncIUnknown_Impl::Begin_AddRef(this).into()
             }
         }
-        unsafe extern "system" fn Finish_AddRef<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn Finish_AddRef<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::ULONG {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIUnknown_Impl::Finish_AddRef(this)
@@ -97,7 +114,7 @@ impl AsyncIUnknown_Vtbl {
                 AsyncIUnknown_Impl::Begin_Release(this).into()
             }
         }
-        unsafe extern "system" fn Finish_Release<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn Finish_Release<Identity: AsyncIUnknown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::ULONG {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIUnknown_Impl::Finish_Release(this)
@@ -117,10 +134,12 @@ impl AsyncIUnknown_Vtbl {
         iid == &<AsyncIUnknown as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for AsyncIUnknown {}
 windows_core::imp::define_interface!(IClassFactory, IClassFactory_Vtbl, 0x00000001_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IClassFactory, windows_core::IUnknown);
 impl IClassFactory {
+    #[cfg(feature = "guiddef")]
     pub unsafe fn CreateInstance<P0, T>(&self, punkouter: P0) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -137,16 +156,21 @@ impl IClassFactory {
 #[doc(hidden)]
 pub struct IClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    CreateInstance: usize,
     pub LockServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
+#[cfg(feature = "guiddef")]
 pub trait IClassFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn LockServer(&self, flock: windows_core::BOOL) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IClassFactory_Vtbl {
     pub const fn new<Identity: IClassFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateInstance<Identity: IClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Identity: IClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IClassFactory_Impl::CreateInstance(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
@@ -168,4 +192,7 @@ impl IClassFactory_Vtbl {
         iid == &<IClassFactory as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IClassFactory {}
+pub type LPCLASSFACTORY = IClassFactory;
+pub type LPUNKNOWN = windows_core::IUnknown;

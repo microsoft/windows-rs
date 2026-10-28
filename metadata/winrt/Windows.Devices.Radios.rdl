@@ -2,12 +2,12 @@
 mod Windows {
     mod Devices {
         mod Radios {
-            #[guid(0x252118df_b33e_416a_875f_1cf38ae2d83e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Radio)]
+            #[guid(0x252118df_b33e_416a_875f_1cf38ae2d83e)]
             interface IRadio {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetStateAsync(&self, value: RadioState) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
+                fn SetStateAsync(&self, #[in] value: RadioState) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
                 event StateChanged: super::super::Foundation::TypedEventHandler<Radio, Object>;
                 #[get]
                 State: RadioState;
@@ -16,16 +16,16 @@ mod Windows {
                 #[get]
                 Kind: RadioKind;
             }
-            #[guid(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Radio)]
+            #[guid(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4)]
             interface IRadioStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetRadiosAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Radio>>;
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Radio>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Radio>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
             }
@@ -36,16 +36,16 @@ mod Windows {
             class Radio {
                 IRadio,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum RadioAccessStatus {
                 Unspecified = 0,
                 Allowed = 1,
                 DeniedByUser = 2,
                 DeniedBySystem = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum RadioKind {
                 Other = 0,
                 WiFi = 1,
@@ -53,8 +53,8 @@ mod Windows {
                 Bluetooth = 3,
                 FM = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum RadioState {
                 Unknown = 0,
                 On = 1,

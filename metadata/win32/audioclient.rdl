@@ -11,14 +11,15 @@ mod Windows {
             AMBISONICS_NORMALIZATION_N3D = 1,
         }
         struct AMBISONICS_PARAMS {
-            u32Size: u32,
-            u32Version: u32,
+            u32Size: UINT32,
+            u32Version: UINT32,
             u32Type: AMBISONICS_TYPE,
             u32ChannelOrdering: AMBISONICS_CHANNEL_ORDERING,
             u32Normalization: AMBISONICS_NORMALIZATION,
-            u32Order: u32,
-            u32NumChannels: u32,
-            pu32ChannelMap: *mut u32,
+            u32Order: UINT32,
+            u32NumChannels: UINT32,
+            #[Windows::Win32::Metadata::NativeSal("1", "__field_ecount", "u32NumChannels", "u32NumChannels")]
+            pu32ChannelMap: *mut UINT32,
         }
         const AMBISONICS_PARAM_VERSION_1: i32 = 1;
         #[repr(i32)]
@@ -64,8 +65,8 @@ mod Windows {
         const AUDCLNT_E_THREAD_NOT_REGISTERED: HRESULT = -2004287476;
         const AUDCLNT_E_UNSUPPORTED_FORMAT: HRESULT = -2004287480;
         const AUDCLNT_E_WRONG_ENDPOINT_TYPE: HRESULT = -2004287485;
-        #[repr(u32)]
         #[flags]
+        #[repr(i32)]
         enum AUDCLNT_STREAMOPTIONS {
             AUDCLNT_STREAMOPTIONS_NONE = 0,
             AUDCLNT_STREAMOPTIONS_RAW = 1,
@@ -77,8 +78,8 @@ mod Windows {
         const AUDCLNT_S_POSITION_STALLED: SCODE = 143196163;
         const AUDCLNT_S_THREAD_ALREADY_REGISTERED: SCODE = 143196162;
         const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: i32 = 1;
-        #[repr(u32)]
         #[flags]
+        #[repr(i32)]
         enum AUDIO_DUCKING_OPTIONS {
             AUDIO_DUCKING_OPTIONS_DEFAULT = 0,
             AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS = 1,
@@ -97,72 +98,72 @@ mod Windows {
             tracingContextId: GUID,
         }
         struct AudioClientProperties {
-            cbSize: u32,
+            cbSize: UINT32,
             bIsOffload: BOOL,
             eCategory: AUDIO_STREAM_CATEGORY,
             Options: AUDCLNT_STREAMOPTIONS,
         }
         #[guid(0xf4ae25b5_aaa3_437d_b6b3_dbbe2d0e9549)]
         interface IAcousticEchoCancellationControl: IUnknown {
-            fn SetEchoCancellationRenderEndpoint(&self, endpointId: PCWSTR) -> HRESULT;
+            fn SetEchoCancellationRenderEndpoint(&self, endpointId: LPCWSTR) -> HRESULT;
         }
         #[guid(0x28724c91_df35_4856_9f76_d6a26413f3df)]
         interface IAudioAmbisonicsControl: IUnknown {
-            fn SetData(&self, pAmbisonicsParams: *const AMBISONICS_PARAMS, cbAmbisonicsParams: u32) -> HRESULT;
-            fn SetHeadTracking(&self, bEnableHeadTracking: BOOL) -> HRESULT;
-            fn GetHeadTracking(&self, pbEnableHeadTracking: *mut BOOL) -> HRESULT;
-            fn SetRotation(&self, X: f32, Y: f32, Z: f32, W: f32) -> HRESULT;
+            fn SetData(&self, #[in] #[readable(entry, cbAmbisonicsParams)] pAmbisonicsParams: *const AMBISONICS_PARAMS, #[in] cbAmbisonicsParams: UINT32) -> HRESULT;
+            fn SetHeadTracking(&self, #[in] bEnableHeadTracking: BOOL) -> HRESULT;
+            fn GetHeadTracking(&self, #[out] pbEnableHeadTracking: *mut BOOL) -> HRESULT;
+            fn SetRotation(&self, #[in] X: f32, #[in] Y: f32, #[in] Z: f32, #[in] W: f32) -> HRESULT;
         }
         #[guid(0xc8adbd64_e71e_48a0_a4de_185c395cd317)]
         interface IAudioCaptureClient: IUnknown {
-            fn GetBuffer(&self, ppData: *mut *mut u8, pNumFramesToRead: *mut u32, pdwFlags: *mut u32, #[opt] pu64DevicePosition: *mut u64, #[opt] pu64QPCPosition: *mut u64) -> HRESULT;
-            fn ReleaseBuffer(&self, NumFramesRead: u32) -> HRESULT;
-            fn GetNextPacketSize(&self, pNumFramesInNextPacket: *mut u32) -> HRESULT;
+            fn GetBuffer(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"*pNumFramesToRead * pFormat->nBlockAlign\")", "_Inexpressible_(\"*pNumFramesToRead * pFormat->nBlockAlign\")")] #[out] ppData: *mut *mut BYTE, #[out] pNumFramesToRead: *mut UINT32, #[out] pdwFlags: *mut DWORD, #[opt] #[out] pu64DevicePosition: *mut UINT64, #[opt] #[out] pu64QPCPosition: *mut UINT64) -> HRESULT;
+            fn ReleaseBuffer(&self, #[in] NumFramesRead: UINT32) -> HRESULT;
+            fn GetNextPacketSize(&self, #[out] pNumFramesInNextPacket: *mut UINT32) -> HRESULT;
         }
         #[guid(0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2)]
         interface IAudioClient: IUnknown {
-            fn Initialize(&self, ShareMode: AUDCLNT_SHAREMODE, StreamFlags: u32, hnsBufferDuration: REFERENCE_TIME, hnsPeriodicity: REFERENCE_TIME, pFormat: *const WAVEFORMATEX, #[opt] AudioSessionGuid: LPCGUID) -> HRESULT;
-            fn GetBufferSize(&self, pNumBufferFrames: *mut u32) -> HRESULT;
-            fn GetStreamLatency(&self, phnsLatency: *mut REFERENCE_TIME) -> HRESULT;
-            fn GetCurrentPadding(&self, pNumPaddingFrames: *mut u32) -> HRESULT;
-            fn IsFormatSupported(&self, ShareMode: AUDCLNT_SHAREMODE, pFormat: *const WAVEFORMATEX, #[opt] ppClosestMatch: *mut *mut WAVEFORMATEX) -> HRESULT;
-            fn GetMixFormat(&self, ppDeviceFormat: *mut *mut WAVEFORMATEX) -> HRESULT;
-            fn GetDevicePeriod(&self, #[opt] phnsDefaultDevicePeriod: *mut REFERENCE_TIME, #[opt] phnsMinimumDevicePeriod: *mut REFERENCE_TIME) -> HRESULT;
+            fn Initialize(&self, #[in] ShareMode: AUDCLNT_SHAREMODE, #[in] StreamFlags: DWORD, #[in] hnsBufferDuration: REFERENCE_TIME, #[in] hnsPeriodicity: REFERENCE_TIME, #[in] pFormat: *const WAVEFORMATEX, #[in] #[opt] AudioSessionGuid: LPCGUID) -> HRESULT;
+            fn GetBufferSize(&self, #[out] pNumBufferFrames: *mut UINT32) -> HRESULT;
+            fn GetStreamLatency(&self, #[out] phnsLatency: *mut REFERENCE_TIME) -> HRESULT;
+            fn GetCurrentPadding(&self, #[out] pNumPaddingFrames: *mut UINT32) -> HRESULT;
+            fn IsFormatSupported(&self, #[in] ShareMode: AUDCLNT_SHAREMODE, #[in] pFormat: *const WAVEFORMATEX, #[opt] #[out] ppClosestMatch: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetMixFormat(&self, #[out] ppDeviceFormat: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetDevicePeriod(&self, #[opt] #[out] phnsDefaultDevicePeriod: *mut REFERENCE_TIME, #[opt] #[out] phnsMinimumDevicePeriod: *mut REFERENCE_TIME) -> HRESULT;
             fn Start(&self) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn SetEventHandle(&self, eventHandle: HANDLE) -> HRESULT;
-            fn GetService(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn SetEventHandle(&self, #[in] eventHandle: HANDLE) -> HRESULT;
+            fn GetService(&self, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x726778cd_f60a_4eda_82de_e47610cd78aa)]
         interface IAudioClient2: IAudioClient {
-            fn IsOffloadCapable(&self, Category: AUDIO_STREAM_CATEGORY, pbOffloadCapable: *mut BOOL) -> HRESULT;
-            fn SetClientProperties(&self, pProperties: *const AudioClientProperties) -> HRESULT;
-            fn GetBufferSizeLimits(&self, pFormat: *const WAVEFORMATEX, bEventDriven: BOOL, phnsMinBufferDuration: *mut REFERENCE_TIME, phnsMaxBufferDuration: *mut REFERENCE_TIME) -> HRESULT;
+            fn IsOffloadCapable(&self, #[in] Category: AUDIO_STREAM_CATEGORY, #[out] pbOffloadCapable: *mut BOOL) -> HRESULT;
+            fn SetClientProperties(&self, #[in] pProperties: *const AudioClientProperties) -> HRESULT;
+            fn GetBufferSizeLimits(&self, #[in] pFormat: *const WAVEFORMATEX, #[in] bEventDriven: BOOL, #[out] phnsMinBufferDuration: *mut REFERENCE_TIME, #[out] phnsMaxBufferDuration: *mut REFERENCE_TIME) -> HRESULT;
         }
         #[guid(0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42)]
         interface IAudioClient3: IAudioClient2 {
-            fn GetSharedModeEnginePeriod(&self, pFormat: *const WAVEFORMATEX, pDefaultPeriodInFrames: *mut u32, pFundamentalPeriodInFrames: *mut u32, pMinPeriodInFrames: *mut u32, pMaxPeriodInFrames: *mut u32) -> HRESULT;
-            fn GetCurrentSharedModeEnginePeriod(&self, ppFormat: *mut *mut WAVEFORMATEX, pCurrentPeriodInFrames: *mut u32) -> HRESULT;
-            fn InitializeSharedAudioStream(&self, StreamFlags: u32, PeriodInFrames: u32, pFormat: *const WAVEFORMATEX, #[opt] AudioSessionGuid: LPCGUID) -> HRESULT;
+            fn GetSharedModeEnginePeriod(&self, #[in] pFormat: *const WAVEFORMATEX, #[out] pDefaultPeriodInFrames: *mut UINT32, #[out] pFundamentalPeriodInFrames: *mut UINT32, #[out] pMinPeriodInFrames: *mut UINT32, #[out] pMaxPeriodInFrames: *mut UINT32) -> HRESULT;
+            fn GetCurrentSharedModeEnginePeriod(&self, #[out] ppFormat: *mut *mut WAVEFORMATEX, #[out] pCurrentPeriodInFrames: *mut UINT32) -> HRESULT;
+            fn InitializeSharedAudioStream(&self, #[in] StreamFlags: DWORD, #[in] PeriodInFrames: UINT32, #[in] pFormat: *const WAVEFORMATEX, #[in] #[opt] AudioSessionGuid: LPCGUID) -> HRESULT;
         }
         #[guid(0xc789d381_a28c_4168_b28f_d3a837924dc3)]
         interface IAudioClientDuckingControl: IUnknown {
-            fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> HRESULT;
+            fn SetDuckingOptionsForCurrentStream(&self, #[in] options: AUDIO_DUCKING_OPTIONS) -> HRESULT;
         }
         #[guid(0xcd63314f_3fba_4a1b_812c_ef96358728e7)]
         interface IAudioClock: IUnknown {
-            fn GetFrequency(&self, pu64Frequency: *mut u64) -> HRESULT;
-            fn GetPosition(&self, pu64Position: *mut u64, #[opt] pu64QPCPosition: *mut u64) -> HRESULT;
-            fn GetCharacteristics(&self, pdwCharacteristics: *mut u32) -> HRESULT;
+            fn GetFrequency(&self, #[out] pu64Frequency: *mut UINT64) -> HRESULT;
+            fn GetPosition(&self, #[out] pu64Position: *mut UINT64, #[opt] #[out] pu64QPCPosition: *mut UINT64) -> HRESULT;
+            fn GetCharacteristics(&self, #[out] pdwCharacteristics: *mut DWORD) -> HRESULT;
         }
         #[guid(0x6f49ff73_6727_49ac_a008_d98cf5e70048)]
         interface IAudioClock2: IUnknown {
-            fn GetDevicePosition(&self, DevicePosition: *mut u64, #[opt] QPCPosition: *mut u64) -> HRESULT;
+            fn GetDevicePosition(&self, #[out] DevicePosition: *mut UINT64, #[opt] #[out] QPCPosition: *mut UINT64) -> HRESULT;
         }
         #[guid(0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c)]
         interface IAudioClockAdjustment: IUnknown {
-            fn SetSampleRate(&self, flSampleRate: f32) -> HRESULT;
+            fn SetSampleRate(&self, #[in] flSampleRate: f32) -> HRESULT;
         }
         #[guid(0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6)]
         interface IAudioEffectsChangedNotificationClient: IUnknown {
@@ -170,42 +171,42 @@ mod Windows {
         }
         #[guid(0x4460b3ae_4b44_4527_8676_7548a8acd260)]
         interface IAudioEffectsManager: IUnknown {
-            fn RegisterAudioEffectsChangedNotificationCallback(&self, client: IAudioEffectsChangedNotificationClient) -> HRESULT;
-            fn UnregisterAudioEffectsChangedNotificationCallback(&self, client: IAudioEffectsChangedNotificationClient) -> HRESULT;
-            fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numEffects: *mut u32) -> HRESULT;
-            fn SetAudioEffectState(&self, effectId: GUID, state: AUDIO_EFFECT_STATE) -> HRESULT;
+            fn RegisterAudioEffectsChangedNotificationCallback(&self, #[in] client: IAudioEffectsChangedNotificationClient) -> HRESULT;
+            fn UnregisterAudioEffectsChangedNotificationCallback(&self, #[in] client: IAudioEffectsChangedNotificationClient) -> HRESULT;
+            fn GetAudioEffects(&self, #[out] #[writable(success, *numEffects, indirect, nullable)] effects: *mut *mut AUDIO_EFFECT, #[out] numEffects: *mut UINT32) -> HRESULT;
+            fn SetAudioEffectState(&self, #[in] effectId: GUID, #[in] state: AUDIO_EFFECT_STATE) -> HRESULT;
         }
         #[guid(0xf294acfc_3146_4483_a7bf_addca7c260e2)]
         interface IAudioRenderClient: IUnknown {
-            fn GetBuffer(&self, NumFramesRequested: u32, ppData: *mut *mut u8) -> HRESULT;
-            fn ReleaseBuffer(&self, NumFramesWritten: u32, dwFlags: u32) -> HRESULT;
+            fn GetBuffer(&self, #[in] NumFramesRequested: UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"NumFramesRequested * pFormat->nBlockAlign\")", "_Inexpressible_(\"NumFramesRequested * pFormat->nBlockAlign\")")] #[out] ppData: *mut *mut BYTE) -> HRESULT;
+            fn ReleaseBuffer(&self, #[in] NumFramesWritten: UINT32, #[in] dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0x93014887_242d_4068_8a15_cf5e93b90fe3)]
         interface IAudioStreamVolume: IUnknown {
-            fn GetChannelCount(&self, pdwCount: *mut u32) -> HRESULT;
-            fn SetChannelVolume(&self, dwIndex: u32, fLevel: f32) -> HRESULT;
-            fn GetChannelVolume(&self, dwIndex: u32, pfLevel: *mut f32) -> HRESULT;
-            fn SetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *const f32) -> HRESULT;
-            fn GetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *mut f32) -> HRESULT;
+            fn GetChannelCount(&self, #[out] pdwCount: *mut UINT32) -> HRESULT;
+            fn SetChannelVolume(&self, #[in] dwIndex: UINT32, #[in] fLevel: f32) -> HRESULT;
+            fn GetChannelVolume(&self, #[in] dwIndex: UINT32, #[out] pfLevel: *mut f32) -> HRESULT;
+            fn SetAllVolumes(&self, #[in] dwCount: UINT32, #[in] #[readable(entry, dwCount)] pfVolumes: *const f32) -> HRESULT;
+            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[out] #[writable(entry, dwCount)] pfVolumes: *mut f32) -> HRESULT;
         }
         #[guid(0xa7a7ef10_1f49_45e0_ad35_612057cc8f74)]
         interface IAudioViewManagerService: IUnknown {
-            fn SetAudioStreamWindow(&self, hwnd: HWND) -> HRESULT;
+            fn SetAudioStreamWindow(&self, #[in] hwnd: HWND) -> HRESULT;
         }
         #[guid(0x1c158861_b533_4b30_b1cf_e853e51c59b8)]
         interface IChannelAudioVolume: IUnknown {
-            fn GetChannelCount(&self, pdwCount: *mut u32) -> HRESULT;
-            fn SetChannelVolume(&self, dwIndex: u32, fLevel: f32, EventContext: LPCGUID) -> HRESULT;
-            fn GetChannelVolume(&self, dwIndex: u32, pfLevel: *mut f32) -> HRESULT;
-            fn SetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *const f32, EventContext: LPCGUID) -> HRESULT;
-            fn GetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *mut f32) -> HRESULT;
+            fn GetChannelCount(&self, #[out] pdwCount: *mut UINT32) -> HRESULT;
+            fn SetChannelVolume(&self, #[in] dwIndex: UINT32, #[in] fLevel: f32, #[in] EventContext: LPCGUID) -> HRESULT;
+            fn GetChannelVolume(&self, #[in] dwIndex: UINT32, #[out] pfLevel: *mut f32) -> HRESULT;
+            fn SetAllVolumes(&self, #[in] dwCount: UINT32, #[in] #[readable(entry, dwCount)] pfVolumes: *const f32, #[in] EventContext: LPCGUID) -> HRESULT;
+            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[out] #[writable(entry, dwCount)] pfVolumes: *mut f32) -> HRESULT;
         }
         #[guid(0x87ce5498_68d6_44e5_9215_6da47ef883d8)]
         interface ISimpleAudioVolume: IUnknown {
-            fn SetMasterVolume(&self, fLevel: f32, EventContext: LPCGUID) -> HRESULT;
-            fn GetMasterVolume(&self, pfLevel: *mut f32) -> HRESULT;
-            fn SetMute(&self, bMute: BOOL, EventContext: LPCGUID) -> HRESULT;
-            fn GetMute(&self, pbMute: *mut BOOL) -> HRESULT;
+            fn SetMasterVolume(&self, #[in] fLevel: f32, #[in] EventContext: LPCGUID) -> HRESULT;
+            fn GetMasterVolume(&self, #[out] pfLevel: *mut f32) -> HRESULT;
+            fn SetMute(&self, #[in] bMute: BOOL, #[in] EventContext: LPCGUID) -> HRESULT;
+            fn GetMute(&self, #[out] pbMute: *mut BOOL) -> HRESULT;
         }
         #[repr(i32)]
         enum _AUDCLNT_BUFFERFLAGS {

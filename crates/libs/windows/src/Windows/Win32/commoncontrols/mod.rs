@@ -1,9 +1,10 @@
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn ImageList_CoCreateInstance<P1>(rclsid: *const windows_core::GUID, punkouter: P1, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn ImageList_CoCreateInstance<P1>(rclsid: *const super::IID, punkouter: P1, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const super::IID, punkouter : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { ImageList_CoCreateInstance(rclsid, punkouter.param().abi(), riid, ppv as _) }
 }
 windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
@@ -37,30 +38,32 @@ impl IImageList {
             (windows_core::Interface::vtable(self).AddMasked)(windows_core::Interface::as_raw(self), hbmimage, crmask, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "commctrl", feature = "windef"))]
+    #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub unsafe fn Draw(&self, pimldp: *const super::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pimldp) }
     }
     pub unsafe fn Remove(&self, i: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), i) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> windows_core::Result<super::HICON> {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn GetIcon(&self, i: i32, flags: super::UINT) -> windows_core::Result<super::HICON> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), i, flags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "commctrl", feature = "windef"))]
+    #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut super::IMAGEINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), i, pimageinfo as _) }
     }
-    pub unsafe fn Copy<P1>(&self, idst: i32, punksrc: P1, isrc: i32, uflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn Copy<P1>(&self, idst: i32, punksrc: P1, isrc: i32, uflags: super::UINT) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), idst, punksrc.param().abi(), isrc, uflags) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn Merge<P1, T>(&self, i1: i32, punk2: P1, i2: i32, dx: i32, dy: i32) -> windows_core::Result<T>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -69,6 +72,7 @@ impl IImageList {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), i1, punk2.param().abi(), i2, dx, dy, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn Clone<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -76,7 +80,7 @@ impl IImageList {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetImageRect(&self, i: i32) -> windows_core::Result<super::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -95,7 +99,8 @@ impl IImageList {
             (windows_core::Interface::vtable(self).GetImageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetImageCount(&self, unewcount: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetImageCount(&self, unewcount: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetImageCount)(windows_core::Interface::as_raw(self), unewcount) }
     }
     #[cfg(feature = "windef")]
@@ -138,7 +143,7 @@ impl IImageList {
     pub unsafe fn DragShowNolock(&self, fshow: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragShowNolock)(windows_core::Interface::as_raw(self), fshow.into()) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
     pub unsafe fn GetDragImage<T>(&self, ppt: Option<*mut super::POINT>, ppthotspot: Option<*mut super::POINT>) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -146,7 +151,8 @@ impl IImageList {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetDragImage)(windows_core::Interface::as_raw(self), ppt.unwrap_or(core::mem::zeroed()) as _, ppthotspot.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetItemFlags(&self, i: i32) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetItemFlags(&self, i: i32) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemFlags)(windows_core::Interface::as_raw(self), i, &mut result__).map(|| result__)
@@ -180,30 +186,42 @@ pub struct IImageList_Vtbl {
     pub AddMasked: unsafe extern "system" fn(*mut core::ffi::c_void, super::HBITMAP, super::COLORREF, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     AddMasked: usize,
-    #[cfg(all(feature = "commctrl", feature = "windef"))]
+    #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "commctrl", feature = "windef")))]
+    #[cfg(not(all(feature = "commctrl", feature = "shared", feature = "windef")))]
     Draw: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub GetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut super::HICON) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub GetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::UINT, *mut super::HICON) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetIcon: usize,
-    #[cfg(all(feature = "commctrl", feature = "windef"))]
+    #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::IMAGEINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "commctrl", feature = "windef")))]
+    #[cfg(not(all(feature = "commctrl", feature = "shared", feature = "windef")))]
     GetImageInfo: usize,
-    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
-    pub Merge: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, i32, i32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(feature = "shared")]
+    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Copy: usize,
+    #[cfg(feature = "guiddef")]
+    pub Merge: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, i32, i32, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    Merge: usize,
+    #[cfg(feature = "guiddef")]
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    Clone: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub GetImageRect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetImageRect: usize,
     pub GetIconSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub SetIconSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub GetImageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetImageCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetImageCount: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetImageCount: usize,
     #[cfg(feature = "windef")]
     pub SetBkColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::COLORREF, *mut super::COLORREF) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
@@ -225,14 +243,17 @@ pub struct IImageList_Vtbl {
     pub DragMove: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub SetDragCursorImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub DragShowNolock: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub GetDragImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::POINT, *mut super::POINT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+    pub GetDragImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::POINT, *mut super::POINT, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared", feature = "windef")))]
     GetDragImage: usize,
-    pub GetItemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetItemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetItemFlags: usize,
     pub GetOverlayImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "commctrl", feature = "windef"))]
+#[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn Add(&self, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP) -> windows_core::Result<i32>;
     fn ReplaceIcon(&self, i: i32, hicon: super::HICON) -> windows_core::Result<i32>;
@@ -241,16 +262,16 @@ pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn AddMasked(&self, hbmimage: super::HBITMAP, crmask: super::COLORREF) -> windows_core::Result<i32>;
     fn Draw(&self, pimldp: *const super::IMAGELISTDRAWPARAMS) -> windows_core::Result<()>;
     fn Remove(&self, i: i32) -> windows_core::Result<()>;
-    fn GetIcon(&self, i: i32, flags: u32) -> windows_core::Result<super::HICON>;
+    fn GetIcon(&self, i: i32, flags: super::UINT) -> windows_core::Result<super::HICON>;
     fn GetImageInfo(&self, i: i32, pimageinfo: *mut super::IMAGEINFO) -> windows_core::Result<()>;
-    fn Copy(&self, idst: i32, punksrc: windows_core::Ref<windows_core::IUnknown>, isrc: i32, uflags: u32) -> windows_core::Result<()>;
-    fn Merge(&self, i1: i32, punk2: windows_core::Ref<windows_core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Clone(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Copy(&self, idst: i32, punksrc: windows_core::Ref<windows_core::IUnknown>, isrc: i32, uflags: super::UINT) -> windows_core::Result<()>;
+    fn Merge(&self, i1: i32, punk2: windows_core::Ref<windows_core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Clone(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetImageRect(&self, i: i32) -> windows_core::Result<super::RECT>;
     fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> windows_core::Result<()>;
     fn SetIconSize(&self, cx: i32, cy: i32) -> windows_core::Result<()>;
     fn GetImageCount(&self) -> windows_core::Result<i32>;
-    fn SetImageCount(&self, unewcount: u32) -> windows_core::Result<()>;
+    fn SetImageCount(&self, unewcount: super::UINT) -> windows_core::Result<()>;
     fn SetBkColor(&self, clrbk: super::COLORREF) -> windows_core::Result<super::COLORREF>;
     fn GetBkColor(&self) -> windows_core::Result<super::COLORREF>;
     fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()>;
@@ -260,11 +281,11 @@ pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn DragMove(&self, x: i32, y: i32) -> windows_core::Result<()>;
     fn SetDragCursorImage(&self, punk: windows_core::Ref<windows_core::IUnknown>, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()>;
     fn DragShowNolock(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetDragImage(&self, ppt: *mut super::POINT, ppthotspot: *mut super::POINT, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetItemFlags(&self, i: i32) -> windows_core::Result<u32>;
+    fn GetDragImage(&self, ppt: *mut super::POINT, ppthotspot: *mut super::POINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetItemFlags(&self, i: i32) -> windows_core::Result<super::DWORD>;
     fn GetOverlayImage(&self, ioverlay: i32) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "commctrl", feature = "windef"))]
+#[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 impl IImageList_Vtbl {
     pub const fn new<Identity: IImageList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Add<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP, pi: *mut i32) -> windows_core::HRESULT {
@@ -327,7 +348,7 @@ impl IImageList_Vtbl {
                 IImageList_Impl::Remove(this, core::mem::transmute_copy(&i)).into()
             }
         }
-        unsafe extern "system" fn GetIcon<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, flags: u32, picon: *mut super::HICON) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIcon<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, flags: super::UINT, picon: *mut super::HICON) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImageList_Impl::GetIcon(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&flags)) {
@@ -345,19 +366,19 @@ impl IImageList_Vtbl {
                 IImageList_Impl::GetImageInfo(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&pimageinfo)).into()
             }
         }
-        unsafe extern "system" fn Copy<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idst: i32, punksrc: *mut core::ffi::c_void, isrc: i32, uflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Copy<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idst: i32, punksrc: *mut core::ffi::c_void, isrc: i32, uflags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList_Impl::Copy(this, core::mem::transmute_copy(&idst), core::mem::transmute_copy(&punksrc), core::mem::transmute_copy(&isrc), core::mem::transmute_copy(&uflags)).into()
             }
         }
-        unsafe extern "system" fn Merge<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i1: i32, punk2: *mut core::ffi::c_void, i2: i32, dx: i32, dy: i32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Merge<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i1: i32, punk2: *mut core::ffi::c_void, i2: i32, dx: i32, dy: i32, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList_Impl::Merge(this, core::mem::transmute_copy(&i1), core::mem::transmute_copy(&punk2), core::mem::transmute_copy(&i2), core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList_Impl::Clone(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -399,7 +420,7 @@ impl IImageList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetImageCount<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unewcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetImageCount<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unewcount: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList_Impl::SetImageCount(this, core::mem::transmute_copy(&unewcount)).into()
@@ -471,13 +492,13 @@ impl IImageList_Vtbl {
                 IImageList_Impl::DragShowNolock(this, core::mem::transmute_copy(&fshow)).into()
             }
         }
-        unsafe extern "system" fn GetDragImage<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppt: *mut super::POINT, ppthotspot: *mut super::POINT, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDragImage<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppt: *mut super::POINT, ppthotspot: *mut super::POINT, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList_Impl::GetDragImage(this, core::mem::transmute_copy(&ppt), core::mem::transmute_copy(&ppthotspot), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn GetItemFlags<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, dwflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemFlags<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, dwflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImageList_Impl::GetItemFlags(this, core::mem::transmute_copy(&i)) {
@@ -538,7 +559,7 @@ impl IImageList_Vtbl {
         iid == &<IImageList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "commctrl", feature = "windef"))]
+#[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IImageList {}
 windows_core::imp::define_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 impl core::ops::Deref for IImageList2 {
@@ -552,7 +573,8 @@ impl IImageList2 {
     pub unsafe fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), cxnewiconsize, cynewiconsize) }
     }
-    pub unsafe fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOriginalSize(&self, iimage: i32, dwflags: super::DWORD, pcx: *mut i32, pcy: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOriginalSize)(windows_core::Interface::as_raw(self), iimage, dwflags, pcx as _, pcy as _) }
     }
     pub unsafe fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> windows_core::HRESULT {
@@ -564,6 +586,7 @@ impl IImageList2 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), punk.param().abi()) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetCallback<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -571,30 +594,35 @@ impl IImageList2 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetCallback)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    pub unsafe fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ForceImagePresent(&self, iimage: i32, dwflags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ForceImagePresent)(windows_core::Interface::as_raw(self), iimage, dwflags) }
     }
-    pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DiscardImages)(windows_core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags) }
     }
-    #[cfg(all(feature = "commctrl", feature = "windef"))]
+    #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub unsafe fn PreloadImages(&self, pimldp: *const super::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PreloadImages)(windows_core::Interface::as_raw(self), pimldp) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), pils as _) }
     }
-    pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: u32, cinitial: i32, cgrow: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: super::UINT, cinitial: i32, cgrow: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn Replace2<P3>(&self, i: i32, hbmimage: super::HBITMAP, hbmmask: Option<super::HBITMAP>, punk: P3, dwflags: u32) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn Replace2<P3>(&self, i: i32, hbmimage: super::HBITMAP, hbmmask: Option<super::HBITMAP>, punk: P3, dwflags: super::DWORD) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).Replace2)(windows_core::Interface::as_raw(self), i, hbmimage, hbmmask.unwrap_or(core::mem::zeroed()) as _, punk.param().abi(), dwflags) }
     }
-    pub unsafe fn ReplaceFromImageList<P1, P3>(&self, i: i32, pil: P1, isrc: i32, punk: P3, dwflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReplaceFromImageList<P1, P3>(&self, i: i32, pil: P1, isrc: i32, punk: P3, dwflags: super::DWORD) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IImageList>,
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -607,40 +635,61 @@ impl IImageList2 {
 pub struct IImageList2_Vtbl {
     pub base__: IImageList_Vtbl,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    pub GetOriginalSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetOriginalSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::DWORD, *mut i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOriginalSize: usize,
     pub SetOriginalSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub SetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ForceImagePresent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
-    pub DiscardImages: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "commctrl", feature = "windef"))]
+    #[cfg(feature = "guiddef")]
+    pub GetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetCallback: usize,
+    #[cfg(feature = "shared")]
+    pub ForceImagePresent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ForceImagePresent: usize,
+    #[cfg(feature = "shared")]
+    pub DiscardImages: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    DiscardImages: usize,
+    #[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
     pub PreloadImages: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IMAGELISTDRAWPARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "commctrl", feature = "windef")))]
+    #[cfg(not(all(feature = "commctrl", feature = "shared", feature = "windef")))]
     PreloadImages: usize,
+    #[cfg(feature = "shared")]
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMAGELISTSTATS) -> windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub Replace2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::HBITMAP, super::HBITMAP, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(feature = "shared"))]
+    GetStatistics: usize,
+    #[cfg(feature = "shared")]
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::UINT, i32, i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Initialize: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub Replace2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::HBITMAP, super::HBITMAP, *mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     Replace2: usize,
-    pub ReplaceFromImageList: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ReplaceFromImageList: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReplaceFromImageList: usize,
 }
-#[cfg(all(feature = "commctrl", feature = "windef"))]
+#[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait IImageList2_Impl: IImageList_Impl {
     fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::Result<()>;
-    fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()>;
+    fn GetOriginalSize(&self, iimage: i32, dwflags: super::DWORD, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()>;
     fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> windows_core::Result<()>;
     fn SetCallback(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetCallback(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> windows_core::Result<()>;
-    fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> windows_core::Result<()>;
+    fn GetCallback(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ForceImagePresent(&self, iimage: i32, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn PreloadImages(&self, pimldp: *const super::IMAGELISTDRAWPARAMS) -> windows_core::Result<()>;
     fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> windows_core::Result<()>;
-    fn Initialize(&self, cx: i32, cy: i32, flags: u32, cinitial: i32, cgrow: i32) -> windows_core::Result<()>;
-    fn Replace2(&self, i: i32, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
-    fn ReplaceFromImageList(&self, i: i32, pil: windows_core::Ref<IImageList>, isrc: i32, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, cx: i32, cy: i32, flags: super::UINT, cinitial: i32, cgrow: i32) -> windows_core::Result<()>;
+    fn Replace2(&self, i: i32, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn ReplaceFromImageList(&self, i: i32, pil: windows_core::Ref<IImageList>, isrc: i32, punk: windows_core::Ref<windows_core::IUnknown>, dwflags: super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "commctrl", feature = "windef"))]
+#[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 impl IImageList2_Vtbl {
     pub const fn new<Identity: IImageList2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Resize<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::HRESULT {
@@ -649,7 +698,7 @@ impl IImageList2_Vtbl {
                 IImageList2_Impl::Resize(this, core::mem::transmute_copy(&cxnewiconsize), core::mem::transmute_copy(&cynewiconsize)).into()
             }
         }
-        unsafe extern "system" fn GetOriginalSize<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOriginalSize<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iimage: i32, dwflags: super::DWORD, pcx: *mut i32, pcy: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList2_Impl::GetOriginalSize(this, core::mem::transmute_copy(&iimage), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pcx), core::mem::transmute_copy(&pcy)).into()
@@ -667,19 +716,19 @@ impl IImageList2_Vtbl {
                 IImageList2_Impl::SetCallback(this, core::mem::transmute_copy(&punk)).into()
             }
         }
-        unsafe extern "system" fn GetCallback<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCallback<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList2_Impl::GetCallback(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn ForceImagePresent<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iimage: i32, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ForceImagePresent<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iimage: i32, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList2_Impl::ForceImagePresent(this, core::mem::transmute_copy(&iimage), core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn DiscardImages<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DiscardImages<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifirstimage: i32, ilastimage: i32, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList2_Impl::DiscardImages(this, core::mem::transmute_copy(&ifirstimage), core::mem::transmute_copy(&ilastimage), core::mem::transmute_copy(&dwflags)).into()
@@ -697,19 +746,19 @@ impl IImageList2_Vtbl {
                 IImageList2_Impl::GetStatistics(this, core::mem::transmute_copy(&pils)).into()
             }
         }
-        unsafe extern "system" fn Initialize<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cx: i32, cy: i32, flags: u32, cinitial: i32, cgrow: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cx: i32, cy: i32, flags: super::UINT, cinitial: i32, cgrow: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList2_Impl::Initialize(this, core::mem::transmute_copy(&cx), core::mem::transmute_copy(&cy), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&cinitial), core::mem::transmute_copy(&cgrow)).into()
             }
         }
-        unsafe extern "system" fn Replace2<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP, punk: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Replace2<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, hbmimage: super::HBITMAP, hbmmask: super::HBITMAP, punk: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList2_Impl::Replace2(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&hbmmask), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn ReplaceFromImageList<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, pil: *mut core::ffi::c_void, isrc: i32, punk: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReplaceFromImageList<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, i: i32, pil: *mut core::ffi::c_void, isrc: i32, punk: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList2_Impl::ReplaceFromImageList(this, core::mem::transmute_copy(&i), core::mem::transmute_copy(&pil), core::mem::transmute_copy(&isrc), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&dwflags)).into()
@@ -735,7 +784,7 @@ impl IImageList2_Vtbl {
         iid == &<IImageList2 as windows_core::Interface>::IID || iid == &<IImageList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "commctrl", feature = "windef"))]
+#[cfg(all(feature = "commctrl", feature = "guiddef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IImageList2 {}
 pub const ILDI_PURGE: i32 = 1;
 pub const ILDI_QUERYACCESS: i32 = 8;
@@ -759,9 +808,10 @@ pub const ILR_VERTICAL_BOTTOM: i32 = 32;
 pub const ILR_VERTICAL_CENTER: i32 = 16;
 pub const ILR_VERTICAL_TOP: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGELISTSTATS {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub cAlloc: i32,
     pub cUsed: i32,
     pub cStandby: i32,

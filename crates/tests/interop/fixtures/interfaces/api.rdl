@@ -4,6 +4,7 @@ use Windows::Foundation::Metadata::*;
 mod Interfaces {
     // A non-default interface of `Widget`, the default interface of `Square`, and implemented by
     // the clients.
+    #[guid(auto)]
     interface IShape {
         fn Area(&self) -> i32;
     }
@@ -22,8 +23,9 @@ mod Interfaces {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Returns `shape`, so clients get back the object they passed.
-        fn Echo(&self, shape: IShape) -> IShape;
+        fn Echo(&self, #[in] shape: IShape) -> IShape;
     }
 }

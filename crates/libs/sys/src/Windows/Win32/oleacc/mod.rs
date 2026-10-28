@@ -1,30 +1,35 @@
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::HWND, hwndtarget : super::HWND, pttarget : super::POINT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::HWND, dwutilitystatemask : u32, dwutilitystate : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : *mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::VARIANT, pcobtained : *mut i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::HWND, dwid : u32, dwchildid : u32, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::HWND, dwutilitystatemask : super::DWORD, dwutilitystate : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : *mut core::ffi::c_void, ichildstart : super::LONG, cchildren : super::LONG, rgvarchildren : *mut super::VARIANT, pcobtained : *mut super::LONG) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::HWND, dwid : super::DWORD, dwchildid : super::DWORD, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::POINT, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::HWND, dwid : u32, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::HWND, idobject : i32, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::HWND, pclassname : windows_sys::core::PCSTR, idobject : i32, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::HWND, pclassname : windows_sys::core::PCWSTR, idobject : i32, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("oleacc.dll" "system" fn GetOleaccVersionInfo(pver : *mut u32, pbuild : *mut u32));
-windows_link::link!("oleacc.dll" "system" fn GetRoleTextA(lrole : u32, lpszrole : windows_sys::core::PSTR, cchrolemax : u32) -> u32);
-windows_link::link!("oleacc.dll" "system" fn GetRoleTextW(lrole : u32, lpszrole : windows_sys::core::PWSTR, cchrolemax : u32) -> u32);
-windows_link::link!("oleacc.dll" "system" fn GetStateTextA(lstatebit : u32, lpszstate : windows_sys::core::PSTR, cchstate : u32) -> u32);
-windows_link::link!("oleacc.dll" "system" fn GetStateTextW(lstatebit : u32, lpszstate : windows_sys::core::PWSTR, cchstate : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("oleacc.dll" "system" fn LresultFromObject(riid : *const windows_sys::core::GUID, wparam : super::WPARAM, punk : *mut core::ffi::c_void) -> super::LRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::LRESULT, riid : *const windows_sys::core::GUID, wparam : super::WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::HWND, dwid : super::DWORD, riid : *const super::IID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::HWND, idobject : super::LONG, riid : *const super::IID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::HWND, pclassname : windows_sys::core::PCSTR, idobject : super::LONG, riid : *const super::IID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::HWND, pclassname : windows_sys::core::PCWSTR, idobject : super::LONG, riid : *const super::IID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("oleacc.dll" "system" fn GetOleaccVersionInfo(pver : *mut super::DWORD, pbuild : *mut super::DWORD));
+#[cfg(feature = "shared")]
+windows_link::link!("oleacc.dll" "system" fn GetRoleTextA(lrole : super::DWORD, lpszrole : windows_sys::core::PSTR, cchrolemax : super::UINT) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("oleacc.dll" "system" fn GetRoleTextW(lrole : super::DWORD, lpszrole : windows_sys::core::PWSTR, cchrolemax : super::UINT) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("oleacc.dll" "system" fn GetStateTextA(lstatebit : super::DWORD, lpszstate : windows_sys::core::PSTR, cchstate : super::UINT) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("oleacc.dll" "system" fn GetStateTextW(lstatebit : super::DWORD, lpszstate : windows_sys::core::PWSTR, cchstate : super::UINT) -> super::UINT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "unknwnbase"))]
+windows_link::link!("oleacc.dll" "system" fn LresultFromObject(riid : *const super::IID, wparam : super::WPARAM, punk : super::LPUNKNOWN) -> super::LRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::LRESULT, riid : *const super::IID, wparam : super::WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "oaidl", feature = "windef"))]
 windows_link::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : *mut core::ffi::c_void, phwnd : *mut super::HWND) -> windows_sys::core::HRESULT);
 pub const ANNO_CONTAINER: AnnoScope = 1;
@@ -56,28 +61,39 @@ pub const DISPID_ACC_SELECT: i32 = -5014;
 pub const DISPID_ACC_SELECTION: i32 = -5012;
 pub const DISPID_ACC_STATE: i32 = -5007;
 pub const DISPID_ACC_VALUE: i32 = -5004;
+pub const IID_IAccIdentity: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f);
 pub const IID_IAccPropMgrInternal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2bd370a9_3e7f_4edd_8a85_f8fed1f8e51f);
+pub const IID_IAccPropServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0);
+pub const IID_IAccPropServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e26e776_04f0_495d_80e4_3330352e3169);
+pub const IID_IAccessible: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x618736e0_3c3d_11cf_810c_00aa00389b71);
+pub const IID_IAccessibleHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03022430_abc4_11d0_bde2_00aa001a1953);
 pub const IIS_ControlAccessible: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38c682a6_9731_43f2_9fae_e901e641b101);
 pub const IIS_IsOleaccProxy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x902697fa_80e4_4560_802a_a13f22a64709);
 pub const LIBID_Accessibility: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: *mut core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::VARIANT, pcobtained: *mut i32) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(feature = "oaidl")]
+pub type LPACCESSIBLE = *mut core::ffi::c_void;
+pub type LPACCESSIBLEHANDLER = *mut core::ffi::c_void;
+pub type LPACCESSIBLEWINDOWLESSSITE = *mut core::ffi::c_void;
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: *mut core::ffi::c_void, ichildstart: super::LONG, cchildren: super::LONG, rgvarchildren: *mut super::VARIANT, pcobtained: *mut super::LONG) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::POINT, ppacc: *mut *mut core::ffi::c_void, pvarchild: *mut super::VARIANT) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "windef")]
-pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::HWND, dwid: u32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "windef")]
-pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: super::HWND, idobject: i32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "minwindef")]
-pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_sys::core::GUID, wparam: super::WPARAM, punk: *mut core::ffi::c_void) -> super::LRESULT>;
-#[cfg(feature = "minwindef")]
-pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::LRESULT, riid: *const windows_sys::core::GUID, wparam: super::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::HWND, dwid: super::DWORD, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: super::HWND, idobject: super::LONG, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "unknwnbase"))]
+pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const super::IID, wparam: super::WPARAM, punk: super::LPUNKNOWN) -> super::LRESULT>;
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::LRESULT, riid: *const super::IID, wparam: super::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "shared")]
 pub type LPMSAAMENUINFO = *mut MSAAMENUINFO;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MSAAMENUINFO {
-    pub dwMSAASignature: u32,
-    pub cchWText: u32,
+    pub dwMSAASignature: super::DWORD,
+    pub cchWText: super::DWORD,
     pub pszWText: windows_sys::core::PWSTR,
 }
 pub type MSAAPROPID = windows_sys::core::GUID;

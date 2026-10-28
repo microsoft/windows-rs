@@ -11,13 +11,13 @@ mod Windows {
         type LPSERVICE_INFO_1 = *mut SERVICE_INFO_1;
         type LPSERVICE_INFO_2 = *mut SERVICE_INFO_2;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceControl(#[opt] servername: PCWSTR, service: PCWSTR, opcode: u32, arg: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetServiceControl(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] opcode: DWORD, #[in] arg: DWORD, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
+        extern fn NetServiceEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(entriesread)", "_Inexpressible_(entriesread)")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceGetInfo(#[opt] servername: PCWSTR, service: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetServiceGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] level: DWORD, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceInstall(#[opt] servername: PCWSTR, service: PCWSTR, argc: u32, #[len_param(2)] #[in] argv: *mut PCWSTR, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetServiceInstall(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] argc: DWORD, #[in] #[readable(entry, argc)] argv: *mut LPCWSTR, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
         type PSERVICE_INFO_0 = *mut SERVICE_INFO_0;
         type PSERVICE_INFO_1 = *mut SERVICE_INFO_1;
         type PSERVICE_INFO_2 = *mut SERVICE_INFO_2;
@@ -37,22 +37,22 @@ mod Windows {
         #[encoding("utf-16")]
         const SERVICE_DOS_ENCRYPTION: String = "ENCRYPT";
         struct SERVICE_INFO_0 {
-            svci0_name: PWSTR,
+            svci0_name: LPWSTR,
         }
         struct SERVICE_INFO_1 {
-            svci1_name: PWSTR,
-            svci1_status: u32,
-            svci1_code: u32,
-            svci1_pid: u32,
+            svci1_name: LPWSTR,
+            svci1_status: DWORD,
+            svci1_code: DWORD,
+            svci1_pid: DWORD,
         }
         struct SERVICE_INFO_2 {
-            svci2_name: PWSTR,
-            svci2_status: u32,
-            svci2_code: u32,
-            svci2_pid: u32,
-            svci2_text: PWSTR,
-            svci2_specific_error: u32,
-            svci2_display_name: PWSTR,
+            svci2_name: LPWSTR,
+            svci2_status: DWORD,
+            svci2_code: DWORD,
+            svci2_pid: DWORD,
+            svci2_text: LPWSTR,
+            svci2_specific_error: DWORD,
+            svci2_display_name: LPWSTR,
         }
         const SERVICE_INSTALLED: i32 = 3;
         const SERVICE_INSTALL_PENDING: i32 = 1;

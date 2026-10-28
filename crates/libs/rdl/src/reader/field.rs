@@ -10,7 +10,8 @@ pub struct Field {
 
 #[derive(Debug, Clone)]
 pub struct BitfieldMember {
-    pub name: Option<syn::Ident>,
+    pub name: Option<String>,
+    pub ty: Option<syn::Type>,
     pub width: u32,
 }
 
@@ -88,13 +89,26 @@ impl syn::parse::Parse for BitfieldMember {
         let name = if input.peek(syn::Token![_]) {
             input.parse::<syn::Token![_]>()?;
             None
+        } else if input.peek(syn::LitStr) {
+            Some(input.parse::<syn::LitStr>()?.value())
         } else {
-            Some(input.parse::<syn::Ident>()?)
+            Some(input.parse::<syn::Ident>()?.unraw_to_string())
         };
         input.parse::<syn::Token![:]>()?;
+        let ty = if input.peek(syn::LitInt) {
+            None
+        } else {
+            if name.is_none() {
+                return Err(input.error("anonymous bitfield padding cannot have a member type"));
+            }
+            let ty = input.parse()?;
+            input.parse::<syn::Token![:]>()?;
+            Some(ty)
+        };
         let width: syn::LitInt = input.parse()?;
         Ok(Self {
             name,
+            ty,
             width: width.base10_parse()?,
         })
     }

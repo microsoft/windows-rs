@@ -40,8 +40,8 @@ mod Windows {
             class GlobalSystemMediaTransportControlsSessionPlaybackInfo {
                 IGlobalSystemMediaTransportControlsSessionPlaybackInfo,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[repr(i32)]
             enum GlobalSystemMediaTransportControlsSessionPlaybackStatus {
                 Closed = 0,
                 Opened = 1,
@@ -58,10 +58,11 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CurrentSessionChangedEventArgs)]
+            #[guid(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1)]
             interface ICurrentSessionChangedEventArgs {}
-            #[guid(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSession)]
+            #[guid(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8)]
             interface IGlobalSystemMediaTransportControlsSession {
                 #[get]
                 SourceAppUserModelId: String;
@@ -92,36 +93,36 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryTogglePlayPauseAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangeAutoRepeatModeAsync(&self, requestedAutoRepeatMode: super::MediaPlaybackAutoRepeatMode) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangeAutoRepeatModeAsync(&self, #[in] requestedAutoRepeatMode: super::MediaPlaybackAutoRepeatMode) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangePlaybackRateAsync(&self, requestedPlaybackRate: f64) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangePlaybackRateAsync(&self, #[in] requestedPlaybackRate: f64) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangeShuffleActiveAsync(&self, requestedShuffleState: bool) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangeShuffleActiveAsync(&self, #[in] requestedShuffleState: bool) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangePlaybackPositionAsync(&self, requestedPlaybackPosition: i64) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangePlaybackPositionAsync(&self, #[in] requestedPlaybackPosition: i64) -> super::super::Foundation::IAsyncOperation<bool>;
                 event TimelinePropertiesChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs>;
                 event PlaybackInfoChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs>;
                 event MediaPropertiesChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>;
             }
-            #[guid(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSessionManager)]
+            #[guid(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49)]
             interface IGlobalSystemMediaTransportControlsSessionManager {
                 fn GetCurrentSession(&self) -> GlobalSystemMediaTransportControlsSession;
                 fn GetSessions(&self) -> super::super::Foundation::Collections::IVectorView<GlobalSystemMediaTransportControlsSession>;
                 event CurrentSessionChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs>;
                 event SessionsChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs>;
             }
-            #[guid(0x2050c4ee_11a0_57de_aed7_c97c70338245)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSessionManager)]
+            #[guid(0x2050c4ee_11a0_57de_aed7_c97c70338245)]
             interface IGlobalSystemMediaTransportControlsSessionManagerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAsync(&self) -> super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>;
             }
-            #[guid(0x68856cf6_adb4_54b2_ac16_05837907acb6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSessionMediaProperties)]
+            #[guid(0x68856cf6_adb4_54b2_ac16_05837907acb6)]
             interface IGlobalSystemMediaTransportControlsSessionMediaProperties {
                 #[get]
                 Title: String;
@@ -144,9 +145,9 @@ mod Windows {
                 #[get]
                 Thumbnail: super::super::Storage::Streams::IRandomAccessStreamReference;
             }
-            #[guid(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSessionPlaybackControls)]
+            #[guid(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03)]
             interface IGlobalSystemMediaTransportControlsSessionPlaybackControls {
                 #[get]
                 IsPlayEnabled: bool;
@@ -179,9 +180,9 @@ mod Windows {
                 #[get]
                 IsPlaybackPositionEnabled: bool;
             }
-            #[guid(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSessionPlaybackInfo)]
+            #[guid(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127)]
             interface IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
                 #[get]
                 Controls: GlobalSystemMediaTransportControlsSessionPlaybackControls;
@@ -196,9 +197,9 @@ mod Windows {
                 #[get]
                 IsShuffleActive: super::super::Foundation::IReference<bool>;
             }
-            #[guid(0xede34136_6f25_588d_8ecf_ea5b6735aaa5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSessionTimelineProperties)]
+            #[guid(0xede34136_6f25_588d_8ecf_ea5b6735aaa5)]
             interface IGlobalSystemMediaTransportControlsSessionTimelineProperties {
                 #[get]
                 StartTime: super::super::Foundation::TimeSpan;
@@ -215,15 +216,19 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPropertiesChangedEventArgs)]
+            #[guid(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678)]
             interface IMediaPropertiesChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackInfoChangedEventArgs)]
+            #[guid(0x786756c2_bc0d_50a5_8807_054291fef139)]
             interface IPlaybackInfoChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SessionsChangedEventArgs)]
+            #[guid(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0)]
             interface ISessionsChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimelinePropertiesChangedEventArgs)]
+            #[guid(0x29033a2f_c923_5a77_bcaf_055ff415ad32)]
             interface ITimelinePropertiesChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]

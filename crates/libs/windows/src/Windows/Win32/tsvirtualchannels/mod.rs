@@ -1,16 +1,30 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BITMAP_RENDERER_STATISTICS {
-    pub dwFramesDelivered: u32,
-    pub dwFramesDropped: u32,
+    pub dwFramesDelivered: super::DWORD,
+    pub dwFramesDropped: super::DWORD,
 }
 pub const Desktop: RdpSessionType = 0;
 pub const E_DUPLICATE_WINDOW_HINT: windows_core::HRESULT = windows_core::HRESULT(0x800700B7_u32 as _);
 pub const E_MAPPEDRENDERER_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0x8007139F_u32 as _);
+pub const IID_IWTSBitmapRenderService: windows_core::GUID = windows_core::GUID::from_u128(0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
+pub const IID_IWTSBitmapRenderer: windows_core::GUID = windows_core::GUID::from_u128(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1);
+pub const IID_IWTSBitmapRendererCallback: windows_core::GUID = windows_core::GUID::from_u128(0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353);
+pub const IID_IWTSListener: windows_core::GUID = windows_core::GUID::from_u128(0xa1230206_9a39_4d58_8674_cdb4dff4e73b);
+pub const IID_IWTSListenerCallback: windows_core::GUID = windows_core::GUID::from_u128(0xa1230203_d6a7_11d8_b9fd_000bdbd1f198);
+pub const IID_IWTSPlugin: windows_core::GUID = windows_core::GUID::from_u128(0xa1230201_1439_4e62_a414_190d0ac3d40e);
+pub const IID_IWTSPluginServiceProvider: windows_core::GUID = windows_core::GUID::from_u128(0xd3e07363_087c_476c_86a7_dbb15f46ddb4);
+pub const IID_IWTSVirtualChannel: windows_core::GUID = windows_core::GUID::from_u128(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198);
+pub const IID_IWTSVirtualChannelCallback: windows_core::GUID = windows_core::GUID::from_u128(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198);
+pub const IID_IWTSVirtualChannelManager: windows_core::GUID = windows_core::GUID::from_u128(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198);
+pub const IID_IWTSWindowChangedCallback: windows_core::GUID = windows_core::GUID::from_u128(0xe8a47fd3_1af5_4d7f_8e15_515ccae1c00c);
+pub const IID_IWTSWindowInfoService: windows_core::GUID = windows_core::GUID::from_u128(0x2a002c7b_0120_4d04_bfb1_3c73110c8581);
 windows_core::imp::define_interface!(IWTSBitmapRenderService, IWTSBitmapRenderService_Vtbl, 0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, windows_core::IUnknown);
 impl IWTSBitmapRenderService {
-    pub unsafe fn GetMappedRenderer<P1>(&self, mappingid: u64, pmappedrenderercallback: P1) -> windows_core::Result<IWTSBitmapRenderer>
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMappedRenderer<P1>(&self, mappingid: super::UINT64, pmappedrenderercallback: P1) -> windows_core::Result<IWTSBitmapRenderer>
     where
         P1: windows_core::Param<IWTSBitmapRendererCallback>,
     {
@@ -24,14 +38,19 @@ impl IWTSBitmapRenderService {
 #[doc(hidden)]
 pub struct IWTSBitmapRenderService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetMappedRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMappedRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMappedRenderer: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IWTSBitmapRenderService_Impl: windows_core::IUnknownImpl {
-    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: windows_core::Ref<IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
+    fn GetMappedRenderer(&self, mappingid: super::UINT64, pmappedrenderercallback: windows_core::Ref<IWTSBitmapRendererCallback>) -> windows_core::Result<IWTSBitmapRenderer>;
 }
+#[cfg(feature = "shared")]
 impl IWTSBitmapRenderService_Vtbl {
     pub const fn new<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMappedRenderer<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappingid: u64, pmappedrenderercallback: *mut core::ffi::c_void, ppmappedrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMappedRenderer<Identity: IWTSBitmapRenderService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappingid: super::UINT64, pmappedrenderercallback: *mut core::ffi::c_void, ppmappedrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSBitmapRenderService_Impl::GetMappedRenderer(this, core::mem::transmute_copy(&mappingid), core::mem::transmute_copy(&pmappedrenderercallback)) {
@@ -49,13 +68,16 @@ impl IWTSBitmapRenderService_Vtbl {
         iid == &<IWTSBitmapRenderService as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWTSBitmapRenderService {}
 windows_core::imp::define_interface!(IWTSBitmapRenderer, IWTSBitmapRenderer_Vtbl, 0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1);
 windows_core::imp::interface_hierarchy!(IWTSBitmapRenderer, windows_core::IUnknown);
 impl IWTSBitmapRenderer {
-    pub unsafe fn Render(&self, imageformat: windows_core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), imageformat, dwwidth, dwheight, cbstride, cbimagebuffer, pimagebuffer) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn Render(&self, imageformat: windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, pimagebuffer: &[super::BYTE]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Render)(windows_core::Interface::as_raw(self), imageformat, dwwidth, dwheight, cbstride, pimagebuffer.len().try_into().unwrap(), pimagebuffer.as_ptr()) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetRendererStatistics(&self) -> windows_core::Result<BITMAP_RENDERER_STATISTICS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -70,18 +92,26 @@ impl IWTSBitmapRenderer {
 #[doc(hidden)]
 pub struct IWTSBitmapRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Render: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32, u32, i32, u32, *const u8) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Render: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, super::DWORD, super::DWORD, super::LONG, super::DWORD, *const super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Render: usize,
+    #[cfg(feature = "shared")]
     pub GetRendererStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BITMAP_RENDERER_STATISTICS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRendererStatistics: usize,
     pub RemoveMapping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IWTSBitmapRenderer_Impl: windows_core::IUnknownImpl {
-    fn Render(&self, imageformat: &windows_core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> windows_core::Result<()>;
+    fn Render(&self, imageformat: &windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::Result<()>;
     fn GetRendererStatistics(&self) -> windows_core::Result<BITMAP_RENDERER_STATISTICS>;
     fn RemoveMapping(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWTSBitmapRenderer_Vtbl {
     pub const fn new<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Render<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageformat: windows_core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn Render<Identity: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageformat: windows_core::GUID, dwwidth: super::DWORD, dwheight: super::DWORD, cbstride: super::LONG, cbimagebuffer: super::DWORD, pimagebuffer: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWTSBitmapRenderer_Impl::Render(this, core::mem::transmute(&imageformat), core::mem::transmute_copy(&dwwidth), core::mem::transmute_copy(&dwheight), core::mem::transmute_copy(&cbstride), core::mem::transmute_copy(&cbimagebuffer), core::mem::transmute_copy(&pimagebuffer)).into()
@@ -116,11 +146,12 @@ impl IWTSBitmapRenderer_Vtbl {
         iid == &<IWTSBitmapRenderer as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWTSBitmapRenderer {}
 windows_core::imp::define_interface!(IWTSBitmapRendererCallback, IWTSBitmapRendererCallback_Vtbl, 0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353);
 windows_core::imp::interface_hierarchy!(IWTSBitmapRendererCallback, windows_core::IUnknown);
 impl IWTSBitmapRendererCallback {
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn OnTargetSizeChanged(&self, rcnewsize: super::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTargetSizeChanged)(windows_core::Interface::as_raw(self), rcnewsize) }
     }
@@ -129,16 +160,16 @@ impl IWTSBitmapRendererCallback {
 #[doc(hidden)]
 pub struct IWTSBitmapRendererCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub OnTargetSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     OnTargetSizeChanged: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IWTSBitmapRendererCallback_Impl: windows_core::IUnknownImpl {
     fn OnTargetSizeChanged(&self, rcnewsize: &super::RECT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl IWTSBitmapRendererCallback_Vtbl {
     pub const fn new<Identity: IWTSBitmapRendererCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnTargetSizeChanged<Identity: IWTSBitmapRendererCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rcnewsize: super::RECT) -> windows_core::HRESULT {
@@ -153,7 +184,7 @@ impl IWTSBitmapRendererCallback_Vtbl {
         iid == &<IWTSBitmapRendererCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IWTSBitmapRendererCallback {}
 windows_core::imp::define_interface!(IWTSListener, IWTSListener_Vtbl, 0xa1230206_9a39_4d58_8674_cdb4dff4e73b);
 windows_core::imp::interface_hierarchy!(IWTSListener, windows_core::IUnknown);
@@ -248,7 +279,8 @@ impl IWTSPlugin {
     pub unsafe fn Connected(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Connected)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Disconnected(&self, dwdisconnectcode: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Disconnected(&self, dwdisconnectcode: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Disconnected)(windows_core::Interface::as_raw(self), dwdisconnectcode) }
     }
     pub unsafe fn Terminated(&self) -> windows_core::HRESULT {
@@ -261,15 +293,20 @@ pub struct IWTSPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Connected: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Disconnected: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Disconnected: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Disconnected: usize,
     pub Terminated: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IWTSPlugin_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pchannelmgr: windows_core::Ref<IWTSVirtualChannelManager>) -> windows_core::Result<()>;
     fn Connected(&self) -> windows_core::Result<()>;
-    fn Disconnected(&self, dwdisconnectcode: u32) -> windows_core::Result<()>;
+    fn Disconnected(&self, dwdisconnectcode: super::DWORD) -> windows_core::Result<()>;
     fn Terminated(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWTSPlugin_Vtbl {
     pub const fn new<Identity: IWTSPlugin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchannelmgr: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -284,7 +321,7 @@ impl IWTSPlugin_Vtbl {
                 IWTSPlugin_Impl::Connected(this).into()
             }
         }
-        unsafe extern "system" fn Disconnected<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdisconnectcode: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Disconnected<Identity: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdisconnectcode: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWTSPlugin_Impl::Disconnected(this, core::mem::transmute_copy(&dwdisconnectcode)).into()
@@ -308,6 +345,7 @@ impl IWTSPlugin_Vtbl {
         iid == &<IWTSPlugin as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWTSPlugin {}
 windows_core::imp::define_interface!(IWTSPluginServiceProvider, IWTSPluginServiceProvider_Vtbl, 0xd3e07363_087c_476c_86a7_dbb15f46ddb4);
 windows_core::imp::interface_hierarchy!(IWTSPluginServiceProvider, windows_core::IUnknown);
@@ -352,11 +390,12 @@ impl windows_core::RuntimeName for IWTSPluginServiceProvider {}
 windows_core::imp::define_interface!(IWTSVirtualChannel, IWTSVirtualChannel_Vtbl, 0xa1230207_d6a7_11d8_b9fd_000bdbd1f198);
 windows_core::imp::interface_hierarchy!(IWTSVirtualChannel, windows_core::IUnknown);
 impl IWTSVirtualChannel {
-    pub unsafe fn Write<P2>(&self, cbsize: u32, pbuffer: *const u8, preserved: P2) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn Write<P2>(&self, pbuffer: &[super::BYTE], preserved: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), cbsize, pbuffer, preserved.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr(), preserved.param().abi()) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -366,16 +405,21 @@ impl IWTSVirtualChannel {
 #[doc(hidden)]
 pub struct IWTSVirtualChannel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const super::BYTE, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Write: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IWTSVirtualChannel_Impl: windows_core::IUnknownImpl {
-    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Write(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE, preserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWTSVirtualChannel_Vtbl {
     pub const fn new<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Write<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: u32, pbuffer: *const u8, preserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: super::ULONG, pbuffer: *const super::BYTE, preserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWTSVirtualChannel_Impl::Write(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&preserved)).into()
@@ -393,12 +437,14 @@ impl IWTSVirtualChannel_Vtbl {
         iid == &<IWTSVirtualChannel as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWTSVirtualChannel {}
 windows_core::imp::define_interface!(IWTSVirtualChannelCallback, IWTSVirtualChannelCallback_Vtbl, 0xa1230204_d6a7_11d8_b9fd_000bdbd1f198);
 windows_core::imp::interface_hierarchy!(IWTSVirtualChannelCallback, windows_core::IUnknown);
 impl IWTSVirtualChannelCallback {
-    pub unsafe fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnDataReceived)(windows_core::Interface::as_raw(self), cbsize, pbuffer) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn OnDataReceived(&self, pbuffer: &[super::BYTE]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OnDataReceived)(windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), pbuffer.as_ptr()) }
     }
     pub unsafe fn OnClose(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnClose)(windows_core::Interface::as_raw(self)) }
@@ -408,16 +454,21 @@ impl IWTSVirtualChannelCallback {
 #[doc(hidden)]
 pub struct IWTSVirtualChannelCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub OnDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    OnDataReceived: usize,
     pub OnClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IWTSVirtualChannelCallback_Impl: windows_core::IUnknownImpl {
-    fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> windows_core::Result<()>;
+    fn OnDataReceived(&self, cbsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::Result<()>;
     fn OnClose(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWTSVirtualChannelCallback_Vtbl {
     pub const fn new<Identity: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnDataReceived<Identity: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: u32, pbuffer: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnDataReceived<Identity: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: super::ULONG, pbuffer: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWTSVirtualChannelCallback_Impl::OnDataReceived(this, core::mem::transmute_copy(&cbsize), core::mem::transmute_copy(&pbuffer)).into()
@@ -439,11 +490,13 @@ impl IWTSVirtualChannelCallback_Vtbl {
         iid == &<IWTSVirtualChannelCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWTSVirtualChannelCallback {}
 windows_core::imp::define_interface!(IWTSVirtualChannelManager, IWTSVirtualChannelManager_Vtbl, 0xa1230205_d6a7_11d8_b9fd_000bdbd1f198);
 windows_core::imp::interface_hierarchy!(IWTSVirtualChannelManager, windows_core::IUnknown);
 impl IWTSVirtualChannelManager {
-    pub unsafe fn CreateListener<P2>(&self, pszchannelname: *const i8, uflags: u32, plistenercallback: P2) -> windows_core::Result<IWTSListener>
+    #[cfg(feature = "shared")]
+    pub unsafe fn CreateListener<P2>(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: P2) -> windows_core::Result<IWTSListener>
     where
         P2: windows_core::Param<IWTSListenerCallback>,
     {
@@ -457,14 +510,19 @@ impl IWTSVirtualChannelManager {
 #[doc(hidden)]
 pub struct IWTSVirtualChannelManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateListener: unsafe extern "system" fn(*mut core::ffi::c_void, *const i8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CreateListener: unsafe extern "system" fn(*mut core::ffi::c_void, *const i8, super::ULONG, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CreateListener: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IWTSVirtualChannelManager_Impl: windows_core::IUnknownImpl {
-    fn CreateListener(&self, pszchannelname: *const i8, uflags: u32, plistenercallback: windows_core::Ref<IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
+    fn CreateListener(&self, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: windows_core::Ref<IWTSListenerCallback>) -> windows_core::Result<IWTSListener>;
 }
+#[cfg(feature = "shared")]
 impl IWTSVirtualChannelManager_Vtbl {
     pub const fn new<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateListener<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszchannelname: *const i8, uflags: u32, plistenercallback: *mut core::ffi::c_void, pplistener: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateListener<Identity: IWTSVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszchannelname: *const i8, uflags: super::ULONG, plistenercallback: *mut core::ffi::c_void, pplistener: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSVirtualChannelManager_Impl::CreateListener(this, core::mem::transmute_copy(&pszchannelname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&plistenercallback)) {
@@ -482,6 +540,7 @@ impl IWTSVirtualChannelManager_Vtbl {
         iid == &<IWTSVirtualChannelManager as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWTSVirtualChannelManager {}
 windows_core::imp::define_interface!(IWTSWindowChangedCallback, IWTSWindowChangedCallback_Vtbl, 0xe8a47fd3_1af6_4d7f_8e15_515ccae1c00c);
 windows_core::imp::interface_hierarchy!(IWTSWindowChangedCallback, windows_core::IUnknown);
@@ -642,7 +701,10 @@ impl IWTSWindowInfoService_Vtbl {
 }
 #[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IWTSWindowInfoService {}
+#[cfg(feature = "shared")]
 pub type PBITMAP_RENDERER_STATISTICS = *mut BITMAP_RENDERER_STATISTICS;
+pub const RDCLIENT_BITMAP_RENDER_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
+pub const RDCLIENT_WINDOW_INFO_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0xa9a17a6b_cdb3_4e81_b5c8_bd63822a8d6c);
 pub type RdpSessionType = i32;
 pub const RemoteApp: RdpSessionType = 1;
 pub const TS_VC_LISTENER_STATIC_CHANNEL: i32 = 1;

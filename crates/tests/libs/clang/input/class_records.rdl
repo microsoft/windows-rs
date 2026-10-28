@@ -1,0 +1,14 @@
+#[win32]
+mod Fixture {
+    #[guid(0x12345678_1234_1234_1234_123456789abc)]
+    interface Base {
+        fn Read(&self) -> i32;
+    }
+    interface Derived: Base {
+        fn Reset(&self, value: i32);
+    }
+    interface Inherited: Derived {}
+    struct Value {
+        value: i32,
+    }
+}

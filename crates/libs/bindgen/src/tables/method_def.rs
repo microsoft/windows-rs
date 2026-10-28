@@ -28,10 +28,27 @@ impl MethodDefExt for MethodDef {
     fn method_signature(&self, generics: &[Type], reader: &Reader) -> Signature {
         let meta_sig = self.signature(&Type::generic_placeholders(generics.len()));
         let call_flags = meta_sig.flags;
-        let return_type = Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
+        let MemberRefParent::TypeDef(owner) = self.parent() else {
+            unreachable!()
+        };
+        let native = !owner.flags().contains(TypeAttributes::WindowsRuntime);
+        let convert = if native {
+            Type::from_native_signature_type
+        } else {
+            Type::from_metadata_type
+        };
+        let return_type = convert(&meta_sig.return_type, None, generics, reader);
+        return_type.assert_callable_value(reader);
         let param_map = match self.params_by_sequence(meta_sig.types.len()) {
             Ok(params) => Some(params),
             Err(error) => {
+                assert!(
+                    native,
+                    "windows-bindgen: WinRT method `{}.{}.{}` has invalid parameter metadata: {error}",
+                    owner.namespace(),
+                    owner.name(),
+                    self.name()
+                );
                 eprintln!(
                     "windows-bindgen: method `{}` has invalid parameter metadata: {error}",
                     self.name()
@@ -45,23 +62,54 @@ impl MethodDefExt for MethodDef {
             let def = param_map
                 .as_ref()
                 .and_then(|params| params.params()[position]);
-            let param_is_input_only = matches!(
-                def.map_or(
-                    windows_metadata::reader::ParamDirection::Unspecified,
-                    |param| param.direction()
-                ),
-                windows_metadata::reader::ParamDirection::Unspecified
-                    | windows_metadata::reader::ParamDirection::Input
+            let name = def.map_or_else(|| format!("p{position}"), |param| param.name().to_string());
+            assert!(
+                native
+                    || def.is_some_and(|param| matches!(
+                        param.direction(),
+                        windows_metadata::reader::ParamDirection::Input
+                            | windows_metadata::reader::ParamDirection::Output
+                    )),
+                "windows-bindgen: WinRT method `{}.{}.{}` parameter `{name}` (position {}) \
+                 requires exactly one of In or Out",
+                owner.namespace(),
+                owner.name(),
+                self.name(),
+                position + 1
             );
-            let mut ty = Type::from_metadata_type(meta_ty, None, generics, reader);
+            let param_is_input_only = def.is_some_and(|param| {
+                param.direction() == windows_metadata::reader::ParamDirection::Input
+            });
+            let mut ty = convert(meta_ty, None, generics, reader);
+            ty.assert_callable_value(reader);
 
-            if param_is_input_only {
+            let native_reference = native
+                && matches!(
+                    meta_ty,
+                    windows_metadata::Type::RefConst(_) | windows_metadata::Type::RefMut(_)
+                );
+            if param_is_input_only && !native_reference {
                 ty = ty.to_const_type();
                 ty = ty.to_const_ptr();
             }
 
-            let name = def.map_or_else(|| format!("p{position}"), |param| param.name().to_string());
-            params.push(Param { def, name, ty });
+            // A native argument without a metadata direction is still input when the callee
+            // receives no caller-writable storage through it. Reserved arguments must be null or
+            // zero, so the callee cannot write through them either.
+            let implied_input = native
+                && def.is_none_or(|param| {
+                    param.direction() == windows_metadata::reader::ParamDirection::Unspecified
+                })
+                && (ty.projection_type(reader).is_callee_immutable()
+                    || def.is_some_and(|param| param.is_reserved()));
+
+            params.push(Param {
+                def,
+                name,
+                ty,
+                native_reference,
+                implied_input,
+            });
         }
 
         Signature {
@@ -77,21 +125,38 @@ mod tests {
     use super::*;
     use windows_metadata::ParamAttributes;
 
-    fn reader(rows: &[(&str, u16, ParamAttributes)]) -> Reader {
-        let mut file = windows_metadata::writer::File::new("test");
-        file.TypeDef(
-            "Test",
-            "I",
-            windows_metadata::writer::TypeDefOrRef::default(),
-            TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
-        );
-        let signature = windows_metadata::Signature {
-            return_type: windows_metadata::Type::Void,
-            types: vec![
+    fn reader(rows: &[(&str, u16, ParamAttributes)], winrt: bool) -> Reader {
+        reader_with_types(
+            rows,
+            winrt,
+            vec![
                 windows_metadata::Type::I32,
                 windows_metadata::Type::U32,
                 windows_metadata::Type::I64,
             ],
+        )
+    }
+
+    fn reader_with_types(
+        rows: &[(&str, u16, ParamAttributes)],
+        winrt: bool,
+        types: Vec<windows_metadata::Type>,
+    ) -> Reader {
+        let mut file = windows_metadata::writer::File::new("test");
+        let mut flags =
+            TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract;
+        if winrt {
+            flags |= TypeAttributes::WindowsRuntime;
+        }
+        file.TypeDef(
+            "Test",
+            "I",
+            windows_metadata::writer::TypeDefOrRef::default(),
+            flags,
+        );
+        let signature = windows_metadata::Signature {
+            return_type: windows_metadata::Type::Void,
+            types,
             ..Default::default()
         };
         file.MethodDef(
@@ -110,20 +175,24 @@ mod tests {
     }
 
     fn method(reader: &Reader) -> MethodDef {
-        let Type::CppInterface(interface) = reader.with_full_name("Test", "I").next().unwrap()
-        else {
-            panic!()
+        let def = match reader.with_full_name("Test", "I").next().unwrap() {
+            Type::CppInterface(interface) => interface.def,
+            Type::Interface(interface) => interface.def,
+            _ => panic!(),
         };
-        interface.def.methods().next().unwrap()
+        def.methods().next().unwrap()
     }
 
     #[test]
     fn sparse_out_of_order_params_follow_sequence() {
-        let reader = reader(&[
-            ("third", 3, ParamAttributes::In | ParamAttributes::Optional),
-            ("return", 0, ParamAttributes::Out),
-            ("first", 1, ParamAttributes::Out),
-        ]);
+        let reader = reader(
+            &[
+                ("third", 3, ParamAttributes::In | ParamAttributes::Optional),
+                ("return", 0, ParamAttributes::Out),
+                ("first", 1, ParamAttributes::Out),
+            ],
+            false,
+        );
         let signature = method(&reader).method_signature(&[], &reader);
 
         assert_eq!(
@@ -155,16 +224,24 @@ mod tests {
     }
 
     #[test]
-    fn unspecified_is_input_only_and_input_output_is_output_capable() {
-        let reader = reader(&[
-            ("unspecified", 1, ParamAttributes::default()),
-            (
-                "input_output",
-                2,
-                ParamAttributes::In | ParamAttributes::Out,
-            ),
-            ("output", 3, ParamAttributes::Out),
-        ]);
+    fn unspecified_does_not_imply_input() {
+        let reader = reader_with_types(
+            &[
+                ("unspecified", 1, ParamAttributes::default()),
+                (
+                    "input_output",
+                    2,
+                    ParamAttributes::In | ParamAttributes::Out,
+                ),
+                ("output", 3, ParamAttributes::Out),
+            ],
+            false,
+            vec![
+                windows_metadata::Type::PtrMut(Box::new(windows_metadata::Type::I32), 1),
+                windows_metadata::Type::U32,
+                windows_metadata::Type::I64,
+            ],
+        );
         let signature = method(&reader).method_signature(&[], &reader);
 
         assert!(
@@ -172,16 +249,26 @@ mod tests {
                 .params
                 .iter()
                 .map(Param::is_input_only)
-                .eq([true, false, false])
+                .eq([false, false, false])
+        );
+        assert!(
+            signature
+                .params
+                .iter()
+                .map(Param::has_direction)
+                .eq([false, true, true])
         );
     }
 
     #[test]
     fn malformed_params_keep_all_signature_types_with_defaults() {
-        let reader = reader(&[
-            ("first", 1, ParamAttributes::Out),
-            ("duplicate", 1, ParamAttributes::In),
-        ]);
+        let reader = reader(
+            &[
+                ("first", 1, ParamAttributes::Out),
+                ("duplicate", 1, ParamAttributes::In),
+            ],
+            false,
+        );
         let signature = method(&reader).method_signature(&[], &reader);
 
         assert_eq!(
@@ -189,6 +276,70 @@ mod tests {
             ["p0", "p1", "p2"]
         );
         assert_eq!(signature.params.len(), 3);
-        assert!(signature.params.iter().all(Param::is_input_only));
+        assert!(signature.params.iter().all(|param| param.def.is_none()));
+    }
+
+    #[test]
+    fn winrt_requires_explicit_parameter_directions() {
+        for flags in [
+            None,
+            Some(ParamAttributes::default()),
+            Some(ParamAttributes::Optional),
+            Some(ParamAttributes::In | ParamAttributes::Out),
+        ] {
+            let mut rows = vec![
+                ("first", 1, ParamAttributes::In),
+                ("third", 3, ParamAttributes::Out),
+            ];
+            if let Some(flags) = flags {
+                rows.push(("second", 2, flags));
+            }
+            let reader = reader(&rows, true);
+            let error = std::panic::catch_unwind(|| {
+                method(&reader).method_signature(&[], &reader);
+            })
+            .unwrap_err();
+            let message = error.downcast_ref::<String>().unwrap();
+            assert!(message.contains("Test.I.Method"), "{message}");
+            assert!(message.contains("position 2"), "{message}");
+            assert!(
+                message.contains("requires exactly one of In or Out"),
+                "{message}"
+            );
+        }
+    }
+
+    #[test]
+    fn winrt_directions_use_sequence_not_return_flags() {
+        let reader = reader(
+            &[
+                ("third", 3, ParamAttributes::In),
+                ("return", 0, ParamAttributes::default()),
+                ("second", 2, ParamAttributes::Out),
+                ("first", 1, ParamAttributes::In),
+            ],
+            true,
+        );
+        let signature = method(&reader).method_signature(&[], &reader);
+        assert!(
+            signature
+                .params
+                .iter()
+                .map(Param::is_input_only)
+                .eq([true, false, true])
+        );
+    }
+
+    #[test]
+    #[should_panic(expected = "WinRT method `Test.I.Method` has invalid parameter metadata")]
+    fn winrt_rejects_malformed_parameter_rows() {
+        let reader = reader(
+            &[
+                ("first", 1, ParamAttributes::In),
+                ("duplicate", 1, ParamAttributes::In),
+            ],
+            true,
+        );
+        method(&reader).method_signature(&[], &reader);
     }
 }

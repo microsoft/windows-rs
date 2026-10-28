@@ -17,9 +17,11 @@ pub const FSRM_DISPID_PROPERTY_DEFINITION_VALUE: i32 = 91226112;
 pub const FSRM_DISPID_RULE: i32 = 87031808;
 pub const FSRM_DISPID_STORAGE_MODULE_DEFINITION: i32 = 88211456;
 pub const FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION: i32 = 102891520;
-pub const FsrmAlwaysModified: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const FsrmAlwaysModified: super::ULONGLONG = 18446744073709551615;
 pub const FsrmMaxNumberPropertyDefinitions: i32 = 100;
-pub const FsrmNeverModified: u64 = 0;
+#[cfg(feature = "shared")]
+pub const FsrmNeverModified: super::ULONGLONG = 0;
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmClassificationManager, IFsrmClassificationManager_Vtbl, 0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04);
 #[cfg(feature = "oaidl")]
@@ -33,12 +35,14 @@ impl core::ops::Deref for IFsrmClassificationManager {
 windows_core::imp::interface_hierarchy!(IFsrmClassificationManager, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IFsrmClassificationManager {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationReportFormats)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClassificationReportFormats)(windows_core::Interface::as_raw(self), formats) }
     }
@@ -193,8 +197,14 @@ impl IFsrmClassificationManager {
 #[doc(hidden)]
 pub struct IFsrmClassificationManager_Vtbl {
     pub base__: super::IDispatch_Vtbl,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub ClassificationReportFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    ClassificationReportFormats: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetClassificationReportFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetClassificationReportFormats: usize,
     pub Logging: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetLogging: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ClassificationReportMailTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -269,7 +279,7 @@ pub struct IFsrmClassificationManager_Vtbl {
     pub SetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationManager_Impl: super::IDispatch_Impl {
     fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetClassificationReportFormats(&self, formats: *const super::SAFEARRAY) -> windows_core::Result<()>;
@@ -299,7 +309,7 @@ pub trait IFsrmClassificationManager_Impl: super::IDispatch_Impl {
     fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationManager_Vtbl {
     pub const fn new<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ClassificationReportFormats<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -613,7 +623,7 @@ impl IFsrmClassificationManager_Vtbl {
         iid == &<IFsrmClassificationManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassificationManager {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmClassificationManager2, IFsrmClassificationManager2_Vtbl, 0x0004c1c9_127e_4765_ba07_6a3147bca112);
@@ -628,9 +638,9 @@ impl core::ops::Deref for IFsrmClassificationManager2 {
 windows_core::imp::interface_hierarchy!(IFsrmClassificationManager2, windows_core::IUnknown, super::IDispatch, IFsrmClassificationManager);
 #[cfg(feature = "oaidl")]
 impl IFsrmClassificationManager2 {
-    #[cfg(feature = "fsrmenums")]
-    pub unsafe fn ClassifyFiles(&self, filepaths: *const super::SAFEARRAY, propertynames: *const super::SAFEARRAY, propertyvalues: *const super::SAFEARRAY, options: super::FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ClassifyFiles)(windows_core::Interface::as_raw(self), filepaths, propertynames, propertyvalues, options) }
+    #[cfg(all(feature = "fsrmenums", feature = "shared", feature = "winnt"))]
+    pub unsafe fn ClassifyFiles(&self, filepaths: *const super::SAFEARRAY, propertynames: Option<*const super::SAFEARRAY>, propertyvalues: Option<*const super::SAFEARRAY>, options: super::FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ClassifyFiles)(windows_core::Interface::as_raw(self), filepaths, propertynames.unwrap_or(core::mem::zeroed()) as _, propertyvalues.unwrap_or(core::mem::zeroed()) as _, options) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -638,16 +648,16 @@ impl IFsrmClassificationManager2 {
 #[doc(hidden)]
 pub struct IFsrmClassificationManager2_Vtbl {
     pub base__: IFsrmClassificationManager_Vtbl,
-    #[cfg(feature = "fsrmenums")]
+    #[cfg(all(feature = "fsrmenums", feature = "shared", feature = "winnt"))]
     pub ClassifyFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY, *const super::SAFEARRAY, *const super::SAFEARRAY, super::FsrmGetFilePropertyOptions) -> windows_core::HRESULT,
-    #[cfg(not(feature = "fsrmenums"))]
+    #[cfg(not(all(feature = "fsrmenums", feature = "shared", feature = "winnt")))]
     ClassifyFiles: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationManager2_Impl: IFsrmClassificationManager_Impl {
     fn ClassifyFiles(&self, filepaths: *const super::SAFEARRAY, propertynames: *const super::SAFEARRAY, propertyvalues: *const super::SAFEARRAY, options: super::FsrmGetFilePropertyOptions) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationManager2_Vtbl {
     pub const fn new<Identity: IFsrmClassificationManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ClassifyFiles<Identity: IFsrmClassificationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepaths: *const super::SAFEARRAY, propertynames: *const super::SAFEARRAY, propertyvalues: *const super::SAFEARRAY, options: super::FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
@@ -662,7 +672,7 @@ impl IFsrmClassificationManager2_Vtbl {
         iid == &<IFsrmClassificationManager2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmClassificationManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassificationManager2 {}
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmClassificationRule, IFsrmClassificationRule_Vtbl, 0xafc052c2_5315_45ab_841b_c6db0e120148);
@@ -725,7 +735,7 @@ pub struct IFsrmClassificationRule_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassificationRule_Impl: IFsrmRule_Impl {
     fn ExecutionOption(&self) -> windows_core::Result<super::FsrmExecutionOption>;
     fn SetExecutionOption(&self, executionoption: super::FsrmExecutionOption) -> windows_core::Result<()>;
@@ -734,7 +744,7 @@ pub trait IFsrmClassificationRule_Impl: IFsrmRule_Impl {
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassificationRule_Vtbl {
     pub const fn new<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ExecutionOption<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionoption: *mut super::FsrmExecutionOption) -> windows_core::HRESULT {
@@ -805,7 +815,7 @@ impl IFsrmClassificationRule_Vtbl {
         iid == &<IFsrmClassificationRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmRule as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassificationRule {}
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmClassifierModuleDefinition, IFsrmClassifierModuleDefinition_Vtbl, 0xbb36ea26_6318_4b8c_8592_f72dd602e7a5);
@@ -820,21 +830,25 @@ impl core::ops::Deref for IFsrmClassifierModuleDefinition {
 windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleDefinition, windows_core::IUnknown, super::IDispatch, super::IFsrmObject, IFsrmPipelineModuleDefinition);
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 impl IFsrmClassifierModuleDefinition {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn PropertiesAffected(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertiesAffected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetPropertiesAffected(&self, propertiesaffected: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPropertiesAffected)(windows_core::Interface::as_raw(self), propertiesaffected) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn PropertiesUsed(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertiesUsed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetPropertiesUsed(&self, propertiesused: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPropertiesUsed)(windows_core::Interface::as_raw(self), propertiesused) }
     }
@@ -855,10 +869,22 @@ impl IFsrmClassifierModuleDefinition {
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleDefinition_Vtbl {
     pub base__: IFsrmPipelineModuleDefinition_Vtbl,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub PropertiesAffected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    PropertiesAffected: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetPropertiesAffected: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetPropertiesAffected: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub PropertiesUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    PropertiesUsed: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetPropertiesUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetPropertiesUsed: usize,
     #[cfg(feature = "wtypes")]
     pub NeedsExplicitValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -868,7 +894,7 @@ pub struct IFsrmClassifierModuleDefinition_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetNeedsExplicitValue: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassifierModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
     fn PropertiesAffected(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetPropertiesAffected(&self, propertiesaffected: *const super::SAFEARRAY) -> windows_core::Result<()>;
@@ -877,7 +903,7 @@ pub trait IFsrmClassifierModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Im
     fn NeedsExplicitValue(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassifierModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PropertiesAffected<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesaffected: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -948,7 +974,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         iid == &<IFsrmClassifierModuleDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassifierModuleDefinition {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmClassifierModuleImplementation, IFsrmClassifierModuleImplementation_Vtbl, 0x4c968fc6_6edb_4051_9c18_73b7291ae106);
@@ -963,7 +989,7 @@ impl core::ops::Deref for IFsrmClassifierModuleImplementation {
 windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleImplementation, windows_core::IUnknown, super::IDispatch, IFsrmPipelineModuleImplementation);
 #[cfg(feature = "oaidl")]
 impl IFsrmClassifierModuleImplementation {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastModified(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -978,6 +1004,7 @@ impl IFsrmClassifierModuleImplementation {
     {
         unsafe { (windows_core::Interface::vtable(self).UseRulesAndDefinitions)(windows_core::Interface::as_raw(self), rules.param().abi(), propertydefinitions.param().abi()) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn OnBeginFile<P0>(&self, propertybag: P0, arrayruleids: *const super::SAFEARRAY) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IFsrmPropertyBag>,
@@ -1001,15 +1028,18 @@ impl IFsrmClassifierModuleImplementation {
 #[doc(hidden)]
 pub struct IFsrmClassifierModuleImplementation_Vtbl {
     pub base__: IFsrmPipelineModuleImplementation_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     LastModified: usize,
     #[cfg(feature = "fsrm")]
     pub UseRulesAndDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "fsrm"))]
     UseRulesAndDefinitions: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub OnBeginFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    OnBeginFile: usize,
     #[cfg(all(feature = "fsrmenums", feature = "wtypes"))]
     pub DoesPropertyValueApply: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT_BOOL, super::FSRM_OBJECT_ID, super::FSRM_OBJECT_ID) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "fsrmenums", feature = "wtypes")))]
@@ -1020,7 +1050,7 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
     GetPropertyValueToApply: usize,
     pub OnEndFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmClassifierModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
     fn LastModified(&self) -> windows_core::Result<super::VARIANT>;
     fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<super::IFsrmCollection>, propertydefinitions: windows_core::Ref<super::IFsrmCollection>) -> windows_core::Result<()>;
@@ -1029,7 +1059,7 @@ pub trait IFsrmClassifierModuleImplementation_Impl: IFsrmPipelineModuleImplement
     fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &super::FSRM_OBJECT_ID, idpropdef: &super::FSRM_OBJECT_ID) -> windows_core::Result<()>;
     fn OnEndFile(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmClassifierModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LastModified<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -1088,7 +1118,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         iid == &<IFsrmClassifierModuleImplementation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmClassifierModuleImplementation {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPipelineModuleConnector, IFsrmPipelineModuleConnector_Vtbl, 0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2);
@@ -1150,7 +1180,7 @@ pub struct IFsrmPipelineModuleConnector_Vtbl {
     #[cfg(not(feature = "fsrm"))]
     Bind: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleConnector_Impl: super::IDispatch_Impl {
     fn ModuleImplementation(&self) -> windows_core::Result<IFsrmPipelineModuleImplementation>;
     fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1158,7 +1188,7 @@ pub trait IFsrmPipelineModuleConnector_Impl: super::IDispatch_Impl {
     fn HostingProcessPid(&self) -> windows_core::Result<i32>;
     fn Bind(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<IFsrmPipelineModuleImplementation>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleConnector_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ModuleImplementation<Identity: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipelinemoduleimplementation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1228,7 +1258,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         iid == &<IFsrmPipelineModuleConnector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleConnector {}
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmPipelineModuleDefinition, IFsrmPipelineModuleDefinition_Vtbl, 0x515c1277_2c81_440e_8fcf_367921ed4f59);
@@ -1319,21 +1349,25 @@ impl IFsrmPipelineModuleDefinition {
     pub unsafe fn SetAccount(&self, retrievalaccount: super::FsrmAccountType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAccount)(windows_core::Interface::as_raw(self), retrievalaccount) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SupportedExtensions(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedExtensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSupportedExtensions)(windows_core::Interface::as_raw(self), supportedextensions) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters) }
     }
@@ -1379,12 +1413,24 @@ pub struct IFsrmPipelineModuleDefinition_Vtbl {
     pub SetAccount: unsafe extern "system" fn(*mut core::ffi::c_void, super::FsrmAccountType) -> windows_core::HRESULT,
     #[cfg(not(feature = "fsrmenums"))]
     SetAccount: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SupportedExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SupportedExtensions: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetSupportedExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetSupportedExtensions: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Parameters: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetParameters: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleDefinition_Impl: super::IFsrmObject_Impl {
     fn ModuleClsid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -1406,7 +1452,7 @@ pub trait IFsrmPipelineModuleDefinition_Impl: super::IFsrmObject_Impl {
     fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ModuleClsid<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleclsid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1610,7 +1656,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleDefinition {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPipelineModuleImplementation, IFsrmPipelineModuleImplementation_Vtbl, 0xb7907906_2b02_4cb5_84a9_fdf54613d6cd);
@@ -1650,12 +1696,12 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
     OnLoad: usize,
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: super::IDispatch_Impl {
     fn OnLoad(&self, moduledefinition: windows_core::Ref<IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
     fn OnUnload(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPipelineModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLoad<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinition: *mut core::ffi::c_void, moduleconnector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1682,7 +1728,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleImplementation {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmProperty, IFsrmProperty_Vtbl, 0x4a73fee4_4102_4fcc_9ffb_38614f9ee768);
@@ -1709,6 +1755,7 @@ impl IFsrmProperty {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Sources(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1729,17 +1776,20 @@ pub struct IFsrmProperty_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub Sources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Sources: usize,
     pub PropertyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmProperty_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Sources(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn PropertyFlags(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmProperty_Vtbl {
     pub const fn new<Identity: IFsrmProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1802,7 +1852,7 @@ impl IFsrmProperty_Vtbl {
         iid == &<IFsrmProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmProperty {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPropertyBag, IFsrmPropertyBag_Vtbl, 0x774589d1_d300_4f7a_9a24_f7b766800250);
@@ -1847,49 +1897,49 @@ impl IFsrmPropertyBag {
             (windows_core::Interface::vtable(self).VolumeIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FileId(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ParentDirectoryId(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ParentDirectoryId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Size(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SizeAllocated(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SizeAllocated)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreationTime(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastAccessTime(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastAccessTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastModificationTime(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1908,12 +1958,14 @@ impl IFsrmPropertyBag {
             (windows_core::Interface::vtable(self).OwnerSid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn FilePropertyNames(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FilePropertyNames)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Messages(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1938,7 +1990,7 @@ impl IFsrmPropertyBag {
     pub unsafe fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(message)) }
     }
-    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: super::FsrmFileStreamingMode, interfacetype: super::FsrmFileStreamingInterfaceType) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1956,48 +2008,54 @@ pub struct IFsrmPropertyBag_Vtbl {
     pub VolumeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RelativeNamespaceRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub VolumeIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub FileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     FileId: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ParentDirectoryId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ParentDirectoryId: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Size: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SizeAllocated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SizeAllocated: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreationTime: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub LastAccessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     LastAccessTime: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub LastModificationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     LastModificationTime: usize,
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub OwnerSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub FilePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    FilePropertyNames: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub Messages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Messages: usize,
     pub PropertyBagFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetFileStreamInterface: unsafe extern "system" fn(*mut core::ffi::c_void, super::FsrmFileStreamingMode, super::FsrmFileStreamingInterfaceType, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "fsrmenums", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetFileStreamInterface: usize,
 }
-#[cfg(all(feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyBag_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn RelativePath(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2021,7 +2079,7 @@ pub trait IFsrmPropertyBag_Impl: super::IDispatch_Impl {
     fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetFileStreamInterface(&self, accessmode: super::FsrmFileStreamingMode, interfacetype: super::FsrmFileStreamingInterfaceType) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyBag_Vtbl {
     pub const fn new<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2293,7 +2351,7 @@ impl IFsrmPropertyBag_Vtbl {
         iid == &<IFsrmPropertyBag as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyBag {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPropertyBag2, IFsrmPropertyBag2_Vtbl, 0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9);
@@ -2308,7 +2366,7 @@ impl core::ops::Deref for IFsrmPropertyBag2 {
 windows_core::imp::interface_hierarchy!(IFsrmPropertyBag2, windows_core::IUnknown, super::IDispatch, IFsrmPropertyBag);
 #[cfg(feature = "oaidl")]
 impl IFsrmPropertyBag2 {
-    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFieldValue(&self, field: super::FsrmPropertyBagField) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2328,21 +2386,21 @@ impl IFsrmPropertyBag2 {
 #[doc(hidden)]
 pub struct IFsrmPropertyBag2_Vtbl {
     pub base__: IFsrmPropertyBag_Vtbl,
-    #[cfg(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "fsrmenums", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetFieldValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::FsrmPropertyBagField, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "fsrmenums", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "fsrmenums", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetFieldValue: usize,
     #[cfg(feature = "fsrm")]
     pub GetUntrustedInFileProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "fsrm"))]
     GetUntrustedInFileProperties: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyBag2_Impl: IFsrmPropertyBag_Impl {
     fn GetFieldValue(&self, field: super::FsrmPropertyBagField) -> windows_core::Result<super::VARIANT>;
     fn GetUntrustedInFileProperties(&self) -> windows_core::Result<super::IFsrmCollection>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyBag2_Vtbl {
     pub const fn new<Identity: IFsrmPropertyBag2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFieldValue<Identity: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, field: super::FsrmPropertyBagField, value: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2379,7 +2437,7 @@ impl IFsrmPropertyBag2_Vtbl {
         iid == &<IFsrmPropertyBag2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyBag2 {}
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmPropertyDefinition, IFsrmPropertyDefinition_Vtbl, 0xede0150f_e9a3_419c_877c_01fe5d24c5d3);
@@ -2414,30 +2472,36 @@ impl IFsrmPropertyDefinition {
     pub unsafe fn SetType(&self, r#type: super::FsrmPropertyDefinitionType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn PossibleValues(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PossibleValues)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPossibleValues)(windows_core::Interface::as_raw(self), possiblevalues) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn ValueDescriptions(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ValueDescriptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValueDescriptions)(windows_core::Interface::as_raw(self), valuedescriptions) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters) }
     }
@@ -2457,14 +2521,32 @@ pub struct IFsrmPropertyDefinition_Vtbl {
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, super::FsrmPropertyDefinitionType) -> windows_core::HRESULT,
     #[cfg(not(feature = "fsrmenums"))]
     SetType: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub PossibleValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    PossibleValues: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetPossibleValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetPossibleValues: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub ValueDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    ValueDescriptions: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetValueDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetValueDescriptions: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Parameters: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetParameters: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyDefinition_Impl: super::IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2477,7 +2559,7 @@ pub trait IFsrmPropertyDefinition_Impl: super::IFsrmObject_Impl {
     fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyDefinition_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2588,7 +2670,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinition {}
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmPropertyDefinition2, IFsrmPropertyDefinition2_Vtbl, 0x47782152_d16c_4229_b4e1_0ddfe308b9f6);
@@ -2642,7 +2724,7 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
     pub AppliesTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ValueDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyDefinition2_Impl: IFsrmPropertyDefinition_Impl {
     fn PropertyDefinitionFlags(&self) -> windows_core::Result<i32>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2650,7 +2732,7 @@ pub trait IFsrmPropertyDefinition2_Impl: IFsrmPropertyDefinition_Impl {
     fn AppliesTo(&self) -> windows_core::Result<i32>;
     fn ValueDefinitions(&self) -> windows_core::Result<super::IFsrmCollection>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyDefinition2_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PropertyDefinitionFlags<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitionflags: *mut i32) -> windows_core::HRESULT {
@@ -2720,7 +2802,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         iid == &<IFsrmPropertyDefinition2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinition2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmPropertyDefinitionValue, IFsrmPropertyDefinitionValue_Vtbl, 0xe946d148_bd67_4178_8e22_1c44925ed710);
@@ -2770,14 +2852,14 @@ pub struct IFsrmPropertyDefinitionValue_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UniqueID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmPropertyDefinitionValue_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn UniqueID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmPropertyDefinitionValue_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2840,7 +2922,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         iid == &<IFsrmPropertyDefinitionValue as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinitionValue {}
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmRule, IFsrmRule_Vtbl, 0xcb0df960_16f5_4495_9079_3f9360d831df);
@@ -2880,12 +2962,14 @@ impl IFsrmRule {
     pub unsafe fn SetModuleDefinitionName(&self, moduledefinitionname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetModuleDefinitionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(moduledefinitionname)) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NamespaceRoots)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNamespaceRoots)(windows_core::Interface::as_raw(self), namespaceroots) }
     }
@@ -2898,16 +2982,18 @@ impl IFsrmRule {
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRuleFlags)(windows_core::Interface::as_raw(self), ruleflags) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LastModified(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2928,18 +3014,30 @@ pub struct IFsrmRule_Vtbl {
     RuleType: usize,
     pub ModuleDefinitionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetModuleDefinitionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub NamespaceRoots: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    NamespaceRoots: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetNamespaceRoots: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetNamespaceRoots: usize,
     pub RuleFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetRuleFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub Parameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Parameters: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetParameters: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     LastModified: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmRule_Impl: super::IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2954,7 +3052,7 @@ pub trait IFsrmRule_Impl: super::IFsrmObject_Impl {
     fn SetParameters(&self, parameters: *const super::SAFEARRAY) -> windows_core::Result<()>;
     fn LastModified(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmRule_Vtbl {
     pub const fn new<Identity: IFsrmRule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3091,7 +3189,7 @@ impl IFsrmRule_Vtbl {
         iid == &<IFsrmRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmRule {}
 #[cfg(all(feature = "fsrm", feature = "oaidl"))]
 windows_core::imp::define_interface!(IFsrmStorageModuleDefinition, IFsrmStorageModuleDefinition_Vtbl, 0x15a81350_497d_4aba_80e9_d4dbcc5521fe);
@@ -3170,7 +3268,7 @@ pub struct IFsrmStorageModuleDefinition_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetUpdatesFileContent: usize,
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmStorageModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
     fn Capabilities(&self) -> windows_core::Result<super::FsrmStorageModuleCaps>;
     fn SetCapabilities(&self, capabilities: super::FsrmStorageModuleCaps) -> windows_core::Result<()>;
@@ -3179,7 +3277,7 @@ pub trait IFsrmStorageModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl 
     fn UpdatesFileContent(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetUpdatesFileContent(&self, updatesfilecontent: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmStorageModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Capabilities<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut super::FsrmStorageModuleCaps) -> windows_core::HRESULT {
@@ -3250,7 +3348,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         iid == &<IFsrmStorageModuleDefinition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<super::IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "fsrmenums", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmStorageModuleDefinition {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsrmStorageModuleImplementation, IFsrmStorageModuleImplementation_Vtbl, 0x0af4a0da_895a_4e50_8712_a96724bcec64);
@@ -3297,13 +3395,13 @@ pub struct IFsrmStorageModuleImplementation_Vtbl {
     pub LoadProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsrmStorageModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
     fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<super::IFsrmCollection>) -> windows_core::Result<()>;
     fn LoadProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
     fn SaveProperties(&self, propertybag: windows_core::Ref<IFsrmPropertyBag>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsrmStorageModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UseDefinitions<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitions: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3335,6 +3433,6 @@ impl IFsrmStorageModuleImplementation_Vtbl {
         iid == &<IFsrmStorageModuleImplementation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "fsrm", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "fsrm", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsrmStorageModuleImplementation {}
 pub const MessageSizeLimit: i32 = 4096;

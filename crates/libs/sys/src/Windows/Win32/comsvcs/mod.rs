@@ -1,30 +1,37 @@
-windows_link::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : *mut core::ffi::c_void, riid : *const super::IID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : *mut core::ffi::c_void));
-windows_link::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_sys::core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const super::IID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("comsvcs.dll" "C" fn RecycleSurrogate(lreasoncode : i32) -> windows_sys::core::HRESULT);
-windows_link::link!("comsvcs.dll" "C" fn SafeRef(rid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+#[cfg(feature = "guiddef")]
+windows_link::link!("comsvcs.dll" "C" fn SafeRef(rid : *const super::IID, punk : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct APPDATA {
-    pub m_idApp: u32,
-    pub m_szAppGuid: [u16; 40],
-    pub m_dwAppProcessId: u32,
+    pub m_idApp: super::DWORD,
+    pub m_szAppGuid: [super::WCHAR; 40],
+    pub m_dwAppProcessId: super::DWORD,
     pub m_AppStatistics: APPSTATISTICS,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for APPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct APPSTATISTICS {
-    pub m_cTotalCalls: u32,
-    pub m_cTotalInstances: u32,
-    pub m_cTotalClasses: u32,
-    pub m_cCallsPerSecond: u32,
+    pub m_cTotalCalls: super::DWORD,
+    pub m_cTotalInstances: super::DWORD,
+    pub m_cTotalClasses: super::DWORD,
+    pub m_cCallsPerSecond: super::DWORD,
 }
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = 0;
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = 1;
@@ -32,7 +39,7 @@ pub const APPTYPE_SWC: COMPLUS_APPTYPE = 2;
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = -1;
 pub const AppDomainHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: windows_sys::core::BOOL,
@@ -43,32 +50,34 @@ pub struct ApplicationProcessRecycleInfo {
     pub IsPendingRecycle: windows_sys::core::BOOL,
     pub HasAutomaticLifetimeRecycling: windows_sys::core::BOOL,
     pub TimeForAutomaticRecycling: super::FILETIME,
-    pub MemoryLimitInKB: u32,
-    pub MemoryUsageInKBLastCheck: u32,
-    pub ActivationLimit: u32,
-    pub NumActivationsLastReported: u32,
-    pub CallLimit: u32,
-    pub NumCallsLastReported: u32,
+    pub MemoryLimitInKB: super::ULONG,
+    pub MemoryUsageInKBLastCheck: super::ULONG,
+    pub ActivationLimit: super::ULONG,
+    pub NumActivationsLastReported: super::ULONG,
+    pub CallLimit: super::ULONG,
+    pub NumCallsLastReported: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ApplicationProcessStatistics {
-    pub NumCallsOutstanding: u32,
-    pub NumTrackedComponents: u32,
-    pub NumComponentInstances: u32,
-    pub AvgCallsPerSecond: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: u32,
-    pub Reserved4: u32,
+    pub NumCallsOutstanding: super::ULONG,
+    pub NumTrackedComponents: super::ULONG,
+    pub NumComponentInstances: super::ULONG,
+    pub AvgCallsPerSecond: super::ULONG,
+    pub Reserved1: super::ULONG,
+    pub Reserved2: super::ULONG,
+    pub Reserved3: super::ULONG,
+    pub Reserved4: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: windows_sys::core::GUID,
     pub ApplicationIdPrimaryApplication: windows_sys::core::GUID,
     pub ApplicationInstanceId: windows_sys::core::GUID,
-    pub ProcessId: u32,
+    pub ProcessId: super::DWORD,
     pub Type: COMPLUS_APPTYPE,
     pub ProcessExeName: windows_sys::core::PWSTR,
     pub IsService: windows_sys::core::BOOL,
@@ -76,6 +85,7 @@ pub struct ApplicationProcessSummary {
     pub IsRecycled: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
@@ -83,50 +93,52 @@ pub struct ApplicationSummary {
     pub ApplicationId: windows_sys::core::GUID,
     pub Type: COMPLUS_APPTYPE,
     pub ApplicationName: windows_sys::core::PWSTR,
-    pub NumTrackedComponents: u32,
-    pub NumComponentInstances: u32,
+    pub NumTrackedComponents: super::ULONG,
+    pub NumComponentInstances: super::ULONG,
 }
 pub const ByotServerEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CLSIDDATA {
-    pub m_clsid: windows_sys::core::GUID,
-    pub m_cReferences: u32,
-    pub m_cBound: u32,
-    pub m_cPooled: u32,
-    pub m_cInCall: u32,
-    pub m_dwRespTime: u32,
-    pub m_cCallsCompleted: u32,
-    pub m_cCallsFailed: u32,
+    pub m_clsid: super::CLSID,
+    pub m_cReferences: super::DWORD,
+    pub m_cBound: super::DWORD,
+    pub m_cPooled: super::DWORD,
+    pub m_cInCall: super::DWORD,
+    pub m_dwRespTime: super::DWORD,
+    pub m_cCallsCompleted: super::DWORD,
+    pub m_cCallsFailed: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CLSIDDATA2 {
-    pub m_clsid: windows_sys::core::GUID,
+    pub m_clsid: super::CLSID,
     pub m_appid: windows_sys::core::GUID,
     pub m_partid: windows_sys::core::GUID,
-    pub m_pwszAppName: *mut u16,
-    pub m_pwszCtxName: *mut u16,
+    pub m_pwszAppName: *mut super::WCHAR,
+    pub m_pwszCtxName: *mut super::WCHAR,
     pub m_eAppType: COMPLUS_APPTYPE,
-    pub m_cReferences: u32,
-    pub m_cBound: u32,
-    pub m_cPooled: u32,
-    pub m_cInCall: u32,
-    pub m_dwRespTime: u32,
-    pub m_cCallsCompleted: u32,
-    pub m_cCallsFailed: u32,
+    pub m_cReferences: super::DWORD,
+    pub m_cBound: super::DWORD,
+    pub m_cPooled: super::DWORD,
+    pub m_cInCall: super::DWORD,
+    pub m_dwRespTime: super::DWORD,
+    pub m_cCallsCompleted: super::DWORD,
+    pub m_cCallsFailed: super::DWORD,
 }
 pub const COMEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 pub type COMPLUS_APPTYPE = i32;
 #[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct COMSVCSEVENTINFO {
-    pub cbSize: u32,
-    pub dwPid: u32,
-    pub lTime: i64,
-    pub lMicroTime: i32,
-    pub perfCount: i64,
+    pub cbSize: super::DWORD,
+    pub dwPid: super::DWORD,
+    pub lTime: super::LONGLONG,
+    pub lMicroTime: super::LONG,
+    pub perfCount: super::LONGLONG,
     pub guidApp: windows_sys::core::GUID,
     pub sMachineName: super::LPOLESTR,
 }
@@ -196,45 +208,48 @@ pub const CoMTSLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const ComServiceEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
 pub const ComSystemAppEventData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: windows_sys::core::BOOL,
     pub TerminateOnHang: windows_sys::core::BOOL,
-    pub AvgCallThresholdInMs: u32,
+    pub AvgCallThresholdInMs: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ComponentStatistics {
-    pub NumInstances: u32,
-    pub NumBoundReferences: u32,
-    pub NumPooledObjects: u32,
-    pub NumObjectsInCall: u32,
-    pub AvgResponseTimeInMs: u32,
-    pub NumCallsCompletedRecent: u32,
-    pub NumCallsFailedRecent: u32,
-    pub NumCallsCompletedTotal: u32,
-    pub NumCallsFailedTotal: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: u32,
-    pub Reserved4: u32,
+    pub NumInstances: super::ULONG,
+    pub NumBoundReferences: super::ULONG,
+    pub NumPooledObjects: super::ULONG,
+    pub NumObjectsInCall: super::ULONG,
+    pub AvgResponseTimeInMs: super::ULONG,
+    pub NumCallsCompletedRecent: super::ULONG,
+    pub NumCallsFailedRecent: super::ULONG,
+    pub NumCallsCompletedTotal: super::ULONG,
+    pub NumCallsFailedTotal: super::ULONG,
+    pub Reserved1: super::ULONG,
+    pub Reserved2: super::ULONG,
+    pub Reserved3: super::ULONG,
+    pub Reserved4: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Default)]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
     pub ApplicationId: windows_sys::core::GUID,
-    pub Clsid: windows_sys::core::GUID,
+    pub Clsid: super::CLSID,
     pub ClassName: windows_sys::core::PWSTR,
     pub ApplicationName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct CrmLogRecordRead {
-    pub dwCrmFlags: u32,
-    pub dwSequenceNumber: u32,
+    pub dwCrmFlags: super::DWORD,
+    pub dwSequenceNumber: super::DWORD,
     pub blobUserData: super::BLOB,
 }
 pub type CrmTransactionState = i32;
@@ -256,14 +271,15 @@ pub const GUID_STRING_SIZE: i32 = 40;
 pub type GetAppTrackerDataFlags = i32;
 pub const GetSecurityCallContextAppObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: windows_sys::core::BOOL,
     pub fTerminateOnHang: windows_sys::core::BOOL,
     pub DumpType: DUMPTYPE,
-    pub dwHangTimeout: u32,
-    pub dwDumpCount: u32,
-    pub dwInfoMsgCount: u32,
+    pub dwHangTimeout: super::DWORD,
+    pub dwDumpCount: super::DWORD,
+    pub dwInfoMsgCount: super::DWORD,
 }
 pub type INSTID = usize;
 pub const LBEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
@@ -278,20 +294,20 @@ pub const MtsGrp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0
 pub const PoolMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 pub const Process: ReleaseModes = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: windows_sys::core::GUID,
-    pub ProcessStartTime: i64,
-    pub dwRecycleLifetimeLimit: u32,
-    pub dwRecycleMemoryLimit: u32,
-    pub dwRecycleExpirationTimeout: u32,
+    pub ProcessStartTime: super::LONGLONG,
+    pub dwRecycleLifetimeLimit: super::DWORD,
+    pub dwRecycleMemoryLimit: super::DWORD,
+    pub dwRecycleExpirationTimeout: super::DWORD,
 }
 pub type RESID = usize;
 pub type RESOURCERATING = u32;
 pub type RESTYPID = usize;
 pub type ReleaseModes = i32;
-#[cfg(feature = "wtypesbase")]
-pub type SRESID = super::LPOLESTR;
+pub type SRESID = *mut u16;
 pub const SecurityCallContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityCallers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityIdentity: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
@@ -335,8 +351,7 @@ pub const comqcErrPSLoad: Error_Constants = -2146367993;
 pub const comqcErrRecorderMarshalled: Error_Constants = -2146367996;
 pub const comqcErrRecorderNotTrusted: Error_Constants = -2146367994;
 pub const comqcErrWrongMsgExtension: Error_Constants = -2146367918;
-#[cfg(feature = "wtypesbase")]
-pub type constSRESID = super::LPCOLESTR;
+pub type constSRESID = *const u16;
 pub const mtsErrCtxAborted: Error_Constants = -2147164158;
 pub const mtsErrCtxAborting: Error_Constants = -2147164157;
 pub const mtsErrCtxNoContext: Error_Constants = -2147164156;

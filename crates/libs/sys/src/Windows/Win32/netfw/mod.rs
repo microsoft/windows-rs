@@ -1,60 +1,64 @@
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername : windows_sys::core::PCWSTR, netisoerror : *mut NETISO_ERROR_TYPE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationEnumAppContainers(flags : u32, pdwnumpublicappcs : *mut u32, pppublicappcs : *mut PINET_FIREWALL_APP_CONTAINER) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationFreeAppContainers(ppublicappcs : PINET_FIREWALL_APP_CONTAINER) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs : *mut u32, appcontainersids : *mut super::PSID_AND_ATTRIBUTES) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationRegisterForAppContainerChanges(flags : u32, callback : PAC_CHANGES_CALLBACK_FN, context : *const core::ffi::c_void, registrationobject : *mut super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs : u32, appcontainersids : super::PSID_AND_ATTRIBUTES) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::PSID, packagefullname : windows_sys::core::PCWSTR, packagefolder : windows_sys::core::PCWSTR, displayname : windows_sys::core::PCWSTR, bbinariesfullycomputed : windows_sys::core::BOOL, binaries : *const windows_sys::core::PCWSTR, binariescount : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject : super::HANDLE) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername : windows_sys::core::PCWSTR, netisoerror : *mut NETISO_ERROR_TYPE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationEnumAppContainers(flags : super::DWORD, pdwnumpublicappcs : *mut super::DWORD, pppublicappcs : *mut PINET_FIREWALL_APP_CONTAINER) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationFreeAppContainers(ppublicappcs : PINET_FIREWALL_APP_CONTAINER) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs : *mut super::DWORD, appcontainersids : *mut super::PSID_AND_ATTRIBUTES) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationRegisterForAppContainerChanges(flags : super::DWORD, callback : PAC_CHANGES_CALLBACK_FN, context : super::PVOID, registrationobject : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs : super::DWORD, appcontainersids : super::PSID_AND_ATTRIBUTES) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::PSID, packagefullname : windows_sys::core::PCWSTR, packagefolder : windows_sys::core::PCWSTR, displayname : windows_sys::core::PCWSTR, bbinariesfullycomputed : windows_sys::core::BOOL, binaries : *const windows_sys::core::PCWSTR, binariescount : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject : super::HANDLE) -> super::DWORD);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub id: windows_sys::core::GUID,
     pub keyword: windows_sys::core::PCWSTR,
-    pub flags: u32,
+    pub flags: super::DWORD,
     pub addresses: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
     pub next: *mut Self,
-    pub schemaVersion: u16,
+    pub schemaVersion: super::WORD,
     pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
 }
-pub type FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = u32;
+pub type FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = i32;
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 3;
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 1;
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 2;
-pub type FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = u32;
+pub type FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = i32;
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = 1;
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 0;
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 1;
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 2;
 pub type FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INET_FIREWALL_AC_BINARIES {
-    pub count: u32,
+    pub count: super::DWORD,
     pub binaries: *mut windows_sys::core::PWSTR,
 }
 pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct INET_FIREWALL_AC_CAPABILITIES {
-    pub count: u32,
+    pub count: super::DWORD,
     pub capabilities: *mut super::SID_AND_ATTRIBUTES,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct INET_FIREWALL_AC_CHANGE {
     pub changeType: INET_FIREWALL_AC_CHANGE_TYPE,
@@ -64,20 +68,20 @@ pub struct INET_FIREWALL_AC_CHANGE {
     pub displayName: windows_sys::core::PWSTR,
     pub Anonymous: INET_FIREWALL_AC_CHANGE_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for INET_FIREWALL_AC_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union INET_FIREWALL_AC_CHANGE_0 {
     pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
     pub binaries: INET_FIREWALL_AC_BINARIES,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for INET_FIREWALL_AC_CHANGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -93,7 +97,7 @@ pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = 4;
 pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = 0;
 pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct INET_FIREWALL_APP_CONTAINER {
     pub appContainerSid: *mut super::SID,
@@ -124,21 +128,31 @@ pub const NetFwPolicy2: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const NetFwProduct: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
 pub const NetFwProducts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
 pub const NetFwRule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PAC_CHANGES_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
-pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddress: PFW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
-pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID) -> u32>;
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, dynamickeywordaddressdata: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = Option<unsafe extern "system" fn(dynamickeywordaddressdata: PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, updatedaddresses: windows_sys::core::PCWSTR, append: windows_sys::core::BOOL) -> u32>;
+#[cfg(feature = "shared")]
+pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddress: PFW_DYNAMIC_KEYWORD_ADDRESS0) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, dynamickeywordaddressdata: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = Option<unsafe extern "system" fn(flags: super::DWORD, dynamickeywordaddressdata: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = Option<unsafe extern "system" fn(dynamickeywordaddressdata: PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, updatedaddresses: windows_sys::core::PCWSTR, append: windows_sys::core::BOOL) -> super::DWORD>;
+#[cfg(feature = "shared")]
 pub type PFW_DYNAMIC_KEYWORD_ADDRESS0 = *mut FW_DYNAMIC_KEYWORD_ADDRESS0;
+#[cfg(feature = "shared")]
 pub type PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0 = *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0;
+#[cfg(feature = "shared")]
 pub type PINET_FIREWALL_AC_BINARIES = *mut INET_FIREWALL_AC_BINARIES;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PINET_FIREWALL_AC_CAPABILITIES = *mut INET_FIREWALL_AC_CAPABILITIES;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PINET_FIREWALL_AC_CHANGE = *mut INET_FIREWALL_AC_CHANGE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PINET_FIREWALL_APP_CONTAINER = *mut INET_FIREWALL_APP_CONTAINER;
-pub type PNETISO_EDP_ID_CALLBACK_FN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, wszenterpriseid: windows_sys::core::PCWSTR, dwerr: u32)>;
+#[cfg(feature = "shared")]
+pub type PNETISO_EDP_ID_CALLBACK_FN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, wszenterpriseid: windows_sys::core::PCWSTR, dwerr: super::DWORD)>;

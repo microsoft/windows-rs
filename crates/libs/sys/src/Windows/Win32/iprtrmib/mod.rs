@@ -28,130 +28,146 @@ pub const MCAST_MFE_STATS: i32 = 19;
 pub const MCAST_MFE_STATS_EX: i32 = 35;
 pub const MCAST_SCOPE: i32 = 27;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_BEST_IF {
-    pub dwDestAddr: u32,
-    pub dwIfIndex: u32,
+    pub dwDestAddr: super::DWORD,
+    pub dwIfIndex: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_BOUNDARYROW {
-    pub dwGroupAddress: u32,
-    pub dwGroupMask: u32,
+    pub dwGroupAddress: super::DWORD,
+    pub dwGroupMask: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_IFSTATUS {
-    pub dwIfIndex: u32,
-    pub dwAdminStatus: u32,
-    pub dwOperationalStatus: u32,
+    pub dwIfIndex: super::DWORD,
+    pub dwAdminStatus: super::DWORD,
+    pub dwOperationalStatus: super::DWORD,
     pub bMHbeatActive: windows_sys::core::BOOL,
     pub bMHbeatAlive: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPDESTROW {
     pub ForwardRow: super::MIB_IPFORWARDROW,
-    pub dwForwardPreference: u32,
-    pub dwForwardViewSet: u32,
+    pub dwForwardPreference: super::DWORD,
+    pub dwForwardViewSet: super::DWORD,
 }
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef", feature = "shared"))]
 impl Default for MIB_IPDESTROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPDESTTABLE {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_IPDESTROW; 1],
 }
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef", feature = "shared"))]
 impl Default for MIB_IPDESTTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_IPMCAST_BOUNDARY {
-    pub dwIfIndex: u32,
-    pub dwGroupAddress: u32,
-    pub dwGroupMask: u32,
-    pub dwStatus: u32,
+    pub dwIfIndex: super::DWORD,
+    pub dwGroupAddress: super::DWORD,
+    pub dwGroupMask: super::DWORD,
+    pub dwStatus: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_IPMCAST_BOUNDARY_TABLE {
-    pub dwNumEntries: u32,
+    pub dwNumEntries: super::DWORD,
     pub table: [MIB_IPMCAST_BOUNDARY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_IPMCAST_BOUNDARY_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_IPMCAST_SCOPE {
-    pub dwGroupAddress: u32,
-    pub dwGroupMask: u32,
+    pub dwGroupAddress: super::DWORD,
+    pub dwGroupMask: super::DWORD,
     pub snNameBuffer: SCOPE_NAME_BUFFER,
-    pub dwStatus: u32,
+    pub dwStatus: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_IPMCAST_SCOPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_MCAST_LIMIT_ROW {
-    pub dwTtl: u32,
-    pub dwRateLimit: u32,
+    pub dwTtl: super::DWORD,
+    pub dwRateLimit: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_OPAQUE_INFO {
-    pub dwId: u32,
+    pub dwId: super::DWORD,
     pub Anonymous: MIB_OPAQUE_INFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_OPAQUE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MIB_OPAQUE_INFO_0 {
-    pub ullAlign: u64,
-    pub rgbyData: [u8; 1],
+    pub ullAlign: super::ULONGLONG,
+    pub rgbyData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_OPAQUE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIB_OPAQUE_QUERY {
-    pub dwVarId: u32,
-    pub rgdwVarIndex: [u32; 1],
+    pub dwVarId: super::DWORD,
+    pub rgdwVarIndex: [super::DWORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIB_OPAQUE_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_PROXYARP {
-    pub dwAddress: u32,
-    pub dwMask: u32,
-    pub dwIfIndex: u32,
+    pub dwAddress: super::DWORD,
+    pub dwMask: super::DWORD,
+    pub dwIfIndex: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -159,19 +175,29 @@ pub struct MIB_ROUTESTATE {
     pub bRoutesSetToStack: windows_sys::core::BOOL,
 }
 pub const NUMBER_OF_EXPORTED_VARIABLES: i32 = 39;
+#[cfg(feature = "shared")]
 pub type PMIB_BEST_IF = *mut MIB_BEST_IF;
+#[cfg(feature = "shared")]
 pub type PMIB_BOUNDARYROW = *mut MIB_BOUNDARYROW;
+#[cfg(feature = "shared")]
 pub type PMIB_IFSTATUS = *mut MIB_IFSTATUS;
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef", feature = "shared"))]
 pub type PMIB_IPDESTROW = *mut MIB_IPDESTROW;
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
+#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef", feature = "shared"))]
 pub type PMIB_IPDESTTABLE = *mut MIB_IPDESTTABLE;
+#[cfg(feature = "shared")]
 pub type PMIB_IPMCAST_BOUNDARY = *mut MIB_IPMCAST_BOUNDARY;
+#[cfg(feature = "shared")]
 pub type PMIB_IPMCAST_BOUNDARY_TABLE = *mut MIB_IPMCAST_BOUNDARY_TABLE;
+#[cfg(feature = "shared")]
 pub type PMIB_IPMCAST_SCOPE = *mut MIB_IPMCAST_SCOPE;
+#[cfg(feature = "shared")]
 pub type PMIB_MCAST_LIMIT_ROW = *mut MIB_MCAST_LIMIT_ROW;
+#[cfg(feature = "shared")]
 pub type PMIB_OPAQUE_INFO = *mut MIB_OPAQUE_INFO;
+#[cfg(feature = "shared")]
 pub type PMIB_OPAQUE_QUERY = *mut MIB_OPAQUE_QUERY;
+#[cfg(feature = "shared")]
 pub type PMIB_PROXYARP = *mut MIB_PROXYARP;
 pub type PMIB_ROUTESTATE = *mut MIB_ROUTESTATE;
 pub const PROXY_ARP: i32 = 22;
@@ -184,8 +210,8 @@ pub const ROUTE_LONGER: i32 = 32;
 pub const ROUTE_MATCHING: i32 = 31;
 pub const ROUTE_SHORTER: i32 = 33;
 pub const ROUTE_STATE: i32 = 34;
-pub type SCOPE_NAME = *mut SN_CHAR;
-pub type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
+pub type SCOPE_NAME = *mut u16;
+pub type SCOPE_NAME_BUFFER = [u16; 256];
 pub type SN_CHAR = u16;
 pub const TCP6_STATS: i32 = 38;
 #[repr(C)]

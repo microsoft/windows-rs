@@ -1,0 +1,19 @@
+#[win32]
+mod Fixture {
+    type CLSID = GUID;
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    const IID_IPlain: GUID = 0x279afa83_4981_11ce_a521_0020af0be560;
+    #[guid(0x279afa83_4981_11ce_a521_0020af0be560)]
+    interface IPlain {
+        fn Play(&self, flags: u32) -> i32;
+    }
+}

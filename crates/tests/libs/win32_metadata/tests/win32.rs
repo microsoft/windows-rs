@@ -8,13 +8,9 @@
 //! surface growth honest: if a scrape change produces metadata that no longer
 //! lowers to compilable bindings, this fails on the regenerated golden.
 //!
-//! The slice is narrow. The full closure contains ~4.5k functions
-//! whose exporting `.lib` is not in the dev `import-libs` set; those get an empty
-//! `link!("")` (`E0454`) by design, so a whole-namespace filter would not
-//! compile. The names below are chosen to (a) resolve to a real DLL the dev
-//! manifest lists (`gdi32`) and (b) exercise the converter paths most prone to
-//! regression: forced over-alignment, `packed` + nested `align`, `typedef void`,
-//! opaque handles, and `link!` lowering.
+//! The slice covers native alignment, packed containment, void typedefs, opaque handles and
+//! imported functions. DispatcherQueue metadata is checked separately to retain its WinRT
+//! reference without adding a CoreMessaging runtime dependency.
 
 /// Regenerate `expected/slice.rs` from the committed `metadata/win32` RDL.
 #[test]
@@ -23,8 +19,7 @@ fn slice() {
     let rdl_dir = format!("{manifest}/../../../../metadata/win32");
     let seed = format!("{manifest}/../../../../metadata/metadata.rdl");
     // The RDL carries cross-winmd references (WinRT interop APIs name true `Windows.*` types),
-    // so `Windows.winmd` is supplied as a resolution reference - exactly as the scrape does via its
-    // `RESOLUTION_WINMDS`.
+    // so `Windows.winmd` is supplied as a resolution reference, as in the native pipeline.
     let winrt = format!("{manifest}/../../../../crates/libs/default/Windows.winmd");
     let scratch = format!("{}/win32", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
@@ -83,10 +78,7 @@ const FILTER: &[&str] = &[
     "DeleteDC",
     "DeleteObject",
     "SelectObject",
-    // A counted-array parameter: `Polyline`'s `apt` carries a SAL-derived
-    // `NativeArrayInfo(CountParamIndex = 2)` (count given by `cpt`). Exercises the
-    // bindgen array-lowering path end to end and the `NativeArrayInfoAttribute`
-    // metadata-seed type, both of which the in-house SAL capture now drives.
+    // A counted-array parameter: Polyline's input buffer has a readable extent given by cpt.
     "Polyline",
     // `user32` functions: confirm the DLL resolves after adding `user32.lib`.
     "MessageBoxA",
@@ -96,18 +88,14 @@ const FILTER: &[&str] = &[
     "DISPATCHERQUEUE_THREAD_APARTMENTTYPE",
     "DISPATCHERQUEUE_THREAD_TYPE",
     "DispatcherQueueOptions",
-    // Nested handle-cast `#define` constants (`parse_nested_cast`): a pointer
-    // typedef'd const whose value is the innermost signed scalar reinterpretation
-    // - must render as `<signed int> as _` so the pointer sign-extends.
+    // Pointer constants retain the compiler's sign-extended native address.
     "HKEY_LOCAL_MACHINE",
     "INVALID_HANDLE_VALUE",
-    // A `DEFINE_GUID` named GUID constant (`parse_define_guid_tokens`): the value
-    // lives only in the macro arguments (no `INITGUID`), captured as a `GUID`-typed
-    // field carrying a `GuidAttribute`. Must lower to a `GUID` const initializer.
+    // A compiler-evaluated GUID definition must lower to a GUID const initializer.
     "GUID_DEVINTERFACE_CDROM",
     // A struct using the Win32 `*EX` C++ base-class idiom
     // (`tagMONITORINFOEXA : public tagMONITORINFO`): the base subobject must be
-    // captured as a leading `Base: MONITORINFO` field, or the struct is too small.
+    // captured as a leading `base: MONITORINFO` field, or the struct is too small.
     "MONITORINFOEXA",
 ];
 
@@ -129,19 +117,32 @@ fn assert_dispatcher_queue_function(winmd: &str) {
     let signature = function.signature(&[]);
     assert_eq!(
         signature.return_type,
-        Type::value_named("Windows.Foundation", "HResult")
+        Type::value_named("Windows.Win32", "HRESULT")
     );
     assert_eq!(
         signature.types,
         [
             Type::value_named("Windows.Win32", "DispatcherQueueOptions"),
             Type::PtrMut(
-                Box::new(Type::class_named(
-                    "Windows.System",
-                    "IDispatcherQueueController"
+                Box::new(Type::value_named(
+                    "Windows.Win32",
+                    "PDISPATCHERQUEUECONTROLLER"
                 )),
                 1
             ),
         ]
+    );
+    assert_eq!(
+        index.expect("Windows.Win32", "HRESULT").underlying_type(),
+        Some(Type::I32)
+    );
+    assert_eq!(
+        index
+            .expect("Windows.Win32", "PDISPATCHERQUEUECONTROLLER")
+            .underlying_type(),
+        Some(Type::class_named(
+            "Windows.System",
+            "IDispatcherQueueController"
+        ))
     );
 }

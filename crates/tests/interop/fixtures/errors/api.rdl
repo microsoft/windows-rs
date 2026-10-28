@@ -3,6 +3,7 @@ use Windows::Foundation::Metadata::*;
 #[winrt]
 mod Errors {
     // Implemented by the clients, so the component sees their errors.
+    #[guid(auto)]
     interface ICallback {
         // Fails with `E_BOUNDS` and the message "client".
         fn Fail(&self);
@@ -14,14 +15,15 @@ mod Errors {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Fails with `E_BOUNDS` and no message.
         fn Fail(&self);
 
         // Fails with `E_BOUNDS` and `message`.
-        fn FailWithMessage(&self, message: String);
+        fn FailWithMessage(&self, #[in] message: String);
 
         // Calls `callback.Fail` and checks the error it returns.
-        fn Check(&self, callback: ICallback);
+        fn Check(&self, #[in] callback: ICallback);
     }
 }

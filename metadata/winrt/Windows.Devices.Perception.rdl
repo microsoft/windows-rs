@@ -2,189 +2,189 @@
 mod Windows {
     mod Devices {
         mod Perception {
-            #[guid(0x08c03978_437a_4d97_a663_fd3195600249)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownCameraIntrinsicsProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownCameraIntrinsicsProperties)]
+            #[guid(0x08c03978_437a_4d97_a663_fd3195600249)]
             interface IKnownCameraIntrinsicsPropertiesStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownCameraIntrinsicsProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FocalLength: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownCameraIntrinsicsProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 PrincipalPoint: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownCameraIntrinsicsProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RadialDistortion: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownCameraIntrinsicsProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 TangentialDistortion: String;
             }
-            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionColorFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionColorFrameSourceProperties)]
+            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4b)]
             interface IKnownPerceptionColorFrameSourcePropertiesStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionColorFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Exposure: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionColorFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 AutoExposureEnabled: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionColorFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 ExposureCompensation: String;
             }
-            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionDepthFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.DepthMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionDepthFrameSourceProperties)]
+            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4a)]
             interface IKnownPerceptionDepthFrameSourcePropertiesStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionDepthFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.DepthMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 MinDepth: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionDepthFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.DepthMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 MaxDepth: String;
             }
-            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de47)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionFrameSourceProperties)]
+            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de47)]
             interface IKnownPerceptionFrameSourcePropertiesStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Id: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 PhysicalDeviceIds: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameKind: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceModelVersion: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 EnclosureLocation: String;
             }
-            #[guid(0xa9c86871_05dc_4a4d_8a5c_a4ecf26bbc46)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionFrameSourceProperties)]
+            #[guid(0xa9c86871_05dc_4a4d_8a5c_a4ecf26bbc46)]
             interface IKnownPerceptionFrameSourcePropertiesStatics2 {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceId: String;
             }
-            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de49)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionInfraredFrameSourceProperties)]
+            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de49)]
             interface IKnownPerceptionInfraredFrameSourcePropertiesStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties.Exposure may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.ExposureControl instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Exposure: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties.AutoExposureEnabled may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.ExposureControl.Auto instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 AutoExposureEnabled: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties.ExposureCompensation may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.ExposureCompensationControl instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 ExposureCompensation: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties.ActiveIlluminationEnabled may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 ActiveIlluminationEnabled: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties.AmbientSubtractionEnabled may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 AmbientSubtractionEnabled: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties.StructureLightPatternEnabled may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                StructureLightPatternEnabled: String;
                 #[get]
+                StructureLightPatternEnabled: String;
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionInfraredFrameSourceProperties.InterleavedIlluminationEnabled may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 InterleavedIlluminationEnabled: String;
             }
-            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de48)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionVideoFrameSourceProperties)]
+            #[guid(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de48)]
             interface IKnownPerceptionVideoFrameSourcePropertiesStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 VideoProfile: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 SupportedVideoProfiles: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 AvailableVideoProfiles: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 IsMirrored: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoFrameSourceProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CameraIntrinsics: String;
             }
-            #[guid(0x8f08e2e7_5a76_43e3_a13a_da3d91a9ef98)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoProfileProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionVideoProfileProperties)]
+            #[guid(0x8f08e2e7_5a76_43e3_a13a_da3d91a9ef98)]
             interface IKnownPerceptionVideoProfilePropertiesStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoProfileProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 BitmapPixelFormat: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoProfileProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 BitmapAlphaMode: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoProfileProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Width: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoProfileProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Height: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionVideoProfileProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameDuration: String;
             }
-            #[guid(0xfe621549_2cbf_4f94_9861_f817ea317747)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrame may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.VideoMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrame)]
+            #[guid(0xfe621549_2cbf_4f94_9861_f817ea317747)]
             interface IPerceptionColorFrame: super::super::Foundation::IClosable {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrame may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.VideoMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 VideoFrame: super::super::Media::VideoFrame;
             }
-            #[guid(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameArrivedEventArgs)]
+            #[guid(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59)]
             interface IPerceptionColorFrameArrivedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RelativeTime: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn TryOpenFrame(&self) -> PerceptionColorFrame;
             }
-            #[guid(0x7650f56e_b9f5_461b_83ad_f222af2aaadc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameReader)]
+            #[guid(0x7650f56e_b9f5_461b_83ad_f222af2aaadc)]
             interface IPerceptionColorFrameReader: super::super::Foundation::IClosable {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event FrameArrived: super::super::Foundation::TypedEventHandler<PerceptionColorFrameReader, PerceptionColorFrameArrivedEventArgs>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Source: PerceptionColorFrameSource;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 IsPaused: bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn TryReadLatestFrame(&self) -> PerceptionColorFrame;
             }
-            #[guid(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameSource)]
+            #[guid(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c)]
             interface IPerceptionColorFrameSource {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event AvailableChanged: super::super::Foundation::TypedEventHandler<PerceptionColorFrameSource, Object>;
@@ -196,90 +196,90 @@ mod Windows {
                 event VideoProfileChanged: super::super::Foundation::TypedEventHandler<PerceptionColorFrameSource, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event CameraIntrinsicsChanged: super::super::Foundation::TypedEventHandler<PerceptionColorFrameSource, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Id: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DisplayName: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceKind: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Available: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Active: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 IsControlled: bool;
+                #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[special]
-                #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::Collections::IMapView<String, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 SupportedVideoProfiles: super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 AvailableVideoProfiles: super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 VideoProfile: PerceptionVideoProfile;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CameraIntrinsics: super::super::Media::Devices::Core::CameraIntrinsics;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn AcquireControlSession(&self) -> PerceptionControlSession;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn CanControlIndependentlyFrom(&self, targetId: String) -> bool;
+                fn CanControlIndependentlyFrom(&self, #[in] targetId: String) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn IsCorrelatedWith(&self, targetId: String) -> bool;
+                fn IsCorrelatedWith(&self, #[in] targetId: String) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn TryGetTransformTo(&self, targetId: String, result: &mut super::super::Foundation::Numerics::Matrix4x4) -> bool;
-                #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetDepthCorrelatedCameraIntrinsicsAsync(&self, correlatedDepthFrameSource: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>;
+                fn TryGetTransformTo(&self, #[in] targetId: String, #[out] result: &mut super::super::Foundation::Numerics::Matrix4x4) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetDepthCorrelatedCoordinateMapperAsync(&self, targetSourceId: String, correlatedDepthFrameSource: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>;
+                fn TryGetDepthCorrelatedCameraIntrinsicsAsync(&self, #[in] correlatedDepthFrameSource: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySetVideoProfileAsync(&self, controlSession: PerceptionControlSession, profile: PerceptionVideoProfile) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
+                fn TryGetDepthCorrelatedCoordinateMapperAsync(&self, #[in] targetSourceId: String, #[in] correlatedDepthFrameSource: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>;
+                #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TrySetVideoProfileAsync(&self, #[in] controlSession: PerceptionControlSession, #[in] profile: PerceptionVideoProfile) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn OpenReader(&self) -> PerceptionColorFrameReader;
             }
-            #[guid(0xf88008e5_5631_45ed_ad98_8c6aa04cfb91)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameSource)]
+            #[guid(0xf88008e5_5631_45ed_ad98_8c6aa04cfb91)]
             interface IPerceptionColorFrameSource2 {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceId: String;
             }
-            #[guid(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceAddedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameSourceAddedEventArgs)]
+            #[guid(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3)]
             interface IPerceptionColorFrameSourceAddedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceAddedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameSource: PerceptionColorFrameSource;
             }
-            #[guid(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceRemovedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameSourceRemovedEventArgs)]
+            #[guid(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1)]
             interface IPerceptionColorFrameSourceRemovedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceRemovedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameSource: PerceptionColorFrameSource;
             }
-            #[guid(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de49)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameSource)]
+            #[guid(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de49)]
             interface IPerceptionColorFrameSourceStatics {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource.CreateWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation.CreateWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn CreateWatcher(&self) -> PerceptionColorFrameSourceWatcher;
@@ -288,15 +288,15 @@ mod Windows {
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionColorFrameSource>>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource.FromIdAsync may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation.FromIdAsync instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<PerceptionColorFrameSource>;
+                fn FromIdAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<PerceptionColorFrameSource>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSource.RequestAccessAsync may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>;
             }
-            #[guid(0x96bd1392_e667_40c4_89f9_1462dea6a9cc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionColorFrameSourceWatcher)]
+            #[guid(0x96bd1392_e667_40c4_89f9_1462dea6a9cc)]
             interface IPerceptionColorFrameSourceWatcher {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event SourceAdded: super::super::Foundation::TypedEventHandler<PerceptionColorFrameSourceWatcher, PerceptionColorFrameSourceAddedEventArgs>;
@@ -306,92 +306,92 @@ mod Windows {
                 event Stopped: super::super::Foundation::TypedEventHandler<PerceptionColorFrameSourceWatcher, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event EnumerationCompleted: super::super::Foundation::TypedEventHandler<PerceptionColorFrameSourceWatcher, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Status: super::Enumeration::DeviceWatcherStatus;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn Start(&self);
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionColorFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn Stop(&self);
             }
-            #[guid(0x99998653_5a3d_417f_9239_f1889e548b48)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionControlSession may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionControlSession)]
+            #[guid(0x99998653_5a3d_417f_9239_f1889e548b48)]
             interface IPerceptionControlSession: super::super::Foundation::IClosable {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionControlSession may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event ControlLost: super::super::Foundation::TypedEventHandler<PerceptionControlSession, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionControlSession may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySetPropertyAsync(&self, name: String, #[Windows::Foundation::Metadata::HasVariant] value: Object) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
+                fn TrySetPropertyAsync(&self, #[in] name: String, #[Windows::Foundation::Metadata::HasVariant] #[in] value: Object) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
             }
-            #[guid(0x6548ca01_86de_5be1_6582_807fcf4c95cf)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCameraIntrinsics may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthCorrelatedCameraIntrinsics)]
+            #[guid(0x6548ca01_86de_5be1_6582_807fcf4c95cf)]
             interface IPerceptionDepthCorrelatedCameraIntrinsics {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCameraIntrinsics may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn UnprojectPixelAtCorrelatedDepth(&self, pixelCoordinate: super::super::Foundation::Point, depthFrame: PerceptionDepthFrame) -> super::super::Foundation::Numerics::Vector3;
+                fn UnprojectPixelAtCorrelatedDepth(&self, #[in] pixelCoordinate: super::super::Foundation::Point, #[in] depthFrame: PerceptionDepthFrame) -> super::super::Foundation::Numerics::Vector3;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCameraIntrinsics may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn UnprojectPixelsAtCorrelatedDepth(&self, sourceCoordinates: [super::super::Foundation::Point], depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Numerics::Vector3]);
+                fn UnprojectPixelsAtCorrelatedDepth(&self, #[in] sourceCoordinates: [super::super::Foundation::Point], #[in] depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Numerics::Vector3]);
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCameraIntrinsics may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn UnprojectRegionPixelsAtCorrelatedDepthAsync(&self, region: super::super::Foundation::Rect, depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Numerics::Vector3]) -> super::super::Foundation::IAsyncAction;
+                fn UnprojectRegionPixelsAtCorrelatedDepthAsync(&self, #[in] region: super::super::Foundation::Rect, #[in] depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Numerics::Vector3]) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCameraIntrinsics may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn UnprojectAllPixelsAtCorrelatedDepthAsync(&self, depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Numerics::Vector3]) -> super::super::Foundation::IAsyncAction;
+                fn UnprojectAllPixelsAtCorrelatedDepthAsync(&self, #[in] depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Numerics::Vector3]) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCoordinateMapper may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthCorrelatedCoordinateMapper)]
+            #[guid(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b)]
             interface IPerceptionDepthCorrelatedCoordinateMapper {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCoordinateMapper may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn MapPixelToTarget(&self, sourcePixelCoordinate: super::super::Foundation::Point, depthFrame: PerceptionDepthFrame) -> super::super::Foundation::Point;
+                fn MapPixelToTarget(&self, #[in] sourcePixelCoordinate: super::super::Foundation::Point, #[in] depthFrame: PerceptionDepthFrame) -> super::super::Foundation::Point;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCoordinateMapper may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn MapPixelsToTarget(&self, sourceCoordinates: [super::super::Foundation::Point], depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Point]);
+                fn MapPixelsToTarget(&self, #[in] sourceCoordinates: [super::super::Foundation::Point], #[in] depthFrame: PerceptionDepthFrame, #[out] results: [super::super::Foundation::Point]);
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCoordinateMapper may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn MapRegionOfPixelsToTargetAsync(&self, region: super::super::Foundation::Rect, depthFrame: PerceptionDepthFrame, #[out] targetCoordinates: [super::super::Foundation::Point]) -> super::super::Foundation::IAsyncAction;
+                fn MapRegionOfPixelsToTargetAsync(&self, #[in] region: super::super::Foundation::Rect, #[in] depthFrame: PerceptionDepthFrame, #[out] targetCoordinates: [super::super::Foundation::Point]) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthCorrelatedCoordinateMapper may be unavailable after Windows Creator Update.  Use Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn MapAllPixelsToTargetAsync(&self, depthFrame: PerceptionDepthFrame, #[out] targetCoordinates: [super::super::Foundation::Point]) -> super::super::Foundation::IAsyncAction;
+                fn MapAllPixelsToTargetAsync(&self, #[in] depthFrame: PerceptionDepthFrame, #[out] targetCoordinates: [super::super::Foundation::Point]) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0xa37b81fc_9906_4ffd_9161_0024b360b657)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrame may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.DepthMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrame)]
+            #[guid(0xa37b81fc_9906_4ffd_9161_0024b360b657)]
             interface IPerceptionDepthFrame: super::super::Foundation::IClosable {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrame may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.DepthMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 VideoFrame: super::super::Media::VideoFrame;
             }
-            #[guid(0x443d25b2_b282_4637_9173_ac978435c985)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameArrivedEventArgs)]
+            #[guid(0x443d25b2_b282_4637_9173_ac978435c985)]
             interface IPerceptionDepthFrameArrivedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RelativeTime: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn TryOpenFrame(&self) -> PerceptionDepthFrame;
             }
-            #[guid(0xb1a3c09f_299b_4612_a4f7_270f25a096ec)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameReader)]
+            #[guid(0xb1a3c09f_299b_4612_a4f7_270f25a096ec)]
             interface IPerceptionDepthFrameReader: super::super::Foundation::IClosable {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event FrameArrived: super::super::Foundation::TypedEventHandler<PerceptionDepthFrameReader, PerceptionDepthFrameArrivedEventArgs>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Source: PerceptionDepthFrameSource;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 IsPaused: bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn TryReadLatestFrame(&self) -> PerceptionDepthFrame;
             }
-            #[guid(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameSource)]
+            #[guid(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942)]
             interface IPerceptionDepthFrameSource {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event AvailableChanged: super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSource, Object>;
@@ -403,90 +403,90 @@ mod Windows {
                 event VideoProfileChanged: super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSource, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event CameraIntrinsicsChanged: super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSource, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Id: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DisplayName: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceKind: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Available: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Active: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 IsControlled: bool;
+                #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[special]
-                #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::Collections::IMapView<String, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 SupportedVideoProfiles: super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 AvailableVideoProfiles: super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 VideoProfile: PerceptionVideoProfile;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CameraIntrinsics: super::super::Media::Devices::Core::CameraIntrinsics;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn AcquireControlSession(&self) -> PerceptionControlSession;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn CanControlIndependentlyFrom(&self, targetId: String) -> bool;
+                fn CanControlIndependentlyFrom(&self, #[in] targetId: String) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn IsCorrelatedWith(&self, targetId: String) -> bool;
+                fn IsCorrelatedWith(&self, #[in] targetId: String) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn TryGetTransformTo(&self, targetId: String, result: &mut super::super::Foundation::Numerics::Matrix4x4) -> bool;
-                #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetDepthCorrelatedCameraIntrinsicsAsync(&self, target: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>;
+                fn TryGetTransformTo(&self, #[in] targetId: String, #[out] result: &mut super::super::Foundation::Numerics::Matrix4x4) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetDepthCorrelatedCoordinateMapperAsync(&self, targetId: String, depthFrameSourceToMapWith: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>;
+                fn TryGetDepthCorrelatedCameraIntrinsicsAsync(&self, #[in] target: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySetVideoProfileAsync(&self, controlSession: PerceptionControlSession, profile: PerceptionVideoProfile) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
+                fn TryGetDepthCorrelatedCoordinateMapperAsync(&self, #[in] targetId: String, #[in] depthFrameSourceToMapWith: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>;
+                #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TrySetVideoProfileAsync(&self, #[in] controlSession: PerceptionControlSession, #[in] profile: PerceptionVideoProfile) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn OpenReader(&self) -> PerceptionDepthFrameReader;
             }
-            #[guid(0xe3d23d2e_6e2c_4e6d_91d9_704cd8dff79d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameSource)]
+            #[guid(0xe3d23d2e_6e2c_4e6d_91d9_704cd8dff79d)]
             interface IPerceptionDepthFrameSource2 {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceId: String;
             }
-            #[guid(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceAddedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameSourceAddedEventArgs)]
+            #[guid(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6)]
             interface IPerceptionDepthFrameSourceAddedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceAddedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameSource: PerceptionDepthFrameSource;
             }
-            #[guid(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceRemovedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameSourceRemovedEventArgs)]
+            #[guid(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df)]
             interface IPerceptionDepthFrameSourceRemovedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceRemovedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameSource: PerceptionDepthFrameSource;
             }
-            #[guid(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de48)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameSource)]
+            #[guid(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de48)]
             interface IPerceptionDepthFrameSourceStatics {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource.CreateWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation.CreateWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn CreateWatcher(&self) -> PerceptionDepthFrameSourceWatcher;
@@ -495,15 +495,15 @@ mod Windows {
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionDepthFrameSource>>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource.FromIdAsync may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation.FromIdAsync instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<PerceptionDepthFrameSource>;
+                fn FromIdAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<PerceptionDepthFrameSource>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSource.RequestAccessAsync may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>;
             }
-            #[guid(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionDepthFrameSourceWatcher)]
+            #[guid(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10)]
             interface IPerceptionDepthFrameSourceWatcher {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event SourceAdded: super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSourceWatcher, PerceptionDepthFrameSourceAddedEventArgs>;
@@ -513,77 +513,77 @@ mod Windows {
                 event Stopped: super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSourceWatcher, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event EnumerationCompleted: super::super::Foundation::TypedEventHandler<PerceptionDepthFrameSourceWatcher, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Status: super::Enumeration::DeviceWatcherStatus;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn Start(&self);
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionDepthFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn Stop(&self);
             }
-            #[guid(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertiesChangedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionFrameSourcePropertiesChangedEventArgs)]
+            #[guid(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b)]
             interface IPerceptionFrameSourcePropertiesChangedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertiesChangedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CollectionChange: super::super::Foundation::Collections::CollectionChange;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertiesChangedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Key: String;
             }
-            #[guid(0x1e33390a_3c90_4d22_b898_f42bba6418ff)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertyChangeResult may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionFrameSourcePropertyChangeResult)]
+            #[guid(0x1e33390a_3c90_4d22_b898_f42bba6418ff)]
             interface IPerceptionFrameSourcePropertyChangeResult {
+                #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertyChangeResult may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[get]
-                #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertyChangeResult may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 Status: PerceptionFrameSourcePropertyChangeStatus;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertyChangeResult may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[special]
                 fn get_NewValue(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
             }
-            #[guid(0xb0886276_849e_4c7a_8ae6_b56064532153)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrame may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.InfraredMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrame)]
+            #[guid(0xb0886276_849e_4c7a_8ae6_b56064532153)]
             interface IPerceptionInfraredFrame: super::super::Foundation::IClosable {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrame may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.InfraredMediaFrame instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 VideoFrame: super::super::Media::VideoFrame;
             }
-            #[guid(0x9f77fac7_b4bd_4857_9d50_be8ef075daef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameArrivedEventArgs)]
+            #[guid(0x9f77fac7_b4bd_4857_9d50_be8ef075daef)]
             interface IPerceptionInfraredFrameArrivedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RelativeTime: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameArrivedEventArgs may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn TryOpenFrame(&self) -> PerceptionInfraredFrame;
             }
-            #[guid(0x7960ce18_d39b_4fc8_a04a_929734c6756c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameReader)]
+            #[guid(0x7960ce18_d39b_4fc8_a04a_929734c6756c)]
             interface IPerceptionInfraredFrameReader: super::super::Foundation::IClosable {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event FrameArrived: super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameReader, PerceptionInfraredFrameArrivedEventArgs>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Source: PerceptionInfraredFrameSource;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 IsPaused: bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameReader may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameReader instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn TryReadLatestFrame(&self) -> PerceptionInfraredFrame;
             }
-            #[guid(0x55b08742_1808_494e_9e30_9d2a7be8f700)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameSource)]
+            #[guid(0x55b08742_1808_494e_9e30_9d2a7be8f700)]
             interface IPerceptionInfraredFrameSource {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event AvailableChanged: super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSource, Object>;
@@ -595,90 +595,90 @@ mod Windows {
                 event VideoProfileChanged: super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSource, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event CameraIntrinsicsChanged: super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSource, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Id: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DisplayName: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceKind: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Available: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Active: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 IsControlled: bool;
+                #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[special]
-                #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::Collections::IMapView<String, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 SupportedVideoProfiles: super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 AvailableVideoProfiles: super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 VideoProfile: PerceptionVideoProfile;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CameraIntrinsics: super::super::Media::Devices::Core::CameraIntrinsics;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn AcquireControlSession(&self) -> PerceptionControlSession;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn CanControlIndependentlyFrom(&self, targetId: String) -> bool;
+                fn CanControlIndependentlyFrom(&self, #[in] targetId: String) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn IsCorrelatedWith(&self, targetId: String) -> bool;
+                fn IsCorrelatedWith(&self, #[in] targetId: String) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn TryGetTransformTo(&self, targetId: String, result: &mut super::super::Foundation::Numerics::Matrix4x4) -> bool;
-                #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetDepthCorrelatedCameraIntrinsicsAsync(&self, target: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>;
+                fn TryGetTransformTo(&self, #[in] targetId: String, #[out] result: &mut super::super::Foundation::Numerics::Matrix4x4) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetDepthCorrelatedCoordinateMapperAsync(&self, targetId: String, depthFrameSourceToMapWith: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>;
+                fn TryGetDepthCorrelatedCameraIntrinsicsAsync(&self, #[in] target: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySetVideoProfileAsync(&self, controlSession: PerceptionControlSession, profile: PerceptionVideoProfile) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
+                fn TryGetDepthCorrelatedCoordinateMapperAsync(&self, #[in] targetId: String, #[in] depthFrameSourceToMapWith: PerceptionDepthFrameSource) -> super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>;
+                #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TrySetVideoProfileAsync(&self, #[in] controlSession: PerceptionControlSession, #[in] profile: PerceptionVideoProfile) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn OpenReader(&self) -> PerceptionInfraredFrameReader;
             }
-            #[guid(0xdcd4d798_4b0b_4300_8d85_410817faa032)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameSource)]
+            #[guid(0xdcd4d798_4b0b_4300_8d85_410817faa032)]
             interface IPerceptionInfraredFrameSource2 {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 DeviceId: String;
             }
-            #[guid(0x6d334120_95ce_4660_907a_d98035aa2b7c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceAddedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameSourceAddedEventArgs)]
+            #[guid(0x6d334120_95ce_4660_907a_d98035aa2b7c)]
             interface IPerceptionInfraredFrameSourceAddedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceAddedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameSource: PerceptionInfraredFrameSource;
             }
-            #[guid(0xea1a8071_7a70_4a61_af94_07303853f695)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceRemovedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameSourceRemovedEventArgs)]
+            #[guid(0xea1a8071_7a70_4a61_af94_07303853f695)]
             interface IPerceptionInfraredFrameSourceRemovedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceRemovedEventArgs may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameSource: PerceptionInfraredFrameSource;
             }
-            #[guid(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de47)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameSource instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameSource)]
+            #[guid(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de47)]
             interface IPerceptionInfraredFrameSourceStatics {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource.CreateWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation.CreateWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn CreateWatcher(&self) -> PerceptionInfraredFrameSourceWatcher;
@@ -687,15 +687,15 @@ mod Windows {
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionInfraredFrameSource>>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource.FromIdAsync may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceInformation.FromIdAsync instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<PerceptionInfraredFrameSource>;
+                fn FromIdAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<PerceptionInfraredFrameSource>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSource.RequestAccessAsync may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>;
             }
-            #[guid(0x383cff99_d70c_444d_a8b0_720c2e66fe3b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionInfraredFrameSourceWatcher)]
+            #[guid(0x383cff99_d70c_444d_a8b0_720c2e66fe3b)]
             interface IPerceptionInfraredFrameSourceWatcher {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event SourceAdded: super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSourceWatcher, PerceptionInfraredFrameSourceAddedEventArgs>;
@@ -705,36 +705,36 @@ mod Windows {
                 event Stopped: super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSourceWatcher, Object>;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event EnumerationCompleted: super::super::Foundation::TypedEventHandler<PerceptionInfraredFrameSourceWatcher, Object>;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Status: super::Enumeration::DeviceWatcherStatus;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn Start(&self);
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionInfraredFrameSourceWatcher may be unavailable after Windows Creator Update.  Use Windows.Devices.Enumeration.DeviceWatcher instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn Stop(&self);
             }
-            #[guid(0x75763ea3_011a_470e_8225_6f05ade25648)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionVideoProfile may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameFormat instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionVideoProfile)]
+            #[guid(0x75763ea3_011a_470e_8225_6f05ade25648)]
             interface IPerceptionVideoProfile {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionVideoProfile may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameFormat instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 BitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionVideoProfile may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameFormat instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 BitmapAlphaMode: super::super::Graphics::Imaging::BitmapAlphaMode;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionVideoProfile may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameFormat instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Width: i32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionVideoProfile may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameFormat instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Height: i32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionVideoProfile may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameFormat instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 FrameDuration: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionVideoProfile may be unavailable after Windows Creator Update.  Use Windows.Media.Capture.Frames.MediaFrameFormat instead.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn IsEqual(&self, other: PerceptionVideoProfile) -> bool;
+                fn IsEqual(&self, #[in] other: PerceptionVideoProfile) -> bool;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("KnownCameraIntrinsicsProperties may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
@@ -933,9 +933,9 @@ mod Windows {
             class PerceptionDepthFrameSourceWatcher {
                 IPerceptionDepthFrameSourceWatcher,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourceAccessStatus may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[repr(i32)]
             enum PerceptionFrameSourceAccessStatus {
                 Unspecified = 0,
                 Allowed = 1,
@@ -958,9 +958,9 @@ mod Windows {
             class PerceptionFrameSourcePropertyChangeResult {
                 IPerceptionFrameSourcePropertyChangeResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameSourcePropertyChangeStatus may be unavailable after Windows Creator Update.  Please refer to Windows.Media.Capture.Frames APIs on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[repr(i32)]
             enum PerceptionFrameSourcePropertyChangeStatus {
                 Unknown = 0,
                 Accepted = 1,

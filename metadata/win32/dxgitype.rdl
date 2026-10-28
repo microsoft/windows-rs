@@ -7,11 +7,6 @@ mod Windows {
             b: f32,
             a: f32,
         }
-        const DXGI_CPU_ACCESS_DYNAMIC: i32 = 1;
-        const DXGI_CPU_ACCESS_FIELD: i32 = 15;
-        const DXGI_CPU_ACCESS_NONE: i32 = 0;
-        const DXGI_CPU_ACCESS_READ_WRITE: i32 = 2;
-        const DXGI_CPU_ACCESS_SCRATCH: i32 = 3;
         struct DXGI_GAMMA_CONTROL {
             Scale: DXGI_RGB,
             Offset: DXGI_RGB,
@@ -21,23 +16,23 @@ mod Windows {
             ScaleAndOffsetSupported: BOOL,
             MaxConvertedValue: f32,
             MinConvertedValue: f32,
-            NumGammaControlPoints: u32,
+            NumGammaControlPoints: UINT,
             ControlPointPositions: [f32; 1025],
         }
         struct DXGI_JPEG_AC_HUFFMAN_TABLE {
-            CodeCounts: [u8; 16],
-            CodeValues: [u8; 162],
+            CodeCounts: [BYTE; 16],
+            CodeValues: [BYTE; 162],
         }
         struct DXGI_JPEG_DC_HUFFMAN_TABLE {
-            CodeCounts: [u8; 12],
-            CodeValues: [u8; 12],
+            CodeCounts: [BYTE; 12],
+            CodeValues: [BYTE; 12],
         }
         struct DXGI_JPEG_QUANTIZATION_TABLE {
-            Elements: [u8; 64],
+            Elements: [BYTE; 64],
         }
         struct DXGI_MODE_DESC {
-            Width: u32,
-            Height: u32,
+            Width: UINT,
+            Height: UINT,
             RefreshRate: DXGI_RATIONAL,
             Format: DXGI_FORMAT,
             ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,

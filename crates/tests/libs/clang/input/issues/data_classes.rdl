@@ -1,0 +1,29 @@
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    struct BitmapData {
+        width: u32,
+        stride: i32,
+        scan: *mut void,
+    }
+    struct CProperty {
+        id: DWORD,
+        Anonymous: union {
+            pointer: *mut void,
+            value: DWORD,
+        },
+        persistent: BOOL,
+    }
+    type DWORD = u32;
+    struct Data {
+        value: u32,
+    }
+    type LPPROP = *mut CProperty;
+    type PData = *mut Data;
+    #[library("fixture.dll")]
+    extern "C" fn UseBitmapData(value: *mut BitmapData);
+    #[library("fixture.dll")]
+    extern "C" fn UseData(value: PData);
+    #[library("fixture.dll")]
+    extern "C" fn UseProperty(value: *mut CProperty, input: *const CProperty);
+}

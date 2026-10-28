@@ -1,0 +1,39 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Char16Callback(param0: u16);
+    extern "C" fn Char32Callback(param0: u32);
+    struct CharacterCallbacks {
+        character16: Char16Callback,
+        character32: Char32Callback,
+        integer16: Unsigned16Callback,
+        integer32: Unsigned32Callback,
+    }
+    struct Characters {
+        first: u16,
+        second: u32,
+        text: *const u16,
+        buffer: [u32; 2],
+        named16: Unit16,
+        named32: Unit32,
+    }
+    struct Compare16 {
+        unit: u16,
+    }
+    struct Compare32 {
+        unit: u32,
+    }
+    #[repr(u16)]
+    #[scoped]
+    enum Maximum16 {
+        Value = 65535,
+    }
+    #[repr(u32)]
+    #[scoped]
+    enum Maximum32 {
+        Value = 4294967295,
+    }
+    type Unit16 = u16;
+    type Unit32 = u32;
+    extern "C" fn Unsigned16Callback(param0: u16);
+    extern "C" fn Unsigned32Callback(param0: u32);
+}

@@ -5,18 +5,18 @@ mod Windows {
         const CAPSLOCK_ON: i32 = 128;
         struct CHAR_INFO {
             Char: union {
-                UnicodeChar: u16,
-                AsciiChar: i8,
+                UnicodeChar: WCHAR,
+                AsciiChar: CHAR,
             },
-            Attributes: u16,
+            Attributes: WORD,
         }
         struct CONSOLE_FONT_INFO {
-            nFont: u32,
+            nFont: DWORD,
             dwFontSize: COORD,
         }
         struct COORD {
-            X: i16,
-            Y: i16,
+            X: SHORT,
+            Y: SHORT,
         }
         const DOUBLE_CLICK: i32 = 2;
         const ENHANCED_KEY: i32 = 256;
@@ -30,7 +30,7 @@ mod Windows {
         const FROM_LEFT_4TH_BUTTON_PRESSED: i32 = 16;
         type HPCON = *mut void;
         struct INPUT_RECORD {
-            EventType: u16,
+            EventType: WORD,
             Event: union {
                 KeyEvent: KEY_EVENT_RECORD,
                 MouseEvent: MOUSE_EVENT_RECORD,
@@ -42,27 +42,27 @@ mod Windows {
         const KEY_EVENT: i32 = 1;
         struct KEY_EVENT_RECORD {
             bKeyDown: BOOL,
-            wRepeatCount: u16,
-            wVirtualKeyCode: u16,
-            wVirtualScanCode: u16,
+            wRepeatCount: WORD,
+            wVirtualKeyCode: WORD,
+            wVirtualScanCode: WORD,
             uChar: union {
-                UnicodeChar: u16,
-                AsciiChar: i8,
+                UnicodeChar: WCHAR,
+                AsciiChar: CHAR,
             },
-            dwControlKeyState: u32,
+            dwControlKeyState: DWORD,
         }
         const LEFT_ALT_PRESSED: i32 = 2;
         const LEFT_CTRL_PRESSED: i32 = 8;
         const MENU_EVENT: i32 = 8;
         struct MENU_EVENT_RECORD {
-            dwCommandId: u32,
+            dwCommandId: UINT,
         }
         const MOUSE_EVENT: i32 = 2;
         struct MOUSE_EVENT_RECORD {
             dwMousePosition: COORD,
-            dwButtonState: u32,
-            dwControlKeyState: u32,
-            dwEventFlags: u32,
+            dwButtonState: DWORD,
+            dwControlKeyState: DWORD,
+            dwEventFlags: DWORD,
         }
         const MOUSE_HWHEELED: i32 = 8;
         const MOUSE_MOVED: i32 = 1;
@@ -91,10 +91,10 @@ mod Windows {
         const SCROLLLOCK_ON: i32 = 64;
         const SHIFT_PRESSED: i32 = 16;
         struct SMALL_RECT {
-            Left: i16,
-            Top: i16,
-            Right: i16,
-            Bottom: i16,
+            Left: SHORT,
+            Top: SHORT,
+            Right: SHORT,
+            Bottom: SHORT,
         }
         const WINDOW_BUFFER_SIZE_EVENT: i32 = 4;
         struct WINDOW_BUFFER_SIZE_RECORD {

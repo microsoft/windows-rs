@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    #[library("native.dll")]
+    extern "C" fn Shadow(value: u32) -> i32;
+}

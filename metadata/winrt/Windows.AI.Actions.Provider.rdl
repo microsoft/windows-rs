@@ -3,15 +3,15 @@ mod Windows {
     mod AI {
         mod Actions {
             mod Provider {
-                #[guid(0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 131072)]
+                #[guid(0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c)]
                 interface IActionFeedbackHandler {
-                    fn ProcessFeedbackAsync(&self, context: super::ActionInvocationContext, feedback: super::ActionFeedback) -> super::super::super::Foundation::IAsyncAction;
+                    fn ProcessFeedbackAsync(&self, #[in] context: super::ActionInvocationContext, #[in] feedback: super::ActionFeedback) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x62906c47_3d07_55f1_aefa_1522505afbbe)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[guid(0x62906c47_3d07_55f1_aefa_1522505afbbe)]
                 interface IActionProvider {
-                    fn InvokeAsync(&self, context: super::ActionInvocationContext) -> super::super::super::Foundation::IAsyncAction;
+                    fn InvokeAsync(&self, #[in] context: super::ActionInvocationContext) -> super::super::super::Foundation::IAsyncAction;
                 }
             }
         }

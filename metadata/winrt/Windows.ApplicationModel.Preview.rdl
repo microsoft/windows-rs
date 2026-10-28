@@ -2,9 +2,9 @@
 mod Windows {
     mod ApplicationModel {
         mod Preview {
-            #[guid(0xc3a147db_09fa_5aa5_b3bd_119a09963d58)]
             #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppInfoPreview)]
+            #[guid(0xc3a147db_09fa_5aa5_b3bd_119a09963d58)]
             interface IStartupAppInfoPreview {
                 #[get]
                 DisplayName: String;
@@ -17,20 +17,20 @@ mod Windows {
                 #[get]
                 ExecutablePath: String;
             }
-            #[guid(0x7197b9c1_03bb_5693_87c3_6f983cc70fb3)]
             #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppsManagerPreview)]
+            #[guid(0x7197b9c1_03bb_5693_87c3_6f983cc70fb3)]
             interface IStartupAppsManagerPreview {
                 fn GetStartupAppInfos(&self) -> super::super::Foundation::Collections::IVectorView<StartupAppInfoPreview>;
             }
-            #[guid(0x9d0331f5_343f_5cd7_9d66_762cfa2c0380)]
             #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppsManagerPreview)]
+            #[guid(0x9d0331f5_343f_5cd7_9d66_762cfa2c0380)]
             interface IStartupAppsManagerPreviewStatics {
                 fn GetDefault(&self) -> StartupAppsManagerPreview;
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            #[repr(i32)]
             enum StartupAppImpactPreview {
                 Unknown = 0,
                 None = 1,

@@ -1,191 +1,202 @@
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: LPJOYCAPSA, cbjc: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : LPJOYCAPSA, cbjc : u32) -> super::MMRESULT);
+pub unsafe fn joyGetDevCapsA(ujoyid: super::UINT_PTR, pjc: LPJOYCAPSA, cbjc: super::UINT) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : super::UINT_PTR, pjc : LPJOYCAPSA, cbjc : super::UINT) -> super::MMRESULT);
     unsafe { joyGetDevCapsA(ujoyid, pjc as _, cbjc) }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: LPJOYCAPSW, cbjc: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : LPJOYCAPSW, cbjc : u32) -> super::MMRESULT);
+pub unsafe fn joyGetDevCapsW(ujoyid: super::UINT_PTR, pjc: LPJOYCAPSW, cbjc: super::UINT) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : super::UINT_PTR, pjc : LPJOYCAPSW, cbjc : super::UINT) -> super::MMRESULT);
     unsafe { joyGetDevCapsW(ujoyid, pjc as _, cbjc) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn joyGetNumDevs() -> u32 {
-    windows_core::link!("winmm.dll" "system" fn joyGetNumDevs() -> u32);
+pub unsafe fn joyGetNumDevs() -> super::UINT {
+    windows_core::link!("winmm.dll" "system" fn joyGetNumDevs() -> super::UINT);
     unsafe { joyGetNumDevs() }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn joyGetPos(ujoyid: u32, pji: LPJOYINFO) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : LPJOYINFO) -> super::MMRESULT);
+pub unsafe fn joyGetPos(ujoyid: super::UINT, pji: LPJOYINFO) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joyGetPos(ujoyid : super::UINT, pji : LPJOYINFO) -> super::MMRESULT);
     unsafe { joyGetPos(ujoyid, pji as _) }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn joyGetPosEx(ujoyid: u32, pji: LPJOYINFOEX) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : LPJOYINFOEX) -> super::MMRESULT);
+pub unsafe fn joyGetPosEx(ujoyid: super::UINT, pji: LPJOYINFOEX) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : super::UINT, pji : LPJOYINFOEX) -> super::MMRESULT);
     unsafe { joyGetPosEx(ujoyid, pji as _) }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: super::LPUINT) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : super::LPUINT) -> super::MMRESULT);
+pub unsafe fn joyGetThreshold(ujoyid: super::UINT, puthreshold: super::LPUINT) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : super::UINT, puthreshold : super::LPUINT) -> super::MMRESULT);
     unsafe { joyGetThreshold(ujoyid, puthreshold as _) }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn joyReleaseCapture(ujoyid: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> super::MMRESULT);
+pub unsafe fn joyReleaseCapture(ujoyid: super::UINT) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : super::UINT) -> super::MMRESULT);
     unsafe { joyReleaseCapture(ujoyid) }
 }
-#[cfg(all(feature = "mmsyscom", feature = "windef"))]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn joySetCapture(hwnd: super::HWND, ujoyid: u32, uperiod: u32, fchanged: bool) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::HWND, ujoyid : u32, uperiod : u32, fchanged : windows_core::BOOL) -> super::MMRESULT);
+pub unsafe fn joySetCapture(hwnd: super::HWND, ujoyid: super::UINT, uperiod: super::UINT, fchanged: bool) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::HWND, ujoyid : super::UINT, uperiod : super::UINT, fchanged : windows_core::BOOL) -> super::MMRESULT);
     unsafe { joySetCapture(hwnd, ujoyid, uperiod, fchanged.into()) }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[inline]
-pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> super::MMRESULT {
-    windows_core::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> super::MMRESULT);
+pub unsafe fn joySetThreshold(ujoyid: super::UINT, uthreshold: super::UINT) -> super::MMRESULT {
+    windows_core::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : super::UINT, uthreshold : super::UINT) -> super::MMRESULT);
     unsafe { joySetThreshold(ujoyid, uthreshold) }
 }
+#[cfg(feature = "shared")]
 pub type JOYCAPS = JOYCAPSA;
+#[cfg(feature = "shared")]
 pub type JOYCAPS2 = JOYCAPS2A;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOYCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [i8; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [i8; 32],
-    pub szOEMVxD: [i8; 260],
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
+    pub szPname: [super::CHAR; 32],
+    pub wXmin: super::UINT,
+    pub wXmax: super::UINT,
+    pub wYmin: super::UINT,
+    pub wYmax: super::UINT,
+    pub wZmin: super::UINT,
+    pub wZmax: super::UINT,
+    pub wNumButtons: super::UINT,
+    pub wPeriodMin: super::UINT,
+    pub wPeriodMax: super::UINT,
+    pub wRmin: super::UINT,
+    pub wRmax: super::UINT,
+    pub wUmin: super::UINT,
+    pub wUmax: super::UINT,
+    pub wVmin: super::UINT,
+    pub wVmax: super::UINT,
+    pub wCaps: super::UINT,
+    pub wMaxAxes: super::UINT,
+    pub wNumAxes: super::UINT,
+    pub wMaxButtons: super::UINT,
+    pub szRegKey: [super::CHAR; 32],
+    pub szOEMVxD: [super::CHAR; 260],
     pub ManufacturerGuid: windows_core::GUID,
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for JOYCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [u16; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [u16; 32],
-    pub szOEMVxD: [u16; 260],
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
+    pub szPname: [super::WCHAR; 32],
+    pub wXmin: super::UINT,
+    pub wXmax: super::UINT,
+    pub wYmin: super::UINT,
+    pub wYmax: super::UINT,
+    pub wZmin: super::UINT,
+    pub wZmax: super::UINT,
+    pub wNumButtons: super::UINT,
+    pub wPeriodMin: super::UINT,
+    pub wPeriodMax: super::UINT,
+    pub wRmin: super::UINT,
+    pub wRmax: super::UINT,
+    pub wUmin: super::UINT,
+    pub wUmax: super::UINT,
+    pub wVmin: super::UINT,
+    pub wVmax: super::UINT,
+    pub wCaps: super::UINT,
+    pub wMaxAxes: super::UINT,
+    pub wNumAxes: super::UINT,
+    pub wMaxButtons: super::UINT,
+    pub szRegKey: [super::WCHAR; 32],
+    pub szOEMVxD: [super::WCHAR; 260],
     pub ManufacturerGuid: windows_core::GUID,
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for JOYCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOYCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [i8; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [i8; 32],
-    pub szOEMVxD: [i8; 260],
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
+    pub szPname: [super::CHAR; 32],
+    pub wXmin: super::UINT,
+    pub wXmax: super::UINT,
+    pub wYmin: super::UINT,
+    pub wYmax: super::UINT,
+    pub wZmin: super::UINT,
+    pub wZmax: super::UINT,
+    pub wNumButtons: super::UINT,
+    pub wPeriodMin: super::UINT,
+    pub wPeriodMax: super::UINT,
+    pub wRmin: super::UINT,
+    pub wRmax: super::UINT,
+    pub wUmin: super::UINT,
+    pub wUmax: super::UINT,
+    pub wVmin: super::UINT,
+    pub wVmax: super::UINT,
+    pub wCaps: super::UINT,
+    pub wMaxAxes: super::UINT,
+    pub wNumAxes: super::UINT,
+    pub wMaxButtons: super::UINT,
+    pub szRegKey: [super::CHAR; 32],
+    pub szOEMVxD: [super::CHAR; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for JOYCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [u16; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [u16; 32],
-    pub szOEMVxD: [u16; 260],
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
+    pub szPname: [super::WCHAR; 32],
+    pub wXmin: super::UINT,
+    pub wXmax: super::UINT,
+    pub wYmin: super::UINT,
+    pub wYmax: super::UINT,
+    pub wZmin: super::UINT,
+    pub wZmax: super::UINT,
+    pub wNumButtons: super::UINT,
+    pub wPeriodMin: super::UINT,
+    pub wPeriodMax: super::UINT,
+    pub wRmin: super::UINT,
+    pub wRmax: super::UINT,
+    pub wUmin: super::UINT,
+    pub wUmax: super::UINT,
+    pub wVmin: super::UINT,
+    pub wVmax: super::UINT,
+    pub wCaps: super::UINT,
+    pub wMaxAxes: super::UINT,
+    pub wNumAxes: super::UINT,
+    pub wMaxButtons: super::UINT,
+    pub szRegKey: [super::WCHAR; 32],
+    pub szOEMVxD: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for JOYCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -203,29 +214,31 @@ pub const JOYERR_NOERROR: i32 = 0;
 pub const JOYERR_PARMS: i32 = 165;
 pub const JOYERR_UNPLUGGED: i32 = 167;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct JOYINFO {
-    pub wXpos: u32,
-    pub wYpos: u32,
-    pub wZpos: u32,
-    pub wButtons: u32,
+    pub wXpos: super::UINT,
+    pub wYpos: super::UINT,
+    pub wZpos: super::UINT,
+    pub wButtons: super::UINT,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct JOYINFOEX {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwXpos: u32,
-    pub dwYpos: u32,
-    pub dwZpos: u32,
-    pub dwRpos: u32,
-    pub dwUpos: u32,
-    pub dwVpos: u32,
-    pub dwButtons: u32,
-    pub dwButtonNumber: u32,
-    pub dwPOV: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwXpos: super::DWORD,
+    pub dwYpos: super::DWORD,
+    pub dwZpos: super::DWORD,
+    pub dwRpos: super::DWORD,
+    pub dwUpos: super::DWORD,
+    pub dwVpos: super::DWORD,
+    pub dwButtons: super::DWORD,
+    pub dwButtonNumber: super::DWORD,
+    pub dwPOV: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 pub const JOYSTICKID1: i32 = 0;
 pub const JOYSTICKID2: i32 = 1;
@@ -278,7 +291,8 @@ pub const JOY_CAL_READXYONLY: i32 = 131072;
 pub const JOY_CAL_READYONLY: i32 = 2097152;
 pub const JOY_CAL_READZONLY: i32 = 16777216;
 pub const JOY_POVBACKWARD: i32 = 18000;
-pub const JOY_POVCENTERED: u16 = 65535;
+#[cfg(feature = "shared")]
+pub const JOY_POVCENTERED: super::WORD = 65535;
 pub const JOY_POVFORWARD: i32 = 0;
 pub const JOY_POVLEFT: i32 = 27000;
 pub const JOY_POVRIGHT: i32 = 9000;
@@ -295,27 +309,51 @@ pub const JOY_RETURNX: i32 = 1;
 pub const JOY_RETURNY: i32 = 2;
 pub const JOY_RETURNZ: i32 = 4;
 pub const JOY_USEDEADZONE: i32 = 2048;
-pub type LPJOYCAPS = LPJOYCAPSA;
-pub type LPJOYCAPS2 = LPJOYCAPS2A;
+#[cfg(feature = "shared")]
+pub type LPJOYCAPS = *mut JOYCAPSA;
+#[cfg(feature = "shared")]
+pub type LPJOYCAPS2 = *mut JOYCAPS2A;
+#[cfg(feature = "shared")]
 pub type LPJOYCAPS2A = *mut JOYCAPS2A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPJOYCAPS2W = *mut JOYCAPS2W;
+#[cfg(feature = "shared")]
 pub type LPJOYCAPSA = *mut JOYCAPSA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPJOYCAPSW = *mut JOYCAPSW;
+#[cfg(feature = "shared")]
 pub type LPJOYINFO = *mut JOYINFO;
+#[cfg(feature = "shared")]
 pub type LPJOYINFOEX = *mut JOYINFOEX;
-pub type NPJOYCAPS = NPJOYCAPSA;
-pub type NPJOYCAPS2 = NPJOYCAPS2A;
+#[cfg(feature = "shared")]
+pub type NPJOYCAPS = *mut JOYCAPSA;
+#[cfg(feature = "shared")]
+pub type NPJOYCAPS2 = *mut JOYCAPS2A;
+#[cfg(feature = "shared")]
 pub type NPJOYCAPS2A = *mut JOYCAPS2A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type NPJOYCAPS2W = *mut JOYCAPS2W;
+#[cfg(feature = "shared")]
 pub type NPJOYCAPSA = *mut JOYCAPSA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type NPJOYCAPSW = *mut JOYCAPSW;
+#[cfg(feature = "shared")]
 pub type NPJOYINFO = *mut JOYINFO;
+#[cfg(feature = "shared")]
 pub type NPJOYINFOEX = *mut JOYINFOEX;
-pub type PJOYCAPS = PJOYCAPSA;
-pub type PJOYCAPS2 = PJOYCAPS2A;
+#[cfg(feature = "shared")]
+pub type PJOYCAPS = *mut JOYCAPSA;
+#[cfg(feature = "shared")]
+pub type PJOYCAPS2 = *mut JOYCAPS2A;
+#[cfg(feature = "shared")]
 pub type PJOYCAPS2A = *mut JOYCAPS2A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PJOYCAPS2W = *mut JOYCAPS2W;
+#[cfg(feature = "shared")]
 pub type PJOYCAPSA = *mut JOYCAPSA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PJOYCAPSW = *mut JOYCAPSW;
+#[cfg(feature = "shared")]
 pub type PJOYINFO = *mut JOYINFO;
+#[cfg(feature = "shared")]
 pub type PJOYINFOEX = *mut JOYINFOEX;

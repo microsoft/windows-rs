@@ -2,17 +2,17 @@
 mod Windows {
     mod Win32 {
         struct ACPI_REAL_TIME {
-            Year: u16,
-            Month: u8,
-            Day: u8,
-            Hour: u8,
-            Minute: u8,
-            Second: u8,
-            Valid: u8,
-            Milliseconds: u16,
-            TimeZone: i16,
-            DayLight: u8,
-            Reserved1: [u8; 3],
+            Year: UINT16,
+            Month: UINT8,
+            Day: UINT8,
+            Hour: UINT8,
+            Minute: UINT8,
+            Second: UINT8,
+            Valid: UINT8,
+            Milliseconds: UINT16,
+            TimeZone: INT16,
+            DayLight: UINT8,
+            Reserved1: [UINT8; 3],
         }
         const ACPI_TIME_ADJUST_DAYLIGHT: i32 = 1;
         struct ACPI_TIME_AND_ALARM_CAPABILITIES {
@@ -23,7 +23,7 @@ mod Windows {
             S5AcWakeSupported: BOOLEAN,
             S5DcWakeSupported: BOOLEAN,
             S4S5WakeStatusSupported: BOOLEAN,
-            DeepestWakeSystemState: u32,
+            DeepestWakeSystemState: ULONG,
             RealTimeFeaturesSupported: BOOLEAN,
             RealTimeResolution: ACPI_TIME_RESOLUTION,
         }
@@ -40,12 +40,12 @@ mod Windows {
         type BATTERY_CHARGER_ID = GUID;
         struct BATTERY_CHARGER_STATUS {
             Type: BATTERY_CHARGING_SOURCE_TYPE,
-            VaData: [u32; 1],
+            VaData: [ULONG; 1],
         }
         const BATTERY_CHARGING: i32 = 4;
         struct BATTERY_CHARGING_SOURCE {
             Type: BATTERY_CHARGING_SOURCE_TYPE,
-            MaxCurrent: u32,
+            MaxCurrent: ULONG,
         }
         struct BATTERY_CHARGING_SOURCE_INFORMATION {
             Type: BATTERY_CHARGING_SOURCE_TYPE,
@@ -61,28 +61,28 @@ mod Windows {
         const BATTERY_CRITICAL: i32 = 8;
         const BATTERY_DISCHARGING: i32 = 2;
         struct BATTERY_INFORMATION {
-            Capabilities: u32,
-            Technology: u8,
-            Reserved: [u8; 3],
-            Chemistry: [u8; 4],
-            DesignedCapacity: u32,
-            FullChargedCapacity: u32,
-            DefaultAlert1: u32,
-            DefaultAlert2: u32,
-            CriticalBias: u32,
-            CycleCount: u32,
+            Capabilities: ULONG,
+            Technology: UCHAR,
+            Reserved: [UCHAR; 3],
+            Chemistry: [UCHAR; 4],
+            DesignedCapacity: ULONG,
+            FullChargedCapacity: ULONG,
+            DefaultAlert1: ULONG,
+            DefaultAlert2: ULONG,
+            CriticalBias: ULONG,
+            CycleCount: ULONG,
         }
         const BATTERY_IS_SHORT_TERM: i32 = 536870912;
         struct BATTERY_MANUFACTURE_DATE {
-            Day: u8,
-            Month: u8,
-            Year: u16,
+            Day: UCHAR,
+            Month: UCHAR,
+            Year: USHORT,
         }
         const BATTERY_POWER_ON_LINE: i32 = 1;
         struct BATTERY_QUERY_INFORMATION {
-            BatteryTag: u32,
+            BatteryTag: ULONG,
             InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
-            AtRate: u32,
+            AtRate: ULONG,
         }
         #[repr(i32)]
         enum BATTERY_QUERY_INFORMATION_LEVEL {
@@ -102,9 +102,9 @@ mod Windows {
         const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: i32 = 4;
         const BATTERY_SET_DISCHARGE_SUPPORTED: i32 = 2;
         struct BATTERY_SET_INFORMATION {
-            BatteryTag: u32,
+            BatteryTag: ULONG,
             InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
-            Buffer: [u8; 1],
+            Buffer: [UCHAR; 1],
         }
         #[repr(i32)]
         enum BATTERY_SET_INFORMATION_LEVEL {
@@ -116,10 +116,10 @@ mod Windows {
             BatteryChargerStatus = 5,
         }
         struct BATTERY_STATUS {
-            PowerState: u32,
-            Capacity: u32,
-            Voltage: u32,
-            Rate: i32,
+            PowerState: ULONG,
+            Capacity: ULONG,
+            Voltage: ULONG,
+            Rate: LONG,
         }
         const BATTERY_SYSTEM_BATTERY: u32 = 2147483648;
         const BATTERY_TAG_INVALID: i32 = 0;
@@ -131,36 +131,36 @@ mod Windows {
         const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295;
         struct BATTERY_USB_CHARGER_STATUS {
             Type: BATTERY_CHARGING_SOURCE_TYPE,
-            Reserved: u32,
-            Flags: u32,
-            MaxCurrent: u32,
-            Voltage: u32,
+            Reserved: ULONG,
+            Flags: ULONG,
+            MaxCurrent: ULONG,
+            Voltage: ULONG,
             PortType: USB_CHARGER_PORT,
-            PortId: u64,
-            PowerSourceInformation: *mut void,
+            PortId: ULONGLONG,
+            PowerSourceInformation: PVOID,
             OemCharger: BATTERY_CHARGER_ID,
         }
         const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: i32 = 1;
         const BATTERY_USB_CHARGER_STATUS_UCM_PD: i32 = 2;
         struct BATTERY_WAIT_STATUS {
-            BatteryTag: u32,
-            Timeout: u32,
-            PowerState: u32,
-            LowCapacity: u32,
-            HighCapacity: u32,
+            BatteryTag: ULONG,
+            Timeout: ULONG,
+            PowerState: ULONG,
+            LowCapacity: ULONG,
+            HighCapacity: ULONG,
         }
         struct CUSTOMIZED_IO_CAPABILITIES {
-            SupportedInputs: u32,
-            SupportedOutputs: u32,
+            SupportedInputs: ULONG,
+            SupportedOutputs: ULONG,
         }
         struct CUSTOMIZED_IO_QUERY_INPUT_RETURN {
-            FunctionId: u32,
-            ErrorCode: u32,
-            Value: u32,
+            FunctionId: ULONG,
+            ErrorCode: ULONG,
+            Value: ULONG,
         }
         struct CUSTOMIZED_IO_SEND_OUTPUT_BUFFER {
-            FunctionId: u32,
-            Value: u32,
+            FunctionId: ULONG,
+            Value: ULONG,
         }
         const GUID_CLASS_INPUT: GUID = 0x4d1e55b2_f16f_11cf_88cb_001111000030;
         const GUID_DEVICE_ACPI_TIME: GUID = 0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c;
@@ -229,36 +229,36 @@ mod Windows {
         type PCUSTOMIZED_IO_QUERY_INPUT_RETURN = *mut CUSTOMIZED_IO_QUERY_INPUT_RETURN;
         type PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER = *mut CUSTOMIZED_IO_SEND_OUTPUT_BUFFER;
         struct POWER_ADAPTER_CHARGE_REQUIREMENT {
-            AcAdapterType: u32,
-            MinimumPower: u32,
-            NominalPower: u32,
-            MaximumPower: u32,
+            AcAdapterType: ULONG,
+            MinimumPower: ULONG,
+            NominalPower: ULONG,
+            MaximumPower: ULONG,
         }
         union POWER_ADAPTER_POWER_STATES {
             States: struct {
                 _bitfield: u32 {
-                    Online: 1,
-                    RecState: 2,
-                    Reserved: 29,
+                    Online: ULONG: 1,
+                    RecState: ULONG: 2,
+                    Reserved: ULONG: 29,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         const POWER_ADAPTER_REC_TIME_NOT_AVAILABLE: u64 = 18446744073709551615;
         struct POWER_ADAPTER_SET_STATUS_BUFFER {
-            Version: u8,
+            Version: UCHAR,
             RecOverride: BOOLEAN,
-            Reserved: [u8; 2],
+            Reserved: [UCHAR; 2],
         }
         struct POWER_ADAPTER_STATUS {
-            Version: u8,
-            Reserved: [u8; 3],
+            Version: UCHAR,
+            Reserved: [UCHAR; 3],
             PowerState: POWER_ADAPTER_POWER_STATES,
-            PeakPower: u32,
-            MaxOutputPower: u32,
-            MaxInputPower: u32,
-            RecStartTime: u64,
-            RecEndTime: u64,
+            PeakPower: ULONG,
+            MaxOutputPower: ULONG,
+            MaxInputPower: ULONG,
+            RecStartTime: ULONG64,
+            RecEndTime: ULONG64,
         }
         type PPOWER_ADAPTER_CHARGE_REQUIREMENT = *mut POWER_ADAPTER_CHARGE_REQUIREMENT;
         type PPOWER_ADAPTER_POWER_STATES = *mut POWER_ADAPTER_POWER_STATES;
@@ -269,15 +269,15 @@ mod Windows {
         #[guid(0x5724c81d_d5af_4c1f_a103_a06e28f204c6)]
         const PROCESSOR_NUMBER_PKEY: DEVPROPKEY = 1;
         struct PROCESSOR_OBJECT_INFO {
-            PhysicalID: u32,
-            PBlkAddress: u32,
-            PBlkLength: u8,
+            PhysicalID: ULONG,
+            PBlkAddress: ULONG,
+            PBlkLength: UCHAR,
         }
         struct PROCESSOR_OBJECT_INFO_EX {
-            PhysicalID: u32,
-            PBlkAddress: u32,
-            PBlkLength: u8,
-            InitialApicId: u32,
+            PhysicalID: ULONG,
+            PBlkAddress: ULONG,
+            PBlkLength: UCHAR,
+            InitialApicId: ULONG,
         }
         type PTHERMAL_INFORMATION = *mut THERMAL_INFORMATION;
         type PTHERMAL_POLICY = *mut THERMAL_POLICY;
@@ -294,34 +294,34 @@ mod Windows {
         const SYS_BUTTON_SLEEP: i32 = 2;
         const SYS_BUTTON_WAKE: u32 = 2147483648;
         struct THERMAL_INFORMATION {
-            ThermalStamp: u32,
-            ThermalConstant1: u32,
-            ThermalConstant2: u32,
+            ThermalStamp: ULONG,
+            ThermalConstant1: ULONG,
+            ThermalConstant2: ULONG,
             Processors: KAFFINITY,
-            SamplingPeriod: u32,
-            CurrentTemperature: u32,
-            PassiveTripPoint: u32,
-            CriticalTripPoint: u32,
-            ActiveTripPointCount: u8,
-            ActiveTripPoint: [u32; 10],
+            SamplingPeriod: ULONG,
+            CurrentTemperature: ULONG,
+            PassiveTripPoint: ULONG,
+            CriticalTripPoint: ULONG,
+            ActiveTripPointCount: UCHAR,
+            ActiveTripPoint: [ULONG; 10],
         }
         struct THERMAL_POLICY {
-            Version: u32,
+            Version: ULONG,
             WaitForUpdate: BOOLEAN,
             Hibernate: BOOLEAN,
             Critical: BOOLEAN,
             ThermalStandby: BOOLEAN,
-            ActivationReasons: u32,
-            PassiveLimit: u32,
-            ActiveLevel: u32,
+            ActivationReasons: ULONG,
+            PassiveLimit: ULONG,
+            ActiveLevel: ULONG,
             OverThrottled: BOOLEAN,
         }
         const THERMAL_POLICY_VERSION_1: i32 = 1;
         const THERMAL_POLICY_VERSION_2: i32 = 2;
         struct THERMAL_WAIT_READ {
-            Timeout: u32,
-            LowTemperature: u32,
-            HighTemperature: u32,
+            Timeout: ULONG,
+            LowTemperature: ULONG,
+            HighTemperature: ULONG,
         }
         const THERMAL_WAIT_READ_TIMEOUT_IMMEDIATE: i32 = 0;
         const THERMAL_WAIT_READ_TIMEOUT_NONE: u32 = 4294967295;
@@ -338,8 +338,8 @@ mod Windows {
             UsbChargerPort_Max = 2,
         }
         struct WAKE_ALARM_INFORMATION {
-            TimerIdentifier: u32,
-            Timeout: u32,
+            TimerIdentifier: ULONG,
+            Timeout: ULONG,
         }
     }
 }

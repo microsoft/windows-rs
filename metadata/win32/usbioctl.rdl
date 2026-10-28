@@ -3,68 +3,68 @@ mod Windows {
     mod Win32 {
         #[packed(1)]
         struct HCD_ISO_STAT_COUNTERS {
-            LateUrbs: u16,
-            DoubleBufferedPackets: u16,
-            TransfersCF_5ms: u16,
-            TransfersCF_2ms: u16,
-            TransfersCF_1ms: u16,
-            MaxInterruptLatency: u16,
-            BadStartFrame: u16,
-            StaleUrbs: u16,
-            IsoPacketNotAccesed: u16,
-            IsoPacketHWError: u16,
-            SmallestUrbPacketCount: u16,
-            LargestUrbPacketCount: u16,
-            IsoCRC_Error: u16,
-            IsoOVERRUN_Error: u16,
-            IsoINTERNAL_Error: u16,
-            IsoUNKNOWN_Error: u16,
-            IsoBytesTransferred: u32,
-            LateMissedCount: u16,
-            HWIsoMissedCount: u16,
-            Reserved7: [u32; 8],
+            LateUrbs: USHORT,
+            DoubleBufferedPackets: USHORT,
+            TransfersCF_5ms: USHORT,
+            TransfersCF_2ms: USHORT,
+            TransfersCF_1ms: USHORT,
+            MaxInterruptLatency: USHORT,
+            BadStartFrame: USHORT,
+            StaleUrbs: USHORT,
+            IsoPacketNotAccesed: USHORT,
+            IsoPacketHWError: USHORT,
+            SmallestUrbPacketCount: USHORT,
+            LargestUrbPacketCount: USHORT,
+            IsoCRC_Error: USHORT,
+            IsoOVERRUN_Error: USHORT,
+            IsoINTERNAL_Error: USHORT,
+            IsoUNKNOWN_Error: USHORT,
+            IsoBytesTransferred: ULONG,
+            LateMissedCount: USHORT,
+            HWIsoMissedCount: USHORT,
+            Reserved7: [ULONG; 8],
         }
         #[packed(1)]
         struct HCD_STAT_COUNTERS {
-            BytesTransferred: u32,
-            IsoMissedCount: u16,
-            DataOverrunErrorCount: u16,
-            CrcErrorCount: u16,
-            ScheduleOverrunCount: u16,
-            TimeoutErrorCount: u16,
-            InternalHcErrorCount: u16,
-            BufferOverrunErrorCount: u16,
-            SWErrorCount: u16,
-            StallPidCount: u16,
-            PortDisableCount: u16,
+            BytesTransferred: ULONG,
+            IsoMissedCount: USHORT,
+            DataOverrunErrorCount: USHORT,
+            CrcErrorCount: USHORT,
+            ScheduleOverrunCount: USHORT,
+            TimeoutErrorCount: USHORT,
+            InternalHcErrorCount: USHORT,
+            BufferOverrunErrorCount: USHORT,
+            SWErrorCount: USHORT,
+            StallPidCount: USHORT,
+            PortDisableCount: USHORT,
         }
         #[packed(1)]
         struct HCD_STAT_INFORMATION_1 {
-            Reserved1: u32,
-            Reserved2: u32,
-            ResetCounters: u32,
+            Reserved1: ULONG,
+            Reserved2: ULONG,
+            ResetCounters: ULONG,
             TimeRead: LARGE_INTEGER,
             Counters: HCD_STAT_COUNTERS,
         }
         #[packed(1)]
         struct HCD_STAT_INFORMATION_2 {
-            Reserved1: u32,
-            Reserved2: u32,
-            ResetCounters: u32,
+            Reserved1: ULONG,
+            Reserved2: ULONG,
+            ResetCounters: ULONG,
             TimeRead: LARGE_INTEGER,
-            LockedMemoryUsed: i32,
+            LockedMemoryUsed: LONG,
             Counters: HCD_STAT_COUNTERS,
             IsoCounters: HCD_ISO_STAT_COUNTERS,
         }
         #[packed(1)]
         struct HUB_DEVICE_CONFIG_INFO {
-            Version: u32,
-            Length: u32,
+            Version: ULONG,
+            Length: ULONG,
             HubFlags: USB_HUB_CAP_FLAGS,
             HardwareIds: USB_ID_STRING,
             CompatibleIds: USB_ID_STRING,
             DeviceDescription: USB_ID_STRING,
-            Reserved: [u32; 19],
+            Reserved: [ULONG; 19],
             UxdSettings: USB_HUB_DEVICE_UXD_SETTINGS,
         }
         const IOCTL_GET_HCD_DRIVERKEY_NAME: i32 = 2229284;
@@ -186,42 +186,44 @@ mod Windows {
         #[packed(1)]
         struct USB_ACQUIRE_INFO {
             NotificationType: USB_NOTIFICATION_TYPE,
-            TotalSize: u32,
-            Buffer: [u16; 1],
+            TotalSize: ULONG,
+            Buffer: [WCHAR; 1],
         }
         #[packed(1)]
         struct USB_BUS_NOTIFICATION {
             NotificationType: USB_NOTIFICATION_TYPE,
-            TotalBandwidth: u32,
-            ConsumedBandwidth: u32,
-            ControllerNameLength: u32,
+            TotalBandwidth: ULONG,
+            ConsumedBandwidth: ULONG,
+            ControllerNameLength: ULONG,
         }
         type USB_CHANGE_REGISTRATION_HANDLE = *mut USB_CHANGE_REGISTRATION_HANDLE__;
         #[packed(1)]
         struct USB_CHANGE_REGISTRATION_HANDLE__ {
             unused: i32,
         }
+        #[packed(1)]
         struct USB_COMPOSITE_DEVICE_INFO {
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
             CurrentConfigDescriptor: USB_CONFIGURATION_DESCRIPTOR,
-            CurrentConfigurationValue: u8,
-            NumberOfFunctions: u8,
+            CurrentConfigurationValue: UCHAR,
+            NumberOfFunctions: UCHAR,
             FunctionInfo: [USB_COMPOSITE_FUNCTION_INFO; 1],
         }
+        #[packed(1)]
         struct USB_COMPOSITE_FUNCTION_INFO {
-            FunctionNumber: u8,
-            BaseInterfaceNumber: u8,
-            NumberOfInterfaces: u8,
+            FunctionNumber: UCHAR,
+            BaseInterfaceNumber: UCHAR,
+            NumberOfInterfaces: UCHAR,
             FunctionIsIdle: BOOLEAN,
         }
         #[packed(1)]
         struct USB_CONNECTION_NOTIFICATION {
             NotificationType: USB_NOTIFICATION_TYPE,
-            ConnectionNumber: u32,
-            RequestedBandwidth: u32,
-            EnumerationFailReason: u32,
-            PowerRequested: u32,
-            HubNameLength: u32,
+            ConnectionNumber: ULONG,
+            RequestedBandwidth: ULONG,
+            EnumerationFailReason: ULONG,
+            PowerRequested: ULONG,
+            HubNameLength: ULONG,
         }
         #[repr(i32)]
         enum USB_CONNECTION_STATUS {
@@ -239,169 +241,171 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_CONTROLLER_DEVICE_INFO {
-            PciVendorId: u32,
-            PciDeviceId: u32,
-            PciRevision: u32,
-            NumberOfRootPorts: u32,
-            HcFeatureFlags: u32,
+            PciVendorId: ULONG,
+            PciDeviceId: ULONG,
+            PciRevision: ULONG,
+            NumberOfRootPorts: ULONG,
+            HcFeatureFlags: ULONG,
         }
         #[packed(1)]
         struct USB_CYCLE_PORT_PARAMS {
-            ConnectionIndex: u32,
-            StatusReturned: u32,
+            ConnectionIndex: ULONG,
+            StatusReturned: ULONG,
         }
         #[packed(1)]
         struct USB_DESCRIPTOR_REQUEST {
-            ConnectionIndex: u32,
+            ConnectionIndex: ULONG,
             SetupPacket: #[packed(1)] struct {
-                bmRequest: u8,
-                bRequest: u8,
-                wValue: u16,
-                wIndex: u16,
-                wLength: u16,
+                bmRequest: UCHAR,
+                bRequest: UCHAR,
+                wValue: USHORT,
+                wIndex: USHORT,
+                wLength: USHORT,
             },
-            Data: [u8; 0],
+            Data: [UCHAR; 0],
         }
         #[packed(1)]
         struct USB_DEVICE_CHARACTERISTICS {
-            Version: u32,
-            Reserved: [u32; 2],
-            UsbDeviceCharacteristicsFlags: u32,
-            MaximumSendPathDelayInMilliSeconds: u32,
-            MaximumCompletionPathDelayInMilliSeconds: u32,
+            Version: ULONG,
+            Reserved: [ULONG; 2],
+            UsbDeviceCharacteristicsFlags: ULONG,
+            MaximumSendPathDelayInMilliSeconds: ULONG,
+            MaximumCompletionPathDelayInMilliSeconds: ULONG,
         }
         const USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE: i32 = 1;
         const USB_DEVICE_CHARACTERISTICS_VERSION_1: i32 = 1;
         #[packed(1)]
         struct USB_DEVICE_INFO {
             DeviceState: USB_DEVICE_STATE,
-            PortNumber: u16,
+            PortNumber: USHORT,
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
-            CurrentConfigurationValue: u8,
+            CurrentConfigurationValue: UCHAR,
             Speed: USB_DEVICE_SPEED,
-            DeviceAddress: u16,
-            ConnectionIndex: u32,
+            DeviceAddress: USHORT,
+            ConnectionIndex: ULONG,
             ConnectionStatus: USB_CONNECTION_STATUS,
-            PnpHardwareId: [u16; 128],
-            PnpCompatibleId: [u16; 128],
-            SerialNumberId: [u16; 128],
-            PnpDeviceDescription: [u16; 128],
-            NumberOfOpenPipes: u32,
+            PnpHardwareId: [WCHAR; 128],
+            PnpCompatibleId: [WCHAR; 128],
+            SerialNumberId: [WCHAR; 128],
+            PnpDeviceDescription: [WCHAR; 128],
+            NumberOfOpenPipes: ULONG,
             PipeList: [USB_PIPE_INFO; 1],
         }
         #[packed(1)]
         struct USB_DEVICE_NODE_INFO {
-            Sig: u32,
-            LengthInBytes: u32,
-            DeviceDescription: [u16; 40],
+            Sig: ULONG,
+            LengthInBytes: ULONG,
+            DeviceDescription: [WCHAR; 40],
             NodeType: USB_WMI_DEVICE_NODE_TYPE,
             BusAddress: USB_TOPOLOGY_ADDRESS,
-            Anonymous: union {
+            Anonymous: #[packed(1)] union {
                 UsbDeviceInfo: USB_DEVICE_INFO,
                 HubDeviceInfo: USB_HUB_DEVICE_INFO,
                 CompositeDeviceInfo: USB_COMPOSITE_DEVICE_INFO,
                 ControllerDeviceInfo: USB_CONTROLLER_DEVICE_INFO,
-                DeviceInformation: [u8; 4],
+                DeviceInformation: [UCHAR; 4],
             },
         }
         #[packed(1)]
         struct USB_DEVICE_PERFORMANCE_INFO {
-            BulkBytes: u32,
-            ControlDataBytes: u32,
-            IsoBytes: u32,
-            InterruptBytes: u32,
-            BulkUrbCount: u32,
-            ControlUrbCount: u32,
-            IsoUrbCount: u32,
-            InterruptUrbCount: u32,
-            AllocedInterrupt: [u32; 6],
-            AllocedIso: u32,
-            Total32secBandwidth: u32,
-            TotalTtBandwidth: u32,
-            DeviceDescription: [u16; 60],
+            BulkBytes: ULONG,
+            ControlDataBytes: ULONG,
+            IsoBytes: ULONG,
+            InterruptBytes: ULONG,
+            BulkUrbCount: ULONG,
+            ControlUrbCount: ULONG,
+            IsoUrbCount: ULONG,
+            InterruptUrbCount: ULONG,
+            AllocedInterrupt: [ULONG; 6],
+            AllocedIso: ULONG,
+            Total32secBandwidth: ULONG,
+            TotalTtBandwidth: ULONG,
+            DeviceDescription: [WCHAR; 60],
             DeviceSpeed: USB_DEVICE_SPEED,
-            TotalIsoLatency: u32,
-            DroppedIsoPackets: u32,
-            TransferErrors: u32,
-            PciInterruptCount: u32,
-            HcIdleState: u32,
-            HcAsyncIdleState: u32,
-            HcAsyncCacheFlushCount: u32,
-            HcPeriodicIdleState: u32,
-            HcPeriodicCacheFlushCount: u32,
+            TotalIsoLatency: ULONG,
+            DroppedIsoPackets: ULONG,
+            TransferErrors: ULONG,
+            PciInterruptCount: ULONG,
+            HcIdleState: ULONG,
+            HcAsyncIdleState: ULONG,
+            HcAsyncCacheFlushCount: ULONG,
+            HcPeriodicIdleState: ULONG,
+            HcPeriodicCacheFlushCount: ULONG,
         }
         #[packed(1)]
         struct USB_DEVICE_STATE {
             _bitfield: u32 {
-                DeviceConnected: 1,
-                DeviceStarted: 1,
+                DeviceConnected: ULONG: 1,
+                DeviceStarted: ULONG: 1,
             },
         }
         #[packed(1)]
         struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
             TimeTrackingHandle: HANDLE,
-            InputFrameNumber: u32,
-            InputMicroFrameNumber: u32,
+            InputFrameNumber: ULONG,
+            InputMicroFrameNumber: ULONG,
             QueryPerformanceCounterAtInputFrameOrMicroFrame: LARGE_INTEGER,
             QueryPerformanceCounterFrequency: LARGE_INTEGER,
-            PredictedAccuracyInMicroSeconds: u32,
-            CurrentGenerationID: u32,
+            PredictedAccuracyInMicroSeconds: ULONG,
+            CurrentGenerationID: ULONG,
             CurrentQueryPerformanceCounter: LARGE_INTEGER,
-            CurrentHardwareFrameNumber: u32,
-            CurrentHardwareMicroFrameNumber: u32,
-            CurrentUSBFrameNumber: u32,
+            CurrentHardwareFrameNumber: ULONG,
+            CurrentHardwareMicroFrameNumber: ULONG,
+            CurrentUSBFrameNumber: ULONG,
         }
         #[packed(1)]
         struct USB_HCD_DRIVERKEY_NAME {
-            ActualLength: u32,
-            DriverKeyName: [u16; 1],
+            ActualLength: ULONG,
+            DriverKeyName: [WCHAR; 1],
         }
         #[packed(1)]
         struct USB_HUB_CAPABILITIES {
             _bitfield: u32 {
-                HubIs2xCapable: 1,
+                HubIs2xCapable: ULONG: 1,
             },
         }
+        #[packed(1)]
         struct USB_HUB_CAPABILITIES_EX {
             CapabilityFlags: USB_HUB_CAP_FLAGS,
         }
         #[packed(1)]
         union USB_HUB_CAP_FLAGS {
-            ul: u32,
+            ul: ULONG,
             Anonymous: #[packed(1)] struct {
                 _bitfield: u32 {
-                    HubIsHighSpeedCapable: 1,
-                    HubIsHighSpeed: 1,
-                    HubIsMultiTtCapable: 1,
-                    HubIsMultiTt: 1,
-                    HubIsRoot: 1,
-                    HubIsArmedWakeOnConnect: 1,
-                    HubIsBusPowered: 1,
-                    ReservedMBZ: 25,
+                    HubIsHighSpeedCapable: ULONG: 1,
+                    HubIsHighSpeed: ULONG: 1,
+                    HubIsMultiTtCapable: ULONG: 1,
+                    HubIsMultiTt: ULONG: 1,
+                    HubIsRoot: ULONG: 1,
+                    HubIsArmedWakeOnConnect: ULONG: 1,
+                    HubIsBusPowered: ULONG: 1,
+                    ReservedMBZ: ULONG: 25,
                 },
             },
         }
         #[packed(1)]
         struct USB_HUB_DEVICE_INFO {
             HubDescriptor: USB_HUB_DESCRIPTOR,
-            HubNumber: u32,
-            DeviceAddress: u16,
+            HubNumber: ULONG,
+            DeviceAddress: USHORT,
             HubIsSelfPowered: BOOLEAN,
             HubIsRootHub: BOOLEAN,
             HubCapabilities: USB_HUB_CAPABILITIES,
-            NumberOfHubPorts: u32,
+            NumberOfHubPorts: ULONG,
             PortInfo: [USB_HUB_PORT_INFORMATION; 1],
         }
         #[packed(1)]
         struct USB_HUB_DEVICE_UXD_SETTINGS {
-            Version: u32,
+            Version: ULONG,
             PnpGuid: GUID,
             OwnerGuid: GUID,
-            DeleteOnShutdown: u32,
-            DeleteOnReload: u32,
-            DeleteOnDisconnect: u32,
-            Reserved: [u32; 5],
+            DeleteOnShutdown: ULONG,
+            DeleteOnReload: ULONG,
+            DeleteOnDisconnect: ULONG,
+            Reserved: [ULONG; 5],
         }
+        #[packed(1)]
         struct USB_HUB_INFORMATION {
             HubDescriptor: USB_HUB_DESCRIPTOR,
             HubIsBusPowered: BOOLEAN,
@@ -409,16 +413,16 @@ mod Windows {
         #[packed(1)]
         struct USB_HUB_INFORMATION_EX {
             HubType: USB_HUB_TYPE,
-            HighestPortNumber: u16,
-            u: union {
+            HighestPortNumber: USHORT,
+            u: #[packed(1)] union {
                 UsbHubDescriptor: USB_HUB_DESCRIPTOR,
                 Usb30HubDescriptor: USB_30_HUB_DESCRIPTOR,
             },
         }
         #[packed(1)]
         struct USB_HUB_NAME {
-            ActualLength: u32,
-            HubName: [u16; 1],
+            ActualLength: ULONG,
+            HubName: [WCHAR; 1],
         }
         #[repr(i32)]
         enum USB_HUB_NODE {
@@ -428,9 +432,9 @@ mod Windows {
         #[packed(1)]
         struct USB_HUB_PORT_INFORMATION {
             DeviceState: USB_DEVICE_STATE,
-            PortNumber: u16,
-            DeviceAddress: u16,
-            ConnectionIndex: u32,
+            PortNumber: USHORT,
+            DeviceAddress: USHORT,
+            ConnectionIndex: ULONG,
             ConnectionStatus: USB_CONNECTION_STATUS,
         }
         #[repr(i32)]
@@ -441,90 +445,90 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_ID_STRING {
-            LanguageId: u16,
-            Pad: u16,
-            LengthInBytes: u32,
+            LanguageId: USHORT,
+            Pad: USHORT,
+            LengthInBytes: ULONG,
             Buffer: PWCHAR,
         }
         #[packed(1)]
         struct USB_MI_PARENT_INFORMATION {
-            NumberOfInterfaces: u32,
+            NumberOfInterfaces: ULONG,
         }
         #[packed(1)]
         struct USB_NODE_CONNECTION_ATTRIBUTES {
-            ConnectionIndex: u32,
+            ConnectionIndex: ULONG,
             ConnectionStatus: USB_CONNECTION_STATUS,
-            PortAttributes: u32,
+            PortAttributes: ULONG,
         }
         #[packed(1)]
         struct USB_NODE_CONNECTION_DRIVERKEY_NAME {
-            ConnectionIndex: u32,
-            ActualLength: u32,
-            DriverKeyName: [u16; 1],
+            ConnectionIndex: ULONG,
+            ActualLength: ULONG,
+            DriverKeyName: [WCHAR; 1],
         }
         #[packed(1)]
         struct USB_NODE_CONNECTION_INFORMATION {
-            ConnectionIndex: u32,
+            ConnectionIndex: ULONG,
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
-            CurrentConfigurationValue: u8,
+            CurrentConfigurationValue: UCHAR,
             LowSpeed: BOOLEAN,
             DeviceIsHub: BOOLEAN,
-            DeviceAddress: u16,
-            NumberOfOpenPipes: u32,
+            DeviceAddress: USHORT,
+            NumberOfOpenPipes: ULONG,
             ConnectionStatus: USB_CONNECTION_STATUS,
             PipeList: [USB_PIPE_INFO; 0],
         }
         #[packed(1)]
         struct USB_NODE_CONNECTION_INFORMATION_EX {
-            ConnectionIndex: u32,
+            ConnectionIndex: ULONG,
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
-            CurrentConfigurationValue: u8,
-            Speed: u8,
+            CurrentConfigurationValue: UCHAR,
+            Speed: UCHAR,
             DeviceIsHub: BOOLEAN,
-            DeviceAddress: u16,
-            NumberOfOpenPipes: u32,
+            DeviceAddress: USHORT,
+            NumberOfOpenPipes: ULONG,
             ConnectionStatus: USB_CONNECTION_STATUS,
             PipeList: [USB_PIPE_INFO; 0],
         }
         #[packed(1)]
         struct USB_NODE_CONNECTION_INFORMATION_EX_V2 {
-            ConnectionIndex: u32,
-            Length: u32,
+            ConnectionIndex: ULONG,
+            Length: ULONG,
             SupportedUsbProtocols: USB_PROTOCOLS,
             Flags: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS,
         }
         #[packed(1)]
         union USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
-            ul: u32,
+            ul: ULONG,
             Anonymous: #[packed(1)] struct {
                 _bitfield: u32 {
-                    DeviceIsOperatingAtSuperSpeedOrHigher: 1,
-                    DeviceIsSuperSpeedCapableOrHigher: 1,
-                    DeviceIsOperatingAtSuperSpeedPlusOrHigher: 1,
-                    DeviceIsSuperSpeedPlusCapableOrHigher: 1,
-                    ReservedMBZ: 28,
+                    DeviceIsOperatingAtSuperSpeedOrHigher: ULONG: 1,
+                    DeviceIsSuperSpeedCapableOrHigher: ULONG: 1,
+                    DeviceIsOperatingAtSuperSpeedPlusOrHigher: ULONG: 1,
+                    DeviceIsSuperSpeedPlusCapableOrHigher: ULONG: 1,
+                    ReservedMBZ: ULONG: 28,
                 },
             },
         }
         #[packed(1)]
         struct USB_NODE_CONNECTION_NAME {
-            ConnectionIndex: u32,
-            ActualLength: u32,
-            NodeName: [u16; 1],
+            ConnectionIndex: ULONG,
+            ActualLength: ULONG,
+            NodeName: [WCHAR; 1],
         }
         #[packed(1)]
         struct USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
-            ConnectionIndex: u32,
-            Length: u32,
+            ConnectionIndex: ULONG,
+            Length: ULONG,
             RxSuperSpeedPlus: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED,
-            RxLaneCount: u32,
+            RxLaneCount: ULONG,
             TxSuperSpeedPlus: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED,
-            TxLaneCount: u32,
+            TxLaneCount: ULONG,
         }
         #[packed(1)]
         struct USB_NODE_INFORMATION {
             NodeType: USB_HUB_NODE,
-            u: union {
+            u: #[packed(1)] union {
                 HubInformation: USB_HUB_INFORMATION,
                 MiParentInformation: USB_MI_PARENT_INFORMATION,
             },
@@ -552,39 +556,39 @@ mod Windows {
         #[packed(1)]
         struct USB_PIPE_INFO {
             EndpointDescriptor: USB_ENDPOINT_DESCRIPTOR,
-            ScheduleOffset: u32,
+            ScheduleOffset: ULONG,
         }
         #[packed(1)]
         struct USB_PORT_CONNECTOR_PROPERTIES {
-            ConnectionIndex: u32,
-            ActualLength: u32,
+            ConnectionIndex: ULONG,
+            ActualLength: ULONG,
             UsbPortProperties: USB_PORT_PROPERTIES,
-            CompanionIndex: u16,
-            CompanionPortNumber: u16,
-            CompanionHubSymbolicLinkName: [u16; 1],
+            CompanionIndex: USHORT,
+            CompanionPortNumber: USHORT,
+            CompanionHubSymbolicLinkName: [WCHAR; 1],
         }
         #[packed(1)]
         union USB_PORT_PROPERTIES {
-            ul: u32,
+            ul: ULONG,
             Anonymous: #[packed(1)] struct {
                 _bitfield: u32 {
-                    PortIsUserConnectable: 1,
-                    PortIsDebugCapable: 1,
-                    PortHasMultipleCompanions: 1,
-                    PortConnectorIsTypeC: 1,
-                    ReservedMBZ: 28,
+                    PortIsUserConnectable: ULONG: 1,
+                    PortIsDebugCapable: ULONG: 1,
+                    PortHasMultipleCompanions: ULONG: 1,
+                    PortConnectorIsTypeC: ULONG: 1,
+                    ReservedMBZ: ULONG: 28,
                 },
             },
         }
         #[packed(1)]
         union USB_PROTOCOLS {
-            ul: u32,
+            ul: ULONG,
             Anonymous: #[packed(1)] struct {
                 _bitfield: u32 {
-                    Usb110: 1,
-                    Usb200: 1,
-                    Usb300: 1,
-                    ReservedMBZ: 29,
+                    Usb110: ULONG: 1,
+                    Usb200: ULONG: 1,
+                    Usb300: ULONG: 1,
+                    ReservedMBZ: ULONG: 29,
                 },
             },
         }
@@ -592,8 +596,8 @@ mod Windows {
         const USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE: i32 = 1;
         #[packed(1)]
         struct USB_ROOT_HUB_NAME {
-            ActualLength: u32,
-            RootHubName: [u16; 1],
+            ActualLength: ULONG,
+            RootHubName: [WCHAR; 1],
         }
         #[packed(1)]
         struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
@@ -605,20 +609,20 @@ mod Windows {
             TimeTrackingHandle: HANDLE,
         }
         struct USB_TOPOLOGY_ADDRESS {
-            PciBusNumber: u32,
-            PciDeviceNumber: u32,
-            PciFunctionNumber: u32,
-            Reserved: u32,
-            RootHubPortNumber: u16,
-            HubPortNumber: [u16; 5],
-            Reserved2: u16,
+            PciBusNumber: ULONG,
+            PciDeviceNumber: ULONG,
+            PciFunctionNumber: ULONG,
+            Reserved: ULONG,
+            RootHubPortNumber: USHORT,
+            HubPortNumber: [USHORT; 5],
+            Reserved2: USHORT,
         }
         #[packed(1)]
         struct USB_TRANSPORT_CHARACTERISTICS {
-            Version: u32,
-            TransportCharacteristicsFlags: u32,
-            CurrentRoundtripLatencyInMilliSeconds: u64,
-            MaxPotentialBandwidth: u64,
+            Version: ULONG,
+            TransportCharacteristicsFlags: ULONG,
+            CurrentRoundtripLatencyInMilliSeconds: ULONG64,
+            MaxPotentialBandwidth: ULONG64,
         }
         const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: i32 = 2;
         #[packed(1)]
@@ -628,7 +632,7 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
-            ChangeNotificationInputFlags: u32,
+            ChangeNotificationInputFlags: ULONG,
             Handle: USB_CHANGE_REGISTRATION_HANDLE,
             UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
         }

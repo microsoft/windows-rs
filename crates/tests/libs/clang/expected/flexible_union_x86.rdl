@@ -1,7 +1,0 @@
-#[win32]
-mod Records {
-    union FLEXIBLE_UNION {
-        first: [i32; 0],
-        second: [i16; 0],
-    }
-}

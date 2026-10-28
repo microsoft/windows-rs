@@ -1,10 +1,12 @@
 windows_core::imp::define_interface!(ISpatialAudioMetadataClient, ISpatialAudioMetadataClient_Vtbl, 0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataClient, windows_core::IUnknown);
 impl ISpatialAudioMetadataClient {
-    pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut Option<ISpatialAudioMetadataItemsBuffer>, metadataitems: *mut Option<ISpatialAudioMetadataItems>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(windows_core::Interface::as_raw(self), maxitemcount, framecount, core::mem::transmute(metadataitemsbuffer), core::mem::transmute(metadataitems)) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: super::UINT16, framecount: super::UINT16, metadataitemsbuffer: Option<*mut Option<ISpatialAudioMetadataItemsBuffer>>, metadataitems: *mut Option<ISpatialAudioMetadataItems>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(windows_core::Interface::as_raw(self), maxitemcount, framecount, metadataitemsbuffer.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(metadataitems)) }
     }
-    pub unsafe fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: u16) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: super::UINT16) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSpatialAudioMetadataItemsBufferLength)(windows_core::Interface::as_raw(self), maxitemcount, &mut result__).map(|| result__)
@@ -33,28 +35,36 @@ impl ISpatialAudioMetadataClient {
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ActivateSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSpatialAudioMetadataItemsBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ActivateSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT16, super::UINT16, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ActivateSpatialAudioMetadataItems: usize,
+    #[cfg(feature = "shared")]
+    pub GetSpatialAudioMetadataItemsBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT16, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSpatialAudioMetadataItemsBufferLength: usize,
     pub ActivateSpatialAudioMetadataWriter: unsafe extern "system" fn(*mut core::ffi::c_void, SpatialAudioMetadataWriterOverflowMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActivateSpatialAudioMetadataCopier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActivateSpatialAudioMetadataReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpatialAudioMetadataClient_Impl: windows_core::IUnknownImpl {
-    fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: windows_core::OutRef<ISpatialAudioMetadataItemsBuffer>, metadataitems: windows_core::OutRef<ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
-    fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: u16) -> windows_core::Result<u32>;
+    fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: super::UINT16, framecount: super::UINT16, metadataitemsbuffer: windows_core::OutRef<ISpatialAudioMetadataItemsBuffer>, metadataitems: windows_core::OutRef<ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
+    fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: super::UINT16) -> windows_core::Result<super::UINT32>;
     fn ActivateSpatialAudioMetadataWriter(&self, overflowmode: SpatialAudioMetadataWriterOverflowMode) -> windows_core::Result<ISpatialAudioMetadataWriter>;
     fn ActivateSpatialAudioMetadataCopier(&self) -> windows_core::Result<ISpatialAudioMetadataCopier>;
     fn ActivateSpatialAudioMetadataReader(&self) -> windows_core::Result<ISpatialAudioMetadataReader>;
 }
+#[cfg(feature = "shared")]
 impl ISpatialAudioMetadataClient_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ActivateSpatialAudioMetadataItems<Identity: ISpatialAudioMetadataClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut *mut core::ffi::c_void, metadataitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActivateSpatialAudioMetadataItems<Identity: ISpatialAudioMetadataClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxitemcount: super::UINT16, framecount: super::UINT16, metadataitemsbuffer: *mut *mut core::ffi::c_void, metadataitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioMetadataClient_Impl::ActivateSpatialAudioMetadataItems(this, core::mem::transmute_copy(&maxitemcount), core::mem::transmute_copy(&framecount), core::mem::transmute_copy(&metadataitemsbuffer), core::mem::transmute_copy(&metadataitems)).into()
             }
         }
-        unsafe extern "system" fn GetSpatialAudioMetadataItemsBufferLength<Identity: ISpatialAudioMetadataClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxitemcount: u16, bufferlength: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpatialAudioMetadataItemsBufferLength<Identity: ISpatialAudioMetadataClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxitemcount: super::UINT16, bufferlength: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataClient_Impl::GetSpatialAudioMetadataItemsBufferLength(this, core::mem::transmute_copy(&maxitemcount)) {
@@ -74,7 +84,10 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         metadatawriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        metadatawriter.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -86,7 +99,10 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         metadatacopier.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        metadatacopier.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -98,7 +114,10 @@ impl ISpatialAudioMetadataClient_Vtbl {
                         metadatareader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        metadatareader.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -115,6 +134,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
         iid == &<ISpatialAudioMetadataClient as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpatialAudioMetadataClient {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataCopier, ISpatialAudioMetadataCopier_Vtbl, 0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataCopier, windows_core::IUnknown);
@@ -125,7 +145,8 @@ impl ISpatialAudioMetadataCopier {
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()) }
     }
-    pub unsafe fn CopyMetadataForFrames<P2>(&self, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: P2) -> windows_core::Result<u16>
+    #[cfg(feature = "shared")]
+    pub unsafe fn CopyMetadataForFrames<P2>(&self, copyframecount: super::UINT16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: P2) -> windows_core::Result<super::UINT16>
     where
         P2: windows_core::Param<ISpatialAudioMetadataItems>,
     {
@@ -143,14 +164,19 @@ impl ISpatialAudioMetadataCopier {
 pub struct ISpatialAudioMetadataCopier_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CopyMetadataForFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u16, SpatialAudioMetadataCopyMode, *mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CopyMetadataForFrames: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT16, SpatialAudioMetadataCopyMode, *mut core::ffi::c_void, *mut super::UINT16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CopyMetadataForFrames: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpatialAudioMetadataCopier_Impl: windows_core::IUnknownImpl {
     fn Open(&self, metadataitems: windows_core::Ref<ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
-    fn CopyMetadataForFrames(&self, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: windows_core::Ref<ISpatialAudioMetadataItems>) -> windows_core::Result<u16>;
+    fn CopyMetadataForFrames(&self, copyframecount: super::UINT16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: windows_core::Ref<ISpatialAudioMetadataItems>) -> windows_core::Result<super::UINT16>;
     fn Close(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpatialAudioMetadataCopier_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataCopier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ISpatialAudioMetadataCopier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -159,7 +185,7 @@ impl ISpatialAudioMetadataCopier_Vtbl {
                 ISpatialAudioMetadataCopier_Impl::Open(this, core::mem::transmute_copy(&metadataitems)).into()
             }
         }
-        unsafe extern "system" fn CopyMetadataForFrames<Identity: ISpatialAudioMetadataCopier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: *mut core::ffi::c_void, itemscopied: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyMetadataForFrames<Identity: ISpatialAudioMetadataCopier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, copyframecount: super::UINT16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: *mut core::ffi::c_void, itemscopied: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataCopier_Impl::CopyMetadataForFrames(this, core::mem::transmute_copy(&copyframecount), core::mem::transmute_copy(&copymode), core::mem::transmute_copy(&dstmetadataitems)) {
@@ -188,34 +214,40 @@ impl ISpatialAudioMetadataCopier_Vtbl {
         iid == &<ISpatialAudioMetadataCopier as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpatialAudioMetadataCopier {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataItems, ISpatialAudioMetadataItems_Vtbl, 0xbcd7c78f_3098_4f22_b547_a2f25a381269);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItems, windows_core::IUnknown);
 impl ISpatialAudioMetadataItems {
-    pub unsafe fn GetFrameCount(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFrameCount(&self) -> windows_core::Result<super::UINT16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFrameCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetItemCount(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetItemCount(&self) -> windows_core::Result<super::UINT16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaxItemCount(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxItemCount(&self) -> windows_core::Result<super::UINT16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaxValueBufferLength(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxValueBufferLength(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxValueBufferLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetInfo(&self) -> windows_core::Result<SpatialAudioMetadataItemsInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -227,22 +259,39 @@ impl ISpatialAudioMetadataItems {
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataItems_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetMaxItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetMaxValueBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFrameCount: usize,
+    #[cfg(feature = "shared")]
+    pub GetItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetItemCount: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxItemCount: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxValueBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxValueBufferLength: usize,
+    #[cfg(feature = "shared")]
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialAudioMetadataItemsInfo) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetInfo: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpatialAudioMetadataItems_Impl: windows_core::IUnknownImpl {
-    fn GetFrameCount(&self) -> windows_core::Result<u16>;
-    fn GetItemCount(&self) -> windows_core::Result<u16>;
-    fn GetMaxItemCount(&self) -> windows_core::Result<u16>;
-    fn GetMaxValueBufferLength(&self) -> windows_core::Result<u32>;
+    fn GetFrameCount(&self) -> windows_core::Result<super::UINT16>;
+    fn GetItemCount(&self) -> windows_core::Result<super::UINT16>;
+    fn GetMaxItemCount(&self) -> windows_core::Result<super::UINT16>;
+    fn GetMaxValueBufferLength(&self) -> windows_core::Result<super::UINT32>;
     fn GetInfo(&self) -> windows_core::Result<SpatialAudioMetadataItemsInfo>;
 }
+#[cfg(feature = "shared")]
 impl ISpatialAudioMetadataItems_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetFrameCount<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, framecount: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFrameCount<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, framecount: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataItems_Impl::GetFrameCount(this) {
@@ -254,7 +303,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetItemCount<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemcount: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemCount<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemcount: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataItems_Impl::GetItemCount(this) {
@@ -266,7 +315,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxItemCount<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxitemcount: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxItemCount<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxitemcount: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataItems_Impl::GetMaxItemCount(this) {
@@ -278,7 +327,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxValueBufferLength<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxvaluebufferlength: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxValueBufferLength<Identity: ISpatialAudioMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxvaluebufferlength: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpatialAudioMetadataItems_Impl::GetMaxValueBufferLength(this) {
@@ -315,15 +364,18 @@ impl ISpatialAudioMetadataItems_Vtbl {
         iid == &<ISpatialAudioMetadataItems as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpatialAudioMetadataItems {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataItemsBuffer, ISpatialAudioMetadataItemsBuffer_Vtbl, 0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItemsBuffer, windows_core::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
+    #[cfg(feature = "shared")]
     pub unsafe fn AttachToBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), buffer.as_mut_ptr(), buffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap()) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn AttachToPopulatedBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), buffer.as_mut_ptr(), buffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap()) }
     }
     pub unsafe fn DetachBuffer(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DetachBuffer)(windows_core::Interface::as_raw(self)) }
@@ -333,24 +385,32 @@ impl ISpatialAudioMetadataItemsBuffer {
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataItemsBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AttachToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
-    pub AttachToPopulatedBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub AttachToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BYTE, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AttachToBuffer: usize,
+    #[cfg(feature = "shared")]
+    pub AttachToPopulatedBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BYTE, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AttachToPopulatedBuffer: usize,
     pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpatialAudioMetadataItemsBuffer_Impl: windows_core::IUnknownImpl {
-    fn AttachToBuffer(&self, buffer: *mut u8, bufferlength: u32) -> windows_core::Result<()>;
-    fn AttachToPopulatedBuffer(&self, buffer: *mut u8, bufferlength: u32) -> windows_core::Result<()>;
+    fn AttachToBuffer(&self, buffer: *mut super::BYTE, bufferlength: super::UINT32) -> windows_core::Result<()>;
+    fn AttachToPopulatedBuffer(&self, buffer: *mut super::BYTE, bufferlength: super::UINT32) -> windows_core::Result<()>;
     fn DetachBuffer(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpatialAudioMetadataItemsBuffer_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataItemsBuffer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AttachToBuffer<Identity: ISpatialAudioMetadataItemsBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut u8, bufferlength: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AttachToBuffer<Identity: ISpatialAudioMetadataItemsBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut super::BYTE, bufferlength: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioMetadataItemsBuffer_Impl::AttachToBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&bufferlength)).into()
             }
         }
-        unsafe extern "system" fn AttachToPopulatedBuffer<Identity: ISpatialAudioMetadataItemsBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut u8, bufferlength: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AttachToPopulatedBuffer<Identity: ISpatialAudioMetadataItemsBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut super::BYTE, bufferlength: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioMetadataItemsBuffer_Impl::AttachToPopulatedBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&bufferlength)).into()
@@ -373,6 +433,7 @@ impl ISpatialAudioMetadataItemsBuffer_Vtbl {
         iid == &<ISpatialAudioMetadataItemsBuffer as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpatialAudioMetadataItemsBuffer {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataReader, ISpatialAudioMetadataReader_Vtbl, 0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataReader, windows_core::IUnknown);
@@ -383,10 +444,12 @@ impl ISpatialAudioMetadataReader {
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()) }
     }
-    pub unsafe fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReadNextItem(&self, commandcount: *mut super::UINT8, frameoffset: *mut super::UINT16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadNextItem)(windows_core::Interface::as_raw(self), commandcount as _, frameoffset as _) }
     }
-    pub unsafe fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReadNextItemCommand(&self, commandid: *mut super::BYTE, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: super::UINT32, valuebufferlength: *mut super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadNextItemCommand)(windows_core::Interface::as_raw(self), commandid as _, valuebuffer as _, maxvaluebufferlength, valuebufferlength as _) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
@@ -398,16 +461,24 @@ impl ISpatialAudioMetadataReader {
 pub struct ISpatialAudioMetadataReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReadNextItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u16) -> windows_core::HRESULT,
-    pub ReadNextItemCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ReadNextItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT8, *mut super::UINT16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReadNextItem: usize,
+    #[cfg(feature = "shared")]
+    pub ReadNextItemCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BYTE, *mut core::ffi::c_void, super::UINT32, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReadNextItemCommand: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpatialAudioMetadataReader_Impl: windows_core::IUnknownImpl {
     fn Open(&self, metadataitems: windows_core::Ref<ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
-    fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> windows_core::Result<()>;
-    fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> windows_core::Result<()>;
+    fn ReadNextItem(&self, commandcount: *mut super::UINT8, frameoffset: *mut super::UINT16) -> windows_core::Result<()>;
+    fn ReadNextItemCommand(&self, commandid: *mut super::BYTE, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: super::UINT32, valuebufferlength: *mut super::UINT32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpatialAudioMetadataReader_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -416,13 +487,13 @@ impl ISpatialAudioMetadataReader_Vtbl {
                 ISpatialAudioMetadataReader_Impl::Open(this, core::mem::transmute_copy(&metadataitems)).into()
             }
         }
-        unsafe extern "system" fn ReadNextItem<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandcount: *mut u8, frameoffset: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadNextItem<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandcount: *mut super::UINT8, frameoffset: *mut super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioMetadataReader_Impl::ReadNextItem(this, core::mem::transmute_copy(&commandcount), core::mem::transmute_copy(&frameoffset)).into()
             }
         }
-        unsafe extern "system" fn ReadNextItemCommand<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: *mut u8, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadNextItemCommand<Identity: ISpatialAudioMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: *mut super::BYTE, valuebuffer: *mut core::ffi::c_void, maxvaluebufferlength: super::UINT32, valuebufferlength: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioMetadataReader_Impl::ReadNextItemCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&valuebuffer), core::mem::transmute_copy(&maxvaluebufferlength), core::mem::transmute_copy(&valuebufferlength)).into()
@@ -446,6 +517,7 @@ impl ISpatialAudioMetadataReader_Vtbl {
         iid == &<ISpatialAudioMetadataReader as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpatialAudioMetadataReader {}
 windows_core::imp::define_interface!(ISpatialAudioMetadataWriter, ISpatialAudioMetadataWriter_Vtbl, 0x1b17ca01_2955_444d_a430_537dc589a844);
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataWriter, windows_core::IUnknown);
@@ -456,10 +528,12 @@ impl ISpatialAudioMetadataWriter {
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), metadataitems.param().abi()) }
     }
-    pub unsafe fn WriteNextItem(&self, frameoffset: u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn WriteNextItem(&self, frameoffset: super::UINT16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteNextItem)(windows_core::Interface::as_raw(self), frameoffset) }
     }
-    pub unsafe fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn WriteNextItemCommand(&self, commandid: super::BYTE, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteNextItemCommand)(windows_core::Interface::as_raw(self), commandid, valuebuffer.unwrap_or(core::mem::zeroed()) as _, valuebufferlength) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
@@ -471,16 +545,24 @@ impl ISpatialAudioMetadataWriter {
 pub struct ISpatialAudioMetadataWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WriteNextItem: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub WriteNextItemCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub WriteNextItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    WriteNextItem: usize,
+    #[cfg(feature = "shared")]
+    pub WriteNextItemCommand: unsafe extern "system" fn(*mut core::ffi::c_void, super::BYTE, *const core::ffi::c_void, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    WriteNextItemCommand: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpatialAudioMetadataWriter_Impl: windows_core::IUnknownImpl {
     fn Open(&self, metadataitems: windows_core::Ref<ISpatialAudioMetadataItems>) -> windows_core::Result<()>;
-    fn WriteNextItem(&self, frameoffset: u16) -> windows_core::Result<()>;
-    fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: *const core::ffi::c_void, valuebufferlength: u32) -> windows_core::Result<()>;
+    fn WriteNextItem(&self, frameoffset: super::UINT16) -> windows_core::Result<()>;
+    fn WriteNextItemCommand(&self, commandid: super::BYTE, valuebuffer: *const core::ffi::c_void, valuebufferlength: super::UINT32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpatialAudioMetadataWriter_Vtbl {
     pub const fn new<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -489,13 +571,13 @@ impl ISpatialAudioMetadataWriter_Vtbl {
                 ISpatialAudioMetadataWriter_Impl::Open(this, core::mem::transmute_copy(&metadataitems)).into()
             }
         }
-        unsafe extern "system" fn WriteNextItem<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frameoffset: u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteNextItem<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frameoffset: super::UINT16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioMetadataWriter_Impl::WriteNextItem(this, core::mem::transmute_copy(&frameoffset)).into()
             }
         }
-        unsafe extern "system" fn WriteNextItemCommand<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u8, valuebuffer: *const core::ffi::c_void, valuebufferlength: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteNextItemCommand<Identity: ISpatialAudioMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: super::BYTE, valuebuffer: *const core::ffi::c_void, valuebufferlength: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioMetadataWriter_Impl::WriteNextItemCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&valuebuffer), core::mem::transmute_copy(&valuebufferlength)).into()
@@ -519,6 +601,7 @@ impl ISpatialAudioMetadataWriter_Vtbl {
         iid == &<ISpatialAudioMetadataWriter as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpatialAudioMetadataWriter {}
 #[cfg(feature = "spatialaudioclient")]
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataCommands, ISpatialAudioObjectForMetadataCommands_Vtbl, 0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
@@ -533,7 +616,8 @@ impl core::ops::Deref for ISpatialAudioObjectForMetadataCommands {
 windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForMetadataCommands, windows_core::IUnknown, super::ISpatialAudioObjectBase);
 #[cfg(feature = "spatialaudioclient")]
 impl ISpatialAudioObjectForMetadataCommands {
-    pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn WriteNextMetadataCommand(&self, commandid: super::BYTE, valuebuffer: Option<*const core::ffi::c_void>, valuebufferlength: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteNextMetadataCommand)(windows_core::Interface::as_raw(self), commandid, valuebuffer.unwrap_or(core::mem::zeroed()) as _, valuebufferlength) }
     }
 }
@@ -542,16 +626,19 @@ impl ISpatialAudioObjectForMetadataCommands {
 #[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub base__: super::ISpatialAudioObjectBase_Vtbl,
-    pub WriteNextMetadataCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub WriteNextMetadataCommand: unsafe extern "system" fn(*mut core::ffi::c_void, super::BYTE, *const core::ffi::c_void, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    WriteNextMetadataCommand: usize,
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
 pub trait ISpatialAudioObjectForMetadataCommands_Impl: super::ISpatialAudioObjectBase_Impl {
-    fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: *const core::ffi::c_void, valuebufferlength: u32) -> windows_core::Result<()>;
+    fn WriteNextMetadataCommand(&self, commandid: super::BYTE, valuebuffer: *const core::ffi::c_void, valuebufferlength: super::UINT32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
 impl ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub const fn new<Identity: ISpatialAudioObjectForMetadataCommands_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn WriteNextMetadataCommand<Identity: ISpatialAudioObjectForMetadataCommands_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u8, valuebuffer: *const core::ffi::c_void, valuebufferlength: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteNextMetadataCommand<Identity: ISpatialAudioObjectForMetadataCommands_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: super::BYTE, valuebuffer: *const core::ffi::c_void, valuebufferlength: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpatialAudioObjectForMetadataCommands_Impl::WriteNextMetadataCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&valuebuffer), core::mem::transmute_copy(&valuebufferlength)).into()
@@ -563,7 +650,7 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
         iid == &<ISpatialAudioObjectForMetadataCommands as windows_core::Interface>::IID || iid == &<super::ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataCommands {}
 #[cfg(feature = "spatialaudioclient")]
 windows_core::imp::define_interface!(ISpatialAudioObjectForMetadataItems, ISpatialAudioObjectForMetadataItems_Vtbl, 0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
@@ -592,11 +679,11 @@ pub struct ISpatialAudioObjectForMetadataItems_Vtbl {
     pub base__: super::ISpatialAudioObjectBase_Vtbl,
     pub GetSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
 pub trait ISpatialAudioObjectForMetadataItems_Impl: super::ISpatialAudioObjectBase_Impl {
     fn GetSpatialAudioMetadataItems(&self) -> windows_core::Result<ISpatialAudioMetadataItems>;
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
 impl ISpatialAudioObjectForMetadataItems_Vtbl {
     pub const fn new<Identity: ISpatialAudioObjectForMetadataItems_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSpatialAudioMetadataItems<Identity: ISpatialAudioObjectForMetadataItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadataitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -607,7 +694,10 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
                         metadataitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        metadataitems.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -620,7 +710,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
         iid == &<ISpatialAudioObjectForMetadataItems as windows_core::Interface>::IID || iid == &<super::ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "shared", feature = "spatialaudioclient"))]
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataItems {}
 #[cfg(feature = "spatialaudioclient")]
 windows_core::imp::define_interface!(ISpatialAudioObjectRenderStreamForMetadata, ISpatialAudioObjectRenderStreamForMetadata_Vtbl, 0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
@@ -656,12 +746,12 @@ pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
     pub ActivateSpatialAudioObjectForMetadataCommands: unsafe extern "system" fn(*mut core::ffi::c_void, super::AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActivateSpatialAudioObjectForMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, super::AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "spatialaudioclient"))]
 pub trait ISpatialAudioObjectRenderStreamForMetadata_Impl: super::ISpatialAudioObjectRenderStreamBase_Impl {
     fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: super::AudioObjectType) -> windows_core::Result<ISpatialAudioObjectForMetadataCommands>;
     fn ActivateSpatialAudioObjectForMetadataItems(&self, r#type: super::AudioObjectType) -> windows_core::Result<ISpatialAudioObjectForMetadataItems>;
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "spatialaudioclient"))]
 impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
     pub const fn new<Identity: ISpatialAudioObjectRenderStreamForMetadata_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateSpatialAudioObjectForMetadataCommands<Identity: ISpatialAudioObjectRenderStreamForMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::AudioObjectType, audioobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -672,7 +762,10 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                         audioobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audioobject.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -684,7 +777,10 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
                         audioobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        audioobject.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -698,7 +794,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         iid == &<ISpatialAudioObjectRenderStreamForMetadata as windows_core::Interface>::IID || iid == &<super::ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "spatialaudioclient")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "spatialaudioclient"))]
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForMetadata {}
 pub const SPATIAL_AUDIO_POSITION: i32 = 200;
 #[cfg(target_arch = "x86")]
@@ -738,44 +834,45 @@ pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCop
 pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = 2;
 pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioMetadataItemsInfo {
-    pub FrameCount: u16,
-    pub ItemCount: u16,
-    pub MaxItemCount: u16,
-    pub MaxValueBufferLength: u32,
+    pub FrameCount: super::UINT16,
+    pub ItemCount: super::UINT16,
+    pub MaxItemCount: super::UINT16,
+    pub MaxValueBufferLength: super::UINT32,
 }
 pub type SpatialAudioMetadataWriterOverflowMode = i32;
 pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = 0;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Default)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::AudioObjectType,
-    pub MinDynamicObjectCount: u32,
-    pub MaxDynamicObjectCount: u32,
+    pub MinDynamicObjectCount: super::UINT32,
+    pub MaxDynamicObjectCount: super::UINT32,
     pub Category: super::AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::HANDLE,
     pub MetadataFormatId: windows_core::GUID,
-    pub MaxMetadataItemCount: u16,
+    pub MaxMetadataItemCount: super::UINT16,
     pub MetadataActivationParams: *const super::PROPVARIANT,
     pub NotifyObject: core::mem::ManuallyDrop<Option<super::ISpatialAudioObjectRenderStreamNotify>>,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Default)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::AudioObjectType,
-    pub MinDynamicObjectCount: u32,
-    pub MaxDynamicObjectCount: u32,
+    pub MinDynamicObjectCount: super::UINT32,
+    pub MaxDynamicObjectCount: super::UINT32,
     pub Category: super::AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::HANDLE,
     pub MetadataFormatId: windows_core::GUID,
-    pub MaxMetadataItemCount: u32,
+    pub MaxMetadataItemCount: super::UINT32,
     pub MetadataActivationParams: *const super::PROPVARIANT,
     pub NotifyObject: core::mem::ManuallyDrop<Option<super::ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: super::SPATIAL_AUDIO_STREAM_OPTIONS,

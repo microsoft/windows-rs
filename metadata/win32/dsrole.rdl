@@ -22,10 +22,10 @@ mod Windows {
         const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: i32 = 16777216;
         struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
             MachineRole: DSROLE_MACHINE_ROLE,
-            Flags: u32,
-            DomainNameFlat: PWSTR,
-            DomainNameDns: PWSTR,
-            DomainForestName: PWSTR,
+            Flags: ULONG,
+            DomainNameFlat: LPWSTR,
+            DomainNameDns: LPWSTR,
+            DomainForestName: LPWSTR,
             DomainGuid: GUID,
         }
         #[repr(i32)]
@@ -45,13 +45,13 @@ mod Windows {
         }
         const DSROLE_UPGRADE_IN_PROGRESS: i32 = 4;
         struct DSROLE_UPGRADE_STATUS_INFO {
-            OperationState: u32,
+            OperationState: ULONG,
             PreviousServerState: DSROLE_SERVER_STATE,
         }
         #[library("NETAPI32.dll")]
-        extern fn DsRoleFreeMemory(#[in] Buffer: *mut void);
+        extern fn DsRoleFreeMemory(Buffer: PVOID);
         #[library("NETAPI32.dll")]
-        extern fn DsRoleGetPrimaryDomainInformation(#[opt] lpServer: PCWSTR, InfoLevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, Buffer: *mut PBYTE) -> u32;
+        extern fn DsRoleGetPrimaryDomainInformation(lpServer: LPCWSTR, InfoLevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, Buffer: *mut PBYTE) -> DWORD;
         type PDSROLE_OPERATION_STATE_INFO = *mut DSROLE_OPERATION_STATE_INFO;
         type PDSROLE_PRIMARY_DOMAIN_INFO_BASIC = *mut DSROLE_PRIMARY_DOMAIN_INFO_BASIC;
         type PDSROLE_SERVER_STATE = *mut DSROLE_SERVER_STATE;

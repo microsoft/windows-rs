@@ -169,7 +169,7 @@ pub struct Brush(pub(crate) ID2D1SolidColorBrush);
 impl Brush {
     /// Changes the brush color.
     pub fn set_color(&self, color: ColorF) {
-        let c: D2D_COLOR_F = color.into();
+        let c: D2D1_COLOR_F = color.into();
         unsafe { self.0.SetColor(&c) };
     }
 }

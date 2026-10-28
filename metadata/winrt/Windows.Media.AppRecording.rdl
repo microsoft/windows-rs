@@ -20,8 +20,8 @@ mod Windows {
             class AppRecordingResult {
                 IAppRecordingResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
+            #[repr(i32)]
             enum AppRecordingSaveScreenshotOption {
                 None = 0,
                 HdrContentVisible = 1,
@@ -54,29 +54,29 @@ mod Windows {
             class AppRecordingStatusDetails {
                 IAppRecordingStatusDetails,
             }
-            #[guid(0xe7e26076_a044_48e2_a512_3094d574c7cc)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingManager)]
+            #[guid(0xe7e26076_a044_48e2_a512_3094d574c7cc)]
             interface IAppRecordingManager {
                 fn GetStatus(&self) -> AppRecordingStatus;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StartRecordingToFileAsync(&self, file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
+                fn StartRecordingToFileAsync(&self, #[in] file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RecordTimeSpanToFileAsync(&self, startTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
+                fn RecordTimeSpanToFileAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] duration: super::super::Foundation::TimeSpan, #[in] file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
                 #[get]
                 SupportedScreenshotMediaEncodingSubtypes: super::super::Foundation::Collections::IVectorView<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SaveScreenshotToFilesAsync(&self, folder: super::super::Storage::StorageFolder, filenamePrefix: String, option: AppRecordingSaveScreenshotOption, requestedFormats: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>;
+                fn SaveScreenshotToFilesAsync(&self, #[in] folder: super::super::Storage::StorageFolder, #[in] filenamePrefix: String, #[in] option: AppRecordingSaveScreenshotOption, #[in] requestedFormats: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>;
             }
-            #[guid(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingManager)]
+            #[guid(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d)]
             interface IAppRecordingManagerStatics {
                 fn GetDefault(&self) -> AppRecordingManager;
             }
-            #[guid(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingResult)]
+            #[guid(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7)]
             interface IAppRecordingResult {
                 #[get]
                 Succeeded: bool;
@@ -87,9 +87,9 @@ mod Windows {
                 #[get]
                 IsFileTruncated: bool;
             }
-            #[guid(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingSaveScreenshotResult)]
+            #[guid(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778)]
             interface IAppRecordingSaveScreenshotResult {
                 #[get]
                 Succeeded: bool;
@@ -98,18 +98,18 @@ mod Windows {
                 #[get]
                 SavedScreenshotInfos: super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>;
             }
-            #[guid(0x9b642d0a_189a_4d00_bf25_e1bb1249d594)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingSavedScreenshotInfo)]
+            #[guid(0x9b642d0a_189a_4d00_bf25_e1bb1249d594)]
             interface IAppRecordingSavedScreenshotInfo {
                 #[get]
                 File: super::super::Storage::StorageFile;
                 #[get]
                 MediaEncodingSubtype: String;
             }
-            #[guid(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingStatus)]
+            #[guid(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9)]
             interface IAppRecordingStatus {
                 #[get]
                 CanRecord: bool;
@@ -120,9 +120,9 @@ mod Windows {
                 #[get]
                 Details: AppRecordingStatusDetails;
             }
-            #[guid(0xb538a9b0_14ed_4412_ac45_6d672c9c9949)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingStatusDetails)]
+            #[guid(0xb538a9b0_14ed_4412_ac45_6d672c9c9949)]
             interface IAppRecordingStatusDetails {
                 #[get]
                 IsAnyAppBroadcasting: bool;

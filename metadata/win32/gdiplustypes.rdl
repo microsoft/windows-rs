@@ -1,0 +1,72 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[packed(8)]
+        struct CharacterRange {
+            First: INT,
+            Length: INT,
+        }
+        extern fn DrawImageAbort(param0: *mut void) -> BOOL;
+        extern fn EnumerateMetafileProc(param0: EmfPlusRecordType, param1: UINT, param2: UINT, param3: *const BYTE, param4: *mut void) -> BOOL;
+        interface GdiplusAbort {
+            fn Abort(&self) -> HRESULT;
+        }
+        extern fn GetThumbnailImageAbort(param0: *mut void) -> BOOL;
+        extern fn ImageAbort(param0: *mut void) -> BOOL;
+        struct PathData {}
+        #[packed(8)]
+        struct Point {
+            X: INT,
+            Y: INT,
+        }
+        #[packed(8)]
+        struct PointF {
+            X: REAL,
+            Y: REAL,
+        }
+        type REAL = f32;
+        const REAL_EPSILON: f32 = 0.00000011920929;
+        const REAL_MAX: f32 = 340282350000000000000000000000000000000.0;
+        const REAL_MIN: f32 = 0.000000000000000000000000000000000000011754944;
+        const REAL_TOLERANCE: f32 = 0.00000000000000000000000000000000000117549435;
+        #[packed(8)]
+        struct Rect {
+            X: INT,
+            Y: INT,
+            Width: INT,
+            Height: INT,
+        }
+        #[packed(8)]
+        struct RectF {
+            X: REAL,
+            Y: REAL,
+            Width: REAL,
+            Height: REAL,
+        }
+        #[repr(i32)]
+        enum Status {
+            Ok = 0,
+            GenericError = 1,
+            InvalidParameter = 2,
+            OutOfMemory = 3,
+            ObjectBusy = 4,
+            InsufficientBuffer = 5,
+            NotImplemented = 6,
+            Win32Error = 7,
+            WrongState = 8,
+            Aborted = 9,
+            FileNotFound = 10,
+            ValueOverflow = 11,
+            AccessDenied = 12,
+            UnknownImageFormat = 13,
+            FontFamilyNotFound = 14,
+            FontStyleNotFound = 15,
+            NotTrueTypeFont = 16,
+            UnsupportedGdiplusVersion = 17,
+            GdiplusNotInitialized = 18,
+            PropertyNotFound = 19,
+            PropertyNotSupported = 20,
+            ProfileNotFound = 21,
+        }
+    }
+}

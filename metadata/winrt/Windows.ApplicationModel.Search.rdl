@@ -2,9 +2,9 @@
 mod Windows {
     mod ApplicationModel {
         mod Search {
-            #[guid(0xeeaeb062_743d_456e_84a3_23f06f2d15d7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LocalContentSuggestionSettings)]
+            #[guid(0xeeaeb062_743d_456e_84a3_23f06f2d15d7)]
             interface ILocalContentSuggestionSettings {
                 #[set]
                 Enabled: bool;
@@ -19,37 +19,37 @@ mod Windows {
                 #[get]
                 PropertiesToMatch: super::super::Foundation::Collections::IVector<String>;
             }
-            #[guid(0xfdacec38_3700_4d73_91a1_2f998674238a)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPane)]
+            #[guid(0xfdacec38_3700_4d73_91a1_2f998674238a)]
             interface ISearchPane {
-                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[set]
                 SearchHistoryEnabled: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 SearchHistoryEnabled: bool;
+                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[set]
-                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 SearchHistoryContext: String;
+                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[get]
-                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 SearchHistoryContext: String;
+                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[set]
-                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 PlaceholderText: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 PlaceholderText: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 QueryText: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 Language: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 Visible: bool;
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 event VisibilityChanged: super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs>;
@@ -62,39 +62,39 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 event ResultSuggestionChosen: super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs>;
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
-                fn SetLocalContentSuggestionSettings(&self, settings: LocalContentSuggestionSettings);
+                fn SetLocalContentSuggestionSettings(&self, #[in] settings: LocalContentSuggestionSettings);
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowOverloadDefault")]
                 fn Show(&self);
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowOverloadWithQuery")]
-                fn Show(&self, query: String);
+                fn Show(&self, #[in] query: String);
+                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[set]
-                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 ShowOnKeyboardInput: bool;
+                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[get]
-                #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 ShowOnKeyboardInput: bool;
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
-                fn TrySetQueryText(&self, query: String) -> bool;
+                fn TrySetQueryText(&self, #[in] query: String) -> bool;
             }
-            #[guid(0x3c064fe9_2351_4248_a529_7110f464a785)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQueryChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+            #[guid(0x3c064fe9_2351_4248_a529_7110f464a785)]
             interface ISearchPaneQueryChangedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQueryChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 QueryText: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQueryChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 Language: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQueryChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 LinguisticDetails: SearchPaneQueryLinguisticDetails;
             }
-            #[guid(0x82fb460e_0940_4b6d_b8d0_642b30989e15)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneQueryLinguisticDetails)]
+            #[guid(0x82fb460e_0940_4b6d_b8d0_642b30989e15)]
             interface ISearchPaneQueryLinguisticDetails {
                 #[get]
                 QueryTextAlternatives: super::super::Foundation::Collections::IVectorView<String>;
@@ -103,95 +103,95 @@ mod Windows {
                 #[get]
                 QueryTextCompositionLength: u32;
             }
-            #[guid(0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQuerySubmittedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneQuerySubmittedEventArgs)]
+            #[guid(0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356)]
             interface ISearchPaneQuerySubmittedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQuerySubmittedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 QueryText: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQuerySubmittedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 Language: String;
             }
-            #[guid(0x460c92e5_4c32_4538_a4d4_b6b4400d140f)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneQuerySubmittedEventArgs)]
+            #[guid(0x460c92e5_4c32_4538_a4d4_b6b4400d140f)]
             interface ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 LinguisticDetails: SearchPaneQueryLinguisticDetails;
             }
-            #[guid(0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneResultSuggestionChosenEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneResultSuggestionChosenEventArgs)]
+            #[guid(0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec)]
             interface ISearchPaneResultSuggestionChosenEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneResultSuggestionChosenEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 Tag: String;
             }
-            #[guid(0x9572adf1_8f1d_481f_a15b_c61655f16a0e)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneStatics may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPane)]
+            #[guid(0x9572adf1_8f1d_481f_a15b_c61655f16a0e)]
             interface ISearchPaneStatics {
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneStatics may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 fn GetForCurrentView(&self) -> SearchPane;
             }
-            #[guid(0x00732830_50f1_4d03_99ac_c6644c8ed8b5)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneStaticsWithHideThisApplication may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPane)]
+            #[guid(0x00732830_50f1_4d03_99ac_c6644c8ed8b5)]
             interface ISearchPaneStaticsWithHideThisApplication {
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneStaticsWithHideThisApplication may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 fn HideThisApplication(&self);
             }
-            #[guid(0x81b10b1c_e561_4093_9b4d_2ad482794a53)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneSuggestionsRequest)]
+            #[guid(0x81b10b1c_e561_4093_9b4d_2ad482794a53)]
             interface ISearchPaneSuggestionsRequest {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 IsCanceled: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 SearchSuggestionCollection: SearchSuggestionCollection;
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 fn GetDeferral(&self) -> SearchPaneSuggestionsRequestDeferral;
             }
-            #[guid(0xa0d009f7_8748_4ee2_ad44_afa6be997c51)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequestDeferral may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneSuggestionsRequestDeferral)]
+            #[guid(0xa0d009f7_8748_4ee2_ad44_afa6be997c51)]
             interface ISearchPaneSuggestionsRequestDeferral {
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequestDeferral may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 fn Complete(&self);
             }
-            #[guid(0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequestedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneSuggestionsRequestedEventArgs)]
+            #[guid(0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5)]
             interface ISearchPaneSuggestionsRequestedEventArgs: ISearchPaneQueryChangedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneSuggestionsRequestedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 Request: SearchPaneSuggestionsRequest;
             }
-            #[guid(0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISearchPaneVisibilityChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchPaneVisibilityChangedEventArgs)]
+            #[guid(0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c)]
             interface ISearchPaneVisibilityChangedEventArgs {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPaneVisibilityChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+                #[get]
                 Visible: bool;
             }
-            #[guid(0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchQueryLinguisticDetails)]
+            #[guid(0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae)]
             interface ISearchQueryLinguisticDetails {
                 #[get]
                 QueryTextAlternatives: super::super::Foundation::Collections::IVectorView<String>;
@@ -200,26 +200,26 @@ mod Windows {
                 #[get]
                 QueryTextCompositionLength: u32;
             }
-            #[guid(0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchQueryLinguisticDetails)]
+            #[guid(0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4)]
             interface ISearchQueryLinguisticDetailsFactory {
-                fn CreateInstance(&self, queryTextAlternatives: super::super::Foundation::Collections::IIterable<String>, queryTextCompositionStart: u32, queryTextCompositionLength: u32) -> SearchQueryLinguisticDetails;
+                fn CreateInstance(&self, #[in] queryTextAlternatives: super::super::Foundation::Collections::IIterable<String>, #[in] queryTextCompositionStart: u32, #[in] queryTextCompositionLength: u32) -> SearchQueryLinguisticDetails;
             }
-            #[guid(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionCollection)]
+            #[guid(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a)]
             interface ISearchSuggestionCollection {
                 #[get]
                 Size: u32;
-                fn AppendQuerySuggestion(&self, text: String);
-                fn AppendQuerySuggestions(&self, suggestions: super::super::Foundation::Collections::IIterable<String>);
-                fn AppendResultSuggestion(&self, text: String, detailText: String, tag: String, image: super::super::Storage::Streams::IRandomAccessStreamReference, imageAlternateText: String);
-                fn AppendSearchSeparator(&self, label: String);
+                fn AppendQuerySuggestion(&self, #[in] text: String);
+                fn AppendQuerySuggestions(&self, #[in] suggestions: super::super::Foundation::Collections::IIterable<String>);
+                fn AppendResultSuggestion(&self, #[in] text: String, #[in] detailText: String, #[in] tag: String, #[in] image: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] imageAlternateText: String);
+                fn AppendSearchSeparator(&self, #[in] label: String);
             }
-            #[guid(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionsRequest)]
+            #[guid(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6)]
             interface ISearchSuggestionsRequest {
                 #[get]
                 IsCanceled: bool;
@@ -227,9 +227,9 @@ mod Windows {
                 SearchSuggestionCollection: SearchSuggestionCollection;
                 fn GetDeferral(&self) -> SearchSuggestionsRequestDeferral;
             }
-            #[guid(0xb71598a9_c065_456d_a845_1eccec5dc28b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionsRequestDeferral)]
+            #[guid(0xb71598a9_c065_456d_a845_1eccec5dc28b)]
             interface ISearchSuggestionsRequestDeferral {
                 fn Complete(&self);
             }
@@ -246,8 +246,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("SearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
-            #[Windows::Foundation::Metadata::Static(ISearchPaneStatics, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             #[Windows::Foundation::Metadata::Static(ISearchPaneStaticsWithHideThisApplication, 65536, "Windows.ApplicationModel.Search.SearchContract")]
+            #[Windows::Foundation::Metadata::Static(ISearchPaneStatics, 65536, "Windows.ApplicationModel.Search.SearchContract")]
             class SearchPane {
                 ISearchPane,
             }

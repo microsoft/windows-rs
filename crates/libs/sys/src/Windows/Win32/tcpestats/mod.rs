@@ -1,42 +1,50 @@
 pub type PTCP_BOOLEAN_OPTIONAL = *mut TCP_BOOLEAN_OPTIONAL;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_BANDWIDTH_ROD_v0 = *mut TCP_ESTATS_BANDWIDTH_ROD_v0;
 pub type PTCP_ESTATS_BANDWIDTH_RW_v0 = *mut TCP_ESTATS_BANDWIDTH_RW_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_DATA_ROD_v0 = *mut TCP_ESTATS_DATA_ROD_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_DATA_RW_v0 = *mut TCP_ESTATS_DATA_RW_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_FINE_RTT_ROD_v0 = *mut TCP_ESTATS_FINE_RTT_ROD_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_FINE_RTT_RW_v0 = *mut TCP_ESTATS_FINE_RTT_RW_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_OBS_REC_ROD_v0 = *mut TCP_ESTATS_OBS_REC_ROD_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_OBS_REC_RW_v0 = *mut TCP_ESTATS_OBS_REC_RW_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_PATH_ROD_v0 = *mut TCP_ESTATS_PATH_ROD_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_PATH_RW_v0 = *mut TCP_ESTATS_PATH_RW_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_REC_ROD_v0 = *mut TCP_ESTATS_REC_ROD_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_REC_RW_v0 = *mut TCP_ESTATS_REC_RW_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_SEND_BUFF_ROD_v0 = *mut TCP_ESTATS_SEND_BUFF_ROD_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_SEND_BUFF_RW_v0 = *mut TCP_ESTATS_SEND_BUFF_RW_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_SND_CONG_ROD_v0 = *mut TCP_ESTATS_SND_CONG_ROD_v0;
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_SND_CONG_ROS_v0 = *mut TCP_ESTATS_SND_CONG_ROS_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_SND_CONG_RW_v0 = *mut TCP_ESTATS_SND_CONG_RW_v0;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTCP_ESTATS_SYN_OPTS_ROS_v0 = *mut TCP_ESTATS_SYN_OPTS_ROS_v0;
 pub type PTCP_ESTATS_TYPE = *mut TCP_ESTATS_TYPE;
 pub type PTCP_SOFT_ERROR = *mut TCP_SOFT_ERROR;
 pub type TCP_BOOLEAN_OPTIONAL = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
-    pub OutboundBandwidth: u64,
-    pub InboundBandwidth: u64,
-    pub OutboundInstability: u64,
-    pub InboundInstability: u64,
+    pub OutboundBandwidth: super::ULONG64,
+    pub InboundBandwidth: super::ULONG64,
+    pub OutboundInstability: super::ULONG64,
+    pub InboundInstability: super::ULONG64,
     pub OutboundBandwidthPeaked: super::BOOLEAN,
     pub InboundBandwidthPeaked: super::BOOLEAN,
 }
@@ -47,185 +55,193 @@ pub struct TCP_ESTATS_BANDWIDTH_RW_v0 {
     pub EnableCollectionInbound: TCP_BOOLEAN_OPTIONAL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_DATA_ROD_v0 {
-    pub DataBytesOut: u64,
-    pub DataSegsOut: u64,
-    pub DataBytesIn: u64,
-    pub DataSegsIn: u64,
-    pub SegsOut: u64,
-    pub SegsIn: u64,
-    pub SoftErrors: u32,
-    pub SoftErrorReason: u32,
-    pub SndUna: u32,
-    pub SndNxt: u32,
-    pub SndMax: u32,
-    pub ThruBytesAcked: u64,
-    pub RcvNxt: u32,
-    pub ThruBytesReceived: u64,
+    pub DataBytesOut: super::ULONG64,
+    pub DataSegsOut: super::ULONG64,
+    pub DataBytesIn: super::ULONG64,
+    pub DataSegsIn: super::ULONG64,
+    pub SegsOut: super::ULONG64,
+    pub SegsIn: super::ULONG64,
+    pub SoftErrors: super::ULONG,
+    pub SoftErrorReason: super::ULONG,
+    pub SndUna: super::ULONG,
+    pub SndNxt: super::ULONG,
+    pub SndMax: super::ULONG,
+    pub ThruBytesAcked: super::ULONG64,
+    pub RcvNxt: super::ULONG,
+    pub ThruBytesReceived: super::ULONG64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_DATA_RW_v0 {
     pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
-    pub RttVar: u32,
-    pub MaxRtt: u32,
-    pub MinRtt: u32,
-    pub SumRtt: u32,
+    pub RttVar: super::ULONG,
+    pub MaxRtt: super::ULONG,
+    pub MinRtt: super::ULONG,
+    pub SumRtt: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0 {
     pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
-    pub CurRwinRcvd: u32,
-    pub MaxRwinRcvd: u32,
-    pub MinRwinRcvd: u32,
-    pub WinScaleRcvd: u8,
+    pub CurRwinRcvd: super::ULONG,
+    pub MaxRwinRcvd: super::ULONG,
+    pub MinRwinRcvd: super::ULONG,
+    pub WinScaleRcvd: super::UCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_OBS_REC_RW_v0 {
     pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_PATH_ROD_v0 {
-    pub FastRetran: u32,
-    pub Timeouts: u32,
-    pub SubsequentTimeouts: u32,
-    pub CurTimeoutCount: u32,
-    pub AbruptTimeouts: u32,
-    pub PktsRetrans: u32,
-    pub BytesRetrans: u32,
-    pub DupAcksIn: u32,
-    pub SacksRcvd: u32,
-    pub SackBlocksRcvd: u32,
-    pub CongSignals: u32,
-    pub PreCongSumCwnd: u32,
-    pub PreCongSumRtt: u32,
-    pub PostCongSumRtt: u32,
-    pub PostCongCountRtt: u32,
-    pub EcnSignals: u32,
-    pub EceRcvd: u32,
-    pub SendStall: u32,
-    pub QuenchRcvd: u32,
-    pub RetranThresh: u32,
-    pub SndDupAckEpisodes: u32,
-    pub SumBytesReordered: u32,
-    pub NonRecovDa: u32,
-    pub NonRecovDaEpisodes: u32,
-    pub AckAfterFr: u32,
-    pub DsackDups: u32,
-    pub SampleRtt: u32,
-    pub SmoothedRtt: u32,
-    pub RttVar: u32,
-    pub MaxRtt: u32,
-    pub MinRtt: u32,
-    pub SumRtt: u32,
-    pub CountRtt: u32,
-    pub CurRto: u32,
-    pub MaxRto: u32,
-    pub MinRto: u32,
-    pub CurMss: u32,
-    pub MaxMss: u32,
-    pub MinMss: u32,
-    pub SpuriousRtoDetections: u32,
+    pub FastRetran: super::ULONG,
+    pub Timeouts: super::ULONG,
+    pub SubsequentTimeouts: super::ULONG,
+    pub CurTimeoutCount: super::ULONG,
+    pub AbruptTimeouts: super::ULONG,
+    pub PktsRetrans: super::ULONG,
+    pub BytesRetrans: super::ULONG,
+    pub DupAcksIn: super::ULONG,
+    pub SacksRcvd: super::ULONG,
+    pub SackBlocksRcvd: super::ULONG,
+    pub CongSignals: super::ULONG,
+    pub PreCongSumCwnd: super::ULONG,
+    pub PreCongSumRtt: super::ULONG,
+    pub PostCongSumRtt: super::ULONG,
+    pub PostCongCountRtt: super::ULONG,
+    pub EcnSignals: super::ULONG,
+    pub EceRcvd: super::ULONG,
+    pub SendStall: super::ULONG,
+    pub QuenchRcvd: super::ULONG,
+    pub RetranThresh: super::ULONG,
+    pub SndDupAckEpisodes: super::ULONG,
+    pub SumBytesReordered: super::ULONG,
+    pub NonRecovDa: super::ULONG,
+    pub NonRecovDaEpisodes: super::ULONG,
+    pub AckAfterFr: super::ULONG,
+    pub DsackDups: super::ULONG,
+    pub SampleRtt: super::ULONG,
+    pub SmoothedRtt: super::ULONG,
+    pub RttVar: super::ULONG,
+    pub MaxRtt: super::ULONG,
+    pub MinRtt: super::ULONG,
+    pub SumRtt: super::ULONG,
+    pub CountRtt: super::ULONG,
+    pub CurRto: super::ULONG,
+    pub MaxRto: super::ULONG,
+    pub MinRto: super::ULONG,
+    pub CurMss: super::ULONG,
+    pub MaxMss: super::ULONG,
+    pub MinMss: super::ULONG,
+    pub SpuriousRtoDetections: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_PATH_RW_v0 {
     pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_REC_ROD_v0 {
-    pub CurRwinSent: u32,
-    pub MaxRwinSent: u32,
-    pub MinRwinSent: u32,
-    pub LimRwin: u32,
-    pub DupAckEpisodes: u32,
-    pub DupAcksOut: u32,
-    pub CeRcvd: u32,
-    pub EcnSent: u32,
-    pub EcnNoncesRcvd: u32,
-    pub CurReasmQueue: u32,
-    pub MaxReasmQueue: u32,
-    pub CurAppRQueue: usize,
-    pub MaxAppRQueue: usize,
-    pub WinScaleSent: u8,
+    pub CurRwinSent: super::ULONG,
+    pub MaxRwinSent: super::ULONG,
+    pub MinRwinSent: super::ULONG,
+    pub LimRwin: super::ULONG,
+    pub DupAckEpisodes: super::ULONG,
+    pub DupAcksOut: super::ULONG,
+    pub CeRcvd: super::ULONG,
+    pub EcnSent: super::ULONG,
+    pub EcnNoncesRcvd: super::ULONG,
+    pub CurReasmQueue: super::ULONG,
+    pub MaxReasmQueue: super::ULONG,
+    pub CurAppRQueue: super::SIZE_T,
+    pub MaxAppRQueue: super::SIZE_T,
+    pub WinScaleSent: super::UCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_REC_RW_v0 {
     pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
-    pub CurRetxQueue: usize,
-    pub MaxRetxQueue: usize,
-    pub CurAppWQueue: usize,
-    pub MaxAppWQueue: usize,
+    pub CurRetxQueue: super::SIZE_T,
+    pub MaxRetxQueue: super::SIZE_T,
+    pub CurAppWQueue: super::SIZE_T,
+    pub MaxAppWQueue: super::SIZE_T,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0 {
     pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
-    pub SndLimTransRwin: u32,
-    pub SndLimTimeRwin: u32,
-    pub SndLimBytesRwin: usize,
-    pub SndLimTransCwnd: u32,
-    pub SndLimTimeCwnd: u32,
-    pub SndLimBytesCwnd: usize,
-    pub SndLimTransSnd: u32,
-    pub SndLimTimeSnd: u32,
-    pub SndLimBytesSnd: usize,
-    pub SlowStart: u32,
-    pub CongAvoid: u32,
-    pub OtherReductions: u32,
-    pub CurCwnd: u32,
-    pub MaxSsCwnd: u32,
-    pub MaxCaCwnd: u32,
-    pub CurSsthresh: u32,
-    pub MaxSsthresh: u32,
-    pub MinSsthresh: u32,
+    pub SndLimTransRwin: super::ULONG,
+    pub SndLimTimeRwin: super::ULONG,
+    pub SndLimBytesRwin: super::SIZE_T,
+    pub SndLimTransCwnd: super::ULONG,
+    pub SndLimTimeCwnd: super::ULONG,
+    pub SndLimBytesCwnd: super::SIZE_T,
+    pub SndLimTransSnd: super::ULONG,
+    pub SndLimTimeSnd: super::ULONG,
+    pub SndLimBytesSnd: super::SIZE_T,
+    pub SlowStart: super::ULONG,
+    pub CongAvoid: super::ULONG,
+    pub OtherReductions: super::ULONG,
+    pub CurCwnd: super::ULONG,
+    pub MaxSsCwnd: super::ULONG,
+    pub MaxCaCwnd: super::ULONG,
+    pub CurSsthresh: super::ULONG,
+    pub MaxSsthresh: super::ULONG,
+    pub MinSsthresh: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SND_CONG_ROS_v0 {
-    pub LimCwnd: u32,
+    pub LimCwnd: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SND_CONG_RW_v0 {
     pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
     pub ActiveOpen: super::BOOLEAN,
-    pub MssRcvd: u32,
-    pub MssSent: u32,
+    pub MssRcvd: super::ULONG,
+    pub MssSent: super::ULONG,
 }
 pub type TCP_ESTATS_TYPE = i32;
 pub type TCP_SOFT_ERROR = i32;

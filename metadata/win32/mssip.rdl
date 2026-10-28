@@ -1,31 +1,32 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type CRYPT_DIGEST_DATA = CRYPT_HASH_BLOB;
+        type CRYPT_DIGEST_DATA = _CRYPTOAPI_BLOB;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPAddProvider(#[in] psNewProv: *mut SIP_ADD_NEWPROVIDER) -> BOOL;
+        extern fn CryptSIPAddProvider(psNewProv: *mut SIP_ADD_NEWPROVIDER) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPCreateIndirectData(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[in] #[out] pcbIndirectData: *mut u32, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
+        extern fn CryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut DWORD, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSIPGetCaps(#[in] pSubjInfo: *mut SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, pSig: *const u8, dwSig: u32, #[len_param(4)] #[opt] pbDigest: *mut u8, #[in] #[out] pcbDigest: *mut u32) -> BOOL;
+        #[success(return != 0)]
+        extern fn CryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[in] #[opt] #[readable(entry, dwSig)] pSig: *const BYTE, #[in] dwSig: DWORD, #[opt] #[out] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPGetSignedDataMsg(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut u32, dwIndex: u32, #[in] #[out] pcbSignedDataMsg: *mut u32, pbSignedDataMsg: *mut u8) -> BOOL;
+        extern fn CryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut DWORD, dwIndex: DWORD, pcbSignedDataMsg: *mut DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPLoad(pgSubject: *const GUID, dwFlags: u32, #[in] #[out] pSipDispatch: *mut SIP_DISPATCH_INFO) -> BOOL;
+        extern fn CryptSIPLoad(pgSubject: *const GUID, dwFlags: DWORD, pSipDispatch: *mut SIP_DISPATCH_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPPutSignedDataMsg(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: u32, pdwIndex: *mut u32, cbSignedDataMsg: u32, #[in] pbSignedDataMsg: *mut u8) -> BOOL;
+        extern fn CryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: DWORD, pdwIndex: *mut DWORD, cbSignedDataMsg: DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRemoveProvider(#[in] pgProv: *mut GUID) -> BOOL;
+        extern fn CryptSIPRemoveProvider(pgProv: *mut GUID) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRemoveSignedDataMsg(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: u32) -> BOOL;
+        extern fn CryptSIPRemoveSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRetrieveSubjectGuid(FileName: PCWSTR, #[opt] hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
+        extern fn CryptSIPRetrieveSubjectGuid(FileName: LPCWSTR, hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRetrieveSubjectGuidForCatalogFile(FileName: PCWSTR, #[opt] hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
+        extern fn CryptSIPRetrieveSubjectGuidForCatalogFile(FileName: LPCWSTR, hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPVerifyIndirectData(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[in] pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
+        extern fn CryptSIPVerifyIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         type LPSIP_DISPATCH_INFO = *mut SIP_DISPATCH_INFO;
         type LPSIP_SUBJECTINFO = *mut SIP_SUBJECTINFO;
         const MSSIP_ADDINFO_BLOB: i32 = 3;
@@ -37,26 +38,30 @@ mod Windows {
         const MSSIP_FLAGS_MULTI_HASH: i32 = 262144;
         const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: i32 = 65536;
         const MSSIP_FLAGS_USE_CATALOG: i32 = 131072;
+        #[packed(8)]
         struct MS_ADDINFO_BLOB {
-            cbStruct: u32,
-            cbMemObject: u32,
-            pbMemObject: *mut u8,
-            cbMemSignedMsg: u32,
-            pbMemSignedMsg: *mut u8,
+            cbStruct: DWORD,
+            cbMemObject: DWORD,
+            pbMemObject: *mut BYTE,
+            cbMemSignedMsg: DWORD,
+            pbMemSignedMsg: *mut BYTE,
         }
+        #[packed(8)]
         struct MS_ADDINFO_CATALOGMEMBER {
-            cbStruct: u32,
+            cbStruct: DWORD,
             pStore: *mut CRYPTCATSTORE,
             pMember: *mut CRYPTCATMEMBER,
         }
+        #[packed(8)]
         struct MS_ADDINFO_DETACHEDSIG {
-            cbStruct: u32,
+            cbStruct: DWORD,
             hSignatureFile: HANDLE,
-            cbSignatureObject: u32,
-            pbSignatureObject: *mut u8,
+            cbSignatureObject: DWORD,
+            pbSignatureObject: *mut BYTE,
         }
+        #[packed(8)]
         struct MS_ADDINFO_FLAT {
-            cbStruct: u32,
+            cbStruct: DWORD,
             pIndirectData: *mut SIP_INDIRECT_DATA,
         }
         type PMS_ADDINFO_BLOB = *mut MS_ADDINFO_BLOB;
@@ -64,46 +69,50 @@ mod Windows {
         type PMS_ADDINFO_DETACHEDSIG = *mut MS_ADDINFO_DETACHEDSIG;
         type PMS_ADDINFO_FLAT = *mut MS_ADDINFO_FLAT;
         type PSIP_ADD_NEWPROVIDER = *mut SIP_ADD_NEWPROVIDER;
-        type PSIP_CAP_SET = PSIP_CAP_SET_V3;
+        type PSIP_CAP_SET = *mut SIP_CAP_SET_V3;
         type PSIP_CAP_SET_V2 = *mut SIP_CAP_SET_V2;
         type PSIP_CAP_SET_V3 = *mut SIP_CAP_SET_V3;
         type PSIP_INDIRECT_DATA = *mut SIP_INDIRECT_DATA;
+        #[packed(8)]
         struct SIP_ADD_NEWPROVIDER {
-            cbStruct: u32,
+            cbStruct: DWORD,
             pgSubject: *mut GUID,
-            pwszDLLFileName: *mut u16,
-            pwszMagicNumber: *mut u16,
-            pwszIsFunctionName: *mut u16,
-            pwszGetFuncName: *mut u16,
-            pwszPutFuncName: *mut u16,
-            pwszCreateFuncName: *mut u16,
-            pwszVerifyFuncName: *mut u16,
-            pwszRemoveFuncName: *mut u16,
-            pwszIsFunctionNameFmt2: *mut u16,
+            pwszDLLFileName: *mut WCHAR,
+            pwszMagicNumber: *mut WCHAR,
+            pwszIsFunctionName: *mut WCHAR,
+            pwszGetFuncName: *mut WCHAR,
+            pwszPutFuncName: *mut WCHAR,
+            pwszCreateFuncName: *mut WCHAR,
+            pwszVerifyFuncName: *mut WCHAR,
+            pwszRemoveFuncName: *mut WCHAR,
+            pwszIsFunctionNameFmt2: *mut WCHAR,
             pwszGetCapFuncName: PWSTR,
         }
         const SIP_CAP_FLAG_SEALING: i32 = 1;
         type SIP_CAP_SET = SIP_CAP_SET_V3;
         const SIP_CAP_SET_CUR_VER: i32 = 3;
+        #[packed(8)]
         struct SIP_CAP_SET_V2 {
-            cbSize: u32,
-            dwVersion: u32,
+            cbSize: DWORD,
+            dwVersion: DWORD,
             isMultiSign: BOOL,
-            dwReserved: u32,
+            dwReserved: DWORD,
         }
+        #[packed(8)]
         struct SIP_CAP_SET_V3 {
-            cbSize: u32,
-            dwVersion: u32,
+            cbSize: DWORD,
+            dwVersion: DWORD,
             isMultiSign: BOOL,
-            Anonymous: union {
-                dwFlags: u32,
-                dwReserved: u32,
+            Anonymous: #[packed(8)] union {
+                dwFlags: DWORD,
+                dwReserved: DWORD,
             },
         }
         const SIP_CAP_SET_VERSION_2: i32 = 2;
         const SIP_CAP_SET_VERSION_3: i32 = 3;
+        #[packed(8)]
         struct SIP_DISPATCH_INFO {
-            cbSize: u32,
+            cbSize: DWORD,
             hSIP: HANDLE,
             pfGet: pCryptSIPGetSignedDataMsg,
             pfPut: pCryptSIPPutSignedDataMsg,
@@ -111,36 +120,38 @@ mod Windows {
             pfVerify: pCryptSIPVerifyIndirectData,
             pfRemove: pCryptSIPRemoveSignedDataMsg,
         }
+        #[packed(8)]
         struct SIP_INDIRECT_DATA {
             Data: CRYPT_ATTRIBUTE_TYPE_VALUE,
             DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
             Digest: CRYPT_HASH_BLOB,
         }
         const SIP_MAX_MAGIC_NUMBER: i32 = 4;
+        #[packed(8)]
         struct SIP_SUBJECTINFO {
-            cbSize: u32,
+            cbSize: DWORD,
             pgSubjectType: *mut GUID,
             hFile: HANDLE,
-            pwsFileName: PCWSTR,
-            pwsDisplayName: PCWSTR,
-            dwReserved1: u32,
-            dwIntVersion: u32,
+            pwsFileName: LPCWSTR,
+            pwsDisplayName: LPCWSTR,
+            dwReserved1: DWORD,
+            dwIntVersion: DWORD,
             hProv: HCRYPTPROV,
             DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
-            dwFlags: u32,
-            dwEncodingType: u32,
-            dwReserved2: u32,
-            fdwCAPISettings: u32,
-            fdwSecuritySettings: u32,
-            dwIndex: u32,
-            dwUnionChoice: u32,
-            Anonymous: union {
+            dwFlags: DWORD,
+            dwEncodingType: DWORD,
+            dwReserved2: DWORD,
+            fdwCAPISettings: DWORD,
+            fdwSecuritySettings: DWORD,
+            dwIndex: DWORD,
+            dwUnionChoice: DWORD,
+            Anonymous: #[packed(8)] union {
                 psFlat: *mut MS_ADDINFO_FLAT,
                 psCatMember: *mut MS_ADDINFO_CATALOGMEMBER,
                 psBlob: *mut MS_ADDINFO_BLOB,
                 psDetachedSig: *mut MS_ADDINFO_DETACHEDSIG,
             },
-            pClientData: *mut void,
+            pClientData: LPVOID,
         }
         const SPC_DIGEST_GENERATE_FLAG: i32 = 512;
         const SPC_DIGEST_SIGN_EX_FLAG: i32 = 16384;
@@ -153,14 +164,15 @@ mod Windows {
         const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: i32 = 1;
         const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: i32 = 1;
         const SPC_RELAXED_PE_MARKER_CHECK: i32 = 2048;
-        extern fn pCryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut u32, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
+        extern fn pCryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut DWORD, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         extern fn pCryptSIPGetCaps(#[in] pSubjInfo: *mut SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
-        extern fn pCryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, pSig: *const u8, dwSig: u32, #[len_param(4)] #[opt] pbDigest: *mut u8, #[in] #[out] pcbDigest: *mut u32) -> BOOL;
-        extern fn pCryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut u32, dwIndex: u32, pcbSignedDataMsg: *mut u32, pbSignedDataMsg: *mut u8) -> BOOL;
-        extern fn pCryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: u32, pdwIndex: *mut u32, cbSignedDataMsg: u32, pbSignedDataMsg: *mut u8) -> BOOL;
-        extern fn pCryptSIPRemoveSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: u32) -> BOOL;
+        #[success(return != 0)]
+        extern fn pCryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[in] #[opt] #[readable(entry, dwSig)] pSig: *const BYTE, #[in] dwSig: DWORD, #[opt] #[out] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
+        extern fn pCryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut DWORD, dwIndex: DWORD, pcbSignedDataMsg: *mut DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
+        extern fn pCryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: DWORD, pdwIndex: *mut DWORD, cbSignedDataMsg: DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
+        extern fn pCryptSIPRemoveSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: DWORD) -> BOOL;
         extern fn pCryptSIPVerifyIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         extern fn pfnIsFileSupported(hFile: HANDLE, pgSubject: *mut GUID) -> BOOL;
-        extern fn pfnIsFileSupportedName(pwszFileName: *mut u16, pgSubject: *mut GUID) -> BOOL;
+        extern fn pfnIsFileSupportedName(pwszFileName: *mut WCHAR, pgSubject: *mut GUID) -> BOOL;
     }
 }

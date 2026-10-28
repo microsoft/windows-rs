@@ -1,0 +1,15 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[arch(X86)]
+    struct Outer {
+        value: u32,
+        struct Inner {
+            value: u16,
+        }
+    }
+    #[arch(X64 | Arm64)]
+    struct Outer_Inner {
+        value: u32,
+    }
+}

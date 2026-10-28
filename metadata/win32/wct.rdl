@@ -2,32 +2,34 @@
 mod Windows {
     mod Win32 {
         #[library("ADVAPI32.dll")]
-        extern fn CloseThreadWaitChainSession(WctHandle: HWCT);
+        extern fn CloseThreadWaitChainSession(#[in] WctHandle: HWCT);
         #[library("ADVAPI32.dll")]
-        extern fn GetThreadWaitChain(WctHandle: HWCT, #[opt] Context: usize, Flags: u32, ThreadId: u32, #[in] #[out] NodeCount: LPDWORD, #[len_param(4)] #[out] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
+        #[must_use]
+        extern fn GetThreadWaitChain(#[in] WctHandle: HWCT, #[in] #[opt] Context: DWORD_PTR, #[in] Flags: DWORD, #[in] ThreadId: DWORD, #[in] #[out] NodeCount: LPDWORD, #[out] #[writable(entry, *NodeCount)] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
         type HWCT = *mut void;
         #[library("ADVAPI32.dll")]
-        extern fn OpenThreadWaitChainSession(Flags: u32, #[opt] callback: PWAITCHAINCALLBACK) -> HWCT;
-        extern "C" fn PCOGETACTIVATIONSTATE(param0: GUID, param1: u32, param2: *mut u32) -> HRESULT;
+        #[must_use]
+        extern fn OpenThreadWaitChainSession(#[in] Flags: DWORD, #[in] #[opt] callback: PWAITCHAINCALLBACK) -> HWCT;
+        extern "C" fn PCOGETACTIVATIONSTATE(param0: GUID, param1: DWORD, param2: *mut DWORD) -> HRESULT;
         extern "C" fn PCOGETCALLSTATE(param0: i32, param1: PULONG) -> HRESULT;
-        extern fn PWAITCHAINCALLBACK(WctHandle: HWCT, Context: usize, CallbackStatus: u32, NodeCount: LPDWORD, NodeInfoArray: PWAITCHAIN_NODE_INFO, IsCycle: LPBOOL);
+        extern fn PWAITCHAINCALLBACK(WctHandle: HWCT, Context: DWORD_PTR, CallbackStatus: DWORD, NodeCount: LPDWORD, NodeInfoArray: PWAITCHAIN_NODE_INFO, IsCycle: LPBOOL);
         type PWAITCHAIN_NODE_INFO = *mut WAITCHAIN_NODE_INFO;
         #[library("ADVAPI32.dll")]
-        extern fn RegisterWaitChainCOMCallback(CallStateCallback: PCOGETCALLSTATE, ActivationStateCallback: PCOGETACTIVATIONSTATE);
+        extern fn RegisterWaitChainCOMCallback(#[in] CallStateCallback: PCOGETCALLSTATE, #[in] ActivationStateCallback: PCOGETACTIVATIONSTATE);
         struct WAITCHAIN_NODE_INFO {
             ObjectType: WCT_OBJECT_TYPE,
             ObjectStatus: WCT_OBJECT_STATUS,
             Anonymous: union {
                 LockObject: struct {
-                    ObjectName: [u16; 128],
+                    ObjectName: [WCHAR; 128],
                     Timeout: LARGE_INTEGER,
                     Alertable: BOOL,
                 },
                 ThreadObject: struct {
-                    ProcessId: u32,
-                    ThreadId: u32,
-                    WaitTime: u32,
-                    ContextSwitches: u32,
+                    ProcessId: DWORD,
+                    ThreadId: DWORD,
+                    WaitTime: DWORD,
+                    ContextSwitches: DWORD,
                 },
             },
         }

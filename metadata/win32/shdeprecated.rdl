@@ -2,6 +2,7 @@
 mod Windows {
     mod Win32 {
         type BASEBROWSERDATA = BASEBROWSERDATALH;
+        #[packed(8)]
         struct BASEBROWSERDATALH {
             _hwnd: HWND,
             _ptl: ITravelLog,
@@ -11,57 +12,27 @@ mod Windows {
             _pautoSS: IShellService,
             _eSecureLockIcon: i32,
             _bitfield: u32 {
-                _fCreatingViewWindow: 1,
+                _fCreatingViewWindow: UINT: 1,
             },
-            _uActivateState: u32,
+            _uActivateState: UINT,
             _pidlViewState: LPCITEMIDLIST,
             _pctView: IOleCommandTarget,
             _pidlCur: LPITEMIDLIST,
             _psv: IShellView,
             _psf: IShellFolder,
             _hwndView: HWND,
-            _pszTitleCur: PWSTR,
+            _pszTitleCur: LPWSTR,
             _pidlPending: LPITEMIDLIST,
             _psvPending: IShellView,
             _psfPending: IShellFolder,
             _hwndViewPending: HWND,
-            _pszTitlePending: PWSTR,
+            _pszTitlePending: LPWSTR,
             _fIsViewMSHTML: BOOL,
             _fPrivacyImpacted: BOOL,
-            _clsidView: GUID,
-            _clsidViewPending: GUID,
+            _clsidView: CLSID,
+            _clsidViewPending: CLSID,
             _hwndFrame: HWND,
-            _lPhishingFilterStatus: i32,
-        }
-        struct BASEBROWSERDATAXP {
-            _hwnd: HWND,
-            _ptl: ITravelLog,
-            _phlf: IHlinkFrame,
-            _pautoWB2: IWebBrowser2,
-            _pautoEDS: IExpDispSupportXP,
-            _pautoSS: IShellService,
-            _eSecureLockIcon: i32,
-            _bitfield: u32 {
-                _fCreatingViewWindow: 1,
-            },
-            _uActivateState: u32,
-            _pidlViewState: LPCITEMIDLIST,
-            _pctView: IOleCommandTarget,
-            _pidlCur: LPITEMIDLIST,
-            _psv: IShellView,
-            _psf: IShellFolder,
-            _hwndView: HWND,
-            _pszTitleCur: PWSTR,
-            _pidlPending: LPITEMIDLIST,
-            _psvPending: IShellView,
-            _psfPending: IShellFolder,
-            _hwndViewPending: HWND,
-            _pszTitlePending: PWSTR,
-            _fIsViewMSHTML: BOOL,
-            _fPrivacyImpacted: BOOL,
-            _clsidView: GUID,
-            _clsidViewPending: GUID,
-            _hwndFrame: HWND,
+            _lPhishingFilterStatus: LONG,
         }
         #[repr(i32)]
         enum BNSTATE {
@@ -85,15 +56,11 @@ mod Windows {
         const BSF_TOPBROWSER: i32 = 2048;
         const BSF_TRUSTEDFORACTIVEX: i32 = 131072;
         const BSF_UISETBYAUTOMATION: i32 = 256;
-        #[no_guid]
-        interface CIE4ConnectionPoint: IConnectionPoint {
-            fn DoInvokeIE4(&self, pf: *mut BOOL, ppv: *mut *mut void, dispid: DISPID, pdispparams: *mut DISPPARAMS) -> HRESULT;
-            fn DoInvokePIDLIE4(&self, dispid: DISPID, pidl: LPCITEMIDLIST, fCanCancel: BOOL) -> HRESULT;
-        }
+        #[packed(8)]
         struct FOLDERSETDATA {
             _fs: FOLDERSETTINGS,
             _vidRestore: SHELLVIEWID,
-            _dwViewPriority: u32,
+            _dwViewPriority: DWORD,
         }
         const HLNF_ALLOW_AUTONAVIGATE: i32 = 536870912;
         const HLNF_CALLERUNTRUSTED: i32 = 2097152;
@@ -105,110 +72,110 @@ mod Windows {
         const HLNF_UNTRUSTEDFORDOWNLOAD: i32 = 33554432;
         #[guid(0x02ba3b52_0547_11d1_b833_00c04fc9b31f)]
         interface IBrowserService: IUnknown {
-            fn GetParentSite(&self, ppipsite: *mut IOleInPlaceSite) -> HRESULT;
-            fn SetTitle(&self, psv: IShellView, pszName: PCWSTR) -> HRESULT;
-            fn GetTitle(&self, psv: IShellView, #[len_param(2)] #[out] pszName: PWSTR, cchName: u32) -> HRESULT;
-            fn GetOleObject(&self, ppobjv: *mut IOleObject) -> HRESULT;
-            fn GetTravelLog(&self, pptl: *mut ITravelLog) -> HRESULT;
-            fn ShowControlWindow(&self, id: u32, fShow: BOOL) -> HRESULT;
-            fn IsControlWindowShown(&self, id: u32, pfShown: *mut BOOL) -> HRESULT;
-            fn IEGetDisplayName(&self, pidl: LPCITEMIDLIST, #[out] pwszName: PWSTR, uFlags: u32) -> HRESULT;
-            fn IEParseDisplayName(&self, uiCP: u32, pwszPath: PCWSTR, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
-            fn DisplayParseError(&self, hres: HRESULT, pwszPath: PCWSTR) -> HRESULT;
-            fn NavigateToPidl(&self, pidl: LPCITEMIDLIST, grfHLNF: u32) -> HRESULT;
+            fn GetParentSite(&self, #[out] #[out_ptr] ppipsite: *mut IOleInPlaceSite) -> HRESULT;
+            fn SetTitle(&self, #[in] psv: IShellView, #[in] pszName: LPCWSTR) -> HRESULT;
+            fn GetTitle(&self, #[in] psv: IShellView, #[out] #[writable(entry, cchName)] pszName: LPWSTR, cchName: DWORD) -> HRESULT;
+            fn GetOleObject(&self, #[out] #[out_ptr] ppobjv: *mut IOleObject) -> HRESULT;
+            fn GetTravelLog(&self, #[out] #[out_ptr] pptl: *mut ITravelLog) -> HRESULT;
+            fn ShowControlWindow(&self, id: UINT, fShow: BOOL) -> HRESULT;
+            fn IsControlWindowShown(&self, id: UINT, #[out] pfShown: *mut BOOL) -> HRESULT;
+            fn IEGetDisplayName(&self, #[in] pidl: LPCITEMIDLIST, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "(32 + sizeof(\"://\") + 2048)", "(32 + sizeof(\"://\") + 2048)")] #[out] pwszName: LPWSTR, uFlags: UINT) -> HRESULT;
+            fn IEParseDisplayName(&self, uiCP: UINT, #[in] pwszPath: LPCWSTR, #[out] #[out_ptr] ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+            fn DisplayParseError(&self, hres: HRESULT, #[in] pwszPath: LPCWSTR) -> HRESULT;
+            fn NavigateToPidl(&self, #[in] pidl: LPCITEMIDLIST, grfHLNF: DWORD) -> HRESULT;
             fn SetNavigateState(&self, bnstate: BNSTATE) -> HRESULT;
-            fn GetNavigateState(&self, pbnstate: *mut BNSTATE) -> HRESULT;
-            fn NotifyRedirect(&self, psv: IShellView, pidl: LPCITEMIDLIST, pfDidBrowse: *mut BOOL) -> HRESULT;
+            fn GetNavigateState(&self, #[out] pbnstate: *mut BNSTATE) -> HRESULT;
+            fn NotifyRedirect(&self, #[in] psv: IShellView, #[in] pidl: LPCITEMIDLIST, #[out] pfDidBrowse: *mut BOOL) -> HRESULT;
             fn UpdateWindowList(&self) -> HRESULT;
             fn UpdateBackForwardState(&self) -> HRESULT;
-            fn SetFlags(&self, dwFlags: u32, dwFlagMask: u32) -> HRESULT;
-            fn GetFlags(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn SetFlags(&self, dwFlags: DWORD, dwFlagMask: DWORD) -> HRESULT;
+            fn GetFlags(&self, #[out] pdwFlags: *mut DWORD) -> HRESULT;
             fn CanNavigateNow(&self) -> HRESULT;
-            fn GetPidl(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
-            fn SetReferrer(&self, pidl: LPCITEMIDLIST) -> HRESULT;
-            fn GetBrowserIndex(&self) -> u32;
-            fn GetBrowserByIndex(&self, dwID: u32, ppunk: *mut IUnknown) -> HRESULT;
-            fn GetHistoryObject(&self, ppole: *mut IOleObject, pstm: *mut IStream, ppbc: *mut IBindCtx) -> HRESULT;
-            fn SetHistoryObject(&self, pole: IOleObject, fIsLocalAnchor: BOOL) -> HRESULT;
-            fn CacheOLEServer(&self, pole: IOleObject) -> HRESULT;
-            fn GetSetCodePage(&self, #[in] pvarIn: *mut VARIANT, pvarOut: *mut VARIANT) -> HRESULT;
-            fn OnHttpEquiv(&self, psv: IShellView, fDone: BOOL, #[in] pvarargIn: *mut VARIANT, pvarargOut: *mut VARIANT) -> HRESULT;
-            fn GetPalette(&self, hpal: *mut HPALETTE) -> HRESULT;
+            fn GetPidl(&self, #[out] ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn SetReferrer(&self, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
+            fn GetBrowserIndex(&self) -> DWORD;
+            fn GetBrowserByIndex(&self, dwID: DWORD, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetHistoryObject(&self, #[out] #[out_ptr] ppole: *mut IOleObject, #[out] #[out_ptr] pstm: *mut IStream, #[out] #[out_ptr] ppbc: *mut IBindCtx) -> HRESULT;
+            fn SetHistoryObject(&self, #[in] pole: IOleObject, fIsLocalAnchor: BOOL) -> HRESULT;
+            fn CacheOLEServer(&self, #[in] pole: IOleObject) -> HRESULT;
+            fn GetSetCodePage(&self, #[in] pvarIn: *mut VARIANT, #[out] pvarOut: *mut VARIANT) -> HRESULT;
+            fn OnHttpEquiv(&self, #[in] psv: IShellView, fDone: BOOL, #[in] pvarargIn: *mut VARIANT, #[out] pvarargOut: *mut VARIANT) -> HRESULT;
+            fn GetPalette(&self, #[out] hpal: *mut HPALETTE) -> HRESULT;
             fn RegisterWindow(&self, fForceRegister: BOOL, swc: i32) -> HRESULT;
         }
         #[guid(0x68bd21cc_438b_11d2_a560_00a0c92dbfe8)]
         interface IBrowserService2: IBrowserService {
-            fn WndProcBS(&self, hwnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+            fn WndProcBS(&self, #[in] hwnd: HWND, #[in] uMsg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> LRESULT;
             fn SetAsDefFolderSettings(&self) -> HRESULT;
-            fn GetViewRect(&self, prc: *mut RECT) -> HRESULT;
-            fn OnSize(&self, wParam: WPARAM) -> HRESULT;
+            fn GetViewRect(&self, #[out] prc: *mut RECT) -> HRESULT;
+            fn OnSize(&self, #[in] wParam: WPARAM) -> HRESULT;
             fn OnCreate(&self, #[in] pcs: *mut CREATESTRUCTW) -> HRESULT;
-            fn OnCommand(&self, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+            fn OnCommand(&self, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> LRESULT;
             fn OnDestroy(&self) -> HRESULT;
             fn OnNotify(&self, #[in] pnm: *mut NMHDR) -> LRESULT;
             fn OnSetFocus(&self) -> HRESULT;
-            fn OnFrameWindowActivateBS(&self, fActive: BOOL) -> HRESULT;
+            fn OnFrameWindowActivateBS(&self, #[in] fActive: BOOL) -> HRESULT;
             fn ReleaseShellView(&self) -> HRESULT;
             fn ActivatePendingView(&self) -> HRESULT;
-            fn CreateViewWindow(&self, psvNew: IShellView, psvOld: IShellView, prcView: LPRECT, phwnd: *mut HWND) -> HRESULT;
-            fn CreateBrowserPropSheetExt(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn GetViewWindow(&self, phwndView: *mut HWND) -> HRESULT;
-            fn GetBaseBrowserData(&self, pbbd: *mut LPCBASEBROWSERDATA) -> HRESULT;
+            fn CreateViewWindow(&self, #[in] psvNew: IShellView, #[in] psvOld: IShellView, #[in] prcView: LPRECT, #[out] phwnd: *mut HWND) -> HRESULT;
+            fn CreateBrowserPropSheetExt(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn GetViewWindow(&self, #[out] phwndView: *mut HWND) -> HRESULT;
+            fn GetBaseBrowserData(&self, #[out] #[out_ptr] pbbd: *mut LPCBASEBROWSERDATA) -> HRESULT;
             fn PutBaseBrowserData(&self) -> LPBASEBROWSERDATA;
-            fn InitializeTravelLog(&self, ptl: ITravelLog, dw: u32) -> HRESULT;
+            fn InitializeTravelLog(&self, #[in] ptl: ITravelLog, #[in] dw: DWORD) -> HRESULT;
             fn SetTopBrowser(&self) -> HRESULT;
-            fn Offline(&self, iCmd: i32) -> HRESULT;
-            fn AllowViewResize(&self, f: BOOL) -> HRESULT;
-            fn SetActivateState(&self, u: u32) -> HRESULT;
-            fn UpdateSecureLockIcon(&self, eSecureLock: i32) -> HRESULT;
+            fn Offline(&self, #[in] iCmd: i32) -> HRESULT;
+            fn AllowViewResize(&self, #[in] f: BOOL) -> HRESULT;
+            fn SetActivateState(&self, #[in] u: UINT) -> HRESULT;
+            fn UpdateSecureLockIcon(&self, #[in] eSecureLock: i32) -> HRESULT;
             fn InitializeDownloadManager(&self) -> HRESULT;
             fn InitializeTransitionSite(&self) -> HRESULT;
-            fn _Initialize(&self, hwnd: HWND, pauto: IUnknown) -> HRESULT;
+            fn _Initialize(&self, #[in] hwnd: HWND, #[in] pauto: IUnknown) -> HRESULT;
             fn _CancelPendingNavigationAsync(&self) -> HRESULT;
             fn _CancelPendingView(&self) -> HRESULT;
             fn _MaySaveChanges(&self) -> HRESULT;
             fn _PauseOrResumeView(&self, fPaused: BOOL) -> HRESULT;
             fn _DisableModeless(&self) -> HRESULT;
-            fn _NavigateToPidl(&self, pidl: LPCITEMIDLIST, grfHLNF: u32, dwFlags: u32) -> HRESULT;
-            fn _TryShell2Rename(&self, psv: IShellView, pidlNew: LPCITEMIDLIST) -> HRESULT;
+            fn _NavigateToPidl(&self, #[in] pidl: LPCITEMIDLIST, #[in] grfHLNF: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
+            fn _TryShell2Rename(&self, #[in] psv: IShellView, #[in] pidlNew: LPCITEMIDLIST) -> HRESULT;
             fn _SwitchActivationNow(&self) -> HRESULT;
-            fn _ExecChildren(&self, punkBar: IUnknown, fBroadcast: BOOL, #[opt] pguidCmdGroup: *const GUID, nCmdID: u32, nCmdexecopt: u32, #[in] #[opt] pvarargIn: *mut VARIANTARG, #[in] #[out] #[opt] pvarargOut: *mut VARIANTARG) -> HRESULT;
-            fn _SendChildren(&self, hwndBar: HWND, fBroadcast: BOOL, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
-            fn GetFolderSetData(&self, pfsd: *mut FOLDERSETDATA) -> HRESULT;
-            fn _OnFocusChange(&self, itb: u32) -> HRESULT;
-            fn v_ShowHideChildWindows(&self, fChildOnly: BOOL) -> HRESULT;
-            fn _get_itbLastFocus(&self) -> u32;
-            fn _put_itbLastFocus(&self, itbLastFocus: u32) -> HRESULT;
-            fn _UIActivateView(&self, uState: u32) -> HRESULT;
-            fn _GetViewBorderRect(&self, prc: *mut RECT) -> HRESULT;
+            fn _ExecChildren(&self, #[in] punkBar: IUnknown, #[in] fBroadcast: BOOL, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] nCmdID: DWORD, #[in] nCmdexecopt: DWORD, #[in] #[opt] pvarargIn: *mut VARIANTARG, #[in] #[opt] #[out] pvarargOut: *mut VARIANTARG) -> HRESULT;
+            fn _SendChildren(&self, #[in] hwndBar: HWND, #[in] fBroadcast: BOOL, #[in] uMsg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> HRESULT;
+            fn GetFolderSetData(&self, #[out] pfsd: *mut FOLDERSETDATA) -> HRESULT;
+            fn _OnFocusChange(&self, #[in] itb: UINT) -> HRESULT;
+            fn v_ShowHideChildWindows(&self, #[in] fChildOnly: BOOL) -> HRESULT;
+            fn _get_itbLastFocus(&self) -> UINT;
+            fn _put_itbLastFocus(&self, #[in] itbLastFocus: UINT) -> HRESULT;
+            fn _UIActivateView(&self, #[in] uState: UINT) -> HRESULT;
+            fn _GetViewBorderRect(&self, #[out] prc: *mut RECT) -> HRESULT;
             fn _UpdateViewRectSize(&self) -> HRESULT;
-            fn _ResizeNextBorder(&self, itb: u32) -> HRESULT;
+            fn _ResizeNextBorder(&self, #[in] itb: UINT) -> HRESULT;
             fn _ResizeView(&self) -> HRESULT;
-            fn _GetEffectiveClientArea(&self, #[out] lprectBorder: LPRECT, hmon: HMONITOR) -> HRESULT;
-            fn v_GetViewStream(&self, pidl: LPCITEMIDLIST, grfMode: u32, pwszName: PCWSTR) -> IStream;
-            fn ForwardViewMsg(&self, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
-            fn SetAcceleratorMenu(&self, hacc: HACCEL) -> HRESULT;
+            fn _GetEffectiveClientArea(&self, #[out] lprectBorder: LPRECT, #[in] hmon: HMONITOR) -> HRESULT;
+            fn v_GetViewStream(&self, #[in] pidl: LPCITEMIDLIST, #[in] grfMode: DWORD, #[in] pwszName: LPCWSTR) -> IStream;
+            fn ForwardViewMsg(&self, #[in] uMsg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> LRESULT;
+            fn SetAcceleratorMenu(&self, #[in] hacc: HACCEL) -> HRESULT;
             fn _GetToolbarCount(&self) -> i32;
-            fn _GetToolbarItem(&self, itb: i32) -> LPTOOLBARITEM;
-            fn _SaveToolbars(&self, pstm: IStream) -> HRESULT;
-            fn _LoadToolbars(&self, pstm: IStream) -> HRESULT;
+            fn _GetToolbarItem(&self, #[in] itb: i32) -> LPTOOLBARITEM;
+            fn _SaveToolbars(&self, #[in] pstm: IStream) -> HRESULT;
+            fn _LoadToolbars(&self, #[in] pstm: IStream) -> HRESULT;
             fn _CloseAndReleaseToolbars(&self, fClose: BOOL) -> HRESULT;
-            fn v_MayGetNextToolbarFocus(&self, lpMsg: LPMSG, itbNext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut HWND) -> HRESULT;
-            fn _ResizeNextBorderHelper(&self, itb: u32, bUseHmonitor: BOOL) -> HRESULT;
-            fn _FindTBar(&self, punkSrc: IUnknown) -> u32;
-            fn _SetFocus(&self, ptbi: LPTOOLBARITEM, hwnd: HWND, lpMsg: LPMSG) -> HRESULT;
+            fn v_MayGetNextToolbarFocus(&self, #[in] lpMsg: LPMSG, #[in] itbNext: UINT, #[in] citb: i32, #[out] pptbi: *mut LPTOOLBARITEM, #[out] phwnd: *mut HWND) -> HRESULT;
+            fn _ResizeNextBorderHelper(&self, itb: UINT, bUseHmonitor: BOOL) -> HRESULT;
+            fn _FindTBar(&self, #[in] punkSrc: IUnknown) -> UINT;
+            fn _SetFocus(&self, #[in] ptbi: LPTOOLBARITEM, #[in] hwnd: HWND, #[in] lpMsg: LPMSG) -> HRESULT;
             fn v_MayTranslateAccelerator(&self, #[in] pmsg: *mut MSG) -> HRESULT;
-            fn _GetBorderDWHelper(&self, punkSrc: IUnknown, #[out] lprectBorder: LPRECT, bUseHmonitor: BOOL) -> HRESULT;
-            fn v_CheckZoneCrossing(&self, pidl: LPCITEMIDLIST) -> HRESULT;
+            fn _GetBorderDWHelper(&self, #[in] punkSrc: IUnknown, #[out] lprectBorder: LPRECT, #[in] bUseHmonitor: BOOL) -> HRESULT;
+            fn v_CheckZoneCrossing(&self, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
         }
         #[guid(0x27d7ce21_762d_48f3_86f3_40e2fd3749c4)]
         interface IBrowserService3: IBrowserService2 {
-            fn _PositionViewWindow(&self, hwnd: HWND, prc: LPRECT) -> HRESULT;
-            fn IEParseDisplayNameEx(&self, uiCP: u32, pwszPath: PCWSTR, dwFlags: u32, ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
+            fn _PositionViewWindow(&self, #[in] hwnd: HWND, #[in] prc: LPRECT) -> HRESULT;
+            fn IEParseDisplayNameEx(&self, #[in] uiCP: UINT, #[in] pwszPath: LPCWSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] ppidlOut: *mut LPITEMIDLIST) -> HRESULT;
         }
         #[guid(0x639f1bff_e135_4096_abd8_e0f504d649a4)]
         interface IBrowserService4: IBrowserService3 {
-            fn ActivateView(&self, fPendingView: BOOL) -> HRESULT;
+            fn ActivateView(&self, #[in] fPendingView: BOOL) -> HRESULT;
             fn SaveViewState(&self) -> HRESULT;
             fn _ResizeAllBorders(&self) -> HRESULT;
         }
@@ -218,50 +185,43 @@ mod Windows {
         }
         #[guid(0x0d7d1d00_6fc0_11d0_a974_00c04fd705a2)]
         interface IExpDispSupport: IUnknown {
-            fn FindConnectionPoint(&self, riid: *const GUID, ppccp: *mut IConnectionPoint) -> HRESULT;
-            fn OnTranslateAccelerator(&self, #[in] pMsg: *mut MSG, grfModifiers: u32) -> HRESULT;
-            fn OnInvoke(&self, dispidMember: DISPID, iid: *const GUID, lcid: LCID, wFlags: u16, #[in] pdispparams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
-        }
-        #[guid(0x2f0dd58c_f789_4f14_99fb_9293b3c9c212)]
-        interface IExpDispSupportXP: IUnknown {
-            fn FindCIE4ConnectionPoint(&self, riid: *const GUID, ppccp: *mut CIE4ConnectionPoint) -> HRESULT;
-            fn OnTranslateAccelerator(&self, #[in] pMsg: *mut MSG, grfModifiers: u32) -> HRESULT;
-            fn OnInvoke(&self, dispidMember: DISPID, iid: *const GUID, lcid: LCID, wFlags: u16, #[in] pdispparams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+            fn FindConnectionPoint(&self, #[in] riid: &IID, #[out] #[out_ptr] ppccp: *mut IConnectionPoint) -> HRESULT;
+            fn OnTranslateAccelerator(&self, #[in] pMsg: *mut MSG, #[in] grfModifiers: DWORD) -> HRESULT;
+            fn OnInvoke(&self, #[in] dispidMember: DISPID, #[in] iid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] pdispparams: *mut DISPPARAMS, #[out] pVarResult: *mut VARIANT, #[out] pexcepinfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
         }
         #[guid(0x5836fb00_8187_11cf_a12b_00aa004ae837)]
         interface IShellService: IUnknown {
-            fn SetOwner(&self, #[opt] punkOwner: IUnknown) -> HRESULT;
+            fn SetOwner(&self, #[in] #[opt] punkOwner: IUnknown) -> HRESULT;
         }
-        const ITB_VIEW: u32 = 4294967295;
+        const ITB_VIEW: UINT = 4294967295;
         #[guid(0x8278f932_2a3e_11d2_838f_00c04fd918d0)]
         interface ITrackShellMenu: IShellMenu {
-            fn SetObscured(&self, hwndTB: HWND, punkBand: IUnknown, dwSMSetFlags: u32) -> HRESULT;
-            fn Popup(&self, hwnd: HWND, #[in] ppt: *mut POINTL, #[in] prcExclude: *mut RECTL, dwFlags: MP_POPUPFLAGS) -> HRESULT;
+            fn SetObscured(&self, #[in] hwndTB: HWND, #[in] punkBand: IUnknown, dwSMSetFlags: DWORD) -> HRESULT;
+            fn Popup(&self, #[in] hwnd: HWND, #[in] ppt: *mut POINTL, #[in] prcExclude: *mut RECTL, dwFlags: MP_POPUPFLAGS) -> HRESULT;
         }
         #[guid(0xf46edb3b_bc2f_11d0_9412_00aa00a3ebd3)]
         interface ITravelEntry: IUnknown {
-            fn Invoke(&self, punk: IUnknown) -> HRESULT;
-            fn Update(&self, punk: IUnknown, fIsLocalAnchor: BOOL) -> HRESULT;
-            fn GetPidl(&self, ppidl: *mut LPITEMIDLIST) -> HRESULT;
+            fn Invoke(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
+            fn Update(&self, #[in] #[opt] punk: IUnknown, #[in] fIsLocalAnchor: BOOL) -> HRESULT;
+            fn GetPidl(&self, #[out] #[out_ptr] ppidl: *mut LPITEMIDLIST) -> HRESULT;
         }
         #[guid(0x66a9cb08_4802_11d2_a561_00a0c92dbfe8)]
         interface ITravelLog: IUnknown {
-            fn AddEntry(&self, punk: IUnknown, fIsLocalAnchor: BOOL) -> HRESULT;
-            fn UpdateEntry(&self, punk: IUnknown, fIsLocalAnchor: BOOL) -> HRESULT;
-            fn UpdateExternal(&self, punk: IUnknown, punkHLBrowseContext: IUnknown) -> HRESULT;
-            fn Travel(&self, punk: IUnknown, iOffset: i32) -> HRESULT;
-            fn GetTravelEntry(&self, punk: IUnknown, iOffset: i32, ppte: *mut ITravelEntry) -> HRESULT;
-            fn FindTravelEntry(&self, punk: IUnknown, pidl: LPCITEMIDLIST, ppte: *mut ITravelEntry) -> HRESULT;
-            fn GetToolTipText(&self, punk: IUnknown, iOffset: i32, idsTemplate: i32, #[out] pwzText: PWSTR, cchText: u32) -> HRESULT;
-            fn InsertMenuEntries(&self, punk: IUnknown, hmenu: HMENU, nPos: i32, idFirst: i32, idLast: i32, dwFlags: u32) -> HRESULT;
-            fn Clone(&self, pptl: *mut ITravelLog) -> HRESULT;
-            fn CountEntries(&self, punk: IUnknown) -> u32;
+            fn AddEntry(&self, #[in] #[opt] punk: IUnknown, #[in] fIsLocalAnchor: BOOL) -> HRESULT;
+            fn UpdateEntry(&self, #[in] #[opt] punk: IUnknown, #[in] fIsLocalAnchor: BOOL) -> HRESULT;
+            fn UpdateExternal(&self, #[in] #[opt] punk: IUnknown, #[in] #[opt] punkHLBrowseContext: IUnknown) -> HRESULT;
+            fn Travel(&self, #[in] #[opt] punk: IUnknown, #[in] iOffset: i32) -> HRESULT;
+            fn GetTravelEntry(&self, #[in] punk: IUnknown, #[in] iOffset: i32, #[opt] #[out] #[out_ptr] ppte: *mut ITravelEntry) -> HRESULT;
+            fn FindTravelEntry(&self, #[in] #[opt] punk: IUnknown, #[in] pidl: LPCITEMIDLIST, #[out] #[out_ptr] ppte: *mut ITravelEntry) -> HRESULT;
+            fn GetToolTipText(&self, #[in] #[opt] punk: IUnknown, #[in] iOffset: i32, #[in] idsTemplate: i32, #[out] #[readable(success, cchText)] #[writable(entry, cchText)] #[writable(success, cchText)] pwzText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
+            fn InsertMenuEntries(&self, #[in] #[opt] punk: IUnknown, #[in] hmenu: HMENU, #[in] nPos: i32, #[in] idFirst: i32, #[in] idLast: i32, #[in] dwFlags: DWORD) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] pptl: *mut ITravelLog) -> HRESULT;
+            fn CountEntries(&self, #[in] punk: IUnknown) -> DWORD;
             fn Revert(&self) -> HRESULT;
         }
-        type LPBASEBROWSERDATA = *mut BASEBROWSERDATA;
+        type LPBASEBROWSERDATA = *mut BASEBROWSERDATALH;
         type LPBASEBROWSERDATALH = *mut BASEBROWSERDATALH;
-        type LPBASEBROWSERDATAXP = *mut BASEBROWSERDATAXP;
-        type LPCBASEBROWSERDATA = *const BASEBROWSERDATA;
+        type LPCBASEBROWSERDATA = *const BASEBROWSERDATALH;
         type LPFOLDERSETDATA = *mut FOLDERSETDATA;
         type LPTOOLBARITEM = *mut TOOLBARITEM;
         #[repr(i32)]
@@ -300,10 +260,11 @@ mod Windows {
         const TLOG_BACK: i32 = -1;
         const TLOG_CURRENT: i32 = 0;
         const TLOG_FORE: i32 = 1;
+        #[packed(8)]
         struct TOOLBARITEM {
             ptbar: IDockingWindow,
             rcBorderTool: BORDERWIDTHS,
-            pwszItem: PWSTR,
+            pwszItem: LPWSTR,
             fShow: BOOL,
             hMon: HMONITOR,
         }

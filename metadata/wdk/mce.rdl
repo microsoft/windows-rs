@@ -6,9 +6,9 @@ mod Windows {
         #[arch(X86 | X64)]
         type CPE_EXCEPTION = MCA_EXCEPTION;
         #[arch(X64)]
-        type ERROR_SEVERITY = u8;
-        #[repr(i32)]
+        type ERROR_SEVERITY = UCHAR;
         #[arch(X64)]
+        #[repr(i32)]
         enum ERROR_SEVERITY_VALUE {
             ErrorRecoverable = 0,
             ErrorFatal = 1,
@@ -17,31 +17,31 @@ mod Windows {
         }
         #[arch(Arm64)]
         struct MCA_EXCEPTION {
-            Dummy: u32,
+            Dummy: ULONG,
         }
         #[arch(X86 | X64)]
         struct MCA_EXCEPTION {
-            VersionNumber: u32,
+            VersionNumber: ULONG,
             ExceptionType: MCA_EXCEPTION_TYPE,
             TimeStamp: LARGE_INTEGER,
-            ProcessorNumber: u32,
-            Reserved1: u32,
+            ProcessorNumber: ULONG,
+            Reserved1: ULONG,
             u: union {
                 Mca: struct {
-                    BankNumber: u8,
-                    Reserved2: [u8; 7],
+                    BankNumber: UCHAR,
+                    Reserved2: [UCHAR; 7],
                     Status: MCI_STATS,
                     Address: MCI_ADDR,
-                    Misc: u64,
+                    Misc: ULONGLONG,
                 },
                 Mce: struct {
-                    Address: u64,
-                    Type: u64,
+                    Address: ULONGLONG,
+                    Type: ULONGLONG,
                 },
             },
-            ExtCnt: u32,
-            Reserved3: u32,
-            ExtReg: [u64; 24],
+            ExtCnt: ULONG,
+            Reserved3: ULONG,
+            ExtReg: [ULONGLONG; 24],
         }
         #[repr(i32)]
         enum MCA_EXCEPTION_TYPE {
@@ -49,7 +49,7 @@ mod Windows {
             HAL_MCA_RECORD = 1,
         }
         #[arch(X86 | X64)]
-        const MCA_EXCEPTION_V1_SIZE: i32 = 56;
+        const MCA_EXCEPTION_V1_SIZE: LONG = 56;
         #[arch(X64)]
         const MCA_EXCEPTION_V2_SIZE: u64 = 256;
         #[arch(X86)]
@@ -59,57 +59,49 @@ mod Windows {
         #[arch(X86 | X64)]
         union MCI_ADDR {
             Anonymous: struct {
-                Address: u32,
-                Reserved: u32,
+                Address: ULONG,
+                Reserved: ULONG,
             },
-            QuadPart: u64,
+            QuadPart: ULONGLONG,
         }
         #[arch(X64)]
         union MCI_STATS {
             MciStatus: struct {
-                McaErrorCode: u16,
-                ModelErrorCode: u16,
+                McaErrorCode: USHORT,
+                ModelErrorCode: USHORT,
                 _bitfield: u32 {
-                    OtherInformation: 25,
-                    ContextCorrupt: 1,
-                    AddressValid: 1,
-                    MiscValid: 1,
-                    ErrorEnabled: 1,
-                    UncorrectedError: 1,
-                    StatusOverFlow: 1,
-                    Valid: 1,
+                    OtherInformation: ULONG: 25,
+                    ContextCorrupt: ULONG: 1,
+                    AddressValid: ULONG: 1,
+                    MiscValid: ULONG: 1,
+                    ErrorEnabled: ULONG: 1,
+                    UncorrectedError: ULONG: 1,
+                    StatusOverFlow: ULONG: 1,
+                    Valid: ULONG: 1,
                 },
             },
-            QuadPart: u64,
+            QuadPart: ULONG64,
         }
         #[arch(X86)]
         union MCI_STATS {
             MciStats: struct {
-                McaCod: u16,
-                MsCod: u16,
+                McaCod: USHORT,
+                MsCod: USHORT,
                 _bitfield: u32 {
-                    OtherInfo: 25,
-                    Damage: 1,
-                    AddressValid: 1,
-                    MiscValid: 1,
-                    Enabled: 1,
-                    UnCorrected: 1,
-                    OverFlow: 1,
-                    Valid: 1,
+                    OtherInfo: ULONG: 25,
+                    Damage: ULONG: 1,
+                    AddressValid: ULONG: 1,
+                    MiscValid: ULONG: 1,
+                    Enabled: ULONG: 1,
+                    UnCorrected: ULONG: 1,
+                    OverFlow: ULONG: 1,
+                    Valid: ULONG: 1,
                 },
             },
-            QuadPart: u64,
+            QuadPart: ULONGLONG,
         }
-        #[arch(Arm64)]
-        type PCMC_EXCEPTION = *mut void;
-        #[arch(X86 | X64)]
-        type PCMC_EXCEPTION = *mut MCA_EXCEPTION;
-        #[arch(Arm64)]
-        type PCPE_EXCEPTION = *mut void;
-        #[arch(X86 | X64)]
-        type PCPE_EXCEPTION = *mut MCA_EXCEPTION;
         #[arch(X64)]
-        type PERROR_SEVERITY = *mut u8;
+        type PERROR_SEVERITY = *mut UCHAR;
         type PMCA_EXCEPTION = *mut MCA_EXCEPTION;
         #[arch(X86 | X64)]
         type PMCI_ADDR = *mut MCI_ADDR;

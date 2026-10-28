@@ -16,6 +16,19 @@ fn write_record(
     parent_arches: Option<i32>,
 ) -> Result<TokenStream, Error> {
     let nested: Vec<metadata::reader::TypeDef> = item.index().nested(*item).collect();
+    item.anonymous_index()
+        .map_err(|error| writer_err!("{error}"))?;
+    let anonymous: HashMap<_, _> = nested
+        .iter()
+        .map(|child| {
+            Ok((
+                child.name(),
+                child
+                    .anonymous_index()
+                    .map_err(|error| writer_err!("{error}"))?,
+            ))
+        })
+        .collect::<Result<_, Error>>()?;
     let record_name = item.full_name();
 
     let mut uses: HashMap<String, Vec<usize>> = HashMap::new();
@@ -33,12 +46,14 @@ fn write_record(
         }
     }
 
-    // A nested record stored by value in exactly one field, and named after that field's
-    // position, is written inline. Other nested types are declared inside the owner's body.
+    // A nested record stored by value in exactly one field, named after that field's position,
+    // and anonymous at that position is written inline. Other nested types are declared inside
+    // the owner's body.
     let inline_names: HashSet<&str> = uses
         .iter()
         .filter_map(|(name, positions)| {
             if let [position] = positions.as_slice()
+                && anonymous.get(name.as_str()).copied().flatten() == Some(*position as u32)
                 && *name == format!("{}_{position}", item.name())
                 && nested.iter().any(|child| {
                     child.name() == name
@@ -130,7 +145,15 @@ fn write_record(
         item.attributes(),
         namespace,
         item.index(),
-        &["SupportedArchitectureAttribute", "AlignmentAttribute"],
+        if inline {
+            &[
+                "SupportedArchitectureAttribute",
+                "AlignmentAttribute",
+                "NativeAnonymousAttribute",
+            ]
+        } else {
+            &["SupportedArchitectureAttribute", "AlignmentAttribute"]
+        },
     )?;
 
     if inline {
@@ -169,7 +192,7 @@ fn write_field_scoped(
     // Bit-field backing units render as C-like blocks instead of raw attributes.
     let members = collect_bitfield_members(item);
     if !members.is_empty() {
-        let block = write_bitfield_block(&members);
+        let block = write_bitfield_block(namespace, &members);
         let field_attrs = write_custom_attributes_except(
             item.attributes(),
             namespace,
@@ -179,45 +202,89 @@ fn write_field_scoped(
         return Ok(quote! { #(#field_attrs)* #name: #ty { #(#block)* }, });
     }
 
-    let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
-    Ok(quote! { #(#field_attrs)* #name: #ty, })
+    let field_attrs = write_field_attributes(*item, namespace)?;
+    Ok(quote! { #field_attrs #name: #ty, })
 }
 
-fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
-    let mut members: Vec<(String, u32, u32)> = item
+struct BitfieldMember {
+    name: String,
+    offset: u32,
+    width: u32,
+    ty: Option<metadata::Type>,
+}
+
+fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<BitfieldMember> {
+    let members: Option<Vec<_>> = item
         .attributes()
         .filter(|attr| {
             attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeBitfieldAttribute"
         })
-        .filter_map(|attr| {
+        .map(|attr| {
             let values = attr.value();
-            let name = match values.first().map(|(_, v)| v) {
-                Some(metadata::Value::Utf8(s)) => s.clone(),
+            let [
+                (name_key, metadata::Value::Utf8(name)),
+                (offset_key, metadata::Value::I64(offset)),
+                (width_key, metadata::Value::I64(width)),
+                rest @ ..,
+            ] = values.as_slice()
+            else {
+                return None;
+            };
+            if !name_key.is_empty() || !offset_key.is_empty() || !width_key.is_empty() {
+                return None;
+            }
+            let ty = match rest {
+                [] => None,
+                [(key, metadata::Value::TypeName(ty))] if key == "MemberType" => Some(
+                    ty.primitive()
+                        .unwrap_or_else(|| metadata::Type::ValueName(ty.clone())),
+                ),
                 _ => return None,
             };
-            let as_u32 = |v: Option<&(String, metadata::Value)>| match v.map(|(_, v)| v) {
-                Some(metadata::Value::I64(n)) => Some(*n as u32),
-                _ => None,
-            };
-            Some((name, as_u32(values.get(1))?, as_u32(values.get(2))?))
+            Some(BitfieldMember {
+                name: name.clone(),
+                offset: (*offset).try_into().ok()?,
+                width: (*width).try_into().ok()?,
+                ty,
+            })
         })
         .collect();
-    members.sort_by_key(|(_, offset, _)| *offset);
+    let Some(mut members) = members else {
+        return Vec::new();
+    };
+    members.sort_by_key(|member| member.offset);
+    let mut cursor = 0;
+    for member in &members {
+        if member.offset < cursor {
+            return Vec::new();
+        }
+        let Some(end) = member.offset.checked_add(member.width) else {
+            return Vec::new();
+        };
+        cursor = end;
+    }
     members
 }
 
-fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
+fn write_bitfield_block(namespace: &str, members: &[BitfieldMember]) -> Vec<TokenStream> {
     let mut out = vec![];
     let mut cursor = 0u32;
-    for (name, offset, width) in members {
-        if *offset > cursor {
-            let pad = Literal::u32_unsuffixed(offset - cursor);
-            out.push(quote! { _: #pad, });
+    for member in members {
+        if member.offset > cursor {
+            out.push(write_bitfield_member(
+                namespace,
+                None,
+                member.offset - cursor,
+                None,
+            ));
         }
-        let member = write_ident(name);
-        let width_lit = Literal::u32_unsuffixed(*width);
-        out.push(quote! { #member: #width_lit, });
-        cursor = offset + width;
+        out.push(write_bitfield_member(
+            namespace,
+            Some(&member.name),
+            member.width,
+            member.ty.as_ref(),
+        ));
+        cursor = member.offset + member.width;
     }
     out
 }
@@ -265,6 +332,9 @@ fn resolve_nested(
         }
         metadata::Type::PtrConst(inner, ptrs) => {
             metadata::Type::PtrConst(Box::new(resolve(inner)), *ptrs)
+        }
+        metadata::Type::Ptr64(inner, constant) => {
+            metadata::Type::Ptr64(Box::new(resolve(inner)), *constant)
         }
         metadata::Type::FnPtr(signature) => metadata::Type::FnPtr(Box::new(metadata::Signature {
             flags: signature.flags,

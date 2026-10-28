@@ -5,7 +5,7 @@ fn main() -> windows_core::Result<()> {
     windows_core::init_mta()?;
 
     unsafe {
-        let dialog: IFileSaveDialog = CoCreateInstance(&FileSaveDialog, None, CLSCTX_ALL)?;
+        let dialog: IFileSaveDialog = CoCreateInstance(&FileSaveDialog, None, CLSCTX_ALL as u32)?;
 
         let filters = [
             COMDLG_FILTERSPEC {
@@ -17,9 +17,7 @@ fn main() -> windows_core::Result<()> {
                 pszSpec: w!("*.*"),
             },
         ];
-        dialog
-            .SetFileTypes(filters.len() as u32, filters.as_ptr())
-            .ok()?;
+        dialog.SetFileTypes(&filters).ok()?;
 
         if dialog.Show(None).is_ok() {
             let result = dialog.GetResult()?;

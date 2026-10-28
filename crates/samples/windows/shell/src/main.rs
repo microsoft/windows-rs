@@ -5,13 +5,13 @@ fn main() -> windows::core::Result<()> {
 
     fn variant_bstr(value: &str) -> VARIANT {
         VARIANT {
-            Anonymous: VARIANT_0 {
-                Anonymous: ManuallyDrop::new(VARIANT_0_0 {
+            Anonymous: tagVARIANT_0 {
+                Anonymous: ManuallyDrop::new(tagVARIANT_0_0 {
                     vt: VT_BSTR as VARTYPE,
                     wReserved1: 0,
                     wReserved2: 0,
                     wReserved3: 0,
-                    Anonymous: VARIANT_0_0_0 {
+                    Anonymous: tagVARIANT_0_0_0 {
                         bstrVal: ManuallyDrop::new(BSTR::from(value)),
                     },
                 }),
@@ -21,13 +21,13 @@ fn main() -> windows::core::Result<()> {
 
     fn variant_i4(value: i32) -> VARIANT {
         VARIANT {
-            Anonymous: VARIANT_0 {
-                Anonymous: ManuallyDrop::new(VARIANT_0_0 {
+            Anonymous: tagVARIANT_0 {
+                Anonymous: ManuallyDrop::new(tagVARIANT_0_0 {
                     vt: VT_I4 as VARTYPE,
                     wReserved1: 0,
                     wReserved2: 0,
                     wReserved3: 0,
-                    Anonymous: VARIANT_0_0_0 { lVal: value },
+                    Anonymous: tagVARIANT_0_0_0 { lVal: value },
                 }),
             },
         }
@@ -42,7 +42,7 @@ fn main() -> windows::core::Result<()> {
     ) -> Result<()> {
         unsafe {
             let view: IShellView = find_desktop_folder_view()?;
-            let background: IDispatch = view.GetItemObject(SVGIO_BACKGROUND)?;
+            let background: IDispatch = view.GetItemObject(SVGIO_BACKGROUND as u32)?;
             let folder: IShellFolderViewDual = background.cast()?;
             let shell: IShellDispatch2 = folder.Application()?.cast()?;
 
@@ -65,7 +65,7 @@ fn main() -> windows::core::Result<()> {
 
     fn find_desktop_folder_view<T: Interface>() -> Result<T> {
         unsafe {
-            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL)?;
+            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL as u32)?;
             let mut handle = 0;
 
             let desktop = windows.FindWindowSW(

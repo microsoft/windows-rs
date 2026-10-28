@@ -1,0 +1,20 @@
+#[win32]
+mod Fixture {
+    const A_GOOD: i32 = 11;
+    struct Anchor {
+        value: i32,
+    }
+    const C_GOOD: i32 = 22;
+    const E_GOOD: i32 = 33;
+    const G_GOOD: i32 = 44;
+    const I_GOOD: i32 = 55;
+    const K_GOOD: i32 = 66;
+    const M_GOOD: i32 = 77;
+    const O_GOOD: i32 = 88;
+    const Q_GOOD: i32 = 99;
+    const S_GOOD: i32 = 111;
+    const U_GOOD: i32 = 3;
+    const W_GOOD: i32 = 222;
+    const Y_GOOD: i32 = 333;
+    const Z_GOOD: i32 = 444;
+}

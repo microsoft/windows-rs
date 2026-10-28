@@ -1,6 +1,7 @@
-windows_link::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const windows_sys::core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const super::IID, factory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const DWRITE_ALPHA_MAX: i32 = 255;
-pub type DWRITE_AUTOMATIC_FONT_AXES = u32;
+pub type DWRITE_AUTOMATIC_FONT_AXES = i32;
 pub const DWRITE_AUTOMATIC_FONT_AXES_NONE: DWRITE_AUTOMATIC_FONT_AXES = 0;
 pub const DWRITE_AUTOMATIC_FONT_AXES_OPTICAL_SIZE: DWRITE_AUTOMATIC_FONT_AXES = 1;
 pub type DWRITE_BASELINE = i32;
@@ -14,11 +15,12 @@ pub const DWRITE_BASELINE_MAXIMUM: DWRITE_BASELINE = 8;
 pub const DWRITE_BASELINE_MINIMUM: DWRITE_BASELINE = 7;
 pub const DWRITE_BASELINE_ROMAN: DWRITE_BASELINE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_BITMAP_DATA_BGRA32 {
-    pub width: u32,
-    pub height: u32,
-    pub pixels: *mut u32,
+    pub width: super::UINT32,
+    pub height: super::UINT32,
+    pub pixels: *mut super::UINT32,
 }
 pub type DWRITE_BREAK_CONDITION = i32;
 pub const DWRITE_BREAK_CONDITION_CAN_BREAK: DWRITE_BREAK_CONDITION = 1;
@@ -26,17 +28,19 @@ pub const DWRITE_BREAK_CONDITION_MAY_NOT_BREAK: DWRITE_BREAK_CONDITION = 2;
 pub const DWRITE_BREAK_CONDITION_MUST_BREAK: DWRITE_BREAK_CONDITION = 3;
 pub const DWRITE_BREAK_CONDITION_NEUTRAL: DWRITE_BREAK_CONDITION = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_CARET_METRICS {
-    pub slopeRise: i16,
-    pub slopeRun: i16,
-    pub offset: i16,
+    pub slopeRise: super::INT16,
+    pub slopeRun: super::INT16,
+    pub offset: super::INT16,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_CLUSTER_METRICS {
-    pub width: f32,
-    pub length: u16,
+    pub width: super::FLOAT,
+    pub length: super::UINT16,
     pub _bitfield: u16,
 }
 pub const DWRITE_COLOR_COMPOSITE_CLEAR: DWRITE_COLOR_COMPOSITE_MODE = 0;
@@ -71,21 +75,21 @@ pub const DWRITE_COLOR_COMPOSITE_XOR: DWRITE_COLOR_COMPOSITE_MODE = 11;
 #[cfg(feature = "dxgi")]
 pub type DWRITE_COLOR_F = super::D3DCOLORVALUE;
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
     pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
-    pub baselineOriginX: f32,
-    pub baselineOriginY: f32,
+    pub baselineOriginX: super::FLOAT,
+    pub baselineOriginY: super::FLOAT,
     pub runColor: DWRITE_COLOR_F,
-    pub paletteIndex: u16,
+    pub paletteIndex: super::UINT16,
 }
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
-    pub Base: DWRITE_COLOR_GLYPH_RUN,
+    pub base: DWRITE_COLOR_GLYPH_RUN,
     pub glyphImageFormat: super::DWRITE_GLYPH_IMAGE_FORMATS,
     pub measuringMode: super::DWRITE_MEASURING_MODE,
 }
@@ -98,26 +102,28 @@ pub type DWRITE_FACTORY_TYPE = i32;
 pub const DWRITE_FACTORY_TYPE_ISOLATED: DWRITE_FACTORY_TYPE = 1;
 pub const DWRITE_FACTORY_TYPE_SHARED: DWRITE_FACTORY_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FILE_FRAGMENT {
-    pub fileOffset: u64,
-    pub fragmentSize: u64,
+    pub fileOffset: super::UINT64,
+    pub fragmentSize: super::UINT64,
 }
 pub type DWRITE_FLOW_DIRECTION = i32;
 pub const DWRITE_FLOW_DIRECTION_BOTTOM_TO_TOP: DWRITE_FLOW_DIRECTION = 1;
 pub const DWRITE_FLOW_DIRECTION_LEFT_TO_RIGHT: DWRITE_FLOW_DIRECTION = 2;
 pub const DWRITE_FLOW_DIRECTION_RIGHT_TO_LEFT: DWRITE_FLOW_DIRECTION = 3;
 pub const DWRITE_FLOW_DIRECTION_TOP_TO_BOTTOM: DWRITE_FLOW_DIRECTION = 0;
-pub type DWRITE_FONT_AXIS_ATTRIBUTES = u32;
+pub type DWRITE_FONT_AXIS_ATTRIBUTES = i32;
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_HIDDEN: DWRITE_FONT_AXIS_ATTRIBUTES = 2;
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_NONE: DWRITE_FONT_AXIS_ATTRIBUTES = 0;
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_VARIABLE: DWRITE_FONT_AXIS_ATTRIBUTES = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_AXIS_RANGE {
     pub axisTag: DWRITE_FONT_AXIS_TAG,
-    pub minValue: f32,
-    pub maxValue: f32,
+    pub minValue: super::FLOAT,
+    pub maxValue: super::FLOAT,
 }
 pub type DWRITE_FONT_AXIS_TAG = u32;
 pub const DWRITE_FONT_AXIS_TAG_ITALIC: DWRITE_FONT_AXIS_TAG = 1818326121;
@@ -126,10 +132,11 @@ pub const DWRITE_FONT_AXIS_TAG_SLANT: DWRITE_FONT_AXIS_TAG = 1953393779;
 pub const DWRITE_FONT_AXIS_TAG_WEIGHT: DWRITE_FONT_AXIS_TAG = 1952999287;
 pub const DWRITE_FONT_AXIS_TAG_WIDTH: DWRITE_FONT_AXIS_TAG = 1752458359;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_AXIS_VALUE {
     pub axisTag: DWRITE_FONT_AXIS_TAG,
-    pub value: f32,
+    pub value: super::FLOAT,
 }
 pub type DWRITE_FONT_FACE_TYPE = i32;
 pub const DWRITE_FONT_FACE_TYPE_BITMAP: DWRITE_FONT_FACE_TYPE = 5;
@@ -145,10 +152,11 @@ pub type DWRITE_FONT_FAMILY_MODEL = i32;
 pub const DWRITE_FONT_FAMILY_MODEL_TYPOGRAPHIC: DWRITE_FONT_FAMILY_MODEL = 0;
 pub const DWRITE_FONT_FAMILY_MODEL_WEIGHT_STRETCH_STYLE: DWRITE_FONT_FAMILY_MODEL = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_FEATURE {
     pub nameTag: DWRITE_FONT_FEATURE_TAG,
-    pub parameter: u32,
+    pub parameter: super::UINT32,
 }
 pub type DWRITE_FONT_FEATURE_TAG = i32;
 pub const DWRITE_FONT_FEATURE_TAG_ALTERNATE_ANNOTATION_FORMS: DWRITE_FONT_FEATURE_TAG = 1953259886;
@@ -247,43 +255,46 @@ pub const DWRITE_FONT_LINE_GAP_USAGE_DEFAULT: DWRITE_FONT_LINE_GAP_USAGE = 0;
 pub const DWRITE_FONT_LINE_GAP_USAGE_DISABLED: DWRITE_FONT_LINE_GAP_USAGE = 1;
 pub const DWRITE_FONT_LINE_GAP_USAGE_ENABLED: DWRITE_FONT_LINE_GAP_USAGE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_METRICS {
-    pub designUnitsPerEm: u16,
-    pub ascent: u16,
-    pub descent: u16,
-    pub lineGap: i16,
-    pub capHeight: u16,
-    pub xHeight: u16,
-    pub underlinePosition: i16,
-    pub underlineThickness: u16,
-    pub strikethroughPosition: i16,
-    pub strikethroughThickness: u16,
+    pub designUnitsPerEm: super::UINT16,
+    pub ascent: super::UINT16,
+    pub descent: super::UINT16,
+    pub lineGap: super::INT16,
+    pub capHeight: super::UINT16,
+    pub xHeight: super::UINT16,
+    pub underlinePosition: super::INT16,
+    pub underlineThickness: super::UINT16,
+    pub strikethroughPosition: super::INT16,
+    pub strikethroughThickness: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_METRICS1 {
-    pub Base: DWRITE_FONT_METRICS,
-    pub glyphBoxLeft: i16,
-    pub glyphBoxTop: i16,
-    pub glyphBoxRight: i16,
-    pub glyphBoxBottom: i16,
-    pub subscriptPositionX: i16,
-    pub subscriptPositionY: i16,
-    pub subscriptSizeX: i16,
-    pub subscriptSizeY: i16,
-    pub superscriptPositionX: i16,
-    pub superscriptPositionY: i16,
-    pub superscriptSizeX: i16,
-    pub superscriptSizeY: i16,
+    pub base: DWRITE_FONT_METRICS,
+    pub glyphBoxLeft: super::INT16,
+    pub glyphBoxTop: super::INT16,
+    pub glyphBoxRight: super::INT16,
+    pub glyphBoxBottom: super::INT16,
+    pub subscriptPositionX: super::INT16,
+    pub subscriptPositionY: super::INT16,
+    pub subscriptSizeX: super::INT16,
+    pub subscriptSizeY: super::INT16,
+    pub superscriptPositionX: super::INT16,
+    pub superscriptPositionY: super::INT16,
+    pub superscriptSizeX: super::INT16,
+    pub superscriptSizeY: super::INT16,
     pub hasTypographicMetrics: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_PROPERTY {
     pub propertyId: DWRITE_FONT_PROPERTY_ID,
-    pub propertyValue: *const u16,
-    pub localeName: *const u16,
+    pub propertyValue: *const super::WCHAR,
+    pub localeName: *const super::WCHAR,
 }
 pub type DWRITE_FONT_PROPERTY_ID = i32;
 pub const DWRITE_FONT_PROPERTY_ID_DESIGN_SCRIPT_LANGUAGE_TAG: DWRITE_FONT_PROPERTY_ID = 7;
@@ -305,7 +316,7 @@ pub const DWRITE_FONT_PROPERTY_ID_WEIGHT: DWRITE_FONT_PROPERTY_ID = 10;
 pub const DWRITE_FONT_PROPERTY_ID_WEIGHT_STRETCH_STYLE_FACE_NAME: DWRITE_FONT_PROPERTY_ID = 3;
 pub const DWRITE_FONT_PROPERTY_ID_WEIGHT_STRETCH_STYLE_FAMILY_NAME: DWRITE_FONT_PROPERTY_ID = 1;
 pub const DWRITE_FONT_PROPERTY_ID_WIN32_FAMILY_NAME: DWRITE_FONT_PROPERTY_ID = 5;
-pub type DWRITE_FONT_SIMULATIONS = u32;
+pub type DWRITE_FONT_SIMULATIONS = i32;
 pub const DWRITE_FONT_SIMULATIONS_BOLD: DWRITE_FONT_SIMULATIONS = 1;
 pub const DWRITE_FONT_SIMULATIONS_NONE: DWRITE_FONT_SIMULATIONS = 0;
 pub const DWRITE_FONT_SIMULATIONS_OBLIQUE: DWRITE_FONT_SIMULATIONS = 2;
@@ -350,13 +361,13 @@ pub const DWRITE_FONT_WEIGHT_ULTRA_BLACK: DWRITE_FONT_WEIGHT = 950;
 pub const DWRITE_FONT_WEIGHT_ULTRA_BOLD: DWRITE_FONT_WEIGHT = 800;
 pub const DWRITE_FONT_WEIGHT_ULTRA_LIGHT: DWRITE_FONT_WEIGHT = 200;
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "windef"))]
+#[cfg(all(feature = "dcommon", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageData: *const core::ffi::c_void,
-    pub imageDataSize: u32,
-    pub uniqueDataId: u32,
-    pub pixelsPerEm: u32,
+    pub imageDataSize: super::UINT32,
+    pub uniqueDataId: super::UINT32,
+    pub pixelsPerEm: super::UINT32,
     pub pixelSize: super::D2D1_SIZE_U,
     pub horizontalLeftOrigin: super::D2D1_POINT_2L,
     pub horizontalRightOrigin: super::D2D1_POINT_2L,
@@ -364,21 +375,23 @@ pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub verticalBottomOrigin: super::D2D1_POINT_2L,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_GLYPH_METRICS {
-    pub leftSideBearing: i32,
-    pub advanceWidth: u32,
-    pub rightSideBearing: i32,
-    pub topSideBearing: i32,
-    pub advanceHeight: u32,
-    pub bottomSideBearing: i32,
-    pub verticalOriginY: i32,
+    pub leftSideBearing: super::INT32,
+    pub advanceWidth: super::UINT32,
+    pub rightSideBearing: super::INT32,
+    pub topSideBearing: super::INT32,
+    pub advanceHeight: super::UINT32,
+    pub bottomSideBearing: super::INT32,
+    pub verticalOriginY: super::INT32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_GLYPH_OFFSET {
-    pub advanceOffset: f32,
-    pub ascenderOffset: f32,
+    pub advanceOffset: super::FLOAT,
+    pub ascenderOffset: super::FLOAT,
 }
 pub type DWRITE_GLYPH_ORIENTATION_ANGLE = i32;
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 0;
@@ -386,40 +399,43 @@ pub const DWRITE_GLYPH_ORIENTATION_ANGLE_180_DEGREES: DWRITE_GLYPH_ORIENTATION_A
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 3;
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 1;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_GLYPH_RUN {
     pub fontFace: *mut core::ffi::c_void,
-    pub fontEmSize: f32,
-    pub glyphCount: u32,
-    pub glyphIndices: *const u16,
-    pub glyphAdvances: *const f32,
+    pub fontEmSize: super::FLOAT,
+    pub glyphCount: super::UINT32,
+    pub glyphIndices: *const super::UINT16,
+    pub glyphAdvances: *const super::FLOAT,
     pub glyphOffsets: *const DWRITE_GLYPH_OFFSET,
     pub isSideways: windows_sys::core::BOOL,
-    pub bidiLevel: u32,
+    pub bidiLevel: super::UINT32,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
-    pub localeName: *const u16,
-    pub string: *const u16,
-    pub stringLength: u32,
-    pub clusterMap: *const u16,
-    pub textPosition: u32,
+    pub localeName: *const super::WCHAR,
+    pub string: *const super::WCHAR,
+    pub stringLength: super::UINT32,
+    pub clusterMap: *const super::UINT16,
+    pub textPosition: super::UINT32,
 }
 pub type DWRITE_GRID_FIT_MODE = i32;
 pub const DWRITE_GRID_FIT_MODE_DEFAULT: DWRITE_GRID_FIT_MODE = 0;
 pub const DWRITE_GRID_FIT_MODE_DISABLED: DWRITE_GRID_FIT_MODE = 1;
 pub const DWRITE_GRID_FIT_MODE_ENABLED: DWRITE_GRID_FIT_MODE = 2;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_HIT_TEST_METRICS {
-    pub textPosition: u32,
-    pub length: u32,
-    pub left: f32,
-    pub top: f32,
-    pub width: f32,
-    pub height: f32,
-    pub bidiLevel: u32,
+    pub textPosition: super::UINT32,
+    pub length: super::UINT32,
+    pub left: super::FLOAT,
+    pub top: super::FLOAT,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
+    pub bidiLevel: super::UINT32,
     pub isText: windows_sys::core::BOOL,
     pub isTrimmed: windows_sys::core::BOOL,
 }
@@ -450,50 +466,56 @@ pub const DWRITE_INFORMATIONAL_STRING_WIN32_FAMILY_NAMES: DWRITE_INFORMATIONAL_S
 pub const DWRITE_INFORMATIONAL_STRING_WIN32_SUBFAMILY_NAMES: DWRITE_INFORMATIONAL_STRING_ID = 12;
 pub const DWRITE_INFORMATIONAL_STRING_WWS_FAMILY_NAME: DWRITE_INFORMATIONAL_STRING_ID = 19;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_INLINE_OBJECT_METRICS {
-    pub width: f32,
-    pub height: f32,
-    pub baseline: f32,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
+    pub baseline: super::FLOAT,
     pub supportsSideways: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_JUSTIFICATION_OPPORTUNITY {
-    pub expansionMinimum: f32,
-    pub expansionMaximum: f32,
-    pub compressionMaximum: f32,
+    pub expansionMinimum: super::FLOAT,
+    pub expansionMaximum: super::FLOAT,
+    pub compressionMaximum: super::FLOAT,
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_LINE_BREAKPOINT {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_LINE_METRICS {
-    pub length: u32,
-    pub trailingWhitespaceLength: u32,
-    pub newlineLength: u32,
-    pub height: f32,
-    pub baseline: f32,
+    pub length: super::UINT32,
+    pub trailingWhitespaceLength: super::UINT32,
+    pub newlineLength: super::UINT32,
+    pub height: super::FLOAT,
+    pub baseline: super::FLOAT,
     pub isTrimmed: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_LINE_METRICS1 {
-    pub Base: DWRITE_LINE_METRICS,
-    pub leadingBefore: f32,
-    pub leadingAfter: f32,
+    pub base: DWRITE_LINE_METRICS,
+    pub leadingBefore: super::FLOAT,
+    pub leadingAfter: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_LINE_SPACING {
     pub method: DWRITE_LINE_SPACING_METHOD,
-    pub height: f32,
-    pub baseline: f32,
-    pub leadingBefore: f32,
+    pub height: super::FLOAT,
+    pub baseline: super::FLOAT,
+    pub leadingBefore: super::FLOAT,
     pub fontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE,
 }
 pub type DWRITE_LINE_SPACING_METHOD = i32;
@@ -505,14 +527,15 @@ pub const DWRITE_LOCALITY_LOCAL: DWRITE_LOCALITY = 2;
 pub const DWRITE_LOCALITY_PARTIAL: DWRITE_LOCALITY = 1;
 pub const DWRITE_LOCALITY_REMOTE: DWRITE_LOCALITY = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_MATRIX {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub dx: f32,
-    pub dy: f32,
+    pub m11: super::FLOAT,
+    pub m12: super::FLOAT,
+    pub m21: super::FLOAT,
+    pub m22: super::FLOAT,
+    pub dx: super::FLOAT,
+    pub dy: super::FLOAT,
 }
 pub const DWRITE_NO_PALETTE_INDEX: i32 = 65535;
 pub type DWRITE_NUMBER_SUBSTITUTION_METHOD = i32;
@@ -528,38 +551,129 @@ pub type DWRITE_OUTLINE_THRESHOLD = i32;
 pub const DWRITE_OUTLINE_THRESHOLD_ALIASED: DWRITE_OUTLINE_THRESHOLD = 1;
 pub const DWRITE_OUTLINE_THRESHOLD_ANTIALIASED: DWRITE_OUTLINE_THRESHOLD = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_OVERHANG_METRICS {
-    pub left: f32,
-    pub top: f32,
-    pub right: f32,
-    pub bottom: f32,
+    pub left: super::FLOAT,
+    pub top: super::FLOAT,
+    pub right: super::FLOAT,
+    pub bottom: super::FLOAT,
 }
-pub type DWRITE_PAINT_ATTRIBUTES = u32;
+pub type DWRITE_PAINT_ATTRIBUTES = i32;
 pub const DWRITE_PAINT_ATTRIBUTES_NONE: DWRITE_PAINT_ATTRIBUTES = 0;
 pub const DWRITE_PAINT_ATTRIBUTES_USES_PALETTE: DWRITE_PAINT_ATTRIBUTES = 1;
 pub const DWRITE_PAINT_ATTRIBUTES_USES_TEXT_COLOR: DWRITE_PAINT_ATTRIBUTES = 2;
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PAINT_COLOR {
     pub value: DWRITE_COLOR_F,
-    pub paletteEntryIndex: u16,
+    pub paletteEntryIndex: super::UINT16,
     pub alphaMultiplier: f32,
     pub colorAttributes: DWRITE_PAINT_ATTRIBUTES,
 }
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DWRITE_PAINT_ELEMENT {
     pub paintType: DWRITE_PAINT_TYPE,
-    pub paint: PAINT_UNION,
+    pub paint: DWRITE_PAINT_ELEMENT_PAINT_UNION,
 }
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 impl Default for DWRITE_PAINT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union DWRITE_PAINT_ELEMENT_PAINT_UNION {
+    pub layers: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_LAYERS,
+    pub solidGlyph: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_SOLID_GLYPH,
+    pub solid: DWRITE_PAINT_COLOR,
+    pub linearGradient: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_LINEAR_GRADIENT,
+    pub radialGradient: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_RADIAL_GRADIENT,
+    pub sweepGradient: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_SWEEP_GRADIENT,
+    pub glyph: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_GLYPH,
+    pub colorGlyph: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_COLOR_GLYPH,
+    pub transform: DWRITE_MATRIX,
+    pub composite: DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_COMPOSITE,
+}
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+impl Default for DWRITE_PAINT_ELEMENT_PAINT_UNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_COLOR_GLYPH {
+    pub glyphIndex: super::UINT32,
+    pub clipBox: super::D2D_RECT_F,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_COMPOSITE {
+    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_GLYPH {
+    pub glyphIndex: super::UINT32,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_LAYERS {
+    pub childCount: super::UINT32,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_LINEAR_GRADIENT {
+    pub extendMode: super::UINT32,
+    pub gradientStopCount: super::UINT32,
+    pub x0: f32,
+    pub y0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub x2: f32,
+    pub y2: f32,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_RADIAL_GRADIENT {
+    pub extendMode: super::UINT32,
+    pub gradientStopCount: super::UINT32,
+    pub x0: f32,
+    pub y0: f32,
+    pub radius0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub radius1: f32,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_SOLID_GLYPH {
+    pub glyphIndex: super::UINT32,
+    pub color: DWRITE_PAINT_COLOR,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DWRITE_PAINT_ELEMENT_PAINT_UNION_PAINT_SWEEP_GRADIENT {
+    pub extendMode: super::UINT32,
+    pub gradientStopCount: super::UINT32,
+    pub centerX: f32,
+    pub centerY: f32,
+    pub startAngle: f32,
+    pub endAngle: f32,
 }
 pub type DWRITE_PAINT_FEATURE_LEVEL = i32;
 pub const DWRITE_PAINT_FEATURE_LEVEL_COLR_V0: DWRITE_PAINT_FEATURE_LEVEL = 1;
@@ -578,75 +692,81 @@ pub const DWRITE_PAINT_TYPE_SOLID_GLYPH: DWRITE_PAINT_TYPE = 2;
 pub const DWRITE_PAINT_TYPE_SWEEP_GRADIENT: DWRITE_PAINT_TYPE = 6;
 pub const DWRITE_PAINT_TYPE_TRANSFORM: DWRITE_PAINT_TYPE = 9;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DWRITE_PANOSE {
-    pub values: [u8; 10],
-    pub familyKind: u8,
+    pub values: [super::UINT8; 10],
+    pub familyKind: super::UINT8,
     pub text: DWRITE_PANOSE_0,
     pub script: DWRITE_PANOSE_1,
     pub decorative: DWRITE_PANOSE_2,
     pub symbol: DWRITE_PANOSE_3,
 }
+#[cfg(feature = "shared")]
 impl Default for DWRITE_PANOSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PANOSE_0 {
-    pub familyKind: u8,
-    pub serifStyle: u8,
-    pub weight: u8,
-    pub proportion: u8,
-    pub contrast: u8,
-    pub strokeVariation: u8,
-    pub armStyle: u8,
-    pub letterform: u8,
-    pub midline: u8,
-    pub xHeight: u8,
+    pub familyKind: super::UINT8,
+    pub serifStyle: super::UINT8,
+    pub weight: super::UINT8,
+    pub proportion: super::UINT8,
+    pub contrast: super::UINT8,
+    pub strokeVariation: super::UINT8,
+    pub armStyle: super::UINT8,
+    pub letterform: super::UINT8,
+    pub midline: super::UINT8,
+    pub xHeight: super::UINT8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PANOSE_1 {
-    pub familyKind: u8,
-    pub toolKind: u8,
-    pub weight: u8,
-    pub spacing: u8,
-    pub aspectRatio: u8,
-    pub contrast: u8,
-    pub scriptTopology: u8,
-    pub scriptForm: u8,
-    pub finials: u8,
-    pub xAscent: u8,
+    pub familyKind: super::UINT8,
+    pub toolKind: super::UINT8,
+    pub weight: super::UINT8,
+    pub spacing: super::UINT8,
+    pub aspectRatio: super::UINT8,
+    pub contrast: super::UINT8,
+    pub scriptTopology: super::UINT8,
+    pub scriptForm: super::UINT8,
+    pub finials: super::UINT8,
+    pub xAscent: super::UINT8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PANOSE_2 {
-    pub familyKind: u8,
-    pub decorativeClass: u8,
-    pub weight: u8,
-    pub aspect: u8,
-    pub contrast: u8,
-    pub serifVariant: u8,
-    pub fill: u8,
-    pub lining: u8,
-    pub decorativeTopology: u8,
-    pub characterRange: u8,
+    pub familyKind: super::UINT8,
+    pub decorativeClass: super::UINT8,
+    pub weight: super::UINT8,
+    pub aspect: super::UINT8,
+    pub contrast: super::UINT8,
+    pub serifVariant: super::UINT8,
+    pub fill: super::UINT8,
+    pub lining: super::UINT8,
+    pub decorativeTopology: super::UINT8,
+    pub characterRange: super::UINT8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_PANOSE_3 {
-    pub familyKind: u8,
-    pub symbolKind: u8,
-    pub weight: u8,
-    pub spacing: u8,
-    pub aspectRatioAndContrast: u8,
-    pub aspectRatio94: u8,
-    pub aspectRatio119: u8,
-    pub aspectRatio157: u8,
-    pub aspectRatio163: u8,
-    pub aspectRatio211: u8,
+    pub familyKind: super::UINT8,
+    pub symbolKind: super::UINT8,
+    pub weight: super::UINT8,
+    pub spacing: super::UINT8,
+    pub aspectRatioAndContrast: super::UINT8,
+    pub aspectRatio94: super::UINT8,
+    pub aspectRatio119: super::UINT8,
+    pub aspectRatio157: super::UINT8,
+    pub aspectRatio163: super::UINT8,
+    pub aspectRatio211: super::UINT8,
 }
 pub type DWRITE_PANOSE_ARM_STYLE = i32;
 pub const DWRITE_PANOSE_ARM_STYLE_ANY: DWRITE_PANOSE_ARM_STYLE = 0;
@@ -993,44 +1113,48 @@ pub const DWRITE_RENDERING_MODE_NATURAL: DWRITE_RENDERING_MODE = 4;
 pub const DWRITE_RENDERING_MODE_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE = 5;
 pub const DWRITE_RENDERING_MODE_OUTLINE: DWRITE_RENDERING_MODE = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_SCRIPT_ANALYSIS {
-    pub script: u16,
+    pub script: super::UINT16,
     pub shapes: DWRITE_SCRIPT_SHAPES,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_SCRIPT_PROPERTIES {
-    pub isoScriptCode: u32,
-    pub isoScriptNumber: u32,
-    pub clusterLookahead: u32,
-    pub justificationCharacter: u32,
+    pub isoScriptCode: super::UINT32,
+    pub isoScriptNumber: super::UINT32,
+    pub clusterLookahead: super::UINT32,
+    pub justificationCharacter: super::UINT32,
     pub _bitfield: u32,
 }
-pub type DWRITE_SCRIPT_SHAPES = u32;
+pub type DWRITE_SCRIPT_SHAPES = i32;
 pub const DWRITE_SCRIPT_SHAPES_DEFAULT: DWRITE_SCRIPT_SHAPES = 0;
 pub const DWRITE_SCRIPT_SHAPES_NO_VISUAL: DWRITE_SCRIPT_SHAPES = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_SHAPING_GLYPH_PROPERTIES {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
     pub _bitfield: u16,
 }
 pub const DWRITE_STANDARD_FONT_AXIS_COUNT: i32 = 5;
 #[repr(C)]
-#[cfg(feature = "dcommon")]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_STRIKETHROUGH {
-    pub width: f32,
-    pub thickness: f32,
-    pub offset: f32,
+    pub width: super::FLOAT,
+    pub thickness: super::FLOAT,
+    pub offset: super::FLOAT,
     pub readingDirection: DWRITE_READING_DIRECTION,
     pub flowDirection: DWRITE_FLOW_DIRECTION,
-    pub localeName: *const u16,
+    pub localeName: *const super::WCHAR,
     pub measuringMode: super::DWRITE_MEASURING_MODE,
 }
 pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = 0;
@@ -1045,65 +1169,71 @@ pub type DWRITE_TEXT_ANTIALIAS_MODE = i32;
 pub const DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE: DWRITE_TEXT_ANTIALIAS_MODE = 0;
 pub const DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE: DWRITE_TEXT_ANTIALIAS_MODE = 1;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_TEXT_METRICS {
-    pub left: f32,
-    pub top: f32,
-    pub width: f32,
-    pub widthIncludingTrailingWhitespace: f32,
-    pub height: f32,
-    pub layoutWidth: f32,
-    pub layoutHeight: f32,
-    pub maxBidiReorderingDepth: u32,
-    pub lineCount: u32,
+    pub left: super::FLOAT,
+    pub top: super::FLOAT,
+    pub width: super::FLOAT,
+    pub widthIncludingTrailingWhitespace: super::FLOAT,
+    pub height: super::FLOAT,
+    pub layoutWidth: super::FLOAT,
+    pub layoutHeight: super::FLOAT,
+    pub maxBidiReorderingDepth: super::UINT32,
+    pub lineCount: super::UINT32,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_TEXT_METRICS1 {
-    pub Base: DWRITE_TEXT_METRICS,
-    pub heightIncludingTrailingWhitespace: f32,
+    pub base: DWRITE_TEXT_METRICS,
+    pub heightIncludingTrailingWhitespace: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_TEXT_RANGE {
-    pub startPosition: u32,
-    pub length: u32,
+    pub startPosition: super::UINT32,
+    pub length: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_TRIMMING {
     pub granularity: DWRITE_TRIMMING_GRANULARITY,
-    pub delimiter: u32,
-    pub delimiterCount: u32,
+    pub delimiter: super::UINT32,
+    pub delimiterCount: super::UINT32,
 }
 pub type DWRITE_TRIMMING_GRANULARITY = i32;
 pub const DWRITE_TRIMMING_GRANULARITY_CHARACTER: DWRITE_TRIMMING_GRANULARITY = 1;
 pub const DWRITE_TRIMMING_GRANULARITY_NONE: DWRITE_TRIMMING_GRANULARITY = 0;
 pub const DWRITE_TRIMMING_GRANULARITY_WORD: DWRITE_TRIMMING_GRANULARITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_TYPOGRAPHIC_FEATURES {
     pub features: *mut DWRITE_FONT_FEATURE,
-    pub featureCount: u32,
+    pub featureCount: super::UINT32,
 }
 #[repr(C)]
-#[cfg(feature = "dcommon")]
+#[cfg(all(feature = "dcommon", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_UNDERLINE {
-    pub width: f32,
-    pub thickness: f32,
-    pub offset: f32,
-    pub runHeight: f32,
+    pub width: super::FLOAT,
+    pub thickness: super::FLOAT,
+    pub offset: super::FLOAT,
+    pub runHeight: super::FLOAT,
     pub readingDirection: DWRITE_READING_DIRECTION,
     pub flowDirection: DWRITE_FLOW_DIRECTION,
-    pub localeName: *const u16,
+    pub localeName: *const super::WCHAR,
     pub measuringMode: super::DWRITE_MEASURING_MODE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_UNICODE_RANGE {
-    pub first: u32,
-    pub last: u32,
+    pub first: super::UINT32,
+    pub last: super::UINT32,
 }
 pub type DWRITE_VERTICAL_GLYPH_ORIENTATION = i32;
 pub const DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT: DWRITE_VERTICAL_GLYPH_ORIENTATION = 0;
@@ -1117,87 +1247,3 @@ pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = 0;
 pub const FACILITY_DWRITE: i32 = 2200;
 #[cfg(feature = "d2d")]
 pub type IDWriteGeometrySink = *mut core::ffi::c_void;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_COLOR_GLYPH {
-    pub glyphIndex: u32,
-    pub clipBox: super::D2D_RECT_F,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_COMPOSITE {
-    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_GLYPH {
-    pub glyphIndex: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_LAYERS {
-    pub childCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_LINEAR_GRADIENT {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub x2: f32,
-    pub y2: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_RADIAL_GRADIENT {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub radius0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub radius1: f32,
-}
-#[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_SOLID_GLYPH {
-    pub glyphIndex: u32,
-    pub color: DWRITE_PAINT_COLOR,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PAINT_SWEEP_GRADIENT {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub centerX: f32,
-    pub centerY: f32,
-    pub startAngle: f32,
-    pub endAngle: f32,
-}
-#[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-#[derive(Clone, Copy)]
-pub union PAINT_UNION {
-    pub layers: PAINT_LAYERS,
-    pub solidGlyph: PAINT_SOLID_GLYPH,
-    pub solid: DWRITE_PAINT_COLOR,
-    pub linearGradient: PAINT_LINEAR_GRADIENT,
-    pub radialGradient: PAINT_RADIAL_GRADIENT,
-    pub sweepGradient: PAINT_SWEEP_GRADIENT,
-    pub glyph: PAINT_GLYPH,
-    pub colorGlyph: PAINT_COLOR_GLYPH,
-    pub transform: DWRITE_MATRIX,
-    pub composite: PAINT_COMPOSITE,
-}
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-impl Default for PAINT_UNION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}

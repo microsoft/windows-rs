@@ -40,7 +40,7 @@ fn main() -> windows::core::Result<()> {
         CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         let manager: IBackgroundCopyManager =
-            CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER)?;
+            CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER as u32)?;
 
         let mut job = None;
 

@@ -1,71 +1,84 @@
 pub const CERTIFICATE_HASH_LENGTH: i32 = 20;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
-    pub dwFlags: u32,
-    pub dwSizeofConnectionData: u32,
-    pub pConnectionData: *mut u8,
-    pub dwSizeofUserData: u32,
-    pub pUserData: *mut u8,
-    pub dwSizeofUserDataOut: u32,
-    pub pUserDataOut: *mut u8,
+    pub dwFlags: super::DWORD,
+    pub dwSizeofConnectionData: super::DWORD,
+    pub pConnectionData: *mut super::BYTE,
+    pub dwSizeofUserData: super::DWORD,
+    pub pUserData: *mut super::BYTE,
+    pub dwSizeofUserDataOut: super::DWORD,
+    pub pUserDataOut: *mut super::BYTE,
     pub pwszIdentity: windows_core::PWSTR,
-    pub dwError: u32,
+    pub dwError: super::DWORD,
     pub pEapError: *mut EAP_ERROR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
-    pub dwSizeofContextData: u32,
-    pub pContextData: *mut u8,
-    pub dwSizeofInteractiveUIData: u32,
-    pub pInteractiveUIData: *mut u8,
-    pub dwError: u32,
+    pub dwSizeofContextData: super::DWORD,
+    pub pContextData: *mut super::BYTE,
+    pub dwSizeofInteractiveUIData: super::DWORD,
+    pub pInteractiveUIData: *mut super::BYTE,
+    pub dwError: super::DWORD,
     pub pEapError: *mut EAP_ERROR,
 }
 pub const EAPHOST_METHOD_API_VERSION: i32 = 1;
 pub const EAPHOST_PEER_API_VERSION: i32 = 1;
+#[cfg(feature = "shared")]
 pub type EAP_ATTRIBUTE = _EAP_ATTRIBUTE;
+#[cfg(feature = "shared")]
 pub type EAP_ATTRIBUTES = _EAP_ATTRIBUTES;
 pub type EAP_ATTRIBUTE_TYPE = _EAP_ATTRIBUTE_TYPE;
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
-    pub dwVersion: u32,
-    pub dwNumberOfFields: u32,
+    pub dwVersion: super::DWORD,
+    pub dwNumberOfFields: super::DWORD,
     pub pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
-    pub dwFlagProps: u32,
+    pub dwFlagProps: super::DWORD,
     pub pwszLabel: windows_core::PWSTR,
     pub pwszData: windows_core::PWSTR,
-    pub dwMinDataLength: u32,
-    pub dwMaxDataLength: u32,
+    pub dwMinDataLength: super::DWORD,
+    pub dwMaxDataLength: super::DWORD,
 }
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: i32 = 0;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: i32 = 1;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: i32 = 2;
 pub type EAP_CONFIG_INPUT_FIELD_TYPE = i32;
 pub const EAP_CREDENTIAL_VERSION: i32 = 1;
+#[cfg(feature = "shared")]
 pub type EAP_CRED_EXPIRY_REQ = _EAP_CRED_EXPIRY_REQ;
+#[cfg(feature = "shared")]
 pub type EAP_CRED_EXPIRY_RESP = _EAP_CRED_EXPIRY_REQ;
+#[cfg(feature = "shared")]
 pub type EAP_CRED_LOGON_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
+#[cfg(feature = "shared")]
 pub type EAP_CRED_LOGON_RESP = EAP_CONFIG_INPUT_FIELD_ARRAY;
+#[cfg(feature = "shared")]
 pub type EAP_CRED_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
+#[cfg(feature = "shared")]
 pub type EAP_CRED_RESP = EAP_CONFIG_INPUT_FIELD_ARRAY;
 pub const EAP_EMPTY_CREDENTIAL: EapCredentialType = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_ERROR {
-    pub dwWinError: u32,
+    pub dwWinError: super::DWORD,
     pub r#type: EAP_METHOD_TYPE,
-    pub dwReasonCode: u32,
+    pub dwReasonCode: super::DWORD,
     pub rootCauseGuid: windows_core::GUID,
     pub repairGuid: windows_core::GUID,
     pub helpLinkGuid: windows_core::GUID,
@@ -98,14 +111,16 @@ pub const EAP_FLAG_SUPRESS_UI: i32 = 65536;
 pub const EAP_FLAG_USER_AUTH: i32 = 262144;
 pub const EAP_FLAG_VPN: i32 = 8388608;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EAP_INTERACTIVE_UI_DATA {
-    pub dwVersion: u32,
-    pub dwSize: u32,
+    pub dwVersion: super::DWORD,
+    pub dwSize: super::DWORD,
     pub dwDataType: EAP_INTERACTIVE_UI_DATA_TYPE,
-    pub cbUiData: u32,
+    pub cbUiData: super::DWORD,
     pub pbUiData: EAP_UI_DATA_FORMAT,
 }
+#[cfg(feature = "shared")]
 impl Default for EAP_INTERACTIVE_UI_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -114,108 +129,124 @@ impl Default for EAP_INTERACTIVE_UI_DATA {
 pub type EAP_INTERACTIVE_UI_DATA_TYPE = i32;
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
     pub pwszFriendlyName: windows_core::PWSTR,
-    pub eapProperties: u32,
+    pub eapProperties: super::DWORD,
     pub pInnerMethodInfo: *mut Self,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
-    pub dwNumberOfMethods: u32,
+    pub dwNumberOfMethods: super::DWORD,
     pub pEapMethods: *mut EAP_METHOD_INFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
-    pub dwNumberOfMethods: u32,
+    pub dwNumberOfMethods: super::DWORD,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
     pub pwszFriendlyName: windows_core::PWSTR,
-    pub eapProperties: u32,
+    pub eapProperties: super::DWORD,
     pub pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE,
     pub eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
     pub eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
 }
+#[cfg(feature = "shared")]
 impl Default for EAP_METHOD_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
-    pub dwNumberOfProperties: u32,
+    pub dwNumberOfProperties: super::DWORD,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
 }
 pub type EAP_METHOD_PROPERTY_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL,
     pub empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
     pub empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
 }
+#[cfg(feature = "shared")]
 impl Default for EAP_METHOD_PROPERTY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
-    pub length: u32,
+    pub length: super::DWORD,
     pub value: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
-    pub length: u32,
-    pub value: u32,
+    pub length: super::DWORD,
+    pub value: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
-    pub length: u32,
-    pub value: *mut u8,
+    pub length: super::DWORD,
+    pub value: *mut super::BYTE,
 }
 pub type EAP_METHOD_PROPERTY_VALUE_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
-    pub dwAuthorId: u32,
+    pub dwAuthorId: super::DWORD,
 }
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: i32 = 32768;
 pub type EAP_SESSIONID = u32;
 pub const EAP_SIM_CREDENTIAL: EapCredentialType = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_TYPE {
-    pub r#type: u8,
-    pub dwVendorId: u32,
-    pub dwVendorType: u32,
+    pub r#type: super::BYTE,
+    pub dwVendorId: super::DWORD,
+    pub dwVendorType: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union EAP_UI_DATA_FORMAT {
     pub credData: *mut EAP_CRED_REQ,
     pub credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
     pub credLogonData: *mut EAP_CRED_LOGON_REQ,
 }
+#[cfg(feature = "shared")]
 impl Default for EAP_UI_DATA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -228,15 +259,19 @@ pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: i32 = 4;
 pub const EAP_USERNAME_PASSWORD_CREDENTIAL: EapCredentialType = 1;
 pub const EAP_VALUENAME_PROPERTIES: windows_core::PCWSTR = windows_core::w!("Properties");
 pub const EAP_WINLOGON_CREDENTIAL: EapCredentialType = 2;
+#[cfg(feature = "shared")]
 pub type EapAttribute = _EAP_ATTRIBUTE;
 pub type EapAttributeType = _EAP_ATTRIBUTE_TYPE;
+#[cfg(feature = "shared")]
 pub type EapAttributes = _EAP_ATTRIBUTES;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapCertificateCredential {
-    pub certHash: [u8; 20],
+    pub certHash: [super::BYTE; 20],
     pub password: windows_core::PWSTR,
 }
+#[cfg(feature = "shared")]
 impl Default for EapCertificateCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -258,11 +293,13 @@ pub const EapCredLogonResp: EAP_INTERACTIVE_UI_DATA_TYPE = 5;
 pub const EapCredReq: EAP_INTERACTIVE_UI_DATA_TYPE = 0;
 pub const EapCredResp: EAP_INTERACTIVE_UI_DATA_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
 }
+#[cfg(feature = "shared")]
 impl Default for EapCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -270,12 +307,14 @@ impl Default for EapCredential {
 }
 pub type EapCredentialType = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union EapCredentialTypeData {
     pub username_password: EapUsernamePasswordCredential,
     pub certificate: EapCertificateCredential,
     pub sim: EapSimCredential,
 }
+#[cfg(feature = "shared")]
 impl Default for EapCredentialTypeData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -294,24 +333,29 @@ pub struct EapUsernamePasswordCredential {
 }
 pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: i32 = 256;
 pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: i32 = 1024;
+#[cfg(feature = "shared")]
 pub type PEAP_CONFIG_INPUT_FIELD_ARRAY = *mut EAP_CONFIG_INPUT_FIELD_ARRAY;
+#[cfg(feature = "shared")]
 pub type PEAP_CONFIG_INPUT_FIELD_DATA = *mut EAP_CONFIG_INPUT_FIELD_DATA;
 pub type PEAP_CONFIG_INPUT_FIELD_TYPE = *mut EAP_CONFIG_INPUT_FIELD_TYPE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
-    pub dwLength: u32,
-    pub pValue: *mut u8,
+    pub dwLength: super::DWORD,
+    pub pValue: *mut super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _EAP_ATTRIBUTES {
-    pub dwNumberOfAttributes: u32,
+    pub dwNumberOfAttributes: super::DWORD,
     pub pAttribs: *mut EAP_ATTRIBUTE,
 }
 pub type _EAP_ATTRIBUTE_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,

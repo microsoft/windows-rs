@@ -1,51 +1,3 @@
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserFree(param0: *mut u32, param1: *mut super::HMENU) {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserFree(param0 : *mut u32, param1 : *mut super::HMENU));
-    unsafe { HMENU_UserFree(param0 as _, param1 as _) }
-}
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserFree64(param0: *mut u32, param1: *mut super::HMENU) {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserFree64(param0 : *mut u32, param1 : *mut super::HMENU));
-    unsafe { HMENU_UserFree64(param0 as _, param1 as _) }
-}
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
-    unsafe { HMENU_UserMarshal(param0 as _, param1 as _, param2 as _) }
-}
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
-    unsafe { HMENU_UserMarshal64(param0 as _, param1 as _, param2 as _) }
-}
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HMENU) -> u32 {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
-    unsafe { HMENU_UserSize(param0 as _, param1, param2 as _) }
-}
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HMENU) -> u32 {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HMENU) -> u32);
-    unsafe { HMENU_UserSize64(param0 as _, param1, param2 as _) }
-}
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
-    unsafe { HMENU_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
-}
-#[cfg(feature = "windef")]
-#[inline]
-pub unsafe fn HMENU_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HMENU) -> *mut u8 {
-    windows_core::link!("ole32.dll" "system" fn HMENU_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMENU) -> *mut u8);
-    unsafe { HMENU_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
-}
 pub type DOCMISC = i32;
 pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = 1;
 pub const DOCMISC_CANTOPENEDIT: DOCMISC = 4;
@@ -57,8 +9,9 @@ impl IContinueCallback {
     pub unsafe fn FContinue(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FContinue)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn FContinuePrinting(&self, ncntprinted: i32, ncurpage: i32, pwszprintstatus: *const u16) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FContinuePrinting)(windows_core::Interface::as_raw(self), ncntprinted, ncurpage, pwszprintstatus) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn FContinuePrinting(&self, ncntprinted: super::LONG, ncurpage: super::LONG, pwszprintstatus: Option<*const u16>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FContinuePrinting)(windows_core::Interface::as_raw(self), ncntprinted, ncurpage, pwszprintstatus.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -66,12 +19,17 @@ impl IContinueCallback {
 pub struct IContinueCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FContinuePrinting: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const u16) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub FContinuePrinting: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, super::LONG, *const u16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    FContinuePrinting: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IContinueCallback_Impl: windows_core::IUnknownImpl {
     fn FContinue(&self) -> windows_core::Result<()>;
-    fn FContinuePrinting(&self, ncntprinted: i32, ncurpage: i32, pwszprintstatus: *const u16) -> windows_core::Result<()>;
+    fn FContinuePrinting(&self, ncntprinted: super::LONG, ncurpage: super::LONG, pwszprintstatus: *const u16) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IContinueCallback_Vtbl {
     pub const fn new<Identity: IContinueCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FContinue<Identity: IContinueCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -80,7 +38,7 @@ impl IContinueCallback_Vtbl {
                 IContinueCallback_Impl::FContinue(this).into()
             }
         }
-        unsafe extern "system" fn FContinuePrinting<Identity: IContinueCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncntprinted: i32, ncurpage: i32, pwszprintstatus: *const u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn FContinuePrinting<Identity: IContinueCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncntprinted: super::LONG, ncurpage: super::LONG, pwszprintstatus: *const u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IContinueCallback_Impl::FContinuePrinting(this, core::mem::transmute_copy(&ncntprinted), core::mem::transmute_copy(&ncurpage), core::mem::transmute_copy(&pwszprintstatus)).into()
@@ -96,14 +54,17 @@ impl IContinueCallback_Vtbl {
         iid == &<IContinueCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IContinueCallback {}
 windows_core::imp::define_interface!(IEnumOleDocumentViews, IEnumOleDocumentViews_Vtbl, 0xb722bcc8_4e68_101b_a2bc_00aa00404770);
 windows_core::imp::interface_hierarchy!(IEnumOleDocumentViews, windows_core::IUnknown);
 impl IEnumOleDocumentViews {
-    pub unsafe fn Next(&self, cviews: u32, rgpview: *mut Option<IOleDocumentView>, pcfetched: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Next(&self, cviews: super::ULONG, rgpview: *mut Option<IOleDocumentView>, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cviews, core::mem::transmute(rgpview), pcfetched as _) }
     }
-    pub unsafe fn Skip(&self, cviews: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip(&self, cviews: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cviews) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -120,26 +81,34 @@ impl IEnumOleDocumentViews {
 #[doc(hidden)]
 pub struct IEnumOleDocumentViews_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Next: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IEnumOleDocumentViews_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cviews: u32, rgpview: windows_core::OutRef<IOleDocumentView>, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, cviews: u32) -> windows_core::Result<()>;
+    fn Next(&self, cviews: super::ULONG, rgpview: windows_core::OutRef<IOleDocumentView>, pcfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Skip(&self, cviews: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOleDocumentViews>;
 }
+#[cfg(feature = "shared")]
 impl IEnumOleDocumentViews_Vtbl {
     pub const fn new<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cviews: u32, rgpview: *mut *mut core::ffi::c_void, pcfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cviews: super::ULONG, rgpview: *mut *mut core::ffi::c_void, pcfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumOleDocumentViews_Impl::Next(this, core::mem::transmute_copy(&cviews), core::mem::transmute_copy(&rgpview), core::mem::transmute_copy(&pcfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cviews: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cviews: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumOleDocumentViews_Impl::Skip(this, core::mem::transmute_copy(&cviews)).into()
@@ -175,6 +144,7 @@ impl IEnumOleDocumentViews_Vtbl {
         iid == &<IEnumOleDocumentViews as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IEnumOleDocumentViews {}
 pub type IGNOREMIME = i32;
 pub const IGNOREMIME_PROMPT: IGNOREMIME = 1;
@@ -185,39 +155,43 @@ pub const INSTALL_SCOPE_USER: i32 = 2;
 windows_core::imp::define_interface!(IOleCommandTarget, IOleCommandTarget_Vtbl, 0xb722bccb_4e68_101b_a2bc_00aa00404770);
 windows_core::imp::interface_hierarchy!(IOleCommandTarget, windows_core::IUnknown);
 impl IOleCommandTarget {
-    pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), pguidcmdgroup, ccmds, prgcmds as _, pcmdtext as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn QueryStatus(&self, pguidcmdgroup: Option<*const windows_core::GUID>, prgcmds: &mut [OLECMD], pcmdtext: Option<*mut OLECMDTEXT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), pguidcmdgroup.unwrap_or(core::mem::zeroed()) as _, prgcmds.len().try_into().unwrap(), prgcmds.as_mut_ptr(), pcmdtext.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Exec(&self, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::VARIANT, pvaout: *mut super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Exec)(windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, pvain, pvaout) }
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Exec(&self, pguidcmdgroup: Option<*const windows_core::GUID>, ncmdid: super::DWORD, ncmdexecopt: super::DWORD, pvain: Option<*const super::VARIANT>, pvaout: Option<*mut super::VARIANT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Exec)(windows_core::Interface::as_raw(self), pguidcmdgroup.unwrap_or(core::mem::zeroed()) as _, ncmdid, ncmdexecopt, pvain.unwrap_or(core::mem::zeroed()) as _, pvaout.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleCommandTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut OLECMD, *mut OLECMDTEXT) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub Exec: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, *const super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::ULONG, *mut OLECMD, *mut OLECMDTEXT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    QueryStatus: usize,
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub Exec: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::DWORD, super::DWORD, *const super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Exec: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOleCommandTarget_Impl: windows_core::IUnknownImpl {
-    fn QueryStatus(&self, pguidcmdgroup: *const windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::Result<()>;
-    fn Exec(&self, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::VARIANT, pvaout: *mut super::VARIANT) -> windows_core::Result<()>;
+    fn QueryStatus(&self, pguidcmdgroup: *const windows_core::GUID, ccmds: super::ULONG, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::Result<()>;
+    fn Exec(&self, pguidcmdgroup: *const windows_core::GUID, ncmdid: super::DWORD, ncmdexecopt: super::DWORD, pvain: *const super::VARIANT, pvaout: *mut super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOleCommandTarget_Vtbl {
     pub const fn new<Identity: IOleCommandTarget_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryStatus<Identity: IOleCommandTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcmdgroup: *const windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryStatus<Identity: IOleCommandTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcmdgroup: *const windows_core::GUID, ccmds: super::ULONG, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleCommandTarget_Impl::QueryStatus(this, core::mem::transmute_copy(&pguidcmdgroup), core::mem::transmute_copy(&ccmds), core::mem::transmute_copy(&prgcmds), core::mem::transmute_copy(&pcmdtext)).into()
             }
         }
-        unsafe extern "system" fn Exec<Identity: IOleCommandTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::VARIANT, pvaout: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Exec<Identity: IOleCommandTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcmdgroup: *const windows_core::GUID, ncmdid: super::DWORD, ncmdexecopt: super::DWORD, pvain: *const super::VARIANT, pvaout: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleCommandTarget_Impl::Exec(this, core::mem::transmute_copy(&pguidcmdgroup), core::mem::transmute_copy(&ncmdid), core::mem::transmute_copy(&ncmdexecopt), core::mem::transmute_copy(&pvain), core::mem::transmute_copy(&pvaout)).into()
@@ -229,13 +203,13 @@ impl IOleCommandTarget_Vtbl {
         iid == &<IOleCommandTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOleCommandTarget {}
 windows_core::imp::define_interface!(IOleDocument, IOleDocument_Vtbl, 0xb722bcc5_4e68_101b_a2bc_00aa00404770);
 windows_core::imp::interface_hierarchy!(IOleDocument, windows_core::IUnknown);
 impl IOleDocument {
-    #[cfg(all(feature = "objidlbase", feature = "oleidl"))]
-    pub unsafe fn CreateView<P0, P1>(&self, pipsite: P0, pstm: P1, dwreserved: u32) -> windows_core::Result<IOleDocumentView>
+    #[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
+    pub unsafe fn CreateView<P0, P1>(&self, pipsite: P0, pstm: P1, dwreserved: super::DWORD) -> windows_core::Result<IOleDocumentView>
     where
         P0: windows_core::Param<super::IOleInPlaceSite>,
         P1: windows_core::Param<super::IStream>,
@@ -245,7 +219,8 @@ impl IOleDocument {
             (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), pipsite.param().abi(), pstm.param().abi(), dwreserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDocMiscStatus(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDocMiscStatus(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDocMiscStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -259,23 +234,26 @@ impl IOleDocument {
 #[doc(hidden)]
 pub struct IOleDocument_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "objidlbase", feature = "oleidl"))]
-    pub CreateView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "objidlbase", feature = "oleidl")))]
+    #[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
+    pub CreateView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "oleidl", feature = "shared")))]
     CreateView: usize,
-    pub GetDocMiscStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetDocMiscStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDocMiscStatus: usize,
     pub EnumViews: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "objidlbase", feature = "oleidl"))]
+#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
 pub trait IOleDocument_Impl: windows_core::IUnknownImpl {
-    fn CreateView(&self, pipsite: windows_core::Ref<super::IOleInPlaceSite>, pstm: windows_core::Ref<super::IStream>, dwreserved: u32) -> windows_core::Result<IOleDocumentView>;
-    fn GetDocMiscStatus(&self) -> windows_core::Result<u32>;
+    fn CreateView(&self, pipsite: windows_core::Ref<super::IOleInPlaceSite>, pstm: windows_core::Ref<super::IStream>, dwreserved: super::DWORD) -> windows_core::Result<IOleDocumentView>;
+    fn GetDocMiscStatus(&self) -> windows_core::Result<super::DWORD>;
     fn EnumViews(&self, ppenum: windows_core::OutRef<IEnumOleDocumentViews>, ppview: windows_core::OutRef<IOleDocumentView>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "objidlbase", feature = "oleidl"))]
+#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
 impl IOleDocument_Vtbl {
     pub const fn new<Identity: IOleDocument_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateView<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, dwreserved: u32, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateView<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, dwreserved: super::DWORD, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocument_Impl::CreateView(this, core::mem::transmute_copy(&pipsite), core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&dwreserved)) {
@@ -287,7 +265,7 @@ impl IOleDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDocMiscStatus<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDocMiscStatus<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocument_Impl::GetDocMiscStatus(this) {
@@ -316,7 +294,7 @@ impl IOleDocument_Vtbl {
         iid == &<IOleDocument as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidlbase", feature = "oleidl"))]
+#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared"))]
 impl windows_core::RuntimeName for IOleDocument {}
 windows_core::imp::define_interface!(IOleDocumentSite, IOleDocumentSite_Vtbl, 0xb722bcc7_4e68_101b_a2bc_00aa00404770);
 windows_core::imp::interface_hierarchy!(IOleDocumentSite, windows_core::IUnknown);
@@ -375,20 +353,20 @@ impl IOleDocumentView {
             (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn SetRect(&self, prcview: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), prcview) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetRect(&self) -> windows_core::Result<super::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetRectComplex(&self, prcview: super::LPRECT, prchscroll: super::LPRECT, prcvscroll: super::LPRECT, prcsizebox: super::LPRECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRectComplex)(windows_core::Interface::as_raw(self), prcview, prchscroll, prcvscroll, prcsizebox) }
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn SetRectComplex(&self, prcview: Option<super::LPRECT>, prchscroll: Option<super::LPRECT>, prcvscroll: Option<super::LPRECT>, prcsizebox: Option<super::LPRECT>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetRectComplex)(windows_core::Interface::as_raw(self), prcview.unwrap_or(core::mem::zeroed()) as _, prchscroll.unwrap_or(core::mem::zeroed()) as _, prcvscroll.unwrap_or(core::mem::zeroed()) as _, prcsizebox.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Show(&self, fshow: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), fshow.into()) }
@@ -399,20 +377,21 @@ impl IOleDocumentView {
     pub unsafe fn Open(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CloseView(&self, dwreserved: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CloseView(&self, dwreserved: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CloseView)(windows_core::Interface::as_raw(self), dwreserved) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn SaveViewState<P0>(&self, pstm: P0) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IStream>,
+        P0: windows_core::Param<super::LPSTREAM>,
     {
         unsafe { (windows_core::Interface::vtable(self).SaveViewState)(windows_core::Interface::as_raw(self), pstm.param().abi()) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn ApplyViewState<P0>(&self, pstm: P0) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IStream>,
+        P0: windows_core::Param<super::LPSTREAM>,
     {
         unsafe { (windows_core::Interface::vtable(self).ApplyViewState)(windows_core::Interface::as_raw(self), pstm.param().abi()) }
     }
@@ -440,22 +419,25 @@ pub struct IOleDocumentView_Vtbl {
     #[cfg(not(feature = "oleidl"))]
     GetInPlaceSite: usize,
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub SetRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     SetRect: usize,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetRect: usize,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub SetRectComplex: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT, super::LPRECT, super::LPRECT, super::LPRECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     SetRectComplex: usize,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub UIActivate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CloseView: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CloseView: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CloseView: usize,
     #[cfg(feature = "objidlbase")]
     pub SaveViewState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
@@ -469,7 +451,7 @@ pub struct IOleDocumentView_Vtbl {
     #[cfg(not(feature = "oleidl"))]
     Clone: usize,
 }
-#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "windef"))]
+#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "windef"))]
 pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
     fn SetInPlaceSite(&self, pipsite: windows_core::Ref<super::IOleInPlaceSite>) -> windows_core::Result<()>;
     fn GetInPlaceSite(&self) -> windows_core::Result<super::IOleInPlaceSite>;
@@ -480,12 +462,12 @@ pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
     fn Show(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn UIActivate(&self, fuiactivate: windows_core::BOOL) -> windows_core::Result<()>;
     fn Open(&self) -> windows_core::Result<()>;
-    fn CloseView(&self, dwreserved: u32) -> windows_core::Result<()>;
-    fn SaveViewState(&self, pstm: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn ApplyViewState(&self, pstm: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
+    fn CloseView(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
+    fn SaveViewState(&self, pstm: windows_core::Ref<super::LPSTREAM>) -> windows_core::Result<()>;
+    fn ApplyViewState(&self, pstm: windows_core::Ref<super::LPSTREAM>) -> windows_core::Result<()>;
     fn Clone(&self, pipsitenew: windows_core::Ref<super::IOleInPlaceSite>) -> windows_core::Result<IOleDocumentView>;
 }
-#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "windef"))]
+#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "windef"))]
 impl IOleDocumentView_Vtbl {
     pub const fn new<Identity: IOleDocumentView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInPlaceSite<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -560,7 +542,7 @@ impl IOleDocumentView_Vtbl {
                 IOleDocumentView_Impl::Open(this).into()
             }
         }
-        unsafe extern "system" fn CloseView<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CloseView<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOleDocumentView_Impl::CloseView(this, core::mem::transmute_copy(&dwreserved)).into()
@@ -611,19 +593,21 @@ impl IOleDocumentView_Vtbl {
         iid == &<IOleDocumentView as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "windef"))]
+#[cfg(all(feature = "objidlbase", feature = "oleidl", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IOleDocumentView {}
 windows_core::imp::define_interface!(IPrint, IPrint_Vtbl, 0xb722bcc9_4e68_101b_a2bc_00aa00404770);
 windows_core::imp::interface_hierarchy!(IPrint, windows_core::IUnknown);
 impl IPrint {
-    pub unsafe fn SetInitialPageNum(&self, nfirstpage: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetInitialPageNum(&self, nfirstpage: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetInitialPageNum)(windows_core::Interface::as_raw(self), nfirstpage) }
     }
-    pub unsafe fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPageInfo(&self, pnfirstpage: *mut super::LONG, pcpages: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPageInfo)(windows_core::Interface::as_raw(self), pnfirstpage as _, pcpages as _) }
     }
-    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Print<P4>(&self, grfflags: u32, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: P4, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::HRESULT
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Print<P4>(&self, grfflags: super::DWORD, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: P4, nfirstpage: super::LONG, pcpagesprinted: *mut super::LONG, pnlastpage: *mut super::LONG) -> windows_core::HRESULT
     where
         P4: windows_core::Param<IContinueCallback>,
     {
@@ -634,35 +618,41 @@ impl IPrint {
 #[doc(hidden)]
 pub struct IPrint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetInitialPageNum: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub GetPageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub Print: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut super::DVTARGETDEVICE, *mut *mut PAGESET, *mut super::STGMEDIUM, *mut core::ffi::c_void, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub SetInitialPageNum: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetInitialPageNum: usize,
+    #[cfg(feature = "shared")]
+    pub GetPageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPageInfo: usize,
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+    pub Print: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut *mut super::DVTARGETDEVICE, *mut *mut PAGESET, *mut super::STGMEDIUM, *mut core::ffi::c_void, super::LONG, *mut super::LONG, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase")))]
     Print: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPrint_Impl: windows_core::IUnknownImpl {
-    fn SetInitialPageNum(&self, nfirstpage: i32) -> windows_core::Result<()>;
-    fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> windows_core::Result<()>;
-    fn Print(&self, grfflags: u32, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: windows_core::Ref<IContinueCallback>, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::Result<()>;
+    fn SetInitialPageNum(&self, nfirstpage: super::LONG) -> windows_core::Result<()>;
+    fn GetPageInfo(&self, pnfirstpage: *mut super::LONG, pcpages: *mut super::LONG) -> windows_core::Result<()>;
+    fn Print(&self, grfflags: super::DWORD, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: windows_core::Ref<IContinueCallback>, nfirstpage: super::LONG, pcpagesprinted: *mut super::LONG, pnlastpage: *mut super::LONG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IPrint_Vtbl {
     pub const fn new<Identity: IPrint_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetInitialPageNum<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nfirstpage: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetInitialPageNum<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nfirstpage: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPrint_Impl::SetInitialPageNum(this, core::mem::transmute_copy(&nfirstpage)).into()
             }
         }
-        unsafe extern "system" fn GetPageInfo<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnfirstpage: *mut i32, pcpages: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPageInfo<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnfirstpage: *mut super::LONG, pcpages: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPrint_Impl::GetPageInfo(this, core::mem::transmute_copy(&pnfirstpage), core::mem::transmute_copy(&pcpages)).into()
             }
         }
-        unsafe extern "system" fn Print<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: *mut core::ffi::c_void, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Print<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: super::DWORD, pptd: *mut *mut super::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::STGMEDIUM, pcallback: *mut core::ffi::c_void, nfirstpage: super::LONG, pcpagesprinted: *mut super::LONG, pnlastpage: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPrint_Impl::Print(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&pptd), core::mem::transmute_copy(&pppageset), core::mem::transmute_copy(&pstgmoptions), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&nfirstpage), core::mem::transmute_copy(&pcpagesprinted), core::mem::transmute_copy(&pnlastpage)).into()
@@ -679,7 +669,7 @@ impl IPrint_Vtbl {
         iid == &<IPrint as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPrint {}
 windows_core::imp::define_interface!(IProtectFocus, IProtectFocus_Vtbl, 0xd81f90a3_8156_44f7_ad28_5abb87003274);
 windows_core::imp::interface_hierarchy!(IProtectFocus, windows_core::IUnknown);
@@ -742,8 +732,8 @@ impl IProtectedModeMenuServices {
             (windows_core::Interface::vtable(self).LoadMenu)(windows_core::Interface::as_raw(self), pszmodulename.param().abi(), pszmenuname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn LoadMenuID<P0>(&self, pszmodulename: P0, wresourceid: u16) -> windows_core::Result<super::HMENU>
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn LoadMenuID<P0>(&self, pszmodulename: P0, wresourceid: super::WORD) -> windows_core::Result<super::HMENU>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -765,18 +755,18 @@ pub struct IProtectedModeMenuServices_Vtbl {
     pub LoadMenu: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::HMENU) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     LoadMenu: usize,
-    #[cfg(feature = "windef")]
-    pub LoadMenuID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, *mut super::HMENU) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub LoadMenuID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::WORD, *mut super::HMENU) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     LoadMenuID: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IProtectedModeMenuServices_Impl: windows_core::IUnknownImpl {
     fn CreateMenu(&self) -> windows_core::Result<super::HMENU>;
     fn LoadMenu(&self, pszmodulename: &windows_core::PCWSTR, pszmenuname: &windows_core::PCWSTR) -> windows_core::Result<super::HMENU>;
-    fn LoadMenuID(&self, pszmodulename: &windows_core::PCWSTR, wresourceid: u16) -> windows_core::Result<super::HMENU>;
+    fn LoadMenuID(&self, pszmodulename: &windows_core::PCWSTR, wresourceid: super::WORD) -> windows_core::Result<super::HMENU>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl IProtectedModeMenuServices_Vtbl {
     pub const fn new<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateMenu<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
@@ -803,7 +793,7 @@ impl IProtectedModeMenuServices_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LoadMenuID<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmodulename: windows_core::PCWSTR, wresourceid: u16, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadMenuID<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmodulename: windows_core::PCWSTR, wresourceid: super::WORD, phmenu: *mut super::HMENU) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtectedModeMenuServices_Impl::LoadMenuID(this, core::mem::transmute(&pszmodulename), core::mem::transmute_copy(&wresourceid)) {
@@ -826,12 +816,13 @@ impl IProtectedModeMenuServices_Vtbl {
         iid == &<IProtectedModeMenuServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IProtectedModeMenuServices {}
 windows_core::imp::define_interface!(IZoomEvents, IZoomEvents_Vtbl, 0x41b68150_904c_4e17_a0ba_a438182e359d);
 windows_core::imp::interface_hierarchy!(IZoomEvents, windows_core::IUnknown);
 impl IZoomEvents {
-    pub unsafe fn OnZoomPercentChanged(&self, ulzoompercent: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn OnZoomPercentChanged(&self, ulzoompercent: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnZoomPercentChanged)(windows_core::Interface::as_raw(self), ulzoompercent) }
     }
 }
@@ -839,14 +830,19 @@ impl IZoomEvents {
 #[doc(hidden)]
 pub struct IZoomEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnZoomPercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub OnZoomPercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    OnZoomPercentChanged: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IZoomEvents_Impl: windows_core::IUnknownImpl {
-    fn OnZoomPercentChanged(&self, ulzoompercent: u32) -> windows_core::Result<()>;
+    fn OnZoomPercentChanged(&self, ulzoompercent: super::ULONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IZoomEvents_Vtbl {
     pub const fn new<Identity: IZoomEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnZoomPercentChanged<Identity: IZoomEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulzoompercent: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnZoomPercentChanged<Identity: IZoomEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulzoompercent: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IZoomEvents_Impl::OnZoomPercentChanged(this, core::mem::transmute_copy(&ulzoompercent)).into()
@@ -858,7 +854,15 @@ impl IZoomEvents_Vtbl {
         iid == &<IZoomEvents as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IZoomEvents {}
+pub type LPCONTINUECALLBACK = IContinueCallback;
+pub type LPENUMOLEDOCUMENTVIEWS = IEnumOleDocumentViews;
+pub type LPOLECOMMANDTARGET = IOleCommandTarget;
+pub type LPOLEDOCUMENT = IOleDocument;
+pub type LPOLEDOCUMENTSITE = IOleDocumentSite;
+pub type LPOLEDOCUMENTVIEW = IOleDocumentView;
+pub type LPPRINT = IPrint;
 pub const MEDIAPLAYBACK_PAUSE: MEDIAPLAYBACK_STATE = 1;
 pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = 2;
 pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = 0;
@@ -902,10 +906,11 @@ pub const MSOCMDTEXTF_NAME: OLECMDTEXTF = 1;
 pub const MSOCMDTEXTF_NONE: OLECMDTEXTF = 0;
 pub const MSOCMDTEXTF_STATUS: OLECMDTEXTF = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMD {
-    pub cmdID: u32,
-    pub cmdf: u32,
+    pub cmdID: super::ULONG,
+    pub cmdf: super::DWORD,
 }
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: i32 = 2;
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: i32 = 1;
@@ -1099,13 +1104,15 @@ pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = 65;
 pub type OLECMDID_WINDOWSTATE_FLAG = i32;
 pub const OLECMDID_ZOOM: OLECMDID = 19;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLECMDTEXT {
-    pub cmdtextf: u32,
-    pub cwActual: u32,
-    pub cwBuf: u32,
+    pub cmdtextf: super::DWORD,
+    pub cwActual: super::ULONG,
+    pub cwBuf: super::ULONG,
     pub rgwz: [u16; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for OLECMDTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1122,26 +1129,30 @@ pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = 1;
 pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = 2;
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGERANGE {
-    pub nFromPage: i32,
-    pub nToPage: i32,
+    pub nFromPage: super::LONG,
+    pub nToPage: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PAGESET {
-    pub cbStruct: u32,
+    pub cbStruct: super::ULONG,
     pub fOddPages: windows_core::BOOL,
     pub fEvenPages: windows_core::BOOL,
-    pub cPageRange: u32,
+    pub cPageRange: super::ULONG,
     pub rgPages: [PAGERANGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PAGESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PAGESET_TOLASTPAGE: u16 = 65535;
+#[cfg(feature = "shared")]
+pub const PAGESET_TOLASTPAGE: super::WORD = 65535;
 pub type PRINTFLAG = i32;
 pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = 16;
 pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = 32;

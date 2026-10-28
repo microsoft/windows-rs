@@ -10,6 +10,14 @@ impl Default for BOID {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const IID_IKernelTransaction: windows_core::GUID = windows_core::GUID::from_u128(0x79427a2b_f895_40e0_be79_b57dc82ed231);
+pub const IID_ITmNodeName: windows_core::GUID = windows_core::GUID::from_u128(0x30274f88_6ee4_474e_9b95_7807bc9ef8cf);
+pub const IID_ITransaction: windows_core::GUID = windows_core::GUID::from_u128(0x0fb15084_af41_11ce_bd2b_204c4f4f5020);
+pub const IID_ITransaction2: windows_core::GUID = windows_core::GUID::from_u128(0x34021548_0065_11d3_bac1_00c04f797be2);
+pub const IID_ITransactionCloner: windows_core::GUID = windows_core::GUID::from_u128(0x02656950_2152_11d0_944c_00a0c905416e);
+pub const IID_ITransactionDispenser: windows_core::GUID = windows_core::GUID::from_u128(0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd);
+pub const IID_ITransactionOptions: windows_core::GUID = windows_core::GUID::from_u128(0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd);
+pub const IID_ITransactionOutcomeEvents: windows_core::GUID = windows_core::GUID::from_u128(0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd);
 windows_core::imp::define_interface!(IKernelTransaction, IKernelTransaction_Vtbl, 0x79427a2b_f895_40e0_be79_b57dc82ed231);
 windows_core::imp::interface_hierarchy!(IKernelTransaction, windows_core::IUnknown);
 impl IKernelTransaction {
@@ -74,13 +82,15 @@ pub type ISOLEVEL = i32;
 windows_core::imp::define_interface!(ITmNodeName, ITmNodeName_Vtbl, 0x30274f88_6ee4_474e_9b95_7807bc9ef8cf);
 windows_core::imp::interface_hierarchy!(ITmNodeName, windows_core::IUnknown);
 impl ITmNodeName {
-    pub unsafe fn GetNodeNameSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNodeNameSize(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNodeNameSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNodeName(&self, cbnodenamebuffersize: super::ULONG, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNodeName)(windows_core::Interface::as_raw(self), cbnodenamebuffersize, pnodenamebuffer) }
     }
 }
@@ -88,16 +98,24 @@ impl ITmNodeName {
 #[doc(hidden)]
 pub struct ITmNodeName_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetNodeNameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetNodeName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetNodeNameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetNodeNameSize: usize,
+    #[cfg(feature = "shared")]
+    pub GetNodeName: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetNodeName: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ITmNodeName_Impl: windows_core::IUnknownImpl {
-    fn GetNodeNameSize(&self) -> windows_core::Result<u32>;
-    fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetNodeNameSize(&self) -> windows_core::Result<super::ULONG>;
+    fn GetNodeName(&self, cbnodenamebuffersize: super::ULONG, pnodenamebuffer: windows_core::PWSTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ITmNodeName_Vtbl {
     pub const fn new<Identity: ITmNodeName_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetNodeNameSize<Identity: ITmNodeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbnodenamesize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNodeNameSize<Identity: ITmNodeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbnodenamesize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITmNodeName_Impl::GetNodeNameSize(this) {
@@ -109,7 +127,7 @@ impl ITmNodeName_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNodeName<Identity: ITmNodeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNodeName<Identity: ITmNodeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbnodenamebuffersize: super::ULONG, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITmNodeName_Impl::GetNodeName(this, core::mem::transmute_copy(&cbnodenamebuffersize), core::mem::transmute_copy(&pnodenamebuffer)).into()
@@ -125,18 +143,20 @@ impl ITmNodeName_Vtbl {
         iid == &<ITmNodeName as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ITmNodeName {}
 windows_core::imp::define_interface!(ITransaction, ITransaction_Vtbl, 0x0fb15084_af41_11ce_bd2b_204c4f4f5020);
 windows_core::imp::interface_hierarchy!(ITransaction, windows_core::IUnknown);
 impl ITransaction {
-    pub unsafe fn Commit(&self, fretaining: bool, grftc: u32, grfrm: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Commit(&self, fretaining: bool, grftc: super::DWORD, grfrm: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), fretaining.into(), grftc, grfrm) }
     }
     #[cfg(feature = "rpc")]
-    pub unsafe fn Abort(&self, pboidreason: *const BOID, fretaining: bool, fasync: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self), pboidreason, fretaining.into(), fasync.into()) }
+    pub unsafe fn Abort(&self, pboidreason: Option<*const BOID>, fretaining: bool, fasync: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self), pboidreason.unwrap_or(core::mem::zeroed()) as _, fretaining.into(), fasync.into()) }
     }
-    #[cfg(feature = "rpc")]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
     pub unsafe fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransactionInfo)(windows_core::Interface::as_raw(self), pinfo as _) }
     }
@@ -145,26 +165,29 @@ impl ITransaction {
 #[doc(hidden)]
 pub struct ITransaction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, super::DWORD, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Commit: usize,
     #[cfg(feature = "rpc")]
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void, *const BOID, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "rpc"))]
     Abort: usize,
-    #[cfg(feature = "rpc")]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
     pub GetTransactionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTTRANSINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     GetTransactionInfo: usize,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransaction_Impl: windows_core::IUnknownImpl {
-    fn Commit(&self, fretaining: windows_core::BOOL, grftc: u32, grfrm: u32) -> windows_core::Result<()>;
+    fn Commit(&self, fretaining: windows_core::BOOL, grftc: super::DWORD, grfrm: super::DWORD) -> windows_core::Result<()>;
     fn Abort(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, fasync: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransaction_Vtbl {
     pub const fn new<Identity: ITransaction_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Commit<Identity: ITransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grftc: u32, grfrm: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: ITransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, grftc: super::DWORD, grfrm: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITransaction_Impl::Commit(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grftc), core::mem::transmute_copy(&grfrm)).into()
@@ -193,7 +216,7 @@ impl ITransaction_Vtbl {
         iid == &<ITransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for ITransaction {}
 windows_core::imp::define_interface!(ITransaction2, ITransaction2_Vtbl, 0x34021548_0065_11d3_bac1_00c04f797be2);
 impl core::ops::Deref for ITransaction2 {
@@ -204,7 +227,7 @@ impl core::ops::Deref for ITransaction2 {
 }
 windows_core::imp::interface_hierarchy!(ITransaction2, windows_core::IUnknown, ITransaction, ITransactionCloner);
 impl ITransaction2 {
-    #[cfg(feature = "rpc")]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
     pub unsafe fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransactionInfo2)(windows_core::Interface::as_raw(self), pinfo as _) }
     }
@@ -213,16 +236,16 @@ impl ITransaction2 {
 #[doc(hidden)]
 pub struct ITransaction2_Vtbl {
     pub base__: ITransactionCloner_Vtbl,
-    #[cfg(feature = "rpc")]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
     pub GetTransactionInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTTRANSINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     GetTransactionInfo2: usize,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransaction2_Impl: ITransactionCloner_Impl {
     fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransaction2_Vtbl {
     pub const fn new<Identity: ITransaction2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransactionInfo2<Identity: ITransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> windows_core::HRESULT {
@@ -237,7 +260,7 @@ impl ITransaction2_Vtbl {
         iid == &<ITransaction2 as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID || iid == &<ITransactionCloner as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for ITransaction2 {}
 windows_core::imp::define_interface!(ITransactionCloner, ITransactionCloner_Vtbl, 0x02656950_2152_11d0_944c_00a0c905416e);
 impl core::ops::Deref for ITransactionCloner {
@@ -261,11 +284,11 @@ pub struct ITransactionCloner_Vtbl {
     pub base__: ITransaction_Vtbl,
     pub CloneWithCommitDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransactionCloner_Impl: ITransaction_Impl {
     fn CloneWithCommitDisabled(&self) -> windows_core::Result<ITransaction>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransactionCloner_Vtbl {
     pub const fn new<Identity: ITransactionCloner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CloneWithCommitDisabled<Identity: ITransactionCloner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppitransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -286,7 +309,7 @@ impl ITransactionCloner_Vtbl {
         iid == &<ITransactionCloner as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for ITransactionCloner {}
 windows_core::imp::define_interface!(ITransactionDispenser, ITransactionDispenser_Vtbl, 0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd);
 windows_core::imp::interface_hierarchy!(ITransactionDispenser, windows_core::IUnknown);
@@ -297,7 +320,8 @@ impl ITransactionDispenser {
             (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn BeginTransaction<P0, P3>(&self, punkouter: P0, isolevel: ISOLEVEL, isoflags: u32, poptions: P3) -> windows_core::Result<ITransaction>
+    #[cfg(feature = "shared")]
+    pub unsafe fn BeginTransaction<P0, P3>(&self, punkouter: P0, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: P3) -> windows_core::Result<ITransaction>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<ITransactionOptions>,
@@ -313,12 +337,17 @@ impl ITransactionDispenser {
 pub struct ITransactionDispenser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOptionsObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub BeginTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ISOLEVEL, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub BeginTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ISOLEVEL, super::ULONG, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    BeginTransaction: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ITransactionDispenser_Impl: windows_core::IUnknownImpl {
     fn GetOptionsObject(&self) -> windows_core::Result<ITransactionOptions>;
-    fn BeginTransaction(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, isolevel: ISOLEVEL, isoflags: u32, poptions: windows_core::Ref<ITransactionOptions>) -> windows_core::Result<ITransaction>;
+    fn BeginTransaction(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: windows_core::Ref<ITransactionOptions>) -> windows_core::Result<ITransaction>;
 }
+#[cfg(feature = "shared")]
 impl ITransactionDispenser_Vtbl {
     pub const fn new<Identity: ITransactionDispenser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOptionsObject<Identity: ITransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -333,7 +362,7 @@ impl ITransactionDispenser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BeginTransaction<Identity: ITransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, isolevel: ISOLEVEL, isoflags: u32, poptions: *mut core::ffi::c_void, pptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginTransaction<Identity: ITransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, isolevel: ISOLEVEL, isoflags: super::ULONG, poptions: *mut core::ffi::c_void, pptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionDispenser_Impl::BeginTransaction(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&poptions)) {
@@ -355,13 +384,16 @@ impl ITransactionDispenser_Vtbl {
         iid == &<ITransactionDispenser as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ITransactionDispenser {}
 windows_core::imp::define_interface!(ITransactionOptions, ITransactionOptions_Vtbl, 0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd);
 windows_core::imp::interface_hierarchy!(ITransactionOptions, windows_core::IUnknown);
 impl ITransactionOptions {
+    #[cfg(feature = "shared")]
     pub unsafe fn SetOptions(&self, poptions: *const XACTOPT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), poptions) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetOptions(&self, poptions: *mut XACTOPT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), poptions as _) }
     }
@@ -370,13 +402,21 @@ impl ITransactionOptions {
 #[doc(hidden)]
 pub struct ITransactionOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "shared")]
     pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const XACTOPT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetOptions: usize,
+    #[cfg(feature = "shared")]
     pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTOPT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOptions: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ITransactionOptions_Impl: windows_core::IUnknownImpl {
     fn SetOptions(&self, poptions: *const XACTOPT) -> windows_core::Result<()>;
     fn GetOptions(&self, poptions: *mut XACTOPT) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ITransactionOptions_Vtbl {
     pub const fn new<Identity: ITransactionOptions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOptions<Identity: ITransactionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poptions: *const XACTOPT) -> windows_core::HRESULT {
@@ -401,21 +441,22 @@ impl ITransactionOptions_Vtbl {
         iid == &<ITransactionOptions as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ITransactionOptions {}
 windows_core::imp::define_interface!(ITransactionOutcomeEvents, ITransactionOutcomeEvents_Vtbl, 0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd);
 windows_core::imp::interface_hierarchy!(ITransactionOutcomeEvents, windows_core::IUnknown);
 impl ITransactionOutcomeEvents {
     #[cfg(feature = "rpc")]
-    pub unsafe fn Committed(&self, fretaining: bool, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Committed)(windows_core::Interface::as_raw(self), fretaining.into(), pnewuow, hr) }
+    pub unsafe fn Committed(&self, fretaining: bool, pnewuow: Option<*const XACTUOW>, hr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Committed)(windows_core::Interface::as_raw(self), fretaining.into(), pnewuow.unwrap_or(core::mem::zeroed()) as _, hr) }
     }
     #[cfg(feature = "rpc")]
-    pub unsafe fn Aborted(&self, pboidreason: *const BOID, fretaining: bool, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Aborted)(windows_core::Interface::as_raw(self), pboidreason, fretaining.into(), pnewuow, hr) }
+    pub unsafe fn Aborted(&self, pboidreason: Option<*const BOID>, fretaining: bool, pnewuow: Option<*const XACTUOW>, hr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Aborted)(windows_core::Interface::as_raw(self), pboidreason.unwrap_or(core::mem::zeroed()) as _, fretaining.into(), pnewuow.unwrap_or(core::mem::zeroed()) as _, hr) }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).HeuristicDecision)(windows_core::Interface::as_raw(self), dwdecision, pboidreason, hr) }
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn HeuristicDecision(&self, dwdecision: super::DWORD, pboidreason: Option<*const BOID>, hr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).HeuristicDecision)(windows_core::Interface::as_raw(self), dwdecision, pboidreason.unwrap_or(core::mem::zeroed()) as _, hr) }
     }
     pub unsafe fn Indoubt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Indoubt)(windows_core::Interface::as_raw(self)) }
@@ -433,20 +474,20 @@ pub struct ITransactionOutcomeEvents_Vtbl {
     pub Aborted: unsafe extern "system" fn(*mut core::ffi::c_void, *const BOID, windows_core::BOOL, *const XACTUOW, windows_core::HRESULT) -> windows_core::HRESULT,
     #[cfg(not(feature = "rpc"))]
     Aborted: usize,
-    #[cfg(feature = "rpc")]
-    pub HeuristicDecision: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const BOID, windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub HeuristicDecision: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *const BOID, windows_core::HRESULT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     HeuristicDecision: usize,
     pub Indoubt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ITransactionOutcomeEvents_Impl: windows_core::IUnknownImpl {
     fn Committed(&self, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn Aborted(&self, pboidreason: *const BOID, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn HeuristicDecision(&self, dwdecision: super::DWORD, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()>;
     fn Indoubt(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl ITransactionOutcomeEvents_Vtbl {
     pub const fn new<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Committed<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: windows_core::BOOL, pnewuow: *const XACTUOW, hr: windows_core::HRESULT) -> windows_core::HRESULT {
@@ -461,7 +502,7 @@ impl ITransactionOutcomeEvents_Vtbl {
                 ITransactionOutcomeEvents_Impl::Aborted(this, core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&pnewuow), core::mem::transmute_copy(&hr)).into()
             }
         }
-        unsafe extern "system" fn HeuristicDecision<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdecision: u32, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn HeuristicDecision<Identity: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdecision: super::DWORD, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITransactionOutcomeEvents_Impl::HeuristicDecision(this, core::mem::transmute_copy(&dwdecision), core::mem::transmute_copy(&pboidreason), core::mem::transmute_copy(&hr)).into()
@@ -485,7 +526,7 @@ impl ITransactionOutcomeEvents_Vtbl {
         iid == &<ITransactionOutcomeEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for ITransactionOutcomeEvents {}
 pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40;
 pub type TX_MISC_CONSTANTS = i32;
@@ -497,11 +538,13 @@ pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = 2;
 pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = 3;
 pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XACTOPT {
-    pub ulTimeout: u32,
+    pub ulTimeout: super::ULONG,
     pub szDescription: [i8; 40],
 }
+#[cfg(feature = "shared")]
 impl Default for XACTOPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -512,16 +555,16 @@ pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2;
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1;
 pub type XACTSTAT = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTSTATS {
-    pub cOpen: u32,
-    pub cCommitting: u32,
-    pub cCommitted: u32,
-    pub cAborting: u32,
-    pub cAborted: u32,
-    pub cInDoubt: u32,
-    pub cHeuristicDecision: u32,
+    pub cOpen: super::ULONG,
+    pub cCommitting: super::ULONG,
+    pub cCommitted: super::ULONG,
+    pub cAborting: super::ULONG,
+    pub cAborted: super::ULONG,
+    pub cInDoubt: super::ULONG,
+    pub cHeuristicDecision: super::ULONG,
     pub timeTransactionsUp: super::FILETIME,
 }
 pub const XACTSTAT_ABORTED: XACTSTAT = 512;
@@ -555,16 +598,16 @@ pub const XACTTC_SYNC: XACTTC = 2;
 pub const XACTTC_SYNC_PHASEONE: XACTTC = 1;
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2;
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTTRANSINFO {
     pub uow: XACTUOW,
     pub isoLevel: ISOLEVEL,
-    pub isoFlags: u32,
-    pub grfTCSupported: u32,
-    pub grfRMSupported: u32,
-    pub grfTCSupportedRetaining: u32,
-    pub grfRMSupportedRetaining: u32,
+    pub isoFlags: super::ULONG,
+    pub grfTCSupported: super::DWORD,
+    pub grfRMSupported: super::DWORD,
+    pub grfTCSupportedRetaining: super::DWORD,
+    pub grfRMSupportedRetaining: super::DWORD,
 }
 #[cfg(feature = "rpc")]
 pub type XACTUOW = BOID;

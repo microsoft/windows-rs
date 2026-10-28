@@ -6,12 +6,12 @@ mod Windows {
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute ActivatableAttribute {
-                fn(version: u32);
-                fn(version: u32, r#type: String);
-                fn(version: u32, platform: Platform);
-                fn(r#type: Type, version: u32);
-                fn(r#type: Type, version: u32, contractName: String);
-                fn(r#type: Type, version: u32, platform: Platform);
+                fn(#[in] version: u32);
+                fn(#[in] version: u32, #[in] r#type: String);
+                fn(#[in] version: u32, #[in] platform: Platform);
+                fn(#[in] r#type: Type, #[in] version: u32);
+                fn(#[in] r#type: Type, #[in] version: u32, #[in] contractName: String);
+                fn(#[in] r#type: Type, #[in] version: u32, #[in] platform: Platform);
             }
             #[AttributeName("allowforweb")]
             #[AttributeUsage(RuntimeClass)]
@@ -38,11 +38,11 @@ mod Windows {
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 262144)]
             attribute AttributeNameAttribute {
-                fn(A_0: String);
+                fn(#[in] A_0: String);
             }
-            #[repr(u32)]
-            #[flags]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum AttributeTargets {
                 All = 4294967295,
                 Delegate = 1,
@@ -61,18 +61,18 @@ mod Windows {
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute AttributeUsageAttribute {
-                fn(A_0: AttributeTargets);
+                fn(#[in] A_0: AttributeTargets);
             }
             #[AllowMultiple]
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute ComposableAttribute {
-                fn(r#type: Type, compositionType: CompositionType, version: u32);
-                fn(r#type: Type, compositionType: CompositionType, version: u32, platform: Platform);
-                fn(r#type: Type, compositionType: CompositionType, version: u32, contract: String);
+                fn(#[in] r#type: Type, #[in] compositionType: CompositionType, #[in] version: u32);
+                fn(#[in] r#type: Type, #[in] compositionType: CompositionType, #[in] version: u32, #[in] platform: Platform);
+                fn(#[in] r#type: Type, #[in] compositionType: CompositionType, #[in] version: u32, #[in] contract: String);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum CompositionType {
                 Protected = 1,
                 Public = 2,
@@ -81,9 +81,9 @@ mod Windows {
             #[AttributeUsage(3967)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute ContractVersionAttribute {
-                fn(version: u32);
-                fn(contract: Type, version: u32);
-                fn(contract: String, version: u32);
+                fn(#[in] version: u32);
+                fn(#[in] contract: Type, #[in] version: u32);
+                fn(#[in] contract: String, #[in] version: u32);
             }
             #[AttributeName("createfromstring")]
             #[AttributeUsage(Struct | RuntimeClass)]
@@ -107,12 +107,12 @@ mod Windows {
             #[AttributeUsage(Struct | RuntimeClass | Property | Method | Interface | Field | Event | Enum | Delegate)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute DeprecatedAttribute {
-                fn(message: String, r#type: DeprecationType, version: u32);
-                fn(message: String, r#type: DeprecationType, version: u32, platform: Platform);
-                fn(message: String, r#type: DeprecationType, version: u32, contract: String);
+                fn(#[in] message: String, #[in] r#type: DeprecationType, #[in] version: u32);
+                fn(#[in] message: String, #[in] r#type: DeprecationType, #[in] version: u32, #[in] platform: Platform);
+                fn(#[in] message: String, #[in] r#type: DeprecationType, #[in] version: u32, #[in] contract: String);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum DeprecationType {
                 Deprecate = 0,
                 Remove = 1,
@@ -127,7 +127,7 @@ mod Windows {
             #[AttributeUsage(Interface)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute ExclusiveToAttribute {
-                fn(typeName: Type);
+                fn(#[in] typeName: Type);
             }
             #[AttributeUsage(Struct | RuntimeClass | Interface | Enum | Delegate)]
             #[ContractVersion(super::FoundationContract, 65536)]
@@ -137,25 +137,25 @@ mod Windows {
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 262144)]
             attribute FastAbiAttribute {
-                fn(version: u32);
-                fn(version: u32, platform: Platform);
-                fn(version: u32, contractName: String);
+                fn(#[in] version: u32);
+                fn(#[in] version: u32, #[in] platform: Platform);
+                fn(#[in] version: u32, #[in] contractName: String);
             }
             #[AttributeUsage(InterfaceImpl | Struct | RuntimeClass | Method | Interface | Field | Enum | Delegate)]
             #[ContractVersion(super::FoundationContract, 196608)]
             attribute FeatureAttribute {
                 fn(featureStage: FeatureStage, validInAllBranches: bool);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 196608)]
+            #[repr(i32)]
             enum FeatureStage {
                 AlwaysDisabled = 0,
                 DisabledByDefault = 1,
                 EnabledByDefault = 2,
                 AlwaysEnabled = 3,
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum GCPressureAmount {
                 Low = 0,
                 Medium = 1,
@@ -171,7 +171,7 @@ mod Windows {
             #[AttributeUsage(Interface | Delegate)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute GuidAttribute {
-                fn(a: u32, b: u16, c: u16, d: u8, e: u8, f: u8, g: u8, h: u8, i: u8, j: u8, k: u8);
+                fn(#[in] a: u32, #[in] b: u16, #[in] c: u16, #[in] d: u8, #[in] e: u8, #[in] f: u8, #[in] g: u8, #[in] h: u8, #[in] i: u8, #[in] j: u8, #[in] k: u8);
             }
             #[AttributeName("hasvariant")]
             #[AttributeUsage(All)]
@@ -179,24 +179,24 @@ mod Windows {
             attribute HasVariantAttribute {
                 fn();
             }
-            #[guid(0x997439fe_f681_4a11_b416_c13a47e8ba36)]
             #[ContractVersion(super::FoundationContract, 65536)]
             #[ExclusiveTo(ApiInformation)]
+            #[guid(0x997439fe_f681_4a11_b416_c13a47e8ba36)]
             interface IApiInformationStatics {
-                fn IsTypePresent(&self, typeName: String) -> bool;
+                fn IsTypePresent(&self, #[in] typeName: String) -> bool;
                 #[Overload("IsMethodPresent")]
-                fn IsMethodPresent(&self, typeName: String, methodName: String) -> bool;
+                fn IsMethodPresent(&self, #[in] typeName: String, #[in] methodName: String) -> bool;
                 #[Overload("IsMethodPresentWithArity")]
-                fn IsMethodPresent(&self, typeName: String, methodName: String, inputParameterCount: u32) -> bool;
-                fn IsEventPresent(&self, typeName: String, eventName: String) -> bool;
-                fn IsPropertyPresent(&self, typeName: String, propertyName: String) -> bool;
-                fn IsReadOnlyPropertyPresent(&self, typeName: String, propertyName: String) -> bool;
-                fn IsWriteablePropertyPresent(&self, typeName: String, propertyName: String) -> bool;
-                fn IsEnumNamedValuePresent(&self, enumTypeName: String, valueName: String) -> bool;
+                fn IsMethodPresent(&self, #[in] typeName: String, #[in] methodName: String, #[in] inputParameterCount: u32) -> bool;
+                fn IsEventPresent(&self, #[in] typeName: String, #[in] eventName: String) -> bool;
+                fn IsPropertyPresent(&self, #[in] typeName: String, #[in] propertyName: String) -> bool;
+                fn IsReadOnlyPropertyPresent(&self, #[in] typeName: String, #[in] propertyName: String) -> bool;
+                fn IsWriteablePropertyPresent(&self, #[in] typeName: String, #[in] propertyName: String) -> bool;
+                fn IsEnumNamedValuePresent(&self, #[in] enumTypeName: String, #[in] valueName: String) -> bool;
                 #[Overload("IsApiContractPresentByMajor")]
-                fn IsApiContractPresent(&self, contractName: String, majorVersion: u16) -> bool;
+                fn IsApiContractPresent(&self, #[in] contractName: String, #[in] majorVersion: u16) -> bool;
                 #[Overload("IsApiContractPresentByMajorAndMinor")]
-                fn IsApiContractPresent(&self, contractName: String, majorVersion: u16, minorVersion: u16) -> bool;
+                fn IsApiContractPresent(&self, #[in] contractName: String, #[in] majorVersion: u16, #[in] minorVersion: u16) -> bool;
             }
             #[AttributeUsage(ApiContract | Struct | RuntimeClass | Interface | Enum | Delegate)]
             #[ContractVersion(super::FoundationContract, 65536)]
@@ -206,15 +206,15 @@ mod Windows {
             #[AttributeUsage(Parameter)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute LengthIsAttribute {
-                fn(indexLengthParameter: i32);
+                fn(#[in] indexLengthParameter: i32);
             }
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute MarshalingBehaviorAttribute {
-                fn(behavior: MarshalingType);
+                fn(#[in] behavior: MarshalingType);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum MarshalingType {
                 None = 1,
                 Agile = 2,
@@ -243,29 +243,29 @@ mod Windows {
             #[AttributeUsage(Method)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute OverloadAttribute {
-                fn(method: String);
+                fn(#[in] method: String);
             }
             #[AttributeUsage(InterfaceImpl)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute OverridableAttribute {
                 fn();
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum Platform {
                 Windows = 0,
                 WindowsPhone = 1,
             }
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute PlatformAttribute {
-                fn(platform: Platform);
+                fn(#[in] platform: Platform);
             }
             #[AllowMultiple]
             #[AttributeUsage(3967)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute PreviousContractVersionAttribute {
-                fn(contract: String, versionLow: u32, versionHigh: u32, newContract: String);
-                fn(contract: String, versionLow: u32, versionHigh: u32);
+                fn(#[in] contract: String, #[in] versionLow: u32, #[in] versionHigh: u32, #[in] newContract: String);
+                fn(#[in] contract: String, #[in] versionLow: u32, #[in] versionHigh: u32);
             }
             #[AttributeUsage(InterfaceImpl)]
             #[ContractVersion(super::FoundationContract, 65536)]
@@ -275,7 +275,7 @@ mod Windows {
             #[AttributeUsage(Parameter)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute RangeAttribute {
-                fn(minValue: i32, maxValue: i32);
+                fn(#[in] minValue: i32, #[in] maxValue: i32);
             }
             #[AttributeUsage(RuntimeClass | Method)]
             #[ContractVersion(super::FoundationContract, 65536)]
@@ -286,17 +286,17 @@ mod Windows {
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute StaticAttribute {
-                fn(r#type: Type, version: u32);
-                fn(r#type: Type, version: u32, platform: Platform);
-                fn(r#type: Type, version: u32, contractName: String);
+                fn(#[in] r#type: Type, #[in] version: u32);
+                fn(#[in] r#type: Type, #[in] version: u32, #[in] platform: Platform);
+                fn(#[in] r#type: Type, #[in] version: u32, #[in] contractName: String);
             }
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute ThreadingAttribute {
-                fn(model: ThreadingModel);
+                fn(#[in] model: ThreadingModel);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum ThreadingModel {
                 STA = 1,
                 MTA = 2,
@@ -313,8 +313,8 @@ mod Windows {
             #[AttributeUsage(3967)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute VersionAttribute {
-                fn(version: u32);
-                fn(version: u32, platform: Platform);
+                fn(#[in] version: u32);
+                fn(#[in] version: u32, #[in] platform: Platform);
             }
             #[AttributeName("webhosthidden")]
             #[AttributeUsage(Struct | RuntimeClass | Interface | Enum | Delegate)]

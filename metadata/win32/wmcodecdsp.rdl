@@ -27,17 +27,17 @@ mod Windows {
         }
         const ALawCodecWrapper: GUID = 0x36cb6e0c_78c1_42b2_9943_846262f31786;
         struct AecQualityMetrics_Struct {
-            i64Timestamp: i64,
-            ConvergenceFlag: u8,
-            MicClippedFlag: u8,
-            MicSilenceFlag: u8,
-            PstvFeadbackFlag: u8,
-            SpkClippedFlag: u8,
-            SpkMuteFlag: u8,
-            GlitchFlag: u8,
-            DoubleTalkFlag: u8,
-            uGlitchCount: u32,
-            uMicClipCount: u32,
+            i64Timestamp: LONGLONG,
+            ConvergenceFlag: BYTE,
+            MicClippedFlag: BYTE,
+            MicSilenceFlag: BYTE,
+            PstvFeadbackFlag: BYTE,
+            SpkClippedFlag: BYTE,
+            SpkMuteFlag: BYTE,
+            GlitchFlag: BYTE,
+            DoubleTalkFlag: BYTE,
+            uGlitchCount: ULONG,
+            uMicClipCount: ULONG,
             fDuration: f32,
             fTSVariance: f32,
             fTSDriftRate: f32,
@@ -45,7 +45,7 @@ mod Windows {
             fNoiseLevel: f32,
             fERLE: f32,
             fAvgERLE: f32,
-            dwReserved: u32,
+            dwReserved: DWORD,
         }
         const CAC3DecMediaObject: GUID = 0x03d7c802_ecfa_47d9_b268_5fb3e310dee4;
         const CClusterDetectorDmo: GUID = 0x36e820c4_165a_4521_863c_619e1160d4d4;
@@ -162,144 +162,144 @@ mod Windows {
         }
         #[guid(0x3f07f7b7_c680_41d9_9423_915107ec9ff9)]
         interface IClusterDetector: IUnknown {
-            fn Initialize(&self, wBaseEntryLevel: u16, wClusterEntryLevel: u16) -> HRESULT;
-            fn Detect(&self, dwMaxNumClusters: u32, fMinClusterDuration: f32, fMaxClusterDuration: f32, pSrcToc: IToc, ppDstToc: *mut IToc) -> HRESULT;
+            fn Initialize(&self, #[in] wBaseEntryLevel: WORD, #[in] wClusterEntryLevel: WORD) -> HRESULT;
+            fn Detect(&self, #[in] dwMaxNumClusters: DWORD, #[in] fMinClusterDuration: FLOAT, #[in] fMaxClusterDuration: FLOAT, #[in] pSrcToc: IToc, #[out] ppDstToc: *mut IToc) -> HRESULT;
         }
         #[guid(0xbfccd196_1244_4840_ab44_480975c4ffe4)]
         interface IFileClient: IUnknown {
-            fn GetObjectDiskSize(&self, pqwSize: *mut u64) -> HRESULT;
-            fn Write(&self, pFio: IFileIo) -> HRESULT;
-            fn Read(&self, pFio: IFileIo) -> HRESULT;
+            fn GetObjectDiskSize(&self, #[out] pqwSize: *mut QWORD) -> HRESULT;
+            fn Write(&self, #[in] pFio: IFileIo) -> HRESULT;
+            fn Read(&self, #[in] pFio: IFileIo) -> HRESULT;
         }
         #[guid(0x11993196_1244_4840_ab44_480975c4ffe4)]
         interface IFileIo: IUnknown {
-            fn Initialize(&self, eAccessMode: FILE_ACCESSMODE, eOpenMode: FILE_OPENMODE, pwszFileName: PCWSTR) -> HRESULT;
-            fn GetLength(&self, pqwLength: *mut u64) -> HRESULT;
-            fn SetLength(&self, qwLength: u64) -> HRESULT;
-            fn GetCurrentPosition(&self, pqwPosition: *mut u64) -> HRESULT;
-            fn SetCurrentPosition(&self, qwPosition: u64) -> HRESULT;
-            fn IsEndOfStream(&self, pbEndOfStream: *mut BOOL) -> HRESULT;
-            fn Read(&self, #[in] pbt: *mut u8, ul: u32, pulRead: *mut u32) -> HRESULT;
-            fn Write(&self, #[in] pbt: *mut u8, ul: u32, pulWritten: *mut u32) -> HRESULT;
-            fn Seek(&self, eSeekOrigin: SEEK_ORIGIN, qwSeekOffset: u64, dwSeekFlags: u32, pqwCurrentPosition: *mut u64) -> HRESULT;
+            fn Initialize(&self, #[in] eAccessMode: FILE_ACCESSMODE, #[in] eOpenMode: FILE_OPENMODE, #[in] pwszFileName: LPCWSTR) -> HRESULT;
+            fn GetLength(&self, #[out] pqwLength: *mut QWORD) -> HRESULT;
+            fn SetLength(&self, #[in] qwLength: QWORD) -> HRESULT;
+            fn GetCurrentPosition(&self, #[out] pqwPosition: *mut QWORD) -> HRESULT;
+            fn SetCurrentPosition(&self, #[in] qwPosition: QWORD) -> HRESULT;
+            fn IsEndOfStream(&self, #[out] pbEndOfStream: *mut BOOL) -> HRESULT;
+            fn Read(&self, #[in] pbt: *mut BYTE, #[in] ul: ULONG, #[out] pulRead: *mut ULONG) -> HRESULT;
+            fn Write(&self, #[in] pbt: *mut BYTE, #[in] ul: ULONG, #[out] pulWritten: *mut ULONG) -> HRESULT;
+            fn Seek(&self, #[in] eSeekOrigin: SEEK_ORIGIN, #[in] qwSeekOffset: QWORD, #[in] dwSeekFlags: DWORD, #[out] pqwCurrentPosition: *mut QWORD) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xd6f05441_a919_423b_91a0_89d5b4a8ab77)]
         interface IToc: IUnknown {
             fn SetDescriptor(&self, #[in] pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
-            fn GetDescriptor(&self, pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
-            fn SetDescription(&self, pwszDescription: PCWSTR) -> HRESULT;
-            fn GetDescription(&self, #[in] #[out] pwDescriptionSize: *mut u16, #[len_param(0)] #[out] #[opt] pwszDescription: PWSTR) -> HRESULT;
-            fn SetContext(&self, dwContextSize: u32, #[in] pbtContext: *mut u8) -> HRESULT;
-            fn GetContext(&self, #[in] #[out] pdwContextSize: *mut u32, pbtContext: *mut u8) -> HRESULT;
-            fn GetEntryListCount(&self, pwCount: *mut u16) -> HRESULT;
-            fn GetEntryListByIndex(&self, wEntryListIndex: u16, ppEntryList: *mut ITocEntryList) -> HRESULT;
-            fn AddEntryList(&self, pEntryList: ITocEntryList, pwEntryListIndex: *mut u16) -> HRESULT;
-            fn AddEntryListByIndex(&self, wEntryListIndex: u16, pEntryList: ITocEntryList) -> HRESULT;
-            fn RemoveEntryListByIndex(&self, wEntryListIndex: u16) -> HRESULT;
+            fn GetDescriptor(&self, #[out] pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
+            fn SetDescription(&self, #[in] pwszDescription: LPCWSTR) -> HRESULT;
+            fn GetDescription(&self, #[in] #[out] pwDescriptionSize: *mut WORD, #[opt] #[out] #[writable(entry, *pwDescriptionSize)] pwszDescription: LPWSTR) -> HRESULT;
+            fn SetContext(&self, #[in] dwContextSize: DWORD, #[in] pbtContext: *mut BYTE) -> HRESULT;
+            fn GetContext(&self, #[in] #[out] pdwContextSize: *mut DWORD, #[out] pbtContext: *mut BYTE) -> HRESULT;
+            fn GetEntryListCount(&self, #[out] pwCount: *mut WORD) -> HRESULT;
+            fn GetEntryListByIndex(&self, #[in] wEntryListIndex: WORD, #[out] ppEntryList: *mut ITocEntryList) -> HRESULT;
+            fn AddEntryList(&self, #[in] pEntryList: ITocEntryList, #[out] pwEntryListIndex: *mut WORD) -> HRESULT;
+            fn AddEntryListByIndex(&self, #[in] wEntryListIndex: WORD, #[in] pEntryList: ITocEntryList) -> HRESULT;
+            fn RemoveEntryListByIndex(&self, #[in] wEntryListIndex: WORD) -> HRESULT;
         }
         #[guid(0x23fee831_ae96_42df_b170_25a04847a3ca)]
         interface ITocCollection: IUnknown {
-            fn GetEntryCount(&self, pdwEntryCount: *mut u32) -> HRESULT;
-            fn GetEntryByIndex(&self, dwEntryIndex: u32, ppToc: *mut IToc) -> HRESULT;
-            fn AddEntry(&self, pToc: IToc, pdwEntryIndex: *mut u32) -> HRESULT;
-            fn AddEntryByIndex(&self, dwEntryIndex: u32, pToc: IToc) -> HRESULT;
-            fn RemoveEntryByIndex(&self, dwEntryIndex: u32) -> HRESULT;
+            fn GetEntryCount(&self, #[out] pdwEntryCount: *mut DWORD) -> HRESULT;
+            fn GetEntryByIndex(&self, #[in] dwEntryIndex: DWORD, #[out] ppToc: *mut IToc) -> HRESULT;
+            fn AddEntry(&self, #[in] pToc: IToc, #[out] pdwEntryIndex: *mut DWORD) -> HRESULT;
+            fn AddEntryByIndex(&self, #[in] dwEntryIndex: DWORD, #[in] pToc: IToc) -> HRESULT;
+            fn RemoveEntryByIndex(&self, #[in] dwEntryIndex: DWORD) -> HRESULT;
         }
         #[guid(0xf22f5e06_585c_4def_8523_6555cfbc0cb3)]
         interface ITocEntry: IUnknown {
-            fn SetTitle(&self, pwszTitle: PCWSTR) -> HRESULT;
-            fn GetTitle(&self, #[in] #[out] pwTitleSize: *mut u16, #[len_param(0)] #[out] #[opt] pwszTitle: PWSTR) -> HRESULT;
+            fn SetTitle(&self, #[in] pwszTitle: LPCWSTR) -> HRESULT;
+            fn GetTitle(&self, #[in] #[out] pwTitleSize: *mut WORD, #[opt] #[out] #[writable(entry, *pwTitleSize)] pwszTitle: LPWSTR) -> HRESULT;
             fn SetDescriptor(&self, #[in] pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
-            fn GetDescriptor(&self, pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
-            fn SetSubEntries(&self, dwNumSubEntries: u32, #[in] pwSubEntryIndices: *mut u16) -> HRESULT;
-            fn GetSubEntries(&self, #[in] #[out] pdwNumSubEntries: *mut u32, pwSubEntryIndices: *mut u16) -> HRESULT;
-            fn SetDescriptionData(&self, dwDescriptionDataSize: u32, #[in] pbtDescriptionData: *mut u8, #[in] pguidType: *mut GUID) -> HRESULT;
-            fn GetDescriptionData(&self, #[in] #[out] pdwDescriptionDataSize: *mut u32, pbtDescriptionData: *mut u8, pGuidType: *mut GUID) -> HRESULT;
+            fn GetDescriptor(&self, #[out] pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
+            fn SetSubEntries(&self, #[in] dwNumSubEntries: DWORD, #[in] pwSubEntryIndices: *mut WORD) -> HRESULT;
+            fn GetSubEntries(&self, #[in] #[out] pdwNumSubEntries: *mut DWORD, #[out] pwSubEntryIndices: *mut WORD) -> HRESULT;
+            fn SetDescriptionData(&self, #[in] dwDescriptionDataSize: DWORD, #[in] pbtDescriptionData: *mut BYTE, #[in] pguidType: *mut GUID) -> HRESULT;
+            fn GetDescriptionData(&self, #[in] #[out] pdwDescriptionDataSize: *mut DWORD, #[out] pbtDescriptionData: *mut BYTE, #[out] pGuidType: *mut GUID) -> HRESULT;
         }
         #[guid(0x3a8cccbd_0efd_43a3_b838_f38a552ba237)]
         interface ITocEntryList: IUnknown {
-            fn GetEntryCount(&self, pdwEntryCount: *mut u32) -> HRESULT;
-            fn GetEntryByIndex(&self, dwEntryIndex: u32, ppEntry: *mut ITocEntry) -> HRESULT;
-            fn AddEntry(&self, pEntry: ITocEntry, pdwEntryIndex: *mut u32) -> HRESULT;
-            fn AddEntryByIndex(&self, dwEntryIndex: u32, pEntry: ITocEntry) -> HRESULT;
-            fn RemoveEntryByIndex(&self, dwEntryIndex: u32) -> HRESULT;
+            fn GetEntryCount(&self, #[out] pdwEntryCount: *mut DWORD) -> HRESULT;
+            fn GetEntryByIndex(&self, #[in] dwEntryIndex: DWORD, #[out] ppEntry: *mut ITocEntry) -> HRESULT;
+            fn AddEntry(&self, #[in] pEntry: ITocEntry, #[out] pdwEntryIndex: *mut DWORD) -> HRESULT;
+            fn AddEntryByIndex(&self, #[in] dwEntryIndex: DWORD, #[in] pEntry: ITocEntry) -> HRESULT;
+            fn RemoveEntryByIndex(&self, #[in] dwEntryIndex: DWORD) -> HRESULT;
         }
         #[guid(0xecfb9a55_9298_4f49_887f_0b36206599d2)]
         interface ITocParser: IUnknown {
-            fn Init(&self, pwszFileName: PCWSTR) -> HRESULT;
-            fn GetTocCount(&self, enumTocPosType: TOC_POS_TYPE, pdwTocCount: *mut u32) -> HRESULT;
-            fn GetTocByIndex(&self, enumTocPosType: TOC_POS_TYPE, dwTocIndex: u32, ppToc: *mut IToc) -> HRESULT;
-            fn GetTocByType(&self, enumTocPosType: TOC_POS_TYPE, guidTocType: GUID, ppTocs: *mut ITocCollection) -> HRESULT;
-            fn AddToc(&self, enumTocPosType: TOC_POS_TYPE, pToc: IToc, pdwTocIndex: *mut u32) -> HRESULT;
-            fn RemoveTocByIndex(&self, enumTocPosType: TOC_POS_TYPE, dwTocIndex: u32) -> HRESULT;
-            fn RemoveTocByType(&self, enumTocPosType: TOC_POS_TYPE, guidTocType: GUID) -> HRESULT;
+            fn Init(&self, #[in] pwszFileName: LPCWSTR) -> HRESULT;
+            fn GetTocCount(&self, #[in] enumTocPosType: TOC_POS_TYPE, #[out] pdwTocCount: *mut DWORD) -> HRESULT;
+            fn GetTocByIndex(&self, #[in] enumTocPosType: TOC_POS_TYPE, #[in] dwTocIndex: DWORD, #[out] ppToc: *mut IToc) -> HRESULT;
+            fn GetTocByType(&self, #[in] enumTocPosType: TOC_POS_TYPE, #[in] guidTocType: GUID, #[out] ppTocs: *mut ITocCollection) -> HRESULT;
+            fn AddToc(&self, #[in] enumTocPosType: TOC_POS_TYPE, #[in] pToc: IToc, #[out] pdwTocIndex: *mut DWORD) -> HRESULT;
+            fn RemoveTocByIndex(&self, #[in] enumTocPosType: TOC_POS_TYPE, #[in] dwTocIndex: DWORD) -> HRESULT;
+            fn RemoveTocByType(&self, #[in] enumTocPosType: TOC_POS_TYPE, #[in] guidTocType: GUID) -> HRESULT;
             fn Commit(&self) -> HRESULT;
         }
         #[guid(0x04a578b2_e778_422a_a805_b3ee54d90bd9)]
         interface IValidateBinding: IUnknown {
-            fn GetIdentifier(&self, guidLicensorID: GUID, #[in] pbEphemeron: *mut u8, cbEphemeron: u32, ppbBlobValidationID: *mut *mut u8, pcbBlobSize: *mut u32) -> HRESULT;
+            fn GetIdentifier(&self, #[in] guidLicensorID: GUID, #[in] #[readable(entry, cbEphemeron)] pbEphemeron: *mut BYTE, #[in] cbEphemeron: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbBlobSize, indirect, nullable)] #[writable(success, *pcbBlobSize, indirect, nullable)] ppbBlobValidationID: *mut *mut BYTE, #[out] pcbBlobSize: *mut DWORD) -> HRESULT;
         }
         #[guid(0xa81ba647_6227_43b7_b231_c7b15135dd7d)]
         interface IWMCodecLeakyBucket: IUnknown {
-            fn SetBufferSizeBits(&self, ulBufferSize: u32) -> HRESULT;
-            fn GetBufferSizeBits(&self, pulBufferSize: *mut u32) -> HRESULT;
-            fn SetBufferFullnessBits(&self, ulBufferFullness: u32) -> HRESULT;
-            fn GetBufferFullnessBits(&self, pulBufferFullness: *mut u32) -> HRESULT;
+            fn SetBufferSizeBits(&self, #[in] ulBufferSize: ULONG) -> HRESULT;
+            fn GetBufferSizeBits(&self, #[out] pulBufferSize: *mut ULONG) -> HRESULT;
+            fn SetBufferFullnessBits(&self, #[in] ulBufferFullness: ULONG) -> HRESULT;
+            fn GetBufferFullnessBits(&self, #[out] pulBufferFullness: *mut ULONG) -> HRESULT;
         }
         #[guid(0xb72adf95_7adc_4a72_bc05_577d8ea6bf68)]
         interface IWMCodecOutputTimestamp: IUnknown {
-            fn GetNextOutputTime(&self, prtTime: *mut REFERENCE_TIME) -> HRESULT;
+            fn GetNextOutputTime(&self, #[out] prtTime: *mut REFERENCE_TIME) -> HRESULT;
         }
         #[guid(0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e)]
         interface IWMCodecPrivateData: IUnknown {
             fn SetPartialOutputType(&self, #[in] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
-            fn GetPrivateData(&self, #[in] #[out] pbData: *mut u8, #[in] #[out] pcbData: *mut u32) -> HRESULT;
+            fn GetPrivateData(&self, #[in] #[out] pbData: *mut BYTE, #[in] #[out] pcbData: *mut ULONG) -> HRESULT;
         }
         #[guid(0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589)]
         interface IWMCodecProps: IUnknown {
-            fn GetFormatProp(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, pszName: PCWSTR, pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
-            fn GetCodecProp(&self, dwFormat: u32, pszName: PCWSTR, pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+            fn GetFormatProp(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, #[in] pszName: LPCWSTR, #[out] pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut BYTE, #[in] #[out] pdwSize: *mut DWORD) -> HRESULT;
+            fn GetCodecProp(&self, #[in] dwFormat: DWORD, #[in] pszName: LPCWSTR, #[out] pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut BYTE, #[in] #[out] pdwSize: *mut DWORD) -> HRESULT;
         }
         #[guid(0xa7b2504b_e58a_47fb_958b_cac7165a057d)]
         interface IWMCodecStrings: IUnknown {
-            fn GetName(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[in] #[out] #[opt] szName: PWSTR, pcchLength: *mut u32) -> HRESULT;
-            fn GetDescription(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[in] #[out] #[opt] szDescription: PWSTR, pcchLength: *mut u32) -> HRESULT;
+            fn GetName(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, #[in] cchLength: ULONG, #[in] #[opt] #[out] #[readable(success, *pcchLength)] #[writable(entry, cchLength)] szName: LPWSTR, #[out] pcchLength: *mut ULONG) -> HRESULT;
+            fn GetDescription(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, #[in] cchLength: ULONG, #[in] #[opt] #[out] #[readable(success, *pcchLength)] #[writable(entry, cchLength)] szDescription: LPWSTR, #[out] pcchLength: *mut ULONG) -> HRESULT;
         }
         #[guid(0xe6a49e22_c099_421d_aad3_c061fb4ae85b)]
         interface IWMColorConvProps: IUnknown {
-            fn SetMode(&self, lMode: i32) -> HRESULT;
-            fn SetFullCroppingParam(&self, lSrcCropLeft: i32, lSrcCropTop: i32, lDstCropLeft: i32, lDstCropTop: i32, lCropWidth: i32, lCropHeight: i32) -> HRESULT;
+            fn SetMode(&self, #[in] lMode: LONG) -> HRESULT;
+            fn SetFullCroppingParam(&self, #[in] lSrcCropLeft: LONG, #[in] lSrcCropTop: LONG, #[in] lDstCropLeft: LONG, #[in] lDstCropTop: LONG, #[in] lCropWidth: LONG, #[in] lCropHeight: LONG) -> HRESULT;
         }
         #[guid(0x776c93b3_b72d_4508_b6d0_208785f553e7)]
         interface IWMColorLegalizerProps: IUnknown {
-            fn SetColorLegalizerQuality(&self, lquality: i32) -> HRESULT;
+            fn SetColorLegalizerQuality(&self, #[in] lquality: LONG) -> HRESULT;
         }
         #[guid(0x4c06bb9b_626c_4614_8329_cc6a21b93fa0)]
         interface IWMFrameInterpProps: IUnknown {
-            fn SetFrameRateIn(&self, lFrameRate: i32, lScale: i32) -> HRESULT;
-            fn SetFrameRateOut(&self, lFrameRate: i32, lScale: i32) -> HRESULT;
-            fn SetFrameInterpEnabled(&self, bFIEnabled: BOOL) -> HRESULT;
-            fn SetComplexityLevel(&self, iComplexity: i32) -> HRESULT;
+            fn SetFrameRateIn(&self, #[in] lFrameRate: LONG, #[in] lScale: LONG) -> HRESULT;
+            fn SetFrameRateOut(&self, #[in] lFrameRate: LONG, #[in] lScale: LONG) -> HRESULT;
+            fn SetFrameInterpEnabled(&self, #[in] bFIEnabled: BOOL) -> HRESULT;
+            fn SetComplexityLevel(&self, #[in] iComplexity: i32) -> HRESULT;
         }
         #[guid(0x7b12e5d1_bd22_48ea_bc06_98e893221c89)]
         interface IWMInterlaceProps: IUnknown {
-            fn SetProcessType(&self, iProcessType: i32) -> HRESULT;
-            fn SetInitInverseTeleCinePattern(&self, iInitPattern: i32) -> HRESULT;
+            fn SetProcessType(&self, #[in] iProcessType: i32) -> HRESULT;
+            fn SetInitInverseTeleCinePattern(&self, #[in] iInitPattern: i32) -> HRESULT;
             fn SetLastFrame(&self) -> HRESULT;
         }
         #[guid(0xe7e9984f_f09f_4da4_903f_6e2e0efe56b5)]
         interface IWMResamplerProps: IUnknown {
-            fn SetHalfFilterLength(&self, lhalfFilterLen: i32) -> HRESULT;
+            fn SetHalfFilterLength(&self, #[in] lhalfFilterLen: LONG) -> HRESULT;
             fn SetUserChannelMtx(&self, #[in] userChannelMtx: *mut ChMtxType) -> HRESULT;
         }
         #[guid(0x57665d4c_0414_4faa_905b_10e546f81c33)]
         interface IWMResizerProps: IUnknown {
-            fn SetResizerQuality(&self, lquality: i32) -> HRESULT;
-            fn SetInterlaceMode(&self, lmode: i32) -> HRESULT;
-            fn SetClipRegion(&self, lClipOriXSrc: i32, lClipOriYSrc: i32, lClipWidthSrc: i32, lClipHeightSrc: i32) -> HRESULT;
-            fn SetFullCropRegion(&self, lClipOriXSrc: i32, lClipOriYSrc: i32, lClipWidthSrc: i32, lClipHeightSrc: i32, lClipOriXDst: i32, lClipOriYDst: i32, lClipWidthDst: i32, lClipHeightDst: i32) -> HRESULT;
-            fn GetFullCropRegion(&self, lClipOriXSrc: *mut i32, lClipOriYSrc: *mut i32, lClipWidthSrc: *mut i32, lClipHeightSrc: *mut i32, lClipOriXDst: *mut i32, lClipOriYDst: *mut i32, lClipWidthDst: *mut i32, lClipHeightDst: *mut i32) -> HRESULT;
+            fn SetResizerQuality(&self, #[in] lquality: LONG) -> HRESULT;
+            fn SetInterlaceMode(&self, #[in] lmode: LONG) -> HRESULT;
+            fn SetClipRegion(&self, #[in] lClipOriXSrc: LONG, #[in] lClipOriYSrc: LONG, #[in] lClipWidthSrc: LONG, #[in] lClipHeightSrc: LONG) -> HRESULT;
+            fn SetFullCropRegion(&self, #[in] lClipOriXSrc: LONG, #[in] lClipOriYSrc: LONG, #[in] lClipWidthSrc: LONG, #[in] lClipHeightSrc: LONG, #[in] lClipOriXDst: LONG, #[in] lClipOriYDst: LONG, #[in] lClipWidthDst: LONG, #[in] lClipHeightDst: LONG) -> HRESULT;
+            fn GetFullCropRegion(&self, #[out] lClipOriXSrc: *mut LONG, #[out] lClipOriYSrc: *mut LONG, #[out] lClipWidthSrc: *mut LONG, #[out] lClipHeightSrc: *mut LONG, #[out] lClipOriXDst: *mut LONG, #[out] lClipOriYDst: *mut LONG, #[out] lClipWidthDst: *mut LONG, #[out] lClipHeightDst: *mut LONG) -> HRESULT;
         }
         #[guid(0x9bca9884_0604_4c2a_87da_793ff4d586c3)]
         interface IWMSampleExtensionSupport: IUnknown {
@@ -307,18 +307,18 @@ mod Windows {
         }
         #[guid(0xcee3def2_3808_414d_be66_fafd472210bc)]
         interface IWMValidate: IUnknown {
-            fn SetIdentifier(&self, guidValidationID: GUID) -> HRESULT;
+            fn SetIdentifier(&self, #[in] guidValidationID: GUID) -> HRESULT;
         }
         #[guid(0x352bb3bd_2d4d_4323_9e71_dcdcfbd53ca6)]
         interface IWMVideoDecoderHurryup: IUnknown {
-            fn SetHurryup(&self, lHurryup: i32) -> HRESULT;
-            fn GetHurryup(&self, plHurryup: *mut i32) -> HRESULT;
+            fn SetHurryup(&self, #[in] lHurryup: LONG) -> HRESULT;
+            fn GetHurryup(&self, #[out] plHurryup: *mut LONG) -> HRESULT;
         }
         #[guid(0x45bda2ac_88e2_4923_98ba_3949080711a3)]
         interface IWMVideoDecoderReconBuffer: IUnknown {
-            fn GetReconstructedVideoFrameSize(&self, pdwSize: *mut u32) -> HRESULT;
-            fn GetReconstructedVideoFrame(&self, pBuf: IMediaBuffer) -> HRESULT;
-            fn SetReconstructedVideoFrame(&self, pBuf: IMediaBuffer) -> HRESULT;
+            fn GetReconstructedVideoFrameSize(&self, #[out] pdwSize: *mut DWORD) -> HRESULT;
+            fn GetReconstructedVideoFrame(&self, #[in] pBuf: IMediaBuffer) -> HRESULT;
+            fn SetReconstructedVideoFrame(&self, #[in] pBuf: IMediaBuffer) -> HRESULT;
         }
         #[guid(0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2)]
         interface IWMVideoForceKeyFrame: IUnknown {
@@ -389,6 +389,616 @@ mod Windows {
         const MFAMRNBSinkClassFactory: GUID = 0xb0271158_70d2_4c5b_9f94_76f549d90fdf;
         const MFFLACBytestreamHandler: GUID = 0x0e41cfb8_0506_40f4_a516_77cc23642d91;
         const MFFLACSinkClassFactory: GUID = 0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_ADAPTIVERESOLUTION: PROPERTYKEY = 86;
+        #[guid(0x0eac7502_1957_4beb_914d_885f85e75436)]
+        const MFPKEY_ASFOVERHEADPERFRAME: PROPERTYKEY = 18;
+        #[guid(0x30bbfebf_24b4_4198_89ba_ad11a2acd601)]
+        const MFPKEY_AUVRHP_DOHRTFREVERB: PROPERTYKEY = 5;
+        #[guid(0x30bbfebf_24b4_4198_89ba_ad11a2acd601)]
+        const MFPKEY_AUVRHP_DOPOSTREVERB: PROPERTYKEY = 6;
+        #[guid(0x30bbfebf_24b4_4198_89ba_ad11a2acd601)]
+        const MFPKEY_AUVRHP_LFWEIGHT: PROPERTYKEY = 4;
+        #[guid(0x30bbfebf_24b4_4198_89ba_ad11a2acd601)]
+        const MFPKEY_AUVRHP_POSTREVERB_LEN: PROPERTYKEY = 8;
+        #[guid(0x30bbfebf_24b4_4198_89ba_ad11a2acd601)]
+        const MFPKEY_AUVRHP_POSTREVERB_START: PROPERTYKEY = 7;
+        #[guid(0x73ae880e_8258_4e57_b85f_7daa6b7d5ef0)]
+        const MFPKEY_AUVRHP_ROOMMODEL: PROPERTYKEY = 2;
+        #[guid(0x30bbfebf_24b4_4198_89ba_ad11a2acd601)]
+        const MFPKEY_AUVRHP_SKIPHRTFREVERB: PROPERTYKEY = 1;
+        #[guid(0x30bbfebf_24b4_4198_89ba_ad11a2acd601)]
+        const MFPKEY_AUVRHP_SKIPPOSTREVERB: PROPERTYKEY = 2;
+        #[guid(0xfb5d2347_4dd8_4509_aed0_db5fa9aa93f4)]
+        const MFPKEY_AVDecVideoSWPowerLevel: PROPERTYKEY = 8;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_AVGCONSTRAINED: PROPERTYKEY = 8;
+        #[guid(0x41d700d6_95b1_4e3f_b759_2d66d8c7ada2)]
+        const MFPKEY_AVGFRAMERATE: PROPERTYKEY = 1;
+        #[guid(0xc816a1a7_a119_48a5_9ad2_85451f4b5a2e)]
+        const MFPKEY_BASSMGMT_BIGROOM: PROPERTYKEY = 2;
+        #[guid(0x61e8acb9_f04f_4f40_a65f_8f49fab3ba10)]
+        const MFPKEY_BASSMGMT_CROSSOVER_FREQ: PROPERTYKEY = 2;
+        #[guid(0xb1103003_c191_4275_9fa0_8c282c724bce)]
+        const MFPKEY_BASSMGMT_INVERT_SUB: PROPERTYKEY = 2;
+        #[guid(0x5c3fd32e_0d40_4e2d_99fb_c91e96420be7)]
+        const MFPKEY_BASSMGMT_NO_SUB: PROPERTYKEY = 2;
+        #[guid(0x7bfd170d_4770_4dc5_924d_0b7b252ee918)]
+        const MFPKEY_BASSMGMT_SPKRBASSCONFIG: PROPERTYKEY = 2;
+        #[guid(0xae7f0b2a_96fc_493a_9247_a019f1f701e1)]
+        const MFPKEY_BASS_BOOST_AMOUNT: PROPERTYKEY = 2;
+        #[guid(0x10174e76_e0ca_4a39_948c_8510c2323276)]
+        const MFPKEY_BAVG: PROPERTYKEY = 23;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_BDELTAQP: PROPERTYKEY = 50;
+        #[guid(0xff365211_21b6_4134_ab7c_52393a8f80f6)]
+        const MFPKEY_BMAX: PROPERTYKEY = 25;
+        #[guid(0xb69dc3c5_64c4_4757_99cb_5d580fd5659e)]
+        const MFPKEY_BUFFERFULLNESSINFIRSTBYTE: PROPERTYKEY = 2;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_CHECKDATACONSISTENCY2P: PROPERTYKEY = 7;
+        #[guid(0x716fe5c8_755c_482f_8df3_b31d5359f0d6)]
+        const MFPKEY_CLIP_HEIGHT: PROPERTYKEY = 4;
+        #[guid(0x716fe5c8_755c_482f_8df3_b31d5359f0d6)]
+        const MFPKEY_CLIP_WIDTH: PROPERTYKEY = 3;
+        #[guid(0x716fe5c8_755c_482f_8df3_b31d5359f0d6)]
+        const MFPKEY_CLIP_XORIG: PROPERTYKEY = 1;
+        #[guid(0x716fe5c8_755c_482f_8df3_b31d5359f0d6)]
+        const MFPKEY_CLIP_YORIG: PROPERTYKEY = 2;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_CLOSEDENTRYPOINT: PROPERTYKEY = 63;
+        #[guid(0xb79a666d_8a9d_463c_9d97_e1b10045c13a)]
+        const MFPKEY_CLUSTERDETECTOR_MAXCLUSTERDURATION: PROPERTYKEY = 3;
+        #[guid(0xb79a666d_8a9d_463c_9d97_e1b10045c13a)]
+        const MFPKEY_CLUSTERDETECTOR_MAXCLUSTERS: PROPERTYKEY = 1;
+        #[guid(0xb79a666d_8a9d_463c_9d97_e1b10045c13a)]
+        const MFPKEY_CLUSTERDETECTOR_MINCLUSTERDURATION: PROPERTYKEY = 2;
+        #[guid(0x62872b55_fe0e_4930_a6d2_ccaa37e8f535)]
+        const MFPKEY_CODEDFRAMES: PROPERTYKEY = 6;
+        #[guid(0x7adf5b69_1e3f_42d3_991d_f81e0cebe93e)]
+        const MFPKEY_CODEDNONZEROFRAMES: PROPERTYKEY = 30;
+        #[guid(0xdc9100be_1228_416c_9948_6f38f479654f)]
+        const MFPKEY_COLORCONV_DSTLEFT: PROPERTYKEY = 3;
+        #[guid(0xdc9100be_1228_416c_9948_6f38f479654f)]
+        const MFPKEY_COLORCONV_DSTTOP: PROPERTYKEY = 4;
+        #[guid(0xdc9100be_1228_416c_9948_6f38f479654f)]
+        const MFPKEY_COLORCONV_HEIGHT: PROPERTYKEY = 6;
+        #[guid(0xdc9100be_1228_416c_9948_6f38f479654f)]
+        const MFPKEY_COLORCONV_MODE: PROPERTYKEY = 7;
+        #[guid(0xdc9100be_1228_416c_9948_6f38f479654f)]
+        const MFPKEY_COLORCONV_SRCLEFT: PROPERTYKEY = 1;
+        #[guid(0xdc9100be_1228_416c_9948_6f38f479654f)]
+        const MFPKEY_COLORCONV_SRCTOP: PROPERTYKEY = 2;
+        #[guid(0xdc9100be_1228_416c_9948_6f38f479654f)]
+        const MFPKEY_COLORCONV_WIDTH: PROPERTYKEY = 5;
+        #[guid(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0)]
+        const MFPKEY_COLORLEGALIZER_COMPLEXITY: PROPERTYKEY = 1;
+        #[guid(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0)]
+        const MFPKEY_COLORLEGALIZER_COMPLEXITYEX: PROPERTYKEY = 2;
+        #[guid(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0)]
+        const MFPKEY_COLORLEGALIZER_COMPLEXITYLIVE: PROPERTYKEY = 4;
+        #[guid(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0)]
+        const MFPKEY_COLORLEGALIZER_COMPLEXITYMAX: PROPERTYKEY = 3;
+        #[guid(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0)]
+        const MFPKEY_COLORLEGALIZER_COMPLEXITYOFFLINE: PROPERTYKEY = 5;
+        #[guid(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0)]
+        const MFPKEY_COLORLEGALIZER_bSVideo: PROPERTYKEY = 6;
+        #[guid(0x174fb0ec_2695_476c_88aa_d2b41ce75e67)]
+        const MFPKEY_COLOR_BRIGHTNESS: PROPERTYKEY = 1;
+        #[guid(0x174fb0ec_2695_476c_88aa_d2b41ce75e67)]
+        const MFPKEY_COLOR_CONTRAST: PROPERTYKEY = 2;
+        #[guid(0x174fb0ec_2695_476c_88aa_d2b41ce75e67)]
+        const MFPKEY_COLOR_HUE: PROPERTYKEY = 3;
+        #[guid(0x174fb0ec_2695_476c_88aa_d2b41ce75e67)]
+        const MFPKEY_COLOR_SATURATION: PROPERTYKEY = 4;
+        #[guid(0x44fa08c7_92f5_45dc_8376_8d1d324c652a)]
+        const MFPKEY_COMPLEXITY: PROPERTYKEY = 16;
+        #[guid(0xd6e48f93_fd47_47a3_9262_8aefb5530332)]
+        const MFPKEY_COMPLEXITYEX: PROPERTYKEY = 17;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_COMPRESSIONOPTIMIZATIONTYPE: PROPERTYKEY = 67;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_CONSTRAINDECLATENCY: PROPERTYKEY = 2;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_CONSTRAINENCCOMPLEXITY: PROPERTYKEY = 3;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_CONSTRAINENCLATENCY: PROPERTYKEY = 1;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_CONSTRAIN_ENUMERATED_VBRQUALITY: PROPERTYKEY = 26;
+        #[guid(0x52f8d29b_2e76_43f7_a4f6_1717904e35df)]
+        const MFPKEY_CONV_INPUTFRAMERATE: PROPERTYKEY = 1;
+        #[guid(0x52f8d29b_2e76_43f7_a4f6_1717904e35df)]
+        const MFPKEY_CONV_OUTPUTFRAMERATE: PROPERTYKEY = 2;
+        #[guid(0x52f8d29b_2e76_43f7_a4f6_1717904e35df)]
+        const MFPKEY_CONV_REVERSEPLAYBACK: PROPERTYKEY = 3;
+        #[guid(0x1864a4e0_efc1_45e6_a675_5786cbf3b9f0)]
+        const MFPKEY_CORR_BASS_MANAGEMENT_MODE: PROPERTYKEY = 2;
+        #[guid(0x445f3559_b43f_4b67_b0f8_32b67cf94b48)]
+        const MFPKEY_CORR_HEADPHONE: PROPERTYKEY = 2;
+        #[guid(0xfc52a749_4be9_4510_896e_966ba6525980)]
+        const MFPKEY_CORR_LOUDNESS_EQUALIZATION_ON: PROPERTYKEY = 2;
+        #[guid(0x1b5c2483_0839_4523_ba87_95f89d27bd8c)]
+        const MFPKEY_CORR_MULTICHANNEL_MODE: PROPERTYKEY = 2;
+        #[guid(0xd61b266c_5aee_456b_8424_7225477dae77)]
+        const MFPKEY_CORR_NORMALIZATION_GAIN: PROPERTYKEY = 2;
+        #[guid(0x01fb17e3_796c_4451_8163_68cdc1321a60)]
+        const MFPKEY_CORR_ROOM_CORRECTION_ON: PROPERTYKEY = 2;
+        #[guid(0xd328d8fb_d49f_4aa9_b721_e171e93ad563)]
+        const MFPKEY_CORR_SPKRMASK: PROPERTYKEY = 7;
+        #[guid(0x2985f772_3af2_4d15_8cfa_8a962ff32040)]
+        const MFPKEY_CRISP: PROPERTYKEY = 11;
+        #[guid(0xe0db0807_8003_4880_ac11_61b73f33dc60)]
+        const MFPKEY_DATARATE: PROPERTYKEY = 9;
+        #[guid(0xc0d912d6_14da_4d31_8d83_d108915e8d77)]
+        const MFPKEY_DECODERCOMPLEXITYPROFILE: PROPERTYKEY = 4;
+        #[guid(0xb0d7d4a7_422b_44c3_97b4_b9760cceeea9)]
+        const MFPKEY_DECODERCOMPLEXITYREQUESTED: PROPERTYKEY = 28;
+        #[guid(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4)]
+        const MFPKEY_DECODER_DEINTERLACING: PROPERTYKEY = 4;
+        #[guid(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26)]
+        const MFPKEY_DEINTERLACE_DETELECINE_FLAG: PROPERTYKEY = 4;
+        #[guid(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26)]
+        const MFPKEY_DEINTERLACE_EDGETHRESHOLD: PROPERTYKEY = 6;
+        #[guid(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26)]
+        const MFPKEY_DEINTERLACE_LASTFRAME: PROPERTYKEY = 3;
+        #[guid(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26)]
+        const MFPKEY_DEINTERLACE_PROCESSTYPE: PROPERTYKEY = 1;
+        #[guid(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26)]
+        const MFPKEY_DEINTERLACE_SMOOTHLEVEL: PROPERTYKEY = 5;
+        #[guid(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26)]
+        const MFPKEY_DEINTERLACE_TELECINEPATTERN: PROPERTYKEY = 2;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_DELTAMVRANGEINDEX: PROPERTYKEY = 47;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_DENOISEOPTION: PROPERTYKEY = 38;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_CACHEFRAMES: PROPERTYKEY = 2;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_CAUSAL: PROPERTYKEY = 4;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_FILTER: PROPERTYKEY = 1;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_ITERATIVE: PROPERTYKEY = 5;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_PARA1: PROPERTYKEY = 6;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_PARA2: PROPERTYKEY = 7;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_PARA3: PROPERTYKEY = 8;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_PARA4: PROPERTYKEY = 9;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_PARA5: PROPERTYKEY = 16;
+        #[guid(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565)]
+        const MFPKEY_DENOISE_PROCFRAMES: PROPERTYKEY = 3;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DESIRED_VBRQUALITY: PROPERTYKEY = 25;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_DQUANTOPTION: PROPERTYKEY = 78;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_DQUANTSTRENGTH: PROPERTYKEY = 79;
+        #[guid(0xbdb5afd3_4027_4882_806c_4162e4a7a3f0)]
+        const MFPKEY_DROPPEDFRAMES: PROPERTYKEY = 29;
+        #[guid(0x75f2421a_e73a_45b3_aef0_913c66846461)]
+        const MFPKEY_DVDEC_SIZE: PROPERTYKEY = 0;
+        #[guid(0xf449a927_7b22_46ef_b2e7_4d2b728b699c)]
+        const MFPKEY_DVENC_FORMAT: PROPERTYKEY = 0;
+        #[guid(0x58e28605_1d51_48ed_a3eb_0f9baf785fbd)]
+        const MFPKEY_DXVA_ENABLED: PROPERTYKEY = 1;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_DYNCOMPLEXLEVEL: PROPERTYKEY = 82;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_DYNENCMODE: PROPERTYKEY = 84;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_ALLOW_NOISESUB: PROPERTYKEY = 19;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_ALLOW_PCMRANGELIMITING: PROPERTYKEY = 27;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_BANDTRUNCATION: PROPERTYKEY = 10;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_BANDTRUNC_BWCEIL: PROPERTYKEY = 14;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_BANDTRUNC_BWFLOOR: PROPERTYKEY = 13;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_BANDTRUNC_QCEIL: PROPERTYKEY = 12;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_BANDTRUNC_QFLOOR: PROPERTYKEY = 11;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_SIMPLEMASK: PROPERTYKEY = 15;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_STEREO_PREPROC: PROPERTYKEY = 16;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_VBR_BAVG: PROPERTYKEY = 18;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_DYN_VBR_RAVG: PROPERTYKEY = 9;
+        #[guid(0xc678ba85_1212_43da_5ac3_e748b92449ec)]
+        const MFPKEY_Decoder_MaxNumPCMSamplesWithPaddedSilence: PROPERTYKEY = 0;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_ENCCOMPLEXITY: PROPERTYKEY = 6;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_ENCODERCOMPLEXITY: PROPERTYKEY = 71;
+        #[guid(0xb2030f2a_8bbc_46f8_a64b_a98ff7fcf02a)]
+        const MFPKEY_ENDOFPASS: PROPERTYKEY = 8;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_ENHANCED_WMA: PROPERTYKEY = 20;
+        #[guid(0xe1a124a6_4fa8_4ba5_a2d8_dc34536f7426)]
+        const MFPKEY_FACEDETECTOR_SKIPFRAMES: PROPERTYKEY = 1;
+        #[guid(0x305bca55_1e5b_428e_a94c_65b94d0264ed)]
+        const MFPKEY_FI_ALLOWED: PROPERTYKEY = 5;
+        #[guid(0x305bca55_1e5b_428e_a94c_65b94d0264ed)]
+        const MFPKEY_FI_COMPLEXITY: PROPERTYKEY = 6;
+        #[guid(0xe020c4ca_3bdd_40ec_bcf4_4039b1450eb8)]
+        const MFPKEY_FI_ENABLED: PROPERTYKEY = 3;
+        #[guid(0x305bca55_1e5b_428e_a94c_65b94d0264ed)]
+        const MFPKEY_FI_FRAMERATE_SCAL_DST: PROPERTYKEY = 4;
+        #[guid(0x305bca55_1e5b_428e_a94c_65b94d0264ed)]
+        const MFPKEY_FI_FRAMERATE_SCAL_SRC: PROPERTYKEY = 2;
+        #[guid(0x305bca55_1e5b_428e_a94c_65b94d0264ed)]
+        const MFPKEY_FI_FRAMERATE_VALU_DST: PROPERTYKEY = 3;
+        #[guid(0x305bca55_1e5b_428e_a94c_65b94d0264ed)]
+        const MFPKEY_FI_FRAMERATE_VALU_SRC: PROPERTYKEY = 1;
+        #[guid(0x5ce18788_b992_49a7_a4f1_60ea21caa55f)]
+        const MFPKEY_FI_SUPPORTED: PROPERTYKEY = 2;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_FORCEFRAMEHEIGHT: PROPERTYKEY = 52;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_FORCEFRAMEWIDTH: PROPERTYKEY = 51;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_FORCEMEDIANSETTING: PROPERTYKEY = 57;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_FORCEOVERLAP: PROPERTYKEY = 80;
+        #[guid(0x593e3f2e_f84d_4e85_b68d_f669400edabc)]
+        const MFPKEY_FOURCC: PROPERTYKEY = 12;
+        #[guid(0x75028eb4_4853_44d3_88a3_e499f89d227f)]
+        const MFPKEY_FRAMECOUNT: PROPERTYKEY = 14;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_FULLFRAMERATE: PROPERTYKEY = 45;
+        #[guid(0x56976073_06c3_4b3b_ad41_b7417fce8474)]
+        const MFPKEY_INTERLACEDCODINGENABLED: PROPERTYKEY = 26;
+        #[guid(0x18d6f8c5_2416_4d7b_90d7_9f3f21e752b4)]
+        const MFPKEY_KEYDIST: PROPERTYKEY = 10;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_LETTERBOXPRESENT: PROPERTYKEY = 73;
+        #[guid(0x3ffa1e60_5514_4634_86e6_1f3b7c545143)]
+        const MFPKEY_LIVEENCODE: PROPERTYKEY = 15;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_LOOKAHEAD: PROPERTYKEY = 54;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_LOOKAHEADRC: PROPERTYKEY = 77;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_LOOPFILTER: PROPERTYKEY = 59;
+        #[guid(0x9c00eeed_edce_4cd8_ae08_cb05e8ef57a0)]
+        const MFPKEY_LOUDNESS_EQUALIZATION_RELEASE: PROPERTYKEY = 2;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_MACROBLOCKMODECOSTMETHOD: PROPERTYKEY = 66;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_MAXDECLATENCYMS: PROPERTYKEY = 5;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_MAXENCLATENCYMS: PROPERTYKEY = 4;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_MOST_RECENTLY_ENUMERATED_VBRQUALITY: PROPERTYKEY = 24;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_MOTIONMATCHMETHOD: PROPERTYKEY = 65;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_MOTIONSEARCHLEVEL: PROPERTYKEY = 64;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_MOTIONSEARCHRANGE: PROPERTYKEY = 46;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_MOTIONVECTORCOSTMETHOD: PROPERTYKEY = 81;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_NOISEEDGEREMOVAL: PROPERTYKEY = 60;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_NUMBFRAMES: PROPERTYKEY = 48;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_NUMTHREADS: PROPERTYKEY = 58;
+        #[guid(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4)]
+        const MFPKEY_NUMTHREADSDEC: PROPERTYKEY = 6;
+        #[guid(0x38bdceea_393e_4f9a_8dc3_802cc405838f)]
+        const MFPKEY_PASSESRECOMMENDED: PROPERTYKEY = 3;
+        #[guid(0xb1653ac1_cb7d_43ee_8454_3f9d811b0331)]
+        const MFPKEY_PASSESUSED: PROPERTYKEY = 19;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_PEAKCONSTRAINED: PROPERTYKEY = 0;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_PERCEPTUALOPTLEVEL: PROPERTYKEY = 56;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_PERIODICALSPDISTANCE: PROPERTYKEY = 70;
+        #[guid(0x12b53cb2_e12e_4579_8ac3_d02f94f1e89e)]
+        const MFPKEY_PHANTOMING_ON: PROPERTYKEY = 2;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_PIXELASPECTRATIO: PROPERTYKEY = 23;
+        #[guid(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4)]
+        const MFPKEY_POSTPROCESSMODE: PROPERTYKEY = 5;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_PREFERRED_FRAMESIZE: PROPERTYKEY = 22;
+        #[guid(0x61714bc6_08a1_49d1_b827_a33aada95526)]
+        const MFPKEY_PRODUCEDUMMYFRAMES: PROPERTYKEY = 27;
+        #[guid(0x5cefee10_e210_45c6_9e28_f5a8731c96c7)]
+        const MFPKEY_PROGRESS: PROPERTYKEY = 3;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_QPPERFRAME: PROPERTYKEY = 31;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_RANGEREDUX: PROPERTYKEY = 53;
+        #[guid(0x14b2aae6_2987_460a_8b22_9c077c55d05e)]
+        const MFPKEY_RAVG: PROPERTYKEY = 22;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_RDSUBPIXELSEARCH: PROPERTYKEY = 49;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_REENCDURATION: PROPERTYKEY = 34;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_REENCENDBUFFERSIZE: PROPERTYKEY = 36;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_REENCQPREF: PROPERTYKEY = 37;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_REENCSTARTBUFFERSIZE: PROPERTYKEY = 35;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_REQUESTING_A_FRAMESIZE: PROPERTYKEY = 21;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_DST_HEIGHT: PROPERTYKEY = 8;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_DST_LEFT: PROPERTYKEY = 5;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_DST_TOP: PROPERTYKEY = 6;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_DST_WIDTH: PROPERTYKEY = 7;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_GEOMAPHEIGHT: PROPERTYKEY = 18;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_GEOMAPWIDTH: PROPERTYKEY = 17;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_GEOMAPX: PROPERTYKEY = 15;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_GEOMAPY: PROPERTYKEY = 16;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_INTERLACE: PROPERTYKEY = 10;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_MINAPHEIGHT: PROPERTYKEY = 22;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_MINAPWIDTH: PROPERTYKEY = 21;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_MINAPX: PROPERTYKEY = 19;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_MINAPY: PROPERTYKEY = 20;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_PANSCANAPHEIGHT: PROPERTYKEY = 14;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_PANSCANAPWIDTH: PROPERTYKEY = 13;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_PANSCANAPX: PROPERTYKEY = 11;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_PANSCANAPY: PROPERTYKEY = 12;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_QUALITY: PROPERTYKEY = 9;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_SRC_HEIGHT: PROPERTYKEY = 4;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_SRC_LEFT: PROPERTYKEY = 1;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_SRC_TOP: PROPERTYKEY = 2;
+        #[guid(0x6612a6bc_e57d_407d_a958_285df0d9b400)]
+        const MFPKEY_RESIZE_SRC_WIDTH: PROPERTYKEY = 3;
+        #[guid(0x7d8dd246_aaf4_4a24_8166_19396b06ef69)]
+        const MFPKEY_RMAX: PROPERTYKEY = 24;
+        #[guid(0xf311cdc7_f45f_4eb7_a864_9dc1aeeb7e6d)]
+        const MFPKEY_ROOMCORR_PROFILE: PROPERTYKEY = 2;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_SCENECHANGE: PROPERTYKEY = 74;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_SCENECHANGEI: PROPERTYKEY = 76;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_SETDYNVIDRES: PROPERTYKEY = 87;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_ADAPTIVETHRESHOLD: PROPERTYKEY = 4;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_ADAPTIVEWINDOWSIZE: PROPERTYKEY = 5;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_CLASSIFICATIONMETHOD: PROPERTYKEY = 2;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_GLOBALTHRESHOLD: PROPERTYKEY = 3;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_MAXCLIPDURATION: PROPERTYKEY = 8;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_MAXCLIPSPERHOUR: PROPERTYKEY = 9;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_MINCLIPDURATION: PROPERTYKEY = 7;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_MINCLIPWEIGHT: PROPERTYKEY = 6;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_PRESERVEMONOCLIPS: PROPERTYKEY = 10;
+        #[guid(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f)]
+        const MFPKEY_SHOTDETECTOR_TYPE: PROPERTYKEY = 1;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_BORDERCOLOR: PROPERTYKEY = 9;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_BORDERSOFTNESS: PROPERTYKEY = 7;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_BORDERWIDTH: PROPERTYKEY = 8;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_MASKNUM: PROPERTYKEY = 1;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_OFFSETX: PROPERTYKEY = 2;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_OFFSETY: PROPERTYKEY = 3;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_REPLICATEX: PROPERTYKEY = 4;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_REPLICATEY: PROPERTYKEY = 5;
+        #[guid(0x427ce859_d55c_4f8e_b00e_9cdf761548a6)]
+        const MFPKEY_SMPTE_REVERSE: PROPERTYKEY = 6;
+        #[guid(0x5cefee10_e210_45c6_9e28_f5a8731c96c7)]
+        const MFPKEY_STARTTIME: PROPERTYKEY = 1;
+        #[guid(0x036f6b60_ad43_485c_86c6_21a6db2c1ba3)]
+        const MFPKEY_STAT_BAVG: PROPERTYKEY = 0;
+        #[guid(0xcd95e5b7_9143_47fb_a9d2_9db75f2e74be)]
+        const MFPKEY_STAT_BMAX: PROPERTYKEY = 0;
+        #[guid(0x23a0e3b5_fc62_4ab8_b77c_6e0c28ab3016)]
+        const MFPKEY_STAT_RAVG: PROPERTYKEY = 0;
+        #[guid(0x82ff7c67_6554_4749_a32b_3690dd1ae8de)]
+        const MFPKEY_STAT_RMAX: PROPERTYKEY = 0;
+        #[guid(0x5cefee10_e210_45c6_9e28_f5a8731c96c7)]
+        const MFPKEY_STOPTIME: PROPERTYKEY = 2;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_TARGETENCDELTA: PROPERTYKEY = 85;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_TARGETENCRATE: PROPERTYKEY = 83;
+        #[guid(0xd9d7473f_7d68_4226_985c_31852c4c9e74)]
+        const MFPKEY_THUMBNAILGENERATOR_MAXMOTIONACTIVITY: PROPERTYKEY = 3;
+        #[guid(0xd9d7473f_7d68_4226_985c_31852c4c9e74)]
+        const MFPKEY_THUMBNAILGENERATOR_MINCOLORENTROPY: PROPERTYKEY = 2;
+        #[guid(0xd9d7473f_7d68_4226_985c_31852c4c9e74)]
+        const MFPKEY_THUMBNAILGENERATOR_SEARCHWINDOWSIZE: PROPERTYKEY = 1;
+        #[guid(0xd9d7473f_7d68_4226_985c_31852c4c9e74)]
+        const MFPKEY_THUMBNAILGENERATOR_THUMBNAILFILENAME: PROPERTYKEY = 255;
+        #[guid(0xd9d7473f_7d68_4226_985c_31852c4c9e74)]
+        const MFPKEY_THUMBNAILGENERATOR_THUMBNAILHEIGHT: PROPERTYKEY = 5;
+        #[guid(0xd9d7473f_7d68_4226_985c_31852c4c9e74)]
+        const MFPKEY_THUMBNAILGENERATOR_THUMBNAILREADY: PROPERTYKEY = 6;
+        #[guid(0xd9d7473f_7d68_4226_985c_31852c4c9e74)]
+        const MFPKEY_THUMBNAILGENERATOR_THUMBNAILWIDTH: PROPERTYKEY = 4;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_CLUSTERDETECTOR_ON: PROPERTYKEY = 4;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_CURRENTTIME: PROPERTYKEY = 253;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_ENDSIGNAL: PROPERTYKEY = 251;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_ENDTIME: PROPERTYKEY = 252;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_FACEDETECTOR_ON: PROPERTYKEY = 7;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_FEATUREEXTRACTOR_ON: PROPERTYKEY = 6;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_INDEXFILENAME: PROPERTYKEY = 255;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_PROCESSEDFRAMES: PROPERTYKEY = 254;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_SHOTDETECTOR_ON: PROPERTYKEY = 3;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_THUMBNAILGENERATOR_ON: PROPERTYKEY = 5;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_TOCOBJECT: PROPERTYKEY = 2;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_TOCREADY: PROPERTYKEY = 1;
+        #[guid(0x7c109759_3c27_42ef_a6a3_cedef75a35e9)]
+        const MFPKEY_TOCGENERATOR_USEENDSIGNAL: PROPERTYKEY = 250;
+        #[guid(0xce5f1e3c_d3d4_4c3f_88c8_01e989d998d2)]
+        const MFPKEY_TOTALFRAMES: PROPERTYKEY = 5;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_USERDATASIZE: PROPERTYKEY = 72;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_VARIABLEGOP: PROPERTYKEY = 75;
+        #[guid(0xe48d9459_6abe_4eb5_9211_60080c1ab984)]
+        const MFPKEY_VBRENABLED: PROPERTYKEY = 20;
+        #[guid(0xf97b3f3a_9eff_4ac9_8247_35b30eb925f4)]
+        const MFPKEY_VBRQUALITY: PROPERTYKEY = 21;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_VIDEOSCALING: PROPERTYKEY = 55;
+        #[guid(0xc1c96060_76f0_47d4_a875_5bdda90df5e9)]
+        const MFPKEY_VIDEOWINDOW: PROPERTYKEY = 13;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_VOLHEADERFORREENCODE: PROPERTYKEY = 33;
+        #[guid(0x4e91bf89_665a_49da_bb94_88c550cfcd28)]
+        const MFPKEY_VTYPE: PROPERTYKEY = 61;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_DEVICEPAIR_GUID: PROPERTYKEY = 17;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_DEVICE_INDEXES: PROPERTYKEY = 4;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_DMO_SOURCE_MODE: PROPERTYKEY = 3;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_AES: PROPERTYKEY = 10;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_AGC: PROPERTYKEY = 9;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_CENTER_CLIP: PROPERTYKEY = 12;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_ECHO_LENGTH: PROPERTYKEY = 7;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_FRAME_SIZE: PROPERTYKEY = 6;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_MICARR_BEAM: PROPERTYKEY = 19;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_MICARR_MODE: PROPERTYKEY = 18;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_MICARR_PREPROC: PROPERTYKEY = 20;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_NOISE_FILL: PROPERTYKEY = 13;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_NS: PROPERTYKEY = 8;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATR_VAD: PROPERTYKEY = 11;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_FEATURE_MODE: PROPERTYKEY = 5;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_MICARRAY_DESCPTR: PROPERTYKEY = 16;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_MIC_GAIN_BOUNDER: PROPERTYKEY = 21;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_QUALITY_METRICS: PROPERTYKEY = 15;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_RETRIEVE_TS_STATS: PROPERTYKEY = 14;
+        #[guid(0x6f52c567_0360_4bd2_9617_ccbf1421c939)]
+        const MFPKEY_WMAAECMA_SYSTEM_MODE: PROPERTYKEY = 2;
+        #[guid(0x7b613713_3d38_4cda_aa61_0478b1bcfc42)]
+        const MFPKEY_WMADEC_DRCMODE: PROPERTYKEY = 0;
+        #[guid(0x51647e9b_6a7f_4739_9e0b_294b278969eb)]
+        const MFPKEY_WMADEC_FOLDDOWN_MATRIX: PROPERTYKEY = 0;
+        #[guid(0x8d3fe592_eecc_4f4e_9aff_5af1679d38d2)]
+        const MFPKEY_WMADEC_HIRESOUTPUT: PROPERTYKEY = 0;
+        #[guid(0x7b613713_3d38_4cda_aa61_0478b1bcfc42)]
+        const MFPKEY_WMADEC_LTRTOUTPUT: PROPERTYKEY = 5;
+        #[guid(0x8fff67be_977f_41dc_8faf_23bac9a6df73)]
+        const MFPKEY_WMADEC_SPKRCFG: PROPERTYKEY = 0;
+        #[guid(0x7b613713_3d38_4cda_aa61_0478b1bcfc42)]
+        const MFPKEY_WMADRC_AVGREF: PROPERTYKEY = 3;
+        #[guid(0x7b613713_3d38_4cda_aa61_0478b1bcfc42)]
+        const MFPKEY_WMADRC_AVGTARGET: PROPERTYKEY = 1;
+        #[guid(0x7b613713_3d38_4cda_aa61_0478b1bcfc42)]
+        const MFPKEY_WMADRC_PEAKREF: PROPERTYKEY = 4;
+        #[guid(0x7b613713_3d38_4cda_aa61_0478b1bcfc42)]
+        const MFPKEY_WMADRC_PEAKTARGET: PROPERTYKEY = 2;
+        #[guid(0x11caf780_921b_42ef_b755_f3a053ea1a41)]
+        const MFPKEY_WMAENC_AVGBYTESPERSEC: PROPERTYKEY = 0;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_WMAENC_BUFFERLESSCBR: PROPERTYKEY = 29;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_WMAENC_GENERATE_DRC_PARAMS: PROPERTYKEY = 28;
+        #[guid(0xf5c760a2_3635_48e1_8fbd_0e498124e0a2)]
+        const MFPKEY_WMAENC_ORIGWAVEFORMAT: PROPERTYKEY = 0;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_WMAENC_RTSPDIF: PROPERTYKEY = 30;
+        #[guid(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd)]
+        const MFPKEY_WMAVOICE_DEC_RT_JitterControl: PROPERTYKEY = 2;
+        #[guid(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd)]
+        const MFPKEY_WMAVOICE_DEC_RT_JitterMode: PROPERTYKEY = 3;
+        #[guid(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd)]
+        const MFPKEY_WMAVOICE_DEC_RT_PacketLossMode: PROPERTYKEY = 4;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_BufferWindow: PROPERTYKEY = 3;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_DecoderDelay: PROPERTYKEY = 4;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_EDL: PROPERTYKEY = 5;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_MusicSpeechClassMode: PROPERTYKEY = 2;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_RT_BandWidth: PROPERTYKEY = 7;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_RT_MinBufferSize: PROPERTYKEY = 9;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_RT_PacketLossMode: PROPERTYKEY = 8;
+        #[guid(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1)]
+        const MFPKEY_WMAVOICE_ENC_RT_VariableRate: PROPERTYKEY = 6;
+        #[guid(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4)]
+        const MFPKEY_WMA_ELEMENTARY_STREAM: PROPERTYKEY = 23;
+        #[guid(0xaf1adc73_a210_4b05_966e_5491cff48b1d)]
+        const MFPKEY_WMRESAMP_CHANNELMTX: PROPERTYKEY = 2;
+        #[guid(0xaf1adc73_a210_4b05_966e_5491cff48b1d)]
+        const MFPKEY_WMRESAMP_FILTERQUALITY: PROPERTYKEY = 1;
+        #[guid(0xaf1adc73_a210_4b05_966e_5491cff48b1d)]
+        const MFPKEY_WMRESAMP_LOWPASS_BANDWIDTH: PROPERTYKEY = 3;
+        #[guid(0x8f04aba4_313d_40fb_8031_31517813d9ef)]
+        const MFPKEY_ZEROBYTEFRAMES: PROPERTYKEY = 7;
         const MFSampleExtension_VideoDSPMode: GUID = 0xc12d55cb_d7d9_476d_81f3_69117f163ea0;
         #[repr(i32)]
         enum MFVideoDSPMode {
@@ -415,6 +1025,8 @@ mod Windows {
         const MSAMRNBDecoder: GUID = 0x265011ae_5481_4f77_a295_abb6ffe8d63e;
         const MSAMRNBEncoder: GUID = 0x2fae8afe_04a3_423a_a814_85db454712b0;
         const MULawCodecWrapper: GUID = 0x92b66080_5e2d_449e_90c4_c41f268e5514;
+        #[guid(0xcb9c6bce_7a25_47aa_b2be_6ad84431edde)]
+        const PKEY_SYSFXUI_HIDE_MASK: PROPERTYKEY = 2;
         #[repr(i32)]
         enum SEEK_ORIGIN {
             _msoBegin = 0,
@@ -430,16 +1042,16 @@ mod Windows {
         const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: i32 = 32;
         struct TOC_DESCRIPTOR {
             guidID: GUID,
-            wStreamNumber: u16,
+            wStreamNumber: WORD,
             guidType: GUID,
-            wLanguageIndex: u16,
+            wLanguageIndex: WORD,
         }
         struct TOC_ENTRY_DESCRIPTOR {
-            qwStartTime: u64,
-            qwEndTime: u64,
-            qwStartPacketOffset: u64,
-            qwEndPacketOffset: u64,
-            qwRepresentativeFrameTime: u64,
+            qwStartTime: QWORD,
+            qwEndTime: QWORD,
+            qwStartPacketOffset: QWORD,
+            qwEndPacketOffset: QWORD,
+            qwRepresentativeFrameTime: QWORD,
         }
         const TOC_ENTRY_MAX_TITLE_SIZE: i32 = 65535;
         const TOC_MAX_DESCRIPTION_SIZE: i32 = 65535;
@@ -471,8 +1083,6 @@ mod Windows {
         const WM_CODEC_TWOPASS_CBR: i32 = 4;
         const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: i32 = 16;
         const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: i32 = 8;
-        #[encoding("utf-16")]
-        const g_wszSpeechFormatCaps: String = "SpeechFormatCap";
         #[encoding("utf-16")]
         const g_wszWMACAvgBytesPerSec: String = "AvgBytesPerSec";
         #[encoding("utf-16")]

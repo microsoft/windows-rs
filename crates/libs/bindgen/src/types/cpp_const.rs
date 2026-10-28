@@ -4,18 +4,18 @@ use super::*;
 pub struct CppConst {
     pub namespace: &'static str,
     pub field: Field,
-    /// Parent enum architecture bits for unscoped enum members; `0` for free constants.
-    pub enum_arches: i32,
+    /// Projected architecture bits; `0` means all architectures.
+    pub arches: i32,
     /// `true` for unscoped enum members, which are always bare alias constants.
     pub is_enum_member: bool,
 }
 
 impl Ord for CppConst {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.field.name(), self.field, self.enum_arches).cmp(&(
+        (self.field.name(), self.field, self.arches).cmp(&(
             other.field.name(),
             other.field,
-            other.enum_arches,
+            other.arches,
         ))
     }
 }
@@ -31,16 +31,6 @@ impl CppConst {
         TypeName(self.namespace, self.field.name())
     }
 
-    /// Architectures this constant is emitted for.
-    pub fn effective_arches(&self) -> i32 {
-        let field_arches = self.field.arches();
-        if field_arches != 0 {
-            field_arches
-        } else {
-            self.enum_arches
-        }
-    }
-
     pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &[])
     }
@@ -50,6 +40,14 @@ impl CppConst {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        self.write_with_enclosing(config, None)
+    }
+
+    pub fn write_with_enclosing(
+        &self,
+        config: &Config,
+        enclosing: Option<&CppStruct>,
+    ) -> TokenStream {
         if let windows_metadata::Type::ClassName(type_name)
         | windows_metadata::Type::ValueName(type_name) = self.field.ty()
             && type_name.namespace.is_empty()
@@ -57,15 +55,18 @@ impl CppConst {
             return quote! {};
         }
 
-        let field_ty = self.field.field_type(None, config.reader).to_const_type();
+        let field_ty = self
+            .field
+            .field_type(enclosing, config.reader)
+            .to_const_type();
         let tn = field_ty.type_name().name();
-        let name = if !tn.is_empty() && self.field.name() == tn {
+        let name = if enclosing.is_none() && !tn.is_empty() && self.field.name() == tn {
             to_ident(&format!("{tn}_"))
         } else {
             to_ident(self.field.name())
         };
 
-        let arches = write_arch_bits(self.effective_arches());
+        let arches = write_arch_bits(self.arches);
         let cfg = self.write_cfg(config);
         let cfg = quote! { #arches #cfg };
 
@@ -201,12 +202,7 @@ impl CppConst {
                     let value = if unscoped_enum_const {
                         value
                     } else {
-                        write_newtype_wrap_for_arches(
-                            &field_ty,
-                            &value,
-                            config,
-                            self.effective_arches(),
-                        )
+                        write_newtype_wrap_for_arches(&field_ty, &value, config, self.arches)
                     };
                     quote! {
                         #cfg
@@ -229,7 +225,7 @@ impl CppConst {
                                 &underlying_ty,
                                 &value,
                                 config,
-                                self.effective_arches(),
+                                self.arches,
                             )
                         }
                         _ => value,

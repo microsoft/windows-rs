@@ -1,76 +1,76 @@
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex2(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTAdjustFullscreenGamma(param0 : *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCancelPresents(param0 : *const D3DKMT_CANCEL_PRESENTS) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTChangeVideoMemoryReservation(param0 : *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckExclusiveOwnership() -> super::BOOLEAN);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckMonitorPowerState(param0 : *const D3DKMT_CHECKMONITORPOWERSTATE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport2(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport3(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "windef")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckOcclusion(param0 : *const D3DKMT_CHECKOCCLUSION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckSharedResourceAccess(param0 : *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCheckVidPnExclusiveOwnership(param0 : *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCloseAdapter(param0 : *const D3DKMT_CLOSEADAPTER) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTConfigureSharedResource(param0 : *const D3DKMT_CONFIGURESHAREDRESOURCE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTConnectDoorbell(param0 : *const D3DKMT_CONNECT_DOORBELL) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation(param0 : *mut D3DKMT_CREATEALLOCATION) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation2(param0 : *mut D3DKMT_CREATEALLOCATION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateContext(param0 : *mut D3DKMT_CREATECONTEXT) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateContextVirtual(param0 : *const D3DKMT_CREATECONTEXTVIRTUAL) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateDCFromMemory(param0 : *mut D3DKMT_CREATEDCFROMMEMORY) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateDevice(param0 : *mut D3DKMT_CREATEDEVICE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateDoorbell(param0 : *const D3DKMT_CREATE_DOORBELL) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateHwContext(param0 : *mut D3DKMT_CREATEHWCONTEXT) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueue(param0 : *mut D3DKMT_CREATEHWQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueueForUserModeSubmission(param0 : *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex(param0 : *mut D3DKMT_CREATEKEYEDMUTEX) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex2(param0 : *mut D3DKMT_CREATEKEYEDMUTEX2) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateNativeFence(param0 : *mut D3DKMT_CREATENATIVEFENCE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateOutputDupl(param0 : *const D3DKMT_CREATE_OUTPUTDUPL) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateOverlay(param0 : *mut D3DKMT_CREATEOVERLAY) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreatePagingQueue(param0 : *mut D3DKMT_CREATEPAGINGQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateProtectedSession(param0 : *mut D3DKMT_CREATEPROTECTEDSESSION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject2(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation(param0 : *const D3DKMT_DESTROYALLOCATION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation2(param0 : *const D3DKMT_DESTROYALLOCATION2) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTDestroyContext(param0 : *const D3DKMT_DESTROYCONTEXT) -> windows_sys::core::NTSTATUS);
@@ -96,282 +96,283 @@ windows_link::link!("gdi32.dll" "system" fn D3DKMTDestroyPagingQueue(param0 : *m
 windows_link::link!("gdi32.dll" "system" fn D3DKMTDestroyProtectedSession(param0 : *mut D3DKMT_DESTROYPROTECTEDSESSION) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTDestroySynchronizationObject(param0 : *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters(param0 : *const D3DKMT_ENUMADAPTERS) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters2(param0 : *const D3DKMT_ENUMADAPTERS2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("api-ms-win-dx-d3dkmt-l1-1-6.dll" "system" fn D3DKMTEnumAdapters3(param0 : *mut D3DKMT_ENUMADAPTERS3) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTEscape(param0 : *const D3DKMT_ESCAPE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTEvict(param0 : *mut D3DKMT_EVICT) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTFlipOverlay(param0 : *const D3DKMT_FLIPOVERLAY) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTFlushHeapTransitions(param0 : *const D3DKMT_FLUSHHEAPTRANSITIONS) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTFreeGpuVirtualAddress(param0 : *const D3DKMT_FREEGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetAllocationPriority(param0 : *const D3DKMT_GETALLOCATIONPRIORITY) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetContextInProcessSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetContextSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetDWMVerticalBlankEvent(param0 : *const D3DKMT_GETVERTICALBLANKEVENT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetDeviceState(param0 : *mut D3DKMT_GETDEVICESTATE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetDisplayModeList(param0 : *mut D3DKMT_GETDISPLAYMODELIST) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetMultiPlaneOverlayCaps(param0 : *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetMultisampleMethodList(param0 : *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetNativeFenceLogDetail(param0 : *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetOverlayState(param0 : *mut D3DKMT_GETOVERLAYSTATE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetPostCompositionCaps(param0 : *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetPresentHistory(param0 : *mut D3DKMT_GETPRESENTHISTORY) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetPresentQueueEvent(hadapter : super::D3DKMT_HANDLE, param1 : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetProcessDeviceRemovalSupport(param0 : *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetProcessSchedulingPriorityClass(param0 : super::HANDLE, param1 : *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetResourcePresentPrivateDriverData(param0 : *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetRuntimeData(param0 : *const D3DKMT_GETRUNTIMEDATA) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetScanLine(param0 : *mut D3DKMT_GETSCANLINE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetSharedPrimaryHandle(param0 : *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTGetSharedResourceAdapterLuid(param0 : *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTInvalidateActiveVidPn(param0 : *const D3DKMT_INVALIDATEACTIVEVIDPN) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTInvalidateCache(param0 : *const D3DKMT_INVALIDATECACHE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTIsFeatureEnabled(param0 : *mut D3DKMT_ISFEATUREENABLED) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTLock(param0 : *mut D3DKMT_LOCK) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTLock2(param0 : *mut D3DKMT_LOCK2) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTMakeResident(param0 : *mut super::D3DDDI_MAKERESIDENT) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTMapGpuVirtualAddress(param0 : *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTMarkDeviceAsError(param0 : *const D3DKMT_MARKDEVICEASERROR) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTNotifyWorkSubmission(param0 : *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOfferAllocations(param0 : *const D3DKMT_OFFERALLOCATIONS) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromDeviceName(param0 : *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromGdiDisplayName(param0 : *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromHdc(param0 : *mut D3DKMT_OPENADAPTERFROMHDC) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromLuid(param0 : *const D3DKMT_OPENADAPTERFROMLUID) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex(param0 : *mut D3DKMT_OPENKEYEDMUTEX) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex2(param0 : *mut D3DKMT_OPENKEYEDMUTEX2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenNativeFenceFromNtHandle(param0 : *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenProtectedSessionFromNtHandle(param0 : *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenResource(param0 : *mut D3DKMT_OPENRESOURCE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenResource2(param0 : *mut D3DKMT_OPENRESOURCE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenResourceFromNtHandle(param0 : *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOpenSynchronizationObject(param0 : *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetFrameInfo(param0 : *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetMetaData(param0 : *mut D3DKMT_OUTPUTDUPL_METADATA) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetPointerShapeData(param0 : *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOutputDuplPresent(param0 : *const D3DKMT_OUTPUTDUPLPRESENT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 windows_link::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTOutputDuplPresentToHwQueue(param0 : *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTOutputDuplReleaseFrame(param0 : *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTPollDisplayChildren(param0 : *const D3DKMT_POLLDISPLAYCHILDREN) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTPresent(param0 : *mut D3DKMT_PRESENT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay2(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay3(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTPresentRedirected(param0 : *const D3DKMT_PRESENT_REDIRECTED) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryAdapterInfo(param0 : *const D3DKMT_QUERYADAPTERINFO) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryAllocationResidency(param0 : *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryClockCalibration(param0 : *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryFSEBlock(param0 : *mut D3DKMT_QUERYFSEBLOCK) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "minwindef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryFeatureInterface(param0 : *mut D3DKMT_QUERYFEATUREINTERFACE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryProcessOfferInfo(param0 : *mut D3DKMT_QUERYPROCESSOFFERINFO) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionStatus(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 : *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfo(param0 : *mut D3DKMT_QUERYRESOURCEINFO) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfoFromNtHandle(param0 : *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryStatistics(param0 : *const D3DKMT_QUERYSTATISTICS) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryVidPnExclusiveOwnership(param0 : *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTQueryVideoMemoryInfo(param0 : *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations(param0 : *const D3DKMT_RECLAIMALLOCATIONS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations2(param0 : *mut D3DKMT_RECLAIMALLOCATIONS2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTRegisterTrimNotification(param0 : *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> windows_sys::core::NTSTATUS);
 windows_link::link!("gdi32.dll" "system" fn D3DKMTRegisterVailProcess(param0 : *const windows_sys::core::GUID) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex2(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX2) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTReleaseProcessVidPnSourceOwners(param0 : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTRender(param0 : *mut D3DKMT_RENDER) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTReserveGpuVirtualAddress(param0 : *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTResizeRingBuffer(param0 : *mut D3DKMT_RESIZERINGBUFFER) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetAllocationPriority(param0 : *const D3DKMT_SETALLOCATIONPRIORITY) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetContextInProcessSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetContextSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetDisplayMode(param0 : *const D3DKMT_SETDISPLAYMODE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetDisplayPrivateDriverFormat(param0 : *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetFSEBlock(param0 : *const D3DKMT_SETFSEBLOCK) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetGammaRamp(param0 : *const D3DKMT_SETGAMMARAMP) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetHwProtectionTeardownRecovery(param0 : *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetMonitorColorSpaceTransform(param0 : *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetProcessSchedulingPriorityClass(param0 : super::HANDLE, param1 : D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetQueuedLimit(param0 : *const D3DKMT_SETQUEUEDLIMIT) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetStablePowerState(param0 : *const D3DKMT_SETSTABLEPOWERSTATE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetSyncRefreshCountWaitTarget(param0 : *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceHwProtection(param0 : *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner1(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER1) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const super::D3DKMT_HANDLE, pobjectattributes : POBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : super::UINT, hobjects : *const super::D3DKMT_HANDLE, pobjectattributes : super::POBJECT_ATTRIBUTES, dwdesiredaccess : super::DWORD, phsharednthandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryUnLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromCpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSubmitCommand(param0 : *const D3DKMT_SUBMITCOMMAND) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSubmitCommandToHwQueue(param0 : *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentBltToHwQueue(param0 : *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentToHwQueue(param0 : *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTTrimProcessCommitment(param0 : *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTUnlock(param0 : *const D3DKMT_UNLOCK) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTUnlock2(param0 : *const D3DKMT_UNLOCK2) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTUnregisterTrimNotification(param0 : *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTUpdateAllocationProperty(param0 : *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTUpdateGpuVirtualAddress(param0 : *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTUpdateOverlay(param0 : *const D3DKMT_UPDATEOVERLAY) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTWaitForIdle(param0 : *const D3DKMT_WAITFORIDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject2(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromCpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromGpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "d3dukmdt")]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 windows_link::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent2(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> windows_sys::core::NTSTATUS);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMDT_DISPLAYMODE_FLAGS {
     pub _bitfield1: u32,
-    pub _bitfield2: D3DKMDT_MODE_PRUNING_REASON,
+    pub _bitfield2: i32,
 }
 pub type D3DKMDT_MODE_PRUNING_REASON = i32;
 pub const D3DKMDT_MPR_ALLCAPS: D3DKMDT_MODE_PRUNING_REASON = 1;
@@ -386,24 +387,24 @@ pub const D3DKMDT_MPR_MAXVALID: D3DKMDT_MODE_PRUNING_REASON = 10;
 pub const D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE: D3DKMDT_MODE_PRUNING_REASON = 8;
 pub const D3DKMDT_MPR_UNINITIALIZED: D3DKMDT_MODE_PRUNING_REASON = 0;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX {
     pub hKeyedMutex: super::D3DKMT_HANDLE,
-    pub Key: u64,
+    pub Key: super::UINT64,
     pub pTimeout: super::PLARGE_INTEGER,
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
     pub hKeyedMutex: super::D3DKMT_HANDLE,
-    pub Key: u64,
+    pub Key: super::UINT64,
     pub pTimeout: super::PLARGE_INTEGER,
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -415,103 +416,117 @@ pub type D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = i32;
 pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = 0;
 pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_MODES_PRUNED: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = 15;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTERADDRESS {
-    pub BusNumber: u32,
-    pub DeviceNumber: u32,
-    pub FunctionNumber: u32,
+    pub BusNumber: super::UINT,
+    pub DeviceNumber: super::UINT,
+    pub FunctionNumber: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTERINFO {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub AdapterLuid: super::LUID,
-    pub NumOfSources: u32,
+    pub NumOfSources: super::ULONG,
     pub bPrecisePresentRegionsPreferred: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERREGISTRYINFO {
-    pub AdapterString: [u16; 260],
-    pub BiosString: [u16; 260],
-    pub DacType: [u16; 260],
-    pub ChipType: [u16; 260],
+    pub AdapterString: [super::WCHAR; 260],
+    pub BiosString: [super::WCHAR; 260],
+    pub DacType: [super::WCHAR; 260],
+    pub ChipType: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_ADAPTERREGISTRYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERTYPE {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_ADAPTERTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_ADAPTERTYPE_0 {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_ADAPTERTYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTERTYPE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTER_PERFDATA {
-    pub PhysicalAdapterIndex: u32,
-    pub MemoryFrequency: u64,
-    pub MaxMemoryFrequency: u64,
-    pub MaxMemoryFrequencyOC: u64,
-    pub MemoryBandwidth: u64,
-    pub PCIEBandwidth: u64,
-    pub FanRPM: u32,
-    pub Power: u32,
-    pub Temperature: u32,
-    pub PowerStateOverride: u8,
+    pub PhysicalAdapterIndex: super::UINT32,
+    pub MemoryFrequency: super::ULONGLONG,
+    pub MaxMemoryFrequency: super::ULONGLONG,
+    pub MaxMemoryFrequencyOC: super::ULONGLONG,
+    pub MemoryBandwidth: super::ULONGLONG,
+    pub PCIEBandwidth: super::ULONGLONG,
+    pub FanRPM: super::ULONG,
+    pub Power: super::ULONG,
+    pub Temperature: super::ULONG,
+    pub PowerStateOverride: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTER_PERFDATACAPS {
-    pub PhysicalAdapterIndex: u32,
-    pub MaxMemoryBandwidth: u64,
-    pub MaxPCIEBandwidth: u64,
-    pub MaxFanRPM: u32,
-    pub TemperatureMax: u32,
-    pub TemperatureWarning: u32,
+    pub PhysicalAdapterIndex: super::UINT32,
+    pub MaxMemoryBandwidth: super::ULONGLONG,
+    pub MaxPCIEBandwidth: super::ULONGLONG,
+    pub MaxFanRPM: super::ULONG,
+    pub TemperatureMax: super::ULONG,
+    pub TemperatureWarning: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTER_VERIFIER_OPTION {
     pub Type: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE,
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_ADAPTER_VERIFIER_OPTION_DATA,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_ADAPTER_VERIFIER_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS,
     pub VidMmTrimInterval: D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL,
     pub VidMmPagingInfo: D3DKMT_ADAPTER_VERIFIER_VIDMM_PAGING_INFO,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -522,36 +537,41 @@ pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_ADAPTER_VERIFIER_OP
 pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_PAGING_INFO: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = 1002;
 pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_TRIM_INTERVAL: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = 1001;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0,
-    pub Value: u32,
+    pub Value: super::UINT32,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_PAGING_INFO {
-    pub FillPattern: u32,
-    pub MaxTransferChunkSize: u32,
+    pub FillPattern: super::UINT32,
+    pub MaxTransferChunkSize: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
-    pub MinimumTrimInterval: u64,
-    pub MaximumTrimInterval: u64,
-    pub IdleTrimInterval: u64,
-    pub ForegroundTrimInterval: u64,
-    pub StartPeriodicTrimThreshold: u32,
-    pub CriticalPeriodicTrimThreshold: u32,
+    pub MinimumTrimInterval: super::UINT64,
+    pub MaximumTrimInterval: super::UINT64,
+    pub IdleTrimInterval: super::UINT64,
+    pub ForegroundTrimInterval: super::UINT64,
+    pub StartPeriodicTrimThreshold: super::UINT32,
+    pub CriticalPeriodicTrimThreshold: super::UINT32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -567,9 +587,10 @@ pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT: D3DKMT_ALLOCATIONRESIDEN
 pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = 1;
 pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO {
-    pub size: u32,
+    pub size: super::UINT,
     pub r#type: D3DKMT_AUXILIARYPRESENTINFO_TYPE,
 }
 pub type D3DKMT_AUXILIARYPRESENTINFO_TYPE = i32;
@@ -580,51 +601,53 @@ pub const D3DKMT_AllocationPriorityClassMaximum: D3DKMT_QUERYSTATISTICS_ALLOCATI
 pub const D3DKMT_AllocationPriorityClassMinimum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = 0;
 pub const D3DKMT_AllocationPriorityClassNormal: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_BDDFALLBACK_CTL {
     pub ForceBddHeadlessNextFallback: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_BLOCKLIST_INFO {
-    pub Size: u32,
-    pub BlockList: [u16; 1],
+    pub Size: super::UINT,
+    pub BlockList: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_BLOCKLIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
-    pub hLogicalSurface: u64,
-    pub hPhysicalSurface: u64,
-    pub EventId: u64,
+    pub hLogicalSurface: super::ULONG64,
+    pub hPhysicalSurface: super::ULONG64,
+    pub EventId: super::ULONG64,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_BRIGHTNESS_INFO {
     pub Type: D3DKMT_BRIGHTNESS_INFO_TYPE,
-    pub ChildUid: u32,
+    pub ChildUid: super::ULONG,
     pub Anonymous: D3DKMT_BRIGHTNESS_INFO_0,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_BRIGHTNESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub PossibleLevels: D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS,
-    pub Brightness: u8,
+    pub Brightness: super::UCHAR,
     pub BrightnessCaps: super::DXGK_BRIGHTNESS_CAPS,
     pub BrightnessState: super::DXGK_BRIGHTNESS_STATE,
     pub OptimizationLevel: super::DXGK_BACKLIGHT_OPTIMIZATION_LEVEL,
@@ -635,7 +658,7 @@ pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub SetBrightnessMillinits: super::DXGK_BRIGHTNESS_SET_IN,
     pub BrightnessInterfaceSupported: D3DKMT_BRIGHTNESS_INTERFACE_VERSION,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_BRIGHTNESS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -660,63 +683,71 @@ pub const D3DKMT_BRIGHTNESS_INTERFACE_VERSION_2: D3DKMT_BRIGHTNESS_INTERFACE_VER
 pub const D3DKMT_BRIGHTNESS_INTERFACE_VERSION_3: D3DKMT_BRIGHTNESS_INTERFACE_VERSION = 3;
 pub const D3DKMT_BRIGHTNESS_INTERFACE_VERSION_UNINITIALIZED: D3DKMT_BRIGHTNESS_INTERFACE_VERSION = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
-    pub LevelCount: u8,
-    pub BrightnessLevels: [u8; 256],
+    pub LevelCount: super::UCHAR,
+    pub BrightnessLevels: [super::UCHAR; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_BUDGETCHANGENOTIFICATION {
     pub Context: *mut core::ffi::c_void,
-    pub Budget: u64,
+    pub Budget: super::UINT64,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CANCEL_PRESENTS {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub hDevice: super::D3DKMT_HANDLE,
     pub Flags: D3DKMT_CANCEL_PRESENTS_FLAGS,
     pub Operation: D3DKMT_CANCEL_PRESENTS_OPERATION,
-    pub CancelFromPresentId: u64,
+    pub CancelFromPresentId: super::UINT64,
     pub CompSurfaceLuid: super::LUID,
-    pub BindId: u64,
+    pub BindId: super::UINT64,
     pub hFlipManagerProcessedEvent: super::HANDLE,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_CANCEL_PRESENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS {
     pub Anonymous: D3DKMT_CANCEL_PRESENTS_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CANCEL_PRESENTS_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     pub ReprogramInterrupt: D3DKMT_CANCEL_PRESENTS_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -726,25 +757,25 @@ pub const D3DKMT_CANCEL_PRESENTS_OPERATION_CANCEL_FROM: D3DKMT_CANCEL_PRESENTS_O
 pub const D3DKMT_CANCEL_PRESENTS_OPERATION_FLUSH_COMPLETED_PRESENTS: D3DKMT_CANCEL_PRESENTS_OPERATION = 2;
 pub const D3DKMT_CANCEL_PRESENTS_OPERATION_REPROGRAM_INTERRUPT: D3DKMT_CANCEL_PRESENTS_OPERATION = 1;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub hDC: super::HDC,
     pub hBitmap: super::HANDLE,
-    pub pSurfacePointer: *mut core::ffi::c_void,
-    pub Width: u32,
-    pub Height: u32,
-    pub Pitch: u32,
+    pub pSurfacePointer: super::LPVOID,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Pitch: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub hProcess: super::HANDLE,
     pub hAdapter: super::D3DKMT_HANDLE,
     pub MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
-    pub Reservation: u64,
-    pub PhysicalAdapterIndex: u32,
+    pub Reservation: super::UINT64,
+    pub PhysicalAdapterIndex: super::UINT,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -754,52 +785,52 @@ pub struct D3DKMT_CHECKMONITORPOWERSTATE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub PlaneCount: u32,
+    pub PlaneCount: super::UINT,
     pub pOverlayPlanes: *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE,
     pub Supported: windows_sys::core::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub hDevice: super::D3DKMT_HANDLE,
-    pub PlaneCount: u32,
+    pub PlaneCount: super::UINT,
     pub pOverlayPlanes: *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2,
     pub Supported: windows_sys::core::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub hDevice: super::D3DKMT_HANDLE,
-    pub PlaneCount: u32,
+    pub PlaneCount: super::UINT,
     pub ppOverlayPlanes: *mut *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,
-    pub PostCompositionCount: u32,
+    pub PostCompositionCount: super::UINT,
     pub ppPostComposition: *mut *mut D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE,
     pub Supported: windows_sys::core::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -812,11 +843,11 @@ pub struct D3DKMT_CHECKOCCLUSION {
     pub hWindow: super::HWND,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CHECKSHAREDRESOURCEACCESS {
     pub hResource: super::D3DKMT_HANDLE,
-    pub ClientPid: u32,
+    pub ClientPid: super::UINT,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -826,7 +857,7 @@ pub struct D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub hResource: super::D3DKMT_HANDLE,
@@ -835,47 +866,52 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
-    pub LayerIndex: u32,
+    pub LayerIndex: super::UINT,
     pub hResource: super::D3DKMT_HANDLE,
     pub CompSurfaceLuid: super::LUID,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
-    pub LayerIndex: u32,
+    pub LayerIndex: super::UINT,
     pub hResource: super::D3DKMT_HANDLE,
     pub CompSurfaceLuid: super::LUID,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub pPlaneAttributes: *mut D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     pub _bitfield: u32,
@@ -919,12 +955,13 @@ pub struct D3DKMT_CLOSEADAPTER {
 }
 pub const D3DKMT_COMPONENTIZED_INDICATOR: u16 = 35;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
-    pub hPrivateData: u64,
+    pub hPrivateData: super::ULONG64,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hDevice: super::D3DKMT_HANDLE,
@@ -934,362 +971,381 @@ pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub AllowAccess: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CONNECT_DOORBELL {
     pub hHwQueue: super::D3DKMT_HANDLE,
     pub Flags: D3DKMT_CONNECT_DOORBELL_FLAGS,
     pub DoorbellMapping: super::D3DDDI_DOORBELLMAPPING,
-    pub Reserved: [u8; 64],
+    pub Reserved: [super::BYTE; 64],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CONNECT_DOORBELL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CONNECT_DOORBELL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CPDRIVERNAME {
-    pub ContentProtectionFileName: [u16; 260],
+    pub ContentProtectionFileName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_CPDRIVERNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEALLOCATION {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hResource: super::D3DKMT_HANDLE,
     pub hGlobalShare: super::D3DKMT_HANDLE,
     pub pPrivateRuntimeData: *const core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
     pub Anonymous: D3DKMT_CREATEALLOCATION_0,
-    pub PrivateDriverDataSize: u32,
-    pub NumAllocations: u32,
+    pub PrivateDriverDataSize: super::UINT,
+    pub NumAllocations: super::UINT,
     pub Anonymous2: D3DKMT_CREATEALLOCATION_1,
     pub Flags: D3DKMT_CREATEALLOCATIONFLAGS,
     pub hPrivateRuntimeResourceHandle: super::HANDLE,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_CREATEALLOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATEALLOCATION_0 {
     pub pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
     pub pPrivateDriverData: *const core::ffi::c_void,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_CREATEALLOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATEALLOCATION_1 {
     pub pAllocationInfo: *mut super::D3DDDI_ALLOCATIONINFO,
     pub pAllocationInfo2: *mut super::D3DDDI_ALLOCATIONINFO2,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_CREATEALLOCATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEALLOCATIONFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATECONTEXT {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub NodeOrdinal: u32,
-    pub EngineAffinity: u32,
+    pub NodeOrdinal: super::UINT,
+    pub EngineAffinity: super::UINT,
     pub Flags: super::D3DDDI_CREATECONTEXTFLAGS,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub ClientHint: D3DKMT_CLIENTHINT,
     pub hContext: super::D3DKMT_HANDLE,
     pub pCommandBuffer: *mut core::ffi::c_void,
-    pub CommandBufferSize: u32,
+    pub CommandBufferSize: super::UINT,
     pub pAllocationList: *mut super::D3DDDI_ALLOCATIONLIST,
-    pub AllocationListSize: u32,
+    pub AllocationListSize: super::UINT,
     pub pPatchLocationList: *mut super::D3DDDI_PATCHLOCATIONLIST,
-    pub PatchLocationListSize: u32,
+    pub PatchLocationListSize: super::UINT,
     pub CommandBuffer: super::D3DGPU_VIRTUAL_ADDRESS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATECONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATECONTEXTVIRTUAL {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub NodeOrdinal: u32,
-    pub EngineAffinity: u32,
+    pub NodeOrdinal: super::UINT,
+    pub EngineAffinity: super::UINT,
     pub Flags: super::D3DDDI_CREATECONTEXTFLAGS,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub ClientHint: D3DKMT_CLIENTHINT,
     pub hContext: super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATECONTEXTVIRTUAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub pMemory: *mut core::ffi::c_void,
     pub Format: super::D3DDDIFORMAT,
-    pub Width: u32,
-    pub Height: u32,
-    pub Pitch: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Pitch: super::UINT,
     pub hDeviceDc: super::HDC,
     pub pColorTable: *mut super::PALETTEENTRY,
     pub hDc: super::HDC,
     pub hBitmap: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEDEVICE {
     pub Anonymous: D3DKMT_CREATEDEVICE_0,
     pub Flags: D3DKMT_CREATEDEVICEFLAGS,
     pub hDevice: super::D3DKMT_HANDLE,
     pub pCommandBuffer: *mut core::ffi::c_void,
-    pub CommandBufferSize: u32,
+    pub CommandBufferSize: super::UINT,
     pub pAllocationList: *mut super::D3DDDI_ALLOCATIONLIST,
-    pub AllocationListSize: u32,
+    pub AllocationListSize: super::UINT,
     pub pPatchLocationList: *mut super::D3DDDI_PATCHLOCATIONLIST,
-    pub PatchLocationListSize: u32,
+    pub PatchLocationListSize: super::UINT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATEDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATEDEVICE_0 {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub pAdapter: *mut core::ffi::c_void,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATEDEVICE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEDEVICEFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEHWCONTEXT {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub NodeOrdinal: u32,
-    pub EngineAffinity: u32,
+    pub NodeOrdinal: super::UINT,
+    pub EngineAffinity: super::UINT,
     pub Flags: super::D3DDDI_CREATEHWCONTEXTFLAGS,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub hHwContext: super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATEHWCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEHWQUEUE {
     pub hHwContext: super::D3DKMT_HANDLE,
     pub Flags: super::D3DDDI_CREATEHWQUEUEFLAGS,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub hHwQueue: super::D3DKMT_HANDLE,
     pub hHwQueueProgressFence: super::D3DKMT_HANDLE,
     pub HwQueueProgressFenceCPUVirtualAddress: *mut core::ffi::c_void,
     pub HwQueueProgressFenceGPUVirtualAddress: super::D3DGPU_VIRTUAL_ADDRESS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATEHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION {
     pub hHwContext: super::D3DKMT_HANDLE,
     pub Flags: super::D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS,
     pub hRingBuffer: super::D3DKMT_HANDLE,
     pub hRingBufferControl: super::D3DKMT_HANDLE,
-    pub PrivateDriverData: [u8; 64],
+    pub PrivateDriverData: [super::BYTE; 64],
     pub hHwQueue: super::D3DKMT_HANDLE,
     pub DoorbellStatusCpuVa: *mut core::ffi::c_void,
     pub hProgressFence: super::D3DKMT_HANDLE,
     pub ProgressFenceMapping: super::D3DDDI_NATIVEFENCEMAPPING,
     pub ProgressFenceLastQueuedValueCpuVa: *mut core::ffi::c_void,
     pub LogBufferInfo: super::D3DDDI_NATIVEFENCELOGDETAIL,
-    pub Reserved: [u8; 64],
+    pub Reserved: [super::BYTE; 64],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEKEYEDMUTEX {
-    pub InitialValue: u64,
+    pub InitialValue: super::UINT64,
     pub hSharedHandle: super::D3DKMT_HANDLE,
     pub hKeyedMutex: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2 {
-    pub InitialValue: u64,
+    pub InitialValue: super::UINT64,
     pub hSharedHandle: super::D3DKMT_HANDLE,
     pub hKeyedMutex: super::D3DKMT_HANDLE,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
     pub Flags: D3DKMT_CREATEKEYEDMUTEX2_FLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATEKEYEDMUTEX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATENATIVEFENCE {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hSyncObject: super::D3DKMT_HANDLE,
-    pub PrivateDriverData: [u8; 64],
+    pub PrivateDriverData: [super::BYTE; 64],
     pub Info: super::D3DDDI_NATIVEFENCEINFO,
     pub Flags: D3DKMT_CREATENATIVEFENCE_FLAGS,
-    pub Reserved: [u8; 28],
+    pub Reserved: [super::BYTE; 28],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATENATIVEFENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATENATIVEFENCE_FLAGS {
     pub Anonymous: D3DKMT_CREATENATIVEFENCE_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATENATIVEFENCE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATENATIVEFENCE_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATENATIVEFENCE_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATENATIVEFENCE_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATENATIVEFENCE_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEOVERLAY {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -1298,7 +1354,7 @@ pub struct D3DKMT_CREATEOVERLAY {
     pub hOverlay: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub hDevice: super::D3DKMT_HANDLE,
@@ -1306,118 +1362,123 @@ pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub hPagingQueue: super::D3DKMT_HANDLE,
     pub hSyncObject: super::D3DKMT_HANDLE,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATEPROTECTEDSESSION {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hSyncObject: super::D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub pPrivateRuntimeData: *const core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
     pub hHandle: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESTANDARDALLOCATION {
     pub Type: D3DKMT_STANDARDALLOCATIONTYPE,
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATION_0,
     pub Flags: D3DKMT_CREATESTANDARDALLOCATIONFLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATESTANDARDALLOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATESTANDARDALLOCATION_0 {
     pub ExistingHeapData: D3DKMT_STANDARDALLOCATION_EXISTINGHEAP,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATESTANDARDALLOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATESYNCFILE {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hMonitoredFence: super::D3DKMT_HANDLE,
-    pub FenceValue: u64,
-    pub hSyncFile: u64,
+    pub FenceValue: super::UINT64,
+    pub hSyncFile: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     pub hDevice: super::D3DKMT_HANDLE,
     pub Info: super::D3DDDI_SYNCHRONIZATIONOBJECTINFO,
     pub hSyncObject: super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     pub hDevice: super::D3DKMT_HANDLE,
     pub Info: super::D3DDDI_SYNCHRONIZATIONOBJECTINFO2,
     pub hSyncObject: super::D3DKMT_HANDLE,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_DOORBELL {
     pub hHwQueue: super::D3DKMT_HANDLE,
     pub hRingBuffer: super::D3DKMT_HANDLE,
     pub hRingBufferControl: super::D3DKMT_HANDLE,
     pub Flags: D3DKMT_CREATE_DOORBELL_FLAGS,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub PrivateDriverData: *mut core::ffi::c_void,
     pub DoorbellCPUVirtualAddress: *mut core::ffi::c_void,
     pub DoorbellSecondaryCPUVirtualAddress: *mut core::ffi::c_void,
@@ -1425,50 +1486,55 @@ pub struct D3DKMT_CREATE_DOORBELL {
     pub HwQueueProgressFenceLastQueuedValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub hDoorbell: super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_CREATE_DOORBELL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATE_DOORBELL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_OUTPUTDUPL {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub KeyedMutexCount: u32,
-    pub RequiredKeyedMutexCount: u32,
+    pub KeyedMutexCount: super::UINT,
+    pub RequiredKeyedMutexCount: super::UINT,
     pub KeyedMutexs: [D3DKMT_OUTPUTDUPL_KEYEDMUTEX; 3],
     pub Flags: D3DKMT_OUTPUTDUPLCREATIONFLAGS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_CREATE_OUTPUTDUPL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1485,7 +1551,7 @@ pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_NONE: D3DKMT_CROSSADAPTERRESO
 pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_SCANOUT: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = 3;
 pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_TEXTURE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = 2;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CURRENTDISPLAYMODE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -1494,11 +1560,13 @@ pub struct D3DKMT_CURRENTDISPLAYMODE {
 pub const D3DKMT_ClientPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = 1;
 pub const D3DKMT_ClientRenderBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
-    pub Length: u32,
-    pub Buffer: [u8; 1],
+    pub Length: super::ULONG,
+    pub Buffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1511,25 +1579,25 @@ pub const D3DKMT_DEFRAG_ESCAPE_GET_FRAGMENTATION_STATS: D3DKMT_DEFRAG_ESCAPE_OPE
 pub type D3DKMT_DEFRAG_ESCAPE_OPERATION = i32;
 pub const D3DKMT_DEFRAG_ESCAPE_VERIFY_TRANSFER: D3DKMT_DEFRAG_ESCAPE_OPERATION = 4;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DESTROYALLOCATION {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hResource: super::D3DKMT_HANDLE,
     pub phAllocationList: *const super::D3DKMT_HANDLE,
-    pub AllocationCount: u32,
+    pub AllocationCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYALLOCATION2 {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hResource: super::D3DKMT_HANDLE,
     pub phAllocationList: *const super::D3DKMT_HANDLE,
-    pub AllocationCount: u32,
+    pub AllocationCount: super::UINT,
     pub Flags: super::D3DDDICB_DESTROYALLOCATION2FLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_DESTROYALLOCATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1617,77 +1685,82 @@ pub const D3DKMT_DEVICEEXECUTION_RESET: D3DKMT_DEVICEEXECUTION_STATE = 2;
 pub type D3DKMT_DEVICEEXECUTION_STATE = i32;
 pub const D3DKMT_DEVICEEXECUTION_STOPPED: D3DKMT_DEVICEEXECUTION_STATE = 4;
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPAGEFAULT_STATE {
-    pub FaultedPrimitiveAPISequenceNumber: u64,
+    pub FaultedPrimitiveAPISequenceNumber: super::UINT64,
     pub FaultedPipelineStage: super::DXGK_RENDER_PIPELINE_STAGE,
-    pub FaultedBindTableEntry: u32,
+    pub FaultedBindTableEntry: super::UINT,
     pub PageFaultFlags: super::DXGK_PAGE_FAULT_FLAGS,
     pub FaultErrorCode: super::DXGK_FAULT_ERROR_CODE,
     pub FaultedVirtualAddress: super::D3DGPU_VIRTUAL_ADDRESS,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_DEVICEPAGEFAULT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub bQueuedPresentLimitReached: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPRESENT_STATE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub PresentStats: D3DKMT_PRESENT_STATS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_DEVICEPRESENT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPRESENT_STATE_DWM {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub PresentStatsDWM: D3DKMT_PRESENT_STATS_DWM,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_DEVICEPRESENT_STATE_DWM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICERESET_STATE {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_DEVICERESET_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_DEVICERESET_STATE_0 {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_DEVICERESET_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DEVICERESET_STATE_0_0 {
     pub _bitfield: u32,
@@ -1735,14 +1808,15 @@ pub struct D3DKMT_DEVICE_ESCAPE_0_0 {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DEVICE_IDS {
-    pub VendorID: u32,
-    pub DeviceID: u32,
-    pub SubVendorID: u32,
-    pub SubSystemID: u32,
-    pub RevisionID: u32,
-    pub BusType: u32,
+    pub VendorID: super::UINT,
+    pub DeviceID: super::UINT,
+    pub SubVendorID: super::UINT,
+    pub SubSystemID: super::UINT,
+    pub RevisionID: super::UINT,
+    pub BusType: super::UINT,
 }
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_HUNG: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 7;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_NOT_RECOVERED: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 1;
@@ -1789,62 +1863,66 @@ pub struct D3DKMT_DIRECTFLIP_SUPPORT {
     pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DIRTYREGIONS {
-    pub NumRects: u32,
+    pub NumRects: super::UINT,
     pub Rects: [super::RECT; 16],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_DIRTYREGIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DISPLAYMODE {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: super::D3DDDIFORMAT,
-    pub IntegerRefreshRate: u32,
+    pub IntegerRefreshRate: super::UINT,
     pub RefreshRate: super::D3DDDI_RATIONAL,
     pub ScanLineOrdering: super::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
     pub DisplayOrientation: super::D3DDDI_ROTATION,
-    pub DisplayFixedOutput: u32,
+    pub DisplayFixedOutput: super::UINT,
     pub Flags: D3DKMDT_DISPLAYMODE_FLAGS,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAYMODELIST {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub ModeCount: u32,
+    pub ModeCount: super::UINT,
     pub pModeList: [D3DKMT_DISPLAYMODE; 0],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_DISPLAYMODELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     pub Version: KMT_DISPLAY_UMD_VERSION,
-    pub UmdFileName: [u16; 260],
+    pub UmdFileName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DLIST_DRIVER_NAME {
-    pub DListFileName: [u16; 260],
+    pub DListFileName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_DLIST_DRIVER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1867,15 +1945,15 @@ pub const D3DKMT_DMMESCAPETYPE_RECENT_MONITOR_PRESENCE_EVENTS_INFO: D3DKMT_DMMES
 pub const D3DKMT_DMMESCAPETYPE_UNINITIALIZED: D3DKMT_DMMESCAPETYPE = 0;
 pub const D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS: D3DKMT_DMMESCAPETYPE = 14;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DMM_ESCAPE {
     pub Type: D3DKMT_DMMESCAPETYPE,
     pub ProvidedBufferSize: super::D3DKMT_SIZE_T,
     pub MinRequiredBufferSize: super::D3DKMT_SIZE_T,
-    pub Data: [u8; 1],
+    pub Data: [super::UCHAR; 1],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_DMM_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1888,10 +1966,12 @@ pub struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
 }
 pub type D3DKMT_DRIVERVERSION = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVER_DESCRIPTION {
-    pub DriverDescription: [u16; 4096],
+    pub DriverDescription: [super::WCHAR; 4096],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_DRIVER_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1901,57 +1981,60 @@ pub const D3DKMT_DeferredCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE
 pub const D3DKMT_DeviceCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 6;
 pub const D3DKMT_DmaPacketTypeMax: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = 4;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ENUMADAPTERS {
-    pub NumAdapters: u32,
+    pub NumAdapters: super::ULONG,
     pub Adapters: [D3DKMT_ADAPTERINFO; 16],
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_ENUMADAPTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ENUMADAPTERS2 {
-    pub NumAdapters: u32,
+    pub NumAdapters: super::ULONG,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ENUMADAPTERS3 {
     pub Filter: D3DKMT_ENUMADAPTERS_FILTER,
-    pub NumAdapters: u32,
+    pub NumAdapters: super::ULONG,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_ENUMADAPTERS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_ENUMADAPTERS_FILTER {
     pub Anonymous: D3DKMT_ENUMADAPTERS_FILTER_0,
-    pub Value: u64,
+    pub Value: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_ENUMADAPTERS_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_ENUMADAPTERS_FILTER_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ESCAPE {
     pub hAdapter: super::D3DKMT_HANDLE,
@@ -1959,10 +2042,10 @@ pub struct D3DKMT_ESCAPE {
     pub Type: D3DKMT_ESCAPETYPE,
     pub Flags: super::D3DDDI_ESCAPEFLAGS,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub hContext: super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2012,17 +2095,17 @@ pub const D3DKMT_ESCAPE_TDRDBGCTRL: D3DKMT_ESCAPETYPE = 2;
 pub const D3DKMT_ESCAPE_VIDMM: D3DKMT_ESCAPETYPE = 1;
 pub const D3DKMT_ESCAPE_VIDSCH: D3DKMT_ESCAPETYPE = 3;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub Type: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE,
-    pub VidPnSourceId: u32,
+    pub VidPnSourceId: super::UINT,
     pub ProcessBoostEligible: super::BOOLEAN,
-    pub VSyncMultiplier: u32,
-    pub BaseDesktopDuration: u32,
-    pub Reserved: [u8; 16],
+    pub VSyncMultiplier: super::UINT,
+    pub BaseDesktopDuration: super::UINT,
+    pub Reserved: [super::UCHAR; 16],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2047,109 +2130,123 @@ pub const D3DKMT_ESCAPE_WIN32K_START: D3DKMT_ESCAPETYPE = 1024;
 pub const D3DKMT_ESCAPE_WIN32K_SYSTEM_DPI: D3DKMT_ESCAPETYPE = 1028;
 pub const D3DKMT_ESCAPE_WIN32K_USER_DETECTED_BLACK_SCREEN: D3DKMT_ESCAPETYPE = 1031;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_EVICT {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub AllocationList: *const super::D3DKMT_HANDLE,
     pub Flags: super::D3DDDI_EVICT_FLAGS,
-    pub NumBytesToTrim: u64,
+    pub NumBytesToTrim: super::UINT64,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_EVICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_EVICTION_CRITERIA {
-    pub MinimumSize: u64,
-    pub MaximumSize: u64,
+    pub MinimumSize: super::UINT64,
+    pub MaximumSize: super::UINT64,
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_EVICTION_CRITERIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_EVICTION_CRITERIA_0 {
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_EVICTION_CRITERIA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_EVICTION_CRITERIA_0_0 {
     pub Flags: D3DKMT_EVICTION_CRITERIA_0_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_EVICTION_CRITERIA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_EVICTION_CRITERIA_0_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_FENCE_PRESENTHISTORYTOKEN {
-    pub Key: u64,
+    pub Key: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_FLIPINFOFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO,
-    pub flipManagerTracingId: u32,
+    pub flipManagerTracingId: super::UINT,
     pub customDurationChanged: windows_sys::core::BOOL,
     pub pFlipManagerProcessedEvent: *mut core::ffi::c_void,
     pub FlipAdapterLuid: super::LUID,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub independentFlipStage: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE,
-    pub FlipCompletedQpc: u64,
-    pub HwPresentDurationQpc: u32,
+    pub FlipCompletedQpc: super::ULONGLONG,
+    pub HwPresentDurationQpc: super::UINT,
     pub WasCanceled: windows_sys::core::BOOL,
     pub ConvertedToNonIFlip: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
-    pub hPrivateData: u64,
-    pub PresentAtQpc: u64,
+    pub hPrivateData: super::ULONG64,
+    pub PresentAtQpc: super::ULONGLONG,
     pub Flags: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     pub Anonymous: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     pub _bitfield: u32,
@@ -2158,126 +2255,132 @@ pub type D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = i32;
 pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_COMPLETE: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = 1;
 pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_SUBMITTED: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = 0;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
-    pub FenceValue: u64,
-    pub hLogicalSurface: u64,
+    pub FenceValue: super::UINT64,
+    pub hLogicalSurface: super::ULONG64,
     pub dxgContext: super::D3DKMT_UINT_PTR,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub SwapChainIndex: u32,
-    pub PresentLimitSemaphoreId: u64,
+    pub SwapChainIndex: super::UINT,
+    pub PresentLimitSemaphoreId: super::UINT64,
     pub FlipInterval: super::D3DDDI_FLIPINTERVAL_TYPE,
     pub Flags: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS,
-    pub hCompSurf: i64,
+    pub hCompSurf: super::LONG64,
     pub compSurfLuid: super::LUID,
-    pub confirmationCookie: u64,
-    pub CompositionSyncKey: u64,
+    pub confirmationCookie: super::UINT64,
+    pub CompositionSyncKey: super::UINT64,
     pub ScrollRect: super::RECT,
     pub ScrollOffset: super::POINT,
-    pub PresentCount: u32,
-    pub RevealColor: [f32; 4],
+    pub PresentCount: super::UINT,
+    pub RevealColor: [super::FLOAT; 4],
     pub Rotation: super::D3DDDI_ROTATION,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0,
-    pub InkCookie: u32,
+    pub InkCookie: super::UINT,
     pub SourceRect: super::RECT,
-    pub DestWidth: u32,
-    pub DestHeight: u32,
+    pub DestWidth: super::UINT,
+    pub DestHeight: super::UINT,
     pub TargetRect: super::RECT,
-    pub Transform: [f32; 6],
-    pub CustomDuration: u32,
+    pub Transform: [super::FLOAT; 6],
+    pub CustomDuration: super::UINT,
     pub CustomDurationFlipInterval: super::D3DDDI_FLIPINTERVAL_TYPE,
-    pub PlaneIndex: u32,
+    pub PlaneIndex: super::UINT,
     pub ColorSpace: super::D3DDDI_COLOR_SPACE_TYPE,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     pub ScatterBlts: D3DKMT_SCATTERBLTS,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     pub hSyncObject: super::HANDLE,
     pub HDRMetaDataType: super::D3DDDI_HDR_METADATA_TYPE,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     pub HDRMetaDataHDR10: super::D3DDDI_HDR_METADATA_HDR10,
     pub HDRMetaDataHDR10Plus: super::D3DDDI_HDR_METADATA_HDR10PLUS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_FLIPOVERLAY {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hOverlay: super::D3DKMT_HANDLE,
     pub hSource: super::D3DKMT_HANDLE,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_FLIPQUEUEINFO {
-    pub MaxHardwareFlipQueueLength: u32,
-    pub MaxSoftwareFlipQueueLength: u32,
+    pub MaxHardwareFlipQueueLength: super::UINT,
+    pub MaxSoftwareFlipQueueLength: super::UINT,
     pub FlipFlags: D3DKMT_FLIPINFOFLAGS,
 }
 #[repr(C)]
@@ -2295,63 +2398,64 @@ pub struct D3DKMT_FREEGPUVIRTUALADDRESS {
     pub Size: super::D3DGPU_SIZE_T,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
-    pub hLogicalSurface: u64,
-    pub hPhysicalSurface: u64,
+    pub hLogicalSurface: super::ULONG64,
+    pub hPhysicalSurface: super::ULONG64,
     pub ScrollRect: super::RECT,
     pub ScrollOffset: super::POINT,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
-    pub hlsurf: u64,
-    pub dwDirtyFlags: u32,
-    pub uiCookie: u64,
+    pub hlsurf: super::ULONG64,
+    pub dwDirtyFlags: super::DWORD,
+    pub uiCookie: super::UINT64,
 }
 pub const D3DKMT_GDI_STYLE_HANDLE_DECORATION: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETALLOCATIONPRIORITY {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hResource: super::D3DKMT_HANDLE,
     pub phAllocationList: *const super::D3DKMT_HANDLE,
-    pub AllocationCount: u32,
-    pub pPriorities: *mut u32,
+    pub AllocationCount: super::UINT,
+    pub pPriorities: *mut super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: super::D3DKMT_HANDLE,
-    pub Priority: i32,
+    pub Priority: super::INT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: super::D3DKMT_HANDLE,
-    pub Priority: i32,
+    pub Priority: super::INT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GETDEVICESTATE {
     pub hDevice: super::D3DKMT_HANDLE,
     pub StateType: D3DKMT_DEVICESTATE_TYPE,
     pub Anonymous: D3DKMT_GETDEVICESTATE_0,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_GETDEVICESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_GETDEVICESTATE_0 {
     pub ExecutionState: D3DKMT_DEVICEEXECUTION_STATE,
@@ -2361,79 +2465,84 @@ pub union D3DKMT_GETDEVICESTATE_0 {
     pub PageFaultState: D3DKMT_DEVICEPAGEFAULT_STATE,
     pub PresentQueueState: D3DKMT_DEVICEPRESENT_QUEUE_STATE,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_GETDEVICESTATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETDISPLAYMODELIST {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub pModeList: *mut D3DKMT_DISPLAYMODE,
-    pub ModeCount: u32,
+    pub ModeCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETMULTISAMPLEMETHODLIST {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: super::D3DDDIFORMAT,
     pub pMethodList: *mut D3DKMT_MULTISAMPLEMETHOD,
-    pub MethodCount: u32,
+    pub MethodCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GETNATIVEFENCELOGDETAIL {
     pub hHwQueue: super::D3DKMT_HANDLE,
     pub Flags: D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS,
-    pub WaitLogNumberOfEntries: u32,
-    pub SignalLogNumberOfEntries: u32,
+    pub WaitLogNumberOfEntries: super::UINT32,
+    pub SignalLogNumberOfEntries: super::UINT32,
     pub WaitLogGpuBaseAddress: super::D3DGPU_VIRTUAL_ADDRESS,
     pub SignalLogGpuBaseAddress: super::D3DGPU_VIRTUAL_ADDRESS,
-    pub Reserved: [u8; 64],
+    pub Reserved: [super::BYTE; 64],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_GETNATIVEFENCELOGDETAIL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS {
     pub Anonymous: D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS_0 {
     pub Anonymous: D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETOVERLAYSTATE {
     pub hDevice: super::D3DKMT_HANDLE,
@@ -2441,18 +2550,18 @@ pub struct D3DKMT_GETOVERLAYSTATE {
     pub OverlayEnabled: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETPRESENTHISTORY {
     pub hAdapter: super::D3DKMT_HANDLE,
-    pub ProvidedSize: u32,
-    pub WrittenSize: u32,
+    pub ProvidedSize: super::UINT,
+    pub WrittenSize: super::UINT,
     pub pTokens: *mut D3DKMT_PRESENTHISTORYTOKEN,
-    pub NumTokens: u32,
+    pub NumTokens: super::UINT,
 }
 pub const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: i32 = 2048;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub hProcess: super::HANDLE,
@@ -2460,22 +2569,22 @@ pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub Support: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETRUNTIMEDATA {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub hGlobalShare: super::D3DKMT_HANDLE,
     pub pRuntimeData: *mut core::ffi::c_void,
-    pub RuntimeDataSize: u32,
+    pub RuntimeDataSize: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETSCANLINE {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub InVerticalBlank: super::BOOLEAN,
-    pub ScanLine: u32,
+    pub ScanLine: super::UINT,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -2486,7 +2595,7 @@ pub struct D3DKMT_GETSHAREDPRIMARYHANDLE {
     pub hSharedPrimary: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     pub hGlobalShare: super::D3DKMT_HANDLE,
@@ -2494,7 +2603,7 @@ pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     pub AdapterLuid: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GETVERTICALBLANKEVENT {
     pub hAdapter: super::D3DKMT_HANDLE,
@@ -2503,33 +2612,33 @@ pub struct D3DKMT_GETVERTICALBLANKEVENT {
     pub phEvent: *mut super::D3DKMT_PTR_TYPE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     pub hDevice: super::D3DKMT_HANDLE,
     pub bFailedDwmAcquireVidPn: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GET_GPUMMU_CAPS {
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
     pub GpuMmuCaps: DXGK_ESCAPE_GPUMMUCAPS,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub MaxPlanes: u32,
-    pub MaxRGBPlanes: u32,
-    pub MaxYUVPlanes: u32,
+    pub MaxPlanes: super::UINT,
+    pub MaxRGBPlanes: super::UINT,
+    pub MaxYUVPlanes: super::UINT,
     pub OverlayCaps: D3DKMT_MULTIPLANE_OVERLAY_CAPS,
     pub MaxStretchFactor: f32,
     pub MaxShrinkFactor: f32,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2545,29 +2654,31 @@ pub struct D3DKMT_GET_POST_COMPOSITION_CAPS {
     pub MaxShrinkFactor: f32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GET_PTE {
-    pub PhysicalAdapterIndex: u32,
-    pub PageTableLevel: u32,
-    pub PageTableIndex: [u32; 6],
+    pub PhysicalAdapterIndex: super::UINT,
+    pub PageTableLevel: super::UINT,
+    pub PageTableIndex: [super::UINT; 6],
     pub b64KBPte: super::BOOLEAN,
-    pub NumPtes: u32,
+    pub NumPtes: super::UINT,
     pub Pte: [super::DXGK_PTE; 64],
-    pub NumValidEntries: u32,
+    pub NumValidEntries: super::UINT,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_GET_PTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GET_PTE_EXT {
-    pub DriverProtection: [u64; 64],
-    pub AllocationData: [u64; 64],
+    pub DriverProtection: [super::UINT64; 64],
+    pub AllocationData: [super::UINT64; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_GET_PTE_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2576,53 +2687,60 @@ impl Default for D3DKMT_GET_PTE_EXT {
 pub const D3DKMT_GET_PTE_MAX: i32 = 64;
 pub const D3DKMT_GET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GET_SEGMENT_CAPS {
-    pub PhysicalAdapterIndex: u32,
-    pub NumSegments: u32,
+    pub PhysicalAdapterIndex: super::UINT,
+    pub NumSegments: super::UINT,
     pub SegmentCaps: [D3DKMT_SEGMENT_CAPS; 32],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_GET_SEGMENT_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GPUMMU_CAPS {
     pub Flags: D3DKMT_GPUMMU_CAPS_0,
-    pub VirtualAddressBitCount: u32,
+    pub VirtualAddressBitCount: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_GPUMMU_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_GPUMMU_CAPS_0 {
     pub Anonymous: D3DKMT_GPUMMU_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_GPUMMU_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_GPUMMU_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_GPUVERSION {
-    pub PhysicalAdapterIndex: u32,
-    pub BiosVersion: [u16; 32],
-    pub GpuArchitecture: [u16; 32],
+    pub PhysicalAdapterIndex: super::UINT32,
+    pub BiosVersion: [super::WCHAR; 32],
+    pub GpuArchitecture: [super::WCHAR; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_GPUVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2640,14 +2758,14 @@ pub const D3DKMT_GPU_PREFERENCE_TYPE_DX_DATABASE: D3DKMT_GPU_PREFERENCE_QUERY_TY
 pub const D3DKMT_GPU_PREFERENCE_TYPE_IHV_DLIST: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = 0;
 pub const D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_HISTORY_BUFFER_STATUS {
     pub Enabled: super::BOOLEAN,
-    pub Reserved: u32,
+    pub Reserved: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_HWDRM_SUPPORT {
     pub Supported: super::BOOLEAN,
@@ -2663,7 +2781,7 @@ pub struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_HYBRID_LIST {
     pub State: D3DKMT_GPU_PREFERENCE_QUERY_STATE,
@@ -2682,12 +2800,12 @@ pub struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
     pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_INVALIDATEACTIVEVIDPN {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -2704,102 +2822,107 @@ pub struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     pub Disabled: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ISFEATUREENABLED {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub FeatureId: super::DXGK_FEATURE_ID,
     pub Result: super::DXGK_ISFEATUREENABLED_RESULT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_ISFEATUREENABLED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_KMD_DRIVER_VERSION {
     pub DriverVersion: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_KMD_DRIVER_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_LOCK {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hAllocation: super::D3DKMT_HANDLE,
-    pub PrivateDriverData: u32,
-    pub NumPages: u32,
-    pub pPages: *const u32,
+    pub PrivateDriverData: super::UINT,
+    pub NumPages: super::UINT,
+    pub pPages: *const super::UINT,
     pub pData: *mut core::ffi::c_void,
     pub Flags: super::D3DDDICB_LOCKFLAGS,
     pub GpuVirtualAddress: super::D3DGPU_VIRTUAL_ADDRESS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_LOCK2 {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hAllocation: super::D3DKMT_HANDLE,
     pub Flags: super::D3DDDICB_LOCK2FLAGS,
-    pub pData: *mut core::ffi::c_void,
+    pub pData: super::PVOID,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_LOCK2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MAPPROCESSDEBUGBLOB {
     pub hDevice: super::D3DKMT_HANDLE,
     pub Flags: D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS,
-    pub BufferSize: usize,
-    pub pBuffer: *mut core::ffi::c_void,
+    pub BufferSize: super::SIZE_T,
+    pub pBuffer: super::PVOID,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_MAPPROCESSDEBUGBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS {
     pub Anonymous: D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS_0 {
     pub Anonymous: D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -2824,24 +2947,26 @@ pub type D3DKMT_MEMORY_SEGMENT_GROUP = i32;
 pub const D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = 0;
 pub const D3DKMT_MEMORY_SEGMENT_GROUP_NON_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
-    pub MiracastCompanionDriverName: [u16; 260],
+    pub MiracastCompanionDriverName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MIRACAST_CHUNK_DATA {
     pub ChunkInfo: super::DXGK_MIRACAST_CHUNK_INFO,
-    pub PrivateDriverDataSize: u32,
-    pub PrivateDriverData: [u8; 1],
+    pub PrivateDriverDataSize: super::UINT,
+    pub PrivateDriverData: [super::BYTE; 1],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_MIRACAST_CHUNK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2863,11 +2988,11 @@ pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS_NO_MONITOR: D3DKMT_MIRACAST_DEVI
 pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = -2147483647;
 pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING: D3DKMT_MIRACAST_DEVICE_STATUS = -2147483644;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     pub HdcpSupported: super::BOOLEAN,
-    pub DefaultControlPort: u32,
+    pub DefaultControlPort: super::ULONG,
     pub UsesIhvSolution: super::BOOLEAN,
 }
 pub type D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = i32;
@@ -2877,12 +3002,12 @@ pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     pub State: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     pub AdapterLuid: super::LUID,
     pub TargetId: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
-    pub StopReason: u32,
+    pub StopReason: super::UINT,
 }
 pub const D3DKMT_MIRACAST_DRIVER_IHV: D3DKMT_MIRACAST_DRIVER_TYPE = 1;
 pub const D3DKMT_MIRACAST_DRIVER_MS: D3DKMT_MIRACAST_DRIVER_TYPE = 2;
@@ -2905,9 +3030,10 @@ pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
-    pub VidPnSourceId: u32,
+    pub VidPnSourceId: super::UINT,
     pub Update: windows_sys::core::BOOL,
     pub KernelSupported: windows_sys::core::BOOL,
     pub HudSupported: windows_sys::core::BOOL,
@@ -2918,9 +3044,10 @@ pub struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
-    pub VidPnSourceId: u32,
+    pub VidPnSourceId: super::UINT,
     pub Update: windows_sys::core::BOOL,
     pub Supported: windows_sys::core::BOOL,
 }
@@ -2930,61 +3057,61 @@ pub struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY {
-    pub LayerIndex: u32,
+    pub LayerIndex: super::UINT,
     pub Enabled: windows_sys::core::BOOL,
     pub hAllocation: super::D3DKMT_HANDLE,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
-    pub LayerIndex: u32,
+    pub LayerIndex: super::UINT,
     pub Enabled: windows_sys::core::BOOL,
     pub hAllocation: super::D3DKMT_HANDLE,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY3 {
-    pub LayerIndex: u32,
+    pub LayerIndex: super::UINT,
     pub InputFlags: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS,
     pub FlipInterval: super::D3DDDI_FLIPINTERVAL_TYPE,
-    pub MaxImmediateFlipLine: u32,
-    pub AllocationCount: u32,
+    pub MaxImmediateFlipLine: super::UINT,
+    pub AllocationCount: super::UINT,
     pub pAllocationList: *mut super::D3DKMT_HANDLE,
-    pub DriverPrivateDataSize: u32,
+    pub DriverPrivateDataSize: super::UINT,
     pub pDriverPrivateData: *mut core::ffi::c_void,
     pub pPlaneAttributes: *const D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
     pub hFlipToFence: super::D3DKMT_HANDLE,
     pub hFlipAwayFence: super::D3DKMT_HANDLE,
-    pub FlipToFenceValue: u64,
-    pub FlipAwayFenceValue: u64,
+    pub FlipToFenceValue: super::UINT64,
+    pub FlipAwayFenceValue: super::UINT64,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_MULTIPLANE_OVERLAY3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
-    pub Flags: u32,
+    pub Flags: super::UINT,
     pub SrcRect: super::RECT,
     pub DstRect: super::RECT,
     pub ClipRect: super::RECT,
     pub Rotation: super::D3DDDI_ROTATION,
     pub Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND,
-    pub DirtyRectCount: u32,
+    pub DirtyRectCount: super::UINT,
     pub pDirtyRects: *mut super::RECT,
     pub VideoFrameFormat: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT,
-    pub YCbCrFlags: u32,
+    pub YCbCrFlags: super::UINT,
     pub StereoFormat: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT,
     pub StereoLeftViewFrame0: windows_sys::core::BOOL,
     pub StereoBaseViewFrame0: windows_sys::core::BOOL,
@@ -2992,16 +3119,16 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
-    pub Flags: u32,
+    pub Flags: super::UINT,
     pub SrcRect: super::RECT,
     pub DstRect: super::RECT,
     pub ClipRect: super::RECT,
     pub Rotation: super::D3DDDI_ROTATION,
     pub Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND,
-    pub DirtyRectCount: u32,
+    pub DirtyRectCount: super::UINT,
     pub pDirtyRects: *mut super::RECT,
     pub VideoFrameFormat: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT,
     pub ColorSpace: super::D3DDDI_COLOR_SPACE_TYPE,
@@ -3010,49 +3137,54 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub StereoBaseViewFrame0: windows_sys::core::BOOL,
     pub StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
-    pub Reserved1: u32,
+    pub Reserved1: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
-    pub Flags: u32,
+    pub Flags: super::UINT,
     pub SrcRect: super::RECT,
     pub DstRect: super::RECT,
     pub ClipRect: super::RECT,
     pub Rotation: super::D3DDDI_ROTATION,
     pub Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND,
-    pub DirtyRectCount: u32,
+    pub DirtyRectCount: super::UINT,
     pub pDirtyRects: *mut super::RECT,
     pub ColorSpace: super::D3DDDI_COLOR_SPACE_TYPE,
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
-    pub SDRWhiteLevel: u32,
+    pub SDRWhiteLevel: super::UINT,
 }
 pub type D3DKMT_MULTIPLANE_OVERLAY_BLEND = i32;
 pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_ALPHABLEND: D3DKMT_MULTIPLANE_OVERLAY_BLEND = 1;
 pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_OPAQUE: D3DKMT_MULTIPLANE_OVERLAY_BLEND = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     pub _bitfield: u32,
@@ -3062,7 +3194,7 @@ pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_HORIZONTAL_FLIP: D3DKMT_MULTIPLANE_OVER
 pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_STATIC_CHECK: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = 4;
 pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_VERTICAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = 1;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     pub Flags: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS,
@@ -3070,46 +3202,51 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     pub DstRect: super::RECT,
     pub Rotation: super::D3DDDI_ROTATION,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub PostComposition: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3126,106 +3263,118 @@ pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: D3DKMT_MULTIPLANE_OVERLAY_
 pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = 1;
 pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_MULTISAMPLEMETHOD {
-    pub NumSamples: u32,
-    pub NumQualityLevels: u32,
-    pub Reserved: u32,
+    pub NumSamples: super::UINT,
+    pub NumQualityLevels: super::UINT,
+    pub Reserved: super::UINT,
 }
 pub const D3DKMT_MaxAllocationPriorityClass: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = 5;
 pub const D3DKMT_MmIoFlipCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_NODE_PERFDATA {
-    pub NodeOrdinal: u32,
-    pub PhysicalAdapterIndex: u32,
-    pub Frequency: u64,
-    pub MaxFrequency: u64,
-    pub MaxFrequencyOC: u64,
-    pub Voltage: u32,
-    pub VoltageMax: u32,
-    pub VoltageMaxOC: u32,
-    pub MaxTransitionLatency: u64,
+    pub NodeOrdinal: super::UINT32,
+    pub PhysicalAdapterIndex: super::UINT32,
+    pub Frequency: super::ULONGLONG,
+    pub MaxFrequency: super::ULONGLONG,
+    pub MaxFrequencyOC: super::ULONGLONG,
+    pub Voltage: super::ULONG,
+    pub VoltageMax: super::ULONG,
+    pub VoltageMaxOC: super::ULONG,
+    pub MaxTransitionLatency: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION {
     pub hHwQueue: super::D3DKMT_HANDLE,
     pub Flags: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS,
-    pub PrivateDriverData: [u8; 64],
+    pub PrivateDriverData: [super::BYTE; 64],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OFFERALLOCATIONS {
     pub hDevice: super::D3DKMT_HANDLE,
     pub pResources: *mut super::D3DKMT_HANDLE,
     pub HandleList: *const super::D3DKMT_HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub Priority: D3DKMT_OFFER_PRIORITY,
     pub Flags: D3DKMT_OFFER_FLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_OFFERALLOCATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OFFER_FLAGS {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_OFFER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_OFFER_FLAGS_0 {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_OFFER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -3236,7 +3385,7 @@ pub const D3DKMT_OFFER_PRIORITY_HIGH: D3DKMT_OFFER_PRIORITY = 3;
 pub const D3DKMT_OFFER_PRIORITY_LOW: D3DKMT_OFFER_PRIORITY = 1;
 pub const D3DKMT_OFFER_PRIORITY_NORMAL: D3DKMT_OFFER_PRIORITY = 2;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
     pub pDeviceName: windows_sys::core::PCWSTR,
@@ -3244,22 +3393,22 @@ pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
     pub AdapterLuid: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
-    pub DeviceName: [u16; 32],
+    pub DeviceName: [super::WCHAR; 32],
     pub hAdapter: super::D3DKMT_HANDLE,
     pub AdapterLuid: super::LUID,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub hDc: super::HDC,
@@ -3268,19 +3417,21 @@ pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENADAPTERFROMLUID {
     pub AdapterLuid: super::LUID,
     pub hAdapter: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OPENGLINFO {
-    pub UmdOpenGlIcdFileName: [u16; 260],
-    pub Version: u32,
-    pub Flags: u32,
+    pub UmdOpenGlIcdFileName: [super::WCHAR; 260],
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_OPENGLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3294,47 +3445,47 @@ pub struct D3DKMT_OPENKEYEDMUTEX {
     pub hKeyedMutex: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENKEYEDMUTEX2 {
     pub hSharedHandle: super::D3DKMT_HANDLE,
     pub hKeyedMutex: super::D3DKMT_HANDLE,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     pub hNtHandle: super::HANDLE,
     pub hKeyedMutex: super::D3DKMT_HANDLE,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     pub hNtHandle: super::HANDLE,
     pub hDevice: super::D3DKMT_HANDLE,
-    pub EngineAffinity: u32,
+    pub EngineAffinity: super::UINT,
     pub Flags: super::D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
     pub hSyncObject: super::D3DKMT_HANDLE,
     pub NativeFenceMapping: super::D3DDDI_NATIVEFENCEMAPPING,
-    pub PrivateDriverData: [u8; 64],
-    pub Reserved: [u8; 32],
+    pub PrivateDriverData: [super::BYTE; 64],
+    pub Reserved: [super::BYTE; 32],
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
-    pub dwDesiredAccess: u32,
+    pub dwDesiredAccess: super::DWORD,
     pub pObjAttrib: *mut super::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::HANDLE,
 }
@@ -3346,69 +3497,69 @@ pub struct D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     pub hHandle: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OPENRESOURCE {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hGlobalShare: super::D3DKMT_HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub Anonymous: D3DKMT_OPENRESOURCE_0,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
     pub pResourcePrivateDriverData: *mut core::ffi::c_void,
-    pub ResourcePrivateDriverDataSize: u32,
+    pub ResourcePrivateDriverDataSize: super::UINT,
     pub pTotalPrivateDriverDataBuffer: *mut core::ffi::c_void,
-    pub TotalPrivateDriverDataBufferSize: u32,
+    pub TotalPrivateDriverDataBufferSize: super::UINT,
     pub hResource: super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_OPENRESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_OPENRESOURCE_0 {
     pub pOpenAllocationInfo: *mut super::D3DDDI_OPENALLOCATIONINFO,
     pub pOpenAllocationInfo2: *mut super::D3DDDI_OPENALLOCATIONINFO2,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_OPENRESOURCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hNtHandle: super::HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub pOpenAllocationInfo2: *mut super::D3DDDI_OPENALLOCATIONINFO2,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub ResourcePrivateDriverDataSize: u32,
+    pub ResourcePrivateDriverDataSize: super::UINT,
     pub pResourcePrivateDriverData: *mut core::ffi::c_void,
-    pub TotalPrivateDriverDataBufferSize: u32,
+    pub TotalPrivateDriverDataBufferSize: super::UINT,
     pub pTotalPrivateDriverDataBuffer: *mut core::ffi::c_void,
     pub hResource: super::D3DKMT_HANDLE,
     pub hKeyedMutex: super::D3DKMT_HANDLE,
     pub pKeyedMutexPrivateRuntimeData: *mut core::ffi::c_void,
-    pub KeyedMutexPrivateRuntimeDataSize: u32,
+    pub KeyedMutexPrivateRuntimeDataSize: super::UINT,
     pub hSyncObject: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     pub hSharedHandle: super::D3DKMT_HANDLE,
     pub hSyncObject: super::D3DKMT_HANDLE,
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3422,7 +3573,7 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     pub hSyncObject: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub hNtHandle: super::HANDLE,
@@ -3431,60 +3582,60 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub hSyncObject: super::D3DKMT_HANDLE,
     pub Anonymous: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     pub MonitoredFence: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0,
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: super::D3DGPU_VIRTUAL_ADDRESS,
-    pub EngineAffinity: u32,
+    pub EngineAffinity: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMSYNCFILE {
-    pub hSyncFile: u64,
+    pub hSyncFile: super::UINT64,
     pub hDevice: super::D3DKMT_HANDLE,
     pub hSyncObject: super::D3DKMT_HANDLE,
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: super::D3DGPU_VIRTUAL_ADDRESS,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
-    pub dwDesiredAccess: u32,
+    pub dwDesiredAccess: super::DWORD,
     pub pObjAttrib: *mut super::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE,
-    pub Width: u32,
-    pub Height: u32,
-    pub Pitch: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Pitch: super::UINT,
     pub HotSpot: super::POINT,
 }
 pub type D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = i32;
@@ -3492,143 +3643,153 @@ pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_
 pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = 4;
 pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub OutputDuplicationCount: u32,
+    pub OutputDuplicationCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_OUTPUTDUPLCREATIONFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENT {
     pub hContext: super::D3DKMT_HANDLE,
     pub hSource: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub BroadcastContextCount: u32,
+    pub BroadcastContextCount: super::ULONG,
     pub BroadcastContext: [super::D3DKMT_HANDLE; 64],
     pub PresentRegions: D3DKMT_PRESENT_RGNS,
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectContext: super::D3DKMT_HANDLE,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_OUTPUTDUPLPRESENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_OUTPUTDUPLPRESENTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     pub hSource: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub BroadcastHwQueueCount: u32,
+    pub BroadcastHwQueueCount: super::ULONG,
     pub hHwQueues: *mut super::D3DKMT_HANDLE,
     pub PresentRegions: D3DKMT_PRESENT_RGNS,
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectHwQueue: super::D3DKMT_HANDLE,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub LastPresentTime: super::LARGE_INTEGER,
     pub LastMouseUpdateTime: super::LARGE_INTEGER,
-    pub AccumulatedFrames: u32,
+    pub AccumulatedFrames: super::UINT,
     pub RectsCoalesced: windows_sys::core::BOOL,
     pub ProtectedContentMaskedOut: windows_sys::core::BOOL,
     pub PointerPosition: D3DKMT_OUTPUTDUPL_POINTER_POSITION,
-    pub TotalMetadataBufferSize: u32,
-    pub PointerShapeBufferSize: u32,
+    pub TotalMetadataBufferSize: super::UINT,
+    pub PointerShapeBufferSize: super::UINT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub FrameInfo: D3DKMT_OUTPUTDUPL_FRAMEINFO,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub BufferSizeSupplied: u32,
-    pub pShapeBuffer: *mut core::ffi::c_void,
-    pub BufferSizeRequired: u32,
+    pub BufferSizeSupplied: super::UINT,
+    pub pShapeBuffer: super::PVOID,
+    pub BufferSizeRequired: super::UINT,
     pub ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
 }
 #[repr(C)]
@@ -3638,60 +3799,61 @@ pub struct D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     pub hSharedSurfaceNt: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTPUTDUPL_METADATA {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Type: D3DKMT_OUTPUTDUPL_METADATATYPE,
-    pub BufferSizeSupplied: u32,
-    pub pBuffer: *mut core::ffi::c_void,
-    pub BufferSizeRequired: u32,
+    pub BufferSizeSupplied: super::UINT,
+    pub pBuffer: super::PVOID,
+    pub BufferSizeRequired: super::UINT,
 }
 pub type D3DKMT_OUTPUTDUPL_METADATATYPE = i32;
 pub const D3DKMT_OUTPUTDUPL_METADATATYPE_DIRTY_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = 0;
 pub const D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     pub Position: super::POINT,
     pub Visible: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub NextKeyMutexIdx: u32,
+    pub NextKeyMutexIdx: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
-    pub Size: u32,
-    pub SessionProcessCount: u32,
-    pub SessionActiveConnectionsCount: u32,
-    pub NumVidPnSources: u32,
-    pub NumOutputDuplContexts: u32,
-    pub Padding: u32,
+    pub Size: super::UINT,
+    pub SessionProcessCount: super::UINT,
+    pub SessionActiveConnectionsCount: super::UINT,
+    pub NumVidPnSources: super::UINT,
+    pub NumOutputDuplContexts: super::UINT,
+    pub Padding: super::UINT,
     pub OutputDuplDebugInfos: [OUTPUTDUPL_CONTEXT_DEBUG_INFO; 0],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
-    pub IndexBitCount: u32,
-    pub IndexMask: u64,
-    pub IndexShift: u64,
-    pub LowerLevelsMask: u64,
-    pub EntryCoverageInPages: u64,
+    pub IndexBitCount: super::UINT,
+    pub IndexMask: super::UINT64,
+    pub IndexShift: super::UINT64,
+    pub LowerLevelsMask: super::UINT64,
+    pub EntryCoverageInPages: super::UINT64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3699,72 +3861,83 @@ pub struct D3DKMT_PANELFITTER_SUPPORT {
     pub Supported: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PARAVIRTUALIZATION {
     pub SecureContainer: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PHYSICAL_ADAPTER_COUNT {
-    pub Count: u32,
+    pub Count: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PINDIRECTFLIPRESOURCES {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub ResourceCount: u32,
+    pub ResourceCount: super::UINT,
     pub pResourceList: *mut super::D3DKMT_HANDLE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -3783,14 +3956,14 @@ pub const D3DKMT_PNP_KEY_HARDWARE: D3DKMT_PNP_KEY_TYPE = 1;
 pub const D3DKMT_PNP_KEY_SOFTWARE: D3DKMT_PNP_KEY_TYPE = 2;
 pub type D3DKMT_PNP_KEY_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_POLLDISPLAYCHILDREN {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT {
     pub Anonymous: D3DKMT_PRESENT_0,
@@ -3798,105 +3971,110 @@ pub struct D3DKMT_PRESENT {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub hSource: super::D3DKMT_HANDLE,
     pub hDestination: super::D3DKMT_HANDLE,
-    pub Color: u32,
+    pub Color: super::UINT,
     pub DstRect: super::RECT,
     pub SrcRect: super::RECT,
-    pub SubRectCnt: u32,
+    pub SubRectCnt: super::UINT,
     pub pSrcSubRects: *const super::RECT,
-    pub PresentCount: u32,
+    pub PresentCount: super::UINT,
     pub FlipInterval: super::D3DDDI_FLIPINTERVAL_TYPE,
     pub Flags: D3DKMT_PRESENTFLAGS,
-    pub BroadcastContextCount: u32,
+    pub BroadcastContextCount: super::ULONG,
     pub BroadcastContext: [super::D3DKMT_HANDLE; 64],
     pub PresentLimitSemaphore: super::HANDLE,
     pub PresentHistoryToken: D3DKMT_PRESENTHISTORYTOKEN,
     pub pPresentRegions: *mut D3DKMT_PRESENT_RGNS,
     pub Anonymous2: D3DKMT_PRESENT_1,
-    pub Duration: u32,
+    pub Duration: super::UINT,
     pub BroadcastSrcAllocation: *mut super::D3DKMT_HANDLE,
     pub BroadcastDstAllocation: *mut super::D3DKMT_HANDLE,
-    pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut core::ffi::c_void,
+    pub PrivateDriverDataSize: super::UINT,
+    pub pPrivateDriverData: super::PVOID,
     pub bOptimizeForComposition: super::BOOLEAN,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_PRESENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_0 {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hContext: super::D3DKMT_HANDLE,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_PRESENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_1 {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub hIndirectContext: super::D3DKMT_HANDLE,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_PRESENT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENTFLAGS {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PRESENTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PRESENTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENTHISTORYTOKEN {
     pub Model: D3DKMT_PRESENT_MODEL,
-    pub TokenSize: u32,
-    pub CompositionBindingId: u64,
+    pub TokenSize: super::UINT,
+    pub CompositionBindingId: super::UINT64,
     pub Token: D3DKMT_PRESENTHISTORYTOKEN_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
-    pub MaxSize: [u8; 1064],
+    pub MaxSize: [super::BYTE; 1064],
     pub Flip: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN,
     pub Blt: D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN,
     pub VistaBlt: D3DKMT_VISTABLTMODEL_PRESENTHISTORYTOKEN,
@@ -3907,7 +4085,7 @@ pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
     pub FlipManager: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN,
     pub SurfaceComplete: D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3916,238 +4094,248 @@ impl Default for D3DKMT_PRESENTHISTORYTOKEN_0 {
 pub const D3DKMT_PRESENTHISTORYTOKEN_SIZE: i32 = 1080;
 pub type D3DKMT_PRESENT_MODEL = i32;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0,
-    pub BroadcastContextCount: u32,
+    pub BroadcastContextCount: super::ULONG,
     pub BroadcastContext: [super::D3DKMT_HANDLE; 64],
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub PresentCount: u32,
+    pub PresentCount: super::UINT,
     pub FlipInterval: super::D3DDDI_FLIPINTERVAL_TYPE,
     pub Flags: D3DKMT_PRESENTFLAGS,
-    pub PresentPlaneCount: u32,
+    pub PresentPlaneCount: super::UINT,
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY,
-    pub Duration: u32,
+    pub Duration: super::UINT,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hContext: super::D3DKMT_HANDLE,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0,
-    pub BroadcastContextCount: u32,
+    pub BroadcastContextCount: super::ULONG,
     pub BroadcastContext: [super::D3DKMT_HANDLE; 64],
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub PresentCount: u32,
+    pub PresentCount: super::UINT,
     pub FlipInterval: super::D3DDDI_FLIPINTERVAL_TYPE,
     pub Flags: D3DKMT_PRESENTFLAGS,
-    pub PresentPlaneCount: u32,
+    pub PresentPlaneCount: super::UINT,
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY2,
-    pub Duration: u32,
+    pub Duration: super::UINT,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hContext: super::D3DKMT_HANDLE,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub hAdapter: super::D3DKMT_HANDLE,
-    pub ContextCount: u32,
+    pub ContextCount: super::UINT,
     pub pContextList: *mut super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub PresentCount: u32,
+    pub PresentCount: super::UINT,
     pub Flags: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS,
-    pub PresentPlaneCount: u32,
+    pub PresentPlaneCount: super::UINT,
     pub ppPresentPlanes: *mut *mut D3DKMT_MULTIPLANE_OVERLAY3,
     pub pPostComposition: *mut D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
-    pub Duration: u32,
+    pub Duration: super::UINT,
     pub HDRMetaDataType: super::D3DDDI_HDR_METADATA_TYPE,
-    pub HDRMetaDataSize: u32,
+    pub HDRMetaDataSize: super::UINT,
     pub pHDRMetaData: *const core::ffi::c_void,
-    pub BoostRefreshRateMultiplier: u32,
+    pub BoostRefreshRateMultiplier: super::UINT,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_REDIRECTED {
     pub hSyncObj: super::D3DKMT_HANDLE,
     pub hDevice: super::D3DKMT_HANDLE,
-    pub WaitedFenceValue: u64,
+    pub WaitedFenceValue: super::ULONGLONG,
     pub PresentHistoryToken: D3DKMT_PRESENTHISTORYTOKEN,
     pub Flags: D3DKMT_PRESENT_REDIRECTED_FLAGS,
     pub hSource: super::D3DKMT_HANDLE,
-    pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut core::ffi::c_void,
+    pub PrivateDriverDataSize: super::UINT,
+    pub pPrivateDriverData: super::PVOID,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_PRESENT_REDIRECTED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PRESENT_REDIRECTED_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PRESENT_RGNS {
-    pub DirtyRectCount: u32,
+    pub DirtyRectCount: super::UINT,
     pub pDirtyRects: *const super::RECT,
-    pub MoveRectCount: u32,
+    pub MoveRectCount: super::UINT,
     pub pMoveRects: *const super::D3DKMT_MOVE_RECT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_STATS {
-    pub PresentCount: u32,
-    pub PresentRefreshCount: u32,
-    pub SyncRefreshCount: u32,
+    pub PresentCount: super::UINT,
+    pub PresentRefreshCount: super::UINT,
+    pub SyncRefreshCount: super::UINT,
     pub SyncQPCTime: super::LARGE_INTEGER,
     pub SyncGPUTime: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_PRESENT_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_STATS_DWM {
-    pub PresentCount: u32,
-    pub PresentRefreshCount: u32,
+    pub PresentCount: super::UINT,
+    pub PresentRefreshCount: super::UINT,
     pub PresentQPCTime: super::LARGE_INTEGER,
-    pub SyncRefreshCount: u32,
+    pub SyncRefreshCount: super::UINT,
     pub SyncQPCTime: super::LARGE_INTEGER,
-    pub CustomPresentDuration: u32,
+    pub CustomPresentDuration: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_PRESENT_STATS_DWM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_STATS_DWM2 {
-    pub cbSize: u32,
-    pub PresentCount: u32,
-    pub PresentRefreshCount: u32,
+    pub cbSize: super::ULONG,
+    pub PresentCount: super::UINT,
+    pub PresentRefreshCount: super::UINT,
     pub PresentQPCTime: super::LARGE_INTEGER,
-    pub SyncRefreshCount: u32,
+    pub SyncRefreshCount: super::UINT,
     pub SyncQPCTime: super::LARGE_INTEGER,
-    pub CustomPresentDuration: u32,
-    pub VirtualSyncRefreshCount: u32,
+    pub CustomPresentDuration: super::UINT,
+    pub VirtualSyncRefreshCount: super::UINT,
     pub VirtualSyncQPCTime: super::LARGE_INTEGER,
     pub VSyncDurationQPCTime: super::LARGE_INTEGER,
-    pub VSyncMultiplier: u32,
-    pub VirtualPresentRefreshCount: u32,
+    pub VSyncMultiplier: super::UINT,
+    pub VirtualPresentRefreshCount: super::UINT,
     pub VirtualPresentQPCTime: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_PRESENT_STATS_DWM2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PROCESS_VERIFIER_OPTION {
     pub hProcess: super::HANDLE,
@@ -4155,18 +4343,20 @@ pub struct D3DKMT_PROCESS_VERIFIER_OPTION {
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_PROCESS_VERIFIER_OPTION_DATA,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_PROCESS_VERIFIER_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS,
     pub VidMmRestrictBudget: D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4176,26 +4366,30 @@ pub type D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = i32;
 pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = 1000;
 pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_RESTRICT_BUDGET: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = 1001;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0,
-    pub Value: u32,
+    pub Value: super::UINT32,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
-    pub LocalBudget: u64,
-    pub NonLocalBudget: u64,
+    pub LocalBudget: super::UINT64,
+    pub NonLocalBudget: super::UINT64,
 }
 pub type D3DKMT_PROTECTED_SESSION_STATUS = i32;
 pub const D3DKMT_PROTECTED_SESSION_STATUS_INVALID: D3DKMT_PROTECTED_SESSION_STATUS = 1;
@@ -4218,42 +4412,42 @@ pub const D3DKMT_PreemptionAttemptMissSplittedCommand: D3DKMT_QUERYRESULT_PREEMP
 pub const D3DKMT_PreemptionAttemptStatisticsMax: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = 16;
 pub const D3DKMT_PreemptionAttemptSuccess: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = 1;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYADAPTERINFO {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub Type: KMTQUERYADAPTERINFOTYPE,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYALLOCATIONRESIDENCY {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hResource: super::D3DKMT_HANDLE,
     pub phAllocationList: *const super::D3DKMT_HANDLE,
-    pub AllocationCount: u32,
+    pub AllocationCount: super::UINT,
     pub pResidencyStatus: *mut D3DKMT_ALLOCATIONRESIDENCYSTATUS,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "minwindef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYFEATUREINTERFACE {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub FeatureId: super::DXGK_FEATURE_ID,
     pub Result: super::DXGK_ISFEATUREENABLED_RESULT,
-    pub InterfaceTableSize: u32,
+    pub InterfaceTableSize: super::UINT,
     pub InterfaceTable: *const super::FARPROC,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "minwindef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared"))]
 impl Default for D3DKMT_QUERYFEATUREINTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYFSEBLOCK {
     pub AdapterLuid: super::LUID,
@@ -4261,46 +4455,49 @@ pub struct D3DKMT_QUERYFSEBLOCK {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Flags: D3DKMT_QUERYFSEBLOCKFLAGS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_QUERYFSEBLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_QUERYFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_QUERYFSEBLOCKFLAGS_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYFSEBLOCKFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYPROCESSOFFERINFO {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub hProcess: super::HANDLE,
-    pub DecommitUniqueness: u64,
-    pub DecommittableBytes: u64,
+    pub DecommitUniqueness: super::UINT64,
+    pub DecommittableBytes: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub hNtHandle: super::HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub pPrivateRuntimeData: *const core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -4310,46 +4507,46 @@ pub struct D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
     pub Status: D3DKMT_PROTECTED_SESSION_STATUS,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
-    pub DeviceName: [u16; 32],
+    pub DeviceName: [super::WCHAR; 32],
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYRESOURCEINFO {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hGlobalShare: super::D3DKMT_HANDLE,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
-    pub TotalPrivateDriverDataSize: u32,
-    pub ResourcePrivateDriverDataSize: u32,
-    pub NumAllocations: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
+    pub TotalPrivateDriverDataSize: super::UINT,
+    pub ResourcePrivateDriverDataSize: super::UINT,
+    pub NumAllocations: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hNtHandle: super::HANDLE,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
-    pub TotalPrivateDriverDataSize: u32,
-    pub ResourcePrivateDriverDataSize: u32,
-    pub NumAllocations: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
+    pub TotalPrivateDriverDataSize: super::UINT,
+    pub ResourcePrivateDriverDataSize: super::UINT,
+    pub NumAllocations: super::UINT,
 }
 pub type D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = i32;
 pub const D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT_MAX: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS {
     pub Type: D3DKMT_QUERYSTATISTICS_TYPE,
@@ -4358,14 +4555,14 @@ pub struct D3DKMT_QUERYSTATISTICS {
     pub QueryResult: D3DKMT_QUERYSTATISTICS_RESULT,
     pub Anonymous: D3DKMT_QUERYSTATISTICS_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_QUERYSTATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QuerySegment: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT,
@@ -4386,7 +4583,7 @@ pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QueryNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
     pub QueryProcessNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_QUERYSTATISTICS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4395,15 +4592,16 @@ impl Default for D3DKMT_QUERYSTATISTICS_0 {
 pub const D3DKMT_QUERYSTATISTICS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = 0;
 pub const D3DKMT_QUERYSTATISTICS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = 11;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
-    pub NbSegments: u32,
-    pub NodeCount: u32,
-    pub VidPnSourceCount: u32,
-    pub VSyncEnabled: u32,
-    pub TdrDetectedCount: u32,
-    pub ZeroLengthDmaBuffers: i64,
-    pub RestartedPeriod: u64,
+    pub NbSegments: super::ULONG,
+    pub NodeCount: super::ULONG,
+    pub VidPnSourceCount: super::ULONG,
+    pub VSyncEnabled: super::ULONG,
+    pub TdrDetectedCount: super::ULONG,
+    pub ZeroLengthDmaBuffers: super::LONGLONG,
+    pub RestartedPeriod: super::ULONGLONG,
     pub ReferenceDmaBuffer: D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER,
     pub Renaming: D3DKMT_QUERYSTATSTICS_RENAMING,
     pub Preparation: D3DKMT_QUERYSTATSTICS_PREPRATION,
@@ -4414,35 +4612,41 @@ pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     pub Allocations: D3DKMT_QUERYSTATSTICS_ALLOCATIONS,
     pub Terminations: D3DKMT_QUERYSTATSTICS_TERMINATIONS,
     pub Flags: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS,
-    pub Reserved: [u64; 7],
+    pub Reserved: [super::UINT64; 7],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0,
-    pub Value: u64,
+    pub Value: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     pub _bitfield: u64,
@@ -4450,78 +4654,87 @@ pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
 pub type D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = i32;
 pub const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: i32 = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
-    pub TotalBytesEvictedFromProcess: u64,
-    pub BytesBySegmentPreference: [u64; 5],
+    pub TotalBytesEvictedFromProcess: super::UINT64,
+    pub BytesBySegmentPreference: [super::UINT64; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_COUNTER {
-    pub Count: u32,
-    pub Bytes: u64,
+    pub Count: super::ULONG,
+    pub Bytes: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     pub Size: D3DKMT_QUERYSTATISTICS_COUNTER,
-    pub AllocationListBytes: u32,
-    pub PatchLocationListBytes: u32,
+    pub AllocationListBytes: super::ULONG,
+    pub PatchLocationListBytes: super::ULONG,
 }
 pub type D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
-    pub PacketSubmited: u32,
-    pub PacketCompleted: u32,
-    pub PacketPreempted: u32,
-    pub PacketFaulted: u32,
+    pub PacketSubmited: super::ULONG,
+    pub PacketCompleted: super::ULONG,
+    pub PacketPreempted: super::ULONG,
+    pub PacketFaulted: super::ULONG,
 }
 pub const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY {
-    pub TotalBytesEvicted: u64,
-    pub AllocsCommitted: u32,
-    pub AllocsResident: u32,
+    pub TotalBytesEvicted: super::ULONGLONG,
+    pub AllocsCommitted: super::ULONG,
+    pub AllocsResident: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
-    pub AllocatedBytes: u64,
-    pub FreeBytes: u64,
-    pub ZeroBytes: u64,
-    pub ModifiedBytes: u64,
-    pub StandbyBytes: u64,
+    pub AllocatedBytes: super::UINT64,
+    pub FreeBytes: super::UINT64,
+    pub ZeroBytes: super::UINT64,
+    pub ModifiedBytes: super::UINT64,
+    pub StandbyBytes: super::UINT64,
 }
 pub const D3DKMT_QUERYSTATISTICS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = 5;
 pub const D3DKMT_QUERYSTATISTICS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = 18;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
     pub NodePerfData: D3DKMT_NODE_PERFDATA,
-    pub Reserved: [u32; 3],
+    pub Reserved: [super::UINT32; 3],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     pub QueuePacket: [D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION; 8],
     pub DmaPacket: [D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4529,6 +4742,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
 }
 pub const D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = 10;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     pub AdapterPerfData: D3DKMT_ADAPTER_PERFDATA,
@@ -4536,24 +4750,28 @@ pub struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     pub GpuVersion: D3DKMT_GPUVERSION,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_POLICY {
-    pub PreferApertureForRead: [u64; 5],
-    pub PreferAperture: [u64; 5],
-    pub MemResetOnPaging: u64,
-    pub RemovePagesFromWorkingSetOnPaging: u64,
-    pub MigrationEnabled: u64,
+    pub PreferApertureForRead: [super::ULONGLONG; 5],
+    pub PreferAperture: [super::ULONGLONG; 5],
+    pub MemResetOnPaging: super::ULONGLONG,
+    pub RemovePagesFromWorkingSetOnPaging: super::ULONGLONG,
+    pub MigrationEnabled: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
-    pub PreemptionCounter: [u32; 16],
+    pub PreemptionCounter: [super::ULONG; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4563,12 +4781,13 @@ pub const D3DKMT_QUERYSTATISTICS_PROCESS: D3DKMT_QUERYSTATISTICS_TYPE = 1;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = 2;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = 13;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
-    pub NbSegments: u32,
-    pub NodeCount: u32,
-    pub VidPnSourceCount: u32,
-    pub VirtualMemoryUsage: u32,
+    pub NbSegments: super::ULONG,
+    pub NodeCount: super::ULONG,
+    pub VidPnSourceCount: super::ULONG,
+    pub VirtualMemoryUsage: super::ULONG,
     pub DmaBuffer: D3DKMT_QUERYSTATISTICS_DMA_BUFFER,
     pub CommitmentData: D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA,
     pub _Policy: D3DKMT_QUERYSTATISTICS_POLICY,
@@ -4576,13 +4795,15 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub ClientHint: D3DKMT_CLIENTHINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
-    pub NodeCount: u32,
-    pub VidPnSourceCount: u32,
+    pub NodeCount: super::ULONG,
+    pub VidPnSourceCount: super::ULONG,
     pub SystemMemory: D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY,
-    pub Reserved: [u64; 7],
+    pub Reserved: [super::UINT64; 7],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4590,10 +4811,12 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
 }
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: i32 = 9;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
-    pub InterferenceCount: [u64; 9],
+    pub InterferenceCount: [super::UINT64; 9],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4602,16 +4825,16 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = 6;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = 19;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     pub RunningTime: super::LARGE_INTEGER,
-    pub ContextSwitch: u32,
+    pub ContextSwitch: super::ULONG,
     pub PreemptionStatistics: D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION,
     pub PacketStatistics: D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION,
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4622,129 +4845,148 @@ pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE =
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP: D3DKMT_QUERYSTATISTICS_TYPE = 9;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP2: D3DKMT_QUERYSTATISTICS_TYPE = 15;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
-    pub Budget: u64,
-    pub Requested: u64,
-    pub Usage: u64,
-    pub Demoted: [u64; 5],
+    pub Budget: super::UINT64,
+    pub Requested: super::UINT64,
+    pub Usage: super::UINT64,
+    pub Demoted: [super::UINT64; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
-    pub BytesCommitted: u64,
-    pub MaximumWorkingSet: u64,
-    pub MinimumWorkingSet: u64,
-    pub NbReferencedAllocationEvictedInPeriod: u32,
-    pub Padding: u32,
+    pub BytesCommitted: super::ULONGLONG,
+    pub MaximumWorkingSet: super::ULONGLONG,
+    pub MinimumWorkingSet: super::ULONGLONG,
+    pub NbReferencedAllocationEvictedInPeriod: super::ULONG,
+    pub Padding: super::UINT,
     pub VideoMemory: D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY,
     pub _Policy: D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY,
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
-    pub UseMRU: u64,
+    pub UseMRU: super::ULONGLONG,
 }
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
-    pub Frame: u32,
-    pub CancelledFrame: u32,
-    pub QueuedPresent: u32,
-    pub Padding: u32,
-    pub IsVSyncEnabled: u64,
-    pub VSyncOnTotalTimeMs: u64,
-    pub VSyncOffKeepPhaseTotalTimeMs: u64,
-    pub VSyncOffNoPhaseTotalTimeMs: u64,
-    pub Reserved: [u64; 4],
+    pub Frame: super::ULONG,
+    pub CancelledFrame: super::ULONG,
+    pub QueuedPresent: super::ULONG,
+    pub Padding: super::UINT,
+    pub IsVSyncEnabled: super::UINT64,
+    pub VSyncOnTotalTimeMs: super::UINT64,
+    pub VSyncOffKeepPhaseTotalTimeMs: super::UINT64,
+    pub VSyncOffNoPhaseTotalTimeMs: super::UINT64,
+    pub Reserved: [super::UINT64; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
-    pub PhysicalAdapterIndex: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
-    pub PhysicalAdapterIndex: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE {
-    pub NodeId: u32,
+    pub NodeId: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
-    pub PhysicalAdapterIndex: u16,
-    pub NodeOrdinal: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
+    pub NodeOrdinal: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
-    pub PhysicalAdapterIndex: u16,
-    pub SegmentGroup: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
+    pub SegmentGroup: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
-    pub SegmentId: u32,
+    pub SegmentId: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
-    pub PhysicalAdapterIndex: u16,
-    pub SegmentId: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
+    pub SegmentId: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
-    pub PhysicalAdapterIndex: u16,
-    pub SegmentGroup: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
+    pub SegmentGroup: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
-    pub PhysicalAdapterIndex: u16,
-    pub SegmentId: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
+    pub SegmentId: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
-    pub VidPnSourceId: u32,
+    pub VidPnSourceId: super::ULONG,
 }
 pub type D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
-    pub PacketSubmited: u32,
-    pub PacketCompleted: u32,
+    pub PacketSubmited: super::ULONG,
+    pub PacketCompleted: super::ULONG,
 }
 pub const D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_MAX: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_QUERYSTATISTICS_RESULT {
     pub AdapterInformation: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION,
@@ -4761,7 +5003,7 @@ pub union D3DKMT_QUERYSTATISTICS_RESULT {
     pub SegmentUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
     pub SegmentGroupUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_QUERYSTATISTICS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4771,30 +5013,34 @@ pub const D3DKMT_QUERYSTATISTICS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = 3;
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = 12;
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT_GROUP_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = 17;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
-    pub CommitLimit: u64,
-    pub BytesCommitted: u64,
-    pub BytesResident: u64,
+    pub CommitLimit: super::ULONGLONG,
+    pub BytesCommitted: super::ULONGLONG,
+    pub BytesResident: super::ULONGLONG,
     pub Memory: D3DKMT_QUERYSTATISTICS_MEMORY,
-    pub Aperture: u32,
-    pub TotalBytesEvictedByPriority: [u64; 5],
-    pub SystemMemoryEndAddress: u64,
+    pub Aperture: super::ULONG,
+    pub TotalBytesEvictedByPriority: [super::ULONGLONG; 5],
+    pub SystemMemoryEndAddress: super::UINT64,
     pub PowerFlags: D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0,
     pub SegmentProperties: D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1,
-    pub Reserved: [u64; 5],
+    pub Reserved: [super::UINT64; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     pub _bitfield: u64,
@@ -4806,29 +5052,32 @@ pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY: D3DKMT_QUERYSTATISTICS_SEG
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = 2;
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
-    pub BytesAllocated: u64,
-    pub BytesReserved: u64,
-    pub SmallAllocationBlocks: u32,
-    pub LargeAllocationBlocks: u32,
-    pub WriteCombinedBytesAllocated: u64,
-    pub WriteCombinedBytesReserved: u64,
-    pub CachedBytesAllocated: u64,
-    pub CachedBytesReserved: u64,
-    pub SectionBytesAllocated: u64,
-    pub SectionBytesReserved: u64,
-    pub BytesZeroed: u64,
+    pub BytesAllocated: super::ULONGLONG,
+    pub BytesReserved: super::ULONGLONG,
+    pub SmallAllocationBlocks: super::ULONG,
+    pub LargeAllocationBlocks: super::ULONG,
+    pub WriteCombinedBytesAllocated: super::ULONGLONG,
+    pub WriteCombinedBytesReserved: super::ULONGLONG,
+    pub CachedBytesAllocated: super::ULONGLONG,
+    pub CachedBytesReserved: super::ULONGLONG,
+    pub SectionBytesAllocated: super::ULONGLONG,
+    pub SectionBytesReserved: super::ULONGLONG,
+    pub BytesZeroed: super::ULONGLONG,
 }
 pub type D3DKMT_QUERYSTATISTICS_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
-    pub AllocsCommitted: u32,
+    pub AllocsCommitted: super::ULONG,
     pub AllocsResidentInP: [D3DKMT_QUERYSTATISTICS_COUNTER; 5],
     pub AllocsResidentInNonPreferred: D3DKMT_QUERYSTATISTICS_COUNTER,
-    pub TotalBytesEvictedDueToPreparation: u64,
+    pub TotalBytesEvictedDueToPreparation: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4836,18 +5085,21 @@ impl Default for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
 }
 pub const D3DKMT_QUERYSTATISTICS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub Created: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -4859,17 +5111,19 @@ pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub MigratedAbandoned: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
-    pub NbLocks: u32,
-    pub NbLocksWaitFlag: u32,
-    pub NbLocksDiscardFlag: u32,
-    pub NbLocksNoOverwrite: u32,
-    pub NbLocksNoReadSync: u32,
-    pub NbLocksLinearization: u32,
-    pub NbComplexLocks: u32,
+    pub NbLocks: super::ULONG,
+    pub NbLocksWaitFlag: super::ULONG,
+    pub NbLocksDiscardFlag: super::ULONG,
+    pub NbLocksNoOverwrite: super::ULONG,
+    pub NbLocksNoReadSync: super::ULONG,
+    pub NbLocksLinearization: super::ULONG,
+    pub NbComplexLocks: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub Faults: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -4882,8 +5136,8 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub AllocationsMEM_RESET: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub AllocationsUnresetSuccess: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub AllocationsUnresetFail: D3DKMT_QUERYSTATISTICS_COUNTER,
-    pub AllocationsUnresetSuccessRead: u32,
-    pub AllocationsUnresetFailRead: u32,
+    pub AllocationsUnresetSuccessRead: super::ULONG,
+    pub AllocationsUnresetFailRead: super::ULONG,
     pub Evictions: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub EvictionsDueToPreparation: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub EvictionsDueToLock: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -4892,64 +5146,70 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub EvictionsDueToSuspendCPUAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
-    pub BytesFilled: u64,
-    pub BytesDiscarded: u64,
-    pub BytesMappedIntoAperture: u64,
-    pub BytesUnmappedFromAperture: u64,
-    pub BytesTransferredFromMdlToMemory: u64,
-    pub BytesTransferredFromMemoryToMdl: u64,
-    pub BytesTransferredFromApertureToMemory: u64,
-    pub BytesTransferredFromMemoryToAperture: u64,
+    pub BytesFilled: super::ULONGLONG,
+    pub BytesDiscarded: super::ULONGLONG,
+    pub BytesMappedIntoAperture: super::ULONGLONG,
+    pub BytesUnmappedFromAperture: super::ULONGLONG,
+    pub BytesTransferredFromMdlToMemory: super::ULONGLONG,
+    pub BytesTransferredFromMemoryToMdl: super::ULONGLONG,
+    pub BytesTransferredFromApertureToMemory: super::ULONGLONG,
+    pub BytesTransferredFromMemoryToAperture: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
-    pub BroadcastStall: u32,
-    pub NbDMAPrepared: u32,
-    pub NbDMAPreparedLongPath: u32,
-    pub ImmediateHighestPreparationPass: u32,
+    pub BroadcastStall: super::ULONG,
+    pub NbDMAPrepared: super::ULONG,
+    pub NbDMAPreparedLongPath: super::ULONG,
+    pub ImmediateHighestPreparationPass: super::ULONG,
     pub AllocationsTrimmed: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
-    pub NbCall: u32,
-    pub NbAllocationsReferenced: u32,
-    pub MaxNbAllocationsReferenced: u32,
-    pub NbNULLReference: u32,
-    pub NbWriteReference: u32,
-    pub NbRenamedAllocationsReferenced: u32,
-    pub NbIterationSearchingRenamedAllocation: u32,
-    pub NbLockedAllocationReferenced: u32,
-    pub NbAllocationWithValidPrepatchingInfoReferenced: u32,
-    pub NbAllocationWithInvalidPrepatchingInfoReferenced: u32,
-    pub NbDMABufferSuccessfullyPrePatched: u32,
-    pub NbPrimariesReferencesOverflow: u32,
-    pub NbAllocationWithNonPreferredResources: u32,
-    pub NbAllocationInsertedInMigrationTable: u32,
+    pub NbCall: super::ULONG,
+    pub NbAllocationsReferenced: super::ULONG,
+    pub MaxNbAllocationsReferenced: super::ULONG,
+    pub NbNULLReference: super::ULONG,
+    pub NbWriteReference: super::ULONG,
+    pub NbRenamedAllocationsReferenced: super::ULONG,
+    pub NbIterationSearchingRenamedAllocation: super::ULONG,
+    pub NbLockedAllocationReferenced: super::ULONG,
+    pub NbAllocationWithValidPrepatchingInfoReferenced: super::ULONG,
+    pub NbAllocationWithInvalidPrepatchingInfoReferenced: super::ULONG,
+    pub NbDMABufferSuccessfullyPrePatched: super::ULONG,
+    pub NbPrimariesReferencesOverflow: super::ULONG,
+    pub NbAllocationWithNonPreferredResources: super::ULONG,
+    pub NbAllocationInsertedInMigrationTable: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
-    pub NbAllocationsRenamed: u32,
-    pub NbAllocationsShrinked: u32,
-    pub NbRenamedBuffer: u32,
-    pub MaxRenamingListLength: u32,
-    pub NbFailuresDueToRenamingLimit: u32,
-    pub NbFailuresDueToCreateAllocation: u32,
-    pub NbFailuresDueToOpenAllocation: u32,
-    pub NbFailuresDueToLowResource: u32,
-    pub NbFailuresDueToNonRetiredLimit: u32,
+    pub NbAllocationsRenamed: super::ULONG,
+    pub NbAllocationsShrinked: super::ULONG,
+    pub NbRenamedBuffer: super::ULONG,
+    pub MaxRenamingListLength: super::ULONG,
+    pub NbFailuresDueToRenamingLimit: super::ULONG,
+    pub NbFailuresDueToCreateAllocation: super::ULONG,
+    pub NbFailuresDueToOpenAllocation: super::ULONG,
+    pub NbFailuresDueToLowResource: super::ULONG,
+    pub NbFailuresDueToNonRetiredLimit: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
-    pub NbRangesAcquired: u32,
-    pub NbRangesReleased: u32,
+    pub NbRangesAcquired: super::ULONG,
+    pub NbRangesReleased: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     pub TerminatedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -4958,20 +5218,20 @@ pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     pub DestroyedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub hProcess: super::HANDLE,
     pub hAdapter: super::D3DKMT_HANDLE,
     pub MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
-    pub Budget: u64,
-    pub CurrentUsage: u64,
-    pub CurrentReservation: u64,
-    pub AvailableForReservation: u64,
-    pub PhysicalAdapterIndex: u32,
+    pub Budget: super::UINT64,
+    pub CurrentUsage: super::UINT64,
+    pub CurrentReservation: super::UINT64,
+    pub AvailableForReservation: super::UINT64,
+    pub PhysicalAdapterIndex: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub hProcess: super::HANDLE,
@@ -4981,27 +5241,32 @@ pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
-    pub AdapterUniqueGUID: [u16; 40],
+    pub AdapterUniqueGUID: [super::WCHAR; 40],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERY_DEVICE_IDS {
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
     pub DeviceIds: D3DKMT_DEVICE_IDS,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_GPUMMU_CAPS {
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
     pub Caps: D3DKMT_GPUMMU_CAPS,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_QUERY_GPUMMU_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5013,79 +5278,82 @@ pub struct D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
     pub MiracastDriverType: D3DKMT_MIRACAST_DRIVER_TYPE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER {
-    pub PhysicalAdapterIndex: u32,
-    pub NumExecutionNodes: u32,
-    pub PagingNodeIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
+    pub NumExecutionNodes: super::UINT,
+    pub PagingNodeIndex: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_1 {
-    pub PhysicalAdapterIndex: u32,
-    pub NumExecutionNodes: u32,
-    pub PagingNodeIndex: u32,
-    pub GdiNodeIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
+    pub NumExecutionNodes: super::UINT,
+    pub PagingNodeIndex: super::UINT,
+    pub GdiNodeIndex: super::UINT,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
     pub PnPKeyType: D3DKMT_PNP_KEY_TYPE,
-    pub pDest: *mut u16,
-    pub pCchDest: *mut u32,
+    pub pDest: *mut super::WCHAR,
+    pub pCchDest: *mut super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_QUERY_SCANOUT_CAPS {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub Caps: u32,
+    pub Caps: super::UINT,
 }
 pub type D3DKMT_QUEUEDLIMIT_TYPE = i32;
 pub const D3DKMT_QueuePacketTypeMax: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 8;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub hDevice: super::D3DKMT_HANDLE,
     pub pResources: *mut super::D3DKMT_HANDLE,
     pub HandleList: *const super::D3DKMT_HANDLE,
     pub pDiscarded: *mut windows_sys::core::BOOL,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_RECLAIMALLOCATIONS2 {
     pub hPagingQueue: super::D3DKMT_HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub pResources: *mut super::D3DKMT_HANDLE,
     pub HandleList: *const super::D3DKMT_HANDLE,
     pub Anonymous: D3DKMT_RECLAIMALLOCATIONS2_0,
-    pub PagingFenceValue: u64,
+    pub PagingFenceValue: super::UINT64,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_RECLAIMALLOCATIONS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_RECLAIMALLOCATIONS2_0 {
     pub pDiscarded: *mut windows_sys::core::BOOL,
     pub pResults: *mut super::D3DDDI_RECLAIM_RESULT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_RECLAIMALLOCATIONS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     pub hDevice: super::D3DKMT_HANDLE,
@@ -5094,7 +5362,7 @@ pub struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub AdapterLuid: super::LUID,
@@ -5104,67 +5372,68 @@ pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX {
     pub hKeyedMutex: super::D3DKMT_HANDLE,
-    pub Key: u64,
-    pub FenceValue: u64,
+    pub Key: super::UINT64,
+    pub FenceValue: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX2 {
     pub hKeyedMutex: super::D3DKMT_HANDLE,
-    pub Key: u64,
-    pub FenceValue: u64,
+    pub Key: super::UINT64,
+    pub FenceValue: super::UINT64,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
-    pub PrivateRuntimeDataSize: u32,
+    pub PrivateRuntimeDataSize: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_RENDER {
     pub Anonymous: D3DKMT_RENDER_0,
-    pub CommandOffset: u32,
-    pub CommandLength: u32,
-    pub AllocationCount: u32,
-    pub PatchLocationCount: u32,
+    pub CommandOffset: super::UINT,
+    pub CommandLength: super::UINT,
+    pub AllocationCount: super::UINT,
+    pub PatchLocationCount: super::UINT,
     pub pNewCommandBuffer: *mut core::ffi::c_void,
-    pub NewCommandBufferSize: u32,
+    pub NewCommandBufferSize: super::UINT,
     pub pNewAllocationList: *mut super::D3DDDI_ALLOCATIONLIST,
-    pub NewAllocationListSize: u32,
+    pub NewAllocationListSize: super::UINT,
     pub pNewPatchLocationList: *mut super::D3DDDI_PATCHLOCATIONLIST,
-    pub NewPatchLocationListSize: u32,
+    pub NewPatchLocationListSize: super::UINT,
     pub Flags: D3DKMT_RENDERFLAGS,
-    pub PresentHistoryToken: u64,
-    pub BroadcastContextCount: u32,
+    pub PresentHistoryToken: super::ULONGLONG,
+    pub BroadcastContextCount: super::ULONG,
     pub BroadcastContext: [super::D3DKMT_HANDLE; 64],
-    pub QueuedBufferCount: u32,
+    pub QueuedBufferCount: super::ULONG,
     pub NewCommandBuffer: super::D3DGPU_VIRTUAL_ADDRESS,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_RENDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_RENDER_0 {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hContext: super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_RENDER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_RENDERFLAGS {
     pub _bitfield: u32,
@@ -5178,67 +5447,72 @@ pub struct D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     pub Param3: super::D3DKMT_ULONG_PTR,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_RESIZERINGBUFFER {
     pub hHwQueue: super::D3DKMT_HANDLE,
     pub hRingBuffer: super::D3DKMT_HANDLE,
     pub hRingBufferControl: super::D3DKMT_HANDLE,
     pub Flags: D3DKMT_RESIZERINGBUFFER_FLAGS,
-    pub PrivateDriverData: [u8; 64],
-    pub Reserved: [u8; 64],
+    pub PrivateDriverData: [super::BYTE; 64],
+    pub Reserved: [super::BYTE; 64],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_RESIZERINGBUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_RESIZERINGBUFFER_FLAGS {
     pub Anonymous: D3DKMT_RESIZERINGBUFFER_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_RESIZERINGBUFFER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_RESIZERINGBUFFER_FLAGS_0 {
     pub Anonymous: D3DKMT_RESIZERINGBUFFER_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_RESIZERINGBUFFER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_RESIZERINGBUFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 pub const D3DKMT_RenderCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SCATTERBLT {
-    pub hLogicalSurfaceDestination: u64,
-    pub hDestinationCompSurfDWM: i64,
-    pub DestinationCompositionBindingId: u64,
+    pub hLogicalSurfaceDestination: super::ULONG64,
+    pub hDestinationCompSurfDWM: super::LONG64,
+    pub DestinationCompositionBindingId: super::UINT64,
     pub SourceRect: super::RECT,
     pub DestinationOffset: super::POINT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SCATTERBLTS {
-    pub NumBlts: u32,
+    pub NumBlts: super::UINT,
     pub Blts: [D3DKMT_SCATTERBLT; 12],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for D3DKMT_SCATTERBLTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5252,85 +5526,87 @@ pub const D3DKMT_SCHEDULINGPRIORITYCLASS_IDLE: D3DKMT_SCHEDULINGPRIORITYCLASS = 
 pub const D3DKMT_SCHEDULINGPRIORITYCLASS_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = 2;
 pub const D3DKMT_SCHEDULINGPRIORITYCLASS_REALTIME: D3DKMT_SCHEDULINGPRIORITYCLASS = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT32,
     pub LegacyInfo: D3DKMT_SEGMENTSIZEINFO,
-    pub LocalMemory: u64,
-    pub NonLocalMemory: u64,
-    pub NonBudgetMemory: u64,
+    pub LocalMemory: super::ULONGLONG,
+    pub NonLocalMemory: super::ULONGLONG,
+    pub NonBudgetMemory: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SEGMENTSIZEINFO {
-    pub DedicatedVideoMemorySize: u64,
-    pub DedicatedSystemMemorySize: u64,
-    pub SharedSystemMemorySize: u64,
+    pub DedicatedVideoMemorySize: super::ULONGLONG,
+    pub DedicatedSystemMemorySize: super::ULONGLONG,
+    pub SharedSystemMemorySize: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SEGMENT_CAPS {
-    pub Size: u64,
-    pub PageSize: u32,
-    pub SegmentId: u32,
+    pub Size: super::UINT64,
+    pub PageSize: super::UINT,
+    pub SegmentId: super::ULONG,
     pub bAperture: super::BOOLEAN,
     pub bReservedSysMem: super::BOOLEAN,
     pub BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETALLOCATIONPRIORITY {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hResource: super::D3DKMT_HANDLE,
     pub phAllocationList: *const super::D3DKMT_HANDLE,
-    pub AllocationCount: u32,
-    pub pPriorities: *const u32,
+    pub AllocationCount: super::UINT,
+    pub pPriorities: *const super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: super::D3DKMT_HANDLE,
-    pub Priority: i32,
+    pub Priority: super::INT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: super::D3DKMT_HANDLE,
-    pub Priority: i32,
+    pub Priority: super::INT,
 }
 pub const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: i32 = 1073741824;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETDISPLAYMODE {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hPrimaryAllocation: super::D3DKMT_HANDLE,
     pub ScanLineOrdering: super::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
     pub DisplayOrientation: super::D3DDDI_ROTATION,
-    pub PrivateDriverFormatAttribute: u32,
+    pub PrivateDriverFormatAttribute: super::UINT,
     pub Flags: D3DKMT_SETDISPLAYMODE_FLAGS,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETDISPLAYMODE_FLAGS {
-    pub _bitfield1: super::BOOLEAN,
+    pub _bitfield1: u8,
     pub _bitfield2: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     pub hDevice: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub PrivateDriverFormatAttribute: u32,
+    pub PrivateDriverFormatAttribute: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SETFSEBLOCK {
     pub AdapterLuid: super::LUID,
@@ -5338,52 +5614,55 @@ pub struct D3DKMT_SETFSEBLOCK {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Flags: D3DKMT_SETFSEBLOCKFLAGS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_SETFSEBLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SETFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_SETFSEBLOCKFLAGS_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_SETFSEBLOCKFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SETGAMMARAMP {
     pub hDevice: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Type: super::D3DDDI_GAMMARAMP_TYPE,
     pub Anonymous: D3DKMT_SETGAMMARAMP_0,
-    pub Size: u32,
+    pub Size: super::UINT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SETGAMMARAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SETGAMMARAMP_0 {
     pub pGammaRampRgb256x3x16: *mut super::D3DDDI_GAMMA_RAMP_RGB256x3x16,
     pub pGammaRampDXGI1: *mut super::D3DDDI_GAMMA_RAMP_DXGI_1,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SETGAMMARAMP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5397,38 +5676,38 @@ pub struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     pub Recovered: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SETQUEUEDLIMIT {
     pub hDevice: super::D3DKMT_HANDLE,
     pub Type: D3DKMT_QUEUEDLIMIT_TYPE,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SETQUEUEDLIMIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SETQUEUEDLIMIT_0 {
-    pub QueuedPresentLimit: u32,
+    pub QueuedPresentLimit: super::UINT,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SETQUEUEDLIMIT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETQUEUEDLIMIT_0_0 {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub QueuedPendingFlipLimit: u32,
+    pub QueuedPendingFlipLimit: super::UINT,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -5438,13 +5717,13 @@ pub struct D3DKMT_SETSTABLEPOWERSTATE {
     pub Enabled: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub hDevice: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub TargetSyncRefreshCount: u32,
+    pub TargetSyncRefreshCount: super::UINT,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
@@ -5455,63 +5734,63 @@ pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     pub HwProtected: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER {
     pub hDevice: super::D3DKMT_HANDLE,
     pub pType: *const D3DKMT_VIDPNSOURCEOWNER_TYPE,
     pub pVidPnSourceId: *const super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub VidPnSourceCount: u32,
+    pub VidPnSourceCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER1 {
     pub Version0: D3DKMT_SETVIDPNSOURCEOWNER,
     pub Flags: D3DKMT_VIDPNSOURCEOWNER_FLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SETVIDPNSOURCEOWNER1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER2 {
     pub Version1: D3DKMT_SETVIDPNSOURCEOWNER1,
     pub pVidPnSourceNtHandles: *const super::D3DKMT_PTR_TYPE,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SETVIDPNSOURCEOWNER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SET_COLORSPACE_TRANSFORM {
     pub AdapterLuid: super::LUID,
     pub VidPnTargetId: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
     pub Type: super::D3DDDI_GAMMARAMP_TYPE,
-    pub Size: u32,
+    pub Size: super::UINT,
     pub Anonymous: D3DKMT_SET_COLORSPACE_TRANSFORM_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_SET_COLORSPACE_TRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     pub pColorSpaceTransform: *mut super::D3DKMDT_3x4_COLORSPACE_TRANSFORM,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5519,7 +5798,7 @@ impl Default for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
 }
 pub const D3DKMT_SET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = 1;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     pub AdapterLuid: super::LUID,
@@ -5527,145 +5806,145 @@ pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     pub LockRect: super::RECTL,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     pub AdapterLuid: super::LUID,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SHAREOBJECTWITHHOST {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hObject: super::D3DKMT_HANDLE,
-    pub Reserved: u64,
-    pub hVailProcessNtHandle: u64,
+    pub Reserved: super::UINT64,
+    pub hVailProcessNtHandle: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     pub hContext: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: [super::D3DKMT_HANDLE; 32],
     pub Flags: super::D3DDDICB_SIGNALFLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     pub hContext: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: [super::D3DKMT_HANDLE; 32],
     pub Flags: super::D3DDDICB_SIGNALFLAGS,
-    pub BroadcastContextCount: u32,
+    pub BroadcastContextCount: super::ULONG,
     pub BroadcastContext: [super::D3DKMT_HANDLE; 64],
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     pub Fence: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0,
     pub CpuEventHandle: super::HANDLE,
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: *const super::D3DKMT_HANDLE,
-    pub FenceValueArray: *const u64,
+    pub FenceValueArray: *const super::UINT64,
     pub Flags: super::D3DDDICB_SIGNALFLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     pub hContext: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: *const super::D3DKMT_HANDLE,
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
-    pub MonitoredFenceValueArray: *const u64,
-    pub Reserved: [u64; 8],
+    pub MonitoredFenceValueArray: *const super::UINT64,
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: *const super::D3DKMT_HANDLE,
     pub Flags: super::D3DDDICB_SIGNALFLAGS,
-    pub BroadcastContextCount: u32,
+    pub BroadcastContextCount: super::ULONG,
     pub BroadcastContextArray: *const super::D3DKMT_HANDLE,
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
     pub CpuEventHandle: super::HANDLE,
-    pub MonitoredFenceValueArray: *const u64,
-    pub Reserved: [u64; 8],
+    pub MonitoredFenceValueArray: *const super::UINT64,
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5684,103 +5963,105 @@ pub struct D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
 pub const D3DKMT_SUBKEY_DX9: windows_sys::core::PCWSTR = windows_sys::core::w!("DX9");
 pub const D3DKMT_SUBKEY_OPENGL: windows_sys::core::PCWSTR = windows_sys::core::w!("OpenGL");
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITCOMMAND {
     pub Commands: super::D3DGPU_VIRTUAL_ADDRESS,
-    pub CommandLength: u32,
+    pub CommandLength: super::UINT,
     pub Flags: D3DKMT_SUBMITCOMMANDFLAGS,
-    pub PresentHistoryToken: u64,
-    pub BroadcastContextCount: u32,
+    pub PresentHistoryToken: super::ULONGLONG,
+    pub BroadcastContextCount: super::UINT,
     pub BroadcastContext: [super::D3DKMT_HANDLE; 64],
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
-    pub NumPrimaries: u32,
+    pub PrivateDriverDataSize: super::UINT,
+    pub NumPrimaries: super::UINT,
     pub WrittenPrimaries: [super::D3DKMT_HANDLE; 16],
-    pub NumHistoryBuffers: u32,
+    pub NumHistoryBuffers: super::UINT,
     pub HistoryBufferArray: *mut super::D3DKMT_HANDLE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SUBMITCOMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SUBMITCOMMANDFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     pub hHwQueue: super::D3DKMT_HANDLE,
-    pub HwQueueProgressFenceId: u64,
+    pub HwQueueProgressFenceId: super::UINT64,
     pub CommandBuffer: super::D3DGPU_VIRTUAL_ADDRESS,
-    pub CommandLength: u32,
-    pub PrivateDriverDataSize: u32,
+    pub CommandLength: super::UINT,
+    pub PrivateDriverDataSize: super::UINT,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub NumPrimaries: u32,
+    pub NumPrimaries: super::UINT,
     pub WrittenPrimaries: *const super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     pub hHwQueue: super::D3DKMT_HANDLE,
-    pub HwQueueProgressFenceId: u64,
+    pub HwQueueProgressFenceId: super::UINT64,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITPRESENTTOHWQUEUE {
     pub hHwQueues: *mut super::D3DKMT_HANDLE,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for D3DKMT_SUBMITPRESENTTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     pub Flags: super::D3DDDICB_SIGNALFLAGS,
-    pub BroadcastHwQueueCount: u32,
+    pub BroadcastHwQueueCount: super::ULONG,
     pub BroadcastHwQueueArray: *const super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: *const super::D3DKMT_HANDLE,
-    pub FenceValueArray: *const u64,
+    pub FenceValueArray: *const super::UINT64,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     pub hHwQueue: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: *const super::D3DKMT_HANDLE,
-    pub FenceValueArray: *const u64,
+    pub FenceValueArray: *const super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
-    pub hLogicalSurface: u64,
+    pub hLogicalSurface: super::ULONG64,
 }
 pub const D3DKMT_SignalCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 5;
 pub const D3DKMT_SoftwareCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 7;
@@ -5798,101 +6079,110 @@ pub const D3DKMT_TDRDBGCTRLTYPE_GPUTDR: D3DKMT_TDRDBGCTRLTYPE = 5;
 pub const D3DKMT_TDRDBGCTRLTYPE_UNCONDITIONAL: D3DKMT_TDRDBGCTRLTYPE = 3;
 pub const D3DKMT_TDRDBGCTRLTYPE_VSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_TDRDBGCTRL_ESCAPE {
     pub TdrControl: D3DKMT_TDRDBGCTRLTYPE,
     pub Anonymous: D3DKMT_TDRDBGCTRL_ESCAPE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_TDRDBGCTRL_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_TDRDBGCTRL_ESCAPE_0 {
-    pub NodeOrdinal: u32,
+    pub NodeOrdinal: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_TRIMNOTIFICATION {
     pub Context: *mut core::ffi::c_void,
     pub Flags: super::D3DDDI_TRIMRESIDENCYSET_FLAGS,
-    pub NumBytesToTrim: u64,
+    pub NumBytesToTrim: super::UINT64,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_TRIMNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub hProcess: super::HANDLE,
     pub Flags: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS,
-    pub DecommitRequested: u64,
-    pub NumBytesDecommitted: u64,
+    pub DecommitRequested: super::UINT64,
+    pub NumBytesDecommitted: super::UINT64,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_TRIMPROCESSCOMMITMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     pub Anonymous: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_UMDFILENAMEINFO {
     pub Version: KMTUMDVERSION,
-    pub UmdFileName: [u16; 260],
+    pub UmdFileName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_UMDFILENAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_UMD_DRIVER_VERSION {
     pub DriverVersion: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_UMD_DRIVER_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_UNLOCK {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub phAllocations: *const super::D3DKMT_HANDLE,
 }
 #[repr(C)]
@@ -5903,51 +6193,56 @@ pub struct D3DKMT_UNLOCK2 {
     pub hAllocation: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_UNMAPPROCESSDEBUGBLOB {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub pBuffer: *mut core::ffi::c_void,
+    pub pBuffer: super::PVOID,
     pub Flags: D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_UNMAPPROCESSDEBUGBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS {
     pub Anonymous: D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS_0 {
     pub Anonymous: D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_UNPINDIRECTFLIPRESOURCES {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub ResourceCount: u32,
+    pub ResourceCount: super::UINT,
     pub pResourceList: *mut super::D3DKMT_HANDLE,
 }
 #[repr(C)]
@@ -5956,53 +6251,53 @@ pub struct D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_UNREGISTERTRIMNOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
     pub Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS {
     pub hDevice: super::D3DKMT_HANDLE,
     pub hContext: super::D3DKMT_HANDLE,
     pub hFenceObject: super::D3DKMT_HANDLE,
-    pub NumOperations: u32,
+    pub NumOperations: super::UINT,
     pub Operations: *mut super::D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION,
     pub Reserved0: super::D3DKMT_SIZE_T,
-    pub Reserved1: u64,
-    pub FenceValue: u64,
+    pub Reserved1: super::UINT64,
+    pub FenceValue: super::UINT64,
     pub Flags: D3DKMT_UPDATEGPUVIRTUALADDRESS_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_UPDATEGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
     pub Anonymous: D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_UPDATEOVERLAY {
     pub hDevice: super::D3DKMT_HANDLE,
@@ -6010,14 +6305,15 @@ pub struct D3DKMT_UPDATEOVERLAY {
     pub OverlayInfo: super::D3DDDI_KERNELOVERLAYINFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VAD_DESC {
-    pub VadIndex: u32,
-    pub VadAddress: u64,
-    pub NumMappedRanges: u32,
-    pub VadType: u32,
-    pub StartAddress: u64,
-    pub EndAddress: u64,
+    pub VadIndex: super::UINT,
+    pub VadAddress: super::UINT64,
+    pub NumMappedRanges: super::UINT,
+    pub VadType: super::UINT,
+    pub StartAddress: super::UINT64,
+    pub EndAddress: super::UINT64,
 }
 pub type D3DKMT_VAD_ESCAPE_COMMAND = i32;
 pub const D3DKMT_VAD_ESCAPE_GETNUMVADS: D3DKMT_VAD_ESCAPE_COMMAND = 0;
@@ -6028,27 +6324,30 @@ pub const D3DKMT_VAD_ESCAPE_GET_PTE: D3DKMT_VAD_ESCAPE_COMMAND = 3;
 pub const D3DKMT_VAD_ESCAPE_GET_PTE_DATA: D3DKMT_VAD_ESCAPE_COMMAND = 6;
 pub const D3DKMT_VAD_ESCAPE_GET_SEGMENT_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VA_RANGE_DESC {
-    pub VadAddress: u64,
-    pub VaRangeIndex: u32,
-    pub PhysicalAdapterIndex: u32,
-    pub StartAddress: u64,
-    pub EndAddress: u64,
-    pub DriverProtection: u64,
-    pub OwnerType: u32,
-    pub pOwner: u64,
-    pub OwnerOffset: u64,
-    pub Protection: u32,
+    pub VadAddress: super::UINT64,
+    pub VaRangeIndex: super::UINT,
+    pub PhysicalAdapterIndex: super::UINT,
+    pub StartAddress: super::UINT64,
+    pub EndAddress: super::UINT64,
+    pub DriverProtection: super::UINT64,
+    pub OwnerType: super::UINT,
+    pub pOwner: super::UINT64,
+    pub OwnerOffset: super::UINT64,
+    pub Protection: super::UINT,
 }
 pub type D3DKMT_VERIFIER_OPTION_MODE = i32;
 pub const D3DKMT_VERIFIER_OPTION_QUERY: D3DKMT_VERIFIER_OPTION_MODE = 0;
 pub const D3DKMT_VERIFIER_OPTION_SET: D3DKMT_VERIFIER_OPTION_MODE = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VGPUINTERFACEID {
-    pub VirtualGpuIntefaceId: [u16; 260],
+    pub VirtualGpuIntefaceId: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_VGPUINTERFACEID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6078,20 +6377,20 @@ pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_PROCESS: D3DKMT_VIDMMESCAPETYPE = 9;
 pub const D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY: D3DKMT_VIDMMESCAPETYPE = 17;
 pub const D3DKMT_VIDMMESCAPETYPE_WAKE: D3DKMT_VIDMMESCAPETYPE = 14;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE {
     pub Type: D3DKMT_VIDMMESCAPETYPE,
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub SetFault: D3DKMT_VIDMM_ESCAPE_0_0,
@@ -6113,132 +6412,132 @@ pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub CopyContent: D3DKMT_VIDMM_ESCAPE_0_15,
     pub QuerySection: D3DKMT_VIDMM_ESCAPE_0_16,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
-    pub Value: u32,
+    pub Value: super::ULONG,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_1_0,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_1_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_1_0_0,
-    pub Value: u32,
+    pub Value: super::ULONG,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub bFlush: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
-    pub SegmentId: u32,
-    pub TotalCommitted: u64,
-    pub TotalFree: u64,
-    pub LargestGapBefore: u64,
-    pub LargestGapAfter: u64,
+    pub SegmentId: super::UINT,
+    pub TotalCommitted: super::ULONGLONG,
+    pub TotalFree: super::ULONGLONG,
+    pub LargestGapBefore: super::ULONGLONG,
+    pub LargestGapAfter: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub hPagingQueue: super::D3DKMT_HANDLE,
-    pub PhysicalAdapterIndex: u32,
-    pub Milliseconds: u32,
-    pub PagingFenceValue: u64,
+    pub PhysicalAdapterIndex: super::UINT,
+    pub Milliseconds: super::ULONG,
+    pub PagingFenceValue: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
-    pub PhysicalAdapterIndex: u16,
-    pub SegmentId: u16,
+    pub PhysicalAdapterIndex: super::UINT16,
+    pub SegmentId: super::UINT16,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_14 {
-    pub TimerValue: i64,
+    pub TimerValue: super::LONGLONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_15 {
-    pub UserBuffer: *mut core::ffi::c_void,
+    pub UserBuffer: super::PVOID,
     pub Direction: D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION,
     pub hAllocation: super::D3DKMT_HANDLE,
-    pub Offset: u64,
-    pub Size: u64,
+    pub Offset: super::UINT64,
+    pub Size: super::UINT64,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_16 {
     pub hAllocation: super::D3DKMT_HANDLE,
     pub hSection: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub ResourceHandle: super::D3DKMT_HANDLE,
@@ -6246,13 +6545,13 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub hProcess: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
-    pub NtHandle: u64,
+    pub NtHandle: super::UINT64,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_4_0,
@@ -6260,14 +6559,14 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub Status: windows_sys::core::NTSTATUS,
     pub Anonymous2: D3DKMT_VIDMM_ESCAPE_0_4_1,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_4_0 {
     pub GetNumVads: D3DKMT_VIDMM_ESCAPE_0_4_0_0,
@@ -6277,89 +6576,94 @@ pub union D3DKMT_VIDMM_ESCAPE_0_4_0 {
     pub GetPte: D3DKMT_GET_PTE,
     pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_4_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4_0_0 {
-    pub NumVads: u32,
+    pub NumVads: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_4_1 {
     pub GetPteExt: D3DKMT_GET_PTE_EXT,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_4_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
-    pub LocalMemoryBudget: u64,
-    pub SystemMemoryBudget: u64,
+    pub LocalMemoryBudget: super::ULONGLONG,
+    pub SystemMemoryBudget: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
     pub hProcess: super::HANDLE,
     pub bAllowWakeOnSubmission: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
     pub hProcess: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
-    pub NumBytesToTrim: u64,
+    pub NumBytesToTrim: super::UINT64,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
-    pub MinTrimInterval: u32,
-    pub MaxTrimInterval: u32,
-    pub IdleTrimInterval: u32,
+    pub MinTrimInterval: super::ULONG,
+    pub MaxTrimInterval: super::ULONG,
+    pub IdleTrimInterval: super::ULONG,
 }
 pub const D3DKMT_VIDPNSOURCEOWNER_EMULATED: D3DKMT_VIDPNSOURCEOWNER_TYPE = 4;
 pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVE: D3DKMT_VIDPNSOURCEOWNER_TYPE = 2;
 pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVEGDI: D3DKMT_VIDPNSOURCEOWNER_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -6378,76 +6682,78 @@ pub const D3DKMT_VIDSCHESCAPETYPE_TDRCONTROL: D3DKMT_VIDSCHESCAPETYPE = 2;
 pub const D3DKMT_VIDSCHESCAPETYPE_VGPU_RESET: D3DKMT_VIDSCHESCAPETYPE = 6;
 pub const D3DKMT_VIDSCHESCAPETYPE_VIRTUAL_REFRESH_RATE: D3DKMT_VIDSCHESCAPETYPE = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDSCH_ESCAPE {
     pub Type: D3DKMT_VIDSCHESCAPETYPE,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0,
     pub VirtualRefreshRateControl: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_VIDSCH_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDSCH_ESCAPE_0 {
     pub PreemptionControl: windows_sys::core::BOOL,
     pub EnableContextDelay: windows_sys::core::BOOL,
     pub TdrControl2: D3DKMT_VIDSCH_ESCAPE_0_0,
     pub SuspendScheduler: windows_sys::core::BOOL,
-    pub TdrControl: u32,
-    pub SuspendTime: u32,
+    pub TdrControl: super::ULONG,
+    pub SuspendTime: super::ULONG,
     pub TdrLimit: D3DKMT_VIDSCH_ESCAPE_0_1,
     pub PfnControl: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_VIDSCH_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_0 {
-    pub TdrControl: u32,
+    pub TdrControl: super::ULONG,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0_0_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_VIDSCH_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDSCH_ESCAPE_0_0_0 {
-    pub NodeOrdinal: u32,
+    pub NodeOrdinal: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_1 {
-    pub Count: u32,
-    pub Time: u32,
+    pub Count: super::UINT,
+    pub Time: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIRTUALADDRESSFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIRTUALADDRESSINFO {
     pub VirtualAddressFlags: D3DKMT_VIRTUALADDRESSFLAGS,
@@ -6460,94 +6766,94 @@ pub struct D3DKMT_WAITFORIDLE {
     pub hDevice: super::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     pub hContext: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: [super::D3DKMT_HANDLE; 32],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     pub hContext: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: [super::D3DKMT_HANDLE; 32],
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
     pub Fence: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0,
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     pub hDevice: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: *const super::D3DKMT_HANDLE,
-    pub FenceValueArray: *const u64,
+    pub FenceValueArray: *const super::UINT64,
     pub hAsyncEvent: super::HANDLE,
     pub Flags: super::D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     pub hContext: super::D3DKMT_HANDLE,
-    pub ObjectCount: u32,
+    pub ObjectCount: super::UINT,
     pub ObjectHandleArray: *const super::D3DKMT_HANDLE,
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
-    pub MonitoredFenceValueArray: *const u64,
-    pub FenceValue: u64,
-    pub Reserved: [u64; 8],
+    pub MonitoredFenceValueArray: *const super::UINT64,
+    pub FenceValue: super::UINT64,
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6562,46 +6868,50 @@ pub struct D3DKMT_WAITFORVERTICALBLANKEVENT {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     pub hAdapter: super::D3DKMT_HANDLE,
     pub hDevice: super::D3DKMT_HANDLE,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub NumObjects: u32,
+    pub NumObjects: super::UINT,
     pub ObjectHandleArray: [super::D3DKMT_PTR_TYPE; 8],
 }
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WAITSYNCFILE {
-    pub hSyncFile: u64,
+    pub hSyncFile: super::UINT64,
     pub hContext: super::D3DKMT_HANDLE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WORKINGSETFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WORKINGSETINFO {
     pub Flags: D3DKMT_WORKINGSETFLAGS,
-    pub MinimumWorkingSetPercentile: u32,
-    pub MaximumWorkingSetPercentile: u32,
+    pub MinimumWorkingSetPercentile: super::ULONG,
+    pub MaximumWorkingSetPercentile: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WSAUMDIMAGENAME {
-    pub WsaUmdImageName: [u16; 260],
+    pub WsaUmdImageName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for D3DKMT_WSAUMDIMAGENAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6630,7 +6940,7 @@ pub type DXGKMT_POWER_SHARED_TYPE = i32;
 pub const DXGKMT_POWER_SHARED_TYPE_AUDIO: DXGKMT_POWER_SHARED_TYPE = 0;
 pub const DXGK_DIAG_PROCESS_NAME_LENGTH: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub ReadOnlyMemorySupported: super::BOOLEAN,
@@ -6640,19 +6950,19 @@ pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub LargePageSupported: super::BOOLEAN,
     pub DualPteSupported: super::BOOLEAN,
     pub AllowNonAlignedLargePageAddress: super::BOOLEAN,
-    pub _bitfield: super::BOOLEAN,
-    pub VirtualAddressBitCount: u32,
-    pub PageTableLevelCount: u32,
+    pub _bitfield: u8,
+    pub VirtualAddressBitCount: super::UINT,
+    pub PageTableLevelCount: super::UINT,
     pub PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DXGK_ESCAPE_GPUMMUCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_INTERFACE_V1 {
     pub pfnEnableProcessDebugBlobCollection: PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION,
@@ -6660,24 +6970,24 @@ pub struct DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_INTERFACE_V1 {
     pub pfnMapProcessDebugBlob: PFND3DKMT_MAPPROCESSDEBUGBLOB,
     pub pfnUnmapProcessDebugBlob: PFND3DKMT_UNMAPPROCESSDEBUGBLOB,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type DXGK_GRAPHICSPOWER_REGISTER_INPUT = DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
-    pub Version: u32,
-    pub PrivateHandle: *mut core::ffi::c_void,
+    pub Version: super::ULONG,
+    pub PrivateHandle: super::PVOID,
     pub PowerNotificationCb: PDXGK_POWER_NOTIFICATION,
     pub RemovalNotificationCb: PDXGK_REMOVAL_NOTIFICATION,
     pub FStateNotificationCb: PDXGK_FSTATE_NOTIFICATION,
     pub InitialComponentStateCb: PDXGK_INITIAL_COMPONENT_STATE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
-    pub DeviceHandle: *mut core::ffi::c_void,
+    pub DeviceHandle: super::PVOID,
     pub InitialGrfxPowerState: super::DEVICE_POWER_STATE,
     pub SetSharedPowerComponentStateCb: PDXGK_SET_SHARED_POWER_COMPONENT_STATE,
     pub UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
@@ -6686,6 +6996,7 @@ pub const DXGK_GRAPHICSPOWER_VERSION: i32 = 4098;
 pub const DXGK_GRAPHICSPOWER_VERSION_1_0: i32 = 4096;
 pub const DXGK_GRAPHICSPOWER_VERSION_1_1: i32 = 4097;
 pub const DXGK_GRAPHICSPOWER_VERSION_1_2: i32 = 4098;
+pub const DXGK_MAX_GPUVERSION_NAME_LENGTH: i32 = 32;
 pub const FLIPEX_TIMEOUT_KERNEL: i32 = 20000000;
 pub const FLIPEX_TIMEOUT_USER: i32 = 2000;
 pub const GUID_DEVINTERFACE_GRAPHICSPOWER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea5c6870_e93c_4588_bef1_fec42fc9429a);
@@ -6807,17 +7118,17 @@ pub const MiracastStopped: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = 0;
 pub const NUM_KMTUMDVERSIONS: KMTUMDVERSION = 6;
 pub const NUM_KMT_DISPLAY_UMDVERSIONS: KMT_DISPLAY_UMD_VERSION = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
     pub ProcessID: super::HANDLE,
-    pub AccumulatedPresents: u32,
+    pub AccumulatedPresents: super::UINT32,
     pub LastPresentTime: super::LARGE_INTEGER,
     pub LastMouseTime: super::LARGE_INTEGER,
-    pub ProcessName: [i8; 16],
+    pub ProcessName: [super::CHAR; 16],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6829,101 +7140,104 @@ pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_FORCE_UINT32: OUTPUTDUPL_CONTEXT_DEBUG
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 0;
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 2;
 pub const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: i32 = 3;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS;
 pub type PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS = *mut D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS;
-#[cfg(feature = "winnt")]
-pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdevicehandle: *mut core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
-#[cfg(feature = "winnt")]
-pub type PDXGK_GRAPHICSPOWER_REGISTER_INPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdevicehandle: super::PVOID, componentindex: super::ULONG, newfstate: super::UINT, prenotification: super::BOOLEAN, privatehandle: super::PVOID)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDXGK_GRAPHICSPOWER_REGISTER_INPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_OUTPUT;
-pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "C" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "C" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: super::BOOLEAN, initialfstate: u32, componentguid: windows_sys::core::GUID, powercomponentmappingflag: u32)>;
+pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "C" fn(devicehandle: super::PVOID, privatehandle: super::PVOID) -> windows_sys::core::NTSTATUS>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "C" fn(graphicsdevicehandle: super::PVOID, privatehandle: super::PVOID, componentindex: super::ULONG, isblockingtype: super::BOOLEAN, initialfstate: super::UINT, componentguid: windows_sys::core::GUID, powercomponentmappingflag: super::UINT)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdevicehandle: super::PVOID, newgrfxpowerstate: super::DEVICE_POWER_STATE, prenotification: super::BOOLEAN, privatehandle: super::PVOID)>;
 #[cfg(feature = "winnt")]
-pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdevicehandle: *mut core::ffi::c_void, newgrfxpowerstate: super::DEVICE_POWER_STATE, prenotification: super::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
-pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void)>;
-#[cfg(feature = "winnt")]
-pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "C" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: super::BOOLEAN) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "C" fn(graphicsdevicehandle: super::PVOID, privatehandle: super::PVOID)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "C" fn(devicehandle: super::PVOID, privatehandle: super::PVOID, componentindex: super::ULONG, active: super::BOOLEAN) -> windows_sys::core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> windows_sys::core::NTSTATUS>;
+#[cfg(feature = "shared")]
 pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> super::BOOLEAN>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_CHECKMONITORPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "windef")]
 pub type PFND3DKMT_CHECKOCCLUSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_CLOSEADAPTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CONNECTDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CREATEALLOCATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CREATEALLOCATION2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATECONTEXT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATECONTEXTVIRTUAL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub type PFND3DKMT_CREATEDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEDEVICE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATENATIVEFENCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CREATEOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEOVERLAY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATEPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_DESTROYALLOCATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_DESTROYALLOCATION2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_DESTROYCONTEXT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> windows_sys::core::NTSTATUS>;
@@ -6949,289 +7263,287 @@ pub type PFND3DKMT_DESTROYPROTECTEDSESSION = Option<unsafe extern "system" fn(pa
 pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS>;
 pub type PFND3DKMT_DISABLEPROCESSDEBUGBLOBCOLLECTION = Option<unsafe extern "system" fn() -> windows_sys::core::NTSTATUS>;
 pub type PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION = Option<unsafe extern "system" fn() -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_ENUMADAPTERS = Option<unsafe extern "system" fn(param0: *const D3DKMT_ENUMADAPTERS) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_ENUMADAPTERS2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_ENUMADAPTERS2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_ENUMADAPTERS3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_ESCAPE = Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_EVICT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_FLIPOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_GETDEVICESTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETDISPLAYMODELIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETNATIVEFENCELOGDETAIL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETOVERLAYSTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_GETPRESENTHISTORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETRUNTIMEDATA = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETRUNTIMEDATA) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_GETSCANLINE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_INVALIDATECACHE = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_ISFEATUREENABLED = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ISFEATUREENABLED) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_LOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_LOCK2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_MAKERESIDENT = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_MAKERESIDENT) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_MAPPROCESSDEBUGBLOB = Option<unsafe extern "system" fn(param0: *mut D3DKMT_MAPPROCESSDEBUGBLOB) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_MARKDEVICEASERROR = Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_NOTIFYWORKSUBMISSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_OFFERALLOCATIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_OPENADAPTERFROMHDC = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OPENADAPTERFROMLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_OPENKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_OPENRESOURCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_OPENRESOURCE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 pub type PFND3DKMT_OUTPUTDUPLPRESENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_POLLDISPLAYCHILDREN = Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_PRESENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef"))]
 pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_QUERYADAPTERINFO = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYADAPTERINFO) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_QUERYCLOCKCALIBRATION = Option<unsafe extern "system" fn(param0: *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "minwindef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef", feature = "shared"))]
 pub type PFND3DKMT_QUERYFEATUREINTERFACE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_QUERYFSEBLOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_QUERYPROCESSOFFERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_QUERYRESOURCEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_QUERYSTATISTICS = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_RECLAIMALLOCATIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_RECLAIMALLOCATIONS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_RECLAIMALLOCATIONS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_RELEASEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = Option<unsafe extern "system" fn(param0: super::HANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_RENDER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_RESIZERINGBUFFER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RESIZERINGBUFFER) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETDISPLAYMODE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYMODE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_SETFSEBLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETGAMMARAMP = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_SETHYBRIDLISTVVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETQUEUEDLIMIT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_SETSTABLEPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> windows_sys::core::NTSTATUS>;
 pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: windows_sys::core::BOOL) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const super::D3DKMT_HANDLE, pobjectattributes: POBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: super::UINT, hobjects: *const super::D3DKMT_HANDLE, pobjectattributes: super::POBJECT_ATTRIBUTES, dwdesiredaccess: super::DWORD, phsharednthandle: *mut super::HANDLE) -> windows_sys::core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SUBMITCOMMAND = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_TRIMNOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMNOTIFICATION)>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_UNLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_UNLOCK2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_UNMAPPROCESSDEBUGBLOB = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNMAPPROCESSDEBUGBLOB) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> windows_sys::core::NTSTATUS>;
 pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_UPDATEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_WAITFORIDLE = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> windows_sys::core::NTSTATUS>;
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type POBJECT_ATTRIBUTES = *mut super::OBJECT_ATTRIBUTES;
 pub const SHARED_ALLOCATION_ALL_ACCESS: i32 = 983041;
 pub const SHARED_ALLOCATION_WRITE: i32 = 1;

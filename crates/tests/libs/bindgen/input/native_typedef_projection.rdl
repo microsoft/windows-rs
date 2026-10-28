@@ -20,5 +20,5 @@ mod Test {
     extern fn GetValue(#[out] result: LPDWORD) -> HRESULT;
 
     #[library("test.dll")]
-    extern fn Create(riid: REFIID, #[out] #[iid_is] object: PPVOID) -> HRESULT;
+    extern fn Create(#[in] riid: REFIID, #[out] #[iid_is] object: PPVOID) -> HRESULT;
 }

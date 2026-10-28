@@ -1,57 +1,59 @@
 #[cfg(feature = "windef")]
 windows_link::link!("shdocvw.dll" "system" fn DoPrivacyDlg(hwndowner : super::HWND, pszurl : windows_sys::core::PCWSTR, pprivacyenum : *const IEnumPrivacyRecords, freportallsites : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::HWND, pszfilepath : windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : windows_sys::core::PCWSTR, pszdefext : windows_sys::core::PCWSTR, pszfilters : windows_sys::core::PCWSTR, psztitle : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shdocvw.dll" "system" fn ImportPrivacySettings(pszfilename : windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut windows_sys::core::BOOL, pfparsepersiterules : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn PathIsSlowA(pszfile : windows_sys::core::PCSTR, dwattr : u32) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn PathIsSlowW(pszfile : windows_sys::core::PCWSTR, dwattr : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn PathIsSlowA(pszfile : windows_sys::core::PCSTR, dwattr : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn PathIsSlowW(pszfile : windows_sys::core::PCWSTR, dwattr : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathQualify(psz : windows_sys::core::PWSTR));
 #[cfg(feature = "shlobj_core")]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotifyRegisterThread(status : super::SCNRT_STATUS));
-#[cfg(all(feature = "minwindef", feature = "shlobj_core"))]
-windows_link::link!("shell32.dll" "system" fn SHCreatePropSheetExtArray(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, max_iface : u32) -> super::HPSXA);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shlobj_core"))]
+windows_link::link!("shell32.dll" "system" fn SHCreatePropSheetExtArray(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, max_iface : super::UINT) -> super::HPSXA);
 #[cfg(feature = "objidl")]
 windows_link::link!("shell32.dll" "system" fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : *mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "shobjidl_core"))]
-windows_link::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_sys::core::PCWSTR, ahkeys : *const super::HKEY, ckeys : u32, pclsiddefault : *const windows_sys::core::GUID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "urlmon", feature = "windef"))]
-windows_link::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::HWND, pszdistunit : windows_sys::core::PCWSTR, dwflags : u32, psdi : super::LPSOFTDISTINFO) -> u32);
-#[repr(C)]
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : *mut core::ffi::c_void, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core"))]
+windows_link::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_sys::core::PCWSTR, ahkeys : *const super::HKEY, ckeys : super::UINT, pclsiddefault : *const super::CLSID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "urlmon", feature = "windef"))]
+windows_link::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::HWND, pszdistunit : windows_sys::core::PCWSTR, dwflags : super::DWORD, psdi : super::LPSOFTDISTINFO) -> super::DWORD);
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AASHELLMENUFILENAME {
-    pub cbTotal: i16,
-    pub rgbReserved: [u8; 12],
-    pub szFileName: [u16; 1],
+    pub cbTotal: super::SHORT,
+    pub rgbReserved: [super::BYTE; 12],
+    pub szFileName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for AASHELLMENUFILENAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct AASHELLMENUITEM {
     pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
-    pub uiReserved: u32,
+    pub uiReserved: super::UINT,
     pub lpName: LPAASHELLMENUFILENAME,
     pub psz: windows_sys::core::PWSTR,
 }
-#[repr(C)]
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct BANDINFOSFB {
-    pub dwMask: u32,
-    pub dwStateMask: u32,
-    pub dwState: u32,
+    pub dwMask: super::DWORD,
+    pub dwStateMask: super::DWORD,
+    pub dwState: super::DWORD,
     pub crBkgnd: super::COLORREF,
     pub crBtnLt: super::COLORREF,
     pub crBtnDk: super::COLORREF,
-    pub wViewMode: u16,
-    pub wAlign: u16,
+    pub wViewMode: super::WORD,
+    pub wAlign: super::WORD,
     pub psf: *mut core::ffi::c_void,
     pub pidl: super::LPITEMIDLIST,
 }
@@ -103,33 +105,47 @@ pub const ISFB_STATE_FULLOPEN: i32 = 64;
 pub const ISFB_STATE_NONAMESORT: i32 = 128;
 pub const ISFB_STATE_NOSHOWTEXT: i32 = 4;
 pub const ISFB_STATE_QLINKSMODE: i32 = 32;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPAASHELLMENUFILENAME = *mut AASHELLMENUFILENAME;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPAASHELLMENUITEM = *mut AASHELLMENUITEM;
+pub type LPACTIVEDESKTOPP = *mut core::ffi::c_void;
+pub type LPADESKTOPP2 = *mut core::ffi::c_void;
+pub type LPCOPYHOOKA = *mut core::ffi::c_void;
+pub type LPCOPYHOOKW = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCSHCOLUMNDATA = *const SHCOLUMNDATA;
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt", feature = "wtypes"))]
 pub type LPCSHCOLUMNINFO = *const SHCOLUMNINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCSHCOLUMNINIT = *const SHCOLUMNINIT;
-#[cfg(all(feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 pub type LPSFV_SETITEMPOS = *mut SFV_SETITEMPOS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSHCOLUMNDATA = *mut SHCOLUMNDATA;
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt", feature = "wtypes"))]
 pub type LPSHCOLUMNINFO = *mut SHCOLUMNINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSHCOLUMNINIT = *mut SHCOLUMNINIT;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSHChangeProductKeyAsIDList = *mut SHChangeProductKeyAsIDList;
+#[cfg(feature = "shared")]
 pub type LPTBINFO = *mut TBINFO;
+pub type LPTHUMBNAILCAPTURE = *mut core::ffi::c_void;
 pub const OPENPROPS_INHIBITPIF: i32 = 32768;
 pub const OPENPROPS_NONE: i32 = 0;
 pub const PANE_NAVIGATION: i32 = 5;
-pub const PANE_NONE: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const PANE_NONE: super::DWORD = 4294967295;
 pub const PANE_OFFLINE: i32 = 2;
 pub const PANE_PRINTER: i32 = 3;
 pub const PANE_PRIVACY: i32 = 7;
 pub const PANE_PROGRESS: i32 = 6;
 pub const PANE_SSL: i32 = 4;
 pub const PANE_ZONE: i32 = 1;
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type PBANDINFOSFB = *mut BANDINFOSFB;
-#[cfg(all(feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 pub type PCSFV_SETITEMPOS = *const SFV_SETITEMPOS;
 pub const SCHEME_CREATE: i32 = 128;
 pub const SCHEME_DISPLAY: i32 = 1;
@@ -149,65 +165,71 @@ pub const SFVM_SETCLIPBOARD: i32 = 16;
 pub const SFVM_SETITEMPOS: i32 = 14;
 pub const SFVM_SETPOINTS: i32 = 23;
 pub const SFVM_UPDATEOBJECT: i32 = 7;
-#[repr(C)]
-#[cfg(all(feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct SFV_SETITEMPOS {
     pub pidl: super::LPCITEMIDLIST,
     pub pt: super::POINT,
 }
 pub const SHCDF_UPDATEITEM: i32 = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHCOLUMNDATA {
-    pub dwFlags: u32,
-    pub dwFileAttributes: u32,
-    pub dwReserved: u32,
-    pub pwszExt: *mut u16,
-    pub wszFile: [u16; 260],
+    pub dwFlags: super::ULONG,
+    pub dwFileAttributes: super::DWORD,
+    pub dwReserved: super::ULONG,
+    pub pwszExt: *mut super::WCHAR,
+    pub wszFile: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SHCOLUMNDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt", feature = "wtypes"))]
 #[derive(Clone, Copy)]
 pub struct SHCOLUMNINFO {
     pub scid: super::SHCOLUMNID,
     pub vt: super::VARTYPE,
-    pub fmt: u32,
-    pub cChars: u32,
-    pub csFlags: u32,
-    pub wszTitle: [u16; 80],
-    pub wszDescription: [u16; 128],
+    pub fmt: super::DWORD,
+    pub cChars: super::UINT,
+    pub csFlags: super::DWORD,
+    pub wszTitle: [super::WCHAR; 80],
+    pub wszDescription: [super::WCHAR; 128],
 }
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt", feature = "wtypes"))]
 impl Default for SHCOLUMNINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHCOLUMNINIT {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
-    pub wszFolder: [u16; 260],
+    pub dwFlags: super::ULONG,
+    pub dwReserved: super::ULONG,
+    pub wszFolder: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SHCOLUMNINIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHChangeProductKeyAsIDList {
-    pub cb: u16,
-    pub wszProductKey: [u16; 39],
-    pub cbZero: u16,
+    pub cb: super::USHORT,
+    pub wszProductKey: [super::WCHAR; 39],
+    pub cbZero: super::USHORT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SHChangeProductKeyAsIDList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -224,9 +246,10 @@ pub const TBIF_NOTOOLBAR: i32 = 196608;
 pub const TBIF_PREPEND: i32 = 1;
 pub const TBIF_REPLACE: i32 = 2;
 pub const TBIF_STANDARDTOOLBAR: i32 = 131072;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TBINFO {
-    pub cbuttons: u32,
-    pub uFlags: u32,
+    pub cbuttons: super::UINT,
+    pub uFlags: super::UINT,
 }

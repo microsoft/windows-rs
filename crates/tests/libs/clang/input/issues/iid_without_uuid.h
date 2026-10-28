@@ -1,0 +1,7 @@
+#include "guiddef.h"
+
+EXTERN_GUID(IID_IPlain, 0x279afa83, 0x4981, 0x11ce, 0xa5, 0x21, 0x00, 0x20, 0xaf, 0x0b, 0xe5, 0x60);
+
+struct IPlain {
+    virtual long __stdcall Play(unsigned long flags) = 0;
+};

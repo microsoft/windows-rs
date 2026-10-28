@@ -4,16 +4,17 @@ pub type AMBISONICS_NORMALIZATION = i32;
 pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1;
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AMBISONICS_PARAMS {
-    pub u32Size: u32,
-    pub u32Version: u32,
+    pub u32Size: super::UINT32,
+    pub u32Version: super::UINT32,
     pub u32Type: AMBISONICS_TYPE,
     pub u32ChannelOrdering: AMBISONICS_CHANNEL_ORDERING,
     pub u32Normalization: AMBISONICS_NORMALIZATION,
-    pub u32Order: u32,
-    pub u32NumChannels: u32,
-    pub pu32ChannelMap: *mut u32,
+    pub u32Order: super::UINT32,
+    pub u32NumChannels: super::UINT32,
+    pub pu32ChannelMap: *mut super::UINT32,
 }
 pub const AMBISONICS_PARAM_VERSION_1: i32 = 1;
 pub type AMBISONICS_TYPE = i32;
@@ -60,7 +61,7 @@ pub const AUDCLNT_E_SERVICE_NOT_RUNNING: windows_sys::core::HRESULT = 0x88890010
 pub const AUDCLNT_E_THREAD_NOT_REGISTERED: windows_sys::core::HRESULT = 0x8889000C_u32 as _;
 pub const AUDCLNT_E_UNSUPPORTED_FORMAT: windows_sys::core::HRESULT = 0x88890008_u32 as _;
 pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: windows_sys::core::HRESULT = 0x88890003_u32 as _;
-pub type AUDCLNT_STREAMOPTIONS = u32;
+pub type AUDCLNT_STREAMOPTIONS = i32;
 pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = 4;
 pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = 2;
 pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = 0;
@@ -73,7 +74,7 @@ pub const AUDCLNT_S_POSITION_STALLED: super::SCODE = 0x8890003_u32 as _;
 #[cfg(feature = "wtypesbase")]
 pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: super::SCODE = 0x8890002_u32 as _;
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: i32 = 1;
-pub type AUDIO_DUCKING_OPTIONS = u32;
+pub type AUDIO_DUCKING_OPTIONS = i32;
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = 0;
 pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = 1;
 #[repr(C)]
@@ -92,10 +93,10 @@ pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "audiosessiontypes")]
+#[cfg(all(feature = "audiosessiontypes", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct AudioClientProperties {
-    pub cbSize: u32,
+    pub cbSize: super::UINT32,
     pub bIsOffload: windows_sys::core::BOOL,
     pub eCategory: super::AUDIO_STREAM_CATEGORY,
     pub Options: AUDCLNT_STREAMOPTIONS,

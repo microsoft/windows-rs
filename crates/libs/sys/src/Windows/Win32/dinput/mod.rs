@@ -1,16 +1,15 @@
-#[cfg(feature = "minwindef")]
-windows_link::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::HINSTANCE, dwversion : u32, riidltf : *const windows_sys::core::GUID, ppvout : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> super::MMRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase"))]
+windows_link::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::HINSTANCE, dwversion : super::DWORD, riidltf : *const super::IID, ppvout : *mut super::LPVOID, punkouter : super::LPUNKNOWN) -> windows_sys::core::HRESULT);
 pub const CLSID_DirectInput: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e0_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInput8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInputDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e1_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInputDevice8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CPOINT {
-    pub lP: i32,
-    pub dwLog: u32,
+    pub lP: super::LONG,
+    pub dwLog: super::DWORD,
 }
 pub const DI8DEVCLASS_ALL: i32 = 0;
 pub const DI8DEVCLASS_DEVICE: i32 = 1;
@@ -87,108 +86,117 @@ pub const DI8DEVTYPE_MOUSE: i32 = 18;
 pub const DI8DEVTYPE_REMOTE: i32 = 27;
 pub const DI8DEVTYPE_SCREENPOINTER: i32 = 26;
 pub const DI8DEVTYPE_SUPPLEMENTAL: i32 = 28;
+#[cfg(feature = "shared")]
 pub type DIACTION = DIACTIONA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIACTIONA {
-    pub uAppData: usize,
-    pub dwSemantic: u32,
-    pub dwFlags: u32,
+    pub uAppData: super::UINT_PTR,
+    pub dwSemantic: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub Anonymous: DIACTIONA_0,
     pub guidInstance: windows_sys::core::GUID,
-    pub dwObjID: u32,
-    pub dwHow: u32,
+    pub dwObjID: super::DWORD,
+    pub dwHow: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DIACTIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DIACTIONA_0 {
     pub lptszActionName: windows_sys::core::PCSTR,
-    pub uResIdString: u32,
+    pub uResIdString: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DIACTIONA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type DIACTIONFORMAT = DIACTIONFORMATA;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DIACTIONFORMATA {
-    pub dwSize: u32,
-    pub dwActionSize: u32,
-    pub dwDataSize: u32,
-    pub dwNumActions: u32,
+    pub dwSize: super::DWORD,
+    pub dwActionSize: super::DWORD,
+    pub dwDataSize: super::DWORD,
+    pub dwNumActions: super::DWORD,
     pub rgoAction: LPDIACTIONA,
     pub guidActionMap: windows_sys::core::GUID,
-    pub dwGenre: u32,
-    pub dwBufferSize: u32,
-    pub lAxisMin: i32,
-    pub lAxisMax: i32,
+    pub dwGenre: super::DWORD,
+    pub dwBufferSize: super::DWORD,
+    pub lAxisMin: super::LONG,
+    pub lAxisMax: super::LONG,
     pub hInstString: super::HINSTANCE,
     pub ftTimeStamp: super::FILETIME,
-    pub dwCRC: u32,
-    pub tszActionMap: [i8; 260],
+    pub dwCRC: super::DWORD,
+    pub tszActionMap: [super::CHAR; 260],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for DIACTIONFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIACTIONFORMATW {
-    pub dwSize: u32,
-    pub dwActionSize: u32,
-    pub dwDataSize: u32,
-    pub dwNumActions: u32,
+    pub dwSize: super::DWORD,
+    pub dwActionSize: super::DWORD,
+    pub dwDataSize: super::DWORD,
+    pub dwNumActions: super::DWORD,
     pub rgoAction: LPDIACTIONW,
     pub guidActionMap: windows_sys::core::GUID,
-    pub dwGenre: u32,
-    pub dwBufferSize: u32,
-    pub lAxisMin: i32,
-    pub lAxisMax: i32,
+    pub dwGenre: super::DWORD,
+    pub dwBufferSize: super::DWORD,
+    pub lAxisMin: super::LONG,
+    pub lAxisMax: super::LONG,
     pub hInstString: super::HINSTANCE,
     pub ftTimeStamp: super::FILETIME,
-    pub dwCRC: u32,
-    pub tszActionMap: [u16; 260],
+    pub dwCRC: super::DWORD,
+    pub tszActionMap: [super::WCHAR; 260],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for DIACTIONFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIACTIONW {
-    pub uAppData: usize,
-    pub dwSemantic: u32,
-    pub dwFlags: u32,
+    pub uAppData: super::UINT_PTR,
+    pub dwSemantic: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub Anonymous: DIACTIONW_0,
     pub guidInstance: windows_sys::core::GUID,
-    pub dwObjID: u32,
-    pub dwHow: u32,
+    pub dwObjID: super::DWORD,
+    pub dwHow: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DIACTIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DIACTIONW_0 {
     pub lptszActionName: windows_sys::core::PCWSTR,
-    pub uResIdString: u32,
+    pub uResIdString: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DIACTIONW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1036,10 +1044,10 @@ pub const DIBUTTON_TPS_VIEW: i32 = 167789574;
 pub const DICD_DEFAULT: i32 = 0;
 pub const DICD_EDIT: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "dsound")]
+#[cfg(all(feature = "dsound", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DICOLORSET {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub cTextFore: super::D3DCOLOR,
     pub cTextHighlight: super::D3DCOLOR,
     pub cCalloutLine: super::D3DCOLOR,
@@ -1050,55 +1058,57 @@ pub struct DICOLORSET {
     pub cAreaFill: super::D3DCOLOR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DICONDITION {
-    pub lOffset: i32,
-    pub lPositiveCoefficient: i32,
-    pub lNegativeCoefficient: i32,
-    pub dwPositiveSaturation: u32,
-    pub dwNegativeSaturation: u32,
-    pub lDeadBand: i32,
+    pub lOffset: super::LONG,
+    pub lPositiveCoefficient: super::LONG,
+    pub lNegativeCoefficient: super::LONG,
+    pub dwPositiveSaturation: super::DWORD,
+    pub dwNegativeSaturation: super::DWORD,
+    pub lDeadBand: super::LONG,
 }
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type DICONFIGUREDEVICESPARAMS = DICONFIGUREDEVICESPARAMSA;
 #[repr(C)]
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DICONFIGUREDEVICESPARAMSA {
-    pub dwSize: u32,
-    pub dwcUsers: u32,
+    pub dwSize: super::DWORD,
+    pub dwcUsers: super::DWORD,
     pub lptszUserNames: windows_sys::core::PSTR,
-    pub dwcFormats: u32,
+    pub dwcFormats: super::DWORD,
     pub lprgFormats: LPDIACTIONFORMATA,
     pub hwnd: super::HWND,
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DICONFIGUREDEVICESPARAMSW {
-    pub dwSize: u32,
-    pub dwcUsers: u32,
+    pub dwSize: super::DWORD,
+    pub dwcUsers: super::DWORD,
     pub lptszUserNames: windows_sys::core::PWSTR,
-    pub dwcFormats: u32,
+    pub dwcFormats: super::DWORD,
     pub lprgFormats: LPDIACTIONFORMATW,
     pub hwnd: super::HWND,
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DICONSTANTFORCE {
-    pub lMagnitude: i32,
+    pub lMagnitude: super::LONG,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DICUSTOMFORCE {
-    pub cChannels: u32,
-    pub dwSamplePeriod: u32,
-    pub cSamples: u32,
+    pub cChannels: super::DWORD,
+    pub dwSamplePeriod: super::DWORD,
+    pub cSamples: super::DWORD,
     pub rglForceData: super::LPLONG,
 }
 pub const DIDAL_BOTTOMALIGNED: i32 = 8;
@@ -1108,13 +1118,14 @@ pub const DIDAL_MIDDLE: i32 = 0;
 pub const DIDAL_RIGHTALIGNED: i32 = 2;
 pub const DIDAL_TOPALIGNED: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIDATAFORMAT {
-    pub dwSize: u32,
-    pub dwObjSize: u32,
-    pub dwFlags: u32,
-    pub dwDataSize: u32,
-    pub dwNumObjs: u32,
+    pub dwSize: super::DWORD,
+    pub dwObjSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwDataSize: super::DWORD,
+    pub dwNumObjs: super::DWORD,
     pub rgodf: LPDIOBJECTDATAFORMAT,
 }
 pub const DIDBAM_DEFAULT: i32 = 0;
@@ -1137,262 +1148,286 @@ pub const DIDC_POSNEGSATURATION: i32 = 8192;
 pub const DIDC_SATURATION: i32 = 2048;
 pub const DIDC_STARTDELAY: i32 = 32768;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIDEVCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwDevType: u32,
-    pub dwAxes: u32,
-    pub dwButtons: u32,
-    pub dwPOVs: u32,
-    pub dwFFSamplePeriod: u32,
-    pub dwFFMinTimeResolution: u32,
-    pub dwFirmwareRevision: u32,
-    pub dwHardwareRevision: u32,
-    pub dwFFDriverVersion: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwDevType: super::DWORD,
+    pub dwAxes: super::DWORD,
+    pub dwButtons: super::DWORD,
+    pub dwPOVs: super::DWORD,
+    pub dwFFSamplePeriod: super::DWORD,
+    pub dwFFMinTimeResolution: super::DWORD,
+    pub dwFirmwareRevision: super::DWORD,
+    pub dwHardwareRevision: super::DWORD,
+    pub dwFFDriverVersion: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIDEVCAPS_DX3 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwDevType: u32,
-    pub dwAxes: u32,
-    pub dwButtons: u32,
-    pub dwPOVs: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwDevType: super::DWORD,
+    pub dwAxes: super::DWORD,
+    pub dwButtons: super::DWORD,
+    pub dwPOVs: super::DWORD,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type DIDEVICEIMAGEINFO = DIDEVICEIMAGEINFOA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOA {
-    pub tszImagePath: [i8; 260],
-    pub dwFlags: u32,
-    pub dwViewID: u32,
+    pub tszImagePath: [super::CHAR; 260],
+    pub dwFlags: super::DWORD,
+    pub dwViewID: super::DWORD,
     pub rcOverlay: super::RECT,
-    pub dwObjID: u32,
-    pub dwcValidPts: u32,
+    pub dwObjID: super::DWORD,
+    pub dwcValidPts: super::DWORD,
     pub rgptCalloutLine: [super::POINT; 5],
     pub rcCalloutRect: super::RECT,
-    pub dwTextAlign: u32,
+    pub dwTextAlign: super::DWORD,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for DIDEVICEIMAGEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type DIDEVICEIMAGEINFOHEADER = DIDEVICEIMAGEINFOHEADERA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
-    pub dwSize: u32,
-    pub dwSizeImageInfo: u32,
-    pub dwcViews: u32,
-    pub dwcButtons: u32,
-    pub dwcAxes: u32,
-    pub dwcPOVs: u32,
-    pub dwBufferSize: u32,
-    pub dwBufferUsed: u32,
+    pub dwSize: super::DWORD,
+    pub dwSizeImageInfo: super::DWORD,
+    pub dwcViews: super::DWORD,
+    pub dwcButtons: super::DWORD,
+    pub dwcAxes: super::DWORD,
+    pub dwcPOVs: super::DWORD,
+    pub dwBufferSize: super::DWORD,
+    pub dwBufferUsed: super::DWORD,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOA,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIDEVICEIMAGEINFOHEADERW {
-    pub dwSize: u32,
-    pub dwSizeImageInfo: u32,
-    pub dwcViews: u32,
-    pub dwcButtons: u32,
-    pub dwcAxes: u32,
-    pub dwcPOVs: u32,
-    pub dwBufferSize: u32,
-    pub dwBufferUsed: u32,
+    pub dwSize: super::DWORD,
+    pub dwSizeImageInfo: super::DWORD,
+    pub dwcViews: super::DWORD,
+    pub dwcButtons: super::DWORD,
+    pub dwcAxes: super::DWORD,
+    pub dwcPOVs: super::DWORD,
+    pub dwBufferSize: super::DWORD,
+    pub dwBufferUsed: super::DWORD,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOW,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOW {
-    pub tszImagePath: [u16; 260],
-    pub dwFlags: u32,
-    pub dwViewID: u32,
+    pub tszImagePath: [super::WCHAR; 260],
+    pub dwFlags: super::DWORD,
+    pub dwViewID: super::DWORD,
     pub rcOverlay: super::RECT,
-    pub dwObjID: u32,
-    pub dwcValidPts: u32,
+    pub dwObjID: super::DWORD,
+    pub dwcValidPts: super::DWORD,
     pub rgptCalloutLine: [super::POINT; 5],
     pub rcCalloutRect: super::RECT,
-    pub dwTextAlign: u32,
+    pub dwTextAlign: super::DWORD,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DIDEVICEIMAGEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type DIDEVICEINSTANCE = DIDEVICEINSTANCEA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCEA {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidInstance: windows_sys::core::GUID,
     pub guidProduct: windows_sys::core::GUID,
-    pub dwDevType: u32,
-    pub tszInstanceName: [i8; 260],
-    pub tszProductName: [i8; 260],
+    pub dwDevType: super::DWORD,
+    pub tszInstanceName: [super::CHAR; 260],
+    pub tszProductName: [super::CHAR; 260],
     pub guidFFDriver: windows_sys::core::GUID,
-    pub wUsagePage: u16,
-    pub wUsage: u16,
+    pub wUsagePage: super::WORD,
+    pub wUsage: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DIDEVICEINSTANCEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCEW {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidInstance: windows_sys::core::GUID,
     pub guidProduct: windows_sys::core::GUID,
-    pub dwDevType: u32,
-    pub tszInstanceName: [u16; 260],
-    pub tszProductName: [u16; 260],
+    pub dwDevType: super::DWORD,
+    pub tszInstanceName: [super::WCHAR; 260],
+    pub tszProductName: [super::WCHAR; 260],
     pub guidFFDriver: windows_sys::core::GUID,
-    pub wUsagePage: u16,
-    pub wUsage: u16,
+    pub wUsagePage: super::WORD,
+    pub wUsage: super::WORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DIDEVICEINSTANCEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type DIDEVICEINSTANCE_DX3 = DIDEVICEINSTANCE_DX3A;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCE_DX3A {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidInstance: windows_sys::core::GUID,
     pub guidProduct: windows_sys::core::GUID,
-    pub dwDevType: u32,
-    pub tszInstanceName: [i8; 260],
-    pub tszProductName: [i8; 260],
+    pub dwDevType: super::DWORD,
+    pub tszInstanceName: [super::CHAR; 260],
+    pub tszProductName: [super::CHAR; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for DIDEVICEINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCE_DX3W {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidInstance: windows_sys::core::GUID,
     pub guidProduct: windows_sys::core::GUID,
-    pub dwDevType: u32,
-    pub tszInstanceName: [u16; 260],
-    pub tszProductName: [u16; 260],
+    pub dwDevType: super::DWORD,
+    pub tszInstanceName: [super::WCHAR; 260],
+    pub tszProductName: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DIDEVICEINSTANCE_DX3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIDEVICEOBJECTDATA {
-    pub dwOfs: u32,
-    pub dwData: u32,
-    pub dwTimeStamp: u32,
-    pub dwSequence: u32,
-    pub uAppData: usize,
+    pub dwOfs: super::DWORD,
+    pub dwData: super::DWORD,
+    pub dwTimeStamp: super::DWORD,
+    pub dwSequence: super::DWORD,
+    pub uAppData: super::UINT_PTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIDEVICEOBJECTDATA_DX3 {
-    pub dwOfs: u32,
-    pub dwData: u32,
-    pub dwTimeStamp: u32,
-    pub dwSequence: u32,
+    pub dwOfs: super::DWORD,
+    pub dwData: super::DWORD,
+    pub dwTimeStamp: super::DWORD,
+    pub dwSequence: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type DIDEVICEOBJECTINSTANCE = DIDEVICEOBJECTINSTANCEA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCEA {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidType: windows_sys::core::GUID,
-    pub dwOfs: u32,
-    pub dwType: u32,
-    pub dwFlags: u32,
-    pub tszName: [i8; 260],
-    pub dwFFMaxForce: u32,
-    pub dwFFForceResolution: u32,
-    pub wCollectionNumber: u16,
-    pub wDesignatorIndex: u16,
-    pub wUsagePage: u16,
-    pub wUsage: u16,
-    pub dwDimension: u32,
-    pub wExponent: u16,
-    pub wReportId: u16,
+    pub dwOfs: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub tszName: [super::CHAR; 260],
+    pub dwFFMaxForce: super::DWORD,
+    pub dwFFForceResolution: super::DWORD,
+    pub wCollectionNumber: super::WORD,
+    pub wDesignatorIndex: super::WORD,
+    pub wUsagePage: super::WORD,
+    pub wUsage: super::WORD,
+    pub dwDimension: super::DWORD,
+    pub wExponent: super::WORD,
+    pub wReportId: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DIDEVICEOBJECTINSTANCEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCEW {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidType: windows_sys::core::GUID,
-    pub dwOfs: u32,
-    pub dwType: u32,
-    pub dwFlags: u32,
-    pub tszName: [u16; 260],
-    pub dwFFMaxForce: u32,
-    pub dwFFForceResolution: u32,
-    pub wCollectionNumber: u16,
-    pub wDesignatorIndex: u16,
-    pub wUsagePage: u16,
-    pub wUsage: u16,
-    pub dwDimension: u32,
-    pub wExponent: u16,
-    pub wReportId: u16,
+    pub dwOfs: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub tszName: [super::WCHAR; 260],
+    pub dwFFMaxForce: super::DWORD,
+    pub dwFFForceResolution: super::DWORD,
+    pub wCollectionNumber: super::WORD,
+    pub wDesignatorIndex: super::WORD,
+    pub wUsagePage: super::WORD,
+    pub wUsage: super::WORD,
+    pub dwDimension: super::DWORD,
+    pub wExponent: super::WORD,
+    pub wReportId: super::WORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DIDEVICEOBJECTINSTANCEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type DIDEVICEOBJECTINSTANCE_DX3 = DIDEVICEOBJECTINSTANCE_DX3A;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidType: windows_sys::core::GUID,
-    pub dwOfs: u32,
-    pub dwType: u32,
-    pub dwFlags: u32,
-    pub tszName: [i8; 260],
+    pub dwOfs: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub tszName: [super::CHAR; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for DIDEVICEOBJECTINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guidType: windows_sys::core::GUID,
-    pub dwOfs: u32,
-    pub dwType: u32,
-    pub dwFlags: u32,
-    pub tszName: [u16; 260],
+    pub dwOfs: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub tszName: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DIDEVICEOBJECTINSTANCE_DX3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1452,84 +1487,90 @@ pub const DIEDFL_INCLUDEALIASES: i32 = 65536;
 pub const DIEDFL_INCLUDEHIDDEN: i32 = 262144;
 pub const DIEDFL_INCLUDEPHANTOMS: i32 = 131072;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIEFFECT {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwDuration: u32,
-    pub dwSamplePeriod: u32,
-    pub dwGain: u32,
-    pub dwTriggerButton: u32,
-    pub dwTriggerRepeatInterval: u32,
-    pub cAxes: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwDuration: super::DWORD,
+    pub dwSamplePeriod: super::DWORD,
+    pub dwGain: super::DWORD,
+    pub dwTriggerButton: super::DWORD,
+    pub dwTriggerRepeatInterval: super::DWORD,
+    pub cAxes: super::DWORD,
     pub rgdwAxes: super::LPDWORD,
     pub rglDirection: super::LPLONG,
     pub lpEnvelope: LPDIENVELOPE,
-    pub cbTypeSpecificParams: u32,
-    pub lpvTypeSpecificParams: *mut core::ffi::c_void,
-    pub dwStartDelay: u32,
+    pub cbTypeSpecificParams: super::DWORD,
+    pub lpvTypeSpecificParams: super::LPVOID,
+    pub dwStartDelay: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type DIEFFECTINFO = DIEFFECTINFOA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIEFFECTINFOA {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guid: windows_sys::core::GUID,
-    pub dwEffType: u32,
-    pub dwStaticParams: u32,
-    pub dwDynamicParams: u32,
-    pub tszName: [i8; 260],
+    pub dwEffType: super::DWORD,
+    pub dwStaticParams: super::DWORD,
+    pub dwDynamicParams: super::DWORD,
+    pub tszName: [super::CHAR; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for DIEFFECTINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIEFFECTINFOW {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub guid: windows_sys::core::GUID,
-    pub dwEffType: u32,
-    pub dwStaticParams: u32,
-    pub dwDynamicParams: u32,
-    pub tszName: [u16; 260],
+    pub dwEffType: super::DWORD,
+    pub dwStaticParams: super::DWORD,
+    pub dwDynamicParams: super::DWORD,
+    pub tszName: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DIEFFECTINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIEFFECT_DX5 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwDuration: u32,
-    pub dwSamplePeriod: u32,
-    pub dwGain: u32,
-    pub dwTriggerButton: u32,
-    pub dwTriggerRepeatInterval: u32,
-    pub cAxes: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwDuration: super::DWORD,
+    pub dwSamplePeriod: super::DWORD,
+    pub dwGain: super::DWORD,
+    pub dwTriggerButton: super::DWORD,
+    pub dwTriggerRepeatInterval: super::DWORD,
+    pub cAxes: super::DWORD,
     pub rgdwAxes: super::LPDWORD,
     pub rglDirection: super::LPLONG,
     pub lpEnvelope: LPDIENVELOPE,
-    pub cbTypeSpecificParams: u32,
-    pub lpvTypeSpecificParams: *mut core::ffi::c_void,
+    pub cbTypeSpecificParams: super::DWORD,
+    pub lpvTypeSpecificParams: super::LPVOID,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type DIEFFECT_DX6 = DIEFFECT;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIEFFESCAPE {
-    pub dwSize: u32,
-    pub dwCommand: u32,
-    pub lpvInBuffer: *mut core::ffi::c_void,
-    pub cbInBuffer: u32,
-    pub lpvOutBuffer: *mut core::ffi::c_void,
-    pub cbOutBuffer: u32,
+    pub dwSize: super::DWORD,
+    pub dwCommand: super::DWORD,
+    pub lpvInBuffer: super::LPVOID,
+    pub cbInBuffer: super::DWORD,
+    pub lpvOutBuffer: super::LPVOID,
+    pub cbOutBuffer: super::DWORD,
 }
 pub const DIEFF_CARTESIAN: i32 = 16;
 pub const DIEFF_OBJECTIDS: i32 = 1;
@@ -1555,13 +1596,14 @@ pub const DIEGES_PLAYING: i32 = 1;
 pub const DIENUM_CONTINUE: i32 = 1;
 pub const DIENUM_STOP: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIENVELOPE {
-    pub dwSize: u32,
-    pub dwAttackLevel: u32,
-    pub dwAttackTime: u32,
-    pub dwFadeLevel: u32,
-    pub dwFadeTime: u32,
+    pub dwSize: super::DWORD,
+    pub dwAttackLevel: super::DWORD,
+    pub dwAttackTime: super::DWORD,
+    pub dwFadeLevel: super::DWORD,
+    pub dwFadeTime: super::DWORD,
 }
 pub const DIEP_ALLPARAMS: i32 = 1023;
 pub const DIEP_ALLPARAMS_DX5: i32 = 511;
@@ -1616,15 +1658,15 @@ pub const DIFEF_DEFAULT: i32 = 0;
 pub const DIFEF_INCLUDENONSTANDARD: i32 = 1;
 pub const DIFEF_MODIFYIFNEEDED: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DIFILEEFFECT {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub GuidEffect: windows_sys::core::GUID,
     pub lpDiEffect: LPCDIEFFECT,
-    pub szFriendlyName: [i8; 260],
+    pub szFriendlyName: [super::CHAR; 260],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for DIFILEEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1674,96 +1716,138 @@ pub const DIHATSWITCH_SOCCERO_GLANCE: i32 = 503334401;
 pub const DIHATSWITCH_SPACESIM_GLANCE: i32 = 117458433;
 pub const DIHATSWITCH_STRATEGYR_GLANCE: i32 = 184567297;
 pub const DIHATSWITCH_TPS_GLANCE: i32 = 167790081;
-pub const DIJOFS_BUTTON0: i32 = 48;
-pub const DIJOFS_BUTTON1: i32 = 49;
-pub const DIJOFS_BUTTON10: i32 = 58;
-pub const DIJOFS_BUTTON11: i32 = 59;
-pub const DIJOFS_BUTTON12: i32 = 60;
-pub const DIJOFS_BUTTON13: i32 = 61;
-pub const DIJOFS_BUTTON14: i32 = 62;
-pub const DIJOFS_BUTTON15: i32 = 63;
-pub const DIJOFS_BUTTON16: i32 = 64;
-pub const DIJOFS_BUTTON17: i32 = 65;
-pub const DIJOFS_BUTTON18: i32 = 66;
-pub const DIJOFS_BUTTON19: i32 = 67;
-pub const DIJOFS_BUTTON2: i32 = 50;
-pub const DIJOFS_BUTTON20: i32 = 68;
-pub const DIJOFS_BUTTON21: i32 = 69;
-pub const DIJOFS_BUTTON22: i32 = 70;
-pub const DIJOFS_BUTTON23: i32 = 71;
-pub const DIJOFS_BUTTON24: i32 = 72;
-pub const DIJOFS_BUTTON25: i32 = 73;
-pub const DIJOFS_BUTTON26: i32 = 74;
-pub const DIJOFS_BUTTON27: i32 = 75;
-pub const DIJOFS_BUTTON28: i32 = 76;
-pub const DIJOFS_BUTTON29: i32 = 77;
-pub const DIJOFS_BUTTON3: i32 = 51;
-pub const DIJOFS_BUTTON30: i32 = 78;
-pub const DIJOFS_BUTTON31: i32 = 79;
-pub const DIJOFS_BUTTON4: i32 = 52;
-pub const DIJOFS_BUTTON5: i32 = 53;
-pub const DIJOFS_BUTTON6: i32 = 54;
-pub const DIJOFS_BUTTON7: i32 = 55;
-pub const DIJOFS_BUTTON8: i32 = 56;
-pub const DIJOFS_BUTTON9: i32 = 57;
-pub const DIJOFS_RX: i32 = 12;
-pub const DIJOFS_RY: i32 = 16;
-pub const DIJOFS_RZ: i32 = 20;
-pub const DIJOFS_X: i32 = 0;
-pub const DIJOFS_Y: i32 = 4;
-pub const DIJOFS_Z: i32 = 8;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON0: super::LONG = 0x30_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON1: super::LONG = 0x31_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON10: super::LONG = 0x3A_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON11: super::LONG = 0x3B_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON12: super::LONG = 0x3C_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON13: super::LONG = 0x3D_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON14: super::LONG = 0x3E_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON15: super::LONG = 0x3F_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON16: super::LONG = 0x40_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON17: super::LONG = 0x41_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON18: super::LONG = 0x42_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON19: super::LONG = 0x43_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON2: super::LONG = 0x32_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON20: super::LONG = 0x44_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON21: super::LONG = 0x45_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON22: super::LONG = 0x46_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON23: super::LONG = 0x47_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON24: super::LONG = 0x48_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON25: super::LONG = 0x49_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON26: super::LONG = 0x4A_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON27: super::LONG = 0x4B_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON28: super::LONG = 0x4C_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON29: super::LONG = 0x4D_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON3: super::LONG = 0x33_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON30: super::LONG = 0x4E_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON31: super::LONG = 0x4F_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON4: super::LONG = 0x34_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON5: super::LONG = 0x35_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON6: super::LONG = 0x36_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON7: super::LONG = 0x37_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON8: super::LONG = 0x38_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_BUTTON9: super::LONG = 0x39_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_RX: super::LONG = 0xC_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_RY: super::LONG = 0x10_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_RZ: super::LONG = 0x14_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_X: super::LONG = 0x0_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_Y: super::LONG = 0x4_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIJOFS_Z: super::LONG = 0x8_u32 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIJOYSTATE {
-    pub lX: i32,
-    pub lY: i32,
-    pub lZ: i32,
-    pub lRx: i32,
-    pub lRy: i32,
-    pub lRz: i32,
-    pub rglSlider: [i32; 2],
-    pub rgdwPOV: [u32; 4],
-    pub rgbButtons: [u8; 32],
+    pub lX: super::LONG,
+    pub lY: super::LONG,
+    pub lZ: super::LONG,
+    pub lRx: super::LONG,
+    pub lRy: super::LONG,
+    pub lRz: super::LONG,
+    pub rglSlider: [super::LONG; 2],
+    pub rgdwPOV: [super::DWORD; 4],
+    pub rgbButtons: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for DIJOYSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIJOYSTATE2 {
-    pub lX: i32,
-    pub lY: i32,
-    pub lZ: i32,
-    pub lRx: i32,
-    pub lRy: i32,
-    pub lRz: i32,
-    pub rglSlider: [i32; 2],
-    pub rgdwPOV: [u32; 4],
-    pub rgbButtons: [u8; 128],
-    pub lVX: i32,
-    pub lVY: i32,
-    pub lVZ: i32,
-    pub lVRx: i32,
-    pub lVRy: i32,
-    pub lVRz: i32,
-    pub rglVSlider: [i32; 2],
-    pub lAX: i32,
-    pub lAY: i32,
-    pub lAZ: i32,
-    pub lARx: i32,
-    pub lARy: i32,
-    pub lARz: i32,
-    pub rglASlider: [i32; 2],
-    pub lFX: i32,
-    pub lFY: i32,
-    pub lFZ: i32,
-    pub lFRx: i32,
-    pub lFRy: i32,
-    pub lFRz: i32,
-    pub rglFSlider: [i32; 2],
+    pub lX: super::LONG,
+    pub lY: super::LONG,
+    pub lZ: super::LONG,
+    pub lRx: super::LONG,
+    pub lRy: super::LONG,
+    pub lRz: super::LONG,
+    pub rglSlider: [super::LONG; 2],
+    pub rgdwPOV: [super::DWORD; 4],
+    pub rgbButtons: [super::BYTE; 128],
+    pub lVX: super::LONG,
+    pub lVY: super::LONG,
+    pub lVZ: super::LONG,
+    pub lVRx: super::LONG,
+    pub lVRy: super::LONG,
+    pub lVRz: super::LONG,
+    pub rglVSlider: [super::LONG; 2],
+    pub lAX: super::LONG,
+    pub lAY: super::LONG,
+    pub lAZ: super::LONG,
+    pub lARx: super::LONG,
+    pub lARy: super::LONG,
+    pub lARz: super::LONG,
+    pub rglASlider: [super::LONG; 2],
+    pub lFX: super::LONG,
+    pub lFY: super::LONG,
+    pub lFZ: super::LONG,
+    pub lFRx: super::LONG,
+    pub lFRy: super::LONG,
+    pub lFRz: super::LONG,
+    pub rglFSlider: [super::LONG; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for DIJOYSTATE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2073,38 +2157,53 @@ pub const DIK_X: i32 = 45;
 pub const DIK_Y: i32 = 21;
 pub const DIK_YEN: i32 = 125;
 pub const DIK_Z: i32 = 44;
-pub const DIMOFS_BUTTON0: i32 = 12;
-pub const DIMOFS_BUTTON1: i32 = 13;
-pub const DIMOFS_BUTTON2: i32 = 14;
-pub const DIMOFS_BUTTON3: i32 = 15;
-pub const DIMOFS_BUTTON4: i32 = 16;
-pub const DIMOFS_BUTTON5: i32 = 17;
-pub const DIMOFS_BUTTON6: i32 = 18;
-pub const DIMOFS_BUTTON7: i32 = 19;
-pub const DIMOFS_X: i32 = 0;
-pub const DIMOFS_Y: i32 = 4;
-pub const DIMOFS_Z: i32 = 8;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON0: super::LONG = 0xC_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON1: super::LONG = 0xD_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON2: super::LONG = 0xE_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON3: super::LONG = 0xF_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON4: super::LONG = 0x10_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON5: super::LONG = 0x11_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON6: super::LONG = 0x12_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_BUTTON7: super::LONG = 0x13_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_X: super::LONG = 0x0_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_Y: super::LONG = 0x4_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIMOFS_Z: super::LONG = 0x8_u32 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIMOUSESTATE {
-    pub lX: i32,
-    pub lY: i32,
-    pub lZ: i32,
-    pub rgbButtons: [u8; 4],
+    pub lX: super::LONG,
+    pub lY: super::LONG,
+    pub lZ: super::LONG,
+    pub rgbButtons: [super::BYTE; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for DIMOUSESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIMOUSESTATE2 {
-    pub lX: i32,
-    pub lY: i32,
-    pub lZ: i32,
-    pub rgbButtons: [u8; 8],
+    pub lX: super::LONG,
+    pub lY: super::LONG,
+    pub lZ: super::LONG,
+    pub rgbButtons: [super::BYTE; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DIMOUSESTATE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2124,20 +2223,22 @@ pub const DIMOUSE_XAXISAB: u32 = 2181038592;
 pub const DIMOUSE_YAXIS: u32 = 2181038852;
 pub const DIMOUSE_YAXISAB: u32 = 2181038596;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *const windows_sys::core::GUID,
-    pub dwOfs: u32,
-    pub dwType: u32,
-    pub dwFlags: u32,
+    pub dwOfs: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIPERIODIC {
-    pub dwMagnitude: u32,
-    pub lOffset: i32,
-    pub dwPhase: u32,
-    pub dwPeriod: u32,
+    pub dwMagnitude: super::DWORD,
+    pub lOffset: super::LONG,
+    pub dwPhase: super::DWORD,
+    pub dwPeriod: super::DWORD,
 }
 pub const DIPH_BYID: i32 = 2;
 pub const DIPH_BYOFFSET: i32 = 1;
@@ -2152,96 +2253,112 @@ pub const DIPROPAUTOCENTER_ON: i32 = 1;
 pub const DIPROPAXISMODE_ABS: i32 = 0;
 pub const DIPROPAXISMODE_REL: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIPROPCAL {
     pub diph: DIPROPHEADER,
-    pub lMin: i32,
-    pub lCenter: i32,
-    pub lMax: i32,
+    pub lMin: super::LONG,
+    pub lCenter: super::LONG,
+    pub lMax: super::LONG,
 }
 pub const DIPROPCALIBRATIONMODE_COOKED: i32 = 0;
 pub const DIPROPCALIBRATIONMODE_RAW: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIPROPCALPOV {
     pub diph: DIPROPHEADER,
-    pub lMin: [i32; 5],
-    pub lMax: [i32; 5],
+    pub lMin: [super::LONG; 5],
+    pub lMax: [super::LONG; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for DIPROPCALPOV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DIPROPCPOINTS {
     pub diph: DIPROPHEADER,
-    pub dwCPointsNum: u32,
+    pub dwCPointsNum: super::DWORD,
     pub cp: [CPOINT; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DIPROPCPOINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIPROPDWORD {
     pub diph: DIPROPHEADER,
-    pub dwData: u32,
+    pub dwData: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIPROPGUIDANDPATH {
     pub diph: DIPROPHEADER,
     pub guidClass: windows_sys::core::GUID,
-    pub wszPath: [u16; 260],
+    pub wszPath: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DIPROPGUIDANDPATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIPROPHEADER {
-    pub dwSize: u32,
-    pub dwHeaderSize: u32,
-    pub dwObj: u32,
-    pub dwHow: u32,
+    pub dwSize: super::DWORD,
+    pub dwHeaderSize: super::DWORD,
+    pub dwObj: super::DWORD,
+    pub dwHow: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIPROPPOINTER {
     pub diph: DIPROPHEADER,
-    pub uData: usize,
+    pub uData: super::UINT_PTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIPROPRANGE {
     pub diph: DIPROPHEADER,
-    pub lMin: i32,
-    pub lMax: i32,
+    pub lMin: super::LONG,
+    pub lMax: super::LONG,
 }
-pub const DIPROPRANGE_NOMAX: i32 = 2147483647;
-pub const DIPROPRANGE_NOMIN: i32 = -2147483648;
+#[cfg(feature = "shared")]
+pub const DIPROPRANGE_NOMAX: super::LONG = 0x7FFFFFFF_u32 as _;
+#[cfg(feature = "shared")]
+pub const DIPROPRANGE_NOMIN: super::LONG = 0x80000000_u32 as _;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DIPROPSTRING {
     pub diph: DIPROPHEADER,
-    pub wsz: [u16; 260],
+    pub wsz: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DIPROPSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIRAMPFORCE {
-    pub lStart: i32,
-    pub lEnd: i32,
+    pub lStart: super::LONG,
+    pub lEnd: super::LONG,
 }
 pub const DIRECTINPUT_HEADER_VERSION: i32 = 2048;
 pub const DIRECTINPUT_VERSION: i32 = 2048;
@@ -2357,6 +2474,23 @@ pub const GUID_Unknown: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const GUID_XAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e0_c9f3_11cf_bfc7_444553540000);
 pub const GUID_YAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e1_c9f3_11cf_bfc7_444553540000);
 pub const GUID_ZAxis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa36d02e2_c9f3_11cf_bfc7_444553540000);
+pub const IID_IDirectInput2A: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
+pub const IID_IDirectInput2W: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
+pub const IID_IDirectInput7A: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
+pub const IID_IDirectInput7W: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
+pub const IID_IDirectInput8A: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
+pub const IID_IDirectInput8W: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
+pub const IID_IDirectInputA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
+pub const IID_IDirectInputDevice2A: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
+pub const IID_IDirectInputDevice2W: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
+pub const IID_IDirectInputDevice7A: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
+pub const IID_IDirectInputDevice7W: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
+pub const IID_IDirectInputDevice8A: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
+pub const IID_IDirectInputDevice8W: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
+pub const IID_IDirectInputDeviceA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
+pub const IID_IDirectInputDeviceW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
+pub const IID_IDirectInputEffect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
+pub const IID_IDirectInputW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
 pub const JOY_HWS_AUTOLOAD: i32 = 268435456;
 pub const JOY_HWS_GAMEPORTBUSBUSY: i32 = 1;
 pub const JOY_HWS_ISANALOGPORTDRIVER: i32 = 134217728;
@@ -2366,168 +2500,283 @@ pub const JOY_HWS_ISHEADTRACKER: i32 = 33554432;
 pub const JOY_HWS_NODEVNODE: i32 = 536870912;
 pub const JOY_PASSDRIVERDATA: i32 = 268435456;
 pub const JOY_US_VOLATILE: i32 = 8;
-pub type LPCDIACTION = LPCDIACTIONA;
+#[cfg(feature = "shared")]
+pub type LPCDIACTION = *const DIACTIONA;
+#[cfg(feature = "shared")]
 pub type LPCDIACTIONA = *const DIACTIONA;
-#[cfg(feature = "minwindef")]
-pub type LPCDIACTIONFORMAT = LPCDIACTIONFORMATA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPCDIACTIONFORMAT = *const DIACTIONFORMATA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDIACTIONFORMATA = *const DIACTIONFORMATA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPCDIACTIONFORMATW = *const DIACTIONFORMATW;
+#[cfg(feature = "shared")]
 pub type LPCDIACTIONW = *const DIACTIONW;
-#[cfg(feature = "dsound")]
+#[cfg(all(feature = "dsound", feature = "shared"))]
 pub type LPCDICOLORSET = *const DICOLORSET;
+#[cfg(feature = "shared")]
 pub type LPCDICONDITION = *const DICONDITION;
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-pub type LPCDICONFIGUREDEVICESPARAMS = LPCDICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPCDICONFIGUREDEVICESPARAMS = *const DICONFIGUREDEVICESPARAMSA;
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCDICONFIGUREDEVICESPARAMSA = *const DICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPCDICONFIGUREDEVICESPARAMSW = *const DICONFIGUREDEVICESPARAMSW;
+#[cfg(feature = "shared")]
 pub type LPCDICONSTANTFORCE = *const DICONSTANTFORCE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDICUSTOMFORCE = *const DICUSTOMFORCE;
+#[cfg(feature = "shared")]
 pub type LPCDIDATAFORMAT = *const DIDATAFORMAT;
-#[cfg(feature = "windef")]
-pub type LPCDIDEVICEIMAGEINFO = LPCDIDEVICEIMAGEINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPCDIDEVICEIMAGEINFO = *const DIDEVICEIMAGEINFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCDIDEVICEIMAGEINFOA = *const DIDEVICEIMAGEINFOA;
-#[cfg(feature = "windef")]
-pub type LPCDIDEVICEIMAGEINFOHEADER = LPCDIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPCDIDEVICEIMAGEINFOHEADER = *const DIDEVICEIMAGEINFOHEADERA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCDIDEVICEIMAGEINFOHEADERA = *const DIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPCDIDEVICEIMAGEINFOHEADERW = *const DIDEVICEIMAGEINFOHEADERW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPCDIDEVICEIMAGEINFOW = *const DIDEVICEIMAGEINFOW;
-pub type LPCDIDEVICEINSTANCE = LPCDIDEVICEINSTANCEA;
+#[cfg(feature = "shared")]
+pub type LPCDIDEVICEINSTANCE = *const DIDEVICEINSTANCEA;
+#[cfg(feature = "shared")]
 pub type LPCDIDEVICEINSTANCEA = *const DIDEVICEINSTANCEA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDIDEVICEINSTANCEW = *const DIDEVICEINSTANCEW;
-pub type LPCDIDEVICEINSTANCE_DX3 = *const DIDEVICEINSTANCE_DX3;
+#[cfg(feature = "shared")]
+pub type LPCDIDEVICEINSTANCE_DX3 = *const DIDEVICEINSTANCE_DX3A;
+#[cfg(feature = "shared")]
 pub type LPCDIDEVICEINSTANCE_DX3A = *const DIDEVICEINSTANCE_DX3A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDIDEVICEINSTANCE_DX3W = *const DIDEVICEINSTANCE_DX3W;
+#[cfg(feature = "shared")]
 pub type LPCDIDEVICEOBJECTDATA = *const DIDEVICEOBJECTDATA;
+#[cfg(feature = "shared")]
 pub type LPCDIDEVICEOBJECTDATA_DX = *const DIDEVICEOBJECTDATA_DX3;
-pub type LPCDIDEVICEOBJECTINSTANCE = *const DIDEVICEOBJECTINSTANCE;
+#[cfg(feature = "shared")]
+pub type LPCDIDEVICEOBJECTINSTANCE = *const DIDEVICEOBJECTINSTANCEA;
+#[cfg(feature = "shared")]
 pub type LPCDIDEVICEOBJECTINSTANCEA = *const DIDEVICEOBJECTINSTANCEA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDIDEVICEOBJECTINSTANCEW = *const DIDEVICEOBJECTINSTANCEW;
-pub type LPCDIDEVICEOBJECTINSTANCE_DX3 = *const DIDEVICEOBJECTINSTANCE_DX3;
+#[cfg(feature = "shared")]
+pub type LPCDIDEVICEOBJECTINSTANCE_DX3 = *const DIDEVICEOBJECTINSTANCE_DX3A;
+#[cfg(feature = "shared")]
 pub type LPCDIDEVICEOBJECTINSTANCE_DX3A = *const DIDEVICEOBJECTINSTANCE_DX3A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDIDEVICEOBJECTINSTANCE_DX3W = *const DIDEVICEOBJECTINSTANCE_DX3W;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDIEFFECT = *const DIEFFECT;
-pub type LPCDIEFFECTINFO = *const DIEFFECTINFO;
+#[cfg(feature = "shared")]
+pub type LPCDIEFFECTINFO = *const DIEFFECTINFOA;
+#[cfg(feature = "shared")]
 pub type LPCDIEFFECTINFOA = *const DIEFFECTINFOA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDIEFFECTINFOW = *const DIEFFECTINFOW;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDIEFFECT_DX5 = *const DIEFFECT_DX5;
+#[cfg(feature = "shared")]
 pub type LPCDIENVELOPE = *const DIENVELOPE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDIFILEEFFECT = *const DIFILEEFFECT;
+#[cfg(feature = "shared")]
 pub type LPCDIOBJECTDATAFORMAT = *const DIOBJECTDATAFORMAT;
+#[cfg(feature = "shared")]
 pub type LPCDIPERIODIC = *const DIPERIODIC;
+#[cfg(feature = "shared")]
 pub type LPCDIPROPCAL = *const DIPROPCAL;
+#[cfg(feature = "shared")]
 pub type LPCDIPROPCALPOV = *const DIPROPCALPOV;
+#[cfg(feature = "shared")]
 pub type LPCDIPROPCPOINTS = *const DIPROPCPOINTS;
+#[cfg(feature = "shared")]
 pub type LPCDIPROPDWORD = *const DIPROPDWORD;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDIPROPGUIDANDPATH = *const DIPROPGUIDANDPATH;
+#[cfg(feature = "shared")]
 pub type LPCDIPROPHEADER = *const DIPROPHEADER;
+#[cfg(feature = "shared")]
 pub type LPCDIPROPPOINTER = *const DIPROPPOINTER;
+#[cfg(feature = "shared")]
 pub type LPCDIPROPRANGE = *const DIPROPRANGE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDIPROPSTRING = *const DIPROPSTRING;
+#[cfg(feature = "shared")]
 pub type LPCDIRAMPFORCE = *const DIRAMPFORCE;
-pub type LPDIACTION = LPDIACTIONA;
+#[cfg(feature = "shared")]
+pub type LPDIACTION = *mut DIACTIONA;
+#[cfg(feature = "shared")]
 pub type LPDIACTIONA = *mut DIACTIONA;
-#[cfg(feature = "minwindef")]
-pub type LPDIACTIONFORMAT = LPDIACTIONFORMATA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPDIACTIONFORMAT = *mut DIACTIONFORMATA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDIACTIONFORMATA = *mut DIACTIONFORMATA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPDIACTIONFORMATW = *mut DIACTIONFORMATW;
+#[cfg(feature = "shared")]
 pub type LPDIACTIONW = *mut DIACTIONW;
-#[cfg(feature = "dsound")]
+#[cfg(all(feature = "dsound", feature = "shared"))]
 pub type LPDICOLORSET = *mut DICOLORSET;
+#[cfg(feature = "shared")]
 pub type LPDICONDITION = *mut DICONDITION;
-pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-pub type LPDICONFIGUREDEVICESPARAMS = LPDICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+#[cfg(feature = "minwindef")]
+pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPDICONFIGUREDEVICESPARAMS = *mut DICONFIGUREDEVICESPARAMSA;
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPDICONFIGUREDEVICESPARAMSA = *mut DICONFIGUREDEVICESPARAMSA;
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPDICONFIGUREDEVICESPARAMSW = *mut DICONFIGUREDEVICESPARAMSW;
+#[cfg(feature = "shared")]
 pub type LPDICONSTANTFORCE = *mut DICONSTANTFORCE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDICUSTOMFORCE = *mut DICUSTOMFORCE;
+#[cfg(feature = "shared")]
 pub type LPDIDATAFORMAT = *mut DIDATAFORMAT;
+#[cfg(feature = "shared")]
 pub type LPDIDEVCAPS = *mut DIDEVCAPS;
+#[cfg(feature = "shared")]
 pub type LPDIDEVCAPS_DX3 = *mut DIDEVCAPS_DX3;
-#[cfg(feature = "windef")]
-pub type LPDIDEVICEIMAGEINFO = LPDIDEVICEIMAGEINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPDIDEVICEIMAGEINFO = *mut DIDEVICEIMAGEINFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDIDEVICEIMAGEINFOA = *mut DIDEVICEIMAGEINFOA;
-#[cfg(feature = "windef")]
-pub type LPDIDEVICEIMAGEINFOHEADER = LPDIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPDIDEVICEIMAGEINFOHEADER = *mut DIDEVICEIMAGEINFOHEADERA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDIDEVICEIMAGEINFOHEADERA = *mut DIDEVICEIMAGEINFOHEADERA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPDIDEVICEIMAGEINFOHEADERW = *mut DIDEVICEIMAGEINFOHEADERW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPDIDEVICEIMAGEINFOW = *mut DIDEVICEIMAGEINFOW;
-pub type LPDIDEVICEINSTANCE = LPDIDEVICEINSTANCEA;
+#[cfg(feature = "shared")]
+pub type LPDIDEVICEINSTANCE = *mut DIDEVICEINSTANCEA;
+#[cfg(feature = "shared")]
 pub type LPDIDEVICEINSTANCEA = *mut DIDEVICEINSTANCEA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDIDEVICEINSTANCEW = *mut DIDEVICEINSTANCEW;
-pub type LPDIDEVICEINSTANCE_DX3 = LPDIDEVICEINSTANCE_DX3A;
+#[cfg(feature = "shared")]
+pub type LPDIDEVICEINSTANCE_DX3 = *mut DIDEVICEINSTANCE_DX3A;
+#[cfg(feature = "shared")]
 pub type LPDIDEVICEINSTANCE_DX3A = *mut DIDEVICEINSTANCE_DX3A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDIDEVICEINSTANCE_DX3W = *mut DIDEVICEINSTANCE_DX3W;
+#[cfg(feature = "shared")]
 pub type LPDIDEVICEOBJECTDATA = *mut DIDEVICEOBJECTDATA;
+#[cfg(feature = "shared")]
 pub type LPDIDEVICEOBJECTDATA_DX3 = *mut DIDEVICEOBJECTDATA_DX3;
-pub type LPDIDEVICEOBJECTINSTANCE = LPDIDEVICEOBJECTINSTANCEA;
+#[cfg(feature = "shared")]
+pub type LPDIDEVICEOBJECTINSTANCE = *mut DIDEVICEOBJECTINSTANCEA;
+#[cfg(feature = "shared")]
 pub type LPDIDEVICEOBJECTINSTANCEA = *mut DIDEVICEOBJECTINSTANCEA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDIDEVICEOBJECTINSTANCEW = *mut DIDEVICEOBJECTINSTANCEW;
-pub type LPDIDEVICEOBJECTINSTANCE_DX3 = LPDIDEVICEOBJECTINSTANCE_DX3A;
+#[cfg(feature = "shared")]
+pub type LPDIDEVICEOBJECTINSTANCE_DX3 = *mut DIDEVICEOBJECTINSTANCE_DX3A;
+#[cfg(feature = "shared")]
 pub type LPDIDEVICEOBJECTINSTANCE_DX3A = *mut DIDEVICEOBJECTINSTANCE_DX3A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDIDEVICEOBJECTINSTANCE_DX3W = *mut DIDEVICEOBJECTINSTANCE_DX3W;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDIEFFECT = *mut DIEFFECT;
-pub type LPDIEFFECTINFO = LPDIEFFECTINFOA;
+#[cfg(feature = "shared")]
+pub type LPDIEFFECTINFO = *mut DIEFFECTINFOA;
+#[cfg(feature = "shared")]
 pub type LPDIEFFECTINFOA = *mut DIEFFECTINFOA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDIEFFECTINFOW = *mut DIEFFECTINFOW;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDIEFFECT_DX5 = *mut DIEFFECT_DX5;
-#[cfg(feature = "minwindef")]
-pub type LPDIEFFECT_DX6 = LPDIEFFECT;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPDIEFFECT_DX6 = *mut DIEFFECT;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDIEFFESCAPE = *mut DIEFFESCAPE;
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMDEVICEOBJECTSCALLBACKA = Option<unsafe extern "system" fn(param0: LPCDIDEVICEOBJECTINSTANCEA, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMDEVICEOBJECTSCALLBACKW = Option<unsafe extern "system" fn(param0: LPCDIDEVICEOBJECTINSTANCEW, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEA, param1: *mut core::ffi::c_void, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEW, param1: *mut core::ffi::c_void, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMDEVICESCALLBACKA = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEA, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMDEVICESCALLBACKW = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEW, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMEFFECTSCALLBACKA = Option<unsafe extern "system" fn(param0: LPCDIEFFECTINFOA, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub type LPDIENUMEFFECTSCALLBACKW = Option<unsafe extern "system" fn(param0: LPCDIEFFECTINFOW, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type LPDIENUMEFFECTSINFILECALLBACK = Option<unsafe extern "system" fn(param0: LPCDIFILEEFFECT, param1: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: LPDIRECTINPUTEFFECT, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPDIENUMDEVICEOBJECTSCALLBACKA = Option<unsafe extern "system" fn(param0: LPCDIDEVICEOBJECTINSTANCEA, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type LPDIENUMDEVICEOBJECTSCALLBACKW = Option<unsafe extern "system" fn(param0: LPCDIDEVICEOBJECTINSTANCEW, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEA, param1: LPDIRECTINPUTDEVICE8A, param2: super::DWORD, param3: super::DWORD, param4: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEW, param1: LPDIRECTINPUTDEVICE8W, param2: super::DWORD, param3: super::DWORD, param4: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPDIENUMDEVICESCALLBACKA = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEA, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type LPDIENUMDEVICESCALLBACKW = Option<unsafe extern "system" fn(param0: LPCDIDEVICEINSTANCEW, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPDIENUMEFFECTSCALLBACKA = Option<unsafe extern "system" fn(param0: LPCDIEFFECTINFOA, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type LPDIENUMEFFECTSCALLBACKW = Option<unsafe extern "system" fn(param0: LPCDIEFFECTINFOW, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LPDIENUMEFFECTSINFILECALLBACK = Option<unsafe extern "system" fn(param0: LPCDIFILEEFFECT, param1: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
 pub type LPDIENVELOPE = *mut DIENVELOPE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDIFILEEFFECT = *mut DIFILEEFFECT;
+#[cfg(feature = "shared")]
 pub type LPDIJOYSTATE = *mut DIJOYSTATE;
+#[cfg(feature = "shared")]
 pub type LPDIJOYSTATE2 = *mut DIJOYSTATE2;
+#[cfg(feature = "shared")]
 pub type LPDIMOUSESTATE = *mut DIMOUSESTATE;
+#[cfg(feature = "shared")]
 pub type LPDIMOUSESTATE2 = *mut DIMOUSESTATE2;
+#[cfg(feature = "shared")]
 pub type LPDIOBJECTDATAFORMAT = *mut DIOBJECTDATAFORMAT;
+#[cfg(feature = "shared")]
 pub type LPDIPERIODIC = *mut DIPERIODIC;
+#[cfg(feature = "shared")]
 pub type LPDIPROPCAL = *mut DIPROPCAL;
+#[cfg(feature = "shared")]
 pub type LPDIPROPCALPOV = *mut DIPROPCALPOV;
+#[cfg(feature = "shared")]
 pub type LPDIPROPCPOINTS = *mut DIPROPCPOINTS;
+#[cfg(feature = "shared")]
 pub type LPDIPROPDWORD = *mut DIPROPDWORD;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDIPROPGUIDANDPATH = *mut DIPROPGUIDANDPATH;
+#[cfg(feature = "shared")]
 pub type LPDIPROPHEADER = *mut DIPROPHEADER;
+#[cfg(feature = "shared")]
 pub type LPDIPROPPOINTER = *mut DIPROPPOINTER;
+#[cfg(feature = "shared")]
 pub type LPDIPROPRANGE = *mut DIPROPRANGE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDIPROPSTRING = *mut DIPROPSTRING;
+#[cfg(feature = "shared")]
 pub type LPDIRAMPFORCE = *mut DIRAMPFORCE;
+pub type LPDIRECTINPUT = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT2 = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT2A = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT2W = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT7 = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT7A = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT7W = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT8 = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT8A = *mut core::ffi::c_void;
+pub type LPDIRECTINPUT8W = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTA = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE2 = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE2A = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE2W = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE7 = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE7A = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE7W = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE8 = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE8A = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICE8W = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICEA = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTDEVICEW = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTEFFECT = *mut core::ffi::c_void;
+pub type LPDIRECTINPUTW = *mut core::ffi::c_void;
 #[cfg(feature = "windef")]
 pub type LPFNSHOWJOYCPL = Option<unsafe extern "system" fn(hwnd: super::HWND)>;
 pub const MAXCPOINTSNUM: i32 = 8;
+#[cfg(feature = "shared")]
 pub type PCPOINT = *mut CPOINT;

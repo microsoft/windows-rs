@@ -3,141 +3,141 @@ mod Windows {
     mod Win32 {
         #[guid(0x3bc15af2_736c_477e_9e51_238af8667dcc)]
         interface IWbemPath: IUnknown {
-            fn SetText(&self, uMode: u32, pszPath: PCWSTR) -> HRESULT;
-            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[in] #[out] pszText: PWSTR) -> HRESULT;
-            fn GetInfo(&self, uRequestedInfo: u32, puResponse: *mut u64) -> HRESULT;
-            fn SetServer(&self, Name: PCWSTR) -> HRESULT;
-            fn GetServer(&self, #[in] #[out] puNameBufLength: *mut u32, #[len_param(0)] #[in] #[out] pName: PWSTR) -> HRESULT;
-            fn GetNamespaceCount(&self, puCount: *mut u32) -> HRESULT;
-            fn SetNamespaceAt(&self, uIndex: u32, pszName: PCWSTR) -> HRESULT;
-            fn GetNamespaceAt(&self, uIndex: u32, #[in] #[out] puNameBufLength: *mut u32, #[len_param(1)] #[in] #[out] pName: PWSTR) -> HRESULT;
-            fn RemoveNamespaceAt(&self, uIndex: u32) -> HRESULT;
+            fn SetText(&self, #[in] uMode: ULONG, #[in] pszPath: LPCWSTR) -> HRESULT;
+            fn GetText(&self, #[in] lFlags: i32, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[out] #[writable(entry, *puBuffLength)] pszText: LPWSTR) -> HRESULT;
+            fn GetInfo(&self, #[in] uRequestedInfo: ULONG, #[out] puResponse: *mut ULONGLONG) -> HRESULT;
+            fn SetServer(&self, #[in] Name: LPCWSTR) -> HRESULT;
+            fn GetServer(&self, #[in] #[out] puNameBufLength: *mut ULONG, #[in] #[out] #[writable(entry, *puNameBufLength)] pName: LPWSTR) -> HRESULT;
+            fn GetNamespaceCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
+            fn SetNamespaceAt(&self, #[in] uIndex: ULONG, #[in] pszName: LPCWSTR) -> HRESULT;
+            fn GetNamespaceAt(&self, #[in] uIndex: ULONG, #[in] #[out] puNameBufLength: *mut ULONG, #[in] #[out] #[writable(entry, *puNameBufLength)] pName: LPWSTR) -> HRESULT;
+            fn RemoveNamespaceAt(&self, #[in] uIndex: ULONG) -> HRESULT;
             fn RemoveAllNamespaces(&self) -> HRESULT;
-            fn GetScopeCount(&self, puCount: *mut u32) -> HRESULT;
-            fn SetScope(&self, uIndex: u32, pszClass: PCWSTR) -> HRESULT;
-            fn SetScopeFromText(&self, uIndex: u32, pszText: PCWSTR) -> HRESULT;
-            fn GetScope(&self, uIndex: u32, #[in] #[out] puClassNameBufSize: *mut u32, #[len_param(1)] #[in] #[out] pszClass: PWSTR, pKeyList: *mut IWbemPathKeyList) -> HRESULT;
-            fn GetScopeAsText(&self, uIndex: u32, #[in] #[out] puTextBufSize: *mut u32, #[len_param(1)] #[in] #[out] pszText: PWSTR) -> HRESULT;
-            fn RemoveScope(&self, uIndex: u32) -> HRESULT;
+            fn GetScopeCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
+            fn SetScope(&self, #[in] uIndex: ULONG, #[in] pszClass: LPWSTR) -> HRESULT;
+            fn SetScopeFromText(&self, #[in] uIndex: ULONG, #[in] pszText: LPWSTR) -> HRESULT;
+            fn GetScope(&self, #[in] uIndex: ULONG, #[in] #[out] puClassNameBufSize: *mut ULONG, #[in] #[out] #[writable(entry, *puClassNameBufSize)] pszClass: LPWSTR, #[out] pKeyList: *mut IWbemPathKeyList) -> HRESULT;
+            fn GetScopeAsText(&self, #[in] uIndex: ULONG, #[in] #[out] puTextBufSize: *mut ULONG, #[in] #[out] #[writable(entry, *puTextBufSize)] pszText: LPWSTR) -> HRESULT;
+            fn RemoveScope(&self, #[in] uIndex: ULONG) -> HRESULT;
             fn RemoveAllScopes(&self) -> HRESULT;
-            fn SetClassName(&self, Name: PCWSTR) -> HRESULT;
-            fn GetClassName(&self, #[in] #[out] puBuffLength: *mut u32, #[len_param(0)] #[in] #[out] #[opt] pszName: PWSTR) -> HRESULT;
-            fn GetKeyList(&self, pOut: *mut IWbemPathKeyList) -> HRESULT;
-            fn CreateClassPart(&self, lFlags: i32, Name: PCWSTR) -> HRESULT;
-            fn DeleteClassPart(&self, lFlags: i32) -> HRESULT;
-            fn IsRelative(&self, wszMachine: PCWSTR, wszNamespace: PCWSTR) -> BOOL;
-            fn IsRelativeOrChild(&self, wszMachine: PCWSTR, wszNamespace: PCWSTR, lFlags: i32) -> BOOL;
-            fn IsLocal(&self, wszMachine: PCWSTR) -> BOOL;
-            fn IsSameClassName(&self, wszClass: PCWSTR) -> BOOL;
+            fn SetClassName(&self, #[in] Name: LPCWSTR) -> HRESULT;
+            fn GetClassName(&self, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puBuffLength)] pszName: LPWSTR) -> HRESULT;
+            fn GetKeyList(&self, #[out] pOut: *mut IWbemPathKeyList) -> HRESULT;
+            fn CreateClassPart(&self, #[in] lFlags: i32, #[in] Name: LPCWSTR) -> HRESULT;
+            fn DeleteClassPart(&self, #[in] lFlags: i32) -> HRESULT;
+            fn IsRelative(&self, #[in] wszMachine: LPWSTR, #[in] wszNamespace: LPWSTR) -> BOOL;
+            fn IsRelativeOrChild(&self, #[in] wszMachine: LPWSTR, #[in] wszNamespace: LPWSTR, #[in] lFlags: i32) -> BOOL;
+            fn IsLocal(&self, #[in] wszMachine: LPCWSTR) -> BOOL;
+            fn IsSameClassName(&self, #[in] wszClass: LPCWSTR) -> BOOL;
         }
         #[guid(0x9ae62877_7544_4bb0_aa26_a13824659ed6)]
         interface IWbemPathKeyList: IUnknown {
-            fn GetCount(&self, puKeyCount: *mut u32) -> HRESULT;
-            fn SetKey(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, #[in] pKeyVal: *mut void) -> HRESULT;
-            fn SetKey2(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, #[in] pKeyVal: *mut VARIANT) -> HRESULT;
-            fn GetKey(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[in] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] puKeyValBufSize: *mut u32, #[in] #[out] pKeyVal: *mut void, puApparentCimType: *mut u32) -> HRESULT;
-            fn GetKey2(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[in] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] pKeyValue: *mut VARIANT, puApparentCimType: *mut u32) -> HRESULT;
-            fn RemoveKey(&self, wszName: PCWSTR, uFlags: u32) -> HRESULT;
-            fn RemoveAllKeys(&self, uFlags: u32) -> HRESULT;
-            fn MakeSingleton(&self, bSet: u8) -> HRESULT;
-            fn GetInfo(&self, uRequestedInfo: u32, puResponse: *mut u64) -> HRESULT;
-            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[in] #[out] pszText: PWSTR) -> HRESULT;
+            fn GetCount(&self, #[out] puKeyCount: *mut ULONG) -> HRESULT;
+            fn SetKey(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG, #[in] uCimType: ULONG, #[in] pKeyVal: LPVOID) -> HRESULT;
+            fn SetKey2(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG, #[in] uCimType: ULONG, #[in] pKeyVal: *mut VARIANT) -> HRESULT;
+            fn GetKey(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] puKeyValBufSize: *mut ULONG, #[in] #[out] pKeyVal: LPVOID, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
+            fn GetKey2(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] pKeyValue: *mut VARIANT, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
+            fn RemoveKey(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG) -> HRESULT;
+            fn RemoveAllKeys(&self, #[in] uFlags: ULONG) -> HRESULT;
+            fn MakeSingleton(&self, #[in] bSet: boolean) -> HRESULT;
+            fn GetInfo(&self, #[in] uRequestedInfo: ULONG, #[out] puResponse: *mut ULONGLONG) -> HRESULT;
+            fn GetText(&self, #[in] lFlags: i32, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[out] #[writable(entry, *puBuffLength)] pszText: LPWSTR) -> HRESULT;
         }
         #[guid(0x81166f58_dd98_11d3_a120_00105a1f515a)]
         interface IWbemQuery: IUnknown {
             fn Empty(&self) -> HRESULT;
-            fn SetLanguageFeatures(&self, uFlags: u32, uArraySize: u32, #[in] puFeatures: *mut u32) -> HRESULT;
-            fn TestLanguageFeatures(&self, uFlags: u32, #[in] #[out] uArraySize: *mut u32, puFeatures: *mut u32) -> HRESULT;
-            fn Parse(&self, pszLang: PCWSTR, pszQuery: PCWSTR, uFlags: u32) -> HRESULT;
-            fn GetAnalysis(&self, uAnalysisType: u32, uFlags: u32, pAnalysis: *mut *mut void) -> HRESULT;
-            fn FreeMemory(&self, #[in] pMem: *mut void) -> HRESULT;
-            fn GetQueryInfo(&self, uAnalysisType: u32, uInfoId: u32, uBufSize: u32, pDestBuf: *mut void) -> HRESULT;
+            fn SetLanguageFeatures(&self, #[in] uFlags: ULONG, #[in] uArraySize: ULONG, #[in] puFeatures: *mut ULONG) -> HRESULT;
+            fn TestLanguageFeatures(&self, #[in] uFlags: ULONG, #[in] #[out] uArraySize: *mut ULONG, #[out] puFeatures: *mut ULONG) -> HRESULT;
+            fn Parse(&self, #[in] pszLang: LPCWSTR, #[in] pszQuery: LPCWSTR, #[in] uFlags: ULONG) -> HRESULT;
+            fn GetAnalysis(&self, #[in] uAnalysisType: ULONG, #[in] uFlags: ULONG, #[out] pAnalysis: *mut LPVOID) -> HRESULT;
+            fn FreeMemory(&self, #[in] pMem: LPVOID) -> HRESULT;
+            fn GetQueryInfo(&self, #[in] uAnalysisType: ULONG, #[in] uInfoId: ULONG, #[in] uBufSize: ULONG, #[out] pDestBuf: LPVOID) -> HRESULT;
         }
         struct SWbemAnalysisMatrix {
-            m_uVersion: u32,
-            m_uMatrixType: u32,
-            m_pszProperty: PCWSTR,
-            m_uPropertyType: u32,
-            m_uEntries: u32,
-            m_pValues: *mut *mut void,
+            m_uVersion: ULONG,
+            m_uMatrixType: ULONG,
+            m_pszProperty: LPCWSTR,
+            m_uPropertyType: ULONG,
+            m_uEntries: ULONG,
+            m_pValues: *mut LPVOID,
             m_pbTruthTable: *mut BOOL,
         }
         struct SWbemAnalysisMatrixList {
-            m_uVersion: u32,
-            m_uMatrixType: u32,
-            m_uNumMatrices: u32,
+            m_uVersion: ULONG,
+            m_uMatrixType: ULONG,
+            m_uNumMatrices: ULONG,
             m_pMatrices: *mut SWbemAnalysisMatrix,
         }
         struct SWbemAssocQueryInf {
-            m_uVersion: u32,
-            m_uAnalysisType: u32,
-            m_uFeatureMask: u32,
+            m_uVersion: ULONG,
+            m_uAnalysisType: ULONG,
+            m_uFeatureMask: ULONG,
             m_pPath: IWbemPath,
-            m_pszPath: PWSTR,
-            m_pszQueryText: PWSTR,
-            m_pszResultClass: PWSTR,
-            m_pszAssocClass: PWSTR,
-            m_pszRole: PWSTR,
-            m_pszResultRole: PWSTR,
-            m_pszRequiredQualifier: PWSTR,
-            m_pszRequiredAssocQualifier: PWSTR,
+            m_pszPath: LPWSTR,
+            m_pszQueryText: LPWSTR,
+            m_pszResultClass: LPWSTR,
+            m_pszAssocClass: LPWSTR,
+            m_pszRole: LPWSTR,
+            m_pszResultRole: LPWSTR,
+            m_pszRequiredQualifier: LPWSTR,
+            m_pszRequiredAssocQualifier: LPWSTR,
         }
         struct SWbemQueryQualifiedName {
-            m_uVersion: u32,
-            m_uTokenType: u32,
-            m_uNameListSize: u32,
-            m_ppszNameList: *mut PCWSTR,
+            m_uVersion: ULONG,
+            m_uTokenType: ULONG,
+            m_uNameListSize: ULONG,
+            m_ppszNameList: *mut LPCWSTR,
             m_bArraysUsed: BOOL,
             m_pbArrayElUsed: *mut BOOL,
-            m_puArrayIndex: *mut u32,
+            m_puArrayIndex: *mut ULONG,
         }
         union SWbemRpnConst {
-            m_pszStrVal: PCWSTR,
+            m_pszStrVal: LPCWSTR,
             m_bBoolVal: BOOL,
-            m_lLongVal: i32,
-            m_uLongVal: u32,
+            m_lLongVal: LONG,
+            m_uLongVal: ULONG,
             m_dblVal: f64,
             m_lVal64: i64,
             m_uVal64: i64,
         }
         struct SWbemRpnEncodedQuery {
-            m_uVersion: u32,
-            m_uTokenType: u32,
+            m_uVersion: ULONG,
+            m_uTokenType: ULONG,
             m_uParsedFeatureMask: u64,
-            m_uDetectedArraySize: u32,
-            m_puDetectedFeatures: *mut u32,
-            m_uSelectListSize: u32,
+            m_uDetectedArraySize: ULONG,
+            m_puDetectedFeatures: *mut ULONG,
+            m_uSelectListSize: ULONG,
             m_ppSelectList: *mut *mut SWbemQueryQualifiedName,
-            m_uFromTargetType: u32,
-            m_pszOptionalFromPath: PCWSTR,
-            m_uFromListSize: u32,
-            m_ppszFromList: *mut PCWSTR,
-            m_uWhereClauseSize: u32,
+            m_uFromTargetType: ULONG,
+            m_pszOptionalFromPath: LPCWSTR,
+            m_uFromListSize: ULONG,
+            m_ppszFromList: *mut LPCWSTR,
+            m_uWhereClauseSize: ULONG,
             m_ppRpnWhereClause: *mut *mut SWbemRpnQueryToken,
             m_dblWithinPolling: f64,
             m_dblWithinWindow: f64,
-            m_uOrderByListSize: u32,
-            m_ppszOrderByList: *mut PCWSTR,
-            m_uOrderDirectionEl: *mut u32,
+            m_uOrderByListSize: ULONG,
+            m_ppszOrderByList: *mut LPCWSTR,
+            m_uOrderDirectionEl: *mut ULONG,
         }
         struct SWbemRpnQueryToken {
-            m_uVersion: u32,
-            m_uTokenType: u32,
-            m_uSubexpressionShape: u32,
-            m_uOperator: u32,
+            m_uVersion: ULONG,
+            m_uTokenType: ULONG,
+            m_uSubexpressionShape: ULONG,
+            m_uOperator: ULONG,
             m_pRightIdent: *mut SWbemQueryQualifiedName,
             m_pLeftIdent: *mut SWbemQueryQualifiedName,
-            m_uConstApparentType: u32,
+            m_uConstApparentType: ULONG,
             m_Const: SWbemRpnConst,
-            m_uConst2ApparentType: u32,
+            m_uConst2ApparentType: ULONG,
             m_Const2: SWbemRpnConst,
-            m_pszRightFunc: PCWSTR,
-            m_pszLeftFunc: PCWSTR,
+            m_pszRightFunc: LPCWSTR,
+            m_pszLeftFunc: LPCWSTR,
         }
         struct SWbemRpnTokenList {
-            m_uVersion: u32,
-            m_uTokenType: u32,
-            m_uNumTokens: u32,
+            m_uVersion: ULONG,
+            m_uTokenType: ULONG,
+            m_uNumTokens: ULONG,
         }
         #[repr(i32)]
         enum WMIQ_ANALYSIS_TYPE {

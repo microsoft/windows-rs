@@ -18,27 +18,28 @@ pub const GUID_DEVINTERFACE_HID: windows_sys::core::GUID = windows_sys::core::GU
 pub const GUID_HID_INTERFACE_HIDPARSE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5c315a5_69ac_4bc2_9279_d0b64576f44b);
 pub const GUID_HID_INTERFACE_NOTIFY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c4e2e88_25e6_4c33_882f_3d82e6073681);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct HID_COLLECTION_INFORMATION {
-    pub DescriptorSize: u32,
+    pub DescriptorSize: super::ULONG,
     pub Polled: super::BOOLEAN,
-    pub Reserved1: [u8; 1],
-    pub VendorID: u16,
-    pub ProductID: u16,
-    pub VersionNumber: u16,
+    pub Reserved1: [super::UCHAR; 1],
+    pub VendorID: super::USHORT,
+    pub ProductID: super::USHORT,
+    pub VersionNumber: super::USHORT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for HID_COLLECTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HID_DRIVER_CONFIG {
-    pub Size: u32,
-    pub RingBufferSize: u32,
+    pub Size: super::ULONG,
+    pub RingBufferSize: super::ULONG,
 }
 pub const HID_REVISION: i32 = 1;
 pub const IOCTL_GET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721312;
@@ -67,6 +68,7 @@ pub const IOCTL_HID_SET_OUTPUT_REPORT: i32 = 721301;
 pub const IOCTL_HID_SET_POLL_FREQUENCY_MSEC: i32 = 721308;
 pub const IOCTL_HID_SET_S0_IDLE_TIMEOUT: i32 = 721328;
 pub const IOCTL_SET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721316;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PHID_COLLECTION_INFORMATION = *mut HID_COLLECTION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PHID_DRIVER_CONFIG = *mut HID_DRIVER_CONFIG;

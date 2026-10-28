@@ -4,13 +4,14 @@ mod Windows {
     mod Foundation {
         mod Metadata {
             attribute StaticAttribute {
-                fn(r#type: Type, version: u32);
+                fn(#[in] r#type: Type, #[in] version: u32);
             }
         }
     }
 }
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface ISource {
         fn GetWidget(&self) -> Widget;
     }
@@ -18,9 +19,11 @@ mod Test {
     class Widget {
         IWidget,
     }
+    #[guid(auto)]
     interface IWidget {
         fn Read(&self) -> i32;
     }
+    #[guid(auto)]
     interface IWidgetStatics {
         fn Create(&self) -> Widget;
     }

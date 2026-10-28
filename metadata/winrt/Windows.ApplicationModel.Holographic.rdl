@@ -9,19 +9,19 @@ mod Windows {
             class HolographicKeyboard {
                 IHolographicKeyboard,
             }
-            #[guid(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 720896)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HolographicKeyboard)]
+            #[guid(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3)]
             interface IHolographicKeyboard {
                 #[Windows::Foundation::Metadata::Overload("SetPlacementOverride")]
-                fn SetPlacementOverride(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, topCenterPosition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion);
+                fn SetPlacementOverride(&self, #[in] coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, #[in] topCenterPosition: super::super::Foundation::Numerics::Vector3, #[in] orientation: super::super::Foundation::Numerics::Quaternion);
                 #[Windows::Foundation::Metadata::Overload("SetPlacementOverrideWithMaxSize")]
-                fn SetPlacementOverride(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, topCenterPosition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxSize: super::super::Foundation::Numerics::Vector2);
+                fn SetPlacementOverride(&self, #[in] coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, #[in] topCenterPosition: super::super::Foundation::Numerics::Vector3, #[in] orientation: super::super::Foundation::Numerics::Quaternion, #[in] maxSize: super::super::Foundation::Numerics::Vector2);
                 fn ResetPlacementOverride(&self);
             }
-            #[guid(0xb676c624_63d7_58cf_b06b_08baa032a23f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 720896)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HolographicKeyboard)]
+            #[guid(0xb676c624_63d7_58cf_b06b_08baa032a23f)]
             interface IHolographicKeyboardStatics {
                 fn GetDefault(&self) -> HolographicKeyboard;
             }

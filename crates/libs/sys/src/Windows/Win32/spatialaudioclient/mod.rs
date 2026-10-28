@@ -1,4 +1,4 @@
-pub type AudioObjectType = u32;
+pub type AudioObjectType = i32;
 pub const AudioObjectType_BackCenter: AudioObjectType = 131072;
 pub const AudioObjectType_BackLeft: AudioObjectType = 128;
 pub const AudioObjectType_BackRight: AudioObjectType = 256;
@@ -20,7 +20,7 @@ pub const AudioObjectType_TopBackLeft: AudioObjectType = 2048;
 pub const AudioObjectType_TopBackRight: AudioObjectType = 4096;
 pub const AudioObjectType_TopFrontLeft: AudioObjectType = 512;
 pub const AudioObjectType_TopFrontRight: AudioObjectType = 1024;
-pub type SPATIAL_AUDIO_STREAM_OPTIONS = u32;
+pub type SPATIAL_AUDIO_STREAM_OPTIONS = i32;
 pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = 0;
 pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = 1;
 pub const SPTLAUDCLNT_E_DESTROYED: windows_sys::core::HRESULT = 0x88890100_u32 as _;
@@ -47,25 +47,25 @@ pub struct SpatialAudioClientActivationParams {
     pub minorVersion3: i32,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
-    pub MinDynamicObjectCount: u32,
-    pub MaxDynamicObjectCount: u32,
+    pub MinDynamicObjectCount: super::UINT32,
+    pub MaxDynamicObjectCount: super::UINT32,
     pub Category: super::AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::HANDLE,
     pub NotifyObject: *mut core::ffi::c_void,
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
-    pub MinDynamicObjectCount: u32,
-    pub MaxDynamicObjectCount: u32,
+    pub MinDynamicObjectCount: super::UINT32,
+    pub MaxDynamicObjectCount: super::UINT32,
     pub Category: super::AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::HANDLE,
     pub NotifyObject: *mut core::ffi::c_void,

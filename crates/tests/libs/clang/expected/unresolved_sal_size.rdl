@@ -1,5 +1,0 @@
-#[win32]
-mod UnresolvedSal {
-    #[library("test.dll")]
-    extern "C" fn Write(targetIdCount: u32, values: *mut i32);
-}

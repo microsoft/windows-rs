@@ -1,0 +1,16 @@
+#[win32]
+mod Fixture {
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c5)]
+    interface IBar: IFoo {
+        fn Pong(&self) -> i32;
+    }
+    #[guid(0x6b44d453_343e_4246_826d_208c460655c4)]
+    interface IFoo {
+        fn Ping(&self) -> i32;
+    }
+}
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern fn UseFoo(value: IFoo);
+}

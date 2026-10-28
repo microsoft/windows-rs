@@ -1,0 +1,16 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct CGpEffect {}
+        #[library("gdiplus.dll")]
+        extern fn GdipCreateEffect(guid: GUID, effect: *mut *mut CGpEffect) -> Status;
+        #[library("gdiplus.dll")]
+        extern fn GdipDeleteEffect(effect: *mut CGpEffect) -> Status;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetEffectParameterSize(effect: *mut CGpEffect, size: *mut UINT) -> Status;
+        #[library("gdiplus.dll")]
+        extern fn GdipGetEffectParameters(effect: *mut CGpEffect, size: *mut UINT, params: *mut void) -> Status;
+        #[library("gdiplus.dll")]
+        extern fn GdipSetEffectParameters(effect: *mut CGpEffect, params: *const void, size: UINT) -> Status;
+    }
+}

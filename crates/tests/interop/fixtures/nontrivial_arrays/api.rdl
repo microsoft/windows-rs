@@ -10,6 +10,7 @@ mod NontrivialArrays {
         Number: IReference<i32>,
     }
 
+    #[guid(auto)]
     interface IValue {
         #[get]
         Number: i32;
@@ -21,16 +22,20 @@ mod NontrivialArrays {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
-        fn CreateValue(&self, number: i32) -> IValue;
+        fn CreateValue(&self, #[in] number: i32) -> IValue;
 
         // Each method copies input to output, and reverses input into fill and the return value.
         // The caller allocates fill with the same length as input.
-        fn Strings(&self, input: [String], #[out] fill: [String], output: &mut [String])
-            -> [String];
-        fn Entries(&self, input: [Entry], #[out] fill: [Entry], output: &mut [Entry])
-            -> [Entry];
-        fn Values(&self, input: [IValue], #[out] fill: [IValue], output: &mut [IValue])
-            -> [IValue];
+        fn Strings(
+            &self, #[in] input: [String], #[out] fill: [String], #[out] output: &mut [String]
+        ) -> [String];
+        fn Entries(
+            &self, #[in] input: [Entry], #[out] fill: [Entry], #[out] output: &mut [Entry]
+        ) -> [Entry];
+        fn Values(
+            &self, #[in] input: [IValue], #[out] fill: [IValue], #[out] output: &mut [IValue]
+        ) -> [IValue];
     }
 }

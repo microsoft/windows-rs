@@ -1,20 +1,30 @@
-#[cfg(feature = "minwindef")]
-windows_link::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_sys::core::PCSTR, hmod : super::HMODULE, fdwsound : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_sys::core::PCWSTR, hmod : super::HMODULE, fdwsound : u32) -> windows_sys::core::BOOL);
-windows_link::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_sys::core::PCSTR, fusound : u32) -> windows_sys::core::BOOL);
-windows_link::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_sys::core::PCWSTR, fusound : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_sys::core::PCSTR, hmod : super::HMODULE, fdwsound : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_sys::core::PCWSTR, hmod : super::HMODULE, fdwsound : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_sys::core::PCSTR, fusound : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_sys::core::PCWSTR, fusound : super::UINT) -> windows_sys::core::BOOL);
 pub const SND_ALIAS: i32 = 65536;
 pub const SND_ALIAS_ID: i32 = 1114112;
 pub const SND_ALIAS_START: i32 = 0;
-pub const SND_ALIAS_SYSTEMASTERISK: u32 = 10835;
-pub const SND_ALIAS_SYSTEMDEFAULT: u32 = 17491;
-pub const SND_ALIAS_SYSTEMEXCLAMATION: u32 = 8531;
-pub const SND_ALIAS_SYSTEMEXIT: u32 = 17747;
-pub const SND_ALIAS_SYSTEMHAND: u32 = 18515;
-pub const SND_ALIAS_SYSTEMQUESTION: u32 = 16211;
-pub const SND_ALIAS_SYSTEMSTART: u32 = 21331;
-pub const SND_ALIAS_SYSTEMWELCOME: u32 = 22355;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMASTERISK: super::DWORD = 10835;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMDEFAULT: super::DWORD = 17491;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMEXCLAMATION: super::DWORD = 8531;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMEXIT: super::DWORD = 17747;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMHAND: super::DWORD = 18515;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMQUESTION: super::DWORD = 16211;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMSTART: super::DWORD = 21331;
+#[cfg(feature = "shared")]
+pub const SND_ALIAS_SYSTEMWELCOME: super::DWORD = 22355;
 pub const SND_APPLICATION: i32 = 128;
 pub const SND_ASYNC: i32 = 1;
 pub const SND_FILENAME: i32 = 131072;

@@ -3,13 +3,13 @@ mod Windows {
     mod Win32 {
         #[guid(0x95e87780_e158_489e_b452_bbb850790715)]
         interface IWPCGamesSettings: IWPCSettings {
-            fn IsBlocked(&self, guidAppID: GUID, pdwReasons: *mut u32) -> HRESULT;
+            fn IsBlocked(&self, #[in] guidAppID: GUID, #[out] pdwReasons: *mut DWORD) -> HRESULT;
         }
         #[guid(0xbef54196_2d02_4a26_b6e5_d65af295d0f1)]
         interface IWPCProviderConfig: IUnknown {
-            fn GetUserSummary(&self, bstrSID: BSTR, pbstrUserSummary: *mut BSTR) -> HRESULT;
-            fn Configure(&self, hWnd: HWND, bstrSID: BSTR) -> HRESULT;
-            fn RequestOverride(&self, hWnd: HWND, bstrPath: BSTR, dwFlags: u32) -> HRESULT;
+            fn GetUserSummary(&self, #[in] bstrSID: BSTR, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] pbstrUserSummary: *mut BSTR) -> HRESULT;
+            fn Configure(&self, #[in] #[opt] hWnd: HWND, #[in] #[null_terminated(entry)] bstrSID: BSTR) -> HRESULT;
+            fn RequestOverride(&self, #[in] #[opt] hWnd: HWND, #[in] #[null_terminated(entry)] bstrPath: BSTR, #[in] dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0x50b6a267_c4bd_450b_adb5_759073837c9e)]
         interface IWPCProviderState: IUnknown {
@@ -18,29 +18,29 @@ mod Windows {
         }
         #[guid(0x41eba572_23ed_4779_bec1_8df96206c44c)]
         interface IWPCProviderSupport: IUnknown {
-            fn GetCurrent(&self, pguidProvider: *mut GUID) -> HRESULT;
+            fn GetCurrent(&self, #[out] pguidProvider: *mut GUID) -> HRESULT;
         }
         #[guid(0x8fdf6ca1_0189_47e4_b670_1a8a4636e340)]
         interface IWPCSettings: IUnknown {
-            fn IsLoggingRequired(&self, pfRequired: *mut BOOL) -> HRESULT;
-            fn GetLastSettingsChangeTime(&self, pTime: *mut SYSTEMTIME) -> HRESULT;
-            fn GetRestrictions(&self, pdwRestrictions: *mut u32) -> HRESULT;
+            fn IsLoggingRequired(&self, #[out] pfRequired: *mut BOOL) -> HRESULT;
+            fn GetLastSettingsChangeTime(&self, #[out] pTime: *mut SYSTEMTIME) -> HRESULT;
+            fn GetRestrictions(&self, #[out] pdwRestrictions: *mut DWORD) -> HRESULT;
         }
         #[guid(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa)]
         interface IWPCWebSettings: IWPCSettings {
-            fn GetSettings(&self, pdwSettings: *mut u32) -> HRESULT;
-            fn RequestURLOverride(&self, hWnd: HWND, pcszURL: PCWSTR, cURLs: u32, #[in] ppcszSubURLs: *mut PCWSTR, pfChanged: *mut BOOL) -> HRESULT;
+            fn GetSettings(&self, #[out] pdwSettings: *mut DWORD) -> HRESULT;
+            fn RequestURLOverride(&self, #[in] #[opt] hWnd: HWND, #[in] pcszURL: LPCWSTR, #[in] cURLs: DWORD, #[in] #[opt] #[readable(entry, cURLs)] ppcszSubURLs: *mut LPCWSTR, #[out] pfChanged: *mut BOOL) -> HRESULT;
         }
         #[guid(0x28b4d88b_e072_49e6_804d_26edbe21a7b9)]
         interface IWindowsParentalControls: IWindowsParentalControlsCore {
-            fn GetGamesSettings(&self, pcszSID: PCWSTR, ppSettings: *mut IWPCGamesSettings) -> HRESULT;
+            fn GetGamesSettings(&self, #[in] #[null_terminated(entry)] #[opt] pcszSID: LPCWSTR, #[out] #[out_ptr] ppSettings: *mut IWPCGamesSettings) -> HRESULT;
         }
         #[guid(0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05)]
         interface IWindowsParentalControlsCore: IUnknown {
-            fn GetVisibility(&self, peVisibility: *mut WPCFLAG_VISIBILITY) -> HRESULT;
-            fn GetUserSettings(&self, pcszSID: PCWSTR, ppSettings: *mut IWPCSettings) -> HRESULT;
-            fn GetWebSettings(&self, pcszSID: PCWSTR, ppSettings: *mut IWPCWebSettings) -> HRESULT;
-            fn GetWebFilterInfo(&self, pguidID: *mut GUID, #[in] #[out] ppszName: *mut PWSTR) -> HRESULT;
+            fn GetVisibility(&self, #[out] peVisibility: *mut WPCFLAG_VISIBILITY) -> HRESULT;
+            fn GetUserSettings(&self, #[in] #[null_terminated(entry)] #[opt] pcszSID: LPCWSTR, #[out] #[out_ptr] ppSettings: *mut IWPCSettings) -> HRESULT;
+            fn GetWebSettings(&self, #[in] #[null_terminated(entry)] #[opt] pcszSID: LPCWSTR, #[out] #[out_ptr] ppSettings: *mut IWPCWebSettings) -> HRESULT;
+            fn GetWebFilterInfo(&self, #[out] pguidID: *mut GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppszName: *mut LPWSTR) -> HRESULT;
         }
         #[repr(i32)]
         enum WPCFLAG_OVERRIDE {

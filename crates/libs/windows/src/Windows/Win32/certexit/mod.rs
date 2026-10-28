@@ -21,13 +21,15 @@ impl core::ops::Deref for ICertExit {
 windows_core::imp::interface_hierarchy!(ICertExit, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ICertExit {
-    pub unsafe fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Notify(&self, exitevent: i32, context: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Notify(&self, exitevent: super::LONG, context: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), exitevent, context) }
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -42,20 +44,26 @@ impl ICertExit {
 #[doc(hidden)]
 pub struct ICertExit_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Initialize: usize,
+    #[cfg(feature = "shared")]
+    pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Notify: usize,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertExit_Impl: super::IDispatch_Impl {
-    fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn Notify(&self, exitevent: i32, context: i32) -> windows_core::Result<()>;
+    fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
+    fn Notify(&self, exitevent: super::LONG, context: super::LONG) -> windows_core::Result<()>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertExit_Vtbl {
     pub const fn new<Identity: ICertExit_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: ICertExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, peventmask: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ICertExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, peventmask: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertExit_Impl::Initialize(this, core::mem::transmute(&strconfig)) {
@@ -67,7 +75,7 @@ impl ICertExit_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Notify<Identity: ICertExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exitevent: i32, context: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Notify<Identity: ICertExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exitevent: super::LONG, context: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertExit_Impl::Notify(this, core::mem::transmute_copy(&exitevent), core::mem::transmute_copy(&context)).into()
@@ -96,7 +104,7 @@ impl ICertExit_Vtbl {
         iid == &<ICertExit as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertExit {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertExit2, ICertExit2_Vtbl, 0x0abf484b_d049_464d_a7ed_552e7529b0ff);
@@ -129,11 +137,11 @@ pub struct ICertExit2_Vtbl {
     #[cfg(not(feature = "certmod"))]
     GetManageModule: usize,
 }
-#[cfg(all(feature = "certmod", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certmod", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertExit2_Impl: ICertExit_Impl {
     fn GetManageModule(&self) -> windows_core::Result<super::ICertManageModule>;
 }
-#[cfg(all(feature = "certmod", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certmod", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertExit2_Vtbl {
     pub const fn new<Identity: ICertExit2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetManageModule<Identity: ICertExit2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmanagemodule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -154,5 +162,5 @@ impl ICertExit2_Vtbl {
         iid == &<ICertExit2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertExit as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "certmod", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certmod", feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertExit2 {}

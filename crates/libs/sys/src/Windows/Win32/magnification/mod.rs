@@ -2,13 +2,13 @@
 windows_link::link!("magnification.dll" "system" fn MagGetColorEffect(hwnd : super::HWND, peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagGetFullscreenColorEffect(peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagGetFullscreenTransform(pmaglevel : *mut f32, pxoffset : *mut i32, pyoffset : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "wincodec", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincodec", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagGetImageScalingCallback(hwnd : super::HWND) -> MagImageScalingCallback);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagGetInputTransform(pfenabled : *mut windows_sys::core::BOOL, prectsource : super::LPRECT, prectdest : super::LPRECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagGetWindowFilterList(hwnd : super::HWND, pdwfiltermode : *mut u32, count : i32, phwnd : *mut super::HWND) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("magnification.dll" "system" fn MagGetWindowFilterList(hwnd : super::HWND, pdwfiltermode : *mut super::DWORD, count : i32, phwnd : *mut super::HWND) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagGetWindowSource(hwnd : super::HWND, prect : *mut super::RECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::HWND, ptransform : PMAGTRANSFORM) -> windows_sys::core::BOOL);
@@ -17,13 +17,13 @@ windows_link::link!("magnification.dll" "system" fn MagInitialize() -> windows_s
 windows_link::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::HWND, peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : PMAGCOLOREFFECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetFullscreenTransform(maglevel : f32, xoffset : i32, yoffset : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "wincodec", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincodec", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagSetImageScalingCallback(hwnd : super::HWND, callback : MagImageScalingCallback) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_sys::core::BOOL, prectsource : super::LPRECT, prectdest : super::LPRECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("magnification.dll" "system" fn MagSetWindowFilterList(hwnd : super::HWND, dwfiltermode : u32, count : i32, phwnd : *mut super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("magnification.dll" "system" fn MagSetWindowFilterList(hwnd : super::HWND, dwfiltermode : super::DWORD, count : i32, phwnd : *mut super::HWND) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("magnification.dll" "system" fn MagSetWindowSource(hwnd : super::HWND, rect : super::RECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::HWND, ptransform : PMAGTRANSFORM) -> windows_sys::core::BOOL);
@@ -40,15 +40,15 @@ impl Default for MAGCOLOREFFECT {
     }
 }
 #[repr(C)]
-#[cfg(feature = "wincodec")]
+#[cfg(all(feature = "shared", feature = "wincodec"))]
 #[derive(Clone, Copy, Default)]
 pub struct MAGIMAGEHEADER {
-    pub width: u32,
-    pub height: u32,
+    pub width: super::UINT,
+    pub height: super::UINT,
     pub format: super::WICPixelFormatGUID,
-    pub stride: u32,
-    pub offset: u32,
-    pub cbSize: usize,
+    pub stride: super::UINT,
+    pub offset: super::UINT,
+    pub cbSize: super::SIZE_T,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -65,10 +65,10 @@ pub const MS_INVERTCOLORS: i32 = 4;
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1;
 pub const MW_FILTERMODE_EXCLUDE: i32 = 0;
 pub const MW_FILTERMODE_INCLUDE: i32 = 1;
-#[cfg(all(feature = "minwindef", feature = "wincodec", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincodec", feature = "windef"))]
 pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::RECT, clipped: super::RECT, dirty: super::HRGN) -> windows_sys::core::BOOL>;
 pub type PMAGCOLOREFFECT = *mut MAGCOLOREFFECT;
-#[cfg(feature = "wincodec")]
+#[cfg(all(feature = "shared", feature = "wincodec"))]
 pub type PMAGIMAGEHEADER = *mut MAGIMAGEHEADER;
 pub type PMAGTRANSFORM = *mut MAGTRANSFORM;
 pub const WC_MAGNIFIER: windows_sys::core::PCSTR = windows_sys::core::s!("Magnifier");

@@ -1,6 +1,18 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[encoding("ansi")]
+        const D3D11_APPNAME_STRING: String = "Name";
+        #[encoding("ansi")]
+        const D3D11_APPSIZE_STRING: String = "Size";
+        #[encoding("ansi")]
+        const D3D11_BREAKON_CATEGORY: String = "BreakOn_CATEGORY_%s";
+        #[encoding("ansi")]
+        const D3D11_BREAKON_ID_DECIMAL: String = "BreakOn_ID_%d";
+        #[encoding("ansi")]
+        const D3D11_BREAKON_ID_STRING: String = "BreakOn_ID_%s";
+        #[encoding("ansi")]
+        const D3D11_BREAKON_SEVERITY: String = "BreakOn_SEVERITY_%s";
         const D3D11_DEBUG_FEATURE_ALWAYS_DISCARD_OFFERED_RESOURCE: i32 = 8;
         const D3D11_DEBUG_FEATURE_AVOID_BEHAVIOR_CHANGING_DEBUG_AIDS: i32 = 64;
         const D3D11_DEBUG_FEATURE_DISABLE_TILED_RESOURCE_MAPPING_TRACKING_AND_VALIDATION: i32 = 128;
@@ -8,25 +20,37 @@ mod Windows {
         const D3D11_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: i32 = 1;
         const D3D11_DEBUG_FEATURE_NEVER_DISCARD_OFFERED_RESOURCE: i32 = 16;
         const D3D11_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: i32 = 4;
+        #[encoding("ansi")]
+        const D3D11_ENABLE_BREAK_ON_MESSAGE: String = "EnableBreakOnMessage";
+        #[encoding("ansi")]
+        const D3D11_FORCE_DEBUGGABLE: String = "ForceDebuggable";
+        #[encoding("ansi")]
+        const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: String = "ForceShaderSkipOptimization";
+        #[encoding("ansi")]
+        const D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE: String = "InfoQueueStorageFilterOverride";
         const D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
         struct D3D11_INFO_QUEUE_FILTER {
             AllowList: D3D11_INFO_QUEUE_FILTER_DESC,
             DenyList: D3D11_INFO_QUEUE_FILTER_DESC,
         }
         struct D3D11_INFO_QUEUE_FILTER_DESC {
-            NumCategories: u32,
+            NumCategories: UINT,
+            #[writable(NumCategories)]
             pCategoryList: *mut D3D11_MESSAGE_CATEGORY,
-            NumSeverities: u32,
+            NumSeverities: UINT,
+            #[writable(NumSeverities)]
             pSeverityList: *mut D3D11_MESSAGE_SEVERITY,
-            NumIDs: u32,
+            NumIDs: UINT,
+            #[writable(NumIDs)]
             pIDList: *mut D3D11_MESSAGE_ID,
         }
         struct D3D11_MESSAGE {
             Category: D3D11_MESSAGE_CATEGORY,
             Severity: D3D11_MESSAGE_SEVERITY,
             ID: D3D11_MESSAGE_ID,
+            #[writable(DescriptionByteLength)]
             pDescription: *const i8,
-            DescriptionByteLength: usize,
+            DescriptionByteLength: SIZE_T,
         }
         #[repr(i32)]
         enum D3D11_MESSAGE_CATEGORY {
@@ -1391,8 +1415,20 @@ mod Windows {
             D3D11_MESSAGE_SEVERITY_INFO = 3,
             D3D11_MESSAGE_SEVERITY_MESSAGE = 4,
         }
-        #[repr(u32)]
+        #[encoding("ansi")]
+        const D3D11_MUTE_CATEGORY: String = "Mute_CATEGORY_%s";
+        #[encoding("ansi")]
+        const D3D11_MUTE_DEBUG_OUTPUT: String = "MuteDebugOutput";
+        #[encoding("ansi")]
+        const D3D11_MUTE_ID_DECIMAL: String = "Mute_ID_%d";
+        #[encoding("ansi")]
+        const D3D11_MUTE_ID_STRING: String = "Mute_ID_%s";
+        #[encoding("ansi")]
+        const D3D11_MUTE_SEVERITY: String = "Mute_SEVERITY_%s";
+        #[encoding("ansi")]
+        const D3D11_REGKEY_PATH: String = "Software\\Microsoft\\Direct3D";
         #[flags]
+        #[repr(i32)]
         enum D3D11_RLDO_FLAGS {
             D3D11_RLDO_SUMMARY = 1,
             D3D11_RLDO_DETAIL = 2,
@@ -1428,64 +1464,66 @@ mod Windows {
             D3D11_SHADER_TRACKING_RESOURCE_TYPE_GROUPSHARED_NON_UAV = 6,
             D3D11_SHADER_TRACKING_RESOURCE_TYPE_ALL = 7,
         }
+        #[encoding("ansi")]
+        const D3D11_UNMUTE_SEVERITY_INFO: String = "Unmute_SEVERITY_INFO";
         const DXGI_DEBUG_D3D11: GUID = 0x4b99317b_ac39_4aa6_bb0b_baa04784798f;
         #[guid(0x79cf2233_7536_4948_9d36_1e4692dc5760)]
         interface ID3D11Debug: IUnknown {
-            fn SetFeatureMask(&self, Mask: u32) -> HRESULT;
-            fn GetFeatureMask(&self) -> u32;
-            fn SetPresentPerRenderOpDelay(&self, Milliseconds: u32) -> HRESULT;
-            fn GetPresentPerRenderOpDelay(&self) -> u32;
-            fn SetSwapChain(&self, #[opt] pSwapChain: IDXGISwapChain) -> HRESULT;
-            fn GetSwapChain(&self, ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
-            fn ValidateContext(&self, pContext: ID3D11DeviceContext) -> HRESULT;
+            fn SetFeatureMask(&self, Mask: UINT) -> HRESULT;
+            fn GetFeatureMask(&self) -> UINT;
+            fn SetPresentPerRenderOpDelay(&self, Milliseconds: UINT) -> HRESULT;
+            fn GetPresentPerRenderOpDelay(&self) -> UINT;
+            fn SetSwapChain(&self, #[in] #[opt] pSwapChain: IDXGISwapChain) -> HRESULT;
+            fn GetSwapChain(&self, #[out] ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
+            fn ValidateContext(&self, #[in] pContext: ID3D11DeviceContext) -> HRESULT;
             fn ReportLiveDeviceObjects(&self, Flags: D3D11_RLDO_FLAGS) -> HRESULT;
-            fn ValidateContextForDispatch(&self, pContext: ID3D11DeviceContext) -> HRESULT;
+            fn ValidateContextForDispatch(&self, #[in] pContext: ID3D11DeviceContext) -> HRESULT;
         }
         #[guid(0x6543dbb6_1b48_42f5_ab82_e97ec74326f6)]
         interface ID3D11InfoQueue: IUnknown {
-            fn SetMessageCountLimit(&self, MessageCountLimit: u64) -> HRESULT;
+            fn SetMessageCountLimit(&self, #[in] MessageCountLimit: UINT64) -> HRESULT;
             fn ClearStoredMessages(&self);
-            fn GetMessage(&self, MessageIndex: u64, #[size_param(2)] #[opt] pMessage: *mut D3D11_MESSAGE, #[in] #[out] pMessageByteLength: *mut usize) -> HRESULT;
-            fn GetNumMessagesAllowedByStorageFilter(&self) -> u64;
-            fn GetNumMessagesDeniedByStorageFilter(&self) -> u64;
-            fn GetNumStoredMessages(&self) -> u64;
-            fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64;
-            fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64;
-            fn GetMessageCountLimit(&self) -> u64;
+            fn GetMessage(&self, #[in] MessageIndex: UINT64, #[opt] #[out] #[writable(entry, bytes(*pMessageByteLength))] pMessage: *mut D3D11_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetNumMessagesAllowedByStorageFilter(&self) -> UINT64;
+            fn GetNumMessagesDeniedByStorageFilter(&self) -> UINT64;
+            fn GetNumStoredMessages(&self) -> UINT64;
+            fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> UINT64;
+            fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> UINT64;
+            fn GetMessageCountLimit(&self) -> UINT64;
             fn AddStorageFilterEntries(&self, #[in] pFilter: *mut D3D11_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetStorageFilter(&self, #[size_param(1)] #[opt] pFilter: *mut D3D11_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
+            fn GetStorageFilter(&self, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D11_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearStorageFilter(&self);
             fn PushEmptyStorageFilter(&self) -> HRESULT;
             fn PushCopyOfStorageFilter(&self) -> HRESULT;
             fn PushStorageFilter(&self, #[in] pFilter: *mut D3D11_INFO_QUEUE_FILTER) -> HRESULT;
             fn PopStorageFilter(&self);
-            fn GetStorageFilterStackSize(&self) -> u32;
+            fn GetStorageFilterStackSize(&self) -> UINT;
             fn AddRetrievalFilterEntries(&self, #[in] pFilter: *mut D3D11_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetRetrievalFilter(&self, #[size_param(1)] #[opt] pFilter: *mut D3D11_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
+            fn GetRetrievalFilter(&self, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D11_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearRetrievalFilter(&self);
             fn PushEmptyRetrievalFilter(&self) -> HRESULT;
             fn PushCopyOfRetrievalFilter(&self) -> HRESULT;
             fn PushRetrievalFilter(&self, #[in] pFilter: *mut D3D11_INFO_QUEUE_FILTER) -> HRESULT;
             fn PopRetrievalFilter(&self);
-            fn GetRetrievalFilterStackSize(&self) -> u32;
-            fn AddMessage(&self, Category: D3D11_MESSAGE_CATEGORY, Severity: D3D11_MESSAGE_SEVERITY, ID: D3D11_MESSAGE_ID, pDescription: PCSTR) -> HRESULT;
-            fn AddApplicationMessage(&self, Severity: D3D11_MESSAGE_SEVERITY, pDescription: PCSTR) -> HRESULT;
-            fn SetBreakOnCategory(&self, Category: D3D11_MESSAGE_CATEGORY, bEnable: BOOL) -> HRESULT;
-            fn SetBreakOnSeverity(&self, Severity: D3D11_MESSAGE_SEVERITY, bEnable: BOOL) -> HRESULT;
-            fn SetBreakOnID(&self, ID: D3D11_MESSAGE_ID, bEnable: BOOL) -> HRESULT;
-            fn GetBreakOnCategory(&self, Category: D3D11_MESSAGE_CATEGORY) -> BOOL;
-            fn GetBreakOnSeverity(&self, Severity: D3D11_MESSAGE_SEVERITY) -> BOOL;
-            fn GetBreakOnID(&self, ID: D3D11_MESSAGE_ID) -> BOOL;
-            fn SetMuteDebugOutput(&self, bMute: BOOL);
+            fn GetRetrievalFilterStackSize(&self) -> UINT;
+            fn AddMessage(&self, #[in] Category: D3D11_MESSAGE_CATEGORY, #[in] Severity: D3D11_MESSAGE_SEVERITY, #[in] ID: D3D11_MESSAGE_ID, #[in] pDescription: LPCSTR) -> HRESULT;
+            fn AddApplicationMessage(&self, #[in] Severity: D3D11_MESSAGE_SEVERITY, #[in] pDescription: LPCSTR) -> HRESULT;
+            fn SetBreakOnCategory(&self, #[in] Category: D3D11_MESSAGE_CATEGORY, #[in] bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnSeverity(&self, #[in] Severity: D3D11_MESSAGE_SEVERITY, #[in] bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnID(&self, #[in] ID: D3D11_MESSAGE_ID, #[in] bEnable: BOOL) -> HRESULT;
+            fn GetBreakOnCategory(&self, #[in] Category: D3D11_MESSAGE_CATEGORY) -> BOOL;
+            fn GetBreakOnSeverity(&self, #[in] Severity: D3D11_MESSAGE_SEVERITY) -> BOOL;
+            fn GetBreakOnID(&self, #[in] ID: D3D11_MESSAGE_ID) -> BOOL;
+            fn SetMuteDebugOutput(&self, #[in] bMute: BOOL);
             fn GetMuteDebugOutput(&self) -> BOOL;
         }
         #[guid(0x03916615_c644_418c_9bf4_75db5be63ca0)]
         interface ID3D11RefDefaultTrackingOptions: IUnknown {
-            fn SetTrackingOptions(&self, ResourceTypeFlags: u32, Options: u32) -> HRESULT;
+            fn SetTrackingOptions(&self, ResourceTypeFlags: UINT, Options: UINT) -> HRESULT;
         }
         #[guid(0x193dacdf_0db2_4c05_a55c_ef06cac56fd9)]
         interface ID3D11RefTrackingOptions: IUnknown {
-            fn SetTrackingOptions(&self, uOptions: u32) -> HRESULT;
+            fn SetTrackingOptions(&self, uOptions: UINT) -> HRESULT;
         }
         #[guid(0x1ef337e3_58e7_4f83_a692_db221f5ed47e)]
         interface ID3D11SwitchToRef: IUnknown {
@@ -1494,8 +1532,14 @@ mod Windows {
         }
         #[guid(0x1911c771_1587_413e_a7e0_fb26c3de0268)]
         interface ID3D11TracingDevice: IUnknown {
-            fn SetShaderTrackingOptionsByType(&self, ResourceTypeFlags: u32, Options: u32) -> HRESULT;
-            fn SetShaderTrackingOptions(&self, pShader: IUnknown, Options: u32) -> HRESULT;
+            fn SetShaderTrackingOptionsByType(&self, #[in] ResourceTypeFlags: UINT, #[in] Options: UINT) -> HRESULT;
+            fn SetShaderTrackingOptions(&self, #[in] pShader: IUnknown, #[in] Options: UINT) -> HRESULT;
         }
+        const IID_ID3D11Debug: GUID = 0x79cf2233_7536_4948_9d36_1e4692dc5760;
+        const IID_ID3D11InfoQueue: GUID = 0x6543dbb6_1b48_42f5_ab82_e97ec74326f6;
+        const IID_ID3D11RefDefaultTrackingOptions: GUID = 0x03916615_c644_418c_9bf4_75db5be63ca0;
+        const IID_ID3D11RefTrackingOptions: GUID = 0x193dacdf_0db2_4c05_a55c_ef06cac56fd9;
+        const IID_ID3D11SwitchToRef: GUID = 0x1ef337e3_58e7_4f83_a692_db221f5ed47e;
+        const IID_ID3D11TracingDevice: GUID = 0x1911c771_1587_413e_a7e0_fb26c3de0268;
     }
 }

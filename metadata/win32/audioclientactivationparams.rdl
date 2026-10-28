@@ -13,7 +13,7 @@ mod Windows {
             AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK = 1,
         }
         struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
-            TargetProcessId: u32,
+            TargetProcessId: DWORD,
             ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
         }
         #[repr(i32)]

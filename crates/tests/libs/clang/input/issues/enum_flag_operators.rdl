@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    #[flags]
+    #[repr(i32)]
+    enum MacroFlags {
+        MacroFlagsNone = 0,
+        MacroFlagsA = 1,
+        MacroFlagsB = 2,
+    }
+    #[repr(i32)]
+    enum Plain {
+        PlainA = 1,
+        PlainB = 2,
+    }
+}

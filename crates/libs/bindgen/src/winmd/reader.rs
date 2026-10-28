@@ -130,7 +130,10 @@ impl Reader {
                                                 Type::CppConst(CppConst {
                                                     namespace,
                                                     field,
-                                                    enum_arches,
+                                                    arches: match field.arches() {
+                                                        0 => enum_arches,
+                                                        arches => arches,
+                                                    },
                                                     is_enum_member: true,
                                                 }),
                                             );
@@ -146,14 +149,31 @@ impl Reader {
                                     index: &'static windows_metadata::reader::Index,
                                     def: TypeDef,
                                     name: &'static str,
+                                    enclosing: Option<TypeName>,
                                 ) -> CppStruct {
                                     let mut ty = CppStruct {
                                         def,
                                         name,
+                                        enclosing,
                                         nested: BTreeMap::new(),
                                     };
+                                    let mut anonymous = BTreeMap::new();
+                                    for child in index.nested(def) {
+                                        if let Some(position) = child.anonymous_index().unwrap() {
+                                            assert!(
+                                                anonymous.insert(position, child).is_none(),
+                                                "duplicate anonymous field position in `{}`",
+                                                def.name()
+                                            );
+                                        }
+                                    }
+                                    let anonymous: HashMap<_, _> = anonymous
+                                        .into_values()
+                                        .enumerate()
+                                        .map(|(index, child)| (child, index))
+                                        .collect();
 
-                                    for (idx, nested_def) in index.nested(def).enumerate() {
+                                    for nested_def in index.nested(def) {
                                         if nested_def.category()
                                             == windows_metadata::reader::TypeCategory::Struct
                                         {
@@ -162,7 +182,18 @@ impl Reader {
                                                 make(
                                                     index,
                                                     nested_def,
-                                                    format!("{}_{idx}", ty.name).leak(),
+                                                    match anonymous.get(&nested_def) {
+                                                        Some(index) => {
+                                                            format!("{}_{index}", ty.name)
+                                                        }
+                                                        None => format!(
+                                                            "{}_{}",
+                                                            ty.name,
+                                                            nested_def.name()
+                                                        ),
+                                                    }
+                                                    .leak(),
+                                                    Some(enclosing.unwrap_or(ty.type_name())),
                                                 ),
                                             );
                                         }
@@ -171,7 +202,7 @@ impl Reader {
                                     ty
                                 }
 
-                                insert(types, name, Type::CppStruct(make(index, def, name)));
+                                insert(types, name, Type::CppStruct(make(index, def, name, None)));
                             }
                         }
                     }
@@ -195,11 +226,45 @@ impl Reader {
                         Type::CppConst(CppConst {
                             namespace,
                             field,
-                            enum_arches: 0,
+                            arches: field.arches(),
                             is_enum_member: false,
                         }),
                     );
                 }
+            }
+        }
+
+        // Explicit constants own their names where unscoped enum fields would be flattened.
+        for types in reader.map.values_mut().flat_map(|types| types.values_mut()) {
+            let explicit_arches = types.iter().fold(0, |arches, ty| {
+                if let Type::CppConst(constant) = ty
+                    && !constant.is_enum_member
+                {
+                    arches
+                        | if constant.arches == 0 {
+                            7
+                        } else {
+                            constant.arches
+                        }
+                } else {
+                    arches
+                }
+            });
+            if explicit_arches != 0 {
+                types.retain_mut(|ty| {
+                    if let Type::CppConst(constant) = ty
+                        && constant.is_enum_member
+                    {
+                        let arches = if constant.arches == 0 {
+                            7
+                        } else {
+                            constant.arches
+                        };
+                        constant.arches = arches & !explicit_arches;
+                        return constant.arches != 0;
+                    }
+                    true
+                });
             }
         }
 
@@ -233,7 +298,11 @@ impl Reader {
 
     /// Gets all types matching the given namespace and name.
     /// Trims any generic arity suffix (e.g. "`1") so callers may pass raw metadata names.
-    pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
+    pub fn with_full_name<'a>(
+        &'a self,
+        namespace: &str,
+        name: &str,
+    ) -> impl Iterator<Item = Type> + use<'a> {
         let (name, nested) = name.split_once('/').map_or((name, None), |(root, nested)| {
             (root, Some(nested.to_string()))
         });
@@ -250,7 +319,7 @@ impl Reader {
                         let Type::CppStruct(outer) = ty else {
                             return None;
                         };
-                        ty = Type::CppStruct(outer.nested.get(name)?.clone());
+                        ty = outer.nested_type(name)?;
                     }
                 }
                 Some(ty)

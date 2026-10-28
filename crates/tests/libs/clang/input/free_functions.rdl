@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    type Count = u32;
+    #[library("example.dll")]
+    extern "C" fn NativeSum(left: i32, right: i32) -> i32;
+    struct Payload {
+        count: Count,
+    }
+    #[library("example.dll", import = "ReadPayloadEntry")]
+    extern fn ReadPayload(payload: *const Payload, written: *mut Count) -> Count;
+}

@@ -1,6 +1,9 @@
+pub const CLSID_AudioFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0x16a0a3b9_9f65_4102_9367_2cda3a4f372a);
+pub const CLSID_VideoFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0xd194386a_04e3_4814_8100_b2b0ae6d78c7);
 windows_core::imp::define_interface!(IAudioFrameNative, IAudioFrameNative_Vtbl, 0x20be1e2e_930f_4746_9335_3c332f255093);
 windows_core::imp::interface_hierarchy!(IAudioFrameNative, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioFrameNative {
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
     pub unsafe fn GetData<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -13,14 +16,19 @@ impl IAudioFrameNative {
 #[doc(hidden)]
 pub struct IAudioFrameNative_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
+    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef")))]
+    GetData: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 pub trait IAudioFrameNative_Impl: windows_core::IUnknownImpl {
-    fn GetData(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetData(&self, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl IAudioFrameNative_Vtbl {
     pub const fn new<Identity: IAudioFrameNative_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetData<Identity: IAudioFrameNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: IAudioFrameNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioFrameNative_Impl::GetData(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -32,11 +40,12 @@ impl IAudioFrameNative_Vtbl {
         iid == &<IAudioFrameNative as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl windows_core::RuntimeName for IAudioFrameNative {}
 windows_core::imp::define_interface!(IAudioFrameNativeFactory, IAudioFrameNativeFactory_Vtbl, 0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
 windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioFrameNativeFactory {
-    #[cfg(feature = "mfobjects")]
+    #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef"))]
     pub unsafe fn CreateFromMFSample<P0, T>(&self, data: P0, forcereadonly: bool) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::IMFSample>,
@@ -50,19 +59,19 @@ impl IAudioFrameNativeFactory {
 #[doc(hidden)]
 pub struct IAudioFrameNativeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "mfobjects")]
-    pub CreateFromMFSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mfobjects"))]
+    #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef"))]
+    pub CreateFromMFSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *const super::IID, *mut super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef")))]
     CreateFromMFSample: usize,
 }
-#[cfg(feature = "mfobjects")]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef"))]
 pub trait IAudioFrameNativeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromMFSample(&self, data: windows_core::Ref<super::IMFSample>, forcereadonly: windows_core::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromMFSample(&self, data: windows_core::Ref<super::IMFSample>, forcereadonly: windows_core::BOOL, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "mfobjects")]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef"))]
 impl IAudioFrameNativeFactory_Vtbl {
     pub const fn new<Identity: IAudioFrameNativeFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateFromMFSample<Identity: IAudioFrameNativeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, forcereadonly: windows_core::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateFromMFSample<Identity: IAudioFrameNativeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, forcereadonly: windows_core::BOOL, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioFrameNativeFactory_Impl::CreateFromMFSample(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -77,11 +86,12 @@ impl IAudioFrameNativeFactory_Vtbl {
         iid == &<IAudioFrameNativeFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mfobjects")]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef"))]
 impl windows_core::RuntimeName for IAudioFrameNativeFactory {}
 windows_core::imp::define_interface!(IVideoFrameNative, IVideoFrameNative_Vtbl, 0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
 windows_core::imp::interface_hierarchy!(IVideoFrameNative, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoFrameNative {
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
     pub unsafe fn GetData<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -89,6 +99,7 @@ impl IVideoFrameNative {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
     pub unsafe fn GetDevice<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -101,22 +112,30 @@ impl IVideoFrameNative {
 #[doc(hidden)]
 pub struct IVideoFrameNative_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
+    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef")))]
+    GetData: usize,
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
+    pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef")))]
+    GetDevice: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 pub trait IVideoFrameNative_Impl: windows_core::IUnknownImpl {
-    fn GetData(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDevice(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetData(&self, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::Result<()>;
+    fn GetDevice(&self, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl IVideoFrameNative_Vtbl {
     pub const fn new<Identity: IVideoFrameNative_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetData<Identity: IVideoFrameNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: IVideoFrameNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVideoFrameNative_Impl::GetData(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn GetDevice<Identity: IVideoFrameNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDevice<Identity: IVideoFrameNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVideoFrameNative_Impl::GetDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -132,12 +151,13 @@ impl IVideoFrameNative_Vtbl {
         iid == &<IVideoFrameNative as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl windows_core::RuntimeName for IVideoFrameNative {}
 windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNativeFactory_Vtbl, 0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
 windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoFrameNativeFactory {
-    #[cfg(all(feature = "mfobjects", feature = "windef"))]
-    pub unsafe fn CreateFromMFSample<P0, P6, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: bool, mindisplayaperture: Option<*const super::MFVideoArea>, device: P6) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "shared", feature = "windef"))]
+    pub unsafe fn CreateFromMFSample<P0, P6, T>(&self, data: P0, subtype: *const windows_core::GUID, width: super::UINT32, height: super::UINT32, forcereadonly: bool, mindisplayaperture: Option<*const super::MFVideoArea>, device: P6) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::IMFSample>,
         P6: windows_core::Param<super::IMFDXGIDeviceManager>,
@@ -151,19 +171,19 @@ impl IVideoFrameNativeFactory {
 #[doc(hidden)]
 pub struct IVideoFrameNativeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "mfobjects", feature = "windef"))]
-    pub CreateFromMFSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, u32, u32, windows_core::BOOL, *const super::MFVideoArea, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "mfobjects", feature = "windef")))]
+    #[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "shared", feature = "windef"))]
+    pub CreateFromMFSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, super::UINT32, super::UINT32, windows_core::BOOL, *const super::MFVideoArea, *mut core::ffi::c_void, *const super::IID, *mut super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "shared", feature = "windef")))]
     CreateFromMFSample: usize,
 }
-#[cfg(all(feature = "mfobjects", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IVideoFrameNativeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromMFSample(&self, data: windows_core::Ref<super::IMFSample>, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::MFVideoArea, device: windows_core::Ref<super::IMFDXGIDeviceManager>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromMFSample(&self, data: windows_core::Ref<super::IMFSample>, subtype: *const windows_core::GUID, width: super::UINT32, height: super::UINT32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::MFVideoArea, device: windows_core::Ref<super::IMFDXGIDeviceManager>, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "mfobjects", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IVideoFrameNativeFactory_Vtbl {
     pub const fn new<Identity: IVideoFrameNativeFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateFromMFSample<Identity: IVideoFrameNativeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::MFVideoArea, device: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateFromMFSample<Identity: IVideoFrameNativeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, subtype: *const windows_core::GUID, width: super::UINT32, height: super::UINT32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::MFVideoArea, device: *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVideoFrameNativeFactory_Impl::CreateFromMFSample(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&subtype), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&forcereadonly), core::mem::transmute_copy(&mindisplayaperture), core::mem::transmute_copy(&device), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -178,5 +198,5 @@ impl IVideoFrameNativeFactory_Vtbl {
         iid == &<IVideoFrameNativeFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mfobjects", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IVideoFrameNativeFactory {}

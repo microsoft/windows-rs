@@ -13,38 +13,39 @@ mod Windows {
         #[packed(1)]
         struct BTH_INFO_REQ {
             btAddr: BTH_ADDR,
-            infoType: u16,
+            infoType: USHORT,
         }
         #[packed(1)]
         struct BTH_INFO_RSP {
-            result: u16,
-            dataLen: u8,
+            result: USHORT,
+            dataLen: UCHAR,
             Anonymous: #[packed(1)] union {
-                connectionlessMTU: u16,
-                data: [u8; 44],
+                connectionlessMTU: USHORT,
+                data: [UCHAR; 44],
             },
         }
         #[packed(1)]
         struct BTH_PING_REQ {
             btAddr: BTH_ADDR,
-            dataLen: u8,
-            data: [u8; 44],
+            dataLen: UCHAR,
+            data: [UCHAR; 44],
         }
+        #[packed(1)]
         struct BTH_PING_RSP {
-            dataLen: u8,
-            data: [u8; 44],
+            dataLen: UCHAR,
+            data: [UCHAR; 44],
         }
         #[packed(1)]
         struct BTH_QUERY_DEVICE {
-            LAP: u32,
-            length: u8,
+            LAP: ULONG,
+            length: UCHAR,
         }
         #[packed(1)]
         struct BTH_QUERY_SERVICE {
-            r#type: u32,
-            serviceHandle: u32,
+            r#type: ULONG,
+            serviceHandle: ULONG,
             uuids: [SdpQueryUuid; 12],
-            numRange: u32,
+            numRange: ULONG,
             pRange: [SdpAttributeRange; 1],
         }
         const BTH_SDP_VERSION: i32 = 1;
@@ -52,12 +53,12 @@ mod Windows {
         struct BTH_SET_SERVICE {
             pSdpVersion: PULONG,
             pRecordHandle: *mut HANDLE,
-            fCodService: u32,
-            Reserved: [u32; 5],
-            ulRecordLength: u32,
-            pRecord: [u8; 1],
+            fCodService: ULONG,
+            Reserved: [ULONG; 5],
+            ulRecordLength: ULONG,
+            pRecord: [UCHAR; 1],
         }
-        const BT_PORT_ANY: u32 = 4294967295;
+        const BT_PORT_ANY: ULONG = 4294967295;
         const BT_PORT_DYN_FIRST: i32 = 4097;
         const BT_PORT_MAX: i32 = 65535;
         const BT_PORT_MIN: i32 = 1;
@@ -91,8 +92,8 @@ mod Windows {
         const RFCOMM_CMD_RPN_RESPONSE: i32 = 5;
         #[packed(1)]
         struct RFCOMM_COMMAND {
-            CmdType: u32,
-            Data: union {
+            CmdType: ULONG,
+            Data: #[packed(1)] union {
                 MSC: RFCOMM_MSC_DATA,
                 RLS: RFCOMM_RLS_DATA,
                 RPN: RFCOMM_RPN_DATA,
@@ -100,21 +101,24 @@ mod Windows {
         }
         const RFCOMM_MAX_MTU: i32 = 1011;
         const RFCOMM_MIN_MTU: i32 = 23;
+        #[packed(1)]
         struct RFCOMM_MSC_DATA {
-            Signals: u8,
-            Break: u8,
+            Signals: UCHAR,
+            Break: UCHAR,
         }
+        #[packed(1)]
         struct RFCOMM_RLS_DATA {
-            LineStatus: u8,
+            LineStatus: UCHAR,
         }
+        #[packed(1)]
         struct RFCOMM_RPN_DATA {
-            Baud: u8,
-            Data: u8,
-            FlowControl: u8,
-            XonChar: u8,
-            XoffChar: u8,
-            ParameterMask1: u8,
-            ParameterMask2: u8,
+            Baud: UCHAR,
+            Data: UCHAR,
+            FlowControl: UCHAR,
+            XonChar: UCHAR,
+            XoffChar: UCHAR,
+            ParameterMask1: UCHAR,
+            ParameterMask2: UCHAR,
         }
         const RLS_ERROR: i32 = 1;
         const RLS_FRAMING: i32 = 8;
@@ -174,10 +178,10 @@ mod Windows {
         const SIO_RFCOMM_WAIT_COMMAND: u32 = 3623878758;
         #[packed(1)]
         struct SOCKADDR_BTH {
-            addressFamily: u16,
+            addressFamily: USHORT,
             btAddr: BTH_ADDR,
             serviceClassId: GUID,
-            port: u32,
+            port: ULONG,
         }
         const SOL_L2CAP: i32 = 256;
         const SOL_RFCOMM: i32 = 3;

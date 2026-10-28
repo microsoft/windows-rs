@@ -1,3 +1,26 @@
+pub const CLSID_MFMediaEngineClassFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb44392da_499b_446b_a4cb_005fead0e6d5);
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_AUDIOCAPABILITIES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x980fbb84_297d_4ea7_895f_bcf28a462881), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_CDM_INPRIVATESTOREPATH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xec305fd9_039f_4ac8_98da_e7921e006a90), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_CDM_STOREPATH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf795841e_99f9_44d7_afc0_d309c04c94ab), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_CONTENTTYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x289fb1fc_d9c4_4cc7_b2be_972b0e9b283a), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_DISTINCTIVEID: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7dc9c4a5_12be_497e_8bff_9b60b2dc5845), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_INITDATATYPES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x497d231b_4eb9_4df0_b474_b9afeb0adf38), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_LABEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x9eae270e_b2d7_4817_b88f_540099f2ef4e), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_PERSISTEDSTATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5d4df6ae_9af1_4e3d_955b_0e4bd22fedf0), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_ROBUSTNESS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x9d3d2b9e_7023_4944_a8f5_ecca52a46990), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_SESSIONTYPES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7623384f_00f5_4376_8698_3458db030ed5), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_EME_VIDEOCAPABILITIES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb172f83d_30dd_4c10_8006_ed53da4d3bdb), pid: 7 };
 pub type MF_HDCP_STATUS = i32;
 pub const MF_HDCP_STATUS_OFF: MF_HDCP_STATUS = 1;
 pub const MF_HDCP_STATUS_ON: MF_HDCP_STATUS = 0;
@@ -14,13 +37,30 @@ pub const MF_MEDIAKEYS_REQUIREMENT_NOT_ALLOWED: MF_MEDIAKEYS_REQUIREMENT = 3;
 pub const MF_MEDIAKEYS_REQUIREMENT_OPTIONAL: MF_MEDIAKEYS_REQUIREMENT = 2;
 pub const MF_MEDIAKEYS_REQUIREMENT_REQUIRED: MF_MEDIAKEYS_REQUIREMENT = 1;
 pub const MF_MEDIA_ENGINE_AUDIOONLY: MF_MEDIA_ENGINE_CREATEFLAGS = 1;
+pub const MF_MEDIA_ENGINE_AUDIO_CATEGORY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8d4c51d_350e_41f2_ba46_faebbb0857f6);
+pub const MF_MEDIA_ENGINE_AUDIO_ENDPOINT_ROLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd2cb93d1_116a_44f2_9385_f7d0fda2fb46);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e0212e2_e18f_41e1_95e5_c0e7e9235bc3);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE10: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11a47afd_6589_4124_b312_6158ec517fc3);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE11: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1cf1315f_ce3f_4035_9391_16142f775189);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE9: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x052c2d39_40c0_4188_ab86_f828273b7522);
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa6f3e465_3aca_442c_a3f0_ad6ddad839ae);
+pub const MF_MEDIA_ENGINE_CALLBACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc60381b8_83a4_41f8_a3d0_de05076849a9);
 pub type MF_MEDIA_ENGINE_CANPLAY = i32;
 pub const MF_MEDIA_ENGINE_CANPLAY_MAYBE: MF_MEDIA_ENGINE_CANPLAY = 1;
 pub const MF_MEDIA_ENGINE_CANPLAY_NOT_SUPPORTED: MF_MEDIA_ENGINE_CANPLAY = 0;
 pub const MF_MEDIA_ENGINE_CANPLAY_PROBABLY: MF_MEDIA_ENGINE_CANPLAY = 2;
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ef26ad4_dc54_45de_b9af_76c8c66bfa8e);
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b25e089_6ca7_4139_a2cb_fcaab39552a3);
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WWA_EDGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x15b29098_9f01_4e4d_b65a_c06c6c89da2a);
+pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_FLAGS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe0350223_5aaf_4d76_a7c3_06de70894db4);
+pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_MANAGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfdd6dfaa_bd85_4af3_9e0f_a01d539d876a);
+pub const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdbcdb7f9_48e4_4295_b70d_d518234eeb38);
+pub const MF_MEDIA_ENGINE_COREWINDOW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfccae4dc_0b7f_41c2_9f96_4659948acddc);
 pub type MF_MEDIA_ENGINE_CREATEFLAGS = i32;
 pub const MF_MEDIA_ENGINE_CREATEFLAGS_MASK: MF_MEDIA_ENGINE_CREATEFLAGS = 31;
 pub const MF_MEDIA_ENGINE_DISABLE_LOCAL_PLUGINS: MF_MEDIA_ENGINE_CREATEFLAGS = 16;
+pub const MF_MEDIA_ENGINE_DXGI_MANAGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x065702da_1094_486d_8617_ee7cc4ee4648);
+pub const MF_MEDIA_ENGINE_EME_CALLBACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x494553a7_a481_4cb7_bec5_380903513731);
 pub const MF_MEDIA_ENGINE_ENABLE_PROTECTED_CONTENT: MF_MEDIA_ENGINE_PROTECTION_FLAGS = 1;
 pub type MF_MEDIA_ENGINE_ERR = i32;
 pub const MF_MEDIA_ENGINE_ERR_ABORTED: MF_MEDIA_ENGINE_ERR = 1;
@@ -69,6 +109,7 @@ pub const MF_MEDIA_ENGINE_EVENT_TIMEUPDATE: MF_MEDIA_ENGINE_EVENT = 18;
 pub const MF_MEDIA_ENGINE_EVENT_TRACKSCHANGE: MF_MEDIA_ENGINE_EVENT = 1010;
 pub const MF_MEDIA_ENGINE_EVENT_VOLUMECHANGE: MF_MEDIA_ENGINE_EVENT = 22;
 pub const MF_MEDIA_ENGINE_EVENT_WAITING: MF_MEDIA_ENGINE_EVENT = 12;
+pub const MF_MEDIA_ENGINE_EXTENSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3109fd46_060d_4b62_8dcf_faff811318d2);
 pub type MF_MEDIA_ENGINE_EXTENSION_TYPE = i32;
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_BYTESTREAM: MF_MEDIA_ENGINE_EXTENSION_TYPE = 1;
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_MEDIASOURCE: MF_MEDIA_ENGINE_EXTENSION_TYPE = 0;
@@ -78,6 +119,8 @@ pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_PROTECTED: MF_MEDIA_ENGINE_FRAME
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_ANTI_SCREEN_SCRAPE_PROTECTION: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = 4;
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_SURFACE_PROTECTION: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = 2;
 pub type MF_MEDIA_ENGINE_KEYERR = i32;
+pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ddd8d45_5aa1_4112_82e5_36f6a2197e6e);
+pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ea80843_b6e4_432c_8ea4_7848ffe4220e);
 pub type MF_MEDIA_ENGINE_NETWORK = i32;
 pub const MF_MEDIA_ENGINE_NETWORK_EMPTY: MF_MEDIA_ENGINE_NETWORK = 0;
 pub const MF_MEDIA_ENGINE_NETWORK_IDLE: MF_MEDIA_ENGINE_NETWORK = 1;
@@ -88,8 +131,11 @@ pub const MF_MEDIA_ENGINE_OPM_FAILED: MF_MEDIA_ENGINE_OPM_STATUS = 5;
 pub const MF_MEDIA_ENGINE_OPM_FAILED_BDA: MF_MEDIA_ENGINE_OPM_STATUS = 3;
 pub const MF_MEDIA_ENGINE_OPM_FAILED_UNSIGNED_DRIVER: MF_MEDIA_ENGINE_OPM_STATUS = 4;
 pub const MF_MEDIA_ENGINE_OPM_FAILED_VM: MF_MEDIA_ENGINE_OPM_STATUS = 2;
+pub const MF_MEDIA_ENGINE_OPM_HWND: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0be8ee7_0572_4f2c_a801_2a151bd3e726);
 pub const MF_MEDIA_ENGINE_OPM_NOT_REQUESTED: MF_MEDIA_ENGINE_OPM_STATUS = 0;
 pub type MF_MEDIA_ENGINE_OPM_STATUS = i32;
+pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd988879b_67c9_4d92_baa7_6eadd446039d);
+pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6debd26f_6ab9_4d7e_b0ee_c61a73ffad15);
 pub type MF_MEDIA_ENGINE_PRELOAD = i32;
 pub const MF_MEDIA_ENGINE_PRELOAD_AUTOMATIC: MF_MEDIA_ENGINE_PRELOAD = 4;
 pub const MF_MEDIA_ENGINE_PRELOAD_EMPTY: MF_MEDIA_ENGINE_PRELOAD = 1;
@@ -111,6 +157,7 @@ pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_TOP_BOTTOM: MF_MEDIA_ENGINE_S3D_PACKI
 pub type MF_MEDIA_ENGINE_SEEK_MODE = i32;
 pub const MF_MEDIA_ENGINE_SEEK_MODE_APPROXIMATE: MF_MEDIA_ENGINE_SEEK_MODE = 1;
 pub const MF_MEDIA_ENGINE_SEEK_MODE_NORMAL: MF_MEDIA_ENGINE_SEEK_MODE = 0;
+pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0ac0c497_b3c4_48c9_9cde_bb8ca2442ca3);
 pub type MF_MEDIA_ENGINE_STATISTIC = i32;
 pub const MF_MEDIA_ENGINE_STATISTIC_BUFFER_PROGRESS: MF_MEDIA_ENGINE_STATISTIC = 3;
 pub const MF_MEDIA_ENGINE_STATISTIC_BYTES_DOWNLOADED: MF_MEDIA_ENGINE_STATISTIC = 2;
@@ -124,17 +171,27 @@ pub type MF_MEDIA_ENGINE_STREAMTYPE_FAILED = i32;
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_AUDIO: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = 1;
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_UNKNOWN: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = 0;
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_VIDEO: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = 2;
+pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5cbfaf44_d2b2_4cfb_80a7_d429c74c789d);
+pub const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc3c2e12f_7e0e_4e43_b91c_dc992ccdfa5e);
+pub const MF_MEDIA_ENGINE_TELEMETRY_APPLICATION_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1e7b273b_a7e4_402a_8f51_c48e88a2cabc);
+pub const MF_MEDIA_ENGINE_TIMEDTEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x805ea411_92e0_4e59_9b6e_5c7d7915e64f);
+pub const MF_MEDIA_ENGINE_TRACK_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65bea312_4043_4815_8eab_44dce2ef8f2a);
 pub const MF_MEDIA_ENGINE_USE_PMP_FOR_ALL_CONTENT: MF_MEDIA_ENGINE_PROTECTION_FLAGS = 2;
 pub const MF_MEDIA_ENGINE_USE_UNPROTECTED_PMP: MF_MEDIA_ENGINE_PROTECTION_FLAGS = 4;
+pub const MF_MEDIA_ENGINE_VIDEO_OUTPUT_FORMAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5066893c_8cf9_42bc_8b8a_472212e52726);
 pub const MF_MEDIA_ENGINE_WAITFORSTABLE_STATE: MF_MEDIA_ENGINE_CREATEFLAGS = 2;
+pub const MF_MSE_ACTIVELIST_CALLBACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x949bda0f_4549_46d5_ad7f_b846e1ab1652);
 pub type MF_MSE_APPEND_MODE = i32;
 pub const MF_MSE_APPEND_MODE_SEGMENTS: MF_MSE_APPEND_MODE = 0;
 pub const MF_MSE_APPEND_MODE_SEQUENCE: MF_MSE_APPEND_MODE = 1;
+pub const MF_MSE_BUFFERLIST_CALLBACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x42e669b0_d60e_4afb_a85b_d8e5fe6bdab5);
+pub const MF_MSE_CALLBACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9063a7c0_42c5_4ffd_a8a8_6fcf9ea3d00c);
 pub type MF_MSE_ERROR = i32;
 pub const MF_MSE_ERROR_DECODE: MF_MSE_ERROR = 2;
 pub const MF_MSE_ERROR_NETWORK: MF_MSE_ERROR = 1;
 pub const MF_MSE_ERROR_NOERROR: MF_MSE_ERROR = 0;
 pub const MF_MSE_ERROR_UNKNOWN_ERROR: MF_MSE_ERROR = 3;
+pub const MF_MSE_OPUS_SUPPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d224cc1_8cc4_48a3_a7a7_e4c16ce6388a);
 pub const MF_MSE_OPUS_SUPPORT_OFF: MF_MSE_OPUS_SUPPORT_TYPE = 1;
 pub const MF_MSE_OPUS_SUPPORT_ON: MF_MSE_OPUS_SUPPORT_TYPE = 0;
 pub type MF_MSE_OPUS_SUPPORT_TYPE = i32;
@@ -142,6 +199,7 @@ pub type MF_MSE_READY = i32;
 pub const MF_MSE_READY_CLOSED: MF_MSE_READY = 1;
 pub const MF_MSE_READY_ENDED: MF_MSE_READY = 3;
 pub const MF_MSE_READY_OPEN: MF_MSE_READY = 2;
+pub const MF_MSE_VP9_SUPPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x92d78429_d88b_4ff0_8322_803efa6e9626);
 pub const MF_MSE_VP9_SUPPORT_DEFAULT: MF_MSE_VP9_SUPPORT_TYPE = 0;
 pub const MF_MSE_VP9_SUPPORT_OFF: MF_MSE_VP9_SUPPORT_TYPE = 2;
 pub const MF_MSE_VP9_SUPPORT_ON: MF_MSE_VP9_SUPPORT_TYPE = 1;

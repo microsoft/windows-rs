@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    const B_GOOD: i32 = 42;
+    const D_GOOD: i32 = 44;
+}

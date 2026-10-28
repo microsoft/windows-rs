@@ -1,50 +1,56 @@
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_sys::core::PCWSTR, qualifier : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_sys::core::PCWSTR, fileid : u32) -> u32);
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
-windows_link::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::PDWORD_PTR) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_sys::core::PCWSTR, fileid : u32, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetSessionDel(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_sys::core::PCWSTR, device : windows_sys::core::PCWSTR, r#type : super::LPDWORD) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetShareDelSticky(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_sys::core::PCWSTR, qualifier : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_sys::core::PCWSTR, fileid : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::PDWORD_PTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_sys::core::PCWSTR, fileid : super::DWORD, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetSessionDel(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_sys::core::PCWSTR, device : windows_sys::core::PCWSTR, r#type : super::LPDWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetShareDelSticky(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CONNECTION_INFO_0 {
-    pub coni0_id: u32,
+    pub coni0_id: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CONNECTION_INFO_1 {
-    pub coni1_id: u32,
-    pub coni1_type: u32,
-    pub coni1_num_opens: u32,
-    pub coni1_num_users: u32,
-    pub coni1_time: u32,
+    pub coni1_id: super::DWORD,
+    pub coni1_type: super::DWORD,
+    pub coni1_num_opens: super::DWORD,
+    pub coni1_num_users: super::DWORD,
+    pub coni1_time: super::DWORD,
     pub coni1_username: windows_sys::core::PWSTR,
     pub coni1_netname: windows_sys::core::PWSTR,
 }
@@ -55,80 +61,108 @@ pub const CSC_CACHE_VDO: i32 = 32;
 pub const CSC_MASK: i32 = 48;
 pub const CSC_MASK_EXT: i32 = 8240;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_INFO_2 {
-    pub fi2_id: u32,
+    pub fi2_id: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_INFO_3 {
-    pub fi3_id: u32,
-    pub fi3_permissions: u32,
-    pub fi3_num_locks: u32,
+    pub fi3_id: super::DWORD,
+    pub fi3_permissions: super::DWORD,
+    pub fi3_num_locks: super::DWORD,
     pub fi3_pathname: windows_sys::core::PWSTR,
     pub fi3_username: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
 pub type LPCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
+#[cfg(feature = "shared")]
 pub type LPCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
+#[cfg(feature = "shared")]
 pub type LPFILE_INFO_2 = *mut FILE_INFO_2;
+#[cfg(feature = "shared")]
 pub type LPFILE_INFO_3 = *mut FILE_INFO_3;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type LPSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
 pub type LPSESSION_INFO_0 = *mut SESSION_INFO_0;
+#[cfg(feature = "shared")]
 pub type LPSESSION_INFO_1 = *mut SESSION_INFO_1;
+#[cfg(feature = "shared")]
 pub type LPSESSION_INFO_10 = *mut SESSION_INFO_10;
+#[cfg(feature = "shared")]
 pub type LPSESSION_INFO_2 = *mut SESSION_INFO_2;
+#[cfg(feature = "shared")]
 pub type LPSESSION_INFO_502 = *mut SESSION_INFO_502;
 pub type LPSHARE_INFO_0 = *mut SHARE_INFO_0;
+#[cfg(feature = "shared")]
 pub type LPSHARE_INFO_1 = *mut SHARE_INFO_1;
 pub type LPSHARE_INFO_1004 = *mut SHARE_INFO_1004;
+#[cfg(feature = "shared")]
 pub type LPSHARE_INFO_1005 = *mut SHARE_INFO_1005;
+#[cfg(feature = "shared")]
 pub type LPSHARE_INFO_1006 = *mut SHARE_INFO_1006;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSHARE_INFO_1501 = *mut SHARE_INFO_1501;
 pub type LPSHARE_INFO_1503 = *mut SHARE_INFO_1503;
+#[cfg(feature = "shared")]
 pub type LPSHARE_INFO_2 = *mut SHARE_INFO_2;
+#[cfg(feature = "shared")]
 pub type LPSHARE_INFO_501 = *mut SHARE_INFO_501;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSHARE_INFO_502 = *mut SHARE_INFO_502;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSHARE_INFO_503 = *mut SHARE_INFO_503;
+#[cfg(feature = "shared")]
 pub type PCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
+#[cfg(feature = "shared")]
 pub type PCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
 pub const PERM_FILE_CREATE: i32 = 4;
 pub const PERM_FILE_READ: i32 = 1;
 pub const PERM_FILE_WRITE: i32 = 2;
+#[cfg(feature = "shared")]
 pub type PFILE_INFO_2 = *mut FILE_INFO_2;
+#[cfg(feature = "shared")]
 pub type PFILE_INFO_3 = *mut FILE_INFO_3;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
 pub type PSESSION_INFO_0 = *mut SESSION_INFO_0;
+#[cfg(feature = "shared")]
 pub type PSESSION_INFO_1 = *mut SESSION_INFO_1;
+#[cfg(feature = "shared")]
 pub type PSESSION_INFO_10 = *mut SESSION_INFO_10;
+#[cfg(feature = "shared")]
 pub type PSESSION_INFO_2 = *mut SESSION_INFO_2;
+#[cfg(feature = "shared")]
 pub type PSESSION_INFO_502 = *mut SESSION_INFO_502;
 pub type PSHARE_INFO_0 = *mut SHARE_INFO_0;
+#[cfg(feature = "shared")]
 pub type PSHARE_INFO_1 = *mut SHARE_INFO_1;
 pub type PSHARE_INFO_1004 = *mut SHARE_INFO_1004;
+#[cfg(feature = "shared")]
 pub type PSHARE_INFO_1005 = *mut SHARE_INFO_1005;
+#[cfg(feature = "shared")]
 pub type PSHARE_INFO_1006 = *mut SHARE_INFO_1006;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSHARE_INFO_1501 = *mut SHARE_INFO_1501;
 pub type PSHARE_INFO_1503 = *mut SHARE_INFO_1503;
+#[cfg(feature = "shared")]
 pub type PSHARE_INFO_2 = *mut SHARE_INFO_2;
+#[cfg(feature = "shared")]
 pub type PSHARE_INFO_501 = *mut SHARE_INFO_501;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSHARE_INFO_502 = *mut SHARE_INFO_502;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSHARE_INFO_503 = *mut SHARE_INFO_503;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_sys::core::PWSTR,
     pub srvai0_target: windows_sys::core::PWSTR,
     pub srvai0_default: super::BOOLEAN,
-    pub srvai0_reserved: u32,
+    pub srvai0_reserved: super::ULONG,
 }
 pub const SESI1_NUM_ELEMENTS: i32 = 8;
 pub const SESI2_NUM_ELEMENTS: i32 = 9;
@@ -138,43 +172,47 @@ pub struct SESSION_INFO_0 {
     pub sesi0_cname: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: windows_sys::core::PWSTR,
     pub sesi1_username: windows_sys::core::PWSTR,
-    pub sesi1_num_opens: u32,
-    pub sesi1_time: u32,
-    pub sesi1_idle_time: u32,
-    pub sesi1_user_flags: u32,
+    pub sesi1_num_opens: super::DWORD,
+    pub sesi1_time: super::DWORD,
+    pub sesi1_idle_time: super::DWORD,
+    pub sesi1_user_flags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: windows_sys::core::PWSTR,
     pub sesi10_username: windows_sys::core::PWSTR,
-    pub sesi10_time: u32,
-    pub sesi10_idle_time: u32,
+    pub sesi10_time: super::DWORD,
+    pub sesi10_idle_time: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: windows_sys::core::PWSTR,
     pub sesi2_username: windows_sys::core::PWSTR,
-    pub sesi2_num_opens: u32,
-    pub sesi2_time: u32,
-    pub sesi2_idle_time: u32,
-    pub sesi2_user_flags: u32,
+    pub sesi2_num_opens: super::DWORD,
+    pub sesi2_time: super::DWORD,
+    pub sesi2_idle_time: super::DWORD,
+    pub sesi2_user_flags: super::DWORD,
     pub sesi2_cltype_name: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: windows_sys::core::PWSTR,
     pub sesi502_username: windows_sys::core::PWSTR,
-    pub sesi502_num_opens: u32,
-    pub sesi502_time: u32,
-    pub sesi502_idle_time: u32,
-    pub sesi502_user_flags: u32,
+    pub sesi502_num_opens: super::DWORD,
+    pub sesi502_time: super::DWORD,
+    pub sesi502_idle_time: super::DWORD,
+    pub sesi502_user_flags: super::DWORD,
     pub sesi502_cltype_name: windows_sys::core::PWSTR,
     pub sesi502_transport: windows_sys::core::PWSTR,
 }
@@ -189,10 +227,11 @@ pub struct SHARE_INFO_0 {
     pub shi0_netname: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: windows_sys::core::PWSTR,
-    pub shi1_type: u32,
+    pub shi1_type: super::DWORD,
     pub shi1_remark: windows_sys::core::PWSTR,
 }
 #[repr(C)]
@@ -201,20 +240,22 @@ pub struct SHARE_INFO_1004 {
     pub shi1004_remark: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_1005 {
-    pub shi1005_flags: u32,
+    pub shi1005_flags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_1006 {
-    pub shi1006_max_uses: u32,
+    pub shi1006_max_uses: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_1501 {
-    pub shi1501_reserved: u32,
+    pub shi1501_reserved: super::DWORD,
     pub shi1501_security_descriptor: super::PSECURITY_DESCRIPTOR,
 }
 #[repr(C)]
@@ -223,54 +264,56 @@ pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: windows_sys::core::PWSTR,
-    pub shi2_type: u32,
+    pub shi2_type: super::DWORD,
     pub shi2_remark: windows_sys::core::PWSTR,
-    pub shi2_permissions: u32,
-    pub shi2_max_uses: u32,
-    pub shi2_current_uses: u32,
+    pub shi2_permissions: super::DWORD,
+    pub shi2_max_uses: super::DWORD,
+    pub shi2_current_uses: super::DWORD,
     pub shi2_path: windows_sys::core::PWSTR,
     pub shi2_passwd: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: windows_sys::core::PWSTR,
-    pub shi501_type: u32,
+    pub shi501_type: super::DWORD,
     pub shi501_remark: windows_sys::core::PWSTR,
-    pub shi501_flags: u32,
+    pub shi501_flags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_sys::core::PWSTR,
-    pub shi502_type: u32,
+    pub shi502_type: super::DWORD,
     pub shi502_remark: windows_sys::core::PWSTR,
-    pub shi502_permissions: u32,
-    pub shi502_max_uses: u32,
-    pub shi502_current_uses: u32,
+    pub shi502_permissions: super::DWORD,
+    pub shi502_max_uses: super::DWORD,
+    pub shi502_current_uses: super::DWORD,
     pub shi502_path: windows_sys::core::PWSTR,
     pub shi502_passwd: windows_sys::core::PWSTR,
-    pub shi502_reserved: u32,
+    pub shi502_reserved: super::DWORD,
     pub shi502_security_descriptor: super::PSECURITY_DESCRIPTOR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_sys::core::PWSTR,
-    pub shi503_type: u32,
+    pub shi503_type: super::DWORD,
     pub shi503_remark: windows_sys::core::PWSTR,
-    pub shi503_permissions: u32,
-    pub shi503_max_uses: u32,
-    pub shi503_current_uses: u32,
+    pub shi503_permissions: super::DWORD,
+    pub shi503_max_uses: super::DWORD,
+    pub shi503_current_uses: super::DWORD,
     pub shi503_path: windows_sys::core::PWSTR,
     pub shi503_passwd: windows_sys::core::PWSTR,
     pub shi503_servername: windows_sys::core::PWSTR,
-    pub shi503_reserved: u32,
+    pub shi503_reserved: super::DWORD,
     pub shi503_security_descriptor: super::PSECURITY_DESCRIPTOR,
 }
 pub const SHARE_MAX_USES_INFOLEVEL: i32 = 1006;
@@ -305,7 +348,8 @@ pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: i32 = 256;
 pub const SHI1005_VALID_FLAGS_SET: i32 = 16777008;
 pub const SHI1_NUM_ELEMENTS: i32 = 4;
 pub const SHI2_NUM_ELEMENTS: i32 = 10;
-pub const SHI_USES_UNLIMITED: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const SHI_USES_UNLIMITED: super::DWORD = 4294967295;
 pub const STYPE_DEVICE: i32 = 2;
 pub const STYPE_DISKTREE: i32 = 0;
 pub const STYPE_IPC: i32 = 3;

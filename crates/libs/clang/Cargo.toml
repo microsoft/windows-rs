@@ -4,7 +4,7 @@ version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"
-description = "Generates RDL from C/C++ headers using libclang"
+description = "Generates RDL from compiler-backed C/C++ header capture"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
@@ -13,11 +13,11 @@ readme = "readme.md"
 workspace = true
 
 [dependencies]
-clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
-windows-default = { workspace = true }
-windows-metadata = { workspace = true }
+windows-clang-sys = { workspace = true }
+windows-rdl = { workspace = true, optional = true }
+windows-metadata = { workspace = true, optional = true }
+proc-macro2 = { workspace = true, optional = true }
+quote = { workspace = true, optional = true }
 
-[dev-dependencies]
-helpers = { workspace = true }
-windows-metadata = { workspace = true }
-windows-rdl = { workspace = true }
+[features]
+projection = ["dep:windows-rdl", "dep:windows-metadata", "dep:proc-macro2", "dep:quote"]

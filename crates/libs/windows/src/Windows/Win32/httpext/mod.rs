@@ -1,45 +1,46 @@
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> windows_core::BOOL {
     windows_core::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> windows_core::BOOL);
     unsafe { GetExtensionVersion(pver as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
-    windows_core::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
+pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> super::DWORD {
+    windows_core::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> super::DWORD);
     unsafe { HttpExtensionProc(pecb) }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::CERT_CONTEXT,
-    pub cbAllocated: u32,
-    pub dwCertificateFlags: u32,
+    pub cbAllocated: super::DWORD,
+    pub dwCertificateFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Debug)]
 pub struct EXTENSION_CONTROL_BLOCK {
-    pub cbSize: u32,
-    pub dwVersion: u32,
+    pub cbSize: super::DWORD,
+    pub dwVersion: super::DWORD,
     pub ConnID: HCONN,
-    pub dwHttpStatusCode: u32,
-    pub lpszLogData: [i8; 80],
+    pub dwHttpStatusCode: super::DWORD,
+    pub lpszLogData: [super::CHAR; 80],
     pub lpszMethod: windows_core::PSTR,
     pub lpszQueryString: windows_core::PSTR,
     pub lpszPathInfo: windows_core::PSTR,
     pub lpszPathTranslated: windows_core::PSTR,
-    pub cbTotalBytes: u32,
-    pub cbAvailable: u32,
+    pub cbTotalBytes: super::DWORD,
+    pub cbAvailable: super::DWORD,
     pub lpbData: super::LPBYTE,
     pub lpszContentType: windows_core::PSTR,
-    pub GetServerVariable: *mut u8,
-    pub WriteClient: *mut u8,
-    pub ReadClient: *mut u8,
-    pub ServerSupportFunction: *mut u8,
+    pub GetServerVariable: Option<unsafe extern "system" fn(HCONN, windows_core::PSTR, super::LPVOID, super::LPDWORD) -> windows_core::BOOL>,
+    pub WriteClient: Option<unsafe extern "system" fn(HCONN, super::LPVOID, super::LPDWORD, super::DWORD) -> windows_core::BOOL>,
+    pub ReadClient: Option<unsafe extern "system" fn(HCONN, super::LPVOID, super::LPDWORD) -> windows_core::BOOL>,
+    pub ServerSupportFunction: Option<unsafe extern "system" fn(HCONN, super::DWORD, super::LPVOID, super::LPDWORD, super::LPDWORD) -> windows_core::BOOL>,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for EXTENSION_CONTROL_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -51,14 +52,15 @@ pub const HSE_APP_FLAG_IN_PROCESS: i32 = 0;
 pub const HSE_APP_FLAG_ISOLATED_OOP: i32 = 1;
 pub const HSE_APP_FLAG_POOLED_OOP: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_CUSTOM_ERROR_INFO {
-    pub pszStatus: *mut i8,
-    pub uHttpSubError: u16,
+    pub pszStatus: *mut super::CHAR,
+    pub uHttpSubError: super::USHORT,
     pub fAsync: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: windows_core::PWSTR,
@@ -66,7 +68,7 @@ pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszChildHeaders: windows_core::PSTR,
     pub pUserInfo: LPHSE_EXEC_UNICODE_URL_USER_INFO,
     pub pEntity: LPHSE_EXEC_URL_ENTITY_INFO,
-    pub dwExecUrlFlags: u32,
+    pub dwExecUrlFlags: super::DWORD,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -78,16 +80,17 @@ pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
 }
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: i32 = 32;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
-    pub cbAvailable: u32,
-    pub lpbData: *mut core::ffi::c_void,
+    pub cbAvailable: super::DWORD,
+    pub lpbData: super::LPVOID,
 }
 pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: i32 = 128;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: i32 = 4;
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: windows_core::PSTR,
@@ -95,16 +98,17 @@ pub struct HSE_EXEC_URL_INFO {
     pub pszChildHeaders: windows_core::PSTR,
     pub pUserInfo: LPHSE_EXEC_URL_USER_INFO,
     pub pEntity: LPHSE_EXEC_URL_ENTITY_INFO,
-    pub dwExecUrlFlags: u32,
+    pub dwExecUrlFlags: super::DWORD,
 }
 pub const HSE_EXEC_URL_NO_HEADERS: i32 = 2;
 pub const HSE_EXEC_URL_SSI_CMD: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_STATUS {
-    pub uHttpStatusCode: u16,
-    pub uHttpSubStatus: u16,
-    pub dwWin32Error: u32,
+    pub uHttpStatusCode: super::USHORT,
+    pub uHttpSubStatus: super::USHORT,
+    pub dwWin32Error: super::DWORD,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -167,21 +171,23 @@ pub const HSE_REQ_SET_FLUSH_FLAG: i32 = 1043;
 pub const HSE_REQ_TRANSMIT_FILE: i32 = 1006;
 pub const HSE_REQ_VECTOR_SEND: i32 = 1037;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_RESPONSE_VECTOR {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub pszStatus: windows_core::PSTR,
     pub pszHeaders: windows_core::PSTR,
-    pub nElementCount: u32,
+    pub nElementCount: super::DWORD,
     pub lpElementArray: LPHSE_VECTOR_ELEMENT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: windows_core::PCSTR,
     pub pszHeader: windows_core::PCSTR,
-    pub cchStatus: u32,
-    pub cchHeader: u32,
+    pub cchStatus: super::DWORD,
+    pub cchHeader: super::DWORD,
     pub fKeepConn: windows_core::BOOL,
 }
 pub const HSE_STATUS_ERROR: i32 = 4;
@@ -191,42 +197,46 @@ pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: i32 = 2;
 pub const HSE_TERM_ADVISORY_UNLOAD: i32 = 1;
 pub const HSE_TERM_MUST_UNLOAD: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
-    pub pContext: *mut core::ffi::c_void,
+    pub pContext: super::PVOID,
     pub hFile: super::HANDLE,
     pub pszStatusCode: windows_core::PCSTR,
-    pub BytesToWrite: u32,
-    pub Offset: u32,
-    pub pHead: *mut core::ffi::c_void,
-    pub HeadLength: u32,
-    pub pTail: *mut core::ffi::c_void,
-    pub TailLength: u32,
-    pub dwFlags: u32,
+    pub BytesToWrite: super::DWORD,
+    pub Offset: super::DWORD,
+    pub pHead: super::PVOID,
+    pub HeadLength: super::DWORD,
+    pub pTail: super::PVOID,
+    pub TailLength: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_TRACE_INFO {
     pub fTraceRequest: windows_core::BOOL,
-    pub TraceContextId: [u8; 16],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub TraceContextId: [super::BYTE; 16],
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for HSE_TRACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
-    pub lpszPath: [u16; 260],
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
+    pub lpszPath: [super::WCHAR; 260],
+    pub dwFlags: super::DWORD,
+    pub cchMatchingPath: super::DWORD,
+    pub cchMatchingURL: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HSE_UNICODE_URL_MAPEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -244,37 +254,43 @@ pub const HSE_URL_FLAGS_SSL: i32 = 8;
 pub const HSE_URL_FLAGS_SSL128: i32 = 256;
 pub const HSE_URL_FLAGS_WRITE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_URL_MAPEX_INFO {
-    pub lpszPath: [i8; 260],
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub lpszPath: [super::CHAR; 260],
+    pub dwFlags: super::DWORD,
+    pub cchMatchingPath: super::DWORD,
+    pub cchMatchingURL: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for HSE_URL_MAPEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_VECTOR_ELEMENT {
-    pub ElementType: u32,
-    pub pvContext: *mut core::ffi::c_void,
-    pub cbOffset: u64,
-    pub cbSize: u64,
+    pub ElementType: super::DWORD,
+    pub pvContext: super::PVOID,
+    pub cbOffset: super::ULONGLONG,
+    pub cbSize: super::ULONGLONG,
 }
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: i32 = 1;
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: i32 = 0;
-pub const HSE_VERSION: i32 = 524288;
+#[cfg(feature = "shared")]
+pub const HSE_VERSION: super::LONG = 0x80000_u32 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_VERSION_INFO {
-    pub dwExtensionVersion: u32,
-    pub lpszExtensionDesc: [i8; 256],
+    pub dwExtensionVersion: super::DWORD,
+    pub lpszExtensionDesc: [super::CHAR; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for HSE_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -282,33 +298,47 @@ impl Default for HSE_VERSION_INFO {
 }
 pub const HSE_VERSION_MAJOR: i32 = 8;
 pub const HSE_VERSION_MINOR: i32 = 0;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPEXTENSION_CONTROL_BLOCK = *mut EXTENSION_CONTROL_BLOCK;
+#[cfg(feature = "shared")]
 pub type LPHSE_CUSTOM_ERROR_INFO = *mut HSE_CUSTOM_ERROR_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPHSE_EXEC_UNICODE_URL_INFO = *mut HSE_EXEC_UNICODE_URL_INFO;
 #[cfg(feature = "winnt")]
 pub type LPHSE_EXEC_UNICODE_URL_USER_INFO = *mut HSE_EXEC_UNICODE_URL_USER_INFO;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPHSE_EXEC_URL_ENTITY_INFO = *mut HSE_EXEC_URL_ENTITY_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPHSE_EXEC_URL_INFO = *mut HSE_EXEC_URL_INFO;
+#[cfg(feature = "shared")]
 pub type LPHSE_EXEC_URL_STATUS = *mut HSE_EXEC_URL_STATUS;
 #[cfg(feature = "winnt")]
 pub type LPHSE_EXEC_URL_USER_INFO = *mut HSE_EXEC_URL_USER_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPHSE_RESPONSE_VECTOR = *mut HSE_RESPONSE_VECTOR;
+#[cfg(feature = "shared")]
 pub type LPHSE_SEND_HEADER_EX_INFO = *mut HSE_SEND_HEADER_EX_INFO;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPHSE_TF_INFO = *mut HSE_TF_INFO;
+#[cfg(feature = "shared")]
 pub type LPHSE_TRACE_INFO = *mut HSE_TRACE_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPHSE_UNICODE_URL_MAPEX_INFO = *mut HSE_UNICODE_URL_MAPEX_INFO;
+#[cfg(feature = "shared")]
 pub type LPHSE_URL_MAPEX_INFO = *mut HSE_URL_MAPEX_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPHSE_VECTOR_ELEMENT = *mut HSE_VECTOR_ELEMENT;
+#[cfg(feature = "shared")]
 pub type LPHSE_VERSION_INFO = *mut HSE_VERSION_INFO;
+#[cfg(feature = "shared")]
 pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> windows_core::BOOL>;
-pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: *mut u16) -> windows_core::HRESULT>;
-pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[cfg(feature = "minwindef")]
-pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
-#[cfg(feature = "minwindef")]
-pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
-pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> windows_core::BOOL>;
+#[cfg(feature = "winnt")]
+pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: *mut super::WCHAR) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_core::PCWSTR, dwcustominterfaceid: super::DWORD, ppcustominterface: *mut super::PVOID) -> windows_core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: super::PVOID, cbio: super::DWORD, dwerror: super::DWORD)>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: super::DWORD) -> windows_core::BOOL>;

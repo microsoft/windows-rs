@@ -56,7 +56,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Clears the current target to `color`.
     pub fn clear(&self, color: ColorF) {
-        let c: D2D_COLOR_F = color.into();
+        let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
 
@@ -179,7 +179,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Creates a solid-color brush for this device context.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
-        let c: D2D_COLOR_F = color.into();
+        let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
@@ -409,10 +409,7 @@ impl<'a> DrawingSession<'a> {
             let previous = self.context.GetTarget();
             self.context.SetTarget(&bitmap.0);
             f();
-            match previous {
-                Ok(prev) => self.context.SetTarget(&prev),
-                Err(_) => self.context.SetTarget(None::<&ID2D1Image>),
-            }
+            self.context.SetTarget(previous.as_ref());
         }
     }
 

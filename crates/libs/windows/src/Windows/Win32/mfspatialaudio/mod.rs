@@ -11,10 +11,12 @@ impl core::ops::Deref for IMFSpatialAudioObjectBuffer {
 windows_core::imp::interface_hierarchy!(IMFSpatialAudioObjectBuffer, windows_core::IUnknown, super::IMFMediaBuffer);
 #[cfg(feature = "mfobjects")]
 impl IMFSpatialAudioObjectBuffer {
-    pub unsafe fn SetID(&self, u32id: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetID(&self, u32id: super::UINT32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetID)(windows_core::Interface::as_raw(self), u32id) }
     }
-    pub unsafe fn GetID(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetID(&self) -> windows_core::Result<super::UINT32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -44,8 +46,14 @@ impl IMFSpatialAudioObjectBuffer {
 #[doc(hidden)]
 pub struct IMFSpatialAudioObjectBuffer_Vtbl {
     pub base__: super::IMFMediaBuffer_Vtbl,
-    pub SetID: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetID: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetID: usize,
+    #[cfg(feature = "shared")]
+    pub GetID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetID: usize,
     #[cfg(feature = "spatialaudioclient")]
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, super::AudioObjectType) -> windows_core::HRESULT,
     #[cfg(not(feature = "spatialaudioclient"))]
@@ -59,24 +67,24 @@ pub struct IMFSpatialAudioObjectBuffer_Vtbl {
     #[cfg(not(feature = "spatialaudiometadata"))]
     GetMetadataItems: usize,
 }
-#[cfg(all(feature = "mfobjects", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
+#[cfg(all(feature = "mfobjects", feature = "shared", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
 pub trait IMFSpatialAudioObjectBuffer_Impl: super::IMFMediaBuffer_Impl {
-    fn SetID(&self, u32id: u32) -> windows_core::Result<()>;
-    fn GetID(&self) -> windows_core::Result<u32>;
+    fn SetID(&self, u32id: super::UINT32) -> windows_core::Result<()>;
+    fn GetID(&self) -> windows_core::Result<super::UINT32>;
     fn SetType(&self, r#type: super::AudioObjectType) -> windows_core::Result<()>;
     fn GetType(&self) -> windows_core::Result<super::AudioObjectType>;
     fn GetMetadataItems(&self) -> windows_core::Result<super::ISpatialAudioMetadataItems>;
 }
-#[cfg(all(feature = "mfobjects", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
+#[cfg(all(feature = "mfobjects", feature = "shared", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
 impl IMFSpatialAudioObjectBuffer_Vtbl {
     pub const fn new<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetID<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32id: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetID<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32id: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFSpatialAudioObjectBuffer_Impl::SetID(this, core::mem::transmute_copy(&u32id)).into()
             }
         }
-        unsafe extern "system" fn GetID<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pu32id: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetID<Identity: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pu32id: *mut super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioObjectBuffer_Impl::GetID(this) {
@@ -114,7 +122,10 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
                         ppmetadataitems.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppmetadataitems.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -131,7 +142,7 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
         iid == &<IMFSpatialAudioObjectBuffer as windows_core::Interface>::IID || iid == &<super::IMFMediaBuffer as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mfobjects", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
+#[cfg(all(feature = "mfobjects", feature = "shared", feature = "spatialaudioclient", feature = "spatialaudiometadata"))]
 impl windows_core::RuntimeName for IMFSpatialAudioObjectBuffer {}
 #[cfg(feature = "mfobjects")]
 windows_core::imp::define_interface!(IMFSpatialAudioSample, IMFSpatialAudioSample_Vtbl, 0xabf28a9b_3393_4290_ba79_5ffc46d986b2);
@@ -146,7 +157,8 @@ impl core::ops::Deref for IMFSpatialAudioSample {
 windows_core::imp::interface_hierarchy!(IMFSpatialAudioSample, windows_core::IUnknown, super::IMFAttributes, super::IMFSample);
 #[cfg(feature = "mfobjects")]
 impl IMFSpatialAudioSample {
-    pub unsafe fn GetObjectCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetObjectCount(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetObjectCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -158,7 +170,8 @@ impl IMFSpatialAudioSample {
     {
         unsafe { (windows_core::Interface::vtable(self).AddSpatialAudioObject)(windows_core::Interface::as_raw(self), paudioobjbuffer.param().abi()) }
     }
-    pub unsafe fn GetSpatialAudioObjectByIndex(&self, dwindex: u32) -> windows_core::Result<IMFSpatialAudioObjectBuffer> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSpatialAudioObjectBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSpatialAudioObjectByIndex)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -170,20 +183,26 @@ impl IMFSpatialAudioSample {
 #[doc(hidden)]
 pub struct IMFSpatialAudioSample_Vtbl {
     pub base__: super::IMFSample_Vtbl,
-    pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetObjectCount: usize,
     pub AddSpatialAudioObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSpatialAudioObjectByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSpatialAudioObjectByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSpatialAudioObjectByIndex: usize,
 }
-#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSpatialAudioSample_Impl: super::IMFSample_Impl {
-    fn GetObjectCount(&self) -> windows_core::Result<u32>;
+    fn GetObjectCount(&self) -> windows_core::Result<super::DWORD>;
     fn AddSpatialAudioObject(&self, paudioobjbuffer: windows_core::Ref<IMFSpatialAudioObjectBuffer>) -> windows_core::Result<()>;
-    fn GetSpatialAudioObjectByIndex(&self, dwindex: u32) -> windows_core::Result<IMFSpatialAudioObjectBuffer>;
+    fn GetSpatialAudioObjectByIndex(&self, dwindex: super::DWORD) -> windows_core::Result<IMFSpatialAudioObjectBuffer>;
 }
-#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSpatialAudioSample_Vtbl {
     pub const fn new<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetObjectCount<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwobjectcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectCount<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwobjectcount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioSample_Impl::GetObjectCount(this) {
@@ -201,7 +220,7 @@ impl IMFSpatialAudioSample_Vtbl {
                 IMFSpatialAudioSample_Impl::AddSpatialAudioObject(this, core::mem::transmute_copy(&paudioobjbuffer)).into()
             }
         }
-        unsafe extern "system" fn GetSpatialAudioObjectByIndex<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, ppaudioobjbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpatialAudioObjectByIndex<Identity: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: super::DWORD, ppaudioobjbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioSample_Impl::GetSpatialAudioObjectByIndex(this, core::mem::transmute_copy(&dwindex)) {
@@ -209,7 +228,10 @@ impl IMFSpatialAudioSample_Vtbl {
                         ppaudioobjbuffer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => {
+                        ppaudioobjbuffer.write(core::mem::zeroed());
+                        err.into()
+                    }
                 }
             }
         }
@@ -224,5 +246,5 @@ impl IMFSpatialAudioSample_Vtbl {
         iid == &<IMFSpatialAudioSample as windows_core::Interface>::IID || iid == &<super::IMFAttributes as windows_core::Interface>::IID || iid == &<super::IMFSample as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFSpatialAudioSample {}

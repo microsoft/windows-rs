@@ -5,9 +5,11 @@
 // Contrast with `type_closure` (default style), where `IInner::Value` is emitted.
 #[win32]
 mod Test {
+    #[guid(auto)]
     interface IOuter {
         fn GetInner(&self) -> IInner;
     }
+    #[guid(auto)]
     interface IInner {
         fn Value(&self) -> i32;
     }

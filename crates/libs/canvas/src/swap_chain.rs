@@ -130,7 +130,7 @@ impl SwapChain {
     }
 
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
-        let c: D2D_COLOR_F = color.into();
+        let c: D2D1_COLOR_F = color.into();
         unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 

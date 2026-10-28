@@ -8,12 +8,13 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(Compositor)]
+    #[guid(auto)]
     interface ICompositor {
-        fn CreateContainerVisual(&self, children: i32) -> ContainerVisual;
-        fn CreateSpriteVisual(&self, brush: i32) -> SpriteVisual;
+        fn CreateContainerVisual(&self, #[in] children: i32) -> ContainerVisual;
+        fn CreateSpriteVisual(&self, #[in] brush: i32) -> SpriteVisual;
 
         // Returns `visual`, so clients pass a derived class as its base and recover it.
-        fn Echo(&self, visual: Visual) -> Visual;
+        fn Echo(&self, #[in] visual: Visual) -> Visual;
     }
 
     // A closed hierarchy: the unsealed classes have no constructors, so only the component
@@ -24,6 +25,7 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(Visual)]
+    #[guid(auto)]
     interface IVisual {
         #[get]
         Compositor: Compositor;
@@ -35,6 +37,7 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(ContainerVisual)]
+    #[guid(auto)]
     interface IContainerVisual {
         #[get]
         #[NoException]
@@ -46,6 +49,7 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(SpriteVisual)]
+    #[guid(auto)]
     interface ISpriteVisual {
         #[get]
         #[NoException]

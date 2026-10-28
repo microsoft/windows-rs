@@ -1,18 +1,20 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_REAL_TIME {
-    pub Year: u16,
-    pub Month: u8,
-    pub Day: u8,
-    pub Hour: u8,
-    pub Minute: u8,
-    pub Second: u8,
-    pub Valid: u8,
-    pub Milliseconds: u16,
-    pub TimeZone: i16,
-    pub DayLight: u8,
-    pub Reserved1: [u8; 3],
+    pub Year: super::UINT16,
+    pub Month: super::UINT8,
+    pub Day: super::UINT8,
+    pub Hour: super::UINT8,
+    pub Minute: super::UINT8,
+    pub Second: super::UINT8,
+    pub Valid: super::UINT8,
+    pub Milliseconds: super::UINT16,
+    pub TimeZone: super::INT16,
+    pub DayLight: super::UINT8,
+    pub Reserved1: [super::UINT8; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for ACPI_REAL_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -20,7 +22,7 @@ impl Default for ACPI_REAL_TIME {
 }
 pub const ACPI_TIME_ADJUST_DAYLIGHT: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub AcWakeSupported: super::BOOLEAN,
@@ -30,7 +32,7 @@ pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub S5AcWakeSupported: super::BOOLEAN,
     pub S5DcWakeSupported: super::BOOLEAN,
     pub S4S5WakeStatusSupported: super::BOOLEAN,
-    pub DeepestWakeSystemState: u32,
+    pub DeepestWakeSystemState: super::ULONG,
     pub RealTimeFeaturesSupported: super::BOOLEAN,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
@@ -44,11 +46,13 @@ pub const AcpiTimeResolutionSeconds: ACPI_TIME_RESOLUTION = 1;
 pub const BATTERY_CAPACITY_RELATIVE: i32 = 1073741824;
 pub type BATTERY_CHARGER_ID = windows_core::GUID;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub VaData: [u32; 1],
+    pub VaData: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BATTERY_CHARGER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -56,13 +60,14 @@ impl Default for BATTERY_CHARGER_STATUS {
 }
 pub const BATTERY_CHARGING: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub MaxCurrent: u32,
+    pub MaxCurrent: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
@@ -72,19 +77,21 @@ pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
 pub const BATTERY_CRITICAL: i32 = 8;
 pub const BATTERY_DISCHARGING: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_INFORMATION {
-    pub Capabilities: u32,
-    pub Technology: u8,
-    pub Reserved: [u8; 3],
-    pub Chemistry: [u8; 4],
-    pub DesignedCapacity: u32,
-    pub FullChargedCapacity: u32,
-    pub DefaultAlert1: u32,
-    pub DefaultAlert2: u32,
-    pub CriticalBias: u32,
-    pub CycleCount: u32,
+    pub Capabilities: super::ULONG,
+    pub Technology: super::UCHAR,
+    pub Reserved: [super::UCHAR; 3],
+    pub Chemistry: [super::UCHAR; 4],
+    pub DesignedCapacity: super::ULONG,
+    pub FullChargedCapacity: super::ULONG,
+    pub DefaultAlert1: super::ULONG,
+    pub DefaultAlert2: super::ULONG,
+    pub CriticalBias: super::ULONG,
+    pub CycleCount: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for BATTERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -92,19 +99,21 @@ impl Default for BATTERY_INFORMATION {
 }
 pub const BATTERY_IS_SHORT_TERM: i32 = 536870912;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_MANUFACTURE_DATE {
-    pub Day: u8,
-    pub Month: u8,
-    pub Year: u16,
+    pub Day: super::UCHAR,
+    pub Month: super::UCHAR,
+    pub Year: super::USHORT,
 }
 pub const BATTERY_POWER_ON_LINE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_QUERY_INFORMATION {
-    pub BatteryTag: u32,
+    pub BatteryTag: super::ULONG,
     pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
-    pub AtRate: u32,
+    pub AtRate: super::ULONG,
 }
 pub type BATTERY_QUERY_INFORMATION_LEVEL = i32;
 pub const BATTERY_SEALED: i32 = 268435456;
@@ -113,12 +122,14 @@ pub const BATTERY_SET_CHARGE_SUPPORTED: i32 = 1;
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: i32 = 4;
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_SET_INFORMATION {
-    pub BatteryTag: u32,
+    pub BatteryTag: super::ULONG,
     pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
-    pub Buffer: [u8; 1],
+    pub Buffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BATTERY_SET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -126,12 +137,13 @@ impl Default for BATTERY_SET_INFORMATION {
 }
 pub type BATTERY_SET_INFORMATION_LEVEL = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_STATUS {
-    pub PowerState: u32,
-    pub Capacity: u32,
-    pub Voltage: u32,
-    pub Rate: i32,
+    pub PowerState: super::ULONG,
+    pub Capacity: super::ULONG,
+    pub Voltage: super::ULONG,
+    pub Rate: super::LONG,
 }
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648;
 pub const BATTERY_TAG_INVALID: i32 = 0;
@@ -142,28 +154,30 @@ pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648;
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295;
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_USB_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub Reserved: u32,
-    pub Flags: u32,
-    pub MaxCurrent: u32,
-    pub Voltage: u32,
+    pub Reserved: super::ULONG,
+    pub Flags: super::ULONG,
+    pub MaxCurrent: super::ULONG,
+    pub Voltage: super::ULONG,
     pub PortType: USB_CHARGER_PORT,
-    pub PortId: u64,
-    pub PowerSourceInformation: *mut core::ffi::c_void,
+    pub PortId: super::ULONGLONG,
+    pub PowerSourceInformation: super::PVOID,
     pub OemCharger: BATTERY_CHARGER_ID,
 }
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: i32 = 1;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_WAIT_STATUS {
-    pub BatteryTag: u32,
-    pub Timeout: u32,
-    pub PowerState: u32,
-    pub LowCapacity: u32,
-    pub HighCapacity: u32,
+    pub BatteryTag: super::ULONG,
+    pub Timeout: super::ULONG,
+    pub PowerState: super::ULONG,
+    pub LowCapacity: super::ULONG,
+    pub HighCapacity: super::ULONG,
 }
 pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = 1;
 pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = 4;
@@ -185,23 +199,26 @@ pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = 8;
 pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = 2;
 pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOMIZED_IO_CAPABILITIES {
-    pub SupportedInputs: u32,
-    pub SupportedOutputs: u32,
+    pub SupportedInputs: super::ULONG,
+    pub SupportedOutputs: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOMIZED_IO_QUERY_INPUT_RETURN {
-    pub FunctionId: u32,
-    pub ErrorCode: u32,
-    pub Value: u32,
+    pub FunctionId: super::ULONG,
+    pub ErrorCode: super::ULONG,
+    pub Value: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOMIZED_IO_SEND_OUTPUT_BUFFER {
-    pub FunctionId: u32,
-    pub Value: u32,
+    pub FunctionId: super::ULONG,
+    pub Value: super::ULONG,
 }
 pub const GUID_CLASS_INPUT: windows_core::GUID = windows_core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
 pub const GUID_DEVICE_ACPI_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c);
@@ -250,133 +267,162 @@ pub const IOCTL_THERMAL_SET_COOLING_POLICY: i32 = 2719876;
 pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: i32 = 2719884;
 pub const MAX_ACTIVE_COOLING_LEVELS: i32 = 10;
 pub const MAX_BATTERY_STRING_SIZE: i32 = 128;
+#[cfg(feature = "shared")]
 pub type PACPI_REAL_TIME = *mut ACPI_REAL_TIME;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PACPI_TIME_AND_ALARM_CAPABILITIES = *mut ACPI_TIME_AND_ALARM_CAPABILITIES;
 pub type PACPI_TIME_RESOLUTION = *mut ACPI_TIME_RESOLUTION;
 pub const PASSIVE_COOLING: i32 = 1;
 pub type PBATTERY_CHARGER_ID = *mut windows_core::GUID;
+#[cfg(feature = "shared")]
 pub type PBATTERY_CHARGER_STATUS = *mut BATTERY_CHARGER_STATUS;
+#[cfg(feature = "shared")]
 pub type PBATTERY_CHARGING_SOURCE = *mut BATTERY_CHARGING_SOURCE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PBATTERY_CHARGING_SOURCE_INFORMATION = *mut BATTERY_CHARGING_SOURCE_INFORMATION;
 pub type PBATTERY_CHARGING_SOURCE_TYPE = *mut BATTERY_CHARGING_SOURCE_TYPE;
+#[cfg(feature = "shared")]
 pub type PBATTERY_INFORMATION = *mut BATTERY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PBATTERY_MANUFACTURE_DATE = *mut BATTERY_MANUFACTURE_DATE;
+#[cfg(feature = "shared")]
 pub type PBATTERY_QUERY_INFORMATION = *mut BATTERY_QUERY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PBATTERY_SET_INFORMATION = *mut BATTERY_SET_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PBATTERY_STATUS = *mut BATTERY_STATUS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBATTERY_USB_CHARGER_STATUS = *mut BATTERY_USB_CHARGER_STATUS;
+#[cfg(feature = "shared")]
 pub type PBATTERY_WAIT_STATUS = *mut BATTERY_WAIT_STATUS;
+#[cfg(feature = "shared")]
 pub type PCUSTOMIZED_IO_CAPABILITIES = *mut CUSTOMIZED_IO_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PCUSTOMIZED_IO_QUERY_INPUT_RETURN = *mut CUSTOMIZED_IO_QUERY_INPUT_RETURN;
+#[cfg(feature = "shared")]
 pub type PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER = *mut CUSTOMIZED_IO_SEND_OUTPUT_BUFFER;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ADAPTER_CHARGE_REQUIREMENT {
-    pub AcAdapterType: u32,
-    pub MinimumPower: u32,
-    pub NominalPower: u32,
-    pub MaximumPower: u32,
+    pub AcAdapterType: super::ULONG,
+    pub MinimumPower: super::ULONG,
+    pub NominalPower: super::ULONG,
+    pub MaximumPower: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union POWER_ADAPTER_POWER_STATES {
     pub States: POWER_ADAPTER_POWER_STATES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for POWER_ADAPTER_POWER_STATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ADAPTER_POWER_STATES_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl POWER_ADAPTER_POWER_STATES_0 {
-    pub fn Online(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Online(&self) -> super::ULONG {
+        (self._bitfield) & 1
     }
-    pub fn set_Online(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Online(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn RecState(&self) -> u32 {
-        (self._bitfield << 29) >> 30
+    pub fn RecState(&self) -> super::ULONG {
+        (self._bitfield >> 1) & 3
     }
-    pub fn set_RecState(&mut self, value: u32) {
+    pub fn set_RecState(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::ULONG {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
 pub const POWER_ADAPTER_REC_TIME_NOT_AVAILABLE: u64 = 18446744073709551615;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_ADAPTER_SET_STATUS_BUFFER {
-    pub Version: u8,
+    pub Version: super::UCHAR,
     pub RecOverride: super::BOOLEAN,
-    pub Reserved: [u8; 2],
+    pub Reserved: [super::UCHAR; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for POWER_ADAPTER_SET_STATUS_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct POWER_ADAPTER_STATUS {
-    pub Version: u8,
-    pub Reserved: [u8; 3],
+    pub Version: super::UCHAR,
+    pub Reserved: [super::UCHAR; 3],
     pub PowerState: POWER_ADAPTER_POWER_STATES,
-    pub PeakPower: u32,
-    pub MaxOutputPower: u32,
-    pub MaxInputPower: u32,
-    pub RecStartTime: u64,
-    pub RecEndTime: u64,
+    pub PeakPower: super::ULONG,
+    pub MaxOutputPower: super::ULONG,
+    pub MaxInputPower: super::ULONG,
+    pub RecStartTime: super::ULONG64,
+    pub RecEndTime: super::ULONG64,
 }
+#[cfg(feature = "shared")]
 impl Default for POWER_ADAPTER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type PPOWER_ADAPTER_CHARGE_REQUIREMENT = *mut POWER_ADAPTER_CHARGE_REQUIREMENT;
+#[cfg(feature = "shared")]
 pub type PPOWER_ADAPTER_POWER_STATES = *mut POWER_ADAPTER_POWER_STATES;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPOWER_ADAPTER_SET_STATUS_BUFFER = *mut POWER_ADAPTER_SET_STATUS_BUFFER;
+#[cfg(feature = "shared")]
 pub type PPOWER_ADAPTER_STATUS = *mut POWER_ADAPTER_STATUS;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_OBJECT_INFO = *mut PROCESSOR_OBJECT_INFO;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_OBJECT_INFO_EX = *mut PROCESSOR_OBJECT_INFO_EX;
 #[cfg(feature = "devpropdef")]
 pub const PROCESSOR_NUMBER_PKEY: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO {
-    pub PhysicalID: u32,
-    pub PBlkAddress: u32,
-    pub PBlkLength: u8,
+    pub PhysicalID: super::ULONG,
+    pub PBlkAddress: super::ULONG,
+    pub PBlkLength: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO_EX {
-    pub PhysicalID: u32,
-    pub PBlkAddress: u32,
-    pub PBlkLength: u8,
-    pub InitialApicId: u32,
+    pub PhysicalID: super::ULONG,
+    pub PBlkAddress: super::ULONG,
+    pub PBlkLength: super::UCHAR,
+    pub InitialApicId: super::ULONG,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PTHERMAL_INFORMATION = *mut THERMAL_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTHERMAL_POLICY = *mut THERMAL_POLICY;
+#[cfg(feature = "shared")]
 pub type PTHERMAL_WAIT_READ = *mut THERMAL_WAIT_READ;
 pub type PUSB_CHARGER_PORT = *mut USB_CHARGER_PORT;
+#[cfg(feature = "shared")]
 pub type PWAKE_ALARM_INFORMATION = *mut WAKE_ALARM_INFORMATION;
 pub const SYS_BUTTON_LID: i32 = 4;
 pub const SYS_BUTTON_LID_CHANGED: i32 = 524288;
@@ -388,48 +434,49 @@ pub const SYS_BUTTON_POWER: i32 = 1;
 pub const SYS_BUTTON_SLEEP: i32 = 2;
 pub const SYS_BUTTON_WAKE: u32 = 2147483648;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_INFORMATION {
-    pub ThermalStamp: u32,
-    pub ThermalConstant1: u32,
-    pub ThermalConstant2: u32,
+    pub ThermalStamp: super::ULONG,
+    pub ThermalConstant1: super::ULONG,
+    pub ThermalConstant2: super::ULONG,
     pub Processors: super::KAFFINITY,
-    pub SamplingPeriod: u32,
-    pub CurrentTemperature: u32,
-    pub PassiveTripPoint: u32,
-    pub CriticalTripPoint: u32,
-    pub ActiveTripPointCount: u8,
-    pub ActiveTripPoint: [u32; 10],
+    pub SamplingPeriod: super::ULONG,
+    pub CurrentTemperature: super::ULONG,
+    pub PassiveTripPoint: super::ULONG,
+    pub CriticalTripPoint: super::ULONG,
+    pub ActiveTripPointCount: super::UCHAR,
+    pub ActiveTripPoint: [super::ULONG; 10],
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for THERMAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_POLICY {
-    pub Version: u32,
+    pub Version: super::ULONG,
     pub WaitForUpdate: super::BOOLEAN,
     pub Hibernate: super::BOOLEAN,
     pub Critical: super::BOOLEAN,
     pub ThermalStandby: super::BOOLEAN,
-    pub ActivationReasons: u32,
-    pub PassiveLimit: u32,
-    pub ActiveLevel: u32,
+    pub ActivationReasons: super::ULONG,
+    pub PassiveLimit: super::ULONG,
+    pub ActiveLevel: super::ULONG,
     pub OverThrottled: super::BOOLEAN,
 }
 pub const THERMAL_POLICY_VERSION_1: i32 = 1;
 pub const THERMAL_POLICY_VERSION_2: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_WAIT_READ {
-    pub Timeout: u32,
-    pub LowTemperature: u32,
-    pub HighTemperature: u32,
+    pub Timeout: super::ULONG,
+    pub LowTemperature: super::ULONG,
+    pub HighTemperature: super::ULONG,
 }
 pub const THERMAL_WAIT_READ_TIMEOUT_IMMEDIATE: i32 = 0;
 pub const THERMAL_WAIT_READ_TIMEOUT_NONE: u32 = 4294967295;
@@ -444,8 +491,9 @@ pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = 0;
 pub const UsbChargerPort_Max: USB_CHARGER_PORT = 2;
 pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAKE_ALARM_INFORMATION {
-    pub TimerIdentifier: u32,
-    pub Timeout: u32,
+    pub TimerIdentifier: super::ULONG,
+    pub Timeout: super::ULONG,
 }

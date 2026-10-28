@@ -1,0 +1,56 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[guid(0x10000000_0000_0000_0000_000000000001)]
+    interface Tracked: Windows::Win32::IUnknown {}
+    type ObjectAlias = Tracked;
+    type RawObject = *mut void;
+    type OutputSlot = *mut RawObject;
+    #[guid(0x10000000_0000_0000_0000_000000000002)]
+    interface Results: Windows::Win32::IUnknown {
+        fn Nullable(&self, #[out] #[out_ptr(nullable, null_on_failure)] value: *mut ObjectAlias) -> HRESULT;
+        fn Reserved(&self, #[reserved] reserved: usize, #[out] #[out_ptr(nullable)] value: *mut Tracked) -> HRESULT;
+        fn Required(&self, #[out] #[out_ptr(null_on_failure)] value: *mut Tracked) -> HRESULT;
+        fn UnspecifiedFailure(&self, #[out] #[out_ptr] value: *mut Tracked) -> HRESULT;
+        fn NullableVoid(&self, #[out] #[out_ptr(nullable)] value: *mut Tracked);
+        fn Query(&self, #[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(nullable, null_on_failure)] #[readable(success, unknown(), indirect, nullable)] value: OutputSlot) -> HRESULT;
+        fn OptionalStorage(&self, #[in] iid: *const GUID, #[out] #[opt] #[iid_is] #[out_ptr(nullable)] value: *mut *mut void) -> HRESULT;
+        fn InOutQuery(&self, #[in] iid: *const GUID, #[in] #[out] #[iid_is] value: *mut *mut void) -> HRESULT;
+        fn Data(&self, #[out] #[out_ptr(nullable, null_on_failure)] value: *mut *mut u8) -> HRESULT;
+        fn ReadThenFail(&self, #[in] input: *const *mut void, #[out] #[out_ptr(null_on_failure)] value: *mut Tracked) -> HRESULT;
+    }
+    #[library("test.dll")]
+    extern fn Nullable(#[out] #[out_ptr(nullable)] value: *mut Tracked) -> HRESULT;
+    #[library("test.dll")]
+    extern fn NullableVoid(#[out] #[out_ptr(nullable)] value: *mut Tracked);
+    #[library("test.dll")]
+    extern fn Query(#[in] iid: *const GUID, #[out] #[iid_is] #[out_ptr(nullable)] #[readable(success, unknown(), indirect, nullable)] value: *mut RawObject) -> HRESULT;
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {}
+        mod Metadata {
+            attribute ReservedAttribute { fn(); }
+            #[repr(i32)]
+            enum BufferAccess { Read = 0, Write = 1 }
+            #[repr(i32)]
+            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
+            #[repr(i32)]
+            enum BufferUnits { Elements = 0, Bytes = 1 }
+            attribute BufferExtentAttribute {
+                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+                CountUnknown: bool,
+                Indirect: bool,
+                Nullable: bool,
+            }
+            attribute NativeReturnedPointerAttribute {
+                fn();
+                MayBeNull: bool,
+                NullOnFailure: bool,
+            }
+            attribute ComOutPtrAttribute { fn(); }
+        }
+    }
+}

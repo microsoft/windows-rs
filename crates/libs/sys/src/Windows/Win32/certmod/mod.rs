@@ -1,2 +1,9 @@
 pub const CMM_READONLY: i32 = 2;
 pub const CMM_REFRESHONLY: i32 = 1;
+pub const wszCMM_PROP_COPYRIGHT: windows_sys::core::PCWSTR = windows_sys::core::w!("Copyright");
+pub const wszCMM_PROP_DESCRIPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("Description");
+pub const wszCMM_PROP_DISPLAY_HWND: windows_sys::core::PCWSTR = windows_sys::core::w!("HWND");
+pub const wszCMM_PROP_FILEVER: windows_sys::core::PCWSTR = windows_sys::core::w!("File Version");
+pub const wszCMM_PROP_ISMULTITHREADED: windows_sys::core::PCWSTR = windows_sys::core::w!("IsMultiThreaded");
+pub const wszCMM_PROP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Name");
+pub const wszCMM_PROP_PRODUCTVER: windows_sys::core::PCWSTR = windows_sys::core::w!("Product Version");

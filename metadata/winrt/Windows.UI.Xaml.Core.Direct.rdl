@@ -4,75 +4,75 @@ mod Windows {
         mod Xaml {
             mod Core {
                 mod Direct {
-                    #[guid(0x5ffa1295_add2_590f_a051_70989b866ade)]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(XamlDirect)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x5ffa1295_add2_590f_a051_70989b866ade)]
                     interface IXamlDirect {
-                        fn GetObject(&self, xamlDirectObject: IXamlDirectObject) -> Object;
-                        fn GetXamlDirectObject(&self, object: Object) -> IXamlDirectObject;
-                        fn CreateInstance(&self, typeIndex: XamlTypeIndex) -> IXamlDirectObject;
-                        fn SetObjectProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: Object);
-                        fn SetXamlDirectObjectProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: IXamlDirectObject);
-                        fn SetBooleanProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: bool);
-                        fn SetDoubleProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: f64);
-                        fn SetInt32Property(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: i32);
-                        fn SetStringProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: String);
-                        fn SetDateTimeProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::super::super::Foundation::DateTime);
-                        fn SetPointProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::super::super::Foundation::Point);
-                        fn SetRectProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::super::super::Foundation::Rect);
-                        fn SetSizeProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::super::super::Foundation::Size);
-                        fn SetTimeSpanProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::super::super::Foundation::TimeSpan);
-                        fn SetColorProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::super::Color);
-                        fn SetCornerRadiusProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::CornerRadius);
-                        fn SetDurationProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::Duration);
-                        fn SetGridLengthProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::GridLength);
-                        fn SetThicknessProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::Thickness);
-                        fn SetMatrixProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::Media::Matrix);
-                        fn SetMatrix3DProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: super::super::Media::Media3D::Matrix3D);
-                        fn SetEnumProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex, value: u32);
-                        fn GetObjectProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> Object;
-                        fn GetXamlDirectObjectProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> IXamlDirectObject;
-                        fn GetBooleanProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> bool;
-                        fn GetDoubleProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> f64;
-                        fn GetInt32Property(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> i32;
-                        fn GetStringProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> String;
-                        fn GetDateTimeProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::DateTime;
-                        fn GetPointProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::Point;
-                        fn GetRectProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::Rect;
-                        fn GetSizeProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::Size;
-                        fn GetTimeSpanProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::TimeSpan;
-                        fn GetColorProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::super::Color;
-                        fn GetCornerRadiusProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::CornerRadius;
-                        fn GetDurationProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::Duration;
-                        fn GetGridLengthProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::GridLength;
-                        fn GetThicknessProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::Thickness;
-                        fn GetMatrixProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::Media::Matrix;
-                        fn GetMatrix3DProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> super::super::Media::Media3D::Matrix3D;
-                        fn GetEnumProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex) -> u32;
-                        fn ClearProperty(&self, xamlDirectObject: IXamlDirectObject, propertyIndex: XamlPropertyIndex);
-                        fn GetCollectionCount(&self, xamlDirectObject: IXamlDirectObject) -> u32;
-                        fn GetXamlDirectObjectFromCollectionAt(&self, xamlDirectObject: IXamlDirectObject, index: u32) -> IXamlDirectObject;
-                        fn AddToCollection(&self, xamlDirectObject: IXamlDirectObject, value: IXamlDirectObject);
-                        fn InsertIntoCollectionAt(&self, xamlDirectObject: IXamlDirectObject, index: u32, value: IXamlDirectObject);
-                        fn RemoveFromCollection(&self, xamlDirectObject: IXamlDirectObject, value: IXamlDirectObject) -> bool;
-                        fn RemoveFromCollectionAt(&self, xamlDirectObject: IXamlDirectObject, index: u32);
-                        fn ClearCollection(&self, xamlDirectObject: IXamlDirectObject);
+                        fn GetObject(&self, #[in] xamlDirectObject: IXamlDirectObject) -> Object;
+                        fn GetXamlDirectObject(&self, #[in] object: Object) -> IXamlDirectObject;
+                        fn CreateInstance(&self, #[in] typeIndex: XamlTypeIndex) -> IXamlDirectObject;
+                        fn SetObjectProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: Object);
+                        fn SetXamlDirectObjectProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: IXamlDirectObject);
+                        fn SetBooleanProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: bool);
+                        fn SetDoubleProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: f64);
+                        fn SetInt32Property(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: i32);
+                        fn SetStringProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: String);
+                        fn SetDateTimeProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::super::super::Foundation::DateTime);
+                        fn SetPointProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::super::super::Foundation::Point);
+                        fn SetRectProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::super::super::Foundation::Rect);
+                        fn SetSizeProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::super::super::Foundation::Size);
+                        fn SetTimeSpanProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::super::super::Foundation::TimeSpan);
+                        fn SetColorProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::super::Color);
+                        fn SetCornerRadiusProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::CornerRadius);
+                        fn SetDurationProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::Duration);
+                        fn SetGridLengthProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::GridLength);
+                        fn SetThicknessProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::Thickness);
+                        fn SetMatrixProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::Media::Matrix);
+                        fn SetMatrix3DProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: super::super::Media::Media3D::Matrix3D);
+                        fn SetEnumProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex, #[in] value: u32);
+                        fn GetObjectProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> Object;
+                        fn GetXamlDirectObjectProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> IXamlDirectObject;
+                        fn GetBooleanProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> bool;
+                        fn GetDoubleProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> f64;
+                        fn GetInt32Property(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> i32;
+                        fn GetStringProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> String;
+                        fn GetDateTimeProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::DateTime;
+                        fn GetPointProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::Point;
+                        fn GetRectProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::Rect;
+                        fn GetSizeProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::Size;
+                        fn GetTimeSpanProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::super::super::Foundation::TimeSpan;
+                        fn GetColorProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::super::Color;
+                        fn GetCornerRadiusProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::CornerRadius;
+                        fn GetDurationProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::Duration;
+                        fn GetGridLengthProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::GridLength;
+                        fn GetThicknessProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::Thickness;
+                        fn GetMatrixProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::Media::Matrix;
+                        fn GetMatrix3DProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> super::super::Media::Media3D::Matrix3D;
+                        fn GetEnumProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex) -> u32;
+                        fn ClearProperty(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] propertyIndex: XamlPropertyIndex);
+                        fn GetCollectionCount(&self, #[in] xamlDirectObject: IXamlDirectObject) -> u32;
+                        fn GetXamlDirectObjectFromCollectionAt(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] index: u32) -> IXamlDirectObject;
+                        fn AddToCollection(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] value: IXamlDirectObject);
+                        fn InsertIntoCollectionAt(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] index: u32, #[in] value: IXamlDirectObject);
+                        fn RemoveFromCollection(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] value: IXamlDirectObject) -> bool;
+                        fn RemoveFromCollectionAt(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] index: u32);
+                        fn ClearCollection(&self, #[in] xamlDirectObject: IXamlDirectObject);
                         #[Windows::Foundation::Metadata::DefaultOverload]
                         #[Windows::Foundation::Metadata::Overload("AddEventHandler")]
-                        fn AddEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object);
+                        fn AddEventHandler(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] eventIndex: XamlEventIndex, #[in] handler: Object);
                         #[Windows::Foundation::Metadata::Overload("AddEventHandler_HandledEventsToo")]
-                        fn AddEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object, handledEventsToo: bool);
-                        fn RemoveEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object);
+                        fn AddEventHandler(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] eventIndex: XamlEventIndex, #[in] handler: Object, #[in] handledEventsToo: bool);
+                        fn RemoveEventHandler(&self, #[in] xamlDirectObject: IXamlDirectObject, #[in] eventIndex: XamlEventIndex, #[in] handler: Object);
                     }
-                    #[guid(0x10614a82_cee4_4645_ba25_d071ce778355)]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x10614a82_cee4_4645_ba25_d071ce778355)]
                     interface IXamlDirectObject {}
-                    #[guid(0x321887cc_14e4_5c6f_878d_fbb604ad7d17)]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(XamlDirect)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x321887cc_14e4_5c6f_878d_fbb604ad7d17)]
                     interface IXamlDirectStatics {
                         fn GetDefault(&self) -> XamlDirect;
                     }
@@ -87,9 +87,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ApiContract]
                     #[Windows::Foundation::Metadata::ContractVersion(327680)]
                     struct XamlDirectContract {}
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum XamlEventIndex {
                         FrameworkElement_DataContextChanged = 16,
                         FrameworkElement_SizeChanged = 17,
@@ -230,9 +230,9 @@ mod Windows {
                         DatePicker_SelectedDateChanged = 322,
                         TimePicker_SelectedTimeChanged = 323,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum XamlPropertyIndex {
                         AutomationProperties_AcceleratorKey = 5,
                         AutomationProperties_AccessibilityView = 6,
@@ -1503,9 +1503,13 @@ mod Windows {
                         AutomationPeerAnnotation_Peer = 1735,
                         AutomationPeerAnnotation_Type = 1736,
                         Hyperlink_UnderlineStyle = 1741,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_DisabledForeground = 1742,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_TodayBackground = 1743,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_TodayBlackoutBackground = 1744,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_TodaySelectedInnerBorderBrush = 1747,
                         Control_IsFocusEngaged = 1749,
                         Control_IsFocusEngagementEnabled = 1752,
@@ -1744,6 +1748,7 @@ mod Windows {
                         FontIconSource_MirroredWhenRightToLeft = 2121,
                         PathIconSource_Data = 2122,
                         SymbolIconSource_Symbol = 2123,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         UIElement_Shadow = 2130,
                         IconSourceElement_IconSource = 2131,
                         PasswordBox_CanPasteClipboardContent = 2137,
@@ -1816,6 +1821,7 @@ mod Windows {
                         FlyoutBase_IsOpen = 2267,
                         StandardUICommand_Kind = 2275,
                         UIElement_CanBeScrollAnchor = 2276,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         ThemeShadow_Receivers = 2279,
                         ScrollContentPresenter_SizesContentToTemplatedParent = 2280,
                         ComboBox_TextBoxStyle = 2281,
@@ -1838,75 +1844,140 @@ mod Windows {
                         XamlUICommand_Label = 2352,
                         DatePicker_SelectedDate = 2355,
                         TimePicker_SelectedTime = 2356,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         AppBarTemplateSettings_NegativeCompactVerticalDelta = 2367,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         AppBarTemplateSettings_NegativeHiddenVerticalDelta = 2368,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         AppBarTemplateSettings_NegativeMinimalVerticalDelta = 2369,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         FlyoutBase_ShouldConstrainToRootBounds = 2378,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         Popup_ShouldConstrainToRootBounds = 2379,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         FlyoutPresenter_IsDefaultShadowEnabled = 2380,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         MenuFlyoutPresenter_IsDefaultShadowEnabled = 2381,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         UIElement_ActualOffset = 2382,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         UIElement_ActualSize = 2383,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         CommandBarTemplateSettings_OverflowContentCompactYTranslation = 2384,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         CommandBarTemplateSettings_OverflowContentHiddenYTranslation = 2385,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         CommandBarTemplateSettings_OverflowContentMinimalYTranslation = 2386,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 196608)]
                         HandwritingView_IsCommandBarOpen = 2395,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 196608)]
                         HandwritingView_IsSwitchToKeyboardEnabled = 2396,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectionIndicatorVisualEnabled = 2399,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectionIndicatorBrush = 2400,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectionIndicatorMode = 2401,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectionIndicatorPointerOverBrush = 2402,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectionIndicatorPressedBrush = 2403,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectedBorderBrush = 2410,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectedInnerBorderBrush = 2411,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxCornerRadius = 2412,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectionIndicatorCornerRadius = 2413,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectedDisabledBorderBrush = 2414,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectedPressedBorderBrush = 2415,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectedDisabledBackground = 2416,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_PointerOverBorderBrush = 2417,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxPointerOverBrush = 2418,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxPressedBrush = 2419,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckDisabledBrush = 2420,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckPressedBrush = 2421,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxBorderBrush = 2422,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxDisabledBorderBrush = 2423,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxPressedBorderBrush = 2424,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxDisabledBrush = 2425,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxSelectedBrush = 2426,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxSelectedDisabledBrush = 2427,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxSelectedPointerOverBrush = 2428,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxSelectedPressedBrush = 2429,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_CheckBoxPointerOverBorderBrush = 2430,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 262144)]
                         ListViewItemPresenter_SelectionIndicatorDisabledBrush = 2431,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_BlackoutBackground = 2432,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_BlackoutStrikethroughBrush = 2433,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_CalendarItemCornerRadius = 2434,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_CalendarItemDisabledBackground = 2435,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_CalendarItemHoverBackground = 2436,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_CalendarItemPressedBackground = 2437,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_DayItemMargin = 2438,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_FirstOfMonthLabelMargin = 2439,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_FirstOfYearDecadeLabelMargin = 2440,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_MonthYearItemMargin = 2441,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_OutOfScopeHoverForeground = 2442,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_OutOfScopePressedForeground = 2443,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_SelectedDisabledBorderBrush = 2444,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_SelectedDisabledForeground = 2445,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_SelectedHoverForeground = 2446,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_SelectedPressedForeground = 2447,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_TodayBlackoutForeground = 2448,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_TodayDisabledBackground = 2449,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_TodayHoverBackground = 2450,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         CalendarView_TodayPressedBackground = 2451,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         Popup_ActualPlacement = 2452,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         Popup_DesiredPlacement = 2453,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         Popup_PlacementTarget = 2454,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 327680)]
                         AutomationProperties_AutomationControlType = 2455,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum XamlTypeIndex {
                         AutoSuggestBoxSuggestionChosenEventArgs = 34,
                         AutoSuggestBoxTextChangedEventArgs = 35,
@@ -2156,6 +2227,7 @@ mod Windows {
                         AppBarElementContainer = 945,
                         ColorPaletteResources = 952,
                         StandardUICommand = 961,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.UI.Xaml.Core.Direct.XamlDirectContract", 131072)]
                         ThemeShadow = 964,
                         XamlUICommand = 969,
                     }

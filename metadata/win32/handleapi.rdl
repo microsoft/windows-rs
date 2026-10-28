@@ -2,15 +2,14 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn CloseHandle(hObject: HANDLE) -> BOOL;
+        extern fn CloseHandle(#[Windows::Win32::Metadata::NativeSal("2", "_Post_ptr_invalid_", "", "")] #[in] hObject: HANDLE) -> BOOL;
         #[library("api-ms-win-core-handle-l1-1-0.dll")]
-        extern fn CompareObjectHandles(hFirstObjectHandle: HANDLE, hSecondObjectHandle: HANDLE) -> BOOL;
+        extern fn CompareObjectHandles(#[in] hFirstObjectHandle: HANDLE, #[in] hSecondObjectHandle: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DuplicateHandle(hSourceProcessHandle: HANDLE, hSourceHandle: HANDLE, hTargetProcessHandle: HANDLE, lpTargetHandle: LPHANDLE, dwDesiredAccess: u32, bInheritHandle: BOOL, dwOptions: u32) -> BOOL;
+        extern fn DuplicateHandle(#[in] hSourceProcessHandle: HANDLE, #[in] hSourceHandle: HANDLE, #[in] hTargetProcessHandle: HANDLE, #[out] #[out_ptr] lpTargetHandle: LPHANDLE, #[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] dwOptions: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetHandleInformation(hObject: HANDLE, #[out] lpdwFlags: LPDWORD) -> BOOL;
-        const INVALID_HANDLE_VALUE: HANDLE = -1;
+        extern fn GetHandleInformation(#[in] hObject: HANDLE, #[out] lpdwFlags: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetHandleInformation(hObject: HANDLE, dwMask: u32, dwFlags: u32) -> BOOL;
+        extern fn SetHandleInformation(#[in] hObject: HANDLE, #[in] dwMask: DWORD, #[in] dwFlags: DWORD) -> BOOL;
     }
 }

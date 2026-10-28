@@ -91,3 +91,147 @@ fn leading_and_per_pointer_const() {
     );
     assert!(blob.is_empty());
 }
+
+#[test]
+fn fixed_pointer_remap() {
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..\\target");
+    let source = root.join("test-metadata-fixed-pointer-source.winmd");
+    let output = root.join("test-metadata-fixed-pointer-remapped.winmd");
+    let ty = |namespace| {
+        Type::ArrayFixed(
+            Box::new(Type::Ptr64(
+                Box::new(Type::PtrConst(
+                    Box::new(Type::value_named(namespace, "Target")),
+                    1,
+                )),
+                false,
+            )),
+            2,
+        )
+    };
+    let mut file = writer::File::new("fixed");
+    let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
+    let flags = TypeAttributes::Public | TypeAttributes::SequentialLayout;
+    file.TypeDef("Source", "Holder", base, flags);
+    file.Field("addresses", &ty("Source"), FieldAttributes::Public);
+    file.TypeDef("Source", "Target", base, flags);
+    file.Field("value", &Type::I32, FieldAttributes::Public);
+    std::fs::write(&source, file.into_stream()).unwrap();
+    remap()
+        .input(&source)
+        .source("Source")
+        .fallback("Destination")
+        .output(&output)
+        .remap()
+        .unwrap();
+    let index = Index::read(&output).unwrap();
+    assert_eq!(
+        index
+            .expect("Destination", "Holder")
+            .fields()
+            .next()
+            .unwrap()
+            .ty(),
+        ty("Destination")
+    );
+    index.expect("Destination", "Target");
+    for path in [source, output] {
+        std::fs::remove_file(path).unwrap();
+    }
+}
+
+#[test]
+fn malformed_fixed_pointer_modifiers() {
+    let mut file = writer::File::new("fixed-modifiers");
+    let modifier = file.TypeRef("Windows.Win32.Metadata", "NativePointer64Attribute");
+    let modifier = u8::try_from(writer::TypeDefOrRef::TypeRef(modifier).encode()).unwrap();
+    let index = Index::new(vec![File::new(file.into_stream()).unwrap()]);
+
+    for (signature, message) in [
+        (vec![0x1f, modifier, 0x08], "must follow PTR"),
+        (vec![0x1f, modifier, 0x0f, 0x08], "must follow PTR"),
+        (vec![0x10, 0x1f, modifier, 0x08], "must follow PTR"),
+        (vec![0x0f, 0x20, modifier, 0x08], "must be required"),
+        (
+            vec![0x0f, 0x1f, modifier, 0x1f, modifier, 0x08],
+            "duplicate NativePointer64Attribute",
+        ),
+    ] {
+        let mut blob = Blob::new(&index, 0, &signature);
+        let error = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            blob.read_type_signature(&[])
+        }))
+        .unwrap_err();
+        while !blob.is_empty() {
+            blob.read_u8();
+        }
+        let error = error
+            .downcast_ref::<String>()
+            .map(String::as_str)
+            .or_else(|| error.downcast_ref::<&str>().copied())
+            .unwrap();
+        assert!(error.contains(message), "{signature:?}: {error}");
+    }
+}
+
+#[test]
+fn fixed_pointer_chains() {
+    for depth in 1..=3 {
+        for mask in 0..1 << (2 * depth) {
+            let levels: Vec<_> = (0..depth)
+                .map(|bit| (mask & (1 << (2 * bit)) != 0, mask & (2 << (2 * bit)) != 0))
+                .collect();
+            let ty = levels
+                .iter()
+                .rev()
+                .fold(Type::I32, |inner, &(constant, fixed)| {
+                    if fixed {
+                        Type::Ptr64(Box::new(inner), constant)
+                    } else {
+                        pointer(constant, inner)
+                    }
+                });
+            let index = encode(&ty);
+            let field = index.expect("Test", "Pointers").fields().next().unwrap();
+            assert_eq!(field.ty(), ty);
+            if levels.iter().any(|(_, fixed)| *fixed) {
+                let mut blob = field.blob(2);
+                assert_eq!(blob.read_u8(), 0x06);
+                for (constant, fixed) in levels {
+                    assert_eq!(blob.read_u8(), 0x0f);
+                    if fixed {
+                        assert_eq!(blob.read_u8(), 0x1f);
+                        let modifier = blob.decode::<TypeDefOrRef>();
+                        assert_eq!(modifier.namespace(), "Windows.Win32.Metadata");
+                        assert_eq!(modifier.name(), "NativePointer64Attribute");
+                    }
+                    if constant {
+                        assert_eq!(blob.read_u8(), 0x1f);
+                        let modifier = blob.decode::<TypeDefOrRef>();
+                        assert_eq!(modifier.namespace(), "System.Runtime.CompilerServices");
+                        assert_eq!(modifier.name(), "IsConst");
+                    }
+                }
+
+                assert_eq!(blob.read_u8(), 0x08);
+                assert!(blob.is_empty());
+            }
+            for wrapped in [
+                Type::ArrayFixed(Box::new(ty.clone()), 3),
+                Type::RefMut(Box::new(ty.clone())),
+                Type::RefConst(Box::new(ty.clone())),
+                pointer(false, Type::ArrayFixed(Box::new(ty), 3)),
+            ] {
+                assert_eq!(
+                    encode(&wrapped)
+                        .expect("Test", "Pointers")
+                        .fields()
+                        .next()
+                        .unwrap()
+                        .ty(),
+                    wrapped
+                );
+            }
+        }
+    }
+}

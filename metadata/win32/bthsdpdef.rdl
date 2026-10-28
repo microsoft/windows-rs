@@ -13,8 +13,8 @@ mod Windows {
         type PSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
         type SDP_ERROR = u16;
         struct SDP_LARGE_INTEGER_16 {
-            LowPart: u64,
-            HighPart: i64,
+            LowPart: ULONGLONG,
+            HighPart: LONGLONG,
         }
         #[repr(i32)]
         enum SDP_SPECIFICTYPE {
@@ -47,21 +47,21 @@ mod Windows {
             SDP_TYPE_CONTAINER = 32,
         }
         struct SDP_ULARGE_INTEGER_16 {
-            LowPart: u64,
-            HighPart: u64,
+            LowPart: ULONGLONG,
+            HighPart: ULONGLONG,
         }
         struct SdpAttributeRange {
-            minAttribute: u16,
-            maxAttribute: u16,
+            minAttribute: USHORT,
+            maxAttribute: USHORT,
         }
         struct SdpQueryUuid {
             u: SdpQueryUuidUnion,
-            uuidType: u16,
+            uuidType: USHORT,
         }
         union SdpQueryUuidUnion {
             uuid128: GUID,
-            uuid32: u32,
-            uuid16: u16,
+            uuid32: ULONG,
+            uuid16: USHORT,
         }
     }
 }

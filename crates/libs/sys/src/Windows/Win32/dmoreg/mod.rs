@@ -1,9 +1,13 @@
-#[cfg(feature = "mediaobj")]
-windows_link::link!("msdmo.dll" "system" fn DMOEnum(guidcategory : *const windows_sys::core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE, ppenum : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("msdmo.dll" "system" fn DMOGetName(clsiddmo : *const windows_sys::core::GUID, szname : *mut u16) -> windows_sys::core::HRESULT);
-windows_link::link!("msdmo.dll" "system" fn DMOGetTypes(clsiddmo : *const windows_sys::core::GUID, ulinputtypesrequested : u32, pulinputtypessupplied : *mut u32, pinputtypes : *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested : u32, puloutputtypessupplied : *mut u32, poutputtypes : *mut DMO_PARTIAL_MEDIATYPE) -> windows_sys::core::HRESULT);
-windows_link::link!("msdmo.dll" "system" fn DMORegister(szname : windows_sys::core::PCWSTR, clsiddmo : *const windows_sys::core::GUID, guidcategory : *const windows_sys::core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE) -> windows_sys::core::HRESULT);
-windows_link::link!("msdmo.dll" "system" fn DMOUnregister(clsiddmo : *const windows_sys::core::GUID, guidcategory : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
+windows_link::link!("msdmo.dll" "system" fn DMOEnum(guidcategory : *const windows_sys::core::GUID, dwflags : super::DWORD, cintypes : super::DWORD, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : super::DWORD, pouttypes : *const DMO_PARTIAL_MEDIATYPE, ppenum : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+windows_link::link!("msdmo.dll" "system" fn DMOGetName(clsiddmo : *const super::IID, szname : *mut super::WCHAR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("msdmo.dll" "system" fn DMOGetTypes(clsiddmo : *const super::IID, ulinputtypesrequested : u32, pulinputtypessupplied : *mut u32, pinputtypes : *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested : u32, puloutputtypessupplied : *mut u32, poutputtypes : *mut DMO_PARTIAL_MEDIATYPE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("msdmo.dll" "system" fn DMORegister(szname : windows_sys::core::PCWSTR, clsiddmo : *const super::IID, guidcategory : *const windows_sys::core::GUID, dwflags : super::DWORD, cintypes : super::DWORD, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : super::DWORD, pouttypes : *const DMO_PARTIAL_MEDIATYPE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("msdmo.dll" "system" fn DMOUnregister(clsiddmo : *const super::IID, guidcategory : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const DMOCATEGORY_AGC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
 pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09);

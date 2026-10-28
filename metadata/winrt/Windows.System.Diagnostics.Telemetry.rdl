@@ -3,25 +3,25 @@ mod Windows {
     mod System {
         mod Diagnostics {
             mod Telemetry {
-                #[guid(0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlatformTelemetryClient)]
+                #[guid(0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f)]
                 interface IPlatformTelemetryClientStatics {
                     #[Windows::Foundation::Metadata::Overload("Register")]
-                    fn Register(&self, id: String) -> PlatformTelemetryRegistrationResult;
+                    fn Register(&self, #[in] id: String) -> PlatformTelemetryRegistrationResult;
                     #[Windows::Foundation::Metadata::Overload("RegisterWithSettings")]
-                    fn Register(&self, id: String, settings: PlatformTelemetryRegistrationSettings) -> PlatformTelemetryRegistrationResult;
+                    fn Register(&self, #[in] id: String, #[in] settings: PlatformTelemetryRegistrationSettings) -> PlatformTelemetryRegistrationResult;
                 }
-                #[guid(0x4d8518ab_2292_49bd_a15a_3d71d2145112)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlatformTelemetryRegistrationResult)]
+                #[guid(0x4d8518ab_2292_49bd_a15a_3d71d2145112)]
                 interface IPlatformTelemetryRegistrationResult {
                     #[get]
                     Status: PlatformTelemetryRegistrationStatus;
                 }
-                #[guid(0x819a8582_ca19_415e_bb79_9c224bfa3a73)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlatformTelemetryRegistrationSettings)]
+                #[guid(0x819a8582_ca19_415e_bb79_9c224bfa3a73)]
                 interface IPlatformTelemetryRegistrationSettings {
                     StorageSize: u32;
                     UploadQuotaSize: u32;
@@ -47,8 +47,8 @@ mod Windows {
                 class PlatformTelemetryRegistrationSettings {
                     IPlatformTelemetryRegistrationSettings,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum PlatformTelemetryRegistrationStatus {
                     Success = 0,
                     SettingsOutOfRange = 1,

@@ -1,19 +1,25 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FLOWSPEC {
-    pub TokenRate: u32,
-    pub TokenBucketSize: u32,
-    pub PeakBandwidth: u32,
-    pub Latency: u32,
-    pub DelayVariation: u32,
+    pub TokenRate: super::ULONG,
+    pub TokenBucketSize: super::ULONG,
+    pub PeakBandwidth: super::ULONG,
+    pub Latency: super::ULONG,
+    pub DelayVariation: super::ULONG,
     pub ServiceType: SERVICETYPE,
-    pub MaxSduSize: u32,
-    pub MinimumPolicedSize: u32,
+    pub MaxSduSize: super::ULONG,
+    pub MinimumPolicedSize: super::ULONG,
 }
+#[cfg(feature = "shared")]
 pub type LPFLOWSPEC = *mut FLOWSPEC;
+#[cfg(feature = "shared")]
 pub type LPQOS_OBJECT_HDR = *mut QOS_OBJECT_HDR;
+#[cfg(feature = "shared")]
 pub type LPQOS_SD_MODE = *mut QOS_SD_MODE;
+#[cfg(feature = "shared")]
 pub type LPQOS_SHAPING_RATE = *mut QOS_SHAPING_RATE;
+#[cfg(feature = "shared")]
 pub type PFLOWSPEC = *mut FLOWSPEC;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294;
 pub const QOS_GENERAL_ID_BASE: i32 = 2000;
@@ -21,24 +27,27 @@ pub const QOS_NOT_SPECIFIED: u32 = 4294967295;
 pub const QOS_OBJECT_DESTADDR: i32 = 2004;
 pub const QOS_OBJECT_END_OF_LIST: i32 = 2001;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QOS_OBJECT_HDR {
-    pub ObjectType: u32,
-    pub ObjectLength: u32,
+    pub ObjectType: super::ULONG,
+    pub ObjectLength: super::ULONG,
 }
 pub const QOS_OBJECT_SD_MODE: i32 = 2002;
 pub const QOS_OBJECT_SHAPING_RATE: i32 = 2003;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
-    pub ShapeDiscardMode: u32,
+    pub ShapeDiscardMode: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
-    pub ShapingRate: u32,
+    pub ShapingRate: super::ULONG,
 }
 pub type SERVICETYPE = u32;
 pub const SERVICETYPE_BESTEFFORT: i32 = 1;

@@ -1,6 +1,7 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> windows_core::Result<u32> {
-    windows_core::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> windows_core::Result<super::ULONG> {
+    windows_core::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount : *mut super::ULONG) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetExpandedResourceExclusiveCpuCount(&mut result__).map(|| result__)

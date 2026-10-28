@@ -1,8 +1,9 @@
-#[inline]
-pub unsafe fn IsEqualGUID(rguid1: *const windows_core::GUID, rguid2: *const windows_core::GUID) -> i32 {
-    windows_core::link!("ole32.dll" "C" fn IsEqualGUID(rguid1 : *const windows_core::GUID, rguid2 : *const windows_core::GUID) -> i32);
-    unsafe { IsEqualGUID(rguid1, rguid2) }
-}
+pub type CLSID = windows_core::GUID;
+pub const CLSID_NULL: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub type FMTID = windows_core::GUID;
+pub const FMTID_NULL: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub type IID = windows_core::GUID;
+pub const IID_NULL: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub type LPCGUID = *const windows_core::GUID;
 pub type LPCLSID = *mut windows_core::GUID;
 pub type LPFMTID = *mut windows_core::GUID;

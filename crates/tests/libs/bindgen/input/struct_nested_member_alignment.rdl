@@ -1,0 +1,44 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Outer {
+        tag: u8,
+        value: struct {
+            first: u8,
+            #[Windows::Win32::Metadata::Alignment(8)]
+            second: u32,
+        },
+    }
+
+    struct Named {
+        struct Child {
+            first: u8,
+            #[Windows::Win32::Metadata::Alignment(8)]
+            second: u32,
+        }
+        values: [Named::Child; 2],
+    }
+    struct External {
+        values: [Named::Child; 2],
+    }
+    struct Matrix {
+        values: [[Named::Child; 2]; 2],
+    }
+    struct PointerOnly {
+        struct Child {
+            #[Windows::Win32::Metadata::Alignment(8)]
+            value: u32,
+        }
+        value: *mut PointerOnly::Child,
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute AlignmentAttribute {
+                fn(#[in] alignment: i32);
+            }
+        }
+    }
+}

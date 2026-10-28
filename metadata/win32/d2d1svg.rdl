@@ -52,7 +52,7 @@ mod Windows {
             D2D1_SVG_DISPLAY_FORCE_DWORD = -1,
         }
         struct D2D1_SVG_LENGTH {
-            value: f32,
+            value: FLOAT,
             units: D2D1_SVG_LENGTH_UNITS,
         }
         #[repr(i32)]
@@ -127,10 +127,10 @@ mod Windows {
             D2D1_SVG_UNIT_TYPE_FORCE_DWORD = -1,
         }
         struct D2D1_SVG_VIEWBOX {
-            x: f32,
-            y: f32,
-            width: f32,
-            height: f32,
+            x: FLOAT,
+            y: FLOAT,
+            width: FLOAT,
+            height: FLOAT,
         }
         #[repr(i32)]
         enum D2D1_SVG_VISIBILITY {
@@ -140,93 +140,94 @@ mod Windows {
         }
         #[guid(0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e)]
         interface ID2D1SvgAttribute: ID2D1Resource {
-            fn GetElement(&self, element: *mut ID2D1SvgElement);
-            fn Clone(&self, attribute: *mut ID2D1SvgAttribute) -> HRESULT;
+            fn GetElement(&self, #[out] #[out_ptr(nullable)] element: *mut ID2D1SvgElement);
+            fn Clone(&self, #[out] #[out_ptr(null_on_failure)] attribute: *mut ID2D1SvgAttribute) -> HRESULT;
         }
         #[guid(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec)]
         interface ID2D1SvgDocument: ID2D1Resource {
             fn SetViewportSize(&self, viewportSize: D2D1_SIZE_F) -> HRESULT;
+            #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetViewportSize(&self) -> D2D1_SIZE_F;
-            fn SetRoot(&self, #[opt] root: ID2D1SvgElement) -> HRESULT;
-            fn GetRoot(&self, root: *mut ID2D1SvgElement);
-            fn FindElementById(&self, id: PCWSTR, svgElement: *mut ID2D1SvgElement) -> HRESULT;
-            fn Serialize(&self, outputXmlStream: IStream, #[opt] subtree: ID2D1SvgElement) -> HRESULT;
-            fn Deserialize(&self, inputXmlStream: IStream, subtree: *mut ID2D1SvgElement) -> HRESULT;
-            fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[opt] color: *const D2D1_COLOR_F, #[opt] id: PCWSTR, paint: *mut ID2D1SvgPaint) -> HRESULT;
-            fn CreateStrokeDashArray(&self, #[len_param(1)] #[opt] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, strokeDashArray: *mut ID2D1SvgStrokeDashArray) -> HRESULT;
-            fn CreatePointCollection(&self, #[len_param(1)] #[opt] points: *const D2D1_POINT_2F, pointsCount: u32, pointCollection: *mut ID2D1SvgPointCollection) -> HRESULT;
-            fn CreatePathData(&self, #[len_param(1)] #[opt] segmentData: *const f32, segmentDataCount: u32, #[len_param(3)] #[opt] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, pathData: *mut ID2D1SvgPathData) -> HRESULT;
+            fn SetRoot(&self, #[in] #[opt] root: ID2D1SvgElement) -> HRESULT;
+            fn GetRoot(&self, #[out] #[out_ptr(nullable)] root: *mut ID2D1SvgElement);
+            fn FindElementById(&self, #[in] id: PCWSTR, #[out] #[out_ptr(nullable, null_on_failure)] svgElement: *mut ID2D1SvgElement) -> HRESULT;
+            fn Serialize(&self, #[in] outputXmlStream: IStream, #[in] #[opt] subtree: ID2D1SvgElement) -> HRESULT;
+            fn Deserialize(&self, #[in] inputXmlStream: IStream, #[out] #[out_ptr(null_on_failure)] subtree: *mut ID2D1SvgElement) -> HRESULT;
+            fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[in] #[opt] color: *const D2D1_COLOR_F, #[in] #[opt] id: PCWSTR, #[out] #[out_ptr(null_on_failure)] paint: *mut ID2D1SvgPaint) -> HRESULT;
+            fn CreateStrokeDashArray(&self, #[in] #[opt] #[readable(entry, dashesCount)] dashes: *const D2D1_SVG_LENGTH, dashesCount: UINT32, #[out] #[out_ptr(null_on_failure)] strokeDashArray: *mut ID2D1SvgStrokeDashArray) -> HRESULT;
+            fn CreatePointCollection(&self, #[in] #[opt] #[readable(entry, pointsCount)] points: *const D2D1_POINT_2F, pointsCount: UINT32, #[out] #[out_ptr(null_on_failure)] pointCollection: *mut ID2D1SvgPointCollection) -> HRESULT;
+            fn CreatePathData(&self, #[in] #[opt] #[readable(entry, segmentDataCount)] segmentData: *const FLOAT, segmentDataCount: UINT32, #[in] #[opt] #[readable(entry, commandsCount)] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: UINT32, #[out] #[out_ptr(null_on_failure)] pathData: *mut ID2D1SvgPathData) -> HRESULT;
         }
         #[guid(0xac7b67a6_183e_49c1_a823_0ebe40b0db29)]
         interface ID2D1SvgElement: ID2D1Resource {
-            fn GetDocument(&self, document: *mut ID2D1SvgDocument);
-            fn GetTagName(&self, #[len_param(1)] #[out] name: PWSTR, nameCount: u32) -> HRESULT;
-            fn GetTagNameLength(&self) -> u32;
+            fn GetDocument(&self, #[out] #[out_ptr(nullable)] document: *mut ID2D1SvgDocument);
+            fn GetTagName(&self, #[out] #[writable(entry, nameCount)] name: PWSTR, nameCount: UINT32) -> HRESULT;
+            fn GetTagNameLength(&self) -> UINT32;
             fn IsTextContent(&self) -> BOOL;
-            fn GetParent(&self, parent: *mut ID2D1SvgElement);
+            fn GetParent(&self, #[out] #[out_ptr(nullable)] parent: *mut ID2D1SvgElement);
             fn HasChildren(&self) -> BOOL;
-            fn GetTopWindow(&self, child: *mut ID2D1SvgElement);
-            fn GetLastChild(&self, child: *mut ID2D1SvgElement);
-            fn GetPreviousChild(&self, referenceChild: ID2D1SvgElement, previousChild: *mut ID2D1SvgElement) -> HRESULT;
-            fn GetNextChild(&self, referenceChild: ID2D1SvgElement, nextChild: *mut ID2D1SvgElement) -> HRESULT;
-            fn InsertChildBefore(&self, newChild: ID2D1SvgElement, #[opt] referenceChild: ID2D1SvgElement) -> HRESULT;
-            fn AppendChild(&self, newChild: ID2D1SvgElement) -> HRESULT;
-            fn ReplaceChild(&self, newChild: ID2D1SvgElement, oldChild: ID2D1SvgElement) -> HRESULT;
-            fn RemoveChild(&self, oldChild: ID2D1SvgElement) -> HRESULT;
-            fn CreateChild(&self, tagName: PCWSTR, newChild: *mut ID2D1SvgElement) -> HRESULT;
-            fn IsAttributeSpecified(&self, name: PCWSTR, #[opt] inherited: *mut BOOL) -> BOOL;
-            fn GetSpecifiedAttributeCount(&self) -> u32;
-            fn GetSpecifiedAttributeName(&self, index: u32, #[len_param(2)] #[out] name: PWSTR, nameCount: u32, #[opt] inherited: *mut BOOL) -> HRESULT;
-            fn GetSpecifiedAttributeNameLength(&self, index: u32, nameLength: *mut u32, #[opt] inherited: *mut BOOL) -> HRESULT;
-            fn RemoveAttribute(&self, name: PCWSTR) -> HRESULT;
-            fn SetTextValue(&self, #[len_param(1)] name: *const u16, nameCount: u32) -> HRESULT;
-            fn GetTextValue(&self, #[len_param(1)] #[out] name: PWSTR, nameCount: u32) -> HRESULT;
-            fn GetTextValueLength(&self) -> u32;
-            fn SetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: PCWSTR) -> HRESULT;
-            fn GetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[len_param(3)] #[out] value: PWSTR, valueCount: u32) -> HRESULT;
-            fn GetAttributeValueLength(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, valueLength: *mut u32) -> HRESULT;
-            fn SetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[size_param(3)] value: *const void, valueSizeInBytes: u32) -> HRESULT;
-            fn GetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[size_param(3)] value: *mut void, valueSizeInBytes: u32) -> HRESULT;
-            fn SetAttributeValue(&self, name: PCWSTR, value: ID2D1SvgAttribute) -> HRESULT;
-            fn GetAttributeValue(&self, name: PCWSTR, riid: *const GUID, #[iid_is] value: *mut *mut void) -> HRESULT;
+            fn GetTopWindow(&self, #[out] #[out_ptr(nullable)] child: *mut ID2D1SvgElement);
+            fn GetLastChild(&self, #[out] #[out_ptr(nullable)] child: *mut ID2D1SvgElement);
+            fn GetPreviousChild(&self, #[in] referenceChild: ID2D1SvgElement, #[out] #[out_ptr(nullable, null_on_failure)] previousChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn GetNextChild(&self, #[in] referenceChild: ID2D1SvgElement, #[out] #[out_ptr(nullable, null_on_failure)] nextChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn InsertChildBefore(&self, #[in] newChild: ID2D1SvgElement, #[in] #[opt] referenceChild: ID2D1SvgElement) -> HRESULT;
+            fn AppendChild(&self, #[in] newChild: ID2D1SvgElement) -> HRESULT;
+            fn ReplaceChild(&self, #[in] newChild: ID2D1SvgElement, #[in] oldChild: ID2D1SvgElement) -> HRESULT;
+            fn RemoveChild(&self, #[in] oldChild: ID2D1SvgElement) -> HRESULT;
+            fn CreateChild(&self, #[in] tagName: PCWSTR, #[out] #[out_ptr(null_on_failure)] newChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn IsAttributeSpecified(&self, #[in] name: PCWSTR, #[opt] #[out] inherited: *mut BOOL) -> BOOL;
+            fn GetSpecifiedAttributeCount(&self) -> UINT32;
+            fn GetSpecifiedAttributeName(&self, index: UINT32, #[out] #[writable(entry, nameCount)] name: PWSTR, nameCount: UINT32, #[opt] #[out] inherited: *mut BOOL) -> HRESULT;
+            fn GetSpecifiedAttributeNameLength(&self, index: UINT32, #[out] nameLength: *mut UINT32, #[opt] #[out] inherited: *mut BOOL) -> HRESULT;
+            fn RemoveAttribute(&self, #[in] name: PCWSTR) -> HRESULT;
+            fn SetTextValue(&self, #[in] #[readable(entry, nameCount)] name: *const WCHAR, nameCount: UINT32) -> HRESULT;
+            fn GetTextValue(&self, #[out] #[writable(entry, nameCount)] name: PWSTR, nameCount: UINT32) -> HRESULT;
+            fn GetTextValueLength(&self) -> UINT32;
+            fn SetAttributeValue(&self, #[in] name: PCWSTR, #[in] value: ID2D1SvgAttribute) -> HRESULT;
+            fn SetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[in] #[readable(entry, bytes(valueSizeInBytes))] value: *const void, valueSizeInBytes: UINT32) -> HRESULT;
+            fn SetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[in] value: PCWSTR) -> HRESULT;
+            fn GetAttributeValue(&self, #[in] name: PCWSTR, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(nullable, null_on_failure)] value: *mut *mut void) -> HRESULT;
+            fn GetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[out] #[writable(entry, bytes(valueSizeInBytes))] value: *mut void, valueSizeInBytes: UINT32) -> HRESULT;
+            fn GetAttributeValue(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[out] #[writable(entry, valueCount)] value: PWSTR, valueCount: UINT32) -> HRESULT;
+            fn GetAttributeValueLength(&self, #[in] name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[out] valueLength: *mut UINT32) -> HRESULT;
         }
         #[guid(0xd59bab0a_68a2_455b_a5dc_9eb2854e2490)]
         interface ID2D1SvgPaint: ID2D1SvgAttribute {
             fn SetPaintType(&self, paintType: D2D1_SVG_PAINT_TYPE) -> HRESULT;
             fn GetPaintType(&self) -> D2D1_SVG_PAINT_TYPE;
-            fn SetColor(&self, color: *const D2D1_COLOR_F) -> HRESULT;
-            fn GetColor(&self, color: *mut D2D1_COLOR_F);
-            fn SetId(&self, id: PCWSTR) -> HRESULT;
-            fn GetId(&self, #[len_param(1)] #[out] id: PWSTR, idCount: u32) -> HRESULT;
-            fn GetIdLength(&self) -> u32;
+            fn SetColor(&self, #[in] color: *const D2D1_COLOR_F) -> HRESULT;
+            fn GetColor(&self, #[out] color: *mut D2D1_COLOR_F);
+            fn SetId(&self, #[in] id: PCWSTR) -> HRESULT;
+            fn GetId(&self, #[out] #[writable(entry, idCount)] id: PWSTR, idCount: UINT32) -> HRESULT;
+            fn GetIdLength(&self) -> UINT32;
         }
         #[guid(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888)]
         interface ID2D1SvgPathData: ID2D1SvgAttribute {
-            fn RemoveSegmentDataAtEnd(&self, dataCount: u32) -> HRESULT;
-            fn UpdateSegmentData(&self, #[len_param(1)] data: *const f32, dataCount: u32, startIndex: u32) -> HRESULT;
-            fn GetSegmentData(&self, #[len_param(1)] data: *mut f32, dataCount: u32, startIndex: u32) -> HRESULT;
-            fn GetSegmentDataCount(&self) -> u32;
-            fn RemoveCommandsAtEnd(&self, commandsCount: u32) -> HRESULT;
-            fn UpdateCommands(&self, #[len_param(1)] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, startIndex: u32) -> HRESULT;
-            fn GetCommands(&self, #[len_param(1)] commands: *mut D2D1_SVG_PATH_COMMAND, commandsCount: u32, startIndex: u32) -> HRESULT;
-            fn GetCommandsCount(&self) -> u32;
-            fn CreatePathGeometry(&self, fillMode: D2D1_FILL_MODE, pathGeometry: *mut ID2D1PathGeometry1) -> HRESULT;
+            fn RemoveSegmentDataAtEnd(&self, dataCount: UINT32) -> HRESULT;
+            fn UpdateSegmentData(&self, #[in] #[readable(entry, dataCount)] data: *const FLOAT, dataCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetSegmentData(&self, #[out] #[writable(entry, dataCount)] data: *mut FLOAT, dataCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetSegmentDataCount(&self) -> UINT32;
+            fn RemoveCommandsAtEnd(&self, commandsCount: UINT32) -> HRESULT;
+            fn UpdateCommands(&self, #[in] #[readable(entry, commandsCount)] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetCommands(&self, #[out] #[writable(entry, commandsCount)] commands: *mut D2D1_SVG_PATH_COMMAND, commandsCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetCommandsCount(&self) -> UINT32;
+            fn CreatePathGeometry(&self, fillMode: D2D1_FILL_MODE, #[out] #[out_ptr(null_on_failure)] pathGeometry: *mut ID2D1PathGeometry1) -> HRESULT;
         }
         #[guid(0x9dbe4c0d_3572_4dd9_9825_5530813bb712)]
         interface ID2D1SvgPointCollection: ID2D1SvgAttribute {
-            fn RemovePointsAtEnd(&self, pointsCount: u32) -> HRESULT;
-            fn UpdatePoints(&self, #[len_param(1)] points: *const D2D1_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
-            fn GetPoints(&self, #[len_param(1)] points: *mut D2D1_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
-            fn GetPointsCount(&self) -> u32;
+            fn RemovePointsAtEnd(&self, pointsCount: UINT32) -> HRESULT;
+            fn UpdatePoints(&self, #[in] #[readable(entry, pointsCount)] points: *const D2D1_POINT_2F, pointsCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetPoints(&self, #[out] #[writable(entry, pointsCount)] points: *mut D2D1_POINT_2F, pointsCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetPointsCount(&self) -> UINT32;
         }
         #[guid(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9)]
         interface ID2D1SvgStrokeDashArray: ID2D1SvgAttribute {
-            fn RemoveDashesAtEnd(&self, dashesCount: u32) -> HRESULT;
-            fn UpdateDashes(&self, #[len_param(1)] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
-            fn UpdateDashes(&self, #[len_param(1)] dashes: *const f32, dashesCount: u32, startIndex: u32) -> HRESULT;
-            fn GetDashes(&self, #[len_param(1)] dashes: *mut D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
-            fn GetDashes(&self, #[len_param(1)] dashes: *mut f32, dashesCount: u32, startIndex: u32) -> HRESULT;
-            fn GetDashesCount(&self) -> u32;
+            fn RemoveDashesAtEnd(&self, dashesCount: UINT32) -> HRESULT;
+            fn UpdateDashes(&self, #[in] #[readable(entry, dashesCount)] dashes: *const D2D1_SVG_LENGTH, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn UpdateDashes(&self, #[in] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetDashes(&self, #[out] #[writable(entry, dashesCount)] dashes: *mut D2D1_SVG_LENGTH, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetDashes(&self, #[out] #[writable(entry, dashesCount)] dashes: *mut FLOAT, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetDashesCount(&self) -> UINT32;
         }
     }
 }

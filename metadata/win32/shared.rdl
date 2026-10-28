@@ -1,0 +1,539 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type ACCESS_MASK = u32;
+        type ALG_ID = u32;
+        type BOOLEAN = u8;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserFree(#[in] param0: *mut u32, #[in] param1: *mut BSTR);
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut BSTR);
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut BSTR) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut BSTR) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut BSTR) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut BSTR) -> u32;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut BSTR) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut BSTR) -> *mut u8;
+        type BTH_ADDR = u64;
+        type BYTE = u8;
+        const CDN_FIRST: u32 = 4294966695;
+        const CDN_LAST: u32 = 4294966597;
+        type CHAR = i8;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserFree(#[in] param0: *mut u32, #[in] param1: *mut CLIPFORMAT);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut CLIPFORMAT);
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut CLIPFORMAT) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut CLIPFORMAT) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut CLIPFORMAT) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut CLIPFORMAT) -> u32;
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut CLIPFORMAT) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn CLIPFORMAT_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut CLIPFORMAT) -> *mut u8;
+        #[library("ole32.dll")]
+        #[must_use]
+        extern fn CLSIDFromProgIDEx(#[in] lpszProgID: LPCOLESTR, #[out] lpclsid: LPCLSID) -> HRESULT;
+        const CLSID_BroadcastEventService: GUID = 0x0b3ffb92_0919_4934_9d5b_619c719d0202;
+        #[library("ole32.dll")]
+        extern fn CoFileTimeNow(#[out] lpFileTime: *mut FILETIME) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CreateDataAdviseHolder(#[out] #[out_ptr] ppDAHolder: *mut LPDATAADVISEHOLDER) -> HRESULT;
+        type D2D1_POINT_2L = POINT;
+        type D2D1_RECT_L = RECT;
+        const DDPF_FOURCC: i32 = 4;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Disk_Number: DEVPROPKEY = 5;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Gpt_Name: DEVPROPKEY = 9;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Gpt_Type: DEVPROPKEY = 8;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Mbr_Type: DEVPROPKEY = 7;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Partition_Number: DEVPROPKEY = 6;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Portable: DEVPROPKEY = 2;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Removable_Media: DEVPROPKEY = 3;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_System_Critical: DEVPROPKEY = 4;
+        type DISPID = i32;
+        type DWORD = u32;
+        type DWORD64 = u64;
+        type DWORDLONG = u64;
+        const DWORDLONG_MAX: u64 = 18446744073709551615;
+        const DWORD_MAX: u32 = 4294967295;
+        type DWORD_PTR = usize;
+        #[library("SHELL32.dll")]
+        extern fn DriveType(iDrive: i32) -> i32;
+        const E_NOTFOUND: HRESULT = -2147023728;
+        const FR_MATCHALEFHAMZA: u32 = 2147483648;
+        const FR_MATCHDIAC: i32 = 536870912;
+        const FR_MATCHKASHIDA: i32 = 1073741824;
+        #[library("ole32.dll")]
+        extern fn FreePropVariantArray(#[in] cVariants: ULONG, #[in] #[out] #[writable(entry, cVariants)] rgvars: *mut PROPVARIANT) -> HRESULT;
+        const GUID_DEVINTERFACE_CDCHANGER: GUID = 0x53f56312_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_CDROM: GUID = 0x53f56308_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_COMPORT: GUID = 0x86e0d1e0_8089_11d0_9ce4_08003e301f73;
+        const GUID_DEVINTERFACE_DISK: GUID = 0x53f56307_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_FLOPPY: GUID = 0x53f56311_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_HIDDEN_DISK: GUID = 0x7fccc86c_228a_40ad_8a58_f590af7bfdce;
+        const GUID_DEVINTERFACE_HIDDEN_VOLUME: GUID = 0x7f108a28_9833_4b3b_b780_2c6b5fa5c062;
+        const GUID_DEVINTERFACE_MEDIUMCHANGER: GUID = 0x53f56310_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_PARTITION: GUID = 0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: GUID = 0x4d36e978_e325_11ce_bfc1_08002be10318;
+        const GUID_DEVINTERFACE_SERVICE_VOLUME: GUID = 0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037;
+        const GUID_DEVINTERFACE_SES: GUID = 0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48;
+        const GUID_DEVINTERFACE_STORAGEPORT: GUID = 0x2accfe60_c130_11d2_b082_00a0c91efb8b;
+        const GUID_DEVINTERFACE_TAPE: GUID = 0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: GUID = 0x27447c21_bcc3_4d07_a05b_a3395bb4eee7;
+        const GUID_DEVINTERFACE_VMLUN: GUID = 0x6f416619_9f29_42a5_b20b_37e219ca02b0;
+        const GUID_DEVINTERFACE_VOLUME: GUID = 0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_WRITEONCEDISK: GUID = 0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b;
+        const GUID_DEVINTERFACE_ZNSDISK: GUID = 0xb87941c5_ffdb_43c7_b6b1_20b632f0b109;
+        #[library("SHELL32.dll")]
+        extern fn GetFileNameFromBrowse(#[in] #[opt] hwnd: HWND, #[in] #[out] #[writable(entry, cchFilePath)] pszFilePath: PWSTR, cchFilePath: UINT, #[in] #[opt] pszWorkingDir: PCWSTR, #[in] pszDefExt: PCWSTR, #[in] #[opt] pszFilters: PCWSTR, #[in] #[opt] pszTitle: PCWSTR) -> BOOL;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HACCEL);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HACCEL);
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HACCEL) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HACCEL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HACCEL) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HACCEL) -> u32;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HACCEL) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HACCEL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HBITMAP);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HBITMAP);
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HBITMAP) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HBITMAP) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HBITMAP) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HBITMAP) -> u32;
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HBITMAP) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HBITMAP_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HBITMAP) -> *mut u8;
+        type HCATADMIN = *mut void;
+        #[library("ole32.dll")]
+        extern fn HDC_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HDC);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HDC_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HDC);
+        #[library("ole32.dll")]
+        extern fn HDC_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HDC) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HDC_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HDC) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HDC_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HDC) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HDC_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HDC) -> u32;
+        #[library("ole32.dll")]
+        extern fn HDC_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HDC) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HDC_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HDC) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HGLOBAL);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HGLOBAL);
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HGLOBAL) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HGLOBAL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HGLOBAL) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HGLOBAL) -> u32;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HGLOBAL) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HGLOBAL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HICON_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HICON);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HICON_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HICON);
+        #[library("ole32.dll")]
+        extern fn HICON_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HICON) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HICON_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HICON) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HICON_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HICON) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HICON_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HICON) -> u32;
+        #[library("ole32.dll")]
+        extern fn HICON_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HICON) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HICON_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HICON) -> *mut u8;
+        struct HID_XFER_PACKET {
+            reportBuffer: PUCHAR,
+            reportBufferLen: ULONG,
+            reportId: UCHAR,
+        }
+        type HINTERNET = *mut void;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HMENU);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMENU_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HMENU);
+        #[library("ole32.dll")]
+        extern fn HMENU_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMENU) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMENU_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMENU) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMENU) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMENU_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMENU) -> u32;
+        #[library("ole32.dll")]
+        extern fn HMENU_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMENU) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMENU_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMENU) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HMONITOR);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HMONITOR);
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMONITOR) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HMONITOR) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMONITOR) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HMONITOR) -> u32;
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMONITOR) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HMONITOR_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HMONITOR) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HPALETTE);
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HPALETTE) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
+        #[success(return >= 0)]
+        type HRESULT = i32;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserFree(#[in] pFlags: *mut ULONG, #[in] ppidl: *mut HSTRING);
+        #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HSTRING);
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserMarshal(#[in] pFlags: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] pBuffer: *mut UCHAR, #[in] ppidl: *mut HSTRING) -> *mut UCHAR;
+        #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HSTRING) -> *mut u8;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserSize(#[in] pFlags: *mut ULONG, StartingSize: ULONG, #[in] ppidl: *mut HSTRING) -> ULONG;
+        #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HSTRING) -> u32;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserUnmarshal(#[in] pFlags: *mut ULONG, #[in] #[readable(entry, 0)] pBuffer: *mut UCHAR, #[out] ppidl: *mut HSTRING) -> *mut UCHAR;
+        #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn HSTRING_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HSTRING) -> *mut u8;
+        type HTHEME = *mut void;
+        #[library("ole32.dll")]
+        extern fn HWND_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HWND);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HWND_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HWND);
+        #[library("ole32.dll")]
+        extern fn HWND_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HWND) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HWND_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HWND) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HWND_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HWND) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HWND_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HWND) -> u32;
+        #[library("ole32.dll")]
+        extern fn HWND_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HWND) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn HWND_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HWND) -> *mut u8;
+        const IID_ICommDlgBrowser: GUID = 0x000214f1_0000_0000_c000_000000000046;
+        const IID_ICommDlgBrowser2: GUID = 0x10339516_2894_11d2_9039_00c04f8eeb3e;
+        const IID_IContextMenu: GUID = 0x000214e4_0000_0000_c000_000000000046;
+        const IID_IContextMenu2: GUID = 0x000214f4_0000_0000_c000_000000000046;
+        const IID_IContextMenu3: GUID = 0xbcfce0a0_ec17_11d0_8d10_00a0c90f2719;
+        const IID_IEnumExtraSearch: GUID = 0x0e700be1_9db6_11d1_a1ce_00c04fd75d13;
+        const IID_IEnumIDList: GUID = 0x000214f2_0000_0000_c000_000000000046;
+        const IID_IFileSystemBindData: GUID = 0x01e18d10_4d8b_11d2_855d_006008059367;
+        const IID_IKsControl: GUID = 0x28f54685_06fd_11d2_b27a_00a0c9223196;
+        const IID_IPersistFolder: GUID = 0x000214ea_0000_0000_c000_000000000046;
+        const IID_IRemoteComputer: GUID = 0x000214fe_0000_0000_c000_000000000046;
+        const IID_IShellBrowser: GUID = 0x000214e2_0000_0000_c000_000000000046;
+        const IID_IShellExtInit: GUID = 0x000214e8_0000_0000_c000_000000000046;
+        const IID_IShellFolder: GUID = 0x000214e6_0000_0000_c000_000000000046;
+        const IID_IShellFolder2: GUID = 0x93f2f68c_1d1b_11d3_a30e_00c04f79abd1;
+        const IID_IShellIcon: GUID = 0x000214e5_0000_0000_c000_000000000046;
+        const IID_IShellIconOverlayIdentifier: GUID = 0x0c6c4200_c589_11d0_999a_00c04fd655e1;
+        const IID_IShellLinkA: GUID = 0x000214ee_0000_0000_c000_000000000046;
+        const IID_IShellLinkW: GUID = 0x000214f9_0000_0000_c000_000000000046;
+        const IID_IShellPropSheetExt: GUID = 0x000214e9_0000_0000_c000_000000000046;
+        const IID_IShellView: GUID = 0x000214e3_0000_0000_c000_000000000046;
+        const IID_IShellView2: GUID = 0x88e39e80_3578_11cf_ae69_08002b2e1262;
+        type INT = i32;
+        type INT16 = i16;
+        type INT32 = i32;
+        type INT64 = i64;
+        type INT8 = i8;
+        type INTERNET_PORT = u16;
+        type INT_PTR = isize;
+        const INVALID_HANDLE_VALUE: HANDLE = -1;
+        const IOCTL_SERENUM_EXPOSE_HARDWARE: i32 = 3604992;
+        const IOCTL_SERENUM_GET_PORT_NAME: i32 = 3605004;
+        const IOCTL_SERENUM_PORT_DESC: i32 = 3605000;
+        const IOCTL_SERENUM_REMOVE_HARDWARE: i32 = 3604996;
+        const IOCTL_SERIAL_LSRMST_INSERT: i32 = 1769596;
+        type IPAddr = u32;
+        type IPMask = u32;
+        const KEYBOARD_OVERRUN_MAKE_CODE: i32 = 255;
+        type KF_REDIRECT_FLAGS = u32;
+        const KSDATAFORMAT_SUBTYPE_PCM: GUID = 0x00000001_0000_0010_8000_00aa00389b71;
+        const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: GUID = 0x00000000_0000_0010_8000_00aa00389b71;
+        type LANGID = u16;
+        type LCID = u32;
+        type LONG = i32;
+        type LONG64 = i64;
+        type LONGLONG = i64;
+        type LONG_PTR = isize;
+        type LPBYTE = *mut u8;
+        type LPCVOID = *const void;
+        type LPHINTERNET = *mut *mut void;
+        type LPINTERNET_PORT = *mut u16;
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserFree(#[in] param0: *mut u32, #[in] param1: *mut LPSAFEARRAY);
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut LPSAFEARRAY);
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut LPSAFEARRAY) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut LPSAFEARRAY) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut LPSAFEARRAY) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut LPSAFEARRAY) -> u32;
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut LPSAFEARRAY) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn LPSAFEARRAY_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut LPSAFEARRAY) -> *mut u8;
+        type LPUINT = *mut u32;
+        #[library("clfsw32.dll")]
+        extern fn LsnBlockOffset(#[in] plsn: *const CLFS_LSN) -> ULONG;
+        #[library("clfsw32.dll")]
+        extern fn LsnContainer(#[in] plsn: *const CLFS_LSN) -> CLFS_CONTAINER_ID;
+        #[library("clfsw32.dll")]
+        extern fn LsnCreate(#[in] cidContainer: CLFS_CONTAINER_ID, #[in] offBlock: ULONG, #[in] cRecord: ULONG) -> CLFS_LSN;
+        #[library("clfsw32.dll")]
+        extern fn LsnRecordSequence(#[in] plsn: *const CLFS_LSN) -> ULONG;
+        const MAX_PROFILE_LEN: i32 = 80;
+        type MEMBERID = i32;
+        const MOUSE_ATTRIBUTES_CHANGED: i32 = 4;
+        const MOUSE_MOVE_ABSOLUTE: i32 = 1;
+        const MOUSE_MOVE_NOCOALESCE: i32 = 8;
+        const MOUSE_MOVE_RELATIVE: i32 = 0;
+        const MOUSE_VIRTUAL_DESKTOP: i32 = 2;
+        const MR_BUFFER_SERVICE: GUID = 0xa562248c_9ac6_4ffc_9fba_3af8f8ad1a4d;
+        #[success(return >= 0)]
+        type NTSTATUS = i32;
+        type PBYTE = *mut u8;
+        type PHID_XFER_PACKET = *mut HID_XFER_PACKET;
+        type PHYSICAL_ADDRESS = LARGE_INTEGER;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+        type PNTSTATUS = *mut i32;
+        type PROPERTYID = i32;
+        #[arch(X64 | Arm64)]
+        type PULONG_PTR = *mut u64;
+        #[arch(X86)]
+        type PULONG_PTR = *mut u32;
+        type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
+        #[library("ole32.dll")]
+        extern fn PropVariantClear(#[in] #[out] pvar: *mut PROPVARIANT) -> HRESULT;
+        #[library("ole32.dll")]
+        #[must_use]
+        extern fn PropVariantCopy(#[out] pvarDest: *mut PROPVARIANT, #[in] pvarSrc: *const PROPVARIANT) -> HRESULT;
+        type QWORD = u64;
+        type REFERENCE_TIME = i64;
+        type REFTIME = f64;
+        const SERIAL_IOC_FCR_DMA_MODE: u32 = 8;
+        const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1;
+        const SERIAL_IOC_FCR_RCVR_RESET: u32 = 2;
+        const SERIAL_IOC_FCR_RCVR_TRIGGER_LSB: u32 = 64;
+        const SERIAL_IOC_FCR_RCVR_TRIGGER_MSB: u32 = 128;
+        const SERIAL_IOC_FCR_RES1: u32 = 16;
+        const SERIAL_IOC_FCR_RES2: u32 = 32;
+        const SERIAL_IOC_FCR_XMIT_RESET: u32 = 4;
+        const SERIAL_IOC_MCR_DTR: u32 = 1;
+        const SERIAL_IOC_MCR_LOOP: u32 = 16;
+        const SERIAL_IOC_MCR_OUT1: u32 = 4;
+        const SERIAL_IOC_MCR_OUT2: u32 = 8;
+        const SERIAL_IOC_MCR_RTS: u32 = 2;
+        const SERIAL_LSRMST_ESCAPE: u8 = 0;
+        const SERIAL_LSRMST_LSR_DATA: u8 = 1;
+        const SERIAL_LSRMST_LSR_NODATA: u8 = 2;
+        const SERIAL_LSRMST_MST: u8 = 3;
+        type SHORT = i16;
+        type SIZE_T = usize;
+        type SSIZE_T = isize;
+        const STATUS_ACCESS_DENIED: NTSTATUS = -1073741790;
+        const STATUS_ACCOUNT_DISABLED: NTSTATUS = -1073741710;
+        const STATUS_ACCOUNT_EXPIRED: NTSTATUS = -1073741421;
+        const STATUS_ACCOUNT_LOCKED_OUT: NTSTATUS = -1073741260;
+        const STATUS_ACCOUNT_RESTRICTION: NTSTATUS = -1073741714;
+        const STATUS_AUTHENTICATION_FIREWALL_FAILED: NTSTATUS = -1073740781;
+        const STATUS_DOWNGRADE_DETECTED: NTSTATUS = -1073740920;
+        const STATUS_LOGON_FAILURE: NTSTATUS = -1073741715;
+        const STATUS_LOGON_TYPE_NOT_GRANTED: NTSTATUS = -1073741477;
+        const STATUS_NO_SUCH_LOGON_SESSION: NTSTATUS = -1073741729;
+        const STATUS_NO_SUCH_USER: NTSTATUS = -1073741724;
+        const STATUS_PASSWORD_EXPIRED: NTSTATUS = -1073741711;
+        const STATUS_PASSWORD_MUST_CHANGE: NTSTATUS = -1073741276;
+        const STATUS_SEVERITY_ERROR: i32 = 3;
+        const STATUS_SEVERITY_INFORMATIONAL: i32 = 1;
+        const STATUS_SEVERITY_SUCCESS: i32 = 0;
+        const STATUS_SEVERITY_WARNING: i32 = 2;
+        const STATUS_WRONG_PASSWORD: NTSTATUS = -1073741718;
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserFree(#[in] param0: *mut u32, #[in] param1: *mut STGMEDIUM);
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut STGMEDIUM);
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut STGMEDIUM) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut STGMEDIUM) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut STGMEDIUM) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut STGMEDIUM) -> u32;
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut STGMEDIUM) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
+        extern fn STGMEDIUM_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut STGMEDIUM) -> *mut u8;
+        const S_OK: HRESULT = 0;
+        #[library("KERNEL32.dll")]
+        extern fn SignalObjectAndWait(#[in] hObjectToSignal: HANDLE, #[in] hObjectToWaitOn: HANDLE, #[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> DWORD;
+        type UCHAR = u8;
+        type UINT = u32;
+        type UINT16 = u16;
+        type UINT32 = u32;
+        type UINT64 = u64;
+        type UINT8 = u8;
+        type UINT_PTR = usize;
+        type ULONG = u32;
+        type ULONG64 = u64;
+        type ULONGLONG = u64;
+        type ULONG_PTR = usize;
+        type USHORT = u16;
+        type UWORD = u16;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserFree(#[in] param0: *mut u32, #[in] param1: *mut VARIANT);
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut VARIANT);
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut VARIANT) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut VARIANT) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut VARIANT) -> u32;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut VARIANT) -> u32;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut VARIANT) -> *mut u8;
+        #[arch(X64 | Arm64)]
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut VARIANT) -> *mut u8;
+        #[library("KERNEL32.dll")]
+        extern fn VerSetConditionMask(#[in] ConditionMask: ULONGLONG, #[in] TypeMask: DWORD, #[in] Condition: BYTE) -> ULONGLONG;
+        #[packed(1)]
+        struct WAVEFORMATEXTENSIBLE {
+            Format: WAVEFORMATEX,
+            Samples: #[packed(1)] union {
+                wValidBitsPerSample: WORD,
+                wSamplesPerBlock: WORD,
+                wReserved: WORD,
+            },
+            dwChannelMask: DWORD,
+            SubFormat: GUID,
+        }
+        const WAVE_FORMAT_EXTENSIBLE: i32 = 65534;
+        type WORD = u16;
+        type __C_ASSERT__ = [i8; 1];
+        type error_status_t = u32;
+        #[library("WINMM.dll")]
+        extern fn joyConfigChanged(#[in] dwFlags: DWORD) -> MMRESULT;
+        type ptrdiff_t = isize;
+        type size_t = usize;
+        type va_list = *mut i8;
+    }
+}

@@ -1,0 +1,32 @@
+#[win32]
+mod Fixture {
+    type Address = *mut void;
+    type Again = void;
+    extern fn Callback(value: Address);
+    #[library("fixture.dll")]
+    extern fn Clear();
+    type ConstAddress = *const void;
+    extern fn Function(value: ConstAddress);
+    #[library("fixture.dll")]
+    extern fn Get() -> Address;
+    struct Holder {
+        direct_value: *mut Again,
+        qualified_value: *const Nothing,
+        mutable_value: Address,
+        constant_value: ConstAddress,
+        callback: Callback,
+        function: Function,
+    }
+    #[guid(0x4a79e274_0db1_4ce0_a852_432b6d179303)]
+    interface IConsumer {
+        fn Clear(&self);
+        fn Set(&self, value: ConstAddress);
+    }
+    type Nothing = void;
+    #[library("fixture.dll")]
+    extern fn Set(value: ConstAddress);
+    #[arch(X64)]
+    type TargetValue = Holder;
+    #[arch(X86 | Arm64)]
+    type TargetValue = void;
+}

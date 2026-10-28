@@ -5,7 +5,7 @@ mod Test {
         handler: ArchCallback,
     }
     #[arch(X64 | Arm64)]
-    extern fn ArchCallback(code: i32) -> i32;
+    extern fn ArchCallback(#[in] code: i32) -> i32;
     #[arch(X86)]
-    extern fn ArchCallback(code: i16) -> i16;
+    extern fn ArchCallback(#[in] code: i16) -> i16;
 }

@@ -21,6 +21,7 @@ mod Windows {
 }
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface ISource {
         fn GetItems(&self) -> Items;
     }
@@ -28,7 +29,9 @@ mod Test {
         IItems,
         Windows::Foundation::Collections::IIterable<Item>,
     }
+    #[guid(auto)]
     interface IItems {}
+    #[guid(auto)]
     interface Item {
         fn Read(&self) -> i32;
     }

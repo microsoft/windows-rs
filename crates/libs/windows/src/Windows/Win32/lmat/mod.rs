@@ -1,55 +1,58 @@
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: super::LPBYTE, jobid: super::LPDWORD) -> u32
+pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: super::LPBYTE, jobid: super::LPDWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_core::PCWSTR, buffer : super::LPBYTE, jobid : super::LPDWORD) -> u32);
-    unsafe { NetScheduleJobAdd(servername.param().abi(), buffer, jobid as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_core::PCWSTR, buffer : super::LPBYTE, jobid : super::LPDWORD) -> super::DWORD);
+    unsafe { NetScheduleJobAdd(servername.param().abi(), buffer as _, jobid as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetScheduleJobDel<P0>(servername: P0, minjobid: u32, maxjobid: u32) -> u32
+pub unsafe fn NetScheduleJobDel<P0>(servername: P0, minjobid: super::DWORD, maxjobid: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobDel(servername : windows_core::PCWSTR, minjobid : u32, maxjobid : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobDel(servername : windows_core::PCWSTR, minjobid : super::DWORD, maxjobid : super::DWORD) -> super::DWORD);
     unsafe { NetScheduleJobDel(servername.param().abi(), minjobid, maxjobid) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetScheduleJobEnum<P0>(servername: P0, pointertobuffer: *mut super::LPBYTE, prefferedmaximumlength: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resumehandle: super::LPDWORD) -> u32
+pub unsafe fn NetScheduleJobEnum<P0>(servername: P0, pointertobuffer: *mut super::LPBYTE, prefferedmaximumlength: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resumehandle: super::LPDWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : windows_core::PCWSTR, pointertobuffer : *mut super::LPBYTE, prefferedmaximumlength : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : windows_core::PCWSTR, pointertobuffer : *mut super::LPBYTE, prefferedmaximumlength : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> super::DWORD);
     unsafe { NetScheduleJobEnum(servername.param().abi(), pointertobuffer as _, prefferedmaximumlength, entriesread as _, totalentries as _, resumehandle as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetScheduleJobGetInfo<P0>(servername: P0, jobid: u32, pointertobuffer: *mut super::LPBYTE) -> u32
+pub unsafe fn NetScheduleJobGetInfo<P0>(servername: P0, jobid: super::DWORD, pointertobuffer: *mut super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobGetInfo(servername : windows_core::PCWSTR, jobid : u32, pointertobuffer : *mut super::LPBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobGetInfo(servername : windows_core::PCWSTR, jobid : super::DWORD, pointertobuffer : *mut super::LPBYTE) -> super::DWORD);
     unsafe { NetScheduleJobGetInfo(servername.param().abi(), jobid, pointertobuffer as _) }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AT_ENUM {
-    pub JobId: u32,
-    pub JobTime: usize,
-    pub DaysOfMonth: u32,
-    pub DaysOfWeek: u8,
-    pub Flags: u8,
+    pub JobId: super::DWORD,
+    pub JobTime: super::DWORD_PTR,
+    pub DaysOfMonth: super::DWORD,
+    pub DaysOfWeek: super::UCHAR,
+    pub Flags: super::UCHAR,
     pub Command: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AT_INFO {
-    pub JobTime: usize,
-    pub DaysOfMonth: u32,
-    pub DaysOfWeek: u8,
-    pub Flags: u8,
+    pub JobTime: super::DWORD_PTR,
+    pub DaysOfMonth: super::DWORD,
+    pub DaysOfWeek: super::UCHAR,
+    pub Flags: super::UCHAR,
     pub Command: windows_core::PWSTR,
 }
 pub const JOB_ADD_CURRENT_DATE: i32 = 8;
@@ -59,7 +62,11 @@ pub const JOB_NONINTERACTIVE: i32 = 16;
 pub const JOB_OUTPUT_FLAGS: i32 = 23;
 pub const JOB_RUNS_TODAY: i32 = 4;
 pub const JOB_RUN_PERIODICALLY: i32 = 1;
+#[cfg(feature = "shared")]
 pub type LPAT_ENUM = *mut AT_ENUM;
+#[cfg(feature = "shared")]
 pub type LPAT_INFO = *mut AT_INFO;
+#[cfg(feature = "shared")]
 pub type PAT_ENUM = *mut AT_ENUM;
+#[cfg(feature = "shared")]
 pub type PAT_INFO = *mut AT_INFO;

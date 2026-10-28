@@ -1,6 +1,31 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        const AnnotationType_AdvancedProofingIssue: i32 = 60020;
+        const AnnotationType_Author: i32 = 60019;
+        const AnnotationType_CircularReferenceError: i32 = 60022;
+        const AnnotationType_Comment: i32 = 60003;
+        const AnnotationType_ConflictingChange: i32 = 60018;
+        const AnnotationType_DataValidationError: i32 = 60021;
+        const AnnotationType_DeletionChange: i32 = 60012;
+        const AnnotationType_EditingLockedChange: i32 = 60016;
+        const AnnotationType_Endnote: i32 = 60009;
+        const AnnotationType_ExternalChange: i32 = 60017;
+        const AnnotationType_Footer: i32 = 60007;
+        const AnnotationType_Footnote: i32 = 60010;
+        const AnnotationType_FormatChange: i32 = 60014;
+        const AnnotationType_FormulaError: i32 = 60004;
+        const AnnotationType_GrammarError: i32 = 60002;
+        const AnnotationType_Header: i32 = 60006;
+        const AnnotationType_Highlighted: i32 = 60008;
+        const AnnotationType_InsertionChange: i32 = 60011;
+        const AnnotationType_Mathematics: i32 = 60023;
+        const AnnotationType_MoveChange: i32 = 60013;
+        const AnnotationType_Sensitive: i32 = 60024;
+        const AnnotationType_SpellingError: i32 = 60001;
+        const AnnotationType_TrackChanges: i32 = 60005;
+        const AnnotationType_Unknown: i32 = 60000;
+        const AnnotationType_UnsyncedChange: i32 = 60015;
         #[repr(i32)]
         enum AutomationElementMode {
             AutomationElementMode_None = 0,
@@ -22,524 +47,534 @@ mod Windows {
             PropertyName: BSTR,
             PropertyValue: BSTR,
         }
+        const HeadingLevel1: i32 = 80051;
+        const HeadingLevel2: i32 = 80052;
+        const HeadingLevel3: i32 = 80053;
+        const HeadingLevel4: i32 = 80054;
+        const HeadingLevel5: i32 = 80055;
+        const HeadingLevel6: i32 = 80056;
+        const HeadingLevel7: i32 = 80057;
+        const HeadingLevel8: i32 = 80058;
+        const HeadingLevel9: i32 = 80059;
+        const HeadingLevel_None: i32 = 80050;
         #[guid(0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee)]
         interface IUIAutomation: IUnknown {
-            fn CompareElements(&self, el1: IUIAutomationElement, el2: IUIAutomationElement, #[retval] areSame: *mut BOOL) -> HRESULT;
-            fn CompareRuntimeIds(&self, #[in] runtimeId1: *mut SAFEARRAY, #[in] runtimeId2: *mut SAFEARRAY, #[retval] areSame: *mut BOOL) -> HRESULT;
-            fn GetRootElement(&self, #[retval] root: *mut IUIAutomationElement) -> HRESULT;
-            fn ElementFromHandle(&self, hwnd: UIA_HWND, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
-            fn ElementFromPoint(&self, pt: POINT, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
-            fn GetFocusedElement(&self, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
-            fn GetRootElementBuildCache(&self, cacheRequest: IUIAutomationCacheRequest, #[retval] root: *mut IUIAutomationElement) -> HRESULT;
-            fn ElementFromHandleBuildCache(&self, hwnd: UIA_HWND, cacheRequest: IUIAutomationCacheRequest, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
-            fn ElementFromPointBuildCache(&self, pt: POINT, cacheRequest: IUIAutomationCacheRequest, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
-            fn GetFocusedElementBuildCache(&self, cacheRequest: IUIAutomationCacheRequest, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
-            fn CreateTreeWalker(&self, pCondition: IUIAutomationCondition, #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
+            fn CompareElements(&self, #[in] #[opt] el1: IUIAutomationElement, #[in] #[opt] el2: IUIAutomationElement, #[out] #[retval] areSame: *mut BOOL) -> HRESULT;
+            fn CompareRuntimeIds(&self, #[in] runtimeId1: *mut SAFEARRAY, #[in] runtimeId2: *mut SAFEARRAY, #[out] #[retval] areSame: *mut BOOL) -> HRESULT;
+            fn GetRootElement(&self, #[out] #[out_ptr] #[retval] root: *mut IUIAutomationElement) -> HRESULT;
+            fn ElementFromHandle(&self, #[in] hwnd: UIA_HWND, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn ElementFromPoint(&self, #[in] pt: POINT, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn GetFocusedElement(&self, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn GetRootElementBuildCache(&self, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] root: *mut IUIAutomationElement) -> HRESULT;
+            fn ElementFromHandleBuildCache(&self, #[in] hwnd: UIA_HWND, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn ElementFromPointBuildCache(&self, #[in] pt: POINT, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn GetFocusedElementBuildCache(&self, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn CreateTreeWalker(&self, #[in] #[opt] pCondition: IUIAutomationCondition, #[out] #[out_ptr] #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
             #[special]
-            fn get_ControlViewWalker(&self, #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
+            fn get_ControlViewWalker(&self, #[out] #[out_ptr] #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
             #[special]
-            fn get_ContentViewWalker(&self, #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
+            fn get_ContentViewWalker(&self, #[out] #[out_ptr] #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
             #[special]
-            fn get_RawViewWalker(&self, #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
+            fn get_RawViewWalker(&self, #[out] #[out_ptr] #[retval] walker: *mut IUIAutomationTreeWalker) -> HRESULT;
             #[special]
-            fn get_RawViewCondition(&self, #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
+            fn get_RawViewCondition(&self, #[out] #[out_ptr] #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
             #[special]
-            fn get_ControlViewCondition(&self, #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
+            fn get_ControlViewCondition(&self, #[out] #[out_ptr] #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
             #[special]
-            fn get_ContentViewCondition(&self, #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateCacheRequest(&self, #[retval] cacheRequest: *mut IUIAutomationCacheRequest) -> HRESULT;
-            fn CreateTrueCondition(&self, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateFalseCondition(&self, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreatePropertyCondition(&self, propertyId: PROPERTYID, value: VARIANT, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreatePropertyConditionEx(&self, propertyId: PROPERTYID, value: VARIANT, flags: PropertyConditionFlags, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateAndCondition(&self, condition1: IUIAutomationCondition, condition2: IUIAutomationCondition, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateAndConditionFromArray(&self, #[in] conditions: *mut SAFEARRAY, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateAndConditionFromNativeArray(&self, #[in] conditions: *mut IUIAutomationCondition, conditionCount: i32, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateOrCondition(&self, condition1: IUIAutomationCondition, condition2: IUIAutomationCondition, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateOrConditionFromArray(&self, #[in] conditions: *mut SAFEARRAY, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateOrConditionFromNativeArray(&self, #[in] conditions: *mut IUIAutomationCondition, conditionCount: i32, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn CreateNotCondition(&self, condition: IUIAutomationCondition, #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
-            fn AddAutomationEventHandler(&self, eventId: EVENTID, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationEventHandler) -> HRESULT;
-            fn RemoveAutomationEventHandler(&self, eventId: EVENTID, element: IUIAutomationElement, handler: IUIAutomationEventHandler) -> HRESULT;
-            fn AddPropertyChangedEventHandlerNativeArray(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, #[in] propertyArray: *mut PROPERTYID, propertyCount: i32) -> HRESULT;
-            fn AddPropertyChangedEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, #[in] propertyArray: *mut SAFEARRAY) -> HRESULT;
-            fn RemovePropertyChangedEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationPropertyChangedEventHandler) -> HRESULT;
-            fn AddStructureChangedEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
-            fn RemoveStructureChangedEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
-            fn AddFocusChangedEventHandler(&self, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationFocusChangedEventHandler) -> HRESULT;
-            fn RemoveFocusChangedEventHandler(&self, handler: IUIAutomationFocusChangedEventHandler) -> HRESULT;
+            fn get_ContentViewCondition(&self, #[out] #[out_ptr] #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateCacheRequest(&self, #[out] #[out_ptr] #[retval] cacheRequest: *mut IUIAutomationCacheRequest) -> HRESULT;
+            fn CreateTrueCondition(&self, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateFalseCondition(&self, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreatePropertyCondition(&self, #[in] propertyId: PROPERTYID, #[in] value: VARIANT, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreatePropertyConditionEx(&self, #[in] propertyId: PROPERTYID, #[in] value: VARIANT, #[in] flags: PropertyConditionFlags, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateAndCondition(&self, #[in] #[opt] condition1: IUIAutomationCondition, #[in] #[opt] condition2: IUIAutomationCondition, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateAndConditionFromArray(&self, #[in] #[opt] conditions: *mut SAFEARRAY, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateAndConditionFromNativeArray(&self, #[in] #[readable(entry, conditionCount)] conditions: *mut IUIAutomationCondition, #[in] conditionCount: i32, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateOrCondition(&self, #[in] #[opt] condition1: IUIAutomationCondition, #[in] #[opt] condition2: IUIAutomationCondition, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateOrConditionFromArray(&self, #[in] #[opt] conditions: *mut SAFEARRAY, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateOrConditionFromNativeArray(&self, #[in] #[readable(entry, conditionCount)] conditions: *mut IUIAutomationCondition, #[in] conditionCount: i32, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn CreateNotCondition(&self, #[in] #[opt] condition: IUIAutomationCondition, #[out] #[out_ptr] #[retval] newCondition: *mut IUIAutomationCondition) -> HRESULT;
+            fn AddAutomationEventHandler(&self, #[in] eventId: EVENTID, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationEventHandler) -> HRESULT;
+            fn RemoveAutomationEventHandler(&self, #[in] eventId: EVENTID, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handler: IUIAutomationEventHandler) -> HRESULT;
+            fn AddPropertyChangedEventHandlerNativeArray(&self, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationPropertyChangedEventHandler, #[in] #[readable(entry, propertyCount)] propertyArray: *mut PROPERTYID, #[in] propertyCount: i32) -> HRESULT;
+            fn AddPropertyChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationPropertyChangedEventHandler, #[in] propertyArray: *mut SAFEARRAY) -> HRESULT;
+            fn RemovePropertyChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handler: IUIAutomationPropertyChangedEventHandler) -> HRESULT;
+            fn AddStructureChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
+            fn RemoveStructureChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
+            fn AddFocusChangedEventHandler(&self, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationFocusChangedEventHandler) -> HRESULT;
+            fn RemoveFocusChangedEventHandler(&self, #[in] #[opt] handler: IUIAutomationFocusChangedEventHandler) -> HRESULT;
             fn RemoveAllEventHandlers(&self) -> HRESULT;
-            fn IntNativeArrayToSafeArray(&self, #[in] array: *mut i32, arrayCount: i32, #[retval] safeArray: *mut *mut SAFEARRAY) -> HRESULT;
-            fn IntSafeArrayToNativeArray(&self, #[in] intArray: *mut SAFEARRAY, array: *mut *mut i32, #[retval] arrayCount: *mut i32) -> HRESULT;
-            fn RectToVariant(&self, rc: RECT, #[retval] var: *mut VARIANT) -> HRESULT;
-            fn VariantToRect(&self, var: VARIANT, #[retval] rc: *mut RECT) -> HRESULT;
-            fn SafeArrayToRectNativeArray(&self, #[in] rects: *mut SAFEARRAY, rectArray: *mut *mut RECT, #[retval] rectArrayCount: *mut i32) -> HRESULT;
-            fn CreateProxyFactoryEntry(&self, factory: IUIAutomationProxyFactory, #[retval] factoryEntry: *mut IUIAutomationProxyFactoryEntry) -> HRESULT;
+            fn IntNativeArrayToSafeArray(&self, #[in] #[readable(entry, arrayCount)] array: *mut i32, #[in] arrayCount: i32, #[out] #[out_ptr] #[retval] safeArray: *mut *mut SAFEARRAY) -> HRESULT;
+            fn IntSafeArrayToNativeArray(&self, #[in] intArray: *mut SAFEARRAY, #[nullable(entry, indirect)] #[out] #[readable(success, *arrayCount, indirect, nullable)] #[writable(success, *arrayCount, indirect, nullable)] array: *mut *mut i32, #[out] #[retval] arrayCount: *mut i32) -> HRESULT;
+            fn RectToVariant(&self, #[in] rc: RECT, #[out] #[retval] var: *mut VARIANT) -> HRESULT;
+            fn VariantToRect(&self, #[in] var: VARIANT, #[out] #[retval] rc: *mut RECT) -> HRESULT;
+            fn SafeArrayToRectNativeArray(&self, #[in] rects: *mut SAFEARRAY, #[nullable(entry, indirect)] #[out] #[readable(success, *rectArrayCount, indirect, nullable)] #[writable(success, *rectArrayCount, indirect, nullable)] rectArray: *mut *mut RECT, #[out] #[retval] rectArrayCount: *mut i32) -> HRESULT;
+            fn CreateProxyFactoryEntry(&self, #[in] #[opt] factory: IUIAutomationProxyFactory, #[out] #[out_ptr] #[retval] factoryEntry: *mut IUIAutomationProxyFactoryEntry) -> HRESULT;
             #[special]
-            fn get_ProxyFactoryMapping(&self, #[retval] factoryMapping: *mut IUIAutomationProxyFactoryMapping) -> HRESULT;
-            fn GetPropertyProgrammaticName(&self, property: PROPERTYID, #[retval] name: *mut BSTR) -> HRESULT;
-            fn GetPatternProgrammaticName(&self, pattern: PATTERNID, #[retval] name: *mut BSTR) -> HRESULT;
-            fn PollForPotentialSupportedPatterns(&self, pElement: IUIAutomationElement, patternIds: *mut *mut SAFEARRAY, patternNames: *mut *mut SAFEARRAY) -> HRESULT;
-            fn PollForPotentialSupportedProperties(&self, pElement: IUIAutomationElement, propertyIds: *mut *mut SAFEARRAY, propertyNames: *mut *mut SAFEARRAY) -> HRESULT;
-            fn CheckNotSupported(&self, value: VARIANT, #[retval] isNotSupported: *mut BOOL) -> HRESULT;
+            fn get_ProxyFactoryMapping(&self, #[out] #[out_ptr] #[retval] factoryMapping: *mut IUIAutomationProxyFactoryMapping) -> HRESULT;
+            fn GetPropertyProgrammaticName(&self, #[in] property: PROPERTYID, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn GetPatternProgrammaticName(&self, #[in] pattern: PATTERNID, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn PollForPotentialSupportedPatterns(&self, #[in] #[opt] pElement: IUIAutomationElement, #[out] #[out_ptr] patternIds: *mut *mut SAFEARRAY, #[out] #[out_ptr] patternNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn PollForPotentialSupportedProperties(&self, #[in] #[opt] pElement: IUIAutomationElement, #[out] #[out_ptr] propertyIds: *mut *mut SAFEARRAY, #[out] #[out_ptr] propertyNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn CheckNotSupported(&self, #[in] value: VARIANT, #[out] #[retval] isNotSupported: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_ReservedNotSupportedValue(&self, #[retval] notSupportedValue: *mut IUnknown) -> HRESULT;
+            fn get_ReservedNotSupportedValue(&self, #[out] #[out_ptr] #[retval] notSupportedValue: *mut IUnknown) -> HRESULT;
             #[special]
-            fn get_ReservedMixedAttributeValue(&self, #[retval] mixedAttributeValue: *mut IUnknown) -> HRESULT;
-            fn ElementFromIAccessible(&self, accessible: IAccessible, childId: i32, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
-            fn ElementFromIAccessibleBuildCache(&self, accessible: IAccessible, childId: i32, cacheRequest: IUIAutomationCacheRequest, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn get_ReservedMixedAttributeValue(&self, #[out] #[out_ptr] #[retval] mixedAttributeValue: *mut IUnknown) -> HRESULT;
+            fn ElementFromIAccessible(&self, #[in] #[opt] accessible: IAccessible, #[in] childId: i32, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn ElementFromIAccessibleBuildCache(&self, #[in] #[opt] accessible: IAccessible, #[in] childId: i32, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
         }
         #[guid(0x34723aff_0c9d_49d0_9896_7ab52df8cd8a)]
         interface IUIAutomation2: IUIAutomation {
             #[special]
-            fn get_AutoSetFocus(&self, #[retval] autoSetFocus: *mut BOOL) -> HRESULT;
+            fn get_AutoSetFocus(&self, #[out] #[retval] autoSetFocus: *mut BOOL) -> HRESULT;
             #[special]
-            fn put_AutoSetFocus(&self, autoSetFocus: BOOL) -> HRESULT;
+            fn put_AutoSetFocus(&self, #[in] autoSetFocus: BOOL) -> HRESULT;
             #[special]
-            fn get_ConnectionTimeout(&self, #[retval] timeout: *mut u32) -> HRESULT;
+            fn get_ConnectionTimeout(&self, #[out] #[retval] timeout: *mut DWORD) -> HRESULT;
             #[special]
-            fn put_ConnectionTimeout(&self, timeout: u32) -> HRESULT;
+            fn put_ConnectionTimeout(&self, #[in] timeout: DWORD) -> HRESULT;
             #[special]
-            fn get_TransactionTimeout(&self, #[retval] timeout: *mut u32) -> HRESULT;
+            fn get_TransactionTimeout(&self, #[out] #[retval] timeout: *mut DWORD) -> HRESULT;
             #[special]
-            fn put_TransactionTimeout(&self, timeout: u32) -> HRESULT;
+            fn put_TransactionTimeout(&self, #[in] timeout: DWORD) -> HRESULT;
         }
         #[guid(0x73d768da_9b51_4b89_936e_c209290973e7)]
         interface IUIAutomation3: IUIAutomation2 {
-            fn AddTextEditTextChangedEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, textEditChangeType: TextEditChangeType, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationTextEditTextChangedEventHandler) -> HRESULT;
-            fn RemoveTextEditTextChangedEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationTextEditTextChangedEventHandler) -> HRESULT;
+            fn AddTextEditTextChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] textEditChangeType: TextEditChangeType, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationTextEditTextChangedEventHandler) -> HRESULT;
+            fn RemoveTextEditTextChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handler: IUIAutomationTextEditTextChangedEventHandler) -> HRESULT;
         }
         #[guid(0x1189c02a_05f8_4319_8e21_e817e3db2860)]
         interface IUIAutomation4: IUIAutomation3 {
-            fn AddChangesEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, #[in] changeTypes: *mut i32, changesCount: i32, pCacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationChangesEventHandler) -> HRESULT;
-            fn RemoveChangesEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationChangesEventHandler) -> HRESULT;
+            fn AddChangesEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] #[readable(entry, changesCount)] changeTypes: *mut i32, #[in] changesCount: i32, #[in] #[opt] pCacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationChangesEventHandler) -> HRESULT;
+            fn RemoveChangesEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handler: IUIAutomationChangesEventHandler) -> HRESULT;
         }
         #[guid(0x25f700c8_d816_4057_a9dc_3cbdee77e256)]
         interface IUIAutomation5: IUIAutomation4 {
-            fn AddNotificationEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationNotificationEventHandler) -> HRESULT;
-            fn RemoveNotificationEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationNotificationEventHandler) -> HRESULT;
+            fn AddNotificationEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationNotificationEventHandler) -> HRESULT;
+            fn RemoveNotificationEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handler: IUIAutomationNotificationEventHandler) -> HRESULT;
         }
         #[guid(0xaae072da_29e3_413d_87a7_192dbf81ed10)]
         interface IUIAutomation6: IUIAutomation5 {
-            fn CreateEventHandlerGroup(&self, handlerGroup: *mut IUIAutomationEventHandlerGroup) -> HRESULT;
-            fn AddEventHandlerGroup(&self, element: IUIAutomationElement, handlerGroup: IUIAutomationEventHandlerGroup) -> HRESULT;
-            fn RemoveEventHandlerGroup(&self, element: IUIAutomationElement, handlerGroup: IUIAutomationEventHandlerGroup) -> HRESULT;
+            fn CreateEventHandlerGroup(&self, #[out] #[out_ptr] handlerGroup: *mut IUIAutomationEventHandlerGroup) -> HRESULT;
+            fn AddEventHandlerGroup(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handlerGroup: IUIAutomationEventHandlerGroup) -> HRESULT;
+            fn RemoveEventHandlerGroup(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handlerGroup: IUIAutomationEventHandlerGroup) -> HRESULT;
             #[special]
-            fn get_ConnectionRecoveryBehavior(&self, #[retval] connectionRecoveryBehaviorOptions: *mut ConnectionRecoveryBehaviorOptions) -> HRESULT;
+            fn get_ConnectionRecoveryBehavior(&self, #[out] #[retval] connectionRecoveryBehaviorOptions: *mut ConnectionRecoveryBehaviorOptions) -> HRESULT;
             #[special]
-            fn put_ConnectionRecoveryBehavior(&self, connectionRecoveryBehaviorOptions: ConnectionRecoveryBehaviorOptions) -> HRESULT;
+            fn put_ConnectionRecoveryBehavior(&self, #[in] connectionRecoveryBehaviorOptions: ConnectionRecoveryBehaviorOptions) -> HRESULT;
             #[special]
-            fn get_CoalesceEvents(&self, #[retval] coalesceEventsOptions: *mut CoalesceEventsOptions) -> HRESULT;
+            fn get_CoalesceEvents(&self, #[out] #[retval] coalesceEventsOptions: *mut CoalesceEventsOptions) -> HRESULT;
             #[special]
-            fn put_CoalesceEvents(&self, coalesceEventsOptions: CoalesceEventsOptions) -> HRESULT;
-            fn AddActiveTextPositionChangedEventHandler(&self, element: IUIAutomationElement, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationActiveTextPositionChangedEventHandler) -> HRESULT;
-            fn RemoveActiveTextPositionChangedEventHandler(&self, element: IUIAutomationElement, handler: IUIAutomationActiveTextPositionChangedEventHandler) -> HRESULT;
+            fn put_CoalesceEvents(&self, #[in] coalesceEventsOptions: CoalesceEventsOptions) -> HRESULT;
+            fn AddActiveTextPositionChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationActiveTextPositionChangedEventHandler) -> HRESULT;
+            fn RemoveActiveTextPositionChangedEventHandler(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] handler: IUIAutomationActiveTextPositionChangedEventHandler) -> HRESULT;
         }
         #[guid(0xf97933b0_8dae_4496_8997_5ba015fe0d82)]
         interface IUIAutomationActiveTextPositionChangedEventHandler: IUnknown {
-            fn HandleActiveTextPositionChangedEvent(&self, sender: IUIAutomationElement, range: IUIAutomationTextRange) -> HRESULT;
+            fn HandleActiveTextPositionChangedEvent(&self, #[in] #[opt] sender: IUIAutomationElement, #[in] #[opt] range: IUIAutomationTextRange) -> HRESULT;
         }
         #[guid(0xa7d0af36_b912_45fe_9855_091ddc174aec)]
         interface IUIAutomationAndCondition: IUIAutomationCondition {
             #[special]
-            fn get_ChildCount(&self, #[retval] childCount: *mut i32) -> HRESULT;
-            fn GetChildrenAsNativeArray(&self, childArray: *mut *mut IUIAutomationCondition, childArrayCount: *mut i32) -> HRESULT;
-            fn GetChildren(&self, #[retval] childArray: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ChildCount(&self, #[out] #[retval] childCount: *mut i32) -> HRESULT;
+            fn GetChildrenAsNativeArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *childArrayCount, indirect, nullable)] #[writable(success, *childArrayCount, indirect, nullable)] childArray: *mut *mut IUIAutomationCondition, #[out] childArrayCount: *mut i32) -> HRESULT;
+            fn GetChildren(&self, #[out] #[out_ptr] #[retval] childArray: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x9a175b21_339e_41b1_8e8b_623f6b681098)]
         interface IUIAutomationAnnotationPattern: IUnknown {
             #[special]
-            fn get_CurrentAnnotationTypeId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentAnnotationTypeId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentAnnotationTypeName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentAnnotationTypeName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentAuthor(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentAuthor(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentDateTime(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentDateTime(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentTarget(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CurrentTarget(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CachedAnnotationTypeId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedAnnotationTypeId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedAnnotationTypeName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedAnnotationTypeName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedAuthor(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedAuthor(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedDateTime(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedDateTime(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedTarget(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CachedTarget(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
         }
         #[guid(0x1b4e1f2e_75eb_4d0b_8952_5a69988e2307)]
         interface IUIAutomationBoolCondition: IUIAutomationCondition {
             #[special]
-            fn get_BooleanValue(&self, #[retval] boolVal: *mut BOOL) -> HRESULT;
+            fn get_BooleanValue(&self, #[out] #[retval] boolVal: *mut BOOL) -> HRESULT;
         }
         #[guid(0xb32a92b5_bc25_4078_9c08_d7ee95c48e03)]
         interface IUIAutomationCacheRequest: IUnknown {
-            fn AddProperty(&self, propertyId: PROPERTYID) -> HRESULT;
-            fn AddPattern(&self, patternId: PATTERNID) -> HRESULT;
-            fn Clone(&self, #[retval] clonedRequest: *mut IUIAutomationCacheRequest) -> HRESULT;
+            fn AddProperty(&self, #[in] propertyId: PROPERTYID) -> HRESULT;
+            fn AddPattern(&self, #[in] patternId: PATTERNID) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] clonedRequest: *mut IUIAutomationCacheRequest) -> HRESULT;
             #[special]
-            fn get_TreeScope(&self, #[retval] scope: *mut TreeScope) -> HRESULT;
+            fn get_TreeScope(&self, #[out] #[retval] scope: *mut TreeScope) -> HRESULT;
             #[special]
-            fn put_TreeScope(&self, scope: TreeScope) -> HRESULT;
+            fn put_TreeScope(&self, #[in] scope: TreeScope) -> HRESULT;
             #[special]
-            fn get_TreeFilter(&self, #[retval] filter: *mut IUIAutomationCondition) -> HRESULT;
+            fn get_TreeFilter(&self, #[out] #[out_ptr] #[retval] filter: *mut IUIAutomationCondition) -> HRESULT;
             #[special]
-            fn put_TreeFilter(&self, filter: IUIAutomationCondition) -> HRESULT;
+            fn put_TreeFilter(&self, #[in] #[opt] filter: IUIAutomationCondition) -> HRESULT;
             #[special]
-            fn get_AutomationElementMode(&self, #[retval] mode: *mut AutomationElementMode) -> HRESULT;
+            fn get_AutomationElementMode(&self, #[out] #[retval] mode: *mut AutomationElementMode) -> HRESULT;
             #[special]
-            fn put_AutomationElementMode(&self, mode: AutomationElementMode) -> HRESULT;
+            fn put_AutomationElementMode(&self, #[in] mode: AutomationElementMode) -> HRESULT;
         }
         #[guid(0x58edca55_2c3e_4980_b1b9_56c17f27a2a0)]
         interface IUIAutomationChangesEventHandler: IUnknown {
-            fn HandleChangesEvent(&self, sender: IUIAutomationElement, #[in] uiaChanges: *mut UiaChangeInfo, changesCount: i32) -> HRESULT;
+            fn HandleChangesEvent(&self, #[in] #[opt] sender: IUIAutomationElement, #[in] #[readable(entry, changesCount)] uiaChanges: *mut UiaChangeInfo, #[in] changesCount: i32) -> HRESULT;
         }
         #[guid(0x352ffba8_0973_437c_a61f_f64cafd81df9)]
         interface IUIAutomationCondition: IUnknown {}
         #[guid(0x01ea217a_1766_47ed_a6cc_acf492854b1f)]
         interface IUIAutomationCustomNavigationPattern: IUnknown {
-            fn Navigate(&self, direction: NavigateDirection, #[retval] pRetVal: *mut IUIAutomationElement) -> HRESULT;
+            fn Navigate(&self, #[in] direction: NavigateDirection, #[out] #[out_ptr] #[retval] pRetVal: *mut IUIAutomationElement) -> HRESULT;
         }
         #[guid(0xfde5ef97_1464_48f6_90bf_43d0948e86ec)]
         interface IUIAutomationDockPattern: IUnknown {
-            fn SetDockPosition(&self, dockPos: DockPosition) -> HRESULT;
+            fn SetDockPosition(&self, #[in] dockPos: DockPosition) -> HRESULT;
             #[special]
-            fn get_CurrentDockPosition(&self, #[retval] retVal: *mut DockPosition) -> HRESULT;
+            fn get_CurrentDockPosition(&self, #[out] #[retval] retVal: *mut DockPosition) -> HRESULT;
             #[special]
-            fn get_CachedDockPosition(&self, #[retval] retVal: *mut DockPosition) -> HRESULT;
+            fn get_CachedDockPosition(&self, #[out] #[retval] retVal: *mut DockPosition) -> HRESULT;
         }
         #[guid(0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd)]
         interface IUIAutomationDragPattern: IUnknown {
             #[special]
-            fn get_CurrentIsGrabbed(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsGrabbed(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsGrabbed(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsGrabbed(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentDropEffect(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentDropEffect(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedDropEffect(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedDropEffect(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentDropEffects(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CurrentDropEffects(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn get_CachedDropEffects(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetCurrentGrabbedItems(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCachedGrabbedItems(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CachedDropEffects(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetCurrentGrabbedItems(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCachedGrabbedItems(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
         }
         #[guid(0x69a095f7_eee4_430e_a46b_fb73b1ae39a5)]
         interface IUIAutomationDropTargetPattern: IUnknown {
             #[special]
-            fn get_CurrentDropTargetEffect(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentDropTargetEffect(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedDropTargetEffect(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedDropTargetEffect(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentDropTargetEffects(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CurrentDropTargetEffects(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn get_CachedDropTargetEffects(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CachedDropTargetEffects(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd22108aa_8ac5_49a5_837b_37bbb3d7591e)]
         interface IUIAutomationElement: IUnknown {
             fn SetFocus(&self) -> HRESULT;
-            fn GetRuntimeId(&self, #[retval] runtimeId: *mut *mut SAFEARRAY) -> HRESULT;
-            fn FindFirst(&self, scope: TreeScope, condition: IUIAutomationCondition, #[retval] found: *mut IUIAutomationElement) -> HRESULT;
-            fn FindAll(&self, scope: TreeScope, condition: IUIAutomationCondition, #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
-            fn FindFirstBuildCache(&self, scope: TreeScope, condition: IUIAutomationCondition, cacheRequest: IUIAutomationCacheRequest, #[retval] found: *mut IUIAutomationElement) -> HRESULT;
-            fn FindAllBuildCache(&self, scope: TreeScope, condition: IUIAutomationCondition, cacheRequest: IUIAutomationCacheRequest, #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
-            fn BuildUpdatedCache(&self, cacheRequest: IUIAutomationCacheRequest, #[retval] updatedElement: *mut IUIAutomationElement) -> HRESULT;
-            fn GetCurrentPropertyValue(&self, propertyId: PROPERTYID, #[retval] retVal: *mut VARIANT) -> HRESULT;
-            fn GetCurrentPropertyValueEx(&self, propertyId: PROPERTYID, ignoreDefaultValue: BOOL, #[retval] retVal: *mut VARIANT) -> HRESULT;
-            fn GetCachedPropertyValue(&self, propertyId: PROPERTYID, #[retval] retVal: *mut VARIANT) -> HRESULT;
-            fn GetCachedPropertyValueEx(&self, propertyId: PROPERTYID, ignoreDefaultValue: BOOL, #[retval] retVal: *mut VARIANT) -> HRESULT;
-            fn GetCurrentPatternAs(&self, patternId: PATTERNID, riid: *const GUID, #[iid_is] #[retval] patternObject: *mut *mut void) -> HRESULT;
-            fn GetCachedPatternAs(&self, patternId: PATTERNID, riid: *const GUID, #[iid_is] #[retval] patternObject: *mut *mut void) -> HRESULT;
-            fn GetCurrentPattern(&self, patternId: PATTERNID, #[retval] patternObject: *mut IUnknown) -> HRESULT;
-            fn GetCachedPattern(&self, patternId: PATTERNID, #[retval] patternObject: *mut IUnknown) -> HRESULT;
-            fn GetCachedParent(&self, #[retval] parent: *mut IUIAutomationElement) -> HRESULT;
-            fn GetCachedChildren(&self, #[retval] children: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetRuntimeId(&self, #[out] #[out_ptr] #[retval] runtimeId: *mut *mut SAFEARRAY) -> HRESULT;
+            fn FindFirst(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElement) -> HRESULT;
+            fn FindAll(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
+            fn FindFirstBuildCache(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElement) -> HRESULT;
+            fn FindAllBuildCache(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
+            fn BuildUpdatedCache(&self, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] updatedElement: *mut IUIAutomationElement) -> HRESULT;
+            fn GetCurrentPropertyValue(&self, #[in] propertyId: PROPERTYID, #[out] #[retval] retVal: *mut VARIANT) -> HRESULT;
+            fn GetCurrentPropertyValueEx(&self, #[in] propertyId: PROPERTYID, #[in] ignoreDefaultValue: BOOL, #[out] #[retval] retVal: *mut VARIANT) -> HRESULT;
+            fn GetCachedPropertyValue(&self, #[in] propertyId: PROPERTYID, #[out] #[retval] retVal: *mut VARIANT) -> HRESULT;
+            fn GetCachedPropertyValueEx(&self, #[in] propertyId: PROPERTYID, #[in] ignoreDefaultValue: BOOL, #[out] #[retval] retVal: *mut VARIANT) -> HRESULT;
+            fn GetCurrentPatternAs(&self, #[in] patternId: PATTERNID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] patternObject: *mut *mut void) -> HRESULT;
+            fn GetCachedPatternAs(&self, #[in] patternId: PATTERNID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] patternObject: *mut *mut void) -> HRESULT;
+            fn GetCurrentPattern(&self, #[in] patternId: PATTERNID, #[out] #[out_ptr] #[retval] patternObject: *mut IUnknown) -> HRESULT;
+            fn GetCachedPattern(&self, #[in] patternId: PATTERNID, #[out] #[out_ptr] #[retval] patternObject: *mut IUnknown) -> HRESULT;
+            fn GetCachedParent(&self, #[out] #[out_ptr] #[retval] parent: *mut IUIAutomationElement) -> HRESULT;
+            fn GetCachedChildren(&self, #[out] #[out_ptr] #[retval] children: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CurrentProcessId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentProcessId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentControlType(&self, #[retval] retVal: *mut CONTROLTYPEID) -> HRESULT;
+            fn get_CurrentControlType(&self, #[out] #[retval] retVal: *mut CONTROLTYPEID) -> HRESULT;
             #[special]
-            fn get_CurrentLocalizedControlType(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentLocalizedControlType(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentAcceleratorKey(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentAcceleratorKey(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentAccessKey(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentAccessKey(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentHasKeyboardFocus(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentHasKeyboardFocus(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentIsKeyboardFocusable(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsKeyboardFocusable(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentIsEnabled(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsEnabled(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentAutomationId(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentAutomationId(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentClassName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentClassName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentHelpText(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentHelpText(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentCulture(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentCulture(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentIsControlElement(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsControlElement(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentIsContentElement(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsContentElement(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentIsPassword(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsPassword(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentNativeWindowHandle(&self, #[retval] retVal: *mut UIA_HWND) -> HRESULT;
+            fn get_CurrentNativeWindowHandle(&self, #[out] #[out_ptr] #[retval] retVal: *mut UIA_HWND) -> HRESULT;
             #[special]
-            fn get_CurrentItemType(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentItemType(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentIsOffscreen(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsOffscreen(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentOrientation(&self, #[retval] retVal: *mut OrientationType) -> HRESULT;
+            fn get_CurrentOrientation(&self, #[out] #[retval] retVal: *mut OrientationType) -> HRESULT;
             #[special]
-            fn get_CurrentFrameworkId(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentFrameworkId(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentIsRequiredForForm(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsRequiredForForm(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentItemStatus(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentItemStatus(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentBoundingRectangle(&self, #[retval] retVal: *mut RECT) -> HRESULT;
+            fn get_CurrentBoundingRectangle(&self, #[out] #[retval] retVal: *mut RECT) -> HRESULT;
             #[special]
-            fn get_CurrentLabeledBy(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CurrentLabeledBy(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CurrentAriaRole(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentAriaRole(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentAriaProperties(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentAriaProperties(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentIsDataValidForForm(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsDataValidForForm(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentControllerFor(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentControllerFor(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CurrentDescribedBy(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentDescribedBy(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CurrentFlowsTo(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentFlowsTo(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CurrentProviderDescription(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentProviderDescription(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedProcessId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedProcessId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedControlType(&self, #[retval] retVal: *mut CONTROLTYPEID) -> HRESULT;
+            fn get_CachedControlType(&self, #[out] #[retval] retVal: *mut CONTROLTYPEID) -> HRESULT;
             #[special]
-            fn get_CachedLocalizedControlType(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedLocalizedControlType(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedAcceleratorKey(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedAcceleratorKey(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedAccessKey(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedAccessKey(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedHasKeyboardFocus(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedHasKeyboardFocus(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsKeyboardFocusable(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsKeyboardFocusable(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsEnabled(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsEnabled(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedAutomationId(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedAutomationId(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedClassName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedClassName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedHelpText(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedHelpText(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedCulture(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedCulture(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedIsControlElement(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsControlElement(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsContentElement(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsContentElement(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsPassword(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsPassword(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedNativeWindowHandle(&self, #[retval] retVal: *mut UIA_HWND) -> HRESULT;
+            fn get_CachedNativeWindowHandle(&self, #[out] #[out_ptr] #[retval] retVal: *mut UIA_HWND) -> HRESULT;
             #[special]
-            fn get_CachedItemType(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedItemType(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedIsOffscreen(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsOffscreen(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedOrientation(&self, #[retval] retVal: *mut OrientationType) -> HRESULT;
+            fn get_CachedOrientation(&self, #[out] #[retval] retVal: *mut OrientationType) -> HRESULT;
             #[special]
-            fn get_CachedFrameworkId(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedFrameworkId(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedIsRequiredForForm(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsRequiredForForm(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedItemStatus(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedItemStatus(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedBoundingRectangle(&self, #[retval] retVal: *mut RECT) -> HRESULT;
+            fn get_CachedBoundingRectangle(&self, #[out] #[retval] retVal: *mut RECT) -> HRESULT;
             #[special]
-            fn get_CachedLabeledBy(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CachedLabeledBy(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CachedAriaRole(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedAriaRole(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedAriaProperties(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedAriaProperties(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedIsDataValidForForm(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsDataValidForForm(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedControllerFor(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CachedControllerFor(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedDescribedBy(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CachedDescribedBy(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedFlowsTo(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CachedFlowsTo(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedProviderDescription(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
-            fn GetClickablePoint(&self, clickable: *mut POINT, #[retval] gotClickable: *mut BOOL) -> HRESULT;
+            fn get_CachedProviderDescription(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn GetClickablePoint(&self, #[out] clickable: *mut POINT, #[out] #[retval] gotClickable: *mut BOOL) -> HRESULT;
         }
         #[guid(0x6749c683_f70d_4487_a698_5f79d55290d6)]
         interface IUIAutomationElement2: IUIAutomationElement {
             #[special]
-            fn get_CurrentOptimizeForVisualContent(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentOptimizeForVisualContent(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedOptimizeForVisualContent(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedOptimizeForVisualContent(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentLiveSetting(&self, #[retval] retVal: *mut LiveSetting) -> HRESULT;
+            fn get_CurrentLiveSetting(&self, #[out] #[retval] retVal: *mut LiveSetting) -> HRESULT;
             #[special]
-            fn get_CachedLiveSetting(&self, #[retval] retVal: *mut LiveSetting) -> HRESULT;
+            fn get_CachedLiveSetting(&self, #[out] #[retval] retVal: *mut LiveSetting) -> HRESULT;
             #[special]
-            fn get_CurrentFlowsFrom(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentFlowsFrom(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedFlowsFrom(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CachedFlowsFrom(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
         }
         #[guid(0x8471df34_aee0_4a01_a7de_7db9af12c296)]
         interface IUIAutomationElement3: IUIAutomationElement2 {
             fn ShowContextMenu(&self) -> HRESULT;
             #[special]
-            fn get_CurrentIsPeripheral(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsPeripheral(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsPeripheral(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsPeripheral(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
         }
         #[guid(0x3b6e233c_52fb_4063_a4c9_77c075c2a06b)]
         interface IUIAutomationElement4: IUIAutomationElement3 {
             #[special]
-            fn get_CurrentPositionInSet(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentPositionInSet(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentSizeOfSet(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentSizeOfSet(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentLevel(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentLevel(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentAnnotationTypes(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CurrentAnnotationTypes(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn get_CurrentAnnotationObjects(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentAnnotationObjects(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedPositionInSet(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedPositionInSet(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedSizeOfSet(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedSizeOfSet(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedLevel(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedLevel(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedAnnotationTypes(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CachedAnnotationTypes(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn get_CachedAnnotationObjects(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CachedAnnotationObjects(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
         }
         #[guid(0x98141c1d_0d0e_4175_bbe2_6bff455842a7)]
         interface IUIAutomationElement5: IUIAutomationElement4 {
             #[special]
-            fn get_CurrentLandmarkType(&self, #[retval] retVal: *mut LANDMARKTYPEID) -> HRESULT;
+            fn get_CurrentLandmarkType(&self, #[out] #[retval] retVal: *mut LANDMARKTYPEID) -> HRESULT;
             #[special]
-            fn get_CurrentLocalizedLandmarkType(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentLocalizedLandmarkType(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedLandmarkType(&self, #[retval] retVal: *mut LANDMARKTYPEID) -> HRESULT;
+            fn get_CachedLandmarkType(&self, #[out] #[retval] retVal: *mut LANDMARKTYPEID) -> HRESULT;
             #[special]
-            fn get_CachedLocalizedLandmarkType(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedLocalizedLandmarkType(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
         }
         #[guid(0x4780d450_8bca_4977_afa5_a4a517f555e3)]
         interface IUIAutomationElement6: IUIAutomationElement5 {
             #[special]
-            fn get_CurrentFullDescription(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentFullDescription(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedFullDescription(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedFullDescription(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
         }
         #[guid(0x204e8572_cfc3_4c11_b0c8_7da7420750b7)]
         interface IUIAutomationElement7: IUIAutomationElement6 {
-            fn FindFirstWithOptions(&self, scope: TreeScope, condition: IUIAutomationCondition, traversalOptions: TreeTraversalOptions, root: IUIAutomationElement, #[retval] found: *mut IUIAutomationElement) -> HRESULT;
-            fn FindAllWithOptions(&self, scope: TreeScope, condition: IUIAutomationCondition, traversalOptions: TreeTraversalOptions, root: IUIAutomationElement, #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
-            fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: IUIAutomationCondition, cacheRequest: IUIAutomationCacheRequest, traversalOptions: TreeTraversalOptions, root: IUIAutomationElement, #[retval] found: *mut IUIAutomationElement) -> HRESULT;
-            fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: IUIAutomationCondition, cacheRequest: IUIAutomationCacheRequest, traversalOptions: TreeTraversalOptions, root: IUIAutomationElement, #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCurrentMetadataValue(&self, targetId: i32, metadataId: METADATAID, #[retval] returnVal: *mut VARIANT) -> HRESULT;
+            fn FindFirstWithOptions(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[in] traversalOptions: TreeTraversalOptions, #[in] #[opt] root: IUIAutomationElement, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElement) -> HRESULT;
+            fn FindAllWithOptions(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[in] traversalOptions: TreeTraversalOptions, #[in] #[opt] root: IUIAutomationElement, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
+            fn FindFirstWithOptionsBuildCache(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] traversalOptions: TreeTraversalOptions, #[in] #[opt] root: IUIAutomationElement, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElement) -> HRESULT;
+            fn FindAllWithOptionsBuildCache(&self, #[in] scope: TreeScope, #[in] #[opt] condition: IUIAutomationCondition, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] traversalOptions: TreeTraversalOptions, #[in] #[opt] root: IUIAutomationElement, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCurrentMetadataValue(&self, #[in] targetId: i32, #[in] metadataId: METADATAID, #[out] #[retval] returnVal: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x8c60217d_5411_4cde_bcc0_1ceda223830c)]
         interface IUIAutomationElement8: IUIAutomationElement7 {
             #[special]
-            fn get_CurrentHeadingLevel(&self, #[retval] retVal: *mut HEADINGLEVELID) -> HRESULT;
+            fn get_CurrentHeadingLevel(&self, #[out] #[retval] retVal: *mut HEADINGLEVELID) -> HRESULT;
             #[special]
-            fn get_CachedHeadingLevel(&self, #[retval] retVal: *mut HEADINGLEVELID) -> HRESULT;
+            fn get_CachedHeadingLevel(&self, #[out] #[retval] retVal: *mut HEADINGLEVELID) -> HRESULT;
         }
         #[guid(0x39325fac_039d_440e_a3a3_5eb81a5cecc3)]
         interface IUIAutomationElement9: IUIAutomationElement8 {
             #[special]
-            fn get_CurrentIsDialog(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsDialog(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsDialog(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsDialog(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
         }
         #[guid(0x14314595_b4bc_4055_95f2_58f2e42c9855)]
         interface IUIAutomationElementArray: IUnknown {
             #[special]
-            fn get_Length(&self, #[retval] length: *mut i32) -> HRESULT;
-            fn GetElement(&self, index: i32, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn get_Length(&self, #[out] #[retval] length: *mut i32) -> HRESULT;
+            fn GetElement(&self, #[in] index: i32, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
         }
         #[guid(0x146c3c17_f12e_4e22_8c27_f894b9b79c69)]
         interface IUIAutomationEventHandler: IUnknown {
-            fn HandleAutomationEvent(&self, sender: IUIAutomationElement, eventId: EVENTID) -> HRESULT;
+            fn HandleAutomationEvent(&self, #[in] #[opt] sender: IUIAutomationElement, #[in] eventId: EVENTID) -> HRESULT;
         }
         #[guid(0xc9ee12f2_c13b_4408_997c_639914377f4e)]
         interface IUIAutomationEventHandlerGroup: IUnknown {
-            fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationActiveTextPositionChangedEventHandler) -> HRESULT;
-            fn AddAutomationEventHandler(&self, eventId: EVENTID, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationEventHandler) -> HRESULT;
-            fn AddChangesEventHandler(&self, scope: TreeScope, #[in] changeTypes: *mut i32, changesCount: i32, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationChangesEventHandler) -> HRESULT;
-            fn AddNotificationEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationNotificationEventHandler) -> HRESULT;
-            fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationPropertyChangedEventHandler, #[in] propertyArray: *mut PROPERTYID, propertyCount: i32) -> HRESULT;
-            fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
-            fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, textEditChangeType: TextEditChangeType, cacheRequest: IUIAutomationCacheRequest, handler: IUIAutomationTextEditTextChangedEventHandler) -> HRESULT;
+            fn AddActiveTextPositionChangedEventHandler(&self, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationActiveTextPositionChangedEventHandler) -> HRESULT;
+            fn AddAutomationEventHandler(&self, #[in] eventId: EVENTID, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationEventHandler) -> HRESULT;
+            fn AddChangesEventHandler(&self, #[in] scope: TreeScope, #[in] #[readable(entry, changesCount)] changeTypes: *mut i32, #[in] changesCount: i32, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationChangesEventHandler) -> HRESULT;
+            fn AddNotificationEventHandler(&self, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationNotificationEventHandler) -> HRESULT;
+            fn AddPropertyChangedEventHandler(&self, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationPropertyChangedEventHandler, #[in] #[readable(entry, propertyCount)] propertyArray: *mut PROPERTYID, #[in] propertyCount: i32) -> HRESULT;
+            fn AddStructureChangedEventHandler(&self, #[in] scope: TreeScope, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationStructureChangedEventHandler) -> HRESULT;
+            fn AddTextEditTextChangedEventHandler(&self, #[in] scope: TreeScope, #[in] textEditChangeType: TextEditChangeType, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[in] #[opt] handler: IUIAutomationTextEditTextChangedEventHandler) -> HRESULT;
         }
         #[guid(0x619be086_1f4e_4ee4_bafa_210128738730)]
         interface IUIAutomationExpandCollapsePattern: IUnknown {
             fn Expand(&self) -> HRESULT;
             fn Collapse(&self) -> HRESULT;
             #[special]
-            fn get_CurrentExpandCollapseState(&self, #[retval] retVal: *mut ExpandCollapseState) -> HRESULT;
+            fn get_CurrentExpandCollapseState(&self, #[out] #[retval] retVal: *mut ExpandCollapseState) -> HRESULT;
             #[special]
-            fn get_CachedExpandCollapseState(&self, #[retval] retVal: *mut ExpandCollapseState) -> HRESULT;
+            fn get_CachedExpandCollapseState(&self, #[out] #[retval] retVal: *mut ExpandCollapseState) -> HRESULT;
         }
         #[guid(0xc270f6b5_5c69_4290_9745_7a7f97169468)]
         interface IUIAutomationFocusChangedEventHandler: IUnknown {
-            fn HandleFocusChangedEvent(&self, sender: IUIAutomationElement) -> HRESULT;
+            fn HandleFocusChangedEvent(&self, #[in] #[opt] sender: IUIAutomationElement) -> HRESULT;
         }
         #[guid(0x78f8ef57_66c3_4e09_bd7c_e79b2004894d)]
         interface IUIAutomationGridItemPattern: IUnknown {
             #[special]
-            fn get_CurrentContainingGrid(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CurrentContainingGrid(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CurrentRow(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentRow(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentColumn(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentColumn(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentRowSpan(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentRowSpan(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentColumnSpan(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentColumnSpan(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedContainingGrid(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CachedContainingGrid(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CachedRow(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedRow(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedColumn(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedColumn(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedRowSpan(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedRowSpan(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedColumnSpan(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedColumnSpan(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
         }
         #[guid(0x414c3cdc_856b_4f5b_8538_3131c6302550)]
         interface IUIAutomationGridPattern: IUnknown {
-            fn GetItem(&self, row: i32, column: i32, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn GetItem(&self, #[in] row: i32, #[in] column: i32, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CurrentRowCount(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentRowCount(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentColumnCount(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentColumnCount(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedRowCount(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedRowCount(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedColumnCount(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedColumnCount(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
         }
         #[guid(0xfb377fbe_8ea6_46d5_9c73_6499642d3059)]
         interface IUIAutomationInvokePattern: IUnknown {
@@ -547,169 +582,169 @@ mod Windows {
         }
         #[guid(0xc690fdb2_27a8_423c_812d_429773c9084e)]
         interface IUIAutomationItemContainerPattern: IUnknown {
-            fn FindItemByProperty(&self, pStartAfter: IUIAutomationElement, propertyId: PROPERTYID, value: VARIANT, #[retval] pFound: *mut IUIAutomationElement) -> HRESULT;
+            fn FindItemByProperty(&self, #[in] #[opt] pStartAfter: IUIAutomationElement, #[in] propertyId: PROPERTYID, #[in] value: VARIANT, #[out] #[out_ptr] #[retval] pFound: *mut IUIAutomationElement) -> HRESULT;
         }
         #[guid(0x828055ad_355b_4435_86d5_3b51c14a9b1b)]
         interface IUIAutomationLegacyIAccessiblePattern: IUnknown {
             fn Select(&self, flagsSelect: i32) -> HRESULT;
             fn DoDefaultAction(&self) -> HRESULT;
-            fn SetValue(&self, szValue: PCWSTR) -> HRESULT;
+            fn SetValue(&self, #[in] szValue: LPCWSTR) -> HRESULT;
             #[special]
-            fn get_CurrentChildId(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            fn get_CurrentChildId(&self, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentName(&self, #[retval] pszName: *mut BSTR) -> HRESULT;
+            fn get_CurrentName(&self, #[out] #[out_ptr] #[retval] pszName: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentValue(&self, #[retval] pszValue: *mut BSTR) -> HRESULT;
+            fn get_CurrentValue(&self, #[out] #[out_ptr] #[retval] pszValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentDescription(&self, #[retval] pszDescription: *mut BSTR) -> HRESULT;
+            fn get_CurrentDescription(&self, #[out] #[out_ptr] #[retval] pszDescription: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentRole(&self, #[retval] pdwRole: *mut u32) -> HRESULT;
+            fn get_CurrentRole(&self, #[out] #[retval] pdwRole: *mut DWORD) -> HRESULT;
             #[special]
-            fn get_CurrentState(&self, #[retval] pdwState: *mut u32) -> HRESULT;
+            fn get_CurrentState(&self, #[out] #[retval] pdwState: *mut DWORD) -> HRESULT;
             #[special]
-            fn get_CurrentHelp(&self, #[retval] pszHelp: *mut BSTR) -> HRESULT;
+            fn get_CurrentHelp(&self, #[out] #[out_ptr] #[retval] pszHelp: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentKeyboardShortcut(&self, #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
-            fn GetCurrentSelection(&self, #[retval] pvarSelectedChildren: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentKeyboardShortcut(&self, #[out] #[out_ptr] #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
+            fn GetCurrentSelection(&self, #[out] #[out_ptr] #[retval] pvarSelectedChildren: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CurrentDefaultAction(&self, #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
+            fn get_CurrentDefaultAction(&self, #[out] #[out_ptr] #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedChildId(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            fn get_CachedChildId(&self, #[out] #[retval] pRetVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedName(&self, #[retval] pszName: *mut BSTR) -> HRESULT;
+            fn get_CachedName(&self, #[out] #[out_ptr] #[retval] pszName: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedValue(&self, #[retval] pszValue: *mut BSTR) -> HRESULT;
+            fn get_CachedValue(&self, #[out] #[out_ptr] #[retval] pszValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedDescription(&self, #[retval] pszDescription: *mut BSTR) -> HRESULT;
+            fn get_CachedDescription(&self, #[out] #[out_ptr] #[retval] pszDescription: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedRole(&self, #[retval] pdwRole: *mut u32) -> HRESULT;
+            fn get_CachedRole(&self, #[out] #[retval] pdwRole: *mut DWORD) -> HRESULT;
             #[special]
-            fn get_CachedState(&self, #[retval] pdwState: *mut u32) -> HRESULT;
+            fn get_CachedState(&self, #[out] #[retval] pdwState: *mut DWORD) -> HRESULT;
             #[special]
-            fn get_CachedHelp(&self, #[retval] pszHelp: *mut BSTR) -> HRESULT;
+            fn get_CachedHelp(&self, #[out] #[out_ptr] #[retval] pszHelp: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedKeyboardShortcut(&self, #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
-            fn GetCachedSelection(&self, #[retval] pvarSelectedChildren: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CachedKeyboardShortcut(&self, #[out] #[out_ptr] #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
+            fn GetCachedSelection(&self, #[out] #[out_ptr] #[retval] pvarSelectedChildren: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedDefaultAction(&self, #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
-            fn GetIAccessible(&self, #[retval] ppAccessible: *mut IAccessible) -> HRESULT;
+            fn get_CachedDefaultAction(&self, #[out] #[out_ptr] #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
+            fn GetIAccessible(&self, #[out] #[out_ptr] #[retval] ppAccessible: *mut IAccessible) -> HRESULT;
         }
         #[guid(0x8d253c91_1dc5_4bb5_b18f_ade16fa495e8)]
         interface IUIAutomationMultipleViewPattern: IUnknown {
-            fn GetViewName(&self, view: i32, #[retval] name: *mut BSTR) -> HRESULT;
-            fn SetCurrentView(&self, view: i32) -> HRESULT;
+            fn GetViewName(&self, #[in] view: i32, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn SetCurrentView(&self, #[in] view: i32) -> HRESULT;
             #[special]
-            fn get_CurrentCurrentView(&self, #[retval] retVal: *mut i32) -> HRESULT;
-            fn GetCurrentSupportedViews(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CurrentCurrentView(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
+            fn GetCurrentSupportedViews(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn get_CachedCurrentView(&self, #[retval] retVal: *mut i32) -> HRESULT;
-            fn GetCachedSupportedViews(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CachedCurrentView(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
+            fn GetCachedSupportedViews(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xf528b657_847b_498c_8896_d52b565407a1)]
         interface IUIAutomationNotCondition: IUIAutomationCondition {
-            fn GetChild(&self, #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
+            fn GetChild(&self, #[out] #[out_ptr] #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
         }
         #[guid(0xc7cb2637_e6c2_4d0c_85de_4948c02175c7)]
         interface IUIAutomationNotificationEventHandler: IUnknown {
-            fn HandleNotificationEvent(&self, sender: IUIAutomationElement, notificationKind: NotificationKind, notificationProcessing: NotificationProcessing, displayString: BSTR, activityId: BSTR) -> HRESULT;
+            fn HandleNotificationEvent(&self, #[in] #[opt] sender: IUIAutomationElement, notificationKind: NotificationKind, notificationProcessing: NotificationProcessing, #[in] displayString: BSTR, #[in] activityId: BSTR) -> HRESULT;
         }
         #[guid(0x71c284b3_c14d_4d14_981e_19751b0d756d)]
         interface IUIAutomationObjectModelPattern: IUnknown {
-            fn GetUnderlyingObjectModel(&self, #[retval] retVal: *mut IUnknown) -> HRESULT;
+            fn GetUnderlyingObjectModel(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x8753f032_3db1_47b5_a1fc_6e34a266c712)]
         interface IUIAutomationOrCondition: IUIAutomationCondition {
             #[special]
-            fn get_ChildCount(&self, #[retval] childCount: *mut i32) -> HRESULT;
-            fn GetChildrenAsNativeArray(&self, childArray: *mut *mut IUIAutomationCondition, childArrayCount: *mut i32) -> HRESULT;
-            fn GetChildren(&self, #[retval] childArray: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ChildCount(&self, #[out] #[retval] childCount: *mut i32) -> HRESULT;
+            fn GetChildrenAsNativeArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *childArrayCount, indirect, nullable)] #[writable(success, *childArrayCount, indirect, nullable)] childArray: *mut *mut IUIAutomationCondition, #[out] childArrayCount: *mut i32) -> HRESULT;
+            fn GetChildren(&self, #[out] #[out_ptr] #[retval] childArray: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x40cd37d4_c756_4b0c_8c6f_bddfeeb13b50)]
         interface IUIAutomationPropertyChangedEventHandler: IUnknown {
-            fn HandlePropertyChangedEvent(&self, sender: IUIAutomationElement, propertyId: PROPERTYID, newValue: VARIANT) -> HRESULT;
+            fn HandlePropertyChangedEvent(&self, #[in] #[opt] sender: IUIAutomationElement, #[in] propertyId: PROPERTYID, #[in] newValue: VARIANT) -> HRESULT;
         }
         #[guid(0x99ebf2cb_5578_4267_9ad4_afd6ea77e94b)]
         interface IUIAutomationPropertyCondition: IUIAutomationCondition {
             #[special]
-            fn get_PropertyId(&self, #[retval] propertyId: *mut PROPERTYID) -> HRESULT;
+            fn get_PropertyId(&self, #[out] #[retval] propertyId: *mut PROPERTYID) -> HRESULT;
             #[special]
-            fn get_PropertyValue(&self, #[retval] propertyValue: *mut VARIANT) -> HRESULT;
+            fn get_PropertyValue(&self, #[out] #[retval] propertyValue: *mut VARIANT) -> HRESULT;
             #[special]
-            fn get_PropertyConditionFlags(&self, #[retval] flags: *mut PropertyConditionFlags) -> HRESULT;
+            fn get_PropertyConditionFlags(&self, #[out] #[retval] flags: *mut PropertyConditionFlags) -> HRESULT;
         }
         #[guid(0x85b94ecd_849d_42b6_b94d_d6db23fdf5a4)]
         interface IUIAutomationProxyFactory: IUnknown {
-            fn CreateProvider(&self, hwnd: UIA_HWND, idObject: i32, idChild: i32, #[retval] provider: *mut IRawElementProviderSimple) -> HRESULT;
+            fn CreateProvider(&self, #[in] hwnd: UIA_HWND, #[in] idObject: LONG, #[in] idChild: LONG, #[out] #[out_ptr] #[retval] provider: *mut IRawElementProviderSimple) -> HRESULT;
             #[special]
-            fn get_ProxyFactoryId(&self, #[retval] factoryId: *mut BSTR) -> HRESULT;
+            fn get_ProxyFactoryId(&self, #[out] #[out_ptr] #[retval] factoryId: *mut BSTR) -> HRESULT;
         }
         #[guid(0xd50e472e_b64b_490c_bca1_d30696f9f289)]
         interface IUIAutomationProxyFactoryEntry: IUnknown {
             #[special]
-            fn get_ProxyFactory(&self, #[retval] factory: *mut IUIAutomationProxyFactory) -> HRESULT;
+            fn get_ProxyFactory(&self, #[out] #[out_ptr] #[retval] factory: *mut IUIAutomationProxyFactory) -> HRESULT;
             #[special]
-            fn get_ClassName(&self, #[retval] className: *mut BSTR) -> HRESULT;
+            fn get_ClassName(&self, #[out] #[out_ptr] #[retval] className: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_ImageName(&self, #[retval] imageName: *mut BSTR) -> HRESULT;
+            fn get_ImageName(&self, #[out] #[out_ptr] #[retval] imageName: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_AllowSubstringMatch(&self, #[retval] allowSubstringMatch: *mut BOOL) -> HRESULT;
+            fn get_AllowSubstringMatch(&self, #[out] #[retval] allowSubstringMatch: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CanCheckBaseClass(&self, #[retval] canCheckBaseClass: *mut BOOL) -> HRESULT;
+            fn get_CanCheckBaseClass(&self, #[out] #[retval] canCheckBaseClass: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_NeedsAdviseEvents(&self, #[retval] adviseEvents: *mut BOOL) -> HRESULT;
+            fn get_NeedsAdviseEvents(&self, #[out] #[retval] adviseEvents: *mut BOOL) -> HRESULT;
             #[special]
-            fn put_ClassName(&self, className: PCWSTR) -> HRESULT;
+            fn put_ClassName(&self, #[in] className: LPCWSTR) -> HRESULT;
             #[special]
-            fn put_ImageName(&self, imageName: PCWSTR) -> HRESULT;
+            fn put_ImageName(&self, #[in] imageName: LPCWSTR) -> HRESULT;
             #[special]
-            fn put_AllowSubstringMatch(&self, allowSubstringMatch: BOOL) -> HRESULT;
+            fn put_AllowSubstringMatch(&self, #[in] allowSubstringMatch: BOOL) -> HRESULT;
             #[special]
-            fn put_CanCheckBaseClass(&self, canCheckBaseClass: BOOL) -> HRESULT;
+            fn put_CanCheckBaseClass(&self, #[in] canCheckBaseClass: BOOL) -> HRESULT;
             #[special]
-            fn put_NeedsAdviseEvents(&self, adviseEvents: BOOL) -> HRESULT;
-            fn SetWinEventsForAutomationEvent(&self, eventId: EVENTID, propertyId: PROPERTYID, #[in] winEvents: *mut SAFEARRAY) -> HRESULT;
-            fn GetWinEventsForAutomationEvent(&self, eventId: EVENTID, propertyId: PROPERTYID, #[retval] winEvents: *mut *mut SAFEARRAY) -> HRESULT;
+            fn put_NeedsAdviseEvents(&self, #[in] adviseEvents: BOOL) -> HRESULT;
+            fn SetWinEventsForAutomationEvent(&self, #[in] eventId: EVENTID, #[in] propertyId: PROPERTYID, #[in] winEvents: *mut SAFEARRAY) -> HRESULT;
+            fn GetWinEventsForAutomationEvent(&self, #[in] eventId: EVENTID, #[in] propertyId: PROPERTYID, #[out] #[out_ptr] #[retval] winEvents: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x09e31e18_872d_4873_93d1_1e541ec133fd)]
         interface IUIAutomationProxyFactoryMapping: IUnknown {
             #[special]
-            fn get_Count(&self, #[retval] count: *mut u32) -> HRESULT;
-            fn GetTable(&self, #[retval] table: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetEntry(&self, index: u32, #[retval] entry: *mut IUIAutomationProxyFactoryEntry) -> HRESULT;
-            fn SetTable(&self, #[in] factoryList: *mut SAFEARRAY) -> HRESULT;
-            fn InsertEntries(&self, before: u32, #[in] factoryList: *mut SAFEARRAY) -> HRESULT;
-            fn InsertEntry(&self, before: u32, factory: IUIAutomationProxyFactoryEntry) -> HRESULT;
-            fn RemoveEntry(&self, index: u32) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] count: *mut UINT) -> HRESULT;
+            fn GetTable(&self, #[out] #[out_ptr] #[retval] table: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEntry(&self, #[in] index: UINT, #[out] #[out_ptr] #[retval] entry: *mut IUIAutomationProxyFactoryEntry) -> HRESULT;
+            fn SetTable(&self, #[in] #[opt] factoryList: *mut SAFEARRAY) -> HRESULT;
+            fn InsertEntries(&self, #[in] before: UINT, #[in] #[opt] factoryList: *mut SAFEARRAY) -> HRESULT;
+            fn InsertEntry(&self, #[in] before: UINT, #[in] #[opt] factory: IUIAutomationProxyFactoryEntry) -> HRESULT;
+            fn RemoveEntry(&self, #[in] index: UINT) -> HRESULT;
             fn ClearTable(&self) -> HRESULT;
             fn RestoreDefaultTable(&self) -> HRESULT;
         }
         #[guid(0x59213f4f_7346_49e5_b120_80555987a148)]
         interface IUIAutomationRangeValuePattern: IUnknown {
-            fn SetValue(&self, val: f64) -> HRESULT;
+            fn SetValue(&self, #[in] val: f64) -> HRESULT;
             #[special]
-            fn get_CurrentValue(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentValue(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentIsReadOnly(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsReadOnly(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentMaximum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentMaximum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentMinimum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentMinimum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentLargeChange(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentLargeChange(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentSmallChange(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentSmallChange(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedValue(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedValue(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedIsReadOnly(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsReadOnly(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedMaximum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedMaximum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedMinimum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedMinimum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedLargeChange(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedLargeChange(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedSmallChange(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedSmallChange(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
         }
         #[guid(0xb488300f_d015_4f19_9c29_bb595e3645ef)]
         interface IUIAutomationScrollItemPattern: IUnknown {
@@ -717,32 +752,32 @@ mod Windows {
         }
         #[guid(0x88f4d42a_e881_459d_a77c_73bbbb7e02dc)]
         interface IUIAutomationScrollPattern: IUnknown {
-            fn Scroll(&self, horizontalAmount: ScrollAmount, verticalAmount: ScrollAmount) -> HRESULT;
-            fn SetScrollPercent(&self, horizontalPercent: f64, verticalPercent: f64) -> HRESULT;
+            fn Scroll(&self, #[in] horizontalAmount: ScrollAmount, #[in] verticalAmount: ScrollAmount) -> HRESULT;
+            fn SetScrollPercent(&self, #[in] horizontalPercent: f64, #[in] verticalPercent: f64) -> HRESULT;
             #[special]
-            fn get_CurrentHorizontalScrollPercent(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentHorizontalScrollPercent(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentVerticalScrollPercent(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentVerticalScrollPercent(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentHorizontalViewSize(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentHorizontalViewSize(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentVerticalViewSize(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentVerticalViewSize(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentHorizontallyScrollable(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentHorizontallyScrollable(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentVerticallyScrollable(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentVerticallyScrollable(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedHorizontalScrollPercent(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedHorizontalScrollPercent(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedVerticalScrollPercent(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedVerticalScrollPercent(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedHorizontalViewSize(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedHorizontalViewSize(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedVerticalViewSize(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedVerticalViewSize(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedHorizontallyScrollable(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedHorizontallyScrollable(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedVerticallyScrollable(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedVerticallyScrollable(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
         }
         #[guid(0xa8efa66a_0fda_421a_9194_38021f3578ea)]
         interface IUIAutomationSelectionItemPattern: IUnknown {
@@ -750,173 +785,173 @@ mod Windows {
             fn AddToSelection(&self) -> HRESULT;
             fn RemoveFromSelection(&self) -> HRESULT;
             #[special]
-            fn get_CurrentIsSelected(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsSelected(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentSelectionContainer(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CurrentSelectionContainer(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CachedIsSelected(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsSelected(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedSelectionContainer(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CachedSelectionContainer(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
         }
         #[guid(0x5ed5202e_b2ac_47a6_b638_4b0bf140d78e)]
         interface IUIAutomationSelectionPattern: IUnknown {
-            fn GetCurrentSelection(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCurrentSelection(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CurrentCanSelectMultiple(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentCanSelectMultiple(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentIsSelectionRequired(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
-            fn GetCachedSelection(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentIsSelectionRequired(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn GetCachedSelection(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedCanSelectMultiple(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedCanSelectMultiple(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsSelectionRequired(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsSelectionRequired(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
         }
         #[guid(0x0532bfae_c011_4e32_a343_6d642d798555)]
         interface IUIAutomationSelectionPattern2: IUIAutomationSelectionPattern {
             #[special]
-            fn get_CurrentFirstSelectedItem(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CurrentFirstSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CurrentLastSelectedItem(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CurrentLastSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CurrentCurrentSelectedItem(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CurrentCurrentSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CurrentItemCount(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentItemCount(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedFirstSelectedItem(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CachedFirstSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CachedLastSelectedItem(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CachedLastSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CachedCurrentSelectedItem(&self, #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
+            fn get_CachedCurrentSelectedItem(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_CachedItemCount(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedItemCount(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
         }
         #[guid(0x7d4fb86c_8d34_40e1_8e83_62c15204e335)]
         interface IUIAutomationSpreadsheetItemPattern: IUnknown {
             #[special]
-            fn get_CurrentFormula(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
-            fn GetCurrentAnnotationObjects(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCurrentAnnotationTypes(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CurrentFormula(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn GetCurrentAnnotationObjects(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCurrentAnnotationTypes(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn get_CachedFormula(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
-            fn GetCachedAnnotationObjects(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCachedAnnotationTypes(&self, #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CachedFormula(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn GetCachedAnnotationObjects(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCachedAnnotationTypes(&self, #[out] #[out_ptr] #[retval] retVal: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x7517a7c8_faae_4de9_9f08_29b91e8595c1)]
         interface IUIAutomationSpreadsheetPattern: IUnknown {
-            fn GetItemByName(&self, name: BSTR, #[retval] element: *mut IUIAutomationElement) -> HRESULT;
+            fn GetItemByName(&self, #[in] name: BSTR, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationElement) -> HRESULT;
         }
         #[guid(0xe81d1b4e_11c5_42f8_9754_e7036c79f054)]
         interface IUIAutomationStructureChangedEventHandler: IUnknown {
-            fn HandleStructureChangedEvent(&self, sender: IUIAutomationElement, changeType: StructureChangeType, #[in] runtimeId: *mut SAFEARRAY) -> HRESULT;
+            fn HandleStructureChangedEvent(&self, #[in] #[opt] sender: IUIAutomationElement, #[in] changeType: StructureChangeType, #[in] runtimeId: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb)]
         interface IUIAutomationStylesPattern: IUnknown {
             #[special]
-            fn get_CurrentStyleId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentStyleId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentStyleName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentStyleName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentFillColor(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentFillColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentFillPatternStyle(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentFillPatternStyle(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentShape(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentShape(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentFillPatternColor(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CurrentFillPatternColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CurrentExtendedProperties(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
-            fn GetCurrentExtendedPropertiesAsArray(&self, propertyArray: *mut *mut ExtendedProperty, propertyCount: *mut i32) -> HRESULT;
+            fn get_CurrentExtendedProperties(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn GetCurrentExtendedPropertiesAsArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *propertyCount, indirect, nullable)] #[writable(success, *propertyCount, indirect, nullable)] propertyArray: *mut *mut ExtendedProperty, #[out] propertyCount: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedStyleId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedStyleId(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedStyleName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedStyleName(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedFillColor(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedFillColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedFillPatternStyle(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedFillPatternStyle(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedShape(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedShape(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedFillPatternColor(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            fn get_CachedFillPatternColor(&self, #[out] #[retval] retVal: *mut i32) -> HRESULT;
             #[special]
-            fn get_CachedExtendedProperties(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
-            fn GetCachedExtendedPropertiesAsArray(&self, propertyArray: *mut *mut ExtendedProperty, propertyCount: *mut i32) -> HRESULT;
+            fn get_CachedExtendedProperties(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn GetCachedExtendedPropertiesAsArray(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *propertyCount, indirect, nullable)] #[writable(success, *propertyCount, indirect, nullable)] propertyArray: *mut *mut ExtendedProperty, #[out] propertyCount: *mut i32) -> HRESULT;
         }
         #[guid(0x2233be0b_afb7_448b_9fda_3b378aa5eae1)]
         interface IUIAutomationSynchronizedInputPattern: IUnknown {
-            fn StartListening(&self, inputType: SynchronizedInputType) -> HRESULT;
+            fn StartListening(&self, #[in] inputType: SynchronizedInputType) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0x0b964eb3_ef2e_4464_9c79_61d61737a27e)]
         interface IUIAutomationTableItemPattern: IUnknown {
-            fn GetCurrentRowHeaderItems(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCurrentColumnHeaderItems(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCachedRowHeaderItems(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCachedColumnHeaderItems(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCurrentRowHeaderItems(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCurrentColumnHeaderItems(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCachedRowHeaderItems(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCachedColumnHeaderItems(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
         }
         #[guid(0x620e691c_ea96_4710_a850_754b24ce2417)]
         interface IUIAutomationTablePattern: IUnknown {
-            fn GetCurrentRowHeaders(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCurrentColumnHeaders(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCurrentRowHeaders(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCurrentColumnHeaders(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CurrentRowOrColumnMajor(&self, #[retval] retVal: *mut RowOrColumnMajor) -> HRESULT;
-            fn GetCachedRowHeaders(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetCachedColumnHeaders(&self, #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn get_CurrentRowOrColumnMajor(&self, #[out] #[retval] retVal: *mut RowOrColumnMajor) -> HRESULT;
+            fn GetCachedRowHeaders(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetCachedColumnHeaders(&self, #[out] #[out_ptr] #[retval] retVal: *mut IUIAutomationElementArray) -> HRESULT;
             #[special]
-            fn get_CachedRowOrColumnMajor(&self, #[retval] retVal: *mut RowOrColumnMajor) -> HRESULT;
+            fn get_CachedRowOrColumnMajor(&self, #[out] #[retval] retVal: *mut RowOrColumnMajor) -> HRESULT;
         }
         #[guid(0x6552b038_ae05_40c8_abfd_aa08352aab86)]
         interface IUIAutomationTextChildPattern: IUnknown {
             #[special]
-            fn get_TextContainer(&self, #[retval] container: *mut IUIAutomationElement) -> HRESULT;
+            fn get_TextContainer(&self, #[out] #[out_ptr] #[retval] container: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_TextRange(&self, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn get_TextRange(&self, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
         }
         #[guid(0x17e21576_996c_4870_99d9_bff323380c06)]
         interface IUIAutomationTextEditPattern: IUIAutomationTextPattern {
-            fn GetActiveComposition(&self, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
-            fn GetConversionTarget(&self, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn GetActiveComposition(&self, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn GetConversionTarget(&self, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
         }
         #[guid(0x92faa680_e704_4156_931a_e32d5bb38f3f)]
         interface IUIAutomationTextEditTextChangedEventHandler: IUnknown {
-            fn HandleTextEditTextChangedEvent(&self, sender: IUIAutomationElement, textEditChangeType: TextEditChangeType, #[in] eventStrings: *mut SAFEARRAY) -> HRESULT;
+            fn HandleTextEditTextChangedEvent(&self, #[in] #[opt] sender: IUIAutomationElement, #[in] textEditChangeType: TextEditChangeType, #[in] eventStrings: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a)]
         interface IUIAutomationTextPattern: IUnknown {
-            fn RangeFromPoint(&self, pt: POINT, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
-            fn RangeFromChild(&self, child: IUIAutomationElement, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
-            fn GetSelection(&self, #[retval] ranges: *mut IUIAutomationTextRangeArray) -> HRESULT;
-            fn GetVisibleRanges(&self, #[retval] ranges: *mut IUIAutomationTextRangeArray) -> HRESULT;
+            fn RangeFromPoint(&self, #[in] pt: POINT, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn RangeFromChild(&self, #[in] #[opt] child: IUIAutomationElement, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn GetSelection(&self, #[out] #[out_ptr] #[retval] ranges: *mut IUIAutomationTextRangeArray) -> HRESULT;
+            fn GetVisibleRanges(&self, #[out] #[out_ptr] #[retval] ranges: *mut IUIAutomationTextRangeArray) -> HRESULT;
             #[special]
-            fn get_DocumentRange(&self, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn get_DocumentRange(&self, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
             #[special]
-            fn get_SupportedTextSelection(&self, #[retval] supportedTextSelection: *mut SupportedTextSelection) -> HRESULT;
+            fn get_SupportedTextSelection(&self, #[out] #[retval] supportedTextSelection: *mut SupportedTextSelection) -> HRESULT;
         }
         #[guid(0x506a921a_fcc9_409f_b23b_37eb74106872)]
         interface IUIAutomationTextPattern2: IUIAutomationTextPattern {
-            fn RangeFromAnnotation(&self, annotation: IUIAutomationElement, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
-            fn GetCaretRange(&self, isActive: *mut BOOL, #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn RangeFromAnnotation(&self, #[in] #[opt] annotation: IUIAutomationElement, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
+            fn GetCaretRange(&self, #[out] isActive: *mut BOOL, #[out] #[out_ptr] #[retval] range: *mut IUIAutomationTextRange) -> HRESULT;
         }
         #[guid(0xa543cc6a_f4ae_494b_8239_c814481187a8)]
         interface IUIAutomationTextRange: IUnknown {
-            fn Clone(&self, #[retval] clonedRange: *mut IUIAutomationTextRange) -> HRESULT;
-            fn Compare(&self, range: IUIAutomationTextRange, #[retval] areSame: *mut BOOL) -> HRESULT;
-            fn CompareEndpoints(&self, srcEndPoint: TextPatternRangeEndpoint, range: IUIAutomationTextRange, targetEndPoint: TextPatternRangeEndpoint, #[retval] compValue: *mut i32) -> HRESULT;
-            fn ExpandToEnclosingUnit(&self, textUnit: TextUnit) -> HRESULT;
-            fn FindAttribute(&self, attr: TEXTATTRIBUTEID, val: VARIANT, backward: BOOL, #[retval] found: *mut IUIAutomationTextRange) -> HRESULT;
-            fn FindText(&self, text: BSTR, backward: BOOL, ignoreCase: BOOL, #[retval] found: *mut IUIAutomationTextRange) -> HRESULT;
-            fn GetAttributeValue(&self, attr: TEXTATTRIBUTEID, #[retval] value: *mut VARIANT) -> HRESULT;
-            fn GetBoundingRectangles(&self, #[retval] boundingRects: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetEnclosingElement(&self, #[retval] enclosingElement: *mut IUIAutomationElement) -> HRESULT;
-            fn GetText(&self, maxLength: i32, #[retval] text: *mut BSTR) -> HRESULT;
-            fn Move(&self, unit: TextUnit, count: i32, #[retval] moved: *mut i32) -> HRESULT;
-            fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, #[retval] moved: *mut i32) -> HRESULT;
-            fn MoveEndpointByRange(&self, srcEndPoint: TextPatternRangeEndpoint, range: IUIAutomationTextRange, targetEndPoint: TextPatternRangeEndpoint) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] clonedRange: *mut IUIAutomationTextRange) -> HRESULT;
+            fn Compare(&self, #[in] #[opt] range: IUIAutomationTextRange, #[out] #[retval] areSame: *mut BOOL) -> HRESULT;
+            fn CompareEndpoints(&self, #[in] srcEndPoint: TextPatternRangeEndpoint, #[in] #[opt] range: IUIAutomationTextRange, #[in] targetEndPoint: TextPatternRangeEndpoint, #[out] #[retval] compValue: *mut i32) -> HRESULT;
+            fn ExpandToEnclosingUnit(&self, #[in] textUnit: TextUnit) -> HRESULT;
+            fn FindAttribute(&self, #[in] attr: TEXTATTRIBUTEID, #[in] val: VARIANT, #[in] backward: BOOL, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationTextRange) -> HRESULT;
+            fn FindText(&self, #[in] text: BSTR, #[in] backward: BOOL, #[in] ignoreCase: BOOL, #[out] #[out_ptr] #[retval] found: *mut IUIAutomationTextRange) -> HRESULT;
+            fn GetAttributeValue(&self, #[in] attr: TEXTATTRIBUTEID, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
+            fn GetBoundingRectangles(&self, #[out] #[out_ptr] #[retval] boundingRects: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEnclosingElement(&self, #[out] #[out_ptr] #[retval] enclosingElement: *mut IUIAutomationElement) -> HRESULT;
+            fn GetText(&self, #[in] maxLength: i32, #[out] #[out_ptr] #[retval] text: *mut BSTR) -> HRESULT;
+            fn Move(&self, #[in] unit: TextUnit, #[in] count: i32, #[out] #[retval] moved: *mut i32) -> HRESULT;
+            fn MoveEndpointByUnit(&self, #[in] endpoint: TextPatternRangeEndpoint, #[in] unit: TextUnit, #[in] count: i32, #[out] #[retval] moved: *mut i32) -> HRESULT;
+            fn MoveEndpointByRange(&self, #[in] srcEndPoint: TextPatternRangeEndpoint, #[in] #[opt] range: IUIAutomationTextRange, #[in] targetEndPoint: TextPatternRangeEndpoint) -> HRESULT;
             fn Select(&self) -> HRESULT;
             fn AddToSelection(&self) -> HRESULT;
             fn RemoveFromSelection(&self) -> HRESULT;
-            fn ScrollIntoView(&self, alignToTop: BOOL) -> HRESULT;
-            fn GetChildren(&self, #[retval] children: *mut IUIAutomationElementArray) -> HRESULT;
+            fn ScrollIntoView(&self, #[in] alignToTop: BOOL) -> HRESULT;
+            fn GetChildren(&self, #[out] #[out_ptr] #[retval] children: *mut IUIAutomationElementArray) -> HRESULT;
         }
         #[guid(0xbb9b40e0_5e04_46bd_9be0_4b601b9afad4)]
         interface IUIAutomationTextRange2: IUIAutomationTextRange {
@@ -924,91 +959,91 @@ mod Windows {
         }
         #[guid(0x6a315d69_5512_4c2e_85f0_53fce6dd4bc2)]
         interface IUIAutomationTextRange3: IUIAutomationTextRange2 {
-            fn GetEnclosingElementBuildCache(&self, cacheRequest: IUIAutomationCacheRequest, #[retval] enclosingElement: *mut IUIAutomationElement) -> HRESULT;
-            fn GetChildrenBuildCache(&self, cacheRequest: IUIAutomationCacheRequest, #[retval] children: *mut IUIAutomationElementArray) -> HRESULT;
-            fn GetAttributeValues(&self, attributeIds: *const TEXTATTRIBUTEID, attributeIdCount: i32, #[retval] attributeValues: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEnclosingElementBuildCache(&self, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] enclosingElement: *mut IUIAutomationElement) -> HRESULT;
+            fn GetChildrenBuildCache(&self, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] children: *mut IUIAutomationElementArray) -> HRESULT;
+            fn GetAttributeValues(&self, #[in] #[readable(entry, attributeIdCount)] attributeIds: *const TEXTATTRIBUTEID, #[in] attributeIdCount: i32, #[out] #[out_ptr] #[retval] attributeValues: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xce4ae76a_e717_4c98_81ea_47371d028eb6)]
         interface IUIAutomationTextRangeArray: IUnknown {
             #[special]
-            fn get_Length(&self, #[retval] length: *mut i32) -> HRESULT;
-            fn GetElement(&self, index: i32, #[retval] element: *mut IUIAutomationTextRange) -> HRESULT;
+            fn get_Length(&self, #[out] #[retval] length: *mut i32) -> HRESULT;
+            fn GetElement(&self, #[in] index: i32, #[out] #[out_ptr] #[retval] element: *mut IUIAutomationTextRange) -> HRESULT;
         }
         #[guid(0x94cf8058_9b8d_4ab9_8bfd_4cd0a33c8c70)]
         interface IUIAutomationTogglePattern: IUnknown {
             fn Toggle(&self) -> HRESULT;
             #[special]
-            fn get_CurrentToggleState(&self, #[retval] retVal: *mut ToggleState) -> HRESULT;
+            fn get_CurrentToggleState(&self, #[out] #[retval] retVal: *mut ToggleState) -> HRESULT;
             #[special]
-            fn get_CachedToggleState(&self, #[retval] retVal: *mut ToggleState) -> HRESULT;
+            fn get_CachedToggleState(&self, #[out] #[retval] retVal: *mut ToggleState) -> HRESULT;
         }
         #[guid(0xa9b55844_a55d_4ef0_926d_569c16ff89bb)]
         interface IUIAutomationTransformPattern: IUnknown {
-            fn Move(&self, x: f64, y: f64) -> HRESULT;
-            fn Resize(&self, width: f64, height: f64) -> HRESULT;
-            fn Rotate(&self, degrees: f64) -> HRESULT;
+            fn Move(&self, #[in] x: f64, #[in] y: f64) -> HRESULT;
+            fn Resize(&self, #[in] width: f64, #[in] height: f64) -> HRESULT;
+            fn Rotate(&self, #[in] degrees: f64) -> HRESULT;
             #[special]
-            fn get_CurrentCanMove(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentCanMove(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentCanResize(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentCanResize(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentCanRotate(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentCanRotate(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedCanMove(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedCanMove(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedCanResize(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedCanResize(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedCanRotate(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedCanRotate(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
         }
         #[guid(0x6d74d017_6ecb_4381_b38b_3c17a48ff1c2)]
         interface IUIAutomationTransformPattern2: IUIAutomationTransformPattern {
-            fn Zoom(&self, zoomValue: f64) -> HRESULT;
-            fn ZoomByUnit(&self, zoomUnit: ZoomUnit) -> HRESULT;
+            fn Zoom(&self, #[in] zoomValue: f64) -> HRESULT;
+            fn ZoomByUnit(&self, #[in] zoomUnit: ZoomUnit) -> HRESULT;
             #[special]
-            fn get_CurrentCanZoom(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentCanZoom(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedCanZoom(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedCanZoom(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentZoomLevel(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentZoomLevel(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedZoomLevel(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedZoomLevel(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentZoomMinimum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentZoomMinimum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedZoomMinimum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedZoomMinimum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CurrentZoomMaximum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CurrentZoomMaximum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
             #[special]
-            fn get_CachedZoomMaximum(&self, #[retval] retVal: *mut f64) -> HRESULT;
+            fn get_CachedZoomMaximum(&self, #[out] #[retval] retVal: *mut f64) -> HRESULT;
         }
         #[guid(0x4042c624_389c_4afc_a630_9df854a541fc)]
         interface IUIAutomationTreeWalker: IUnknown {
-            fn GetParentElement(&self, element: IUIAutomationElement, #[retval] parent: *mut IUIAutomationElement) -> HRESULT;
-            fn GetFirstChildElement(&self, element: IUIAutomationElement, #[retval] first: *mut IUIAutomationElement) -> HRESULT;
-            fn GetLastChildElement(&self, element: IUIAutomationElement, #[retval] last: *mut IUIAutomationElement) -> HRESULT;
-            fn GetNextSiblingElement(&self, element: IUIAutomationElement, #[retval] next: *mut IUIAutomationElement) -> HRESULT;
-            fn GetPreviousSiblingElement(&self, element: IUIAutomationElement, #[retval] previous: *mut IUIAutomationElement) -> HRESULT;
-            fn NormalizeElement(&self, element: IUIAutomationElement, #[retval] normalized: *mut IUIAutomationElement) -> HRESULT;
-            fn GetParentElementBuildCache(&self, element: IUIAutomationElement, cacheRequest: IUIAutomationCacheRequest, #[retval] parent: *mut IUIAutomationElement) -> HRESULT;
-            fn GetFirstChildElementBuildCache(&self, element: IUIAutomationElement, cacheRequest: IUIAutomationCacheRequest, #[retval] first: *mut IUIAutomationElement) -> HRESULT;
-            fn GetLastChildElementBuildCache(&self, element: IUIAutomationElement, cacheRequest: IUIAutomationCacheRequest, #[retval] last: *mut IUIAutomationElement) -> HRESULT;
-            fn GetNextSiblingElementBuildCache(&self, element: IUIAutomationElement, cacheRequest: IUIAutomationCacheRequest, #[retval] next: *mut IUIAutomationElement) -> HRESULT;
-            fn GetPreviousSiblingElementBuildCache(&self, element: IUIAutomationElement, cacheRequest: IUIAutomationCacheRequest, #[retval] previous: *mut IUIAutomationElement) -> HRESULT;
-            fn NormalizeElementBuildCache(&self, element: IUIAutomationElement, cacheRequest: IUIAutomationCacheRequest, #[retval] normalized: *mut IUIAutomationElement) -> HRESULT;
+            fn GetParentElement(&self, #[in] #[opt] element: IUIAutomationElement, #[out] #[out_ptr] #[retval] parent: *mut IUIAutomationElement) -> HRESULT;
+            fn GetFirstChildElement(&self, #[in] #[opt] element: IUIAutomationElement, #[out] #[out_ptr] #[retval] first: *mut IUIAutomationElement) -> HRESULT;
+            fn GetLastChildElement(&self, #[in] #[opt] element: IUIAutomationElement, #[out] #[out_ptr] #[retval] last: *mut IUIAutomationElement) -> HRESULT;
+            fn GetNextSiblingElement(&self, #[in] #[opt] element: IUIAutomationElement, #[out] #[out_ptr] #[retval] next: *mut IUIAutomationElement) -> HRESULT;
+            fn GetPreviousSiblingElement(&self, #[in] #[opt] element: IUIAutomationElement, #[out] #[out_ptr] #[retval] previous: *mut IUIAutomationElement) -> HRESULT;
+            fn NormalizeElement(&self, #[in] #[opt] element: IUIAutomationElement, #[out] #[out_ptr] #[retval] normalized: *mut IUIAutomationElement) -> HRESULT;
+            fn GetParentElementBuildCache(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] parent: *mut IUIAutomationElement) -> HRESULT;
+            fn GetFirstChildElementBuildCache(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] first: *mut IUIAutomationElement) -> HRESULT;
+            fn GetLastChildElementBuildCache(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] last: *mut IUIAutomationElement) -> HRESULT;
+            fn GetNextSiblingElementBuildCache(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] next: *mut IUIAutomationElement) -> HRESULT;
+            fn GetPreviousSiblingElementBuildCache(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] previous: *mut IUIAutomationElement) -> HRESULT;
+            fn NormalizeElementBuildCache(&self, #[in] #[opt] element: IUIAutomationElement, #[in] #[opt] cacheRequest: IUIAutomationCacheRequest, #[out] #[out_ptr] #[retval] normalized: *mut IUIAutomationElement) -> HRESULT;
             #[special]
-            fn get_Condition(&self, #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
+            fn get_Condition(&self, #[out] #[out_ptr] #[retval] condition: *mut IUIAutomationCondition) -> HRESULT;
         }
         #[guid(0xa94cd8b1_0844_4cd6_9d2d_640537ab39e9)]
         interface IUIAutomationValuePattern: IUnknown {
-            fn SetValue(&self, val: BSTR) -> HRESULT;
+            fn SetValue(&self, #[in] val: BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentValue(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CurrentValue(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CurrentIsReadOnly(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsReadOnly(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedValue(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            fn get_CachedValue(&self, #[out] #[out_ptr] #[retval] retVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CachedIsReadOnly(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsReadOnly(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
         }
         #[guid(0x6ba3d7a6_04cf_4f11_8793_a8d1cde9969f)]
         interface IUIAutomationVirtualizedItemPattern: IUnknown {
@@ -1017,32 +1052,32 @@ mod Windows {
         #[guid(0x0faef453_9208_43ef_bbb2_3b485177864f)]
         interface IUIAutomationWindowPattern: IUnknown {
             fn Close(&self) -> HRESULT;
-            fn WaitForInputIdle(&self, milliseconds: i32, #[retval] success: *mut BOOL) -> HRESULT;
-            fn SetWindowVisualState(&self, state: WindowVisualState) -> HRESULT;
+            fn WaitForInputIdle(&self, #[in] milliseconds: i32, #[out] #[retval] success: *mut BOOL) -> HRESULT;
+            fn SetWindowVisualState(&self, #[in] state: WindowVisualState) -> HRESULT;
             #[special]
-            fn get_CurrentCanMaximize(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentCanMaximize(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentCanMinimize(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentCanMinimize(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentIsModal(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsModal(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentIsTopmost(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CurrentIsTopmost(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CurrentWindowVisualState(&self, #[retval] retVal: *mut WindowVisualState) -> HRESULT;
+            fn get_CurrentWindowVisualState(&self, #[out] #[retval] retVal: *mut WindowVisualState) -> HRESULT;
             #[special]
-            fn get_CurrentWindowInteractionState(&self, #[retval] retVal: *mut WindowInteractionState) -> HRESULT;
+            fn get_CurrentWindowInteractionState(&self, #[out] #[retval] retVal: *mut WindowInteractionState) -> HRESULT;
             #[special]
-            fn get_CachedCanMaximize(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedCanMaximize(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedCanMinimize(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedCanMinimize(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsModal(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsModal(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedIsTopmost(&self, #[retval] retVal: *mut BOOL) -> HRESULT;
+            fn get_CachedIsTopmost(&self, #[out] #[retval] retVal: *mut BOOL) -> HRESULT;
             #[special]
-            fn get_CachedWindowVisualState(&self, #[retval] retVal: *mut WindowVisualState) -> HRESULT;
+            fn get_CachedWindowVisualState(&self, #[out] #[retval] retVal: *mut WindowVisualState) -> HRESULT;
             #[special]
-            fn get_CachedWindowInteractionState(&self, #[retval] retVal: *mut WindowInteractionState) -> HRESULT;
+            fn get_CachedWindowInteractionState(&self, #[out] #[retval] retVal: *mut WindowInteractionState) -> HRESULT;
         }
         #[repr(i32)]
         enum PropertyConditionFlags {
@@ -1050,6 +1085,23 @@ mod Windows {
             PropertyConditionFlags_IgnoreCase = 1,
             PropertyConditionFlags_MatchSubstring = 2,
         }
+        const StyleId_BulletedList: i32 = 70015;
+        const StyleId_Custom: i32 = 70000;
+        const StyleId_Emphasis: i32 = 70013;
+        const StyleId_Heading1: i32 = 70001;
+        const StyleId_Heading2: i32 = 70002;
+        const StyleId_Heading3: i32 = 70003;
+        const StyleId_Heading4: i32 = 70004;
+        const StyleId_Heading5: i32 = 70005;
+        const StyleId_Heading6: i32 = 70006;
+        const StyleId_Heading7: i32 = 70007;
+        const StyleId_Heading8: i32 = 70008;
+        const StyleId_Heading9: i32 = 70009;
+        const StyleId_Normal: i32 = 70012;
+        const StyleId_NumberedList: i32 = 70016;
+        const StyleId_Quote: i32 = 70014;
+        const StyleId_Subtitle: i32 = 70011;
+        const StyleId_Title: i32 = 70010;
         #[repr(i32)]
         enum TreeScope {
             TreeScope_None = 0,
@@ -1066,6 +1118,345 @@ mod Windows {
             TreeTraversalOptions_PostOrder = 1,
             TreeTraversalOptions_LastToFirstOrder = 2,
         }
+        const UIA_AcceleratorKeyPropertyId: i32 = 30006;
+        const UIA_AccessKeyPropertyId: i32 = 30007;
+        const UIA_ActiveTextPositionChangedEventId: i32 = 20036;
+        const UIA_AfterParagraphSpacingAttributeId: i32 = 40042;
+        const UIA_AnimationStyleAttributeId: i32 = 40000;
+        const UIA_AnnotationAnnotationTypeIdPropertyId: i32 = 30113;
+        const UIA_AnnotationAnnotationTypeNamePropertyId: i32 = 30114;
+        const UIA_AnnotationAuthorPropertyId: i32 = 30115;
+        const UIA_AnnotationDateTimePropertyId: i32 = 30116;
+        const UIA_AnnotationObjectsAttributeId: i32 = 40032;
+        const UIA_AnnotationObjectsPropertyId: i32 = 30156;
+        const UIA_AnnotationPatternId: i32 = 10023;
+        const UIA_AnnotationTargetPropertyId: i32 = 30117;
+        const UIA_AnnotationTypesAttributeId: i32 = 40031;
+        const UIA_AnnotationTypesPropertyId: i32 = 30155;
+        const UIA_AppBarControlTypeId: i32 = 50040;
+        const UIA_AriaPropertiesPropertyId: i32 = 30102;
+        const UIA_AriaRolePropertyId: i32 = 30101;
+        const UIA_AsyncContentLoadedEventId: i32 = 20006;
+        const UIA_AutomationFocusChangedEventId: i32 = 20005;
+        const UIA_AutomationIdPropertyId: i32 = 30011;
+        const UIA_AutomationPropertyChangedEventId: i32 = 20004;
+        const UIA_BackgroundColorAttributeId: i32 = 40001;
+        const UIA_BeforeParagraphSpacingAttributeId: i32 = 40041;
+        const UIA_BoundingRectanglePropertyId: i32 = 30001;
+        const UIA_BulletStyleAttributeId: i32 = 40002;
+        const UIA_ButtonControlTypeId: i32 = 50000;
+        const UIA_CalendarControlTypeId: i32 = 50001;
+        const UIA_CapStyleAttributeId: i32 = 40003;
+        const UIA_CaretBidiModeAttributeId: i32 = 40039;
+        const UIA_CaretPositionAttributeId: i32 = 40038;
+        const UIA_CenterPointPropertyId: i32 = 30165;
+        const UIA_ChangesEventId: i32 = 20034;
+        const UIA_CheckBoxControlTypeId: i32 = 50002;
+        const UIA_ClassNamePropertyId: i32 = 30012;
+        const UIA_ClickablePointPropertyId: i32 = 30014;
+        const UIA_ComboBoxControlTypeId: i32 = 50003;
+        const UIA_ControlTypePropertyId: i32 = 30003;
+        const UIA_ControllerForPropertyId: i32 = 30104;
+        const UIA_CultureAttributeId: i32 = 40004;
+        const UIA_CulturePropertyId: i32 = 30015;
+        const UIA_CustomControlTypeId: i32 = 50025;
+        const UIA_CustomLandmarkTypeId: i32 = 80000;
+        const UIA_CustomNavigationPatternId: i32 = 10033;
+        const UIA_DataGridControlTypeId: i32 = 50028;
+        const UIA_DataItemControlTypeId: i32 = 50029;
+        const UIA_DescribedByPropertyId: i32 = 30105;
+        const UIA_DockDockPositionPropertyId: i32 = 30069;
+        const UIA_DockPatternId: i32 = 10011;
+        const UIA_DocumentControlTypeId: i32 = 50030;
+        const UIA_DragDropEffectPropertyId: i32 = 30139;
+        const UIA_DragDropEffectsPropertyId: i32 = 30140;
+        const UIA_DragGrabbedItemsPropertyId: i32 = 30144;
+        const UIA_DragIsGrabbedPropertyId: i32 = 30138;
+        const UIA_DragPatternId: i32 = 10030;
+        const UIA_Drag_DragCancelEventId: i32 = 20027;
+        const UIA_Drag_DragCompleteEventId: i32 = 20028;
+        const UIA_Drag_DragStartEventId: i32 = 20026;
+        const UIA_DropTargetDropTargetEffectPropertyId: i32 = 30142;
+        const UIA_DropTargetDropTargetEffectsPropertyId: i32 = 30143;
+        const UIA_DropTargetPatternId: i32 = 10031;
+        const UIA_DropTarget_DragEnterEventId: i32 = 20029;
+        const UIA_DropTarget_DragLeaveEventId: i32 = 20030;
+        const UIA_DropTarget_DroppedEventId: i32 = 20031;
+        const UIA_EditControlTypeId: i32 = 50004;
+        const UIA_ExpandCollapseExpandCollapseStatePropertyId: i32 = 30070;
+        const UIA_ExpandCollapsePatternId: i32 = 10005;
+        const UIA_FillColorPropertyId: i32 = 30160;
+        const UIA_FillTypePropertyId: i32 = 30162;
+        const UIA_FlowsFromPropertyId: i32 = 30148;
+        const UIA_FlowsToPropertyId: i32 = 30106;
+        const UIA_FontNameAttributeId: i32 = 40005;
+        const UIA_FontSizeAttributeId: i32 = 40006;
+        const UIA_FontWeightAttributeId: i32 = 40007;
+        const UIA_ForegroundColorAttributeId: i32 = 40008;
+        const UIA_FormLandmarkTypeId: i32 = 80001;
+        const UIA_FrameworkIdPropertyId: i32 = 30024;
+        const UIA_FullDescriptionPropertyId: i32 = 30159;
+        const UIA_GridColumnCountPropertyId: i32 = 30063;
+        const UIA_GridItemColumnPropertyId: i32 = 30065;
+        const UIA_GridItemColumnSpanPropertyId: i32 = 30067;
+        const UIA_GridItemContainingGridPropertyId: i32 = 30068;
+        const UIA_GridItemPatternId: i32 = 10007;
+        const UIA_GridItemRowPropertyId: i32 = 30064;
+        const UIA_GridItemRowSpanPropertyId: i32 = 30066;
+        const UIA_GridPatternId: i32 = 10006;
+        const UIA_GridRowCountPropertyId: i32 = 30062;
+        const UIA_GroupControlTypeId: i32 = 50026;
         type UIA_HWND = *mut void;
+        const UIA_HasKeyboardFocusPropertyId: i32 = 30008;
+        const UIA_HeaderControlTypeId: i32 = 50034;
+        const UIA_HeaderItemControlTypeId: i32 = 50035;
+        const UIA_HeadingLevelPropertyId: i32 = 30173;
+        const UIA_HelpTextPropertyId: i32 = 30013;
+        const UIA_HorizontalTextAlignmentAttributeId: i32 = 40009;
+        const UIA_HostedFragmentRootsInvalidatedEventId: i32 = 20025;
+        const UIA_HyperlinkControlTypeId: i32 = 50005;
+        const UIA_ImageControlTypeId: i32 = 50006;
+        const UIA_IndentationFirstLineAttributeId: i32 = 40010;
+        const UIA_IndentationLeadingAttributeId: i32 = 40011;
+        const UIA_IndentationTrailingAttributeId: i32 = 40012;
+        const UIA_InputDiscardedEventId: i32 = 20022;
+        const UIA_InputReachedOtherElementEventId: i32 = 20021;
+        const UIA_InputReachedTargetEventId: i32 = 20020;
+        const UIA_InvokePatternId: i32 = 10000;
+        const UIA_Invoke_InvokedEventId: i32 = 20009;
+        const UIA_IsActiveAttributeId: i32 = 40036;
+        const UIA_IsAnnotationPatternAvailablePropertyId: i32 = 30118;
+        const UIA_IsContentElementPropertyId: i32 = 30017;
+        const UIA_IsControlElementPropertyId: i32 = 30016;
+        const UIA_IsCustomNavigationPatternAvailablePropertyId: i32 = 30151;
+        const UIA_IsDataValidForFormPropertyId: i32 = 30103;
+        const UIA_IsDialogPropertyId: i32 = 30174;
+        const UIA_IsDockPatternAvailablePropertyId: i32 = 30027;
+        const UIA_IsDragPatternAvailablePropertyId: i32 = 30137;
+        const UIA_IsDropTargetPatternAvailablePropertyId: i32 = 30141;
+        const UIA_IsEnabledPropertyId: i32 = 30010;
+        const UIA_IsExpandCollapsePatternAvailablePropertyId: i32 = 30028;
+        const UIA_IsGridItemPatternAvailablePropertyId: i32 = 30029;
+        const UIA_IsGridPatternAvailablePropertyId: i32 = 30030;
+        const UIA_IsHiddenAttributeId: i32 = 40013;
+        const UIA_IsInvokePatternAvailablePropertyId: i32 = 30031;
+        const UIA_IsItalicAttributeId: i32 = 40014;
+        const UIA_IsItemContainerPatternAvailablePropertyId: i32 = 30108;
+        const UIA_IsKeyboardFocusablePropertyId: i32 = 30009;
+        const UIA_IsLegacyIAccessiblePatternAvailablePropertyId: i32 = 30090;
+        const UIA_IsMultipleViewPatternAvailablePropertyId: i32 = 30032;
+        const UIA_IsObjectModelPatternAvailablePropertyId: i32 = 30112;
+        const UIA_IsOffscreenPropertyId: i32 = 30022;
+        const UIA_IsPasswordPropertyId: i32 = 30019;
+        const UIA_IsPeripheralPropertyId: i32 = 30150;
+        const UIA_IsRangeValuePatternAvailablePropertyId: i32 = 30033;
+        const UIA_IsReadOnlyAttributeId: i32 = 40015;
+        const UIA_IsRequiredForFormPropertyId: i32 = 30025;
+        const UIA_IsScrollItemPatternAvailablePropertyId: i32 = 30035;
+        const UIA_IsScrollPatternAvailablePropertyId: i32 = 30034;
+        const UIA_IsSelectionItemPatternAvailablePropertyId: i32 = 30036;
+        const UIA_IsSelectionPattern2AvailablePropertyId: i32 = 30168;
+        const UIA_IsSelectionPatternAvailablePropertyId: i32 = 30037;
+        const UIA_IsSpreadsheetItemPatternAvailablePropertyId: i32 = 30132;
+        const UIA_IsSpreadsheetPatternAvailablePropertyId: i32 = 30128;
+        const UIA_IsStylesPatternAvailablePropertyId: i32 = 30127;
+        const UIA_IsSubscriptAttributeId: i32 = 40016;
+        const UIA_IsSuperscriptAttributeId: i32 = 40017;
+        const UIA_IsSynchronizedInputPatternAvailablePropertyId: i32 = 30110;
+        const UIA_IsTableItemPatternAvailablePropertyId: i32 = 30039;
+        const UIA_IsTablePatternAvailablePropertyId: i32 = 30038;
+        const UIA_IsTextChildPatternAvailablePropertyId: i32 = 30136;
+        const UIA_IsTextEditPatternAvailablePropertyId: i32 = 30149;
+        const UIA_IsTextPattern2AvailablePropertyId: i32 = 30119;
+        const UIA_IsTextPatternAvailablePropertyId: i32 = 30040;
+        const UIA_IsTogglePatternAvailablePropertyId: i32 = 30041;
+        const UIA_IsTransformPattern2AvailablePropertyId: i32 = 30134;
+        const UIA_IsTransformPatternAvailablePropertyId: i32 = 30042;
+        const UIA_IsValuePatternAvailablePropertyId: i32 = 30043;
+        const UIA_IsVirtualizedItemPatternAvailablePropertyId: i32 = 30109;
+        const UIA_IsWindowPatternAvailablePropertyId: i32 = 30044;
+        const UIA_ItemContainerPatternId: i32 = 10019;
+        const UIA_ItemStatusPropertyId: i32 = 30026;
+        const UIA_ItemTypePropertyId: i32 = 30021;
+        const UIA_LabeledByPropertyId: i32 = 30018;
+        const UIA_LandmarkTypePropertyId: i32 = 30157;
+        const UIA_LayoutInvalidatedEventId: i32 = 20008;
+        const UIA_LegacyIAccessibleChildIdPropertyId: i32 = 30091;
+        const UIA_LegacyIAccessibleDefaultActionPropertyId: i32 = 30100;
+        const UIA_LegacyIAccessibleDescriptionPropertyId: i32 = 30094;
+        const UIA_LegacyIAccessibleHelpPropertyId: i32 = 30097;
+        const UIA_LegacyIAccessibleKeyboardShortcutPropertyId: i32 = 30098;
+        const UIA_LegacyIAccessibleNamePropertyId: i32 = 30092;
+        const UIA_LegacyIAccessiblePatternId: i32 = 10018;
+        const UIA_LegacyIAccessibleRolePropertyId: i32 = 30095;
+        const UIA_LegacyIAccessibleSelectionPropertyId: i32 = 30099;
+        const UIA_LegacyIAccessibleStatePropertyId: i32 = 30096;
+        const UIA_LegacyIAccessibleValuePropertyId: i32 = 30093;
+        const UIA_LevelPropertyId: i32 = 30154;
+        const UIA_LineSpacingAttributeId: i32 = 40040;
+        const UIA_LinkAttributeId: i32 = 40035;
+        const UIA_ListControlTypeId: i32 = 50008;
+        const UIA_ListItemControlTypeId: i32 = 50007;
+        const UIA_LiveRegionChangedEventId: i32 = 20024;
+        const UIA_LiveSettingPropertyId: i32 = 30135;
+        const UIA_LocalizedControlTypePropertyId: i32 = 30004;
+        const UIA_LocalizedLandmarkTypePropertyId: i32 = 30158;
+        const UIA_MainLandmarkTypeId: i32 = 80002;
+        const UIA_MarginBottomAttributeId: i32 = 40018;
+        const UIA_MarginLeadingAttributeId: i32 = 40019;
+        const UIA_MarginTopAttributeId: i32 = 40020;
+        const UIA_MarginTrailingAttributeId: i32 = 40021;
+        const UIA_MenuBarControlTypeId: i32 = 50010;
+        const UIA_MenuClosedEventId: i32 = 20007;
+        const UIA_MenuControlTypeId: i32 = 50009;
+        const UIA_MenuItemControlTypeId: i32 = 50011;
+        const UIA_MenuModeEndEventId: i32 = 20019;
+        const UIA_MenuModeStartEventId: i32 = 20018;
+        const UIA_MenuOpenedEventId: i32 = 20003;
+        const UIA_MultipleViewCurrentViewPropertyId: i32 = 30071;
+        const UIA_MultipleViewPatternId: i32 = 10008;
+        const UIA_MultipleViewSupportedViewsPropertyId: i32 = 30072;
+        const UIA_NamePropertyId: i32 = 30005;
+        const UIA_NativeWindowHandlePropertyId: i32 = 30020;
+        const UIA_NavigationLandmarkTypeId: i32 = 80003;
+        const UIA_NotificationEventId: i32 = 20035;
+        const UIA_ObjectModelPatternId: i32 = 10022;
+        const UIA_OptimizeForVisualContentPropertyId: i32 = 30111;
+        const UIA_OrientationPropertyId: i32 = 30023;
+        const UIA_OutlineColorPropertyId: i32 = 30161;
+        const UIA_OutlineStylesAttributeId: i32 = 40022;
+        const UIA_OutlineThicknessPropertyId: i32 = 30164;
+        const UIA_OverlineColorAttributeId: i32 = 40023;
+        const UIA_OverlineStyleAttributeId: i32 = 40024;
+        const UIA_PaneControlTypeId: i32 = 50033;
+        const UIA_PositionInSetPropertyId: i32 = 30152;
+        const UIA_ProcessIdPropertyId: i32 = 30002;
+        const UIA_ProgressBarControlTypeId: i32 = 50012;
+        const UIA_ProviderDescriptionPropertyId: i32 = 30107;
+        const UIA_RadioButtonControlTypeId: i32 = 50013;
+        const UIA_RangeValueIsReadOnlyPropertyId: i32 = 30048;
+        const UIA_RangeValueLargeChangePropertyId: i32 = 30051;
+        const UIA_RangeValueMaximumPropertyId: i32 = 30050;
+        const UIA_RangeValueMinimumPropertyId: i32 = 30049;
+        const UIA_RangeValuePatternId: i32 = 10003;
+        const UIA_RangeValueSmallChangePropertyId: i32 = 30052;
+        const UIA_RangeValueValuePropertyId: i32 = 30047;
+        const UIA_RotationPropertyId: i32 = 30166;
+        const UIA_RuntimeIdPropertyId: i32 = 30000;
+        const UIA_SayAsInterpretAsAttributeId: i32 = 40043;
+        const UIA_SayAsInterpretAsMetadataId: i32 = 100000;
+        const UIA_ScrollBarControlTypeId: i32 = 50014;
+        const UIA_ScrollHorizontalScrollPercentPropertyId: i32 = 30053;
+        const UIA_ScrollHorizontalViewSizePropertyId: i32 = 30054;
+        const UIA_ScrollHorizontallyScrollablePropertyId: i32 = 30057;
+        const UIA_ScrollItemPatternId: i32 = 10017;
+        const UIA_ScrollPatternId: i32 = 10004;
+        const UIA_ScrollVerticalScrollPercentPropertyId: i32 = 30055;
+        const UIA_ScrollVerticalViewSizePropertyId: i32 = 30056;
+        const UIA_ScrollVerticallyScrollablePropertyId: i32 = 30058;
+        const UIA_SearchLandmarkTypeId: i32 = 80004;
+        const UIA_Selection2CurrentSelectedItemPropertyId: i32 = 30171;
+        const UIA_Selection2FirstSelectedItemPropertyId: i32 = 30169;
+        const UIA_Selection2ItemCountPropertyId: i32 = 30172;
+        const UIA_Selection2LastSelectedItemPropertyId: i32 = 30170;
+        const UIA_SelectionActiveEndAttributeId: i32 = 40037;
+        const UIA_SelectionCanSelectMultiplePropertyId: i32 = 30060;
+        const UIA_SelectionIsSelectionRequiredPropertyId: i32 = 30061;
+        const UIA_SelectionItemIsSelectedPropertyId: i32 = 30079;
+        const UIA_SelectionItemPatternId: i32 = 10010;
+        const UIA_SelectionItemSelectionContainerPropertyId: i32 = 30080;
+        const UIA_SelectionItem_ElementAddedToSelectionEventId: i32 = 20010;
+        const UIA_SelectionItem_ElementRemovedFromSelectionEventId: i32 = 20011;
+        const UIA_SelectionItem_ElementSelectedEventId: i32 = 20012;
+        const UIA_SelectionPattern2Id: i32 = 10034;
+        const UIA_SelectionPatternId: i32 = 10001;
+        const UIA_SelectionSelectionPropertyId: i32 = 30059;
+        const UIA_Selection_InvalidatedEventId: i32 = 20013;
+        const UIA_SemanticZoomControlTypeId: i32 = 50039;
+        const UIA_SeparatorControlTypeId: i32 = 50038;
+        const UIA_SizeOfSetPropertyId: i32 = 30153;
+        const UIA_SizePropertyId: i32 = 30167;
+        const UIA_SliderControlTypeId: i32 = 50015;
+        const UIA_SpinnerControlTypeId: i32 = 50016;
+        const UIA_SplitButtonControlTypeId: i32 = 50031;
+        const UIA_SpreadsheetItemAnnotationObjectsPropertyId: i32 = 30130;
+        const UIA_SpreadsheetItemAnnotationTypesPropertyId: i32 = 30131;
+        const UIA_SpreadsheetItemFormulaPropertyId: i32 = 30129;
+        const UIA_SpreadsheetItemPatternId: i32 = 10027;
+        const UIA_SpreadsheetPatternId: i32 = 10026;
+        const UIA_StatusBarControlTypeId: i32 = 50017;
+        const UIA_StrikethroughColorAttributeId: i32 = 40025;
+        const UIA_StrikethroughStyleAttributeId: i32 = 40026;
+        const UIA_StructureChangedEventId: i32 = 20002;
+        const UIA_StyleIdAttributeId: i32 = 40034;
+        const UIA_StyleNameAttributeId: i32 = 40033;
+        const UIA_StylesExtendedPropertiesPropertyId: i32 = 30126;
+        const UIA_StylesFillColorPropertyId: i32 = 30122;
+        const UIA_StylesFillPatternColorPropertyId: i32 = 30125;
+        const UIA_StylesFillPatternStylePropertyId: i32 = 30123;
+        const UIA_StylesPatternId: i32 = 10025;
+        const UIA_StylesShapePropertyId: i32 = 30124;
+        const UIA_StylesStyleIdPropertyId: i32 = 30120;
+        const UIA_StylesStyleNamePropertyId: i32 = 30121;
+        const UIA_SummaryChangeId: i32 = 90000;
+        const UIA_SynchronizedInputPatternId: i32 = 10021;
+        const UIA_SystemAlertEventId: i32 = 20023;
+        const UIA_TabControlTypeId: i32 = 50018;
+        const UIA_TabItemControlTypeId: i32 = 50019;
+        const UIA_TableColumnHeadersPropertyId: i32 = 30082;
+        const UIA_TableControlTypeId: i32 = 50036;
+        const UIA_TableItemColumnHeaderItemsPropertyId: i32 = 30085;
+        const UIA_TableItemPatternId: i32 = 10013;
+        const UIA_TableItemRowHeaderItemsPropertyId: i32 = 30084;
+        const UIA_TablePatternId: i32 = 10012;
+        const UIA_TableRowHeadersPropertyId: i32 = 30081;
+        const UIA_TableRowOrColumnMajorPropertyId: i32 = 30083;
+        const UIA_TabsAttributeId: i32 = 40027;
+        const UIA_TextChildPatternId: i32 = 10029;
+        const UIA_TextControlTypeId: i32 = 50020;
+        const UIA_TextEditPatternId: i32 = 10032;
+        const UIA_TextEdit_ConversionTargetChangedEventId: i32 = 20033;
+        const UIA_TextEdit_TextChangedEventId: i32 = 20032;
+        const UIA_TextFlowDirectionsAttributeId: i32 = 40028;
+        const UIA_TextPattern2Id: i32 = 10024;
+        const UIA_TextPatternId: i32 = 10014;
+        const UIA_Text_TextChangedEventId: i32 = 20015;
+        const UIA_Text_TextSelectionChangedEventId: i32 = 20014;
+        const UIA_ThumbControlTypeId: i32 = 50027;
+        const UIA_TitleBarControlTypeId: i32 = 50037;
+        const UIA_TogglePatternId: i32 = 10015;
+        const UIA_ToggleToggleStatePropertyId: i32 = 30086;
+        const UIA_ToolBarControlTypeId: i32 = 50021;
+        const UIA_ToolTipClosedEventId: i32 = 20001;
+        const UIA_ToolTipControlTypeId: i32 = 50022;
+        const UIA_ToolTipOpenedEventId: i32 = 20000;
+        const UIA_Transform2CanZoomPropertyId: i32 = 30133;
+        const UIA_Transform2ZoomLevelPropertyId: i32 = 30145;
+        const UIA_Transform2ZoomMaximumPropertyId: i32 = 30147;
+        const UIA_Transform2ZoomMinimumPropertyId: i32 = 30146;
+        const UIA_TransformCanMovePropertyId: i32 = 30087;
+        const UIA_TransformCanResizePropertyId: i32 = 30088;
+        const UIA_TransformCanRotatePropertyId: i32 = 30089;
+        const UIA_TransformPattern2Id: i32 = 10028;
+        const UIA_TransformPatternId: i32 = 10016;
+        const UIA_TreeControlTypeId: i32 = 50023;
+        const UIA_TreeItemControlTypeId: i32 = 50024;
+        const UIA_UnderlineColorAttributeId: i32 = 40029;
+        const UIA_UnderlineStyleAttributeId: i32 = 40030;
+        const UIA_ValueIsReadOnlyPropertyId: i32 = 30046;
+        const UIA_ValuePatternId: i32 = 10002;
+        const UIA_ValueValuePropertyId: i32 = 30045;
+        const UIA_VirtualizedItemPatternId: i32 = 10020;
+        const UIA_VisualEffectsPropertyId: i32 = 30163;
+        const UIA_WindowCanMaximizePropertyId: i32 = 30073;
+        const UIA_WindowCanMinimizePropertyId: i32 = 30074;
+        const UIA_WindowControlTypeId: i32 = 50032;
+        const UIA_WindowIsModalPropertyId: i32 = 30077;
+        const UIA_WindowIsTopmostPropertyId: i32 = 30078;
+        const UIA_WindowPatternId: i32 = 10009;
+        const UIA_WindowWindowInteractionStatePropertyId: i32 = 30076;
+        const UIA_WindowWindowVisualStatePropertyId: i32 = 30075;
+        const UIA_Window_WindowClosedEventId: i32 = 20017;
+        const UIA_Window_WindowOpenedEventId: i32 = 20016;
     }
 }

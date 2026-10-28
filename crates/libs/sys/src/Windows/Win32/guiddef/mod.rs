@@ -1,4 +1,9 @@
-windows_link::link!("ole32.dll" "C" fn IsEqualGUID(rguid1 : *const windows_sys::core::GUID, rguid2 : *const windows_sys::core::GUID) -> i32);
+pub type CLSID = windows_sys::core::GUID;
+pub const CLSID_NULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub type FMTID = windows_sys::core::GUID;
+pub const FMTID_NULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub type IID = windows_sys::core::GUID;
+pub const IID_NULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub type LPCGUID = *const windows_sys::core::GUID;
 pub type LPCLSID = *mut windows_sys::core::GUID;
 pub type LPFMTID = *mut windows_sys::core::GUID;

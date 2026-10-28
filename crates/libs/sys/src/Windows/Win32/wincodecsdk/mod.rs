@@ -1,9 +1,9 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("windowscodecs.dll" "system" fn WICGetMetadataContentSize(guidcontainerformat : *const windows_sys::core::GUID, piwriter : *mut core::ffi::c_void, pcbsize : *mut super::ULARGE_INTEGER) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("windowscodecs.dll" "system" fn WICMatchMetadataContent(guidcontainerformat : *const windows_sys::core::GUID, pguidvendor : *const windows_sys::core::GUID, pistream : *mut core::ffi::c_void, pguidmetadataformat : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidlbase")]
-windows_link::link!("windowscodecs.dll" "system" fn WICSerializeMetadataContent(guidcontainerformat : *const windows_sys::core::GUID, piwriter : *mut core::ffi::c_void, dwpersistoptions : u32, pistream : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
+windows_link::link!("windowscodecs.dll" "system" fn WICSerializeMetadataContent(guidcontainerformat : *const windows_sys::core::GUID, piwriter : *mut core::ffi::c_void, dwpersistoptions : super::DWORD, pistream : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const CLSID_WIC8BIMIPTCDigestMetadataReader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x02805f1e_d5aa_415b_82c5_61c033a988a6);
 pub const CLSID_WIC8BIMIPTCDigestMetadataWriter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2db5e62b_0d67_495f_8f9d_c2f0188647ac);
 pub const CLSID_WIC8BIMIPTCMetadataReader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0010668c_0801_4da6_a4a4_826522b6d28f);
@@ -143,31 +143,31 @@ pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = 65536;
 pub const WICMetadataCreationMask: WICMetadataCreationOptions = -65536;
 pub type WICMetadataCreationOptions = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WICMetadataHeader {
     pub Position: super::ULARGE_INTEGER,
-    pub Length: u32,
-    pub Header: *mut u8,
+    pub Length: super::ULONG,
+    pub Header: *mut super::BYTE,
     pub DataOffset: super::ULARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WICMetadataHeader {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WICMetadataPattern {
     pub Position: super::ULARGE_INTEGER,
-    pub Length: u32,
-    pub Pattern: *mut u8,
-    pub Mask: *mut u8,
+    pub Length: super::ULONG,
+    pub Pattern: *mut super::BYTE,
+    pub Mask: *mut super::BYTE,
     pub DataOffset: super::ULARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WICMetadataPattern {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

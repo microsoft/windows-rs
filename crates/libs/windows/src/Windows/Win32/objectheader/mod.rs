@@ -1,9 +1,11 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_OBJECT_HEADER {
-    pub Type: u8,
-    pub Revision: u8,
-    pub Size: u16,
+    pub Type: super::UCHAR,
+    pub Revision: super::UCHAR,
+    pub Size: super::USHORT,
 }
 pub const NDIS_OBJECT_REVISION_1: i32 = 1;
+#[cfg(feature = "shared")]
 pub type PNDIS_OBJECT_HEADER = *mut NDIS_OBJECT_HEADER;

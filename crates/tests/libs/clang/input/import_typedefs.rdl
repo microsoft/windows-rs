@@ -1,0 +1,21 @@
+#[win32]
+mod Fixture {
+    type Buffer = *mut i32;
+    extern "C" fn Callback(value: i32) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Convert(storage: Buffer, counts: Counts, rows: *mut Row, record: *mut RecordAlias, mode: ModeAlias, callback: Callback) -> Total;
+    type Count = u32;
+    type Counts = *const u32;
+    #[repr(i32)]
+    enum Mode {
+        First = 0,
+        Second = 1,
+    }
+    type ModeAlias = Mode;
+    struct Record {
+        value: i32,
+    }
+    type RecordAlias = Record;
+    type Row = [i32; 2];
+    type Total = u32;
+}

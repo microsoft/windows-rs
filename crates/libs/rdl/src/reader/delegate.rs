@@ -90,10 +90,16 @@ impl Encoder<'_> {
             self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(delegate), arch_bits);
         }
 
-        let already_has_guid = self.encode_guid_pseudo_attrs(
+        let guid_mode = self.encode_guid_pseudo_attrs(
             metadata::writer::HasAttribute::TypeDef(delegate),
             &item.attrs,
         )?;
+        if guid_mode == GuidMode::None {
+            return self.err(
+                &item.sig.ident,
+                "WinRT delegates require `#[guid(...)]` or `#[guid(auto)]`",
+            );
+        }
 
         for (number, name) in self.generics.iter().enumerate() {
             self.output.GenericParam(
@@ -112,11 +118,9 @@ impl Encoder<'_> {
 
         let params = self.collect_params(&item.sig)?;
 
-        // Delegates are always WinRT - validate that all parameter and return types are WinRT.
-        for arg in &item.sig.inputs {
+        for (arg, param) in item.sig.inputs.iter().zip(&params) {
             if let syn::FnArg::Typed(pt) = arg {
-                let ty = self.encode_type(&pt.ty)?;
-                self.validate_type_is_winrt(&pt.ty, &ty)?;
+                self.validate_winrt_param(pt, param, "Invoke")?;
             }
         }
 
@@ -127,7 +131,7 @@ impl Encoder<'_> {
             self.validate_type_is_winrt(return_syn_ty.as_ref(), &return_type)?;
         }
 
-        if !already_has_guid {
+        if guid_mode == GuidMode::Auto {
             guid::derive_and_emit_guid(
                 self.output,
                 metadata::writer::HasAttribute::TypeDef(delegate),
@@ -152,8 +156,8 @@ impl Encoder<'_> {
             metadata::MethodImplAttributes::Runtime,
         );
 
-        self.encode_return_attrs(&item.return_attrs)?;
-        self.encode_params(&params)?;
+        self.encode_return_attrs(&item.return_attrs, &signature.return_type, &params)?;
+        self.encode_params(&params, &signature.return_type)?;
 
         Ok(())
     }

@@ -1,0 +1,13 @@
+//! --filter Test --flat
+#[winrt]
+mod Test {
+    struct Value {
+        low: u32,
+        high: i32,
+    }
+
+    #[guid(auto)]
+    interface References {
+        fn Read(&self, #[in] value: &Value, #[out] result: &mut Value);
+    }
+}

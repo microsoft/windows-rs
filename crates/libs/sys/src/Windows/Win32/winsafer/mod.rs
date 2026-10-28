@@ -1,82 +1,86 @@
 windows_link::link!("advapi32.dll" "system" fn SaferCloseLevel(hlevelhandle : SAFER_LEVEL_HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn SaferComputeTokenFromLevel(levelhandle : SAFER_LEVEL_HANDLE, inaccesstoken : super::HANDLE, outaccesstoken : super::PHANDLE, dwflags : u32, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferCreateLevel(dwscopeid : u32, dwlevelid : u32, openflags : u32, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn SaferComputeTokenFromLevel(levelhandle : SAFER_LEVEL_HANDLE, inaccesstoken : super::HANDLE, outaccesstoken : super::PHANDLE, dwflags : super::DWORD, lpreserved : super::LPVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn SaferCreateLevel(dwscopeid : super::DWORD, dwlevelid : super::DWORD, openflags : super::DWORD, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : super::LPVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn SaferGetLevelInformation(levelhandle : SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : super::LPVOID, dwinbuffersize : super::DWORD, lpdwoutbuffersize : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn SaferGetPolicyInformation(dwscopeid : super::DWORD, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : super::DWORD, infobuffer : super::PVOID, infobufferretsize : super::PDWORD, lpreserved : super::LPVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : super::DWORD, pcodeproperties : PSAFER_CODE_PROPERTIES, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : super::LPVOID) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn SaferGetLevelInformation(levelhandle : SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *mut core::ffi::c_void, dwinbuffersize : u32, lpdwoutbuffersize : super::LPDWORD) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn SaferGetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *mut core::ffi::c_void, infobufferretsize : super::PDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : PSAFER_CODE_PROPERTIES, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : SAFER_LEVEL_HANDLE, sztargetpath : windows_sys::core::PCWSTR, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferSetLevelInformation(levelhandle : SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *const core::ffi::c_void, dwinbuffersize : u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn SaferSetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *const core::ffi::c_void, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : SAFER_LEVEL_HANDLE, sztargetpath : windows_sys::core::PCWSTR, lpreserved : super::LPVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn SaferSetLevelInformation(levelhandle : SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : super::LPVOID, dwinbuffersize : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn SaferSetPolicyInformation(dwscopeid : super::DWORD, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : super::DWORD, infobuffer : super::PVOID, lpreserved : super::LPVOID) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_sys::core::PCWSTR, bfromshellexecute : super::BOOLEAN) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PSAFER_CODE_PROPERTIES = *mut SAFER_CODE_PROPERTIES_V2;
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PSAFER_CODE_PROPERTIES_V1 = *mut SAFER_CODE_PROPERTIES_V1;
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PSAFER_CODE_PROPERTIES_V2 = *mut SAFER_CODE_PROPERTIES_V2;
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PSAFER_HASH_IDENTIFICATION = *mut SAFER_HASH_IDENTIFICATION;
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PSAFER_HASH_IDENTIFICATION2 = *mut SAFER_HASH_IDENTIFICATION2;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PSAFER_IDENTIFICATION_HEADER = *mut SAFER_IDENTIFICATION_HEADER;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PSAFER_PATHNAME_IDENTIFICATION = *mut SAFER_PATHNAME_IDENTIFICATION;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PSAFER_URLZONE_IDENTIFICATION = *mut SAFER_URLZONE_IDENTIFICATION;
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type SAFER_CODE_PROPERTIES = SAFER_CODE_PROPERTIES_V2;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SAFER_CODE_PROPERTIES_V1 {
-    pub cbSize: u32,
-    pub dwCheckFlags: u32,
+    pub cbSize: super::DWORD,
+    pub dwCheckFlags: super::DWORD,
     pub ImagePath: windows_sys::core::PCWSTR,
     pub hImageFileHandle: super::HANDLE,
-    pub UrlZoneId: u32,
-    pub ImageHash: [u8; 64],
-    pub dwImageHashSize: u32,
+    pub UrlZoneId: super::DWORD,
+    pub ImageHash: [super::BYTE; 64],
+    pub dwImageHashSize: super::DWORD,
     pub ImageSize: super::LARGE_INTEGER,
     pub HashAlgorithm: super::ALG_ID,
     pub pByteBlock: super::LPBYTE,
     pub hWndParent: super::HWND,
-    pub dwWVTUIChoice: u32,
+    pub dwWVTUIChoice: super::DWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for SAFER_CODE_PROPERTIES_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SAFER_CODE_PROPERTIES_V2 {
-    pub cbSize: u32,
-    pub dwCheckFlags: u32,
+    pub cbSize: super::DWORD,
+    pub dwCheckFlags: super::DWORD,
     pub ImagePath: windows_sys::core::PCWSTR,
     pub hImageFileHandle: super::HANDLE,
-    pub UrlZoneId: u32,
-    pub ImageHash: [u8; 64],
-    pub dwImageHashSize: u32,
+    pub UrlZoneId: super::DWORD,
+    pub ImageHash: [super::BYTE; 64],
+    pub dwImageHashSize: super::DWORD,
     pub ImageSize: super::LARGE_INTEGER,
     pub HashAlgorithm: super::ALG_ID,
     pub pByteBlock: super::LPBYTE,
     pub hWndParent: super::HWND,
-    pub dwWVTUIChoice: u32,
+    pub dwWVTUIChoice: super::DWORD,
     pub PackageMoniker: windows_sys::core::PCWSTR,
     pub PackagePublisher: windows_sys::core::PCWSTR,
     pub PackageName: windows_sys::core::PCWSTR,
-    pub PackageVersion: u64,
+    pub PackageVersion: super::ULONG64,
     pub PackageIsFramework: windows_sys::core::BOOL,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for SAFER_CODE_PROPERTIES_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -89,46 +93,46 @@ pub const SAFER_CRITERIA_IMAGEPATH: i32 = 1;
 pub const SAFER_CRITERIA_IMAGEPATH_NT: i32 = 4096;
 pub const SAFER_CRITERIA_NOSIGNEDHASH: i32 = 2;
 pub const SAFER_CRITERIA_URLZONE: i32 = 16;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
-    pub Description: [u16; 256],
-    pub FriendlyName: [u16; 256],
-    pub HashSize: u32,
-    pub ImageHash: [u8; 64],
+    pub Description: [super::WCHAR; 256],
+    pub FriendlyName: [super::WCHAR; 256],
+    pub HashSize: super::DWORD,
+    pub ImageHash: [super::BYTE; 64],
     pub HashAlgorithm: super::ALG_ID,
     pub ImageSize: super::LARGE_INTEGER,
-    pub dwSaferFlags: u32,
+    pub dwSaferFlags: super::DWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for SAFER_HASH_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
-    pub HashSize: u32,
-    pub ImageHash: [u8; 64],
+    pub HashSize: super::DWORD,
+    pub ImageHash: [super::BYTE; 64],
     pub HashAlgorithm: super::ALG_ID,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for SAFER_HASH_IDENTIFICATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
-    pub cbStructSize: u32,
+    pub cbStructSize: super::DWORD,
     pub IdentificationGuid: windows_sys::core::GUID,
     pub lastModified: super::FILETIME,
 }
@@ -149,16 +153,16 @@ pub const SAFER_MAX_DESCRIPTION_SIZE: i32 = 256;
 pub const SAFER_MAX_FRIENDLYNAME_SIZE: i32 = 256;
 pub const SAFER_MAX_HASH_SIZE: i32 = 64;
 pub type SAFER_OBJECT_INFO_CLASS = i32;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
-    pub Description: [u16; 256],
+    pub Description: [super::WCHAR; 256],
     pub ImageName: super::PWCHAR,
-    pub dwSaferFlags: u32,
+    pub dwSaferFlags: super::DWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for SAFER_PATHNAME_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -183,13 +187,13 @@ pub const SAFER_TOKEN_COMPARE_ONLY: i32 = 2;
 pub const SAFER_TOKEN_MAKE_INERT: i32 = 4;
 pub const SAFER_TOKEN_NULL_IF_EQUAL: i32 = 1;
 pub const SAFER_TOKEN_WANT_FLAGS: i32 = 8;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
-    pub UrlZoneId: u32,
-    pub dwSaferFlags: u32,
+    pub UrlZoneId: super::DWORD,
+    pub dwSaferFlags: super::DWORD,
 }
 pub const SRP_POLICY_APPX: windows_sys::core::PCWSTR = windows_sys::core::w!("APPX");
 pub const SRP_POLICY_DLL: windows_sys::core::PCWSTR = windows_sys::core::w!("DLL");

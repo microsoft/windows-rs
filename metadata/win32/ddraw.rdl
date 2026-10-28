@@ -5,10 +5,10 @@ mod Windows {
         const CLSID_DirectDraw7: GUID = 0x3c305196_50db_11d3_9cfe_00c04fd930c5;
         const CLSID_DirectDrawClipper: GUID = 0x593817a0_7db3_11cf_a2de_00aa00b93356;
         struct DDARGB {
-            blue: u8,
-            green: u8,
-            red: u8,
-            alpha: u8,
+            blue: BYTE,
+            green: BYTE,
+            red: BYTE,
+            alpha: BYTE,
         }
         const DDBD_1: i32 = 16384;
         const DDBD_16: i32 = 1024;
@@ -19,9 +19,9 @@ mod Windows {
         const DDBD_8: i32 = 2048;
         struct DDBLTBATCH {
             lprDest: LPRECT,
-            lpDDSSrc: IDirectDrawSurface,
+            lpDDSSrc: LPDIRECTDRAWSURFACE,
             lprSrc: LPRECT,
-            dwFlags: u32,
+            dwFlags: DWORD,
             lpDDBltFx: LPDDBLTFX,
         }
         const DDBLTFAST_DESTCOLORKEY: i32 = 2;
@@ -30,43 +30,43 @@ mod Windows {
         const DDBLTFAST_SRCCOLORKEY: i32 = 1;
         const DDBLTFAST_WAIT: i32 = 16;
         struct DDBLTFX {
-            dwSize: u32,
-            dwDDFX: u32,
-            dwROP: u32,
-            dwDDROP: u32,
-            dwRotationAngle: u32,
-            dwZBufferOpCode: u32,
-            dwZBufferLow: u32,
-            dwZBufferHigh: u32,
-            dwZBufferBaseDest: u32,
-            dwZDestConstBitDepth: u32,
+            dwSize: DWORD,
+            dwDDFX: DWORD,
+            dwROP: DWORD,
+            dwDDROP: DWORD,
+            dwRotationAngle: DWORD,
+            dwZBufferOpCode: DWORD,
+            dwZBufferLow: DWORD,
+            dwZBufferHigh: DWORD,
+            dwZBufferBaseDest: DWORD,
+            dwZDestConstBitDepth: DWORD,
             Anonymous: union {
-                dwZDestConst: u32,
-                lpDDSZBufferDest: IDirectDrawSurface,
+                dwZDestConst: DWORD,
+                lpDDSZBufferDest: LPDIRECTDRAWSURFACE,
             },
-            dwZSrcConstBitDepth: u32,
+            dwZSrcConstBitDepth: DWORD,
             Anonymous2: union {
-                dwZSrcConst: u32,
-                lpDDSZBufferSrc: IDirectDrawSurface,
+                dwZSrcConst: DWORD,
+                lpDDSZBufferSrc: LPDIRECTDRAWSURFACE,
             },
-            dwAlphaEdgeBlendBitDepth: u32,
-            dwAlphaEdgeBlend: u32,
-            dwReserved: u32,
-            dwAlphaDestConstBitDepth: u32,
+            dwAlphaEdgeBlendBitDepth: DWORD,
+            dwAlphaEdgeBlend: DWORD,
+            dwReserved: DWORD,
+            dwAlphaDestConstBitDepth: DWORD,
             Anonymous3: union {
-                dwAlphaDestConst: u32,
-                lpDDSAlphaDest: IDirectDrawSurface,
+                dwAlphaDestConst: DWORD,
+                lpDDSAlphaDest: LPDIRECTDRAWSURFACE,
             },
-            dwAlphaSrcConstBitDepth: u32,
+            dwAlphaSrcConstBitDepth: DWORD,
             Anonymous4: union {
-                dwAlphaSrcConst: u32,
-                lpDDSAlphaSrc: IDirectDrawSurface,
+                dwAlphaSrcConst: DWORD,
+                lpDDSAlphaSrc: LPDIRECTDRAWSURFACE,
             },
             Anonymous5: union {
-                dwFillColor: u32,
-                dwFillDepth: u32,
-                dwFillPixel: u32,
-                lpDDSPattern: IDirectDrawSurface,
+                dwFillColor: DWORD,
+                dwFillDepth: DWORD,
+                dwFillPixel: DWORD,
+                lpDDSPattern: LPDIRECTDRAWSURFACE,
             },
             ddckDestColorkey: DDCOLORKEY,
             ddckSrcColorkey: DDCOLORKEY,
@@ -162,270 +162,270 @@ mod Windows {
         const DDCAPS_COLORKEY: i32 = 4194304;
         const DDCAPS_COLORKEYHWASSIST: i32 = 16777216;
         struct DDCAPS_DX1 {
-            dwSize: u32,
-            dwCaps: u32,
-            dwCaps2: u32,
-            dwCKeyCaps: u32,
-            dwFXCaps: u32,
-            dwFXAlphaCaps: u32,
-            dwPalCaps: u32,
-            dwSVCaps: u32,
-            dwAlphaBltConstBitDepths: u32,
-            dwAlphaBltPixelBitDepths: u32,
-            dwAlphaBltSurfaceBitDepths: u32,
-            dwAlphaOverlayConstBitDepths: u32,
-            dwAlphaOverlayPixelBitDepths: u32,
-            dwAlphaOverlaySurfaceBitDepths: u32,
-            dwZBufferBitDepths: u32,
-            dwVidMemTotal: u32,
-            dwVidMemFree: u32,
-            dwMaxVisibleOverlays: u32,
-            dwCurrVisibleOverlays: u32,
-            dwNumFourCCCodes: u32,
-            dwAlignBoundarySrc: u32,
-            dwAlignSizeSrc: u32,
-            dwAlignBoundaryDest: u32,
-            dwAlignSizeDest: u32,
-            dwAlignStrideAlign: u32,
-            dwRops: [u32; 8],
+            dwSize: DWORD,
+            dwCaps: DWORD,
+            dwCaps2: DWORD,
+            dwCKeyCaps: DWORD,
+            dwFXCaps: DWORD,
+            dwFXAlphaCaps: DWORD,
+            dwPalCaps: DWORD,
+            dwSVCaps: DWORD,
+            dwAlphaBltConstBitDepths: DWORD,
+            dwAlphaBltPixelBitDepths: DWORD,
+            dwAlphaBltSurfaceBitDepths: DWORD,
+            dwAlphaOverlayConstBitDepths: DWORD,
+            dwAlphaOverlayPixelBitDepths: DWORD,
+            dwAlphaOverlaySurfaceBitDepths: DWORD,
+            dwZBufferBitDepths: DWORD,
+            dwVidMemTotal: DWORD,
+            dwVidMemFree: DWORD,
+            dwMaxVisibleOverlays: DWORD,
+            dwCurrVisibleOverlays: DWORD,
+            dwNumFourCCCodes: DWORD,
+            dwAlignBoundarySrc: DWORD,
+            dwAlignSizeSrc: DWORD,
+            dwAlignBoundaryDest: DWORD,
+            dwAlignSizeDest: DWORD,
+            dwAlignStrideAlign: DWORD,
+            dwRops: [DWORD; 8],
             ddsCaps: DDSCAPS,
-            dwMinOverlayStretch: u32,
-            dwMaxOverlayStretch: u32,
-            dwMinLiveVideoStretch: u32,
-            dwMaxLiveVideoStretch: u32,
-            dwMinHwCodecStretch: u32,
-            dwMaxHwCodecStretch: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
-            dwReserved3: u32,
+            dwMinOverlayStretch: DWORD,
+            dwMaxOverlayStretch: DWORD,
+            dwMinLiveVideoStretch: DWORD,
+            dwMaxLiveVideoStretch: DWORD,
+            dwMinHwCodecStretch: DWORD,
+            dwMaxHwCodecStretch: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
+            dwReserved3: DWORD,
         }
         struct DDCAPS_DX3 {
-            dwSize: u32,
-            dwCaps: u32,
-            dwCaps2: u32,
-            dwCKeyCaps: u32,
-            dwFXCaps: u32,
-            dwFXAlphaCaps: u32,
-            dwPalCaps: u32,
-            dwSVCaps: u32,
-            dwAlphaBltConstBitDepths: u32,
-            dwAlphaBltPixelBitDepths: u32,
-            dwAlphaBltSurfaceBitDepths: u32,
-            dwAlphaOverlayConstBitDepths: u32,
-            dwAlphaOverlayPixelBitDepths: u32,
-            dwAlphaOverlaySurfaceBitDepths: u32,
-            dwZBufferBitDepths: u32,
-            dwVidMemTotal: u32,
-            dwVidMemFree: u32,
-            dwMaxVisibleOverlays: u32,
-            dwCurrVisibleOverlays: u32,
-            dwNumFourCCCodes: u32,
-            dwAlignBoundarySrc: u32,
-            dwAlignSizeSrc: u32,
-            dwAlignBoundaryDest: u32,
-            dwAlignSizeDest: u32,
-            dwAlignStrideAlign: u32,
-            dwRops: [u32; 8],
+            dwSize: DWORD,
+            dwCaps: DWORD,
+            dwCaps2: DWORD,
+            dwCKeyCaps: DWORD,
+            dwFXCaps: DWORD,
+            dwFXAlphaCaps: DWORD,
+            dwPalCaps: DWORD,
+            dwSVCaps: DWORD,
+            dwAlphaBltConstBitDepths: DWORD,
+            dwAlphaBltPixelBitDepths: DWORD,
+            dwAlphaBltSurfaceBitDepths: DWORD,
+            dwAlphaOverlayConstBitDepths: DWORD,
+            dwAlphaOverlayPixelBitDepths: DWORD,
+            dwAlphaOverlaySurfaceBitDepths: DWORD,
+            dwZBufferBitDepths: DWORD,
+            dwVidMemTotal: DWORD,
+            dwVidMemFree: DWORD,
+            dwMaxVisibleOverlays: DWORD,
+            dwCurrVisibleOverlays: DWORD,
+            dwNumFourCCCodes: DWORD,
+            dwAlignBoundarySrc: DWORD,
+            dwAlignSizeSrc: DWORD,
+            dwAlignBoundaryDest: DWORD,
+            dwAlignSizeDest: DWORD,
+            dwAlignStrideAlign: DWORD,
+            dwRops: [DWORD; 8],
             ddsCaps: DDSCAPS,
-            dwMinOverlayStretch: u32,
-            dwMaxOverlayStretch: u32,
-            dwMinLiveVideoStretch: u32,
-            dwMaxLiveVideoStretch: u32,
-            dwMinHwCodecStretch: u32,
-            dwMaxHwCodecStretch: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
-            dwReserved3: u32,
-            dwSVBCaps: u32,
-            dwSVBCKeyCaps: u32,
-            dwSVBFXCaps: u32,
-            dwSVBRops: [u32; 8],
-            dwVSBCaps: u32,
-            dwVSBCKeyCaps: u32,
-            dwVSBFXCaps: u32,
-            dwVSBRops: [u32; 8],
-            dwSSBCaps: u32,
-            dwSSBCKeyCaps: u32,
-            dwSSBFXCaps: u32,
-            dwSSBRops: [u32; 8],
-            dwReserved4: u32,
-            dwReserved5: u32,
-            dwReserved6: u32,
+            dwMinOverlayStretch: DWORD,
+            dwMaxOverlayStretch: DWORD,
+            dwMinLiveVideoStretch: DWORD,
+            dwMaxLiveVideoStretch: DWORD,
+            dwMinHwCodecStretch: DWORD,
+            dwMaxHwCodecStretch: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
+            dwReserved3: DWORD,
+            dwSVBCaps: DWORD,
+            dwSVBCKeyCaps: DWORD,
+            dwSVBFXCaps: DWORD,
+            dwSVBRops: [DWORD; 8],
+            dwVSBCaps: DWORD,
+            dwVSBCKeyCaps: DWORD,
+            dwVSBFXCaps: DWORD,
+            dwVSBRops: [DWORD; 8],
+            dwSSBCaps: DWORD,
+            dwSSBCKeyCaps: DWORD,
+            dwSSBFXCaps: DWORD,
+            dwSSBRops: [DWORD; 8],
+            dwReserved4: DWORD,
+            dwReserved5: DWORD,
+            dwReserved6: DWORD,
         }
         struct DDCAPS_DX5 {
-            dwSize: u32,
-            dwCaps: u32,
-            dwCaps2: u32,
-            dwCKeyCaps: u32,
-            dwFXCaps: u32,
-            dwFXAlphaCaps: u32,
-            dwPalCaps: u32,
-            dwSVCaps: u32,
-            dwAlphaBltConstBitDepths: u32,
-            dwAlphaBltPixelBitDepths: u32,
-            dwAlphaBltSurfaceBitDepths: u32,
-            dwAlphaOverlayConstBitDepths: u32,
-            dwAlphaOverlayPixelBitDepths: u32,
-            dwAlphaOverlaySurfaceBitDepths: u32,
-            dwZBufferBitDepths: u32,
-            dwVidMemTotal: u32,
-            dwVidMemFree: u32,
-            dwMaxVisibleOverlays: u32,
-            dwCurrVisibleOverlays: u32,
-            dwNumFourCCCodes: u32,
-            dwAlignBoundarySrc: u32,
-            dwAlignSizeSrc: u32,
-            dwAlignBoundaryDest: u32,
-            dwAlignSizeDest: u32,
-            dwAlignStrideAlign: u32,
-            dwRops: [u32; 8],
+            dwSize: DWORD,
+            dwCaps: DWORD,
+            dwCaps2: DWORD,
+            dwCKeyCaps: DWORD,
+            dwFXCaps: DWORD,
+            dwFXAlphaCaps: DWORD,
+            dwPalCaps: DWORD,
+            dwSVCaps: DWORD,
+            dwAlphaBltConstBitDepths: DWORD,
+            dwAlphaBltPixelBitDepths: DWORD,
+            dwAlphaBltSurfaceBitDepths: DWORD,
+            dwAlphaOverlayConstBitDepths: DWORD,
+            dwAlphaOverlayPixelBitDepths: DWORD,
+            dwAlphaOverlaySurfaceBitDepths: DWORD,
+            dwZBufferBitDepths: DWORD,
+            dwVidMemTotal: DWORD,
+            dwVidMemFree: DWORD,
+            dwMaxVisibleOverlays: DWORD,
+            dwCurrVisibleOverlays: DWORD,
+            dwNumFourCCCodes: DWORD,
+            dwAlignBoundarySrc: DWORD,
+            dwAlignSizeSrc: DWORD,
+            dwAlignBoundaryDest: DWORD,
+            dwAlignSizeDest: DWORD,
+            dwAlignStrideAlign: DWORD,
+            dwRops: [DWORD; 8],
             ddsCaps: DDSCAPS,
-            dwMinOverlayStretch: u32,
-            dwMaxOverlayStretch: u32,
-            dwMinLiveVideoStretch: u32,
-            dwMaxLiveVideoStretch: u32,
-            dwMinHwCodecStretch: u32,
-            dwMaxHwCodecStretch: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
-            dwReserved3: u32,
-            dwSVBCaps: u32,
-            dwSVBCKeyCaps: u32,
-            dwSVBFXCaps: u32,
-            dwSVBRops: [u32; 8],
-            dwVSBCaps: u32,
-            dwVSBCKeyCaps: u32,
-            dwVSBFXCaps: u32,
-            dwVSBRops: [u32; 8],
-            dwSSBCaps: u32,
-            dwSSBCKeyCaps: u32,
-            dwSSBFXCaps: u32,
-            dwSSBRops: [u32; 8],
-            dwMaxVideoPorts: u32,
-            dwCurrVideoPorts: u32,
-            dwSVBCaps2: u32,
-            dwNLVBCaps: u32,
-            dwNLVBCaps2: u32,
-            dwNLVBCKeyCaps: u32,
-            dwNLVBFXCaps: u32,
-            dwNLVBRops: [u32; 8],
+            dwMinOverlayStretch: DWORD,
+            dwMaxOverlayStretch: DWORD,
+            dwMinLiveVideoStretch: DWORD,
+            dwMaxLiveVideoStretch: DWORD,
+            dwMinHwCodecStretch: DWORD,
+            dwMaxHwCodecStretch: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
+            dwReserved3: DWORD,
+            dwSVBCaps: DWORD,
+            dwSVBCKeyCaps: DWORD,
+            dwSVBFXCaps: DWORD,
+            dwSVBRops: [DWORD; 8],
+            dwVSBCaps: DWORD,
+            dwVSBCKeyCaps: DWORD,
+            dwVSBFXCaps: DWORD,
+            dwVSBRops: [DWORD; 8],
+            dwSSBCaps: DWORD,
+            dwSSBCKeyCaps: DWORD,
+            dwSSBFXCaps: DWORD,
+            dwSSBRops: [DWORD; 8],
+            dwMaxVideoPorts: DWORD,
+            dwCurrVideoPorts: DWORD,
+            dwSVBCaps2: DWORD,
+            dwNLVBCaps: DWORD,
+            dwNLVBCaps2: DWORD,
+            dwNLVBCKeyCaps: DWORD,
+            dwNLVBFXCaps: DWORD,
+            dwNLVBRops: [DWORD; 8],
         }
         struct DDCAPS_DX6 {
-            dwSize: u32,
-            dwCaps: u32,
-            dwCaps2: u32,
-            dwCKeyCaps: u32,
-            dwFXCaps: u32,
-            dwFXAlphaCaps: u32,
-            dwPalCaps: u32,
-            dwSVCaps: u32,
-            dwAlphaBltConstBitDepths: u32,
-            dwAlphaBltPixelBitDepths: u32,
-            dwAlphaBltSurfaceBitDepths: u32,
-            dwAlphaOverlayConstBitDepths: u32,
-            dwAlphaOverlayPixelBitDepths: u32,
-            dwAlphaOverlaySurfaceBitDepths: u32,
-            dwZBufferBitDepths: u32,
-            dwVidMemTotal: u32,
-            dwVidMemFree: u32,
-            dwMaxVisibleOverlays: u32,
-            dwCurrVisibleOverlays: u32,
-            dwNumFourCCCodes: u32,
-            dwAlignBoundarySrc: u32,
-            dwAlignSizeSrc: u32,
-            dwAlignBoundaryDest: u32,
-            dwAlignSizeDest: u32,
-            dwAlignStrideAlign: u32,
-            dwRops: [u32; 8],
+            dwSize: DWORD,
+            dwCaps: DWORD,
+            dwCaps2: DWORD,
+            dwCKeyCaps: DWORD,
+            dwFXCaps: DWORD,
+            dwFXAlphaCaps: DWORD,
+            dwPalCaps: DWORD,
+            dwSVCaps: DWORD,
+            dwAlphaBltConstBitDepths: DWORD,
+            dwAlphaBltPixelBitDepths: DWORD,
+            dwAlphaBltSurfaceBitDepths: DWORD,
+            dwAlphaOverlayConstBitDepths: DWORD,
+            dwAlphaOverlayPixelBitDepths: DWORD,
+            dwAlphaOverlaySurfaceBitDepths: DWORD,
+            dwZBufferBitDepths: DWORD,
+            dwVidMemTotal: DWORD,
+            dwVidMemFree: DWORD,
+            dwMaxVisibleOverlays: DWORD,
+            dwCurrVisibleOverlays: DWORD,
+            dwNumFourCCCodes: DWORD,
+            dwAlignBoundarySrc: DWORD,
+            dwAlignSizeSrc: DWORD,
+            dwAlignBoundaryDest: DWORD,
+            dwAlignSizeDest: DWORD,
+            dwAlignStrideAlign: DWORD,
+            dwRops: [DWORD; 8],
             ddsOldCaps: DDSCAPS,
-            dwMinOverlayStretch: u32,
-            dwMaxOverlayStretch: u32,
-            dwMinLiveVideoStretch: u32,
-            dwMaxLiveVideoStretch: u32,
-            dwMinHwCodecStretch: u32,
-            dwMaxHwCodecStretch: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
-            dwReserved3: u32,
-            dwSVBCaps: u32,
-            dwSVBCKeyCaps: u32,
-            dwSVBFXCaps: u32,
-            dwSVBRops: [u32; 8],
-            dwVSBCaps: u32,
-            dwVSBCKeyCaps: u32,
-            dwVSBFXCaps: u32,
-            dwVSBRops: [u32; 8],
-            dwSSBCaps: u32,
-            dwSSBCKeyCaps: u32,
-            dwSSBFXCaps: u32,
-            dwSSBRops: [u32; 8],
-            dwMaxVideoPorts: u32,
-            dwCurrVideoPorts: u32,
-            dwSVBCaps2: u32,
-            dwNLVBCaps: u32,
-            dwNLVBCaps2: u32,
-            dwNLVBCKeyCaps: u32,
-            dwNLVBFXCaps: u32,
-            dwNLVBRops: [u32; 8],
+            dwMinOverlayStretch: DWORD,
+            dwMaxOverlayStretch: DWORD,
+            dwMinLiveVideoStretch: DWORD,
+            dwMaxLiveVideoStretch: DWORD,
+            dwMinHwCodecStretch: DWORD,
+            dwMaxHwCodecStretch: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
+            dwReserved3: DWORD,
+            dwSVBCaps: DWORD,
+            dwSVBCKeyCaps: DWORD,
+            dwSVBFXCaps: DWORD,
+            dwSVBRops: [DWORD; 8],
+            dwVSBCaps: DWORD,
+            dwVSBCKeyCaps: DWORD,
+            dwVSBFXCaps: DWORD,
+            dwVSBRops: [DWORD; 8],
+            dwSSBCaps: DWORD,
+            dwSSBCKeyCaps: DWORD,
+            dwSSBFXCaps: DWORD,
+            dwSSBRops: [DWORD; 8],
+            dwMaxVideoPorts: DWORD,
+            dwCurrVideoPorts: DWORD,
+            dwSVBCaps2: DWORD,
+            dwNLVBCaps: DWORD,
+            dwNLVBCaps2: DWORD,
+            dwNLVBCKeyCaps: DWORD,
+            dwNLVBFXCaps: DWORD,
+            dwNLVBRops: [DWORD; 8],
             ddsCaps: DDSCAPS2,
         }
         struct DDCAPS_DX7 {
-            dwSize: u32,
-            dwCaps: u32,
-            dwCaps2: u32,
-            dwCKeyCaps: u32,
-            dwFXCaps: u32,
-            dwFXAlphaCaps: u32,
-            dwPalCaps: u32,
-            dwSVCaps: u32,
-            dwAlphaBltConstBitDepths: u32,
-            dwAlphaBltPixelBitDepths: u32,
-            dwAlphaBltSurfaceBitDepths: u32,
-            dwAlphaOverlayConstBitDepths: u32,
-            dwAlphaOverlayPixelBitDepths: u32,
-            dwAlphaOverlaySurfaceBitDepths: u32,
-            dwZBufferBitDepths: u32,
-            dwVidMemTotal: u32,
-            dwVidMemFree: u32,
-            dwMaxVisibleOverlays: u32,
-            dwCurrVisibleOverlays: u32,
-            dwNumFourCCCodes: u32,
-            dwAlignBoundarySrc: u32,
-            dwAlignSizeSrc: u32,
-            dwAlignBoundaryDest: u32,
-            dwAlignSizeDest: u32,
-            dwAlignStrideAlign: u32,
-            dwRops: [u32; 8],
+            dwSize: DWORD,
+            dwCaps: DWORD,
+            dwCaps2: DWORD,
+            dwCKeyCaps: DWORD,
+            dwFXCaps: DWORD,
+            dwFXAlphaCaps: DWORD,
+            dwPalCaps: DWORD,
+            dwSVCaps: DWORD,
+            dwAlphaBltConstBitDepths: DWORD,
+            dwAlphaBltPixelBitDepths: DWORD,
+            dwAlphaBltSurfaceBitDepths: DWORD,
+            dwAlphaOverlayConstBitDepths: DWORD,
+            dwAlphaOverlayPixelBitDepths: DWORD,
+            dwAlphaOverlaySurfaceBitDepths: DWORD,
+            dwZBufferBitDepths: DWORD,
+            dwVidMemTotal: DWORD,
+            dwVidMemFree: DWORD,
+            dwMaxVisibleOverlays: DWORD,
+            dwCurrVisibleOverlays: DWORD,
+            dwNumFourCCCodes: DWORD,
+            dwAlignBoundarySrc: DWORD,
+            dwAlignSizeSrc: DWORD,
+            dwAlignBoundaryDest: DWORD,
+            dwAlignSizeDest: DWORD,
+            dwAlignStrideAlign: DWORD,
+            dwRops: [DWORD; 8],
             ddsOldCaps: DDSCAPS,
-            dwMinOverlayStretch: u32,
-            dwMaxOverlayStretch: u32,
-            dwMinLiveVideoStretch: u32,
-            dwMaxLiveVideoStretch: u32,
-            dwMinHwCodecStretch: u32,
-            dwMaxHwCodecStretch: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
-            dwReserved3: u32,
-            dwSVBCaps: u32,
-            dwSVBCKeyCaps: u32,
-            dwSVBFXCaps: u32,
-            dwSVBRops: [u32; 8],
-            dwVSBCaps: u32,
-            dwVSBCKeyCaps: u32,
-            dwVSBFXCaps: u32,
-            dwVSBRops: [u32; 8],
-            dwSSBCaps: u32,
-            dwSSBCKeyCaps: u32,
-            dwSSBFXCaps: u32,
-            dwSSBRops: [u32; 8],
-            dwMaxVideoPorts: u32,
-            dwCurrVideoPorts: u32,
-            dwSVBCaps2: u32,
-            dwNLVBCaps: u32,
-            dwNLVBCaps2: u32,
-            dwNLVBCKeyCaps: u32,
-            dwNLVBFXCaps: u32,
-            dwNLVBRops: [u32; 8],
+            dwMinOverlayStretch: DWORD,
+            dwMaxOverlayStretch: DWORD,
+            dwMinLiveVideoStretch: DWORD,
+            dwMaxLiveVideoStretch: DWORD,
+            dwMinHwCodecStretch: DWORD,
+            dwMaxHwCodecStretch: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
+            dwReserved3: DWORD,
+            dwSVBCaps: DWORD,
+            dwSVBCKeyCaps: DWORD,
+            dwSVBFXCaps: DWORD,
+            dwSVBRops: [DWORD; 8],
+            dwVSBCaps: DWORD,
+            dwVSBCKeyCaps: DWORD,
+            dwVSBFXCaps: DWORD,
+            dwVSBRops: [DWORD; 8],
+            dwSSBCaps: DWORD,
+            dwSSBCKeyCaps: DWORD,
+            dwSSBFXCaps: DWORD,
+            dwSSBRops: [DWORD; 8],
+            dwMaxVideoPorts: DWORD,
+            dwCurrVideoPorts: DWORD,
+            dwSVBCaps2: DWORD,
+            dwNLVBCaps: DWORD,
+            dwNLVBCaps2: DWORD,
+            dwNLVBCKeyCaps: DWORD,
+            dwNLVBFXCaps: DWORD,
+            dwNLVBRops: [DWORD; 8],
             ddsCaps: DDSCAPS2,
         }
         const DDCAPS_GDI: i32 = 1024;
@@ -466,20 +466,20 @@ mod Windows {
         const DDCKEY_SRCBLT: i32 = 8;
         const DDCKEY_SRCOVERLAY: i32 = 16;
         struct DDCOLORCONTROL {
-            dwSize: u32,
-            dwFlags: u32,
-            lBrightness: i32,
-            lContrast: i32,
-            lHue: i32,
-            lSaturation: i32,
-            lSharpness: i32,
-            lGamma: i32,
-            lColorEnable: i32,
-            dwReserved1: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            lBrightness: LONG,
+            lContrast: LONG,
+            lHue: LONG,
+            lSaturation: LONG,
+            lSharpness: LONG,
+            lGamma: LONG,
+            lColorEnable: LONG,
+            dwReserved1: DWORD,
         }
         struct DDCOLORKEY {
-            dwColorSpaceLowValue: u32,
-            dwColorSpaceHighValue: u32,
+            dwColorSpaceLowValue: DWORD,
+            dwColorSpaceHighValue: DWORD,
         }
         const DDCOLOR_BRIGHTNESS: i32 = 1;
         const DDCOLOR_COLORENABLE: i32 = 64;
@@ -494,22 +494,22 @@ mod Windows {
             szDriver: [i8; 512],
             szDescription: [i8; 512],
             liDriverVersion: LARGE_INTEGER,
-            dwVendorId: u32,
-            dwDeviceId: u32,
-            dwSubSysId: u32,
-            dwRevision: u32,
+            dwVendorId: DWORD,
+            dwDeviceId: DWORD,
+            dwSubSysId: DWORD,
+            dwRevision: DWORD,
             guidDeviceIdentifier: GUID,
         }
         struct DDDEVICEIDENTIFIER2 {
             szDriver: [i8; 512],
             szDescription: [i8; 512],
             liDriverVersion: LARGE_INTEGER,
-            dwVendorId: u32,
-            dwDeviceId: u32,
-            dwSubSysId: u32,
-            dwRevision: u32,
+            dwVendorId: DWORD,
+            dwDeviceId: DWORD,
+            dwSubSysId: DWORD,
+            dwRevision: DWORD,
             guidDeviceIdentifier: GUID,
-            dwWHQLLevel: u32,
+            dwWHQLLevel: DWORD,
         }
         const DDEDM_REFRESHRATES: i32 = 1;
         const DDEDM_STANDARDVGAMODES: i32 = 2;
@@ -697,9 +697,9 @@ mod Windows {
         const DDFXCAPS_OVERLAYSTRETCHY: i32 = 33554432;
         const DDFXCAPS_OVERLAYSTRETCHYN: i32 = 67108864;
         struct DDGAMMARAMP {
-            red: [u16; 256],
-            green: [u16; 256],
-            blue: [u16; 256],
+            red: [WORD; 256],
+            green: [WORD; 256],
+            blue: [WORD; 256],
         }
         const DDGBS_CANBLT: i32 = 1;
         const DDGBS_ISBLTDONE: i32 = 2;
@@ -719,15 +719,15 @@ mod Windows {
         const DDLOCK_WAIT: i32 = 1;
         const DDLOCK_WRITEONLY: i32 = 32;
         struct DDOPTSURFACEDESC {
-            dwSize: u32,
-            dwFlags: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
             ddSCaps: DDSCAPS2,
             ddOSCaps: DDOSCAPS,
             guid: GUID,
-            dwCompressionRatio: u32,
+            dwCompressionRatio: DWORD,
         }
         struct DDOSCAPS {
-            dwCaps: u32,
+            dwCaps: DWORD,
         }
         const DDOSDCAPS_MONOLITHICMIPMAP: i32 = 4;
         const DDOSDCAPS_OPTCOMPRESSED: i32 = 1;
@@ -744,24 +744,24 @@ mod Windows {
         const DDOVERFX_MIRRORLEFTRIGHT: i32 = 2;
         const DDOVERFX_MIRRORUPDOWN: i32 = 4;
         struct DDOVERLAYFX {
-            dwSize: u32,
-            dwAlphaEdgeBlendBitDepth: u32,
-            dwAlphaEdgeBlend: u32,
-            dwReserved: u32,
-            dwAlphaDestConstBitDepth: u32,
+            dwSize: DWORD,
+            dwAlphaEdgeBlendBitDepth: DWORD,
+            dwAlphaEdgeBlend: DWORD,
+            dwReserved: DWORD,
+            dwAlphaDestConstBitDepth: DWORD,
             Anonymous: union {
-                dwAlphaDestConst: u32,
-                lpDDSAlphaDest: IDirectDrawSurface,
+                dwAlphaDestConst: DWORD,
+                lpDDSAlphaDest: LPDIRECTDRAWSURFACE,
             },
-            dwAlphaSrcConstBitDepth: u32,
+            dwAlphaSrcConstBitDepth: DWORD,
             Anonymous2: union {
-                dwAlphaSrcConst: u32,
-                lpDDSAlphaSrc: IDirectDrawSurface,
+                dwAlphaSrcConst: DWORD,
+                lpDDSAlphaSrc: LPDIRECTDRAWSURFACE,
             },
             dckDestColorkey: DDCOLORKEY,
             dckSrcColorkey: DDCOLORKEY,
-            dwDDFX: u32,
-            dwFlags: u32,
+            dwDDFX: DWORD,
+            dwFlags: DWORD,
         }
         const DDOVERZ_INSERTINBACKOF: i32 = 5;
         const DDOVERZ_INSERTINFRONTOF: i32 = 4;
@@ -825,21 +825,21 @@ mod Windows {
         const DDPF_ZBUFFER: i32 = 1024;
         const DDPF_ZPIXELS: i32 = 8192;
         struct DDRGBA {
-            red: u8,
-            green: u8,
-            blue: u8,
-            alpha: u8,
+            red: BYTE,
+            green: BYTE,
+            blue: BYTE,
+            alpha: BYTE,
         }
         struct DDSCAPS {
-            dwCaps: u32,
+            dwCaps: DWORD,
         }
         struct DDSCAPS2 {
-            dwCaps: u32,
-            dwCaps2: u32,
-            dwCaps3: u32,
+            dwCaps: DWORD,
+            dwCaps2: DWORD,
+            dwCaps3: DWORD,
             Anonymous: union {
-                dwCaps4: u32,
-                dwVolumeDepth: u32,
+                dwCaps4: DWORD,
+                dwVolumeDepth: DWORD,
             },
         }
         const DDSCAPS2_ADDITIONALPRIMARY: u32 = 2147483648;
@@ -885,11 +885,11 @@ mod Windows {
         const DDSCAPS3_RESERVED1: i32 = 256;
         const DDSCAPS3_RESERVED2: i32 = 512;
         struct DDSCAPSEX {
-            dwCaps2: u32,
-            dwCaps3: u32,
+            dwCaps2: DWORD,
+            dwCaps3: DWORD,
             Anonymous: union {
-                dwCaps4: u32,
-                dwVolumeDepth: u32,
+                dwCaps4: DWORD,
+                dwVolumeDepth: DWORD,
             },
         }
         const DDSCAPS_3DDEVICE: i32 = 8192;
@@ -962,23 +962,23 @@ mod Windows {
         const DDSPD_IUNKNOWNPOINTER: i32 = 1;
         const DDSPD_VOLATILE: i32 = 2;
         struct DDSURFACEDESC {
-            dwSize: u32,
-            dwFlags: u32,
-            dwHeight: u32,
-            dwWidth: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwHeight: DWORD,
+            dwWidth: DWORD,
             Anonymous: union {
-                lPitch: i32,
-                dwLinearSize: u32,
+                lPitch: LONG,
+                dwLinearSize: DWORD,
             },
-            dwBackBufferCount: u32,
+            dwBackBufferCount: DWORD,
             Anonymous2: union {
-                dwMipMapCount: u32,
-                dwZBufferBitDepth: u32,
-                dwRefreshRate: u32,
+                dwMipMapCount: DWORD,
+                dwZBufferBitDepth: DWORD,
+                dwRefreshRate: DWORD,
             },
-            dwAlphaBitDepth: u32,
-            dwReserved: u32,
-            lpSurface: *mut void,
+            dwAlphaBitDepth: DWORD,
+            dwReserved: DWORD,
+            lpSurface: LPVOID,
             ddckCKDestOverlay: DDCOLORKEY,
             ddckCKDestBlt: DDCOLORKEY,
             ddckCKSrcOverlay: DDCOLORKEY,
@@ -987,39 +987,39 @@ mod Windows {
             ddsCaps: DDSCAPS,
         }
         struct DDSURFACEDESC2 {
-            dwSize: u32,
-            dwFlags: u32,
-            dwHeight: u32,
-            dwWidth: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwHeight: DWORD,
+            dwWidth: DWORD,
             Anonymous: union {
-                lPitch: i32,
-                dwLinearSize: u32,
+                lPitch: LONG,
+                dwLinearSize: DWORD,
             },
             Anonymous2: union {
-                dwBackBufferCount: u32,
-                dwDepth: u32,
+                dwBackBufferCount: DWORD,
+                dwDepth: DWORD,
             },
             Anonymous3: union {
-                dwMipMapCount: u32,
-                dwRefreshRate: u32,
-                dwSrcVBHandle: u32,
+                dwMipMapCount: DWORD,
+                dwRefreshRate: DWORD,
+                dwSrcVBHandle: DWORD,
             },
-            dwAlphaBitDepth: u32,
-            dwReserved: u32,
-            lpSurface: *mut void,
+            dwAlphaBitDepth: DWORD,
+            dwReserved: DWORD,
+            lpSurface: LPVOID,
             Anonymous4: union {
                 ddckCKDestOverlay: DDCOLORKEY,
-                dwEmptyFaceColor: u32,
+                dwEmptyFaceColor: DWORD,
             },
             ddckCKDestBlt: DDCOLORKEY,
             ddckCKSrcOverlay: DDCOLORKEY,
             ddckCKSrcBlt: DDCOLORKEY,
             Anonymous5: union {
                 ddpfPixelFormat: DDPIXELFORMAT,
-                dwFVF: u32,
+                dwFVF: DWORD,
             },
             ddsCaps: DDSCAPS2,
-            dwTextureStage: u32,
+            dwTextureStage: DWORD,
         }
         const DDSVCAPS_RESERVED1: i32 = 1;
         const DDSVCAPS_RESERVED2: i32 = 2;
@@ -1034,369 +1034,464 @@ mod Windows {
         const DD_ROP_SPACE: i32 = 8;
         const DIRECTDRAW_VERSION: i32 = 1792;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawCreate(lpGUID: *mut GUID, lplpDD: *mut IDirectDraw, pUnkOuter: IUnknown) -> HRESULT;
+        #[must_use]
+        extern fn DirectDrawCreate(lpGUID: *mut GUID, lplpDD: *mut LPDIRECTDRAW, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawCreateClipper(dwFlags: u32, lplpDDClipper: *mut IDirectDrawClipper, pUnkOuter: IUnknown) -> HRESULT;
+        #[must_use]
+        extern fn DirectDrawCreateClipper(dwFlags: DWORD, lplpDDClipper: *mut LPDIRECTDRAWCLIPPER, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawCreateEx(lpGuid: *mut GUID, lplpDD: *mut *mut void, iid: *const GUID, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectDrawCreateEx(lpGuid: *mut GUID, lplpDD: *mut LPVOID, iid: &IID, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawEnumerateA(lpCallback: LPDDENUMCALLBACKA, lpContext: *mut void) -> HRESULT;
+        #[must_use]
+        extern fn DirectDrawEnumerateA(lpCallback: LPDDENUMCALLBACKA, lpContext: LPVOID) -> HRESULT;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawEnumerateExA(lpCallback: LPDDENUMCALLBACKEXA, lpContext: *mut void, dwFlags: u32) -> HRESULT;
+        extern fn DirectDrawEnumerateExA(lpCallback: LPDDENUMCALLBACKEXA, lpContext: LPVOID, dwFlags: DWORD) -> HRESULT;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawEnumerateExW(lpCallback: LPDDENUMCALLBACKEXW, lpContext: *mut void, dwFlags: u32) -> HRESULT;
+        extern fn DirectDrawEnumerateExW(lpCallback: LPDDENUMCALLBACKEXW, lpContext: LPVOID, dwFlags: DWORD) -> HRESULT;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawEnumerateW(lpCallback: LPDDENUMCALLBACKW, lpContext: *mut void) -> HRESULT;
-        const FOURCC_DXT1: u32 = 827611204;
-        const FOURCC_DXT2: u32 = 844388420;
-        const FOURCC_DXT3: u32 = 861165636;
-        const FOURCC_DXT4: u32 = 877942852;
-        const FOURCC_DXT5: u32 = 894720068;
+        #[must_use]
+        extern fn DirectDrawEnumerateW(lpCallback: LPDDENUMCALLBACKW, lpContext: LPVOID) -> HRESULT;
+        const FOURCC_DXT1: DWORD = 827611204;
+        const FOURCC_DXT2: DWORD = 844388420;
+        const FOURCC_DXT3: DWORD = 861165636;
+        const FOURCC_DXT4: DWORD = 877942852;
+        const FOURCC_DXT5: DWORD = 894720068;
         #[guid(0x6c14db80_a733_11ce_a521_0020af0be560)]
         interface IDirectDraw: IUnknown {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
             fn Compact(&self) -> HRESULT;
-            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
-            fn CreatePalette(&self, param0: u32, param1: LPPALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
-            fn CreateSurface(&self, param0: LPDDSURFACEDESC, param1: *mut IDirectDrawSurface, param2: IUnknown) -> HRESULT;
-            fn DuplicateSurface(&self, param0: IDirectDrawSurface, param1: *mut IDirectDrawSurface) -> HRESULT;
-            fn EnumDisplayModes(&self, param0: u32, param1: LPDDSURFACEDESC, param2: *mut void, param3: LPDDENUMMODESCALLBACK) -> HRESULT;
-            fn EnumSurfaces(&self, param0: u32, param1: LPDDSURFACEDESC, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn CreateClipper(&self, param0: DWORD, param1: *mut LPDIRECTDRAWCLIPPER, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: DWORD, param1: LPPALETTEENTRY, param2: *mut LPDIRECTDRAWPALETTE, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: LPDDSURFACEDESC, param1: *mut LPDIRECTDRAWSURFACE, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: LPDIRECTDRAWSURFACE, param1: *mut LPDIRECTDRAWSURFACE) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: DWORD, param1: LPDDSURFACEDESC, param2: LPVOID, param3: LPDDENUMMODESCALLBACK) -> HRESULT;
+            fn EnumSurfaces(&self, param0: DWORD, param1: LPDDSURFACEDESC, param2: LPVOID, param3: LPDDENUMSURFACESCALLBACK) -> HRESULT;
             fn FlipToGDISurface(&self) -> HRESULT;
             fn GetCaps(&self, param0: LPDDCAPS, param1: LPDDCAPS) -> HRESULT;
             fn GetDisplayMode(&self, param0: LPDDSURFACEDESC) -> HRESULT;
             fn GetFourCCCodes(&self, param0: LPDWORD, param1: LPDWORD) -> HRESULT;
-            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut LPDIRECTDRAWSURFACE) -> HRESULT;
             fn GetMonitorFrequency(&self, param0: LPDWORD) -> HRESULT;
             fn GetScanLine(&self, param0: LPDWORD) -> HRESULT;
             fn GetVerticalBlankStatus(&self, param0: LPBOOL) -> HRESULT;
             fn Initialize(&self, param0: *mut GUID) -> HRESULT;
             fn RestoreDisplayMode(&self) -> HRESULT;
-            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> HRESULT;
-            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
+            fn SetDisplayMode(&self, param0: DWORD, param1: DWORD, param2: DWORD) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: DWORD, param1: HANDLE) -> HRESULT;
         }
         #[guid(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356)]
         interface IDirectDraw2: IUnknown {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
             fn Compact(&self) -> HRESULT;
-            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
-            fn CreatePalette(&self, param0: u32, param1: LPPALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
-            fn CreateSurface(&self, param0: LPDDSURFACEDESC, param1: *mut IDirectDrawSurface, param2: IUnknown) -> HRESULT;
-            fn DuplicateSurface(&self, param0: IDirectDrawSurface, param1: *mut IDirectDrawSurface) -> HRESULT;
-            fn EnumDisplayModes(&self, param0: u32, param1: LPDDSURFACEDESC, param2: *mut void, param3: LPDDENUMMODESCALLBACK) -> HRESULT;
-            fn EnumSurfaces(&self, param0: u32, param1: LPDDSURFACEDESC, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn CreateClipper(&self, param0: DWORD, param1: *mut LPDIRECTDRAWCLIPPER, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: DWORD, param1: LPPALETTEENTRY, param2: *mut LPDIRECTDRAWPALETTE, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: LPDDSURFACEDESC, param1: *mut LPDIRECTDRAWSURFACE, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: LPDIRECTDRAWSURFACE, param1: *mut LPDIRECTDRAWSURFACE) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: DWORD, param1: LPDDSURFACEDESC, param2: LPVOID, param3: LPDDENUMMODESCALLBACK) -> HRESULT;
+            fn EnumSurfaces(&self, param0: DWORD, param1: LPDDSURFACEDESC, param2: LPVOID, param3: LPDDENUMSURFACESCALLBACK) -> HRESULT;
             fn FlipToGDISurface(&self) -> HRESULT;
             fn GetCaps(&self, param0: LPDDCAPS, param1: LPDDCAPS) -> HRESULT;
             fn GetDisplayMode(&self, param0: LPDDSURFACEDESC) -> HRESULT;
             fn GetFourCCCodes(&self, param0: LPDWORD, param1: LPDWORD) -> HRESULT;
-            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut LPDIRECTDRAWSURFACE) -> HRESULT;
             fn GetMonitorFrequency(&self, param0: LPDWORD) -> HRESULT;
             fn GetScanLine(&self, param0: LPDWORD) -> HRESULT;
             fn GetVerticalBlankStatus(&self, param0: LPBOOL) -> HRESULT;
             fn Initialize(&self, param0: *mut GUID) -> HRESULT;
             fn RestoreDisplayMode(&self) -> HRESULT;
-            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> HRESULT;
-            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
+            fn SetDisplayMode(&self, param0: DWORD, param1: DWORD, param2: DWORD, param3: DWORD, param4: DWORD) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: DWORD, param1: HANDLE) -> HRESULT;
             fn GetAvailableVidMem(&self, param0: LPDDSCAPS, param1: LPDWORD, param2: LPDWORD) -> HRESULT;
         }
         #[guid(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5)]
         interface IDirectDraw4: IUnknown {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
             fn Compact(&self) -> HRESULT;
-            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
-            fn CreatePalette(&self, param0: u32, param1: LPPALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
-            fn CreateSurface(&self, param0: LPDDSURFACEDESC2, param1: *mut IDirectDrawSurface4, param2: IUnknown) -> HRESULT;
-            fn DuplicateSurface(&self, param0: IDirectDrawSurface4, param1: *mut IDirectDrawSurface4) -> HRESULT;
-            fn EnumDisplayModes(&self, param0: u32, param1: LPDDSURFACEDESC2, param2: *mut void, param3: LPDDENUMMODESCALLBACK2) -> HRESULT;
-            fn EnumSurfaces(&self, param0: u32, param1: LPDDSURFACEDESC2, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
+            fn CreateClipper(&self, param0: DWORD, param1: *mut LPDIRECTDRAWCLIPPER, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: DWORD, param1: LPPALETTEENTRY, param2: *mut LPDIRECTDRAWPALETTE, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: LPDDSURFACEDESC2, param1: *mut LPDIRECTDRAWSURFACE4, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: LPDIRECTDRAWSURFACE4, param1: *mut LPDIRECTDRAWSURFACE4) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: DWORD, param1: LPDDSURFACEDESC2, param2: LPVOID, param3: LPDDENUMMODESCALLBACK2) -> HRESULT;
+            fn EnumSurfaces(&self, param0: DWORD, param1: LPDDSURFACEDESC2, param2: LPVOID, param3: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
             fn FlipToGDISurface(&self) -> HRESULT;
             fn GetCaps(&self, param0: LPDDCAPS, param1: LPDDCAPS) -> HRESULT;
             fn GetDisplayMode(&self, param0: LPDDSURFACEDESC2) -> HRESULT;
             fn GetFourCCCodes(&self, param0: LPDWORD, param1: LPDWORD) -> HRESULT;
-            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface4) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut LPDIRECTDRAWSURFACE4) -> HRESULT;
             fn GetMonitorFrequency(&self, param0: LPDWORD) -> HRESULT;
             fn GetScanLine(&self, param0: LPDWORD) -> HRESULT;
             fn GetVerticalBlankStatus(&self, param0: LPBOOL) -> HRESULT;
             fn Initialize(&self, param0: *mut GUID) -> HRESULT;
             fn RestoreDisplayMode(&self) -> HRESULT;
-            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> HRESULT;
-            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
+            fn SetDisplayMode(&self, param0: DWORD, param1: DWORD, param2: DWORD, param3: DWORD, param4: DWORD) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: DWORD, param1: HANDLE) -> HRESULT;
             fn GetAvailableVidMem(&self, param0: LPDDSCAPS2, param1: LPDWORD, param2: LPDWORD) -> HRESULT;
-            fn GetSurfaceFromDC(&self, param0: HDC, param1: *mut IDirectDrawSurface4) -> HRESULT;
+            fn GetSurfaceFromDC(&self, param0: HDC, param1: *mut LPDIRECTDRAWSURFACE4) -> HRESULT;
             fn RestoreAllSurfaces(&self) -> HRESULT;
             fn TestCooperativeLevel(&self) -> HRESULT;
-            fn GetDeviceIdentifier(&self, param0: LPDDDEVICEIDENTIFIER, param1: u32) -> HRESULT;
+            fn GetDeviceIdentifier(&self, param0: LPDDDEVICEIDENTIFIER, param1: DWORD) -> HRESULT;
         }
         #[guid(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b)]
         interface IDirectDraw7: IUnknown {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
             fn Compact(&self) -> HRESULT;
-            fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
-            fn CreatePalette(&self, param0: u32, param1: LPPALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
-            fn CreateSurface(&self, param0: LPDDSURFACEDESC2, param1: *mut IDirectDrawSurface7, param2: IUnknown) -> HRESULT;
-            fn DuplicateSurface(&self, param0: IDirectDrawSurface7, param1: *mut IDirectDrawSurface7) -> HRESULT;
-            fn EnumDisplayModes(&self, param0: u32, param1: LPDDSURFACEDESC2, param2: *mut void, param3: LPDDENUMMODESCALLBACK2) -> HRESULT;
-            fn EnumSurfaces(&self, param0: u32, param1: LPDDSURFACEDESC2, param2: *mut void, param3: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
+            fn CreateClipper(&self, param0: DWORD, param1: *mut LPDIRECTDRAWCLIPPER, param2: IUnknown) -> HRESULT;
+            fn CreatePalette(&self, param0: DWORD, param1: LPPALETTEENTRY, param2: *mut LPDIRECTDRAWPALETTE, param3: IUnknown) -> HRESULT;
+            fn CreateSurface(&self, param0: LPDDSURFACEDESC2, param1: *mut LPDIRECTDRAWSURFACE7, param2: IUnknown) -> HRESULT;
+            fn DuplicateSurface(&self, param0: LPDIRECTDRAWSURFACE7, param1: *mut LPDIRECTDRAWSURFACE7) -> HRESULT;
+            fn EnumDisplayModes(&self, param0: DWORD, param1: LPDDSURFACEDESC2, param2: LPVOID, param3: LPDDENUMMODESCALLBACK2) -> HRESULT;
+            fn EnumSurfaces(&self, param0: DWORD, param1: LPDDSURFACEDESC2, param2: LPVOID, param3: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
             fn FlipToGDISurface(&self) -> HRESULT;
             fn GetCaps(&self, param0: LPDDCAPS, param1: LPDDCAPS) -> HRESULT;
             fn GetDisplayMode(&self, param0: LPDDSURFACEDESC2) -> HRESULT;
             fn GetFourCCCodes(&self, param0: LPDWORD, param1: LPDWORD) -> HRESULT;
-            fn GetGDISurface(&self, param0: *mut IDirectDrawSurface7) -> HRESULT;
+            fn GetGDISurface(&self, param0: *mut LPDIRECTDRAWSURFACE7) -> HRESULT;
             fn GetMonitorFrequency(&self, param0: LPDWORD) -> HRESULT;
             fn GetScanLine(&self, param0: LPDWORD) -> HRESULT;
             fn GetVerticalBlankStatus(&self, param0: LPBOOL) -> HRESULT;
             fn Initialize(&self, param0: *mut GUID) -> HRESULT;
             fn RestoreDisplayMode(&self) -> HRESULT;
-            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> HRESULT;
-            fn WaitForVerticalBlank(&self, param0: u32, param1: HANDLE) -> HRESULT;
+            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
+            fn SetDisplayMode(&self, param0: DWORD, param1: DWORD, param2: DWORD, param3: DWORD, param4: DWORD) -> HRESULT;
+            fn WaitForVerticalBlank(&self, param0: DWORD, param1: HANDLE) -> HRESULT;
             fn GetAvailableVidMem(&self, param0: LPDDSCAPS2, param1: LPDWORD, param2: LPDWORD) -> HRESULT;
-            fn GetSurfaceFromDC(&self, param0: HDC, param1: *mut IDirectDrawSurface7) -> HRESULT;
+            fn GetSurfaceFromDC(&self, param0: HDC, param1: *mut LPDIRECTDRAWSURFACE7) -> HRESULT;
             fn RestoreAllSurfaces(&self) -> HRESULT;
             fn TestCooperativeLevel(&self) -> HRESULT;
-            fn GetDeviceIdentifier(&self, param0: LPDDDEVICEIDENTIFIER2, param1: u32) -> HRESULT;
-            fn StartModeTest(&self, param0: LPSIZE, param1: u32, param2: u32) -> HRESULT;
-            fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> HRESULT;
+            fn GetDeviceIdentifier(&self, param0: LPDDDEVICEIDENTIFIER2, param1: DWORD) -> HRESULT;
+            fn StartModeTest(&self, param0: LPSIZE, param1: DWORD, param2: DWORD) -> HRESULT;
+            fn EvaluateMode(&self, param0: DWORD, param1: *mut DWORD) -> HRESULT;
         }
         #[guid(0x6c14db85_a733_11ce_a521_0020af0be560)]
         interface IDirectDrawClipper: IUnknown {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
             fn GetClipList(&self, param0: LPRECT, param1: LPRGNDATA, param2: LPDWORD) -> HRESULT;
             fn GetHWnd(&self, param0: *mut HWND) -> HRESULT;
-            fn Initialize(&self, param0: IDirectDraw, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: LPDIRECTDRAW, param1: DWORD) -> HRESULT;
             fn IsClipListChanged(&self, param0: *mut BOOL) -> HRESULT;
-            fn SetClipList(&self, param0: LPRGNDATA, param1: u32) -> HRESULT;
-            fn SetHWnd(&self, param0: u32, param1: HWND) -> HRESULT;
+            fn SetClipList(&self, param0: LPRGNDATA, param1: DWORD) -> HRESULT;
+            fn SetHWnd(&self, param0: DWORD, param1: HWND) -> HRESULT;
         }
         #[guid(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8)]
         interface IDirectDrawColorControl: IUnknown {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
             fn GetColorControls(&self, param0: LPDDCOLORCONTROL) -> HRESULT;
             fn SetColorControls(&self, param0: LPDDCOLORCONTROL) -> HRESULT;
         }
         #[guid(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e)]
         interface IDirectDrawGammaControl: IUnknown {
-            fn GetGammaRamp(&self, param0: u32, param1: LPDDGAMMARAMP) -> HRESULT;
-            fn SetGammaRamp(&self, param0: u32, param1: LPDDGAMMARAMP) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn GetGammaRamp(&self, param0: DWORD, param1: LPDDGAMMARAMP) -> HRESULT;
+            fn SetGammaRamp(&self, param0: DWORD, param1: LPDDGAMMARAMP) -> HRESULT;
         }
         #[guid(0x6c14db84_a733_11ce_a521_0020af0be560)]
         interface IDirectDrawPalette: IUnknown {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
             fn GetCaps(&self, param0: LPDWORD) -> HRESULT;
-            fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: LPPALETTEENTRY) -> HRESULT;
-            fn Initialize(&self, param0: IDirectDraw, param1: u32, param2: LPPALETTEENTRY) -> HRESULT;
-            fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: LPPALETTEENTRY) -> HRESULT;
+            fn GetEntries(&self, param0: DWORD, param1: DWORD, param2: DWORD, param3: LPPALETTEENTRY) -> HRESULT;
+            fn Initialize(&self, param0: LPDIRECTDRAW, param1: DWORD, param2: LPPALETTEENTRY) -> HRESULT;
+            fn SetEntries(&self, param0: DWORD, param1: DWORD, param2: DWORD, param3: LPPALETTEENTRY) -> HRESULT;
         }
         #[guid(0x6c14db81_a733_11ce_a521_0020af0be560)]
         interface IDirectDrawSurface: IUnknown {
-            fn AddAttachedSurface(&self, param0: IDirectDrawSurface) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn AddAttachedSurface(&self, param0: LPDIRECTDRAWSURFACE) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: LPRECT) -> HRESULT;
-            fn Blt(&self, param0: LPRECT, param1: IDirectDrawSurface, param2: LPRECT, param3: u32, param4: LPDDBLTFX) -> HRESULT;
-            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
-            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface, param3: LPRECT, param4: u32) -> HRESULT;
-            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface) -> HRESULT;
-            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
-            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
-            fn Flip(&self, param0: IDirectDrawSurface, param1: u32) -> HRESULT;
-            fn GetAttachedSurface(&self, param0: LPDDSCAPS, param1: *mut IDirectDrawSurface) -> HRESULT;
-            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn Blt(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE, param2: LPRECT, param3: DWORD, param4: LPDDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: DWORD, param2: DWORD) -> HRESULT;
+            fn BltFast(&self, param0: DWORD, param1: DWORD, param2: LPDIRECTDRAWSURFACE, param3: LPRECT, param4: DWORD) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: LPVOID, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: DWORD, param1: LPVOID, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn Flip(&self, param0: LPDIRECTDRAWSURFACE, param1: DWORD) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: LPDDSCAPS, param1: *mut LPDIRECTDRAWSURFACE) -> HRESULT;
+            fn GetBltStatus(&self, param0: DWORD) -> HRESULT;
             fn GetCaps(&self, param0: LPDDSCAPS) -> HRESULT;
-            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
-            fn GetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
+            fn GetClipper(&self, param0: *mut LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn GetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
             fn GetDC(&self, param0: *mut HDC) -> HRESULT;
-            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetFlipStatus(&self, param0: DWORD) -> HRESULT;
             fn GetOverlayPosition(&self, param0: LPLONG, param1: LPLONG) -> HRESULT;
-            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPalette(&self, param0: *mut LPDIRECTDRAWPALETTE) -> HRESULT;
             fn GetPixelFormat(&self, param0: LPDDPIXELFORMAT) -> HRESULT;
             fn GetSurfaceDesc(&self, param0: LPDDSURFACEDESC) -> HRESULT;
-            fn Initialize(&self, param0: IDirectDraw, param1: LPDDSURFACEDESC) -> HRESULT;
+            fn Initialize(&self, param0: LPDIRECTDRAW, param1: LPDDSURFACEDESC) -> HRESULT;
             fn IsLost(&self) -> HRESULT;
-            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC, param2: u32, param3: HANDLE) -> HRESULT;
+            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC, param2: DWORD, param3: HANDLE) -> HRESULT;
             fn ReleaseDC(&self, param0: HDC) -> HRESULT;
             fn Restore(&self) -> HRESULT;
-            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
-            fn SetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
-            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
-            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
-            fn Unlock(&self, param0: *mut void) -> HRESULT;
-            fn UpdateOverlay(&self, param0: LPRECT, param1: IDirectDrawSurface, param2: LPRECT, param3: u32, param4: LPDDOVERLAYFX) -> HRESULT;
-            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
-            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface) -> HRESULT;
+            fn SetClipper(&self, param0: LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn SetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: LONG, param1: LONG) -> HRESULT;
+            fn SetPalette(&self, param0: LPDIRECTDRAWPALETTE) -> HRESULT;
+            fn Unlock(&self, param0: LPVOID) -> HRESULT;
+            fn UpdateOverlay(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE, param2: LPRECT, param3: DWORD, param4: LPDDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: DWORD) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE) -> HRESULT;
         }
         #[guid(0x57805885_6eec_11cf_9441_a82303c10e27)]
         interface IDirectDrawSurface2: IUnknown {
-            fn AddAttachedSurface(&self, param0: IDirectDrawSurface2) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn AddAttachedSurface(&self, param0: LPDIRECTDRAWSURFACE2) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: LPRECT) -> HRESULT;
-            fn Blt(&self, param0: LPRECT, param1: IDirectDrawSurface2, param2: LPRECT, param3: u32, param4: LPDDBLTFX) -> HRESULT;
-            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
-            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface2, param3: LPRECT, param4: u32) -> HRESULT;
-            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface2) -> HRESULT;
-            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
-            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
-            fn Flip(&self, param0: IDirectDrawSurface2, param1: u32) -> HRESULT;
-            fn GetAttachedSurface(&self, param0: LPDDSCAPS, param1: *mut IDirectDrawSurface2) -> HRESULT;
-            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn Blt(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE2, param2: LPRECT, param3: DWORD, param4: LPDDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: DWORD, param2: DWORD) -> HRESULT;
+            fn BltFast(&self, param0: DWORD, param1: DWORD, param2: LPDIRECTDRAWSURFACE2, param3: LPRECT, param4: DWORD) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE2) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: LPVOID, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: DWORD, param1: LPVOID, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn Flip(&self, param0: LPDIRECTDRAWSURFACE2, param1: DWORD) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: LPDDSCAPS, param1: *mut LPDIRECTDRAWSURFACE2) -> HRESULT;
+            fn GetBltStatus(&self, param0: DWORD) -> HRESULT;
             fn GetCaps(&self, param0: LPDDSCAPS) -> HRESULT;
-            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
-            fn GetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
+            fn GetClipper(&self, param0: *mut LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn GetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
             fn GetDC(&self, param0: *mut HDC) -> HRESULT;
-            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetFlipStatus(&self, param0: DWORD) -> HRESULT;
             fn GetOverlayPosition(&self, param0: LPLONG, param1: LPLONG) -> HRESULT;
-            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPalette(&self, param0: *mut LPDIRECTDRAWPALETTE) -> HRESULT;
             fn GetPixelFormat(&self, param0: LPDDPIXELFORMAT) -> HRESULT;
             fn GetSurfaceDesc(&self, param0: LPDDSURFACEDESC) -> HRESULT;
-            fn Initialize(&self, param0: IDirectDraw, param1: LPDDSURFACEDESC) -> HRESULT;
+            fn Initialize(&self, param0: LPDIRECTDRAW, param1: LPDDSURFACEDESC) -> HRESULT;
             fn IsLost(&self) -> HRESULT;
-            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC, param2: u32, param3: HANDLE) -> HRESULT;
+            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC, param2: DWORD, param3: HANDLE) -> HRESULT;
             fn ReleaseDC(&self, param0: HDC) -> HRESULT;
             fn Restore(&self) -> HRESULT;
-            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
-            fn SetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
-            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
-            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
-            fn Unlock(&self, param0: *mut void) -> HRESULT;
-            fn UpdateOverlay(&self, param0: LPRECT, param1: IDirectDrawSurface2, param2: LPRECT, param3: u32, param4: LPDDOVERLAYFX) -> HRESULT;
-            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
-            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface2) -> HRESULT;
-            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
-            fn PageLock(&self, param0: u32) -> HRESULT;
-            fn PageUnlock(&self, param0: u32) -> HRESULT;
+            fn SetClipper(&self, param0: LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn SetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: LONG, param1: LONG) -> HRESULT;
+            fn SetPalette(&self, param0: LPDIRECTDRAWPALETTE) -> HRESULT;
+            fn Unlock(&self, param0: LPVOID) -> HRESULT;
+            fn UpdateOverlay(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE2, param2: LPRECT, param3: DWORD, param4: LPDDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: DWORD) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE2) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut LPVOID) -> HRESULT;
+            fn PageLock(&self, param0: DWORD) -> HRESULT;
+            fn PageUnlock(&self, param0: DWORD) -> HRESULT;
         }
         #[guid(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb)]
         interface IDirectDrawSurface3: IUnknown {
-            fn AddAttachedSurface(&self, param0: IDirectDrawSurface3) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn AddAttachedSurface(&self, param0: LPDIRECTDRAWSURFACE3) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: LPRECT) -> HRESULT;
-            fn Blt(&self, param0: LPRECT, param1: IDirectDrawSurface3, param2: LPRECT, param3: u32, param4: LPDDBLTFX) -> HRESULT;
-            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
-            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface3, param3: LPRECT, param4: u32) -> HRESULT;
-            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface3) -> HRESULT;
-            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
-            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
-            fn Flip(&self, param0: IDirectDrawSurface3, param1: u32) -> HRESULT;
-            fn GetAttachedSurface(&self, param0: LPDDSCAPS, param1: *mut IDirectDrawSurface3) -> HRESULT;
-            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn Blt(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE3, param2: LPRECT, param3: DWORD, param4: LPDDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: DWORD, param2: DWORD) -> HRESULT;
+            fn BltFast(&self, param0: DWORD, param1: DWORD, param2: LPDIRECTDRAWSURFACE3, param3: LPRECT, param4: DWORD) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE3) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: LPVOID, param1: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: DWORD, param1: LPVOID, param2: LPDDENUMSURFACESCALLBACK) -> HRESULT;
+            fn Flip(&self, param0: LPDIRECTDRAWSURFACE3, param1: DWORD) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: LPDDSCAPS, param1: *mut LPDIRECTDRAWSURFACE3) -> HRESULT;
+            fn GetBltStatus(&self, param0: DWORD) -> HRESULT;
             fn GetCaps(&self, param0: LPDDSCAPS) -> HRESULT;
-            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
-            fn GetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
+            fn GetClipper(&self, param0: *mut LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn GetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
             fn GetDC(&self, param0: *mut HDC) -> HRESULT;
-            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetFlipStatus(&self, param0: DWORD) -> HRESULT;
             fn GetOverlayPosition(&self, param0: LPLONG, param1: LPLONG) -> HRESULT;
-            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPalette(&self, param0: *mut LPDIRECTDRAWPALETTE) -> HRESULT;
             fn GetPixelFormat(&self, param0: LPDDPIXELFORMAT) -> HRESULT;
             fn GetSurfaceDesc(&self, param0: LPDDSURFACEDESC) -> HRESULT;
-            fn Initialize(&self, param0: IDirectDraw, param1: LPDDSURFACEDESC) -> HRESULT;
+            fn Initialize(&self, param0: LPDIRECTDRAW, param1: LPDDSURFACEDESC) -> HRESULT;
             fn IsLost(&self) -> HRESULT;
-            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC, param2: u32, param3: HANDLE) -> HRESULT;
+            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC, param2: DWORD, param3: HANDLE) -> HRESULT;
             fn ReleaseDC(&self, param0: HDC) -> HRESULT;
             fn Restore(&self) -> HRESULT;
-            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
-            fn SetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
-            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
-            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
-            fn Unlock(&self, param0: *mut void) -> HRESULT;
-            fn UpdateOverlay(&self, param0: LPRECT, param1: IDirectDrawSurface3, param2: LPRECT, param3: u32, param4: LPDDOVERLAYFX) -> HRESULT;
-            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
-            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface3) -> HRESULT;
-            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
-            fn PageLock(&self, param0: u32) -> HRESULT;
-            fn PageUnlock(&self, param0: u32) -> HRESULT;
-            fn SetSurfaceDesc(&self, param0: LPDDSURFACEDESC, param1: u32) -> HRESULT;
+            fn SetClipper(&self, param0: LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn SetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: LONG, param1: LONG) -> HRESULT;
+            fn SetPalette(&self, param0: LPDIRECTDRAWPALETTE) -> HRESULT;
+            fn Unlock(&self, param0: LPVOID) -> HRESULT;
+            fn UpdateOverlay(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE3, param2: LPRECT, param3: DWORD, param4: LPDDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: DWORD) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE3) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut LPVOID) -> HRESULT;
+            fn PageLock(&self, param0: DWORD) -> HRESULT;
+            fn PageUnlock(&self, param0: DWORD) -> HRESULT;
+            fn SetSurfaceDesc(&self, param0: LPDDSURFACEDESC, param1: DWORD) -> HRESULT;
         }
         #[guid(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b)]
         interface IDirectDrawSurface4: IUnknown {
-            fn AddAttachedSurface(&self, param0: IDirectDrawSurface4) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn AddAttachedSurface(&self, param0: LPDIRECTDRAWSURFACE4) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: LPRECT) -> HRESULT;
-            fn Blt(&self, param0: LPRECT, param1: IDirectDrawSurface4, param2: LPRECT, param3: u32, param4: LPDDBLTFX) -> HRESULT;
-            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
-            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface4, param3: LPRECT, param4: u32) -> HRESULT;
-            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface4) -> HRESULT;
-            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
-            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
-            fn Flip(&self, param0: IDirectDrawSurface4, param1: u32) -> HRESULT;
-            fn GetAttachedSurface(&self, param0: LPDDSCAPS2, param1: *mut IDirectDrawSurface4) -> HRESULT;
-            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn Blt(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE4, param2: LPRECT, param3: DWORD, param4: LPDDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: DWORD, param2: DWORD) -> HRESULT;
+            fn BltFast(&self, param0: DWORD, param1: DWORD, param2: LPDIRECTDRAWSURFACE4, param3: LPRECT, param4: DWORD) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE4) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: LPVOID, param1: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: DWORD, param1: LPVOID, param2: LPDDENUMSURFACESCALLBACK2) -> HRESULT;
+            fn Flip(&self, param0: LPDIRECTDRAWSURFACE4, param1: DWORD) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: LPDDSCAPS2, param1: *mut LPDIRECTDRAWSURFACE4) -> HRESULT;
+            fn GetBltStatus(&self, param0: DWORD) -> HRESULT;
             fn GetCaps(&self, param0: LPDDSCAPS2) -> HRESULT;
-            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
-            fn GetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
+            fn GetClipper(&self, param0: *mut LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn GetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
             fn GetDC(&self, param0: *mut HDC) -> HRESULT;
-            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetFlipStatus(&self, param0: DWORD) -> HRESULT;
             fn GetOverlayPosition(&self, param0: LPLONG, param1: LPLONG) -> HRESULT;
-            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPalette(&self, param0: *mut LPDIRECTDRAWPALETTE) -> HRESULT;
             fn GetPixelFormat(&self, param0: LPDDPIXELFORMAT) -> HRESULT;
             fn GetSurfaceDesc(&self, param0: LPDDSURFACEDESC2) -> HRESULT;
-            fn Initialize(&self, param0: IDirectDraw, param1: LPDDSURFACEDESC2) -> HRESULT;
+            fn Initialize(&self, param0: LPDIRECTDRAW, param1: LPDDSURFACEDESC2) -> HRESULT;
             fn IsLost(&self) -> HRESULT;
-            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC2, param2: u32, param3: HANDLE) -> HRESULT;
+            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC2, param2: DWORD, param3: HANDLE) -> HRESULT;
             fn ReleaseDC(&self, param0: HDC) -> HRESULT;
             fn Restore(&self) -> HRESULT;
-            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
-            fn SetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
-            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
-            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
+            fn SetClipper(&self, param0: LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn SetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: LONG, param1: LONG) -> HRESULT;
+            fn SetPalette(&self, param0: LPDIRECTDRAWPALETTE) -> HRESULT;
             fn Unlock(&self, param0: LPRECT) -> HRESULT;
-            fn UpdateOverlay(&self, param0: LPRECT, param1: IDirectDrawSurface4, param2: LPRECT, param3: u32, param4: LPDDOVERLAYFX) -> HRESULT;
-            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
-            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface4) -> HRESULT;
-            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
-            fn PageLock(&self, param0: u32) -> HRESULT;
-            fn PageUnlock(&self, param0: u32) -> HRESULT;
-            fn SetSurfaceDesc(&self, param0: LPDDSURFACEDESC2, param1: u32) -> HRESULT;
-            fn SetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: u32, param3: u32) -> HRESULT;
-            fn GetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: LPDWORD) -> HRESULT;
-            fn FreePrivateData(&self, param0: *const GUID) -> HRESULT;
+            fn UpdateOverlay(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE4, param2: LPRECT, param3: DWORD, param4: LPDDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: DWORD) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE4) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut LPVOID) -> HRESULT;
+            fn PageLock(&self, param0: DWORD) -> HRESULT;
+            fn PageUnlock(&self, param0: DWORD) -> HRESULT;
+            fn SetSurfaceDesc(&self, param0: LPDDSURFACEDESC2, param1: DWORD) -> HRESULT;
+            fn SetPrivateData(&self, param0: &GUID, param1: LPVOID, param2: DWORD, param3: DWORD) -> HRESULT;
+            fn GetPrivateData(&self, param0: &GUID, param1: LPVOID, param2: LPDWORD) -> HRESULT;
+            fn FreePrivateData(&self, param0: &GUID) -> HRESULT;
             fn GetUniquenessValue(&self, param0: LPDWORD) -> HRESULT;
             fn ChangeUniquenessValue(&self) -> HRESULT;
         }
         #[guid(0x06675a80_3b9b_11d2_b92f_00609797ea5b)]
         interface IDirectDrawSurface7: IUnknown {
-            fn AddAttachedSurface(&self, param0: IDirectDrawSurface7) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn AddAttachedSurface(&self, param0: LPDIRECTDRAWSURFACE7) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: LPRECT) -> HRESULT;
-            fn Blt(&self, param0: LPRECT, param1: IDirectDrawSurface7, param2: LPRECT, param3: u32, param4: LPDDBLTFX) -> HRESULT;
-            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: u32, param2: u32) -> HRESULT;
-            fn BltFast(&self, param0: u32, param1: u32, param2: IDirectDrawSurface7, param3: LPRECT, param4: u32) -> HRESULT;
-            fn DeleteAttachedSurface(&self, param0: u32, param1: IDirectDrawSurface7) -> HRESULT;
-            fn EnumAttachedSurfaces(&self, param0: *mut void, param1: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
-            fn EnumOverlayZOrders(&self, param0: u32, param1: *mut void, param2: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
-            fn Flip(&self, param0: IDirectDrawSurface7, param1: u32) -> HRESULT;
-            fn GetAttachedSurface(&self, param0: LPDDSCAPS2, param1: *mut IDirectDrawSurface7) -> HRESULT;
-            fn GetBltStatus(&self, param0: u32) -> HRESULT;
+            fn Blt(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE7, param2: LPRECT, param3: DWORD, param4: LPDDBLTFX) -> HRESULT;
+            fn BltBatch(&self, param0: LPDDBLTBATCH, param1: DWORD, param2: DWORD) -> HRESULT;
+            fn BltFast(&self, param0: DWORD, param1: DWORD, param2: LPDIRECTDRAWSURFACE7, param3: LPRECT, param4: DWORD) -> HRESULT;
+            fn DeleteAttachedSurface(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE7) -> HRESULT;
+            fn EnumAttachedSurfaces(&self, param0: LPVOID, param1: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
+            fn EnumOverlayZOrders(&self, param0: DWORD, param1: LPVOID, param2: LPDDENUMSURFACESCALLBACK7) -> HRESULT;
+            fn Flip(&self, param0: LPDIRECTDRAWSURFACE7, param1: DWORD) -> HRESULT;
+            fn GetAttachedSurface(&self, param0: LPDDSCAPS2, param1: *mut LPDIRECTDRAWSURFACE7) -> HRESULT;
+            fn GetBltStatus(&self, param0: DWORD) -> HRESULT;
             fn GetCaps(&self, param0: LPDDSCAPS2) -> HRESULT;
-            fn GetClipper(&self, param0: *mut IDirectDrawClipper) -> HRESULT;
-            fn GetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
+            fn GetClipper(&self, param0: *mut LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn GetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
             fn GetDC(&self, param0: *mut HDC) -> HRESULT;
-            fn GetFlipStatus(&self, param0: u32) -> HRESULT;
+            fn GetFlipStatus(&self, param0: DWORD) -> HRESULT;
             fn GetOverlayPosition(&self, param0: LPLONG, param1: LPLONG) -> HRESULT;
-            fn GetPalette(&self, param0: *mut IDirectDrawPalette) -> HRESULT;
+            fn GetPalette(&self, param0: *mut LPDIRECTDRAWPALETTE) -> HRESULT;
             fn GetPixelFormat(&self, param0: LPDDPIXELFORMAT) -> HRESULT;
             fn GetSurfaceDesc(&self, param0: LPDDSURFACEDESC2) -> HRESULT;
-            fn Initialize(&self, param0: IDirectDraw, param1: LPDDSURFACEDESC2) -> HRESULT;
+            fn Initialize(&self, param0: LPDIRECTDRAW, param1: LPDDSURFACEDESC2) -> HRESULT;
             fn IsLost(&self) -> HRESULT;
-            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC2, param2: u32, param3: HANDLE) -> HRESULT;
+            fn Lock(&self, param0: LPRECT, param1: LPDDSURFACEDESC2, param2: DWORD, param3: HANDLE) -> HRESULT;
             fn ReleaseDC(&self, param0: HDC) -> HRESULT;
             fn Restore(&self) -> HRESULT;
-            fn SetClipper(&self, param0: IDirectDrawClipper) -> HRESULT;
-            fn SetColorKey(&self, param0: u32, param1: LPDDCOLORKEY) -> HRESULT;
-            fn SetOverlayPosition(&self, param0: i32, param1: i32) -> HRESULT;
-            fn SetPalette(&self, param0: IDirectDrawPalette) -> HRESULT;
+            fn SetClipper(&self, param0: LPDIRECTDRAWCLIPPER) -> HRESULT;
+            fn SetColorKey(&self, param0: DWORD, param1: LPDDCOLORKEY) -> HRESULT;
+            fn SetOverlayPosition(&self, param0: LONG, param1: LONG) -> HRESULT;
+            fn SetPalette(&self, param0: LPDIRECTDRAWPALETTE) -> HRESULT;
             fn Unlock(&self, param0: LPRECT) -> HRESULT;
-            fn UpdateOverlay(&self, param0: LPRECT, param1: IDirectDrawSurface7, param2: LPRECT, param3: u32, param4: LPDDOVERLAYFX) -> HRESULT;
-            fn UpdateOverlayDisplay(&self, param0: u32) -> HRESULT;
-            fn UpdateOverlayZOrder(&self, param0: u32, param1: IDirectDrawSurface7) -> HRESULT;
-            fn GetDDInterface(&self, param0: *mut *mut void) -> HRESULT;
-            fn PageLock(&self, param0: u32) -> HRESULT;
-            fn PageUnlock(&self, param0: u32) -> HRESULT;
-            fn SetSurfaceDesc(&self, param0: LPDDSURFACEDESC2, param1: u32) -> HRESULT;
-            fn SetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: u32, param3: u32) -> HRESULT;
-            fn GetPrivateData(&self, param0: *const GUID, param1: *mut void, param2: LPDWORD) -> HRESULT;
-            fn FreePrivateData(&self, param0: *const GUID) -> HRESULT;
+            fn UpdateOverlay(&self, param0: LPRECT, param1: LPDIRECTDRAWSURFACE7, param2: LPRECT, param3: DWORD, param4: LPDDOVERLAYFX) -> HRESULT;
+            fn UpdateOverlayDisplay(&self, param0: DWORD) -> HRESULT;
+            fn UpdateOverlayZOrder(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE7) -> HRESULT;
+            fn GetDDInterface(&self, param0: *mut LPVOID) -> HRESULT;
+            fn PageLock(&self, param0: DWORD) -> HRESULT;
+            fn PageUnlock(&self, param0: DWORD) -> HRESULT;
+            fn SetSurfaceDesc(&self, param0: LPDDSURFACEDESC2, param1: DWORD) -> HRESULT;
+            fn SetPrivateData(&self, param0: &GUID, param1: LPVOID, param2: DWORD, param3: DWORD) -> HRESULT;
+            fn GetPrivateData(&self, param0: &GUID, param1: LPVOID, param2: LPDWORD) -> HRESULT;
+            fn FreePrivateData(&self, param0: &GUID) -> HRESULT;
             fn GetUniquenessValue(&self, param0: LPDWORD) -> HRESULT;
             fn ChangeUniquenessValue(&self) -> HRESULT;
-            fn SetPriority(&self, param0: u32) -> HRESULT;
+            fn SetPriority(&self, param0: DWORD) -> HRESULT;
             fn GetPriority(&self, param0: LPDWORD) -> HRESULT;
-            fn SetLOD(&self, param0: u32) -> HRESULT;
+            fn SetLOD(&self, param0: DWORD) -> HRESULT;
             fn GetLOD(&self, param0: LPDWORD) -> HRESULT;
         }
-        extern fn LPCLIPPERCALLBACK(lpDDClipper: IDirectDrawClipper, hWnd: HWND, code: u32, lpContext: *mut void) -> u32;
+        const IID_IDirectDraw: GUID = 0x6c14db80_a733_11ce_a521_0020af0be560;
+        const IID_IDirectDraw2: GUID = 0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356;
+        const IID_IDirectDraw4: GUID = 0x9c59509a_39bd_11d1_8c4a_00c04fd930c5;
+        const IID_IDirectDraw7: GUID = 0x15e65ec0_3b9c_11d2_b92f_00609797ea5b;
+        const IID_IDirectDrawClipper: GUID = 0x6c14db85_a733_11ce_a521_0020af0be560;
+        const IID_IDirectDrawColorControl: GUID = 0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8;
+        const IID_IDirectDrawGammaControl: GUID = 0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e;
+        const IID_IDirectDrawPalette: GUID = 0x6c14db84_a733_11ce_a521_0020af0be560;
+        const IID_IDirectDrawSurface: GUID = 0x6c14db81_a733_11ce_a521_0020af0be560;
+        const IID_IDirectDrawSurface2: GUID = 0x57805885_6eec_11cf_9441_a82303c10e27;
+        const IID_IDirectDrawSurface3: GUID = 0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb;
+        const IID_IDirectDrawSurface4: GUID = 0x0b2b8630_ad35_11d0_8ea6_00609797ea5b;
+        const IID_IDirectDrawSurface7: GUID = 0x06675a80_3b9b_11d2_b92f_00609797ea5b;
+        extern fn LPCLIPPERCALLBACK(lpDDClipper: LPDIRECTDRAWCLIPPER, hWnd: HWND, code: DWORD, lpContext: LPVOID) -> DWORD;
         type LPDDARGB = *mut DDARGB;
         type LPDDBLTBATCH = *mut DDBLTBATCH;
         type LPDDBLTFX = *mut DDBLTFX;
-        type LPDDCAPS = *mut DDCAPS;
+        type LPDDCAPS = *mut DDCAPS_DX7;
         type LPDDCAPS_DX1 = *mut DDCAPS_DX1;
         type LPDDCAPS_DX3 = *mut DDCAPS_DX3;
         type LPDDCAPS_DX5 = *mut DDCAPS_DX5;
@@ -1406,17 +1501,17 @@ mod Windows {
         type LPDDCOLORKEY = *mut DDCOLORKEY;
         type LPDDDEVICEIDENTIFIER = *mut DDDEVICEIDENTIFIER;
         type LPDDDEVICEIDENTIFIER2 = *mut DDDEVICEIDENTIFIER2;
-        type LPDDENUMCALLBACK = LPDDENUMCALLBACKA;
-        extern fn LPDDENUMCALLBACKA(param0: *mut GUID, param1: PSTR, param2: PSTR, param3: *mut void) -> BOOL;
-        type LPDDENUMCALLBACKEX = LPDDENUMCALLBACKEXA;
-        extern fn LPDDENUMCALLBACKEXA(param0: *mut GUID, param1: PSTR, param2: PSTR, param3: *mut void, param4: HMONITOR) -> BOOL;
-        extern fn LPDDENUMCALLBACKEXW(param0: *mut GUID, param1: PWSTR, param2: PWSTR, param3: *mut void, param4: HMONITOR) -> BOOL;
-        extern fn LPDDENUMCALLBACKW(param0: *mut GUID, param1: PWSTR, param2: PWSTR, param3: *mut void) -> BOOL;
-        extern fn LPDDENUMMODESCALLBACK(param0: LPDDSURFACEDESC, param1: *mut void) -> HRESULT;
-        extern fn LPDDENUMMODESCALLBACK2(param0: LPDDSURFACEDESC2, param1: *mut void) -> HRESULT;
-        extern fn LPDDENUMSURFACESCALLBACK(param0: IDirectDrawSurface, param1: LPDDSURFACEDESC, param2: *mut void) -> HRESULT;
-        extern fn LPDDENUMSURFACESCALLBACK2(param0: IDirectDrawSurface4, param1: LPDDSURFACEDESC2, param2: *mut void) -> HRESULT;
-        extern fn LPDDENUMSURFACESCALLBACK7(param0: IDirectDrawSurface7, param1: LPDDSURFACEDESC2, param2: *mut void) -> HRESULT;
+        extern fn LPDDENUMCALLBACK(param0: *mut GUID, param1: LPSTR, param2: LPSTR, param3: LPVOID) -> BOOL;
+        extern fn LPDDENUMCALLBACKA(param0: *mut GUID, param1: LPSTR, param2: LPSTR, param3: LPVOID) -> BOOL;
+        extern fn LPDDENUMCALLBACKEX(param0: *mut GUID, param1: LPSTR, param2: LPSTR, param3: LPVOID, param4: HMONITOR) -> BOOL;
+        extern fn LPDDENUMCALLBACKEXA(param0: *mut GUID, param1: LPSTR, param2: LPSTR, param3: LPVOID, param4: HMONITOR) -> BOOL;
+        extern fn LPDDENUMCALLBACKEXW(param0: *mut GUID, param1: LPWSTR, param2: LPWSTR, param3: LPVOID, param4: HMONITOR) -> BOOL;
+        extern fn LPDDENUMCALLBACKW(param0: *mut GUID, param1: LPWSTR, param2: LPWSTR, param3: LPVOID) -> BOOL;
+        extern fn LPDDENUMMODESCALLBACK(param0: LPDDSURFACEDESC, param1: LPVOID) -> HRESULT;
+        extern fn LPDDENUMMODESCALLBACK2(param0: LPDDSURFACEDESC2, param1: LPVOID) -> HRESULT;
+        extern fn LPDDENUMSURFACESCALLBACK(param0: LPDIRECTDRAWSURFACE, param1: LPDDSURFACEDESC, param2: LPVOID) -> HRESULT;
+        extern fn LPDDENUMSURFACESCALLBACK2(param0: LPDIRECTDRAWSURFACE4, param1: LPDDSURFACEDESC2, param2: LPVOID) -> HRESULT;
+        extern fn LPDDENUMSURFACESCALLBACK7(param0: LPDIRECTDRAWSURFACE7, param1: LPDDSURFACEDESC2, param2: LPVOID) -> HRESULT;
         type LPDDFXROP = *mut _DDFXROP;
         type LPDDGAMMARAMP = *mut DDGAMMARAMP;
         type LPDDOSCAPS = *mut DDOSCAPS;
@@ -1427,9 +1522,22 @@ mod Windows {
         type LPDDSCAPSEX = *mut DDSCAPSEX;
         type LPDDSURFACEDESC = *mut DDSURFACEDESC;
         type LPDDSURFACEDESC2 = *mut DDSURFACEDESC2;
-        type LPDIRECTDRAWENUMERATEEX = LPDIRECTDRAWENUMERATEEXA;
-        extern fn LPDIRECTDRAWENUMERATEEXA(lpCallback: LPDDENUMCALLBACKEXA, lpContext: *mut void, dwFlags: u32) -> HRESULT;
-        extern fn LPDIRECTDRAWENUMERATEEXW(lpCallback: LPDDENUMCALLBACKEXW, lpContext: *mut void, dwFlags: u32) -> HRESULT;
+        type LPDIRECTDRAW = IDirectDraw;
+        type LPDIRECTDRAW2 = IDirectDraw2;
+        type LPDIRECTDRAW4 = IDirectDraw4;
+        type LPDIRECTDRAW7 = IDirectDraw7;
+        type LPDIRECTDRAWCLIPPER = IDirectDrawClipper;
+        type LPDIRECTDRAWCOLORCONTROL = IDirectDrawColorControl;
+        extern fn LPDIRECTDRAWENUMERATEEX(lpCallback: LPDDENUMCALLBACKEXA, lpContext: LPVOID, dwFlags: DWORD) -> HRESULT;
+        extern fn LPDIRECTDRAWENUMERATEEXA(lpCallback: LPDDENUMCALLBACKEXA, lpContext: LPVOID, dwFlags: DWORD) -> HRESULT;
+        extern fn LPDIRECTDRAWENUMERATEEXW(lpCallback: LPDDENUMCALLBACKEXW, lpContext: LPVOID, dwFlags: DWORD) -> HRESULT;
+        type LPDIRECTDRAWGAMMACONTROL = IDirectDrawGammaControl;
+        type LPDIRECTDRAWPALETTE = IDirectDrawPalette;
+        type LPDIRECTDRAWSURFACE = IDirectDrawSurface;
+        type LPDIRECTDRAWSURFACE2 = IDirectDrawSurface2;
+        type LPDIRECTDRAWSURFACE3 = IDirectDrawSurface3;
+        type LPDIRECTDRAWSURFACE4 = IDirectDrawSurface4;
+        type LPDIRECTDRAWSURFACE7 = IDirectDrawSurface7;
         const MAX_DDDEVICEID_STRING: i32 = 512;
         #[encoding("ansi")]
         const REGSTR_KEY_DDHW_DESCRIPTION: String = "Description";

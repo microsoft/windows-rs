@@ -1,88 +1,109 @@
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetWkstaGetInfo<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE) -> u32
+pub unsafe fn NetWkstaGetInfo<P0>(servername: P0, level: super::DWORD, bufptr: Option<*mut super::LPBYTE>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaGetInfo(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-    unsafe { NetWkstaGetInfo(servername.param().abi(), level, bufptr as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaGetInfo(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
+    unsafe { NetWkstaGetInfo(servername.param().abi(), level, bufptr.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetWkstaSetInfo<P0>(servername: P0, level: u32, buffer: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetWkstaSetInfo<P0>(servername: P0, level: super::DWORD, buffer: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaSetInfo(servername : windows_core::PCWSTR, level : u32, buffer : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaSetInfo(servername : windows_core::PCWSTR, level : super::DWORD, buffer : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
     unsafe { NetWkstaSetInfo(servername.param().abi(), level, buffer, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetWkstaTransportAdd(servername: Option<super::LPTSTR>, level: u32, buf: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportAdd(servername : super::LPTSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
-    unsafe { NetWkstaTransportAdd(servername.unwrap_or(core::mem::zeroed()) as _, level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn NetWkstaTransportAdd(servername: Option<super::LPTSTR>, level: super::DWORD, buf: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportAdd(servername : super::LPTSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
+    unsafe { NetWkstaTransportAdd(servername.unwrap_or(core::mem::zeroed()) as _, level, buf as _, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetWkstaTransportDel<P0, P1>(servername: P0, transportname: P1, ucond: u32) -> u32
+pub unsafe fn NetWkstaTransportDel<P0, P1>(servername: P0, transportname: P1, ucond: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportDel(servername : windows_core::PCWSTR, transportname : windows_core::PCWSTR, ucond : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportDel(servername : windows_core::PCWSTR, transportname : windows_core::PCWSTR, ucond : super::DWORD) -> super::DWORD);
     unsafe { NetWkstaTransportDel(servername.param().abi(), transportname.param().abi(), ucond) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetWkstaTransportEnum(servername: Option<super::LPTSTR>, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportEnum(servername : super::LPTSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
+pub unsafe fn NetWkstaTransportEnum(servername: Option<super::LPTSTR>, level: super::DWORD, bufptr: *mut super::LPBYTE, prefmaxlen: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> super::DWORD {
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaTransportEnum(servername : super::LPTSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
     unsafe { NetWkstaTransportEnum(servername.unwrap_or(core::mem::zeroed()) as _, level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetWkstaUserEnum<P0>(servername: P0, level: u32, bufptr: Option<*mut super::LPBYTE>, prefmaxlen: u32, entriesread: Option<super::LPDWORD>, totalentries: super::LPDWORD, resumehandle: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetWkstaUserEnum<P0>(servername: P0, level: super::DWORD, bufptr: Option<*mut super::LPBYTE>, prefmaxlen: super::DWORD, entriesread: Option<super::LPDWORD>, totalentries: super::LPDWORD, resumehandle: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaUserEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaUserEnum(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> super::DWORD);
     unsafe { NetWkstaUserEnum(servername.param().abi(), level, bufptr.unwrap_or(core::mem::zeroed()) as _, prefmaxlen, entriesread.unwrap_or(core::mem::zeroed()) as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetWkstaUserGetInfo<P0>(reserved: P0, level: u32, bufptr: *mut super::LPBYTE) -> u32
+pub unsafe fn NetWkstaUserGetInfo<P0>(reserved: P0, level: super::DWORD, bufptr: *mut super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaUserGetInfo(reserved : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaUserGetInfo(reserved : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
     unsafe { NetWkstaUserGetInfo(reserved.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetWkstaUserSetInfo<P0>(reserved: P0, level: u32, buf: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetWkstaUserSetInfo<P0>(reserved: P0, level: super::DWORD, buf: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetWkstaUserSetInfo(reserved : windows_core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetWkstaUserSetInfo(reserved : windows_core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parm_err : super::LPDWORD) -> super::DWORD);
     unsafe { NetWkstaUserSetInfo(reserved.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_100 = *mut WKSTA_INFO_100;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_101 = *mut WKSTA_INFO_101;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1011 = *mut WKSTA_INFO_1011;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1012 = *mut WKSTA_INFO_1012;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1013 = *mut WKSTA_INFO_1013;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1018 = *mut WKSTA_INFO_1018;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_102 = *mut WKSTA_INFO_102;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1023 = *mut WKSTA_INFO_1023;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1027 = *mut WKSTA_INFO_1027;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1028 = *mut WKSTA_INFO_1028;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1032 = *mut WKSTA_INFO_1032;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1033 = *mut WKSTA_INFO_1033;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1041 = *mut WKSTA_INFO_1041;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1042 = *mut WKSTA_INFO_1042;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1043 = *mut WKSTA_INFO_1043;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1044 = *mut WKSTA_INFO_1044;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1045 = *mut WKSTA_INFO_1045;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1046 = *mut WKSTA_INFO_1046;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1047 = *mut WKSTA_INFO_1047;
 pub type LPWKSTA_INFO_1048 = *mut WKSTA_INFO_1048;
 pub type LPWKSTA_INFO_1049 = *mut WKSTA_INFO_1049;
@@ -98,33 +119,58 @@ pub type LPWKSTA_INFO_1058 = *mut WKSTA_INFO_1058;
 pub type LPWKSTA_INFO_1059 = *mut WKSTA_INFO_1059;
 pub type LPWKSTA_INFO_1060 = *mut WKSTA_INFO_1060;
 pub type LPWKSTA_INFO_1061 = *mut WKSTA_INFO_1061;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_1062 = *mut WKSTA_INFO_1062;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_302 = *mut WKSTA_INFO_302;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_402 = *mut WKSTA_INFO_402;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_INFO_502 = *mut WKSTA_INFO_502;
+#[cfg(feature = "shared")]
 pub type LPWKSTA_TRANSPORT_INFO_0 = *mut WKSTA_TRANSPORT_INFO_0;
 pub type LPWKSTA_USER_INFO_0 = *mut WKSTA_USER_INFO_0;
 pub type LPWKSTA_USER_INFO_1 = *mut WKSTA_USER_INFO_1;
 pub type LPWKSTA_USER_INFO_1101 = *mut WKSTA_USER_INFO_1101;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_100 = *mut WKSTA_INFO_100;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_101 = *mut WKSTA_INFO_101;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1011 = *mut WKSTA_INFO_1011;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1012 = *mut WKSTA_INFO_1012;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1013 = *mut WKSTA_INFO_1013;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1018 = *mut WKSTA_INFO_1018;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_102 = *mut WKSTA_INFO_102;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1023 = *mut WKSTA_INFO_1023;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1027 = *mut WKSTA_INFO_1027;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1028 = *mut WKSTA_INFO_1028;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1032 = *mut WKSTA_INFO_1032;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1033 = *mut WKSTA_INFO_1033;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1041 = *mut WKSTA_INFO_1041;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1042 = *mut WKSTA_INFO_1042;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1043 = *mut WKSTA_INFO_1043;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1044 = *mut WKSTA_INFO_1044;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1045 = *mut WKSTA_INFO_1045;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1046 = *mut WKSTA_INFO_1046;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1047 = *mut WKSTA_INFO_1047;
 pub type PWKSTA_INFO_1048 = *mut WKSTA_INFO_1048;
 pub type PWKSTA_INFO_1049 = *mut WKSTA_INFO_1049;
@@ -140,10 +186,15 @@ pub type PWKSTA_INFO_1058 = *mut WKSTA_INFO_1058;
 pub type PWKSTA_INFO_1059 = *mut WKSTA_INFO_1059;
 pub type PWKSTA_INFO_1060 = *mut WKSTA_INFO_1060;
 pub type PWKSTA_INFO_1061 = *mut WKSTA_INFO_1061;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_1062 = *mut WKSTA_INFO_1062;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_302 = *mut WKSTA_INFO_302;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_402 = *mut WKSTA_INFO_402;
+#[cfg(feature = "shared")]
 pub type PWKSTA_INFO_502 = *mut WKSTA_INFO_502;
+#[cfg(feature = "shared")]
 pub type PWKSTA_TRANSPORT_INFO_0 = *mut WKSTA_TRANSPORT_INFO_0;
 pub type PWKSTA_USER_INFO_0 = *mut WKSTA_USER_INFO_0;
 pub type PWKSTA_USER_INFO_1 = *mut WKSTA_USER_INFO_1;
@@ -162,119 +213,139 @@ pub const WKSTA_DORMANTFILELIMIT_PARMNUM: i32 = 46;
 pub const WKSTA_ERRLOGSZ_PARMNUM: i32 = 27;
 pub const WKSTA_FORCECORECREATEMODE_PARMNUM: i32 = 60;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_100 {
-    pub wki100_platform_id: u32,
+    pub wki100_platform_id: super::DWORD,
     pub wki100_computername: windows_core::PWSTR,
     pub wki100_langroup: windows_core::PWSTR,
-    pub wki100_ver_major: u32,
-    pub wki100_ver_minor: u32,
+    pub wki100_ver_major: super::DWORD,
+    pub wki100_ver_minor: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_101 {
-    pub wki101_platform_id: u32,
+    pub wki101_platform_id: super::DWORD,
     pub wki101_computername: windows_core::PWSTR,
     pub wki101_langroup: windows_core::PWSTR,
-    pub wki101_ver_major: u32,
-    pub wki101_ver_minor: u32,
+    pub wki101_ver_major: super::DWORD,
+    pub wki101_ver_minor: super::DWORD,
     pub wki101_lanroot: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1010 {
-    pub wki1010_char_wait: u32,
+    pub wki1010_char_wait: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1011 {
-    pub wki1011_collection_time: u32,
+    pub wki1011_collection_time: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1012 {
-    pub wki1012_maximum_collection_count: u32,
+    pub wki1012_maximum_collection_count: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1013 {
-    pub wki1013_keep_conn: u32,
+    pub wki1013_keep_conn: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1018 {
-    pub wki1018_sess_timeout: u32,
+    pub wki1018_sess_timeout: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_102 {
-    pub wki102_platform_id: u32,
+    pub wki102_platform_id: super::DWORD,
     pub wki102_computername: windows_core::PWSTR,
     pub wki102_langroup: windows_core::PWSTR,
-    pub wki102_ver_major: u32,
-    pub wki102_ver_minor: u32,
+    pub wki102_ver_major: super::DWORD,
+    pub wki102_ver_minor: super::DWORD,
     pub wki102_lanroot: windows_core::PWSTR,
-    pub wki102_logged_on_users: u32,
+    pub wki102_logged_on_users: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1023 {
-    pub wki1023_siz_char_buf: u32,
+    pub wki1023_siz_char_buf: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1027 {
-    pub wki1027_errlog_sz: u32,
+    pub wki1027_errlog_sz: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1028 {
-    pub wki1028_print_buf_time: u32,
+    pub wki1028_print_buf_time: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1032 {
-    pub wki1032_wrk_heuristics: u32,
+    pub wki1032_wrk_heuristics: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1033 {
-    pub wki1033_max_threads: u32,
+    pub wki1033_max_threads: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1041 {
-    pub wki1041_lock_quota: u32,
+    pub wki1041_lock_quota: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1042 {
-    pub wki1042_lock_increment: u32,
+    pub wki1042_lock_increment: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1043 {
-    pub wki1043_lock_maximum: u32,
+    pub wki1043_lock_maximum: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1044 {
-    pub wki1044_pipe_increment: u32,
+    pub wki1044_pipe_increment: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1045 {
-    pub wki1045_pipe_maximum: u32,
+    pub wki1045_pipe_maximum: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1046 {
-    pub wki1046_dormant_file_limit: u32,
+    pub wki1046_dormant_file_limit: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1047 {
-    pub wki1047_cache_file_timeout: u32,
+    pub wki1047_cache_file_timeout: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -347,82 +418,86 @@ pub struct WKSTA_INFO_1061 {
     pub wki1061_use_512_byte_max_transfer: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1062 {
-    pub wki1062_read_ahead_throughput: u32,
+    pub wki1062_read_ahead_throughput: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_302 {
-    pub wki302_char_wait: u32,
-    pub wki302_collection_time: u32,
-    pub wki302_maximum_collection_count: u32,
-    pub wki302_keep_conn: u32,
-    pub wki302_keep_search: u32,
-    pub wki302_max_cmds: u32,
-    pub wki302_num_work_buf: u32,
-    pub wki302_siz_work_buf: u32,
-    pub wki302_max_wrk_cache: u32,
-    pub wki302_sess_timeout: u32,
-    pub wki302_siz_error: u32,
-    pub wki302_num_alerts: u32,
-    pub wki302_num_services: u32,
-    pub wki302_errlog_sz: u32,
-    pub wki302_print_buf_time: u32,
-    pub wki302_num_char_buf: u32,
-    pub wki302_siz_char_buf: u32,
+    pub wki302_char_wait: super::DWORD,
+    pub wki302_collection_time: super::DWORD,
+    pub wki302_maximum_collection_count: super::DWORD,
+    pub wki302_keep_conn: super::DWORD,
+    pub wki302_keep_search: super::DWORD,
+    pub wki302_max_cmds: super::DWORD,
+    pub wki302_num_work_buf: super::DWORD,
+    pub wki302_siz_work_buf: super::DWORD,
+    pub wki302_max_wrk_cache: super::DWORD,
+    pub wki302_sess_timeout: super::DWORD,
+    pub wki302_siz_error: super::DWORD,
+    pub wki302_num_alerts: super::DWORD,
+    pub wki302_num_services: super::DWORD,
+    pub wki302_errlog_sz: super::DWORD,
+    pub wki302_print_buf_time: super::DWORD,
+    pub wki302_num_char_buf: super::DWORD,
+    pub wki302_siz_char_buf: super::DWORD,
     pub wki302_wrk_heuristics: windows_core::PWSTR,
-    pub wki302_mailslots: u32,
-    pub wki302_num_dgram_buf: u32,
+    pub wki302_mailslots: super::DWORD,
+    pub wki302_num_dgram_buf: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_402 {
-    pub wki402_char_wait: u32,
-    pub wki402_collection_time: u32,
-    pub wki402_maximum_collection_count: u32,
-    pub wki402_keep_conn: u32,
-    pub wki402_keep_search: u32,
-    pub wki402_max_cmds: u32,
-    pub wki402_num_work_buf: u32,
-    pub wki402_siz_work_buf: u32,
-    pub wki402_max_wrk_cache: u32,
-    pub wki402_sess_timeout: u32,
-    pub wki402_siz_error: u32,
-    pub wki402_num_alerts: u32,
-    pub wki402_num_services: u32,
-    pub wki402_errlog_sz: u32,
-    pub wki402_print_buf_time: u32,
-    pub wki402_num_char_buf: u32,
-    pub wki402_siz_char_buf: u32,
+    pub wki402_char_wait: super::DWORD,
+    pub wki402_collection_time: super::DWORD,
+    pub wki402_maximum_collection_count: super::DWORD,
+    pub wki402_keep_conn: super::DWORD,
+    pub wki402_keep_search: super::DWORD,
+    pub wki402_max_cmds: super::DWORD,
+    pub wki402_num_work_buf: super::DWORD,
+    pub wki402_siz_work_buf: super::DWORD,
+    pub wki402_max_wrk_cache: super::DWORD,
+    pub wki402_sess_timeout: super::DWORD,
+    pub wki402_siz_error: super::DWORD,
+    pub wki402_num_alerts: super::DWORD,
+    pub wki402_num_services: super::DWORD,
+    pub wki402_errlog_sz: super::DWORD,
+    pub wki402_print_buf_time: super::DWORD,
+    pub wki402_num_char_buf: super::DWORD,
+    pub wki402_siz_char_buf: super::DWORD,
     pub wki402_wrk_heuristics: windows_core::PWSTR,
-    pub wki402_mailslots: u32,
-    pub wki402_num_dgram_buf: u32,
-    pub wki402_max_threads: u32,
+    pub wki402_mailslots: super::DWORD,
+    pub wki402_num_dgram_buf: super::DWORD,
+    pub wki402_max_threads: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_502 {
-    pub wki502_char_wait: u32,
-    pub wki502_collection_time: u32,
-    pub wki502_maximum_collection_count: u32,
-    pub wki502_keep_conn: u32,
-    pub wki502_max_cmds: u32,
-    pub wki502_sess_timeout: u32,
-    pub wki502_siz_char_buf: u32,
-    pub wki502_max_threads: u32,
-    pub wki502_lock_quota: u32,
-    pub wki502_lock_increment: u32,
-    pub wki502_lock_maximum: u32,
-    pub wki502_pipe_increment: u32,
-    pub wki502_pipe_maximum: u32,
-    pub wki502_cache_file_timeout: u32,
-    pub wki502_dormant_file_limit: u32,
-    pub wki502_read_ahead_throughput: u32,
-    pub wki502_num_mailslot_buffers: u32,
-    pub wki502_num_srv_announce_buffers: u32,
-    pub wki502_max_illegal_datagram_events: u32,
-    pub wki502_illegal_datagram_event_reset_frequency: u32,
+    pub wki502_char_wait: super::DWORD,
+    pub wki502_collection_time: super::DWORD,
+    pub wki502_maximum_collection_count: super::DWORD,
+    pub wki502_keep_conn: super::DWORD,
+    pub wki502_max_cmds: super::DWORD,
+    pub wki502_sess_timeout: super::DWORD,
+    pub wki502_siz_char_buf: super::DWORD,
+    pub wki502_max_threads: super::DWORD,
+    pub wki502_lock_quota: super::DWORD,
+    pub wki502_lock_increment: super::DWORD,
+    pub wki502_lock_maximum: super::DWORD,
+    pub wki502_pipe_increment: super::DWORD,
+    pub wki502_pipe_maximum: super::DWORD,
+    pub wki502_cache_file_timeout: super::DWORD,
+    pub wki502_dormant_file_limit: super::DWORD,
+    pub wki502_read_ahead_throughput: super::DWORD,
+    pub wki502_num_mailslot_buffers: super::DWORD,
+    pub wki502_num_srv_announce_buffers: super::DWORD,
+    pub wki502_max_illegal_datagram_events: super::DWORD,
+    pub wki502_illegal_datagram_event_reset_frequency: super::DWORD,
     pub wki502_log_election_packets: windows_core::BOOL,
     pub wki502_use_opportunistic_locking: windows_core::BOOL,
     pub wki502_use_unlock_behind: windows_core::BOOL,
@@ -469,10 +544,11 @@ pub const WKSTA_SIZCHARBUF_PARMNUM: i32 = 23;
 pub const WKSTA_SIZERROR_PARMNUM: i32 = 19;
 pub const WKSTA_SIZWORKBUF_PARMNUM: i32 = 29;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_TRANSPORT_INFO_0 {
-    pub wkti0_quality_of_service: u32,
-    pub wkti0_number_of_vcs: u32,
+    pub wkti0_quality_of_service: super::DWORD,
+    pub wkti0_number_of_vcs: super::DWORD,
     pub wkti0_transport_name: windows_core::PWSTR,
     pub wkti0_transport_address: windows_core::PWSTR,
     pub wkti0_wan_ish: windows_core::BOOL,

@@ -1,11 +1,11 @@
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServiceControl(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, opcode : u32, arg : u32, bufptr : *mut super::LPBYTE) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServiceEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServiceGetInfo(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, argc : u32, argv : *const windows_sys::core::PCWSTR, bufptr : *mut super::LPBYTE) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetServiceControl(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, opcode : super::DWORD, arg : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetServiceEnum(servername : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetServiceGetInfo(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_sys::core::PCWSTR, service : windows_sys::core::PCWSTR, argc : super::DWORD, argv : *const windows_sys::core::PCWSTR, bufptr : *mut super::LPBYTE) -> super::DWORD);
 pub const LM20_SERVICE_ACTIVE: i32 = 0;
 pub const LM20_SERVICE_CONTINUE_PENDING: i32 = 4;
 pub const LM20_SERVICE_PAUSED: i32 = 12;
@@ -13,10 +13,14 @@ pub const LM20_SERVICE_PAUSE_PENDING: i32 = 8;
 pub const LOWER_GET_HINT_MASK: i32 = 65280;
 pub const LOWER_HINT_MASK: i32 = 255;
 pub type LPSERVICE_INFO_0 = *mut SERVICE_INFO_0;
+#[cfg(feature = "shared")]
 pub type LPSERVICE_INFO_1 = *mut SERVICE_INFO_1;
+#[cfg(feature = "shared")]
 pub type LPSERVICE_INFO_2 = *mut SERVICE_INFO_2;
 pub type PSERVICE_INFO_0 = *mut SERVICE_INFO_0;
+#[cfg(feature = "shared")]
 pub type PSERVICE_INFO_1 = *mut SERVICE_INFO_1;
+#[cfg(feature = "shared")]
 pub type PSERVICE_INFO_2 = *mut SERVICE_INFO_2;
 pub const SERVICE2_BASE: i32 = 5600;
 pub const SERVICE_BASE: i32 = 3050;
@@ -38,22 +42,24 @@ pub struct SERVICE_INFO_0 {
     pub svci0_name: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SERVICE_INFO_1 {
     pub svci1_name: windows_sys::core::PWSTR,
-    pub svci1_status: u32,
-    pub svci1_code: u32,
-    pub svci1_pid: u32,
+    pub svci1_status: super::DWORD,
+    pub svci1_code: super::DWORD,
+    pub svci1_pid: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SERVICE_INFO_2 {
     pub svci2_name: windows_sys::core::PWSTR,
-    pub svci2_status: u32,
-    pub svci2_code: u32,
-    pub svci2_pid: u32,
+    pub svci2_status: super::DWORD,
+    pub svci2_code: super::DWORD,
+    pub svci2_pid: super::DWORD,
     pub svci2_text: windows_sys::core::PWSTR,
-    pub svci2_specific_error: u32,
+    pub svci2_specific_error: super::DWORD,
     pub svci2_display_name: windows_sys::core::PWSTR,
 }
 pub const SERVICE_INSTALLED: i32 = 3;

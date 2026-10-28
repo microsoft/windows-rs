@@ -346,21 +346,26 @@ bindings in three stages:
 
 | Stage | Implementation | Output |
 | --- | --- | --- |
-| Headers -> RDL | `windows_clang::clang()` | `target/webview/WebView2.rdl` |
+| Headers -> RDL | `windows_clang` | `target/webview/WebView2.rdl` |
 | RDL -> winmd | `windows_rdl::reader()` | `target/webview/WebView2.winmd` |
 | winmd -> Rust | `windows_bindgen` | `crates/libs/webview/src/bindings.rs` |
 
 The tool downloads the pinned `Microsoft.Web.WebView2` NuGet package. It parses `WebView2.h` and
 `WebView2Interop.h` as separate inputs because the collector emits declarations owned by each
-input, then merges both translation units. It uses `Windows.Win32.winmd` for referenced Win32
-types and targets `x86_64-pc-windows-msvc` with Microsoft extensions. Regenerate with
+input, then merges both translation units. It uses `Windows.Win32.winmd` and `Windows.winmd` for
+referenced types and captures x86, x64, and ARM64 with Microsoft extensions. Regenerate with
 `cargo run -p tool-webview`; never edit `src/bindings.rs`.
 
+Referenced COM typedefs name interfaces rather than by-value objects. Their rejection would prune
+dependent WebView interfaces and loader functions. The generator requires all five loader imports
+before emitting bindings and records other omissions in `target/webview/omissions.txt`.
+
 Bindings use `--flat --minimal` and the filter in `crates/tools/webview/src/webview.txt`. Filter
-method names are raw metadata names such as `put_Bounds` and `get_CoreWebView2`, not projected
-names. Implemented interfaces belong in `--implement`, without method filters. The `--dead-code`
-option keeps interface methods crate-private. The small Win32 filter supplies COM string allocation
-and memory-stream support without a dependency on the full `windows` crate.
+entries and wrapper calls use native names such as `put_Bounds` and `get_CoreWebView2`; the public
+Rust wrapper keeps its snake-case API. Implemented interfaces belong in `--implement`, without
+method filters. The `--dead-code` option keeps interface methods crate-private. The small Win32 filter
+supplies COM string allocation and memory-stream support without a dependency on the full `windows`
+crate.
 
 ### Wrapper implementation
 
@@ -373,9 +378,10 @@ All WebView2 completion operations use the same callback contract. Their public 
 immediate initiation failures and retain one-shot handlers for native completion. No operation
 owns or nests the host's message loop.
 
-Event adapters convert COM add/remove tokens into `EventRegistration`. Resource interception also
-removes its request filter when the registration drops. `protocol.rs` converts response bytes to
-an `IStream` with `SHCreateMemStream`, keeping streams out of the public API.
+Event adapters retain the native `EventRegistrationToken` struct in the `EventRegistration` removal
+callback. Resource interception also removes its request filter when the registration drops.
+`protocol.rs` converts response bytes to an `IStream` with `SHCreateMemStream`, keeping streams out of
+the public API.
 
 `string.rs` handles borrowed UTF-16 input, borrowed WebView2 callback strings, owned `LPWSTR`
 results that must be freed with `CoTaskMemFree`, and task-allocator output strings returned by
