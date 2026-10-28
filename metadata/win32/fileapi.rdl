@@ -4,221 +4,228 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn AreFileApisANSI() -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn AreShortNamesEnabled(Handle: HANDLE, Enabled: *mut BOOL) -> BOOL;
+        extern fn AreShortNamesEnabled(#[in] Handle: HANDLE, #[out] Enabled: *mut BOOL) -> BOOL;
         struct BY_HANDLE_FILE_INFORMATION {
-            dwFileAttributes: u32,
+            dwFileAttributes: DWORD,
             ftCreationTime: FILETIME,
             ftLastAccessTime: FILETIME,
             ftLastWriteTime: FILETIME,
-            dwVolumeSerialNumber: u32,
-            nFileSizeHigh: u32,
-            nFileSizeLow: u32,
-            nNumberOfLinks: u32,
-            nFileIndexHigh: u32,
-            nFileIndexLow: u32,
+            dwVolumeSerialNumber: DWORD,
+            nFileSizeHigh: DWORD,
+            nFileSizeLow: DWORD,
+            nNumberOfLinks: DWORD,
+            nFileIndexHigh: DWORD,
+            nFileIndexLow: DWORD,
         }
         struct CREATEFILE2_EXTENDED_PARAMETERS {
-            dwSize: u32,
-            dwFileAttributes: u32,
-            dwFileFlags: u32,
-            dwSecurityQosFlags: u32,
+            dwSize: DWORD,
+            dwFileAttributes: DWORD,
+            dwFileFlags: DWORD,
+            dwSecurityQosFlags: DWORD,
             lpSecurityAttributes: LPSECURITY_ATTRIBUTES,
             hTemplateFile: HANDLE,
         }
         struct CREATEFILE3_EXTENDED_PARAMETERS {
-            dwSize: u32,
-            dwFileAttributes: u32,
-            dwFileFlags: u32,
-            dwSecurityQosFlags: u32,
+            dwSize: DWORD,
+            dwFileAttributes: DWORD,
+            dwFileFlags: DWORD,
+            dwSecurityQosFlags: DWORD,
             lpSecurityAttributes: LPSECURITY_ATTRIBUTES,
             hTemplateFile: HANDLE,
         }
         const CREATE_ALWAYS: i32 = 2;
         const CREATE_NEW: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn CompareFileTime(lpFileTime1: *const FILETIME, lpFileTime2: *const FILETIME) -> i32;
+        extern fn CompareFileTime(#[in] lpFileTime1: *const FILETIME, #[in] lpFileTime2: *const FILETIME) -> LONG;
         #[library("KERNEL32.dll")]
-        extern fn CreateDirectory2A(lpPathName: PCSTR, dwDesiredAccess: u32, dwShareMode: u32, DirectoryFlags: DIRECTORY_FLAGS, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> HANDLE;
+        extern fn CreateDirectory2A(#[in] #[null_terminated(entry)] lpPathName: LPCSTR, #[in] dwDesiredAccess: DWORD, #[in] dwShareMode: DWORD, #[in] DirectoryFlags: DIRECTORY_FLAGS, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateDirectory2W(lpPathName: PCWSTR, dwDesiredAccess: u32, dwShareMode: u32, DirectoryFlags: DIRECTORY_FLAGS, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> HANDLE;
+        extern fn CreateDirectory2W(#[in] #[null_terminated(entry)] lpPathName: LPCWSTR, #[in] dwDesiredAccess: DWORD, #[in] dwShareMode: DWORD, #[in] DirectoryFlags: DIRECTORY_FLAGS, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateDirectoryA(lpPathName: PCSTR, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> BOOL;
+        extern fn CreateDirectoryA(#[in] lpPathName: LPCSTR, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateDirectoryW(lpPathName: PCWSTR, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> BOOL;
+        extern fn CreateDirectoryW(#[in] lpPathName: LPCWSTR, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateFile2(lpFileName: PCWSTR, dwDesiredAccess: u32, dwShareMode: u32, dwCreationDisposition: u32, #[opt] pCreateExParams: LPCREATEFILE2_EXTENDED_PARAMETERS) -> HANDLE;
+        extern fn CreateFile2(#[in] lpFileName: LPCWSTR, #[in] dwDesiredAccess: DWORD, #[in] dwShareMode: DWORD, #[in] dwCreationDisposition: DWORD, #[in] #[opt] pCreateExParams: LPCREATEFILE2_EXTENDED_PARAMETERS) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateFile3(lpFileName: PCWSTR, dwDesiredAccess: u32, dwShareMode: u32, dwCreationDisposition: u32, #[opt] pCreateExParams: LPCREATEFILE3_EXTENDED_PARAMETERS) -> HANDLE;
+        extern fn CreateFile3(#[in] #[null_terminated(entry)] lpFileName: LPCWSTR, #[in] dwDesiredAccess: DWORD, #[in] dwShareMode: DWORD, #[in] dwCreationDisposition: DWORD, #[in] #[opt] pCreateExParams: LPCREATEFILE3_EXTENDED_PARAMETERS) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateFileA(lpFileName: PCSTR, dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, dwCreationDisposition: u32, dwFlagsAndAttributes: u32, #[opt] hTemplateFile: HANDLE) -> HANDLE;
+        extern fn CreateFileA(#[in] lpFileName: LPCSTR, #[in] dwDesiredAccess: DWORD, #[in] dwShareMode: DWORD, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[in] dwCreationDisposition: DWORD, #[in] dwFlagsAndAttributes: DWORD, #[in] #[opt] hTemplateFile: HANDLE) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateFileW(lpFileName: PCWSTR, dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, dwCreationDisposition: u32, dwFlagsAndAttributes: u32, #[opt] hTemplateFile: HANDLE) -> HANDLE;
-        #[repr(u32)]
+        extern fn CreateFileW(#[in] lpFileName: LPCWSTR, #[in] dwDesiredAccess: DWORD, #[in] dwShareMode: DWORD, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[in] dwCreationDisposition: DWORD, #[in] dwFlagsAndAttributes: DWORD, #[in] #[opt] hTemplateFile: HANDLE) -> HANDLE;
         #[flags]
+        #[repr(i32)]
         enum DIRECTORY_FLAGS {
             DIRECTORY_FLAGS_NONE = 0,
             DIRECTORY_FLAGS_DISALLOW_PATH_REDIRECTS = 1,
         }
         struct DISK_SPACE_INFORMATION {
-            ActualTotalAllocationUnits: u64,
-            ActualAvailableAllocationUnits: u64,
-            ActualPoolUnavailableAllocationUnits: u64,
-            CallerTotalAllocationUnits: u64,
-            CallerAvailableAllocationUnits: u64,
-            CallerPoolUnavailableAllocationUnits: u64,
-            UsedAllocationUnits: u64,
-            TotalReservedAllocationUnits: u64,
-            VolumeStorageReserveAllocationUnits: u64,
-            AvailableCommittedAllocationUnits: u64,
-            PoolAvailableAllocationUnits: u64,
-            SectorsPerAllocationUnit: u32,
-            BytesPerSector: u32,
+            ActualTotalAllocationUnits: ULONGLONG,
+            ActualAvailableAllocationUnits: ULONGLONG,
+            ActualPoolUnavailableAllocationUnits: ULONGLONG,
+            CallerTotalAllocationUnits: ULONGLONG,
+            CallerAvailableAllocationUnits: ULONGLONG,
+            CallerPoolUnavailableAllocationUnits: ULONGLONG,
+            UsedAllocationUnits: ULONGLONG,
+            TotalReservedAllocationUnits: ULONGLONG,
+            VolumeStorageReserveAllocationUnits: ULONGLONG,
+            AvailableCommittedAllocationUnits: ULONGLONG,
+            PoolAvailableAllocationUnits: ULONGLONG,
+            SectorsPerAllocationUnit: DWORD,
+            BytesPerSector: DWORD,
         }
         #[library("KERNEL32.dll")]
-        extern fn DefineDosDeviceW(dwFlags: u32, lpDeviceName: PCWSTR, #[opt] lpTargetPath: PCWSTR) -> BOOL;
+        extern fn DefineDosDeviceW(#[in] dwFlags: DWORD, #[in] lpDeviceName: LPCWSTR, #[in] #[opt] lpTargetPath: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteFile2A(lpFileName: PCSTR, Flags: u32) -> BOOL;
+        extern fn DeleteFile2A(#[in] #[null_terminated(entry)] lpFileName: LPCSTR, #[in] Flags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteFile2W(lpFileName: PCWSTR, Flags: u32) -> BOOL;
+        extern fn DeleteFile2W(#[in] #[null_terminated(entry)] lpFileName: LPCWSTR, #[in] Flags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteFileA(lpFileName: PCSTR) -> BOOL;
+        extern fn DeleteFileA(#[in] lpFileName: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteFileW(lpFileName: PCWSTR) -> BOOL;
+        extern fn DeleteFileW(#[in] lpFileName: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteVolumeMountPointW(lpszVolumeMountPoint: PCWSTR) -> BOOL;
+        extern fn DeleteVolumeMountPointW(#[in] lpszVolumeMountPoint: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FileTimeToLocalFileTime(lpFileTime: *const FILETIME, #[out] lpLocalFileTime: LPFILETIME) -> BOOL;
+        extern fn FileTimeToLocalFileTime(#[in] lpFileTime: *const FILETIME, #[out] lpLocalFileTime: LPFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn FindClose(#[in] #[out] hFindFile: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindCloseChangeNotification(hChangeHandle: HANDLE) -> BOOL;
+        extern fn FindCloseChangeNotification(#[in] hChangeHandle: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstChangeNotificationA(lpPathName: PCSTR, bWatchSubtree: BOOL, dwNotifyFilter: u32) -> HANDLE;
+        extern fn FindFirstChangeNotificationA(#[in] lpPathName: LPCSTR, #[in] bWatchSubtree: BOOL, #[in] dwNotifyFilter: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstChangeNotificationW(lpPathName: PCWSTR, bWatchSubtree: BOOL, dwNotifyFilter: u32) -> HANDLE;
+        extern fn FindFirstChangeNotificationW(#[in] lpPathName: LPCWSTR, #[in] bWatchSubtree: BOOL, #[in] dwNotifyFilter: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstFileA(lpFileName: PCSTR, #[out] lpFindFileData: LPWIN32_FIND_DATAA) -> HANDLE;
+        extern fn FindFirstFileA(#[in] lpFileName: LPCSTR, #[out] lpFindFileData: LPWIN32_FIND_DATAA) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstFileExA(lpFileName: PCSTR, fInfoLevelId: FINDEX_INFO_LEVELS, lpFindFileData: *mut void, fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: *mut void, dwAdditionalFlags: u32) -> HANDLE;
+        extern fn FindFirstFileExA(#[in] lpFileName: LPCSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_DATAA)", "sizeof(WIN32_FIND_DATAA)")] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstFileExW(lpFileName: PCWSTR, fInfoLevelId: FINDEX_INFO_LEVELS, lpFindFileData: *mut void, fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: *mut void, dwAdditionalFlags: u32) -> HANDLE;
+        extern fn FindFirstFileExW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: FINDEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_DATAW)", "sizeof(WIN32_FIND_DATAW)")] #[out] lpFindFileData: LPVOID, #[in] fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: LPVOID, #[in] dwAdditionalFlags: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstFileNameW(lpFileName: PCWSTR, dwFlags: u32, #[in] #[out] StringLength: LPDWORD, #[len_param(2)] #[out] LinkName: PWSTR) -> HANDLE;
+        extern fn FindFirstFileNameW(#[in] lpFileName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[out] StringLength: LPDWORD, #[out] #[writable(entry, *StringLength)] LinkName: PWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstFileW(lpFileName: PCWSTR, #[out] lpFindFileData: LPWIN32_FIND_DATAW) -> HANDLE;
+        extern fn FindFirstFileW(#[in] lpFileName: LPCWSTR, #[out] lpFindFileData: LPWIN32_FIND_DATAW) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstStreamW(lpFileName: PCWSTR, InfoLevel: STREAM_INFO_LEVELS, lpFindStreamData: *mut void, #[reserved] dwFlags: u32) -> HANDLE;
+        extern fn FindFirstStreamW(#[in] lpFileName: LPCWSTR, #[in] InfoLevel: STREAM_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_STREAM_DATA)", "sizeof(WIN32_FIND_STREAM_DATA)")] #[out] lpFindStreamData: LPVOID, #[reserved] dwFlags: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindFirstVolumeW(#[len_param(1)] #[out] lpszVolumeName: PWSTR, cchBufferLength: u32) -> HANDLE;
+        extern fn FindFirstVolumeW(#[out] #[writable(entry, cchBufferLength)] lpszVolumeName: LPWSTR, #[in] cchBufferLength: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FindNextChangeNotification(hChangeHandle: HANDLE) -> BOOL;
+        extern fn FindNextChangeNotification(#[in] hChangeHandle: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindNextFileA(hFindFile: HANDLE, #[out] lpFindFileData: LPWIN32_FIND_DATAA) -> BOOL;
+        extern fn FindNextFileA(#[in] hFindFile: HANDLE, #[out] lpFindFileData: LPWIN32_FIND_DATAA) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindNextFileNameW(hFindStream: HANDLE, #[in] #[out] StringLength: LPDWORD, #[len_param(1)] #[out] LinkName: PWSTR) -> BOOL;
+        extern fn FindNextFileNameW(#[in] hFindStream: HANDLE, #[in] #[out] StringLength: LPDWORD, #[out] #[writable(entry, *StringLength)] LinkName: PWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindNextFileW(hFindFile: HANDLE, #[out] lpFindFileData: LPWIN32_FIND_DATAW) -> BOOL;
+        extern fn FindNextFileW(#[in] hFindFile: HANDLE, #[out] lpFindFileData: LPWIN32_FIND_DATAW) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindNextStreamW(hFindStream: HANDLE, lpFindStreamData: *mut void) -> BOOL;
+        extern fn FindNextStreamW(#[in] hFindStream: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FIND_STREAM_DATA)", "sizeof(WIN32_FIND_STREAM_DATA)")] #[out] lpFindStreamData: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindNextVolumeW(#[in] #[out] hFindVolume: HANDLE, #[len_param(2)] #[out] lpszVolumeName: PWSTR, cchBufferLength: u32) -> BOOL;
+        extern fn FindNextVolumeW(#[in] #[out] hFindVolume: HANDLE, #[out] #[writable(entry, cchBufferLength)] lpszVolumeName: LPWSTR, #[in] cchBufferLength: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FindVolumeClose(hFindVolume: HANDLE) -> BOOL;
+        extern fn FindVolumeClose(#[in] hFindVolume: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FlushFileBuffers(hFile: HANDLE) -> BOOL;
+        extern fn FlushFileBuffers(#[in] hFile: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCompressedFileSizeA(lpFileName: PCSTR, #[out] #[opt] lpFileSizeHigh: LPDWORD) -> u32;
+        extern fn GetCompressedFileSizeA(#[in] lpFileName: LPCSTR, #[opt] #[out] lpFileSizeHigh: LPDWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetCompressedFileSizeW(lpFileName: PCWSTR, #[out] #[opt] lpFileSizeHigh: LPDWORD) -> u32;
+        extern fn GetCompressedFileSizeW(#[in] lpFileName: LPCWSTR, #[opt] #[out] lpFileSizeHigh: LPDWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskFreeSpaceA(#[opt] lpRootPathName: PCSTR, #[out] #[opt] lpSectorsPerCluster: LPDWORD, #[out] #[opt] lpBytesPerSector: LPDWORD, #[out] #[opt] lpNumberOfFreeClusters: LPDWORD, #[out] #[opt] lpTotalNumberOfClusters: LPDWORD) -> BOOL;
+        extern fn GetDiskFreeSpaceA(#[in] #[opt] lpRootPathName: LPCSTR, #[opt] #[out] lpSectorsPerCluster: LPDWORD, #[opt] #[out] lpBytesPerSector: LPDWORD, #[opt] #[out] lpNumberOfFreeClusters: LPDWORD, #[opt] #[out] lpTotalNumberOfClusters: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskFreeSpaceExA(#[opt] lpDirectoryName: PCSTR, #[out] #[opt] lpFreeBytesAvailableToCaller: PULARGE_INTEGER, #[out] #[opt] lpTotalNumberOfBytes: PULARGE_INTEGER, #[out] #[opt] lpTotalNumberOfFreeBytes: PULARGE_INTEGER) -> BOOL;
+        extern fn GetDiskFreeSpaceExA(#[in] #[opt] lpDirectoryName: LPCSTR, #[opt] #[out] lpFreeBytesAvailableToCaller: PULARGE_INTEGER, #[opt] #[out] lpTotalNumberOfBytes: PULARGE_INTEGER, #[opt] #[out] lpTotalNumberOfFreeBytes: PULARGE_INTEGER) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskFreeSpaceExW(#[opt] lpDirectoryName: PCWSTR, #[out] #[opt] lpFreeBytesAvailableToCaller: PULARGE_INTEGER, #[out] #[opt] lpTotalNumberOfBytes: PULARGE_INTEGER, #[out] #[opt] lpTotalNumberOfFreeBytes: PULARGE_INTEGER) -> BOOL;
+        extern fn GetDiskFreeSpaceExW(#[in] #[opt] lpDirectoryName: LPCWSTR, #[opt] #[out] lpFreeBytesAvailableToCaller: PULARGE_INTEGER, #[opt] #[out] lpTotalNumberOfBytes: PULARGE_INTEGER, #[opt] #[out] lpTotalNumberOfFreeBytes: PULARGE_INTEGER) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskFreeSpaceW(#[opt] lpRootPathName: PCWSTR, #[out] #[opt] lpSectorsPerCluster: LPDWORD, #[out] #[opt] lpBytesPerSector: LPDWORD, #[out] #[opt] lpNumberOfFreeClusters: LPDWORD, #[out] #[opt] lpTotalNumberOfClusters: LPDWORD) -> BOOL;
+        extern fn GetDiskFreeSpaceW(#[in] #[opt] lpRootPathName: LPCWSTR, #[opt] #[out] lpSectorsPerCluster: LPDWORD, #[opt] #[out] lpBytesPerSector: LPDWORD, #[opt] #[out] lpNumberOfFreeClusters: LPDWORD, #[opt] #[out] lpTotalNumberOfClusters: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskSpaceInformationA(#[opt] rootPath: PCSTR, diskSpaceInfo: *mut DISK_SPACE_INFORMATION) -> HRESULT;
+        extern fn GetDiskSpaceInformationA(#[in] #[opt] rootPath: LPCSTR, #[out] diskSpaceInfo: *mut DISK_SPACE_INFORMATION) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskSpaceInformationW(#[opt] rootPath: PCWSTR, diskSpaceInfo: *mut DISK_SPACE_INFORMATION) -> HRESULT;
+        extern fn GetDiskSpaceInformationW(#[in] #[opt] rootPath: LPCWSTR, #[out] diskSpaceInfo: *mut DISK_SPACE_INFORMATION) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetDriveTypeA(#[opt] lpRootPathName: PCSTR) -> u32;
+        extern fn GetDriveTypeA(#[in] #[opt] lpRootPathName: LPCSTR) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GetDriveTypeW(#[opt] lpRootPathName: PCWSTR) -> u32;
+        extern fn GetDriveTypeW(#[in] #[opt] lpRootPathName: LPCWSTR) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GetFileAttributesA(lpFileName: PCSTR) -> u32;
+        extern fn GetFileAttributesA(#[in] lpFileName: LPCSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFileAttributesExA(lpFileName: PCSTR, fInfoLevelId: GET_FILEEX_INFO_LEVELS, lpFileInformation: *mut void) -> BOOL;
+        extern fn GetFileAttributesExA(#[in] lpFileName: LPCSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)")] #[out] lpFileInformation: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileAttributesExW(lpFileName: PCWSTR, fInfoLevelId: GET_FILEEX_INFO_LEVELS, lpFileInformation: *mut void) -> BOOL;
+        extern fn GetFileAttributesExW(#[in] lpFileName: LPCWSTR, #[in] fInfoLevelId: GET_FILEEX_INFO_LEVELS, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)", "sizeof(WIN32_FILE_ATTRIBUTE_DATA)")] #[out] lpFileInformation: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileAttributesW(lpFileName: PCWSTR) -> u32;
+        extern fn GetFileAttributesW(#[in] lpFileName: LPCWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFileInformationByHandle(hFile: HANDLE, #[out] lpFileInformation: LPBY_HANDLE_FILE_INFORMATION) -> BOOL;
+        extern fn GetFileInformationByHandle(#[in] hFile: HANDLE, #[out] lpFileInformation: LPBY_HANDLE_FILE_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileSize(hFile: HANDLE, #[out] #[opt] lpFileSizeHigh: LPDWORD) -> u32;
+        extern fn GetFileSize(#[in] hFile: HANDLE, #[opt] #[out] lpFileSizeHigh: LPDWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFileSizeEx(hFile: HANDLE, #[out] lpFileSize: PLARGE_INTEGER) -> BOOL;
+        extern fn GetFileSizeEx(#[in] hFile: HANDLE, #[out] lpFileSize: PLARGE_INTEGER) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileTime(hFile: HANDLE, #[out] #[opt] lpCreationTime: LPFILETIME, #[out] #[opt] lpLastAccessTime: LPFILETIME, #[out] #[opt] lpLastWriteTime: LPFILETIME) -> BOOL;
+        extern fn GetFileTime(#[in] hFile: HANDLE, #[opt] #[out] lpCreationTime: LPFILETIME, #[opt] #[out] lpLastAccessTime: LPFILETIME, #[opt] #[out] lpLastWriteTime: LPFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileType(hFile: HANDLE) -> u32;
+        extern fn GetFileType(#[in] hFile: HANDLE) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFinalPathNameByHandleA(hFile: HANDLE, #[len_param(2)] #[out] lpszFilePath: PSTR, cchFilePath: u32, dwFlags: u32) -> u32;
+        extern fn GetFinalPathNameByHandleA(#[in] hFile: HANDLE, #[out] #[writable(entry, cchFilePath)] lpszFilePath: LPSTR, #[in] cchFilePath: DWORD, #[in] dwFlags: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetFinalPathNameByHandleW(hFile: HANDLE, #[len_param(2)] #[out] lpszFilePath: PWSTR, cchFilePath: u32, dwFlags: u32) -> u32;
+        extern fn GetFinalPathNameByHandleW(#[in] hFile: HANDLE, #[out] #[writable(entry, cchFilePath)] lpszFilePath: LPWSTR, #[in] cchFilePath: DWORD, #[in] dwFlags: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameA(lpFileName: PCSTR, nBufferLength: u32, #[len_param(1)] #[out] #[opt] lpBuffer: PSTR, lpFilePart: *mut PSTR) -> u32;
+        extern fn GetFullPathNameA(#[in] lpFileName: LPCSTR, #[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetFullPathNameW(lpFileName: PCWSTR, nBufferLength: u32, #[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, lpFilePart: *mut PWSTR) -> u32;
+        extern fn GetFullPathNameW(#[in] lpFileName: LPCWSTR, #[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR, #[opt] #[out] #[out_ptr] lpFilePart: *mut LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetLogicalDriveStringsW(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PWSTR) -> u32;
+        extern fn GetLogicalDriveStringsW(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetLogicalDrives() -> u32;
+        extern fn GetLogicalDrives() -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < cchBuffer", "return != 0 && return < cchBuffer")]
         #[library("KERNEL32.dll")]
-        extern fn GetLongPathNameA(lpszShortPath: PCSTR, #[len_param(2)] #[out] #[opt] lpszLongPath: PSTR, cchBuffer: u32) -> u32;
+        extern fn GetLongPathNameA(#[in] lpszShortPath: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchBuffer,return + 1", "cchBuffer,return + 1")] #[opt] #[out] #[writable(entry, cchBuffer)] lpszLongPath: LPSTR, #[in] cchBuffer: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < cchBuffer", "return != 0 && return < cchBuffer")]
         #[library("KERNEL32.dll")]
-        extern fn GetLongPathNameW(lpszShortPath: PCWSTR, #[len_param(2)] #[out] #[opt] lpszLongPath: PWSTR, cchBuffer: u32) -> u32;
+        extern fn GetLongPathNameW(#[in] lpszShortPath: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchBuffer,return + 1", "cchBuffer,return + 1")] #[opt] #[out] #[writable(entry, cchBuffer)] lpszLongPath: LPWSTR, #[in] cchBuffer: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < cchBuffer", "return != 0 && return < cchBuffer")]
         #[library("KERNEL32.dll")]
-        extern fn GetShortPathNameW(lpszLongPath: PCWSTR, #[len_param(2)] #[out] #[opt] lpszShortPath: PWSTR, cchBuffer: u32) -> u32;
+        extern fn GetShortPathNameW(#[in] lpszLongPath: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchBuffer,return + 1", "cchBuffer,return + 1")] #[opt] #[out] #[writable(entry, cchBuffer)] lpszShortPath: LPWSTR, #[in] cchBuffer: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetTempFileNameA(lpPathName: PCSTR, lpPrefixString: PCSTR, uUnique: u32, #[out] lpTempFileName: PSTR) -> u32;
+        extern fn GetTempFileNameA(#[in] lpPathName: LPCSTR, #[in] lpPrefixString: LPCSTR, #[in] uUnique: UINT, #[out] #[writable(entry, 260)] lpTempFileName: LPSTR) -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GetTempFileNameW(lpPathName: PCWSTR, lpPrefixString: PCWSTR, uUnique: u32, #[out] lpTempFileName: PWSTR) -> u32;
+        extern fn GetTempFileNameW(#[in] lpPathName: LPCWSTR, #[in] lpPrefixString: LPCWSTR, #[in] uUnique: UINT, #[out] #[writable(entry, 260)] lpTempFileName: LPWSTR) -> UINT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 0 && return < BufferLength", "return > 0 && return < BufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetTempPath2A(BufferLength: u32, #[len_param(0)] #[out] #[opt] Buffer: PSTR) -> u32;
+        extern fn GetTempPath2A(#[in] BufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "BufferLength,return + 1", "BufferLength,return + 1")] #[opt] #[out] #[writable(entry, BufferLength)] Buffer: LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 0 && return < BufferLength", "return > 0 && return < BufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetTempPath2W(BufferLength: u32, #[len_param(0)] #[out] #[opt] Buffer: PWSTR) -> u32;
+        extern fn GetTempPath2W(#[in] BufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "BufferLength,return + 1", "BufferLength,return + 1")] #[opt] #[out] #[writable(entry, BufferLength)] Buffer: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetTempPathA(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PSTR) -> u32;
+        extern fn GetTempPathA(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetTempPathW(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PWSTR) -> u32;
+        extern fn GetTempPathW(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[opt] #[out] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetVolumeInformationA(#[opt] lpRootPathName: PCSTR, #[len_param(2)] #[out] #[opt] lpVolumeNameBuffer: PSTR, nVolumeNameSize: u32, #[out] #[opt] lpVolumeSerialNumber: LPDWORD, #[out] #[opt] lpMaximumComponentLength: LPDWORD, #[out] #[opt] lpFileSystemFlags: LPDWORD, #[len_param(7)] #[out] #[opt] lpFileSystemNameBuffer: PSTR, nFileSystemNameSize: u32) -> BOOL;
+        extern fn GetVolumeInformationA(#[in] #[opt] lpRootPathName: LPCSTR, #[opt] #[out] #[writable(entry, nVolumeNameSize)] lpVolumeNameBuffer: LPSTR, #[in] nVolumeNameSize: DWORD, #[opt] #[out] lpVolumeSerialNumber: LPDWORD, #[opt] #[out] lpMaximumComponentLength: LPDWORD, #[opt] #[out] lpFileSystemFlags: LPDWORD, #[opt] #[out] #[writable(entry, nFileSystemNameSize)] lpFileSystemNameBuffer: LPSTR, #[in] nFileSystemNameSize: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetVolumeInformationByHandleW(hFile: HANDLE, #[len_param(2)] #[out] #[opt] lpVolumeNameBuffer: PWSTR, nVolumeNameSize: u32, #[out] #[opt] lpVolumeSerialNumber: LPDWORD, #[out] #[opt] lpMaximumComponentLength: LPDWORD, #[out] #[opt] lpFileSystemFlags: LPDWORD, #[len_param(7)] #[out] #[opt] lpFileSystemNameBuffer: PWSTR, nFileSystemNameSize: u32) -> BOOL;
+        extern fn GetVolumeInformationByHandleW(#[in] hFile: HANDLE, #[opt] #[out] #[writable(entry, nVolumeNameSize)] lpVolumeNameBuffer: LPWSTR, #[in] nVolumeNameSize: DWORD, #[opt] #[out] lpVolumeSerialNumber: LPDWORD, #[opt] #[out] lpMaximumComponentLength: LPDWORD, #[opt] #[out] lpFileSystemFlags: LPDWORD, #[opt] #[out] #[writable(entry, nFileSystemNameSize)] lpFileSystemNameBuffer: LPWSTR, #[in] nFileSystemNameSize: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetVolumeInformationW(#[opt] lpRootPathName: PCWSTR, #[len_param(2)] #[out] #[opt] lpVolumeNameBuffer: PWSTR, nVolumeNameSize: u32, #[out] #[opt] lpVolumeSerialNumber: LPDWORD, #[out] #[opt] lpMaximumComponentLength: LPDWORD, #[out] #[opt] lpFileSystemFlags: LPDWORD, #[len_param(7)] #[out] #[opt] lpFileSystemNameBuffer: PWSTR, nFileSystemNameSize: u32) -> BOOL;
+        extern fn GetVolumeInformationW(#[in] #[opt] lpRootPathName: LPCWSTR, #[opt] #[out] #[writable(entry, nVolumeNameSize)] lpVolumeNameBuffer: LPWSTR, #[in] nVolumeNameSize: DWORD, #[opt] #[out] lpVolumeSerialNumber: LPDWORD, #[opt] #[out] lpMaximumComponentLength: LPDWORD, #[opt] #[out] lpFileSystemFlags: LPDWORD, #[opt] #[out] #[writable(entry, nFileSystemNameSize)] lpFileSystemNameBuffer: LPWSTR, #[in] nFileSystemNameSize: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetVolumeNameForVolumeMountPointW(lpszVolumeMountPoint: PCWSTR, #[len_param(2)] #[out] lpszVolumeName: PWSTR, cchBufferLength: u32) -> BOOL;
+        extern fn GetVolumeNameForVolumeMountPointW(#[in] lpszVolumeMountPoint: LPCWSTR, #[out] #[writable(entry, cchBufferLength)] lpszVolumeName: LPWSTR, #[in] cchBufferLength: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetVolumePathNameW(lpszFileName: PCWSTR, #[len_param(2)] #[out] lpszVolumePathName: PWSTR, cchBufferLength: u32) -> BOOL;
+        extern fn GetVolumePathNameW(#[in] lpszFileName: LPCWSTR, #[out] #[writable(entry, cchBufferLength)] lpszVolumePathName: LPWSTR, #[in] cchBufferLength: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetVolumePathNamesForVolumeNameW(lpszVolumeName: PCWSTR, #[len_param(2)] #[out] #[opt] lpszVolumePathNames: LPWCH, cchBufferLength: u32, #[out] lpcchReturnLength: PDWORD) -> BOOL;
-        const INVALID_FILE_ATTRIBUTES: u32 = 4294967295;
-        const INVALID_FILE_SIZE: u32 = 4294967295;
-        const INVALID_SET_FILE_POINTER: u32 = 4294967295;
+        extern fn GetVolumePathNamesForVolumeNameW(#[in] lpszVolumeName: LPCWSTR, #[null_terminated(double_success)] #[opt] #[out] #[readable(success, *lpcchReturnLength)] #[writable(entry, cchBufferLength)] lpszVolumePathNames: LPWCH, #[in] cchBufferLength: DWORD, #[out] lpcchReturnLength: PDWORD) -> BOOL;
+        const INVALID_FILE_ATTRIBUTES: DWORD = 4294967295;
+        const INVALID_FILE_SIZE: DWORD = 4294967295;
+        const INVALID_SET_FILE_POINTER: DWORD = 4294967295;
         type LPBY_HANDLE_FILE_INFORMATION = *mut BY_HANDLE_FILE_INFORMATION;
         type LPCREATEFILE2_EXTENDED_PARAMETERS = *mut CREATEFILE2_EXTENDED_PARAMETERS;
         type LPCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
         type LPWIN32_FILE_ATTRIBUTE_DATA = *mut WIN32_FILE_ATTRIBUTE_DATA;
         #[library("KERNEL32.dll")]
-        extern fn LocalFileTimeToFileTime(lpLocalFileTime: *const FILETIME, #[out] lpFileTime: LPFILETIME) -> BOOL;
+        extern fn LocalFileTimeToFileTime(#[in] lpLocalFileTime: *const FILETIME, #[out] lpFileTime: LPFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn LockFile(hFile: HANDLE, dwFileOffsetLow: u32, dwFileOffsetHigh: u32, nNumberOfBytesToLockLow: u32, nNumberOfBytesToLockHigh: u32) -> BOOL;
+        extern fn LockFile(#[in] hFile: HANDLE, #[in] dwFileOffsetLow: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] nNumberOfBytesToLockLow: DWORD, #[in] nNumberOfBytesToLockHigh: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn LockFileEx(hFile: HANDLE, dwFlags: u32, #[reserved] dwReserved: u32, nNumberOfBytesToLockLow: u32, nNumberOfBytesToLockHigh: u32, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn LockFileEx(#[in] hFile: HANDLE, #[in] dwFlags: DWORD, #[reserved] dwReserved: DWORD, #[in] nNumberOfBytesToLockLow: DWORD, #[in] nNumberOfBytesToLockHigh: DWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         const OPEN_ALWAYS: i32 = 4;
         const OPEN_EXISTING: i32 = 3;
         type PBY_HANDLE_FILE_INFORMATION = *mut BY_HANDLE_FILE_INFORMATION;
@@ -226,70 +233,73 @@ mod Windows {
         type PCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
         type PWIN32_FIND_STREAM_DATA = *mut WIN32_FIND_STREAM_DATA;
         #[library("KERNEL32.dll")]
-        extern fn QueryDosDeviceW(#[opt] lpDeviceName: PCWSTR, #[len_param(2)] #[out] #[opt] lpTargetPath: PWSTR, ucchMax: u32) -> u32;
+        extern fn QueryDosDeviceW(#[in] #[opt] lpDeviceName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "ucchMax,return", "ucchMax,return")] #[opt] #[out] #[writable(entry, ucchMax)] lpTargetPath: LPWSTR, #[in] ucchMax: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn ReadFile(hFile: HANDLE, #[size_param(2)] #[opt] lpBuffer: *mut void, nNumberOfBytesToRead: u32, #[out] #[opt] lpNumberOfBytesRead: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        #[must_use]
+        extern fn ReadFile(#[in] hFile: HANDLE, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")] #[opt] #[out] #[readable(success, bytes(if_present(*lpNumberOfBytesRead)))] #[writable(entry, bytes(nNumberOfBytesToRead))] lpBuffer: LPVOID, #[in] nNumberOfBytesToRead: DWORD, #[opt] #[out] lpNumberOfBytesRead: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadFileEx(hFile: HANDLE, #[size_param(2)] #[opt] lpBuffer: *mut void, nNumberOfBytesToRead: u32, #[in] #[out] lpOverlapped: LPOVERLAPPED, lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE) -> BOOL;
+        #[must_use]
+        extern fn ReadFileEx(#[in] hFile: HANDLE, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "FILE", "FILE")] #[opt] #[out] #[writable(entry, bytes(nNumberOfBytesToRead))] lpBuffer: LPVOID, #[in] nNumberOfBytesToRead: DWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED, #[in] lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadFileScatter(hFile: HANDLE, #[in] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, nNumberOfBytesToRead: u32, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        #[must_use]
+        extern fn ReadFileScatter(#[in] hFile: HANDLE, #[in] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] nNumberOfBytesToRead: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn RemoveDirectory2A(lpPathName: PCSTR, DirectoryFlags: DIRECTORY_FLAGS) -> BOOL;
+        extern fn RemoveDirectory2A(#[in] #[null_terminated(entry)] lpPathName: LPCSTR, #[in] DirectoryFlags: DIRECTORY_FLAGS) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn RemoveDirectory2W(lpPathName: PCWSTR, DirectoryFlags: DIRECTORY_FLAGS) -> BOOL;
+        extern fn RemoveDirectory2W(#[in] #[null_terminated(entry)] lpPathName: LPCWSTR, #[in] DirectoryFlags: DIRECTORY_FLAGS) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn RemoveDirectoryA(lpPathName: PCSTR) -> BOOL;
+        extern fn RemoveDirectoryA(#[in] lpPathName: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn RemoveDirectoryW(lpPathName: PCWSTR) -> BOOL;
+        extern fn RemoveDirectoryW(#[in] lpPathName: LPCWSTR) -> BOOL;
         #[repr(i32)]
         enum STREAM_INFO_LEVELS {
             FindStreamInfoStandard = 0,
             FindStreamInfoMaxInfoLevel = 1,
         }
         #[library("KERNEL32.dll")]
-        extern fn SetEndOfFile(hFile: HANDLE) -> BOOL;
+        extern fn SetEndOfFile(#[in] hFile: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetFileApisToANSI();
         #[library("KERNEL32.dll")]
         extern fn SetFileApisToOEM();
         #[library("KERNEL32.dll")]
-        extern fn SetFileAttributesA(lpFileName: PCSTR, dwFileAttributes: u32) -> BOOL;
+        extern fn SetFileAttributesA(#[in] lpFileName: LPCSTR, #[in] dwFileAttributes: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetFileAttributesW(lpFileName: PCWSTR, dwFileAttributes: u32) -> BOOL;
+        extern fn SetFileAttributesW(#[in] lpFileName: LPCWSTR, #[in] dwFileAttributes: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetFileInformationByHandle(hFile: HANDLE, FileInformationClass: FILE_INFO_BY_HANDLE_CLASS, #[size_param(3)] #[in] lpFileInformation: *mut void, dwBufferSize: u32) -> BOOL;
+        extern fn SetFileInformationByHandle(#[in] hFile: HANDLE, #[in] FileInformationClass: FILE_INFO_BY_HANDLE_CLASS, #[in] #[readable(entry, bytes(dwBufferSize))] lpFileInformation: LPVOID, #[in] dwBufferSize: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetFileIoOverlappedRange(FileHandle: HANDLE, OverlappedRangeStart: PUCHAR, Length: u32) -> BOOL;
+        extern fn SetFileIoOverlappedRange(#[in] FileHandle: HANDLE, #[in] OverlappedRangeStart: PUCHAR, #[in] Length: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetFilePointer(hFile: HANDLE, lDistanceToMove: i32, #[in] #[out] #[opt] lpDistanceToMoveHigh: PLONG, dwMoveMethod: u32) -> u32;
+        extern fn SetFilePointer(#[in] hFile: HANDLE, #[in] lDistanceToMove: LONG, #[in] #[opt] #[out] lpDistanceToMoveHigh: PLONG, #[in] dwMoveMethod: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn SetFilePointerEx(hFile: HANDLE, liDistanceToMove: LARGE_INTEGER, #[out] #[opt] lpNewFilePointer: PLARGE_INTEGER, dwMoveMethod: u32) -> BOOL;
+        extern fn SetFilePointerEx(#[in] hFile: HANDLE, #[in] liDistanceToMove: LARGE_INTEGER, #[opt] #[out] lpNewFilePointer: PLARGE_INTEGER, #[in] dwMoveMethod: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetFileTime(hFile: HANDLE, #[opt] lpCreationTime: *const FILETIME, #[opt] lpLastAccessTime: *const FILETIME, #[opt] lpLastWriteTime: *const FILETIME) -> BOOL;
+        extern fn SetFileTime(#[in] hFile: HANDLE, #[in] #[opt] lpCreationTime: *const FILETIME, #[in] #[opt] lpLastAccessTime: *const FILETIME, #[in] #[opt] lpLastWriteTime: *const FILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetFileValidData(hFile: HANDLE, ValidDataLength: i64) -> BOOL;
+        extern fn SetFileValidData(#[in] hFile: HANDLE, #[in] ValidDataLength: LONGLONG) -> BOOL;
         const TRUNCATE_EXISTING: i32 = 5;
         #[library("KERNEL32.dll")]
-        extern fn UnlockFile(hFile: HANDLE, dwFileOffsetLow: u32, dwFileOffsetHigh: u32, nNumberOfBytesToUnlockLow: u32, nNumberOfBytesToUnlockHigh: u32) -> BOOL;
+        extern fn UnlockFile(#[in] hFile: HANDLE, #[in] dwFileOffsetLow: DWORD, #[in] dwFileOffsetHigh: DWORD, #[in] nNumberOfBytesToUnlockLow: DWORD, #[in] nNumberOfBytesToUnlockHigh: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn UnlockFileEx(hFile: HANDLE, #[reserved] dwReserved: u32, nNumberOfBytesToUnlockLow: u32, nNumberOfBytesToUnlockHigh: u32, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn UnlockFileEx(#[in] hFile: HANDLE, #[reserved] dwReserved: DWORD, #[in] nNumberOfBytesToUnlockLow: DWORD, #[in] nNumberOfBytesToUnlockHigh: DWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         struct WIN32_FILE_ATTRIBUTE_DATA {
-            dwFileAttributes: u32,
+            dwFileAttributes: DWORD,
             ftCreationTime: FILETIME,
             ftLastAccessTime: FILETIME,
             ftLastWriteTime: FILETIME,
-            nFileSizeHigh: u32,
-            nFileSizeLow: u32,
+            nFileSizeHigh: DWORD,
+            nFileSizeLow: DWORD,
         }
         struct WIN32_FIND_STREAM_DATA {
             StreamSize: LARGE_INTEGER,
-            cStreamName: [u16; 296],
+            cStreamName: [WCHAR; 296],
         }
         #[library("KERNEL32.dll")]
-        extern fn WriteFile(hFile: HANDLE, #[size_param(2)] #[opt] lpBuffer: LPCVOID, nNumberOfBytesToWrite: u32, #[out] #[opt] lpNumberOfBytesWritten: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn WriteFile(#[in] hFile: HANDLE, #[in] #[opt] #[readable(entry, bytes(nNumberOfBytesToWrite))] lpBuffer: LPCVOID, #[in] nNumberOfBytesToWrite: DWORD, #[opt] #[out] lpNumberOfBytesWritten: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteFileEx(hFile: HANDLE, #[size_param(2)] #[opt] lpBuffer: LPCVOID, nNumberOfBytesToWrite: u32, #[in] #[out] lpOverlapped: LPOVERLAPPED, lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE) -> BOOL;
+        extern fn WriteFileEx(#[in] hFile: HANDLE, #[in] #[opt] #[readable(entry, bytes(nNumberOfBytesToWrite))] lpBuffer: LPCVOID, #[in] nNumberOfBytesToWrite: DWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED, #[in] lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteFileGather(hFile: HANDLE, #[in] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, nNumberOfBytesToWrite: u32, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn WriteFileGather(#[in] hFile: HANDLE, #[in] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] nNumberOfBytesToWrite: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
     }
 }

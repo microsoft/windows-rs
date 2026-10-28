@@ -1,0 +1,60 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[packed(8)]
+        struct ENHMETAHEADER3 {
+            iType: DWORD,
+            nSize: DWORD,
+            rclBounds: RECTL,
+            rclFrame: RECTL,
+            dSignature: DWORD,
+            nVersion: DWORD,
+            nBytes: DWORD,
+            nRecords: DWORD,
+            nHandles: WORD,
+            sReserved: WORD,
+            nDescription: DWORD,
+            offDescription: DWORD,
+            nPalEntries: DWORD,
+            szlDevice: SIZEL,
+            szlMillimeters: SIZEL,
+        }
+        const GDIP_EMFPLUSFLAGS_DISPLAY: i32 = 1;
+        #[packed(8)]
+        struct MetafileHeader {
+            Type: MetafileType,
+            Size: UINT,
+            Version: UINT,
+            EmfPlusFlags: UINT,
+            DpiX: REAL,
+            DpiY: REAL,
+            X: INT,
+            Y: INT,
+            Width: INT,
+            Height: INT,
+            Anonymous: #[packed(8)] union {
+                WmfHeader: METAHEADER,
+                EmfHeader: ENHMETAHEADER3,
+            },
+            EmfPlusHeaderSize: INT,
+            LogicalDpiX: INT,
+            LogicalDpiY: INT,
+        }
+        #[packed(2)]
+        struct PWMFRect16 {
+            Left: INT16,
+            Top: INT16,
+            Right: INT16,
+            Bottom: INT16,
+        }
+        #[packed(2)]
+        struct WmfPlaceableFileHeader {
+            Key: UINT32,
+            Hmf: INT16,
+            BoundingBox: PWMFRect16,
+            Inch: INT16,
+            Reserved: UINT32,
+            Checksum: INT16,
+        }
+    }
+}

@@ -18,43 +18,43 @@ mod Windows {
             SCTE28_Reserved = 8,
         }
         struct BDANODE_DESCRIPTOR {
-            ulBdaNodeType: u32,
+            ulBdaNodeType: ULONG,
             guidFunction: GUID,
             guidName: GUID,
         }
         struct BDA_BUFFER {
             lResult: PBDARESULT,
-            ulBufferSize: u32,
-            argbBuffer: [u8; 1],
+            ulBufferSize: ULONG,
+            argbBuffer: [BYTE; 1],
         }
         struct BDA_CAS_CHECK_ENTITLEMENTTOKEN {
             lResult: PBDARESULT,
-            ulDescrambleStatus: u32,
+            ulDescrambleStatus: ULONG,
         }
         struct BDA_CAS_CLOSEMMIDATA {
-            ulDialogNumber: u32,
+            ulDialogNumber: ULONG,
         }
         struct BDA_CAS_CLOSE_MMIDIALOG {
             lResult: PBDARESULT,
-            SessionResult: u32,
+            SessionResult: ULONG,
         }
         struct BDA_CAS_OPENMMIDATA {
-            ulDialogNumber: u32,
-            ulDialogRequest: u32,
+            ulDialogNumber: ULONG,
+            ulDialogRequest: ULONG,
             uuidDialogType: GUID,
-            usDialogDataLength: u16,
-            argbDialogData: [u8; 1],
+            usDialogDataLength: USHORT,
+            argbDialogData: [BYTE; 1],
         }
         struct BDA_CAS_REQUESTTUNERDATA {
-            ucRequestPriority: u8,
-            ucRequestReason: u8,
-            ucRequestConsequences: u8,
-            ulEstimatedTime: u32,
+            ucRequestPriority: UCHAR,
+            ucRequestReason: UCHAR,
+            ucRequestConsequences: UCHAR,
+            ulEstimatedTime: ULONG,
         }
         struct BDA_CA_MODULE_UI {
-            ulFormat: u32,
-            ulbcDesc: u32,
-            ulDesc: [u32; 1],
+            ulFormat: ULONG,
+            ulbcDesc: ULONG,
+            ulDesc: [ULONG; 1],
         }
         #[repr(i32)]
         enum BDA_CHANGE_STATE {
@@ -107,42 +107,42 @@ mod Windows {
             BDA_DISCOVERY_COMPLETE = 2,
         }
         struct BDA_DISEQC_RESPONSE {
-            ulRequestId: u32,
-            ulPacketLength: u32,
-            argbPacketData: [u8; 8],
+            ulRequestId: ULONG,
+            ulPacketLength: ULONG,
+            argbPacketData: [BYTE; 8],
         }
         struct BDA_DISEQC_SEND {
-            ulRequestId: u32,
-            ulPacketLength: u32,
-            argbPacketData: [u8; 8],
+            ulRequestId: ULONG,
+            ulPacketLength: ULONG,
+            argbPacketData: [BYTE; 8],
         }
         struct BDA_DRM_DRMSTATUS {
             lResult: PBDARESULT,
             DRMuuid: GUID,
-            ulDrmUuidListStringSize: u32,
+            ulDrmUuidListStringSize: ULONG,
             argbDrmUuidListString: [GUID; 1],
         }
         struct BDA_DVBT2_L1_SIGNALLING_DATA {
-            L1Pre_TYPE: u8,
-            L1Pre_BWT_S1_S2: u8,
-            L1Pre_REPETITION_GUARD_PAPR: u8,
-            L1Pre_MOD_COD_FEC: u8,
-            L1Pre_POSTSIZE_INFO_PILOT: [u8; 5],
-            L1Pre_TX_ID_AVAIL: u8,
-            L1Pre_CELL_ID: [u8; 2],
-            L1Pre_NETWORK_ID: [u8; 2],
-            L1Pre_T2SYSTEM_ID: [u8; 2],
-            L1Pre_NUM_T2_FRAMES: u8,
-            L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT: [u8; 2],
-            L1Pre_NUMRF_CURRENTRF_RESERVED: [u8; 2],
-            L1Pre_CRC32: [u8; 4],
-            L1PostData: [u8; 1],
+            L1Pre_TYPE: BYTE,
+            L1Pre_BWT_S1_S2: BYTE,
+            L1Pre_REPETITION_GUARD_PAPR: BYTE,
+            L1Pre_MOD_COD_FEC: BYTE,
+            L1Pre_POSTSIZE_INFO_PILOT: [BYTE; 5],
+            L1Pre_TX_ID_AVAIL: BYTE,
+            L1Pre_CELL_ID: [BYTE; 2],
+            L1Pre_NETWORK_ID: [BYTE; 2],
+            L1Pre_T2SYSTEM_ID: [BYTE; 2],
+            L1Pre_NUM_T2_FRAMES: BYTE,
+            L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT: [BYTE; 2],
+            L1Pre_NUMRF_CURRENTRF_RESERVED: [BYTE; 2],
+            L1Pre_CRC32: [BYTE; 4],
+            L1PostData: [BYTE; 1],
         }
         struct BDA_ETHERNET_ADDRESS {
-            rgbAddress: [u8; 6],
+            rgbAddress: [BYTE; 6],
         }
         struct BDA_ETHERNET_ADDRESS_LIST {
-            ulcAddresses: u32,
+            ulcAddresses: ULONG,
             rgAddressl: [BDA_ETHERNET_ADDRESS; 1],
         }
         #[repr(i32)]
@@ -180,54 +180,55 @@ mod Windows {
         }
         struct BDA_GDDS_DATA {
             lResult: PBDARESULT,
-            ulDataLength: u32,
-            ulPercentageProgress: u32,
-            argbData: [u8; 1],
+            ulDataLength: ULONG,
+            ulPercentageProgress: ULONG,
+            argbData: [BYTE; 1],
         }
         struct BDA_GDDS_DATATYPE {
             lResult: PBDARESULT,
             uuidDataType: GUID,
         }
         struct BDA_IPv4_ADDRESS {
-            rgbAddress: [u8; 4],
+            rgbAddress: [BYTE; 4],
         }
         struct BDA_IPv4_ADDRESS_LIST {
-            ulcAddresses: u32,
+            ulcAddresses: ULONG,
             rgAddressl: [BDA_IPv4_ADDRESS; 1],
         }
         struct BDA_IPv6_ADDRESS {
-            rgbAddress: [u8; 6],
+            rgbAddress: [BYTE; 6],
         }
         struct BDA_IPv6_ADDRESS_LIST {
-            ulcAddresses: u32,
+            ulcAddresses: ULONG,
             rgAddressl: [BDA_IPv6_ADDRESS; 1],
         }
+        #[packed(1)]
         struct BDA_ISDBCAS_EMG_REQ {
-            bCLA: u8,
-            bINS: u8,
-            bP1: u8,
-            bP2: u8,
-            bLC: u8,
-            bCardId: [u8; 6],
-            bProtocol: u8,
-            bCABroadcasterGroupId: u8,
-            bMessageControl: u8,
-            bMessageCode: [u8; 1],
+            bCLA: BYTE,
+            bINS: BYTE,
+            bP1: BYTE,
+            bP2: BYTE,
+            bLC: BYTE,
+            bCardId: [BYTE; 6],
+            bProtocol: BYTE,
+            bCABroadcasterGroupId: BYTE,
+            bMessageControl: BYTE,
+            bMessageCode: [BYTE; 1],
         }
         #[packed(1)]
         struct BDA_ISDBCAS_REQUESTHEADER {
-            bInstruction: u8,
-            bReserved: [u8; 3],
-            ulDataLength: u32,
-            argbIsdbCommand: [u8; 1],
+            bInstruction: BYTE,
+            bReserved: [BYTE; 3],
+            ulDataLength: ULONG,
+            argbIsdbCommand: [BYTE; 1],
         }
         #[packed(1)]
         struct BDA_ISDBCAS_RESPONSEDATA {
             lResult: PBDARESULT,
-            ulRequestID: u32,
-            ulIsdbStatus: u32,
-            ulIsdbDataSize: u32,
-            argbIsdbCommandData: [u8; 1],
+            ulRequestID: ULONG,
+            ulIsdbStatus: ULONG,
+            ulIsdbDataSize: ULONG,
+            argbIsdbCommandData: [BYTE; 1],
         }
         #[repr(i32)]
         enum BDA_MULTICAST_MODE {
@@ -237,28 +238,28 @@ mod Windows {
         }
         #[packed(2)]
         struct BDA_MUX_PIDLISTITEM {
-            usPIDNumber: u16,
-            usProgramNumber: u16,
+            usPIDNumber: USHORT,
+            usProgramNumber: USHORT,
             ePIDType: MUX_PID_TYPE,
         }
         struct BDA_PID_MAP {
             MediaSampleContent: MEDIA_SAMPLE_CONTENT,
-            ulcPIDs: u32,
-            aulPIDs: [u32; 1],
+            ulcPIDs: ULONG,
+            aulPIDs: [ULONG; 1],
         }
         struct BDA_PID_UNMAP {
-            ulcPIDs: u32,
-            aulPIDs: [u32; 1],
+            ulcPIDs: ULONG,
+            aulPIDs: [ULONG; 1],
         }
         const BDA_PLP_ID_NOT_SET: i32 = -1;
         struct BDA_PROGRAM_PID_LIST {
-            ulProgramNumber: u32,
-            ulcPIDs: u32,
-            ulPID: [u32; 1],
+            ulProgramNumber: ULONG,
+            ulcPIDs: ULONG,
+            ulPID: [ULONG; 1],
         }
         struct BDA_RATING_PINRESET {
-            bPinLength: u8,
-            argbNewPin: [u8; 1],
+            bPinLength: BYTE,
+            argbNewPin: [BYTE; 1],
         }
         #[repr(i32)]
         enum BDA_Range {
@@ -267,18 +268,18 @@ mod Windows {
         }
         struct BDA_SCAN_CAPABILTIES {
             lResult: PBDARESULT,
-            ul64AnalogStandardsSupported: u64,
+            ul64AnalogStandardsSupported: UINT64,
         }
         struct BDA_SCAN_START {
             lResult: PBDARESULT,
-            LowerFrequency: u32,
-            HigerFrequency: u32,
+            LowerFrequency: ULONG,
+            HigerFrequency: ULONG,
         }
         struct BDA_SCAN_STATE {
             lResult: PBDARESULT,
-            ulSignalLock: u32,
-            ulSecondsLeft: u32,
-            ulCurrentFrequency: u32,
+            ulSignalLock: ULONG,
+            ulSecondsLeft: ULONG,
+            ulCurrentFrequency: ULONG,
         }
         #[repr(i32)]
         enum BDA_SIGNAL_STATE {
@@ -287,56 +288,57 @@ mod Windows {
             BDA_SIGNAL_ACTIVE = 2,
         }
         struct BDA_SIGNAL_TIMEOUTS {
-            ulCarrierTimeoutMs: u32,
-            ulScanningTimeoutMs: u32,
-            ulTuningTimeoutMs: u32,
+            ulCarrierTimeoutMs: ULONG,
+            ulScanningTimeoutMs: ULONG,
+            ulTuningTimeoutMs: ULONG,
         }
         struct BDA_STRING {
             lResult: PBDARESULT,
-            ulStringSize: u32,
-            argbString: [u8; 1],
+            ulStringSize: ULONG,
+            argbString: [BYTE; 1],
         }
         struct BDA_TABLE_SECTION {
-            ulPrimarySectionId: u32,
-            ulSecondarySectionId: u32,
-            ulcbSectionLength: u32,
-            argbSectionData: [u32; 1],
+            ulPrimarySectionId: ULONG,
+            ulSecondarySectionId: ULONG,
+            ulcbSectionLength: ULONG,
+            argbSectionData: [ULONG; 1],
         }
         struct BDA_TEMPLATE_CONNECTION {
-            FromNodeType: u32,
-            FromNodePinType: u32,
-            ToNodeType: u32,
-            ToNodePinType: u32,
+            FromNodeType: ULONG,
+            FromNodePinType: ULONG,
+            ToNodeType: ULONG,
+            ToNodePinType: ULONG,
         }
         struct BDA_TEMPLATE_PIN_JOINT {
-            uliTemplateConnection: u32,
-            ulcInstancesMax: u32,
+            uliTemplateConnection: ULONG,
+            ulcInstancesMax: ULONG,
         }
         #[packed(1)]
         struct BDA_TS_SELECTORINFO {
-            bTSInfolength: u8,
-            bReserved: [u8; 2],
+            bTSInfolength: BYTE,
+            bReserved: [BYTE; 2],
             guidNetworkType: GUID,
-            bTSIDCount: u8,
-            usTSID: [u16; 1],
+            bTSIDCount: BYTE,
+            usTSID: [USHORT; 1],
         }
+        #[packed(1)]
         struct BDA_TS_SELECTORINFO_ISDBS_EXT {
-            bTMCC: [u8; 48],
+            bTMCC: [BYTE; 48],
         }
         struct BDA_TUNER_DIAGNOSTICS {
             lResult: PBDARESULT,
-            ulSignalLevel: u32,
-            ulSignalLevelQuality: u32,
-            ulSignalNoiseRatio: u32,
+            ulSignalLevel: ULONG,
+            ulSignalLevelQuality: ULONG,
+            ulSignalNoiseRatio: ULONG,
         }
         struct BDA_TUNER_TUNERSTATE {
             lResult: PBDARESULT,
-            ulTuneLength: u32,
-            argbTuneData: [u8; 1],
+            ulTuneLength: ULONG,
+            argbTuneData: [BYTE; 1],
         }
         struct BDA_USERACTIVITY_INTERVAL {
             lResult: PBDARESULT,
-            ulActivityInterval: u32,
+            ulActivityInterval: ULONG,
         }
         struct BDA_WMDRMTUNER_PIDPROTECTION {
             lResult: PBDARESULT,
@@ -344,32 +346,32 @@ mod Windows {
         }
         struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
             lResult: PBDARESULT,
-            ulDescrambleStatus: u32,
-            ulCaptureTokenLength: u32,
-            argbCaptureTokenBuffer: [u8; 1],
+            ulDescrambleStatus: ULONG,
+            ulCaptureTokenLength: ULONG,
+            argbCaptureTokenBuffer: [BYTE; 1],
         }
         struct BDA_WMDRM_KEYINFOLIST {
             lResult: PBDARESULT,
-            ulKeyuuidBufferLen: u32,
+            ulKeyuuidBufferLen: ULONG,
             argKeyuuidBuffer: [GUID; 1],
         }
         struct BDA_WMDRM_RENEWLICENSE {
             lResult: PBDARESULT,
-            ulDescrambleStatus: u32,
-            ulXmrLicenseOutputLength: u32,
-            argbXmrLicenceOutputBuffer: [u8; 1],
+            ulDescrambleStatus: ULONG,
+            ulXmrLicenseOutputLength: ULONG,
+            argbXmrLicenceOutputBuffer: [BYTE; 1],
         }
         struct BDA_WMDRM_STATUS {
             lResult: PBDARESULT,
-            ulMaxCaptureTokenSize: u32,
-            uMaxStreamingPid: u32,
-            ulMaxLicense: u32,
-            ulMinSecurityLevel: u32,
-            ulRevInfoSequenceNumber: u32,
-            ulRevInfoIssuedTime: u64,
-            ulRevListVersion: u32,
-            ulRevInfoTTL: u32,
-            ulState: u32,
+            ulMaxCaptureTokenSize: ULONG,
+            uMaxStreamingPid: ULONG,
+            ulMaxLicense: ULONG,
+            ulMinSecurityLevel: ULONG,
+            ulRevInfoSequenceNumber: ULONG,
+            ulRevInfoIssuedTime: ULONGLONG,
+            ulRevListVersion: ULONG,
+            ulRevInfoTTL: ULONG,
+            ulState: ULONG,
         }
         #[repr(i32)]
         enum BinaryConvolutionCodeRate {
@@ -457,12 +459,12 @@ mod Windows {
             ISDBCAS_REQUEST_ID_EMD = 58,
         }
         struct KS_BDA_FRAME_INFO {
-            ExtendedHeaderSize: u32,
-            dwFrameFlags: u32,
-            ulEvent: u32,
-            ulChannelNumber: u32,
-            ulSubchannelNumber: u32,
-            ulReason: u32,
+            ExtendedHeaderSize: ULONG,
+            dwFrameFlags: DWORD,
+            ulEvent: ULONG,
+            ulChannelNumber: ULONG,
+            ulSubchannelNumber: ULONG,
+            ulReason: ULONG,
         }
         #[repr(i32)]
         enum LNB_Source {
@@ -524,9 +526,9 @@ mod Windows {
             DOLBY_DIGITAL_PLUS_AUDIO_ATSC = 135,
         }
         struct MPEG2_TRANSPORT_STRIDE {
-            dwOffset: u32,
-            dwPacketLength: u32,
-            dwStride: u32,
+            dwOffset: DWORD,
+            dwPacketLength: DWORD,
+            dwStride: DWORD,
         }
         #[repr(i32)]
         enum MUX_PID_TYPE {
@@ -624,7 +626,7 @@ mod Windows {
         type PBDA_WMDRM_RENEWLICENSE = *mut BDA_WMDRM_RENEWLICENSE;
         type PBDA_WMDRM_STATUS = *mut BDA_WMDRM_STATUS;
         struct PID_MAP {
-            ulPID: u32,
+            ulPID: ULONG,
             MediaSampleContent: MEDIA_SAMPLE_CONTENT,
         }
         type PKS_BDA_FRAME_INFO = *mut KS_BDA_FRAME_INFO;

@@ -12,12 +12,11 @@ mod Windows {
         const IOCTL_MOUSE_INSERT_DATA: i32 = 983044;
         const IOCTL_MOUSE_QUERY_ATTRIBUTES: i32 = 983040;
         struct MOUSE_ATTRIBUTES {
-            MouseIdentifier: u16,
-            NumberOfButtons: u16,
-            SampleRate: u16,
-            InputDataQueueLength: u32,
+            MouseIdentifier: USHORT,
+            NumberOfButtons: USHORT,
+            SampleRate: USHORT,
+            InputDataQueueLength: ULONG,
         }
-        const MOUSE_ATTRIBUTES_CHANGED: i32 = 4;
         const MOUSE_BUTTON_1_DOWN: i32 = 1;
         const MOUSE_BUTTON_1_UP: i32 = 2;
         const MOUSE_BUTTON_2_DOWN: i32 = 4;
@@ -34,35 +33,31 @@ mod Windows {
         const MOUSE_I8042_HARDWARE: i32 = 2;
         const MOUSE_INPORT_HARDWARE: i32 = 1;
         struct MOUSE_INPUT_DATA {
-            UnitId: u16,
-            Flags: u16,
+            UnitId: USHORT,
+            Flags: USHORT,
             Anonymous: union {
-                Buttons: u32,
+                Buttons: ULONG,
                 Anonymous: struct {
-                    ButtonFlags: u16,
-                    ButtonData: u16,
+                    ButtonFlags: USHORT,
+                    ButtonData: USHORT,
                 },
             },
-            RawButtons: u32,
-            LastX: i32,
-            LastY: i32,
-            ExtraInformation: u32,
+            RawButtons: ULONG,
+            LastX: LONG,
+            LastY: LONG,
+            ExtraInformation: ULONG,
         }
         const MOUSE_LEFT_BUTTON_DOWN: i32 = 1;
         const MOUSE_LEFT_BUTTON_UP: i32 = 2;
         const MOUSE_MIDDLE_BUTTON_DOWN: i32 = 16;
         const MOUSE_MIDDLE_BUTTON_UP: i32 = 32;
-        const MOUSE_MOVE_ABSOLUTE: i32 = 1;
-        const MOUSE_MOVE_NOCOALESCE: i32 = 8;
-        const MOUSE_MOVE_RELATIVE: i32 = 0;
         const MOUSE_RIGHT_BUTTON_DOWN: i32 = 4;
         const MOUSE_RIGHT_BUTTON_UP: i32 = 8;
         const MOUSE_SERIAL_HARDWARE: i32 = 4;
         const MOUSE_TERMSRV_SRC_SHADOW: i32 = 256;
         struct MOUSE_UNIT_ID_PARAMETER {
-            UnitId: u16,
+            UnitId: USHORT,
         }
-        const MOUSE_VIRTUAL_DESKTOP: i32 = 2;
         const MOUSE_WHEEL: i32 = 1024;
         type PMOUSE_ATTRIBUTES = *mut MOUSE_ATTRIBUTES;
         type PMOUSE_INPUT_DATA = *mut MOUSE_INPUT_DATA;

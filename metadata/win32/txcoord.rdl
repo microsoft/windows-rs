@@ -9,95 +9,110 @@ mod Windows {
         }
         #[guid(0x9797c15d_a428_4291_87b6_0995031a678d)]
         interface IDtcNetworkAccessConfig: IUnknown {
-            fn GetAnyNetworkAccess(&self, pbAnyNetworkAccess: *mut BOOL) -> HRESULT;
-            fn SetAnyNetworkAccess(&self, bAnyNetworkAccess: BOOL) -> HRESULT;
-            fn GetNetworkAdministrationAccess(&self, pbNetworkAdministrationAccess: *mut BOOL) -> HRESULT;
-            fn SetNetworkAdministrationAccess(&self, bNetworkAdministrationAccess: BOOL) -> HRESULT;
-            fn GetNetworkTransactionAccess(&self, pbNetworkTransactionAccess: *mut BOOL) -> HRESULT;
-            fn SetNetworkTransactionAccess(&self, bNetworkTransactionAccess: BOOL) -> HRESULT;
-            fn GetNetworkClientAccess(&self, pbNetworkClientAccess: *mut BOOL) -> HRESULT;
-            fn SetNetworkClientAccess(&self, bNetworkClientAccess: BOOL) -> HRESULT;
-            fn GetNetworkTIPAccess(&self, pbNetworkTIPAccess: *mut BOOL) -> HRESULT;
-            fn SetNetworkTIPAccess(&self, bNetworkTIPAccess: BOOL) -> HRESULT;
-            fn GetXAAccess(&self, pbXAAccess: *mut BOOL) -> HRESULT;
-            fn SetXAAccess(&self, bXAAccess: BOOL) -> HRESULT;
+            fn GetAnyNetworkAccess(&self, #[out] pbAnyNetworkAccess: *mut BOOL) -> HRESULT;
+            fn SetAnyNetworkAccess(&self, #[in] bAnyNetworkAccess: BOOL) -> HRESULT;
+            fn GetNetworkAdministrationAccess(&self, #[out] pbNetworkAdministrationAccess: *mut BOOL) -> HRESULT;
+            fn SetNetworkAdministrationAccess(&self, #[in] bNetworkAdministrationAccess: BOOL) -> HRESULT;
+            fn GetNetworkTransactionAccess(&self, #[out] pbNetworkTransactionAccess: *mut BOOL) -> HRESULT;
+            fn SetNetworkTransactionAccess(&self, #[in] bNetworkTransactionAccess: BOOL) -> HRESULT;
+            fn GetNetworkClientAccess(&self, #[out] pbNetworkClientAccess: *mut BOOL) -> HRESULT;
+            fn SetNetworkClientAccess(&self, #[in] bNetworkClientAccess: BOOL) -> HRESULT;
+            fn GetNetworkTIPAccess(&self, #[out] pbNetworkTIPAccess: *mut BOOL) -> HRESULT;
+            fn SetNetworkTIPAccess(&self, #[in] bNetworkTIPAccess: BOOL) -> HRESULT;
+            fn GetXAAccess(&self, #[out] pbXAAccess: *mut BOOL) -> HRESULT;
+            fn SetXAAccess(&self, #[in] bXAAccess: BOOL) -> HRESULT;
             fn RestartDtcService(&self) -> HRESULT;
         }
         #[guid(0xa7aa013b_eb7d_4f42_b41c_b2dec09ae034)]
         interface IDtcNetworkAccessConfig2: IDtcNetworkAccessConfig {
-            fn GetNetworkInboundAccess(&self, pbInbound: *mut BOOL) -> HRESULT;
-            fn GetNetworkOutboundAccess(&self, pbOutbound: *mut BOOL) -> HRESULT;
-            fn SetNetworkInboundAccess(&self, bInbound: BOOL) -> HRESULT;
-            fn SetNetworkOutboundAccess(&self, bOutbound: BOOL) -> HRESULT;
-            fn GetAuthenticationLevel(&self, pAuthLevel: *mut AUTHENTICATION_LEVEL) -> HRESULT;
-            fn SetAuthenticationLevel(&self, AuthLevel: AUTHENTICATION_LEVEL) -> HRESULT;
+            fn GetNetworkInboundAccess(&self, #[out] pbInbound: *mut BOOL) -> HRESULT;
+            fn GetNetworkOutboundAccess(&self, #[out] pbOutbound: *mut BOOL) -> HRESULT;
+            fn SetNetworkInboundAccess(&self, #[in] bInbound: BOOL) -> HRESULT;
+            fn SetNetworkOutboundAccess(&self, #[in] bOutbound: BOOL) -> HRESULT;
+            fn GetAuthenticationLevel(&self, #[out] pAuthLevel: *mut AUTHENTICATION_LEVEL) -> HRESULT;
+            fn SetAuthenticationLevel(&self, #[in] AuthLevel: AUTHENTICATION_LEVEL) -> HRESULT;
         }
         #[guid(0x76e4b4f3_2ca5_466b_89d5_fd218ee75b49)]
         interface IDtcNetworkAccessConfig3: IDtcNetworkAccessConfig2 {
-            fn GetLUAccess(&self, pbLUAccess: *mut BOOL) -> HRESULT;
-            fn SetLUAccess(&self, bLUAccess: BOOL) -> HRESULT;
+            fn GetLUAccess(&self, #[out] pbLUAccess: *mut BOOL) -> HRESULT;
+            fn SetLUAccess(&self, #[in] bLUAccess: BOOL) -> HRESULT;
         }
+        const IID_IDtcNetworkAccessConfig: GUID = 0x9797c15d_a428_4291_87b6_0995031a678d;
+        const IID_IDtcNetworkAccessConfig2: GUID = 0xa7aa013b_eb7d_4f42_b41c_b2dec09ae034;
+        const IID_IDtcNetworkAccessConfig3: GUID = 0x76e4b4f3_2ca5_466b_89d5_fd218ee75b49;
+        const IID_ITipHelper: GUID = 0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef;
+        const IID_ITipPullSink: GUID = 0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef;
+        const IID_ITipTransaction: GUID = 0x17cf72d0_bac5_11d1_b1bf_00c04fc2f3ef;
+        const IID_ITransactionEnlistmentAsync: GUID = 0x0fb15081_af41_11ce_bd2b_204c4f4f5020;
+        const IID_ITransactionExport: GUID = 0x0141fda5_8fc0_11ce_bd18_204c4f4f5020;
+        const IID_ITransactionExportFactory: GUID = 0xe1cf9b53_8745_11ce_a9ba_00aa006c3706;
+        const IID_ITransactionImport: GUID = 0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706;
+        const IID_ITransactionImportWhereabouts: GUID = 0x0141fda4_8fc0_11ce_bd18_204c4f4f5020;
+        const IID_ITransactionLastEnlistmentAsync: GUID = 0xc82bd533_5b30_11d3_8a91_00c04f79eb6d;
+        const IID_ITransactionLastResourceAsync: GUID = 0xc82bd532_5b30_11d3_8a91_00c04f79eb6d;
+        const IID_ITransactionResource: GUID = 0xee5ff7b3_4572_11d0_9452_00a0c905416e;
+        const IID_ITransactionResourceAsync: GUID = 0x69e971f0_23ce_11cf_ad60_00aa00a74ccd;
         #[guid(0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef)]
         interface ITipHelper: IUnknown {
-            fn Pull(&self, #[in] i_pszTxUrl: *mut i8, o_ppITransaction: *mut ITransaction) -> HRESULT;
-            fn PullAsync(&self, #[in] i_pszTxUrl: *mut i8, i_pTipPullSink: ITipPullSink, o_ppITransaction: *mut ITransaction) -> HRESULT;
-            fn GetLocalTmUrl(&self, o_ppszLocalTmUrl: *mut *mut i8) -> HRESULT;
+            fn Pull(&self, #[in] i_pszTxUrl: *mut i8, #[out] #[out_ptr] o_ppITransaction: *mut ITransaction) -> HRESULT;
+            fn PullAsync(&self, #[in] i_pszTxUrl: *mut i8, #[in] #[opt] i_pTipPullSink: ITipPullSink, #[out] #[out_ptr] o_ppITransaction: *mut ITransaction) -> HRESULT;
+            fn GetLocalTmUrl(&self, #[out] #[out_ptr] o_ppszLocalTmUrl: *mut *mut i8) -> HRESULT;
         }
         #[guid(0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef)]
         interface ITipPullSink: IUnknown {
-            fn PullComplete(&self, i_hrPull: HRESULT) -> HRESULT;
+            fn PullComplete(&self, #[in] i_hrPull: HRESULT) -> HRESULT;
         }
         #[guid(0x17cf72d0_bac5_11d1_b1bf_00c04fc2f3ef)]
         interface ITipTransaction: IUnknown {
-            fn Push(&self, #[in] i_pszRemoteTmUrl: *mut i8, o_ppszRemoteTxUrl: *mut PSTR) -> HRESULT;
-            fn GetTransactionUrl(&self, o_ppszLocalTxUrl: *mut PSTR) -> HRESULT;
+            fn Push(&self, #[in] i_pszRemoteTmUrl: *mut i8, #[out] #[out_ptr] o_ppszRemoteTxUrl: *mut LPSTR) -> HRESULT;
+            fn GetTransactionUrl(&self, #[out] #[out_ptr] o_ppszLocalTxUrl: *mut LPSTR) -> HRESULT;
         }
         #[guid(0x0fb15081_af41_11ce_bd2b_204c4f4f5020)]
         interface ITransactionEnlistmentAsync: IUnknown {
-            fn PrepareRequestDone(&self, hr: HRESULT, pmk: IMoniker, #[in] pboidReason: *mut BOID) -> HRESULT;
-            fn CommitRequestDone(&self, hr: HRESULT) -> HRESULT;
-            fn AbortRequestDone(&self, hr: HRESULT) -> HRESULT;
+            fn PrepareRequestDone(&self, #[in] hr: HRESULT, #[in] #[opt] pmk: IMoniker, #[in] #[opt] pboidReason: *mut BOID) -> HRESULT;
+            fn CommitRequestDone(&self, #[in] hr: HRESULT) -> HRESULT;
+            fn AbortRequestDone(&self, #[in] hr: HRESULT) -> HRESULT;
         }
         #[guid(0x0141fda5_8fc0_11ce_bd18_204c4f4f5020)]
         interface ITransactionExport: IUnknown {
-            fn Export(&self, punkTransaction: IUnknown, pcbTransactionCookie: *mut u32) -> HRESULT;
-            fn GetTransactionCookie(&self, punkTransaction: IUnknown, cbTransactionCookie: u32, rgbTransactionCookie: *mut byte, pcbUsed: *mut u32) -> HRESULT;
+            fn Export(&self, #[in] #[opt] punkTransaction: IUnknown, #[out] pcbTransactionCookie: *mut ULONG) -> HRESULT;
+            fn GetTransactionCookie(&self, #[in] punkTransaction: IUnknown, #[in] cbTransactionCookie: ULONG, #[out] rgbTransactionCookie: *mut byte, #[out] pcbUsed: *mut ULONG) -> HRESULT;
         }
         #[guid(0xe1cf9b53_8745_11ce_a9ba_00aa006c3706)]
         interface ITransactionExportFactory: IUnknown {
-            fn GetRemoteClassId(&self, pclsid: *mut GUID) -> HRESULT;
-            fn Create(&self, cbWhereabouts: u32, #[in] rgbWhereabouts: *mut byte, ppExport: *mut ITransactionExport) -> HRESULT;
+            fn GetRemoteClassId(&self, #[out] pclsid: *mut CLSID) -> HRESULT;
+            fn Create(&self, #[in] cbWhereabouts: ULONG, #[in] #[readable(entry, cbWhereabouts)] rgbWhereabouts: *mut byte, #[out] #[out_ptr] ppExport: *mut ITransactionExport) -> HRESULT;
         }
         #[guid(0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706)]
         interface ITransactionImport: IUnknown {
-            fn Import(&self, cbTransactionCookie: u32, #[in] rgbTransactionCookie: *mut byte, #[in] piid: *mut GUID, #[iid_is] ppvTransaction: *mut *mut void) -> HRESULT;
+            fn Import(&self, #[in] cbTransactionCookie: ULONG, #[in] #[readable(entry, cbTransactionCookie)] rgbTransactionCookie: *mut byte, #[in] piid: *mut IID, #[iid_is] #[out] #[out_ptr] ppvTransaction: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0141fda4_8fc0_11ce_bd18_204c4f4f5020)]
         interface ITransactionImportWhereabouts: IUnknown {
-            fn GetWhereaboutsSize(&self, pcbWhereabouts: *mut u32) -> HRESULT;
-            fn GetWhereabouts(&self, cbWhereabouts: u32, rgbWhereabouts: *mut byte, pcbUsed: *mut u32) -> HRESULT;
+            fn GetWhereaboutsSize(&self, #[out] pcbWhereabouts: *mut ULONG) -> HRESULT;
+            fn GetWhereabouts(&self, #[in] cbWhereabouts: ULONG, #[out] rgbWhereabouts: *mut byte, #[out] pcbUsed: *mut ULONG) -> HRESULT;
         }
         #[guid(0xc82bd533_5b30_11d3_8a91_00c04f79eb6d)]
         interface ITransactionLastEnlistmentAsync: IUnknown {
-            fn TransactionOutcome(&self, XactStat: XACTSTAT, #[in] pboidReason: *mut BOID) -> HRESULT;
+            fn TransactionOutcome(&self, #[in] XactStat: XACTSTAT, #[in] #[opt] pboidReason: *mut BOID) -> HRESULT;
         }
         #[guid(0xc82bd532_5b30_11d3_8a91_00c04f79eb6d)]
         interface ITransactionLastResourceAsync: IUnknown {
-            fn DelegateCommit(&self, grfRM: u32) -> HRESULT;
+            fn DelegateCommit(&self, #[in] grfRM: DWORD) -> HRESULT;
             fn ForgetRequest(&self, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
         }
         #[guid(0xee5ff7b3_4572_11d0_9452_00a0c905416e)]
         interface ITransactionResource: IUnknown {
-            fn PrepareRequest(&self, fRetaining: BOOL, grfRM: u32, fWantMoniker: BOOL, fSinglePhase: BOOL) -> HRESULT;
-            fn CommitRequest(&self, grfRM: u32, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
-            fn AbortRequest(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
+            fn PrepareRequest(&self, #[in] fRetaining: BOOL, #[in] grfRM: DWORD, #[in] fWantMoniker: BOOL, #[in] fSinglePhase: BOOL) -> HRESULT;
+            fn CommitRequest(&self, #[in] grfRM: DWORD, #[in] #[opt] pNewUOW: *mut XACTUOW) -> HRESULT;
+            fn AbortRequest(&self, #[in] #[opt] pboidReason: *mut BOID, #[in] fRetaining: BOOL, #[in] #[opt] pNewUOW: *mut XACTUOW) -> HRESULT;
             fn TMDown(&self) -> HRESULT;
         }
         #[guid(0x69e971f0_23ce_11cf_ad60_00aa00a74ccd)]
         interface ITransactionResourceAsync: IUnknown {
-            fn PrepareRequest(&self, fRetaining: BOOL, grfRM: u32, fWantMoniker: BOOL, fSinglePhase: BOOL) -> HRESULT;
-            fn CommitRequest(&self, grfRM: u32, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
-            fn AbortRequest(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW) -> HRESULT;
+            fn PrepareRequest(&self, #[in] fRetaining: BOOL, #[in] grfRM: DWORD, #[in] fWantMoniker: BOOL, #[in] fSinglePhase: BOOL) -> HRESULT;
+            fn CommitRequest(&self, #[in] grfRM: DWORD, #[in] #[opt] pNewUOW: *mut XACTUOW) -> HRESULT;
+            fn AbortRequest(&self, #[in] #[opt] pboidReason: *mut BOID, #[in] fRetaining: BOOL, #[in] #[opt] pNewUOW: *mut XACTUOW) -> HRESULT;
             fn TMDown(&self) -> HRESULT;
         }
     }

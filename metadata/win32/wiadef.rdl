@@ -144,11 +144,12 @@ mod Windows {
         const WIA_AUTO_CROP_SINGLE: i32 = 1;
         const WIA_AUTO_DESKEW_OFF: i32 = 1;
         const WIA_AUTO_DESKEW_ON: i32 = 0;
+        #[packed(8)]
         struct WIA_BARCODES {
-            Tag: u32,
-            Version: u32,
-            Size: u32,
-            Count: u32,
+            Tag: DWORD,
+            Version: DWORD,
+            Size: DWORD,
+            Count: DWORD,
             Barcodes: [WIA_BARCODE_INFO; 1],
         }
         const WIA_BARCODE_AUTO_SEARCH: i32 = 4;
@@ -175,16 +176,17 @@ mod Windows {
         const WIA_BARCODE_HIGH_CAPACITY_COLOR: i32 = 26;
         const WIA_BARCODE_HORIZONTAL_SEARCH: i32 = 0;
         const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: i32 = 2;
+        #[packed(8)]
         struct WIA_BARCODE_INFO {
-            Size: u32,
-            Type: u32,
-            Page: u32,
-            Confidence: u32,
-            XOffset: u32,
-            YOffset: u32,
-            Rotation: u32,
-            Length: u32,
-            Text: [u16; 1],
+            Size: DWORD,
+            Type: DWORD,
+            Page: DWORD,
+            Confidence: DWORD,
+            XOffset: DWORD,
+            YOffset: DWORD,
+            Rotation: DWORD,
+            Length: DWORD,
+            Text: [WCHAR; 1],
         }
         const WIA_BARCODE_INTELLIGENT_MAIL: i32 = 23;
         const WIA_BARCODE_INTERLEAVED_2OF5: i32 = 4;
@@ -1198,20 +1200,22 @@ mod Windows {
         const WIA_MAJOR_EVENT_PICTURE_DELETED: i32 = 4;
         const WIA_MAJOR_EVENT_PICTURE_TAKEN: i32 = 3;
         const WIA_MAX_CTX_SIZE: i32 = 16777216;
+        #[packed(8)]
         struct WIA_MICR {
-            Tag: u32,
-            Version: u32,
-            Size: u32,
-            Placeholder: u16,
-            Reserved: u16,
-            Count: u32,
+            Tag: DWORD,
+            Version: DWORD,
+            Size: DWORD,
+            Placeholder: WCHAR,
+            Reserved: WORD,
+            Count: DWORD,
             Micr: [WIA_MICR_INFO; 1],
         }
+        #[packed(8)]
         struct WIA_MICR_INFO {
-            Size: u32,
-            Page: u32,
-            Length: u32,
-            Text: [u16; 1],
+            Size: DWORD,
+            Page: DWORD,
+            Length: DWORD,
+            Text: [WCHAR; 1],
         }
         const WIA_MICR_READER_AUTO: i32 = 1;
         const WIA_MICR_READER_DISABLED: i32 = 0;
@@ -1291,11 +1295,12 @@ mod Windows {
         const WIA_PAGE_USLEGAL: i32 = 3;
         const WIA_PAGE_USLETTER: i32 = 1;
         const WIA_PAGE_USSTATEMENT: i32 = 5;
+        #[packed(8)]
         struct WIA_PATCH_CODES {
-            Tag: u32,
-            Version: u32,
-            Size: u32,
-            Count: u32,
+            Tag: DWORD,
+            Version: DWORD,
+            Size: DWORD,
+            Count: DWORD,
             PatchCodes: [WIA_PATCH_CODE_INFO; 1],
         }
         const WIA_PATCH_CODE_1: i32 = 1;
@@ -1312,8 +1317,9 @@ mod Windows {
         const WIA_PATCH_CODE_8: i32 = 8;
         const WIA_PATCH_CODE_9: i32 = 9;
         const WIA_PATCH_CODE_CUSTOM_BASE: i32 = 32768;
+        #[packed(8)]
         struct WIA_PATCH_CODE_INFO {
-            Type: u32,
+            Type: DWORD,
         }
         const WIA_PATCH_CODE_READER_AUTO: i32 = 1;
         const WIA_PATCH_CODE_READER_DISABLED: i32 = 0;
@@ -1404,26 +1410,27 @@ mod Windows {
         const WIA_RANGE_NOM: i32 = 1;
         const WIA_RANGE_NUM_ELEMS: i32 = 4;
         const WIA_RANGE_STEP: i32 = 3;
+        #[packed(8)]
         struct WIA_RAW_HEADER {
-            Tag: u32,
-            Version: u32,
-            HeaderSize: u32,
-            XRes: u32,
-            YRes: u32,
-            XExtent: u32,
-            YExtent: u32,
-            BytesPerLine: u32,
-            BitsPerPixel: u32,
-            ChannelsPerPixel: u32,
-            DataType: u32,
-            BitsPerChannel: [u8; 8],
-            Compression: u32,
-            PhotometricInterp: u32,
-            LineOrder: u32,
-            RawDataOffset: u32,
-            RawDataSize: u32,
-            PaletteOffset: u32,
-            PaletteSize: u32,
+            Tag: DWORD,
+            Version: DWORD,
+            HeaderSize: DWORD,
+            XRes: DWORD,
+            YRes: DWORD,
+            XExtent: DWORD,
+            YExtent: DWORD,
+            BytesPerLine: DWORD,
+            BitsPerPixel: DWORD,
+            ChannelsPerPixel: DWORD,
+            DataType: DWORD,
+            BitsPerChannel: [BYTE; 8],
+            Compression: DWORD,
+            PhotometricInterp: DWORD,
+            LineOrder: DWORD,
+            RawDataOffset: DWORD,
+            RawDataSize: DWORD,
+            PaletteOffset: DWORD,
+            PaletteSize: DWORD,
         }
         const WIA_REGISTER_EVENT_CALLBACK: i32 = 1;
         const WIA_RESERVED_FOR_NEW_PROPS: i32 = 1024;

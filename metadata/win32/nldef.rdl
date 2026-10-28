@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const NET_IF_CURRENT_SESSION: u32 = 4294967295;
+        const NET_IF_CURRENT_SESSION: ULONG = 4294967295;
         #[repr(i32)]
         enum NL_ADDRESS_TYPE {
             NlatUnspecified = 0,
@@ -18,8 +18,8 @@ mod Windows {
             NlbwUnchanged = -1,
         }
         struct NL_BANDWIDTH_INFORMATION {
-            Bandwidth: u64,
-            Instability: u64,
+            Bandwidth: ULONG64,
+            Instability: ULONG64,
             BandwidthPeaked: BOOLEAN,
         }
         #[repr(i32)]
@@ -44,15 +44,15 @@ mod Windows {
             NlincCategoryStateMax = 4,
         }
         struct NL_INTERFACE_OFFLOAD_ROD {
-            _bitfield: BOOLEAN {
-                NlChecksumSupported: 1,
-                NlOptionsSupported: 1,
-                TlDatagramChecksumSupported: 1,
-                TlStreamChecksumSupported: 1,
-                TlStreamOptionsSupported: 1,
-                FastPathCompatible: 1,
-                TlLargeSendOffloadSupported: 1,
-                TlGiantSendOffloadSupported: 1,
+            _bitfield: u8 {
+                NlChecksumSupported: BOOLEAN: 1,
+                NlOptionsSupported: BOOLEAN: 1,
+                TlDatagramChecksumSupported: BOOLEAN: 1,
+                TlStreamChecksumSupported: BOOLEAN: 1,
+                TlStreamOptionsSupported: BOOLEAN: 1,
+                FastPathCompatible: BOOLEAN: 1,
+                TlLargeSendOffloadSupported: BOOLEAN: 1,
+                TlGiantSendOffloadSupported: BOOLEAN: 1,
             },
         }
         #[repr(i32)]
@@ -62,7 +62,7 @@ mod Windows {
             LinkLocalAlwaysOn = 2,
             LinkLocalUnchanged = -1,
         }
-        const NL_MAX_METRIC_COMPONENT: u32 = 2147483647;
+        const NL_MAX_METRIC_COMPONENT: ULONG = 2147483647;
         #[repr(i32)]
         enum NL_NEIGHBOR_STATE {
             NlnsUnreachable = 0,
@@ -106,8 +106,8 @@ mod Windows {
             NetworkConnectivityLevelHintHidden = 5,
         }
         struct NL_PATH_BANDWIDTH_ROD {
-            Bandwidth: u64,
-            Instability: u64,
+            Bandwidth: ULONG64,
+            Instability: ULONG64,
             BandwidthPeaked: BOOLEAN,
         }
         #[repr(i32)]

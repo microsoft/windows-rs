@@ -3,26 +3,26 @@ mod Windows {
     mod Win32 {
         #[guid(0x04a2dbf3_df83_116c_0946_0812abf6e07d)]
         interface ILanguageExceptionErrorInfo: IUnknown {
-            fn GetLanguageException(&self, languageException: *mut IUnknown) -> HRESULT;
+            fn GetLanguageException(&self, #[out] #[out_ptr] languageException: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x5746e5c4_5b97_424c_b620_2822915734dd)]
         interface ILanguageExceptionErrorInfo2: ILanguageExceptionErrorInfo {
-            fn GetPreviousLanguageExceptionErrorInfo(&self, previousLanguageExceptionErrorInfo: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
-            fn CapturePropagationContext(&self, languageException: IUnknown) -> HRESULT;
-            fn GetPropagationContextHead(&self, propagatedLanguageExceptionErrorInfoHead: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
+            fn GetPreviousLanguageExceptionErrorInfo(&self, #[out] #[out_ptr] previousLanguageExceptionErrorInfo: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
+            fn CapturePropagationContext(&self, #[in] #[opt] languageException: IUnknown) -> HRESULT;
+            fn GetPropagationContextHead(&self, #[out] #[out_ptr] propagatedLanguageExceptionErrorInfoHead: *mut ILanguageExceptionErrorInfo2) -> HRESULT;
         }
         #[guid(0xcbe53fb5_f967_4258_8d34_42f5e25833de)]
         interface ILanguageExceptionStackBackTrace: IUnknown {
-            fn GetStackBackTrace(&self, maxFramesToCapture: u32, #[in] #[out] stackBackTrace: *mut usize, framesCaptured: *mut u32) -> HRESULT;
+            fn GetStackBackTrace(&self, #[in] maxFramesToCapture: ULONG, #[in] #[out] #[readable(entry, maxFramesToCapture - 1 + 1)] #[readable(success, maxFramesToCapture - 1 + 1)] #[writable(entry, maxFramesToCapture - 1 + 1)] stackBackTrace: *mut UINT_PTR, #[out] framesCaptured: *mut ULONG) -> HRESULT;
         }
         #[guid(0xfeb5a271_a6cd_45ce_880a_696706badc65)]
         interface ILanguageExceptionTransform: IUnknown {
-            fn GetTransformedRestrictedErrorInfo(&self, restrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
+            fn GetTransformedRestrictedErrorInfo(&self, #[out] #[out_ptr] restrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         }
         #[guid(0x82ba7092_4c88_427d_a7bc_16dd93feb67e)]
         interface IRestrictedErrorInfo: IUnknown {
-            fn GetErrorDetails(&self, description: *mut BSTR, error: *mut HRESULT, restrictedDescription: *mut BSTR, capabilitySid: *mut BSTR) -> HRESULT;
-            fn GetReference(&self, reference: *mut BSTR) -> HRESULT;
+            fn GetErrorDetails(&self, #[out] #[out_ptr] description: *mut BSTR, #[out] error: *mut HRESULT, #[out] #[out_ptr] restrictedDescription: *mut BSTR, #[out] #[out_ptr] capabilitySid: *mut BSTR) -> HRESULT;
+            fn GetReference(&self, #[out] #[out_ptr] reference: *mut BSTR) -> HRESULT;
         }
     }
 }

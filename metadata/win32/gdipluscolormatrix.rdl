@@ -1,0 +1,36 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ColorAdjustType {
+            ColorAdjustTypeDefault = 0,
+            ColorAdjustTypeBitmap = 1,
+            ColorAdjustTypeBrush = 2,
+            ColorAdjustTypePen = 3,
+            ColorAdjustTypeText = 4,
+            ColorAdjustTypeCount = 5,
+            ColorAdjustTypeAny = 6,
+        }
+        #[packed(8)]
+        struct ColorMatrix {
+            m: [[REAL; 5]; 5],
+        }
+        #[repr(i32)]
+        enum ColorMatrixFlags {
+            ColorMatrixFlagsDefault = 0,
+            ColorMatrixFlagsSkipGrays = 1,
+            ColorMatrixFlagsAltGray = 2,
+        }
+        #[repr(i32)]
+        enum HistogramFormat {
+            HistogramFormatARGB = 0,
+            HistogramFormatPARGB = 1,
+            HistogramFormatRGB = 2,
+            HistogramFormatGray = 3,
+            HistogramFormatB = 4,
+            HistogramFormatG = 5,
+            HistogramFormatR = 6,
+            HistogramFormatA = 7,
+        }
+    }
+}

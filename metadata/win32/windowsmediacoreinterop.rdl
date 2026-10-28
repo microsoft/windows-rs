@@ -1,22 +1,24 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        const CLSID_AudioFrameNativeFactory: GUID = 0x16a0a3b9_9f65_4102_9367_2cda3a4f372a;
+        const CLSID_VideoFrameNativeFactory: GUID = 0xd194386a_04e3_4814_8100_b2b0ae6d78c7;
         #[guid(0x20be1e2e_930f_4746_9335_3c332f255093)]
         interface IAudioFrameNative: IInspectable {
-            fn GetData(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetData(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110)]
         interface IAudioFrameNativeFactory: IInspectable {
-            fn CreateFromMFSample(&self, data: IMFSample, forceReadOnly: BOOL, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateFromMFSample(&self, #[in] data: IMFSample, #[in] forceReadOnly: BOOL, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x26ba702b_314a_4620_aaf6_7a51aa58fa18)]
         interface IVideoFrameNative: IInspectable {
-            fn GetData(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn GetDevice(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetData(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
+            fn GetDevice(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d)]
         interface IVideoFrameNativeFactory: IInspectable {
-            fn CreateFromMFSample(&self, data: IMFSample, subtype: *const GUID, width: u32, height: u32, forceReadOnly: BOOL, #[opt] minDisplayAperture: *const MFVideoArea, #[opt] device: IMFDXGIDeviceManager, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateFromMFSample(&self, #[in] data: IMFSample, #[in] subtype: &GUID, #[in] width: UINT32, #[in] height: UINT32, #[in] forceReadOnly: BOOL, #[in] #[opt] minDisplayAperture: *const MFVideoArea, #[in] #[opt] device: IMFDXGIDeviceManager, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
         }
     }
 }

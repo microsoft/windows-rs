@@ -3,29 +3,29 @@ mod Windows {
     mod Win32 {
         type ASYNCCOMPLETIONHANDLE = usize;
         #[library("USERENV.dll")]
-        extern fn CreateAppContainerProfile(pszAppContainerName: PCWSTR, pszDisplayName: PCWSTR, pszDescription: PCWSTR, #[len_param(4)] #[opt] pCapabilities: PSID_AND_ATTRIBUTES, dwCapabilityCount: u32, ppSidAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn CreateAppContainerProfile(#[in] pszAppContainerName: PCWSTR, #[in] pszDisplayName: PCWSTR, #[in] pszDescription: PCWSTR, #[in] #[opt] #[readable(entry, dwCapabilityCount)] pCapabilities: PSID_AND_ATTRIBUTES, #[in] dwCapabilityCount: DWORD, #[out] #[out_ptr] ppSidAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn CreateEnvironmentBlock(lpEnvironment: *mut *mut void, #[opt] hToken: HANDLE, bInherit: BOOL) -> BOOL;
+        extern fn CreateEnvironmentBlock(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "(PZZWSTR *)lpEnvironment,_Outptr_", "(PZZWSTR *)lpEnvironment, _Outptr_")] lpEnvironment: *mut LPVOID, #[in] #[opt] hToken: HANDLE, #[in] bInherit: BOOL) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn CreateProfile(pszUserSid: PCWSTR, pszUserName: PCWSTR, #[len_param(3)] #[out] pszProfilePath: PWSTR, cchProfilePath: u32) -> HRESULT;
+        extern fn CreateProfile(#[in] pszUserSid: LPCWSTR, #[in] pszUserName: LPCWSTR, #[out] #[writable(entry, cchProfilePath)] pszProfilePath: LPWSTR, #[in] cchProfilePath: DWORD) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DeleteAppContainerProfile(pszAppContainerName: PCWSTR) -> HRESULT;
+        extern fn DeleteAppContainerProfile(#[in] pszAppContainerName: PCWSTR) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DeleteProfileA(lpSidString: PCSTR, #[opt] lpProfilePath: PCSTR, #[opt] lpComputerName: PCSTR) -> BOOL;
+        extern fn DeleteProfileA(#[in] lpSidString: LPCSTR, #[in] #[opt] lpProfilePath: LPCSTR, #[in] #[opt] lpComputerName: LPCSTR) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn DeleteProfileW(lpSidString: PCWSTR, #[opt] lpProfilePath: PCWSTR, #[opt] lpComputerName: PCWSTR) -> BOOL;
+        extern fn DeleteProfileW(#[in] lpSidString: LPCWSTR, #[in] #[opt] lpProfilePath: LPCWSTR, #[in] #[opt] lpComputerName: LPCWSTR) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn DeriveAppContainerSidFromAppContainerName(pszAppContainerName: PCWSTR, ppsidAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn DeriveAppContainerSidFromAppContainerName(#[in] pszAppContainerName: PCWSTR, #[out] #[out_ptr] ppsidAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidAppContainerSid: PSID, pszRestrictedAppContainerName: PCWSTR, ppsidRestrictedAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(#[in] psidAppContainerSid: PSID, #[in] pszRestrictedAppContainerName: PCWSTR, #[out] #[out_ptr] ppsidRestrictedAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DestroyEnvironmentBlock(#[in] lpEnvironment: *mut void) -> BOOL;
+        extern fn DestroyEnvironmentBlock(#[in] lpEnvironment: LPVOID) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn EnterCriticalPolicySection(bMachine: BOOL) -> HANDLE;
+        extern fn EnterCriticalPolicySection(#[in] bMachine: BOOL) -> HANDLE;
         #[library("USERENV.dll")]
-        extern fn ExpandEnvironmentStringsForUserA(#[opt] hToken: HANDLE, lpSrc: PCSTR, #[len_param(3)] #[out] lpDest: PSTR, dwSize: u32) -> BOOL;
+        extern fn ExpandEnvironmentStringsForUserA(#[in] #[opt] hToken: HANDLE, #[in] lpSrc: LPCSTR, #[out] #[writable(entry, dwSize)] lpDest: LPSTR, #[in] dwSize: DWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn ExpandEnvironmentStringsForUserW(#[opt] hToken: HANDLE, lpSrc: PCWSTR, #[len_param(3)] #[out] lpDest: PWSTR, dwSize: u32) -> BOOL;
+        extern fn ExpandEnvironmentStringsForUserW(#[in] #[opt] hToken: HANDLE, #[in] lpSrc: LPCWSTR, #[out] #[writable(entry, dwSize)] lpDest: LPWSTR, #[in] dwSize: DWORD) -> BOOL;
         const FLAG_ASSUME_COMP_WQLFILTER_TRUE: i32 = 33554432;
         const FLAG_ASSUME_SLOW_LINK: i32 = 536870912;
         const FLAG_ASSUME_USER_WQLFILTER_TRUE: i32 = 67108864;
@@ -38,9 +38,9 @@ mod Windows {
         const FLAG_NO_USER: i32 = 1;
         const FLAG_PLANNING_MODE: i32 = 16777216;
         #[library("USERENV.dll")]
-        extern fn FreeGPOListA(pGPOList: PGROUP_POLICY_OBJECTA) -> BOOL;
+        extern fn FreeGPOListA(#[in] pGPOList: PGROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn FreeGPOListW(pGPOList: PGROUP_POLICY_OBJECTW) -> BOOL;
+        extern fn FreeGPOListW(#[in] pGPOList: PGROUP_POLICY_OBJECTW) -> BOOL;
         const GPC_BLOCK_POLICY: i32 = 1;
         const GPO_FLAG_DISABLE: i32 = 1;
         const GPO_FLAG_FORCE: i32 = 2;
@@ -66,92 +66,116 @@ mod Windows {
         const GPO_LIST_FLAG_NO_SECURITYFILTERS: i32 = 8;
         const GPO_LIST_FLAG_NO_WMIFILTERS: i32 = 4;
         const GPO_LIST_FLAG_SITEONLY: i32 = 2;
+        #[encoding("ansi")]
+        const GP_DLLNAME: String = "DllName";
+        #[encoding("ansi")]
+        const GP_ENABLEASYNCHRONOUSPROCESSING: String = "EnableAsynchronousProcessing";
+        #[encoding("ansi")]
+        const GP_MAXNOGPOLISTCHANGESINTERVAL: String = "MaxNoGPOListChangesInterval";
+        #[encoding("ansi")]
+        const GP_NOBACKGROUNDPOLICY: String = "NoBackgroundPolicy";
+        #[encoding("ansi")]
+        const GP_NOGPOLISTCHANGES: String = "NoGPOListChanges";
+        #[encoding("ansi")]
+        const GP_NOMACHINEPOLICY: String = "NoMachinePolicy";
+        #[encoding("ansi")]
+        const GP_NOSLOWLINK: String = "NoSlowLink";
+        #[encoding("ansi")]
+        const GP_NOTIFYLINKTRANSITION: String = "NotifyLinkTransition";
+        #[encoding("ansi")]
+        const GP_NOUSERPOLICY: String = "NoUserPolicy";
+        #[encoding("ansi")]
+        const GP_PERUSERLOCALSETTINGS: String = "PerUserLocalSettings";
+        #[encoding("ansi")]
+        const GP_PROCESSGROUPPOLICY: String = "ProcessGroupPolicy";
+        #[encoding("ansi")]
+        const GP_REQUIRESSUCCESSFULREGISTRY: String = "RequiresSuccessfulRegistry";
         type GROUP_POLICY_OBJECT = GROUP_POLICY_OBJECTA;
         struct GROUP_POLICY_OBJECTA {
-            dwOptions: u32,
-            dwVersion: u32,
-            lpDSPath: PSTR,
-            lpFileSysPath: PSTR,
-            lpDisplayName: PSTR,
-            szGPOName: [i8; 50],
+            dwOptions: DWORD,
+            dwVersion: DWORD,
+            lpDSPath: LPSTR,
+            lpFileSysPath: LPSTR,
+            lpDisplayName: LPSTR,
+            szGPOName: [CHAR; 50],
             GPOLink: GPO_LINK,
             lParam: LPARAM,
             pNext: *mut GROUP_POLICY_OBJECTA,
             pPrev: *mut GROUP_POLICY_OBJECTA,
-            lpExtensions: PSTR,
+            lpExtensions: LPSTR,
             lParam2: LPARAM,
-            lpLink: PSTR,
+            lpLink: LPSTR,
         }
         struct GROUP_POLICY_OBJECTW {
-            dwOptions: u32,
-            dwVersion: u32,
-            lpDSPath: PWSTR,
-            lpFileSysPath: PWSTR,
-            lpDisplayName: PWSTR,
-            szGPOName: [u16; 50],
+            dwOptions: DWORD,
+            dwVersion: DWORD,
+            lpDSPath: LPWSTR,
+            lpFileSysPath: LPWSTR,
+            lpDisplayName: LPWSTR,
+            szGPOName: [WCHAR; 50],
             GPOLink: GPO_LINK,
             lParam: LPARAM,
             pNext: *mut GROUP_POLICY_OBJECTW,
             pPrev: *mut GROUP_POLICY_OBJECTW,
-            lpExtensions: PWSTR,
+            lpExtensions: LPWSTR,
             lParam2: LPARAM,
-            lpLink: PWSTR,
+            lpLink: LPWSTR,
         }
         #[library("USERENV.dll")]
-        extern fn GenerateGPNotification(bMachine: BOOL, lpwszMgmtProduct: PCWSTR, dwMgmtProductOptions: u32) -> u32;
+        extern fn GenerateGPNotification(#[in] bMachine: BOOL, #[in] lpwszMgmtProduct: LPCWSTR, #[in] dwMgmtProductOptions: DWORD) -> DWORD;
         #[library("USERENV.dll")]
-        extern fn GetAllUsersProfileDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetAllUsersProfileDirectoryA(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetAllUsersProfileDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetAllUsersProfileDirectoryW(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetAppContainerFolderPath(pszAppContainerSid: PCWSTR, ppszPath: *mut PWSTR) -> HRESULT;
+        extern fn GetAppContainerFolderPath(#[in] pszAppContainerSid: PCWSTR, #[out] #[out_ptr] ppszPath: *mut PWSTR) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn GetAppContainerRegistryLocation(desiredAccess: REGSAM, phAppContainerKey: PHKEY) -> HRESULT;
+        extern fn GetAppContainerRegistryLocation(#[in] desiredAccess: REGSAM, #[out] #[out_ptr] phAppContainerKey: PHKEY) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn GetAppliedGPOListA(dwFlags: u32, #[opt] pMachineName: PCSTR, #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> u32;
+        extern fn GetAppliedGPOListA(#[in] dwFlags: DWORD, #[in] #[opt] pMachineName: LPCSTR, #[in] #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, #[out] #[out_ptr] ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> DWORD;
         #[library("USERENV.dll")]
-        extern fn GetAppliedGPOListW(dwFlags: u32, #[opt] pMachineName: PCWSTR, #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> u32;
+        extern fn GetAppliedGPOListW(#[in] dwFlags: DWORD, #[in] #[opt] pMachineName: LPCWSTR, #[in] #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, #[out] #[out_ptr] ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> DWORD;
         #[library("USERENV.dll")]
-        extern fn GetDefaultUserProfileDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetDefaultUserProfileDirectoryA(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetDefaultUserProfileDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetDefaultUserProfileDirectoryW(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetGPOListA(#[opt] hToken: HANDLE, #[opt] lpName: PCSTR, #[opt] lpHostName: PCSTR, #[opt] lpComputerName: PCSTR, dwFlags: u32, pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
+        extern fn GetGPOListA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpName: LPCSTR, #[in] #[opt] lpHostName: LPCSTR, #[in] #[opt] lpComputerName: LPCSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetGPOListW(#[opt] hToken: HANDLE, #[opt] lpName: PCWSTR, #[opt] lpHostName: PCWSTR, #[opt] lpComputerName: PCWSTR, dwFlags: u32, pGPOList: *mut PGROUP_POLICY_OBJECTW) -> BOOL;
+        extern fn GetGPOListW(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpName: LPCWSTR, #[in] #[opt] lpHostName: LPCWSTR, #[in] #[opt] lpComputerName: LPCWSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] pGPOList: *mut PGROUP_POLICY_OBJECTW) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfileType(dwFlags: *mut u32) -> BOOL;
+        extern fn GetProfileType(#[out] dwFlags: *mut DWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfilesDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetProfilesDirectoryA(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfilesDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetProfilesDirectoryW(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetUserProfileDirectoryA(hToken: HANDLE, #[len_param(2)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetUserProfileDirectoryA(#[in] hToken: HANDLE, #[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetUserProfileDirectoryW(hToken: HANDLE, #[len_param(2)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetUserProfileDirectoryW(#[in] hToken: HANDLE, #[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         type LPPOLICYSETTINGSTATUSINFO = *mut POLICYSETTINGSTATUSINFO;
         #[library("USERENV.dll")]
-        extern fn LeaveCriticalPolicySection(hSection: HANDLE) -> BOOL;
+        extern fn LeaveCriticalPolicySection(#[in] hSection: HANDLE) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn LoadUserProfileA(hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOA) -> BOOL;
+        extern fn LoadUserProfileA(#[in] hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn LoadUserProfileW(hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOW) -> BOOL;
-        extern "C" fn PFNGENERATEGROUPPOLICY(dwFlags: u32, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] pwszSite: *mut u16, #[opt] pComputerTarget: PRSOP_TARGET, #[opt] pUserTarget: PRSOP_TARGET) -> u32;
-        extern "C" fn PFNPROCESSGROUPPOLICY(dwFlags: u32, hToken: HANDLE, hKeyRoot: HKEY, pDeletedGPOList: PGROUP_POLICY_OBJECT, pChangedGPOList: PGROUP_POLICY_OBJECT, pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK) -> u32;
-        extern "C" fn PFNPROCESSGROUPPOLICYEX(dwFlags: u32, hToken: HANDLE, hKeyRoot: HKEY, pDeletedGPOList: PGROUP_POLICY_OBJECT, pChangedGPOList: PGROUP_POLICY_OBJECT, pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK, #[opt] pWbemServices: IWbemServices, pRsopStatus: *mut HRESULT) -> u32;
-        extern "C" fn PFNSTATUSMESSAGECALLBACK(bVerbose: BOOL, lpMessage: PCWSTR) -> u32;
+        extern fn LoadUserProfileW(#[in] hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOW) -> BOOL;
+        extern "C" fn PFNGENERATEGROUPPOLICY(#[in] dwFlags: DWORD, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] pwszSite: *mut WCHAR, #[in] #[opt] pComputerTarget: PRSOP_TARGET, #[in] #[opt] pUserTarget: PRSOP_TARGET) -> DWORD;
+        extern "C" fn PFNPROCESSGROUPPOLICY(#[in] dwFlags: DWORD, #[in] hToken: HANDLE, #[in] hKeyRoot: HKEY, #[in] pDeletedGPOList: PGROUP_POLICY_OBJECT, #[in] pChangedGPOList: PGROUP_POLICY_OBJECT, #[in] pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK) -> DWORD;
+        extern "C" fn PFNPROCESSGROUPPOLICYEX(#[in] dwFlags: DWORD, #[in] hToken: HANDLE, #[in] hKeyRoot: HKEY, #[in] pDeletedGPOList: PGROUP_POLICY_OBJECT, #[in] pChangedGPOList: PGROUP_POLICY_OBJECT, #[in] pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK, #[in] #[opt] pWbemServices: IWbemServices, #[out] pRsopStatus: *mut HRESULT) -> DWORD;
+        extern "C" fn PFNSTATUSMESSAGECALLBACK(#[in] bVerbose: BOOL, #[in] lpMessage: LPWSTR) -> DWORD;
         type PGPO_LINK = *mut GPO_LINK;
-        type PGROUP_POLICY_OBJECT = PGROUP_POLICY_OBJECTA;
+        type PGROUP_POLICY_OBJECT = *mut GROUP_POLICY_OBJECTA;
         type PGROUP_POLICY_OBJECTA = *mut GROUP_POLICY_OBJECTA;
         type PGROUP_POLICY_OBJECTW = *mut GROUP_POLICY_OBJECTW;
         const PI_APPLYPOLICY: i32 = 2;
         const PI_NOUI: i32 = 1;
         struct POLICYSETTINGSTATUSINFO {
-            szKey: PWSTR,
-            szEventSource: PWSTR,
-            szEventLogName: PWSTR,
-            dwEventID: u32,
-            dwErrorCode: u32,
+            szKey: LPWSTR,
+            szEventSource: LPWSTR,
+            szEventLogName: LPWSTR,
+            dwEventID: DWORD,
+            dwErrorCode: DWORD,
             status: SETTINGSTATUS,
             timeLogged: SYSTEMTIME,
         }
@@ -162,16 +186,16 @@ mod Windows {
         const PT_ROAMING_PREEXISTING: i32 = 8;
         const PT_TEMPORARY: i32 = 1;
         #[library("USERENV.dll")]
-        extern fn ProcessGroupPolicyCompleted(extensionId: REFGPEXTENSIONID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32) -> u32;
+        extern fn ProcessGroupPolicyCompleted(#[in] extensionId: REFGPEXTENSIONID, #[in] pAsyncHandle: ASYNCCOMPLETIONHANDLE, #[in] dwStatus: DWORD) -> DWORD;
         #[library("USERENV.dll")]
-        extern fn ProcessGroupPolicyCompletedEx(extensionId: REFGPEXTENSIONID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32, RsopStatus: HRESULT) -> u32;
+        extern fn ProcessGroupPolicyCompletedEx(#[in] extensionId: REFGPEXTENSIONID, #[in] pAsyncHandle: ASYNCCOMPLETIONHANDLE, #[in] dwStatus: DWORD, #[in] RsopStatus: HRESULT) -> DWORD;
         type REFGPEXTENSIONID = *mut GUID;
         const RP_FORCE: i32 = 1;
         const RP_SYNC: i32 = 2;
         const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
         struct RSOP_TARGET {
-            pwszAccountName: *mut u16,
-            pwszNewSOM: *mut u16,
+            pwszAccountName: *mut WCHAR,
+            pwszNewSOM: *mut WCHAR,
             psaSecurityGroups: *mut SAFEARRAY,
             pRsopToken: PRSOPTOKEN,
             pGPOList: PGROUP_POLICY_OBJECT,
@@ -180,19 +204,19 @@ mod Windows {
         const RSOP_TEMPNAMESPACE_EXISTS: i32 = 4;
         const RSOP_USER_ACCESS_DENIED: i32 = 1;
         #[library("USERENV.dll")]
-        extern fn RefreshPolicy(bMachine: BOOL) -> BOOL;
+        extern fn RefreshPolicy(#[in] bMachine: BOOL) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn RefreshPolicyEx(bMachine: BOOL, dwOptions: u32) -> BOOL;
+        extern fn RefreshPolicyEx(#[in] bMachine: BOOL, #[in] dwOptions: DWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn RegisterGPNotification(hEvent: HANDLE, bMachine: BOOL) -> BOOL;
+        extern fn RegisterGPNotification(#[in] hEvent: HANDLE, #[in] bMachine: BOOL) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn RsopAccessCheckByType(pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] pPrincipalSelfSid: PSID, pRsopToken: PRSOPTOKEN, dwDesiredAccessMask: u32, #[len_param(5)] #[opt] pObjectTypeList: POBJECT_TYPE_LIST, ObjectTypeListLength: u32, pGenericMapping: PGENERIC_MAPPING, #[size_param(8)] #[opt] pPrivilegeSet: PPRIVILEGE_SET, #[opt] pdwPrivilegeSetLength: LPDWORD, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
+        extern fn RsopAccessCheckByType(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] pPrincipalSelfSid: PSID, #[in] pRsopToken: PRSOPTOKEN, #[in] dwDesiredAccessMask: DWORD, #[in] #[opt] #[readable(entry, ObjectTypeListLength)] pObjectTypeList: POBJECT_TYPE_LIST, #[in] ObjectTypeListLength: DWORD, #[in] pGenericMapping: PGENERIC_MAPPING, #[in] #[opt] #[readable(entry, bytes(if_present(*pdwPrivilegeSetLength)))] pPrivilegeSet: PPRIVILEGE_SET, #[in] #[opt] pdwPrivilegeSetLength: LPDWORD, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn RsopFileAccessCheck(pszFileName: PCWSTR, pRsopToken: PRSOPTOKEN, dwDesiredAccessMask: u32, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
+        extern fn RsopFileAccessCheck(#[in] pszFileName: LPWSTR, #[in] pRsopToken: PRSOPTOKEN, #[in] dwDesiredAccessMask: DWORD, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn RsopResetPolicySettingStatus(dwFlags: u32, pServices: IWbemServices, pSettingInstance: IWbemClassObject) -> HRESULT;
+        extern fn RsopResetPolicySettingStatus(#[in] dwFlags: DWORD, #[in] pServices: IWbemServices, #[in] pSettingInstance: IWbemClassObject) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn RsopSetPolicySettingStatus(dwFlags: u32, pServices: IWbemServices, pSettingInstance: IWbemClassObject, nInfo: u32, #[len_param(3)] #[in] pStatus: *mut POLICYSETTINGSTATUSINFO) -> HRESULT;
+        extern fn RsopSetPolicySettingStatus(#[in] dwFlags: DWORD, #[in] pServices: IWbemServices, #[in] pSettingInstance: IWbemClassObject, #[in] nInfo: DWORD, #[in] #[readable(entry, nInfo)] pStatus: *mut POLICYSETTINGSTATUSINFO) -> HRESULT;
         #[repr(i32)]
         enum SETTINGSTATUS {
             RSOPUnspecified = 0,
@@ -202,8 +226,8 @@ mod Windows {
             RSOPSubsettingFailed = 4,
         }
         #[library("USERENV.dll")]
-        extern fn UnloadUserProfile(hToken: HANDLE, hProfile: HANDLE) -> BOOL;
+        extern fn UnloadUserProfile(#[in] hToken: HANDLE, #[in] hProfile: HANDLE) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn UnregisterGPNotification(hEvent: HANDLE) -> BOOL;
+        extern fn UnregisterGPNotification(#[in] hEvent: HANDLE) -> BOOL;
     }
 }

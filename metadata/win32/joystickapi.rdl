@@ -5,117 +5,117 @@ mod Windows {
         type JOYCAPS2 = JOYCAPS2A;
         #[packed(1)]
         struct JOYCAPS2A {
-            wMid: u16,
-            wPid: u16,
-            szPname: [i8; 32],
-            wXmin: u32,
-            wXmax: u32,
-            wYmin: u32,
-            wYmax: u32,
-            wZmin: u32,
-            wZmax: u32,
-            wNumButtons: u32,
-            wPeriodMin: u32,
-            wPeriodMax: u32,
-            wRmin: u32,
-            wRmax: u32,
-            wUmin: u32,
-            wUmax: u32,
-            wVmin: u32,
-            wVmax: u32,
-            wCaps: u32,
-            wMaxAxes: u32,
-            wNumAxes: u32,
-            wMaxButtons: u32,
-            szRegKey: [i8; 32],
-            szOEMVxD: [i8; 260],
+            wMid: WORD,
+            wPid: WORD,
+            szPname: [CHAR; 32],
+            wXmin: UINT,
+            wXmax: UINT,
+            wYmin: UINT,
+            wYmax: UINT,
+            wZmin: UINT,
+            wZmax: UINT,
+            wNumButtons: UINT,
+            wPeriodMin: UINT,
+            wPeriodMax: UINT,
+            wRmin: UINT,
+            wRmax: UINT,
+            wUmin: UINT,
+            wUmax: UINT,
+            wVmin: UINT,
+            wVmax: UINT,
+            wCaps: UINT,
+            wMaxAxes: UINT,
+            wNumAxes: UINT,
+            wMaxButtons: UINT,
+            szRegKey: [CHAR; 32],
+            szOEMVxD: [CHAR; 260],
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct JOYCAPS2W {
-            wMid: u16,
-            wPid: u16,
-            szPname: [u16; 32],
-            wXmin: u32,
-            wXmax: u32,
-            wYmin: u32,
-            wYmax: u32,
-            wZmin: u32,
-            wZmax: u32,
-            wNumButtons: u32,
-            wPeriodMin: u32,
-            wPeriodMax: u32,
-            wRmin: u32,
-            wRmax: u32,
-            wUmin: u32,
-            wUmax: u32,
-            wVmin: u32,
-            wVmax: u32,
-            wCaps: u32,
-            wMaxAxes: u32,
-            wNumAxes: u32,
-            wMaxButtons: u32,
-            szRegKey: [u16; 32],
-            szOEMVxD: [u16; 260],
+            wMid: WORD,
+            wPid: WORD,
+            szPname: [WCHAR; 32],
+            wXmin: UINT,
+            wXmax: UINT,
+            wYmin: UINT,
+            wYmax: UINT,
+            wZmin: UINT,
+            wZmax: UINT,
+            wNumButtons: UINT,
+            wPeriodMin: UINT,
+            wPeriodMax: UINT,
+            wRmin: UINT,
+            wRmax: UINT,
+            wUmin: UINT,
+            wUmax: UINT,
+            wVmin: UINT,
+            wVmax: UINT,
+            wCaps: UINT,
+            wMaxAxes: UINT,
+            wNumAxes: UINT,
+            wMaxButtons: UINT,
+            szRegKey: [WCHAR; 32],
+            szOEMVxD: [WCHAR; 260],
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct JOYCAPSA {
-            wMid: u16,
-            wPid: u16,
-            szPname: [i8; 32],
-            wXmin: u32,
-            wXmax: u32,
-            wYmin: u32,
-            wYmax: u32,
-            wZmin: u32,
-            wZmax: u32,
-            wNumButtons: u32,
-            wPeriodMin: u32,
-            wPeriodMax: u32,
-            wRmin: u32,
-            wRmax: u32,
-            wUmin: u32,
-            wUmax: u32,
-            wVmin: u32,
-            wVmax: u32,
-            wCaps: u32,
-            wMaxAxes: u32,
-            wNumAxes: u32,
-            wMaxButtons: u32,
-            szRegKey: [i8; 32],
-            szOEMVxD: [i8; 260],
+            wMid: WORD,
+            wPid: WORD,
+            szPname: [CHAR; 32],
+            wXmin: UINT,
+            wXmax: UINT,
+            wYmin: UINT,
+            wYmax: UINT,
+            wZmin: UINT,
+            wZmax: UINT,
+            wNumButtons: UINT,
+            wPeriodMin: UINT,
+            wPeriodMax: UINT,
+            wRmin: UINT,
+            wRmax: UINT,
+            wUmin: UINT,
+            wUmax: UINT,
+            wVmin: UINT,
+            wVmax: UINT,
+            wCaps: UINT,
+            wMaxAxes: UINT,
+            wNumAxes: UINT,
+            wMaxButtons: UINT,
+            szRegKey: [CHAR; 32],
+            szOEMVxD: [CHAR; 260],
         }
         #[packed(1)]
         struct JOYCAPSW {
-            wMid: u16,
-            wPid: u16,
-            szPname: [u16; 32],
-            wXmin: u32,
-            wXmax: u32,
-            wYmin: u32,
-            wYmax: u32,
-            wZmin: u32,
-            wZmax: u32,
-            wNumButtons: u32,
-            wPeriodMin: u32,
-            wPeriodMax: u32,
-            wRmin: u32,
-            wRmax: u32,
-            wUmin: u32,
-            wUmax: u32,
-            wVmin: u32,
-            wVmax: u32,
-            wCaps: u32,
-            wMaxAxes: u32,
-            wNumAxes: u32,
-            wMaxButtons: u32,
-            szRegKey: [u16; 32],
-            szOEMVxD: [u16; 260],
+            wMid: WORD,
+            wPid: WORD,
+            szPname: [WCHAR; 32],
+            wXmin: UINT,
+            wXmax: UINT,
+            wYmin: UINT,
+            wYmax: UINT,
+            wZmin: UINT,
+            wZmax: UINT,
+            wNumButtons: UINT,
+            wPeriodMin: UINT,
+            wPeriodMax: UINT,
+            wRmin: UINT,
+            wRmax: UINT,
+            wUmin: UINT,
+            wUmax: UINT,
+            wVmin: UINT,
+            wVmax: UINT,
+            wCaps: UINT,
+            wMaxAxes: UINT,
+            wNumAxes: UINT,
+            wMaxButtons: UINT,
+            szRegKey: [WCHAR; 32],
+            szOEMVxD: [WCHAR; 260],
         }
         const JOYCAPS_HASPOV: i32 = 16;
         const JOYCAPS_HASR: i32 = 2;
@@ -130,26 +130,26 @@ mod Windows {
         const JOYERR_UNPLUGGED: i32 = 167;
         #[packed(1)]
         struct JOYINFO {
-            wXpos: u32,
-            wYpos: u32,
-            wZpos: u32,
-            wButtons: u32,
+            wXpos: UINT,
+            wYpos: UINT,
+            wZpos: UINT,
+            wButtons: UINT,
         }
         #[packed(1)]
         struct JOYINFOEX {
-            dwSize: u32,
-            dwFlags: u32,
-            dwXpos: u32,
-            dwYpos: u32,
-            dwZpos: u32,
-            dwRpos: u32,
-            dwUpos: u32,
-            dwVpos: u32,
-            dwButtons: u32,
-            dwButtonNumber: u32,
-            dwPOV: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwXpos: DWORD,
+            dwYpos: DWORD,
+            dwZpos: DWORD,
+            dwRpos: DWORD,
+            dwUpos: DWORD,
+            dwVpos: DWORD,
+            dwButtons: DWORD,
+            dwButtonNumber: DWORD,
+            dwPOV: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
         }
         const JOYSTICKID1: i32 = 0;
         const JOYSTICKID2: i32 = 1;
@@ -202,7 +202,7 @@ mod Windows {
         const JOY_CAL_READYONLY: i32 = 2097152;
         const JOY_CAL_READZONLY: i32 = 16777216;
         const JOY_POVBACKWARD: i32 = 18000;
-        const JOY_POVCENTERED: u16 = 65535;
+        const JOY_POVCENTERED: WORD = 65535;
         const JOY_POVFORWARD: i32 = 0;
         const JOY_POVLEFT: i32 = 27000;
         const JOY_POVRIGHT: i32 = 9000;
@@ -219,24 +219,24 @@ mod Windows {
         const JOY_RETURNY: i32 = 2;
         const JOY_RETURNZ: i32 = 4;
         const JOY_USEDEADZONE: i32 = 2048;
-        type LPJOYCAPS = LPJOYCAPSA;
-        type LPJOYCAPS2 = LPJOYCAPS2A;
+        type LPJOYCAPS = *mut JOYCAPSA;
+        type LPJOYCAPS2 = *mut JOYCAPS2A;
         type LPJOYCAPS2A = *mut JOYCAPS2A;
         type LPJOYCAPS2W = *mut JOYCAPS2W;
         type LPJOYCAPSA = *mut JOYCAPSA;
         type LPJOYCAPSW = *mut JOYCAPSW;
         type LPJOYINFO = *mut JOYINFO;
         type LPJOYINFOEX = *mut JOYINFOEX;
-        type NPJOYCAPS = NPJOYCAPSA;
-        type NPJOYCAPS2 = NPJOYCAPS2A;
+        type NPJOYCAPS = *mut JOYCAPSA;
+        type NPJOYCAPS2 = *mut JOYCAPS2A;
         type NPJOYCAPS2A = *mut JOYCAPS2A;
         type NPJOYCAPS2W = *mut JOYCAPS2W;
         type NPJOYCAPSA = *mut JOYCAPSA;
         type NPJOYCAPSW = *mut JOYCAPSW;
         type NPJOYINFO = *mut JOYINFO;
         type NPJOYINFOEX = *mut JOYINFOEX;
-        type PJOYCAPS = PJOYCAPSA;
-        type PJOYCAPS2 = PJOYCAPS2A;
+        type PJOYCAPS = *mut JOYCAPSA;
+        type PJOYCAPS2 = *mut JOYCAPS2A;
         type PJOYCAPS2A = *mut JOYCAPS2A;
         type PJOYCAPS2W = *mut JOYCAPS2W;
         type PJOYCAPSA = *mut JOYCAPSA;
@@ -244,22 +244,22 @@ mod Windows {
         type PJOYINFO = *mut JOYINFO;
         type PJOYINFOEX = *mut JOYINFOEX;
         #[library("WINMM.dll")]
-        extern fn joyGetDevCapsA(uJoyID: usize, #[size_param(2)] #[out] pjc: LPJOYCAPSA, cbjc: u32) -> MMRESULT;
+        extern fn joyGetDevCapsA(#[in] uJoyID: UINT_PTR, #[out] #[writable(entry, bytes(cbjc))] pjc: LPJOYCAPSA, #[in] cbjc: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetDevCapsW(uJoyID: usize, #[size_param(2)] #[out] pjc: LPJOYCAPSW, cbjc: u32) -> MMRESULT;
+        extern fn joyGetDevCapsW(#[in] uJoyID: UINT_PTR, #[out] #[writable(entry, bytes(cbjc))] pjc: LPJOYCAPSW, #[in] cbjc: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetNumDevs() -> u32;
+        extern fn joyGetNumDevs() -> UINT;
         #[library("WINMM.dll")]
-        extern fn joyGetPos(uJoyID: u32, #[out] pji: LPJOYINFO) -> MMRESULT;
+        extern fn joyGetPos(#[in] uJoyID: UINT, #[out] pji: LPJOYINFO) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetPosEx(uJoyID: u32, #[out] pji: LPJOYINFOEX) -> MMRESULT;
+        extern fn joyGetPosEx(#[in] uJoyID: UINT, #[out] pji: LPJOYINFOEX) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetThreshold(uJoyID: u32, #[out] puThreshold: LPUINT) -> MMRESULT;
+        extern fn joyGetThreshold(#[in] uJoyID: UINT, #[out] puThreshold: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyReleaseCapture(uJoyID: u32) -> MMRESULT;
+        extern fn joyReleaseCapture(#[in] uJoyID: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joySetCapture(hwnd: HWND, uJoyID: u32, uPeriod: u32, fChanged: BOOL) -> MMRESULT;
+        extern fn joySetCapture(#[in] hwnd: HWND, #[in] uJoyID: UINT, #[in] uPeriod: UINT, #[in] fChanged: BOOL) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joySetThreshold(uJoyID: u32, uThreshold: u32) -> MMRESULT;
+        extern fn joySetThreshold(#[in] uJoyID: UINT, #[in] uThreshold: UINT) -> MMRESULT;
     }
 }

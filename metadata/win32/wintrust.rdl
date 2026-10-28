@@ -1,28 +1,31 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[packed(8)]
         struct CAT_MEMBERINFO {
-            pwszSubjGuid: PWSTR,
-            dwCertVersion: u32,
+            pwszSubjGuid: LPWSTR,
+            dwCertVersion: DWORD,
         }
+        #[packed(8)]
         struct CAT_MEMBERINFO2 {
             SubjectGuid: GUID,
-            dwCertVersion: u32,
+            dwCertVersion: DWORD,
         }
         #[encoding("ansi")]
         const CAT_MEMBERINFO2_OBJID: String = "1.3.6.1.4.1.311.12.2.3";
-        const CAT_MEMBERINFO2_STRUCT: PCSTR = 2223;
+        const CAT_MEMBERINFO2_STRUCT: LPCSTR = 2223;
         #[encoding("ansi")]
         const CAT_MEMBERINFO_OBJID: String = "1.3.6.1.4.1.311.12.2.2";
-        const CAT_MEMBERINFO_STRUCT: PCSTR = 2222;
+        const CAT_MEMBERINFO_STRUCT: LPCSTR = 2222;
+        #[packed(8)]
         struct CAT_NAMEVALUE {
-            pwszTag: PWSTR,
-            fdwFlags: u32,
+            pwszTag: LPWSTR,
+            fdwFlags: DWORD,
             Value: CRYPT_DATA_BLOB,
         }
         #[encoding("ansi")]
         const CAT_NAMEVALUE_OBJID: String = "1.3.6.1.4.1.311.12.2.1";
-        const CAT_NAMEVALUE_STRUCT: PCSTR = 2221;
+        const CAT_NAMEVALUE_STRUCT: LPCSTR = 2221;
         const CERT_CONFIDENCE_AUTHIDEXT: i32 = 65536;
         const CERT_CONFIDENCE_HIGHEST: i32 = 286330880;
         const CERT_CONFIDENCE_HYGIENE: i32 = 4096;
@@ -41,68 +44,72 @@ mod Windows {
         const CPD_UISTATE_MODE_MASK: i32 = 3;
         const CPD_UISTATE_MODE_PROMPT: i32 = 0;
         const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648;
+        #[packed(8)]
         struct CRYPT_PROVIDER_CERT {
-            cbStruct: u32,
+            cbStruct: DWORD,
             pCert: PCCERT_CONTEXT,
             fCommercial: BOOL,
             fTrustedRoot: BOOL,
             fSelfSigned: BOOL,
             fTestCert: BOOL,
-            dwRevokedReason: u32,
-            dwConfidence: u32,
-            dwError: u32,
+            dwRevokedReason: DWORD,
+            dwConfidence: DWORD,
+            dwError: DWORD,
             pTrustListContext: *mut CTL_CONTEXT,
             fTrustListSignerCert: BOOL,
             pCtlContext: PCCTL_CONTEXT,
-            dwCtlError: u32,
+            dwCtlError: DWORD,
             fIsCyclic: BOOL,
             pChainElement: PCERT_CHAIN_ELEMENT,
         }
+        #[packed(8)]
         struct CRYPT_PROVIDER_DATA {
-            cbStruct: u32,
+            cbStruct: DWORD,
             pWintrustData: *mut WINTRUST_DATA,
             fOpenedFile: BOOL,
             hWndParent: HWND,
             pgActionID: *mut GUID,
             hProv: HCRYPTPROV,
-            dwError: u32,
-            dwRegSecuritySettings: u32,
-            dwRegPolicySettings: u32,
+            dwError: DWORD,
+            dwRegSecuritySettings: DWORD,
+            dwRegPolicySettings: DWORD,
             psPfns: *mut CRYPT_PROVIDER_FUNCTIONS,
-            cdwTrustStepErrors: u32,
-            padwTrustStepErrors: *mut u32,
-            chStores: u32,
+            cdwTrustStepErrors: DWORD,
+            padwTrustStepErrors: *mut DWORD,
+            chStores: DWORD,
             pahStores: *mut HCERTSTORE,
-            dwEncoding: u32,
+            dwEncoding: DWORD,
             hMsg: HCRYPTMSG,
-            csSigners: u32,
+            csSigners: DWORD,
             pasSigners: *mut CRYPT_PROVIDER_SGNR,
-            csProvPrivData: u32,
+            csProvPrivData: DWORD,
             pasProvPrivData: *mut CRYPT_PROVIDER_PRIVDATA,
-            dwSubjectChoice: u32,
-            Anonymous: union {
+            dwSubjectChoice: DWORD,
+            Anonymous: #[packed(8)] union {
                 pPDSip: *mut PROVDATA_SIP,
             },
             pszUsageOID: *mut i8,
             fRecallWithState: BOOL,
             sftSystemTime: FILETIME,
             pszCTLSignerUsageOID: *mut i8,
-            dwProvFlags: u32,
-            dwFinalError: u32,
+            dwProvFlags: DWORD,
+            dwFinalError: DWORD,
             pRequestUsage: PCERT_USAGE_MATCH,
-            dwTrustPubSettings: u32,
-            dwUIStateFlags: u32,
+            dwTrustPubSettings: DWORD,
+            dwUIStateFlags: DWORD,
             pSigState: *mut CRYPT_PROVIDER_SIGSTATE,
             pSigSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
         }
+        #[packed(8)]
         struct CRYPT_PROVIDER_DEFUSAGE {
-            cbStruct: u32,
+            cbStruct: DWORD,
             gActionID: GUID,
-            pDefPolicyCallbackData: *mut void,
-            pDefSIPClientData: *mut void,
+            pDefPolicyCallbackData: LPVOID,
+            pDefSIPClientData: LPVOID,
         }
+        #[packed(8)]
         struct CRYPT_PROVIDER_FUNCTIONS {
-            cbStruct: u32,
+            cbStruct: DWORD,
             pfnAlloc: PFN_CPD_MEM_ALLOC,
             pfnFree: PFN_CPD_MEM_FREE,
             pfnAddStore2Chain: PFN_CPD_ADD_STORE,
@@ -119,66 +126,74 @@ mod Windows {
             psUIpfns: *mut CRYPT_PROVUI_FUNCS,
             pfnCleanupPolicy: PFN_PROVIDER_CLEANUP_CALL,
         }
+        #[packed(8)]
         struct CRYPT_PROVIDER_PRIVDATA {
-            cbStruct: u32,
+            cbStruct: DWORD,
             gProviderID: GUID,
-            cbProvData: u32,
+            cbProvData: DWORD,
             pvProvData: *mut void,
         }
+        #[packed(8)]
         struct CRYPT_PROVIDER_REGDEFUSAGE {
-            cbStruct: u32,
+            cbStruct: DWORD,
             pgActionID: *mut GUID,
-            pwszDllName: *mut u16,
+            pwszDllName: *mut WCHAR,
             pwszLoadCallbackDataFunctionName: *mut i8,
             pwszFreeCallbackDataFunctionName: *mut i8,
         }
+        #[packed(8)]
         struct CRYPT_PROVIDER_SGNR {
-            cbStruct: u32,
+            cbStruct: DWORD,
             sftVerifyAsOf: FILETIME,
-            csCertChain: u32,
+            csCertChain: DWORD,
             pasCertChain: *mut CRYPT_PROVIDER_CERT,
-            dwSignerType: u32,
+            dwSignerType: DWORD,
             psSigner: *mut CMSG_SIGNER_INFO,
-            dwError: u32,
-            csCounterSigners: u32,
+            dwError: DWORD,
+            csCounterSigners: DWORD,
             pasCounterSigners: *mut CRYPT_PROVIDER_SGNR,
             pChainContext: PCCERT_CHAIN_CONTEXT,
         }
+        #[packed(8)]
         struct CRYPT_PROVIDER_SIGSTATE {
-            cbStruct: u32,
+            cbStruct: DWORD,
+            #[writable(cSecondarySigs)]
             rhSecondarySigs: *mut HCRYPTMSG,
             hPrimarySig: HCRYPTMSG,
             fFirstAttemptMade: BOOL,
             fNoMoreSigs: BOOL,
-            cSecondarySigs: u32,
-            dwCurrentIndex: u32,
+            cSecondarySigs: DWORD,
+            dwCurrentIndex: DWORD,
             fSupportMultiSig: BOOL,
-            dwCryptoPolicySupport: u32,
-            iAttemptCount: u32,
+            dwCryptoPolicySupport: DWORD,
+            iAttemptCount: DWORD,
             fCheckedSealing: BOOL,
             pSealingSignature: *mut SEALING_SIGNATURE_ATTRIBUTE,
         }
+        #[packed(8)]
         struct CRYPT_PROVUI_DATA {
-            cbStruct: u32,
-            dwFinalError: u32,
-            pYesButtonText: *mut u16,
-            pNoButtonText: *mut u16,
-            pMoreInfoButtonText: *mut u16,
-            pAdvancedLinkText: *mut u16,
-            pCopyActionText: *mut u16,
-            pCopyActionTextNoTS: *mut u16,
-            pCopyActionTextNotSigned: *mut u16,
+            cbStruct: DWORD,
+            dwFinalError: DWORD,
+            pYesButtonText: *mut WCHAR,
+            pNoButtonText: *mut WCHAR,
+            pMoreInfoButtonText: *mut WCHAR,
+            pAdvancedLinkText: *mut WCHAR,
+            pCopyActionText: *mut WCHAR,
+            pCopyActionTextNoTS: *mut WCHAR,
+            pCopyActionTextNotSigned: *mut WCHAR,
         }
+        #[packed(8)]
         struct CRYPT_PROVUI_FUNCS {
-            cbStruct: u32,
+            cbStruct: DWORD,
             psUIData: *mut CRYPT_PROVUI_DATA,
             pfnOnMoreInfoClick: PFN_PROVUI_CALL,
             pfnOnMoreInfoClickDefault: PFN_PROVUI_CALL,
             pfnOnAdvancedClick: PFN_PROVUI_CALL,
             pfnOnAdvancedClickDefault: PFN_PROVUI_CALL,
         }
+        #[packed(8)]
         struct CRYPT_REGISTER_ACTIONID {
-            cbStruct: u32,
+            cbStruct: DWORD,
             sInitProvider: CRYPT_TRUST_REG_ENTRY,
             sObjectProvider: CRYPT_TRUST_REG_ENTRY,
             sSignatureProvider: CRYPT_TRUST_REG_ENTRY,
@@ -188,19 +203,20 @@ mod Windows {
             sTestPolicyProvider: CRYPT_TRUST_REG_ENTRY,
             sCleanupProvider: CRYPT_TRUST_REG_ENTRY,
         }
+        #[packed(8)]
         struct CRYPT_TRUST_REG_ENTRY {
-            cbStruct: u32,
-            pwszDLLName: *mut u16,
-            pwszFunctionName: *mut u16,
+            cbStruct: DWORD,
+            pwszDLLName: *mut WCHAR,
+            pwszFunctionName: *mut WCHAR,
         }
         const DWACTION_ALLOCANDFILL: i32 = 1;
         const DWACTION_FREE: i32 = 2;
-        type HCATADMIN = HANDLE;
+        #[packed(8)]
         struct INTENT_TO_SEAL_ATTRIBUTE {
-            version: u32,
+            version: ULONG,
             seal: BOOLEAN,
         }
-        const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: PCSTR = 2010;
+        const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: LPCSTR = 2010;
         type LPWIN_CERTIFICATE = *mut WIN_CERTIFICATE;
         type LPWIN_SPUB_TRUSTED_PUBLISHER_DATA = *mut WIN_SPUB_TRUSTED_PUBLISHER_DATA;
         type LPWIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT = *mut WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT;
@@ -208,9 +224,9 @@ mod Windows {
         type LPWIN_TRUST_SUBJECT_FILE = *mut WIN_TRUST_SUBJECT_FILE;
         type LPWIN_TRUST_SUBJECT_FILE_AND_DISPLAY = *mut WIN_TRUST_SUBJECT_FILE_AND_DISPLAY;
         #[library("WINTRUST.dll")]
-        extern fn OpenPersonalTrustDBDialog(#[opt] hwndParent: HWND) -> BOOL;
+        extern fn OpenPersonalTrustDBDialog(#[in] #[opt] hwndParent: HWND) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn OpenPersonalTrustDBDialogEx(#[opt] hwndParent: HWND, dwFlags: u32, #[in] #[out] #[opt] pvReserved: *mut *mut void) -> BOOL;
+        extern fn OpenPersonalTrustDBDialogEx(#[in] #[opt] hwndParent: HWND, #[in] dwFlags: DWORD, #[in] #[opt] #[out] pvReserved: *mut PVOID) -> BOOL;
         type PCAT_MEMBERINFO = *mut CAT_MEMBERINFO;
         type PCAT_MEMBERINFO2 = *mut CAT_MEMBERINFO2;
         type PCAT_NAMEVALUE = *mut CAT_NAMEVALUE;
@@ -226,15 +242,15 @@ mod Windows {
         type PCRYPT_PROVUI_FUNCS = *mut CRYPT_PROVUI_FUNCS;
         type PCRYPT_REGISTER_ACTIONID = *mut CRYPT_REGISTER_ACTIONID;
         type PCRYPT_TRUST_REG_ENTRY = *mut CRYPT_TRUST_REG_ENTRY;
-        extern "C" fn PFN_ALLOCANDFILLDEFUSAGE(pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
-        extern "C" fn PFN_CPD_ADD_CERT(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, idxSigner: u32, fCounterSigner: BOOL, #[opt] idxCounterSigner: u32, pCert2Add: PCCERT_CONTEXT) -> BOOL;
+        extern "C" fn PFN_ALLOCANDFILLDEFUSAGE(#[in] pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
+        extern "C" fn PFN_CPD_ADD_CERT(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, #[in] idxSigner: DWORD, #[in] fCounterSigner: BOOL, #[in] #[opt] idxCounterSigner: DWORD, #[in] pCert2Add: PCCERT_CONTEXT) -> BOOL;
         extern "C" fn PFN_CPD_ADD_PRIVDATA(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, #[in] pPrivData2Add: *mut CRYPT_PROVIDER_PRIVDATA) -> BOOL;
-        extern "C" fn PFN_CPD_ADD_SGNR(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, fCounterSigner: BOOL, #[opt] idxSigner: u32, #[in] pSgnr2Add: *mut CRYPT_PROVIDER_SGNR) -> BOOL;
-        extern "C" fn PFN_CPD_ADD_STORE(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, hStore2Add: HCERTSTORE) -> BOOL;
-        extern "C" fn PFN_CPD_MEM_ALLOC(cbSize: u32) -> *mut void;
+        extern "C" fn PFN_CPD_ADD_SGNR(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, #[in] fCounterSigner: BOOL, #[in] #[opt] idxSigner: DWORD, #[in] pSgnr2Add: *mut CRYPT_PROVIDER_SGNR) -> BOOL;
+        extern "C" fn PFN_CPD_ADD_STORE(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, #[in] hStore2Add: HCERTSTORE) -> BOOL;
+        extern "C" fn PFN_CPD_MEM_ALLOC(#[in] cbSize: DWORD) -> *mut void;
         extern "C" fn PFN_CPD_MEM_FREE(#[in] pvMem2Free: *mut void);
-        extern "C" fn PFN_FREEDEFUSAGE(pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
-        extern "C" fn PFN_PROVIDER_CERTCHKPOLICY_CALL(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, idxSigner: u32, fCounterSignerChain: BOOL, #[opt] idxCounterSigner: u32) -> BOOL;
+        extern "C" fn PFN_FREEDEFUSAGE(#[in] pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
+        extern "C" fn PFN_PROVIDER_CERTCHKPOLICY_CALL(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, #[in] idxSigner: DWORD, #[in] fCounterSignerChain: BOOL, #[in] #[opt] idxCounterSigner: DWORD) -> BOOL;
         extern "C" fn PFN_PROVIDER_CERTTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
         extern "C" fn PFN_PROVIDER_CLEANUP_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
         extern "C" fn PFN_PROVIDER_FINALPOLICY_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
@@ -242,11 +258,12 @@ mod Windows {
         extern "C" fn PFN_PROVIDER_OBJTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
         extern "C" fn PFN_PROVIDER_SIGTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
         extern "C" fn PFN_PROVIDER_TESTFINALPOLICY_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern "C" fn PFN_PROVUI_CALL(hWndSecurityDialog: HWND, #[in] pProvData: *mut CRYPT_PROVIDER_DATA) -> BOOL;
+        extern "C" fn PFN_PROVUI_CALL(#[in] hWndSecurityDialog: HWND, #[in] pProvData: *mut CRYPT_PROVIDER_DATA) -> BOOL;
         type PINTENT_TO_SEAL_ATTRIBUTE = *mut INTENT_TO_SEAL_ATTRIBUTE;
         type PPROVDATA_SIP = *mut PROVDATA_SIP;
+        #[packed(8)]
         struct PROVDATA_SIP {
-            cbStruct: u32,
+            cbStruct: DWORD,
             gSubject: GUID,
             pSip: *mut SIP_DISPATCH_INFO,
             pCATSip: *mut SIP_DISPATCH_INFO,
@@ -276,23 +293,25 @@ mod Windows {
         type PWINTRUST_FILE_INFO = *mut WINTRUST_FILE_INFO;
         type PWINTRUST_SGNR_INFO = *mut WINTRUST_SGNR_INFO;
         type PWINTRUST_SIGNATURE_SETTINGS = *mut WINTRUST_SIGNATURE_SETTINGS;
+        #[packed(8)]
         struct SEALING_SIGNATURE_ATTRIBUTE {
-            version: u32,
-            signerIndex: u32,
+            version: ULONG,
+            signerIndex: ULONG,
             signatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
             encryptedDigest: CRYPT_DIGEST_BLOB,
         }
-        const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: PCSTR = 2011;
+        const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: LPCSTR = 2011;
+        #[packed(8)]
         struct SEALING_TIMESTAMP_ATTRIBUTE {
-            version: u32,
-            signerIndex: u32,
+            version: ULONG,
+            signerIndex: ULONG,
             sealTimeStampToken: CRYPT_DATA_BLOB,
         }
-        const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: PCSTR = 2012;
+        const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: LPCSTR = 2012;
         const SGNR_TYPE_TIMESTAMP: i32 = 16;
         #[encoding("ansi")]
         const SPC_CAB_DATA_OBJID: String = "1.3.6.1.4.1.311.2.1.25";
-        const SPC_CAB_DATA_STRUCT: PCSTR = 2008;
+        const SPC_CAB_DATA_STRUCT: LPCSTR = 2008;
         #[encoding("ansi")]
         const SPC_CERT_EXTENSIONS_OBJID: String = "1.3.6.1.4.1.311.2.1.14";
         #[encoding("ansi")]
@@ -302,15 +321,17 @@ mod Windows {
         #[encoding("ansi")]
         const SPC_ENCRYPTED_DIGEST_RETRY_COUNT_OBJID: String = "1.3.6.1.4.1.311.2.6.2";
         const SPC_FILE_LINK_CHOICE: i32 = 3;
+        #[packed(8)]
         struct SPC_FINANCIAL_CRITERIA {
             fFinancialInfoAvailable: BOOL,
             fMeetsCriteria: BOOL,
         }
         #[encoding("ansi")]
         const SPC_FINANCIAL_CRITERIA_OBJID: String = "1.3.6.1.4.1.311.2.1.27";
-        const SPC_FINANCIAL_CRITERIA_STRUCT: PCSTR = 2002;
+        const SPC_FINANCIAL_CRITERIA_STRUCT: LPCSTR = 2002;
         #[encoding("ansi")]
         const SPC_GLUE_RDN_OBJID: String = "1.3.6.1.4.1.311.2.1.25";
+        #[packed(8)]
         struct SPC_IMAGE {
             pImageLink: *mut SPC_LINK,
             Bitmap: CRYPT_DATA_BLOB,
@@ -318,43 +339,46 @@ mod Windows {
             EnhancedMetafile: CRYPT_DATA_BLOB,
             GifFile: CRYPT_DATA_BLOB,
         }
+        #[packed(8)]
         struct SPC_INDIRECT_DATA_CONTENT {
             Data: CRYPT_ATTRIBUTE_TYPE_VALUE,
             DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
             Digest: CRYPT_HASH_BLOB,
         }
-        const SPC_INDIRECT_DATA_CONTENT_STRUCT: PCSTR = 2003;
+        const SPC_INDIRECT_DATA_CONTENT_STRUCT: LPCSTR = 2003;
         #[encoding("ansi")]
         const SPC_INDIRECT_DATA_OBJID: String = "1.3.6.1.4.1.311.2.1.4";
         #[encoding("ansi")]
         const SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID: String = "1.3.6.1.4.1.311.2.1.21";
         #[encoding("ansi")]
         const SPC_JAVA_CLASS_DATA_OBJID: String = "1.3.6.1.4.1.311.2.1.20";
-        const SPC_JAVA_CLASS_DATA_STRUCT: PCSTR = 2009;
+        const SPC_JAVA_CLASS_DATA_STRUCT: LPCSTR = 2009;
+        #[packed(8)]
         struct SPC_LINK {
-            dwLinkChoice: u32,
-            Anonymous: union {
-                pwszUrl: PWSTR,
+            dwLinkChoice: DWORD,
+            Anonymous: #[packed(8)] union {
+                pwszUrl: LPWSTR,
                 Moniker: SPC_SERIALIZED_OBJECT,
-                pwszFile: PWSTR,
+                pwszFile: LPWSTR,
             },
         }
         #[encoding("ansi")]
         const SPC_LINK_OBJID: String = "1.3.6.1.4.1.311.2.1.28";
-        const SPC_LINK_STRUCT: PCSTR = 2005;
+        const SPC_LINK_STRUCT: LPCSTR = 2005;
         #[encoding("ansi")]
         const SPC_MINIMAL_CRITERIA_OBJID: String = "1.3.6.1.4.1.311.2.1.26";
-        const SPC_MINIMAL_CRITERIA_STRUCT: PCSTR = 2001;
+        const SPC_MINIMAL_CRITERIA_STRUCT: LPCSTR = 2001;
         const SPC_MONIKER_LINK_CHOICE: i32 = 2;
         #[encoding("ansi")]
         const SPC_NATURAL_AUTH_PLUGIN_OBJID: String = "1.3.6.1.4.1.311.96.1.1";
+        #[packed(8)]
         struct SPC_PE_IMAGE_DATA {
             Flags: CRYPT_BIT_BLOB,
             pFile: PSPC_LINK,
         }
         #[encoding("ansi")]
         const SPC_PE_IMAGE_DATA_OBJID: String = "1.3.6.1.4.1.311.2.1.15";
-        const SPC_PE_IMAGE_DATA_STRUCT: PCSTR = 2004;
+        const SPC_PE_IMAGE_DATA_STRUCT: LPCSTR = 2004;
         #[encoding("ansi")]
         const SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID: String = "1.3.6.1.4.1.311.2.3.1";
         #[encoding("ansi")]
@@ -363,46 +387,51 @@ mod Windows {
         const SPC_RAW_FILE_DATA_OBJID: String = "1.3.6.1.4.1.311.2.1.18";
         #[encoding("ansi")]
         const SPC_RELAXED_PE_MARKER_CHECK_OBJID: String = "1.3.6.1.4.1.311.2.6.1";
+        #[packed(8)]
         struct SPC_SERIALIZED_OBJECT {
             ClassId: SPC_UUID,
             SerializedData: CRYPT_DATA_BLOB,
         }
+        #[packed(8)]
         struct SPC_SIGINFO {
-            dwSipVersion: u32,
+            dwSipVersion: DWORD,
             gSIPGuid: GUID,
-            dwReserved1: u32,
-            dwReserved2: u32,
-            dwReserved3: u32,
-            dwReserved4: u32,
-            dwReserved5: u32,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
+            dwReserved3: DWORD,
+            dwReserved4: DWORD,
+            dwReserved5: DWORD,
         }
         #[encoding("ansi")]
         const SPC_SIGINFO_OBJID: String = "1.3.6.1.4.1.311.2.1.30";
-        const SPC_SIGINFO_STRUCT: PCSTR = 2130;
+        const SPC_SIGINFO_STRUCT: LPCSTR = 2130;
+        #[packed(8)]
         struct SPC_SP_AGENCY_INFO {
             pPolicyInformation: *mut SPC_LINK,
-            pwszPolicyDisplayText: PWSTR,
+            pwszPolicyDisplayText: LPWSTR,
             pLogoImage: PSPC_IMAGE,
             pLogoLink: *mut SPC_LINK,
         }
         #[encoding("ansi")]
         const SPC_SP_AGENCY_INFO_OBJID: String = "1.3.6.1.4.1.311.2.1.10";
-        const SPC_SP_AGENCY_INFO_STRUCT: PCSTR = 2000;
+        const SPC_SP_AGENCY_INFO_STRUCT: LPCSTR = 2000;
+        #[packed(8)]
         struct SPC_SP_OPUS_INFO {
-            pwszProgramName: PCWSTR,
+            pwszProgramName: LPCWSTR,
             pMoreInfo: *mut SPC_LINK,
             pPublisherInfo: *mut SPC_LINK,
         }
         #[encoding("ansi")]
         const SPC_SP_OPUS_INFO_OBJID: String = "1.3.6.1.4.1.311.2.1.12";
-        const SPC_SP_OPUS_INFO_STRUCT: PCSTR = 2007;
+        const SPC_SP_OPUS_INFO_STRUCT: LPCSTR = 2007;
+        #[packed(8)]
         struct SPC_STATEMENT_TYPE {
-            cKeyPurposeId: u32,
-            rgpszKeyPurposeId: *mut PSTR,
+            cKeyPurposeId: DWORD,
+            rgpszKeyPurposeId: *mut LPSTR,
         }
         #[encoding("ansi")]
         const SPC_STATEMENT_TYPE_OBJID: String = "1.3.6.1.4.1.311.2.1.11";
-        const SPC_STATEMENT_TYPE_STRUCT: PCSTR = 2006;
+        const SPC_STATEMENT_TYPE_STRUCT: LPCSTR = 2006;
         #[encoding("ansi")]
         const SPC_STRUCTURED_STORAGE_DATA_OBJID: String = "1.3.6.1.4.1.311.2.1.19";
         #[encoding("ansi")]
@@ -439,46 +468,51 @@ mod Windows {
         const TRUSTERROR_STEP_VERIFY_MSGHASH: i32 = 18;
         const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: i32 = 19;
         const TRUSTERROR_STEP_WVTPARAMS: i32 = 0;
+        #[packed(8)]
         struct WINTRUST_BLOB_INFO {
-            cbStruct: u32,
+            cbStruct: DWORD,
             gSubject: GUID,
-            pcwszDisplayName: PCWSTR,
-            cbMemObject: u32,
-            pbMemObject: *mut u8,
-            cbMemSignedMsg: u32,
-            pbMemSignedMsg: *mut u8,
+            pcwszDisplayName: LPCWSTR,
+            cbMemObject: DWORD,
+            pbMemObject: *mut BYTE,
+            cbMemSignedMsg: DWORD,
+            pbMemSignedMsg: *mut BYTE,
         }
+        #[packed(8)]
         struct WINTRUST_CATALOG_INFO {
-            cbStruct: u32,
-            dwCatalogVersion: u32,
-            pcwszCatalogFilePath: PCWSTR,
-            pcwszMemberTag: PCWSTR,
-            pcwszMemberFilePath: PCWSTR,
+            cbStruct: DWORD,
+            dwCatalogVersion: DWORD,
+            pcwszCatalogFilePath: LPCWSTR,
+            pcwszMemberTag: LPCWSTR,
+            pcwszMemberFilePath: LPCWSTR,
             hMemberFile: HANDLE,
-            pbCalculatedFileHash: *mut u8,
-            cbCalculatedFileHash: u32,
+            #[writable(cbCalculatedFileHash)]
+            pbCalculatedFileHash: *mut BYTE,
+            cbCalculatedFileHash: DWORD,
             pcCatalogContext: PCCTL_CONTEXT,
             hCatAdmin: HCATADMIN,
         }
+        #[packed(8)]
         struct WINTRUST_CERT_INFO {
-            cbStruct: u32,
-            pcwszDisplayName: PCWSTR,
+            cbStruct: DWORD,
+            pcwszDisplayName: LPCWSTR,
             psCertContext: *mut CERT_CONTEXT,
-            chStores: u32,
+            chStores: DWORD,
             pahStores: *mut HCERTSTORE,
-            dwFlags: u32,
+            dwFlags: DWORD,
             psftVerifyAsOf: *mut FILETIME,
         }
         #[encoding("utf-16")]
         const WINTRUST_CONFIG_REGPATH: String = "Software\\Microsoft\\Cryptography\\Wintrust\\Config";
+        #[packed(8)]
         struct WINTRUST_DATA {
-            cbStruct: u32,
-            pPolicyCallbackData: *mut void,
-            pSIPClientData: *mut void,
-            dwUIChoice: u32,
-            fdwRevocationChecks: u32,
-            dwUnionChoice: u32,
-            Anonymous: union {
+            cbStruct: DWORD,
+            pPolicyCallbackData: LPVOID,
+            pSIPClientData: LPVOID,
+            dwUIChoice: DWORD,
+            fdwRevocationChecks: DWORD,
+            dwUnionChoice: DWORD,
+            Anonymous: #[packed(8)] union {
                 pFile: *mut WINTRUST_FILE_INFO,
                 pCatalog: *mut WINTRUST_CATALOG_INFO,
                 pBlob: *mut WINTRUST_BLOB_INFO,
@@ -486,36 +520,40 @@ mod Windows {
                 pCert: *mut WINTRUST_CERT_INFO,
                 pDetachedSig: *mut WINTRUST_DETACHED_SIG_INFO,
             },
-            dwStateAction: u32,
+            dwStateAction: DWORD,
             hWVTStateData: HANDLE,
-            pwszURLReference: *mut u16,
-            dwProvFlags: u32,
-            dwUIContext: u32,
+            pwszURLReference: *mut WCHAR,
+            dwProvFlags: DWORD,
+            dwUIContext: DWORD,
             pSignatureSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
         }
+        #[packed(8)]
         struct WINTRUST_DETACHED_SIG_BLOBS {
             cbContentObject: LARGE_INTEGER,
-            pbContentObject: *mut u8,
-            cbSignatureObject: u32,
-            pbSignatureObject: *mut u8,
+            pbContentObject: *mut BYTE,
+            cbSignatureObject: DWORD,
+            pbSignatureObject: *mut BYTE,
         }
         const WINTRUST_DETACHED_SIG_CHOICE_BLOB: i32 = 2;
         const WINTRUST_DETACHED_SIG_CHOICE_HANDLE: i32 = 1;
+        #[packed(8)]
         struct WINTRUST_DETACHED_SIG_FILE_HANDLES {
             hContentFile: HANDLE,
             hSignatureFile: HANDLE,
         }
+        #[packed(8)]
         struct WINTRUST_DETACHED_SIG_INFO {
-            cbStruct: u32,
-            dwUnionChoice: u32,
-            Anonymous: union {
+            cbStruct: DWORD,
+            dwUnionChoice: DWORD,
+            Anonymous: #[packed(8)] union {
                 pDetachedSigHandles: *mut WINTRUST_DETACHED_SIG_FILE_HANDLES,
                 pDetachedSigBlobs: *mut WINTRUST_DETACHED_SIG_BLOBS,
             },
         }
+        #[packed(8)]
         struct WINTRUST_FILE_INFO {
-            cbStruct: u32,
-            pcwszFilePath: PCWSTR,
+            cbStruct: DWORD,
+            pcwszFilePath: LPCWSTR,
             hFile: HANDLE,
             pgKnownSubject: *mut GUID,
         }
@@ -525,26 +563,28 @@ mod Windows {
         const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: i32 = 10485760;
         #[encoding("utf-16")]
         const WINTRUST_MAX_HEADER_BYTES_TO_MAP_VALUE_NAME: String = "MaxHeaderBytesToMap";
+        #[packed(8)]
         struct WINTRUST_SGNR_INFO {
-            cbStruct: u32,
-            pcwszDisplayName: PCWSTR,
+            cbStruct: DWORD,
+            pcwszDisplayName: LPCWSTR,
             psSignerInfo: *mut CMSG_SIGNER_INFO,
-            chStores: u32,
+            chStores: DWORD,
             pahStores: *mut HCERTSTORE,
         }
+        #[packed(8)]
         struct WINTRUST_SIGNATURE_SETTINGS {
-            cbStruct: u32,
-            dwIndex: u32,
-            dwFlags: u32,
-            cSecondarySigs: u32,
-            dwVerifiedSigIndex: u32,
+            cbStruct: DWORD,
+            dwIndex: DWORD,
+            dwFlags: DWORD,
+            cSecondarySigs: DWORD,
+            dwVerifiedSigIndex: DWORD,
             pCryptoPolicy: PCERT_STRONG_SIGN_PARA,
         }
         struct WIN_CERTIFICATE {
-            dwLength: u32,
-            wRevision: u16,
-            wCertificateType: u16,
-            bCertificate: [u8; 1],
+            dwLength: DWORD,
+            wRevision: WORD,
+            wCertificateType: WORD,
+            bCertificate: [BYTE; 1],
         }
         const WIN_CERT_REVISION_1_0: i32 = 256;
         const WIN_CERT_REVISION_2_0: i32 = 512;
@@ -568,12 +608,12 @@ mod Windows {
         type WIN_TRUST_SUBJECT = *mut void;
         struct WIN_TRUST_SUBJECT_FILE {
             hFile: HANDLE,
-            lpPath: PCWSTR,
+            lpPath: LPCWSTR,
         }
         struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
             hFile: HANDLE,
-            lpPath: PCWSTR,
-            lpDisplayName: PCWSTR,
+            lpPath: LPCWSTR,
+            lpDisplayName: LPCWSTR,
         }
         const WSS_CERTTRUST_SUPPORT: i32 = 4;
         const WSS_GET_SECONDARY_SIG_COUNT: i32 = 2;
@@ -628,13 +668,13 @@ mod Windows {
         #[library("WINTRUST.dll")]
         extern fn WTHelperCertCheckValidSignature(pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
         #[library("WINTRUST.dll")]
-        extern fn WTHelperCertIsSelfSigned(dwEncoding: u32, pCert: *mut CERT_INFO) -> BOOL;
+        extern fn WTHelperCertIsSelfSigned(dwEncoding: DWORD, pCert: *mut CERT_INFO) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn WTHelperGetProvCertFromChain(pSgnr: *mut CRYPT_PROVIDER_SGNR, idxCert: u32) -> *mut CRYPT_PROVIDER_CERT;
+        extern fn WTHelperGetProvCertFromChain(pSgnr: *mut CRYPT_PROVIDER_SGNR, idxCert: DWORD) -> *mut CRYPT_PROVIDER_CERT;
         #[library("WINTRUST.dll")]
         extern fn WTHelperGetProvPrivateDataFromChain(pProvData: *mut CRYPT_PROVIDER_DATA, pgProviderID: *mut GUID) -> *mut CRYPT_PROVIDER_PRIVDATA;
         #[library("WINTRUST.dll")]
-        extern fn WTHelperGetProvSignerFromChain(pProvData: *mut CRYPT_PROVIDER_DATA, idxSigner: u32, fCounterSigner: BOOL, idxCounterSigner: u32) -> *mut CRYPT_PROVIDER_SGNR;
+        extern fn WTHelperGetProvSignerFromChain(pProvData: *mut CRYPT_PROVIDER_DATA, idxSigner: DWORD, fCounterSigner: BOOL, idxCounterSigner: DWORD) -> *mut CRYPT_PROVIDER_SGNR;
         #[library("WINTRUST.dll")]
         extern fn WTHelperProvDataFromStateData(hStateData: HANDLE) -> *mut CRYPT_PROVIDER_DATA;
         const WTPF_ALLOWONLYPERTRUST: i32 = 262144;
@@ -659,17 +699,17 @@ mod Windows {
         const WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG: i32 = 512;
         const WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG: i32 = 256;
         #[library("WINTRUST.dll")]
-        extern fn WinVerifyTrust(hwnd: HWND, pgActionID: *mut GUID, pWVTData: *mut void) -> i32;
+        extern fn WinVerifyTrust(hwnd: HWND, pgActionID: *mut GUID, pWVTData: LPVOID) -> LONG;
         #[library("WINTRUST.dll")]
         extern fn WinVerifyTrustEx(hwnd: HWND, pgActionID: *mut GUID, pWinTrustData: *mut WINTRUST_DATA) -> i32;
         #[library("WINTRUST.dll")]
-        extern fn WintrustAddActionID(#[in] pgActionID: *mut GUID, fdwFlags: u32, #[in] psProvInfo: *mut CRYPT_REGISTER_ACTIONID) -> BOOL;
+        extern fn WintrustAddActionID(#[in] pgActionID: *mut GUID, #[in] fdwFlags: DWORD, #[in] psProvInfo: *mut CRYPT_REGISTER_ACTIONID) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn WintrustAddDefaultForUsage(pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_REGDEFUSAGE) -> BOOL;
+        extern fn WintrustAddDefaultForUsage(#[in] pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_REGDEFUSAGE) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn WintrustGetDefaultForUsage(dwAction: u32, pszUsageOID: *const i8, #[in] #[out] psUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
+        extern fn WintrustGetDefaultForUsage(#[in] dwAction: DWORD, #[in] pszUsageOID: *const i8, #[in] #[out] psUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn WintrustGetRegPolicyFlags(pdwPolicyFlags: *mut u32);
+        extern fn WintrustGetRegPolicyFlags(pdwPolicyFlags: *mut DWORD);
         #[library("WINTRUST.dll")]
         extern fn WintrustLoadFunctionPointers(pgActionID: *mut GUID, pPfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> BOOL;
         #[library("WINTRUST.dll")]
@@ -677,7 +717,7 @@ mod Windows {
         #[library("WINTRUST.dll")]
         extern fn WintrustSetDefaultIncludePEPageHashes(fIncludePEPageHashes: BOOL);
         #[library("WINTRUST.dll")]
-        extern fn WintrustSetRegPolicyFlags(dwPolicyFlags: u32) -> BOOL;
+        extern fn WintrustSetRegPolicyFlags(dwPolicyFlags: DWORD) -> BOOL;
         #[encoding("ansi")]
         const szOID_ENHANCED_HASH: String = "1.3.6.1.4.1.311.2.5.1";
         #[encoding("ansi")]

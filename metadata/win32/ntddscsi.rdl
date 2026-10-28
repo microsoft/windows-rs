@@ -8,73 +8,58 @@ mod Windows {
         const ATA_FLAGS_NO_MULTIPLE: i32 = 32;
         const ATA_FLAGS_USE_DMA: i32 = 16;
         struct ATA_PASS_THROUGH_DIRECT {
-            Length: u16,
-            AtaFlags: u16,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            ReservedAsUchar: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            ReservedAsUlong: u32,
-            DataBuffer: *mut void,
-            PreviousTaskFile: [u8; 8],
-            CurrentTaskFile: [u8; 8],
-        }
-        #[arch(X64 | Arm64)]
-        struct ATA_PASS_THROUGH_DIRECT32 {
-            Length: u16,
-            AtaFlags: u16,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            ReservedAsUchar: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            ReservedAsUlong: u32,
-            DataBuffer: *mut void,
-            PreviousTaskFile: [u8; 8],
-            CurrentTaskFile: [u8; 8],
+            Length: USHORT,
+            AtaFlags: USHORT,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
+            ReservedAsUchar: UCHAR,
+            DataTransferLength: ULONG,
+            TimeOutValue: ULONG,
+            ReservedAsUlong: ULONG,
+            DataBuffer: PVOID,
+            PreviousTaskFile: [UCHAR; 8],
+            CurrentTaskFile: [UCHAR; 8],
         }
         struct ATA_PASS_THROUGH_EX {
-            Length: u16,
-            AtaFlags: u16,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            ReservedAsUchar: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            ReservedAsUlong: u32,
-            DataBufferOffset: usize,
-            PreviousTaskFile: [u8; 8],
-            CurrentTaskFile: [u8; 8],
+            Length: USHORT,
+            AtaFlags: USHORT,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
+            ReservedAsUchar: UCHAR,
+            DataTransferLength: ULONG,
+            TimeOutValue: ULONG,
+            ReservedAsUlong: ULONG,
+            DataBufferOffset: ULONG_PTR,
+            PreviousTaskFile: [UCHAR; 8],
+            CurrentTaskFile: [UCHAR; 8],
         }
         #[arch(X64 | Arm64)]
         struct ATA_PASS_THROUGH_EX32 {
-            Length: u16,
-            AtaFlags: u16,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            ReservedAsUchar: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            ReservedAsUlong: u32,
-            DataBufferOffset: u32,
-            PreviousTaskFile: [u8; 8],
-            CurrentTaskFile: [u8; 8],
+            Length: USHORT,
+            AtaFlags: USHORT,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
+            ReservedAsUchar: UCHAR,
+            DataTransferLength: ULONG,
+            TimeOutValue: ULONG,
+            ReservedAsUlong: ULONG,
+            DataBufferOffset: ULONG32,
+            PreviousTaskFile: [UCHAR; 8],
+            CurrentTaskFile: [UCHAR; 8],
         }
         const BOOT_PARTITION_FUNCTION_ACTIVATE: i32 = 2;
         const BOOT_PARTITION_FUNCTION_DOWNLOAD: i32 = 1;
         const BOOT_PARTITION_FUNCTION_GET_INFO: i32 = 3;
         struct BOOT_PARTITION_REQUEST_BLOCK {
-            Version: u32,
-            Size: u32,
-            Function: u32,
-            Flags: u32,
-            DataBufferOffset: u32,
-            DataBufferLength: u32,
+            Version: ULONG,
+            Size: ULONG,
+            Function: ULONG,
+            Flags: ULONG,
+            DataBufferOffset: ULONG,
+            DataBufferLength: ULONG,
         }
         const BOOT_PARTITION_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
         const BOOT_PARTITION_STATUS_ERROR: i32 = 1;
@@ -90,24 +75,24 @@ mod Windows {
         #[encoding("ansi")]
         const DD_SCSI_DEVICE_NAME: String = "\\Device\\ScsiPort";
         struct DSM_NOTIFICATION_REQUEST_BLOCK {
-            Size: u32,
-            Version: u32,
-            NotifyFlags: u32,
-            DataSetProfile: u32,
-            Reserved: [u32; 3],
-            DataSetRangesCount: u32,
+            Size: ULONG,
+            Version: ULONG,
+            NotifyFlags: ULONG,
+            DataSetProfile: ULONG,
+            Reserved: [ULONG; 3],
+            DataSetRangesCount: ULONG,
             DataSetRanges: [MP_DEVICE_DATA_SET_RANGE; 1],
         }
-        extern "C" fn DUMP_DEVICE_POWERON_ROUTINE(#[in] Context: *mut void) -> i32;
+        extern "C" fn DUMP_DEVICE_POWERON_ROUTINE(#[in] Context: PVOID) -> LONG;
         struct DUMP_DRIVER {
-            DumpDriverList: *mut void,
-            DriverName: [u16; 15],
-            BaseName: [u16; 15],
+            DumpDriverList: PVOID,
+            DriverName: [WCHAR; 15],
+            BaseName: [WCHAR; 15],
         }
         struct DUMP_DRIVER_EX {
-            DumpDriverList: *mut void,
-            DriverName: [u16; 15],
-            BaseName: [u16; 15],
+            DumpDriverList: PVOID,
+            DriverName: [WCHAR; 15],
+            BaseName: [WCHAR; 15],
             DriverFullPath: NTSCSI_UNICODE_STRING,
         }
         const DUMP_DRIVER_NAME_LENGTH: i32 = 15;
@@ -117,49 +102,49 @@ mod Windows {
         const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: i32 = 2;
         struct DUMP_POINTERS {
             AdapterObject: *mut _ADAPTER_OBJECT,
-            MappedRegisterBase: *mut void,
-            DumpData: *mut void,
-            CommonBufferVa: *mut void,
+            MappedRegisterBase: PVOID,
+            DumpData: PVOID,
+            CommonBufferVa: PVOID,
             CommonBufferPa: LARGE_INTEGER,
-            CommonBufferSize: u32,
+            CommonBufferSize: ULONG,
             AllocateCommonBuffers: BOOLEAN,
             UseDiskDump: BOOLEAN,
-            Spare1: [u8; 2],
-            DeviceObject: *mut void,
+            Spare1: [UCHAR; 2],
+            DeviceObject: PVOID,
         }
         struct DUMP_POINTERS_EX {
             Header: DUMP_POINTERS_VERSION,
-            DumpData: *mut void,
-            CommonBufferVa: *mut void,
-            CommonBufferSize: u32,
+            DumpData: PVOID,
+            CommonBufferVa: PVOID,
+            CommonBufferSize: ULONG,
             AllocateCommonBuffers: BOOLEAN,
-            DeviceObject: *mut void,
-            DriverList: *mut void,
-            dwPortFlags: u32,
-            MaxDeviceDumpSectionSize: u32,
-            MaxDeviceDumpLevel: u32,
-            MaxTransferSize: u32,
-            AdapterObject: *mut void,
-            MappedRegisterBase: *mut void,
+            DeviceObject: PVOID,
+            DriverList: PVOID,
+            dwPortFlags: ULONG,
+            MaxDeviceDumpSectionSize: ULONG,
+            MaxDeviceDumpLevel: ULONG,
+            MaxTransferSize: ULONG,
+            AdapterObject: PVOID,
+            MappedRegisterBase: PVOID,
             DeviceReady: PBOOLEAN,
             DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
-            DumpDevicePowerOnContext: *mut void,
+            DumpDevicePowerOnContext: PVOID,
         }
         #[arch(X64 | Arm64)]
-        const DUMP_POINTERS_EX_V2_SIZE: u32 = 48;
+        const DUMP_POINTERS_EX_V2_SIZE: ULONG = 48;
         #[arch(X86)]
-        const DUMP_POINTERS_EX_V2_SIZE: u32 = 32;
+        const DUMP_POINTERS_EX_V2_SIZE: ULONG = 32;
         #[arch(X64 | Arm64)]
-        const DUMP_POINTERS_EX_V3_SIZE: u32 = 88;
+        const DUMP_POINTERS_EX_V3_SIZE: ULONG = 88;
         #[arch(X86)]
-        const DUMP_POINTERS_EX_V3_SIZE: u32 = 60;
+        const DUMP_POINTERS_EX_V3_SIZE: ULONG = 60;
         #[arch(X64 | Arm64)]
         const DUMP_POINTERS_EX_V4_SIZE: u64 = 104;
         #[arch(X86)]
         const DUMP_POINTERS_EX_V4_SIZE: u32 = 68;
         struct DUMP_POINTERS_VERSION {
-            Version: u32,
-            Size: u32,
+            Version: ULONG,
+            Size: ULONG,
         }
         const DUMP_POINTERS_VERSION_1: i32 = 1;
         const DUMP_POINTERS_VERSION_2: i32 = 2;
@@ -170,12 +155,12 @@ mod Windows {
         const FIRMWARE_FUNCTION_DOWNLOAD: i32 = 2;
         const FIRMWARE_FUNCTION_GET_INFO: i32 = 1;
         struct FIRMWARE_REQUEST_BLOCK {
-            Version: u32,
-            Size: u32,
-            Function: u32,
-            Flags: u32,
-            DataBufferOffset: u32,
-            DataBufferLength: u32,
+            Version: ULONG,
+            Size: ULONG,
+            Function: ULONG,
+            Flags: ULONG,
+            DataBufferOffset: ULONG,
+            DataBufferLength: ULONG,
         }
         const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
         const FIRMWARE_REQUEST_FLAG_CONTROLLER: i32 = 1;
@@ -205,19 +190,19 @@ mod Windows {
         const FIRMWARE_STATUS_SUCCESS: i32 = 0;
         const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: i32 = 129;
         struct HYBRID_DEMOTE_BY_SIZE {
-            Version: u32,
-            Size: u32,
-            SourcePriority: u8,
-            TargetPriority: u8,
-            Reserved0: u16,
-            Reserved1: u32,
-            LbaCount: u64,
+            Version: ULONG,
+            Size: ULONG,
+            SourcePriority: UCHAR,
+            TargetPriority: UCHAR,
+            Reserved0: USHORT,
+            Reserved1: ULONG,
+            LbaCount: ULONGLONG,
         }
         struct HYBRID_DIRTY_THRESHOLDS {
-            Version: u32,
-            Size: u32,
-            DirtyLowThreshold: u32,
-            DirtyHighThreshold: u32,
+            Version: ULONG,
+            Size: ULONG,
+            DirtyLowThreshold: ULONG,
+            DirtyHighThreshold: ULONG,
         }
         const HYBRID_FUNCTION_DEMOTE_BY_SIZE: i32 = 19;
         const HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM: i32 = 16;
@@ -225,53 +210,53 @@ mod Windows {
         const HYBRID_FUNCTION_GET_INFO: i32 = 1;
         const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: i32 = 18;
         struct HYBRID_INFORMATION {
-            Version: u32,
-            Size: u32,
+            Version: ULONG,
+            Size: ULONG,
             HybridSupported: BOOLEAN,
             Status: NVCACHE_STATUS,
             CacheTypeEffective: NVCACHE_TYPE,
             CacheTypeDefault: NVCACHE_TYPE,
-            FractionBase: u32,
-            CacheSize: u64,
+            FractionBase: ULONG,
+            CacheSize: ULONGLONG,
             Attributes: struct {
                 _bitfield: u32 {
-                    WriteCacheChangeable: 1,
-                    WriteThroughIoSupported: 1,
-                    FlushCacheSupported: 1,
-                    Removable: 1,
-                    ReservedBits: 28,
+                    WriteCacheChangeable: ULONG: 1,
+                    WriteThroughIoSupported: ULONG: 1,
+                    FlushCacheSupported: ULONG: 1,
+                    Removable: ULONG: 1,
+                    ReservedBits: ULONG: 28,
                 },
             },
             Priorities: struct {
-                PriorityLevelCount: u8,
+                PriorityLevelCount: UCHAR,
                 MaxPriorityBehavior: BOOLEAN,
-                OptimalWriteGranularity: u8,
-                Reserved: u8,
-                DirtyThresholdLow: u32,
-                DirtyThresholdHigh: u32,
+                OptimalWriteGranularity: UCHAR,
+                Reserved: UCHAR,
+                DirtyThresholdLow: ULONG,
+                DirtyThresholdHigh: ULONG,
                 SupportedCommands: struct {
                     _bitfield: u32 {
-                        CacheDisable: 1,
-                        SetDirtyThreshold: 1,
-                        PriorityDemoteBySize: 1,
-                        PriorityChangeByLbaRange: 1,
-                        Evict: 1,
-                        ReservedBits: 27,
+                        CacheDisable: ULONG: 1,
+                        SetDirtyThreshold: ULONG: 1,
+                        PriorityDemoteBySize: ULONG: 1,
+                        PriorityChangeByLbaRange: ULONG: 1,
+                        Evict: ULONG: 1,
+                        ReservedBits: ULONG: 27,
                     },
-                    MaxEvictCommands: u32,
-                    MaxLbaRangeCountForEvict: u32,
-                    MaxLbaRangeCountForChangeLba: u32,
+                    MaxEvictCommands: ULONG,
+                    MaxLbaRangeCountForEvict: ULONG,
+                    MaxLbaRangeCountForChangeLba: ULONG,
                 },
                 Priority: [NVCACHE_PRIORITY_LEVEL_DESCRIPTOR; 0],
             },
         }
         struct HYBRID_REQUEST_BLOCK {
-            Version: u32,
-            Size: u32,
-            Function: u32,
-            Flags: u32,
-            DataBufferOffset: u32,
-            DataBufferLength: u32,
+            Version: ULONG,
+            Size: ULONG,
+            Function: ULONG,
+            Flags: ULONG,
+            DataBufferOffset: ULONG,
+            DataBufferLength: ULONG,
         }
         const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
         const HYBRID_REQUEST_INFO_STRUCTURE_VERSION: i32 = 1;
@@ -281,12 +266,12 @@ mod Windows {
         const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: i32 = 3;
         const HYBRID_STATUS_SUCCESS: i32 = 0;
         struct IDE_IO_CONTROL {
-            HeaderLength: u32,
-            Signature: [u8; 8],
-            Timeout: u32,
-            ControlCode: u32,
-            ReturnStatus: u32,
-            DataLength: u32,
+            HeaderLength: ULONG,
+            Signature: [UCHAR; 8],
+            Timeout: ULONG,
+            ControlCode: ULONG,
+            ReturnStatus: ULONG,
+            DataLength: ULONG,
         }
         const IOCTL_ATA_MINIPORT: i32 = 315444;
         const IOCTL_ATA_PASS_THROUGH: i32 = 315436;
@@ -339,11 +324,11 @@ mod Windows {
         const IOCTL_SCSI_PASS_THROUGH_EX: i32 = 315460;
         const IOCTL_SCSI_RESCAN_BUS: i32 = 266268;
         struct IO_SCSI_CAPABILITIES {
-            Length: u32,
-            MaximumTransferLength: u32,
-            MaximumPhysicalPages: u32,
-            SupportedAsynchronousEvents: u32,
-            AlignmentMask: u32,
+            Length: ULONG,
+            MaximumTransferLength: ULONG,
+            MaximumPhysicalPages: ULONG,
+            SupportedAsynchronousEvents: ULONG,
+            AlignmentMask: ULONG,
             TaggedQueuing: BOOLEAN,
             AdapterScansDown: BOOLEAN,
             AdapterUsesPio: BOOLEAN,
@@ -361,75 +346,66 @@ mod Windows {
         const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: i32 = 2;
         struct MPIO_PASS_THROUGH_PATH {
             PassThrough: SCSI_PASS_THROUGH,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
+            Version: ULONG,
+            Length: USHORT,
+            Flags: UCHAR,
+            PortNumber: UCHAR,
+            MpioPathId: ULONGLONG,
         }
         #[arch(X64 | Arm64)]
         struct MPIO_PASS_THROUGH_PATH32 {
             PassThrough: SCSI_PASS_THROUGH32,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
+            Version: ULONG,
+            Length: USHORT,
+            Flags: UCHAR,
+            PortNumber: UCHAR,
+            MpioPathId: ULONGLONG,
         }
         #[arch(X64 | Arm64)]
         struct MPIO_PASS_THROUGH_PATH32_EX {
-            PassThroughOffset: u32,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
+            PassThroughOffset: ULONG,
+            Version: ULONG,
+            Length: USHORT,
+            Flags: UCHAR,
+            PortNumber: UCHAR,
+            MpioPathId: ULONGLONG,
         }
         struct MPIO_PASS_THROUGH_PATH_DIRECT {
             PassThrough: SCSI_PASS_THROUGH_DIRECT,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
-        }
-        #[arch(X64 | Arm64)]
-        struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
-            PassThrough: SCSI_PASS_THROUGH_DIRECT32,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
+            Version: ULONG,
+            Length: USHORT,
+            Flags: UCHAR,
+            PortNumber: UCHAR,
+            MpioPathId: ULONGLONG,
         }
         #[arch(X64 | Arm64)]
         struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
-            PassThroughOffset: u32,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
+            PassThroughOffset: ULONG,
+            Version: ULONG,
+            Length: USHORT,
+            Flags: UCHAR,
+            PortNumber: UCHAR,
+            MpioPathId: ULONGLONG,
         }
         struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
-            PassThroughOffset: u32,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
+            PassThroughOffset: ULONG,
+            Version: ULONG,
+            Length: USHORT,
+            Flags: UCHAR,
+            PortNumber: UCHAR,
+            MpioPathId: ULONGLONG,
         }
         struct MPIO_PASS_THROUGH_PATH_EX {
-            PassThroughOffset: u32,
-            Version: u32,
-            Length: u16,
-            Flags: u8,
-            PortNumber: u8,
-            MpioPathId: u64,
+            PassThroughOffset: ULONG,
+            Version: ULONG,
+            Length: USHORT,
+            Flags: UCHAR,
+            PortNumber: UCHAR,
+            MpioPathId: ULONGLONG,
         }
         struct MP_DEVICE_DATA_SET_RANGE {
-            StartingOffset: i64,
-            LengthInBytes: u64,
+            StartingOffset: LONGLONG,
+            LengthInBytes: ULONGLONG,
         }
         #[repr(i32)]
         enum MP_STORAGE_DIAGNOSTIC_LEVEL {
@@ -467,44 +443,47 @@ mod Windows {
         const NRB_OUTPUT_DATA_UNDERRUN: i32 = 6;
         const NRB_SUCCESS: i32 = 0;
         struct NTSCSI_UNICODE_STRING {
-            Length: u16,
-            MaximumLength: u16,
+            Length: USHORT,
+            MaximumLength: USHORT,
+            #[readable(bytes(Length), nullable)]
+            #[writable(bytes(MaximumLength), nullable)]
             Buffer: PWCH,
         }
+        #[packed(1)]
         struct NVCACHE_HINT_PAYLOAD {
-            Command: u8,
-            Feature7_0: u8,
-            Feature15_8: u8,
-            Count15_8: u8,
-            LBA7_0: u8,
-            LBA15_8: u8,
-            LBA23_16: u8,
-            LBA31_24: u8,
-            LBA39_32: u8,
-            LBA47_40: u8,
-            Auxiliary7_0: u8,
-            Auxiliary23_16: u8,
-            Reserved: [u8; 4],
+            Command: UCHAR,
+            Feature7_0: UCHAR,
+            Feature15_8: UCHAR,
+            Count15_8: UCHAR,
+            LBA7_0: UCHAR,
+            LBA15_8: UCHAR,
+            LBA23_16: UCHAR,
+            LBA31_24: UCHAR,
+            LBA39_32: UCHAR,
+            LBA47_40: UCHAR,
+            Auxiliary7_0: UCHAR,
+            Auxiliary23_16: UCHAR,
+            Reserved: [UCHAR; 4],
         }
         struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
-            PriorityLevel: u8,
-            Reserved0: [u8; 3],
-            ConsumedNVMSizeFraction: u32,
-            ConsumedMappingResourcesFraction: u32,
-            ConsumedNVMSizeForDirtyDataFraction: u32,
-            ConsumedMappingResourcesForDirtyDataFraction: u32,
-            Reserved1: u32,
+            PriorityLevel: UCHAR,
+            Reserved0: [UCHAR; 3],
+            ConsumedNVMSizeFraction: ULONG,
+            ConsumedMappingResourcesFraction: ULONG,
+            ConsumedNVMSizeForDirtyDataFraction: ULONG,
+            ConsumedMappingResourcesForDirtyDataFraction: ULONG,
+            Reserved1: ULONG,
         }
         struct NVCACHE_REQUEST_BLOCK {
-            NRBSize: u32,
-            Function: u16,
-            NRBFlags: u32,
-            NRBStatus: u32,
-            Count: u32,
-            LBA: u64,
-            DataBufSize: u32,
-            NVCacheStatus: u32,
-            NVCacheSubStatus: u32,
+            NRBSize: ULONG,
+            Function: USHORT,
+            NRBFlags: ULONG,
+            NRBStatus: ULONG,
+            Count: ULONG,
+            LBA: ULONGLONG,
+            DataBufSize: ULONG,
+            NVCacheStatus: ULONG,
+            NVCacheSubStatus: ULONG,
         }
         #[repr(i32)]
         enum NVCACHE_STATUS {
@@ -521,35 +500,35 @@ mod Windows {
             NvCacheTypeWriteThrough = 3,
         }
         struct NV_FEATURE_PARAMETER {
-            NVPowerModeEnabled: u16,
-            NVParameterReserv1: u16,
-            NVCmdEnabled: u16,
-            NVParameterReserv2: u16,
-            NVPowerModeVer: u16,
-            NVCmdVer: u16,
-            NVSize: u32,
-            NVReadSpeed: u16,
-            NVWrtSpeed: u16,
-            DeviceSpinUpTime: u32,
+            NVPowerModeEnabled: USHORT,
+            NVParameterReserv1: USHORT,
+            NVCmdEnabled: USHORT,
+            NVParameterReserv2: USHORT,
+            NVPowerModeVer: USHORT,
+            NVCmdVer: USHORT,
+            NVSize: ULONG,
+            NVReadSpeed: USHORT,
+            NVWrtSpeed: USHORT,
+            DeviceSpinUpTime: ULONG,
         }
         struct NV_SEP_CACHE_PARAMETER {
-            Version: u32,
-            Size: u32,
+            Version: ULONG,
+            Size: ULONG,
             Flags: union {
                 CacheFlags: struct {
                     _bitfield: u8 {
-                        WriteCacheEnabled: 1,
-                        WriteCacheChangeable: 1,
-                        WriteThroughIOSupported: 1,
-                        FlushCacheSupported: 1,
-                        ReservedBits: 4,
+                        WriteCacheEnabled: UCHAR: 1,
+                        WriteCacheChangeable: UCHAR: 1,
+                        WriteThroughIOSupported: UCHAR: 1,
+                        FlushCacheSupported: UCHAR: 1,
+                        ReservedBits: UCHAR: 4,
                     },
                 },
-                CacheFlagsSet: u8,
+                CacheFlagsSet: UCHAR,
             },
-            WriteCacheType: u8,
-            WriteCacheTypeEffective: u8,
-            ParameterReserve1: [u8; 3],
+            WriteCacheType: UCHAR,
+            WriteCacheTypeEffective: UCHAR,
+            ParameterReserve1: [UCHAR; 3],
         }
         const NV_SEP_CACHE_PARAMETER_VERSION: i32 = 1;
         const NV_SEP_CACHE_PARAMETER_VERSION_1: i32 = 1;
@@ -561,14 +540,12 @@ mod Windows {
             NVSEPWriteCacheTypeWriteThrough = 3,
         }
         type PATA_PASS_THROUGH_DIRECT = *mut ATA_PASS_THROUGH_DIRECT;
-        #[arch(X64 | Arm64)]
-        type PATA_PASS_THROUGH_DIRECT32 = *mut ATA_PASS_THROUGH_DIRECT32;
         type PATA_PASS_THROUGH_EX = *mut ATA_PASS_THROUGH_EX;
         #[arch(X64 | Arm64)]
         type PATA_PASS_THROUGH_EX32 = *mut ATA_PASS_THROUGH_EX32;
         type PBOOT_PARTITION_REQUEST_BLOCK = *mut BOOT_PARTITION_REQUEST_BLOCK;
         type PDSM_NOTIFICATION_REQUEST_BLOCK = *mut DSM_NOTIFICATION_REQUEST_BLOCK;
-        type PDUMP_DEVICE_POWERON_ROUTINE = *mut u8;
+        extern "C" fn PDUMP_DEVICE_POWERON_ROUTINE(#[in] Context: PVOID) -> LONG;
         type PDUMP_DRIVER = *mut DUMP_DRIVER;
         type PDUMP_DRIVER_EX = *mut DUMP_DRIVER_EX;
         type PDUMP_POINTERS = *mut DUMP_POINTERS;
@@ -587,8 +564,6 @@ mod Windows {
         #[arch(X64 | Arm64)]
         type PMPIO_PASS_THROUGH_PATH32_EX = *mut MPIO_PASS_THROUGH_PATH32_EX;
         type PMPIO_PASS_THROUGH_PATH_DIRECT = *mut MPIO_PASS_THROUGH_PATH_DIRECT;
-        #[arch(X64 | Arm64)]
-        type PMPIO_PASS_THROUGH_PATH_DIRECT32 = *mut MPIO_PASS_THROUGH_PATH_DIRECT32;
         #[arch(X64 | Arm64)]
         type PMPIO_PASS_THROUGH_PATH_DIRECT32_EX = *mut MPIO_PASS_THROUGH_PATH_DIRECT32_EX;
         type PMPIO_PASS_THROUGH_PATH_DIRECT_EX = *mut MPIO_PASS_THROUGH_PATH_DIRECT_EX;
@@ -613,10 +588,6 @@ mod Windows {
         #[arch(X64 | Arm64)]
         type PSCSI_PASS_THROUGH32_EX = *mut SCSI_PASS_THROUGH32_EX;
         type PSCSI_PASS_THROUGH_DIRECT = *mut SCSI_PASS_THROUGH_DIRECT;
-        #[arch(X64 | Arm64)]
-        type PSCSI_PASS_THROUGH_DIRECT32 = *mut SCSI_PASS_THROUGH_DIRECT32;
-        #[arch(X64 | Arm64)]
-        type PSCSI_PASS_THROUGH_DIRECT32_EX = *mut SCSI_PASS_THROUGH_DIRECT32_EX;
         type PSCSI_PASS_THROUGH_DIRECT_EX = *mut SCSI_PASS_THROUGH_DIRECT_EX;
         type PSCSI_PASS_THROUGH_EX = *mut SCSI_PASS_THROUGH_EX;
         type PSRB_IO_CONTROL = *mut SRB_IO_CONTROL;
@@ -634,213 +605,190 @@ mod Windows {
         type PSTORAGE_FIRMWARE_SLOT_INFO = *mut STORAGE_FIRMWARE_SLOT_INFO;
         type PSTORAGE_FIRMWARE_SLOT_INFO_V2 = *mut STORAGE_FIRMWARE_SLOT_INFO_V2;
         struct SCSI_ADAPTER_BUS_INFO {
-            NumberOfBuses: u8,
+            NumberOfBuses: UCHAR,
             BusData: [SCSI_BUS_DATA; 1],
         }
         struct SCSI_ADDRESS {
-            Length: u32,
-            PortNumber: u8,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
+            Length: ULONG,
+            PortNumber: UCHAR,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
         }
         struct SCSI_BUS_DATA {
-            NumberOfLogicalUnits: u8,
-            InitiatorBusId: u8,
-            InquiryDataOffset: u32,
+            NumberOfLogicalUnits: UCHAR,
+            InitiatorBusId: UCHAR,
+            InquiryDataOffset: ULONG,
         }
         struct SCSI_INQUIRY_DATA {
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
             DeviceClaimed: BOOLEAN,
-            InquiryDataLength: u32,
-            NextInquiryDataOffset: u32,
-            InquiryData: [u8; 1],
+            InquiryDataLength: ULONG,
+            NextInquiryDataOffset: ULONG,
+            InquiryData: [UCHAR; 1],
         }
         const SCSI_IOCTL_DATA_BIDIRECTIONAL: i32 = 3;
         const SCSI_IOCTL_DATA_IN: i32 = 1;
         const SCSI_IOCTL_DATA_OUT: i32 = 0;
         const SCSI_IOCTL_DATA_UNSPECIFIED: i32 = 2;
         struct SCSI_PASS_THROUGH {
-            Length: u16,
-            ScsiStatus: u8,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            CdbLength: u8,
-            SenseInfoLength: u8,
-            DataIn: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            DataBufferOffset: usize,
-            SenseInfoOffset: u32,
-            Cdb: [u8; 16],
+            Length: USHORT,
+            ScsiStatus: UCHAR,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
+            CdbLength: UCHAR,
+            SenseInfoLength: UCHAR,
+            DataIn: UCHAR,
+            DataTransferLength: ULONG,
+            TimeOutValue: ULONG,
+            DataBufferOffset: ULONG_PTR,
+            SenseInfoOffset: ULONG,
+            Cdb: [UCHAR; 16],
         }
         #[arch(X64 | Arm64)]
         struct SCSI_PASS_THROUGH32 {
-            Length: u16,
-            ScsiStatus: u8,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            CdbLength: u8,
-            SenseInfoLength: u8,
-            DataIn: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            DataBufferOffset: u32,
-            SenseInfoOffset: u32,
-            Cdb: [u8; 16],
+            Length: USHORT,
+            ScsiStatus: UCHAR,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
+            CdbLength: UCHAR,
+            SenseInfoLength: UCHAR,
+            DataIn: UCHAR,
+            DataTransferLength: ULONG,
+            TimeOutValue: ULONG,
+            DataBufferOffset: ULONG32,
+            SenseInfoOffset: ULONG,
+            Cdb: [UCHAR; 16],
         }
         #[arch(X64 | Arm64)]
         struct SCSI_PASS_THROUGH32_EX {
-            Version: u32,
-            Length: u32,
-            CdbLength: u32,
-            StorAddressLength: u32,
-            ScsiStatus: u8,
-            SenseInfoLength: u8,
-            DataDirection: u8,
-            Reserved: u8,
-            TimeOutValue: u32,
-            StorAddressOffset: u32,
-            SenseInfoOffset: u32,
-            DataOutTransferLength: u32,
-            DataInTransferLength: u32,
-            DataOutBufferOffset: u32,
-            DataInBufferOffset: u32,
-            Cdb: [u8; 1],
+            Version: ULONG,
+            Length: ULONG,
+            CdbLength: ULONG,
+            StorAddressLength: ULONG,
+            ScsiStatus: UCHAR,
+            SenseInfoLength: UCHAR,
+            DataDirection: UCHAR,
+            Reserved: UCHAR,
+            TimeOutValue: ULONG,
+            StorAddressOffset: ULONG,
+            SenseInfoOffset: ULONG,
+            DataOutTransferLength: ULONG,
+            DataInTransferLength: ULONG,
+            DataOutBufferOffset: ULONG32,
+            DataInBufferOffset: ULONG32,
+            #[readable(bytes(CdbLength))]
+            #[writable(bytes(CdbLength))]
+            Cdb: [UCHAR; 1],
         }
         struct SCSI_PASS_THROUGH_DIRECT {
-            Length: u16,
-            ScsiStatus: u8,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            CdbLength: u8,
-            SenseInfoLength: u8,
-            DataIn: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            DataBuffer: *mut void,
-            SenseInfoOffset: u32,
-            Cdb: [u8; 16],
-        }
-        #[arch(X64 | Arm64)]
-        struct SCSI_PASS_THROUGH_DIRECT32 {
-            Length: u16,
-            ScsiStatus: u8,
-            PathId: u8,
-            TargetId: u8,
-            Lun: u8,
-            CdbLength: u8,
-            SenseInfoLength: u8,
-            DataIn: u8,
-            DataTransferLength: u32,
-            TimeOutValue: u32,
-            DataBuffer: *mut void,
-            SenseInfoOffset: u32,
-            Cdb: [u8; 16],
-        }
-        #[arch(X64 | Arm64)]
-        struct SCSI_PASS_THROUGH_DIRECT32_EX {
-            Version: u32,
-            Length: u32,
-            CdbLength: u32,
-            StorAddressLength: u32,
-            ScsiStatus: u8,
-            SenseInfoLength: u8,
-            DataDirection: u8,
-            Reserved: u8,
-            TimeOutValue: u32,
-            StorAddressOffset: u32,
-            SenseInfoOffset: u32,
-            DataOutTransferLength: u32,
-            DataInTransferLength: u32,
-            DataOutBuffer: *mut void,
-            DataInBuffer: *mut void,
-            Cdb: [u8; 1],
+            Length: USHORT,
+            ScsiStatus: UCHAR,
+            PathId: UCHAR,
+            TargetId: UCHAR,
+            Lun: UCHAR,
+            CdbLength: UCHAR,
+            SenseInfoLength: UCHAR,
+            DataIn: UCHAR,
+            DataTransferLength: ULONG,
+            TimeOutValue: ULONG,
+            DataBuffer: PVOID,
+            SenseInfoOffset: ULONG,
+            Cdb: [UCHAR; 16],
         }
         struct SCSI_PASS_THROUGH_DIRECT_EX {
-            Version: u32,
-            Length: u32,
-            CdbLength: u32,
-            StorAddressLength: u32,
-            ScsiStatus: u8,
-            SenseInfoLength: u8,
-            DataDirection: u8,
-            Reserved: u8,
-            TimeOutValue: u32,
-            StorAddressOffset: u32,
-            SenseInfoOffset: u32,
-            DataOutTransferLength: u32,
-            DataInTransferLength: u32,
+            Version: ULONG,
+            Length: ULONG,
+            CdbLength: ULONG,
+            StorAddressLength: ULONG,
+            ScsiStatus: UCHAR,
+            SenseInfoLength: UCHAR,
+            DataDirection: UCHAR,
+            Reserved: UCHAR,
+            TimeOutValue: ULONG,
+            StorAddressOffset: ULONG,
+            SenseInfoOffset: ULONG,
+            DataOutTransferLength: ULONG,
+            DataInTransferLength: ULONG,
+            #[readable(bytes(DataOutTransferLength))]
+            #[writable(bytes(DataOutTransferLength))]
             DataOutBuffer: *mut void,
+            #[readable(bytes(DataInTransferLength), nullable)]
+            #[writable(bytes(DataInTransferLength), nullable)]
             DataInBuffer: *mut void,
-            Cdb: [u8; 1],
+            #[readable(bytes(CdbLength))]
+            #[writable(bytes(CdbLength))]
+            Cdb: [UCHAR; 1],
         }
         struct SCSI_PASS_THROUGH_EX {
-            Version: u32,
-            Length: u32,
-            CdbLength: u32,
-            StorAddressLength: u32,
-            ScsiStatus: u8,
-            SenseInfoLength: u8,
-            DataDirection: u8,
-            Reserved: u8,
-            TimeOutValue: u32,
-            StorAddressOffset: u32,
-            SenseInfoOffset: u32,
-            DataOutTransferLength: u32,
-            DataInTransferLength: u32,
-            DataOutBufferOffset: usize,
-            DataInBufferOffset: usize,
-            Cdb: [u8; 1],
+            Version: ULONG,
+            Length: ULONG,
+            CdbLength: ULONG,
+            StorAddressLength: ULONG,
+            ScsiStatus: UCHAR,
+            SenseInfoLength: UCHAR,
+            DataDirection: UCHAR,
+            Reserved: UCHAR,
+            TimeOutValue: ULONG,
+            StorAddressOffset: ULONG,
+            SenseInfoOffset: ULONG,
+            DataOutTransferLength: ULONG,
+            DataInTransferLength: ULONG,
+            DataOutBufferOffset: ULONG_PTR,
+            DataInBufferOffset: ULONG_PTR,
+            #[readable(bytes(CdbLength))]
+            #[writable(bytes(CdbLength))]
+            Cdb: [UCHAR; 1],
         }
         struct SRB_IO_CONTROL {
-            HeaderLength: u32,
-            Signature: [u8; 8],
-            Timeout: u32,
-            ControlCode: u32,
-            ReturnCode: u32,
-            Length: u32,
+            HeaderLength: ULONG,
+            Signature: [UCHAR; 8],
+            Timeout: ULONG,
+            ControlCode: ULONG,
+            ReturnCode: ULONG,
+            Length: ULONG,
         }
         struct STORAGE_BOOT_PARTITION_ACTIVATE {
-            Version: u32,
-            Size: u32,
-            BPID: u8,
-            Reserved0: [u8; 3],
+            Version: ULONG,
+            Size: ULONG,
+            BPID: UCHAR,
+            Reserved0: [UCHAR; 3],
         }
         const STORAGE_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: i32 = 1;
         struct STORAGE_BOOT_PARTITION_DOWNLOAD {
-            Version: u32,
-            Size: u32,
-            BPID: u8,
-            Offset: u64,
-            BufferSize: u64,
-            ImageBuffer: [u8; 1],
+            Version: ULONG,
+            Size: ULONG,
+            BPID: UCHAR,
+            Offset: ULONGLONG,
+            BufferSize: ULONGLONG,
+            #[writable(bytes(BufferSize))]
+            ImageBuffer: [UCHAR; 1],
         }
         const STORAGE_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
         const STORAGE_BOOT_PARTITION_GET_INFO_STRUCTURE_VERSION_V1: i32 = 1;
         struct STORAGE_BOOT_PARTITION_INFO {
-            Version: u32,
-            Size: u32,
-            BPSZ: u64,
-            ImagePayloadAlignment: u32,
-            ImagePayloadMaxSize: u32,
-            SlotCount: u8,
-            ABPID: u8,
+            Version: ULONG,
+            Size: ULONG,
+            BPSZ: ULONGLONG,
+            ImagePayloadAlignment: ULONG,
+            ImagePayloadMaxSize: ULONG,
+            SlotCount: UCHAR,
+            ABPID: UCHAR,
         }
         struct STORAGE_DIAGNOSTIC_MP_REQUEST {
-            Version: u32,
-            Size: u32,
+            Version: ULONG,
+            Size: ULONG,
             TargetType: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE,
             Level: MP_STORAGE_DIAGNOSTIC_LEVEL,
             ProviderId: GUID,
-            BufferSize: u32,
-            Reserved: u32,
-            DataBuffer: [u8; 1],
+            BufferSize: ULONG,
+            Reserved: ULONG,
+            #[writable(BufferSize)]
+            DataBuffer: [UCHAR; 1],
         }
         const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: i32 = 1;
         const STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER: i32 = 3;
@@ -850,89 +798,89 @@ mod Windows {
         const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: i32 = 0;
         const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: i32 = 2;
         struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
-            Version: u32,
-            Size: u32,
+            Version: ULONG,
+            Size: ULONG,
             EnduranceInfo: STORAGE_ENDURANCE_INFO,
         }
         struct STORAGE_ENDURANCE_INFO {
-            ValidFields: u32,
-            GroupId: u32,
+            ValidFields: ULONG,
+            GroupId: ULONG,
             Flags: struct {
                 _bitfield: u32 {
-                    Shared: 1,
-                    Reserved: 31,
+                    Shared: ULONG: 1,
+                    Reserved: ULONG: 31,
                 },
             },
-            LifePercentage: u32,
-            BytesReadCount: [u8; 16],
-            ByteWriteCount: [u8; 16],
+            LifePercentage: ULONG,
+            BytesReadCount: [UCHAR; 16],
+            ByteWriteCount: [UCHAR; 16],
         }
         struct STORAGE_FIRMWARE_ACTIVATE {
-            Version: u32,
-            Size: u32,
-            SlotToActivate: u8,
-            Reserved0: [u8; 3],
+            Version: ULONG,
+            Size: ULONG,
+            SlotToActivate: UCHAR,
+            Reserved0: [UCHAR; 3],
         }
         const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: i32 = 1;
         struct STORAGE_FIRMWARE_DOWNLOAD {
-            Version: u32,
-            Size: u32,
-            Offset: u64,
-            BufferSize: u64,
-            ImageBuffer: [u8; 0],
+            Version: ULONG,
+            Size: ULONG,
+            Offset: ULONGLONG,
+            BufferSize: ULONGLONG,
+            ImageBuffer: [UCHAR; 0],
         }
         const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
         const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: i32 = 2;
         struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
-            Version: u32,
-            Size: u32,
-            Offset: u64,
-            BufferSize: u64,
-            Slot: u8,
-            Reserved: [u8; 3],
-            ImageSize: u32,
-            ImageBuffer: [u8; 0],
+            Version: ULONG,
+            Size: ULONG,
+            Offset: ULONGLONG,
+            BufferSize: ULONGLONG,
+            Slot: UCHAR,
+            Reserved: [UCHAR; 3],
+            ImageSize: ULONG,
+            ImageBuffer: [UCHAR; 0],
         }
         struct STORAGE_FIRMWARE_INFO {
-            Version: u32,
-            Size: u32,
+            Version: ULONG,
+            Size: ULONG,
             UpgradeSupport: BOOLEAN,
-            SlotCount: u8,
-            ActiveSlot: u8,
-            PendingActivateSlot: u8,
-            Reserved: u32,
+            SlotCount: UCHAR,
+            ActiveSlot: UCHAR,
+            PendingActivateSlot: UCHAR,
+            Reserved: ULONG,
             Slot: [STORAGE_FIRMWARE_SLOT_INFO; 0],
         }
         const STORAGE_FIRMWARE_INFO_INVALID_SLOT: i32 = 255;
         const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: i32 = 1;
         const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: i32 = 2;
         struct STORAGE_FIRMWARE_INFO_V2 {
-            Version: u32,
-            Size: u32,
+            Version: ULONG,
+            Size: ULONG,
             UpgradeSupport: BOOLEAN,
-            SlotCount: u8,
-            ActiveSlot: u8,
-            PendingActivateSlot: u8,
+            SlotCount: UCHAR,
+            ActiveSlot: UCHAR,
+            PendingActivateSlot: UCHAR,
             FirmwareShared: BOOLEAN,
-            Reserved: [u8; 3],
-            ImagePayloadAlignment: u32,
-            ImagePayloadMaxSize: u32,
+            Reserved: [UCHAR; 3],
+            ImagePayloadAlignment: ULONG,
+            ImagePayloadMaxSize: ULONG,
             Slot: [STORAGE_FIRMWARE_SLOT_INFO_V2; 0],
         }
         struct STORAGE_FIRMWARE_SLOT_INFO {
-            SlotNumber: u8,
+            SlotNumber: UCHAR,
             ReadOnly: BOOLEAN,
-            Reserved: [u8; 6],
+            Reserved: [UCHAR; 6],
             Revision: union {
-                Info: [u8; 8],
-                AsUlonglong: u64,
+                Info: [UCHAR; 8],
+                AsUlonglong: ULONGLONG,
             },
         }
         struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
-            SlotNumber: u8,
+            SlotNumber: UCHAR,
             ReadOnly: BOOLEAN,
-            Reserved: [u8; 6],
-            Revision: [u8; 16],
+            Reserved: [UCHAR; 6],
+            Revision: [UCHAR; 16],
         }
         const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: i32 = 16;
         const ScsiRawInterfaceGuid: GUID = 0x53f56309_b6bf_11d0_94f2_00a0c91efb8b;

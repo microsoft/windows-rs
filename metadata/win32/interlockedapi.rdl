@@ -8,10 +8,12 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn InterlockedPopEntrySList(#[in] #[out] ListHead: PSLIST_HEADER) -> PSLIST_ENTRY;
         #[library("KERNEL32.dll")]
-        extern fn InterlockedPushEntrySList(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[out] ListEntry: PSLIST_ENTRY) -> PSLIST_ENTRY;
+        extern fn InterlockedPushEntrySList(#[in] #[out] ListHead: PSLIST_HEADER, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[out] ListEntry: PSLIST_ENTRY) -> PSLIST_ENTRY;
+        #[library("KERNEL32.dll", import = "InterlockedPushListSListEx")]
+        extern fn InterlockedPushListSList(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[out] List: PSLIST_ENTRY, #[in] #[out] ListEnd: PSLIST_ENTRY, #[in] Count: ULONG) -> PSLIST_ENTRY;
         #[library("KERNEL32.dll")]
-        extern fn InterlockedPushListSListEx(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[out] List: PSLIST_ENTRY, #[in] #[out] ListEnd: PSLIST_ENTRY, Count: u32) -> PSLIST_ENTRY;
+        extern fn InterlockedPushListSListEx(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[out] List: PSLIST_ENTRY, #[in] #[out] ListEnd: PSLIST_ENTRY, #[in] Count: ULONG) -> PSLIST_ENTRY;
         #[library("KERNEL32.dll")]
-        extern fn QueryDepthSList(ListHead: PSLIST_HEADER) -> u16;
+        extern fn QueryDepthSList(#[in] ListHead: PSLIST_HEADER) -> USHORT;
     }
 }

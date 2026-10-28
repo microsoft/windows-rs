@@ -2,145 +2,149 @@
 mod Windows {
     mod Win32 {
         #[library("IPHLPAPI.DLL")]
-        extern fn AddIPAddress(Address: IPAddr, IpMask: IPMask, IfIndex: u32, #[out] NTEContext: PULONG, #[out] NTEInstance: PULONG) -> u32;
+        extern fn AddIPAddress(#[in] Address: IPAddr, #[in] IpMask: IPMask, #[in] IfIndex: DWORD, #[out] NTEContext: PULONG, #[out] NTEInstance: PULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn CancelIPChangeNotify(notifyOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn CancelIPChangeNotify(#[in] notifyOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("IPHLPAPI.DLL")]
-        extern fn CancelIfTimestampConfigChange(NotificationHandle: HIFTIMESTAMPCHANGE);
+        extern fn CancelIfTimestampConfigChange(#[in] NotificationHandle: HIFTIMESTAMPCHANGE);
         #[library("IPHLPAPI.DLL")]
-        extern fn CaptureInterfaceHardwareCrossTimestamp(InterfaceLuid: *const NET_LUID, #[in] #[out] CrossTimestamp: PINTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32;
+        extern fn CaptureInterfaceHardwareCrossTimestamp(#[in] InterfaceLuid: *const NET_LUID, #[in] #[out] CrossTimestamp: PINTERFACE_HARDWARE_CROSSTIMESTAMP) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateIpForwardEntry(pRoute: PMIB_IPFORWARDROW) -> u32;
+        extern fn CreateIpForwardEntry(#[in] pRoute: PMIB_IPFORWARDROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateIpNetEntry(pArpEntry: PMIB_IPNETROW) -> u32;
+        extern fn CreateIpNetEntry(#[in] pArpEntry: PMIB_IPNETROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreatePersistentTcpPortReservation(StartPort: u16, NumberOfPorts: u16, #[out] Token: PULONG64) -> u32;
+        extern fn CreatePersistentTcpPortReservation(#[in] StartPort: USHORT, #[in] NumberOfPorts: USHORT, #[out] Token: PULONG64) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreatePersistentUdpPortReservation(StartPort: u16, NumberOfPorts: u16, #[out] Token: PULONG64) -> u32;
+        extern fn CreatePersistentUdpPortReservation(#[in] StartPort: USHORT, #[in] NumberOfPorts: USHORT, #[out] Token: PULONG64) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateProxyArpEntry(dwAddress: u32, dwMask: u32, dwIfIndex: u32) -> u32;
+        extern fn CreateProxyArpEntry(#[in] dwAddress: DWORD, #[in] dwMask: DWORD, #[in] dwIfIndex: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteIPAddress(NTEContext: u32) -> u32;
+        extern fn DeleteIPAddress(#[in] NTEContext: ULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteIpForwardEntry(pRoute: PMIB_IPFORWARDROW) -> u32;
+        extern fn DeleteIpForwardEntry(#[in] pRoute: PMIB_IPFORWARDROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteIpNetEntry(pArpEntry: PMIB_IPNETROW) -> u32;
+        extern fn DeleteIpNetEntry(#[in] pArpEntry: PMIB_IPNETROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeletePersistentTcpPortReservation(StartPort: u16, NumberOfPorts: u16) -> u32;
+        extern fn DeletePersistentTcpPortReservation(#[in] StartPort: USHORT, #[in] NumberOfPorts: USHORT) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeletePersistentUdpPortReservation(StartPort: u16, NumberOfPorts: u16) -> u32;
+        extern fn DeletePersistentUdpPortReservation(#[in] StartPort: USHORT, #[in] NumberOfPorts: USHORT) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteProxyArpEntry(dwAddress: u32, dwMask: u32, dwIfIndex: u32) -> u32;
+        extern fn DeleteProxyArpEntry(#[in] dwAddress: DWORD, #[in] dwMask: DWORD, #[in] dwIfIndex: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn DisableMediaSense(pHandle: *mut HANDLE, #[in] pOverLapped: *mut OVERLAPPED) -> u32;
+        extern fn DisableMediaSense(#[out] pHandle: *mut HANDLE, #[in] pOverLapped: *mut OVERLAPPED) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn EnableRouter(pHandle: *mut HANDLE, pOverlapped: *mut OVERLAPPED) -> u32;
+        extern fn EnableRouter(#[out] pHandle: *mut HANDLE, #[out] pOverlapped: *mut OVERLAPPED) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn FlushIpNetTable(dwIfIndex: u32) -> u32;
+        extern fn FlushIpNetTable(#[in] dwIfIndex: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetAdapterIndex(AdapterName: PCWSTR, #[in] #[out] IfIndex: PULONG) -> u32;
+        extern fn GetAdapterIndex(#[in] AdapterName: LPWSTR, #[in] #[out] IfIndex: PULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
         extern fn GetAdapterOrderMap() -> PIP_ADAPTER_ORDER_MAP;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetAdaptersAddresses(Family: u32, Flags: u32, #[reserved] Reserved: *mut void, #[size_param(4)] #[out] #[opt] AdapterAddresses: PIP_ADAPTER_ADDRESSES, #[in] #[out] SizePointer: PULONG) -> u32;
+        extern fn GetAdaptersAddresses(#[in] Family: ULONG, #[in] Flags: ULONG, #[reserved] Reserved: PVOID, #[opt] #[out] #[writable(entry, bytes(*SizePointer))] AdapterAddresses: PIP_ADAPTER_ADDRESSES, #[in] #[out] SizePointer: PULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetAdaptersInfo(#[size_param(1)] #[out] #[opt] AdapterInfo: PIP_ADAPTER_INFO, #[in] #[out] SizePointer: PULONG) -> u32;
+        extern fn GetAdaptersInfo(#[opt] #[out] #[writable(entry, bytes(*SizePointer))] AdapterInfo: PIP_ADAPTER_INFO, #[in] #[out] SizePointer: PULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetBestInterface(dwDestAddr: IPAddr, #[out] pdwBestIfIndex: PDWORD) -> u32;
+        extern fn GetBestInterface(#[in] dwDestAddr: IPAddr, #[out] pdwBestIfIndex: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetBestRoute(dwDestAddr: u32, #[opt] dwSourceAddr: u32, #[out] pBestRoute: PMIB_IPFORWARDROW) -> u32;
+        extern fn GetBestRoute(#[in] dwDestAddr: DWORD, #[in] #[opt] dwSourceAddr: DWORD, #[out] pBestRoute: PMIB_IPFORWARDROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetExtendedTcpTable(#[size_param(1)] #[opt] pTcpTable: *mut void, #[in] #[out] pdwSize: PDWORD, bOrder: BOOL, ulAf: u32, TableClass: TCP_TABLE_CLASS, Reserved: u32) -> u32;
+        extern fn GetExtendedTcpTable(#[opt] #[out] #[writable(entry, bytes(*pdwSize))] pTcpTable: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(TableClass == TCP_TABLE_OWNER_MODULE_LISTENER || TableClass == TCP_TABLE_OWNER_MODULE_CONNECTIONS || TableClass == TCP_TABLE_OWNER_MODULE_ALL) && ulAf == AF_INET6,_Deref_in_range_(>=, sizeof(MIB_TCP6TABLE_OWNER_MODULE))", "(TableClass == TCP_TABLE_OWNER_MODULE_LISTENER || TableClass == TCP_TABLE_OWNER_MODULE_CONNECTIONS || TableClass == TCP_TABLE_OWNER_MODULE_ALL) && ulAf == 23, _Deref_in_range_(>=,sizeof(MIB_TCP6TABLE_OWNER_MODULE))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(TableClass == TCP_TABLE_OWNER_PID_LISTENER || TableClass == TCP_TABLE_OWNER_PID_CONNECTIONS || TableClass == TCP_TABLE_OWNER_PID_ALL) && ulAf == AF_INET6,_Deref_in_range_(>=, sizeof(MIB_TCP6TABLE_OWNER_PID))", "(TableClass == TCP_TABLE_OWNER_PID_LISTENER || TableClass == TCP_TABLE_OWNER_PID_CONNECTIONS || TableClass == TCP_TABLE_OWNER_PID_ALL) && ulAf == 23, _Deref_in_range_(>=,sizeof(MIB_TCP6TABLE_OWNER_PID))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "ulAf == AF_INET,_Deref_in_range_(>=, sizeof(MIB_TCPTABLE))", "ulAf == 2, _Deref_in_range_(>=,sizeof(MIB_TCPTABLE))")] #[in] #[out] pdwSize: PDWORD, #[in] bOrder: BOOL, #[in] ulAf: ULONG, #[in] TableClass: TCP_TABLE_CLASS, #[in] Reserved: ULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetExtendedUdpTable(#[size_param(1)] #[opt] pUdpTable: *mut void, #[in] #[out] pdwSize: PDWORD, bOrder: BOOL, ulAf: u32, TableClass: UDP_TABLE_CLASS, Reserved: u32) -> u32;
+        extern fn GetExtendedUdpTable(#[opt] #[out] #[writable(entry, bytes(*pdwSize))] pUdpTable: PVOID, #[in] #[out] pdwSize: PDWORD, #[in] bOrder: BOOL, #[in] ulAf: ULONG, #[in] TableClass: UDP_TABLE_CLASS, #[in] Reserved: ULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetFriendlyIfIndex(IfIndex: u32) -> u32;
+        extern fn GetFriendlyIfIndex(#[in] IfIndex: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIcmpStatistics(#[out] Statistics: PMIB_ICMP) -> u32;
+        extern fn GetIcmpStatistics(#[out] Statistics: PMIB_ICMP) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIcmpStatisticsEx(#[out] Statistics: PMIB_ICMP_EX, Family: u32) -> u32;
+        extern fn GetIcmpStatisticsEx(#[out] Statistics: PMIB_ICMP_EX, #[in] Family: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfEntry(#[in] #[out] pIfRow: PMIB_IFROW) -> u32;
+        extern fn GetIfEntry(#[in] #[out] pIfRow: PMIB_IFROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfTable(#[size_param(1)] #[out] #[opt] pIfTable: PMIB_IFTABLE, #[in] #[out] pdwSize: PULONG, bOrder: BOOL) -> u32;
+        extern fn GetIfTable(#[opt] #[out] #[writable(entry, bytes(*pdwSize))] pIfTable: PMIB_IFTABLE, #[in] #[out] pdwSize: PULONG, #[in] bOrder: BOOL) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetInterfaceActiveTimestampCapabilities(InterfaceLuid: *const NET_LUID, #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
+        extern fn GetInterfaceActiveTimestampCapabilities(#[in] InterfaceLuid: *const NET_LUID, #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetInterfaceCurrentTimestampCapabilities(InterfaceLuid: *const NET_LUID, #[in] #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
+        extern fn GetInterfaceCurrentTimestampCapabilities(#[in] InterfaceLuid: *const NET_LUID, #[in] #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetInterfaceHardwareTimestampCapabilities(InterfaceLuid: *const NET_LUID, #[in] #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
+        extern fn GetInterfaceHardwareTimestampCapabilities(#[in] InterfaceLuid: *const NET_LUID, #[in] #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetInterfaceInfo(#[size_param(1)] #[out] #[opt] pIfTable: PIP_INTERFACE_INFO, #[in] #[out] dwOutBufLen: PULONG) -> u32;
+        extern fn GetInterfaceInfo(#[opt] #[out] #[writable(entry, bytes(*dwOutBufLen))] pIfTable: PIP_INTERFACE_INFO, #[in] #[out] dwOutBufLen: PULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetInterfaceSupportedTimestampCapabilities(InterfaceLuid: *const NET_LUID, #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
+        extern fn GetInterfaceSupportedTimestampCapabilities(#[in] InterfaceLuid: *const NET_LUID, #[out] TimestampCapabilites: PINTERFACE_TIMESTAMP_CAPABILITIES) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpAddrTable(#[size_param(1)] #[out] #[opt] pIpAddrTable: PMIB_IPADDRTABLE, #[in] #[out] pdwSize: PULONG, bOrder: BOOL) -> u32;
+        extern fn GetIpAddrTable(#[opt] #[out] #[writable(entry, bytes(*pdwSize))] pIpAddrTable: PMIB_IPADDRTABLE, #[in] #[out] pdwSize: PULONG, #[in] bOrder: BOOL) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpErrorString(ErrorCode: IP_STATUS, #[out] #[opt] Buffer: PWSTR, #[in] #[out] Size: PDWORD) -> u32;
+        extern fn GetIpErrorString(#[in] ErrorCode: IP_STATUS, #[opt] #[out] #[writable(entry, *Size + 1)] Buffer: PWSTR, #[in] #[out] Size: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpForwardTable(#[size_param(1)] #[out] #[opt] pIpForwardTable: PMIB_IPFORWARDTABLE, #[in] #[out] pdwSize: PULONG, bOrder: BOOL) -> u32;
+        extern fn GetIpForwardTable(#[opt] #[out] #[writable(entry, bytes(*pdwSize))] pIpForwardTable: PMIB_IPFORWARDTABLE, #[in] #[out] pdwSize: PULONG, #[in] bOrder: BOOL) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpNetTable(#[size_param(1)] #[out] #[opt] IpNetTable: PMIB_IPNETTABLE, #[in] #[out] SizePointer: PULONG, Order: BOOL) -> u32;
+        extern fn GetIpNetTable(#[opt] #[out] #[writable(entry, bytes(*SizePointer))] IpNetTable: PMIB_IPNETTABLE, #[in] #[out] SizePointer: PULONG, #[in] Order: BOOL) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpStatistics(#[out] Statistics: PMIB_IPSTATS) -> u32;
+        extern fn GetIpStatistics(#[out] Statistics: PMIB_IPSTATS) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpStatisticsEx(#[out] Statistics: PMIB_IPSTATS, Family: u32) -> u32;
+        extern fn GetIpStatisticsEx(#[out] Statistics: PMIB_IPSTATS, #[in] Family: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetNetworkParams(#[size_param(1)] #[out] #[opt] pFixedInfo: PFIXED_INFO, #[in] #[out] pOutBufLen: PULONG) -> u32;
+        extern fn GetNetworkParams(#[opt] #[out] #[writable(entry, bytes(*pOutBufLen))] pFixedInfo: PFIXED_INFO, #[in] #[out] pOutBufLen: PULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetNumberOfInterfaces(#[out] pdwNumIf: PDWORD) -> u32;
+        extern fn GetNumberOfInterfaces(#[out] pdwNumIf: PDWORD) -> DWORD;
+        #[arch(X64 | Arm64)]
         #[library("IPHLPAPI.DLL")]
-        extern "C" fn GetOwnerModuleFromPidAndInfo(ulPid: u32, #[in] pInfo: *mut u64, Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[size_param(4)] pBuffer: *mut void, #[in] #[out] pdwSize: PDWORD) -> u32;
+        extern "C" fn GetOwnerModuleFromPidAndInfo(#[in] ulPid: ULONG, #[in] pInfo: *mut ULONGLONG, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
+        #[arch(X86)]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetOwnerModuleFromTcp6Entry(pTcpEntry: PMIB_TCP6ROW_OWNER_MODULE, Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[size_param(3)] pBuffer: *mut void, #[in] #[out] pdwSize: PDWORD) -> u32;
+        extern fn GetOwnerModuleFromPidAndInfo(#[in] ulPid: ULONG, #[in] pInfo: *mut ULONGLONG, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetOwnerModuleFromTcpEntry(pTcpEntry: PMIB_TCPROW_OWNER_MODULE, Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[size_param(3)] pBuffer: *mut void, #[in] #[out] pdwSize: PDWORD) -> u32;
+        extern fn GetOwnerModuleFromTcp6Entry(#[in] pTcpEntry: PMIB_TCP6ROW_OWNER_MODULE, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetOwnerModuleFromUdp6Entry(pUdpEntry: PMIB_UDP6ROW_OWNER_MODULE, Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[size_param(3)] pBuffer: *mut void, #[in] #[out] pdwSize: PDWORD) -> u32;
+        extern fn GetOwnerModuleFromTcpEntry(#[in] pTcpEntry: PMIB_TCPROW_OWNER_MODULE, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetOwnerModuleFromUdpEntry(pUdpEntry: PMIB_UDPROW_OWNER_MODULE, Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[size_param(3)] pBuffer: *mut void, #[in] #[out] pdwSize: PDWORD) -> u32;
+        extern fn GetOwnerModuleFromUdp6Entry(#[in] pUdpEntry: PMIB_UDP6ROW_OWNER_MODULE, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetPerAdapterInfo(IfIndex: u32, #[size_param(2)] #[out] #[opt] pPerAdapterInfo: PIP_PER_ADAPTER_INFO, #[in] #[out] pOutBufLen: PULONG) -> u32;
+        extern fn GetOwnerModuleFromUdpEntry(#[in] pUdpEntry: PMIB_UDPROW_OWNER_MODULE, #[in] Class: TCPIP_OWNER_MODULE_INFO_CLASS, #[out] #[writable(entry, bytes(*pdwSize))] pBuffer: PVOID, #[in] #[out] pdwSize: PDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetPerTcp6ConnectionEStats(Row: PMIB_TCP6ROW, EstatsType: TCP_ESTATS_TYPE, #[size_param(4)] #[out] #[opt] Rw: PUCHAR, RwVersion: u32, RwSize: u32, #[size_param(7)] #[out] #[opt] Ros: PUCHAR, RosVersion: u32, RosSize: u32, #[size_param(10)] #[out] #[opt] Rod: PUCHAR, RodVersion: u32, RodSize: u32) -> u32;
+        extern fn GetPerAdapterInfo(#[in] IfIndex: ULONG, #[opt] #[out] #[writable(entry, bytes(*pOutBufLen))] pPerAdapterInfo: PIP_PER_ADAPTER_INFO, #[in] #[out] pOutBufLen: PULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetPerTcpConnectionEStats(Row: PMIB_TCPROW, EstatsType: TCP_ESTATS_TYPE, #[size_param(4)] #[out] #[opt] Rw: PUCHAR, RwVersion: u32, RwSize: u32, #[size_param(7)] #[out] #[opt] Ros: PUCHAR, RosVersion: u32, RosSize: u32, #[size_param(10)] #[out] #[opt] Rod: PUCHAR, RodVersion: u32, RodSize: u32) -> u32;
+        extern fn GetPerTcp6ConnectionEStats(#[in] Row: PMIB_TCP6ROW, #[in] EstatsType: TCP_ESTATS_TYPE, #[opt] #[out] #[writable(entry, bytes(RwSize))] Rw: PUCHAR, #[in] RwVersion: ULONG, #[in] RwSize: ULONG, #[opt] #[out] #[writable(entry, bytes(RosSize))] Ros: PUCHAR, #[in] RosVersion: ULONG, #[in] RosSize: ULONG, #[opt] #[out] #[writable(entry, bytes(RodSize))] Rod: PUCHAR, #[in] RodVersion: ULONG, #[in] RodSize: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetRTTAndHopCount(DestIpAddress: IPAddr, #[out] HopCount: PULONG, MaxHops: u32, #[out] RTT: PULONG) -> BOOL;
+        extern fn GetPerTcpConnectionEStats(#[in] Row: PMIB_TCPROW, #[in] EstatsType: TCP_ESTATS_TYPE, #[opt] #[out] #[writable(entry, bytes(RwSize))] Rw: PUCHAR, #[in] RwVersion: ULONG, #[in] RwSize: ULONG, #[opt] #[out] #[writable(entry, bytes(RosSize))] Ros: PUCHAR, #[in] RosVersion: ULONG, #[in] RosSize: ULONG, #[opt] #[out] #[writable(entry, bytes(RodSize))] Rod: PUCHAR, #[in] RodVersion: ULONG, #[in] RodSize: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTcp6Table(#[size_param(1)] #[out] TcpTable: PMIB_TCP6TABLE, #[in] #[out] SizePointer: PULONG, Order: BOOL) -> u32;
+        extern fn GetRTTAndHopCount(#[in] DestIpAddress: IPAddr, #[out] HopCount: PULONG, #[in] MaxHops: ULONG, #[out] RTT: PULONG) -> BOOL;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTcp6Table2(#[size_param(1)] #[out] TcpTable: PMIB_TCP6TABLE2, #[in] #[out] SizePointer: PULONG, Order: BOOL) -> u32;
+        extern fn GetTcp6Table(#[out] #[writable(entry, bytes(*SizePointer))] TcpTable: PMIB_TCP6TABLE, #[in] #[out] SizePointer: PULONG, #[in] Order: BOOL) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTcpStatistics(#[out] Statistics: PMIB_TCPSTATS) -> u32;
+        extern fn GetTcp6Table2(#[out] #[writable(entry, bytes(*SizePointer))] TcpTable: PMIB_TCP6TABLE2, #[in] #[out] SizePointer: PULONG, #[in] Order: BOOL) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTcpStatisticsEx(#[out] Statistics: PMIB_TCPSTATS, Family: u32) -> u32;
+        extern fn GetTcpStatistics(#[out] Statistics: PMIB_TCPSTATS) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTcpStatisticsEx2(#[out] Statistics: PMIB_TCPSTATS2, Family: u32) -> u32;
+        extern fn GetTcpStatisticsEx(#[out] Statistics: PMIB_TCPSTATS, #[in] Family: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTcpTable(#[size_param(1)] #[out] #[opt] TcpTable: PMIB_TCPTABLE, #[in] #[out] SizePointer: PULONG, Order: BOOL) -> u32;
+        extern fn GetTcpStatisticsEx2(#[out] Statistics: PMIB_TCPSTATS2, #[in] Family: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTcpTable2(#[size_param(1)] #[out] #[opt] TcpTable: PMIB_TCPTABLE2, #[in] #[out] SizePointer: PULONG, Order: BOOL) -> u32;
+        extern fn GetTcpTable(#[opt] #[out] #[writable(entry, bytes(*SizePointer))] TcpTable: PMIB_TCPTABLE, #[in] #[out] SizePointer: PULONG, #[in] Order: BOOL) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUdp6Table(#[size_param(1)] #[out] #[opt] Udp6Table: PMIB_UDP6TABLE, #[in] #[out] SizePointer: PULONG, Order: BOOL) -> u32;
+        extern fn GetTcpTable2(#[opt] #[out] #[writable(entry, bytes(*SizePointer))] TcpTable: PMIB_TCPTABLE2, #[in] #[out] SizePointer: PULONG, #[in] Order: BOOL) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUdpStatistics(#[out] Stats: PMIB_UDPSTATS) -> u32;
+        extern fn GetUdp6Table(#[opt] #[out] #[writable(entry, bytes(*SizePointer))] Udp6Table: PMIB_UDP6TABLE, #[in] #[out] SizePointer: PULONG, #[in] Order: BOOL) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUdpStatisticsEx(#[out] Statistics: PMIB_UDPSTATS, Family: u32) -> u32;
+        extern fn GetUdpStatistics(#[out] Stats: PMIB_UDPSTATS) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUdpStatisticsEx2(#[out] Statistics: PMIB_UDPSTATS2, Family: u32) -> u32;
+        extern fn GetUdpStatisticsEx(#[out] Statistics: PMIB_UDPSTATS, #[in] Family: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUdpTable(#[size_param(1)] #[out] #[opt] UdpTable: PMIB_UDPTABLE, #[in] #[out] SizePointer: PULONG, Order: BOOL) -> u32;
+        extern fn GetUdpStatisticsEx2(#[out] Statistics: PMIB_UDPSTATS2, #[in] Family: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUniDirectionalAdapterInfo(#[size_param(1)] #[out] #[opt] pIPIfInfo: PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS, #[in] #[out] dwOutBufLen: PULONG) -> u32;
+        extern fn GetUdpTable(#[opt] #[out] #[writable(entry, bytes(*SizePointer))] UdpTable: PMIB_UDPTABLE, #[in] #[out] SizePointer: PULONG, #[in] Order: BOOL) -> ULONG;
+        #[library("IPHLPAPI.DLL")]
+        extern fn GetUniDirectionalAdapterInfo(#[opt] #[out] #[writable(entry, bytes(*dwOutBufLen))] pIPIfInfo: PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS, #[in] #[out] dwOutBufLen: PULONG) -> DWORD;
         type HIFTIMESTAMPCHANGE = *mut HIFTIMESTAMPCHANGE__;
         struct HIFTIMESTAMPCHANGE__ {
             unused: i32,
         }
         struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
-            SystemTimestamp1: u64,
-            HardwareClockTimestamp: u64,
-            SystemTimestamp2: u64,
+            SystemTimestamp1: ULONG64,
+            HardwareClockTimestamp: ULONG64,
+            SystemTimestamp2: ULONG64,
         }
         struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
             PtpV2OverUdpIPv4EventMessageReceive: BOOLEAN,
@@ -161,20 +165,20 @@ mod Windows {
             TaggedTransmit: BOOLEAN,
         }
         struct INTERFACE_TIMESTAMP_CAPABILITIES {
-            HardwareClockFrequencyHz: u64,
+            HardwareClockFrequencyHz: ULONG64,
             SupportsCrossTimestamp: BOOLEAN,
             HardwareCapabilities: INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES,
             SoftwareCapabilities: INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES,
         }
-        extern fn INTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(#[in] CallerContext: *mut void);
+        extern fn INTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(#[in] CallerContext: PVOID);
         #[library("IPHLPAPI.DLL")]
-        extern fn IpReleaseAddress(AdapterInfo: PIP_ADAPTER_INDEX_MAP) -> u32;
+        extern fn IpReleaseAddress(#[in] AdapterInfo: PIP_ADAPTER_INDEX_MAP) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn IpRenewAddress(AdapterInfo: PIP_ADAPTER_INDEX_MAP) -> u32;
+        extern fn IpRenewAddress(#[in] AdapterInfo: PIP_ADAPTER_INDEX_MAP) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn LookupPersistentTcpPortReservation(StartPort: u16, NumberOfPorts: u16, #[out] Token: PULONG64) -> u32;
+        extern fn LookupPersistentTcpPortReservation(#[in] StartPort: USHORT, #[in] NumberOfPorts: USHORT, #[out] Token: PULONG64) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn LookupPersistentUdpPortReservation(StartPort: u16, NumberOfPorts: u16, #[out] Token: PULONG64) -> u32;
+        extern fn LookupPersistentUdpPortReservation(#[in] StartPort: USHORT, #[in] NumberOfPorts: USHORT, #[out] Token: PULONG64) -> ULONG;
         #[repr(i32)]
         enum NET_ADDRESS_FORMAT {
             NET_ADDRESS_FORMAT_UNSPECIFIED = 0,
@@ -202,47 +206,47 @@ mod Windows {
         const NET_STRING_NAMED_ADDRESS: i32 = 256;
         const NET_STRING_NAMED_SERVICE: i32 = 512;
         #[library("IPHLPAPI.DLL")]
-        extern fn NhpAllocateAndGetInterfaceInfoFromStack(ppTable: *mut *mut IP_INTERFACE_NAME_INFO, #[out] pdwCount: PDWORD, bOrder: BOOL, hHeap: HANDLE, dwFlags: u32) -> u32;
+        extern fn NhpAllocateAndGetInterfaceInfoFromStack(#[out] #[out_ptr] ppTable: *mut *mut IP_INTERFACE_NAME_INFO, #[out] pdwCount: PDWORD, #[in] bOrder: BOOL, #[in] hHeap: HANDLE, #[in] dwFlags: DWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyAddrChange(#[out] Handle: PHANDLE, overlapped: LPOVERLAPPED) -> u32;
+        extern fn NotifyAddrChange(#[out] Handle: PHANDLE, #[in] overlapped: LPOVERLAPPED) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyIfTimestampConfigChange(#[in] #[opt] CallerContext: *mut void, Callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, NotificationHandle: *mut HIFTIMESTAMPCHANGE) -> u32;
+        extern fn NotifyIfTimestampConfigChange(#[in] #[opt] CallerContext: PVOID, #[in] Callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, #[out] NotificationHandle: *mut HIFTIMESTAMPCHANGE) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyRouteChange(#[out] Handle: PHANDLE, overlapped: LPOVERLAPPED) -> u32;
+        extern fn NotifyRouteChange(#[out] Handle: PHANDLE, #[in] overlapped: LPOVERLAPPED) -> DWORD;
         type PINTERFACE_HARDWARE_CROSSTIMESTAMP = *mut INTERFACE_HARDWARE_CROSSTIMESTAMP;
         type PINTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES = *mut INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES;
         type PINTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES = *mut INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES;
         type PINTERFACE_TIMESTAMP_CAPABILITIES = *mut INTERFACE_TIMESTAMP_CAPABILITIES;
-        extern fn PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(#[in] CallerContext: *mut void);
+        extern fn PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(#[in] CallerContext: PVOID);
         #[library("IPHLPAPI.DLL")]
-        extern fn RegisterInterfaceTimestampConfigChange(Callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, #[in] #[opt] CallerContext: *mut void, NotificationHandle: *mut HIFTIMESTAMPCHANGE) -> u32;
+        extern fn RegisterInterfaceTimestampConfigChange(#[in] Callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, #[in] #[opt] CallerContext: PVOID, #[out] NotificationHandle: *mut HIFTIMESTAMPCHANGE) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn ResolveNeighbor(#[in] NetworkAddress: *mut SOCKADDR, #[size_param(2)] PhysicalAddress: *mut void, #[in] #[out] PhysicalAddressLength: PULONG) -> u32;
+        extern fn ResolveNeighbor(#[in] NetworkAddress: *mut SOCKADDR, #[out] #[writable(entry, bytes(*PhysicalAddressLength))] PhysicalAddress: PVOID, #[in] #[out] PhysicalAddressLength: PULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn RestoreMediaSense(#[in] pOverlapped: *mut OVERLAPPED, #[out] #[opt] lpdwEnableCount: LPDWORD) -> u32;
+        extern fn RestoreMediaSense(#[in] pOverlapped: *mut OVERLAPPED, #[opt] #[out] lpdwEnableCount: LPDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn SendARP(DestIP: IPAddr, SrcIP: IPAddr, #[size_param(3)] pMacAddr: *mut void, #[in] #[out] PhyAddrLen: PULONG) -> u32;
+        extern fn SendARP(#[in] DestIP: IPAddr, #[in] SrcIP: IPAddr, #[out] #[writable(entry, bytes(*PhyAddrLen))] pMacAddr: PVOID, #[in] #[out] PhyAddrLen: PULONG) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIfEntry(pIfRow: PMIB_IFROW) -> u32;
+        extern fn SetIfEntry(#[in] pIfRow: PMIB_IFROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpForwardEntry(pRoute: PMIB_IPFORWARDROW) -> u32;
+        extern fn SetIpForwardEntry(#[in] pRoute: PMIB_IPFORWARDROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpNetEntry(pArpEntry: PMIB_IPNETROW) -> u32;
+        extern fn SetIpNetEntry(#[in] pArpEntry: PMIB_IPNETROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpStatistics(pIpStats: PMIB_IPSTATS) -> u32;
+        extern fn SetIpStatistics(#[in] pIpStats: PMIB_IPSTATS) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpStatisticsEx(Statistics: PMIB_IPSTATS, Family: u32) -> u32;
+        extern fn SetIpStatisticsEx(#[in] Statistics: PMIB_IPSTATS, #[in] Family: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpTTL(nTTL: u32) -> u32;
+        extern fn SetIpTTL(#[in] nTTL: UINT) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetPerTcp6ConnectionEStats(Row: PMIB_TCP6ROW, EstatsType: TCP_ESTATS_TYPE, #[size_param(4)] Rw: PUCHAR, RwVersion: u32, RwSize: u32, Offset: u32) -> u32;
+        extern fn SetPerTcp6ConnectionEStats(#[in] Row: PMIB_TCP6ROW, #[in] EstatsType: TCP_ESTATS_TYPE, #[in] #[readable(entry, bytes(RwSize))] Rw: PUCHAR, #[in] RwVersion: ULONG, #[in] RwSize: ULONG, #[in] Offset: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetPerTcpConnectionEStats(Row: PMIB_TCPROW, EstatsType: TCP_ESTATS_TYPE, #[size_param(4)] Rw: PUCHAR, RwVersion: u32, RwSize: u32, Offset: u32) -> u32;
+        extern fn SetPerTcpConnectionEStats(#[in] Row: PMIB_TCPROW, #[in] EstatsType: TCP_ESTATS_TYPE, #[in] #[readable(entry, bytes(RwSize))] Rw: PUCHAR, #[in] RwVersion: ULONG, #[in] RwSize: ULONG, #[in] Offset: ULONG) -> ULONG;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetTcpEntry(pTcpRow: PMIB_TCPROW) -> u32;
+        extern fn SetTcpEntry(#[in] pTcpRow: PMIB_TCPROW) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn UnenableRouter(#[in] pOverlapped: *mut OVERLAPPED, #[out] #[opt] lpdwEnableCount: LPDWORD) -> u32;
+        extern fn UnenableRouter(#[in] pOverlapped: *mut OVERLAPPED, #[opt] #[out] lpdwEnableCount: LPDWORD) -> DWORD;
         #[library("IPHLPAPI.DLL")]
-        extern fn UnregisterInterfaceTimestampConfigChange(NotificationHandle: HIFTIMESTAMPCHANGE);
+        extern fn UnregisterInterfaceTimestampConfigChange(#[in] NotificationHandle: HIFTIMESTAMPCHANGE);
     }
 }

@@ -6,26 +6,26 @@ mod Windows {
             ACTIVATE_WINDOWLESS = 1,
         }
         struct CADWORD {
-            cElems: u32,
-            pElems: *mut u32,
+            cElems: ULONG,
+            pElems: *mut DWORD,
         }
         struct CALPOLESTR {
-            cElems: u32,
+            cElems: ULONG,
             pElems: *mut LPOLESTR,
         }
         struct CAUUID {
-            cElems: u32,
+            cElems: ULONG,
             pElems: *mut GUID,
         }
         struct CONNECTDATA {
             pUnk: IUnknown,
-            dwCookie: u32,
+            dwCookie: DWORD,
         }
         struct CONTROLINFO {
-            cb: u32,
+            cb: ULONG,
             hAccel: HACCEL,
-            cAccel: u16,
-            dwFlags: u32,
+            cAccel: USHORT,
+            dwFlags: DWORD,
         }
         #[repr(i32)]
         enum CTRLINFO {
@@ -38,16 +38,16 @@ mod Windows {
             DVASPECT_TRANSPARENT = 32,
         }
         struct DVASPECTINFO {
-            cb: u32,
-            dwFlags: u32,
+            cb: ULONG,
+            dwFlags: DWORD,
         }
         #[repr(i32)]
         enum DVASPECTINFOFLAG {
             DVASPECTINFOFLAG_CANOPTIMIZE = 1,
         }
         struct DVEXTENTINFO {
-            cb: u32,
-            dwExtentMode: u32,
+            cb: ULONG,
+            dwExtentMode: DWORD,
             sizelProposed: SIZEL,
         }
         #[repr(i32)]
@@ -59,22 +59,6 @@ mod Windows {
         enum GUIDKIND {
             GUIDKIND_DEFAULT_SOURCE_DISP_IID = 1,
         }
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserFree(param0: *mut u32, param1: *mut HACCEL);
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserFree64(param0: *mut u32, param1: *mut HACCEL);
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserSize(param0: *mut u32, param1: u32, param2: *mut HACCEL) -> u32;
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserSize64(param0: *mut u32, param1: u32, param2: *mut HACCEL) -> u32;
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HACCEL_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
         type HHANDLE = usize;
         #[repr(i32)]
         enum HITRESULT {
@@ -83,108 +67,108 @@ mod Windows {
             HITRESULT_CLOSE = 2,
             HITRESULT_HIT = 3,
         }
+        #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserFree(param0: *mut u32, param1: *mut HPALETTE);
+        extern fn HPALETTE_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HPALETTE);
+        #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserFree64(param0: *mut u32, param1: *mut HPALETTE);
+        extern fn HPALETTE_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HPALETTE) -> *mut u8;
+        #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
+        extern fn HPALETTE_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
+        #[arch(X64 | Arm64)]
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
+        extern fn HPALETTE_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
         #[library("ole32.dll")]
-        extern fn HPALETTE_UserSize(param0: *mut u32, param1: u32, param2: *mut HPALETTE) -> u32;
-        #[library("ole32.dll")]
-        extern fn HPALETTE_UserSize64(param0: *mut u32, param1: u32, param2: *mut HPALETTE) -> u32;
-        #[library("ole32.dll")]
-        extern fn HPALETTE_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HPALETTE_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HRGN_UserFree(param0: *mut u32, param1: *mut HRGN);
+        extern fn HRGN_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HRGN);
+        #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
-        extern fn HRGN_UserFree64(param0: *mut u32, param1: *mut HRGN);
+        extern fn HRGN_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HRGN);
         #[library("ole32.dll")]
-        extern fn HRGN_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
+        #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
-        extern fn HRGN_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
         #[library("ole32.dll")]
-        extern fn HRGN_UserSize(param0: *mut u32, param1: u32, param2: *mut HRGN) -> u32;
+        extern fn HRGN_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HRGN) -> u32;
+        #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
-        extern fn HRGN_UserSize64(param0: *mut u32, param1: u32, param2: *mut HRGN) -> u32;
+        extern fn HRGN_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HRGN) -> u32;
         #[library("ole32.dll")]
-        extern fn HRGN_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
+        #[arch(X64 | Arm64)]
         #[library("api-ms-win-core-marshal-l1-1-0.dll")]
-        extern fn HRGN_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
+        extern fn HRGN_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
         #[guid(0x3af24290_0c96_11ce_a0cf_00aa00600ab8)]
         interface IAdviseSinkEx: IAdviseSink {
-            fn OnViewStatusChange(&self, dwViewStatus: u32);
+            fn OnViewStatusChange(&self, #[in] dwViewStatus: DWORD);
         }
         #[guid(0xb196b28f_bab4_101a_b69c_00aa00341d07)]
         interface IClassFactory2: IClassFactory {
             fn GetLicInfo(&self, #[in] #[out] pLicInfo: *mut LICINFO) -> HRESULT;
-            fn RequestLicKey(&self, dwReserved: u32, pBstrKey: *mut BSTR) -> HRESULT;
-            fn CreateInstanceLic(&self, #[opt] pUnkOuter: IUnknown, #[reserved] pUnkReserved: IUnknown, riid: *const GUID, bstrKey: BSTR, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+            fn RequestLicKey(&self, #[in] dwReserved: DWORD, #[out] #[out_ptr] pBstrKey: *mut BSTR) -> HRESULT;
+            fn CreateInstanceLic(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[reserved] pUnkReserved: IUnknown, #[in] riid: &IID, #[in] bstrKey: BSTR, #[iid_is] #[out] #[out_ptr] ppvObj: *mut PVOID) -> HRESULT;
         }
         #[guid(0xb196b286_bab4_101a_b69c_00aa00341d07)]
         interface IConnectionPoint: IUnknown {
-            fn GetConnectionInterface(&self, pIID: *mut GUID) -> HRESULT;
-            fn GetConnectionPointContainer(&self, ppCPC: *mut IConnectionPointContainer) -> HRESULT;
-            fn Advise(&self, pUnkSink: IUnknown, pdwCookie: *mut u32) -> HRESULT;
-            fn Unadvise(&self, dwCookie: u32) -> HRESULT;
-            fn EnumConnections(&self, ppEnum: *mut IEnumConnections) -> HRESULT;
+            fn GetConnectionInterface(&self, #[out] pIID: *mut IID) -> HRESULT;
+            fn GetConnectionPointContainer(&self, #[out] #[out_ptr] ppCPC: *mut IConnectionPointContainer) -> HRESULT;
+            fn Advise(&self, #[in] #[opt] pUnkSink: IUnknown, #[out] pdwCookie: *mut DWORD) -> HRESULT;
+            fn Unadvise(&self, #[in] dwCookie: DWORD) -> HRESULT;
+            fn EnumConnections(&self, #[out] #[out_ptr] ppEnum: *mut IEnumConnections) -> HRESULT;
         }
         #[guid(0xb196b284_bab4_101a_b69c_00aa00341d07)]
         interface IConnectionPointContainer: IUnknown {
-            fn EnumConnectionPoints(&self, ppEnum: *mut IEnumConnectionPoints) -> HRESULT;
-            fn FindConnectionPoint(&self, riid: *const GUID, ppCP: *mut IConnectionPoint) -> HRESULT;
+            fn EnumConnectionPoints(&self, #[out] #[out_ptr] ppEnum: *mut IEnumConnectionPoints) -> HRESULT;
+            fn FindConnectionPoint(&self, #[in] riid: &IID, #[out] #[out_ptr] ppCP: *mut IConnectionPoint) -> HRESULT;
         }
         #[guid(0xb196b285_bab4_101a_b69c_00aa00341d07)]
         interface IEnumConnectionPoints: IUnknown {
-            fn Next(&self, cConnections: u32, ppCP: *mut IConnectionPoint, pcFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, cConnections: u32) -> HRESULT;
+            fn Next(&self, #[in] cConnections: ULONG, #[out] ppCP: *mut LPCONNECTIONPOINT, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, #[in] cConnections: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumConnectionPoints) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumConnectionPoints) -> HRESULT;
         }
         #[guid(0xb196b287_bab4_101a_b69c_00aa00341d07)]
         interface IEnumConnections: IUnknown {
-            fn Next(&self, cConnections: u32, #[out] rgcd: LPCONNECTDATA, pcFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, cConnections: u32) -> HRESULT;
+            fn Next(&self, #[in] cConnections: ULONG, #[out] rgcd: LPCONNECTDATA, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, #[in] cConnections: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumConnections) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumConnections) -> HRESULT;
         }
         #[guid(0xb3e7c340_ef97_11ce_9bc9_00aa00608e01)]
         interface IEnumOleUndoUnits: IUnknown {
-            fn Next(&self, cElt: u32, rgElt: *mut IOleUndoUnit, pcEltFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, cElt: u32) -> HRESULT;
+            fn Next(&self, #[in] cElt: ULONG, #[out] rgElt: *mut IOleUndoUnit, #[out] pcEltFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, #[in] cElt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumOleUndoUnits) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleUndoUnits) -> HRESULT;
         }
         #[guid(0xbef6e002_a874_101a_8bba_00aa00300cab)]
         interface IFont: IUnknown {
-            fn get_Name(&self, pName: *mut BSTR) -> HRESULT;
-            fn put_Name(&self, name: BSTR) -> HRESULT;
-            fn get_Size(&self, pSize: *mut CY) -> HRESULT;
-            fn put_Size(&self, size: CY) -> HRESULT;
-            fn get_Bold(&self, pBold: *mut BOOL) -> HRESULT;
-            fn put_Bold(&self, bold: BOOL) -> HRESULT;
-            fn get_Italic(&self, pItalic: *mut BOOL) -> HRESULT;
-            fn put_Italic(&self, italic: BOOL) -> HRESULT;
-            fn get_Underline(&self, pUnderline: *mut BOOL) -> HRESULT;
-            fn put_Underline(&self, underline: BOOL) -> HRESULT;
-            fn get_Strikethrough(&self, pStrikethrough: *mut BOOL) -> HRESULT;
-            fn put_Strikethrough(&self, strikethrough: BOOL) -> HRESULT;
-            fn get_Weight(&self, pWeight: *mut i16) -> HRESULT;
-            fn put_Weight(&self, weight: i16) -> HRESULT;
-            fn get_Charset(&self, pCharset: *mut i16) -> HRESULT;
-            fn put_Charset(&self, charset: i16) -> HRESULT;
-            fn get_hFont(&self, phFont: *mut HFONT) -> HRESULT;
-            fn Clone(&self, ppFont: *mut IFont) -> HRESULT;
-            fn IsEqual(&self, pFontOther: IFont) -> HRESULT;
-            fn SetRatio(&self, cyLogical: i32, cyHimetric: i32) -> HRESULT;
-            fn QueryTextMetrics(&self, pTM: *mut TEXTMETRICOLE) -> HRESULT;
-            fn AddRefHfont(&self, hFont: HFONT) -> HRESULT;
-            fn ReleaseHfont(&self, hFont: HFONT) -> HRESULT;
-            fn SetHdc(&self, hDC: HDC) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] pName: *mut BSTR) -> HRESULT;
+            fn put_Name(&self, #[in] name: BSTR) -> HRESULT;
+            fn get_Size(&self, #[out] pSize: *mut CY) -> HRESULT;
+            fn put_Size(&self, #[in] size: CY) -> HRESULT;
+            fn get_Bold(&self, #[out] pBold: *mut BOOL) -> HRESULT;
+            fn put_Bold(&self, #[in] bold: BOOL) -> HRESULT;
+            fn get_Italic(&self, #[out] pItalic: *mut BOOL) -> HRESULT;
+            fn put_Italic(&self, #[in] italic: BOOL) -> HRESULT;
+            fn get_Underline(&self, #[out] pUnderline: *mut BOOL) -> HRESULT;
+            fn put_Underline(&self, #[in] underline: BOOL) -> HRESULT;
+            fn get_Strikethrough(&self, #[out] pStrikethrough: *mut BOOL) -> HRESULT;
+            fn put_Strikethrough(&self, #[in] strikethrough: BOOL) -> HRESULT;
+            fn get_Weight(&self, #[out] pWeight: *mut SHORT) -> HRESULT;
+            fn put_Weight(&self, #[in] weight: SHORT) -> HRESULT;
+            fn get_Charset(&self, #[out] pCharset: *mut SHORT) -> HRESULT;
+            fn put_Charset(&self, #[in] charset: SHORT) -> HRESULT;
+            fn get_hFont(&self, #[out] #[out_ptr] phFont: *mut HFONT) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] ppFont: *mut IFont) -> HRESULT;
+            fn IsEqual(&self, #[in] #[opt] pFontOther: IFont) -> HRESULT;
+            fn SetRatio(&self, #[in] cyLogical: LONG, #[in] cyHimetric: LONG) -> HRESULT;
+            fn QueryTextMetrics(&self, #[out] pTM: *mut TEXTMETRICOLE) -> HRESULT;
+            fn AddRefHfont(&self, #[in] hFont: HFONT) -> HRESULT;
+            fn ReleaseHfont(&self, #[in] hFont: HFONT) -> HRESULT;
+            fn SetHdc(&self, #[in] hDC: HDC) -> HRESULT;
         }
         #[guid(0xbef6e003_a874_101a_8bba_00aa00300cab)]
         interface IFontDisp: IDispatch {}
@@ -192,248 +176,288 @@ mod Windows {
         interface IFontEventsDisp: IDispatch {}
         #[guid(0xfc4801a3_2ba9_11cf_a229_00aa003d7352)]
         interface IObjectWithSite: IUnknown {
-            fn SetSite(&self, pUnkSite: IUnknown) -> HRESULT;
-            fn GetSite(&self, riid: *const GUID, #[iid_is] ppvSite: *mut *mut void) -> HRESULT;
+            fn SetSite(&self, #[in] #[opt] pUnkSite: IUnknown) -> HRESULT;
+            fn GetSite(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvSite: *mut *mut void) -> HRESULT;
         }
         #[guid(0xb196b288_bab4_101a_b69c_00aa00341d07)]
         interface IOleControl: IUnknown {
             fn GetControlInfo(&self, #[in] #[out] pCI: *mut CONTROLINFO) -> HRESULT;
             fn OnMnemonic(&self, #[in] pMsg: *mut MSG) -> HRESULT;
-            fn OnAmbientPropertyChange(&self, dispID: DISPID) -> HRESULT;
-            fn FreezeEvents(&self, bFreeze: BOOL) -> HRESULT;
+            fn OnAmbientPropertyChange(&self, #[in] dispID: DISPID) -> HRESULT;
+            fn FreezeEvents(&self, #[in] bFreeze: BOOL) -> HRESULT;
         }
         #[guid(0xb196b289_bab4_101a_b69c_00aa00341d07)]
         interface IOleControlSite: IUnknown {
             fn OnControlInfoChanged(&self) -> HRESULT;
-            fn LockInPlaceActive(&self, fLock: BOOL) -> HRESULT;
-            fn GetExtendedControl(&self, ppDisp: *mut IDispatch) -> HRESULT;
-            fn TransformCoords(&self, #[in] #[out] pPtlHimetric: *mut POINTL, #[in] #[out] pPtfContainer: *mut POINTF, dwFlags: u32) -> HRESULT;
-            fn TranslateAccelerator(&self, #[in] pMsg: *mut MSG, grfModifiers: u32) -> HRESULT;
-            fn OnFocus(&self, fGotFocus: BOOL) -> HRESULT;
+            fn LockInPlaceActive(&self, #[in] fLock: BOOL) -> HRESULT;
+            fn GetExtendedControl(&self, #[out] #[out_ptr] ppDisp: *mut IDispatch) -> HRESULT;
+            fn TransformCoords(&self, #[in] #[out] pPtlHimetric: *mut POINTL, #[in] #[out] pPtfContainer: *mut POINTF, #[in] dwFlags: DWORD) -> HRESULT;
+            fn TranslateAccelerator(&self, #[in] pMsg: *mut MSG, #[in] grfModifiers: DWORD) -> HRESULT;
+            fn OnFocus(&self, #[in] fGotFocus: BOOL) -> HRESULT;
             fn ShowPropertyFrame(&self) -> HRESULT;
         }
         #[guid(0x1c2056cc_5ef4_101b_8bc8_00aa003e3b29)]
         interface IOleInPlaceObjectWindowless: IOleInPlaceObject {
-            fn OnWindowMessage(&self, msg: u32, wParam: WPARAM, lParam: LPARAM, plResult: *mut LRESULT) -> HRESULT;
-            fn GetDropTarget(&self, ppDropTarget: *mut IDropTarget) -> HRESULT;
+            fn OnWindowMessage(&self, #[in] msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[out] plResult: *mut LRESULT) -> HRESULT;
+            fn GetDropTarget(&self, #[out] #[out_ptr] ppDropTarget: *mut IDropTarget) -> HRESULT;
         }
         #[guid(0x9c2cad80_3424_11cf_b670_00aa004cd6d8)]
         interface IOleInPlaceSiteEx: IOleInPlaceSite {
-            fn OnInPlaceActivateEx(&self, pfNoRedraw: *mut BOOL, dwFlags: u32) -> HRESULT;
-            fn OnInPlaceDeactivateEx(&self, fNoRedraw: BOOL) -> HRESULT;
+            fn OnInPlaceActivateEx(&self, #[out] pfNoRedraw: *mut BOOL, #[in] dwFlags: DWORD) -> HRESULT;
+            fn OnInPlaceDeactivateEx(&self, #[in] fNoRedraw: BOOL) -> HRESULT;
             fn RequestUIActivate(&self) -> HRESULT;
         }
         #[guid(0x922eada0_3424_11cf_b670_00aa004cd6d8)]
         interface IOleInPlaceSiteWindowless: IOleInPlaceSiteEx {
             fn CanWindowlessActivate(&self) -> HRESULT;
             fn GetCapture(&self) -> HRESULT;
-            fn SetCapture(&self, fCapture: BOOL) -> HRESULT;
+            fn SetCapture(&self, #[in] fCapture: BOOL) -> HRESULT;
             fn GetFocus(&self) -> HRESULT;
-            fn SetFocus(&self, fFocus: BOOL) -> HRESULT;
-            fn GetDC(&self, pRect: LPCRECT, grfFlags: u32, phDC: *mut HDC) -> HRESULT;
-            fn ReleaseDC(&self, hDC: HDC) -> HRESULT;
-            fn InvalidateRect(&self, pRect: LPCRECT, fErase: BOOL) -> HRESULT;
-            fn InvalidateRgn(&self, hRGN: HRGN, fErase: BOOL) -> HRESULT;
-            fn ScrollRect(&self, dx: i32, dy: i32, pRectScroll: LPCRECT, pRectClip: LPCRECT) -> HRESULT;
+            fn SetFocus(&self, #[in] fFocus: BOOL) -> HRESULT;
+            fn GetDC(&self, #[in] #[opt] pRect: LPCRECT, #[in] grfFlags: DWORD, #[out] #[out_ptr] phDC: *mut HDC) -> HRESULT;
+            fn ReleaseDC(&self, #[in] hDC: HDC) -> HRESULT;
+            fn InvalidateRect(&self, #[in] #[opt] pRect: LPCRECT, #[in] fErase: BOOL) -> HRESULT;
+            fn InvalidateRgn(&self, #[in] hRGN: HRGN, #[in] fErase: BOOL) -> HRESULT;
+            fn ScrollRect(&self, #[in] dx: INT, #[in] dy: INT, #[in] pRectScroll: LPCRECT, #[in] pRectClip: LPCRECT) -> HRESULT;
             fn AdjustRect(&self, #[in] #[out] prc: LPRECT) -> HRESULT;
-            fn OnDefWindowMessage(&self, msg: u32, wParam: WPARAM, lParam: LPARAM, plResult: *mut LRESULT) -> HRESULT;
+            fn OnDefWindowMessage(&self, #[in] msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[out] plResult: *mut LRESULT) -> HRESULT;
         }
         #[guid(0xa1faf330_ef97_11ce_9bc9_00aa00608e01)]
         interface IOleParentUndoUnit: IOleUndoUnit {
-            fn Open(&self, pPUU: IOleParentUndoUnit) -> HRESULT;
-            fn Close(&self, pPUU: IOleParentUndoUnit, fCommit: BOOL) -> HRESULT;
-            fn Add(&self, pUU: IOleUndoUnit) -> HRESULT;
-            fn FindUnit(&self, pUU: IOleUndoUnit) -> HRESULT;
-            fn GetParentState(&self, pdwState: *mut u32) -> HRESULT;
+            fn Open(&self, #[in] #[opt] pPUU: IOleParentUndoUnit) -> HRESULT;
+            fn Close(&self, #[in] #[opt] pPUU: IOleParentUndoUnit, #[in] fCommit: BOOL) -> HRESULT;
+            fn Add(&self, #[in] #[opt] pUU: IOleUndoUnit) -> HRESULT;
+            fn FindUnit(&self, #[in] #[opt] pUU: IOleUndoUnit) -> HRESULT;
+            fn GetParentState(&self, #[out] pdwState: *mut DWORD) -> HRESULT;
         }
         #[guid(0xd001f200_ef97_11ce_9bc9_00aa00608e01)]
         interface IOleUndoManager: IUnknown {
-            fn Open(&self, pPUU: IOleParentUndoUnit) -> HRESULT;
-            fn Close(&self, pPUU: IOleParentUndoUnit, fCommit: BOOL) -> HRESULT;
-            fn Add(&self, pUU: IOleUndoUnit) -> HRESULT;
-            fn GetOpenParentState(&self, pdwState: *mut u32) -> HRESULT;
-            fn DiscardFrom(&self, pUU: IOleUndoUnit) -> HRESULT;
-            fn UndoTo(&self, pUU: IOleUndoUnit) -> HRESULT;
-            fn RedoTo(&self, pUU: IOleUndoUnit) -> HRESULT;
-            fn EnumUndoable(&self, ppEnum: *mut IEnumOleUndoUnits) -> HRESULT;
-            fn EnumRedoable(&self, ppEnum: *mut IEnumOleUndoUnits) -> HRESULT;
-            fn GetLastUndoDescription(&self, pBstr: *mut BSTR) -> HRESULT;
-            fn GetLastRedoDescription(&self, pBstr: *mut BSTR) -> HRESULT;
-            fn Enable(&self, fEnable: BOOL) -> HRESULT;
+            fn Open(&self, #[in] #[opt] pPUU: IOleParentUndoUnit) -> HRESULT;
+            fn Close(&self, #[in] #[opt] pPUU: IOleParentUndoUnit, #[in] fCommit: BOOL) -> HRESULT;
+            fn Add(&self, #[in] #[opt] pUU: IOleUndoUnit) -> HRESULT;
+            fn GetOpenParentState(&self, #[out] pdwState: *mut DWORD) -> HRESULT;
+            fn DiscardFrom(&self, #[in] #[opt] pUU: IOleUndoUnit) -> HRESULT;
+            fn UndoTo(&self, #[in] #[opt] pUU: IOleUndoUnit) -> HRESULT;
+            fn RedoTo(&self, #[in] #[opt] pUU: IOleUndoUnit) -> HRESULT;
+            fn EnumUndoable(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleUndoUnits) -> HRESULT;
+            fn EnumRedoable(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleUndoUnits) -> HRESULT;
+            fn GetLastUndoDescription(&self, #[out] #[out_ptr] pBstr: *mut BSTR) -> HRESULT;
+            fn GetLastRedoDescription(&self, #[out] #[out_ptr] pBstr: *mut BSTR) -> HRESULT;
+            fn Enable(&self, #[in] fEnable: BOOL) -> HRESULT;
         }
         #[guid(0x894ad3b0_ef97_11ce_9bc9_00aa00608e01)]
         interface IOleUndoUnit: IUnknown {
-            fn Do(&self, pUndoManager: IOleUndoManager) -> HRESULT;
-            fn GetDescription(&self, pBstr: *mut BSTR) -> HRESULT;
-            fn GetUnitType(&self, pClsid: *mut GUID, plID: *mut i32) -> HRESULT;
+            fn Do(&self, #[in] #[opt] pUndoManager: IOleUndoManager) -> HRESULT;
+            fn GetDescription(&self, #[out] #[out_ptr] pBstr: *mut BSTR) -> HRESULT;
+            fn GetUnitType(&self, #[out] pClsid: *mut CLSID, #[out] plID: *mut LONG) -> HRESULT;
             fn OnNextAdd(&self) -> HRESULT;
         }
         #[guid(0x376bd3aa_3845_101b_84ed_08002b2ec713)]
         interface IPerPropertyBrowsing: IUnknown {
-            fn GetDisplayString(&self, dispID: DISPID, pBstr: *mut BSTR) -> HRESULT;
-            fn MapPropertyToPage(&self, dispID: DISPID, pClsid: *mut GUID) -> HRESULT;
-            fn GetPredefinedStrings(&self, dispID: DISPID, pCaStringsOut: *mut CALPOLESTR, pCaCookiesOut: *mut CADWORD) -> HRESULT;
-            fn GetPredefinedValue(&self, dispID: DISPID, dwCookie: u32, pVarOut: *mut VARIANT) -> HRESULT;
+            fn GetDisplayString(&self, #[in] dispID: DISPID, #[out] #[out_ptr] pBstr: *mut BSTR) -> HRESULT;
+            fn MapPropertyToPage(&self, #[in] dispID: DISPID, #[out] pClsid: *mut CLSID) -> HRESULT;
+            fn GetPredefinedStrings(&self, #[in] dispID: DISPID, #[out] pCaStringsOut: *mut CALPOLESTR, #[out] pCaCookiesOut: *mut CADWORD) -> HRESULT;
+            fn GetPredefinedValue(&self, #[in] dispID: DISPID, #[in] dwCookie: DWORD, #[out] pVarOut: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xbd1ae5e0_a6ae_11ce_bd37_504200c10000)]
         interface IPersistMemory: IPersist {
             fn IsDirty(&self) -> HRESULT;
-            fn Load(&self, #[in] pMem: *mut void, cbSize: u32) -> HRESULT;
-            fn Save(&self, pMem: *mut void, fClearDirty: BOOL, cbSize: u32) -> HRESULT;
-            fn GetSizeMax(&self, pCbSize: *mut u32) -> HRESULT;
+            fn Load(&self, #[in] pMem: LPVOID, #[in] cbSize: ULONG) -> HRESULT;
+            fn Save(&self, #[out] pMem: LPVOID, #[in] fClearDirty: BOOL, #[in] cbSize: ULONG) -> HRESULT;
+            fn GetSizeMax(&self, #[out] pCbSize: *mut ULONG) -> HRESULT;
             fn InitNew(&self) -> HRESULT;
         }
         #[guid(0x37d84f60_42cb_11ce_8135_00aa004bb851)]
         interface IPersistPropertyBag: IPersist {
             fn InitNew(&self) -> HRESULT;
-            fn Load(&self, pPropBag: IPropertyBag, pErrorLog: IErrorLog) -> HRESULT;
-            fn Save(&self, pPropBag: IPropertyBag, fClearDirty: BOOL, fSaveAllProperties: BOOL) -> HRESULT;
+            fn Load(&self, #[in] #[opt] pPropBag: IPropertyBag, #[in] #[opt] pErrorLog: IErrorLog) -> HRESULT;
+            fn Save(&self, #[in] #[opt] pPropBag: IPropertyBag, #[in] fClearDirty: BOOL, #[in] fSaveAllProperties: BOOL) -> HRESULT;
         }
         #[guid(0x22f55881_280b_11d0_a8a9_00a0c90c2004)]
         interface IPersistPropertyBag2: IPersist {
             fn InitNew(&self) -> HRESULT;
-            fn Load(&self, pPropBag: IPropertyBag2, pErrLog: IErrorLog) -> HRESULT;
-            fn Save(&self, pPropBag: IPropertyBag2, fClearDirty: BOOL, fSaveAllProperties: BOOL) -> HRESULT;
+            fn Load(&self, #[in] #[opt] pPropBag: IPropertyBag2, #[in] #[opt] pErrLog: IErrorLog) -> HRESULT;
+            fn Save(&self, #[in] #[opt] pPropBag: IPropertyBag2, #[in] fClearDirty: BOOL, #[in] fSaveAllProperties: BOOL) -> HRESULT;
             fn IsDirty(&self) -> HRESULT;
         }
         #[guid(0x7fd52380_4e07_101b_ae2d_08002b2ec713)]
         interface IPersistStreamInit: IPersist {
             fn IsDirty(&self) -> HRESULT;
-            fn Load(&self, pStm: IStream) -> HRESULT;
-            fn Save(&self, pStm: IStream, fClearDirty: BOOL) -> HRESULT;
-            fn GetSizeMax(&self, pCbSize: *mut ULARGE_INTEGER) -> HRESULT;
+            fn Load(&self, #[in] #[opt] pStm: LPSTREAM) -> HRESULT;
+            fn Save(&self, #[in] #[opt] pStm: LPSTREAM, #[in] fClearDirty: BOOL) -> HRESULT;
+            fn GetSizeMax(&self, #[out] pCbSize: *mut ULARGE_INTEGER) -> HRESULT;
             fn InitNew(&self) -> HRESULT;
         }
         #[guid(0x7bf80980_bf32_101a_8bbb_00aa00300cab)]
         interface IPicture: IUnknown {
-            fn get_Handle(&self, pHandle: *mut OLE_HANDLE) -> HRESULT;
-            fn get_hPal(&self, phPal: *mut OLE_HANDLE) -> HRESULT;
-            fn get_Type(&self, pType: *mut i16) -> HRESULT;
-            fn get_Width(&self, pWidth: *mut OLE_XSIZE_HIMETRIC) -> HRESULT;
-            fn get_Height(&self, pHeight: *mut OLE_YSIZE_HIMETRIC) -> HRESULT;
-            fn Render(&self, hDC: HDC, x: i32, y: i32, cx: i32, cy: i32, xSrc: OLE_XPOS_HIMETRIC, ySrc: OLE_YPOS_HIMETRIC, cxSrc: OLE_XSIZE_HIMETRIC, cySrc: OLE_YSIZE_HIMETRIC, pRcWBounds: LPCRECT) -> HRESULT;
-            fn set_hPal(&self, hPal: OLE_HANDLE) -> HRESULT;
-            fn get_CurDC(&self, phDC: *mut HDC) -> HRESULT;
-            fn SelectPicture(&self, hDCIn: HDC, phDCOut: *mut HDC, phBmpOut: *mut OLE_HANDLE) -> HRESULT;
-            fn get_KeepOriginalFormat(&self, pKeep: *mut BOOL) -> HRESULT;
-            fn put_KeepOriginalFormat(&self, keep: BOOL) -> HRESULT;
+            fn get_Handle(&self, #[out] pHandle: *mut OLE_HANDLE) -> HRESULT;
+            fn get_hPal(&self, #[out] phPal: *mut OLE_HANDLE) -> HRESULT;
+            fn get_Type(&self, #[out] pType: *mut SHORT) -> HRESULT;
+            fn get_Width(&self, #[out] pWidth: *mut OLE_XSIZE_HIMETRIC) -> HRESULT;
+            fn get_Height(&self, #[out] pHeight: *mut OLE_YSIZE_HIMETRIC) -> HRESULT;
+            fn Render(&self, #[in] hDC: HDC, #[in] x: LONG, #[in] y: LONG, #[in] cx: LONG, #[in] cy: LONG, #[in] xSrc: OLE_XPOS_HIMETRIC, #[in] ySrc: OLE_YPOS_HIMETRIC, #[in] cxSrc: OLE_XSIZE_HIMETRIC, #[in] cySrc: OLE_YSIZE_HIMETRIC, #[in] pRcWBounds: LPCRECT) -> HRESULT;
+            fn set_hPal(&self, #[in] hPal: OLE_HANDLE) -> HRESULT;
+            fn get_CurDC(&self, #[out] #[out_ptr] phDC: *mut HDC) -> HRESULT;
+            fn SelectPicture(&self, #[in] hDCIn: HDC, #[out] #[out_ptr] phDCOut: *mut HDC, #[out] phBmpOut: *mut OLE_HANDLE) -> HRESULT;
+            fn get_KeepOriginalFormat(&self, #[out] pKeep: *mut BOOL) -> HRESULT;
+            fn put_KeepOriginalFormat(&self, #[in] keep: BOOL) -> HRESULT;
             fn PictureChanged(&self) -> HRESULT;
-            fn SaveAsFile(&self, pStream: IStream, fSaveMemCopy: BOOL, pCbSize: *mut i32) -> HRESULT;
-            fn get_Attributes(&self, pDwAttr: *mut u32) -> HRESULT;
+            fn SaveAsFile(&self, #[in] #[opt] pStream: LPSTREAM, #[in] fSaveMemCopy: BOOL, #[out] pCbSize: *mut LONG) -> HRESULT;
+            fn get_Attributes(&self, #[out] pDwAttr: *mut DWORD) -> HRESULT;
         }
         #[guid(0xf5185dd8_2012_4b0b_aad9_f052c6bd482b)]
         interface IPicture2: IUnknown {
-            fn get_Handle(&self, pHandle: *mut HHANDLE) -> HRESULT;
-            fn get_hPal(&self, phPal: *mut HHANDLE) -> HRESULT;
-            fn get_Type(&self, pType: *mut i16) -> HRESULT;
-            fn get_Width(&self, pWidth: *mut OLE_XSIZE_HIMETRIC) -> HRESULT;
-            fn get_Height(&self, pHeight: *mut OLE_YSIZE_HIMETRIC) -> HRESULT;
-            fn Render(&self, hDC: HDC, x: i32, y: i32, cx: i32, cy: i32, xSrc: OLE_XPOS_HIMETRIC, ySrc: OLE_YPOS_HIMETRIC, cxSrc: OLE_XSIZE_HIMETRIC, cySrc: OLE_YSIZE_HIMETRIC, pRcWBounds: LPCRECT) -> HRESULT;
-            fn set_hPal(&self, hPal: HHANDLE) -> HRESULT;
-            fn get_CurDC(&self, phDC: *mut HDC) -> HRESULT;
-            fn SelectPicture(&self, hDCIn: HDC, phDCOut: *mut HDC, phBmpOut: *mut HHANDLE) -> HRESULT;
-            fn get_KeepOriginalFormat(&self, pKeep: *mut BOOL) -> HRESULT;
-            fn put_KeepOriginalFormat(&self, keep: BOOL) -> HRESULT;
+            fn get_Handle(&self, #[out] pHandle: *mut HHANDLE) -> HRESULT;
+            fn get_hPal(&self, #[out] phPal: *mut HHANDLE) -> HRESULT;
+            fn get_Type(&self, #[out] pType: *mut SHORT) -> HRESULT;
+            fn get_Width(&self, #[out] pWidth: *mut OLE_XSIZE_HIMETRIC) -> HRESULT;
+            fn get_Height(&self, #[out] pHeight: *mut OLE_YSIZE_HIMETRIC) -> HRESULT;
+            fn Render(&self, #[in] hDC: HDC, #[in] x: LONG, #[in] y: LONG, #[in] cx: LONG, #[in] cy: LONG, #[in] xSrc: OLE_XPOS_HIMETRIC, #[in] ySrc: OLE_YPOS_HIMETRIC, #[in] cxSrc: OLE_XSIZE_HIMETRIC, #[in] cySrc: OLE_YSIZE_HIMETRIC, #[in] pRcWBounds: LPCRECT) -> HRESULT;
+            fn set_hPal(&self, #[in] hPal: HHANDLE) -> HRESULT;
+            fn get_CurDC(&self, #[out] #[out_ptr] phDC: *mut HDC) -> HRESULT;
+            fn SelectPicture(&self, #[in] hDCIn: HDC, #[out] #[out_ptr] phDCOut: *mut HDC, #[out] phBmpOut: *mut HHANDLE) -> HRESULT;
+            fn get_KeepOriginalFormat(&self, #[out] pKeep: *mut BOOL) -> HRESULT;
+            fn put_KeepOriginalFormat(&self, #[in] keep: BOOL) -> HRESULT;
             fn PictureChanged(&self) -> HRESULT;
-            fn SaveAsFile(&self, pStream: IStream, fSaveMemCopy: BOOL, pCbSize: *mut i32) -> HRESULT;
-            fn get_Attributes(&self, pDwAttr: *mut u32) -> HRESULT;
+            fn SaveAsFile(&self, #[in] #[opt] pStream: LPSTREAM, #[in] fSaveMemCopy: BOOL, #[out] pCbSize: *mut LONG) -> HRESULT;
+            fn get_Attributes(&self, #[out] pDwAttr: *mut DWORD) -> HRESULT;
         }
         #[guid(0x7bf80981_bf32_101a_8bbb_00aa00300cab)]
         interface IPictureDisp: IDispatch {}
         #[guid(0x55980ba0_35aa_11cf_b671_00aa004cd6d8)]
         interface IPointerInactive: IUnknown {
-            fn GetActivationPolicy(&self, pdwPolicy: *mut u32) -> HRESULT;
-            fn OnInactiveMouseMove(&self, pRectBounds: LPCRECT, x: i32, y: i32, grfKeyState: u32) -> HRESULT;
-            fn OnInactiveSetCursor(&self, pRectBounds: LPCRECT, x: i32, y: i32, dwMouseMsg: u32, fSetAlways: BOOL) -> HRESULT;
+            fn GetActivationPolicy(&self, #[out] pdwPolicy: *mut DWORD) -> HRESULT;
+            fn OnInactiveMouseMove(&self, #[in] pRectBounds: LPCRECT, #[in] x: LONG, #[in] y: LONG, #[in] grfKeyState: DWORD) -> HRESULT;
+            fn OnInactiveSetCursor(&self, #[in] pRectBounds: LPCRECT, #[in] x: LONG, #[in] y: LONG, #[in] dwMouseMsg: DWORD, #[in] fSetAlways: BOOL) -> HRESULT;
         }
         #[guid(0x22f55882_280b_11d0_a8a9_00a0c90c2004)]
         interface IPropertyBag2: IUnknown {
-            fn Read(&self, cProperties: u32, #[in] pPropBag: *mut PROPBAG2, pErrLog: IErrorLog, pvarValue: *mut VARIANT, #[in] #[out] phrError: *mut HRESULT) -> HRESULT;
-            fn Write(&self, cProperties: u32, #[in] pPropBag: *mut PROPBAG2, #[in] pvarValue: *mut VARIANT) -> HRESULT;
-            fn CountProperties(&self, pcProperties: *mut u32) -> HRESULT;
-            fn GetPropertyInfo(&self, iProperty: u32, cProperties: u32, pPropBag: *mut PROPBAG2, pcProperties: *mut u32) -> HRESULT;
-            fn LoadObject(&self, pstrName: LPCOLESTR, dwHint: u32, pUnkObject: IUnknown, pErrLog: IErrorLog) -> HRESULT;
+            fn Read(&self, #[in] cProperties: ULONG, #[in] #[readable(entry, cProperties)] pPropBag: *mut PROPBAG2, #[in] #[opt] pErrLog: IErrorLog, #[out] #[readable(success, cProperties)] #[writable(entry, cProperties)] #[writable(success, cProperties)] pvarValue: *mut VARIANT, #[in] #[opt] #[out] #[readable(entry, cProperties)] #[readable(success, cProperties)] #[writable(entry, cProperties)] phrError: *mut HRESULT) -> HRESULT;
+            fn Write(&self, #[in] cProperties: ULONG, #[in] #[readable(entry, cProperties)] pPropBag: *mut PROPBAG2, #[in] #[readable(entry, cProperties)] pvarValue: *mut VARIANT) -> HRESULT;
+            fn CountProperties(&self, #[out] pcProperties: *mut ULONG) -> HRESULT;
+            fn GetPropertyInfo(&self, #[in] iProperty: ULONG, #[in] cProperties: ULONG, #[out] #[readable(success, cProperties)] #[writable(entry, cProperties)] #[writable(success, cProperties)] pPropBag: *mut PROPBAG2, #[out] pcProperties: *mut ULONG) -> HRESULT;
+            fn LoadObject(&self, #[in] pstrName: LPCOLESTR, #[in] dwHint: DWORD, #[in] #[opt] pUnkObject: IUnknown, #[in] #[opt] pErrLog: IErrorLog) -> HRESULT;
         }
         #[guid(0x9bfbbc02_eff1_101a_84ed_00aa00341d07)]
         interface IPropertyNotifySink: IUnknown {
-            fn OnChanged(&self, dispID: DISPID) -> HRESULT;
-            fn OnRequestEdit(&self, dispID: DISPID) -> HRESULT;
+            fn OnChanged(&self, #[in] dispID: DISPID) -> HRESULT;
+            fn OnRequestEdit(&self, #[in] dispID: DISPID) -> HRESULT;
         }
         #[guid(0xb196b28d_bab4_101a_b69c_00aa00341d07)]
         interface IPropertyPage: IUnknown {
-            fn SetPageSite(&self, pPageSite: IPropertyPageSite) -> HRESULT;
-            fn Activate(&self, hWndParent: HWND, pRect: LPCRECT, bModal: BOOL) -> HRESULT;
+            fn SetPageSite(&self, #[in] #[opt] pPageSite: IPropertyPageSite) -> HRESULT;
+            fn Activate(&self, #[in] hWndParent: HWND, #[in] pRect: LPCRECT, #[in] bModal: BOOL) -> HRESULT;
             fn Deactivate(&self) -> HRESULT;
-            fn GetPageInfo(&self, pPageInfo: *mut PROPPAGEINFO) -> HRESULT;
-            fn SetObjects(&self, cObjects: u32, #[in] ppUnk: *mut IUnknown) -> HRESULT;
-            fn Show(&self, nCmdShow: u32) -> HRESULT;
-            fn Move(&self, pRect: LPCRECT) -> HRESULT;
+            fn GetPageInfo(&self, #[out] pPageInfo: *mut PROPPAGEINFO) -> HRESULT;
+            fn SetObjects(&self, #[in] cObjects: ULONG, #[in] #[readable(entry, cObjects)] ppUnk: *mut IUnknown) -> HRESULT;
+            fn Show(&self, #[in] nCmdShow: UINT) -> HRESULT;
+            fn Move(&self, #[in] pRect: LPCRECT) -> HRESULT;
             fn IsPageDirty(&self) -> HRESULT;
             fn Apply(&self) -> HRESULT;
-            fn Help(&self, pszHelpDir: LPCOLESTR) -> HRESULT;
+            fn Help(&self, #[in] pszHelpDir: LPCOLESTR) -> HRESULT;
             fn TranslateAccelerator(&self, #[in] pMsg: *mut MSG) -> HRESULT;
         }
         #[guid(0x01e44665_24ac_101b_84ed_08002b2ec713)]
         interface IPropertyPage2: IPropertyPage {
-            fn EditProperty(&self, dispID: DISPID) -> HRESULT;
+            fn EditProperty(&self, #[in] dispID: DISPID) -> HRESULT;
         }
         #[guid(0xb196b28c_bab4_101a_b69c_00aa00341d07)]
         interface IPropertyPageSite: IUnknown {
-            fn OnStatusChange(&self, dwFlags: u32) -> HRESULT;
-            fn GetLocaleID(&self, pLocaleID: *mut LCID) -> HRESULT;
-            fn GetPageContainer(&self, ppUnk: *mut IUnknown) -> HRESULT;
+            fn OnStatusChange(&self, #[in] dwFlags: DWORD) -> HRESULT;
+            fn GetLocaleID(&self, #[out] pLocaleID: *mut LCID) -> HRESULT;
+            fn GetPageContainer(&self, #[out] #[out_ptr] ppUnk: *mut IUnknown) -> HRESULT;
             fn TranslateAccelerator(&self, #[in] pMsg: *mut MSG) -> HRESULT;
         }
         #[guid(0xb196b283_bab4_101a_b69c_00aa00341d07)]
         interface IProvideClassInfo: IUnknown {
-            fn GetClassInfo(&self, ppTI: *mut ITypeInfo) -> HRESULT;
+            fn GetClassInfo(&self, #[out] #[out_ptr] ppTI: *mut ITypeInfo) -> HRESULT;
         }
         #[guid(0xa6bc3ac0_dbaa_11ce_9de3_00aa004bb851)]
         interface IProvideClassInfo2: IProvideClassInfo {
-            fn GetGUID(&self, dwGuidKind: u32, pGUID: *mut GUID) -> HRESULT;
+            fn GetGUID(&self, #[in] dwGuidKind: DWORD, #[out] pGUID: *mut GUID) -> HRESULT;
         }
         #[guid(0xa7aba9c1_8983_11cf_8f20_00805f2cd064)]
         interface IProvideMultipleClassInfo: IProvideClassInfo2 {
-            fn GetMultiTypeInfoCount(&self, pcti: *mut u32) -> HRESULT;
-            fn GetInfoOfIndex(&self, iti: u32, dwFlags: u32, pptiCoClass: *mut ITypeInfo, pdwTIFlags: *mut u32, pcdispidReserved: *mut u32, piidPrimary: *mut GUID, piidSource: *mut GUID) -> HRESULT;
+            fn GetMultiTypeInfoCount(&self, #[out] pcti: *mut ULONG) -> HRESULT;
+            fn GetInfoOfIndex(&self, #[in] iti: ULONG, #[in] dwFlags: DWORD, #[out] #[out_ptr] pptiCoClass: *mut ITypeInfo, #[out] pdwTIFlags: *mut DWORD, #[out] pcdispidReserved: *mut ULONG, #[out] piidPrimary: *mut IID, #[out] piidSource: *mut IID) -> HRESULT;
         }
         #[guid(0xcf51ed10_62fe_11cf_bf86_00a0c9034836)]
         interface IQuickActivate: IUnknown {
             fn QuickActivate(&self, #[in] pQaContainer: *mut QACONTAINER, #[in] #[out] pQaControl: *mut QACONTROL) -> HRESULT;
-            fn SetContentExtent(&self, pSizel: LPSIZEL) -> HRESULT;
+            fn SetContentExtent(&self, #[in] pSizel: LPSIZEL) -> HRESULT;
             fn GetContentExtent(&self, #[out] pSizel: LPSIZEL) -> HRESULT;
         }
         #[guid(0x742b0e01_14e6_101b_914e_00aa00300cab)]
         interface ISimpleFrameSite: IUnknown {
-            fn PreMessageFilter(&self, hWnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM, plResult: *mut LRESULT, pdwCookie: *mut u32) -> HRESULT;
-            fn PostMessageFilter(&self, hWnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM, plResult: *mut LRESULT, dwCookie: u32) -> HRESULT;
+            fn PreMessageFilter(&self, #[in] hWnd: HWND, #[in] msg: UINT, #[in] wp: WPARAM, #[in] lp: LPARAM, #[out] plResult: *mut LRESULT, #[out] pdwCookie: *mut DWORD) -> HRESULT;
+            fn PostMessageFilter(&self, #[in] hWnd: HWND, #[in] msg: UINT, #[in] wp: WPARAM, #[in] lp: LPARAM, #[out] plResult: *mut LRESULT, #[in] dwCookie: DWORD) -> HRESULT;
         }
         #[guid(0xb196b28b_bab4_101a_b69c_00aa00341d07)]
         interface ISpecifyPropertyPages: IUnknown {
-            fn GetPages(&self, pPages: *mut CAUUID) -> HRESULT;
+            fn GetPages(&self, #[out] pPages: *mut CAUUID) -> HRESULT;
         }
         #[guid(0x3af24292_0c96_11ce_a0cf_00aa00600ab8)]
         interface IViewObjectEx: IViewObject2 {
-            fn GetRect(&self, dwAspect: u32, #[out] pRect: LPRECTL) -> HRESULT;
-            fn GetViewStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn QueryHitPoint(&self, dwAspect: u32, pRectBounds: LPCRECT, ptlLoc: POINT, lCloseHint: i32, pHitResult: *mut u32) -> HRESULT;
-            fn QueryHitRect(&self, dwAspect: u32, pRectBounds: LPCRECT, pRectLoc: LPCRECT, lCloseHint: i32, pHitResult: *mut u32) -> HRESULT;
-            fn GetNaturalExtent(&self, dwAspect: u32, lindex: i32, #[in] ptd: *mut DVTARGETDEVICE, hicTargetDev: HDC, #[in] pExtentInfo: *mut DVEXTENTINFO, #[out] pSizel: LPSIZEL) -> HRESULT;
+            fn GetRect(&self, #[in] dwAspect: DWORD, #[out] pRect: LPRECTL) -> HRESULT;
+            fn GetViewStatus(&self, #[out] pdwStatus: *mut DWORD) -> HRESULT;
+            fn QueryHitPoint(&self, #[in] dwAspect: DWORD, #[in] pRectBounds: LPCRECT, #[in] ptlLoc: POINT, #[in] lCloseHint: LONG, #[out] pHitResult: *mut DWORD) -> HRESULT;
+            fn QueryHitRect(&self, #[in] dwAspect: DWORD, #[in] pRectBounds: LPCRECT, #[in] pRectLoc: LPCRECT, #[in] lCloseHint: LONG, #[out] pHitResult: *mut DWORD) -> HRESULT;
+            fn GetNaturalExtent(&self, #[in] dwAspect: DWORD, #[in] lindex: LONG, #[in] ptd: *mut DVTARGETDEVICE, #[in] hicTargetDev: HDC, #[in] pExtentInfo: *mut DVEXTENTINFO, #[out] pSizel: LPSIZEL) -> HRESULT;
         }
         struct LICINFO {
-            cbLicInfo: i32,
+            cbLicInfo: LONG,
             fRuntimeKeyAvail: BOOL,
             fLicVerified: BOOL,
         }
+        type LPADVISESINKEX = IAdviseSinkEx;
         type LPCADWORD = *mut CADWORD;
         type LPCALPOLESTR = *mut CALPOLESTR;
         type LPCAUUID = *mut CAUUID;
+        type LPCLASSFACTORY2 = IClassFactory2;
         type LPCONNECTDATA = *mut CONNECTDATA;
+        type LPCONNECTIONPOINT = IConnectionPoint;
+        type LPCONNECTIONPOINTCONTAINER = IConnectionPointContainer;
         type LPCONTROLINFO = *mut CONTROLINFO;
+        type LPENUMCONNECTIONPOINTS = IEnumConnectionPoints;
+        type LPENUMCONNECTIONS = IEnumConnections;
+        type LPENUMOLEUNDOUNITS = IEnumOleUndoUnits;
+        type LPFONT = IFont;
+        type LPFONTDISP = IFontDisp;
+        type LPFONTEVENTS = IFontEventsDisp;
         type LPLICINFO = *mut LICINFO;
+        type LPOBJECTWITHSITE = IObjectWithSite;
+        type LPOLECONTROL = IOleControl;
+        type LPOLECONTROLSITE = IOleControlSite;
+        type LPOLEINPLACEOBJECTWINDOWLESS = IOleInPlaceObjectWindowless;
+        type LPOLEINPLACESITEEX = IOleInPlaceSiteEx;
+        type LPOLEINPLACESITEWINDOWLESS = IOleInPlaceSiteWindowless;
+        type LPOLEPARENTUNDOUNIT = IOleParentUndoUnit;
+        type LPOLEUNDOMANAGER = IOleUndoManager;
+        type LPOLEUNDOUNIT = IOleUndoUnit;
+        type LPPERPROPERTYBROWSING = IPerPropertyBrowsing;
+        type LPPERSISTMEMORY = IPersistMemory;
+        type LPPERSISTPROPERTYBAG = IPersistPropertyBag;
+        type LPPERSISTPROPERTYBAG2 = IPersistPropertyBag2;
+        type LPPERSISTSTREAMINIT = IPersistStreamInit;
+        type LPPICTURE = IPicture;
+        type LPPICTURE2 = IPicture2;
+        type LPPICTUREDISP = IPictureDisp;
+        type LPPOINTERINACTIVE = IPointerInactive;
         type LPPOINTF = *mut POINTF;
+        type LPPROPERTYBAG2 = IPropertyBag2;
+        type LPPROPERTYNOTIFYSINK = IPropertyNotifySink;
+        type LPPROPERTYPAGE = IPropertyPage;
+        type LPPROPERTYPAGE2 = IPropertyPage2;
+        type LPPROPERTYPAGESITE = IPropertyPageSite;
         type LPPROPPAGEINFO = *mut PROPPAGEINFO;
-        type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
+        type LPPROVIDECLASSINFO = IProvideClassInfo;
+        type LPPROVIDECLASSINFO2 = IProvideClassInfo2;
+        type LPPROVIDEMULTIPLECLASSINFO = IProvideMultipleClassInfo;
+        type LPQUICKACTIVATE = IQuickActivate;
+        type LPSIMPLEFRAMESITE = ISimpleFrameSite;
+        type LPSPECIFYPROPERTYPAGES = ISpecifyPropertyPages;
+        type LPTEXTMETRICOLE = *mut TEXTMETRICW;
+        type LPVIEWOBJECTEX = IViewObjectEx;
         const MULTICLASSINFO_GETIIDPRIMARY: i32 = 4;
         const MULTICLASSINFO_GETIIDSOURCE: i32 = 8;
         const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: i32 = 2;
@@ -451,6 +475,10 @@ mod Windows {
         type OLE_YPOS_HIMETRIC = i32;
         type OLE_YSIZE_HIMETRIC = i32;
         type PCONNECTDATA = *mut CONNECTDATA;
+        type PCONNECTIONPOINT = IConnectionPoint;
+        type PCONNECTIONPOINTCONTAINER = IConnectionPointContainer;
+        type PENUMCONNECTIONPOINTS = IEnumConnectionPoints;
+        type PENUMCONNECTIONS = IEnumConnections;
         #[repr(i32)]
         enum PICTUREATTRIBUTES {
             PICTURE_SCALABLE = 1,
@@ -463,16 +491,16 @@ mod Windows {
             POINTERINACTIVE_ACTIVATEONDRAG = 4,
         }
         struct POINTF {
-            x: f32,
-            y: f32,
+            x: FLOAT,
+            y: FLOAT,
         }
         struct PROPBAG2 {
-            dwType: u32,
+            dwType: DWORD,
             vt: VARTYPE,
             cfType: CLIPFORMAT,
-            dwHint: u32,
+            dwHint: DWORD,
             pstrName: LPOLESTR,
-            clsid: GUID,
+            clsid: CLSID,
         }
         #[repr(i32)]
         enum PROPBAG2_TYPE {
@@ -485,12 +513,12 @@ mod Windows {
             PROPBAG2_TYPE_MONIKER = 6,
         }
         struct PROPPAGEINFO {
-            cb: u32,
+            cb: ULONG,
             pszTitle: LPOLESTR,
             size: SIZE,
             pszDocString: LPOLESTR,
             pszHelpFile: LPOLESTR,
-            dwHelpContext: u32,
+            dwHelpContext: DWORD,
         }
         #[repr(i32)]
         enum PROPPAGESTATUS {
@@ -499,18 +527,18 @@ mod Windows {
             PROPPAGESTATUS_CLEAN = 4,
         }
         struct QACONTAINER {
-            cbSize: u32,
+            cbSize: ULONG,
             pClientSite: IOleClientSite,
             pAdviseSink: IAdviseSinkEx,
             pPropertyNotifySink: IPropertyNotifySink,
             pUnkEventSink: IUnknown,
-            dwAmbientFlags: u32,
+            dwAmbientFlags: DWORD,
             colorFore: OLE_COLOR,
             colorBack: OLE_COLOR,
             pFont: IFont,
             pUndoMgr: IOleUndoManager,
-            dwAppearance: u32,
-            lcid: i32,
+            dwAppearance: DWORD,
+            lcid: LONG,
             hpal: HPALETTE,
             pBindHost: IBindHost,
             pOleControlSite: IOleControlSite,
@@ -528,12 +556,12 @@ mod Windows {
             QACONTAINER_SUPPORTSMNEMONICS = 128,
         }
         struct QACONTROL {
-            cbSize: u32,
-            dwMiscStatus: u32,
-            dwViewStatus: u32,
-            dwEventCookie: u32,
-            dwPropNotifyCookie: u32,
-            dwPointerActivationPolicy: u32,
+            cbSize: ULONG,
+            dwMiscStatus: DWORD,
+            dwViewStatus: DWORD,
+            dwEventCookie: DWORD,
+            dwPropNotifyCookie: DWORD,
+            dwPointerActivationPolicy: DWORD,
         }
         #[repr(i32)]
         enum READYSTATE {

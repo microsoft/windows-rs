@@ -65,9 +65,9 @@ mod Windows {
         struct IO_STATUS_BLOCK {
             Anonymous: union {
                 Status: NTSTATUS,
-                Pointer: *mut void,
+                Pointer: PVOID,
             },
-            Information: usize,
+            Information: ULONG_PTR,
         }
         #[repr(i32)]
         enum KEY_SET_INFORMATION_CLASS {
@@ -81,66 +81,81 @@ mod Windows {
         }
         struct KEY_VALUE_ENTRY {
             ValueName: PUNICODE_STRING,
-            DataLength: u32,
-            DataOffset: u32,
-            Type: u32,
+            DataLength: ULONG,
+            DataOffset: ULONG,
+            Type: ULONG,
         }
         type KPRIORITY = i32;
         struct LDR_DATA_TABLE_ENTRY {
-            Reserved1: [*mut void; 2],
+            Reserved1: [PVOID; 2],
             InMemoryOrderLinks: LIST_ENTRY,
-            Reserved2: [*mut void; 2],
-            DllBase: *mut void,
-            Reserved3: [*mut void; 2],
+            Reserved2: [PVOID; 2],
+            DllBase: PVOID,
+            Reserved3: [PVOID; 2],
             FullDllName: UNICODE_STRING,
-            Reserved4: [u8; 8],
-            Reserved5: [*mut void; 3],
+            Reserved4: [BYTE; 8],
+            Reserved5: [PVOID; 3],
             Anonymous: union {
-                CheckSum: u32,
-                Reserved6: *mut void,
+                CheckSum: ULONG,
+                Reserved6: PVOID,
             },
-            TimeDateStamp: u32,
+            TimeDateStamp: ULONG,
         }
-        const LOGONID_CURRENT: u32 = 4294967295;
+        const LOGONID_CURRENT: ULONG = 4294967295;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
         extern fn NtClose(Handle: HANDLE) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtCreateFile(#[out] FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[opt] AllocationSize: PLARGE_INTEGER, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, #[in] #[opt] EaBuffer: *mut void, EaLength: u32) -> NTSTATUS;
+        extern fn NtCreateFile(FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, IoStatusBlock: PIO_STATUS_BLOCK, AllocationSize: PLARGE_INTEGER, FileAttributes: ULONG, ShareAccess: ULONG, CreateDisposition: ULONG, CreateOptions: ULONG, EaBuffer: PVOID, EaLength: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtDeviceIoControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: *mut void, #[out] IoStatusBlock: PIO_STATUS_BLOCK, IoControlCode: u32, #[in] #[opt] InputBuffer: *mut void, InputBufferLength: u32, #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn NtDeviceIoControlFile(FileHandle: HANDLE, Event: HANDLE, ApcRoutine: PIO_APC_ROUTINE, ApcContext: PVOID, IoStatusBlock: PIO_STATUS_BLOCK, IoControlCode: ULONG, InputBuffer: PVOID, InputBufferLength: ULONG, OutputBuffer: PVOID, OutputBufferLength: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[in] #[opt] SubordinateObjects: *mut OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: *mut void, #[out] IoStatusBlock: PIO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
+        extern fn NtNotifyChangeMultipleKeys(#[in] MasterKeyHandle: HANDLE, #[in] #[opt] Count: ULONG, #[in] #[opt] #[readable(entry, Count)] SubordinateObjects: *mut OBJECT_ATTRIBUTES, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] CompletionFilter: ULONG, #[in] WatchTree: BOOLEAN, #[opt] #[out] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: ULONG, #[in] Asynchronous: BOOLEAN) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtOpenFile(#[out] FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, #[out] IoStatusBlock: PIO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
+        extern fn NtOpenFile(FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, IoStatusBlock: PIO_STATUS_BLOCK, ShareAccess: ULONG, OpenOptions: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationProcess(ProcessHandle: HANDLE, ProcessInformationClass: PROCESSINFOCLASS, ProcessInformation: *mut void, ProcessInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryInformationProcess(ProcessHandle: HANDLE, ProcessInformationClass: PROCESSINFOCLASS, ProcessInformation: PVOID, ProcessInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: *mut void, ThreadInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: PVOID, ThreadInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQueryMultipleValueKey(KeyHandle: HANDLE, #[len_param(2)] #[in] #[out] ValueEntries: PKEY_VALUE_ENTRY, EntryCount: u32, #[size_param(4)] ValueBuffer: *mut void, #[in] #[out] BufferLength: PULONG, #[out] #[opt] RequiredBufferLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryMultipleValueKey(#[in] KeyHandle: HANDLE, #[in] #[out] #[writable(entry, EntryCount)] ValueEntries: PKEY_VALUE_ENTRY, #[in] EntryCount: ULONG, #[out] #[writable(entry, bytes(*BufferLength))] ValueBuffer: PVOID, #[in] #[out] BufferLength: PULONG, #[opt] #[out] RequiredBufferLength: PULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryObject(#[in] #[opt] Handle: HANDLE, #[in] ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[opt] #[out] #[writable(entry, bytes(ObjectInformationLength))] ObjectInformation: PVOID, #[in] ObjectInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: *mut void, SystemInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: PVOID, SystemInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQuerySystemTime(#[out] SystemTime: PLARGE_INTEGER) -> NTSTATUS;
+        extern fn NtQuerySystemTime(SystemTime: PLARGE_INTEGER) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
         extern fn NtQueryTimerResolution(#[out] MaximumTime: PULONG, #[out] MinimumTime: PULONG, #[out] CurrentTime: PULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtRenameKey(KeyHandle: HANDLE, NewName: PUNICODE_STRING) -> NTSTATUS;
+        extern fn NtRenameKey(#[in] KeyHandle: HANDLE, #[in] NewName: PUNICODE_STRING) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtSetInformationKey(KeyHandle: HANDLE, KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[size_param(3)] #[in] KeySetInformation: *mut void, KeySetInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationKey(#[in] KeyHandle: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Strict_type_match", "", "")] #[in] KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[in] #[readable(entry, bytes(KeySetInformationLength))] KeySetInformation: PVOID, #[in] KeySetInformationLength: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] #[in] ThreadInformation: *mut void, ThreadInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[in] #[readable(entry, bytes(ThreadInformationLength))] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, #[opt] Timeout: PLARGE_INTEGER) -> NTSTATUS;
+        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, Timeout: PLARGE_INTEGER) -> NTSTATUS;
         struct OBJECT_ATTRIBUTES {
-            Length: u32,
+            Length: ULONG,
             RootDirectory: HANDLE,
             ObjectName: PUNICODE_STRING,
-            Attributes: u32,
-            SecurityDescriptor: *mut void,
-            SecurityQualityOfService: *mut void,
+            Attributes: ULONG,
+            SecurityDescriptor: PVOID,
+            SecurityQualityOfService: PVOID,
         }
         #[repr(i32)]
         enum OBJECT_INFORMATION_CLASS {
@@ -159,42 +174,43 @@ mod Windows {
         const OBJ_PERMANENT: i32 = 16;
         const OBJ_VALID_ATTRIBUTES: i32 = 8178;
         type OEM_STRING = STRING;
-        type PANSI_STRING = PSTRING;
-        type PCANSI_STRING = PSTRING;
+        type PANSI_STRING = *mut STRING;
+        type PCANSI_STRING = *mut STRING;
         type PCOEM_STRING = *const STRING;
         type PCSZ = *const i8;
         type PCUNICODE_STRING = *const UNICODE_STRING;
         struct PEB {
-            Reserved1: [u8; 2],
-            BeingDebugged: u8,
-            Reserved2: [u8; 1],
-            Reserved3: [*mut void; 2],
+            Reserved1: [BYTE; 2],
+            BeingDebugged: BYTE,
+            Reserved2: [BYTE; 1],
+            Reserved3: [PVOID; 2],
             Ldr: PPEB_LDR_DATA,
             ProcessParameters: PRTL_USER_PROCESS_PARAMETERS,
-            Reserved4: [*mut void; 3],
-            AtlThunkSListPtr: *mut void,
-            Reserved5: *mut void,
-            Reserved6: u32,
-            Reserved7: *mut void,
-            Reserved8: u32,
-            AtlThunkSListPtr32: u32,
-            Reserved9: [*mut void; 45],
-            Reserved10: [u8; 96],
+            Reserved4: [PVOID; 3],
+            AtlThunkSListPtr: PVOID,
+            Reserved5: PVOID,
+            Reserved6: ULONG,
+            Reserved7: PVOID,
+            Reserved8: ULONG,
+            AtlThunkSListPtr32: ULONG,
+            Reserved9: [PVOID; 45],
+            Reserved10: [BYTE; 96],
             PostProcessInitRoutine: PPS_POST_PROCESS_INIT_ROUTINE,
-            Reserved11: [u8; 128],
-            Reserved12: [*mut void; 1],
-            SessionId: u32,
+            Reserved11: [BYTE; 128],
+            Reserved12: [PVOID; 1],
+            SessionId: ULONG,
         }
         struct PEB_LDR_DATA {
-            Reserved1: [u8; 8],
-            Reserved2: [*mut void; 3],
+            Reserved1: [BYTE; 8],
+            Reserved2: [PVOID; 3],
             InMemoryOrderModuleList: LIST_ENTRY,
         }
-        extern fn PIO_APC_ROUTINE(ApcContext: *mut void, IoStatusBlock: PIO_STATUS_BLOCK, Reserved: u32);
+        extern fn PIO_APC_ROUTINE(ApcContext: PVOID, IoStatusBlock: PIO_STATUS_BLOCK, Reserved: ULONG);
         type PIO_STATUS_BLOCK = *mut IO_STATUS_BLOCK;
         type PKEY_VALUE_ENTRY = *mut KEY_VALUE_ENTRY;
         type PLDR_DATA_TABLE_ENTRY = *mut LDR_DATA_TABLE_ENTRY;
-        type POEM_STRING = PSTRING;
+        type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
+        type POEM_STRING = *mut STRING;
         type PPEB = *mut PEB;
         type PPEB_LDR_DATA = *mut PEB_LDR_DATA;
         type PPROCESS_BASIC_INFORMATION = *mut PROCESS_BASIC_INFORMATION;
@@ -210,13 +226,14 @@ mod Windows {
             ProcessBreakOnTermination = 29,
         }
         struct PROCESS_BASIC_INFORMATION {
-            Reserved1: *mut void,
+            Reserved1: PVOID,
             PebBaseAddress: PPEB,
-            Reserved2: [*mut void; 2],
-            UniqueProcessId: usize,
-            Reserved3: *mut void,
+            Reserved2: [PVOID; 2],
+            UniqueProcessId: ULONG_PTR,
+            Reserved3: PVOID,
         }
         type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
+        type PSTRING = *mut STRING;
         type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
         type PSYSTEM_BASIC_INFORMATION = *mut SYSTEM_BASIC_INFORMATION;
         type PSYSTEM_CODEINTEGRITY_INFORMATION = *mut SYSTEM_CODEINTEGRITY_INFORMATION;
@@ -234,28 +251,29 @@ mod Windows {
         type PTEB = *mut TEB;
         type PTHREAD_NAME_INFORMATION = *mut THREAD_NAME_INFORMATION;
         struct PUBLIC_OBJECT_BASIC_INFORMATION {
-            Attributes: u32,
+            Attributes: ULONG,
             GrantedAccess: ACCESS_MASK,
-            HandleCount: u32,
-            PointerCount: u32,
-            Reserved: [u32; 10],
+            HandleCount: ULONG,
+            PointerCount: ULONG,
+            Reserved: [ULONG; 10],
         }
         struct PUBLIC_OBJECT_TYPE_INFORMATION {
             TypeName: UNICODE_STRING,
-            Reserved: [u32; 22],
+            Reserved: [ULONG; 22],
         }
+        type PUNICODE_STRING = *mut UNICODE_STRING;
         type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
-        extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: PULONG) -> BOOLEAN;
+        extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: ULONG, param2: WINSTATIONINFOCLASS, param3: PVOID, param4: ULONG, param5: PULONG) -> BOOLEAN;
         struct RTL_USER_PROCESS_PARAMETERS {
-            Reserved1: [u8; 16],
-            Reserved2: [*mut void; 10],
+            Reserved1: [BYTE; 16],
+            Reserved2: [PVOID; 10],
             ImagePathName: UNICODE_STRING,
             CommandLine: UNICODE_STRING,
         }
         #[library("ntdll.dll")]
         extern fn RtlAnsiStringToUnicodeString(DestinationString: PUNICODE_STRING, SourceString: PCANSI_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlCharToInteger(String: PCSZ, Base: u32, Value: PULONG) -> NTSTATUS;
+        extern fn RtlCharToInteger(String: PCSZ, Base: ULONG, Value: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlConvertSidToUnicodeString(UnicodeString: PUNICODE_STRING, Sid: PSID, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -275,11 +293,13 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInitUnicodeString(DestinationString: PUNICODE_STRING, SourceString: PCWSTR);
         #[library("ntdll.dll")]
-        extern fn RtlIsNameLegalDOS8Dot3(Name: PUNICODE_STRING, #[in] #[out] #[opt] OemName: POEM_STRING, #[in] #[out] #[opt] NameContainsSpaces: PBOOLEAN) -> BOOLEAN;
+        extern fn RtlIsNameLegalDOS8Dot3(Name: PUNICODE_STRING, OemName: POEM_STRING, NameContainsSpaces: PBOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlLocalTimeToSystemTime(LocalTime: PLARGE_INTEGER, #[out] SystemTime: PLARGE_INTEGER) -> NTSTATUS;
+        extern fn RtlLocalTimeToSystemTime(LocalTime: PLARGE_INTEGER, SystemTime: PLARGE_INTEGER) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Status < 0,_Out_range_(>, 0)", "Status < 0, _Out_range_(>,0)")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Status >= 0,_Out_range_(==, 0)", "Status >= 0, _Out_range_(==,0)")]
         #[library("ntdll.dll")]
-        extern fn RtlNtStatusToDosError(Status: NTSTATUS) -> u32;
+        extern fn RtlNtStatusToDosError(Status: NTSTATUS) -> ULONG;
         #[library("ntdll.dll")]
         extern fn RtlTimeToSecondsSince1970(Time: PLARGE_INTEGER, ElapsedSeconds: PULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
@@ -287,38 +307,38 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: PCUNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlUnicodeToMultiByteSize(#[out] BytesInMultiByteString: PULONG, #[size_param(2)] UnicodeString: PWCH, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUnicodeToMultiByteSize(#[out] BytesInMultiByteString: PULONG, #[in] #[readable(entry, bytes(BytesInUnicodeString))] UnicodeString: PWCH, #[in] BytesInUnicodeString: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlUniform(Seed: PULONG) -> u32;
+        extern fn RtlUniform(Seed: PULONG) -> ULONG;
         const SERVERNAME_CURRENT: HANDLE = 0;
         struct STRING {
-            Length: u16,
-            MaximumLength: u16,
+            Length: USHORT,
+            MaximumLength: USHORT,
             Buffer: PCHAR,
         }
         struct SYSTEM_BASICPROCESS_INFORMATION {
-            NextEntryOffset: u32,
+            NextEntryOffset: ULONG,
             UniqueProcessId: HANDLE,
             InheritedFromUniqueProcessId: HANDLE,
-            SequenceNumber: u64,
+            SequenceNumber: ULONG64,
             ImageName: UNICODE_STRING,
         }
         struct SYSTEM_BASIC_INFORMATION {
-            Reserved1: [u8; 24],
-            Reserved2: [*mut void; 4],
+            Reserved1: [BYTE; 24],
+            Reserved2: [PVOID; 4],
             NumberOfProcessors: CCHAR,
         }
         struct SYSTEM_CODEINTEGRITY_INFORMATION {
-            Length: u32,
-            CodeIntegrityOptions: u32,
+            Length: ULONG,
+            CodeIntegrityOptions: ULONG,
         }
         struct SYSTEM_EXCEPTION_INFORMATION {
-            Reserved1: [u8; 16],
+            Reserved1: [BYTE; 16],
         }
         struct SYSTEM_HANDLECOUNT_INFORMATION {
-            ProcessCount: u32,
-            ThreadCount: u32,
-            HandleCount: u32,
+            ProcessCount: ULONG,
+            ThreadCount: ULONG,
+            HandleCount: ULONG,
         }
         #[repr(i32)]
         enum SYSTEM_INFORMATION_CLASS {
@@ -337,80 +357,80 @@ mod Windows {
             SystemHandleCountInformation = 253,
         }
         struct SYSTEM_INTERRUPT_INFORMATION {
-            Reserved1: [u8; 24],
+            Reserved1: [BYTE; 24],
         }
         struct SYSTEM_LOOKASIDE_INFORMATION {
-            Reserved1: [u8; 32],
+            Reserved1: [BYTE; 32],
         }
         struct SYSTEM_PERFORMANCE_INFORMATION {
-            Reserved1: [u8; 312],
+            Reserved1: [BYTE; 312],
         }
         struct SYSTEM_POLICY_INFORMATION {
-            Reserved1: [*mut void; 2],
-            Reserved2: [u32; 3],
+            Reserved1: [PVOID; 2],
+            Reserved2: [ULONG; 3],
         }
         struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
             IdleTime: LARGE_INTEGER,
             KernelTime: LARGE_INTEGER,
             UserTime: LARGE_INTEGER,
             Reserved1: [LARGE_INTEGER; 2],
-            Reserved2: u32,
+            Reserved2: ULONG,
         }
         struct SYSTEM_PROCESS_INFORMATION {
-            NextEntryOffset: u32,
-            NumberOfThreads: u32,
-            Reserved1: [u8; 48],
+            NextEntryOffset: ULONG,
+            NumberOfThreads: ULONG,
+            Reserved1: [BYTE; 48],
             ImageName: UNICODE_STRING,
             BasePriority: KPRIORITY,
             UniqueProcessId: HANDLE,
             InheritedFromUniqueProcessId: HANDLE,
-            HandleCount: u32,
-            SessionId: u32,
-            Reserved3: *mut void,
-            PeakVirtualSize: usize,
-            VirtualSize: usize,
-            Reserved4: u32,
-            PeakWorkingSetSize: usize,
-            WorkingSetSize: usize,
-            Reserved5: *mut void,
-            QuotaPagedPoolUsage: usize,
-            Reserved6: *mut void,
-            QuotaNonPagedPoolUsage: usize,
-            PagefileUsage: usize,
-            PeakPagefileUsage: usize,
-            PrivatePageCount: usize,
+            HandleCount: ULONG,
+            SessionId: ULONG,
+            Reserved3: PVOID,
+            PeakVirtualSize: SIZE_T,
+            VirtualSize: SIZE_T,
+            Reserved4: ULONG,
+            PeakWorkingSetSize: SIZE_T,
+            WorkingSetSize: SIZE_T,
+            Reserved5: PVOID,
+            QuotaPagedPoolUsage: SIZE_T,
+            Reserved6: PVOID,
+            QuotaNonPagedPoolUsage: SIZE_T,
+            PagefileUsage: SIZE_T,
+            PeakPagefileUsage: SIZE_T,
+            PrivatePageCount: SIZE_T,
             Reserved7: [LARGE_INTEGER; 6],
         }
         struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
-            RegistryQuotaAllowed: u32,
-            RegistryQuotaUsed: u32,
-            Reserved1: *mut void,
+            RegistryQuotaAllowed: ULONG,
+            RegistryQuotaUsed: ULONG,
+            Reserved1: PVOID,
         }
         struct SYSTEM_THREAD_INFORMATION {
             Reserved1: [LARGE_INTEGER; 3],
-            Reserved2: u32,
-            StartAddress: *mut void,
+            Reserved2: ULONG,
+            StartAddress: PVOID,
             ClientId: CLIENT_ID,
             Priority: KPRIORITY,
-            BasePriority: i32,
-            Reserved3: u32,
-            ThreadState: u32,
-            WaitReason: u32,
+            BasePriority: LONG,
+            Reserved3: ULONG,
+            ThreadState: ULONG,
+            WaitReason: ULONG,
         }
         struct SYSTEM_TIMEOFDAY_INFORMATION {
-            Reserved1: [u8; 48],
+            Reserved1: [BYTE; 48],
         }
         struct TEB {
-            Reserved1: [*mut void; 12],
+            Reserved1: [PVOID; 12],
             ProcessEnvironmentBlock: PPEB,
-            Reserved2: [*mut void; 399],
-            Reserved3: [u8; 1952],
-            TlsSlots: [*mut void; 64],
-            Reserved4: [u8; 8],
-            Reserved5: [*mut void; 26],
-            ReservedForOle: *mut void,
-            Reserved6: [*mut void; 4],
-            TlsExpansionSlots: *mut void,
+            Reserved2: [PVOID; 399],
+            Reserved3: [BYTE; 1952],
+            TlsSlots: [PVOID; 64],
+            Reserved4: [BYTE; 8],
+            Reserved5: [PVOID; 26],
+            ReservedForOle: PVOID,
+            Reserved6: [PVOID; 4],
+            TlsExpansionSlots: PVOID,
         }
         #[repr(i32)]
         enum THREADINFOCLASS {
@@ -421,8 +441,8 @@ mod Windows {
             ThreadName: UNICODE_STRING,
         }
         struct UNICODE_STRING {
-            Length: u16,
-            MaximumLength: u16,
+            Length: USHORT,
+            MaximumLength: USHORT,
             Buffer: PWSTR,
         }
         #[repr(i32)]
@@ -430,9 +450,9 @@ mod Windows {
             WinStationInformation = 8,
         }
         struct WINSTATIONINFORMATIONW {
-            Reserved2: [u8; 70],
-            LogonId: u32,
-            Reserved3: [u8; 1140],
+            Reserved2: [BYTE; 70],
+            LogonId: ULONG,
+            Reserved3: [BYTE; 1140],
         }
     }
 }

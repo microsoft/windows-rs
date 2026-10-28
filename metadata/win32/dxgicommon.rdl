@@ -33,12 +33,12 @@ mod Windows {
             DXGI_COLOR_SPACE_CUSTOM = -1,
         }
         struct DXGI_RATIONAL {
-            Numerator: u32,
-            Denominator: u32,
+            Numerator: UINT,
+            Denominator: UINT,
         }
         struct DXGI_SAMPLE_DESC {
-            Count: u32,
-            Quality: u32,
+            Count: UINT,
+            Quality: UINT,
         }
         const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295;
     }

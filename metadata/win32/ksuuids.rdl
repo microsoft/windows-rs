@@ -1,0 +1,66 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const AM_INTERFACESETID_Standard: GUID = 0x1a8766a0_62ce_11cf_a5d6_28db04c10000;
+        const AM_KSCATEGORY_AUDIO: GUID = 0x6994ad04_93ef_11d0_a3cc_00a0c9223196;
+        const AM_KSCATEGORY_CAPTURE: GUID = 0x65e8773d_8f56_11d0_a3b9_00a0c9223196;
+        const AM_KSCATEGORY_CROSSBAR: GUID = 0xa799a801_a46d_11d0_a18c_00a02401dcd4;
+        const AM_KSCATEGORY_DATACOMPRESSOR: GUID = 0x1e84c900_7e70_11d0_a5d6_28db04c10000;
+        const AM_KSCATEGORY_RENDER: GUID = 0x65e8773e_8f56_11d0_a3b9_00a0c9223196;
+        const AM_KSCATEGORY_SPLITTER: GUID = 0x0a4252a0_7e70_11d0_a5d6_28db04c10000;
+        const AM_KSCATEGORY_TVAUDIO: GUID = 0xa799a802_a46d_11d0_a18c_00a02401dcd4;
+        const AM_KSCATEGORY_TVTUNER: GUID = 0xa799a800_a46d_11d0_a18c_00a02401dcd4;
+        const AM_KSCATEGORY_VBICODEC: GUID = 0x07dad660_22f1_11d1_a9f4_00c04fbbde8f;
+        const AM_KSCATEGORY_VBICODEC_MI: GUID = 0x9c24a977_0951_451a_8006_0e49bd28cd5f;
+        const AM_KSCATEGORY_VIDEO: GUID = 0x6994ad05_93ef_11d0_a3cc_00a0c9223196;
+        const AM_KSPROPSETID_AC3: GUID = 0xbfabe720_6e1f_11d0_bcf2_444553540000;
+        const AM_KSPROPSETID_CopyProt: GUID = 0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3;
+        const AM_KSPROPSETID_DVD_RateChange: GUID = 0x3577eb09_9582_477f_b29c_b0c452a4ff9a;
+        const AM_KSPROPSETID_DvdKaraoke: GUID = 0xae4720ae_aa71_42d8_b82a_fffdf58b76fd;
+        const AM_KSPROPSETID_DvdSubPic: GUID = 0xac390460_43af_11d0_bd6a_003505c103a9;
+        const AM_KSPROPSETID_FrameStep: GUID = 0xc830acbd_ab07_492f_8852_45b6987c2979;
+        const AM_KSPROPSETID_MPEG4_MediaType_Attributes: GUID = 0xff6c4bfa_07a9_4c7b_a237_672f9d68065f;
+        const AM_KSPROPSETID_TSRateChange: GUID = 0xa503c5c0_1d1d_11d1_ad80_444553540000;
+        const FORMAT_DVD_LPCMAudio: GUID = 0xe06d80e6_db46_11cf_b4d1_00805f6cbbea;
+        const FORMAT_DolbyAC3: GUID = 0xe06d80e4_db46_11cf_b4d1_00805f6cbbea;
+        const FORMAT_Image: GUID = 0x692fa379_d3e8_4651_b5b4_0b94b013eeaf;
+        const FORMAT_JPEGImage: GUID = 0x692fa379_d3e8_4651_b5b4_0b94b013eeaf;
+        const FORMAT_MPEG2Audio: GUID = 0xe06d80e5_db46_11cf_b4d1_00805f6cbbea;
+        const FORMAT_MPEG2Video: GUID = 0xe06d80e3_db46_11cf_b4d1_00805f6cbbea;
+        const FORMAT_MPEG2_VIDEO: GUID = 0xe06d80e3_db46_11cf_b4d1_00805f6cbbea;
+        const FORMAT_UVCH264Video: GUID = 0x2017be05_6629_4248_aaed_7e1a47bc9b9c;
+        const FORMAT_VIDEOINFO2: GUID = 0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba;
+        const IID_IKsDataTypeHandler: GUID = 0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1;
+        const IID_IKsInterfaceHandler: GUID = 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196;
+        const IID_IKsPin: GUID = 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1;
+        const IID_IKsPinFactory: GUID = 0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196;
+        const MEDIASUBTYPE_ATSC_SI: GUID = 0xb3c7397c_d303_414d_b33c_4ed2c9d29733;
+        const MEDIASUBTYPE_DOLBY_AC3: GUID = 0xe06d802c_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_DTS: GUID = 0xe06d8033_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_DVB_SI: GUID = 0xe9dd31a3_221d_4adb_8532_9af309c1a408;
+        const MEDIASUBTYPE_DVD_LPCM_AUDIO: GUID = 0xe06d8032_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_DVD_NAVIGATION_DSI: GUID = 0xe06d8030_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_DVD_NAVIGATION_PCI: GUID = 0xe06d802f_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_DVD_NAVIGATION_PROVIDER: GUID = 0xe06d8031_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_DVD_SUBPICTURE: GUID = 0xe06d802d_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_ISDB_SI: GUID = 0xe89ad298_3601_4b06_aaec_9ddeedcc5bd0;
+        const MEDIASUBTYPE_MPEG2DATA: GUID = 0xc892e55b_252d_42b5_a316_d997e7a5d995;
+        const MEDIASUBTYPE_MPEG2_AUDIO: GUID = 0xe06d802b_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED: GUID = 0xaf748dd4_0d80_11db_9705_005056c00008;
+        const MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW: GUID = 0x0d7aed42_cb9a_11db_9705_005056c00008;
+        const MEDIASUBTYPE_MPEG2_PROGRAM: GUID = 0xe06d8022_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_MPEG2_TRANSPORT: GUID = 0xe06d8023_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_MPEG2_TRANSPORT_STRIDE: GUID = 0x138aa9a4_1ee2_4c5b_988e_19abfdbc8a11;
+        const MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT: GUID = 0x18bec4ea_4676_450e_b478_0cd84c54b327;
+        const MEDIASUBTYPE_MPEG2_VERSIONED_TABLES: GUID = 0x1ed988b0_3ffc_4523_8725_347beec1a8a0;
+        const MEDIASUBTYPE_MPEG2_VIDEO: GUID = 0xe06d8026_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT: GUID = 0x18bec4ea_4676_450e_b478_0cd84c54b327;
+        const MEDIASUBTYPE_SDDS: GUID = 0xe06d8034_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIASUBTYPE_TIF_SI: GUID = 0xec232eb2_cb96_4191_b226_0ea129f38250;
+        const MEDIATYPE_DVD_ENCRYPTED_PACK: GUID = 0xed0b916a_044d_11d1_aa78_00c04fc31d60;
+        const MEDIATYPE_DVD_NAVIGATION: GUID = 0xe06d802e_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIATYPE_MPEG2_PACK: GUID = 0x36523b13_8ee5_11d1_8ca3_0060b057664a;
+        const MEDIATYPE_MPEG2_PES: GUID = 0xe06d8020_db46_11cf_b4d1_00805f6cbbea;
+        const MEDIATYPE_MPEG2_SECTIONS: GUID = 0x455f176c_4b06_47ce_9aef_8caef73df7b5;
+    }
+}

@@ -500,8 +500,8 @@ mod Windows {
             D3D11_SIT_UAV_RWSTRUCTURED_WITH_COUNTER = 11,
         }
         struct D3D_SHADER_MACRO {
-            Name: PCSTR,
-            Definition: PCSTR,
+            Name: LPCSTR,
+            Definition: LPCSTR,
         }
         #[repr(i32)]
         enum D3D_SHADER_VARIABLE_CLASS {
@@ -743,20 +743,23 @@ mod Windows {
         const D3D_TEXTURE_LAYOUT_ROW_MAJOR: GUID = 0xb5dc234f_72bb_4bec_9705_8cf258df6b6c;
         #[guid(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102)]
         interface ID3D10Blob: IUnknown {
-            fn GetBufferPointer(&self) -> *mut void;
-            fn GetBufferSize(&self) -> usize;
+            fn GetBufferPointer(&self) -> LPVOID;
+            fn GetBufferSize(&self) -> SIZE_T;
         }
         type ID3DBlob = ID3D10Blob;
         #[guid(0xa06eb39a_50da_425b_8c31_4eecd6c270f3)]
         interface ID3DDestructionNotifier: IUnknown {
-            fn RegisterDestructionCallback(&self, callbackFn: PFN_DESTRUCTION_CALLBACK, #[in] pData: *mut void, pCallbackID: *mut u32) -> HRESULT;
-            fn UnregisterDestructionCallback(&self, callbackID: u32) -> HRESULT;
+            fn RegisterDestructionCallback(&self, #[in] callbackFn: PFN_DESTRUCTION_CALLBACK, #[in] pData: *mut void, #[out] pCallbackID: *mut UINT) -> HRESULT;
+            fn UnregisterDestructionCallback(&self, #[in] callbackID: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3DInclude {
-            fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: PCSTR, pParentData: LPCVOID, ppData: *mut LPCVOID, pBytes: *mut u32) -> HRESULT;
+            fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: LPCSTR, pParentData: LPCVOID, ppData: *mut LPCVOID, pBytes: *mut UINT) -> HRESULT;
             fn Close(&self, pData: LPCVOID) -> HRESULT;
         }
+        const IID_ID3D10Blob: GUID = 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102;
+        type LPD3D10BLOB = ID3D10Blob;
+        type LPD3DBLOB = ID3D10Blob;
+        type LPD3DINCLUDE = ID3DInclude;
         type LPD3D_SHADER_MACRO = *mut D3D_SHADER_MACRO;
         extern fn PFN_DESTRUCTION_CALLBACK(pData: *mut void);
         const WKPDID_CommentStringW: GUID = 0xd0149dc0_90e8_4ec8_8144_e900ad266bb2;

@@ -25,14 +25,14 @@ mod Windows {
         const BackgroundCopyManager2_5: GUID = 0x03ca98d6_ff5d_49b8_abc6_03dd84127020;
         #[guid(0xf1bd1079_9f01_4bdc_8036_f09b70095066)]
         interface IBackgroundCopyJobHttpOptions: IUnknown {
-            fn SetClientCertificateByID(&self, StoreLocation: BG_CERT_STORE_LOCATION, StoreName: PCWSTR, #[in] pCertHashBlob: *mut byte) -> HRESULT;
-            fn SetClientCertificateByName(&self, StoreLocation: BG_CERT_STORE_LOCATION, StoreName: PCWSTR, SubjectName: PCWSTR) -> HRESULT;
+            fn SetClientCertificateByID(&self, #[in] StoreLocation: BG_CERT_STORE_LOCATION, #[in] StoreName: LPCWSTR, #[in] #[readable(entry, 20)] pCertHashBlob: *mut byte) -> HRESULT;
+            fn SetClientCertificateByName(&self, #[in] StoreLocation: BG_CERT_STORE_LOCATION, #[in] StoreName: LPCWSTR, #[in] SubjectName: LPCWSTR) -> HRESULT;
             fn RemoveClientCertificate(&self) -> HRESULT;
-            fn GetClientCertificate(&self, pStoreLocation: *mut BG_CERT_STORE_LOCATION, pStoreName: *mut PWSTR, ppCertHashBlob: *mut *mut byte, pSubjectName: *mut PWSTR) -> HRESULT;
-            fn SetCustomHeaders(&self, RequestHeaders: PCWSTR) -> HRESULT;
-            fn GetCustomHeaders(&self, pRequestHeaders: *mut PWSTR) -> HRESULT;
-            fn SetSecurityFlags(&self, Flags: u32) -> HRESULT;
-            fn GetSecurityFlags(&self, pFlags: *mut u32) -> HRESULT;
+            fn GetClientCertificate(&self, #[out] pStoreLocation: *mut BG_CERT_STORE_LOCATION, #[out] #[out_ptr] pStoreName: *mut LPWSTR, #[nullable(entry, indirect)] #[out] #[readable(success, 20, indirect, nullable)] #[writable(success, 20, indirect, nullable)] ppCertHashBlob: *mut *mut byte, #[out] #[out_ptr] pSubjectName: *mut LPWSTR) -> HRESULT;
+            fn SetCustomHeaders(&self, #[in] #[opt] RequestHeaders: LPCWSTR) -> HRESULT;
+            fn GetCustomHeaders(&self, #[out] #[out_ptr] pRequestHeaders: *mut LPWSTR) -> HRESULT;
+            fn SetSecurityFlags(&self, #[in] Flags: ULONG) -> HRESULT;
+            fn GetSecurityFlags(&self, #[out] pFlags: *mut ULONG) -> HRESULT;
         }
     }
 }

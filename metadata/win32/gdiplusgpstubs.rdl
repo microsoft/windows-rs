@@ -1,0 +1,49 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct GpAdjustableArrowCap {}
+        struct GpBitmap {}
+        struct GpBrush {}
+        type GpBrushType = BrushType;
+        struct GpCachedBitmap {}
+        type GpCoordinateSpace = CoordinateSpace;
+        struct GpCustomLineCap {}
+        type GpDashCap = DashCap;
+        type GpDashStyle = DashStyle;
+        type GpFillMode = FillMode;
+        type GpFlushIntention = FlushIntention;
+        struct GpFont {}
+        struct GpFontCollection {}
+        struct GpFontFamily {}
+        struct GpGraphics {}
+        struct GpHatch {}
+        type GpHatchStyle = HatchStyle;
+        struct GpImage {}
+        struct GpImageAttributes {}
+        type GpLineCap = LineCap;
+        struct GpLineGradient {}
+        type GpLineJoin = LineJoin;
+        type GpMatrix = Matrix;
+        type GpMatrixOrder = MatrixOrder;
+        struct GpMetafile {}
+        struct GpPath {}
+        type GpPathData = PathData;
+        struct GpPathGradient {}
+        struct GpPathIterator {}
+        struct GpPen {}
+        type GpPenAlignment = PenAlignment;
+        type GpPenType = PenType;
+        type GpPoint = Point;
+        type GpPointF = PointF;
+        type GpRect = Rect;
+        type GpRectF = RectF;
+        struct GpRegion {}
+        struct GpSolidFill {}
+        #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return == Ok", "return == Ok")]
+        type GpStatus = Status;
+        struct GpStringFormat {}
+        struct GpTexture {}
+        type GpUnit = Unit;
+        type GpWrapMode = WrapMode;
+    }
+}

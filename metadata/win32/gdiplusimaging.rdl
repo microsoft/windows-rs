@@ -1,0 +1,327 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[packed(8)]
+        struct BitmapData {
+            Width: UINT,
+            Height: UINT,
+            Stride: INT,
+            PixelFormat: PixelFormat,
+            Scan0: *mut void,
+            Reserved: UINT_PTR,
+        }
+        #[packed(8)]
+        struct EncoderParameter {
+            Guid: GUID,
+            NumberOfValues: ULONG,
+            Type: ULONG,
+            Value: *mut void,
+        }
+        #[packed(8)]
+        struct EncoderParameters {
+            Count: UINT,
+            Parameter: [EncoderParameter; 1],
+        }
+        #[guid(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc)]
+        interface IImageBytes: IUnknown {
+            fn CountBytes(&self, pcb: *mut UINT) -> HRESULT;
+            fn LockBytes(&self, cb: UINT, ulOffset: ULONG, ppvBytes: *mut *const void) -> HRESULT;
+            fn UnlockBytes(&self, pvBytes: *const void, cb: UINT, ulOffset: ULONG) -> HRESULT;
+        }
+        #[packed(8)]
+        struct ImageCodecInfo {
+            Clsid: CLSID,
+            FormatID: GUID,
+            CodecName: *const WCHAR,
+            DllName: *const WCHAR,
+            FormatDescription: *const WCHAR,
+            FilenameExtension: *const WCHAR,
+            MimeType: *const WCHAR,
+            Flags: DWORD,
+            Version: DWORD,
+            SigCount: DWORD,
+            SigSize: DWORD,
+            SigPattern: *const BYTE,
+            SigMask: *const BYTE,
+        }
+        #[packed(8)]
+        struct ImageItemData {
+            Size: UINT,
+            Position: UINT,
+            Desc: *mut void,
+            DescSize: UINT,
+            Data: *mut void,
+            DataSize: UINT,
+            Cookie: UINT,
+        }
+        #[packed(8)]
+        struct PropertyItem {
+            id: PROPID,
+            length: ULONG,
+            r#type: WORD,
+            value: *mut void,
+        }
+        const PropertyTagArtist: i32 = 315;
+        const PropertyTagBitsPerSample: i32 = 258;
+        const PropertyTagCellHeight: i32 = 265;
+        const PropertyTagCellWidth: i32 = 264;
+        const PropertyTagChrominanceTable: i32 = 20625;
+        const PropertyTagColorMap: i32 = 320;
+        const PropertyTagColorTransferFunction: i32 = 20506;
+        const PropertyTagCompression: i32 = 259;
+        const PropertyTagCopyright: i32 = 33432;
+        const PropertyTagDateTime: i32 = 306;
+        const PropertyTagDocumentName: i32 = 269;
+        const PropertyTagDotRange: i32 = 336;
+        const PropertyTagEquipMake: i32 = 271;
+        const PropertyTagEquipModel: i32 = 272;
+        const PropertyTagExifAperture: i32 = 37378;
+        const PropertyTagExifBrightness: i32 = 37379;
+        const PropertyTagExifCfaPattern: i32 = 41730;
+        const PropertyTagExifColorSpace: i32 = 40961;
+        const PropertyTagExifCompBPP: i32 = 37122;
+        const PropertyTagExifCompConfig: i32 = 37121;
+        const PropertyTagExifContrast: i32 = 41992;
+        const PropertyTagExifCustomRendered: i32 = 41985;
+        const PropertyTagExifDTDigSS: i32 = 37522;
+        const PropertyTagExifDTDigitized: i32 = 36868;
+        const PropertyTagExifDTOrig: i32 = 36867;
+        const PropertyTagExifDTOrigSS: i32 = 37521;
+        const PropertyTagExifDTSubsec: i32 = 37520;
+        const PropertyTagExifDeviceSettingDesc: i32 = 41995;
+        const PropertyTagExifDigitalZoomRatio: i32 = 41988;
+        const PropertyTagExifExposureBias: i32 = 37380;
+        const PropertyTagExifExposureIndex: i32 = 41493;
+        const PropertyTagExifExposureMode: i32 = 41986;
+        const PropertyTagExifExposureProg: i32 = 34850;
+        const PropertyTagExifExposureTime: i32 = 33434;
+        const PropertyTagExifFNumber: i32 = 33437;
+        const PropertyTagExifFPXVer: i32 = 40960;
+        const PropertyTagExifFileSource: i32 = 41728;
+        const PropertyTagExifFlash: i32 = 37385;
+        const PropertyTagExifFlashEnergy: i32 = 41483;
+        const PropertyTagExifFocalLength: i32 = 37386;
+        const PropertyTagExifFocalLengthIn35mmFilm: i32 = 41989;
+        const PropertyTagExifFocalResUnit: i32 = 41488;
+        const PropertyTagExifFocalXRes: i32 = 41486;
+        const PropertyTagExifFocalYRes: i32 = 41487;
+        const PropertyTagExifGainControl: i32 = 41991;
+        const PropertyTagExifIFD: i32 = 34665;
+        const PropertyTagExifISOSpeed: i32 = 34855;
+        const PropertyTagExifInterop: i32 = 40965;
+        const PropertyTagExifLightSource: i32 = 37384;
+        const PropertyTagExifMakerNote: i32 = 37500;
+        const PropertyTagExifMaxAperture: i32 = 37381;
+        const PropertyTagExifMeteringMode: i32 = 37383;
+        const PropertyTagExifOECF: i32 = 34856;
+        const PropertyTagExifPixXDim: i32 = 40962;
+        const PropertyTagExifPixYDim: i32 = 40963;
+        const PropertyTagExifRelatedWav: i32 = 40964;
+        const PropertyTagExifSaturation: i32 = 41993;
+        const PropertyTagExifSceneCaptureType: i32 = 41990;
+        const PropertyTagExifSceneType: i32 = 41729;
+        const PropertyTagExifSensingMethod: i32 = 41495;
+        const PropertyTagExifSharpness: i32 = 41994;
+        const PropertyTagExifShutterSpeed: i32 = 37377;
+        const PropertyTagExifSpatialFR: i32 = 41484;
+        const PropertyTagExifSpectralSense: i32 = 34852;
+        const PropertyTagExifSubjectArea: i32 = 37396;
+        const PropertyTagExifSubjectDist: i32 = 37382;
+        const PropertyTagExifSubjectDistanceRange: i32 = 41996;
+        const PropertyTagExifSubjectLoc: i32 = 41492;
+        const PropertyTagExifUniqueImageID: i32 = 42016;
+        const PropertyTagExifUserComment: i32 = 37510;
+        const PropertyTagExifVer: i32 = 36864;
+        const PropertyTagExifWhiteBalance: i32 = 41987;
+        const PropertyTagExtraSamples: i32 = 338;
+        const PropertyTagFillOrder: i32 = 266;
+        const PropertyTagFrameDelay: i32 = 20736;
+        const PropertyTagFreeByteCounts: i32 = 289;
+        const PropertyTagFreeOffset: i32 = 288;
+        const PropertyTagGamma: i32 = 769;
+        const PropertyTagGlobalPalette: i32 = 20738;
+        const PropertyTagGpsAltitude: i32 = 6;
+        const PropertyTagGpsAltitudeRef: i32 = 5;
+        const PropertyTagGpsAreaInformation: i32 = 28;
+        const PropertyTagGpsDate: i32 = 29;
+        const PropertyTagGpsDestBear: i32 = 24;
+        const PropertyTagGpsDestBearRef: i32 = 23;
+        const PropertyTagGpsDestDist: i32 = 26;
+        const PropertyTagGpsDestDistRef: i32 = 25;
+        const PropertyTagGpsDestLat: i32 = 20;
+        const PropertyTagGpsDestLatRef: i32 = 19;
+        const PropertyTagGpsDestLong: i32 = 22;
+        const PropertyTagGpsDestLongRef: i32 = 21;
+        const PropertyTagGpsDifferential: i32 = 30;
+        const PropertyTagGpsGpsDop: i32 = 11;
+        const PropertyTagGpsGpsMeasureMode: i32 = 10;
+        const PropertyTagGpsGpsSatellites: i32 = 8;
+        const PropertyTagGpsGpsStatus: i32 = 9;
+        const PropertyTagGpsGpsTime: i32 = 7;
+        const PropertyTagGpsIFD: i32 = 34853;
+        const PropertyTagGpsImgDir: i32 = 17;
+        const PropertyTagGpsImgDirRef: i32 = 16;
+        const PropertyTagGpsLatitude: i32 = 2;
+        const PropertyTagGpsLatitudeRef: i32 = 1;
+        const PropertyTagGpsLongitude: i32 = 4;
+        const PropertyTagGpsLongitudeRef: i32 = 3;
+        const PropertyTagGpsMapDatum: i32 = 18;
+        const PropertyTagGpsProcessingMethod: i32 = 27;
+        const PropertyTagGpsSpeed: i32 = 13;
+        const PropertyTagGpsSpeedRef: i32 = 12;
+        const PropertyTagGpsTrack: i32 = 15;
+        const PropertyTagGpsTrackRef: i32 = 14;
+        const PropertyTagGpsVer: i32 = 0;
+        const PropertyTagGrayResponseCurve: i32 = 291;
+        const PropertyTagGrayResponseUnit: i32 = 290;
+        const PropertyTagGridSize: i32 = 20497;
+        const PropertyTagHalftoneDegree: i32 = 20492;
+        const PropertyTagHalftoneHints: i32 = 321;
+        const PropertyTagHalftoneLPI: i32 = 20490;
+        const PropertyTagHalftoneLPIUnit: i32 = 20491;
+        const PropertyTagHalftoneMisc: i32 = 20494;
+        const PropertyTagHalftoneScreen: i32 = 20495;
+        const PropertyTagHalftoneShape: i32 = 20493;
+        const PropertyTagHostComputer: i32 = 316;
+        const PropertyTagICCProfile: i32 = 34675;
+        const PropertyTagICCProfileDescriptor: i32 = 770;
+        const PropertyTagImageDescription: i32 = 270;
+        const PropertyTagImageHeight: i32 = 257;
+        const PropertyTagImageTitle: i32 = 800;
+        const PropertyTagImageWidth: i32 = 256;
+        const PropertyTagIndexBackground: i32 = 20739;
+        const PropertyTagIndexTransparent: i32 = 20740;
+        const PropertyTagInkNames: i32 = 333;
+        const PropertyTagInkSet: i32 = 332;
+        const PropertyTagJPEGACTables: i32 = 521;
+        const PropertyTagJPEGDCTables: i32 = 520;
+        const PropertyTagJPEGInterFormat: i32 = 513;
+        const PropertyTagJPEGInterLength: i32 = 514;
+        const PropertyTagJPEGLosslessPredictors: i32 = 517;
+        const PropertyTagJPEGPointTransforms: i32 = 518;
+        const PropertyTagJPEGProc: i32 = 512;
+        const PropertyTagJPEGQTables: i32 = 519;
+        const PropertyTagJPEGQuality: i32 = 20496;
+        const PropertyTagJPEGRestartInterval: i32 = 515;
+        const PropertyTagLoopCount: i32 = 20737;
+        const PropertyTagLuminanceTable: i32 = 20624;
+        const PropertyTagMaxSampleValue: i32 = 281;
+        const PropertyTagMinSampleValue: i32 = 280;
+        const PropertyTagNewSubfileType: i32 = 254;
+        const PropertyTagNumberOfInks: i32 = 334;
+        const PropertyTagOrientation: i32 = 274;
+        const PropertyTagPageName: i32 = 285;
+        const PropertyTagPageNumber: i32 = 297;
+        const PropertyTagPaletteHistogram: i32 = 20755;
+        const PropertyTagPhotometricInterp: i32 = 262;
+        const PropertyTagPixelPerUnitX: i32 = 20753;
+        const PropertyTagPixelPerUnitY: i32 = 20754;
+        const PropertyTagPixelUnit: i32 = 20752;
+        const PropertyTagPlanarConfig: i32 = 284;
+        const PropertyTagPredictor: i32 = 317;
+        const PropertyTagPrimaryChromaticities: i32 = 319;
+        const PropertyTagPrintFlags: i32 = 20485;
+        const PropertyTagPrintFlagsBleedWidth: i32 = 20488;
+        const PropertyTagPrintFlagsBleedWidthScale: i32 = 20489;
+        const PropertyTagPrintFlagsCrop: i32 = 20487;
+        const PropertyTagPrintFlagsVersion: i32 = 20486;
+        const PropertyTagREFBlackWhite: i32 = 532;
+        const PropertyTagResolutionUnit: i32 = 296;
+        const PropertyTagResolutionXLengthUnit: i32 = 20483;
+        const PropertyTagResolutionXUnit: i32 = 20481;
+        const PropertyTagResolutionYLengthUnit: i32 = 20484;
+        const PropertyTagResolutionYUnit: i32 = 20482;
+        const PropertyTagRowsPerStrip: i32 = 278;
+        const PropertyTagSMaxSampleValue: i32 = 341;
+        const PropertyTagSMinSampleValue: i32 = 340;
+        const PropertyTagSRGBRenderingIntent: i32 = 771;
+        const PropertyTagSampleFormat: i32 = 339;
+        const PropertyTagSamplesPerPixel: i32 = 277;
+        const PropertyTagSoftwareUsed: i32 = 305;
+        const PropertyTagStripBytesCount: i32 = 279;
+        const PropertyTagStripOffsets: i32 = 273;
+        const PropertyTagSubfileType: i32 = 255;
+        const PropertyTagT4Option: i32 = 292;
+        const PropertyTagT6Option: i32 = 293;
+        const PropertyTagTargetPrinter: i32 = 337;
+        const PropertyTagThreshHolding: i32 = 263;
+        const PropertyTagThumbnailArtist: i32 = 20532;
+        const PropertyTagThumbnailBitsPerSample: i32 = 20514;
+        const PropertyTagThumbnailColorDepth: i32 = 20501;
+        const PropertyTagThumbnailCompressedSize: i32 = 20505;
+        const PropertyTagThumbnailCompression: i32 = 20515;
+        const PropertyTagThumbnailCopyRight: i32 = 20539;
+        const PropertyTagThumbnailData: i32 = 20507;
+        const PropertyTagThumbnailDateTime: i32 = 20531;
+        const PropertyTagThumbnailEquipMake: i32 = 20518;
+        const PropertyTagThumbnailEquipModel: i32 = 20519;
+        const PropertyTagThumbnailFormat: i32 = 20498;
+        const PropertyTagThumbnailHeight: i32 = 20500;
+        const PropertyTagThumbnailImageDescription: i32 = 20517;
+        const PropertyTagThumbnailImageHeight: i32 = 20513;
+        const PropertyTagThumbnailImageWidth: i32 = 20512;
+        const PropertyTagThumbnailOrientation: i32 = 20521;
+        const PropertyTagThumbnailPhotometricInterp: i32 = 20516;
+        const PropertyTagThumbnailPlanarConfig: i32 = 20527;
+        const PropertyTagThumbnailPlanes: i32 = 20502;
+        const PropertyTagThumbnailPrimaryChromaticities: i32 = 20534;
+        const PropertyTagThumbnailRawBytes: i32 = 20503;
+        const PropertyTagThumbnailRefBlackWhite: i32 = 20538;
+        const PropertyTagThumbnailResolutionUnit: i32 = 20528;
+        const PropertyTagThumbnailResolutionX: i32 = 20525;
+        const PropertyTagThumbnailResolutionY: i32 = 20526;
+        const PropertyTagThumbnailRowsPerStrip: i32 = 20523;
+        const PropertyTagThumbnailSamplesPerPixel: i32 = 20522;
+        const PropertyTagThumbnailSize: i32 = 20504;
+        const PropertyTagThumbnailSoftwareUsed: i32 = 20530;
+        const PropertyTagThumbnailStripBytesCount: i32 = 20524;
+        const PropertyTagThumbnailStripOffsets: i32 = 20520;
+        const PropertyTagThumbnailTransferFunction: i32 = 20529;
+        const PropertyTagThumbnailWhitePoint: i32 = 20533;
+        const PropertyTagThumbnailWidth: i32 = 20499;
+        const PropertyTagThumbnailYCbCrCoefficients: i32 = 20535;
+        const PropertyTagThumbnailYCbCrPositioning: i32 = 20537;
+        const PropertyTagThumbnailYCbCrSubsampling: i32 = 20536;
+        const PropertyTagTileByteCounts: i32 = 325;
+        const PropertyTagTileLength: i32 = 323;
+        const PropertyTagTileOffset: i32 = 324;
+        const PropertyTagTileWidth: i32 = 322;
+        const PropertyTagTransferFuncition: i32 = 301;
+        const PropertyTagTransferRange: i32 = 342;
+        const PropertyTagTypeASCII: i32 = 2;
+        const PropertyTagTypeByte: i32 = 1;
+        const PropertyTagTypeLong: i32 = 4;
+        const PropertyTagTypeRational: i32 = 5;
+        const PropertyTagTypeSLONG: i32 = 9;
+        const PropertyTagTypeSRational: i32 = 10;
+        const PropertyTagTypeShort: i32 = 3;
+        const PropertyTagTypeUndefined: i32 = 7;
+        const PropertyTagWhitePoint: i32 = 318;
+        const PropertyTagXPosition: i32 = 286;
+        const PropertyTagXResolution: i32 = 282;
+        const PropertyTagYCbCrCoefficients: i32 = 529;
+        const PropertyTagYCbCrPositioning: i32 = 531;
+        const PropertyTagYCbCrSubsampling: i32 = 530;
+        const PropertyTagYPosition: i32 = 287;
+        const PropertyTagYResolution: i32 = 283;
+        #[repr(i32)]
+        enum RotateFlipType {
+            RotateNoneFlipNone = 0,
+            Rotate90FlipNone = 1,
+            Rotate180FlipNone = 2,
+            Rotate270FlipNone = 3,
+            RotateNoneFlipX = 4,
+            Rotate90FlipX = 5,
+            Rotate180FlipX = 6,
+            Rotate270FlipX = 7,
+            RotateNoneFlipY = 6,
+            Rotate90FlipY = 7,
+            Rotate180FlipY = 4,
+            Rotate270FlipY = 5,
+            RotateNoneFlipXY = 2,
+            Rotate90FlipXY = 3,
+            Rotate180FlipXY = 0,
+            Rotate270FlipXY = 1,
+        }
+    }
+}

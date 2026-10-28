@@ -2,21 +2,14 @@
 mod Windows {
     mod Win32 {
         struct OFFSETINSTANCEDATAANDLENGTH {
-            OffsetInstanceData: u32,
-            LengthInstanceData: u32,
+            OffsetInstanceData: ULONG,
+            LengthInstanceData: ULONG,
         }
         type POFFSETINSTANCEDATAANDLENGTH = *mut OFFSETINSTANCEDATAANDLENGTH;
-        type PWMIREGGUID = PWMIREGGUIDW;
+        type PWMIREGGUID = *mut WMIREGGUIDW;
         type PWMIREGGUIDW = *mut WMIREGGUIDW;
-        type PWMIREGINFO = PWMIREGINFOW;
-        type PWMIREGINFOW = *mut WMIREGINFOW;
-        type PWNODE_ALL_DATA = *mut WNODE_ALL_DATA;
         type PWNODE_EVENT_ITEM = *mut WNODE_EVENT_ITEM;
-        type PWNODE_EVENT_REFERENCE = *mut WNODE_EVENT_REFERENCE;
         type PWNODE_HEADER = *mut WNODE_HEADER;
-        type PWNODE_METHOD_ITEM = *mut WNODE_METHOD_ITEM;
-        type PWNODE_SINGLE_INSTANCE = *mut WNODE_SINGLE_INSTANCE;
-        type PWNODE_SINGLE_ITEM = *mut WNODE_SINGLE_ITEM;
         type PWNODE_TOO_SMALL = *mut WNODE_TOO_SMALL;
         const TRACELOG_ACCESS_KERNEL_LOGGER: i32 = 256;
         const TRACELOG_ACCESS_REALTIME: i32 = 1024;
@@ -53,23 +46,14 @@ mod Windows {
         type WMIREGGUID = WMIREGGUIDW;
         struct WMIREGGUIDW {
             Guid: GUID,
-            Flags: u32,
-            InstanceCount: u32,
+            Flags: ULONG,
+            InstanceCount: ULONG,
             Anonymous: union {
-                InstanceNameList: u32,
-                BaseNameOffset: u32,
-                Pdo: usize,
-                InstanceInfo: usize,
+                InstanceNameList: ULONG,
+                BaseNameOffset: ULONG,
+                Pdo: ULONG_PTR,
+                InstanceInfo: ULONG_PTR,
             },
-        }
-        type WMIREGINFO = WMIREGINFOW;
-        struct WMIREGINFOW {
-            BufferSize: u32,
-            NextWmiRegInfo: u32,
-            RegistryPath: u32,
-            MofResourceName: u32,
-            GuidCount: u32,
-            WmiRegGuid: [WMIREGGUIDW; 0],
         }
         const WMIREG_FLAG_EVENT_ONLY_GUID: i32 = 64;
         const WMIREG_FLAG_EXPENSIVE: i32 = 1;
@@ -86,27 +70,8 @@ mod Windows {
         const WMI_GUIDTYPE_EVENT: i32 = 3;
         const WMI_GUIDTYPE_TRACE: i32 = 1;
         const WMI_GUIDTYPE_TRACECONTROL: i32 = 0;
-        struct WNODE_ALL_DATA {
-            WnodeHeader: WNODE_HEADER,
-            DataBlockOffset: u32,
-            InstanceCount: u32,
-            OffsetInstanceNameOffsets: u32,
-            Anonymous: union {
-                FixedInstanceSize: u32,
-                OffsetInstanceDataAndLength: [OFFSETINSTANCEDATAANDLENGTH; 0],
-            },
-        }
         struct WNODE_EVENT_ITEM {
             WnodeHeader: WNODE_HEADER,
-        }
-        struct WNODE_EVENT_REFERENCE {
-            WnodeHeader: WNODE_HEADER,
-            TargetGuid: GUID,
-            TargetDataBlockSize: u32,
-            Anonymous: union {
-                TargetInstanceIndex: u32,
-                TargetInstanceName: [u16; 0],
-            },
         }
         const WNODE_FLAG_ALL_DATA: i32 = 1;
         const WNODE_FLAG_ANSI_INSTANCENAMES: i32 = 16384;
@@ -132,53 +97,27 @@ mod Windows {
         const WNODE_FLAG_USE_TIMESTAMP: i32 = 512;
         const WNODE_FLAG_VERSIONED_PROPERTIES: i32 = 8388608;
         struct WNODE_HEADER {
-            BufferSize: u32,
-            ProviderId: u32,
+            BufferSize: ULONG,
+            ProviderId: ULONG,
             Anonymous: union {
-                HistoricalContext: u64,
+                HistoricalContext: ULONG64,
                 Anonymous: struct {
-                    Version: u32,
-                    Linkage: u32,
+                    Version: ULONG,
+                    Linkage: ULONG,
                 },
             },
             Anonymous2: union {
-                CountLost: u32,
+                CountLost: ULONG,
                 KernelHandle: HANDLE,
                 TimeStamp: LARGE_INTEGER,
             },
             Guid: GUID,
-            ClientContext: u32,
-            Flags: u32,
-        }
-        struct WNODE_METHOD_ITEM {
-            WnodeHeader: WNODE_HEADER,
-            OffsetInstanceName: u32,
-            InstanceIndex: u32,
-            MethodId: u32,
-            DataBlockOffset: u32,
-            SizeDataBlock: u32,
-            VariableData: [u8; 0],
-        }
-        struct WNODE_SINGLE_INSTANCE {
-            WnodeHeader: WNODE_HEADER,
-            OffsetInstanceName: u32,
-            InstanceIndex: u32,
-            DataBlockOffset: u32,
-            SizeDataBlock: u32,
-            VariableData: [u8; 0],
-        }
-        struct WNODE_SINGLE_ITEM {
-            WnodeHeader: WNODE_HEADER,
-            OffsetInstanceName: u32,
-            InstanceIndex: u32,
-            ItemId: u32,
-            DataBlockOffset: u32,
-            SizeDataItem: u32,
-            VariableData: [u8; 0],
+            ClientContext: ULONG,
+            Flags: ULONG,
         }
         struct WNODE_TOO_SMALL {
             WnodeHeader: WNODE_HEADER,
-            SizeNeeded: u32,
+            SizeNeeded: ULONG,
         }
     }
 }
