@@ -2352,13 +2352,13 @@ fn clear_window_icon(hwnd: *mut core::ffi::c_void) {
         _ = native::SendMessageW(
             hwnd.cast(),
             native::WM_SETICON as u32,
-            native::ICON_BIG as usize,
+            native::ICON_BIG as native::WPARAM,
             0,
         );
         _ = native::SendMessageW(
             hwnd.cast(),
             native::WM_SETICON as u32,
-            native::ICON_SMALL as usize,
+            native::ICON_SMALL as native::WPARAM,
             0,
         );
     }
