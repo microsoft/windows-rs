@@ -161,7 +161,7 @@ fn options(
     has_filters: bool,
 ) -> (FILEOPENDIALOGOPTIONS, FILEOPENDIALOGOPTIONS) {
     let mut set = FOS_FORCEFILESYSTEM;
-    let mut clear: FILEOPENDIALOGOPTIONS = 0;
+    let mut clear = 0;
     if has_filters {
         set |= FOS_STRICTFILETYPES;
     }
@@ -170,7 +170,7 @@ fn options(
         Some(false) => clear |= FOS_OVERWRITEPROMPT,
         None => {}
     }
-    (set, clear)
+    (set as u32, clear as u32)
 }
 
 #[cfg(test)]
@@ -185,14 +185,14 @@ mod tests {
 
     #[test]
     fn overwrite_prompt_changes_only_the_requested_flag() {
-        assert_eq!(options(None, false), (FOS_FORCEFILESYSTEM, 0));
+        assert_eq!(options(None, false), (FOS_FORCEFILESYSTEM as u32, 0));
         assert_eq!(
             options(Some(true), false),
-            (FOS_FORCEFILESYSTEM | FOS_OVERWRITEPROMPT, 0)
+            ((FOS_FORCEFILESYSTEM | FOS_OVERWRITEPROMPT) as u32, 0)
         );
         assert_eq!(
             options(Some(false), false),
-            (FOS_FORCEFILESYSTEM, FOS_OVERWRITEPROMPT)
+            (FOS_FORCEFILESYSTEM as u32, FOS_OVERWRITEPROMPT as u32)
         );
     }
 
@@ -200,7 +200,7 @@ mod tests {
     fn configured_filters_enforce_save_file_types() {
         assert_eq!(
             options(None, true),
-            (FOS_FORCEFILESYSTEM | FOS_STRICTFILETYPES, 0)
+            ((FOS_FORCEFILESYSTEM | FOS_STRICTFILETYPES) as u32, 0)
         );
     }
 }
