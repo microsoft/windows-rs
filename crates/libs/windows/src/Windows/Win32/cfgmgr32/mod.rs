@@ -1,66 +1,75 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_Empty_Log_Conf(plclogconf: PLOG_CONF, dndevinst: DEVINST, priority: PRIORITY, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_Empty_Log_Conf(plclogconf : PLOG_CONF, dndevinst : DEVINST, priority : PRIORITY, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CMP_WaitNoPendingInstallEvents(dwtimeout: super::DWORD) -> super::DWORD {
+    windows_core::link!("setupapi.dll" "system" fn CMP_WaitNoPendingInstallEvents(dwtimeout : super::DWORD) -> super::DWORD);
+    unsafe { CMP_WaitNoPendingInstallEvents(dwtimeout) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Add_Empty_Log_Conf(plclogconf: PLOG_CONF, dndevinst: DEVINST, priority: PRIORITY, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_Empty_Log_Conf(plclogconf : PLOG_CONF, dndevinst : DEVINST, priority : PRIORITY, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Add_Empty_Log_Conf(plclogconf as _, dndevinst, priority, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_Empty_Log_Conf_Ex(plclogconf: PLOG_CONF, dndevinst: DEVINST, priority: PRIORITY, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_Empty_Log_Conf_Ex(plclogconf : PLOG_CONF, dndevinst : DEVINST, priority : PRIORITY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Add_Empty_Log_Conf_Ex(plclogconf: PLOG_CONF, dndevinst: DEVINST, priority: PRIORITY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_Empty_Log_Conf_Ex(plclogconf : PLOG_CONF, dndevinst : DEVINST, priority : PRIORITY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Add_Empty_Log_Conf_Ex(plclogconf as _, dndevinst, priority, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_IDA<P1>(dndevinst: DEVINST, pszid: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Add_IDA<P1>(dndevinst: DEVINST, pszid: P1, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_IDA(dndevinst : DEVINST, pszid : windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_IDA(dndevinst : DEVINST, pszid : windows_core::PCSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Add_IDA(dndevinst, pszid.param().abi(), ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_IDW<P1>(dndevinst: DEVINST, pszid: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Add_IDW<P1>(dndevinst: DEVINST, pszid: P1, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_IDW(dndevinst : DEVINST, pszid : windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_IDW(dndevinst : DEVINST, pszid : windows_core::PCWSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Add_IDW(dndevinst, pszid.param().abi(), ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_ID_ExA<P1>(dndevinst: DEVINST, pszid: P1, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Add_ID_ExA<P1>(dndevinst: DEVINST, pszid: P1, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_ID_ExA(dndevinst : DEVINST, pszid : windows_core::PCSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_ID_ExA(dndevinst : DEVINST, pszid : windows_core::PCSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Add_ID_ExA(dndevinst, pszid.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_ID_ExW<P1>(dndevinst: DEVINST, pszid: P1, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Add_ID_ExW<P1>(dndevinst: DEVINST, pszid: P1, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_ID_ExW(dndevinst : DEVINST, pszid : windows_core::PCWSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_ID_ExW(dndevinst : DEVINST, pszid : windows_core::PCWSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Add_ID_ExW(dndevinst, pszid.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_Range(ullstartvalue: super::DWORDLONG, ullendvalue: super::DWORDLONG, rlh: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_Range(ullstartvalue : super::DWORDLONG, ullendvalue : super::DWORDLONG, rlh : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Add_Range(ullstartvalue: super::DWORDLONG, ullendvalue: super::DWORDLONG, rlh: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_Range(ullstartvalue : super::DWORDLONG, ullendvalue : super::DWORDLONG, rlh : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Add_Range(ullstartvalue, ullendvalue, rlh, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_Res_Des(prdresdes: Option<PRES_DES>, lclogconf: LOG_CONF, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_Res_Des(prdresdes : PRES_DES, lclogconf : LOG_CONF, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Add_Res_Des(prdresdes: Option<PRES_DES>, lclogconf: LOG_CONF, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_Res_Des(prdresdes : PRES_DES, lclogconf : LOG_CONF, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Add_Res_Des(prdresdes.unwrap_or(core::mem::zeroed()) as _, lclogconf, resourceid, resourcedata, resourcelen, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Add_Res_Des_Ex(prdresdes: Option<PRES_DES>, lclogconf: LOG_CONF, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Add_Res_Des_Ex(prdresdes : PRES_DES, lclogconf : LOG_CONF, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Add_Res_Des_Ex(prdresdes: Option<PRES_DES>, lclogconf: LOG_CONF, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Add_Res_Des_Ex(prdresdes : PRES_DES, lclogconf : LOG_CONF, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Add_Res_Des_Ex(prdresdes.unwrap_or(core::mem::zeroed()) as _, lclogconf, resourceid, resourcedata, resourcelen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CM_Connect_MachineA<P0>(uncservername: P0, phmachine: PHMACHINE) -> CONFIGRET
 where
@@ -69,7 +78,6 @@ where
     windows_core::link!("setupapi.dll" "system" fn CM_Connect_MachineA(uncservername : windows_core::PCSTR, phmachine : PHMACHINE) -> CONFIGRET);
     unsafe { CM_Connect_MachineA(uncservername.param().abi(), phmachine as _) }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CM_Connect_MachineW<P0>(uncservername: P0, phmachine: PHMACHINE) -> CONFIGRET
 where
@@ -78,198 +86,267 @@ where
     windows_core::link!("setupapi.dll" "system" fn CM_Connect_MachineW(uncservername : windows_core::PCWSTR, phmachine : PHMACHINE) -> CONFIGRET);
     unsafe { CM_Connect_MachineW(uncservername.param().abi(), phmachine as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Create_DevNodeA(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_A, dnparent: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNodeA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, dnparent : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Create_DevInstA(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_A, dnparent: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Create_DevNodeA" fn CM_Create_DevInstA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, dnparent : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Create_DevInstA(pdndevinst as _, pdeviceid, dnparent, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Create_DevInstW(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_W, dnparent: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Create_DevNodeW" fn CM_Create_DevInstW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, dnparent : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Create_DevInstW(pdndevinst as _, pdeviceid, dnparent, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Create_DevInst_ExA(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_A, dnparent: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Create_DevNode_ExA" fn CM_Create_DevInst_ExA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, dnparent : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Create_DevInst_ExA(pdndevinst as _, pdeviceid, dnparent, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Create_DevInst_ExW(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_W, dnparent: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Create_DevNode_ExW" fn CM_Create_DevInst_ExW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, dnparent : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Create_DevInst_ExW(pdndevinst as _, pdeviceid, dnparent, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Create_DevNodeA(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_A, dnparent: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNodeA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, dnparent : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Create_DevNodeA(pdndevinst as _, pdeviceid, dnparent, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Create_DevNodeW(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_W, dnparent: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNodeW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, dnparent : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Create_DevNodeW(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_W, dnparent: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNodeW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, dnparent : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Create_DevNodeW(pdndevinst as _, pdeviceid, dnparent, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Create_DevNode_ExA(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_A, dnparent: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNode_ExA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, dnparent : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Create_DevNode_ExA(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_A, dnparent: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNode_ExA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, dnparent : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Create_DevNode_ExA(pdndevinst as _, pdeviceid, dnparent, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Create_DevNode_ExW(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_W, dnparent: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNode_ExW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, dnparent : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Create_DevNode_ExW(pdndevinst: PDEVINST, pdeviceid: DEVINSTID_W, dnparent: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Create_DevNode_ExW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, dnparent : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Create_DevNode_ExW(pdndevinst as _, pdeviceid, dnparent, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Create_Range_List(prlh: PRANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Create_Range_List(prlh : PRANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Create_Range_List(prlh: PRANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Create_Range_List(prlh : PRANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Create_Range_List(prlh as _, ulflags) }
 }
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Delete_Class_Key(classguid: super::LPGUID, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Class_Key(classguid : super::LPGUID, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Delete_Class_Key(classguid: super::LPGUID, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Class_Key(classguid : super::LPGUID, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Delete_Class_Key(classguid, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Delete_Class_Key_Ex(classguid: super::LPGUID, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Class_Key_Ex(classguid : super::LPGUID, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Delete_Class_Key_Ex(classguid: super::LPGUID, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Class_Key_Ex(classguid : super::LPGUID, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Delete_Class_Key_Ex(classguid, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Delete_DevNode_Key(dndevnode: DEVNODE, ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_DevNode_Key(dndevnode : DEVNODE, ulhardwareprofile : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Delete_DevInst_Key(dndevnode: DEVNODE, ulhardwareprofile: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Delete_DevNode_Key" fn CM_Delete_DevInst_Key(dndevnode : DEVNODE, ulhardwareprofile : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Delete_DevInst_Key(dndevnode, ulhardwareprofile, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Delete_DevInst_Key_Ex(dndevnode: DEVNODE, ulhardwareprofile: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Delete_DevNode_Key_Ex" fn CM_Delete_DevInst_Key_Ex(dndevnode : DEVNODE, ulhardwareprofile : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Delete_DevInst_Key_Ex(dndevnode, ulhardwareprofile, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Delete_DevNode_Key(dndevnode: DEVNODE, ulhardwareprofile: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_DevNode_Key(dndevnode : DEVNODE, ulhardwareprofile : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Delete_DevNode_Key(dndevnode, ulhardwareprofile, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Delete_DevNode_Key_Ex(dndevnode: DEVNODE, ulhardwareprofile: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_DevNode_Key_Ex(dndevnode : DEVNODE, ulhardwareprofile : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Delete_DevNode_Key_Ex(dndevnode: DEVNODE, ulhardwareprofile: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_DevNode_Key_Ex(dndevnode : DEVNODE, ulhardwareprofile : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Delete_DevNode_Key_Ex(dndevnode, ulhardwareprofile, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Delete_Device_Interface_KeyA<P0>(pszdeviceinterface: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Delete_Device_Interface_KeyA<P0>(pszdeviceinterface: P0, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_KeyA(pszdeviceinterface : windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_KeyA(pszdeviceinterface : windows_core::PCSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Delete_Device_Interface_KeyA(pszdeviceinterface.param().abi(), ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Delete_Device_Interface_KeyW<P0>(pszdeviceinterface: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Delete_Device_Interface_KeyW<P0>(pszdeviceinterface: P0, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_KeyW(pszdeviceinterface : windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_KeyW(pszdeviceinterface : windows_core::PCWSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Delete_Device_Interface_KeyW(pszdeviceinterface.param().abi(), ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Delete_Device_Interface_Key_ExA<P0>(pszdeviceinterface: P0, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Delete_Device_Interface_Key_ExA<P0>(pszdeviceinterface: P0, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface : windows_core::PCSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface : windows_core::PCSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Delete_Device_Interface_Key_ExW<P0>(pszdeviceinterface: P0, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Delete_Device_Interface_Key_ExW<P0>(pszdeviceinterface: P0, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface : windows_core::PCWSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface : windows_core::PCWSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Delete_Range(ullstartvalue: super::DWORDLONG, ullendvalue: super::DWORDLONG, rlh: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Range(ullstartvalue : super::DWORDLONG, ullendvalue : super::DWORDLONG, rlh : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Delete_Range(ullstartvalue: super::DWORDLONG, ullendvalue: super::DWORDLONG, rlh: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Delete_Range(ullstartvalue : super::DWORDLONG, ullendvalue : super::DWORDLONG, rlh : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Delete_Range(ullstartvalue, ullendvalue, rlh, ulflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: DEVINST, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: u32, pbconflictdetected: super::PBOOL, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Detect_Resource_Conflict(dndevinst : DEVINST, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : u32, pbconflictdetected : super::PBOOL, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: DEVINST, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: super::ULONG, pbconflictdetected: super::PBOOL, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Detect_Resource_Conflict(dndevinst : DEVINST, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : super::ULONG, pbconflictdetected : super::PBOOL, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Detect_Resource_Conflict(dndevinst, resourceid, resourcedata, resourcelen, pbconflictdetected as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Detect_Resource_Conflict_Ex(dndevinst: DEVINST, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: u32, pbconflictdetected: super::PBOOL, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Detect_Resource_Conflict_Ex(dndevinst : DEVINST, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : u32, pbconflictdetected : super::PBOOL, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Detect_Resource_Conflict_Ex(dndevinst: DEVINST, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: super::ULONG, pbconflictdetected: super::PBOOL, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Detect_Resource_Conflict_Ex(dndevinst : DEVINST, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : super::ULONG, pbconflictdetected : super::PBOOL, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Detect_Resource_Conflict_Ex(dndevinst, resourceid, resourcedata, resourcelen, pbconflictdetected as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Disable_DevNode(dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Disable_DevNode(dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Disable_DevInst(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Disable_DevNode" fn CM_Disable_DevInst(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Disable_DevInst(dndevinst, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Disable_DevInst_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Disable_DevNode_Ex" fn CM_Disable_DevInst_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Disable_DevInst_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Disable_DevNode(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Disable_DevNode(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Disable_DevNode(dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Disable_DevNode_Ex(dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Disable_DevNode_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Disable_DevNode_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CM_Disconnect_Machine(hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Disconnect_Machine(hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Disconnect_Machine(hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Dup_Range_List(rlhold: RANGE_LIST, rlhnew: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Dup_Range_List(rlhold : RANGE_LIST, rlhnew : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Dup_Range_List(rlhold: RANGE_LIST, rlhnew: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Dup_Range_List(rlhold : RANGE_LIST, rlhnew : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Dup_Range_List(rlhold, rlhnew, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Enable_DevNode(dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enable_DevNode(dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Enable_DevInst(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Enable_DevNode" fn CM_Enable_DevInst(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Enable_DevInst(dndevinst, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Enable_DevInst_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Enable_DevNode_Ex" fn CM_Enable_DevInst_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Enable_DevInst_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Enable_DevNode(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enable_DevNode(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Enable_DevNode(dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enable_DevNode_Ex(dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enable_DevNode_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Enable_DevNode_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "guiddef")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Enumerate_Classes(ulclassindex: u32, classguid: super::LPGUID, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Classes(ulclassindex : u32, classguid : super::LPGUID, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_Classes(ulclassindex: super::ULONG, classguid: super::LPGUID, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Classes(ulclassindex : super::ULONG, classguid : super::LPGUID, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Enumerate_Classes(ulclassindex, classguid as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: super::LPGUID, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Classes_Ex(ulclassindex : u32, classguid : super::LPGUID, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: super::ULONG, classguid: super::LPGUID, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Classes_Ex(ulclassindex : super::ULONG, classguid : super::LPGUID, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Enumerate_Classes_Ex(ulclassindex, classguid as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: windows_core::PSTR, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_EnumeratorsA(ulenumindex : u32, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_EnumeratorsA(ulenumindex: super::ULONG, buffer: windows_core::PSTR, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_EnumeratorsA(ulenumindex : super::ULONG, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Enumerate_EnumeratorsA(ulenumindex, buffer, pullength as _, ulflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: windows_core::PWSTR, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_EnumeratorsW(ulenumindex : u32, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_EnumeratorsW(ulenumindex: super::ULONG, buffer: windows_core::PWSTR, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_EnumeratorsW(ulenumindex : super::ULONG, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Enumerate_EnumeratorsW(ulenumindex, buffer, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: windows_core::PSTR, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Enumerators_ExA(ulenumindex : u32, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_Enumerators_ExA(ulenumindex: super::ULONG, buffer: windows_core::PSTR, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Enumerators_ExA(ulenumindex : super::ULONG, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Enumerate_Enumerators_ExA(ulenumindex, buffer, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Enumerate_Enumerators_ExW(ulenumindex: u32, buffer: windows_core::PWSTR, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Enumerators_ExW(ulenumindex : u32, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_Enumerators_ExW(ulenumindex: super::ULONG, buffer: windows_core::PWSTR, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Enumerators_ExW(ulenumindex : super::ULONG, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Enumerate_Enumerators_ExW(ulenumindex, buffer, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Find_Range(pullstart: super::PDWORDLONG, ullstart: super::DWORDLONG, ullength: u32, ullalignment: super::DWORDLONG, ullend: super::DWORDLONG, rlh: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Find_Range(pullstart : super::PDWORDLONG, ullstart : super::DWORDLONG, ullength : u32, ullalignment : super::DWORDLONG, ullend : super::DWORDLONG, rlh : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Find_Range(pullstart: super::PDWORDLONG, ullstart: super::DWORDLONG, ullength: super::ULONG, ullalignment: super::DWORDLONG, ullend: super::DWORDLONG, rlh: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Find_Range(pullstart : super::PDWORDLONG, ullstart : super::DWORDLONG, ullength : super::ULONG, ullalignment : super::DWORDLONG, ullend : super::DWORDLONG, rlh : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Find_Range(pullstart as _, ullstart, ullength, ullalignment, ullend, rlh, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_First_Range(rlh: RANGE_LIST, pullstart: super::PDWORDLONG, pullend: super::PDWORDLONG, preelement: PRANGE_ELEMENT, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_First_Range(rlh : RANGE_LIST, pullstart : super::PDWORDLONG, pullend : super::PDWORDLONG, preelement : PRANGE_ELEMENT, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_First_Range(rlh: RANGE_LIST, pullstart: super::PDWORDLONG, pullend: super::PDWORDLONG, preelement: PRANGE_ELEMENT, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_First_Range(rlh : RANGE_LIST, pullstart : super::PDWORDLONG, pullend : super::PDWORDLONG, preelement : PRANGE_ELEMENT, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_First_Range(rlh, pullstart as _, pullend as _, preelement as _, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Free_Log_Conf(lclogconftobefreed: LOG_CONF, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Free_Log_Conf(lclogconftobefreed : LOG_CONF, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Free_Log_Conf(lclogconftobefreed: LOG_CONF, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Free_Log_Conf(lclogconftobefreed : LOG_CONF, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Free_Log_Conf(lclogconftobefreed, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Free_Log_Conf_Ex(lclogconftobefreed: LOG_CONF, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Free_Log_Conf_Ex(lclogconftobefreed : LOG_CONF, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Free_Log_Conf_Ex(lclogconftobefreed: LOG_CONF, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Free_Log_Conf_Ex(lclogconftobefreed : LOG_CONF, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Free_Log_Conf_Ex(lclogconftobefreed, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -277,20 +354,22 @@ pub unsafe fn CM_Free_Log_Conf_Handle(lclogconf: LOG_CONF) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Free_Log_Conf_Handle(lclogconf : LOG_CONF) -> CONFIGRET);
     unsafe { CM_Free_Log_Conf_Handle(lclogconf) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Free_Range_List(rlh: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Free_Range_List(rlh : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Free_Range_List(rlh: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Free_Range_List(rlh : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Free_Range_List(rlh, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Free_Res_Des(prdresdes: Option<PRES_DES>, rdresdes: RES_DES, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Free_Res_Des(prdresdes : PRES_DES, rdresdes : RES_DES, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Free_Res_Des(prdresdes: Option<PRES_DES>, rdresdes: RES_DES, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Free_Res_Des(prdresdes : PRES_DES, rdresdes : RES_DES, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Free_Res_Des(prdresdes.unwrap_or(core::mem::zeroed()) as _, rdresdes, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Free_Res_Des_Ex(prdresdes: Option<PRES_DES>, rdresdes: RES_DES, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Free_Res_Des_Ex(prdresdes : PRES_DES, rdresdes : RES_DES, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Free_Res_Des_Ex(prdresdes: Option<PRES_DES>, rdresdes: RES_DES, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Free_Res_Des_Ex(prdresdes : PRES_DES, rdresdes : RES_DES, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Free_Res_Des_Ex(prdresdes.unwrap_or(core::mem::zeroed()) as _, rdresdes, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -303,569 +382,652 @@ pub unsafe fn CM_Free_Resource_Conflict_Handle(clconflictlist: CONFLICT_LIST) ->
     windows_core::link!("setupapi.dll" "system" fn CM_Free_Resource_Conflict_Handle(clconflictlist : CONFLICT_LIST) -> CONFIGRET);
     unsafe { CM_Free_Resource_Conflict_Handle(clconflictlist) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Child(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Child(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Child(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Child(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Child(pdndevinst as _, dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Child_Ex(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Child_Ex(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Child_Ex(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Child_Ex(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Child_Ex(pdndevinst as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Key_NameA(classguid: super::LPGUID, pszkeyname: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_NameA(classguid : super::LPGUID, pszkeyname : windows_core::PSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Key_NameA(classguid: super::LPGUID, pszkeyname: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_NameA(classguid : super::LPGUID, pszkeyname : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Class_Key_NameA(classguid, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Key_NameW(classguid: super::LPGUID, pszkeyname: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_NameW(classguid : super::LPGUID, pszkeyname : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Key_NameW(classguid: super::LPGUID, pszkeyname: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_NameW(classguid : super::LPGUID, pszkeyname : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Class_Key_NameW(classguid, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Key_Name_ExA(classguid: super::LPGUID, pszkeyname: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_Name_ExA(classguid : super::LPGUID, pszkeyname : windows_core::PSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Key_Name_ExA(classguid: super::LPGUID, pszkeyname: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_Name_ExA(classguid : super::LPGUID, pszkeyname : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Key_Name_ExA(classguid, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Key_Name_ExW(classguid: super::LPGUID, pszkeyname: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_Name_ExW(classguid : super::LPGUID, pszkeyname : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Key_Name_ExW(classguid: super::LPGUID, pszkeyname: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Key_Name_ExW(classguid : super::LPGUID, pszkeyname : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Key_Name_ExW(classguid, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_NameA(classguid: super::LPGUID, buffer: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_NameA(classguid : super::LPGUID, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_NameA(classguid: super::LPGUID, buffer: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_NameA(classguid : super::LPGUID, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Class_NameA(classguid, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_NameW(classguid: super::LPGUID, buffer: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_NameW(classguid : super::LPGUID, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_NameW(classguid: super::LPGUID, buffer: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_NameW(classguid : super::LPGUID, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Class_NameW(classguid, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Name_ExA(classguid: super::LPGUID, buffer: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Name_ExA(classguid : super::LPGUID, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Name_ExA(classguid: super::LPGUID, buffer: Option<windows_core::PSTR>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Name_ExA(classguid : super::LPGUID, buffer : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Name_ExA(classguid, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Name_ExW(classguid: super::LPGUID, buffer: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Name_ExW(classguid : super::LPGUID, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Name_ExW(classguid: super::LPGUID, buffer: Option<windows_core::PWSTR>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Name_ExW(classguid : super::LPGUID, buffer : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Name_ExW(classguid, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_PropertyW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_PropertyW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_PropertyW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_PropertyW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Class_PropertyW(classguid, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize as _, ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Property_ExW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_Property_ExW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Property_ExW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_Property_ExW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Property_ExW(classguid, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Property_Keys(classguid: super::LPCGUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_Property_Keys(classguid : super::LPCGUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Property_Keys(classguid: super::LPCGUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_Property_Keys(classguid : super::LPCGUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Class_Property_Keys(classguid, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount as _, ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Property_Keys_Ex(classguid: super::LPCGUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_Property_Keys_Ex(classguid : super::LPCGUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Property_Keys_Ex(classguid: super::LPCGUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Class_Property_Keys_Ex(classguid : super::LPCGUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Property_Keys_Ex(classguid, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Registry_PropertyA(classguid: super::LPGUID, ulproperty: u32, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Registry_PropertyA(classguid : super::LPGUID, ulproperty : u32, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Registry_PropertyA(classguid: super::LPGUID, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Registry_PropertyA(classguid : super::LPGUID, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Registry_PropertyA(classguid, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Class_Registry_PropertyW(classguid: super::LPGUID, ulproperty: u32, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Registry_PropertyW(classguid : super::LPGUID, ulproperty : u32, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Class_Registry_PropertyW(classguid: super::LPGUID, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Class_Registry_PropertyW(classguid : super::LPGUID, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Class_Registry_PropertyW(classguid, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Depth(puldepth: super::PULONG, dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Depth(puldepth : super::PULONG, dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Depth(puldepth: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Depth(puldepth : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Depth(puldepth as _, dndevinst, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Depth_Ex(puldepth: super::PULONG, dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Depth_Ex(puldepth : super::PULONG, dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Depth_Ex(puldepth: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Depth_Ex(puldepth : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Depth_Ex(puldepth as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_PropertyA<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_DevInst_Custom_PropertyA<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_PropertyA(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Custom_PropertyA" fn CM_Get_DevInst_Custom_PropertyA(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Custom_PropertyA(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Custom_PropertyW<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Custom_PropertyW" fn CM_Get_DevInst_Custom_PropertyW(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Custom_PropertyW(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Custom_Property_ExA<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Custom_Property_ExA" fn CM_Get_DevInst_Custom_Property_ExA(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Custom_Property_ExA(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Custom_Property_ExW<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Custom_Property_ExW" fn CM_Get_DevInst_Custom_Property_ExW(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Custom_Property_ExW(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Registry_PropertyA(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Registry_PropertyA" fn CM_Get_DevInst_Registry_PropertyA(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Registry_PropertyA(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Registry_PropertyW(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Registry_PropertyW" fn CM_Get_DevInst_Registry_PropertyW(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Registry_PropertyW(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Registry_Property_ExA(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Registry_Property_ExA" fn CM_Get_DevInst_Registry_Property_ExA(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Registry_Property_ExA(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Registry_Property_ExW(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Registry_Property_ExW" fn CM_Get_DevInst_Registry_Property_ExW(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Registry_Property_ExW(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Status(pulstatus: super::PULONG, pulproblemnumber: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Status" fn CM_Get_DevInst_Status(pulstatus : super::PULONG, pulproblemnumber : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Status(pulstatus as _, pulproblemnumber as _, dndevinst, ulflags) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[inline]
+pub unsafe fn CM_Get_DevInst_Status_Ex(pulstatus: super::PULONG, pulproblemnumber: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Get_DevNode_Status_Ex" fn CM_Get_DevInst_Status_Ex(pulstatus : super::PULONG, pulproblemnumber : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Get_DevInst_Status_Ex(pulstatus as _, pulproblemnumber as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn CM_Get_DevNode_Custom_PropertyA<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_PropertyA(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Custom_PropertyA(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_PropertyW<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_DevNode_Custom_PropertyW<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_PropertyW(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_PropertyW(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Custom_PropertyW(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_Property_ExA(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_Property_ExA(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Custom_Property_ExA(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<P1>(dndevinst: DEVINST, pszcustompropertyname: P1, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_Property_ExW(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Custom_Property_ExW(dndevinst : DEVINST, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Custom_Property_ExW(dndevinst, pszcustompropertyname.param().abi(), pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_PropertyW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_PropertyW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_DevNode_PropertyW(dndevinst, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize as _, ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Property_ExW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Property_ExW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Property_ExW(dndevinst, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Property_Keys(dndevinst: DEVINST, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Property_Keys(dndevinst : DEVINST, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Property_Keys(dndevinst: DEVINST, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Property_Keys(dndevinst : DEVINST, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Property_Keys(dndevinst, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount as _, ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(dndevinst: DEVINST, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Property_Keys_Ex(dndevinst : DEVINST, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(dndevinst: DEVINST, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Property_Keys_Ex(dndevinst : DEVINST, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Property_Keys_Ex(dndevinst, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Registry_PropertyA(dndevinst: DEVINST, ulproperty: u32, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_PropertyA(dndevinst : DEVINST, ulproperty : u32, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Registry_PropertyA(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_PropertyA(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Registry_PropertyA(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Registry_PropertyW(dndevinst: DEVINST, ulproperty: u32, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_PropertyW(dndevinst : DEVINST, ulproperty : u32, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Registry_PropertyW(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_PropertyW(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Registry_PropertyW(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Registry_Property_ExA(dndevinst: DEVINST, ulproperty: u32, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_Property_ExA(dndevinst : DEVINST, ulproperty : u32, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Registry_Property_ExA(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_Property_ExA(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Registry_Property_ExA(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(dndevinst: DEVINST, ulproperty: u32, pulregdatatype: Option<super::PULONG>, buffer: Option<*mut core::ffi::c_void>, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_Property_ExW(dndevinst : DEVINST, ulproperty : u32, pulregdatatype : super::PULONG, buffer : *mut core::ffi::c_void, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(dndevinst: DEVINST, ulproperty: super::ULONG, pulregdatatype: Option<super::PULONG>, buffer: Option<super::PVOID>, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Registry_Property_ExW(dndevinst : DEVINST, ulproperty : super::ULONG, pulregdatatype : super::PULONG, buffer : super::PVOID, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Registry_Property_ExW(dndevinst, ulproperty, pulregdatatype.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Status(pulstatus: super::PULONG, pulproblemnumber: super::PULONG, dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Status(pulstatus : super::PULONG, pulproblemnumber : super::PULONG, dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Status(pulstatus: super::PULONG, pulproblemnumber: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Status(pulstatus : super::PULONG, pulproblemnumber : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Status(pulstatus as _, pulproblemnumber as _, dndevinst, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: super::PULONG, pulproblemnumber: super::PULONG, dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Status_Ex(pulstatus : super::PULONG, pulproblemnumber : super::PULONG, dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: super::PULONG, pulproblemnumber: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_DevNode_Status_Ex(pulstatus : super::PULONG, pulproblemnumber : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_DevNode_Status_Ex(pulstatus as _, pulproblemnumber as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Device_IDA(dndevinst: DEVINST, buffer: windows_core::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_IDA(dndevinst : DEVINST, buffer : windows_core::PSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_IDA(dndevinst: DEVINST, buffer: windows_core::PSTR, bufferlen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_IDA(dndevinst : DEVINST, buffer : windows_core::PSTR, bufferlen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_IDA(dndevinst, buffer, bufferlen, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Device_IDW(dndevinst: DEVINST, buffer: windows_core::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_IDW(dndevinst : DEVINST, buffer : windows_core::PWSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_IDW(dndevinst: DEVINST, buffer: windows_core::PWSTR, bufferlen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_IDW(dndevinst : DEVINST, buffer : windows_core::PWSTR, bufferlen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_IDW(dndevinst, buffer, bufferlen, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: DEVINST, buffer: windows_core::PSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ExA(dndevinst : DEVINST, buffer : windows_core::PSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: DEVINST, buffer: windows_core::PSTR, bufferlen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ExA(dndevinst : DEVINST, buffer : windows_core::PSTR, bufferlen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_ExA(dndevinst, buffer, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: DEVINST, buffer: windows_core::PWSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ExW(dndevinst : DEVINST, buffer : windows_core::PWSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: DEVINST, buffer: windows_core::PWSTR, bufferlen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ExW(dndevinst : DEVINST, buffer : windows_core::PWSTR, bufferlen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_ExW(dndevinst, buffer, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ListA<P0>(pszfilter: P0, buffer: super::PZZSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_ListA<P0>(pszfilter: P0, buffer: super::PZZSTR, bufferlen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ListA(pszfilter : windows_core::PCSTR, buffer : super::PZZSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ListA(pszfilter : windows_core::PCSTR, buffer : super::PZZSTR, bufferlen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_ListA(pszfilter.param().abi(), buffer as _, bufferlen, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ListW<P0>(pszfilter: P0, buffer: super::PZZWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_ListW<P0>(pszfilter: P0, buffer: super::PZZWSTR, bufferlen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ListW(pszfilter : windows_core::PCWSTR, buffer : super::PZZWSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ListW(pszfilter : windows_core::PCWSTR, buffer : super::PZZWSTR, bufferlen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_ListW(pszfilter.param().abi(), buffer as _, bufferlen, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_ExA<P0>(pszfilter: P0, buffer: super::PZZSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_ExA<P0>(pszfilter: P0, buffer: super::PZZSTR, bufferlen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_ExA(pszfilter : windows_core::PCSTR, buffer : super::PZZSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_ExA(pszfilter : windows_core::PCSTR, buffer : super::PZZSTR, bufferlen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_List_ExA(pszfilter.param().abi(), buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_ExW<P0>(pszfilter: P0, buffer: super::PZZWSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_ExW<P0>(pszfilter: P0, buffer: super::PZZWSTR, bufferlen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_ExW(pszfilter : windows_core::PCWSTR, buffer : super::PZZWSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_ExW(pszfilter : windows_core::PCWSTR, buffer : super::PZZWSTR, bufferlen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_List_ExW(pszfilter.param().abi(), buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_SizeA<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_SizeA<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_SizeA(pullen : super::PULONG, pszfilter : windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_SizeA(pullen : super::PULONG, pszfilter : windows_core::PCSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_List_SizeA(pullen as _, pszfilter.param().abi(), ulflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_SizeW<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_SizeW<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_SizeW(pullen : super::PULONG, pszfilter : windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_SizeW(pullen : super::PULONG, pszfilter : windows_core::PCWSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_List_SizeW(pullen as _, pszfilter.param().abi(), ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_Size_ExA<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_Size_ExA<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_Size_ExA(pullen : super::PULONG, pszfilter : windows_core::PCSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_Size_ExA(pullen : super::PULONG, pszfilter : windows_core::PCSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_List_Size_ExA(pullen as _, pszfilter.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_Size_ExW<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_Size_ExW<P1>(pullen: super::PULONG, pszfilter: P1, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_Size_ExW(pullen : super::PULONG, pszfilter : windows_core::PCWSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_Size_ExW(pullen : super::PULONG, pszfilter : windows_core::PCWSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_List_Size_ExW(pullen as _, pszfilter.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_Size(pullen: super::PULONG, dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_Size(pullen : super::PULONG, dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_ID_Size(pullen: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_Size(pullen : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_Size(pullen as _, dndevinst, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_Size_Ex(pullen: super::PULONG, dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_Size_Ex(pullen : super::PULONG, dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_ID_Size_Ex(pullen: super::PULONG, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_Size_Ex(pullen : super::PULONG, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_ID_Size_Ex(pullen as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_AliasA<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_AliasA<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_AliasA(pszdeviceinterface : windows_core::PCSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_AliasA(pszdeviceinterface : windows_core::PCSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_AliasA(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_AliasW<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_AliasW<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_AliasW(pszdeviceinterface : windows_core::PCWSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_AliasW(pszdeviceinterface : windows_core::PCWSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_AliasW(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_Alias_ExA<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_Alias_ExA<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface : windows_core::PCSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface : windows_core::PCSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_Alias_ExW<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_Alias_ExW<P0>(pszdeviceinterface: P0, aliasinterfaceguid: super::LPGUID, pszaliasdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface : windows_core::PCWSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface : windows_core::PCWSTR, aliasinterfaceguid : super::LPGUID, pszaliasdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, buffer: super::PZZSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_ListA(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, buffer : super::PZZSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, buffer: super::PZZSTR, bufferlen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_ListA(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, buffer : super::PZZSTR, bufferlen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_ListA(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, buffer: super::PZZWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_ListW(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, buffer : super::PZZWSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, buffer: super::PZZWSTR, bufferlen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_ListW(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, buffer : super::PZZWSTR, bufferlen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_ListW(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, buffer: super::PZZSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_ExA(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, buffer : super::PZZSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, buffer: super::PZZSTR, bufferlen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_ExA(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, buffer : super::PZZSTR, bufferlen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_List_ExA(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, buffer: super::PZZWSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_ExW(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, buffer : super::PZZWSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, buffer: super::PZZWSTR, bufferlen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_ExW(interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, buffer : super::PZZWSTR, bufferlen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_List_ExW(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeA(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_SizeA(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_List_SizeA(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_SizeA(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_List_SizeA(pullen as _, interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeW(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_SizeW(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_List_SizeW(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_SizeW(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_List_SizeW(pullen as _, interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_Size_ExA(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_A>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_Size_ExA(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_A, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_List_Size_ExA(pullen as _, interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_Size_ExW(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(pullen: super::PULONG, interfaceclassguid: super::LPGUID, pdeviceid: Option<DEVINSTID_W>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_Size_ExW(pullen : super::PULONG, interfaceclassguid : super::LPGUID, pdeviceid : DEVINSTID_W, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_List_Size_ExW(pullen as _, interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_PropertyW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_PropertyW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_PropertyW(pszdeviceinterface.param().abi(), propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize as _, ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_Property_ExW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_Property_ExW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_Property_ExW(pszdeviceinterface.param().abi(), propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_Property_KeysW<P0>(pszdeviceinterface: P0, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_Property_KeysW<P0>(pszdeviceinterface: P0, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface : windows_core::PCWSTR, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface : windows_core::PCWSTR, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface.param().abi(), propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount as _, ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<P0>(pszdeviceinterface: P0, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<P0>(pszdeviceinterface: P0, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface : windows_core::PCWSTR, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface : windows_core::PCWSTR, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface.param().abi(), propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_First_Log_Conf(plclogconf: Option<PLOG_CONF>, dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_First_Log_Conf(plclogconf : PLOG_CONF, dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_First_Log_Conf(plclogconf: Option<PLOG_CONF>, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_First_Log_Conf(plclogconf : PLOG_CONF, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_First_Log_Conf(plclogconf.unwrap_or(core::mem::zeroed()) as _, dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_First_Log_Conf_Ex(plclogconf: Option<PLOG_CONF>, dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_First_Log_Conf_Ex(plclogconf : PLOG_CONF, dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_First_Log_Conf_Ex(plclogconf: Option<PLOG_CONF>, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_First_Log_Conf_Ex(plclogconf : PLOG_CONF, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_First_Log_Conf_Ex(plclogconf.unwrap_or(core::mem::zeroed()) as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Global_State(pulstate: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Global_State(pulstate : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Global_State(pulstate: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Global_State(pulstate : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Global_State(pulstate as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Global_State_Ex(pulstate: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Global_State_Ex(pulstate : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Global_State_Ex(pulstate: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Global_State_Ex(pulstate : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Global_State_Ex(pulstate as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_FlagsA(pdeviceid: DEVINSTID_A, ulhardwareprofile: u32, pulvalue: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_FlagsA(pdeviceid : DEVINSTID_A, ulhardwareprofile : u32, pulvalue : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_HW_Prof_FlagsA(pdeviceid: DEVINSTID_A, ulhardwareprofile: super::ULONG, pulvalue: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_FlagsA(pdeviceid : DEVINSTID_A, ulhardwareprofile : super::ULONG, pulvalue : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_HW_Prof_FlagsA(pdeviceid, ulhardwareprofile, pulvalue as _, ulflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_FlagsW(pdeviceid: DEVINSTID_W, ulhardwareprofile: u32, pulvalue: super::PULONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_FlagsW(pdeviceid : DEVINSTID_W, ulhardwareprofile : u32, pulvalue : super::PULONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_HW_Prof_FlagsW(pdeviceid: DEVINSTID_W, ulhardwareprofile: super::ULONG, pulvalue: super::PULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_FlagsW(pdeviceid : DEVINSTID_W, ulhardwareprofile : super::ULONG, pulvalue : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_HW_Prof_FlagsW(pdeviceid, ulhardwareprofile, pulvalue as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: DEVINSTID_A, ulhardwareprofile: u32, pulvalue: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_Flags_ExA(pdeviceid : DEVINSTID_A, ulhardwareprofile : u32, pulvalue : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: DEVINSTID_A, ulhardwareprofile: super::ULONG, pulvalue: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_Flags_ExA(pdeviceid : DEVINSTID_A, ulhardwareprofile : super::ULONG, pulvalue : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_HW_Prof_Flags_ExA(pdeviceid, ulhardwareprofile, pulvalue as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: DEVINSTID_W, ulhardwareprofile: u32, pulvalue: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_Flags_ExW(pdeviceid : DEVINSTID_W, ulhardwareprofile : u32, pulvalue : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: DEVINSTID_W, ulhardwareprofile: super::ULONG, pulvalue: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_HW_Prof_Flags_ExW(pdeviceid : DEVINSTID_W, ulhardwareprofile : super::ULONG, pulvalue : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_HW_Prof_Flags_ExW(pdeviceid, ulhardwareprofile, pulvalue as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: PHWPROFILEINFO_A, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_InfoA(ulindex : u32, phwprofileinfo : PHWPROFILEINFO_A, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: super::ULONG, phwprofileinfo: PHWPROFILEINFO_A, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_InfoA(ulindex : super::ULONG, phwprofileinfo : PHWPROFILEINFO_A, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Hardware_Profile_InfoA(ulindex, phwprofileinfo as _, ulflags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: PHWPROFILEINFO_W, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_InfoW(ulindex : u32, phwprofileinfo : PHWPROFILEINFO_W, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: super::ULONG, phwprofileinfo: PHWPROFILEINFO_W, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_InfoW(ulindex : super::ULONG, phwprofileinfo : PHWPROFILEINFO_W, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Hardware_Profile_InfoW(ulindex, phwprofileinfo as _, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: PHWPROFILEINFO_A, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_Info_ExA(ulindex : u32, phwprofileinfo : PHWPROFILEINFO_A, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: super::ULONG, phwprofileinfo: PHWPROFILEINFO_A, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_Info_ExA(ulindex : super::ULONG, phwprofileinfo : PHWPROFILEINFO_A, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Hardware_Profile_Info_ExA(ulindex, phwprofileinfo as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: PHWPROFILEINFO_W, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_Info_ExW(ulindex : u32, phwprofileinfo : PHWPROFILEINFO_W, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(ulindex: super::ULONG, phwprofileinfo: PHWPROFILEINFO_W, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Hardware_Profile_Info_ExW(ulindex : super::ULONG, phwprofileinfo : PHWPROFILEINFO_W, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Hardware_Profile_Info_ExW(ulindex, phwprofileinfo as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Log_Conf_Priority(lclogconf: LOG_CONF, ppriority: PPRIORITY, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Log_Conf_Priority(lclogconf : LOG_CONF, ppriority : PPRIORITY, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Log_Conf_Priority(lclogconf: LOG_CONF, ppriority: PPRIORITY, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Log_Conf_Priority(lclogconf : LOG_CONF, ppriority : PPRIORITY, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Log_Conf_Priority(lclogconf, ppriority as _, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Log_Conf_Priority_Ex(lclogconf: LOG_CONF, ppriority: PPRIORITY, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Log_Conf_Priority_Ex(lclogconf : LOG_CONF, ppriority : PPRIORITY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Log_Conf_Priority_Ex(lclogconf: LOG_CONF, ppriority: PPRIORITY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Log_Conf_Priority_Ex(lclogconf : LOG_CONF, ppriority : PPRIORITY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Log_Conf_Priority_Ex(lclogconf, ppriority as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Next_Log_Conf(plclogconf: Option<PLOG_CONF>, lclogconf: LOG_CONF, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Log_Conf(plclogconf : PLOG_CONF, lclogconf : LOG_CONF, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Next_Log_Conf(plclogconf: Option<PLOG_CONF>, lclogconf: LOG_CONF, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Log_Conf(plclogconf : PLOG_CONF, lclogconf : LOG_CONF, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Next_Log_Conf(plclogconf.unwrap_or(core::mem::zeroed()) as _, lclogconf, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Next_Log_Conf_Ex(plclogconf: Option<PLOG_CONF>, lclogconf: LOG_CONF, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Log_Conf_Ex(plclogconf : PLOG_CONF, lclogconf : LOG_CONF, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Next_Log_Conf_Ex(plclogconf: Option<PLOG_CONF>, lclogconf: LOG_CONF, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Log_Conf_Ex(plclogconf : PLOG_CONF, lclogconf : LOG_CONF, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Next_Log_Conf_Ex(plclogconf.unwrap_or(core::mem::zeroed()) as _, lclogconf, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Next_Res_Des(prdresdes: PRES_DES, rdresdes: RES_DES, forresource: RESOURCEID, presourceid: Option<PRESOURCEID>, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Res_Des(prdresdes : PRES_DES, rdresdes : RES_DES, forresource : RESOURCEID, presourceid : PRESOURCEID, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Next_Res_Des(prdresdes: PRES_DES, rdresdes: RES_DES, forresource: RESOURCEID, presourceid: Option<PRESOURCEID>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Res_Des(prdresdes : PRES_DES, rdresdes : RES_DES, forresource : RESOURCEID, presourceid : PRESOURCEID, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Next_Res_Des(prdresdes as _, rdresdes, forresource, presourceid.unwrap_or(core::mem::zeroed()) as _, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Next_Res_Des_Ex(prdresdes: PRES_DES, rdresdes: RES_DES, forresource: RESOURCEID, presourceid: Option<PRESOURCEID>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Res_Des_Ex(prdresdes : PRES_DES, rdresdes : RES_DES, forresource : RESOURCEID, presourceid : PRESOURCEID, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Next_Res_Des_Ex(prdresdes: PRES_DES, rdresdes: RES_DES, forresource: RESOURCEID, presourceid: Option<PRESOURCEID>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Next_Res_Des_Ex(prdresdes : PRES_DES, rdresdes : RES_DES, forresource : RESOURCEID, presourceid : PRESOURCEID, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Next_Res_Des_Ex(prdresdes as _, rdresdes, forresource, presourceid.unwrap_or(core::mem::zeroed()) as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Parent(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Parent(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Parent(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Parent(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Parent(pdndevinst as _, dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Parent_Ex(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Parent_Ex(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Parent_Ex(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Parent_Ex(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Parent_Ex(pdndevinst as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Res_Des_Data(rdresdes: RES_DES, buffer: *mut core::ffi::c_void, bufferlen: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data(rdresdes : RES_DES, buffer : *mut core::ffi::c_void, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Res_Des_Data(rdresdes: RES_DES, buffer: super::PVOID, bufferlen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data(rdresdes : RES_DES, buffer : super::PVOID, bufferlen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Res_Des_Data(rdresdes, buffer as _, bufferlen, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Res_Des_Data_Ex(rdresdes: RES_DES, buffer: *mut core::ffi::c_void, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data_Ex(rdresdes : RES_DES, buffer : *mut core::ffi::c_void, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Res_Des_Data_Ex(rdresdes: RES_DES, buffer: super::PVOID, bufferlen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data_Ex(rdresdes : RES_DES, buffer : super::PVOID, bufferlen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Res_Des_Data_Ex(rdresdes, buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Res_Des_Data_Size(pulsize: super::PULONG, rdresdes: RES_DES, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data_Size(pulsize : super::PULONG, rdresdes : RES_DES, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Res_Des_Data_Size(pulsize: super::PULONG, rdresdes: RES_DES, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data_Size(pulsize : super::PULONG, rdresdes : RES_DES, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Res_Des_Data_Size(pulsize as _, rdresdes, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Get_Res_Des_Data_Size_Ex(pulsize: super::PULONG, rdresdes: RES_DES, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data_Size_Ex(pulsize : super::PULONG, rdresdes : RES_DES, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Res_Des_Data_Size_Ex(pulsize: super::PULONG, rdresdes: RES_DES, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Res_Des_Data_Size_Ex(pulsize : super::PULONG, rdresdes : RES_DES, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Res_Des_Data_Size_Ex(pulsize as _, rdresdes, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -874,47 +1036,52 @@ pub unsafe fn CM_Get_Resource_Conflict_Count(clconflictlist: CONFLICT_LIST, pulc
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Resource_Conflict_Count(clconflictlist : CONFLICT_LIST, pulcount : super::PULONG) -> CONFIGRET);
     unsafe { CM_Get_Resource_Conflict_Count(clconflictlist, pulcount as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Resource_Conflict_DetailsA(clconflictlist: CONFLICT_LIST, ulindex: u32, pconflictdetails: PCONFLICT_DETAILS_A) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Resource_Conflict_DetailsA(clconflictlist : CONFLICT_LIST, ulindex : u32, pconflictdetails : PCONFLICT_DETAILS_A) -> CONFIGRET);
+pub unsafe fn CM_Get_Resource_Conflict_DetailsA(clconflictlist: CONFLICT_LIST, ulindex: super::ULONG, pconflictdetails: PCONFLICT_DETAILS_A) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Resource_Conflict_DetailsA(clconflictlist : CONFLICT_LIST, ulindex : super::ULONG, pconflictdetails : PCONFLICT_DETAILS_A) -> CONFIGRET);
     unsafe { CM_Get_Resource_Conflict_DetailsA(clconflictlist, ulindex, pconflictdetails as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Get_Resource_Conflict_DetailsW(clconflictlist: CONFLICT_LIST, ulindex: u32, pconflictdetails: PCONFLICT_DETAILS_W) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Resource_Conflict_DetailsW(clconflictlist : CONFLICT_LIST, ulindex : u32, pconflictdetails : PCONFLICT_DETAILS_W) -> CONFIGRET);
+pub unsafe fn CM_Get_Resource_Conflict_DetailsW(clconflictlist: CONFLICT_LIST, ulindex: super::ULONG, pconflictdetails: PCONFLICT_DETAILS_W) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Resource_Conflict_DetailsW(clconflictlist : CONFLICT_LIST, ulindex : super::ULONG, pconflictdetails : PCONFLICT_DETAILS_W) -> CONFIGRET);
     unsafe { CM_Get_Resource_Conflict_DetailsW(clconflictlist, ulindex, pconflictdetails as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Sibling(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Sibling(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Sibling(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Sibling(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Get_Sibling(pdndevinst as _, dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Sibling_Ex(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Sibling_Ex(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Get_Sibling_Ex(pdndevinst: PDEVINST, dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Sibling_Ex(pdndevinst : PDEVINST, dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Get_Sibling_Ex(pdndevinst as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Version() -> u16 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Version() -> u16);
+pub unsafe fn CM_Get_Version() -> super::WORD {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Version() -> super::WORD);
     unsafe { CM_Get_Version() }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Get_Version_Ex(hmachine: Option<HMACHINE>) -> u16 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Get_Version_Ex(hmachine : HMACHINE) -> u16);
+pub unsafe fn CM_Get_Version_Ex(hmachine: Option<HMACHINE>) -> super::WORD {
+    windows_core::link!("setupapi.dll" "system" fn CM_Get_Version_Ex(hmachine : HMACHINE) -> super::WORD);
     unsafe { CM_Get_Version_Ex(hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Intersect_Range_List(rlhold1: RANGE_LIST, rlhold2: RANGE_LIST, rlhnew: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Intersect_Range_List(rlhold1 : RANGE_LIST, rlhold2 : RANGE_LIST, rlhnew : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Intersect_Range_List(rlhold1: RANGE_LIST, rlhold2: RANGE_LIST, rlhnew: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Intersect_Range_List(rlhold1 : RANGE_LIST, rlhold2 : RANGE_LIST, rlhnew : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Intersect_Range_List(rlhold1, rlhold2, rlhnew, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Invert_Range_List(rlhold: RANGE_LIST, rlhnew: RANGE_LIST, ullmaxvalue: super::DWORDLONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Invert_Range_List(rlhold : RANGE_LIST, rlhnew : RANGE_LIST, ullmaxvalue : super::DWORDLONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Invert_Range_List(rlhold: RANGE_LIST, rlhnew: RANGE_LIST, ullmaxvalue: super::DWORDLONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Invert_Range_List(rlhold : RANGE_LIST, rlhnew : RANGE_LIST, ullmaxvalue : super::DWORDLONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Invert_Range_List(rlhold, rlhnew, ullmaxvalue, ulflags) }
 }
 #[cfg(feature = "minwindef")]
@@ -923,328 +1090,400 @@ pub unsafe fn CM_Is_Dock_Station_Present(pbpresent: super::PBOOL) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Is_Dock_Station_Present(pbpresent : super::PBOOL) -> CONFIGRET);
     unsafe { CM_Is_Dock_Station_Present(pbpresent as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn CM_Is_Dock_Station_Present_Ex(pbpresent: super::PBOOL, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Is_Dock_Station_Present_Ex(pbpresent : super::PBOOL, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Is_Dock_Station_Present_Ex(pbpresent as _, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Is_Version_Available(wversion: u16) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn CM_Is_Version_Available(wversion : u16) -> windows_core::BOOL);
+pub unsafe fn CM_Is_Version_Available(wversion: super::WORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn CM_Is_Version_Available(wversion : super::WORD) -> windows_core::BOOL);
     unsafe { CM_Is_Version_Available(wversion) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Is_Version_Available_Ex(wversion: u16, hmachine: Option<HMACHINE>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn CM_Is_Version_Available_Ex(wversion : u16, hmachine : HMACHINE) -> windows_core::BOOL);
+pub unsafe fn CM_Is_Version_Available_Ex(wversion: super::WORD, hmachine: Option<HMACHINE>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn CM_Is_Version_Available_Ex(wversion : super::WORD, hmachine : HMACHINE) -> windows_core::BOOL);
     unsafe { CM_Is_Version_Available_Ex(wversion, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Locate_DevNodeA(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_A>, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNodeA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Locate_DevInstA(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_A>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Locate_DevNodeA" fn CM_Locate_DevInstA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Locate_DevInstA(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Locate_DevInstW(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_W>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Locate_DevNodeW" fn CM_Locate_DevInstW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Locate_DevInstW(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Locate_DevInst_ExA(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_A>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Locate_DevNode_ExA" fn CM_Locate_DevInst_ExA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Locate_DevInst_ExA(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Locate_DevInst_ExW(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_W>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Locate_DevNode_ExW" fn CM_Locate_DevInst_ExW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Locate_DevInst_ExW(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Locate_DevNodeA(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_A>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNodeA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Locate_DevNodeA(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Locate_DevNodeW(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_W>, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNodeW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Locate_DevNodeW(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_W>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNodeW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Locate_DevNodeW(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Locate_DevNode_ExA(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_A>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNode_ExA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Locate_DevNode_ExA(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_A>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNode_ExA(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_A, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Locate_DevNode_ExA(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Locate_DevNode_ExW(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_W>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNode_ExW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Locate_DevNode_ExW(pdndevinst: PDEVINST, pdeviceid: Option<DEVINSTID_W>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Locate_DevNode_ExW(pdndevinst : PDEVINST, pdeviceid : DEVINSTID_W, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Locate_DevNode_ExW(pdndevinst as _, pdeviceid.unwrap_or(core::mem::zeroed()) as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u32 {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_MapCrToWin32Err(cmreturncode : CONFIGRET, defaulterr : u32) -> u32);
+pub unsafe fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: super::DWORD) -> super::DWORD {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_MapCrToWin32Err(cmreturncode : CONFIGRET, defaulterr : super::DWORD) -> super::DWORD);
     unsafe { CM_MapCrToWin32Err(cmreturncode, defaulterr) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Merge_Range_List(rlhold1: RANGE_LIST, rlhold2: RANGE_LIST, rlhnew: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Merge_Range_List(rlhold1 : RANGE_LIST, rlhold2 : RANGE_LIST, rlhnew : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Merge_Range_List(rlhold1: RANGE_LIST, rlhold2: RANGE_LIST, rlhnew: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Merge_Range_List(rlhold1 : RANGE_LIST, rlhold2 : RANGE_LIST, rlhnew : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Merge_Range_List(rlhold1, rlhold2, rlhnew, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Modify_Res_Des(prdresdes: PRES_DES, rdresdes: RES_DES, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Modify_Res_Des(prdresdes : PRES_DES, rdresdes : RES_DES, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Modify_Res_Des(prdresdes: PRES_DES, rdresdes: RES_DES, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Modify_Res_Des(prdresdes : PRES_DES, rdresdes : RES_DES, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Modify_Res_Des(prdresdes as _, rdresdes, resourceid, resourcedata, resourcelen, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Modify_Res_Des_Ex(prdresdes: PRES_DES, rdresdes: RES_DES, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Modify_Res_Des_Ex(prdresdes : PRES_DES, rdresdes : RES_DES, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Modify_Res_Des_Ex(prdresdes: PRES_DES, rdresdes: RES_DES, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Modify_Res_Des_Ex(prdresdes : PRES_DES, rdresdes : RES_DES, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Modify_Res_Des_Ex(prdresdes as _, rdresdes, resourceid, resourcedata, resourcelen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Move_DevNode(dnfromdevinst: DEVINST, dntodevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Move_DevNode(dnfromdevinst : DEVINST, dntodevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Move_DevInst(dnfromdevinst: DEVINST, dntodevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Move_DevNode" fn CM_Move_DevInst(dnfromdevinst : DEVINST, dntodevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Move_DevInst(dnfromdevinst, dntodevinst, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Move_DevInst_Ex(dnfromdevinst: DEVINST, dntodevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Move_DevNode_Ex" fn CM_Move_DevInst_Ex(dnfromdevinst : DEVINST, dntodevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Move_DevInst_Ex(dnfromdevinst, dntodevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Move_DevNode(dnfromdevinst: DEVINST, dntodevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Move_DevNode(dnfromdevinst : DEVINST, dntodevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Move_DevNode(dnfromdevinst, dntodevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Move_DevNode_Ex(dnfromdevinst: DEVINST, dntodevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Move_DevNode_Ex(dnfromdevinst : DEVINST, dntodevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Move_DevNode_Ex(dnfromdevinst: DEVINST, dntodevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Move_DevNode_Ex(dnfromdevinst : DEVINST, dntodevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Move_DevNode_Ex(dnfromdevinst, dntodevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Next_Range(preelement: PRANGE_ELEMENT, pullstart: super::PDWORDLONG, pullend: super::PDWORDLONG, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Next_Range(preelement : PRANGE_ELEMENT, pullstart : super::PDWORDLONG, pullend : super::PDWORDLONG, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Next_Range(preelement: PRANGE_ELEMENT, pullstart: super::PDWORDLONG, pullend: super::PDWORDLONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Next_Range(preelement : PRANGE_ELEMENT, pullstart : super::PDWORDLONG, pullend : super::PDWORDLONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Next_Range(preelement as _, pullstart as _, pullend as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Class_KeyA<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Open_Class_KeyA<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_KeyA(classguid : super::LPGUID, pszclassname : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_KeyA(classguid : super::LPGUID, pszclassname : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Open_Class_KeyA(classguid.unwrap_or(core::mem::zeroed()) as _, pszclassname.param().abi(), samdesired, disposition, phkclass as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Class_KeyW<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Open_Class_KeyW<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: super::ULONG) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_KeyW(classguid : super::LPGUID, pszclassname : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_KeyW(classguid : super::LPGUID, pszclassname : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Open_Class_KeyW(classguid.unwrap_or(core::mem::zeroed()) as _, pszclassname.param().abi(), samdesired, disposition, phkclass as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Class_Key_ExA<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Open_Class_Key_ExA<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_Key_ExA(classguid : super::LPGUID, pszclassname : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_Key_ExA(classguid : super::LPGUID, pszclassname : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Open_Class_Key_ExA(classguid.unwrap_or(core::mem::zeroed()) as _, pszclassname.param().abi(), samdesired, disposition, phkclass as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Class_Key_ExW<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Open_Class_Key_ExW<P1>(classguid: Option<super::LPGUID>, pszclassname: P1, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkclass: super::PHKEY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_Key_ExW(classguid : super::LPGUID, pszclassname : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Class_Key_ExW(classguid : super::LPGUID, pszclassname : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkclass : super::PHKEY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Open_Class_Key_ExW(classguid.unwrap_or(core::mem::zeroed()) as _, pszclassname.param().abi(), samdesired, disposition, phkclass as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_DevNode_Key(dndevnode: DEVINST, samdesired: super::REGSAM, ulhardwareprofile: u32, disposition: REGDISPOSITION, phkdevice: super::PHKEY, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_DevNode_Key(dndevnode : DEVINST, samdesired : super::REGSAM, ulhardwareprofile : u32, disposition : REGDISPOSITION, phkdevice : super::PHKEY, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Open_DevInst_Key(dndevnode: DEVINST, samdesired: super::REGSAM, ulhardwareprofile: super::ULONG, disposition: REGDISPOSITION, phkdevice: super::PHKEY, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Open_DevNode_Key" fn CM_Open_DevInst_Key(dndevnode : DEVINST, samdesired : super::REGSAM, ulhardwareprofile : super::ULONG, disposition : REGDISPOSITION, phkdevice : super::PHKEY, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Open_DevInst_Key(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice as _, ulflags) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
+#[inline]
+pub unsafe fn CM_Open_DevInst_Key_Ex(dndevnode: DEVINST, samdesired: super::REGSAM, ulhardwareprofile: super::ULONG, disposition: REGDISPOSITION, phkdevice: super::PHKEY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Open_DevNode_Key_Ex" fn CM_Open_DevInst_Key_Ex(dndevnode : DEVINST, samdesired : super::REGSAM, ulhardwareprofile : super::ULONG, disposition : REGDISPOSITION, phkdevice : super::PHKEY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Open_DevInst_Key_Ex(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
+#[inline]
+pub unsafe fn CM_Open_DevNode_Key(dndevnode: DEVINST, samdesired: super::REGSAM, ulhardwareprofile: super::ULONG, disposition: REGDISPOSITION, phkdevice: super::PHKEY, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_DevNode_Key(dndevnode : DEVINST, samdesired : super::REGSAM, ulhardwareprofile : super::ULONG, disposition : REGDISPOSITION, phkdevice : super::PHKEY, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Open_DevNode_Key(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_DevNode_Key_Ex(dndevnode: DEVINST, samdesired: super::REGSAM, ulhardwareprofile: u32, disposition: REGDISPOSITION, phkdevice: super::PHKEY, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_DevNode_Key_Ex(dndevnode : DEVINST, samdesired : super::REGSAM, ulhardwareprofile : u32, disposition : REGDISPOSITION, phkdevice : super::PHKEY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Open_DevNode_Key_Ex(dndevnode: DEVINST, samdesired: super::REGSAM, ulhardwareprofile: super::ULONG, disposition: REGDISPOSITION, phkdevice: super::PHKEY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_DevNode_Key_Ex(dndevnode : DEVINST, samdesired : super::REGSAM, ulhardwareprofile : super::ULONG, disposition : REGDISPOSITION, phkdevice : super::PHKEY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Open_DevNode_Key_Ex(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Device_Interface_KeyA<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Open_Device_Interface_KeyA<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_KeyA(pszdeviceinterface : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_KeyA(pszdeviceinterface : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Open_Device_Interface_KeyA(pszdeviceinterface.param().abi(), samdesired, disposition, phkdeviceinterface as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Device_Interface_KeyW<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Open_Device_Interface_KeyW<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_KeyW(pszdeviceinterface : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_KeyW(pszdeviceinterface : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Open_Device_Interface_KeyW(pszdeviceinterface.param().abi(), samdesired, disposition, phkdeviceinterface as _, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Device_Interface_Key_ExA<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Open_Device_Interface_Key_ExA<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_Key_ExA(pszdeviceinterface : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_Key_ExA(pszdeviceinterface : windows_core::PCSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Open_Device_Interface_Key_ExA(pszdeviceinterface.param().abi(), samdesired, disposition, phkdeviceinterface as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn CM_Open_Device_Interface_Key_ExW<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Open_Device_Interface_Key_ExW<P0>(pszdeviceinterface: P0, samdesired: super::REGSAM, disposition: REGDISPOSITION, phkdeviceinterface: super::PHKEY, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_Key_ExW(pszdeviceinterface : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Open_Device_Interface_Key_ExW(pszdeviceinterface : windows_core::PCWSTR, samdesired : super::REGSAM, disposition : REGDISPOSITION, phkdeviceinterface : super::PHKEY, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Open_Device_Interface_Key_ExW(pszdeviceinterface.param().abi(), samdesired, disposition, phkdeviceinterface as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "cfg")]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTreeA(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTreeA(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Query_And_Remove_SubTreeA(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
-#[cfg(feature = "cfg")]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTreeW(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTreeW(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Query_And_Remove_SubTreeW(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
-#[cfg(all(feature = "cfg", feature = "winnt"))]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTree_ExA(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTree_ExA(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Query_And_Remove_SubTree_ExA(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "cfg", feature = "winnt"))]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTree_ExW(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTree_ExW(dnancestor : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Query_And_Remove_SubTree_ExW(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Query_Arbitrator_Free_Data(pdata: *mut core::ffi::c_void, datalen: u32, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Data(pdata : *mut core::ffi::c_void, datalen : u32, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Query_Arbitrator_Free_Data(pdata: super::PVOID, datalen: super::ULONG, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Data(pdata : super::PVOID, datalen : super::ULONG, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Query_Arbitrator_Free_Data(pdata as _, datalen, dndevinst, resourceid, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(pdata: *mut core::ffi::c_void, datalen: u32, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Data_Ex(pdata : *mut core::ffi::c_void, datalen : u32, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(pdata: super::PVOID, datalen: super::ULONG, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Data_Ex(pdata : super::PVOID, datalen : super::ULONG, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Query_Arbitrator_Free_Data_Ex(pdata as _, datalen, dndevinst, resourceid, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Query_Arbitrator_Free_Size(pulsize: super::PULONG, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Size(pulsize : super::PULONG, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Query_Arbitrator_Free_Size(pulsize: super::PULONG, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Size(pulsize : super::PULONG, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Query_Arbitrator_Free_Size(pulsize as _, dndevinst, resourceid, ulflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(pulsize: super::PULONG, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Size_Ex(pulsize : super::PULONG, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(pulsize: super::PULONG, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_Arbitrator_Free_Size_Ex(pulsize : super::PULONG, dndevinst : DEVINST, resourceid : RESOURCEID, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Query_Arbitrator_Free_Size_Ex(pulsize as _, dndevinst, resourceid, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Query_Remove_SubTree(dnancestor: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_Remove_SubTree(dnancestor : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Query_Remove_SubTree(dnancestor: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_Remove_SubTree(dnancestor : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Query_Remove_SubTree(dnancestor, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Query_Remove_SubTree_Ex(dnancestor: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_Remove_SubTree_Ex(dnancestor : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Query_Remove_SubTree_Ex(dnancestor: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_Remove_SubTree_Ex(dnancestor : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Query_Remove_SubTree_Ex(dnancestor, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Query_Resource_Conflict_List(pclconflictlist: PCONFLICT_LIST, dndevinst: DEVINST, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Query_Resource_Conflict_List(pclconflictlist : PCONFLICT_LIST, dndevinst : DEVINST, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Query_Resource_Conflict_List(pclconflictlist: PCONFLICT_LIST, dndevinst: DEVINST, resourceid: RESOURCEID, resourcedata: PCVOID, resourcelen: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Query_Resource_Conflict_List(pclconflictlist : PCONFLICT_LIST, dndevinst : DEVINST, resourceid : RESOURCEID, resourcedata : PCVOID, resourcelen : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Query_Resource_Conflict_List(pclconflictlist as _, dndevinst, resourceid, resourcedata, resourcelen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Reenumerate_DevNode(dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Reenumerate_DevNode(dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Reenumerate_DevInst(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Reenumerate_DevNode" fn CM_Reenumerate_DevInst(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Reenumerate_DevInst(dndevinst, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Reenumerate_DevInst_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Reenumerate_DevNode_Ex" fn CM_Reenumerate_DevInst_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Reenumerate_DevInst_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Reenumerate_DevNode(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Reenumerate_DevNode(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Reenumerate_DevNode(dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Reenumerate_DevNode_Ex(dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Reenumerate_DevNode_Ex(dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Reenumerate_DevNode_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Reenumerate_DevNode_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Reenumerate_DevNode_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Register_Device_Driver(dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Driver(dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Register_Device_Driver(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Driver(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Register_Device_Driver(dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Register_Device_Driver_Ex(dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Driver_Ex(dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Register_Device_Driver_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Driver_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Register_Device_Driver_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Register_Device_InterfaceA<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Register_Device_InterfaceA<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_InterfaceA(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_InterfaceA(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Register_Device_InterfaceA(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Register_Device_InterfaceW<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Register_Device_InterfaceW<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: super::ULONG) -> CONFIGRET
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_InterfaceW(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_InterfaceW(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Register_Device_InterfaceW(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Register_Device_Interface_ExA<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Register_Device_Interface_ExA<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PSTR, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Interface_ExA(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Interface_ExA(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Register_Device_Interface_ExA(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Register_Device_Interface_ExW<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Register_Device_Interface_ExW<P2>(dndevinst: DEVINST, interfaceclassguid: super::LPGUID, pszreference: P2, pszdeviceinterface: windows_core::PWSTR, pullength: super::PULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Interface_ExW(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Interface_ExW(dndevinst : DEVINST, interfaceclassguid : super::LPGUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : super::PULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Register_Device_Interface_ExW(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Register_Notification(pfilter: PCM_NOTIFY_FILTER, pcontext: Option<*const core::ffi::c_void>, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: PHCMNOTIFICATION) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Register_Notification(pfilter : PCM_NOTIFY_FILTER, pcontext : *const core::ffi::c_void, pcallback : PCM_NOTIFY_CALLBACK, pnotifycontext : PHCMNOTIFICATION) -> CONFIGRET);
+pub unsafe fn CM_Register_Notification(pfilter: PCM_NOTIFY_FILTER, pcontext: Option<super::PVOID>, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: PHCMNOTIFICATION) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Register_Notification(pfilter : PCM_NOTIFY_FILTER, pcontext : super::PVOID, pcallback : PCM_NOTIFY_CALLBACK, pnotifycontext : PHCMNOTIFICATION) -> CONFIGRET);
     unsafe { CM_Register_Notification(pfilter, pcontext.unwrap_or(core::mem::zeroed()) as _, pcallback, pnotifycontext as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Remove_SubTree(dnancestor: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Remove_SubTree(dnancestor : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Remove_SubTree(dnancestor: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Remove_SubTree(dnancestor : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Remove_SubTree(dnancestor, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Remove_SubTree_Ex(dnancestor : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Remove_SubTree_Ex(dnancestor : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Remove_SubTree_Ex(dnancestor, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "cfg")]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Request_Device_EjectA(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_EjectA(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Request_Device_EjectA(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_EjectA(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Request_Device_EjectA(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
-#[cfg(feature = "cfg")]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Request_Device_EjectW(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_EjectW(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Request_Device_EjectW(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_EjectW(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Request_Device_EjectW(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
-#[cfg(all(feature = "cfg", feature = "winnt"))]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_Eject_ExA(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_Eject_ExA(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Request_Device_Eject_ExA(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "cfg", feature = "winnt"))]
+#[cfg(all(feature = "cfg", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Request_Device_Eject_ExW(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_Eject_ExW(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Request_Device_Eject_ExW(dndevinst: DEVINST, pvetotype: Option<super::PPNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_Eject_ExW(dndevinst : DEVINST, pvetotype : super::PPNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Request_Device_Eject_ExW(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1252,203 +1491,273 @@ pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Request_Eject_PC() -> CONFIGRET);
     unsafe { CM_Request_Eject_PC() }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CM_Request_Eject_PC_Ex(hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Request_Eject_PC_Ex(hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Request_Eject_PC_Ex(hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Run_Detection(ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Run_Detection(ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Run_Detection(ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Run_Detection(ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Run_Detection(ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Run_Detection_Ex(ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Run_Detection_Ex(ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Run_Detection_Ex(ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Run_Detection_Ex(ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Run_Detection_Ex(ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Class_PropertyW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Class_PropertyW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_Class_PropertyW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Class_PropertyW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_Class_PropertyW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Class_Property_ExW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Class_Property_ExW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_Class_Property_ExW(classguid: super::LPCGUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Class_Property_ExW(classguid : super::LPCGUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_Class_Property_ExW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Class_Registry_PropertyA(classguid: super::LPGUID, ulproperty: u32, buffer: Option<PCVOID>, ullength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_Class_Registry_PropertyA(classguid : super::LPGUID, ulproperty : u32, buffer : PCVOID, ullength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_Class_Registry_PropertyA(classguid: super::LPGUID, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_Class_Registry_PropertyA(classguid : super::LPGUID, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_Class_Registry_PropertyA(classguid, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Class_Registry_PropertyW(classguid: super::LPGUID, ulproperty: u32, buffer: Option<PCVOID>, ullength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_Class_Registry_PropertyW(classguid : super::LPGUID, ulproperty : u32, buffer : PCVOID, ullength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_Class_Registry_PropertyW(classguid: super::LPGUID, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_Class_Registry_PropertyW(classguid : super::LPGUID, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_Class_Registry_PropertyW(classguid, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Problem(dndevinst: DEVINST, ulproblem: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Problem(dndevinst : DEVINST, ulproblem : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_DevInst_Problem(dndevinst: DEVINST, ulproblem: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Set_DevNode_Problem" fn CM_Set_DevInst_Problem(dndevinst : DEVINST, ulproblem : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Set_DevInst_Problem(dndevinst, ulproblem, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Set_DevInst_Problem_Ex(dndevinst: DEVINST, ulproblem: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Set_DevNode_Problem_Ex" fn CM_Set_DevInst_Problem_Ex(dndevinst : DEVINST, ulproblem : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Set_DevInst_Problem_Ex(dndevinst, ulproblem, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Set_DevInst_Registry_PropertyA(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Set_DevNode_Registry_PropertyA" fn CM_Set_DevInst_Registry_PropertyA(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Set_DevInst_Registry_PropertyA(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Set_DevInst_Registry_PropertyW(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Set_DevNode_Registry_PropertyW" fn CM_Set_DevInst_Registry_PropertyW(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Set_DevInst_Registry_PropertyW(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Set_DevInst_Registry_Property_ExA(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Set_DevNode_Registry_Property_ExA" fn CM_Set_DevInst_Registry_Property_ExA(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Set_DevInst_Registry_Property_ExA(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Set_DevInst_Registry_Property_ExW(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Set_DevNode_Registry_Property_ExW" fn CM_Set_DevInst_Registry_Property_ExW(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Set_DevInst_Registry_Property_ExW(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Set_DevNode_Problem(dndevinst: DEVINST, ulproblem: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Problem(dndevinst : DEVINST, ulproblem : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_DevNode_Problem(dndevinst, ulproblem, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Problem_Ex(dndevinst: DEVINST, ulproblem: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Problem_Ex(dndevinst : DEVINST, ulproblem : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_DevNode_Problem_Ex(dndevinst: DEVINST, ulproblem: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Problem_Ex(dndevinst : DEVINST, ulproblem : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_DevNode_Problem_Ex(dndevinst, ulproblem, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_DevNode_PropertyW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_DevNode_PropertyW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_DevNode_PropertyW(dndevinst, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_DevNode_Property_ExW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: DEVINST, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_DevNode_Property_ExW(dndevinst : DEVINST, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_DevNode_Property_ExW(dndevinst, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_PropertyA(dndevinst: DEVINST, ulproperty: u32, buffer: Option<PCVOID>, ullength: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_PropertyA(dndevinst : DEVINST, ulproperty : u32, buffer : PCVOID, ullength : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_DevNode_Registry_PropertyA(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_PropertyA(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_DevNode_Registry_PropertyA(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_PropertyW(dndevinst: DEVINST, ulproperty: u32, buffer: Option<PCVOID>, ullength: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_PropertyW(dndevinst : DEVINST, ulproperty : u32, buffer : PCVOID, ullength : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_DevNode_Registry_PropertyW(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_PropertyW(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_DevNode_Registry_PropertyW(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: DEVINST, ulproperty: u32, buffer: Option<PCVOID>, ullength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_Property_ExA(dndevinst : DEVINST, ulproperty : u32, buffer : PCVOID, ullength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_Property_ExA(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_DevNode_Registry_Property_ExA(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: DEVINST, ulproperty: u32, buffer: Option<PCVOID>, ullength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_Property_ExW(dndevinst : DEVINST, ulproperty : u32, buffer : PCVOID, ullength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: DEVINST, ulproperty: super::ULONG, buffer: Option<PCVOID>, ullength: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_DevNode_Registry_Property_ExW(dndevinst : DEVINST, ulproperty : super::ULONG, buffer : PCVOID, ullength : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_DevNode_Registry_Property_ExW(dndevinst, ulproperty, buffer.unwrap_or(core::mem::zeroed()) as _, ullength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Set_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Device_Interface_PropertyW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Device_Interface_PropertyW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_Device_Interface_PropertyW(pszdeviceinterface.param().abi(), propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn CM_Set_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Set_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Device_Interface_Property_ExW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("cfgmgr32.dll" "system" fn CM_Set_Device_Interface_Property_ExW(pszdeviceinterface : windows_core::PCWSTR, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_Device_Interface_Property_ExW(pszdeviceinterface.param().abi(), propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof(ulhardwareprofile : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_HW_Prof(ulhardwareprofile: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof(ulhardwareprofile : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_HW_Prof(ulhardwareprofile, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_Ex(ulhardwareprofile: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_Ex(ulhardwareprofile : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_HW_Prof_Ex(ulhardwareprofile: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_Ex(ulhardwareprofile : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_HW_Prof_Ex(ulhardwareprofile, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_FlagsA(pdeviceid: DEVINSTID_A, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_FlagsA(pdeviceid : DEVINSTID_A, ulconfig : u32, ulvalue : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_HW_Prof_FlagsA(pdeviceid: DEVINSTID_A, ulconfig: super::ULONG, ulvalue: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_FlagsA(pdeviceid : DEVINSTID_A, ulconfig : super::ULONG, ulvalue : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_HW_Prof_FlagsA(pdeviceid, ulconfig, ulvalue, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_FlagsW(pdeviceid: DEVINSTID_W, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_FlagsW(pdeviceid : DEVINSTID_W, ulconfig : u32, ulvalue : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Set_HW_Prof_FlagsW(pdeviceid: DEVINSTID_W, ulconfig: super::ULONG, ulvalue: super::ULONG, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_FlagsW(pdeviceid : DEVINSTID_W, ulconfig : super::ULONG, ulvalue : super::ULONG, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Set_HW_Prof_FlagsW(pdeviceid, ulconfig, ulvalue, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: DEVINSTID_A, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_Flags_ExA(pdeviceid : DEVINSTID_A, ulconfig : u32, ulvalue : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: DEVINSTID_A, ulconfig: super::ULONG, ulvalue: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_Flags_ExA(pdeviceid : DEVINSTID_A, ulconfig : super::ULONG, ulvalue : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_HW_Prof_Flags_ExA(pdeviceid, ulconfig, ulvalue, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: DEVINSTID_W, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_Flags_ExW(pdeviceid : DEVINSTID_W, ulconfig : u32, ulvalue : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: DEVINSTID_W, ulconfig: super::ULONG, ulvalue: super::ULONG, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Set_HW_Prof_Flags_ExW(pdeviceid : DEVINSTID_W, ulconfig : super::ULONG, ulvalue : super::ULONG, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Set_HW_Prof_Flags_ExW(pdeviceid, ulconfig, ulvalue, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Setup_DevNode(dndevinst: DEVINST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Setup_DevNode(dndevinst : DEVINST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Setup_DevInst(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Setup_DevNode" fn CM_Setup_DevInst(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Setup_DevInst(dndevinst, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Setup_DevInst_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Setup_DevNode_Ex" fn CM_Setup_DevInst_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Setup_DevInst_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Setup_DevNode(dndevinst: DEVINST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Setup_DevNode(dndevinst : DEVINST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Setup_DevNode(dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Setup_DevNode_Ex(dndevinst: DEVINST, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Setup_DevNode_Ex(dndevinst : DEVINST, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Setup_DevNode_Ex(dndevinst: DEVINST, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Setup_DevNode_Ex(dndevinst : DEVINST, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Setup_DevNode_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Test_Range_Available(ullstartvalue: super::DWORDLONG, ullendvalue: super::DWORDLONG, rlh: RANGE_LIST, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Test_Range_Available(ullstartvalue : super::DWORDLONG, ullendvalue : super::DWORDLONG, rlh : RANGE_LIST, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Test_Range_Available(ullstartvalue: super::DWORDLONG, ullendvalue: super::DWORDLONG, rlh: RANGE_LIST, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Test_Range_Available(ullstartvalue : super::DWORDLONG, ullendvalue : super::DWORDLONG, rlh : RANGE_LIST, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Test_Range_Available(ullstartvalue, ullendvalue, rlh, ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Uninstall_DevNode(dndevinst: DEVNODE, ulflags: u32) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Uninstall_DevNode(dndevinst : DEVNODE, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Uninstall_DevInst(dndevinst: DEVNODE, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Uninstall_DevNode" fn CM_Uninstall_DevInst(dndevinst : DEVNODE, ulflags : super::ULONG) -> CONFIGRET);
+    unsafe { CM_Uninstall_DevInst(dndevinst, ulflags) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Uninstall_DevInst_Ex(dndevinst: DEVNODE, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" "CM_Uninstall_DevNode_Ex" fn CM_Uninstall_DevInst_Ex(dndevinst : DEVNODE, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
+    unsafe { CM_Uninstall_DevInst_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "shared")]
+#[inline]
+pub unsafe fn CM_Uninstall_DevNode(dndevinst: DEVNODE, ulflags: super::ULONG) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Uninstall_DevNode(dndevinst : DEVNODE, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Uninstall_DevNode(dndevinst, ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: DEVNODE, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
-    windows_core::link!("setupapi.dll" "system" fn CM_Uninstall_DevNode_Ex(dndevinst : DEVNODE, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: DEVNODE, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET {
+    windows_core::link!("setupapi.dll" "system" fn CM_Uninstall_DevNode_Ex(dndevinst : DEVNODE, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Uninstall_DevNode_Ex(dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Unregister_Device_InterfaceA<P0>(pszdeviceinterface: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Unregister_Device_InterfaceA<P0>(pszdeviceinterface: P0, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_InterfaceA(pszdeviceinterface : windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_InterfaceA(pszdeviceinterface : windows_core::PCSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Unregister_Device_InterfaceA(pszdeviceinterface.param().abi(), ulflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Unregister_Device_InterfaceW<P0>(pszdeviceinterface: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Unregister_Device_InterfaceW<P0>(pszdeviceinterface: P0, ulflags: super::ULONG) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_InterfaceW(pszdeviceinterface : windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_InterfaceW(pszdeviceinterface : windows_core::PCWSTR, ulflags : super::ULONG) -> CONFIGRET);
     unsafe { CM_Unregister_Device_InterfaceW(pszdeviceinterface.param().abi(), ulflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Unregister_Device_Interface_ExA<P0>(pszdeviceinterface: P0, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Unregister_Device_Interface_ExA<P0>(pszdeviceinterface: P0, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_Interface_ExA(pszdeviceinterface : windows_core::PCSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_Interface_ExA(pszdeviceinterface : windows_core::PCSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Unregister_Device_Interface_ExA(pszdeviceinterface.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_Unregister_Device_Interface_ExW<P0>(pszdeviceinterface: P0, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Unregister_Device_Interface_ExW<P0>(pszdeviceinterface: P0, ulflags: super::ULONG, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_Interface_ExW(pszdeviceinterface : windows_core::PCWSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
+    windows_core::link!("setupapi.dll" "system" fn CM_Unregister_Device_Interface_ExW(pszdeviceinterface : windows_core::PCWSTR, ulflags : super::ULONG, hmachine : HMACHINE) -> CONFIGRET);
     unsafe { CM_Unregister_Device_Interface_ExW(pszdeviceinterface.param().abi(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1456,37 +1765,42 @@ pub unsafe fn CM_Unregister_Notification(notifycontext: HCMNOTIFICATION) -> CONF
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Unregister_Notification(notifycontext : HCMNOTIFICATION) -> CONFIGRET);
     unsafe { CM_Unregister_Notification(notifycontext) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CM_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32 {
-    windows_core::link!("setupapi.dll" "system" "CMP_WaitNoPendingInstallEvents" fn CM_WaitNoPendingInstallEvents(dwtimeout : u32) -> u32);
+pub unsafe fn CM_WaitNoPendingInstallEvents(dwtimeout: super::DWORD) -> super::DWORD {
+    windows_core::link!("setupapi.dll" "system" "CMP_WaitNoPendingInstallEvents" fn CM_WaitNoPendingInstallEvents(dwtimeout : super::DWORD) -> super::DWORD);
     unsafe { CM_WaitNoPendingInstallEvents(dwtimeout) }
 }
 pub const ALLOC_LOG_CONF: i32 = 2;
 pub const BASIC_LOG_CONF: i32 = 0;
 pub const BOOT_LOG_CONF: i32 = 3;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BUSNUMBER_DES {
-    pub BUSD_Count: u32,
-    pub BUSD_Type: u32,
-    pub BUSD_Flags: u32,
-    pub BUSD_Alloc_Base: u32,
-    pub BUSD_Alloc_End: u32,
+    pub BUSD_Count: super::DWORD,
+    pub BUSD_Type: super::DWORD,
+    pub BUSD_Flags: super::DWORD,
+    pub BUSD_Alloc_Base: super::ULONG,
+    pub BUSD_Alloc_End: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BUSNUMBER_RANGE {
-    pub BUSR_Min: u32,
-    pub BUSR_Max: u32,
-    pub BUSR_nBusNumbers: u32,
-    pub BUSR_Flags: u32,
+    pub BUSR_Min: super::ULONG,
+    pub BUSR_Max: super::ULONG,
+    pub BUSR_nBusNumbers: super::ULONG,
+    pub BUSR_Flags: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BUSNUMBER_RESOURCE {
     pub BusNumber_Header: BUSNUMBER_DES,
     pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for BUSNUMBER_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1657,112 +1971,122 @@ pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = 5;
 pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = 4;
 pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = 10;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA {
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::DWORD,
     pub u: CM_NOTIFY_EVENT_DATA_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
     pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0,
     pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1,
     pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_2,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub ClassGuid: windows_core::GUID,
-    pub SymbolicLink: [u16; 1],
+    pub SymbolicLink: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub EventGuid: windows_core::GUID,
-    pub NameOffset: i32,
-    pub DataSize: u32,
-    pub Data: [u8; 1],
+    pub NameOffset: super::LONG,
+    pub DataSize: super::DWORD,
+    pub Data: [super::BYTE; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_EVENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
-    pub InstanceId: [u16; 1],
+    pub InstanceId: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_EVENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER {
-    pub cbSize: u32,
-    pub Flags: u32,
+    pub cbSize: super::DWORD,
+    pub Flags: super::DWORD,
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::DWORD,
     pub u: CM_NOTIFY_FILTER_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_FILTER_0 {
     pub DeviceInterface: CM_NOTIFY_FILTER_0_0,
     pub DeviceHandle: CM_NOTIFY_FILTER_0_1,
     pub DeviceInstance: CM_NOTIFY_FILTER_0_2,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_FILTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_0 {
     pub ClassGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub hTarget: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_2 {
-    pub InstanceId: [u16; 200],
+    pub InstanceId: [super::WCHAR; 200],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_NOTIFY_FILTER_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1837,32 +2161,37 @@ pub const CM_SET_HW_PROF_FLAGS_BITS: i32 = 1;
 pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: i32 = 1;
 pub const CONFIGMG_VERSION: i32 = 1024;
 pub type CONFIGRET = RETURN_TYPE;
+#[cfg(feature = "shared")]
 pub type CONFLICT_DETAILS = CONFLICT_DETAILS_A;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFLICT_DETAILS_A {
-    pub CD_ulSize: u32,
-    pub CD_ulMask: u32,
+    pub CD_ulSize: super::ULONG,
+    pub CD_ulMask: super::ULONG,
     pub CD_dnDevInst: DEVINST,
     pub CD_rdResDes: RES_DES,
-    pub CD_ulFlags: u32,
-    pub CD_szDescription: [i8; 260],
+    pub CD_ulFlags: super::ULONG,
+    pub CD_szDescription: [super::CHAR; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for CONFLICT_DETAILS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFLICT_DETAILS_W {
-    pub CD_ulSize: u32,
-    pub CD_ulMask: u32,
+    pub CD_ulSize: super::ULONG,
+    pub CD_ulMask: super::ULONG,
     pub CD_dnDevInst: DEVINST,
     pub CD_rdResDes: RES_DES,
-    pub CD_ulFlags: u32,
-    pub CD_szDescription: [u16; 260],
+    pub CD_ulFlags: super::ULONG,
+    pub CD_szDescription: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CONFLICT_DETAILS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1870,30 +2199,30 @@ impl Default for CONFLICT_DETAILS_W {
 }
 pub type CONFLICT_LIST = usize;
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CONNECTION_DES {
-    pub COND_Type: u32,
-    pub COND_Flags: u32,
-    pub COND_Class: u8,
-    pub COND_ClassType: u8,
-    pub COND_Reserved1: u8,
-    pub COND_Reserved2: u8,
+    pub COND_Type: super::DWORD,
+    pub COND_Flags: super::DWORD,
+    pub COND_Class: super::BYTE,
+    pub COND_ClassType: super::BYTE,
+    pub COND_Reserved1: super::BYTE,
+    pub COND_Reserved2: super::BYTE,
     pub COND_Id: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CONNECTION_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CONNECTION_RESOURCE {
     pub Connection_Header: CONNECTION_DES,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CONNECTION_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1964,82 +2293,93 @@ pub const CR_SAME_RESOURCES: i32 = 45;
 pub const CR_SUCCESS: i32 = 0;
 pub const CR_WRONG_TYPE: i32 = 38;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CS_DES {
-    pub CSD_SignatureLength: u32,
-    pub CSD_LegacyDataOffset: u32,
-    pub CSD_LegacyDataSize: u32,
-    pub CSD_Flags: u32,
+    pub CSD_SignatureLength: super::DWORD,
+    pub CSD_LegacyDataOffset: super::DWORD,
+    pub CSD_LegacyDataSize: super::DWORD,
+    pub CSD_Flags: super::DWORD,
     pub CSD_ClassGuid: windows_core::GUID,
-    pub CSD_Signature: [u8; 1],
+    pub CSD_Signature: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CS_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CS_RESOURCE {
     pub CS_Header: CS_DES,
 }
 pub type DEVINST = u32;
-pub type DEVINSTID = DEVINSTID_A;
+pub type DEVINSTID = *mut i8;
 pub type DEVINSTID_A = *mut i8;
 pub type DEVINSTID_W = *mut u16;
 pub type DEVNODE = u32;
-pub type DEVNODEID = DEVNODEID_A;
+pub type DEVNODEID = *mut i8;
 pub type DEVNODEID_A = *mut i8;
 pub type DEVNODEID_W = *mut u16;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVPRIVATE_DES {
-    pub PD_Count: u32,
-    pub PD_Type: u32,
-    pub PD_Data1: u32,
-    pub PD_Data2: u32,
-    pub PD_Data3: u32,
-    pub PD_Flags: u32,
+    pub PD_Count: super::DWORD,
+    pub PD_Type: super::DWORD,
+    pub PD_Data1: super::DWORD,
+    pub PD_Data2: super::DWORD,
+    pub PD_Data3: super::DWORD,
+    pub PD_Flags: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVPRIVATE_RANGE {
-    pub PR_Data1: u32,
-    pub PR_Data2: u32,
-    pub PR_Data3: u32,
+    pub PR_Data1: super::DWORD,
+    pub PR_Data2: super::DWORD,
+    pub PR_Data3: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RESOURCE {
     pub PRV_Header: DEVPRIVATE_DES,
     pub PRV_Data: [DEVPRIVATE_RANGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVPRIVATE_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DMA_DES {
-    pub DD_Count: u32,
-    pub DD_Type: u32,
-    pub DD_Flags: u32,
-    pub DD_Alloc_Chan: u32,
+    pub DD_Count: super::DWORD,
+    pub DD_Type: super::DWORD,
+    pub DD_Flags: super::DWORD,
+    pub DD_Alloc_Chan: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DMA_RANGE {
-    pub DR_Min: u32,
-    pub DR_Max: u32,
-    pub DR_Flags: u32,
+    pub DR_Min: super::ULONG,
+    pub DR_Max: super::ULONG,
+    pub DR_Flags: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DMA_RESOURCE {
     pub DMA_Header: DMA_DES,
     pub DMA_Data: [DMA_RANGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DMA_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2049,8 +2389,6 @@ impl Default for DMA_RESOURCE {
 pub const DType_Range: u32 = 12;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DType_Range: u64 = 12;
-pub const DWORDLONG_MAX: u64 = 18446744073709551615;
-pub const DWORD_MAX: u32 = 4294967295;
 pub const FILTERED_LOG_CONF: i32 = 1;
 pub const FORCED_LOG_CONF: i32 = 4;
 pub type HCMNOTIFICATION = *mut HCMNOTIFICATION__;
@@ -2059,28 +2397,32 @@ pub type HCMNOTIFICATION = *mut HCMNOTIFICATION__;
 pub struct HCMNOTIFICATION__ {
     pub unused: i32,
 }
-#[cfg(feature = "winnt")]
-pub type HMACHINE = super::HANDLE;
+pub type HMACHINE = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type HWPROFILEINFO = HWPROFILEINFO_A;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_A {
-    pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [i8; 80],
-    pub HWPI_dwFlags: u32,
+    pub HWPI_ulHWProfile: super::ULONG,
+    pub HWPI_szFriendlyName: [super::CHAR; 80],
+    pub HWPI_dwFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for HWPROFILEINFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_W {
-    pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [u16; 80],
-    pub HWPI_dwFlags: u32,
+    pub HWPI_ulHWProfile: super::ULONG,
+    pub HWPI_szFriendlyName: [super::WCHAR; 80],
+    pub HWPI_dwFlags: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HWPROFILEINFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2096,34 +2438,34 @@ pub const IO_ALIAS_12_BIT_DECODE: i32 = 16;
 pub const IO_ALIAS_16_BIT_DECODE: i32 = 0;
 pub const IO_ALIAS_POSITIVE_DECODE: i32 = 255;
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IO_DES {
-    pub IOD_Count: u32,
-    pub IOD_Type: u32,
+    pub IOD_Count: super::DWORD,
+    pub IOD_Type: super::DWORD,
     pub IOD_Alloc_Base: super::DWORDLONG,
     pub IOD_Alloc_End: super::DWORDLONG,
-    pub IOD_DesFlags: u32,
+    pub IOD_DesFlags: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IO_RANGE {
     pub IOR_Align: super::DWORDLONG,
-    pub IOR_nPorts: u32,
+    pub IOR_nPorts: super::DWORD,
     pub IOR_Min: super::DWORDLONG,
     pub IOR_Max: super::DWORDLONG,
-    pub IOR_RangeFlags: u32,
+    pub IOR_RangeFlags: super::DWORD,
     pub IOR_Alias: super::DWORDLONG,
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE {
     pub IO_Header: IO_DES,
     pub IO_Data: [IO_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for IO_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2134,55 +2476,66 @@ pub const IRQType_Range: u32 = 12;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const IRQType_Range: u64 = 12;
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type IRQ_DES = IRQ_DES_32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IRQ_DES = IRQ_DES_64;
 #[repr(C, packed(1))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct IRQ_DES_32 {
-    pub IRQD_Count: u32,
-    pub IRQD_Type: u32,
-    pub IRQD_Flags: u32,
-    pub IRQD_Alloc_Num: u32,
-    pub IRQD_Affinity: u32,
+    pub IRQD_Count: super::DWORD,
+    pub IRQD_Type: super::DWORD,
+    pub IRQD_Flags: super::DWORD,
+    pub IRQD_Alloc_Num: super::ULONG,
+    pub IRQD_Affinity: super::ULONG32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IRQ_DES_64 {
-    pub IRQD_Count: u32,
-    pub IRQD_Type: u32,
-    pub IRQD_Flags: u32,
-    pub IRQD_Alloc_Num: u32,
-    pub IRQD_Affinity: u64,
+    pub IRQD_Count: super::DWORD,
+    pub IRQD_Type: super::DWORD,
+    pub IRQD_Flags: super::DWORD,
+    pub IRQD_Alloc_Num: super::ULONG,
+    pub IRQD_Affinity: super::ULONG64,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IRQ_RANGE {
-    pub IRQR_Min: u32,
-    pub IRQR_Max: u32,
-    pub IRQR_Flags: u32,
+    pub IRQR_Min: super::ULONG,
+    pub IRQR_Max: super::ULONG,
+    pub IRQR_Flags: super::ULONG,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type IRQ_RESOURCE = IRQ_RESOURCE_32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IRQ_RESOURCE = IRQ_RESOURCE_64;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_32 {
     pub IRQ_Header: IRQ_DES_32,
     pub IRQ_Data: [IRQ_RANGE; 1],
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for IRQ_RESOURCE_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_64 {
     pub IRQ_Header: IRQ_DES_64,
     pub IRQ_Data: [IRQ_RANGE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IRQ_RESOURCE_64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2201,92 +2554,95 @@ pub const MAX_IO_PORTS: i32 = 20;
 pub const MAX_IRQS: i32 = 7;
 pub const MAX_MEM_REGISTERS: i32 = 9;
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MEM_DES {
-    pub MD_Count: u32,
-    pub MD_Type: u32,
+    pub MD_Count: super::DWORD,
+    pub MD_Type: super::DWORD,
     pub MD_Alloc_Base: super::DWORDLONG,
     pub MD_Alloc_End: super::DWORDLONG,
-    pub MD_Flags: u32,
-    pub MD_Reserved: u32,
+    pub MD_Flags: super::DWORD,
+    pub MD_Reserved: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MEM_LARGE_DES {
-    pub MLD_Count: u32,
-    pub MLD_Type: u32,
+    pub MLD_Count: super::DWORD,
+    pub MLD_Type: super::DWORD,
     pub MLD_Alloc_Base: super::DWORDLONG,
     pub MLD_Alloc_End: super::DWORDLONG,
-    pub MLD_Flags: u32,
-    pub MLD_Reserved: u32,
+    pub MLD_Flags: super::DWORD,
+    pub MLD_Reserved: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MEM_LARGE_RANGE {
     pub MLR_Align: super::DWORDLONG,
-    pub MLR_nBytes: u64,
+    pub MLR_nBytes: super::ULONGLONG,
     pub MLR_Min: super::DWORDLONG,
     pub MLR_Max: super::DWORDLONG,
-    pub MLR_Flags: u32,
-    pub MLR_Reserved: u32,
+    pub MLR_Flags: super::DWORD,
+    pub MLR_Reserved: super::DWORD,
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MEM_LARGE_RESOURCE {
     pub MEM_LARGE_Header: MEM_LARGE_DES,
     pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for MEM_LARGE_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MEM_RANGE {
     pub MR_Align: super::DWORDLONG,
-    pub MR_nBytes: u32,
+    pub MR_nBytes: super::ULONG,
     pub MR_Min: super::DWORDLONG,
     pub MR_Max: super::DWORDLONG,
-    pub MR_Flags: u32,
-    pub MR_Reserved: u32,
+    pub MR_Flags: super::DWORD,
+    pub MR_Reserved: super::DWORD,
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MEM_RESOURCE {
     pub MEM_Header: MEM_DES,
     pub MEM_Data: [MEM_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for MEM_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MFCARD_DES {
-    pub PMF_Count: u32,
-    pub PMF_Type: u32,
-    pub PMF_Flags: u32,
-    pub PMF_ConfigOptions: u8,
-    pub PMF_IoResourceIndex: u8,
-    pub PMF_Reserved: [u8; 2],
-    pub PMF_ConfigRegisterBase: u32,
+    pub PMF_Count: super::DWORD,
+    pub PMF_Type: super::DWORD,
+    pub PMF_Flags: super::DWORD,
+    pub PMF_ConfigOptions: super::BYTE,
+    pub PMF_IoResourceIndex: super::BYTE,
+    pub PMF_Reserved: [super::BYTE; 2],
+    pub PMF_ConfigRegisterBase: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for MFCARD_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MFCARD_RESOURCE {
     pub MfCard_Header: MFCARD_DES,
@@ -2302,29 +2658,35 @@ pub const MType_Range: u64 = 36;
 pub const NUM_CR_RESULTS: i32 = 60;
 pub const NUM_LOG_CONF: i32 = 6;
 pub const OVERRIDE_LOG_CONF: i32 = 5;
+#[cfg(feature = "shared")]
 pub type PBUSNUMBER_DES = *mut BUSNUMBER_DES;
+#[cfg(feature = "shared")]
 pub type PBUSNUMBER_RANGE = *mut BUSNUMBER_RANGE;
+#[cfg(feature = "shared")]
 pub type PBUSNUMBER_RESOURCE = *mut BUSNUMBER_RESOURCE;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PCCARD_DES {
-    pub PCD_Count: u32,
-    pub PCD_Type: u32,
-    pub PCD_Flags: u32,
-    pub PCD_ConfigIndex: u8,
-    pub PCD_Reserved: [u8; 3],
-    pub PCD_MemoryCardBase1: u32,
-    pub PCD_MemoryCardBase2: u32,
-    pub PCD_MemoryCardBase: [u32; 2],
-    pub PCD_MemoryFlags: [u16; 2],
-    pub PCD_IoFlags: [u8; 2],
+    pub PCD_Count: super::DWORD,
+    pub PCD_Type: super::DWORD,
+    pub PCD_Flags: super::DWORD,
+    pub PCD_ConfigIndex: super::BYTE,
+    pub PCD_Reserved: [super::BYTE; 3],
+    pub PCD_MemoryCardBase1: super::DWORD,
+    pub PCD_MemoryCardBase2: super::DWORD,
+    pub PCD_MemoryCardBase: [super::DWORD; 2],
+    pub PCD_MemoryFlags: [super::WORD; 2],
+    pub PCD_IoFlags: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for PCCARD_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PCCARD_RESOURCE {
     pub PcCard_Header: PCCARD_DES,
@@ -2332,76 +2694,104 @@ pub struct PCCARD_RESOURCE {
 pub const PCD_MAX_IO: i32 = 2;
 pub const PCD_MAX_MEMORY: i32 = 2;
 pub type PCM_NOTIFY_ACTION = *mut CM_NOTIFY_ACTION;
-pub type PCM_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: PCM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PCM_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: super::PVOID, action: CM_NOTIFY_ACTION, eventdata: PCM_NOTIFY_EVENT_DATA, eventdatasize: super::DWORD) -> super::DWORD>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCM_NOTIFY_EVENT_DATA = *mut CM_NOTIFY_EVENT_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCM_NOTIFY_FILTER = *mut CM_NOTIFY_FILTER;
 pub type PCM_NOTIFY_FILTER_TYPE = *mut CM_NOTIFY_FILTER_TYPE;
-pub type PCONFLICT_DETAILS = PCONFLICT_DETAILS_A;
+#[cfg(feature = "shared")]
+pub type PCONFLICT_DETAILS = *mut CONFLICT_DETAILS_A;
+#[cfg(feature = "shared")]
 pub type PCONFLICT_DETAILS_A = *mut CONFLICT_DETAILS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCONFLICT_DETAILS_W = *mut CONFLICT_DETAILS_W;
 pub type PCONFLICT_LIST = *mut CONFLICT_LIST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCONNECTION_DES = *mut CONNECTION_DES;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCONNECTION_RESOURCE = *mut CONNECTION_RESOURCE;
+#[cfg(feature = "shared")]
 pub type PCS_DES = *mut CS_DES;
+#[cfg(feature = "shared")]
 pub type PCS_RESOURCE = *mut CS_RESOURCE;
 pub type PCVOID = *const core::ffi::c_void;
-pub type PDEVINST = *mut DEVNODE;
-pub type PDEVNODE = *mut DEVNODE;
+pub type PDEVINST = *mut u32;
+pub type PDEVNODE = *mut u32;
+#[cfg(feature = "shared")]
 pub type PDEVPRIVATE_DES = *mut DEVPRIVATE_DES;
+#[cfg(feature = "shared")]
 pub type PDEVPRIVATE_RANGE = *mut DEVPRIVATE_RANGE;
+#[cfg(feature = "shared")]
 pub type PDEVPRIVATE_RESOURCE = *mut DEVPRIVATE_RESOURCE;
+#[cfg(feature = "shared")]
 pub type PDMA_DES = *mut DMA_DES;
+#[cfg(feature = "shared")]
 pub type PDMA_RANGE = *mut DMA_RANGE;
+#[cfg(feature = "shared")]
 pub type PDMA_RESOURCE = *mut DMA_RESOURCE;
-pub type PHCMNOTIFICATION = *mut HCMNOTIFICATION;
-#[cfg(feature = "winnt")]
-pub type PHMACHINE = *mut HMACHINE;
-pub type PHWPROFILEINFO = PHWPROFILEINFO_A;
+pub type PHCMNOTIFICATION = *mut *mut HCMNOTIFICATION__;
+pub type PHMACHINE = *mut *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
+pub type PHWPROFILEINFO = *mut HWPROFILEINFO_A;
+#[cfg(feature = "shared")]
 pub type PHWPROFILEINFO_A = *mut HWPROFILEINFO_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHWPROFILEINFO_W = *mut HWPROFILEINFO_W;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PIO_DES = *mut IO_DES;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PIO_RANGE = *mut IO_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PIO_RESOURCE = *mut IO_RESOURCE;
 #[cfg(target_arch = "x86")]
-pub type PIRQ_DES = PIRQ_DES_32;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+pub type PIRQ_DES = *mut IRQ_DES_32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIRQ_DES = PIRQ_DES_64;
+#[cfg(feature = "shared")]
+pub type PIRQ_DES = *mut IRQ_DES_64;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PIRQ_DES_32 = *mut IRQ_DES_32;
+#[cfg(feature = "shared")]
 pub type PIRQ_DES_64 = *mut IRQ_DES_64;
+#[cfg(feature = "shared")]
 pub type PIRQ_RANGE = *mut IRQ_RANGE;
 #[cfg(target_arch = "x86")]
-pub type PIRQ_RESOURCE = PIRQ_RESOURCE_32;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+pub type PIRQ_RESOURCE = *mut IRQ_RESOURCE_32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIRQ_RESOURCE = PIRQ_RESOURCE_64;
+#[cfg(feature = "shared")]
+pub type PIRQ_RESOURCE = *mut IRQ_RESOURCE_64;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PIRQ_RESOURCE_32 = *mut IRQ_RESOURCE_32;
+#[cfg(feature = "shared")]
 pub type PIRQ_RESOURCE_64 = *mut IRQ_RESOURCE_64;
 pub type PLOG_CONF = *mut LOG_CONF;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PMEM_DES = *mut MEM_DES;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PMEM_LARGE_DES = *mut MEM_LARGE_DES;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PMEM_LARGE_RANGE = *mut MEM_LARGE_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PMEM_LARGE_RESOURCE = *mut MEM_LARGE_RESOURCE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PMEM_RANGE = *mut MEM_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PMEM_RESOURCE = *mut MEM_RESOURCE;
+#[cfg(feature = "shared")]
 pub type PMFCARD_DES = *mut MFCARD_DES;
+#[cfg(feature = "shared")]
 pub type PMFCARD_RESOURCE = *mut MFCARD_RESOURCE;
+#[cfg(feature = "shared")]
 pub type PPCCARD_DES = *mut PCCARD_DES;
+#[cfg(feature = "shared")]
 pub type PPCCARD_RESOURCE = *mut PCCARD_RESOURCE;
-pub type PPRIORITY = *mut PRIORITY;
+pub type PPRIORITY = *mut u32;
 pub type PRANGE_ELEMENT = *mut RANGE_ELEMENT;
 pub type PRANGE_LIST = *mut RANGE_LIST;
-pub type PRESOURCEID = *mut RESOURCEID;
+pub type PRESOURCEID = *mut u32;
 pub type PRES_DES = *mut RES_DES;
 pub type PRIORITY = u32;
 pub const PRIORITY_BIT: i32 = 8;

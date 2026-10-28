@@ -23,12 +23,14 @@ impl core::ops::Deref for IAlertDataCollector {
 windows_core::imp::interface_hierarchy!(IAlertDataCollector, windows_core::IUnknown, super::IDispatch, IDataCollector);
 #[cfg(feature = "oaidl")]
 impl IAlertDataCollector {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn AlertThresholds(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlertThresholds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetAlertThresholds(&self, alerts: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlertThresholds)(windows_core::Interface::as_raw(self), alerts) }
     }
@@ -105,8 +107,14 @@ impl IAlertDataCollector {
 #[doc(hidden)]
 pub struct IAlertDataCollector_Vtbl {
     pub base__: IDataCollector_Vtbl,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub AlertThresholds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    AlertThresholds: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetAlertThresholds: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetAlertThresholds: usize,
     #[cfg(feature = "wtypes")]
     pub EventLog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -134,7 +142,7 @@ pub struct IAlertDataCollector_Vtbl {
     pub TriggerDataCollectorSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTriggerDataCollectorSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlertDataCollector_Impl: IDataCollector_Impl {
     fn AlertThresholds(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetAlertThresholds(&self, alerts: *const super::SAFEARRAY) -> windows_core::Result<()>;
@@ -153,7 +161,7 @@ pub trait IAlertDataCollector_Impl: IDataCollector_Impl {
     fn TriggerDataCollectorSet(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetTriggerDataCollectorSet(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlertDataCollector_Vtbl {
     pub const fn new<Identity: IAlertDataCollector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AlertThresholds<Identity: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alerts: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -324,7 +332,7 @@ impl IAlertDataCollector_Vtbl {
         iid == &<IAlertDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAlertDataCollector {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IApiTracingDataCollector, IApiTracingDataCollector_Vtbl, 0x0383751a_098b_11d8_9414_505054503030);
@@ -379,30 +387,36 @@ impl IApiTracingDataCollector {
     pub unsafe fn SetLogFilePath(&self, logfilepath: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLogFilePath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(logfilepath)) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn IncludeModules(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IncludeModules)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetIncludeModules(&self, includemodules: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeModules)(windows_core::Interface::as_raw(self), includemodules) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn IncludeApis(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IncludeApis)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetIncludeApis(&self, includeapis: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeApis)(windows_core::Interface::as_raw(self), includeapis) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn ExcludeApis(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExcludeApis)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetExcludeApis(&self, excludeapis: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetExcludeApis)(windows_core::Interface::as_raw(self), excludeapis) }
     }
@@ -432,14 +446,32 @@ pub struct IApiTracingDataCollector_Vtbl {
     pub SetExePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LogFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLogFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub IncludeModules: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    IncludeModules: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetIncludeModules: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetIncludeModules: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub IncludeApis: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    IncludeApis: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetIncludeApis: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetIncludeApis: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub ExcludeApis: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    ExcludeApis: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetExcludeApis: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetExcludeApis: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IApiTracingDataCollector_Impl: IDataCollector_Impl {
     fn LogApiNamesOnly(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetLogApiNamesOnly(&self, logapinames: super::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -456,7 +488,7 @@ pub trait IApiTracingDataCollector_Impl: IDataCollector_Impl {
     fn ExcludeApis(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetExcludeApis(&self, excludeapis: *const super::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IApiTracingDataCollector_Vtbl {
     pub const fn new<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LogApiNamesOnly<Identity: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logapinames: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -607,7 +639,7 @@ impl IApiTracingDataCollector_Vtbl {
         iid == &<IApiTracingDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IApiTracingDataCollector {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IConfigurationDataCollector, IConfigurationDataCollector_Vtbl, 0x03837514_098b_11d8_9414_505054503030);
@@ -649,21 +681,25 @@ impl IConfigurationDataCollector {
     pub unsafe fn SetFileMaxTotalSize(&self, size: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFileMaxTotalSize)(windows_core::Interface::as_raw(self), size) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Files(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Files)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetFiles(&self, files: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFiles)(windows_core::Interface::as_raw(self), files) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn ManagementQueries(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ManagementQueries)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetManagementQueries(&self, queries: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetManagementQueries)(windows_core::Interface::as_raw(self), queries) }
     }
@@ -678,12 +714,14 @@ impl IConfigurationDataCollector {
     pub unsafe fn SetQueryNetworkAdapters(&self, network: super::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetQueryNetworkAdapters)(windows_core::Interface::as_raw(self), network) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn RegistryKeys(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegistryKeys)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetRegistryKeys(&self, query: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRegistryKeys)(windows_core::Interface::as_raw(self), query) }
     }
@@ -717,10 +755,22 @@ pub struct IConfigurationDataCollector_Vtbl {
     pub SetFileMaxRecursiveDepth: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub FileMaxTotalSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetFileMaxTotalSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Files: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetFiles: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub ManagementQueries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    ManagementQueries: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetManagementQueries: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetManagementQueries: usize,
     #[cfg(feature = "wtypes")]
     pub QueryNetworkAdapters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -729,14 +779,20 @@ pub struct IConfigurationDataCollector_Vtbl {
     pub SetQueryNetworkAdapters: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetQueryNetworkAdapters: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub RegistryKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    RegistryKeys: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetRegistryKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetRegistryKeys: usize,
     pub RegistryMaxRecursiveDepth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRegistryMaxRecursiveDepth: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SystemStateFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSystemStateFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IConfigurationDataCollector_Impl: IDataCollector_Impl {
     fn FileMaxCount(&self) -> windows_core::Result<u32>;
     fn SetFileMaxCount(&self, count: u32) -> windows_core::Result<()>;
@@ -757,7 +813,7 @@ pub trait IConfigurationDataCollector_Impl: IDataCollector_Impl {
     fn SystemStateFile(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSystemStateFile(&self, filename: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IConfigurationDataCollector_Vtbl {
     pub const fn new<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FileMaxCount<Identity: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -948,7 +1004,7 @@ impl IConfigurationDataCollector_Vtbl {
         iid == &<IConfigurationDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IConfigurationDataCollector {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDataCollector, IDataCollector_Vtbl, 0x038374ff_098b_11d8_9414_505054503030);
@@ -1146,7 +1202,7 @@ pub struct IDataCollector_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     CreateOutputLocation: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDataCollector_Impl: super::IDispatch_Impl {
     fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet>;
     fn SetDataCollectorSet(&self, group: windows_core::Ref<IDataCollectorSet>) -> windows_core::Result<()>;
@@ -1174,7 +1230,7 @@ pub trait IDataCollector_Impl: super::IDispatch_Impl {
     fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
     fn CreateOutputLocation(&self, latest: super::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDataCollector_Vtbl {
     pub const fn new<Identity: IDataCollector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DataCollectorSet<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, group: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1450,7 +1506,7 @@ impl IDataCollector_Vtbl {
         iid == &<IDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDataCollector {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDataCollectorCollection, IDataCollectorCollection_Vtbl, 0x03837502_098b_11d8_9414_505054503030);
@@ -1471,7 +1527,7 @@ impl IDataCollectorCollection {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IDataCollector> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1490,7 +1546,7 @@ impl IDataCollectorCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), collector.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, collector: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(collector)) }
     }
@@ -1522,22 +1578,22 @@ impl IDataCollectorCollection {
 pub struct IDataCollectorCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDataCollectorFromXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDataCollector: unsafe extern "system" fn(*mut core::ffi::c_void, DataCollectorType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDataCollectorCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IDataCollector>;
@@ -1549,7 +1605,7 @@ pub trait IDataCollectorCollection_Impl: super::IDispatch_Impl {
     fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: windows_core::OutRef<IValueMap>) -> windows_core::Result<IDataCollector>;
     fn CreateDataCollector(&self, r#type: DataCollectorType) -> windows_core::Result<IDataCollector>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDataCollectorCollection_Vtbl {
     pub const fn new<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -1653,7 +1709,7 @@ impl IDataCollectorCollection_Vtbl {
         iid == &<IDataCollectorCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDataCollectorCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDataCollectorSet, IDataCollectorSet_Vtbl, 0x03837520_098b_11d8_9414_505054503030);
@@ -1713,12 +1769,14 @@ impl IDataCollectorSet {
             (windows_core::Interface::vtable(self).DisplayNameUnresolved)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn Keywords(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Keywords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetKeywords(&self, keywords: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetKeywords)(windows_core::Interface::as_raw(self), keywords) }
     }
@@ -1975,8 +2033,14 @@ pub struct IDataCollectorSet_Vtbl {
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayNameUnresolved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub Keywords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Keywords: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetKeywords: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetKeywords: usize,
     pub LatestOutputLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLatestOutputLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2057,7 +2121,7 @@ pub struct IDataCollectorSet_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDataCollectorSet_Impl: super::IDispatch_Impl {
     fn DataCollectors(&self) -> windows_core::Result<IDataCollectorCollection>;
     fn Duration(&self) -> windows_core::Result<u32>;
@@ -2120,7 +2184,7 @@ pub trait IDataCollectorSet_Impl: super::IDispatch_Impl {
     fn SetValue(&self, key: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetValue(&self, key: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDataCollectorSet_Vtbl {
     pub const fn new<Identity: IDataCollectorSet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DataCollectors<Identity: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collectors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2755,7 +2819,7 @@ impl IDataCollectorSet_Vtbl {
         iid == &<IDataCollectorSet as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDataCollectorSet {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDataCollectorSetCollection, IDataCollectorSetCollection_Vtbl, 0x03837524_098b_11d8_9414_505054503030);
@@ -2776,7 +2840,7 @@ impl IDataCollectorSetCollection {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IDataCollectorSet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2795,7 +2859,7 @@ impl IDataCollectorSetCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), set.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, set: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(set)) }
     }
@@ -2818,21 +2882,21 @@ impl IDataCollectorSetCollection {
 pub struct IDataCollectorSetCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDataCollectorSets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDataCollectorSetCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IDataCollectorSet>;
@@ -2843,7 +2907,7 @@ pub trait IDataCollectorSetCollection_Impl: super::IDispatch_Impl {
     fn AddRange(&self, sets: windows_core::Ref<IDataCollectorSetCollection>) -> windows_core::Result<()>;
     fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDataCollectorSetCollection_Vtbl {
     pub const fn new<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -2928,7 +2992,7 @@ impl IDataCollectorSetCollection_Vtbl {
         iid == &<IDataCollectorSetCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDataCollectorSetCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDataManager, IDataManager_Vtbl, 0x03837541_098b_11d8_9414_505054503030);
@@ -2965,31 +3029,37 @@ impl IDataManager {
     pub unsafe fn SetCheckBeforeRunning(&self, fcheck: super::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCheckBeforeRunning)(windows_core::Interface::as_raw(self), fcheck) }
     }
-    pub unsafe fn MinFreeDisk(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn MinFreeDisk(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinFreeDisk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMinFreeDisk(&self, minfreedisk: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMinFreeDisk(&self, minfreedisk: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMinFreeDisk)(windows_core::Interface::as_raw(self), minfreedisk) }
     }
-    pub unsafe fn MaxSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn MaxSize(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxSize(&self, ulmaxsize: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaxSize(&self, ulmaxsize: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaxSize)(windows_core::Interface::as_raw(self), ulmaxsize) }
     }
-    pub unsafe fn MaxFolderCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn MaxFolderCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxFolderCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaxFolderCount(&self, ulmaxfoldercount: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaxFolderCount)(windows_core::Interface::as_raw(self), ulmaxfoldercount) }
     }
     pub unsafe fn ResourcePolicy(&self) -> windows_core::Result<ResourcePolicy> {
@@ -3083,12 +3153,30 @@ pub struct IDataManager_Vtbl {
     pub SetCheckBeforeRunning: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetCheckBeforeRunning: usize,
-    pub MinFreeDisk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetMinFreeDisk: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub MaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetMaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub MaxFolderCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetMaxFolderCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub MinFreeDisk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    MinFreeDisk: usize,
+    #[cfg(feature = "shared")]
+    pub SetMinFreeDisk: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMinFreeDisk: usize,
+    #[cfg(feature = "shared")]
+    pub MaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    MaxSize: usize,
+    #[cfg(feature = "shared")]
+    pub SetMaxSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaxSize: usize,
+    #[cfg(feature = "shared")]
+    pub MaxFolderCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    MaxFolderCount: usize,
+    #[cfg(feature = "shared")]
+    pub SetMaxFolderCount: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaxFolderCount: usize,
     pub ResourcePolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResourcePolicy) -> windows_core::HRESULT,
     pub SetResourcePolicy: unsafe extern "system" fn(*mut core::ffi::c_void, ResourcePolicy) -> windows_core::HRESULT,
     pub FolderActions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3105,18 +3193,18 @@ pub struct IDataManager_Vtbl {
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, DataManagerSteps, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Extract: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDataManager_Impl: super::IDispatch_Impl {
     fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetEnabled(&self, fenabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CheckBeforeRunning(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetCheckBeforeRunning(&self, fcheck: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn MinFreeDisk(&self) -> windows_core::Result<u32>;
-    fn SetMinFreeDisk(&self, minfreedisk: u32) -> windows_core::Result<()>;
-    fn MaxSize(&self) -> windows_core::Result<u32>;
-    fn SetMaxSize(&self, ulmaxsize: u32) -> windows_core::Result<()>;
-    fn MaxFolderCount(&self) -> windows_core::Result<u32>;
-    fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> windows_core::Result<()>;
+    fn MinFreeDisk(&self) -> windows_core::Result<super::ULONG>;
+    fn SetMinFreeDisk(&self, minfreedisk: super::ULONG) -> windows_core::Result<()>;
+    fn MaxSize(&self) -> windows_core::Result<super::ULONG>;
+    fn SetMaxSize(&self, ulmaxsize: super::ULONG) -> windows_core::Result<()>;
+    fn MaxFolderCount(&self) -> windows_core::Result<super::ULONG>;
+    fn SetMaxFolderCount(&self, ulmaxfoldercount: super::ULONG) -> windows_core::Result<()>;
     fn ResourcePolicy(&self) -> windows_core::Result<ResourcePolicy>;
     fn SetResourcePolicy(&self, policy: ResourcePolicy) -> windows_core::Result<()>;
     fn FolderActions(&self) -> windows_core::Result<IFolderActionCollection>;
@@ -3133,7 +3221,7 @@ pub trait IDataManager_Impl: super::IDispatch_Impl {
     fn Run(&self, steps: DataManagerSteps, bstrfolder: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
     fn Extract(&self, cabfilename: &windows_core::BSTR, destinationpath: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDataManager_Vtbl {
     pub const fn new<Identity: IDataManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Enabled<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3172,7 +3260,7 @@ impl IDataManager_Vtbl {
                 IDataManager_Impl::SetCheckBeforeRunning(this, core::mem::transmute_copy(&fcheck)).into()
             }
         }
-        unsafe extern "system" fn MinFreeDisk<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minfreedisk: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MinFreeDisk<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minfreedisk: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::MinFreeDisk(this) {
@@ -3184,13 +3272,13 @@ impl IDataManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMinFreeDisk<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minfreedisk: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMinFreeDisk<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minfreedisk: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDataManager_Impl::SetMinFreeDisk(this, core::mem::transmute_copy(&minfreedisk)).into()
             }
         }
-        unsafe extern "system" fn MaxSize<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmaxsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MaxSize<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmaxsize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::MaxSize(this) {
@@ -3202,13 +3290,13 @@ impl IDataManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMaxSize<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulmaxsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaxSize<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulmaxsize: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDataManager_Impl::SetMaxSize(this, core::mem::transmute_copy(&ulmaxsize)).into()
             }
         }
-        unsafe extern "system" fn MaxFolderCount<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmaxfoldercount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MaxFolderCount<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmaxfoldercount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataManager_Impl::MaxFolderCount(this) {
@@ -3220,7 +3308,7 @@ impl IDataManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMaxFolderCount<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulmaxfoldercount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaxFolderCount<Identity: IDataManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulmaxfoldercount: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDataManager_Impl::SetMaxFolderCount(this, core::mem::transmute_copy(&ulmaxfoldercount)).into()
@@ -3397,7 +3485,7 @@ impl IDataManager_Vtbl {
         iid == &<IDataManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDataManager {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFolderAction, IFolderAction_Vtbl, 0x03837543_098b_11d8_9414_505054503030);
@@ -3412,22 +3500,26 @@ impl core::ops::Deref for IFolderAction {
 windows_core::imp::interface_hierarchy!(IFolderAction, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IFolderAction {
-    pub unsafe fn Age(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Age(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Age)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAge(&self, ulage: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetAge(&self, ulage: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAge)(windows_core::Interface::as_raw(self), ulage) }
     }
-    pub unsafe fn Size(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Size(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSize(&self, ulage: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSize(&self, ulage: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), ulage) }
     }
     pub unsafe fn Actions(&self) -> windows_core::Result<FolderActionSteps> {
@@ -3454,30 +3546,42 @@ impl IFolderAction {
 #[doc(hidden)]
 pub struct IFolderAction_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Age: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetAge: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Age: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Age: usize,
+    #[cfg(feature = "shared")]
+    pub SetAge: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetAge: usize,
+    #[cfg(feature = "shared")]
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Size: usize,
+    #[cfg(feature = "shared")]
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSize: usize,
     pub Actions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FolderActionSteps) -> windows_core::HRESULT,
     pub SetActions: unsafe extern "system" fn(*mut core::ffi::c_void, FolderActionSteps) -> windows_core::HRESULT,
     pub SendCabTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSendCabTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFolderAction_Impl: super::IDispatch_Impl {
-    fn Age(&self) -> windows_core::Result<u32>;
-    fn SetAge(&self, ulage: u32) -> windows_core::Result<()>;
-    fn Size(&self) -> windows_core::Result<u32>;
-    fn SetSize(&self, ulage: u32) -> windows_core::Result<()>;
+    fn Age(&self) -> windows_core::Result<super::ULONG>;
+    fn SetAge(&self, ulage: super::ULONG) -> windows_core::Result<()>;
+    fn Size(&self) -> windows_core::Result<super::ULONG>;
+    fn SetSize(&self, ulage: super::ULONG) -> windows_core::Result<()>;
     fn Actions(&self) -> windows_core::Result<FolderActionSteps>;
     fn SetActions(&self, steps: FolderActionSteps) -> windows_core::Result<()>;
     fn SendCabTo(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSendCabTo(&self, bstrdestination: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFolderAction_Vtbl {
     pub const fn new<Identity: IFolderAction_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Age<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulage: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Age<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulage: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFolderAction_Impl::Age(this) {
@@ -3489,13 +3593,13 @@ impl IFolderAction_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAge<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulage: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAge<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulage: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFolderAction_Impl::SetAge(this, core::mem::transmute_copy(&ulage)).into()
             }
         }
-        unsafe extern "system" fn Size<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulage: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Size<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulage: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFolderAction_Impl::Size(this) {
@@ -3507,7 +3611,7 @@ impl IFolderAction_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSize<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulage: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSize<Identity: IFolderAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulage: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFolderAction_Impl::SetSize(this, core::mem::transmute_copy(&ulage)).into()
@@ -3565,7 +3669,7 @@ impl IFolderAction_Vtbl {
         iid == &<IFolderAction as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFolderAction {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFolderActionCollection, IFolderActionCollection_Vtbl, 0x03837544_098b_11d8_9414_505054503030);
@@ -3580,13 +3684,14 @@ impl core::ops::Deref for IFolderActionCollection {
 windows_core::imp::interface_hierarchy!(IFolderActionCollection, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IFolderActionCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Count(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IFolderAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3605,7 +3710,7 @@ impl IFolderActionCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), action.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)) }
     }
@@ -3630,24 +3735,27 @@ impl IFolderActionCollection {
 #[doc(hidden)]
 pub struct IFolderActionCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "shared")]
+    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Count: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFolderAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFolderActionCollection_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<u32>;
+    fn Count(&self) -> windows_core::Result<super::ULONG>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IFolderAction>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Add(&self, action: windows_core::Ref<IFolderAction>) -> windows_core::Result<()>;
@@ -3656,10 +3764,10 @@ pub trait IFolderActionCollection_Impl: super::IDispatch_Impl {
     fn AddRange(&self, actions: windows_core::Ref<IFolderActionCollection>) -> windows_core::Result<()>;
     fn CreateFolderAction(&self) -> windows_core::Result<IFolderAction>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFolderActionCollection_Vtbl {
     pub const fn new<Identity: IFolderActionCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Count<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFolderActionCollection_Impl::Count(this) {
@@ -3747,7 +3855,7 @@ impl IFolderActionCollection_Vtbl {
         iid == &<IFolderActionCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFolderActionCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IPerformanceCounterDataCollector, IPerformanceCounterDataCollector_Vtbl, 0x03837506_098b_11d8_9414_505054503030);
@@ -3771,12 +3879,14 @@ impl IPerformanceCounterDataCollector {
     pub unsafe fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDataSourceName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(dsn)) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn PerformanceCounters(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PerformanceCounters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetPerformanceCounters(&self, counters: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPerformanceCounters)(windows_core::Interface::as_raw(self), counters) }
     }
@@ -3815,8 +3925,14 @@ pub struct IPerformanceCounterDataCollector_Vtbl {
     pub base__: IDataCollector_Vtbl,
     pub DataSourceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDataSourceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub PerformanceCounters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    PerformanceCounters: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetPerformanceCounters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetPerformanceCounters: usize,
     pub LogFileFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FileFormat) -> windows_core::HRESULT,
     pub SetLogFileFormat: unsafe extern "system" fn(*mut core::ffi::c_void, FileFormat) -> windows_core::HRESULT,
     pub SampleInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3824,7 +3940,7 @@ pub struct IPerformanceCounterDataCollector_Vtbl {
     pub SegmentMaxRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetSegmentMaxRecords: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPerformanceCounterDataCollector_Impl: IDataCollector_Impl {
     fn DataSourceName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -3837,7 +3953,7 @@ pub trait IPerformanceCounterDataCollector_Impl: IDataCollector_Impl {
     fn SegmentMaxRecords(&self) -> windows_core::Result<u32>;
     fn SetSegmentMaxRecords(&self, records: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPerformanceCounterDataCollector_Vtbl {
     pub const fn new<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DataSourceName<Identity: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dsn: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3948,7 +4064,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
         iid == &<IPerformanceCounterDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPerformanceCounterDataCollector {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISchedule, ISchedule_Vtbl, 0x0383753a_098b_11d8_9414_505054503030);
@@ -3963,36 +4079,36 @@ impl core::ops::Deref for ISchedule {
 windows_core::imp::interface_hierarchy!(ISchedule, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ISchedule {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn StartDate(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetStartDate(&self, start: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStartDate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(start)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn EndDate(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EndDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetEndDate(&self, end: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEndDate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(end)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn StartTime(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetStartTime(&self, start: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(start)) }
     }
@@ -4011,34 +4127,34 @@ impl ISchedule {
 #[doc(hidden)]
 pub struct ISchedule_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub StartDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     StartDate: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetStartDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetStartDate: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub EndDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     EndDate: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetEndDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetEndDate: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     StartTime: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetStartTime: usize,
     pub Days: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WeekDays) -> windows_core::HRESULT,
     pub SetDays: unsafe extern "system" fn(*mut core::ffi::c_void, WeekDays) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISchedule_Impl: super::IDispatch_Impl {
     fn StartDate(&self) -> windows_core::Result<super::VARIANT>;
     fn SetStartDate(&self, start: &super::VARIANT) -> windows_core::Result<()>;
@@ -4049,7 +4165,7 @@ pub trait ISchedule_Impl: super::IDispatch_Impl {
     fn Days(&self) -> windows_core::Result<WeekDays>;
     fn SetDays(&self, days: WeekDays) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISchedule_Vtbl {
     pub const fn new<Identity: ISchedule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartDate<Identity: ISchedule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -4140,7 +4256,7 @@ impl ISchedule_Vtbl {
         iid == &<ISchedule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISchedule {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IScheduleCollection, IScheduleCollection_Vtbl, 0x0383753d_098b_11d8_9414_505054503030);
@@ -4161,7 +4277,7 @@ impl IScheduleCollection {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<ISchedule> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4180,7 +4296,7 @@ impl IScheduleCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pschedule.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, vschedule: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vschedule)) }
     }
@@ -4206,21 +4322,21 @@ impl IScheduleCollection {
 pub struct IScheduleCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSchedule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IScheduleCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<ISchedule>;
@@ -4231,7 +4347,7 @@ pub trait IScheduleCollection_Impl: super::IDispatch_Impl {
     fn AddRange(&self, pschedules: windows_core::Ref<IScheduleCollection>) -> windows_core::Result<()>;
     fn CreateSchedule(&self) -> windows_core::Result<ISchedule>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IScheduleCollection_Vtbl {
     pub const fn new<Identity: IScheduleCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -4322,7 +4438,7 @@ impl IScheduleCollection_Vtbl {
         iid == &<IScheduleCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IScheduleCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ITraceDataCollector, ITraceDataCollector_Vtbl, 0x0383750b_098b_11d8_9414_505054503030);
@@ -4483,13 +4599,15 @@ impl ITraceDataCollector {
     pub unsafe fn SetRealTimeBuffersLost(&self, buffers: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRealTimeBuffersLost)(windows_core::Interface::as_raw(self), buffers) }
     }
-    pub unsafe fn SessionId(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SessionId(&self) -> windows_core::Result<super::ULONG64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSessionId(&self, id: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSessionId(&self, id: super::ULONG64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSessionId)(windows_core::Interface::as_raw(self), id) }
     }
     pub unsafe fn SessionName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -4577,8 +4695,14 @@ pub struct ITraceDataCollector_Vtbl {
     SetProcessMode: usize,
     pub RealTimeBuffersLost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRealTimeBuffersLost: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub SetSessionId: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SessionId: usize,
+    #[cfg(feature = "shared")]
+    pub SetSessionId: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSessionId: usize,
     pub SessionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSessionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SessionThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4587,7 +4711,7 @@ pub struct ITraceDataCollector_Vtbl {
     pub SetStreamMode: unsafe extern "system" fn(*mut core::ffi::c_void, StreamMode) -> windows_core::HRESULT,
     pub TraceDataProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITraceDataCollector_Impl: IDataCollector_Impl {
     fn BufferSize(&self) -> windows_core::Result<u32>;
     fn SetBufferSize(&self, size: u32) -> windows_core::Result<()>;
@@ -4620,8 +4744,8 @@ pub trait ITraceDataCollector_Impl: IDataCollector_Impl {
     fn SetProcessMode(&self, process: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn RealTimeBuffersLost(&self) -> windows_core::Result<u32>;
     fn SetRealTimeBuffersLost(&self, buffers: u32) -> windows_core::Result<()>;
-    fn SessionId(&self) -> windows_core::Result<u64>;
-    fn SetSessionId(&self, id: u64) -> windows_core::Result<()>;
+    fn SessionId(&self) -> windows_core::Result<super::ULONG64>;
+    fn SetSessionId(&self, id: super::ULONG64) -> windows_core::Result<()>;
     fn SessionName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSessionName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SessionThreadId(&self) -> windows_core::Result<u32>;
@@ -4630,7 +4754,7 @@ pub trait ITraceDataCollector_Impl: IDataCollector_Impl {
     fn SetStreamMode(&self, mode: StreamMode) -> windows_core::Result<()>;
     fn TraceDataProviders(&self) -> windows_core::Result<ITraceDataProviderCollection>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITraceDataCollector_Vtbl {
     pub const fn new<Identity: ITraceDataCollector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BufferSize<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT {
@@ -4915,7 +5039,7 @@ impl ITraceDataCollector_Vtbl {
                 ITraceDataCollector_Impl::SetRealTimeBuffersLost(this, core::mem::transmute_copy(&buffers)).into()
             }
         }
-        unsafe extern "system" fn SessionId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SessionId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut super::ULONG64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataCollector_Impl::SessionId(this) {
@@ -4927,7 +5051,7 @@ impl ITraceDataCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSessionId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSessionId<Identity: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: super::ULONG64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITraceDataCollector_Impl::SetSessionId(this, core::mem::transmute_copy(&id)).into()
@@ -5047,7 +5171,7 @@ impl ITraceDataCollector_Vtbl {
         iid == &<ITraceDataCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDataCollector as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITraceDataCollector {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ITraceDataProvider, ITraceDataProvider_Vtbl, 0x03837512_098b_11d8_9414_505054503030);
@@ -5115,21 +5239,25 @@ impl ITraceDataProvider {
     pub unsafe fn SetFilterEnabled(&self, filterenabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFilterEnabled)(windows_core::Interface::as_raw(self), filterenabled) }
     }
-    pub unsafe fn FilterType(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn FilterType(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FilterType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFilterType(&self, ultype: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetFilterType(&self, ultype: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFilterType)(windows_core::Interface::as_raw(self), ultype) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn FilterData(&self) -> windows_core::Result<*mut super::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FilterData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn SetFilterData(&self, pdata: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFilterData)(windows_core::Interface::as_raw(self), pdata) }
     }
@@ -5145,7 +5273,8 @@ impl ITraceDataProvider {
     pub unsafe fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sddl)) }
     }
-    pub unsafe fn GetSecurity(&self, securityinfo: u32) -> windows_core::Result<windows_core::BSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSecurity(&self, securityinfo: super::ULONG) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), securityinfo, &mut result__).map(|| core::mem::transmute(result__))
@@ -5179,17 +5308,32 @@ pub struct ITraceDataProvider_Vtbl {
     pub SetFilterEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetFilterEnabled: usize,
-    pub FilterType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub FilterType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    FilterType: usize,
+    #[cfg(feature = "shared")]
+    pub SetFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetFilterType: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub FilterData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    FilterData: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub SetFilterData: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetFilterData: usize,
     pub Query: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSecurity: usize,
     pub GetRegisteredProcesses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITraceDataProvider_Impl: super::IDispatch_Impl {
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -5201,17 +5345,17 @@ pub trait ITraceDataProvider_Impl: super::IDispatch_Impl {
     fn Properties(&self) -> windows_core::Result<IValueMap>;
     fn FilterEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetFilterEnabled(&self, filterenabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn FilterType(&self) -> windows_core::Result<u32>;
-    fn SetFilterType(&self, ultype: u32) -> windows_core::Result<()>;
+    fn FilterType(&self) -> windows_core::Result<super::ULONG>;
+    fn SetFilterType(&self, ultype: super::ULONG) -> windows_core::Result<()>;
     fn FilterData(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetFilterData(&self, pdata: *const super::SAFEARRAY) -> windows_core::Result<()>;
     fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Resolve(&self, pfrom: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
     fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetSecurity(&self, securityinfo: u32) -> windows_core::Result<windows_core::BSTR>;
+    fn GetSecurity(&self, securityinfo: super::ULONG) -> windows_core::Result<windows_core::BSTR>;
     fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITraceDataProvider_Vtbl {
     pub const fn new<Identity: ITraceDataProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DisplayName<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5316,7 +5460,7 @@ impl ITraceDataProvider_Vtbl {
                 ITraceDataProvider_Impl::SetFilterEnabled(this, core::mem::transmute_copy(&filterenabled)).into()
             }
         }
-        unsafe extern "system" fn FilterType<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultype: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FilterType<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultype: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::FilterType(this) {
@@ -5328,7 +5472,7 @@ impl ITraceDataProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFilterType<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultype: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFilterType<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultype: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITraceDataProvider_Impl::SetFilterType(this, core::mem::transmute_copy(&ultype)).into()
@@ -5370,7 +5514,7 @@ impl ITraceDataProvider_Vtbl {
                 ITraceDataProvider_Impl::SetSecurity(this, core::mem::transmute(&sddl)).into()
             }
         }
-        unsafe extern "system" fn GetSecurity<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securityinfo: u32, sddl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSecurity<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, securityinfo: super::ULONG, sddl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceDataProvider_Impl::GetSecurity(this, core::mem::transmute_copy(&securityinfo)) {
@@ -5421,7 +5565,7 @@ impl ITraceDataProvider_Vtbl {
         iid == &<ITraceDataProvider as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITraceDataProvider {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ITraceDataProviderCollection, ITraceDataProviderCollection_Vtbl, 0x03837510_098b_11d8_9414_505054503030);
@@ -5442,7 +5586,7 @@ impl ITraceDataProviderCollection {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<ITraceDataProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5461,7 +5605,7 @@ impl ITraceDataProviderCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pprovider.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, vprovider: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vprovider)) }
     }
@@ -5483,7 +5627,8 @@ impl ITraceDataProviderCollection {
     pub unsafe fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTraceDataProviders)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(server)) }
     }
-    pub unsafe fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTraceDataProvidersByProcess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(server), pid) }
     }
 }
@@ -5493,23 +5638,26 @@ impl ITraceDataProviderCollection {
 pub struct ITraceDataProviderCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTraceDataProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTraceDataProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetTraceDataProvidersByProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetTraceDataProvidersByProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetTraceDataProvidersByProcess: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITraceDataProviderCollection_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<ITraceDataProvider>;
@@ -5520,9 +5668,9 @@ pub trait ITraceDataProviderCollection_Impl: super::IDispatch_Impl {
     fn AddRange(&self, providers: windows_core::Ref<ITraceDataProviderCollection>) -> windows_core::Result<()>;
     fn CreateTraceDataProvider(&self) -> windows_core::Result<ITraceDataProvider>;
     fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> windows_core::Result<()>;
+    fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITraceDataProviderCollection_Vtbl {
     pub const fn new<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -5603,7 +5751,7 @@ impl ITraceDataProviderCollection_Vtbl {
                 ITraceDataProviderCollection_Impl::GetTraceDataProviders(this, core::mem::transmute(&server)).into()
             }
         }
-        unsafe extern "system" fn GetTraceDataProvidersByProcess<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void, pid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTraceDataProvidersByProcess<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void, pid: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITraceDataProviderCollection_Impl::GetTraceDataProvidersByProcess(this, core::mem::transmute(&server), core::mem::transmute_copy(&pid)).into()
@@ -5627,7 +5775,7 @@ impl ITraceDataProviderCollection_Vtbl {
         iid == &<ITraceDataProviderCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITraceDataProviderCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IValueMap, IValueMap_Vtbl, 0x03837534_098b_11d8_9414_505054503030);
@@ -5648,7 +5796,7 @@ impl IValueMap {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IValueMapItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5670,14 +5818,14 @@ impl IValueMap {
     pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, value: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
@@ -5690,11 +5838,11 @@ impl IValueMap {
     pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValueMapType)(windows_core::Interface::as_raw(self), r#type) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add(&self, value: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, value: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
@@ -5720,36 +5868,36 @@ impl IValueMap {
 pub struct IValueMap_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Value: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub ValueMapType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ValueMapType) -> windows_core::HRESULT,
     pub SetValueMapType: unsafe extern "system" fn(*mut core::ffi::c_void, ValueMapType) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateValueMapItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IValueMap_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IValueMapItem>;
@@ -5766,7 +5914,7 @@ pub trait IValueMap_Impl: super::IDispatch_Impl {
     fn AddRange(&self, map: windows_core::Ref<IValueMap>) -> windows_core::Result<()>;
     fn CreateValueMapItem(&self) -> windows_core::Result<IValueMapItem>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IValueMap_Vtbl {
     pub const fn new<Identity: IValueMap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -5917,7 +6065,7 @@ impl IValueMap_Vtbl {
         iid == &<IValueMap as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IValueMap {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IValueMapItem, IValueMapItem_Vtbl, 0x03837533_098b_11d8_9414_505054503030);
@@ -5961,14 +6109,14 @@ impl IValueMapItem {
     pub unsafe fn SetKey(&self, key: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(key)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, value: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)) }
     }
@@ -5999,18 +6147,18 @@ pub struct IValueMapItem_Vtbl {
     SetEnabled: usize,
     pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Value: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub ValueMapType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ValueMapType) -> windows_core::HRESULT,
     pub SetValueMapType: unsafe extern "system" fn(*mut core::ffi::c_void, ValueMapType) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IValueMapItem_Impl: super::IDispatch_Impl {
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -6023,7 +6171,7 @@ pub trait IValueMapItem_Impl: super::IDispatch_Impl {
     fn ValueMapType(&self) -> windows_core::Result<ValueMapType>;
     fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IValueMapItem_Vtbl {
     pub const fn new<Identity: IValueMapItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Description<Identity: IValueMapItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6134,21 +6282,30 @@ impl IValueMapItem_Vtbl {
         iid == &<IValueMapItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IValueMapItem {}
 pub const LegacyDataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
 pub const LegacyDataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
 pub const LegacyTraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
 pub const LegacyTraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837529_098b_11d8_9414_505054503030);
-pub const PLAL_ALERT_CMD_LINE_A_NAME: u32 = 512;
-pub const PLAL_ALERT_CMD_LINE_C_NAME: u32 = 1024;
-pub const PLAL_ALERT_CMD_LINE_D_TIME: u32 = 2048;
-pub const PLAL_ALERT_CMD_LINE_L_VAL: u32 = 4096;
-pub const PLAL_ALERT_CMD_LINE_MASK: u32 = 32512;
-pub const PLAL_ALERT_CMD_LINE_M_VAL: u32 = 8192;
-pub const PLAL_ALERT_CMD_LINE_SINGLE: u32 = 256;
-pub const PLAL_ALERT_CMD_LINE_U_TEXT: u32 = 16384;
-pub type PLA_CABEXTRACT_CALLBACK = Option<unsafe extern "C" fn(filename: windows_core::PCWSTR, context: *mut core::ffi::c_void)>;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_A_NAME: super::DWORD = 512;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_C_NAME: super::DWORD = 1024;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_D_TIME: super::DWORD = 2048;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_L_VAL: super::DWORD = 4096;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_MASK: super::DWORD = 32512;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_M_VAL: super::DWORD = 8192;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_SINGLE: super::DWORD = 256;
+#[cfg(feature = "shared")]
+pub const PLAL_ALERT_CMD_LINE_U_TEXT: super::DWORD = 16384;
+#[cfg(feature = "winnt")]
+pub type PLA_CABEXTRACT_CALLBACK = Option<unsafe extern "C" fn(filename: windows_core::PCWSTR, context: super::PVOID)>;
 pub const PLA_CAPABILITY_AUTOLOGGER: i32 = 32;
 pub const PLA_CAPABILITY_LEGACY_SESSION: i32 = 8;
 pub const PLA_CAPABILITY_LEGACY_SVC: i32 = 16;

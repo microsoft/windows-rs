@@ -396,10 +396,12 @@ pub type DISPID_SpeechXMLRecoResult = i32;
 windows_core::imp::define_interface!(IEnumSpObjectTokens, IEnumSpObjectTokens_Vtbl, 0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
 windows_core::imp::interface_hierarchy!(IEnumSpObjectTokens, windows_core::IUnknown);
 impl IEnumSpObjectTokens {
-    pub unsafe fn Next(&self, celt: u32, pelt: *mut Option<ISpObjectToken>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Next(&self, celt: super::ULONG, pelt: *mut Option<ISpObjectToken>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -411,13 +413,15 @@ impl IEnumSpObjectTokens {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Item(&self, index: u32) -> windows_core::Result<ISpObjectToken> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Item(&self, index: super::ULONG) -> windows_core::Result<ISpObjectToken> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -428,30 +432,44 @@ impl IEnumSpObjectTokens {
 #[doc(hidden)]
 pub struct IEnumSpObjectTokens_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Next: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Item: usize,
+    #[cfg(feature = "shared")]
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCount: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IEnumSpObjectTokens_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, pelt: windows_core::OutRef<ISpObjectToken>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, pelt: windows_core::OutRef<ISpObjectToken>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumSpObjectTokens>;
-    fn Item(&self, index: u32) -> windows_core::Result<ISpObjectToken>;
-    fn GetCount(&self) -> windows_core::Result<u32>;
+    fn Item(&self, index: super::ULONG) -> windows_core::Result<ISpObjectToken>;
+    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
 }
+#[cfg(feature = "shared")]
 impl IEnumSpObjectTokens_Vtbl {
     pub const fn new<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, pelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, pelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumSpObjectTokens_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumSpObjectTokens_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
@@ -475,7 +493,7 @@ impl IEnumSpObjectTokens_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Item<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pptoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, pptoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumSpObjectTokens_Impl::Item(this, core::mem::transmute_copy(&index)) {
@@ -487,7 +505,7 @@ impl IEnumSpObjectTokens_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCount<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: IEnumSpObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumSpObjectTokens_Impl::GetCount(this) {
@@ -513,6 +531,7 @@ impl IEnumSpObjectTokens_Vtbl {
         iid == &<IEnumSpObjectTokens as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IEnumSpObjectTokens {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(ISpAudio, ISpAudio_Vtbl, 0xc05c768f_fae8_4ec2_8e07_338321c12452);
@@ -527,26 +546,30 @@ impl core::ops::Deref for ISpAudio {
 windows_core::imp::interface_hierarchy!(ISpAudio, windows_core::IUnknown, super::ISequentialStream, super::IStream, ISpStreamFormat);
 #[cfg(feature = "objidlbase")]
 impl ISpAudio {
-    pub unsafe fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: super::ULONGLONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), newstate, ullreserved) }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn SetFormat(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), rguidfmtid, pwaveformatex) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPAUDIOSTATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pstatus as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn SetBufferInfo(&self, pbuffinfo: *const SPAUDIOBUFFERINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBufferInfo)(windows_core::Interface::as_raw(self), pbuffinfo) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetBufferInfo(&self) -> windows_core::Result<SPAUDIOBUFFERINFO> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBufferInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn GetDefaultFormat(&self, pformatid: *mut windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDefaultFormat)(windows_core::Interface::as_raw(self), pformatid as _, ppcomemwaveformatex as _) }
     }
@@ -554,22 +577,26 @@ impl ISpAudio {
     pub unsafe fn EventHandle(&self) -> super::HANDLE {
         unsafe { (windows_core::Interface::vtable(self).EventHandle)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetVolumeLevel(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetVolumeLevel(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVolumeLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVolumeLevel(&self, level: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetVolumeLevel(&self, level: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVolumeLevel)(windows_core::Interface::as_raw(self), level) }
     }
-    pub unsafe fn GetBufferNotifySize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBufferNotifySize(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBufferNotifySize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBufferNotifySize(&self, cbsize: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetBufferNotifySize(&self, cbsize: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBufferNotifySize)(windows_core::Interface::as_raw(self), cbsize) }
     }
 }
@@ -578,45 +605,69 @@ impl ISpAudio {
 #[doc(hidden)]
 pub struct ISpAudio_Vtbl {
     pub base__: ISpStreamFormat_Vtbl,
-    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, SPAUDIOSTATE, u64) -> windows_core::HRESULT,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(feature = "shared")]
+    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, SPAUDIOSTATE, super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetState: usize,
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     SetFormat: usize,
+    #[cfg(feature = "shared")]
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPAUDIOSTATUS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetStatus: usize,
+    #[cfg(feature = "shared")]
     pub SetBufferInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPAUDIOBUFFERINFO) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetBufferInfo: usize,
+    #[cfg(feature = "shared")]
     pub GetBufferInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPAUDIOBUFFERINFO) -> windows_core::HRESULT,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(not(feature = "shared"))]
+    GetBufferInfo: usize,
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub GetDefaultFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetDefaultFormat: usize,
     #[cfg(feature = "winnt")]
     pub EventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::HANDLE,
     #[cfg(not(feature = "winnt"))]
     EventHandle: usize,
-    pub GetVolumeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetVolumeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetVolumeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetVolumeLevel: usize,
+    #[cfg(feature = "shared")]
+    pub SetVolumeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetVolumeLevel: usize,
+    #[cfg(feature = "shared")]
+    pub GetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBufferNotifySize: usize,
+    #[cfg(feature = "shared")]
+    pub SetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetBufferNotifySize: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpAudio_Impl: ISpStreamFormat_Impl {
-    fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> windows_core::Result<()>;
+    fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: super::ULONGLONG) -> windows_core::Result<()>;
     fn SetFormat(&self, rguidfmtid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn GetStatus(&self, pstatus: *mut SPAUDIOSTATUS) -> windows_core::Result<()>;
     fn SetBufferInfo(&self, pbuffinfo: *const SPAUDIOBUFFERINFO) -> windows_core::Result<()>;
     fn GetBufferInfo(&self) -> windows_core::Result<SPAUDIOBUFFERINFO>;
     fn GetDefaultFormat(&self, pformatid: *mut windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn EventHandle(&self) -> super::HANDLE;
-    fn GetVolumeLevel(&self) -> windows_core::Result<u32>;
-    fn SetVolumeLevel(&self, level: u32) -> windows_core::Result<()>;
-    fn GetBufferNotifySize(&self) -> windows_core::Result<u32>;
-    fn SetBufferNotifySize(&self, cbsize: u32) -> windows_core::Result<()>;
+    fn GetVolumeLevel(&self) -> windows_core::Result<super::ULONG>;
+    fn SetVolumeLevel(&self, level: super::ULONG) -> windows_core::Result<()>;
+    fn GetBufferNotifySize(&self) -> windows_core::Result<super::ULONG>;
+    fn SetBufferNotifySize(&self, cbsize: super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpAudio_Vtbl {
     pub const fn new<Identity: ISpAudio_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetState<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: SPAUDIOSTATE, ullreserved: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetState<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: SPAUDIOSTATE, ullreserved: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpAudio_Impl::SetState(this, core::mem::transmute_copy(&newstate), core::mem::transmute_copy(&ullreserved)).into()
@@ -664,7 +715,7 @@ impl ISpAudio_Vtbl {
                 ISpAudio_Impl::EventHandle(this)
             }
         }
-        unsafe extern "system" fn GetVolumeLevel<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plevel: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVolumeLevel<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plevel: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpAudio_Impl::GetVolumeLevel(this) {
@@ -676,13 +727,13 @@ impl ISpAudio_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetVolumeLevel<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVolumeLevel<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpAudio_Impl::SetVolumeLevel(this, core::mem::transmute_copy(&level)).into()
             }
         }
-        unsafe extern "system" fn GetBufferNotifySize<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBufferNotifySize<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbsize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpAudio_Impl::GetBufferNotifySize(this) {
@@ -694,7 +745,7 @@ impl ISpAudio_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBufferNotifySize<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBufferNotifySize<Identity: ISpAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbsize: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpAudio_Impl::SetBufferNotifySize(this, core::mem::transmute_copy(&cbsize)).into()
@@ -719,7 +770,7 @@ impl ISpAudio_Vtbl {
         iid == &<ISpAudio as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpAudio {}
 windows_core::imp::define_interface!(ISpContainerLexicon, ISpContainerLexicon_Vtbl, 0x8565572f_c094_41cc_b56e_10bd9c3ff044);
 impl core::ops::Deref for ISpContainerLexicon {
@@ -730,7 +781,8 @@ impl core::ops::Deref for ISpContainerLexicon {
 }
 windows_core::imp::interface_hierarchy!(ISpContainerLexicon, windows_core::IUnknown, ISpLexicon);
 impl ISpContainerLexicon {
-    pub unsafe fn AddLexicon<P0>(&self, paddlexicon: P0, dwflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddLexicon<P0>(&self, paddlexicon: P0, dwflags: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISpLexicon>,
     {
@@ -741,14 +793,19 @@ impl ISpContainerLexicon {
 #[doc(hidden)]
 pub struct ISpContainerLexicon_Vtbl {
     pub base__: ISpLexicon_Vtbl,
-    pub AddLexicon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub AddLexicon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddLexicon: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpContainerLexicon_Impl: ISpLexicon_Impl {
-    fn AddLexicon(&self, paddlexicon: windows_core::Ref<ISpLexicon>, dwflags: u32) -> windows_core::Result<()>;
+    fn AddLexicon(&self, paddlexicon: windows_core::Ref<ISpLexicon>, dwflags: super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpContainerLexicon_Vtbl {
     pub const fn new<Identity: ISpContainerLexicon_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddLexicon<Identity: ISpContainerLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddlexicon: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddLexicon<Identity: ISpContainerLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddlexicon: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpContainerLexicon_Impl::AddLexicon(this, core::mem::transmute_copy(&paddlexicon), core::mem::transmute_copy(&dwflags)).into()
@@ -760,17 +817,20 @@ impl ISpContainerLexicon_Vtbl {
         iid == &<ISpContainerLexicon as windows_core::Interface>::IID || iid == &<ISpLexicon as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpContainerLexicon {}
 windows_core::imp::define_interface!(ISpDataKey, ISpDataKey_Vtbl, 0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpDataKey, windows_core::IUnknown);
 impl ISpDataKey {
-    pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: super::ULONG, pdata: *const super::BYTE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pszvaluename.param().abi(), cbdata, pdata) }
     }
-    pub unsafe fn GetData<P0>(&self, pszvaluename: P0, pcbdata: *const u32) -> windows_core::Result<u8>
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetData<P0>(&self, pszvaluename: P0, pcbdata: *const super::ULONG) -> windows_core::Result<super::BYTE>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -795,13 +855,15 @@ impl ISpDataKey {
             (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), pszvaluename.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDWORD)(windows_core::Interface::as_raw(self), pszvaluename.param().abi(), dwvalue) }
     }
-    pub unsafe fn GetDWORD<P0>(&self, pszvaluename: P0) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDWORD<P0>(&self, pszvaluename: P0) -> windows_core::Result<super::DWORD>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -840,13 +902,15 @@ impl ISpDataKey {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteValue)(windows_core::Interface::as_raw(self), pszvaluename.param().abi()) }
     }
-    pub unsafe fn EnumKeys(&self, index: u32) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumKeys(&self, index: super::ULONG) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumKeys)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumValues(&self, index: u32) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumValues(&self, index: super::ULONG) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumValues)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
@@ -857,42 +921,62 @@ impl ISpDataKey {
 #[doc(hidden)]
 pub struct ISpDataKey_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *const u8) -> windows_core::HRESULT,
-    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u32, *mut u8) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG, *const super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetData: usize,
+    #[cfg(feature = "shared")]
+    pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::ULONG, *mut super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetData: usize,
     pub SetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetDWORD: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    pub GetDWORD: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetDWORD: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetDWORD: usize,
+    #[cfg(feature = "shared")]
+    pub GetDWORD: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDWORD: usize,
     pub OpenKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub DeleteValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub EnumKeys: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub EnumValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub EnumKeys: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumKeys: usize,
+    #[cfg(feature = "shared")]
+    pub EnumValues: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumValues: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpDataKey_Impl: windows_core::IUnknownImpl {
-    fn SetData(&self, pszvaluename: &windows_core::PCWSTR, cbdata: u32, pdata: *const u8) -> windows_core::Result<()>;
-    fn GetData(&self, pszvaluename: &windows_core::PCWSTR, pcbdata: *const u32) -> windows_core::Result<u8>;
+    fn SetData(&self, pszvaluename: &windows_core::PCWSTR, cbdata: super::ULONG, pdata: *const super::BYTE) -> windows_core::Result<()>;
+    fn GetData(&self, pszvaluename: &windows_core::PCWSTR, pcbdata: *const super::ULONG) -> windows_core::Result<super::BYTE>;
     fn SetStringValue(&self, pszvaluename: &windows_core::PCWSTR, pszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetStringValue(&self, pszvaluename: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetDWORD(&self, pszvaluename: &windows_core::PCWSTR, dwvalue: u32) -> windows_core::Result<()>;
-    fn GetDWORD(&self, pszvaluename: &windows_core::PCWSTR) -> windows_core::Result<u32>;
+    fn SetDWORD(&self, pszvaluename: &windows_core::PCWSTR, dwvalue: super::DWORD) -> windows_core::Result<()>;
+    fn GetDWORD(&self, pszvaluename: &windows_core::PCWSTR) -> windows_core::Result<super::DWORD>;
     fn OpenKey(&self, pszsubkeyname: &windows_core::PCWSTR) -> windows_core::Result<ISpDataKey>;
     fn CreateKey(&self, pszsubkey: &windows_core::PCWSTR) -> windows_core::Result<ISpDataKey>;
     fn DeleteKey(&self, pszsubkey: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DeleteValue(&self, pszvaluename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn EnumKeys(&self, index: u32) -> windows_core::Result<windows_core::PWSTR>;
-    fn EnumValues(&self, index: u32) -> windows_core::Result<windows_core::PWSTR>;
+    fn EnumKeys(&self, index: super::ULONG) -> windows_core::Result<windows_core::PWSTR>;
+    fn EnumValues(&self, index: super::ULONG) -> windows_core::Result<windows_core::PWSTR>;
 }
+#[cfg(feature = "shared")]
 impl ISpDataKey_Vtbl {
     pub const fn new<Identity: ISpDataKey_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetData<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, cbdata: u32, pdata: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, cbdata: super::ULONG, pdata: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpDataKey_Impl::SetData(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&pdata)).into()
             }
         }
-        unsafe extern "system" fn GetData<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, pcbdata: *const u32, pdata: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, pcbdata: *const super::ULONG, pdata: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpDataKey_Impl::GetData(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&pcbdata)) {
@@ -922,13 +1006,13 @@ impl ISpDataKey_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDWORD<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, dwvalue: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDWORD<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, dwvalue: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpDataKey_Impl::SetDWORD(this, core::mem::transmute(&pszvaluename), core::mem::transmute_copy(&dwvalue)).into()
             }
         }
-        unsafe extern "system" fn GetDWORD<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, pdwvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDWORD<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluename: windows_core::PCWSTR, pdwvalue: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpDataKey_Impl::GetDWORD(this, core::mem::transmute(&pszvaluename)) {
@@ -976,7 +1060,7 @@ impl ISpDataKey_Vtbl {
                 ISpDataKey_Impl::DeleteValue(this, core::mem::transmute(&pszvaluename)).into()
             }
         }
-        unsafe extern "system" fn EnumKeys<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, ppszsubkeyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumKeys<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, ppszsubkeyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpDataKey_Impl::EnumKeys(this, core::mem::transmute_copy(&index)) {
@@ -988,7 +1072,7 @@ impl ISpDataKey_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnumValues<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, ppszvaluename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumValues<Identity: ISpDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::ULONG, ppszvaluename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpDataKey_Impl::EnumValues(this, core::mem::transmute_copy(&index)) {
@@ -1020,14 +1104,17 @@ impl ISpDataKey_Vtbl {
         iid == &<ISpDataKey as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpDataKey {}
 windows_core::imp::define_interface!(ISpDisplayAlternates, ISpDisplayAlternates_Vtbl, 0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
 windows_core::imp::interface_hierarchy!(ISpDisplayAlternates, windows_core::IUnknown);
 impl ISpDisplayAlternates {
-    pub unsafe fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: super::ULONG, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayAlternates)(windows_core::Interface::as_raw(self), pphrase, crequestcount, ppcomemphrases as _, pcphrasesreturned as _) }
     }
-    pub unsafe fn SetFullStopTrailSpace(&self, ultrailspace: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetFullStopTrailSpace(&self, ultrailspace: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFullStopTrailSpace)(windows_core::Interface::as_raw(self), ultrailspace) }
     }
 }
@@ -1035,22 +1122,30 @@ impl ISpDisplayAlternates {
 #[doc(hidden)]
 pub struct ISpDisplayAlternates_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDisplayAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPDISPLAYPHRASE, u32, *mut *mut SPDISPLAYPHRASE, *mut u32) -> windows_core::HRESULT,
-    pub SetFullStopTrailSpace: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub GetDisplayAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPDISPLAYPHRASE, super::ULONG, *mut *mut SPDISPLAYPHRASE, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    GetDisplayAlternates: usize,
+    #[cfg(feature = "shared")]
+    pub SetFullStopTrailSpace: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetFullStopTrailSpace: usize,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait ISpDisplayAlternates_Impl: windows_core::IUnknownImpl {
-    fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
-    fn SetFullStopTrailSpace(&self, ultrailspace: u32) -> windows_core::Result<()>;
+    fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: super::ULONG, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut super::ULONG) -> windows_core::Result<()>;
+    fn SetFullStopTrailSpace(&self, ultrailspace: super::ULONG) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl ISpDisplayAlternates_Vtbl {
     pub const fn new<Identity: ISpDisplayAlternates_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDisplayAlternates<Identity: ISpDisplayAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayAlternates<Identity: ISpDisplayAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *const SPDISPLAYPHRASE, crequestcount: super::ULONG, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpDisplayAlternates_Impl::GetDisplayAlternates(this, core::mem::transmute_copy(&pphrase), core::mem::transmute_copy(&crequestcount), core::mem::transmute_copy(&ppcomemphrases), core::mem::transmute_copy(&pcphrasesreturned)).into()
             }
         }
-        unsafe extern "system" fn SetFullStopTrailSpace<Identity: ISpDisplayAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultrailspace: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFullStopTrailSpace<Identity: ISpDisplayAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultrailspace: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpDisplayAlternates_Impl::SetFullStopTrailSpace(this, core::mem::transmute_copy(&ultrailspace)).into()
@@ -1066,11 +1161,13 @@ impl ISpDisplayAlternates_Vtbl {
         iid == &<ISpDisplayAlternates as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpDisplayAlternates {}
 windows_core::imp::define_interface!(ISpEnginePronunciation, ISpEnginePronunciation_Vtbl, 0xc360ce4b_76d1_4214_ad68_52657d5083da);
 windows_core::imp::interface_hierarchy!(ISpEnginePronunciation, windows_core::IUnknown);
 impl ISpEnginePronunciation {
-    pub unsafe fn Normalize<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16) -> windows_core::Result<SPNORMALIZATIONLIST>
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn Normalize<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: super::WORD) -> windows_core::Result<SPNORMALIZATIONLIST>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1081,7 +1178,8 @@ impl ISpEnginePronunciation {
             (windows_core::Interface::vtable(self).Normalize)(windows_core::Interface::as_raw(self), pszword.param().abi(), pszleftcontext.param().abi(), pszrightcontext.param().abi(), langid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPronunciations<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPronunciations<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: super::WORD, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1094,16 +1192,24 @@ impl ISpEnginePronunciation {
 #[doc(hidden)]
 pub struct ISpEnginePronunciation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Normalize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u16, *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT,
-    pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u16, *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub Normalize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, super::WORD, *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    Normalize: usize,
+    #[cfg(feature = "shared")]
+    pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, super::WORD, *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPronunciations: usize,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait ISpEnginePronunciation_Impl: windows_core::IUnknownImpl {
-    fn Normalize(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: u16) -> windows_core::Result<SPNORMALIZATIONLIST>;
-    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>;
+    fn Normalize(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: super::WORD) -> windows_core::Result<SPNORMALIZATIONLIST>;
+    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, pszleftcontext: &windows_core::PCWSTR, pszrightcontext: &windows_core::PCWSTR, langid: super::WORD, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl ISpEnginePronunciation_Vtbl {
     pub const fn new<Identity: ISpEnginePronunciation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Normalize<Identity: ISpEnginePronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, pszleftcontext: windows_core::PCWSTR, pszrightcontext: windows_core::PCWSTR, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn Normalize<Identity: ISpEnginePronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, pszleftcontext: windows_core::PCWSTR, pszrightcontext: windows_core::PCWSTR, langid: super::WORD, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpEnginePronunciation_Impl::Normalize(this, core::mem::transmute(&pszword), core::mem::transmute(&pszleftcontext), core::mem::transmute(&pszrightcontext), core::mem::transmute_copy(&langid)) {
@@ -1115,7 +1221,7 @@ impl ISpEnginePronunciation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPronunciations<Identity: ISpEnginePronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, pszleftcontext: windows_core::PCWSTR, pszrightcontext: windows_core::PCWSTR, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPronunciations<Identity: ISpEnginePronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, pszleftcontext: windows_core::PCWSTR, pszrightcontext: windows_core::PCWSTR, langid: super::WORD, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpEnginePronunciation_Impl::GetPronunciations(this, core::mem::transmute(&pszword), core::mem::transmute(&pszleftcontext), core::mem::transmute(&pszrightcontext), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&penginepronunciationlist)).into()
@@ -1131,15 +1237,17 @@ impl ISpEnginePronunciation_Vtbl {
         iid == &<ISpEnginePronunciation as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpEnginePronunciation {}
 windows_core::imp::define_interface!(ISpEventSink, ISpEventSink_Vtbl, 0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
 windows_core::imp::interface_hierarchy!(ISpEventSink, windows_core::IUnknown);
 impl ISpEventSink {
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddEvents)(windows_core::Interface::as_raw(self), peventarray, ulcount) }
     }
-    pub unsafe fn GetEventInterest(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEventInterest(&self) -> windows_core::Result<super::ULONGLONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1150,27 +1258,30 @@ impl ISpEventSink {
 #[doc(hidden)]
 pub struct ISpEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "minwindef")]
-    pub AddEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPEVENT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub AddEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPEVENT, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     AddEvents: usize,
-    pub GetEventInterest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetEventInterest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEventInterest: usize,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ISpEventSink_Impl: windows_core::IUnknownImpl {
-    fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: u32) -> windows_core::Result<()>;
-    fn GetEventInterest(&self) -> windows_core::Result<u64>;
+    fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: super::ULONG) -> windows_core::Result<()>;
+    fn GetEventInterest(&self) -> windows_core::Result<super::ULONGLONG>;
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl ISpEventSink_Vtbl {
     pub const fn new<Identity: ISpEventSink_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddEvents<Identity: ISpEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventarray: *const SPEVENT, ulcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEvents<Identity: ISpEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventarray: *const SPEVENT, ulcount: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpEventSink_Impl::AddEvents(this, core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&ulcount)).into()
             }
         }
-        unsafe extern "system" fn GetEventInterest<Identity: ISpEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulleventinterest: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEventInterest<Identity: ISpEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulleventinterest: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpEventSink_Impl::GetEventInterest(this) {
@@ -1192,7 +1303,7 @@ impl ISpEventSink_Vtbl {
         iid == &<ISpEventSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl windows_core::RuntimeName for ISpEventSink {}
 windows_core::imp::define_interface!(ISpEventSource, ISpEventSource_Vtbl, 0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
 impl core::ops::Deref for ISpEventSource {
@@ -1203,13 +1314,15 @@ impl core::ops::Deref for ISpEventSource {
 }
 windows_core::imp::interface_hierarchy!(ISpEventSource, windows_core::IUnknown, ISpNotifySource);
 impl ISpEventSource {
-    pub unsafe fn SetInterest(&self, ulleventinterest: u64, ullqueuedinterest: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetInterest(&self, ulleventinterest: super::ULONGLONG, ullqueuedinterest: super::ULONGLONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetInterest)(windows_core::Interface::as_raw(self), ulleventinterest, ullqueuedinterest) }
     }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn GetEvents(&self, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn GetEvents(&self, ulcount: super::ULONG, peventarray: *mut SPEVENT, pulfetched: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEvents)(windows_core::Interface::as_raw(self), ulcount, peventarray as _, pulfetched as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), pinfo as _) }
     }
@@ -1218,29 +1331,35 @@ impl ISpEventSource {
 #[doc(hidden)]
 pub struct ISpEventSource_Vtbl {
     pub base__: ISpNotifySource_Vtbl,
-    pub SetInterest: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64) -> windows_core::HRESULT,
-    #[cfg(feature = "minwindef")]
-    pub GetEvents: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SPEVENT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(feature = "shared")]
+    pub SetInterest: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONGLONG, super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetInterest: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub GetEvents: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut SPEVENT, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     GetEvents: usize,
+    #[cfg(feature = "shared")]
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPEVENTSOURCEINFO) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetInfo: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpEventSource_Impl: ISpNotifySource_Impl {
-    fn SetInterest(&self, ulleventinterest: u64, ullqueuedinterest: u64) -> windows_core::Result<()>;
-    fn GetEvents(&self, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> windows_core::Result<()>;
+    fn SetInterest(&self, ulleventinterest: super::ULONGLONG, ullqueuedinterest: super::ULONGLONG) -> windows_core::Result<()>;
+    fn GetEvents(&self, ulcount: super::ULONG, peventarray: *mut SPEVENT, pulfetched: *mut super::ULONG) -> windows_core::Result<()>;
     fn GetInfo(&self, pinfo: *mut SPEVENTSOURCEINFO) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpEventSource_Vtbl {
     pub const fn new<Identity: ISpEventSource_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetInterest<Identity: ISpEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulleventinterest: u64, ullqueuedinterest: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetInterest<Identity: ISpEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulleventinterest: super::ULONGLONG, ullqueuedinterest: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpEventSource_Impl::SetInterest(this, core::mem::transmute_copy(&ulleventinterest), core::mem::transmute_copy(&ullqueuedinterest)).into()
             }
         }
-        unsafe extern "system" fn GetEvents<Identity: ISpEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEvents<Identity: ISpEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: super::ULONG, peventarray: *mut SPEVENT, pulfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpEventSource_Impl::GetEvents(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&pulfetched)).into()
@@ -1263,7 +1382,7 @@ impl ISpEventSource_Vtbl {
         iid == &<ISpEventSource as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpEventSource {}
 windows_core::imp::define_interface!(ISpEventSource2, ISpEventSource2_Vtbl, 0x2373a435_6a4b_429e_a6ac_d4231a61975b);
 impl core::ops::Deref for ISpEventSource2 {
@@ -1274,8 +1393,8 @@ impl core::ops::Deref for ISpEventSource2 {
 }
 windows_core::imp::interface_hierarchy!(ISpEventSource2, windows_core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ISpEventSource2 {
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn GetEventsEx(&self, ulcount: u32, peventarray: *mut SPEVENTEX, pulfetched: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn GetEventsEx(&self, ulcount: super::ULONG, peventarray: *mut SPEVENTEX, pulfetched: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEventsEx)(windows_core::Interface::as_raw(self), ulcount, peventarray as _, pulfetched as _) }
     }
 }
@@ -1283,19 +1402,19 @@ impl ISpEventSource2 {
 #[doc(hidden)]
 pub struct ISpEventSource2_Vtbl {
     pub base__: ISpEventSource_Vtbl,
-    #[cfg(feature = "minwindef")]
-    pub GetEventsEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SPEVENTEX, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub GetEventsEx: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut SPEVENTEX, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     GetEventsEx: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpEventSource2_Impl: ISpEventSource_Impl {
-    fn GetEventsEx(&self, ulcount: u32, peventarray: *mut SPEVENTEX, pulfetched: *mut u32) -> windows_core::Result<()>;
+    fn GetEventsEx(&self, ulcount: super::ULONG, peventarray: *mut SPEVENTEX, pulfetched: *mut super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpEventSource2_Vtbl {
     pub const fn new<Identity: ISpEventSource2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEventsEx<Identity: ISpEventSource2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: u32, peventarray: *mut SPEVENTEX, pulfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEventsEx<Identity: ISpEventSource2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcount: super::ULONG, peventarray: *mut SPEVENTEX, pulfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpEventSource2_Impl::GetEventsEx(this, core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&peventarray), core::mem::transmute_copy(&pulfetched)).into()
@@ -1307,15 +1426,17 @@ impl ISpEventSource2_Vtbl {
         iid == &<ISpEventSource2 as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID || iid == &<ISpEventSource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpEventSource2 {}
 windows_core::imp::define_interface!(ISpGrammarBuilder, ISpGrammarBuilder_Vtbl, 0x8137828f_591a_4a42_be58_49ea7ebaac68);
 windows_core::imp::interface_hierarchy!(ISpGrammarBuilder, windows_core::IUnknown);
 impl ISpGrammarBuilder {
-    pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ResetGrammar(&self, newlanguage: super::WORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetGrammar)(windows_core::Interface::as_raw(self), newlanguage) }
     }
-    pub unsafe fn GetRule<P0>(&self, pszrulename: P0, dwruleid: u32, dwattributes: u32, fcreateifnotexist: bool) -> windows_core::Result<SPSTATEHANDLE>
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRule<P0>(&self, pszrulename: P0, dwruleid: super::DWORD, dwattributes: super::DWORD, fcreateifnotexist: bool) -> windows_core::Result<SPSTATEHANDLE>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1333,7 +1454,7 @@ impl ISpGrammarBuilder {
             (windows_core::Interface::vtable(self).CreateNewState)(windows_core::Interface::as_raw(self), hstate, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddWordTransition<P2, P3>(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: P2, pszseparators: P3, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -1341,7 +1462,7 @@ impl ISpGrammarBuilder {
     {
         unsafe { (windows_core::Interface::vtable(self).AddWordTransition)(windows_core::Interface::as_raw(self), hfromstate, htostate, psz.param().abi(), pszseparators.param().abi(), ewordtype, weight, ppropinfo) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddRuleTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, hrule: SPSTATEHANDLE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddRuleTransition)(windows_core::Interface::as_raw(self), hfromstate, htostate, hrule, weight, ppropinfo) }
     }
@@ -1352,7 +1473,8 @@ impl ISpGrammarBuilder {
     {
         unsafe { (windows_core::Interface::vtable(self).AddResource)(windows_core::Interface::as_raw(self), hrulestate, pszresourcename.param().abi(), pszresourcevalue.param().abi()) }
     }
-    pub unsafe fn Commit(&self, dwreserved: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Commit(&self, dwreserved: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), dwreserved) }
     }
 }
@@ -1360,42 +1482,51 @@ impl ISpGrammarBuilder {
 #[doc(hidden)]
 pub struct ISpGrammarBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ResetGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub GetRule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, windows_core::BOOL, *mut SPSTATEHANDLE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ResetGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ResetGrammar: usize,
+    #[cfg(feature = "shared")]
+    pub GetRule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::DWORD, super::DWORD, windows_core::BOOL, *mut SPSTATEHANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRule: usize,
     pub ClearRule: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE) -> windows_core::HRESULT,
     pub CreateNewState: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE, *mut SPSTATEHANDLE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddWordTransition: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE, SPSTATEHANDLE, windows_core::PCWSTR, windows_core::PCWSTR, SPGRAMMARWORDTYPE, f32, *const SPPROPERTYINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddWordTransition: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddRuleTransition: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE, SPSTATEHANDLE, SPSTATEHANDLE, f32, *const SPPROPERTYINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddRuleTransition: usize,
     pub AddResource: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Commit: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpGrammarBuilder_Impl: windows_core::IUnknownImpl {
-    fn ResetGrammar(&self, newlanguage: u16) -> windows_core::Result<()>;
-    fn GetRule(&self, pszrulename: &windows_core::PCWSTR, dwruleid: u32, dwattributes: u32, fcreateifnotexist: windows_core::BOOL) -> windows_core::Result<SPSTATEHANDLE>;
+    fn ResetGrammar(&self, newlanguage: super::WORD) -> windows_core::Result<()>;
+    fn GetRule(&self, pszrulename: &windows_core::PCWSTR, dwruleid: super::DWORD, dwattributes: super::DWORD, fcreateifnotexist: windows_core::BOOL) -> windows_core::Result<SPSTATEHANDLE>;
     fn ClearRule(&self, hstate: SPSTATEHANDLE) -> windows_core::Result<()>;
     fn CreateNewState(&self, hstate: SPSTATEHANDLE) -> windows_core::Result<SPSTATEHANDLE>;
     fn AddWordTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, psz: &windows_core::PCWSTR, pszseparators: &windows_core::PCWSTR, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::Result<()>;
     fn AddRuleTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, hrule: SPSTATEHANDLE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::Result<()>;
     fn AddResource(&self, hrulestate: SPSTATEHANDLE, pszresourcename: &windows_core::PCWSTR, pszresourcevalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Commit(&self, dwreserved: u32) -> windows_core::Result<()>;
+    fn Commit(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpGrammarBuilder_Vtbl {
     pub const fn new<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ResetGrammar<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlanguage: u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResetGrammar<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newlanguage: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpGrammarBuilder_Impl::ResetGrammar(this, core::mem::transmute_copy(&newlanguage)).into()
             }
         }
-        unsafe extern "system" fn GetRule<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, dwruleid: u32, dwattributes: u32, fcreateifnotexist: windows_core::BOOL, phinitialstate: *mut SPSTATEHANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRule<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, dwruleid: super::DWORD, dwattributes: super::DWORD, fcreateifnotexist: windows_core::BOOL, phinitialstate: *mut SPSTATEHANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpGrammarBuilder_Impl::GetRule(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&dwruleid), core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&fcreateifnotexist)) {
@@ -1443,7 +1574,7 @@ impl ISpGrammarBuilder_Vtbl {
                 ISpGrammarBuilder_Impl::AddResource(this, core::mem::transmute_copy(&hrulestate), core::mem::transmute(&pszresourcename), core::mem::transmute(&pszresourcevalue)).into()
             }
         }
-        unsafe extern "system" fn Commit<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: ISpGrammarBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpGrammarBuilder_Impl::Commit(this, core::mem::transmute_copy(&dwreserved)).into()
@@ -1465,7 +1596,7 @@ impl ISpGrammarBuilder_Vtbl {
         iid == &<ISpGrammarBuilder as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpGrammarBuilder {}
 windows_core::imp::define_interface!(ISpGrammarBuilder2, ISpGrammarBuilder2_Vtbl, 0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
 windows_core::imp::interface_hierarchy!(ISpGrammarBuilder2, windows_core::IUnknown);
@@ -1519,36 +1650,40 @@ impl windows_core::RuntimeName for ISpGrammarBuilder2 {}
 windows_core::imp::define_interface!(ISpLexicon, ISpLexicon_Vtbl, 0xda41a7c2_5383_4db2_916b_6c1719e3db58);
 windows_core::imp::interface_hierarchy!(ISpLexicon, windows_core::IUnknown);
 impl ISpLexicon {
-    pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: super::WORD, dwflags: super::DWORD, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetPronunciations)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, dwflags, pwordpronunciationlist as _) }
     }
-    pub unsafe fn AddPronunciation<P0, P3>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: P3) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddPronunciation<P0>(&self, pszword: P0, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: Option<PCSPPHONEID>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<PCSPPHONEID>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddPronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn RemovePronunciation<P0, P3>(&self, pszword: P0, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: P3) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemovePronunciation<P0>(&self, pszword: P0, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: Option<PCSPPHONEID>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<PCSPPHONEID>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemovePronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).RemovePronunciation)(windows_core::Interface::as_raw(self), pszword.param().abi(), langid, epartofspeech, pszpronunciation.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetGeneration(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetGeneration(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGeneration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetGenerationChange(&self, dwflags: u32, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetGenerationChange(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGenerationChange)(windows_core::Interface::as_raw(self), dwflags, pdwgeneration as _, pwordlist as _) }
     }
-    pub unsafe fn GetWords(&self, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: Option<*mut u32>, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetWords(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pdwcookie: Option<*mut super::DWORD>, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWords)(windows_core::Interface::as_raw(self), dwflags, pdwgeneration as _, pdwcookie.unwrap_or(core::mem::zeroed()) as _, pwordlist as _) }
     }
 }
@@ -1556,42 +1691,62 @@ impl ISpLexicon {
 #[doc(hidden)]
 pub struct ISpLexicon_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, u32, *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT,
-    pub AddPronunciation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, SPPARTOFSPEECH, PCSPPHONEID) -> windows_core::HRESULT,
-    pub RemovePronunciation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, SPPARTOFSPEECH, PCSPPHONEID) -> windows_core::HRESULT,
-    pub GetGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut SPWORDLIST) -> windows_core::HRESULT,
-    pub GetWords: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32, *mut SPWORDLIST) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::WORD, super::DWORD, *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPronunciations: usize,
+    #[cfg(feature = "shared")]
+    pub AddPronunciation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::WORD, SPPARTOFSPEECH, PCSPPHONEID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddPronunciation: usize,
+    #[cfg(feature = "shared")]
+    pub RemovePronunciation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::WORD, SPPARTOFSPEECH, PCSPPHONEID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemovePronunciation: usize,
+    #[cfg(feature = "shared")]
+    pub GetGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGeneration: usize,
+    #[cfg(feature = "shared")]
+    pub GetGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut super::DWORD, *mut SPWORDLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGenerationChange: usize,
+    #[cfg(feature = "shared")]
+    pub GetWords: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut super::DWORD, *mut super::DWORD, *mut SPWORDLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetWords: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpLexicon_Impl: windows_core::IUnknownImpl {
-    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>;
-    fn AddPronunciation(&self, pszword: &windows_core::PCWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: &PCSPPHONEID) -> windows_core::Result<()>;
-    fn RemovePronunciation(&self, pszword: &windows_core::PCWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: &PCSPPHONEID) -> windows_core::Result<()>;
-    fn GetGeneration(&self) -> windows_core::Result<u32>;
-    fn GetGenerationChange(&self, dwflags: u32, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
-    fn GetWords(&self, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
+    fn GetPronunciations(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, dwflags: super::DWORD, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>;
+    fn AddPronunciation(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::Result<()>;
+    fn RemovePronunciation(&self, pszword: &windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::Result<()>;
+    fn GetGeneration(&self) -> windows_core::Result<super::DWORD>;
+    fn GetGenerationChange(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
+    fn GetWords(&self, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpLexicon_Vtbl {
     pub const fn new<Identity: ISpLexicon_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPronunciations<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPronunciations<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: super::WORD, dwflags: super::DWORD, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpLexicon_Impl::GetPronunciations(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pwordpronunciationlist)).into()
             }
         }
-        unsafe extern "system" fn AddPronunciation<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddPronunciation<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::AddPronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute(&pszpronunciation)).into()
+                ISpLexicon_Impl::AddPronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute_copy(&pszpronunciation)).into()
             }
         }
-        unsafe extern "system" fn RemovePronunciation<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePronunciation<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszword: windows_core::PCWSTR, langid: super::WORD, epartofspeech: SPPARTOFSPEECH, pszpronunciation: PCSPPHONEID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpLexicon_Impl::RemovePronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute(&pszpronunciation)).into()
+                ISpLexicon_Impl::RemovePronunciation(this, core::mem::transmute(&pszword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&epartofspeech), core::mem::transmute_copy(&pszpronunciation)).into()
             }
         }
-        unsafe extern "system" fn GetGeneration<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGeneration<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpLexicon_Impl::GetGeneration(this) {
@@ -1603,13 +1758,13 @@ impl ISpLexicon_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetGenerationChange<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGenerationChange<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpLexicon_Impl::GetGenerationChange(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pwordlist)).into()
             }
         }
-        unsafe extern "system" fn GetWords<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetWords<Identity: ISpLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpLexicon_Impl::GetWords(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pwordlist)).into()
@@ -1629,6 +1784,7 @@ impl ISpLexicon_Vtbl {
         iid == &<ISpLexicon as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpLexicon {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(ISpMMSysAudio, ISpMMSysAudio_Vtbl, 0x15806f6e_1d70_4b48_98e6_3b1a007509ab);
@@ -1643,25 +1799,29 @@ impl core::ops::Deref for ISpMMSysAudio {
 windows_core::imp::interface_hierarchy!(ISpMMSysAudio, windows_core::IUnknown, super::ISequentialStream, super::IStream, ISpStreamFormat, ISpAudio);
 #[cfg(feature = "objidlbase")]
 impl ISpMMSysAudio {
-    pub unsafe fn GetDeviceId(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDeviceId(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeviceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDeviceId(&self, udeviceid: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetDeviceId(&self, udeviceid: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDeviceId)(windows_core::Interface::as_raw(self), udeviceid) }
     }
     pub unsafe fn GetMMHandle(&self, phandle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMMHandle)(windows_core::Interface::as_raw(self), phandle as _) }
     }
-    pub unsafe fn GetLineId(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetLineId(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLineId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLineId(&self, ulineid: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetLineId(&self, ulineid: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLineId)(windows_core::Interface::as_raw(self), ulineid) }
     }
 }
@@ -1670,24 +1830,36 @@ impl ISpMMSysAudio {
 #[doc(hidden)]
 pub struct ISpMMSysAudio_Vtbl {
     pub base__: ISpAudio_Vtbl,
-    pub GetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDeviceId: usize,
+    #[cfg(feature = "shared")]
+    pub SetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetDeviceId: usize,
     pub GetMMHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetLineId: usize,
+    #[cfg(feature = "shared")]
+    pub SetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetLineId: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpMMSysAudio_Impl: ISpAudio_Impl {
-    fn GetDeviceId(&self) -> windows_core::Result<u32>;
-    fn SetDeviceId(&self, udeviceid: u32) -> windows_core::Result<()>;
+    fn GetDeviceId(&self) -> windows_core::Result<super::UINT>;
+    fn SetDeviceId(&self, udeviceid: super::UINT) -> windows_core::Result<()>;
     fn GetMMHandle(&self, phandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetLineId(&self) -> windows_core::Result<u32>;
-    fn SetLineId(&self, ulineid: u32) -> windows_core::Result<()>;
+    fn GetLineId(&self) -> windows_core::Result<super::UINT>;
+    fn SetLineId(&self, ulineid: super::UINT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpMMSysAudio_Vtbl {
     pub const fn new<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDeviceId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pudeviceid: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pudeviceid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpMMSysAudio_Impl::GetDeviceId(this) {
@@ -1699,7 +1871,7 @@ impl ISpMMSysAudio_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDeviceId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, udeviceid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDeviceId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, udeviceid: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpMMSysAudio_Impl::SetDeviceId(this, core::mem::transmute_copy(&udeviceid)).into()
@@ -1711,7 +1883,7 @@ impl ISpMMSysAudio_Vtbl {
                 ISpMMSysAudio_Impl::GetMMHandle(this, core::mem::transmute_copy(&phandle)).into()
             }
         }
-        unsafe extern "system" fn GetLineId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulineid: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLineId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulineid: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpMMSysAudio_Impl::GetLineId(this) {
@@ -1723,7 +1895,7 @@ impl ISpMMSysAudio_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLineId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulineid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLineId<Identity: ISpMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulineid: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpMMSysAudio_Impl::SetLineId(this, core::mem::transmute_copy(&ulineid)).into()
@@ -1742,7 +1914,7 @@ impl ISpMMSysAudio_Vtbl {
         iid == &<ISpMMSysAudio as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID || iid == &<ISpAudio as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpMMSysAudio {}
 windows_core::imp::define_interface!(ISpNotifyCallback, ISpNotifyCallback_Vtbl);
 impl ISpNotifyCallback {
@@ -1830,8 +2002,8 @@ impl ISpNotifySource {
     {
         unsafe { (windows_core::Interface::vtable(self).SetNotifySink)(windows_core::Interface::as_raw(self), pnotifysink.param().abi()) }
     }
-    #[cfg(all(feature = "minwindef", feature = "windef"))]
-    pub unsafe fn SetNotifyWindowMessage(&self, hwnd: super::HWND, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+    pub unsafe fn SetNotifyWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNotifyWindowMessage)(windows_core::Interface::as_raw(self), hwnd, msg, wparam, lparam) }
     }
     #[cfg(feature = "minwindef")]
@@ -1848,7 +2020,8 @@ impl ISpNotifySource {
     pub unsafe fn SetNotifyWin32Event(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNotifyWin32Event)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn WaitForNotifyEvent(&self, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForNotifyEvent)(windows_core::Interface::as_raw(self), dwmilliseconds) }
     }
     #[cfg(feature = "winnt")]
@@ -1861,9 +2034,9 @@ impl ISpNotifySource {
 pub struct ISpNotifySource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetNotifySink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "windef"))]
-    pub SetNotifyWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, u32, super::WPARAM, super::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "windef")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+    pub SetNotifyWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, super::UINT, super::WPARAM, super::LPARAM) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "windef")))]
     SetNotifyWindowMessage: usize,
     #[cfg(feature = "minwindef")]
     pub SetNotifyCallbackFunction: unsafe extern "system" fn(*mut core::ffi::c_void, SPNOTIFYCALLBACK, super::WPARAM, super::LPARAM) -> windows_core::HRESULT,
@@ -1874,23 +2047,26 @@ pub struct ISpNotifySource_Vtbl {
     #[cfg(not(feature = "minwindef"))]
     SetNotifyCallbackInterface: usize,
     pub SetNotifyWin32Event: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WaitForNotifyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub WaitForNotifyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    WaitForNotifyEvent: usize,
     #[cfg(feature = "winnt")]
     pub GetNotifyEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::HANDLE,
     #[cfg(not(feature = "winnt"))]
     GetNotifyEventHandle: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpNotifySource_Impl: windows_core::IUnknownImpl {
     fn SetNotifySink(&self, pnotifysink: windows_core::Ref<ISpNotifySink>) -> windows_core::Result<()>;
-    fn SetNotifyWindowMessage(&self, hwnd: super::HWND, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
+    fn SetNotifyWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
     fn SetNotifyCallbackFunction(&self, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
     fn SetNotifyCallbackInterface(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
     fn SetNotifyWin32Event(&self) -> windows_core::Result<()>;
-    fn WaitForNotifyEvent(&self, dwmilliseconds: u32) -> windows_core::Result<()>;
+    fn WaitForNotifyEvent(&self, dwmilliseconds: super::DWORD) -> windows_core::Result<()>;
     fn GetNotifyEventHandle(&self) -> super::HANDLE;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpNotifySource_Vtbl {
     pub const fn new<Identity: ISpNotifySource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetNotifySink<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotifysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1899,7 +2075,7 @@ impl ISpNotifySource_Vtbl {
                 ISpNotifySource_Impl::SetNotifySink(this, core::mem::transmute_copy(&pnotifysink)).into()
             }
         }
-        unsafe extern "system" fn SetNotifyWindowMessage<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNotifyWindowMessage<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpNotifySource_Impl::SetNotifyWindowMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
@@ -1923,7 +2099,7 @@ impl ISpNotifySource_Vtbl {
                 ISpNotifySource_Impl::SetNotifyWin32Event(this).into()
             }
         }
-        unsafe extern "system" fn WaitForNotifyEvent<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WaitForNotifyEvent<Identity: ISpNotifySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpNotifySource_Impl::WaitForNotifyEvent(this, core::mem::transmute_copy(&dwmilliseconds)).into()
@@ -1950,7 +2126,7 @@ impl ISpNotifySource_Vtbl {
         iid == &<ISpNotifySource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpNotifySource {}
 windows_core::imp::define_interface!(ISpNotifyTranslator, ISpNotifyTranslator_Vtbl, 0xaca16614_5d3d_11d2_960e_00c04f8ee628);
 impl core::ops::Deref for ISpNotifyTranslator {
@@ -1961,8 +2137,8 @@ impl core::ops::Deref for ISpNotifyTranslator {
 }
 windows_core::imp::interface_hierarchy!(ISpNotifyTranslator, windows_core::IUnknown, ISpNotifySink);
 impl ISpNotifyTranslator {
-    #[cfg(all(feature = "minwindef", feature = "windef"))]
-    pub unsafe fn InitWindowMessage(&self, hwnd: super::HWND, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+    pub unsafe fn InitWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitWindowMessage)(windows_core::Interface::as_raw(self), hwnd, msg, wparam, lparam) }
     }
     #[cfg(feature = "minwindef")]
@@ -1980,7 +2156,8 @@ impl ISpNotifyTranslator {
     pub unsafe fn InitWin32Event(&self, hevent: super::HANDLE, fclosehandleonrelease: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitWin32Event)(windows_core::Interface::as_raw(self), hevent, fclosehandleonrelease.into()) }
     }
-    pub unsafe fn Wait(&self, dwmilliseconds: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), dwmilliseconds) }
     }
     #[cfg(feature = "winnt")]
@@ -1992,9 +2169,9 @@ impl ISpNotifyTranslator {
 #[doc(hidden)]
 pub struct ISpNotifyTranslator_Vtbl {
     pub base__: ISpNotifySink_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "windef"))]
-    pub InitWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, u32, super::WPARAM, super::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "windef")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+    pub InitWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, super::UINT, super::WPARAM, super::LPARAM) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "windef")))]
     InitWindowMessage: usize,
     #[cfg(feature = "minwindef")]
     pub InitCallback: unsafe extern "system" fn(*mut core::ffi::c_void, SPNOTIFYCALLBACK, super::WPARAM, super::LPARAM) -> windows_core::HRESULT,
@@ -2008,25 +2185,28 @@ pub struct ISpNotifyTranslator_Vtbl {
     pub InitWin32Event: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     InitWin32Event: usize,
-    pub Wait: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Wait: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Wait: usize,
     #[cfg(feature = "winnt")]
     pub GetEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::HANDLE,
     #[cfg(not(feature = "winnt"))]
     GetEventHandle: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpNotifyTranslator_Impl: ISpNotifySink_Impl {
-    fn InitWindowMessage(&self, hwnd: super::HWND, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
+    fn InitWindowMessage(&self, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
     fn InitCallback(&self, pfncallback: SPNOTIFYCALLBACK, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
     fn InitSpNotifyCallback(&self, pspcallback: windows_core::Ref<ISpNotifyCallback>, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
     fn InitWin32Event(&self, hevent: super::HANDLE, fclosehandleonrelease: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Wait(&self, dwmilliseconds: u32) -> windows_core::Result<()>;
+    fn Wait(&self, dwmilliseconds: super::DWORD) -> windows_core::Result<()>;
     fn GetEventHandle(&self) -> super::HANDLE;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpNotifyTranslator_Vtbl {
     pub const fn new<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InitWindowMessage<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, msg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitWindowMessage<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, msg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpNotifyTranslator_Impl::InitWindowMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
@@ -2050,7 +2230,7 @@ impl ISpNotifyTranslator_Vtbl {
                 ISpNotifyTranslator_Impl::InitWin32Event(this, core::mem::transmute_copy(&hevent), core::mem::transmute_copy(&fclosehandleonrelease)).into()
             }
         }
-        unsafe extern "system" fn Wait<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Wait<Identity: ISpNotifyTranslator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpNotifyTranslator_Impl::Wait(this, core::mem::transmute_copy(&dwmilliseconds)).into()
@@ -2076,7 +2256,7 @@ impl ISpNotifyTranslator_Vtbl {
         iid == &<ISpNotifyTranslator as windows_core::Interface>::IID || iid == &<ISpNotifySink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpNotifyTranslator {}
 windows_core::imp::define_interface!(ISpObjectToken, ISpObjectToken_Vtbl, 0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
 impl core::ops::Deref for ISpObjectToken {
@@ -2106,7 +2286,8 @@ impl ISpObjectToken {
             (windows_core::Interface::vtable(self).GetCategory)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateInstance<P0, T>(&self, punkouter: P0, dwclscontext: u32) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn CreateInstance<P0, T>(&self, punkouter: P0, dwclscontext: super::DWORD) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
@@ -2114,7 +2295,8 @@ impl ISpObjectToken {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), punkouter.param().abi(), dwclscontext, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetStorageFileName<P1, P2>(&self, clsidcaller: *const windows_core::GUID, pszvaluename: P1, pszfilenamespecifier: P2, nfolder: u32) -> windows_core::Result<windows_core::PWSTR>
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn GetStorageFileName<P1, P2>(&self, clsidcaller: *const super::IID, pszvaluename: P1, pszfilenamespecifier: P2, nfolder: super::ULONG) -> windows_core::Result<windows_core::PWSTR>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -2124,16 +2306,19 @@ impl ISpObjectToken {
             (windows_core::Interface::vtable(self).GetStorageFileName)(windows_core::Interface::as_raw(self), clsidcaller, pszvaluename.param().abi(), pszfilenamespecifier.param().abi(), nfolder, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemoveStorageFileName<P1>(&self, clsidcaller: *const windows_core::GUID, pszkeyname: P1, fdeletefile: bool) -> windows_core::HRESULT
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn RemoveStorageFileName<P1>(&self, clsidcaller: *const super::IID, pszkeyname: P1, fdeletefile: bool) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveStorageFileName)(windows_core::Interface::as_raw(self), clsidcaller, pszkeyname.param().abi(), fdeletefile.into()) }
     }
-    pub unsafe fn Remove(&self, pclsidcaller: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn Remove(&self, pclsidcaller: Option<*const super::CLSID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), pclsidcaller.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn IsUISupported<P0, P3>(&self, psztypeofui: P0, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: P3) -> windows_core::Result<windows_core::BOOL>
+    #[cfg(feature = "shared")]
+    pub unsafe fn IsUISupported<P0, P3>(&self, psztypeofui: P0, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: P3) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -2143,8 +2328,8 @@ impl ISpObjectToken {
             (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), psztypeofui.param().abi(), pvextradata, cbextradata, punkobject.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn DisplayUI<P1, P2, P5>(&self, hwndparent: super::HWND, psztitle: P1, psztypeofui: P2, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: P5) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn DisplayUI<P1, P2, P5>(&self, hwndparent: super::HWND, psztitle: P1, psztypeofui: P2, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: P5) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -2169,31 +2354,46 @@ pub struct ISpObjectToken_Vtbl {
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetStorageFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, windows_core::PCWSTR, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub RemoveStorageFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    CreateInstance: usize,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub GetStorageFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, windows_core::PCWSTR, windows_core::PCWSTR, super::ULONG, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    GetStorageFileName: usize,
+    #[cfg(feature = "guiddef")]
+    pub RemoveStorageFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    RemoveStorageFileName: usize,
+    #[cfg(feature = "guiddef")]
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::CLSID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    Remove: usize,
+    #[cfg(feature = "shared")]
+    pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, super::ULONG, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    IsUISupported: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, super::ULONG, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     DisplayUI: usize,
     pub MatchesAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ISpObjectToken_Impl: ISpDataKey_Impl {
     fn SetId(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetId(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetCategory(&self) -> windows_core::Result<ISpObjectTokenCategory>;
-    fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetStorageFileName(&self, clsidcaller: *const windows_core::GUID, pszvaluename: &windows_core::PCWSTR, pszfilenamespecifier: &windows_core::PCWSTR, nfolder: u32) -> windows_core::Result<windows_core::PWSTR>;
-    fn RemoveStorageFileName(&self, clsidcaller: *const windows_core::GUID, pszkeyname: &windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Remove(&self, pclsidcaller: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
-    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclscontext: super::DWORD, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetStorageFileName(&self, clsidcaller: *const super::IID, pszvaluename: &windows_core::PCWSTR, pszfilenamespecifier: &windows_core::PCWSTR, nfolder: super::ULONG) -> windows_core::Result<windows_core::PWSTR>;
+    fn RemoveStorageFileName(&self, clsidcaller: *const super::IID, pszkeyname: &windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::Result<()>;
+    fn Remove(&self, pclsidcaller: *const super::CLSID) -> windows_core::Result<()>;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
+    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MatchesAttributes(&self, pszattributes: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ISpObjectToken_Vtbl {
     pub const fn new<Identity: ISpObjectToken_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetId<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategoryid: windows_core::PCWSTR, psztokenid: windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::HRESULT {
@@ -2226,13 +2426,13 @@ impl ISpObjectToken_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateInstance<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, dwclscontext: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, dwclscontext: super::DWORD, riid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpObjectToken_Impl::CreateInstance(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
             }
         }
-        unsafe extern "system" fn GetStorageFileName<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidcaller: *const windows_core::GUID, pszvaluename: windows_core::PCWSTR, pszfilenamespecifier: windows_core::PCWSTR, nfolder: u32, ppszfilepath: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStorageFileName<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidcaller: *const super::IID, pszvaluename: windows_core::PCWSTR, pszfilenamespecifier: windows_core::PCWSTR, nfolder: super::ULONG, ppszfilepath: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpObjectToken_Impl::GetStorageFileName(this, core::mem::transmute_copy(&clsidcaller), core::mem::transmute(&pszvaluename), core::mem::transmute(&pszfilenamespecifier), core::mem::transmute_copy(&nfolder)) {
@@ -2244,19 +2444,19 @@ impl ISpObjectToken_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveStorageFileName<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidcaller: *const windows_core::GUID, pszkeyname: windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveStorageFileName<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidcaller: *const super::IID, pszkeyname: windows_core::PCWSTR, fdeletefile: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute_copy(&clsidcaller), core::mem::transmute(&pszkeyname), core::mem::transmute_copy(&fdeletefile)).into()
             }
         }
-        unsafe extern "system" fn Remove<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsidcaller: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsidcaller: *const super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpObjectToken_Impl::Remove(this, core::mem::transmute_copy(&pclsidcaller)).into()
             }
         }
-        unsafe extern "system" fn IsUISupported<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: *mut core::ffi::c_void, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsUISupported<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: *mut core::ffi::c_void, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpObjectToken_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&punkobject)) {
@@ -2268,7 +2468,7 @@ impl ISpObjectToken_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DisplayUI<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayUI<Identity: ISpObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, punkobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpObjectToken_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), core::mem::transmute_copy(&punkobject)).into()
@@ -2304,7 +2504,7 @@ impl ISpObjectToken_Vtbl {
         iid == &<ISpObjectToken as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for ISpObjectToken {}
 windows_core::imp::define_interface!(ISpObjectTokenCategory, ISpObjectTokenCategory_Vtbl, 0x2d3d3845_39af_4850_bbf9_40b49780011d);
 impl core::ops::Deref for ISpObjectTokenCategory {
@@ -2367,6 +2567,7 @@ pub struct ISpObjectTokenCategory_Vtbl {
     pub SetDefaultTokenId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetDefaultTokenId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpObjectTokenCategory_Impl: ISpDataKey_Impl {
     fn SetId(&self, pszcategoryid: &windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetId(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -2375,6 +2576,7 @@ pub trait ISpObjectTokenCategory_Impl: ISpDataKey_Impl {
     fn SetDefaultTokenId(&self, psztokenid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetDefaultTokenId(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
+#[cfg(feature = "shared")]
 impl ISpObjectTokenCategory_Vtbl {
     pub const fn new<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetId<Identity: ISpObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategoryid: windows_core::PCWSTR, fcreateifnotexist: windows_core::BOOL) -> windows_core::HRESULT {
@@ -2451,6 +2653,7 @@ impl ISpObjectTokenCategory_Vtbl {
         iid == &<ISpObjectTokenCategory as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpObjectTokenCategory {}
 windows_core::imp::define_interface!(ISpObjectTokenInit, ISpObjectTokenInit_Vtbl, 0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
 impl core::ops::Deref for ISpObjectTokenInit {
@@ -2476,11 +2679,11 @@ pub struct ISpObjectTokenInit_Vtbl {
     pub base__: ISpObjectToken_Vtbl,
     pub InitFromDataKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ISpObjectTokenInit_Impl: ISpObjectToken_Impl {
     fn InitFromDataKey(&self, pszcategoryid: &windows_core::PCWSTR, psztokenid: &windows_core::PCWSTR, pdatakey: windows_core::Ref<ISpDataKey>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ISpObjectTokenInit_Vtbl {
     pub const fn new<Identity: ISpObjectTokenInit_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitFromDataKey<Identity: ISpObjectTokenInit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcategoryid: windows_core::PCWSTR, psztokenid: windows_core::PCWSTR, pdatakey: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2495,7 +2698,7 @@ impl ISpObjectTokenInit_Vtbl {
         iid == &<ISpObjectTokenInit as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID || iid == &<ISpObjectToken as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for ISpObjectTokenInit {}
 windows_core::imp::define_interface!(ISpObjectWithToken, ISpObjectWithToken_Vtbl, 0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpObjectWithToken, windows_core::IUnknown);
@@ -2573,13 +2776,11 @@ impl ISpPhoneConverter {
             (windows_core::Interface::vtable(self).PhoneToId)(windows_core::Interface::as_raw(self), pszphone.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IdToPhone<P0>(&self, pid: P0) -> windows_core::Result<u16>
-    where
-        P0: windows_core::Param<PCSPPHONEID>,
-    {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn IdToPhone(&self, pid: PCSPPHONEID) -> windows_core::Result<super::WCHAR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IdToPhone)(windows_core::Interface::as_raw(self), pid.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IdToPhone)(windows_core::Interface::as_raw(self), pid, &mut result__).map(|| result__)
         }
     }
 }
@@ -2588,12 +2789,17 @@ impl ISpPhoneConverter {
 pub struct ISpPhoneConverter_Vtbl {
     pub base__: ISpObjectWithToken_Vtbl,
     pub PhoneToId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut SPPHONEID) -> windows_core::HRESULT,
-    pub IdToPhone: unsafe extern "system" fn(*mut core::ffi::c_void, PCSPPHONEID, *mut u16) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub IdToPhone: unsafe extern "system" fn(*mut core::ffi::c_void, PCSPPHONEID, *mut super::WCHAR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    IdToPhone: usize,
 }
+#[cfg(feature = "winnt")]
 pub trait ISpPhoneConverter_Impl: ISpObjectWithToken_Impl {
     fn PhoneToId(&self, pszphone: &windows_core::PCWSTR) -> windows_core::Result<SPPHONEID>;
-    fn IdToPhone(&self, pid: &PCSPPHONEID) -> windows_core::Result<u16>;
+    fn IdToPhone(&self, pid: PCSPPHONEID) -> windows_core::Result<super::WCHAR>;
 }
+#[cfg(feature = "winnt")]
 impl ISpPhoneConverter_Vtbl {
     pub const fn new<Identity: ISpPhoneConverter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PhoneToId<Identity: ISpPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszphone: windows_core::PCWSTR, pid: *mut SPPHONEID) -> windows_core::HRESULT {
@@ -2608,10 +2814,10 @@ impl ISpPhoneConverter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IdToPhone<Identity: ISpPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: PCSPPHONEID, pszphone: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn IdToPhone<Identity: ISpPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: PCSPPHONEID, pszphone: *mut super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpPhoneConverter_Impl::IdToPhone(this, core::mem::transmute(&pid)) {
+                match ISpPhoneConverter_Impl::IdToPhone(this, core::mem::transmute_copy(&pid)) {
                     Ok(ok__) => {
                         pszphone.write(ok__);
                         windows_core::HRESULT(0)
@@ -2626,23 +2832,29 @@ impl ISpPhoneConverter_Vtbl {
         iid == &<ISpPhoneConverter as windows_core::Interface>::IID || iid == &<ISpObjectWithToken as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ISpPhoneConverter {}
 windows_core::imp::define_interface!(ISpPhoneticAlphabetConverter, ISpPhoneticAlphabetConverter_Vtbl, 0x133adcd4_19b4_4020_9fdc_842e78253b17);
 windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetConverter, windows_core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
-    pub unsafe fn GetLangId(&self, plangid: *mut u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetLangId(&self, plangid: *mut super::WORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLangId)(windows_core::Interface::as_raw(self), plangid as _) }
     }
-    pub unsafe fn SetLangId(&self, langid: u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetLangId(&self, langid: super::WORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLangId)(windows_core::Interface::as_raw(self), langid) }
     }
-    pub unsafe fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SAPI2UPS)(windows_core::Interface::as_raw(self), pszsapiid, pszupsid as _, cmaxlength) }
     }
-    pub unsafe fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UPS2SAPI)(windows_core::Interface::as_raw(self), pszupsid, pszsapiid as _, cmaxlength) }
     }
-    pub unsafe fn GetMaxConvertLength(&self, csrclength: u32, bsapi2ups: bool, pcmaxdestlength: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxConvertLength(&self, csrclength: super::DWORD, bsapi2ups: bool, pcmaxdestlength: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMaxConvertLength)(windows_core::Interface::as_raw(self), csrclength, bsapi2ups.into(), pcmaxdestlength as _) }
     }
 }
@@ -2650,46 +2862,63 @@ impl ISpPhoneticAlphabetConverter {
 #[doc(hidden)]
 pub struct ISpPhoneticAlphabetConverter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub SetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub SAPI2UPS: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHONEID, *mut SPPHONEID, u32) -> windows_core::HRESULT,
-    pub UPS2SAPI: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHONEID, *mut SPPHONEID, u32) -> windows_core::HRESULT,
-    pub GetMaxConvertLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetLangId: usize,
+    #[cfg(feature = "shared")]
+    pub SetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetLangId: usize,
+    #[cfg(feature = "shared")]
+    pub SAPI2UPS: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHONEID, *mut SPPHONEID, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SAPI2UPS: usize,
+    #[cfg(feature = "shared")]
+    pub UPS2SAPI: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHONEID, *mut SPPHONEID, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    UPS2SAPI: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxConvertLength: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, windows_core::BOOL, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxConvertLength: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpPhoneticAlphabetConverter_Impl: windows_core::IUnknownImpl {
-    fn GetLangId(&self, plangid: *mut u16) -> windows_core::Result<()>;
-    fn SetLangId(&self, langid: u16) -> windows_core::Result<()>;
-    fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::Result<()>;
-    fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::Result<()>;
-    fn GetMaxConvertLength(&self, csrclength: u32, bsapi2ups: windows_core::BOOL, pcmaxdestlength: *mut u32) -> windows_core::Result<()>;
+    fn GetLangId(&self, plangid: *mut super::WORD) -> windows_core::Result<()>;
+    fn SetLangId(&self, langid: super::WORD) -> windows_core::Result<()>;
+    fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::Result<()>;
+    fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::Result<()>;
+    fn GetMaxConvertLength(&self, csrclength: super::DWORD, bsapi2ups: windows_core::BOOL, pcmaxdestlength: *mut super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpPhoneticAlphabetConverter_Vtbl {
     pub const fn new<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetLangId<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plangid: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLangId<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plangid: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhoneticAlphabetConverter_Impl::GetLangId(this, core::mem::transmute_copy(&plangid)).into()
             }
         }
-        unsafe extern "system" fn SetLangId<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLangId<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhoneticAlphabetConverter_Impl::SetLangId(this, core::mem::transmute_copy(&langid)).into()
             }
         }
-        unsafe extern "system" fn SAPI2UPS<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SAPI2UPS<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhoneticAlphabetConverter_Impl::SAPI2UPS(this, core::mem::transmute_copy(&pszsapiid), core::mem::transmute_copy(&pszupsid), core::mem::transmute_copy(&cmaxlength)).into()
             }
         }
-        unsafe extern "system" fn UPS2SAPI<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UPS2SAPI<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhoneticAlphabetConverter_Impl::UPS2SAPI(this, core::mem::transmute_copy(&pszupsid), core::mem::transmute_copy(&pszsapiid), core::mem::transmute_copy(&cmaxlength)).into()
             }
         }
-        unsafe extern "system" fn GetMaxConvertLength<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csrclength: u32, bsapi2ups: windows_core::BOOL, pcmaxdestlength: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxConvertLength<Identity: ISpPhoneticAlphabetConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csrclength: super::DWORD, bsapi2ups: windows_core::BOOL, pcmaxdestlength: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhoneticAlphabetConverter_Impl::GetMaxConvertLength(this, core::mem::transmute_copy(&csrclength), core::mem::transmute_copy(&bsapi2ups), core::mem::transmute_copy(&pcmaxdestlength)).into()
@@ -2708,6 +2937,7 @@ impl ISpPhoneticAlphabetConverter_Vtbl {
         iid == &<ISpPhoneticAlphabetConverter as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpPhoneticAlphabetConverter {}
 windows_core::imp::define_interface!(ISpPhoneticAlphabetSelection, ISpPhoneticAlphabetSelection_Vtbl, 0xb2745efd_42ce_48ca_81f1_a96e02538a90);
 windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetSelection, windows_core::IUnknown);
@@ -2767,23 +2997,26 @@ impl windows_core::RuntimeName for ISpPhoneticAlphabetSelection {}
 windows_core::imp::define_interface!(ISpPhrase, ISpPhrase_Vtbl, 0x1a5c0354_b621_4b5a_8791_d306ed379e53);
 windows_core::imp::interface_hierarchy!(ISpPhrase, windows_core::IUnknown);
 impl ISpPhrase {
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPhrase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetSerializedPhrase(&self) -> windows_core::Result<*mut SPSERIALIZEDPHRASE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSerializedPhrase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetText(&self, ulstart: u32, ulcount: u32, fusetextreplacements: bool, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: Option<*mut u8>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetText(&self, ulstart: super::ULONG, ulcount: super::ULONG, fusetextreplacements: bool, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: Option<*mut super::BYTE>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ulstart, ulcount, fusetextreplacements.into(), ppszcomemtext as _, pbdisplayattributes.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Discard(&self, dwvaluetypes: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Discard(&self, dwvaluetypes: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Discard)(windows_core::Interface::as_raw(self), dwvaluetypes) }
     }
 }
@@ -2791,22 +3024,31 @@ impl ISpPhrase {
 #[doc(hidden)]
 pub struct ISpPhrase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SPPHRASE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPhrase: usize,
+    #[cfg(feature = "shared")]
     pub GetSerializedPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SPSERIALIZEDPHRASE) -> windows_core::HRESULT,
-    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::BOOL, *mut windows_core::PWSTR, *mut u8) -> windows_core::HRESULT,
-    pub Discard: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSerializedPhrase: usize,
+    #[cfg(feature = "shared")]
+    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, windows_core::BOOL, *mut windows_core::PWSTR, *mut super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetText: usize,
+    #[cfg(feature = "shared")]
+    pub Discard: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Discard: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpPhrase_Impl: windows_core::IUnknownImpl {
     fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE>;
     fn GetSerializedPhrase(&self) -> windows_core::Result<*mut SPSERIALIZEDPHRASE>;
-    fn GetText(&self, ulstart: u32, ulcount: u32, fusetextreplacements: windows_core::BOOL, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: *mut u8) -> windows_core::Result<()>;
-    fn Discard(&self, dwvaluetypes: u32) -> windows_core::Result<()>;
+    fn GetText(&self, ulstart: super::ULONG, ulcount: super::ULONG, fusetextreplacements: windows_core::BOOL, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: *mut super::BYTE) -> windows_core::Result<()>;
+    fn Discard(&self, dwvaluetypes: super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpPhrase_Vtbl {
     pub const fn new<Identity: ISpPhrase_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPhrase<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomemphrase: *mut *mut SPPHRASE) -> windows_core::HRESULT {
@@ -2833,13 +3075,13 @@ impl ISpPhrase_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetText<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstart: u32, ulcount: u32, fusetextreplacements: windows_core::BOOL, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstart: super::ULONG, ulcount: super::ULONG, fusetextreplacements: windows_core::BOOL, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhrase_Impl::GetText(this, core::mem::transmute_copy(&ulstart), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&fusetextreplacements), core::mem::transmute_copy(&ppszcomemtext), core::mem::transmute_copy(&pbdisplayattributes)).into()
             }
         }
-        unsafe extern "system" fn Discard<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwvaluetypes: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Discard<Identity: ISpPhrase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwvaluetypes: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhrase_Impl::Discard(this, core::mem::transmute_copy(&dwvaluetypes)).into()
@@ -2857,7 +3099,7 @@ impl ISpPhrase_Vtbl {
         iid == &<ISpPhrase as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpPhrase {}
 windows_core::imp::define_interface!(ISpPhrase2, ISpPhrase2_Vtbl, 0xf264da52_e457_4696_b856_a737b717af79);
 impl core::ops::Deref for ISpPhrase2 {
@@ -2871,11 +3113,12 @@ impl ISpPhrase2 {
     pub unsafe fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetXMLResult)(windows_core::Interface::as_raw(self), ppszcomemxmlresult as _, options) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetXMLErrorInfo)(windows_core::Interface::as_raw(self), psemanticerrorinfo as _) }
     }
-    #[cfg(feature = "objidlbase")]
-    pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat> {
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub unsafe fn GetAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG) -> windows_core::Result<ISpStreamFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAudio)(windows_core::Interface::as_raw(self), ulstartelement, celements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2887,19 +3130,22 @@ impl ISpPhrase2 {
 pub struct ISpPhrase2_Vtbl {
     pub base__: ISpPhrase_Vtbl,
     pub GetXMLResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, SPXMLRESULTOPTIONS) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub GetXMLErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT,
-    #[cfg(feature = "objidlbase")]
-    pub GetAudio: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(not(feature = "shared"))]
+    GetXMLErrorInfo: usize,
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub GetAudio: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     GetAudio: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpPhrase2_Impl: ISpPhrase_Impl {
     fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::Result<()>;
     fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::Result<()>;
-    fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat>;
+    fn GetAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG) -> windows_core::Result<ISpStreamFormat>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpPhrase2_Vtbl {
     pub const fn new<Identity: ISpPhrase2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetXMLResult<Identity: ISpPhrase2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT {
@@ -2914,7 +3160,7 @@ impl ISpPhrase2_Vtbl {
                 ISpPhrase2_Impl::GetXMLErrorInfo(this, core::mem::transmute_copy(&psemanticerrorinfo)).into()
             }
         }
-        unsafe extern "system" fn GetAudio<Identity: ISpPhrase2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: u32, celements: u32, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAudio<Identity: ISpPhrase2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpPhrase2_Impl::GetAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements)) {
@@ -2937,7 +3183,7 @@ impl ISpPhrase2_Vtbl {
         iid == &<ISpPhrase2 as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpPhrase2 {}
 windows_core::imp::define_interface!(ISpPhraseAlt, ISpPhraseAlt_Vtbl, 0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
 impl core::ops::Deref for ISpPhraseAlt {
@@ -2948,7 +3194,8 @@ impl core::ops::Deref for ISpPhraseAlt {
 }
 windows_core::imp::interface_hierarchy!(ISpPhraseAlt, windows_core::IUnknown, ISpPhrase);
 impl ISpPhraseAlt {
-    pub unsafe fn GetAltInfo(&self, ppparent: *mut Option<ISpPhrase>, pulstartelementinparent: *mut u32, pcelementsinparent: *mut u32, pcelementsinalt: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetAltInfo(&self, ppparent: *mut Option<ISpPhrase>, pulstartelementinparent: *mut super::ULONG, pcelementsinparent: *mut super::ULONG, pcelementsinalt: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAltInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(ppparent), pulstartelementinparent as _, pcelementsinparent as _, pcelementsinalt as _) }
     }
     pub unsafe fn Commit(&self) -> windows_core::HRESULT {
@@ -2959,18 +3206,21 @@ impl ISpPhraseAlt {
 #[doc(hidden)]
 pub struct ISpPhraseAlt_Vtbl {
     pub base__: ISpPhrase_Vtbl,
-    pub GetAltInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetAltInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::ULONG, *mut super::ULONG, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetAltInfo: usize,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpPhraseAlt_Impl: ISpPhrase_Impl {
-    fn GetAltInfo(&self, ppparent: windows_core::OutRef<ISpPhrase>, pulstartelementinparent: *mut u32, pcelementsinparent: *mut u32, pcelementsinalt: *mut u32) -> windows_core::Result<()>;
+    fn GetAltInfo(&self, ppparent: windows_core::OutRef<ISpPhrase>, pulstartelementinparent: *mut super::ULONG, pcelementsinparent: *mut super::ULONG, pcelementsinalt: *mut super::ULONG) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpPhraseAlt_Vtbl {
     pub const fn new<Identity: ISpPhraseAlt_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAltInfo<Identity: ISpPhraseAlt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void, pulstartelementinparent: *mut u32, pcelementsinparent: *mut u32, pcelementsinalt: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAltInfo<Identity: ISpPhraseAlt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void, pulstartelementinparent: *mut super::ULONG, pcelementsinparent: *mut super::ULONG, pcelementsinalt: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpPhraseAlt_Impl::GetAltInfo(this, core::mem::transmute_copy(&ppparent), core::mem::transmute_copy(&pulstartelementinparent), core::mem::transmute_copy(&pcelementsinparent), core::mem::transmute_copy(&pcelementsinalt)).into()
@@ -2988,18 +3238,20 @@ impl ISpPhraseAlt_Vtbl {
         iid == &<ISpPhraseAlt as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpPhraseAlt {}
 windows_core::imp::define_interface!(ISpProperties, ISpProperties_Vtbl, 0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
 windows_core::imp::interface_hierarchy!(ISpProperties, windows_core::IUnknown);
 impl ISpProperties {
-    pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: i32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: super::LONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPropertyNum)(windows_core::Interface::as_raw(self), pname.param().abi(), lvalue) }
     }
-    pub unsafe fn GetPropertyNum<P0>(&self, pname: P0) -> windows_core::Result<i32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPropertyNum<P0>(&self, pname: P0) -> windows_core::Result<super::LONG>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3029,26 +3281,34 @@ impl ISpProperties {
 #[doc(hidden)]
 pub struct ISpProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetPropertyNum: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
-    pub GetPropertyNum: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetPropertyNum: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetPropertyNum: usize,
+    #[cfg(feature = "shared")]
+    pub GetPropertyNum: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPropertyNum: usize,
     pub SetPropertyString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetPropertyString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpProperties_Impl: windows_core::IUnknownImpl {
-    fn SetPropertyNum(&self, pname: &windows_core::PCWSTR, lvalue: i32) -> windows_core::Result<()>;
-    fn GetPropertyNum(&self, pname: &windows_core::PCWSTR) -> windows_core::Result<i32>;
+    fn SetPropertyNum(&self, pname: &windows_core::PCWSTR, lvalue: super::LONG) -> windows_core::Result<()>;
+    fn GetPropertyNum(&self, pname: &windows_core::PCWSTR) -> windows_core::Result<super::LONG>;
     fn SetPropertyString(&self, pname: &windows_core::PCWSTR, pvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetPropertyString(&self, pname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
 }
+#[cfg(feature = "shared")]
 impl ISpProperties_Vtbl {
     pub const fn new<Identity: ISpProperties_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetPropertyNum<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, lvalue: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPropertyNum<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, lvalue: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpProperties_Impl::SetPropertyNum(this, core::mem::transmute(&pname), core::mem::transmute_copy(&lvalue)).into()
             }
         }
-        unsafe extern "system" fn GetPropertyNum<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, plvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyNum<Identity: ISpProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, plvalue: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpProperties_Impl::GetPropertyNum(this, core::mem::transmute(&pname)) {
@@ -3090,6 +3350,7 @@ impl ISpProperties_Vtbl {
         iid == &<ISpProperties as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpProperties {}
 windows_core::imp::define_interface!(ISpRecoCategory, ISpRecoCategory_Vtbl, 0xda0cd0f9_14a2_4f09_8c2a_85cc48979345);
 windows_core::imp::interface_hierarchy!(ISpRecoCategory, windows_core::IUnknown);
@@ -3146,49 +3407,57 @@ impl ISpRecoContext {
             (windows_core::Interface::vtable(self).GetRecognizer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateGrammar(&self, ullgrammarid: u64) -> windows_core::Result<ISpRecoGrammar> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CreateGrammar(&self, ullgrammarid: super::ULONGLONG) -> windows_core::Result<ISpRecoGrammar> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateGrammar)(windows_core::Interface::as_raw(self), ullgrammarid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPRECOCONTEXTSTATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pstatus as _) }
     }
-    pub unsafe fn GetMaxAlternates(&self, pcalternates: *const u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxAlternates(&self, pcalternates: *const super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMaxAlternates)(windows_core::Interface::as_raw(self), pcalternates) }
     }
-    pub unsafe fn SetMaxAlternates(&self, calternates: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaxAlternates(&self, calternates: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaxAlternates)(windows_core::Interface::as_raw(self), calternates) }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn SetAudioOptions(&self, options: SPAUDIOOPTIONS, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAudioOptions)(windows_core::Interface::as_raw(self), options, paudioformatid, pwaveformatex) }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn GetAudioOptions(&self, poptions: *const SPAUDIOOPTIONS, paudioformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAudioOptions)(windows_core::Interface::as_raw(self), poptions, paudioformatid as _, ppcomemwfex as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn DeserializeResult(&self, pserializedresult: *const SPSERIALIZEDRESULT) -> windows_core::Result<ISpRecoResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeserializeResult)(windows_core::Interface::as_raw(self), pserializedresult, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Bookmark(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: u64, lparamevent: super::LPARAM) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn Bookmark(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: super::ULONGLONG, lparamevent: super::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Bookmark)(windows_core::Interface::as_raw(self), options, ullstreamposition, lparamevent) }
     }
-    pub unsafe fn SetAdaptationData<P0>(&self, padaptationdata: P0, cch: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetAdaptationData<P0>(&self, padaptationdata: P0, cch: super::ULONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetAdaptationData)(windows_core::Interface::as_raw(self), padaptationdata.param().abi(), cch) }
     }
-    pub unsafe fn Pause(&self, dwreserved: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Pause(&self, dwreserved: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self), dwreserved) }
     }
-    pub unsafe fn Resume(&self, dwreserved: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Resume(&self, dwreserved: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self), dwreserved) }
     }
     pub unsafe fn SetVoice<P0>(&self, pvoice: P0, fallowformatchanges: bool) -> windows_core::HRESULT
@@ -3203,10 +3472,12 @@ impl ISpRecoContext {
             (windows_core::Interface::vtable(self).GetVoice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetVoicePurgeEvent(&self, ulleventinterest: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetVoicePurgeEvent(&self, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVoicePurgeEvent)(windows_core::Interface::as_raw(self), ulleventinterest) }
     }
-    pub unsafe fn GetVoicePurgeEvent(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetVoicePurgeEvent(&self) -> windows_core::Result<super::ULONGLONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVoicePurgeEvent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3227,55 +3498,85 @@ impl ISpRecoContext {
 pub struct ISpRecoContext_Vtbl {
     pub base__: ISpEventSource_Vtbl,
     pub GetRecognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CreateGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONGLONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CreateGrammar: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPRECOCONTEXTSTATUS) -> windows_core::HRESULT,
-    pub GetMaxAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
-    pub SetMaxAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    GetStatus: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxAlternates: usize,
+    #[cfg(feature = "shared")]
+    pub SetMaxAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaxAlternates: usize,
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub SetAudioOptions: unsafe extern "system" fn(*mut core::ffi::c_void, SPAUDIOOPTIONS, *const windows_core::GUID, *const super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     SetAudioOptions: usize,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub GetAudioOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPAUDIOOPTIONS, *mut windows_core::GUID, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetAudioOptions: usize,
+    #[cfg(feature = "shared")]
     pub DeserializeResult: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPSERIALIZEDRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "minwindef")]
-    pub Bookmark: unsafe extern "system" fn(*mut core::ffi::c_void, SPBOOKMARKOPTIONS, u64, super::LPARAM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(not(feature = "shared"))]
+    DeserializeResult: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub Bookmark: unsafe extern "system" fn(*mut core::ffi::c_void, SPBOOKMARKOPTIONS, super::ULONGLONG, super::LPARAM) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     Bookmark: usize,
-    pub SetAdaptationData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetAdaptationData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetAdaptationData: usize,
+    #[cfg(feature = "shared")]
+    pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Pause: usize,
+    #[cfg(feature = "shared")]
+    pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Resume: usize,
     pub SetVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetVoicePurgeEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub GetVoicePurgeEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetVoicePurgeEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetVoicePurgeEvent: usize,
+    #[cfg(feature = "shared")]
+    pub GetVoicePurgeEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetVoicePurgeEvent: usize,
     pub SetContextState: unsafe extern "system" fn(*mut core::ffi::c_void, SPCONTEXTSTATE) -> windows_core::HRESULT,
     pub GetContextState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPCONTEXTSTATE) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpRecoContext_Impl: ISpEventSource_Impl {
     fn GetRecognizer(&self) -> windows_core::Result<ISpRecognizer>;
-    fn CreateGrammar(&self, ullgrammarid: u64) -> windows_core::Result<ISpRecoGrammar>;
+    fn CreateGrammar(&self, ullgrammarid: super::ULONGLONG) -> windows_core::Result<ISpRecoGrammar>;
     fn GetStatus(&self, pstatus: *mut SPRECOCONTEXTSTATUS) -> windows_core::Result<()>;
-    fn GetMaxAlternates(&self, pcalternates: *const u32) -> windows_core::Result<()>;
-    fn SetMaxAlternates(&self, calternates: u32) -> windows_core::Result<()>;
+    fn GetMaxAlternates(&self, pcalternates: *const super::ULONG) -> windows_core::Result<()>;
+    fn SetMaxAlternates(&self, calternates: super::ULONG) -> windows_core::Result<()>;
     fn SetAudioOptions(&self, options: SPAUDIOOPTIONS, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn GetAudioOptions(&self, poptions: *const SPAUDIOOPTIONS, paudioformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn DeserializeResult(&self, pserializedresult: *const SPSERIALIZEDRESULT) -> windows_core::Result<ISpRecoResult>;
-    fn Bookmark(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: u64, lparamevent: super::LPARAM) -> windows_core::Result<()>;
-    fn SetAdaptationData(&self, padaptationdata: &windows_core::PCWSTR, cch: u32) -> windows_core::Result<()>;
-    fn Pause(&self, dwreserved: u32) -> windows_core::Result<()>;
-    fn Resume(&self, dwreserved: u32) -> windows_core::Result<()>;
+    fn Bookmark(&self, options: SPBOOKMARKOPTIONS, ullstreamposition: super::ULONGLONG, lparamevent: super::LPARAM) -> windows_core::Result<()>;
+    fn SetAdaptationData(&self, padaptationdata: &windows_core::PCWSTR, cch: super::ULONG) -> windows_core::Result<()>;
+    fn Pause(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
+    fn Resume(&self, dwreserved: super::DWORD) -> windows_core::Result<()>;
     fn SetVoice(&self, pvoice: windows_core::Ref<ISpVoice>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetVoice(&self) -> windows_core::Result<ISpVoice>;
-    fn SetVoicePurgeEvent(&self, ulleventinterest: u64) -> windows_core::Result<()>;
-    fn GetVoicePurgeEvent(&self) -> windows_core::Result<u64>;
+    fn SetVoicePurgeEvent(&self, ulleventinterest: super::ULONGLONG) -> windows_core::Result<()>;
+    fn GetVoicePurgeEvent(&self) -> windows_core::Result<super::ULONGLONG>;
     fn SetContextState(&self, econtextstate: SPCONTEXTSTATE) -> windows_core::Result<()>;
     fn GetContextState(&self) -> windows_core::Result<SPCONTEXTSTATE>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpRecoContext_Vtbl {
     pub const fn new<Identity: ISpRecoContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRecognizer<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprecognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3290,7 +3591,7 @@ impl ISpRecoContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateGrammar<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullgrammarid: u64, ppgrammar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateGrammar<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullgrammarid: super::ULONGLONG, ppgrammar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpRecoContext_Impl::CreateGrammar(this, core::mem::transmute_copy(&ullgrammarid)) {
@@ -3308,13 +3609,13 @@ impl ISpRecoContext_Vtbl {
                 ISpRecoContext_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus)).into()
             }
         }
-        unsafe extern "system" fn GetMaxAlternates<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcalternates: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxAlternates<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcalternates: *const super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext_Impl::GetMaxAlternates(this, core::mem::transmute_copy(&pcalternates)).into()
             }
         }
-        unsafe extern "system" fn SetMaxAlternates<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, calternates: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaxAlternates<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, calternates: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext_Impl::SetMaxAlternates(this, core::mem::transmute_copy(&calternates)).into()
@@ -3344,25 +3645,25 @@ impl ISpRecoContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Bookmark<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPBOOKMARKOPTIONS, ullstreamposition: u64, lparamevent: super::LPARAM) -> windows_core::HRESULT {
+        unsafe extern "system" fn Bookmark<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPBOOKMARKOPTIONS, ullstreamposition: super::ULONGLONG, lparamevent: super::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext_Impl::Bookmark(this, core::mem::transmute_copy(&options), core::mem::transmute_copy(&ullstreamposition), core::mem::transmute_copy(&lparamevent)).into()
             }
         }
-        unsafe extern "system" fn SetAdaptationData<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padaptationdata: windows_core::PCWSTR, cch: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAdaptationData<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padaptationdata: windows_core::PCWSTR, cch: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext_Impl::SetAdaptationData(this, core::mem::transmute(&padaptationdata), core::mem::transmute_copy(&cch)).into()
             }
         }
-        unsafe extern "system" fn Pause<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Pause<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext_Impl::Pause(this, core::mem::transmute_copy(&dwreserved)).into()
             }
         }
-        unsafe extern "system" fn Resume<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Resume<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext_Impl::Resume(this, core::mem::transmute_copy(&dwreserved)).into()
@@ -3386,13 +3687,13 @@ impl ISpRecoContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetVoicePurgeEvent<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulleventinterest: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVoicePurgeEvent<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext_Impl::SetVoicePurgeEvent(this, core::mem::transmute_copy(&ulleventinterest)).into()
             }
         }
-        unsafe extern "system" fn GetVoicePurgeEvent<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulleventinterest: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVoicePurgeEvent<Identity: ISpRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulleventinterest: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpRecoContext_Impl::GetVoicePurgeEvent(this) {
@@ -3448,21 +3749,24 @@ impl ISpRecoContext_Vtbl {
         iid == &<ISpRecoContext as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID || iid == &<ISpEventSource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpRecoContext {}
 windows_core::imp::define_interface!(ISpRecoContext2, ISpRecoContext2_Vtbl, 0xbead311c_52ff_437f_9464_6b21054ca73d);
 windows_core::imp::interface_hierarchy!(ISpRecoContext2, windows_core::IUnknown);
 impl ISpRecoContext2 {
-    pub unsafe fn SetGrammarOptions(&self, egrammaroptions: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetGrammarOptions(&self, egrammaroptions: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGrammarOptions)(windows_core::Interface::as_raw(self), egrammaroptions) }
     }
-    pub unsafe fn GetGrammarOptions(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetGrammarOptions(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGrammarOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAdaptationData2<P0, P2>(&self, padaptationdata: P0, cch: u32, ptopicname: P2, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetAdaptationData2<P0, P2>(&self, padaptationdata: P0, cch: super::ULONG, ptopicname: P2, eadaptationsettings: super::DWORD, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -3474,24 +3778,35 @@ impl ISpRecoContext2 {
 #[doc(hidden)]
 pub struct ISpRecoContext2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetGrammarOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetGrammarOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetAdaptationData2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, SPADAPTATIONRELEVANCE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetGrammarOptions: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetGrammarOptions: usize,
+    #[cfg(feature = "shared")]
+    pub GetGrammarOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGrammarOptions: usize,
+    #[cfg(feature = "shared")]
+    pub SetAdaptationData2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG, windows_core::PCWSTR, super::DWORD, SPADAPTATIONRELEVANCE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetAdaptationData2: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpRecoContext2_Impl: windows_core::IUnknownImpl {
-    fn SetGrammarOptions(&self, egrammaroptions: u32) -> windows_core::Result<()>;
-    fn GetGrammarOptions(&self) -> windows_core::Result<u32>;
-    fn SetAdaptationData2(&self, padaptationdata: &windows_core::PCWSTR, cch: u32, ptopicname: &windows_core::PCWSTR, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::Result<()>;
+    fn SetGrammarOptions(&self, egrammaroptions: super::DWORD) -> windows_core::Result<()>;
+    fn GetGrammarOptions(&self) -> windows_core::Result<super::DWORD>;
+    fn SetAdaptationData2(&self, padaptationdata: &windows_core::PCWSTR, cch: super::ULONG, ptopicname: &windows_core::PCWSTR, eadaptationsettings: super::DWORD, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpRecoContext2_Vtbl {
     pub const fn new<Identity: ISpRecoContext2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetGrammarOptions<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, egrammaroptions: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGrammarOptions<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, egrammaroptions: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext2_Impl::SetGrammarOptions(this, core::mem::transmute_copy(&egrammaroptions)).into()
             }
         }
-        unsafe extern "system" fn GetGrammarOptions<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pegrammaroptions: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGrammarOptions<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pegrammaroptions: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpRecoContext2_Impl::GetGrammarOptions(this) {
@@ -3503,7 +3818,7 @@ impl ISpRecoContext2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAdaptationData2<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padaptationdata: windows_core::PCWSTR, cch: u32, ptopicname: windows_core::PCWSTR, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAdaptationData2<Identity: ISpRecoContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padaptationdata: windows_core::PCWSTR, cch: super::ULONG, ptopicname: windows_core::PCWSTR, eadaptationsettings: super::DWORD, erelevance: SPADAPTATIONRELEVANCE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoContext2_Impl::SetAdaptationData2(this, core::mem::transmute(&padaptationdata), core::mem::transmute_copy(&cch), core::mem::transmute(&ptopicname), core::mem::transmute_copy(&eadaptationsettings), core::mem::transmute_copy(&erelevance)).into()
@@ -3520,6 +3835,7 @@ impl ISpRecoContext2_Vtbl {
         iid == &<ISpRecoContext2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpRecoContext2 {}
 windows_core::imp::define_interface!(ISpRecoGrammar, ISpRecoGrammar_Vtbl, 0x2177db29_7f45_47d0_8554_067e91c80502);
 impl core::ops::Deref for ISpRecoGrammar {
@@ -3530,7 +3846,8 @@ impl core::ops::Deref for ISpRecoGrammar {
 }
 windows_core::imp::interface_hierarchy!(ISpRecoGrammar, windows_core::IUnknown, ISpGrammarBuilder);
 impl ISpRecoGrammar {
-    pub unsafe fn GetGrammarId(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetGrammarId(&self) -> windows_core::Result<super::ULONGLONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGrammarId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3548,24 +3865,27 @@ impl ISpRecoGrammar {
     {
         unsafe { (windows_core::Interface::vtable(self).LoadCmdFromFile)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), options) }
     }
-    pub unsafe fn LoadCmdFromObject<P1>(&self, rcid: *const windows_core::GUID, pszgrammarname: P1, options: SPLOADOPTIONS) -> windows_core::HRESULT
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn LoadCmdFromObject<P1>(&self, rcid: *const super::IID, pszgrammarname: P1, options: SPLOADOPTIONS) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).LoadCmdFromObject)(windows_core::Interface::as_raw(self), rcid, pszgrammarname.param().abi(), options) }
     }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn LoadCmdFromResource<P1, P2>(&self, hmodule: super::HMODULE, pszresourcename: P1, pszresourcetype: P2, wlanguage: u16, options: SPLOADOPTIONS) -> windows_core::HRESULT
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn LoadCmdFromResource<P1, P2>(&self, hmodule: super::HMODULE, pszresourcename: P1, pszresourcetype: P2, wlanguage: super::WORD, options: SPLOADOPTIONS) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).LoadCmdFromResource)(windows_core::Interface::as_raw(self), hmodule, pszresourcename.param().abi(), pszresourcetype.param().abi(), wlanguage, options) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn LoadCmdFromMemory(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LoadCmdFromMemory)(windows_core::Interface::as_raw(self), pgrammar, options) }
     }
-    pub unsafe fn LoadCmdFromProprietaryGrammar<P1>(&self, rguidparam: *const windows_core::GUID, pszstringparam: P1, pvdataprarm: *const core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn LoadCmdFromProprietaryGrammar<P1>(&self, rguidparam: *const windows_core::GUID, pszstringparam: P1, pvdataprarm: *const core::ffi::c_void, cbdatasize: super::ULONG, options: SPLOADOPTIONS) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3577,7 +3897,8 @@ impl ISpRecoGrammar {
     {
         unsafe { (windows_core::Interface::vtable(self).SetRuleState)(windows_core::Interface::as_raw(self), pszname.param().abi(), preserved, newstate) }
     }
-    pub unsafe fn SetRuleIdState(&self, ulruleid: u32, newstate: SPRULESTATE) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetRuleIdState(&self, ulruleid: super::ULONG, newstate: SPRULESTATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRuleIdState)(windows_core::Interface::as_raw(self), ulruleid, newstate) }
     }
     pub unsafe fn LoadDictation<P0>(&self, psztopicname: P0, options: SPLOADOPTIONS) -> windows_core::HRESULT
@@ -3592,9 +3913,11 @@ impl ISpRecoGrammar {
     pub unsafe fn SetDictationState(&self, newstate: SPRULESTATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDictationState)(windows_core::Interface::as_raw(self), newstate) }
     }
-    pub unsafe fn SetWordSequenceData(&self, ptext: Option<&[u16]>, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn SetWordSequenceData(&self, ptext: Option<&[super::WCHAR]>, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), ptext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ptext.map_or(0, |slice| slice.len().try_into().unwrap()), pinfo) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTextSelection)(windows_core::Interface::as_raw(self), pinfo) }
     }
@@ -3628,23 +3951,44 @@ impl ISpRecoGrammar {
 #[doc(hidden)]
 pub struct ISpRecoGrammar_Vtbl {
     pub base__: ISpGrammarBuilder_Vtbl,
-    pub GetGrammarId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetGrammarId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGrammarId: usize,
     pub GetRecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LoadCmdFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, SPLOADOPTIONS) -> windows_core::HRESULT,
-    pub LoadCmdFromObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, SPLOADOPTIONS) -> windows_core::HRESULT,
-    #[cfg(feature = "minwindef")]
-    pub LoadCmdFromResource: unsafe extern "system" fn(*mut core::ffi::c_void, super::HMODULE, windows_core::PCWSTR, windows_core::PCWSTR, u16, SPLOADOPTIONS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(feature = "guiddef")]
+    pub LoadCmdFromObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, windows_core::PCWSTR, SPLOADOPTIONS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    LoadCmdFromObject: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub LoadCmdFromResource: unsafe extern "system" fn(*mut core::ffi::c_void, super::HMODULE, windows_core::PCWSTR, windows_core::PCWSTR, super::WORD, SPLOADOPTIONS) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     LoadCmdFromResource: usize,
+    #[cfg(feature = "shared")]
     pub LoadCmdFromMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPBINARYGRAMMAR, SPLOADOPTIONS) -> windows_core::HRESULT,
-    pub LoadCmdFromProprietaryGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *const core::ffi::c_void, u32, SPLOADOPTIONS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    LoadCmdFromMemory: usize,
+    #[cfg(feature = "shared")]
+    pub LoadCmdFromProprietaryGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *const core::ffi::c_void, super::ULONG, SPLOADOPTIONS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    LoadCmdFromProprietaryGrammar: usize,
     pub SetRuleState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, SPRULESTATE) -> windows_core::HRESULT,
-    pub SetRuleIdState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, SPRULESTATE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetRuleIdState: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, SPRULESTATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetRuleIdState: usize,
     pub LoadDictation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, SPLOADOPTIONS) -> windows_core::HRESULT,
     pub UnloadDictation: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDictationState: unsafe extern "system" fn(*mut core::ffi::c_void, SPRULESTATE) -> windows_core::HRESULT,
-    pub SetWordSequenceData: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32, *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub SetWordSequenceData: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::WCHAR, super::ULONG, *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    SetWordSequenceData: usize,
+    #[cfg(feature = "shared")]
     pub SetTextSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetTextSelection: usize,
     pub IsPronounceable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut SPWORDPRONOUNCEABLE) -> windows_core::HRESULT,
     pub SetGrammarState: unsafe extern "system" fn(*mut core::ffi::c_void, SPGRAMMARSTATE) -> windows_core::HRESULT,
     #[cfg(feature = "objidlbase")]
@@ -3653,31 +3997,31 @@ pub struct ISpRecoGrammar_Vtbl {
     SaveCmd: usize,
     pub GetGrammarState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPGRAMMARSTATE) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoGrammar_Impl: ISpGrammarBuilder_Impl {
-    fn GetGrammarId(&self) -> windows_core::Result<u64>;
+    fn GetGrammarId(&self) -> windows_core::Result<super::ULONGLONG>;
     fn GetRecoContext(&self) -> windows_core::Result<ISpRecoContext>;
     fn LoadCmdFromFile(&self, pszfilename: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn LoadCmdFromObject(&self, rcid: *const windows_core::GUID, pszgrammarname: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn LoadCmdFromResource(&self, hmodule: super::HMODULE, pszresourcename: &windows_core::PCWSTR, pszresourcetype: &windows_core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> windows_core::Result<()>;
+    fn LoadCmdFromObject(&self, rcid: *const super::IID, pszgrammarname: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
+    fn LoadCmdFromResource(&self, hmodule: super::HMODULE, pszresourcename: &windows_core::PCWSTR, pszresourcetype: &windows_core::PCWSTR, wlanguage: super::WORD, options: SPLOADOPTIONS) -> windows_core::Result<()>;
     fn LoadCmdFromMemory(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
-    fn LoadCmdFromProprietaryGrammar(&self, rguidparam: *const windows_core::GUID, pszstringparam: &windows_core::PCWSTR, pvdataprarm: *const core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> windows_core::Result<()>;
+    fn LoadCmdFromProprietaryGrammar(&self, rguidparam: *const windows_core::GUID, pszstringparam: &windows_core::PCWSTR, pvdataprarm: *const core::ffi::c_void, cbdatasize: super::ULONG, options: SPLOADOPTIONS) -> windows_core::Result<()>;
     fn SetRuleState(&self, pszname: &windows_core::PCWSTR, preserved: *const core::ffi::c_void, newstate: SPRULESTATE) -> windows_core::Result<()>;
-    fn SetRuleIdState(&self, ulruleid: u32, newstate: SPRULESTATE) -> windows_core::Result<()>;
+    fn SetRuleIdState(&self, ulruleid: super::ULONG, newstate: SPRULESTATE) -> windows_core::Result<()>;
     fn LoadDictation(&self, psztopicname: &windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::Result<()>;
     fn UnloadDictation(&self) -> windows_core::Result<()>;
     fn SetDictationState(&self, newstate: SPRULESTATE) -> windows_core::Result<()>;
-    fn SetWordSequenceData(&self, ptext: *const u16, cchtext: u32, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()>;
+    fn SetWordSequenceData(&self, ptext: *const super::WCHAR, cchtext: super::ULONG, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()>;
     fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()>;
     fn IsPronounceable(&self, pszword: &windows_core::PCWSTR) -> windows_core::Result<SPWORDPRONOUNCEABLE>;
     fn SetGrammarState(&self, egrammarstate: SPGRAMMARSTATE) -> windows_core::Result<()>;
     fn SaveCmd(&self, pstream: windows_core::Ref<super::IStream>, ppszcomemerrortext: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetGrammarState(&self) -> windows_core::Result<SPGRAMMARSTATE>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpRecoGrammar_Vtbl {
     pub const fn new<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetGrammarId<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullgrammarid: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGrammarId<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullgrammarid: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpRecoGrammar_Impl::GetGrammarId(this) {
@@ -3707,13 +4051,13 @@ impl ISpRecoGrammar_Vtbl {
                 ISpRecoGrammar_Impl::LoadCmdFromFile(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&options)).into()
             }
         }
-        unsafe extern "system" fn LoadCmdFromObject<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rcid: *const windows_core::GUID, pszgrammarname: windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadCmdFromObject<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rcid: *const super::IID, pszgrammarname: windows_core::PCWSTR, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar_Impl::LoadCmdFromObject(this, core::mem::transmute_copy(&rcid), core::mem::transmute(&pszgrammarname), core::mem::transmute_copy(&options)).into()
             }
         }
-        unsafe extern "system" fn LoadCmdFromResource<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmodule: super::HMODULE, pszresourcename: windows_core::PCWSTR, pszresourcetype: windows_core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadCmdFromResource<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmodule: super::HMODULE, pszresourcename: windows_core::PCWSTR, pszresourcetype: windows_core::PCWSTR, wlanguage: super::WORD, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar_Impl::LoadCmdFromResource(this, core::mem::transmute_copy(&hmodule), core::mem::transmute(&pszresourcename), core::mem::transmute(&pszresourcetype), core::mem::transmute_copy(&wlanguage), core::mem::transmute_copy(&options)).into()
@@ -3725,7 +4069,7 @@ impl ISpRecoGrammar_Vtbl {
                 ISpRecoGrammar_Impl::LoadCmdFromMemory(this, core::mem::transmute_copy(&pgrammar), core::mem::transmute_copy(&options)).into()
             }
         }
-        unsafe extern "system" fn LoadCmdFromProprietaryGrammar<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidparam: *const windows_core::GUID, pszstringparam: windows_core::PCWSTR, pvdataprarm: *const core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadCmdFromProprietaryGrammar<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidparam: *const windows_core::GUID, pszstringparam: windows_core::PCWSTR, pvdataprarm: *const core::ffi::c_void, cbdatasize: super::ULONG, options: SPLOADOPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar_Impl::LoadCmdFromProprietaryGrammar(this, core::mem::transmute_copy(&rguidparam), core::mem::transmute(&pszstringparam), core::mem::transmute_copy(&pvdataprarm), core::mem::transmute_copy(&cbdatasize), core::mem::transmute_copy(&options)).into()
@@ -3737,7 +4081,7 @@ impl ISpRecoGrammar_Vtbl {
                 ISpRecoGrammar_Impl::SetRuleState(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&newstate)).into()
             }
         }
-        unsafe extern "system" fn SetRuleIdState<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulruleid: u32, newstate: SPRULESTATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRuleIdState<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulruleid: super::ULONG, newstate: SPRULESTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar_Impl::SetRuleIdState(this, core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&newstate)).into()
@@ -3761,7 +4105,7 @@ impl ISpRecoGrammar_Vtbl {
                 ISpRecoGrammar_Impl::SetDictationState(this, core::mem::transmute_copy(&newstate)).into()
             }
         }
-        unsafe extern "system" fn SetWordSequenceData<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptext: *const u16, cchtext: u32, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWordSequenceData<Identity: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptext: *const super::WCHAR, cchtext: super::ULONG, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar_Impl::SetWordSequenceData(this, core::mem::transmute_copy(&ptext), core::mem::transmute_copy(&cchtext), core::mem::transmute_copy(&pinfo)).into()
@@ -3835,12 +4179,13 @@ impl ISpRecoGrammar_Vtbl {
         iid == &<ISpRecoGrammar as windows_core::Interface>::IID || iid == &<ISpGrammarBuilder as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpRecoGrammar {}
 windows_core::imp::define_interface!(ISpRecoGrammar2, ISpRecoGrammar2_Vtbl, 0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
 windows_core::imp::interface_hierarchy!(ISpRecoGrammar2, windows_core::IUnknown);
 impl ISpRecoGrammar2 {
-    pub unsafe fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRules)(windows_core::Interface::as_raw(self), ppcomemrules as _, punumrules as _) }
     }
     pub unsafe fn LoadCmdFromFile2<P0, P2, P3>(&self, pszfilename: P0, options: SPLOADOPTIONS, pszsharinguri: P2, pszbaseuri: P3) -> windows_core::HRESULT
@@ -3851,6 +4196,7 @@ impl ISpRecoGrammar2 {
     {
         unsafe { (windows_core::Interface::vtable(self).LoadCmdFromFile2)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), options, pszsharinguri.param().abi(), pszbaseuri.param().abi()) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn LoadCmdFromMemory2<P2, P3>(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: P2, pszbaseuri: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -3858,13 +4204,15 @@ impl ISpRecoGrammar2 {
     {
         unsafe { (windows_core::Interface::vtable(self).LoadCmdFromMemory2)(windows_core::Interface::as_raw(self), pgrammar, options, pszsharinguri.param().abi(), pszbaseuri.param().abi()) }
     }
-    pub unsafe fn SetRulePriority<P0>(&self, pszrulename: P0, ulruleid: u32, nrulepriority: i32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetRulePriority<P0>(&self, pszrulename: P0, ulruleid: super::ULONG, nrulepriority: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRulePriority)(windows_core::Interface::as_raw(self), pszrulename.param().abi(), ulruleid, nrulepriority) }
     }
-    pub unsafe fn SetRuleWeight<P0>(&self, pszrulename: P0, ulruleid: u32, flweight: f32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetRuleWeight<P0>(&self, pszrulename: P0, ulruleid: super::ULONG, flweight: f32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3892,11 +4240,23 @@ impl ISpRecoGrammar2 {
 #[doc(hidden)]
 pub struct ISpRecoGrammar2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetRules: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SPRULE, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetRules: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SPRULE, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRules: usize,
     pub LoadCmdFromFile2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, SPLOADOPTIONS, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub LoadCmdFromMemory2: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPBINARYGRAMMAR, SPLOADOPTIONS, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetRulePriority: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, i32) -> windows_core::HRESULT,
-    pub SetRuleWeight: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    LoadCmdFromMemory2: usize,
+    #[cfg(feature = "shared")]
+    pub SetRulePriority: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG, i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetRulePriority: usize,
+    #[cfg(feature = "shared")]
+    pub SetRuleWeight: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG, f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetRuleWeight: usize,
     pub SetDictationWeight: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     #[cfg(feature = "oaidl")]
     pub SetGrammarLoader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3907,21 +4267,21 @@ pub struct ISpRecoGrammar2_Vtbl {
     #[cfg(not(feature = "urlmon"))]
     SetSMLSecurityManager: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "urlmon"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "urlmon"))]
 pub trait ISpRecoGrammar2_Impl: windows_core::IUnknownImpl {
-    fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> windows_core::Result<()>;
+    fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut super::UINT) -> windows_core::Result<()>;
     fn LoadCmdFromFile2(&self, pszfilename: &windows_core::PCWSTR, options: SPLOADOPTIONS, pszsharinguri: &windows_core::PCWSTR, pszbaseuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn LoadCmdFromMemory2(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: &windows_core::PCWSTR, pszbaseuri: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetRulePriority(&self, pszrulename: &windows_core::PCWSTR, ulruleid: u32, nrulepriority: i32) -> windows_core::Result<()>;
-    fn SetRuleWeight(&self, pszrulename: &windows_core::PCWSTR, ulruleid: u32, flweight: f32) -> windows_core::Result<()>;
+    fn SetRulePriority(&self, pszrulename: &windows_core::PCWSTR, ulruleid: super::ULONG, nrulepriority: i32) -> windows_core::Result<()>;
+    fn SetRuleWeight(&self, pszrulename: &windows_core::PCWSTR, ulruleid: super::ULONG, flweight: f32) -> windows_core::Result<()>;
     fn SetDictationWeight(&self, flweight: f32) -> windows_core::Result<()>;
     fn SetGrammarLoader(&self, ploader: windows_core::Ref<ISpeechResourceLoader>) -> windows_core::Result<()>;
     fn SetSMLSecurityManager(&self, psmlsecuritymanager: windows_core::Ref<super::IInternetSecurityManager>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "urlmon"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "urlmon"))]
 impl ISpRecoGrammar2_Vtbl {
     pub const fn new<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRules<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRules<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomemrules: *mut *mut SPRULE, punumrules: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar2_Impl::GetRules(this, core::mem::transmute_copy(&ppcomemrules), core::mem::transmute_copy(&punumrules)).into()
@@ -3939,13 +4299,13 @@ impl ISpRecoGrammar2_Vtbl {
                 ISpRecoGrammar2_Impl::LoadCmdFromMemory2(this, core::mem::transmute_copy(&pgrammar), core::mem::transmute_copy(&options), core::mem::transmute(&pszsharinguri), core::mem::transmute(&pszbaseuri)).into()
             }
         }
-        unsafe extern "system" fn SetRulePriority<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, ulruleid: u32, nrulepriority: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRulePriority<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, ulruleid: super::ULONG, nrulepriority: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar2_Impl::SetRulePriority(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&nrulepriority)).into()
             }
         }
-        unsafe extern "system" fn SetRuleWeight<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, ulruleid: u32, flweight: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRuleWeight<Identity: ISpRecoGrammar2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrulename: windows_core::PCWSTR, ulruleid: super::ULONG, flweight: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoGrammar2_Impl::SetRuleWeight(this, core::mem::transmute(&pszrulename), core::mem::transmute_copy(&ulruleid), core::mem::transmute_copy(&flweight)).into()
@@ -3985,7 +4345,7 @@ impl ISpRecoGrammar2_Vtbl {
         iid == &<ISpRecoGrammar2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "urlmon"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "urlmon"))]
 impl windows_core::RuntimeName for ISpRecoGrammar2 {}
 windows_core::imp::define_interface!(ISpRecoResult, ISpRecoResult_Vtbl, 0x20b053be_e235_43cd_9a2a_8d17a48b7842);
 impl core::ops::Deref for ISpRecoResult {
@@ -3996,33 +4356,36 @@ impl core::ops::Deref for ISpRecoResult {
 }
 windows_core::imp::interface_hierarchy!(ISpRecoResult, windows_core::IUnknown, ISpPhrase);
 impl ISpRecoResult {
-    #[cfg(feature = "minwindef")]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetResultTimes)(windows_core::Interface::as_raw(self), ptimes as _) }
     }
-    pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetAlternates(&self, ulstartelement: super::ULONG, celements: super::ULONG, ulrequestcount: super::ULONG, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), ulstartelement, celements, ulrequestcount, core::mem::transmute(ppphrases), pcphrasesreturned as _) }
     }
-    #[cfg(feature = "objidlbase")]
-    pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat> {
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub unsafe fn GetAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG) -> windows_core::Result<ISpStreamFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAudio)(windows_core::Interface::as_raw(self), ulstartelement, celements, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SpeakAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG, dwflags: super::DWORD) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SpeakAudio)(windows_core::Interface::as_raw(self), ulstartelement, celements, dwflags, &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn Serialize(&self) -> windows_core::Result<*mut SPSERIALIZEDRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn ScaleAudio(&self, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ScaleAudio)(windows_core::Interface::as_raw(self), paudioformatid, pwaveformatex) }
     }
@@ -4037,34 +4400,43 @@ impl ISpRecoResult {
 #[doc(hidden)]
 pub struct ISpRecoResult_Vtbl {
     pub base__: ISpPhrase_Vtbl,
-    #[cfg(feature = "minwindef")]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub GetResultTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPRECORESULTTIMES) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     GetResultTimes: usize,
-    pub GetAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "objidlbase")]
-    pub GetAudio: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(feature = "shared")]
+    pub GetAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, super::ULONG, *mut *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetAlternates: usize,
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub GetAudio: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     GetAudio: usize,
-    pub SpeakAudio: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SpeakAudio: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, super::DWORD, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SpeakAudio: usize,
+    #[cfg(feature = "shared")]
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SPSERIALIZEDRESULT) -> windows_core::HRESULT,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(not(feature = "shared"))]
+    Serialize: usize,
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub ScaleAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     ScaleAudio: usize,
     pub GetRecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoResult_Impl: ISpPhrase_Impl {
     fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::Result<()>;
-    fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
-    fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat>;
-    fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32) -> windows_core::Result<u32>;
+    fn GetAlternates(&self, ulstartelement: super::ULONG, celements: super::ULONG, ulrequestcount: super::ULONG, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG) -> windows_core::Result<ISpStreamFormat>;
+    fn SpeakAudio(&self, ulstartelement: super::ULONG, celements: super::ULONG, dwflags: super::DWORD) -> windows_core::Result<super::ULONG>;
     fn Serialize(&self) -> windows_core::Result<*mut SPSERIALIZEDRESULT>;
     fn ScaleAudio(&self, paudioformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn GetRecoContext(&self) -> windows_core::Result<ISpRecoContext>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpRecoResult_Vtbl {
     pub const fn new<Identity: ISpRecoResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetResultTimes<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimes: *mut SPRECORESULTTIMES) -> windows_core::HRESULT {
@@ -4073,13 +4445,13 @@ impl ISpRecoResult_Vtbl {
                 ISpRecoResult_Impl::GetResultTimes(this, core::mem::transmute_copy(&ptimes)).into()
             }
         }
-        unsafe extern "system" fn GetAlternates<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut *mut core::ffi::c_void, pcphrasesreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAlternates<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, ulrequestcount: super::ULONG, ppphrases: *mut *mut core::ffi::c_void, pcphrasesreturned: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoResult_Impl::GetAlternates(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&ulrequestcount), core::mem::transmute_copy(&ppphrases), core::mem::transmute_copy(&pcphrasesreturned)).into()
             }
         }
-        unsafe extern "system" fn GetAudio<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: u32, celements: u32, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAudio<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpRecoResult_Impl::GetAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements)) {
@@ -4091,7 +4463,7 @@ impl ISpRecoResult_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SpeakAudio<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SpeakAudio<Identity: ISpRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpRecoResult_Impl::SpeakAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute_copy(&dwflags)) {
@@ -4148,7 +4520,7 @@ impl ISpRecoResult_Vtbl {
         iid == &<ISpRecoResult as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpRecoResult {}
 windows_core::imp::define_interface!(ISpRecoResult2, ISpRecoResult2_Vtbl, 0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
 impl core::ops::Deref for ISpRecoResult2 {
@@ -4168,7 +4540,8 @@ impl ISpRecoResult2 {
             (windows_core::Interface::vtable(self).CommitAlternate)(windows_core::Interface::as_raw(self), pphrasealt.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommitText<P2>(&self, ulstartelement: u32, celements: u32, pszcorrecteddata: P2, ecommitflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn CommitText<P2>(&self, ulstartelement: super::ULONG, celements: super::ULONG, pszcorrecteddata: P2, ecommitflags: super::DWORD) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4186,16 +4559,19 @@ impl ISpRecoResult2 {
 pub struct ISpRecoResult2_Vtbl {
     pub base__: ISpRecoResult_Vtbl,
     pub CommitAlternate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CommitText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CommitText: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, windows_core::PCWSTR, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CommitText: usize,
     pub SetTextFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoResult2_Impl: ISpRecoResult_Impl {
     fn CommitAlternate(&self, pphrasealt: windows_core::Ref<ISpPhraseAlt>) -> windows_core::Result<ISpRecoResult>;
-    fn CommitText(&self, ulstartelement: u32, celements: u32, pszcorrecteddata: &windows_core::PCWSTR, ecommitflags: u32) -> windows_core::Result<()>;
+    fn CommitText(&self, ulstartelement: super::ULONG, celements: super::ULONG, pszcorrecteddata: &windows_core::PCWSTR, ecommitflags: super::DWORD) -> windows_core::Result<()>;
     fn SetTextFeedback(&self, pszfeedback: &windows_core::PCWSTR, fsuccessful: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpRecoResult2_Vtbl {
     pub const fn new<Identity: ISpRecoResult2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommitAlternate<Identity: ISpRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrasealt: *mut core::ffi::c_void, ppnewresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4210,7 +4586,7 @@ impl ISpRecoResult2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CommitText<Identity: ISpRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: u32, celements: u32, pszcorrecteddata: windows_core::PCWSTR, ecommitflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CommitText<Identity: ISpRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartelement: super::ULONG, celements: super::ULONG, pszcorrecteddata: windows_core::PCWSTR, ecommitflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecoResult2_Impl::CommitText(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements), core::mem::transmute(&pszcorrecteddata), core::mem::transmute_copy(&ecommitflags)).into()
@@ -4233,7 +4609,7 @@ impl ISpRecoResult2_Vtbl {
         iid == &<ISpRecoResult2 as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID || iid == &<ISpRecoResult as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpRecoResult2 {}
 windows_core::imp::define_interface!(ISpRecognizer, ISpRecognizer_Vtbl, 0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
 impl core::ops::Deref for ISpRecognizer {
@@ -4305,14 +4681,16 @@ impl ISpRecognizer {
     pub unsafe fn SetRecoState(&self, newstate: SPRECOSTATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRecoState)(windows_core::Interface::as_raw(self), newstate) }
     }
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPRECOGNIZERSTATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pstatus as _) }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn GetFormat(&self, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), waveformattype, pformatid as _, ppcomemwfex as _) }
     }
-    pub unsafe fn IsUISupported<P0>(&self, psztypeofui: P0, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::Result<windows_core::BOOL>
+    #[cfg(feature = "shared")]
+    pub unsafe fn IsUISupported<P0>(&self, psztypeofui: P0, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4321,8 +4699,8 @@ impl ISpRecognizer {
             (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), psztypeofui.param().abi(), pvextradata, cbextradata, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn DisplayUI<P1, P2>(&self, hwndparent: super::HWND, psztitle: P1, psztypeofui: P2, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn DisplayUI<P1, P2>(&self, hwndparent: super::HWND, psztitle: P1, psztypeofui: P2, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -4354,19 +4732,25 @@ pub struct ISpRecognizer_Vtbl {
     pub IsSharedInstance: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRecoState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPRECOSTATE) -> windows_core::HRESULT,
     pub SetRecoState: unsafe extern "system" fn(*mut core::ffi::c_void, SPRECOSTATE) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPRECOGNIZERSTATUS) -> windows_core::HRESULT,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    GetStatus: usize,
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTREAMFORMATTYPE, *mut windows_core::GUID, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetFormat: usize,
-    pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(feature = "shared")]
+    pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, super::ULONG, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    IsUISupported: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     DisplayUI: usize,
     pub EmulateRecognition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "mmeapi", feature = "objidlbase", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "windef"))]
 pub trait ISpRecognizer_Impl: ISpProperties_Impl {
     fn SetRecognizer(&self, precognizer: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
     fn GetRecognizer(&self) -> windows_core::Result<ISpObjectToken>;
@@ -4381,11 +4765,11 @@ pub trait ISpRecognizer_Impl: ISpProperties_Impl {
     fn SetRecoState(&self, newstate: SPRECOSTATE) -> windows_core::Result<()>;
     fn GetStatus(&self, pstatus: *mut SPRECOGNIZERSTATUS) -> windows_core::Result<()>;
     fn GetFormat(&self, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut windows_core::GUID, ppcomemwfex: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::Result<windows_core::BOOL>;
-    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::Result<()>;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<windows_core::BOOL>;
+    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<()>;
     fn EmulateRecognition(&self, pphrase: windows_core::Ref<ISpPhrase>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "mmeapi", feature = "objidlbase", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "windef"))]
 impl ISpRecognizer_Vtbl {
     pub const fn new<Identity: ISpRecognizer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRecognizer<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precognizer: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4502,7 +4886,7 @@ impl ISpRecognizer_Vtbl {
                 ISpRecognizer_Impl::GetFormat(this, core::mem::transmute_copy(&waveformattype), core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&ppcomemwfex)).into()
             }
         }
-        unsafe extern "system" fn IsUISupported<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsUISupported<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpRecognizer_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata)) {
@@ -4514,7 +4898,7 @@ impl ISpRecognizer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DisplayUI<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayUI<Identity: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecognizer_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata)).into()
@@ -4550,12 +4934,13 @@ impl ISpRecognizer_Vtbl {
         iid == &<ISpRecognizer as windows_core::Interface>::IID || iid == &<ISpProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mmeapi", feature = "objidlbase", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for ISpRecognizer {}
 windows_core::imp::define_interface!(ISpRecognizer2, ISpRecognizer2_Vtbl, 0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
 windows_core::imp::interface_hierarchy!(ISpRecognizer2, windows_core::IUnknown);
 impl ISpRecognizer2 {
-    pub unsafe fn EmulateRecognitionEx<P0>(&self, pphrase: P0, dwcompareflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn EmulateRecognitionEx<P0>(&self, pphrase: P0, dwcompareflags: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ISpPhrase>,
     {
@@ -4572,18 +4957,23 @@ impl ISpRecognizer2 {
 #[doc(hidden)]
 pub struct ISpRecognizer2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub EmulateRecognitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub EmulateRecognitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EmulateRecognitionEx: usize,
     pub SetTrainingState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub ResetAcousticModelAdaptation: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpRecognizer2_Impl: windows_core::IUnknownImpl {
-    fn EmulateRecognitionEx(&self, pphrase: windows_core::Ref<ISpPhrase>, dwcompareflags: u32) -> windows_core::Result<()>;
+    fn EmulateRecognitionEx(&self, pphrase: windows_core::Ref<ISpPhrase>, dwcompareflags: super::DWORD) -> windows_core::Result<()>;
     fn SetTrainingState(&self, fdoingtraining: windows_core::BOOL, fadaptfromtrainingdata: windows_core::BOOL) -> windows_core::Result<()>;
     fn ResetAcousticModelAdaptation(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpRecognizer2_Vtbl {
     pub const fn new<Identity: ISpRecognizer2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EmulateRecognitionEx<Identity: ISpRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *mut core::ffi::c_void, dwcompareflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EmulateRecognitionEx<Identity: ISpRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *mut core::ffi::c_void, dwcompareflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpRecognizer2_Impl::EmulateRecognitionEx(this, core::mem::transmute_copy(&pphrase), core::mem::transmute_copy(&dwcompareflags)).into()
@@ -4612,6 +5002,7 @@ impl ISpRecognizer2_Vtbl {
         iid == &<ISpRecognizer2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpRecognizer2 {}
 windows_core::imp::define_interface!(ISpRecognizer3, ISpRecognizer3_Vtbl, 0xdf1b943c_5838_4aa2_8706_d7cd5b333499);
 windows_core::imp::interface_hierarchy!(ISpRecognizer3, windows_core::IUnknown);
@@ -4715,11 +5106,11 @@ pub struct ISpRegDataKey_Vtbl {
     #[cfg(not(feature = "minwindef"))]
     SetKey: usize,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait ISpRegDataKey_Impl: ISpDataKey_Impl {
     fn SetKey(&self, hkey: super::HKEY, freadonly: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl ISpRegDataKey_Vtbl {
     pub const fn new<Identity: ISpRegDataKey_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetKey<Identity: ISpRegDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hkey: super::HKEY, freadonly: windows_core::BOOL) -> windows_core::HRESULT {
@@ -4734,7 +5125,7 @@ impl ISpRegDataKey_Vtbl {
         iid == &<ISpRegDataKey as windows_core::Interface>::IID || iid == &<ISpDataKey as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl windows_core::RuntimeName for ISpRegDataKey {}
 #[cfg(feature = "servprov")]
 windows_core::imp::define_interface!(ISpResourceManager, ISpResourceManager_Vtbl, 0x93384e18_5014_43d5_adbb_a78e055926bd);
@@ -4755,7 +5146,8 @@ impl ISpResourceManager {
     {
         unsafe { (windows_core::Interface::vtable(self).SetObject)(windows_core::Interface::as_raw(self), guidserviceid, punkobject.param().abi()) }
     }
-    pub unsafe fn GetObject<T>(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const windows_core::GUID, freleasewhenlastexternalrefreleased: bool) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetObject<T>(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const super::IID, freleasewhenlastexternalrefreleased: bool) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -4769,14 +5161,17 @@ impl ISpResourceManager {
 pub struct ISpResourceManager_Vtbl {
     pub base__: super::IServiceProvider_Vtbl,
     pub SetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::IID, *const super::IID, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetObject: usize,
 }
-#[cfg(feature = "servprov")]
+#[cfg(all(feature = "guiddef", feature = "servprov"))]
 pub trait ISpResourceManager_Impl: super::IServiceProvider_Impl {
     fn SetObject(&self, guidserviceid: *const windows_core::GUID, punkobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetObject(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const windows_core::GUID, objectiid: *const windows_core::GUID, freleasewhenlastexternalrefreleased: windows_core::BOOL, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetObject(&self, guidserviceid: *const windows_core::GUID, objectclsid: *const super::IID, objectiid: *const super::IID, freleasewhenlastexternalrefreleased: windows_core::BOOL, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "servprov")]
+#[cfg(all(feature = "guiddef", feature = "servprov"))]
 impl ISpResourceManager_Vtbl {
     pub const fn new<Identity: ISpResourceManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetObject<Identity: ISpResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidserviceid: *const windows_core::GUID, punkobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4785,7 +5180,7 @@ impl ISpResourceManager_Vtbl {
                 ISpResourceManager_Impl::SetObject(this, core::mem::transmute_copy(&guidserviceid), core::mem::transmute_copy(&punkobject)).into()
             }
         }
-        unsafe extern "system" fn GetObject<Identity: ISpResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidserviceid: *const windows_core::GUID, objectclsid: *const windows_core::GUID, objectiid: *const windows_core::GUID, freleasewhenlastexternalrefreleased: windows_core::BOOL, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObject<Identity: ISpResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidserviceid: *const windows_core::GUID, objectclsid: *const super::IID, objectiid: *const super::IID, freleasewhenlastexternalrefreleased: windows_core::BOOL, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpResourceManager_Impl::GetObject(this, core::mem::transmute_copy(&guidserviceid), core::mem::transmute_copy(&objectclsid), core::mem::transmute_copy(&objectiid), core::mem::transmute_copy(&freleasewhenlastexternalrefreleased), core::mem::transmute_copy(&ppobject)).into()
@@ -4801,15 +5196,17 @@ impl ISpResourceManager_Vtbl {
         iid == &<ISpResourceManager as windows_core::Interface>::IID || iid == &<super::IServiceProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "servprov")]
+#[cfg(all(feature = "guiddef", feature = "servprov"))]
 impl windows_core::RuntimeName for ISpResourceManager {}
 windows_core::imp::define_interface!(ISpSerializeState, ISpSerializeState_Vtbl, 0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
 windows_core::imp::interface_hierarchy!(ISpSerializeState, windows_core::IUnknown);
 impl ISpSerializeState {
-    pub unsafe fn GetSerializedState(&self, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSerializedState(&self, ppbdata: *mut *mut super::BYTE, pulsize: *mut super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSerializedState)(windows_core::Interface::as_raw(self), ppbdata as _, pulsize as _, dwreserved) }
     }
-    pub unsafe fn SetSerializedState(&self, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSerializedState(&self, pbdata: *const super::BYTE, ulsize: super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSerializedState)(windows_core::Interface::as_raw(self), pbdata, ulsize, dwreserved) }
     }
 }
@@ -4817,22 +5214,30 @@ impl ISpSerializeState {
 #[doc(hidden)]
 pub struct ISpSerializeState_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, u32) -> windows_core::HRESULT,
-    pub SetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::BYTE, *mut super::ULONG, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSerializedState: usize,
+    #[cfg(feature = "shared")]
+    pub SetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::BYTE, super::ULONG, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSerializedState: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpSerializeState_Impl: windows_core::IUnknownImpl {
-    fn GetSerializedState(&self, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> windows_core::Result<()>;
-    fn SetSerializedState(&self, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> windows_core::Result<()>;
+    fn GetSerializedState(&self, ppbdata: *mut *mut super::BYTE, pulsize: *mut super::ULONG, dwreserved: super::DWORD) -> windows_core::Result<()>;
+    fn SetSerializedState(&self, pbdata: *const super::BYTE, ulsize: super::ULONG, dwreserved: super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpSerializeState_Vtbl {
     pub const fn new<Identity: ISpSerializeState_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSerializedState<Identity: ISpSerializeState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSerializedState<Identity: ISpSerializeState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbdata: *mut *mut super::BYTE, pulsize: *mut super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpSerializeState_Impl::GetSerializedState(this, core::mem::transmute_copy(&ppbdata), core::mem::transmute_copy(&pulsize), core::mem::transmute_copy(&dwreserved)).into()
             }
         }
-        unsafe extern "system" fn SetSerializedState<Identity: ISpSerializeState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSerializedState<Identity: ISpSerializeState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdata: *const super::BYTE, ulsize: super::ULONG, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpSerializeState_Impl::SetSerializedState(this, core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&ulsize), core::mem::transmute_copy(&dwreserved)).into()
@@ -4848,43 +5253,52 @@ impl ISpSerializeState_Vtbl {
         iid == &<ISpSerializeState as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpSerializeState {}
 windows_core::imp::define_interface!(ISpShortcut, ISpShortcut_Vtbl, 0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
 windows_core::imp::interface_hierarchy!(ISpShortcut, windows_core::IUnknown);
 impl ISpShortcut {
-    pub unsafe fn AddShortcut<P0, P2>(&self, pszdisplay: P0, langid: u16, pszspoken: P2, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddShortcut<P0, P2>(&self, pszdisplay: P0, langid: super::WORD, pszspoken: P2, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddShortcut)(windows_core::Interface::as_raw(self), pszdisplay.param().abi(), langid, pszspoken.param().abi(), shtype) }
     }
-    pub unsafe fn RemoveShortcut<P0, P2>(&self, pszdisplay: P0, langid: u16, pszspoken: P2, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveShortcut<P0, P2>(&self, pszdisplay: P0, langid: super::WORD, pszspoken: P2, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveShortcut)(windows_core::Interface::as_raw(self), pszdisplay.param().abi(), langid, pszspoken.param().abi(), shtype) }
     }
-    pub unsafe fn GetShortcuts(&self, langid: u16, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetShortcuts(&self, langid: super::WORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetShortcuts)(windows_core::Interface::as_raw(self), langid, pshortcutpairlist as _) }
     }
-    pub unsafe fn GetGeneration(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetGeneration(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGeneration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWordsFromGenerationChange)(windows_core::Interface::as_raw(self), pdwgeneration as _, pwordlist as _) }
     }
-    pub unsafe fn GetWords(&self, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetWords(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetWords)(windows_core::Interface::as_raw(self), pdwgeneration as _, pdwcookie as _, pwordlist as _) }
     }
-    pub unsafe fn GetShortcutsForGeneration(&self, pdwgeneration: *mut u32, pdwcookie: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetShortcutsForGeneration(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetShortcutsForGeneration)(windows_core::Interface::as_raw(self), pdwgeneration as _, pdwcookie as _, pshortcutpairlist as _) }
     }
-    pub unsafe fn GetGenerationChange(&self, pdwgeneration: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetGenerationChange(&self, pdwgeneration: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGenerationChange)(windows_core::Interface::as_raw(self), pdwgeneration as _, pshortcutpairlist as _) }
     }
 }
@@ -4892,46 +5306,72 @@ impl ISpShortcut {
 #[doc(hidden)]
 pub struct ISpShortcut_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, windows_core::PCWSTR, SPSHORTCUTTYPE) -> windows_core::HRESULT,
-    pub RemoveShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, windows_core::PCWSTR, SPSHORTCUTTYPE) -> windows_core::HRESULT,
-    pub GetShortcuts: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT,
-    pub GetGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetWordsFromGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut SPWORDLIST) -> windows_core::HRESULT,
-    pub GetWords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut SPWORDLIST) -> windows_core::HRESULT,
-    pub GetShortcutsForGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT,
-    pub GetGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub AddShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::WORD, windows_core::PCWSTR, SPSHORTCUTTYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddShortcut: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::WORD, windows_core::PCWSTR, SPSHORTCUTTYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveShortcut: usize,
+    #[cfg(feature = "shared")]
+    pub GetShortcuts: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetShortcuts: usize,
+    #[cfg(feature = "shared")]
+    pub GetGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGeneration: usize,
+    #[cfg(feature = "shared")]
+    pub GetWordsFromGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut SPWORDLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetWordsFromGenerationChange: usize,
+    #[cfg(feature = "shared")]
+    pub GetWords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut super::DWORD, *mut SPWORDLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetWords: usize,
+    #[cfg(feature = "shared")]
+    pub GetShortcutsForGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut super::DWORD, *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetShortcutsForGeneration: usize,
+    #[cfg(feature = "shared")]
+    pub GetGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGenerationChange: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISpShortcut_Impl: windows_core::IUnknownImpl {
-    fn AddShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: u16, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::Result<()>;
-    fn RemoveShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: u16, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::Result<()>;
-    fn GetShortcuts(&self, langid: u16, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
-    fn GetGeneration(&self) -> windows_core::Result<u32>;
-    fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
-    fn GetWords(&self, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
-    fn GetShortcutsForGeneration(&self, pdwgeneration: *mut u32, pdwcookie: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
-    fn GetGenerationChange(&self, pdwgeneration: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
+    fn AddShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: super::WORD, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::Result<()>;
+    fn RemoveShortcut(&self, pszdisplay: &windows_core::PCWSTR, langid: super::WORD, pszspoken: &windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::Result<()>;
+    fn GetShortcuts(&self, langid: super::WORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
+    fn GetGeneration(&self) -> windows_core::Result<super::DWORD>;
+    fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
+    fn GetWords(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::Result<()>;
+    fn GetShortcutsForGeneration(&self, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
+    fn GetGenerationChange(&self, pdwgeneration: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISpShortcut_Vtbl {
     pub const fn new<Identity: ISpShortcut_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddShortcut<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdisplay: windows_core::PCWSTR, langid: u16, pszspoken: windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddShortcut<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdisplay: windows_core::PCWSTR, langid: super::WORD, pszspoken: windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpShortcut_Impl::AddShortcut(this, core::mem::transmute(&pszdisplay), core::mem::transmute_copy(&langid), core::mem::transmute(&pszspoken), core::mem::transmute_copy(&shtype)).into()
             }
         }
-        unsafe extern "system" fn RemoveShortcut<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdisplay: windows_core::PCWSTR, langid: u16, pszspoken: windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveShortcut<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdisplay: windows_core::PCWSTR, langid: super::WORD, pszspoken: windows_core::PCWSTR, shtype: SPSHORTCUTTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpShortcut_Impl::RemoveShortcut(this, core::mem::transmute(&pszdisplay), core::mem::transmute_copy(&langid), core::mem::transmute(&pszspoken), core::mem::transmute_copy(&shtype)).into()
             }
         }
-        unsafe extern "system" fn GetShortcuts<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: u16, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetShortcuts<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: super::WORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpShortcut_Impl::GetShortcuts(this, core::mem::transmute_copy(&langid), core::mem::transmute_copy(&pshortcutpairlist)).into()
             }
         }
-        unsafe extern "system" fn GetGeneration<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGeneration<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpShortcut_Impl::GetGeneration(this) {
@@ -4943,25 +5383,25 @@ impl ISpShortcut_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetWordsFromGenerationChange<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetWordsFromGenerationChange<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpShortcut_Impl::GetWordsFromGenerationChange(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pwordlist)).into()
             }
         }
-        unsafe extern "system" fn GetWords<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetWords<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pwordlist: *mut SPWORDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpShortcut_Impl::GetWords(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pwordlist)).into()
             }
         }
-        unsafe extern "system" fn GetShortcutsForGeneration<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut u32, pdwcookie: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetShortcutsForGeneration<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pdwcookie: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpShortcut_Impl::GetShortcutsForGeneration(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pdwcookie), core::mem::transmute_copy(&pshortcutpairlist)).into()
             }
         }
-        unsafe extern "system" fn GetGenerationChange<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGenerationChange<Identity: ISpShortcut_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwgeneration: *mut super::DWORD, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpShortcut_Impl::GetGenerationChange(this, core::mem::transmute_copy(&pdwgeneration), core::mem::transmute_copy(&pshortcutpairlist)).into()
@@ -4983,6 +5423,7 @@ impl ISpShortcut_Vtbl {
         iid == &<ISpShortcut as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpShortcut {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(ISpStream, ISpStream_Vtbl, 0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e);
@@ -4997,7 +5438,7 @@ impl core::ops::Deref for ISpStream {
 windows_core::imp::interface_hierarchy!(ISpStream, windows_core::IUnknown, super::ISequentialStream, super::IStream, ISpStreamFormat);
 #[cfg(feature = "objidlbase")]
 impl ISpStream {
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn SetBaseStream<P0>(&self, pstream: P0, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
@@ -5010,8 +5451,8 @@ impl ISpStream {
             (windows_core::Interface::vtable(self).GetBaseStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "mmeapi")]
-    pub unsafe fn BindToFile<P0>(&self, pszfilename: P0, emode: SPFILEMODE, pformatid: Option<*const windows_core::GUID>, pwaveformatex: Option<*const super::WAVEFORMATEX>, ulleventinterest: u64) -> windows_core::HRESULT
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
+    pub unsafe fn BindToFile<P0>(&self, pszfilename: P0, emode: SPFILEMODE, pformatid: Option<*const windows_core::GUID>, pwaveformatex: Option<*const super::WAVEFORMATEX>, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5026,25 +5467,25 @@ impl ISpStream {
 #[doc(hidden)]
 pub struct ISpStream_Vtbl {
     pub base__: ISpStreamFormat_Vtbl,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub SetBaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     SetBaseStream: usize,
     pub GetBaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "mmeapi")]
-    pub BindToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, SPFILEMODE, *const windows_core::GUID, *const super::WAVEFORMATEX, u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
+    pub BindToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, SPFILEMODE, *const windows_core::GUID, *const super::WAVEFORMATEX, super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     BindToFile: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStream_Impl: ISpStreamFormat_Impl {
     fn SetBaseStream(&self, pstream: windows_core::Ref<super::IStream>, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn GetBaseStream(&self) -> windows_core::Result<super::IStream>;
-    fn BindToFile(&self, pszfilename: &windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: u64) -> windows_core::Result<()>;
+    fn BindToFile(&self, pszfilename: &windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: super::ULONGLONG) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStream_Vtbl {
     pub const fn new<Identity: ISpStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBaseStream<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, rguidformat: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
@@ -5065,7 +5506,7 @@ impl ISpStream_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BindToFile<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn BindToFile<Identity: ISpStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCWSTR, emode: SPFILEMODE, pformatid: *const windows_core::GUID, pwaveformatex: *const super::WAVEFORMATEX, ulleventinterest: super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpStream_Impl::BindToFile(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&emode), core::mem::transmute_copy(&pformatid), core::mem::transmute_copy(&pwaveformatex), core::mem::transmute_copy(&ulleventinterest)).into()
@@ -5089,7 +5530,7 @@ impl ISpStream_Vtbl {
         iid == &<ISpStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpStream {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(ISpStreamFormat, ISpStreamFormat_Vtbl, 0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
@@ -5104,7 +5545,7 @@ impl core::ops::Deref for ISpStreamFormat {
 windows_core::imp::interface_hierarchy!(ISpStreamFormat, windows_core::IUnknown, super::ISequentialStream, super::IStream);
 #[cfg(feature = "objidlbase")]
 impl ISpStreamFormat {
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn GetFormat(&self, pguidformatid: *const windows_core::GUID) -> windows_core::Result<*mut super::WAVEFORMATEX> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5117,16 +5558,16 @@ impl ISpStreamFormat {
 #[doc(hidden)]
 pub struct ISpStreamFormat_Vtbl {
     pub base__: super::IStream_Vtbl,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     GetFormat: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStreamFormat_Impl: super::IStream_Impl {
     fn GetFormat(&self, pguidformatid: *const windows_core::GUID) -> windows_core::Result<*mut super::WAVEFORMATEX>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStreamFormat_Vtbl {
     pub const fn new<Identity: ISpStreamFormat_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFormat<Identity: ISpStreamFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidformatid: *const windows_core::GUID, ppcomemwaveformatex: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
@@ -5147,7 +5588,7 @@ impl ISpStreamFormat_Vtbl {
         iid == &<ISpStreamFormat as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpStreamFormat {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(ISpStreamFormatConverter, ISpStreamFormatConverter_Vtbl, 0x678a932c_ea71_4446_9b41_78fda6280a29);
@@ -5174,20 +5615,22 @@ impl ISpStreamFormatConverter {
             (windows_core::Interface::vtable(self).GetBaseStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub unsafe fn SetFormat(&self, rguidformatidofconvertedstream: *const windows_core::GUID, pwaveformatexofconvertedstream: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), rguidformatidofconvertedstream, pwaveformatexofconvertedstream) }
     }
     pub unsafe fn ResetSeekPosition(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetSeekPosition)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: u64) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: super::ULONGLONG) -> windows_core::Result<super::ULONGLONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScaleConvertedToBaseOffset)(windows_core::Interface::as_raw(self), ulloffsetconvertedstream, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: u64) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: super::ULONGLONG) -> windows_core::Result<super::ULONGLONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScaleBaseToConvertedOffset)(windows_core::Interface::as_raw(self), ulloffsetbasestream, &mut result__).map(|| result__)
@@ -5201,24 +5644,30 @@ pub struct ISpStreamFormatConverter_Vtbl {
     pub base__: ISpStreamFormat_Vtbl,
     pub SetBaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetBaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "mmeapi")]
+    #[cfg(all(feature = "mmeapi", feature = "shared"))]
     pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::WAVEFORMATEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mmeapi"))]
+    #[cfg(not(all(feature = "mmeapi", feature = "shared")))]
     SetFormat: usize,
     pub ResetSeekPosition: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ScaleConvertedToBaseOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
-    pub ScaleBaseToConvertedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ScaleConvertedToBaseOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONGLONG, *mut super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ScaleConvertedToBaseOffset: usize,
+    #[cfg(feature = "shared")]
+    pub ScaleBaseToConvertedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONGLONG, *mut super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ScaleBaseToConvertedOffset: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait ISpStreamFormatConverter_Impl: ISpStreamFormat_Impl {
     fn SetBaseStream(&self, pstream: windows_core::Ref<ISpStreamFormat>, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetBaseStream(&self) -> windows_core::Result<ISpStreamFormat>;
     fn SetFormat(&self, rguidformatidofconvertedstream: *const windows_core::GUID, pwaveformatexofconvertedstream: *const super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn ResetSeekPosition(&self) -> windows_core::Result<()>;
-    fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: u64) -> windows_core::Result<u64>;
-    fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: u64) -> windows_core::Result<u64>;
+    fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: super::ULONGLONG) -> windows_core::Result<super::ULONGLONG>;
+    fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: super::ULONGLONG) -> windows_core::Result<super::ULONGLONG>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl ISpStreamFormatConverter_Vtbl {
     pub const fn new<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBaseStream<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, fsetformattobasestreamformat: windows_core::BOOL, fwritetobasestream: windows_core::BOOL) -> windows_core::HRESULT {
@@ -5251,7 +5700,7 @@ impl ISpStreamFormatConverter_Vtbl {
                 ISpStreamFormatConverter_Impl::ResetSeekPosition(this).into()
             }
         }
-        unsafe extern "system" fn ScaleConvertedToBaseOffset<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffsetconvertedstream: u64, pulloffsetbasestream: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn ScaleConvertedToBaseOffset<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffsetconvertedstream: super::ULONGLONG, pulloffsetbasestream: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpStreamFormatConverter_Impl::ScaleConvertedToBaseOffset(this, core::mem::transmute_copy(&ulloffsetconvertedstream)) {
@@ -5263,7 +5712,7 @@ impl ISpStreamFormatConverter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ScaleBaseToConvertedOffset<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffsetbasestream: u64, pulloffsetconvertedstream: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn ScaleBaseToConvertedOffset<Identity: ISpStreamFormatConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulloffsetbasestream: super::ULONGLONG, pulloffsetconvertedstream: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpStreamFormatConverter_Impl::ScaleBaseToConvertedOffset(this, core::mem::transmute_copy(&ulloffsetbasestream)) {
@@ -5289,16 +5738,13 @@ impl ISpStreamFormatConverter_Vtbl {
         iid == &<ISpStreamFormatConverter as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID || iid == &<ISpStreamFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "mmeapi", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpStreamFormatConverter {}
 windows_core::imp::define_interface!(ISpTranscript, ISpTranscript_Vtbl, 0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpTranscript, windows_core::IUnknown);
 impl ISpTranscript {
-    pub unsafe fn GetTranscript(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTranscript)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetTranscript(&self, ppsztranscript: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTranscript)(windows_core::Interface::as_raw(self), ppsztranscript as _) }
     }
     pub unsafe fn AppendTranscript<P0>(&self, psztranscript: P0) -> windows_core::HRESULT
     where
@@ -5315,7 +5761,7 @@ pub struct ISpTranscript_Vtbl {
     pub AppendTranscript: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait ISpTranscript_Impl: windows_core::IUnknownImpl {
-    fn GetTranscript(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetTranscript(&self, ppsztranscript: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn AppendTranscript(&self, psztranscript: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ISpTranscript_Vtbl {
@@ -5323,13 +5769,7 @@ impl ISpTranscript_Vtbl {
         unsafe extern "system" fn GetTranscript<Identity: ISpTranscript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsztranscript: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpTranscript_Impl::GetTranscript(this) {
-                    Ok(ok__) => {
-                        ppsztranscript.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISpTranscript_Impl::GetTranscript(this, core::mem::transmute_copy(&ppsztranscript)).into()
             }
         }
         unsafe extern "system" fn AppendTranscript<Identity: ISpTranscript_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztranscript: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -5395,23 +5835,26 @@ impl ISpVoice {
             (windows_core::Interface::vtable(self).GetVoice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Speak<P0>(&self, pwcs: P0, dwflags: u32, pulstreamnumber: Option<*mut u32>) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn Speak<P0>(&self, pwcs: P0, dwflags: super::DWORD, pulstreamnumber: Option<*mut super::ULONG>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).Speak)(windows_core::Interface::as_raw(self), pwcs.param().abi(), dwflags, pulstreamnumber.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "objidlbase")]
-    pub unsafe fn SpeakStream<P0>(&self, pstream: P0, dwflags: u32, pulstreamnumber: Option<*mut u32>) -> windows_core::HRESULT
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub unsafe fn SpeakStream<P0>(&self, pstream: P0, dwflags: super::DWORD, pulstreamnumber: Option<*mut super::ULONG>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).SpeakStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), dwflags, pulstreamnumber.unwrap_or(core::mem::zeroed()) as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pstatus as _, ppszlastbookmark as _) }
     }
-    pub unsafe fn Skip<P0>(&self, pitemtype: P0, lnumitems: i32) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip<P0>(&self, pitemtype: P0, lnumitems: i32) -> windows_core::Result<super::ULONG>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5447,22 +5890,27 @@ impl ISpVoice {
             (windows_core::Interface::vtable(self).GetRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVolume(&self, usvolume: u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetVolume(&self, usvolume: super::USHORT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), usvolume) }
     }
-    pub unsafe fn GetVolume(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetVolume(&self) -> windows_core::Result<super::USHORT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WaitUntilDone(&self, mstimeout: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn WaitUntilDone(&self, mstimeout: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitUntilDone)(windows_core::Interface::as_raw(self), mstimeout) }
     }
-    pub unsafe fn SetSyncSpeakTimeout(&self, mstimeout: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSyncSpeakTimeout(&self, mstimeout: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSyncSpeakTimeout)(windows_core::Interface::as_raw(self), mstimeout) }
     }
-    pub unsafe fn GetSyncSpeakTimeout(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSyncSpeakTimeout(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSyncSpeakTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5472,7 +5920,8 @@ impl ISpVoice {
     pub unsafe fn SpeakCompleteEvent(&self) -> super::HANDLE {
         unsafe { (windows_core::Interface::vtable(self).SpeakCompleteEvent)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn IsUISupported<P0>(&self, psztypeofui: P0, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::Result<windows_core::BOOL>
+    #[cfg(feature = "shared")]
+    pub unsafe fn IsUISupported<P0>(&self, psztypeofui: P0, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5481,8 +5930,8 @@ impl ISpVoice {
             (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), psztypeofui.param().abi(), pvextradata, cbextradata, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn DisplayUI<P1, P2>(&self, hwndparent: super::HWND, psztitle: P1, psztypeofui: P2, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn DisplayUI<P1, P2>(&self, hwndparent: super::HWND, psztitle: P1, psztypeofui: P2, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -5504,35 +5953,62 @@ pub struct ISpVoice_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Speak: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "objidlbase")]
-    pub SpeakStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidlbase"))]
+    #[cfg(feature = "shared")]
+    pub Speak: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::DWORD, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Speak: usize,
+    #[cfg(all(feature = "objidlbase", feature = "shared"))]
+    pub SpeakStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidlbase", feature = "shared")))]
     SpeakStream: usize,
+    #[cfg(feature = "shared")]
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPVOICESTATUS, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetStatus: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, SPVPRIORITY) -> windows_core::HRESULT,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPVPRIORITY) -> windows_core::HRESULT,
     pub SetAlertBoundary: unsafe extern "system" fn(*mut core::ffi::c_void, SPEVENTENUM) -> windows_core::HRESULT,
     pub GetAlertBoundary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPEVENTENUM) -> windows_core::HRESULT,
     pub SetRate: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub GetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub WaitUntilDone: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetSyncSpeakTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetSyncSpeakTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, super::USHORT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetVolume: usize,
+    #[cfg(feature = "shared")]
+    pub GetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::USHORT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetVolume: usize,
+    #[cfg(feature = "shared")]
+    pub WaitUntilDone: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    WaitUntilDone: usize,
+    #[cfg(feature = "shared")]
+    pub SetSyncSpeakTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSyncSpeakTimeout: usize,
+    #[cfg(feature = "shared")]
+    pub GetSyncSpeakTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSyncSpeakTimeout: usize,
     #[cfg(feature = "winnt")]
     pub SpeakCompleteEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::HANDLE,
     #[cfg(not(feature = "winnt"))]
     SpeakCompleteEvent: usize,
-    pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(feature = "shared")]
+    pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, super::ULONG, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    IsUISupported: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     DisplayUI: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait ISpVoice_Impl: ISpEventSource_Impl {
     fn SetOutput(&self, punkoutput: windows_core::Ref<windows_core::IUnknown>, fallowformatchanges: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetOutputObjectToken(&self) -> windows_core::Result<ISpObjectToken>;
@@ -5541,26 +6017,26 @@ pub trait ISpVoice_Impl: ISpEventSource_Impl {
     fn Resume(&self) -> windows_core::Result<()>;
     fn SetVoice(&self, ptoken: windows_core::Ref<ISpObjectToken>) -> windows_core::Result<()>;
     fn GetVoice(&self) -> windows_core::Result<ISpObjectToken>;
-    fn Speak(&self, pwcs: &windows_core::PCWSTR, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::Result<()>;
-    fn SpeakStream(&self, pstream: windows_core::Ref<super::IStream>, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::Result<()>;
+    fn Speak(&self, pwcs: &windows_core::PCWSTR, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::Result<()>;
+    fn SpeakStream(&self, pstream: windows_core::Ref<super::IStream>, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::Result<()>;
     fn GetStatus(&self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn Skip(&self, pitemtype: &windows_core::PCWSTR, lnumitems: i32) -> windows_core::Result<u32>;
+    fn Skip(&self, pitemtype: &windows_core::PCWSTR, lnumitems: i32) -> windows_core::Result<super::ULONG>;
     fn SetPriority(&self, epriority: SPVPRIORITY) -> windows_core::Result<()>;
     fn GetPriority(&self) -> windows_core::Result<SPVPRIORITY>;
     fn SetAlertBoundary(&self, eboundary: SPEVENTENUM) -> windows_core::Result<()>;
     fn GetAlertBoundary(&self) -> windows_core::Result<SPEVENTENUM>;
     fn SetRate(&self, rateadjust: i32) -> windows_core::Result<()>;
     fn GetRate(&self) -> windows_core::Result<i32>;
-    fn SetVolume(&self, usvolume: u16) -> windows_core::Result<()>;
-    fn GetVolume(&self) -> windows_core::Result<u16>;
-    fn WaitUntilDone(&self, mstimeout: u32) -> windows_core::Result<()>;
-    fn SetSyncSpeakTimeout(&self, mstimeout: u32) -> windows_core::Result<()>;
-    fn GetSyncSpeakTimeout(&self) -> windows_core::Result<u32>;
+    fn SetVolume(&self, usvolume: super::USHORT) -> windows_core::Result<()>;
+    fn GetVolume(&self) -> windows_core::Result<super::USHORT>;
+    fn WaitUntilDone(&self, mstimeout: super::ULONG) -> windows_core::Result<()>;
+    fn SetSyncSpeakTimeout(&self, mstimeout: super::ULONG) -> windows_core::Result<()>;
+    fn GetSyncSpeakTimeout(&self) -> windows_core::Result<super::ULONG>;
     fn SpeakCompleteEvent(&self) -> super::HANDLE;
-    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::Result<windows_core::BOOL>;
-    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::Result<()>;
+    fn IsUISupported(&self, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<windows_core::BOOL>;
+    fn DisplayUI(&self, hwndparent: super::HWND, psztitle: &windows_core::PCWSTR, psztypeofui: &windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 impl ISpVoice_Vtbl {
     pub const fn new<Identity: ISpVoice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutput<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkoutput: *mut core::ffi::c_void, fallowformatchanges: windows_core::BOOL) -> windows_core::HRESULT {
@@ -5623,13 +6099,13 @@ impl ISpVoice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Speak<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcs: windows_core::PCWSTR, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Speak<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcs: windows_core::PCWSTR, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpVoice_Impl::Speak(this, core::mem::transmute(&pwcs), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber)).into()
             }
         }
-        unsafe extern "system" fn SpeakStream<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, dwflags: u32, pulstreamnumber: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SpeakStream<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, dwflags: super::DWORD, pulstreamnumber: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpVoice_Impl::SpeakStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pulstreamnumber)).into()
@@ -5641,7 +6117,7 @@ impl ISpVoice_Vtbl {
                 ISpVoice_Impl::GetStatus(this, core::mem::transmute_copy(&pstatus), core::mem::transmute_copy(&ppszlastbookmark)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitemtype: windows_core::PCWSTR, lnumitems: i32, pulnumskipped: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitemtype: windows_core::PCWSTR, lnumitems: i32, pulnumskipped: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpVoice_Impl::Skip(this, core::mem::transmute(&pitemtype), core::mem::transmute_copy(&lnumitems)) {
@@ -5707,13 +6183,13 @@ impl ISpVoice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetVolume<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usvolume: u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVolume<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usvolume: super::USHORT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpVoice_Impl::SetVolume(this, core::mem::transmute_copy(&usvolume)).into()
             }
         }
-        unsafe extern "system" fn GetVolume<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pusvolume: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVolume<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pusvolume: *mut super::USHORT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpVoice_Impl::GetVolume(this) {
@@ -5725,19 +6201,19 @@ impl ISpVoice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn WaitUntilDone<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WaitUntilDone<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpVoice_Impl::WaitUntilDone(this, core::mem::transmute_copy(&mstimeout)).into()
             }
         }
-        unsafe extern "system" fn SetSyncSpeakTimeout<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSyncSpeakTimeout<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpVoice_Impl::SetSyncSpeakTimeout(this, core::mem::transmute_copy(&mstimeout)).into()
             }
         }
-        unsafe extern "system" fn GetSyncSpeakTimeout<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmstimeout: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSyncSpeakTimeout<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmstimeout: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpVoice_Impl::GetSyncSpeakTimeout(this) {
@@ -5755,7 +6231,7 @@ impl ISpVoice_Vtbl {
                 ISpVoice_Impl::SpeakCompleteEvent(this)
             }
         }
-        unsafe extern "system" fn IsUISupported<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsUISupported<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG, pfsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpVoice_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata)) {
@@ -5767,7 +6243,7 @@ impl ISpVoice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DisplayUI<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayUI<Identity: ISpVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::HWND, psztitle: windows_core::PCWSTR, psztypeofui: windows_core::PCWSTR, pvextradata: *const core::ffi::c_void, cbextradata: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpVoice_Impl::DisplayUI(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&psztitle), core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata)).into()
@@ -5806,7 +6282,7 @@ impl ISpVoice_Vtbl {
         iid == &<ISpVoice as windows_core::Interface>::IID || iid == &<ISpNotifySource as windows_core::Interface>::IID || iid == &<ISpEventSource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for ISpVoice {}
 windows_core::imp::define_interface!(ISpXMLRecoResult, ISpXMLRecoResult_Vtbl, 0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
 impl core::ops::Deref for ISpXMLRecoResult {
@@ -5820,6 +6296,7 @@ impl ISpXMLRecoResult {
     pub unsafe fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetXMLResult)(windows_core::Interface::as_raw(self), ppszcomemxmlresult as _, options) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetXMLErrorInfo)(windows_core::Interface::as_raw(self), psemanticerrorinfo as _) }
     }
@@ -5829,14 +6306,17 @@ impl ISpXMLRecoResult {
 pub struct ISpXMLRecoResult_Vtbl {
     pub base__: ISpRecoResult_Vtbl,
     pub GetXMLResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, SPXMLRESULTOPTIONS) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub GetXMLErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetXMLErrorInfo: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpXMLRecoResult_Impl: ISpRecoResult_Impl {
     fn GetXMLResult(&self, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::Result<()>;
     fn GetXMLErrorInfo(&self, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpXMLRecoResult_Vtbl {
     pub const fn new<Identity: ISpXMLRecoResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetXMLResult<Identity: ISpXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszcomemxmlresult: *mut windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> windows_core::HRESULT {
@@ -5861,7 +6341,7 @@ impl ISpXMLRecoResult_Vtbl {
         iid == &<ISpXMLRecoResult as windows_core::Interface>::IID || iid == &<ISpPhrase as windows_core::Interface>::IID || iid == &<ISpRecoResult as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpXMLRecoResult {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechAudio, ISpeechAudio_Vtbl, 0xcff8e175_019e_11d3_a08e_00c04f8ef9b5);
@@ -5937,7 +6417,7 @@ pub struct ISpeechAudio_Vtbl {
     pub EventHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechAudioState) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechAudio_Impl: ISpeechBaseStream_Impl {
     fn Status(&self) -> windows_core::Result<ISpeechAudioStatus>;
     fn BufferInfo(&self) -> windows_core::Result<ISpeechAudioBufferInfo>;
@@ -5949,7 +6429,7 @@ pub trait ISpeechAudio_Impl: ISpeechBaseStream_Impl {
     fn EventHandle(&self) -> windows_core::Result<i32>;
     fn SetState(&self, state: SpeechAudioState) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechAudio_Vtbl {
     pub const fn new<Identity: ISpeechAudio_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Status<Identity: ISpeechAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6059,7 +6539,7 @@ impl ISpeechAudio_Vtbl {
         iid == &<ISpeechAudio as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechAudio {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechAudioBufferInfo, ISpeechAudioBufferInfo_Vtbl, 0x11b103d8_1142_4edf_a093_82fb3915f8cc);
@@ -6114,7 +6594,7 @@ pub struct ISpeechAudioBufferInfo_Vtbl {
     pub EventBias: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetEventBias: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechAudioBufferInfo_Impl: super::IDispatch_Impl {
     fn MinNotification(&self) -> windows_core::Result<i32>;
     fn SetMinNotification(&self, minnotification: i32) -> windows_core::Result<()>;
@@ -6123,7 +6603,7 @@ pub trait ISpeechAudioBufferInfo_Impl: super::IDispatch_Impl {
     fn EventBias(&self) -> windows_core::Result<i32>;
     fn SetEventBias(&self, eventbias: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechAudioBufferInfo_Vtbl {
     pub const fn new<Identity: ISpeechAudioBufferInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MinNotification<Identity: ISpeechAudioBufferInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minnotification: *mut i32) -> windows_core::HRESULT {
@@ -6194,7 +6674,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
         iid == &<ISpeechAudioBufferInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechAudioBufferInfo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechAudioFormat, ISpeechAudioFormat_Vtbl, 0xe6e9c590_3e18_40e3_8299_061f98bde7c7);
@@ -6252,7 +6732,7 @@ pub struct ISpeechAudioFormat_Vtbl {
     pub GetWaveFormatEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetWaveFormatEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechAudioFormat_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<SpeechAudioFormatType>;
     fn SetType(&self, audioformat: SpeechAudioFormatType) -> windows_core::Result<()>;
@@ -6261,7 +6741,7 @@ pub trait ISpeechAudioFormat_Impl: super::IDispatch_Impl {
     fn GetWaveFormatEx(&self) -> windows_core::Result<ISpeechWaveFormatEx>;
     fn SetWaveFormatEx(&self, speechwaveformatex: windows_core::Ref<ISpeechWaveFormatEx>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechAudioFormat_Vtbl {
     pub const fn new<Identity: ISpeechAudioFormat_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Type<Identity: ISpeechAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioformat: *mut SpeechAudioFormatType) -> windows_core::HRESULT {
@@ -6332,7 +6812,7 @@ impl ISpeechAudioFormat_Vtbl {
         iid == &<ISpeechAudioFormat as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechAudioFormat {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechAudioStatus, ISpeechAudioStatus_Vtbl, 0xc62d9c91_7458_47f6_862d_1ef86fb0b278);
@@ -6365,14 +6845,14 @@ impl ISpeechAudioStatus {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CurrentSeekPosition(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentSeekPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CurrentDevicePosition(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6388,16 +6868,16 @@ pub struct ISpeechAudioStatus_Vtbl {
     pub FreeBufferSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NonBlockingIO: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechAudioState) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CurrentSeekPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CurrentSeekPosition: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CurrentDevicePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CurrentDevicePosition: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechAudioStatus_Impl: super::IDispatch_Impl {
     fn FreeBufferSpace(&self) -> windows_core::Result<i32>;
     fn NonBlockingIO(&self) -> windows_core::Result<i32>;
@@ -6405,7 +6885,7 @@ pub trait ISpeechAudioStatus_Impl: super::IDispatch_Impl {
     fn CurrentSeekPosition(&self) -> windows_core::Result<super::VARIANT>;
     fn CurrentDevicePosition(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechAudioStatus_Vtbl {
     pub const fn new<Identity: ISpeechAudioStatus_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FreeBufferSpace<Identity: ISpeechAudioStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, freebufferspace: *mut i32) -> windows_core::HRESULT {
@@ -6481,7 +6961,7 @@ impl ISpeechAudioStatus_Vtbl {
         iid == &<ISpeechAudioStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechAudioStatus {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechBaseStream, ISpeechBaseStream_Vtbl, 0x6450336f_7d49_4ced_8097_49d6dee37294);
@@ -6508,21 +6988,21 @@ impl ISpeechBaseStream {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Format)(windows_core::Interface::as_raw(self), audioformat.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Read(&self, buffer: *mut super::VARIANT, numberofbytes: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), buffer, numberofbytes, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Write(&self, buffer: &super::VARIANT) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(buffer), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Seek(&self, position: &super::VARIANT, origin: SpeechStreamSeekPositionType) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6537,20 +7017,20 @@ pub struct ISpeechBaseStream_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Read: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Write: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, SpeechStreamSeekPositionType, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Seek: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechBaseStream_Impl: super::IDispatch_Impl {
     fn Format(&self) -> windows_core::Result<ISpeechAudioFormat>;
     fn putref_Format(&self, audioformat: windows_core::Ref<ISpeechAudioFormat>) -> windows_core::Result<()>;
@@ -6558,7 +7038,7 @@ pub trait ISpeechBaseStream_Impl: super::IDispatch_Impl {
     fn Write(&self, buffer: &super::VARIANT) -> windows_core::Result<i32>;
     fn Seek(&self, position: &super::VARIANT, origin: SpeechStreamSeekPositionType) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechBaseStream_Vtbl {
     pub const fn new<Identity: ISpeechBaseStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Format<Identity: ISpeechBaseStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audioformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6628,7 +7108,7 @@ impl ISpeechBaseStream_Vtbl {
         iid == &<ISpeechBaseStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechBaseStream {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechCustomStream, ISpeechCustomStream_Vtbl, 0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae);
@@ -6664,12 +7144,12 @@ pub struct ISpeechCustomStream_Vtbl {
     pub BaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_BaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechCustomStream_Impl: ISpeechBaseStream_Impl {
     fn BaseStream(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn putref_BaseStream(&self, punkstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechCustomStream_Vtbl {
     pub const fn new<Identity: ISpeechCustomStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BaseStream<Identity: ISpeechCustomStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6700,7 +7180,7 @@ impl ISpeechCustomStream_Vtbl {
         iid == &<ISpeechCustomStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechCustomStream {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechDataKey, ISpeechDataKey_Vtbl, 0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd);
@@ -6715,11 +7195,11 @@ impl core::ops::Deref for ISpeechDataKey {
 windows_core::imp::interface_hierarchy!(ISpeechDataKey, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ISpeechDataKey {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetBinaryValue(&self, valuename: &windows_core::BSTR, value: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBinaryValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(valuename), core::mem::transmute_copy(value)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetBinaryValue(&self, valuename: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6780,13 +7260,13 @@ impl ISpeechDataKey {
 #[doc(hidden)]
 pub struct ISpeechDataKey_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetBinaryValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetBinaryValue: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetBinaryValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetBinaryValue: usize,
     pub SetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6799,7 +7279,7 @@ pub struct ISpeechDataKey_Vtbl {
     pub EnumKeys: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumValues: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechDataKey_Impl: super::IDispatch_Impl {
     fn SetBinaryValue(&self, valuename: &windows_core::BSTR, value: &super::VARIANT) -> windows_core::Result<()>;
     fn GetBinaryValue(&self, valuename: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
@@ -6814,7 +7294,7 @@ pub trait ISpeechDataKey_Impl: super::IDispatch_Impl {
     fn EnumKeys(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
     fn EnumValues(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechDataKey_Vtbl {
     pub const fn new<Identity: ISpeechDataKey_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBinaryValue<Identity: ISpeechDataKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuename: *mut core::ffi::c_void, value: super::VARIANT) -> windows_core::HRESULT {
@@ -6951,7 +7431,7 @@ impl ISpeechDataKey_Vtbl {
         iid == &<ISpeechDataKey as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechDataKey {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechFileStream, ISpeechFileStream_Vtbl, 0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7);
@@ -6985,12 +7465,12 @@ pub struct ISpeechFileStream_Vtbl {
     Open: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechFileStream_Impl: ISpeechBaseStream_Impl {
     fn Open(&self, filename: &windows_core::BSTR, filemode: SpeechStreamFileMode, doevents: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechFileStream_Vtbl {
     pub const fn new<Identity: ISpeechFileStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: ISpeechFileStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, filemode: SpeechStreamFileMode, doevents: super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7011,7 +7491,7 @@ impl ISpeechFileStream_Vtbl {
         iid == &<ISpeechFileStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechFileStream {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechGrammarRule, ISpeechGrammarRule_Vtbl, 0xafe719cf_5dd1_44f2_999c_7a399f1cfccc);
@@ -7076,7 +7556,7 @@ pub struct ISpeechGrammarRule_Vtbl {
     pub AddResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechGrammarRule_Impl: super::IDispatch_Impl {
     fn Attributes(&self) -> windows_core::Result<SpeechRuleAttributes>;
     fn InitialState(&self) -> windows_core::Result<ISpeechGrammarRuleState>;
@@ -7086,7 +7566,7 @@ pub trait ISpeechGrammarRule_Impl: super::IDispatch_Impl {
     fn AddResource(&self, resourcename: &windows_core::BSTR, resourcevalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddState(&self) -> windows_core::Result<ISpeechGrammarRuleState>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechGrammarRule_Vtbl {
     pub const fn new<Identity: ISpeechGrammarRule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Attributes<Identity: ISpeechGrammarRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut SpeechRuleAttributes) -> windows_core::HRESULT {
@@ -7176,7 +7656,7 @@ impl ISpeechGrammarRule_Vtbl {
         iid == &<ISpeechGrammarRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechGrammarRule {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechGrammarRuleState, ISpeechGrammarRuleState_Vtbl, 0xd4286f2c_ee67_45ae_b928_28d695362eda);
@@ -7203,14 +7683,14 @@ impl ISpeechGrammarRuleState {
             (windows_core::Interface::vtable(self).Transitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddWordTransition<P0>(&self, deststate: P0, words: &windows_core::BSTR, separators: &windows_core::BSTR, r#type: SpeechGrammarWordType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddWordTransition)(windows_core::Interface::as_raw(self), deststate.param().abi(), core::mem::transmute_copy(words), core::mem::transmute_copy(separators), r#type, core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddRuleTransition<P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
@@ -7218,7 +7698,7 @@ impl ISpeechGrammarRuleState {
     {
         unsafe { (windows_core::Interface::vtable(self).AddRuleTransition)(windows_core::Interface::as_raw(self), destinationstate.param().abi(), rule.param().abi(), core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddSpecialTransition<P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
@@ -7233,20 +7713,20 @@ pub struct ISpeechGrammarRuleState_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Rule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Transitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddWordTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, SpeechGrammarWordType, *mut core::ffi::c_void, i32, *const super::VARIANT, f32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddWordTransition: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddRuleTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *const super::VARIANT, f32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddRuleTransition: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddSpecialTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechSpecialTransitionType, *mut core::ffi::c_void, i32, *const super::VARIANT, f32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddSpecialTransition: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechGrammarRuleState_Impl: super::IDispatch_Impl {
     fn Rule(&self) -> windows_core::Result<ISpeechGrammarRule>;
     fn Transitions(&self) -> windows_core::Result<ISpeechGrammarRuleStateTransitions>;
@@ -7254,7 +7734,7 @@ pub trait ISpeechGrammarRuleState_Impl: super::IDispatch_Impl {
     fn AddRuleTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, rule: windows_core::Ref<ISpeechGrammarRule>, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::Result<()>;
     fn AddSpecialTransition(&self, destinationstate: windows_core::Ref<ISpeechGrammarRuleState>, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::VARIANT, weight: f32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechGrammarRuleState_Vtbl {
     pub const fn new<Identity: ISpeechGrammarRuleState_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Rule<Identity: ISpeechGrammarRuleState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7312,7 +7792,7 @@ impl ISpeechGrammarRuleState_Vtbl {
         iid == &<ISpeechGrammarRuleState as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechGrammarRuleState {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechGrammarRuleStateTransition, ISpeechGrammarRuleStateTransition_Vtbl, 0xcafd1db1_41d1_4a06_9863_e2e81da17a9a);
@@ -7345,7 +7825,7 @@ impl ISpeechGrammarRuleStateTransition {
             (windows_core::Interface::vtable(self).Rule)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Weight(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7364,7 +7844,7 @@ impl ISpeechGrammarRuleStateTransition {
             (windows_core::Interface::vtable(self).PropertyId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PropertyValue(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7386,19 +7866,19 @@ pub struct ISpeechGrammarRuleStateTransition_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechGrammarRuleStateTransitionType) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Rule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Weight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Weight: usize,
     pub PropertyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PropertyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub PropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     PropertyValue: usize,
     pub NextState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechGrammarRuleStateTransition_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<SpeechGrammarRuleStateTransitionType>;
     fn Text(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7409,7 +7889,7 @@ pub trait ISpeechGrammarRuleStateTransition_Impl: super::IDispatch_Impl {
     fn PropertyValue(&self) -> windows_core::Result<super::VARIANT>;
     fn NextState(&self) -> windows_core::Result<ISpeechGrammarRuleState>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechGrammarRuleStateTransition_Vtbl {
     pub const fn new<Identity: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Type<Identity: ISpeechGrammarRuleStateTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut SpeechGrammarRuleStateTransitionType) -> windows_core::HRESULT {
@@ -7524,7 +8004,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
         iid == &<ISpeechGrammarRuleStateTransition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechGrammarRuleStateTransition {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechGrammarRuleStateTransitions, ISpeechGrammarRuleStateTransitions_Vtbl, 0xeabce657_75bc_44a2_aa7f_c56476742963);
@@ -7567,13 +8047,13 @@ pub struct ISpeechGrammarRuleStateTransitions_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechGrammarRuleStateTransitions_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechGrammarRuleStateTransition>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechGrammarRuleStateTransitions_Vtbl {
     pub const fn new<Identity: ISpeechGrammarRuleStateTransitions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechGrammarRuleStateTransitions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -7623,7 +8103,7 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
         iid == &<ISpeechGrammarRuleStateTransitions as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechGrammarRuleStateTransitions {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechGrammarRules, ISpeechGrammarRules_Vtbl, 0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1);
@@ -7644,7 +8124,7 @@ impl ISpeechGrammarRules {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindRule(&self, rulenameorid: &super::VARIANT) -> windows_core::Result<ISpeechGrammarRule> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7679,7 +8159,7 @@ impl ISpeechGrammarRules {
     pub unsafe fn Commit(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CommitAndSave(&self, errortext: *mut windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7693,9 +8173,9 @@ impl ISpeechGrammarRules {
 pub struct ISpeechGrammarRules_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub FindRule: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     FindRule: usize,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7705,12 +8185,12 @@ pub struct ISpeechGrammarRules_Vtbl {
     Dynamic: usize,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechRuleAttributes, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CommitAndSave: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CommitAndSave: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechGrammarRules_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn FindRule(&self, rulenameorid: &super::VARIANT) -> windows_core::Result<ISpeechGrammarRule>;
@@ -7721,7 +8201,7 @@ pub trait ISpeechGrammarRules_Impl: super::IDispatch_Impl {
     fn Commit(&self) -> windows_core::Result<()>;
     fn CommitAndSave(&self, errortext: *mut windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechGrammarRules_Vtbl {
     pub const fn new<Identity: ISpeechGrammarRules_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechGrammarRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -7830,7 +8310,7 @@ impl ISpeechGrammarRules_Vtbl {
         iid == &<ISpeechGrammarRules as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechGrammarRules {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechLexicon, ISpeechLexicon_Vtbl, 0x3da7627a_c7ae_4b23_8708_638c50362c25);
@@ -7860,14 +8340,14 @@ impl ISpeechLexicon {
     pub unsafe fn AddPronunciation(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPronunciation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, core::mem::transmute_copy(bstrpronunciation)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddPronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddPronunciationByPhoneIds)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids) }
     }
     pub unsafe fn RemovePronunciation(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemovePronunciation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, core::mem::transmute_copy(bstrpronunciation)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RemovePronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemovePronunciationByPhoneIds)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids) }
     }
@@ -7892,19 +8372,19 @@ pub struct ISpeechLexicon_Vtbl {
     pub GenerationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetWords: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechLexiconType, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddPronunciation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechLanguageId, SpeechPartOfSpeech, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddPronunciationByPhoneIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechLanguageId, SpeechPartOfSpeech, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddPronunciationByPhoneIds: usize,
     pub RemovePronunciation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechLanguageId, SpeechPartOfSpeech, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub RemovePronunciationByPhoneIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechLanguageId, SpeechPartOfSpeech, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     RemovePronunciationByPhoneIds: usize,
     pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechLanguageId, SpeechLexiconType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechLexicon_Impl: super::IDispatch_Impl {
     fn GenerationId(&self) -> windows_core::Result<i32>;
     fn GetWords(&self, flags: SpeechLexiconType, generationid: *mut i32) -> windows_core::Result<ISpeechLexiconWords>;
@@ -7915,7 +8395,7 @@ pub trait ISpeechLexicon_Impl: super::IDispatch_Impl {
     fn GetPronunciations(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, typeflags: SpeechLexiconType) -> windows_core::Result<ISpeechLexiconPronunciations>;
     fn GetGenerationChange(&self, generationid: *mut i32) -> windows_core::Result<ISpeechLexiconWords>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechLexicon_Vtbl {
     pub const fn new<Identity: ISpeechLexicon_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GenerationId<Identity: ISpeechLexicon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, generationid: *mut i32) -> windows_core::HRESULT {
@@ -8006,7 +8486,7 @@ impl ISpeechLexicon_Vtbl {
         iid == &<ISpeechLexicon as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechLexicon {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechLexiconPronunciation, ISpeechLexiconPronunciation_Vtbl, 0x95252c5d_9e43_4f4a_9899_48ee73352f9f);
@@ -8039,7 +8519,7 @@ impl ISpeechLexiconPronunciation {
             (windows_core::Interface::vtable(self).PartOfSpeech)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PhoneIds(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8061,13 +8541,13 @@ pub struct ISpeechLexiconPronunciation_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechLexiconType) -> windows_core::HRESULT,
     pub LangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechLanguageId) -> windows_core::HRESULT,
     pub PartOfSpeech: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechPartOfSpeech) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub PhoneIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     PhoneIds: usize,
     pub Symbolic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechLexiconPronunciation_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<SpeechLexiconType>;
     fn LangId(&self) -> windows_core::Result<SpeechLanguageId>;
@@ -8075,7 +8555,7 @@ pub trait ISpeechLexiconPronunciation_Impl: super::IDispatch_Impl {
     fn PhoneIds(&self) -> windows_core::Result<super::VARIANT>;
     fn Symbolic(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechLexiconPronunciation_Vtbl {
     pub const fn new<Identity: ISpeechLexiconPronunciation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Type<Identity: ISpeechLexiconPronunciation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lexicontype: *mut SpeechLexiconType) -> windows_core::HRESULT {
@@ -8151,7 +8631,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
         iid == &<ISpeechLexiconPronunciation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechLexiconPronunciation {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechLexiconPronunciations, ISpeechLexiconPronunciations_Vtbl, 0x72829128_5682_4704_a0d4_3e2bb6f2ead3);
@@ -8194,13 +8674,13 @@ pub struct ISpeechLexiconPronunciations_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechLexiconPronunciations_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechLexiconPronunciation>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechLexiconPronunciations_Vtbl {
     pub const fn new<Identity: ISpeechLexiconPronunciations_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechLexiconPronunciations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -8250,7 +8730,7 @@ impl ISpeechLexiconPronunciations_Vtbl {
         iid == &<ISpeechLexiconPronunciations as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechLexiconPronunciations {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechLexiconWord, ISpeechLexiconWord_Vtbl, 0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff);
@@ -8300,14 +8780,14 @@ pub struct ISpeechLexiconWord_Vtbl {
     pub Word: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechLexiconWord_Impl: super::IDispatch_Impl {
     fn LangId(&self) -> windows_core::Result<SpeechLanguageId>;
     fn Type(&self) -> windows_core::Result<SpeechWordType>;
     fn Word(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Pronunciations(&self) -> windows_core::Result<ISpeechLexiconPronunciations>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechLexiconWord_Vtbl {
     pub const fn new<Identity: ISpeechLexiconWord_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LangId<Identity: ISpeechLexiconWord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: *mut SpeechLanguageId) -> windows_core::HRESULT {
@@ -8370,7 +8850,7 @@ impl ISpeechLexiconWord_Vtbl {
         iid == &<ISpeechLexiconWord as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechLexiconWord {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechLexiconWords, ISpeechLexiconWords_Vtbl, 0x8d199862_415e_47d5_ac4f_faa608b424e6);
@@ -8413,13 +8893,13 @@ pub struct ISpeechLexiconWords_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechLexiconWords_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechLexiconWord>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechLexiconWords_Vtbl {
     pub const fn new<Identity: ISpeechLexiconWords_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechLexiconWords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -8469,7 +8949,7 @@ impl ISpeechLexiconWords_Vtbl {
         iid == &<ISpeechLexiconWords as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechLexiconWords {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechMMSysAudio, ISpeechMMSysAudio_Vtbl, 0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44);
@@ -8520,7 +9000,7 @@ pub struct ISpeechMMSysAudio_Vtbl {
     pub SetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub MMHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechMMSysAudio_Impl: ISpeechAudio_Impl {
     fn DeviceId(&self) -> windows_core::Result<i32>;
     fn SetDeviceId(&self, deviceid: i32) -> windows_core::Result<()>;
@@ -8528,7 +9008,7 @@ pub trait ISpeechMMSysAudio_Impl: ISpeechAudio_Impl {
     fn SetLineId(&self, lineid: i32) -> windows_core::Result<()>;
     fn MMHandle(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechMMSysAudio_Vtbl {
     pub const fn new<Identity: ISpeechMMSysAudio_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeviceId<Identity: ISpeechMMSysAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut i32) -> windows_core::HRESULT {
@@ -8592,7 +9072,7 @@ impl ISpeechMMSysAudio_Vtbl {
         iid == &<ISpeechMMSysAudio as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID || iid == &<ISpeechAudio as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechMMSysAudio {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechMemoryStream, ISpeechMemoryStream_Vtbl, 0xeeb14b68_808b_4abe_a5ea_b51da7588008);
@@ -8607,11 +9087,11 @@ impl core::ops::Deref for ISpeechMemoryStream {
 windows_core::imp::interface_hierarchy!(ISpeechMemoryStream, windows_core::IUnknown, super::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "oaidl")]
 impl ISpeechMemoryStream {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetData(&self, data: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetData(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8624,21 +9104,21 @@ impl ISpeechMemoryStream {
 #[doc(hidden)]
 pub struct ISpeechMemoryStream_Vtbl {
     pub base__: ISpeechBaseStream_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetData: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechMemoryStream_Impl: ISpeechBaseStream_Impl {
     fn SetData(&self, data: &super::VARIANT) -> windows_core::Result<()>;
     fn GetData(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechMemoryStream_Vtbl {
     pub const fn new<Identity: ISpeechMemoryStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetData<Identity: ISpeechMemoryStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: super::VARIANT) -> windows_core::HRESULT {
@@ -8665,7 +9145,7 @@ impl ISpeechMemoryStream_Vtbl {
         iid == &<ISpeechMemoryStream as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechBaseStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechMemoryStream {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechObjectToken, ISpeechObjectToken_Vtbl, 0xc74a3adc_b727_4500_a84a_b526721c8b8c);
@@ -8733,10 +9213,10 @@ impl ISpeechObjectToken {
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn RemoveStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, deletefilea: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStorageFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(objectstorageclsid), core::mem::transmute_copy(keyname), deletefilea) }
+    pub unsafe fn RemoveStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, deletefile: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStorageFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(objectstorageclsid), core::mem::transmute_copy(keyname), deletefile) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn IsUISupported<P2>(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT, object: P2) -> windows_core::Result<super::VARIANT_BOOL>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -8746,7 +9226,7 @@ impl ISpeechObjectToken {
             (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), extradata, object.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DisplayUI<P4>(&self, hwnd: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT, object: P4) -> windows_core::HRESULT
     where
         P4: windows_core::Param<windows_core::IUnknown>,
@@ -8782,20 +9262,20 @@ pub struct ISpeechObjectToken_Vtbl {
     pub RemoveStorageFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     RemoveStorageFileName: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     IsUISupported: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     DisplayUI: usize,
     #[cfg(feature = "wtypes")]
     pub MatchesAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     MatchesAttributes: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechObjectToken_Impl: super::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DataKey(&self) -> windows_core::Result<ISpeechDataKey>;
@@ -8806,12 +9286,12 @@ pub trait ISpeechObjectToken_Impl: super::IDispatch_Impl {
     fn CreateInstance(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, clscontext: SpeechTokenContext) -> windows_core::Result<windows_core::IUnknown>;
     fn Remove(&self, objectstorageclsid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, filename: &windows_core::BSTR, folder: SpeechTokenShellFolder) -> windows_core::Result<windows_core::BSTR>;
-    fn RemoveStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, deletefilea: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn RemoveStorageFileName(&self, objectstorageclsid: &windows_core::BSTR, keyname: &windows_core::BSTR, deletefile: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT, object: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::VARIANT_BOOL>;
     fn DisplayUI(&self, hwnd: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT, object: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MatchesAttributes(&self, attributes: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechObjectToken_Vtbl {
     pub const fn new<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Id<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8910,10 +9390,10 @@ impl ISpeechObjectToken_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveStorageFileName<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: *mut core::ffi::c_void, keyname: *mut core::ffi::c_void, deletefilea: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveStorageFileName<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectstorageclsid: *mut core::ffi::c_void, keyname: *mut core::ffi::c_void, deletefile: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpeechObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute(&objectstorageclsid), core::mem::transmute(&keyname), core::mem::transmute_copy(&deletefilea)).into()
+                ISpeechObjectToken_Impl::RemoveStorageFileName(this, core::mem::transmute(&objectstorageclsid), core::mem::transmute(&keyname), core::mem::transmute_copy(&deletefile)).into()
             }
         }
         unsafe extern "system" fn IsUISupported<Identity: ISpeechObjectToken_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typeofui: *mut core::ffi::c_void, extradata: *const super::VARIANT, object: *mut core::ffi::c_void, supported: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8967,7 +9447,7 @@ impl ISpeechObjectToken_Vtbl {
         iid == &<ISpeechObjectToken as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechObjectToken {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechObjectTokenCategory, ISpeechObjectTokenCategory_Vtbl, 0xca7eac50_2d01_4145_86d4_5ae7d70f4469);
@@ -9029,7 +9509,7 @@ pub struct ISpeechObjectTokenCategory_Vtbl {
     pub GetDataKey: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechDataKeyLocation, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateTokens: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechObjectTokenCategory_Impl: super::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDefault(&self, tokenid: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -9038,7 +9518,7 @@ pub trait ISpeechObjectTokenCategory_Impl: super::IDispatch_Impl {
     fn GetDataKey(&self, location: SpeechDataKeyLocation) -> windows_core::Result<ISpeechDataKey>;
     fn EnumerateTokens(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechObjectTokenCategory_Vtbl {
     pub const fn new<Identity: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Id<Identity: ISpeechObjectTokenCategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9115,7 +9595,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
         iid == &<ISpeechObjectTokenCategory as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechObjectTokenCategory {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechObjectTokens, ISpeechObjectTokens_Vtbl, 0x9285b776_2e7b_4bc0_b53e_580eb6fa967f);
@@ -9158,13 +9638,13 @@ pub struct ISpeechObjectTokens_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechObjectTokens_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechObjectToken>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechObjectTokens_Vtbl {
     pub const fn new<Identity: ISpeechObjectTokens_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechObjectTokens_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -9214,7 +9694,7 @@ impl ISpeechObjectTokens_Vtbl {
         iid == &<ISpeechObjectTokens as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechObjectTokens {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhoneConverter, ISpeechPhoneConverter_Vtbl, 0xc3e4f353_433f_43d6_89a1_6a62a7054c3d);
@@ -9238,14 +9718,14 @@ impl ISpeechPhoneConverter {
     pub unsafe fn SetLanguageId(&self, languageid: SpeechLanguageId) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLanguageId)(windows_core::Interface::as_raw(self), languageid) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PhoneToId(&self, phonemes: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PhoneToId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(phonemes), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn IdToPhone(&self, idarray: &super::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9260,23 +9740,23 @@ pub struct ISpeechPhoneConverter_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub LanguageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechLanguageId) -> windows_core::HRESULT,
     pub SetLanguageId: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechLanguageId) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub PhoneToId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     PhoneToId: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub IdToPhone: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     IdToPhone: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhoneConverter_Impl: super::IDispatch_Impl {
     fn LanguageId(&self) -> windows_core::Result<SpeechLanguageId>;
     fn SetLanguageId(&self, languageid: SpeechLanguageId) -> windows_core::Result<()>;
     fn PhoneToId(&self, phonemes: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn IdToPhone(&self, idarray: &super::VARIANT) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhoneConverter_Vtbl {
     pub const fn new<Identity: ISpeechPhoneConverter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LanguageId<Identity: ISpeechPhoneConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: *mut SpeechLanguageId) -> windows_core::HRESULT {
@@ -9333,7 +9813,7 @@ impl ISpeechPhoneConverter_Vtbl {
         iid == &<ISpeechPhoneConverter as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhoneConverter {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseAlternate, ISpeechPhraseAlternate_Vtbl, 0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73);
@@ -9387,7 +9867,7 @@ pub struct ISpeechPhraseAlternate_Vtbl {
     pub PhraseInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseAlternate_Impl: super::IDispatch_Impl {
     fn RecoResult(&self) -> windows_core::Result<ISpeechRecoResult>;
     fn StartElementInResult(&self) -> windows_core::Result<i32>;
@@ -9395,7 +9875,7 @@ pub trait ISpeechPhraseAlternate_Impl: super::IDispatch_Impl {
     fn PhraseInfo(&self) -> windows_core::Result<ISpeechPhraseInfo>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseAlternate_Vtbl {
     pub const fn new<Identity: ISpeechPhraseAlternate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RecoResult<Identity: ISpeechPhraseAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recoresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9465,7 +9945,7 @@ impl ISpeechPhraseAlternate_Vtbl {
         iid == &<ISpeechPhraseAlternate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseAlternate {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseAlternates, ISpeechPhraseAlternates_Vtbl, 0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2);
@@ -9508,13 +9988,13 @@ pub struct ISpeechPhraseAlternates_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseAlternates_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechPhraseAlternate>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseAlternates_Vtbl {
     pub const fn new<Identity: ISpeechPhraseAlternates_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechPhraseAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -9564,7 +10044,7 @@ impl ISpeechPhraseAlternates_Vtbl {
         iid == &<ISpeechPhraseAlternates as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseAlternates {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseElement, ISpeechPhraseElement_Vtbl, 0xe6176f96_e373_4801_b223_3b62c068c0b4);
@@ -9627,7 +10107,7 @@ impl ISpeechPhraseElement {
             (windows_core::Interface::vtable(self).LexicalForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Pronunciation(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9672,16 +10152,16 @@ pub struct ISpeechPhraseElement_Vtbl {
     pub RetainedSizeBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LexicalForm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Pronunciation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Pronunciation: usize,
     pub DisplayAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechDisplayAttributes) -> windows_core::HRESULT,
     pub RequiredConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechEngineConfidence) -> windows_core::HRESULT,
     pub ActualConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechEngineConfidence) -> windows_core::HRESULT,
     pub EngineConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseElement_Impl: super::IDispatch_Impl {
     fn AudioTimeOffset(&self) -> windows_core::Result<i32>;
     fn AudioSizeTime(&self) -> windows_core::Result<i32>;
@@ -9697,7 +10177,7 @@ pub trait ISpeechPhraseElement_Impl: super::IDispatch_Impl {
     fn ActualConfidence(&self) -> windows_core::Result<SpeechEngineConfidence>;
     fn EngineConfidence(&self) -> windows_core::Result<f32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseElement_Vtbl {
     pub const fn new<Identity: ISpeechPhraseElement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AudioTimeOffset<Identity: ISpeechPhraseElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiotimeoffset: *mut i32) -> windows_core::HRESULT {
@@ -9877,7 +10357,7 @@ impl ISpeechPhraseElement_Vtbl {
         iid == &<ISpeechPhraseElement as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseElement {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseElements, ISpeechPhraseElements_Vtbl, 0x0626b328_3478_467d_a0b3_d0853b93dda3);
@@ -9920,13 +10400,13 @@ pub struct ISpeechPhraseElements_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseElements_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechPhraseElement>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseElements_Vtbl {
     pub const fn new<Identity: ISpeechPhraseElements_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechPhraseElements_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -9976,7 +10456,7 @@ impl ISpeechPhraseElements_Vtbl {
         iid == &<ISpeechPhraseElements as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseElements {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseInfo, ISpeechPhraseInfo_Vtbl, 0x961559cf_4e67_4662_8bf0_d93f1fcd61b3);
@@ -9997,21 +10477,21 @@ impl ISpeechPhraseInfo {
             (windows_core::Interface::vtable(self).LanguageId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GrammarId(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GrammarId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn StartTime(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AudioStreamPosition(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10066,14 +10546,14 @@ impl ISpeechPhraseInfo {
             (windows_core::Interface::vtable(self).EngineId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn EnginePrivateData(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnginePrivateData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SaveToMemory(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10101,17 +10581,17 @@ impl ISpeechPhraseInfo {
 pub struct ISpeechPhraseInfo_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub LanguageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GrammarId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GrammarId: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     StartTime: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AudioStreamPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AudioStreamPosition: usize,
     pub AudioSizeBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub RetainedSizeBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10121,13 +10601,13 @@ pub struct ISpeechPhraseInfo_Vtbl {
     pub Elements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Replacements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EngineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub EnginePrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     EnginePrivateData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SaveToMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SaveToMemory: usize,
     #[cfg(feature = "wtypes")]
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10138,7 +10618,7 @@ pub struct ISpeechPhraseInfo_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     GetDisplayAttributes: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseInfo_Impl: super::IDispatch_Impl {
     fn LanguageId(&self) -> windows_core::Result<i32>;
     fn GrammarId(&self) -> windows_core::Result<super::VARIANT>;
@@ -10157,7 +10637,7 @@ pub trait ISpeechPhraseInfo_Impl: super::IDispatch_Impl {
     fn GetText(&self, startelement: i32, elements: i32, usereplacements: super::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR>;
     fn GetDisplayAttributes(&self, startelement: i32, elements: i32, usereplacements: super::VARIANT_BOOL) -> windows_core::Result<SpeechDisplayAttributes>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseInfo_Vtbl {
     pub const fn new<Identity: ISpeechPhraseInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LanguageId<Identity: ISpeechPhraseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: *mut i32) -> windows_core::HRESULT {
@@ -10376,7 +10856,7 @@ impl ISpeechPhraseInfo_Vtbl {
         iid == &<ISpeechPhraseInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseInfo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseInfoBuilder, ISpeechPhraseInfoBuilder_Vtbl, 0x3b151836_df3a_4e0a_846c_d2adc9334333);
@@ -10391,7 +10871,7 @@ impl core::ops::Deref for ISpeechPhraseInfoBuilder {
 windows_core::imp::interface_hierarchy!(ISpeechPhraseInfoBuilder, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ISpeechPhraseInfoBuilder {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RestorePhraseFromMemory(&self, phraseinmemory: *const super::VARIANT) -> windows_core::Result<ISpeechPhraseInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10404,16 +10884,16 @@ impl ISpeechPhraseInfoBuilder {
 #[doc(hidden)]
 pub struct ISpeechPhraseInfoBuilder_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub RestorePhraseFromMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     RestorePhraseFromMemory: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseInfoBuilder_Impl: super::IDispatch_Impl {
     fn RestorePhraseFromMemory(&self, phraseinmemory: *const super::VARIANT) -> windows_core::Result<ISpeechPhraseInfo>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseInfoBuilder_Vtbl {
     pub const fn new<Identity: ISpeechPhraseInfoBuilder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RestorePhraseFromMemory<Identity: ISpeechPhraseInfoBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phraseinmemory: *const super::VARIANT, phraseinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10434,7 +10914,7 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
         iid == &<ISpeechPhraseInfoBuilder as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseInfoBuilder {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseProperties, ISpeechPhraseProperties_Vtbl, 0x08166b47_102e_4b23_a599_bdb98dbfd1f4);
@@ -10477,13 +10957,13 @@ pub struct ISpeechPhraseProperties_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseProperties_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechPhraseProperty>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseProperties_Vtbl {
     pub const fn new<Identity: ISpeechPhraseProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechPhraseProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -10533,7 +11013,7 @@ impl ISpeechPhraseProperties_Vtbl {
         iid == &<ISpeechPhraseProperties as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseProperties {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseProperty, ISpeechPhraseProperty_Vtbl, 0xce563d48_961e_4732_a2e1_378a42b430be);
@@ -10560,7 +11040,7 @@ impl ISpeechPhraseProperty {
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10611,9 +11091,9 @@ pub struct ISpeechPhraseProperty_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Value: usize,
     pub FirstElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NumberOfElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10622,7 +11102,7 @@ pub struct ISpeechPhraseProperty_Vtbl {
     pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseProperty_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Id(&self) -> windows_core::Result<i32>;
@@ -10634,7 +11114,7 @@ pub trait ISpeechPhraseProperty_Impl: super::IDispatch_Impl {
     fn Parent(&self) -> windows_core::Result<ISpeechPhraseProperty>;
     fn Children(&self) -> windows_core::Result<ISpeechPhraseProperties>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseProperty_Vtbl {
     pub const fn new<Identity: ISpeechPhraseProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: ISpeechPhraseProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10762,7 +11242,7 @@ impl ISpeechPhraseProperty_Vtbl {
         iid == &<ISpeechPhraseProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseProperty {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseReplacement, ISpeechPhraseReplacement_Vtbl, 0x2890a410_53a7_4fb5_94ec_06d4998e3d02);
@@ -10812,14 +11292,14 @@ pub struct ISpeechPhraseReplacement_Vtbl {
     pub FirstElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NumberOfElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseReplacement_Impl: super::IDispatch_Impl {
     fn DisplayAttributes(&self) -> windows_core::Result<SpeechDisplayAttributes>;
     fn Text(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FirstElement(&self) -> windows_core::Result<i32>;
     fn NumberOfElements(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseReplacement_Vtbl {
     pub const fn new<Identity: ISpeechPhraseReplacement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DisplayAttributes<Identity: ISpeechPhraseReplacement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayattributes: *mut SpeechDisplayAttributes) -> windows_core::HRESULT {
@@ -10882,7 +11362,7 @@ impl ISpeechPhraseReplacement_Vtbl {
         iid == &<ISpeechPhraseReplacement as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseReplacement {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseReplacements, ISpeechPhraseReplacements_Vtbl, 0x38bc662f_2257_4525_959e_2069d2596c05);
@@ -10925,13 +11405,13 @@ pub struct ISpeechPhraseReplacements_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseReplacements_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechPhraseReplacement>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseReplacements_Vtbl {
     pub const fn new<Identity: ISpeechPhraseReplacements_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechPhraseReplacements_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -10981,7 +11461,7 @@ impl ISpeechPhraseReplacements_Vtbl {
         iid == &<ISpeechPhraseReplacements as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseReplacements {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseRule, ISpeechPhraseRule_Vtbl, 0xa7bfe112_a4a0_48d9_b602_c313843f6964);
@@ -11059,7 +11539,7 @@ pub struct ISpeechPhraseRule_Vtbl {
     pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechEngineConfidence) -> windows_core::HRESULT,
     pub EngineConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseRule_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Id(&self) -> windows_core::Result<i32>;
@@ -11070,7 +11550,7 @@ pub trait ISpeechPhraseRule_Impl: super::IDispatch_Impl {
     fn Confidence(&self) -> windows_core::Result<SpeechEngineConfidence>;
     fn EngineConfidence(&self) -> windows_core::Result<f32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseRule_Vtbl {
     pub const fn new<Identity: ISpeechPhraseRule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: ISpeechPhraseRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11185,7 +11665,7 @@ impl ISpeechPhraseRule_Vtbl {
         iid == &<ISpeechPhraseRule as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseRule {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechPhraseRules, ISpeechPhraseRules_Vtbl, 0x9047d593_01dd_4b72_81a3_e4a0ca69f407);
@@ -11228,13 +11708,13 @@ pub struct ISpeechPhraseRules_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechPhraseRules_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, index: i32) -> windows_core::Result<ISpeechPhraseRule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechPhraseRules_Vtbl {
     pub const fn new<Identity: ISpeechPhraseRules_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISpeechPhraseRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -11284,7 +11764,7 @@ impl ISpeechPhraseRules_Vtbl {
         iid == &<ISpeechPhraseRules as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechPhraseRules {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecoContext, ISpeechRecoContext_Vtbl, 0x580aa49d_7e1e_4809_b8e2_57da806104b8);
@@ -11403,21 +11883,21 @@ impl ISpeechRecoContext {
     pub unsafe fn Resume(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateGrammar(&self, grammarid: &super::VARIANT) -> windows_core::Result<ISpeechRecoGrammar> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateGrammar)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(grammarid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateResultFromMemory(&self, resultblock: *const super::VARIANT) -> windows_core::Result<ISpeechRecoResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateResultFromMemory)(windows_core::Interface::as_raw(self), resultblock, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Bookmark(&self, options: SpeechBookmarkOptions, streampos: &super::VARIANT, bookmarkid: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Bookmark)(windows_core::Interface::as_raw(self), options, core::mem::transmute_copy(streampos), core::mem::transmute_copy(bookmarkid)) }
     }
@@ -11457,21 +11937,21 @@ pub struct ISpeechRecoContext_Vtbl {
     pub RetainedAudioFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CreateGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateGrammar: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CreateResultFromMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateResultFromMemory: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Bookmark: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechBookmarkOptions, super::VARIANT, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Bookmark: usize,
     pub SetAdaptationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecoContext_Impl: super::IDispatch_Impl {
     fn Recognizer(&self) -> windows_core::Result<ISpeechRecognizer>;
     fn AudioInputInterferenceStatus(&self) -> windows_core::Result<SpeechInterference>;
@@ -11499,7 +11979,7 @@ pub trait ISpeechRecoContext_Impl: super::IDispatch_Impl {
     fn Bookmark(&self, options: SpeechBookmarkOptions, streampos: &super::VARIANT, bookmarkid: &super::VARIANT) -> windows_core::Result<()>;
     fn SetAdaptationData(&self, adaptationstring: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoContext_Vtbl {
     pub const fn new<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Recognizer<Identity: ISpeechRecoContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11763,7 +12243,7 @@ impl ISpeechRecoContext_Vtbl {
         iid == &<ISpeechRecoContext as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecoContext {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecoGrammar, ISpeechRecoGrammar_Vtbl, 0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09);
@@ -11778,7 +12258,7 @@ impl core::ops::Deref for ISpeechRecoGrammar {
 windows_core::imp::interface_hierarchy!(ISpeechRecoGrammar, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ISpeechRecoGrammar {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Id(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11815,15 +12295,15 @@ impl ISpeechRecoGrammar {
     pub unsafe fn CmdLoadFromObject(&self, classid: &windows_core::BSTR, grammarname: &windows_core::BSTR, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CmdLoadFromObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(classid), core::mem::transmute_copy(grammarname), loadoption) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CmdLoadFromResource(&self, hmodule: i32, resourcename: &super::VARIANT, resourcetype: &super::VARIANT, languageid: SpeechLanguageId, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CmdLoadFromResource)(windows_core::Interface::as_raw(self), hmodule, core::mem::transmute_copy(resourcename), core::mem::transmute_copy(resourcetype), languageid, loadoption) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CmdLoadFromMemory(&self, grammardata: &super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CmdLoadFromMemory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(grammardata), loadoption) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CmdLoadFromProprietaryGrammar(&self, proprietaryguid: &windows_core::BSTR, proprietarystring: &windows_core::BSTR, proprietarydata: &super::VARIANT, loadoption: SpeechLoadOption) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CmdLoadFromProprietaryGrammar)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(proprietaryguid), core::mem::transmute_copy(proprietarystring), core::mem::transmute_copy(proprietarydata), loadoption) }
     }
@@ -11866,9 +12346,9 @@ impl ISpeechRecoGrammar {
 #[doc(hidden)]
 pub struct ISpeechRecoGrammar_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Id: usize,
     pub RecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechGrammarState) -> windows_core::HRESULT,
@@ -11877,17 +12357,17 @@ pub struct ISpeechRecoGrammar_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechLanguageId) -> windows_core::HRESULT,
     pub CmdLoadFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechLoadOption) -> windows_core::HRESULT,
     pub CmdLoadFromObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, SpeechLoadOption) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CmdLoadFromResource: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::VARIANT, super::VARIANT, SpeechLanguageId, SpeechLoadOption) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CmdLoadFromResource: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CmdLoadFromMemory: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, SpeechLoadOption) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CmdLoadFromMemory: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CmdLoadFromProprietaryGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT, SpeechLoadOption) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CmdLoadFromProprietaryGrammar: usize,
     pub CmdSetRuleState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SpeechRuleState) -> windows_core::HRESULT,
     pub CmdSetRuleIdState: unsafe extern "system" fn(*mut core::ffi::c_void, i32, SpeechRuleState) -> windows_core::HRESULT,
@@ -11898,7 +12378,7 @@ pub struct ISpeechRecoGrammar_Vtbl {
     pub SetTextSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsPronounceable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut SpeechWordPronounceable) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecoGrammar_Impl: super::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<super::VARIANT>;
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
@@ -11920,7 +12400,7 @@ pub trait ISpeechRecoGrammar_Impl: super::IDispatch_Impl {
     fn SetTextSelection(&self, info: windows_core::Ref<ISpeechTextSelectionInformation>) -> windows_core::Result<()>;
     fn IsPronounceable(&self, word: &windows_core::BSTR) -> windows_core::Result<SpeechWordPronounceable>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoGrammar_Vtbl {
     pub const fn new<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Id<Identity: ISpeechRecoGrammar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -12094,7 +12574,7 @@ impl ISpeechRecoGrammar_Vtbl {
         iid == &<ISpeechRecoGrammar as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecoGrammar {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecoResult, ISpeechRecoResult_Vtbl, 0xed2879cf_ced9_4ee6_a534_de0191d5468d);
@@ -12157,7 +12637,7 @@ impl ISpeechRecoResult {
             (windows_core::Interface::vtable(self).SpeakAudio)(windows_core::Interface::as_raw(self), startelement, elements, flags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SaveToMemory(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12181,13 +12661,13 @@ pub struct ISpeechRecoResult_Vtbl {
     pub Alternates: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Audio: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SpeakAudio: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, SpeechVoiceSpeakFlags, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SaveToMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SaveToMemory: usize,
     pub DiscardResultInfo: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechDiscardType) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecoResult_Impl: super::IDispatch_Impl {
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
     fn Times(&self) -> windows_core::Result<ISpeechRecoResultTimes>;
@@ -12200,7 +12680,7 @@ pub trait ISpeechRecoResult_Impl: super::IDispatch_Impl {
     fn SaveToMemory(&self) -> windows_core::Result<super::VARIANT>;
     fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoResult_Vtbl {
     pub const fn new<Identity: ISpeechRecoResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RecoContext<Identity: ISpeechRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recocontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12329,7 +12809,7 @@ impl ISpeechRecoResult_Vtbl {
         iid == &<ISpeechRecoResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecoResult {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecoResult2, ISpeechRecoResult2_Vtbl, 0x8e0a246d_d3c8_45de_8657_04290c458c3c);
@@ -12359,11 +12839,11 @@ pub struct ISpeechRecoResult2_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetTextFeedback: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecoResult2_Impl: ISpeechRecoResult_Impl {
     fn SetTextFeedback(&self, feedback: &windows_core::BSTR, wassuccessful: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoResult2_Vtbl {
     pub const fn new<Identity: ISpeechRecoResult2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetTextFeedback<Identity: ISpeechRecoResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feedback: *mut core::ffi::c_void, wassuccessful: super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -12378,7 +12858,7 @@ impl ISpeechRecoResult2_Vtbl {
         iid == &<ISpeechRecoResult2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechRecoResult as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecoResult2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecoResultDispatch, ISpeechRecoResultDispatch_Vtbl, 0x6d60eb64_aced_40a6_bbf3_4e557f71dee2);
@@ -12441,7 +12921,7 @@ impl ISpeechRecoResultDispatch {
             (windows_core::Interface::vtable(self).SpeakAudio)(windows_core::Interface::as_raw(self), startelement, elements, flags, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SaveToMemory(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12482,9 +12962,9 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
     pub Alternates: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Audio: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SpeakAudio: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, SpeechVoiceSpeakFlags, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SaveToMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SaveToMemory: usize,
     pub DiscardResultInfo: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechDiscardType) -> windows_core::HRESULT,
     pub GetXMLResult: unsafe extern "system" fn(*mut core::ffi::c_void, SPXMLRESULTOPTIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12497,7 +12977,7 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetTextFeedback: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecoResultDispatch_Impl: super::IDispatch_Impl {
     fn RecoContext(&self) -> windows_core::Result<ISpeechRecoContext>;
     fn Times(&self) -> windows_core::Result<ISpeechRecoResultTimes>;
@@ -12513,7 +12993,7 @@ pub trait ISpeechRecoResultDispatch_Impl: super::IDispatch_Impl {
     fn GetXMLErrorInfo(&self, linenumber: *mut i32, scriptline: *mut windows_core::BSTR, source: *mut windows_core::BSTR, description: *mut windows_core::BSTR, resultcode: *mut windows_core::HRESULT) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetTextFeedback(&self, feedback: &windows_core::BSTR, wassuccessful: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoResultDispatch_Vtbl {
     pub const fn new<Identity: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RecoContext<Identity: ISpeechRecoResultDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recocontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12675,7 +13155,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
         iid == &<ISpeechRecoResultDispatch as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecoResultDispatch {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecoResultTimes, ISpeechRecoResultTimes_Vtbl, 0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0);
@@ -12690,14 +13170,14 @@ impl core::ops::Deref for ISpeechRecoResultTimes {
 windows_core::imp::interface_hierarchy!(ISpeechRecoResultTimes, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ISpeechRecoResultTimes {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn StreamTime(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StreamTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Length(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12710,7 +13190,7 @@ impl ISpeechRecoResultTimes {
             (windows_core::Interface::vtable(self).TickCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OffsetFromStart(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12723,28 +13203,28 @@ impl ISpeechRecoResultTimes {
 #[doc(hidden)]
 pub struct ISpeechRecoResultTimes_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub StreamTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     StreamTime: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Length: usize,
     pub TickCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub OffsetFromStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     OffsetFromStart: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecoResultTimes_Impl: super::IDispatch_Impl {
     fn StreamTime(&self) -> windows_core::Result<super::VARIANT>;
     fn Length(&self) -> windows_core::Result<super::VARIANT>;
     fn TickCount(&self) -> windows_core::Result<i32>;
     fn OffsetFromStart(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecoResultTimes_Vtbl {
     pub const fn new<Identity: ISpeechRecoResultTimes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StreamTime<Identity: ISpeechRecoResultTimes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, time: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -12807,7 +13287,7 @@ impl ISpeechRecoResultTimes_Vtbl {
         iid == &<ISpeechRecoResultTimes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecoResultTimes {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecognizer, ISpeechRecognizer_Vtbl, 0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c);
@@ -12903,7 +13383,7 @@ impl ISpeechRecognizer {
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn EmulateRecognition(&self, textelements: &super::VARIANT, elementdisplayattributes: *const super::VARIANT, languageid: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EmulateRecognition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(textelements), elementdisplayattributes, languageid) }
     }
@@ -12947,14 +13427,14 @@ impl ISpeechRecognizer {
             (windows_core::Interface::vtable(self).GetPropertyString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute(value), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), extradata, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwndparent, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), extradata) }
     }
@@ -13005,9 +13485,9 @@ pub struct ISpeechRecognizer_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Profile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Profile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub EmulateRecognition: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *const super::VARIANT, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     EmulateRecognition: usize,
     pub CreateRecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechFormatType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13027,19 +13507,19 @@ pub struct ISpeechRecognizer_Vtbl {
     pub GetPropertyString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     GetPropertyString: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     IsUISupported: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     DisplayUI: usize,
     pub GetRecognizers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAudioInputs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecognizer_Impl: super::IDispatch_Impl {
     fn putref_Recognizer(&self, recognizer: windows_core::Ref<ISpeechObjectToken>) -> windows_core::Result<()>;
     fn Recognizer(&self) -> windows_core::Result<ISpeechObjectToken>;
@@ -13068,7 +13548,7 @@ pub trait ISpeechRecognizer_Impl: super::IDispatch_Impl {
     fn GetAudioInputs(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
     fn GetProfiles(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecognizer_Vtbl {
     pub const fn new<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn putref_Recognizer<Identity: ISpeechRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13369,7 +13849,7 @@ impl ISpeechRecognizer_Vtbl {
         iid == &<ISpeechRecognizer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecognizer {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechRecognizerStatus, ISpeechRecognizerStatus_Vtbl, 0xbff9e781_53ec_484e_bb8a_0e1b5551e35c);
@@ -13390,7 +13870,7 @@ impl ISpeechRecognizerStatus {
             (windows_core::Interface::vtable(self).AudioStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CurrentStreamPosition(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13415,7 +13895,7 @@ impl ISpeechRecognizerStatus {
             (windows_core::Interface::vtable(self).ClsidEngine)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SupportedLanguages(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13429,19 +13909,19 @@ impl ISpeechRecognizerStatus {
 pub struct ISpeechRecognizerStatus_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub AudioStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CurrentStreamPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CurrentStreamPosition: usize,
     pub CurrentStreamNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NumberOfActiveRules: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ClsidEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SupportedLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SupportedLanguages: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechRecognizerStatus_Impl: super::IDispatch_Impl {
     fn AudioStatus(&self) -> windows_core::Result<ISpeechAudioStatus>;
     fn CurrentStreamPosition(&self) -> windows_core::Result<super::VARIANT>;
@@ -13450,7 +13930,7 @@ pub trait ISpeechRecognizerStatus_Impl: super::IDispatch_Impl {
     fn ClsidEngine(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SupportedLanguages(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechRecognizerStatus_Vtbl {
     pub const fn new<Identity: ISpeechRecognizerStatus_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AudioStatus<Identity: ISpeechRecognizerStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiostatus: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13539,7 +14019,7 @@ impl ISpeechRecognizerStatus_Vtbl {
         iid == &<ISpeechRecognizerStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechRecognizerStatus {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechResourceLoader, ISpeechResourceLoader_Vtbl, 0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3);
@@ -13577,13 +14057,13 @@ pub struct ISpeechResourceLoader_Vtbl {
     pub GetLocalCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReleaseLocalCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechResourceLoader_Impl: super::IDispatch_Impl {
     fn LoadResource(&self, bstrresourceuri: &windows_core::BSTR, falwaysreload: super::VARIANT_BOOL, pstream: windows_core::OutRef<windows_core::IUnknown>, pbstrmimetype: *mut windows_core::BSTR, pfmodified: *mut super::VARIANT_BOOL, pbstrredirecturl: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetLocalCopy(&self, bstrresourceuri: &windows_core::BSTR, pbstrlocalpath: *mut windows_core::BSTR, pbstrmimetype: *mut windows_core::BSTR, pbstrredirecturl: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn ReleaseLocalCopy(&self, pbstrlocalpath: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechResourceLoader_Vtbl {
     pub const fn new<Identity: ISpeechResourceLoader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadResource<Identity: ISpeechResourceLoader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrresourceuri: *mut core::ffi::c_void, falwaysreload: super::VARIANT_BOOL, pstream: *mut *mut core::ffi::c_void, pbstrmimetype: *mut *mut core::ffi::c_void, pfmodified: *mut super::VARIANT_BOOL, pbstrredirecturl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13615,7 +14095,7 @@ impl ISpeechResourceLoader_Vtbl {
         iid == &<ISpeechResourceLoader as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechResourceLoader {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechTextSelectionInformation, ISpeechTextSelectionInformation_Vtbl, 0x3b9c7e7a_6eee_4ded_9092_11657279adbe);
@@ -13681,7 +14161,7 @@ pub struct ISpeechTextSelectionInformation_Vtbl {
     pub SetSelectionLength: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SelectionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechTextSelectionInformation_Impl: super::IDispatch_Impl {
     fn SetActiveOffset(&self, activeoffset: i32) -> windows_core::Result<()>;
     fn ActiveOffset(&self) -> windows_core::Result<i32>;
@@ -13692,7 +14172,7 @@ pub trait ISpeechTextSelectionInformation_Impl: super::IDispatch_Impl {
     fn SetSelectionLength(&self, selectionlength: i32) -> windows_core::Result<()>;
     fn SelectionLength(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechTextSelectionInformation_Vtbl {
     pub const fn new<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetActiveOffset<Identity: ISpeechTextSelectionInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activeoffset: i32) -> windows_core::HRESULT {
@@ -13783,7 +14263,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
         iid == &<ISpeechTextSelectionInformation as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechTextSelectionInformation {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechVoice, ISpeechVoice_Vtbl, 0x269316d8_57bd_11d2_9eee_00c04f797396);
@@ -13957,14 +14437,14 @@ impl ISpeechVoice {
             (windows_core::Interface::vtable(self).SpeakCompleteEvent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), extradata, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwndparent, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), extradata) }
     }
@@ -14013,16 +14493,16 @@ pub struct ISpeechVoice_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     WaitUntilDone: usize,
     pub SpeakCompleteEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     IsUISupported: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     DisplayUI: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechVoice_Impl: super::IDispatch_Impl {
     fn Status(&self) -> windows_core::Result<ISpeechVoiceStatus>;
     fn Voice(&self) -> windows_core::Result<ISpeechObjectToken>;
@@ -14057,7 +14537,7 @@ pub trait ISpeechVoice_Impl: super::IDispatch_Impl {
     fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL>;
     fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechVoice_Vtbl {
     pub const fn new<Identity: ISpeechVoice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Status<Identity: ISpeechVoice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14406,7 +14886,7 @@ impl ISpeechVoice_Vtbl {
         iid == &<ISpeechVoice as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechVoice {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechVoiceStatus, ISpeechVoiceStatus_Vtbl, 0x8be47b07_57f6_11d2_9eee_00c04f797396);
@@ -14512,7 +14992,7 @@ pub struct ISpeechVoiceStatus_Vtbl {
     pub PhonemeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
     pub VisemeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechVoiceStatus_Impl: super::IDispatch_Impl {
     fn CurrentStreamNumber(&self) -> windows_core::Result<i32>;
     fn LastStreamNumberQueued(&self) -> windows_core::Result<i32>;
@@ -14527,7 +15007,7 @@ pub trait ISpeechVoiceStatus_Impl: super::IDispatch_Impl {
     fn PhonemeId(&self) -> windows_core::Result<i16>;
     fn VisemeId(&self) -> windows_core::Result<i16>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechVoiceStatus_Vtbl {
     pub const fn new<Identity: ISpeechVoiceStatus_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentStreamNumber<Identity: ISpeechVoiceStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamnumber: *mut i32) -> windows_core::HRESULT {
@@ -14694,7 +15174,7 @@ impl ISpeechVoiceStatus_Vtbl {
         iid == &<ISpeechVoiceStatus as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechVoiceStatus {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechWaveFormatEx, ISpeechWaveFormatEx_Vtbl, 0x7a1ef0d5_1581_4741_88e4_209a49f11a10);
@@ -14763,14 +15243,14 @@ impl ISpeechWaveFormatEx {
     pub unsafe fn SetBitsPerSample(&self, bitspersample: i16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBitsPerSample)(windows_core::Interface::as_raw(self), bitspersample) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ExtraData(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExtraData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetExtraData(&self, extradata: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetExtraData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(extradata)) }
     }
@@ -14792,16 +15272,16 @@ pub struct ISpeechWaveFormatEx_Vtbl {
     pub SetBlockAlign: unsafe extern "system" fn(*mut core::ffi::c_void, i16) -> windows_core::HRESULT,
     pub BitsPerSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
     pub SetBitsPerSample: unsafe extern "system" fn(*mut core::ffi::c_void, i16) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ExtraData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ExtraData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetExtraData: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetExtraData: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechWaveFormatEx_Impl: super::IDispatch_Impl {
     fn FormatTag(&self) -> windows_core::Result<i16>;
     fn SetFormatTag(&self, formattag: i16) -> windows_core::Result<()>;
@@ -14818,7 +15298,7 @@ pub trait ISpeechWaveFormatEx_Impl: super::IDispatch_Impl {
     fn ExtraData(&self) -> windows_core::Result<super::VARIANT>;
     fn SetExtraData(&self, extradata: &super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechWaveFormatEx_Vtbl {
     pub const fn new<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FormatTag<Identity: ISpeechWaveFormatEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formattag: *mut i16) -> windows_core::HRESULT {
@@ -14969,7 +15449,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         iid == &<ISpeechWaveFormatEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechWaveFormatEx {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ISpeechXMLRecoResult, ISpeechXMLRecoResult_Vtbl, 0xaaec54af_8f85_4924_944d_b79d39d72e19);
@@ -15009,12 +15489,12 @@ pub struct ISpeechXMLRecoResult_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     GetXMLErrorInfo: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpeechXMLRecoResult_Impl: ISpeechRecoResult_Impl {
     fn GetXMLResult(&self, options: SPXMLRESULTOPTIONS) -> windows_core::Result<windows_core::BSTR>;
     fn GetXMLErrorInfo(&self, linenumber: *mut i32, scriptline: *mut windows_core::BSTR, source: *mut windows_core::BSTR, description: *mut windows_core::BSTR, resultcode: *mut i32) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpeechXMLRecoResult_Vtbl {
     pub const fn new<Identity: ISpeechXMLRecoResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetXMLResult<Identity: ISpeechXMLRecoResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15051,16 +15531,16 @@ impl ISpeechXMLRecoResult_Vtbl {
         iid == &<ISpeechXMLRecoResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ISpeechRecoResult as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpeechXMLRecoResult {}
 pub const OrderedSubset: SPMATCHINGMODE = 3;
 pub const OrderedSubsetContentRequired: SPMATCHINGMODE = 7;
 pub const PA_Ipa: PHONETICALPHABET = 0;
 pub const PA_Sapi: PHONETICALPHABET = 2;
 pub const PA_Ups: PHONETICALPHABET = 1;
-pub type PCSPPHONEID = windows_core::PCWSTR;
+pub type PCSPPHONEID = *const u16;
 pub type PHONETICALPHABET = i32;
-pub type PSPPHONEID = windows_core::PWSTR;
+pub type PSPPHONEID = *mut u16;
 pub const SAFT11kHz16BitMono: SpeechAudioFormatType = 10;
 pub const SAFT11kHz16BitStereo: SpeechAudioFormatType = 11;
 pub const SAFT11kHz8BitMono: SpeechAudioFormatType = 8;
@@ -15218,29 +15698,32 @@ pub const SPAS_PAUSE: SPAUDIOSTATE = 2;
 pub const SPAS_RUN: SPAUDIOSTATE = 3;
 pub const SPAS_STOP: SPAUDIOSTATE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOBUFFERINFO {
-    pub ulMsMinNotification: u32,
-    pub ulMsBufferSize: u32,
-    pub ulMsEventBias: u32,
+    pub ulMsMinNotification: super::ULONG,
+    pub ulMsBufferSize: super::ULONG,
+    pub ulMsEventBias: super::ULONG,
 }
 pub type SPAUDIOOPTIONS = i32;
 pub type SPAUDIOSTATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
-    pub cbNonBlockingIO: u32,
+    pub cbNonBlockingIO: super::ULONG,
     pub State: SPAUDIOSTATE,
-    pub CurSeekPos: u64,
-    pub CurDevicePos: u64,
-    pub dwAudioLevel: u32,
-    pub dwReserved2: u32,
+    pub CurSeekPos: super::ULONGLONG,
+    pub CurDevicePos: super::ULONGLONG,
+    pub dwAudioLevel: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPBINARYGRAMMAR {
-    pub ulTotalSerializedSize: u32,
+    pub ulTotalSerializedSize: super::ULONG,
 }
 pub type SPBOOKMARKOPTIONS = i32;
 pub const SPBO_AHEAD: SPBOOKMARKOPTIONS = 2;
@@ -15284,17 +15767,19 @@ pub const SPDF_RULE: SPVALUETYPE = 4;
 pub const SPDICTATION: windows_core::PCWSTR = windows_core::w!("*");
 pub type SPDISPLAYATTRIBUTES = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPDISPLAYPHRASE {
-    pub ulNumTokens: u32,
+    pub ulNumTokens: super::ULONG,
     pub pTokens: *mut SPDISPLAYTOKEN,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPDISPLAYTOKEN {
-    pub pszLexical: *const u16,
-    pub pszDisplay: *const u16,
-    pub bDisplayAttributes: u8,
+    pub pszLexical: *const super::WCHAR,
+    pub pszDisplay: *const super::WCHAR,
+    pub bDisplayAttributes: super::BYTE,
 }
 pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = 5;
 pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = 1;
@@ -15361,34 +15846,65 @@ pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = 4;
 pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = 1;
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = 0;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENT {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl SPEVENT {
+    pub fn eEventId(&self) -> SPEVENTENUM {
+        ((((self._bitfield as u32) & 65535) as i32) << 16) >> 16
+    }
+    pub fn set_eEventId(&mut self, value: SPEVENTENUM) {
+        self._bitfield = (((self._bitfield as u32) & !65535) | ((value as u32) & 65535)) as i32;
+    }
+    pub fn elParamType(&self) -> SPEVENTLPARAMTYPE {
+        ((((self._bitfield as u32) >> 16) as i32) << 16) >> 16
+    }
+    pub fn set_elParamType(&mut self, value: SPEVENTLPARAMTYPE) {
+        self._bitfield = (((self._bitfield as u32) & !(65535 << 16)) | (((value as u32) & 65535) << 16)) as i32;
+    }
 }
 pub type SPEVENTENUM = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTEX {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
-    pub ullAudioTimeOffset: u64,
+    pub ullAudioTimeOffset: super::ULONGLONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl SPEVENTEX {
+    pub fn eEventId(&self) -> SPEVENTENUM {
+        ((((self._bitfield as u32) & 65535) as i32) << 16) >> 16
+    }
+    pub fn set_eEventId(&mut self, value: SPEVENTENUM) {
+        self._bitfield = (((self._bitfield as u32) & !65535) | ((value as u32) & 65535)) as i32;
+    }
+    pub fn elParamType(&self) -> SPEVENTLPARAMTYPE {
+        ((((self._bitfield as u32) >> 16) as i32) << 16) >> 16
+    }
+    pub fn set_elParamType(&mut self, value: SPEVENTLPARAMTYPE) {
+        self._bitfield = (((self._bitfield as u32) & !(65535 << 16)) | (((value as u32) & 65535) << 16)) as i32;
+    }
 }
 pub type SPEVENTLPARAMTYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTSOURCEINFO {
-    pub ullEventInterest: u64,
-    pub ullQueuedInterest: u64,
-    pub ulCount: u32,
+    pub ullEventInterest: super::ULONGLONG,
+    pub ullQueuedInterest: super::ULONGLONG,
+    pub ulCount: super::ULONG,
 }
 pub const SPFEI_ALL_EVENTS: u64 = 17293822569102704639;
 pub const SPFEI_ALL_SR_EVENTS: u64 = 18014390993289216;
@@ -15458,81 +15974,83 @@ pub const SPMIN_VOLUME: SPVLIMITS = 0;
 pub const SPMMSYS_AUDIO_IN_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\");
 pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\");
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPNORMALIZATIONLIST {
-    pub ulSize: u32,
-    pub ppszzNormalizedList: *mut *mut u16,
+    pub ulSize: super::ULONG,
+    pub ppszzNormalizedList: *mut *mut super::WCHAR,
 }
 #[cfg(feature = "minwindef")]
 pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::WPARAM, lparam: super::LPARAM)>;
 pub type SPPARTOFSPEECH = i32;
 pub type SPPHONEID = u16;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPHRASE {
-    pub Base: SPPHRASE_53,
+    pub base: SPPHRASE_53,
     pub SemanticTagFormat: SPSEMANTICFORMAT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPHRASEELEMENT {
-    pub ulAudioTimeOffset: u32,
-    pub ulAudioSizeTime: u32,
-    pub ulAudioStreamOffset: u32,
-    pub ulAudioSizeBytes: u32,
-    pub ulRetainedStreamOffset: u32,
-    pub ulRetainedSizeBytes: u32,
+    pub ulAudioTimeOffset: super::ULONG,
+    pub ulAudioSizeTime: super::ULONG,
+    pub ulAudioStreamOffset: super::ULONG,
+    pub ulAudioSizeBytes: super::ULONG,
+    pub ulRetainedStreamOffset: super::ULONG,
+    pub ulRetainedSizeBytes: super::ULONG,
     pub pszDisplayText: windows_core::PCWSTR,
     pub pszLexicalForm: windows_core::PCWSTR,
     pub pszPronunciation: *const SPPHONEID,
-    pub bDisplayAttributes: u8,
+    pub bDisplayAttributes: super::BYTE,
     pub RequiredConfidence: i8,
     pub ActualConfidence: i8,
-    pub Reserved: u8,
+    pub Reserved: super::BYTE,
     pub SREngineConfidence: f32,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct SPPHRASEPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub Anonymous: SPPHRASEPROPERTY_0,
     pub pszValue: windows_core::PCWSTR,
     pub vValue: super::VARIANT,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
+    pub ulFirstElement: super::ULONG,
+    pub ulCountOfElements: super::ULONG,
     pub pNextSibling: *const Self,
     pub pFirstChild: *const Self,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for SPPHRASEPROPERTY {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union SPPHRASEPROPERTY_0 {
-    pub ulId: u32,
+    pub ulId: super::ULONG,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: super::byte,
@@ -15541,53 +16059,55 @@ pub struct SPPHRASEPROPERTY_0_0 {
 }
 pub type SPPHRASEPROPERTYUNIONTYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASEREPLACEMENT {
-    pub bDisplayAttributes: u8,
+    pub bDisplayAttributes: super::BYTE,
     pub pszReplacementText: windows_core::PCWSTR,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
+    pub ulFirstElement: super::ULONG,
+    pub ulCountOfElements: super::ULONG,
 }
 pub type SPPHRASERNG = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPHRASERULE {
     pub pszName: windows_core::PCWSTR,
-    pub ulId: u32,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
+    pub ulId: super::ULONG,
+    pub ulFirstElement: super::ULONG,
+    pub ulCountOfElements: super::ULONG,
     pub pNextSibling: *const Self,
     pub pFirstChild: *const Self,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPHRASE_50 {
-    pub cbSize: u32,
-    pub LangID: u16,
-    pub wHomophoneGroupId: u16,
-    pub ullGrammarID: u64,
-    pub ftStartTime: u64,
-    pub ullAudioStreamPosition: u64,
-    pub ulAudioSizeBytes: u32,
-    pub ulRetainedSizeBytes: u32,
-    pub ulAudioSizeTime: u32,
+    pub cbSize: super::ULONG,
+    pub LangID: super::WORD,
+    pub wHomophoneGroupId: super::WORD,
+    pub ullGrammarID: super::ULONGLONG,
+    pub ftStartTime: super::ULONGLONG,
+    pub ullAudioStreamPosition: super::ULONGLONG,
+    pub ulAudioSizeBytes: super::ULONG,
+    pub ulRetainedSizeBytes: super::ULONG,
+    pub ulAudioSizeTime: super::ULONG,
     pub Rule: SPPHRASERULE,
     pub pProperties: *const SPPHRASEPROPERTY,
     pub pElements: *const SPPHRASEELEMENT,
-    pub cReplacements: u32,
+    pub cReplacements: super::ULONG,
     pub pReplacements: *const SPPHRASEREPLACEMENT,
     pub SREngineID: windows_core::GUID,
-    pub ulSREnginePrivateDataSize: u32,
-    pub pSREnginePrivateData: *const u8,
+    pub ulSREnginePrivateDataSize: super::ULONG,
+    pub pSREnginePrivateData: *const super::BYTE,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPPHRASE_53 {
-    pub Base: SPPHRASE_50,
+    pub base: SPPHRASE_50,
     pub pSML: windows_core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
@@ -15595,20 +16115,20 @@ pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = 1;
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = 0;
 pub type SPPRONUNCIATIONFLAGS = i32;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct SPPROPERTYINFO {
     pub pszName: windows_core::PCWSTR,
-    pub ulId: u32,
+    pub ulId: super::ULONG,
     pub pszValue: windows_core::PCWSTR,
     pub vValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for SPPROPERTYINFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15649,13 +16169,15 @@ pub const SPRAF_Root: SPCFGRULEATTRIBUTES = 64;
 pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = 1;
 pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = 131072;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRECOCONTEXTSTATUS {
     pub eInterference: SPINTERFERENCE,
-    pub szRequestTypeOfUI: [u16; 255],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub szRequestTypeOfUI: [super::WCHAR; 255],
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SPRECOCONTEXTSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15663,30 +16185,32 @@ impl Default for SPRECOCONTEXTSTATUS {
 }
 pub type SPRECOEVENTFLAGS = i32;
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRECOGNIZERSTATUS {
     pub AudioStatus: SPAUDIOSTATUS,
-    pub ullRecognitionStreamPos: u64,
-    pub ulStreamNumber: u32,
-    pub ulNumActive: u32,
-    pub clsidEngine: windows_core::GUID,
-    pub cLangIDs: u32,
-    pub aLangID: [u16; 20],
-    pub ullRecognitionStreamTime: u64,
+    pub ullRecognitionStreamPos: super::ULONGLONG,
+    pub ulStreamNumber: super::ULONG,
+    pub ulNumActive: super::ULONG,
+    pub clsidEngine: super::CLSID,
+    pub cLangIDs: super::ULONG,
+    pub aLangID: [super::WORD; 20],
+    pub ullRecognitionStreamTime: super::ULONGLONG,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl Default for SPRECOGNIZERSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::FILETIME,
-    pub ullLength: u64,
-    pub dwTickCount: u32,
-    pub ullStart: u64,
+    pub ullLength: super::ULONGLONG,
+    pub dwTickCount: super::DWORD,
+    pub ullStart: super::ULONGLONG,
 }
 pub type SPRECOSTATE = i32;
 pub const SPREF_AutoPause: SPRECOEVENTFLAGS = 1;
@@ -15713,11 +16237,12 @@ pub const SPRS_DONE: SPRUNSTATE = 1;
 pub const SPRS_INACTIVE: SPRULESTATE = 0;
 pub const SPRS_IS_SPEAKING: SPRUNSTATE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRULE {
     pub pszRuleName: windows_core::PCWSTR,
-    pub ulRuleId: u32,
-    pub dwAttributes: u32,
+    pub ulRuleId: super::ULONG,
+    pub dwAttributes: super::DWORD,
 }
 pub type SPRULESTATE = i32;
 pub const SPRULETRANS_DICTATION: SPSTATEHANDLE = -3 as _;
@@ -15725,9 +16250,10 @@ pub const SPRULETRANS_TEXTBUFFER: SPSTATEHANDLE = -1 as _;
 pub const SPRULETRANS_WILDCARD: SPSTATEHANDLE = -2 as _;
 pub type SPRUNSTATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSEMANTICERRORINFO {
-    pub ulLineNumber: u32,
+    pub ulLineNumber: super::ULONG,
     pub pszScriptLine: windows_core::PWSTR,
     pub pszSource: windows_core::PWSTR,
     pub pszDescription: windows_core::PWSTR,
@@ -15735,32 +16261,66 @@ pub struct SPSEMANTICERRORINFO {
 }
 pub type SPSEMANTICFORMAT = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDEVENT {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub SerializedwParam: u32,
-    pub SerializedlParam: i32,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
+    pub SerializedwParam: super::ULONG,
+    pub SerializedlParam: super::LONG,
+}
+#[cfg(feature = "shared")]
+impl SPSERIALIZEDEVENT {
+    pub fn eEventId(&self) -> SPEVENTENUM {
+        ((((self._bitfield as u32) & 65535) as i32) << 16) >> 16
+    }
+    pub fn set_eEventId(&mut self, value: SPEVENTENUM) {
+        self._bitfield = (((self._bitfield as u32) & !65535) | ((value as u32) & 65535)) as i32;
+    }
+    pub fn elParamType(&self) -> SPEVENTLPARAMTYPE {
+        ((((self._bitfield as u32) >> 16) as i32) << 16) >> 16
+    }
+    pub fn set_elParamType(&mut self, value: SPEVENTLPARAMTYPE) {
+        self._bitfield = (((self._bitfield as u32) & !(65535 << 16)) | (((value as u32) & 65535) << 16)) as i32;
+    }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDEVENT64 {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub SerializedwParam: u64,
-    pub SerializedlParam: i64,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
+    pub SerializedwParam: super::ULONGLONG,
+    pub SerializedlParam: super::LONGLONG,
+}
+#[cfg(feature = "shared")]
+impl SPSERIALIZEDEVENT64 {
+    pub fn eEventId(&self) -> SPEVENTENUM {
+        ((((self._bitfield as u32) & 65535) as i32) << 16) >> 16
+    }
+    pub fn set_eEventId(&mut self, value: SPEVENTENUM) {
+        self._bitfield = (((self._bitfield as u32) & !65535) | ((value as u32) & 65535)) as i32;
+    }
+    pub fn elParamType(&self) -> SPEVENTLPARAMTYPE {
+        ((((self._bitfield as u32) >> 16) as i32) << 16) >> 16
+    }
+    pub fn set_elParamType(&mut self, value: SPEVENTLPARAMTYPE) {
+        self._bitfield = (((self._bitfield as u32) & !(65535 << 16)) | (((value as u32) & 65535) << 16)) as i32;
+    }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDPHRASE {
-    pub ulSerializedSize: u32,
+    pub ulSerializedSize: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDRESULT {
-    pub ulSerializedSize: u32,
+    pub ulSerializedSize: super::ULONG,
 }
 pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = 10;
 pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = 11;
@@ -15835,19 +16395,21 @@ pub const SPSF_Text: SPSTREAMFORMAT = 1;
 pub const SPSF_TrueSpeech_8kHz1BitMono: SPSTREAMFORMAT = 40;
 pub const SPSFunction: SpeechPartOfSpeech = 16384;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut Self,
-    pub LangID: u16,
+    pub LangID: super::WORD,
     pub shType: SPSHORTCUTTYPE,
     pub pszDisplay: windows_core::PWSTR,
     pub pszSpoken: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSHORTCUTPAIRLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
+    pub ulSize: super::ULONG,
+    pub pvBuffer: *mut super::BYTE,
     pub pFirstShortcutPair: *mut SPSHORTCUTPAIR,
 }
 pub type SPSHORTCUTTYPE = i32;
@@ -15877,12 +16439,13 @@ pub type SPSTREAMFORMATTYPE = i32;
 pub const SPSUnknown: SpeechPartOfSpeech = 0;
 pub const SPSVerb: SpeechPartOfSpeech = 8192;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPTEXTSELECTIONINFO {
-    pub ulStartActiveOffset: u32,
-    pub cchActiveChars: u32,
-    pub ulStartSelection: u32,
-    pub cchSelection: u32,
+    pub ulStartActiveOffset: super::ULONG,
+    pub cchActiveChars: super::ULONG,
+    pub ulStartSelection: super::ULONG,
+    pub cchSelection: super::ULONG,
 }
 pub const SPTOKENKEY_ATTRIBUTES: windows_core::PCWSTR = windows_core::w!("Attributes");
 pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: windows_core::PCWSTR = windows_core::w!("LatencyTruncateThreshold");
@@ -15916,21 +16479,22 @@ pub type SPVISEMES = i32;
 pub type SPVLIMITS = i32;
 pub const SPVOICECATEGORY_TTSRATE: windows_core::PCWSTR = windows_core::w!("DefaultTTSRate");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVOICESTATUS {
-    pub ulCurrentStream: u32,
-    pub ulLastStreamQueued: u32,
+    pub ulCurrentStream: super::ULONG,
+    pub ulLastStreamQueued: super::ULONG,
     pub hrLastResult: windows_core::HRESULT,
-    pub dwRunningState: u32,
-    pub ulInputWordPos: u32,
-    pub ulInputWordLen: u32,
-    pub ulInputSentPos: u32,
-    pub ulInputSentLen: u32,
-    pub lBookmarkId: i32,
+    pub dwRunningState: super::DWORD,
+    pub ulInputWordPos: super::ULONG,
+    pub ulInputWordLen: super::ULONG,
+    pub ulInputSentPos: super::ULONG,
+    pub ulInputSentLen: super::ULONG,
+    pub lBookmarkId: super::LONG,
     pub PhonemeId: SPPHONEID,
     pub VisemeId: SPVISEMES,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15943,16 +16507,17 @@ pub const SPVPRI_ALERT: SPVPRIORITY = 1;
 pub const SPVPRI_NORMAL: SPVPRIORITY = 0;
 pub const SPVPRI_OVER: SPVPRIORITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
-    pub LangID: u16,
-    pub wReserved: u16,
+    pub LangID: super::WORD,
+    pub wReserved: super::WORD,
     pub EmphAdj: i32,
     pub RateAdj: i32,
-    pub Volume: u32,
+    pub Volume: super::ULONG,
     pub PitchAdj: SPVPITCH,
-    pub SilenceMSecs: u32,
+    pub SilenceMSecs: super::ULONG,
     pub pPhoneIds: *mut SPPHONEID,
     pub ePartOfSpeech: SPPARTOFSPEECH,
     pub Context: SPVCONTEXT,
@@ -15961,43 +16526,48 @@ pub const SPWF_INPUT: SPSTREAMFORMATTYPE = 0;
 pub const SPWF_SRENGINE: SPSTREAMFORMATTYPE = 1;
 pub const SPWILDCARD: windows_core::PCWSTR = windows_core::w!("...");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPWORD {
     pub pNextWord: *mut Self,
-    pub LangID: u16,
-    pub wReserved: u16,
+    pub LangID: super::WORD,
+    pub wReserved: super::WORD,
     pub eWordType: SPWORDTYPE,
     pub pszWord: windows_core::PWSTR,
     pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPWORDLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
+    pub ulSize: super::ULONG,
+    pub pvBuffer: *mut super::BYTE,
     pub pFirstWord: *mut SPWORD,
 }
 pub type SPWORDPRONOUNCEABLE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDPRONUNCIATION {
     pub pNextWordPronunciation: *mut Self,
     pub eLexiconType: SPLEXICONTYPE,
-    pub LangID: u16,
-    pub wPronunciationFlags: u16,
+    pub LangID: super::WORD,
+    pub wPronunciationFlags: super::WORD,
     pub ePartOfSpeech: SPPARTOFSPEECH,
     pub szPronunciation: [SPPHONEID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SPWORDPRONUNCIATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPWORDPRONUNCIATIONLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
+    pub ulSize: super::ULONG,
+    pub pvBuffer: *mut super::BYTE,
     pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
 }
 pub type SPWORDTYPE = i32;
@@ -16199,6 +16769,8 @@ pub const SpTextSelectionInformation: windows_core::GUID = windows_core::GUID::f
 pub const SpUnCompressedLexicon: windows_core::GUID = windows_core::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
 pub const SpVoice: windows_core::GUID = windows_core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
 pub const SpWaveFormatEx: windows_core::GUID = windows_core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
+#[cfg(feature = "shared")]
+pub const SpeechAllElements: super::LONG = 0xFFFFFFFF_u32 as _;
 pub type SpeechAudioFormatType = i32;
 pub type SpeechAudioState = i32;
 pub type SpeechBookmarkOptions = i32;
@@ -16237,6 +16809,14 @@ pub type SpeechVoiceSpeakFlags = i32;
 pub type SpeechWordPronounceable = i32;
 pub type SpeechWordType = i32;
 pub const Speech_Default_Weight: f32 = 1.0;
+#[cfg(feature = "shared")]
+pub const Speech_Max_Pron_Length: super::LONG = 0x180_u32 as _;
+#[cfg(feature = "shared")]
+pub const Speech_Max_Word_Length: super::LONG = 0x80_u32 as _;
+#[cfg(feature = "shared")]
+pub const Speech_StreamPos_Asap: super::LONG = 0x0_u32 as _;
+#[cfg(feature = "shared")]
+pub const Speech_StreamPos_RealTime: super::LONG = 0xFFFFFFFF_u32 as _;
 pub const Subsequence: SPMATCHINGMODE = 1;
 pub const SubsequenceContentRequired: SPMATCHINGMODE = 5;
 #[cfg(feature = "oaidl")]
@@ -16256,9 +16836,9 @@ windows_core::imp::interface_hierarchy!(_ISpeechRecoContextEvents, windows_core:
 pub struct _ISpeechRecoContextEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _ISpeechRecoContextEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _ISpeechRecoContextEvents_Vtbl {
     pub const fn new<Identity: _ISpeechRecoContextEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -16267,7 +16847,7 @@ impl _ISpeechRecoContextEvents_Vtbl {
         iid == &<_ISpeechRecoContextEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _ISpeechRecoContextEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_ISpeechVoiceEvents, _ISpeechVoiceEvents_Vtbl, 0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
@@ -16286,9 +16866,9 @@ windows_core::imp::interface_hierarchy!(_ISpeechVoiceEvents, windows_core::IUnkn
 pub struct _ISpeechVoiceEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _ISpeechVoiceEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _ISpeechVoiceEvents_Vtbl {
     pub const fn new<Identity: _ISpeechVoiceEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -16297,7 +16877,7 @@ impl _ISpeechVoiceEvents_Vtbl {
         iid == &<_ISpeechVoiceEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _ISpeechVoiceEvents {}
 pub const _SAPI_VER: i32 = 84;
 pub const eLEXTYPE_APP: SPLEXICONTYPE = 2;

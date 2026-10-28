@@ -7,14 +7,14 @@ pub const HORIZONTAL_WHEEL_PRESENT: i32 = 32768;
 pub const IOCTL_MOUSE_INSERT_DATA: i32 = 983044;
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: i32 = 983040;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_ATTRIBUTES {
-    pub MouseIdentifier: u16,
-    pub NumberOfButtons: u16,
-    pub SampleRate: u16,
-    pub InputDataQueueLength: u32,
+    pub MouseIdentifier: super::USHORT,
+    pub NumberOfButtons: super::USHORT,
+    pub SampleRate: super::USHORT,
+    pub InputDataQueueLength: super::ULONG,
 }
-pub const MOUSE_ATTRIBUTES_CHANGED: i32 = 4;
 pub const MOUSE_BUTTON_1_DOWN: i32 = 1;
 pub const MOUSE_BUTTON_1_UP: i32 = 2;
 pub const MOUSE_BUTTON_2_DOWN: i32 = 4;
@@ -31,58 +31,63 @@ pub const MOUSE_HWHEEL: i32 = 2048;
 pub const MOUSE_I8042_HARDWARE: i32 = 2;
 pub const MOUSE_INPORT_HARDWARE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MOUSE_INPUT_DATA {
-    pub UnitId: u16,
-    pub Flags: u16,
+    pub UnitId: super::USHORT,
+    pub Flags: super::USHORT,
     pub Anonymous: MOUSE_INPUT_DATA_0,
-    pub RawButtons: u32,
-    pub LastX: i32,
-    pub LastY: i32,
-    pub ExtraInformation: u32,
+    pub RawButtons: super::ULONG,
+    pub LastX: super::LONG,
+    pub LastY: super::LONG,
+    pub ExtraInformation: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for MOUSE_INPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MOUSE_INPUT_DATA_0 {
-    pub Buttons: u32,
+    pub Buttons: super::ULONG,
     pub Anonymous: MOUSE_INPUT_DATA_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for MOUSE_INPUT_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_INPUT_DATA_0_0 {
-    pub ButtonFlags: u16,
-    pub ButtonData: u16,
+    pub ButtonFlags: super::USHORT,
+    pub ButtonData: super::USHORT,
 }
 pub const MOUSE_LEFT_BUTTON_DOWN: i32 = 1;
 pub const MOUSE_LEFT_BUTTON_UP: i32 = 2;
 pub const MOUSE_MIDDLE_BUTTON_DOWN: i32 = 16;
 pub const MOUSE_MIDDLE_BUTTON_UP: i32 = 32;
-pub const MOUSE_MOVE_ABSOLUTE: i32 = 1;
-pub const MOUSE_MOVE_NOCOALESCE: i32 = 8;
-pub const MOUSE_MOVE_RELATIVE: i32 = 0;
 pub const MOUSE_RIGHT_BUTTON_DOWN: i32 = 4;
 pub const MOUSE_RIGHT_BUTTON_UP: i32 = 8;
 pub const MOUSE_SERIAL_HARDWARE: i32 = 4;
 pub const MOUSE_TERMSRV_SRC_SHADOW: i32 = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_UNIT_ID_PARAMETER {
-    pub UnitId: u16,
+    pub UnitId: super::USHORT,
 }
-pub const MOUSE_VIRTUAL_DESKTOP: i32 = 2;
 pub const MOUSE_WHEEL: i32 = 1024;
+#[cfg(feature = "shared")]
 pub type PMOUSE_ATTRIBUTES = *mut MOUSE_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PMOUSE_INPUT_DATA = *mut MOUSE_INPUT_DATA;
+#[cfg(feature = "shared")]
 pub type PMOUSE_UNIT_ID_PARAMETER = *mut MOUSE_UNIT_ID_PARAMETER;
 pub const WHEELMOUSE_HID_HARDWARE: i32 = 256;
 pub const WHEELMOUSE_I8042_HARDWARE: i32 = 32;

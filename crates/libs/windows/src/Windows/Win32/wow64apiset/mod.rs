@@ -1,26 +1,31 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetSystemWow64Directory2A(lpbuffer: Option<windows_core::PSTR>, usize: u32, imagefilemachinetype: u16) -> u32 {
-    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2A(lpbuffer : windows_core::PSTR, usize : u32, imagefilemachinetype : u16) -> u32);
+pub unsafe fn GetSystemWow64Directory2A(lpbuffer: Option<windows_core::PSTR>, usize: super::UINT, imagefilemachinetype: super::WORD) -> super::UINT {
+    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2A(lpbuffer : windows_core::PSTR, usize : super::UINT, imagefilemachinetype : super::WORD) -> super::UINT);
     unsafe { GetSystemWow64Directory2A(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize, imagefilemachinetype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetSystemWow64Directory2W(lpbuffer: Option<windows_core::PWSTR>, usize: u32, imagefilemachinetype: u16) -> u32 {
-    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2W(lpbuffer : windows_core::PWSTR, usize : u32, imagefilemachinetype : u16) -> u32);
+pub unsafe fn GetSystemWow64Directory2W(lpbuffer: Option<windows_core::PWSTR>, usize: super::UINT, imagefilemachinetype: super::WORD) -> super::UINT {
+    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2W(lpbuffer : windows_core::PWSTR, usize : super::UINT, imagefilemachinetype : super::WORD) -> super::UINT);
     unsafe { GetSystemWow64Directory2W(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize, imagefilemachinetype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: Option<windows_core::PSTR>, usize: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
+pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: Option<windows_core::PSTR>, usize: super::UINT) -> super::UINT {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryA(lpbuffer : windows_core::PSTR, usize : super::UINT) -> super::UINT);
     unsafe { GetSystemWow64DirectoryA(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: Option<windows_core::PWSTR>, usize: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
+pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: Option<windows_core::PWSTR>, usize: super::UINT) -> super::UINT {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryW(lpbuffer : windows_core::PWSTR, usize : super::UINT) -> super::UINT);
     unsafe { GetSystemWow64DirectoryW(lpbuffer.unwrap_or(core::mem::zeroed()) as _, usize) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> windows_core::Result<windows_core::BOOL> {
-    windows_core::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : u16, machineissupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
+pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: super::USHORT) -> windows_core::Result<windows_core::BOOL> {
+    windows_core::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : super::USHORT, machineissupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| result__)
@@ -32,48 +37,51 @@ pub unsafe fn IsWow64Process(hprocess: super::HANDLE, wow64process: super::PBOOL
     windows_core::link!("kernel32.dll" "system" fn IsWow64Process(hprocess : super::HANDLE, wow64process : super::PBOOL) -> windows_core::BOOL);
     unsafe { IsWow64Process(hprocess, wow64process as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn IsWow64Process2(hprocess: super::HANDLE, pprocessmachine: *mut u16, pnativemachine: Option<*mut u16>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn IsWow64Process2(hprocess : super::HANDLE, pprocessmachine : *mut u16, pnativemachine : *mut u16) -> windows_core::BOOL);
+pub unsafe fn IsWow64Process2(hprocess: super::HANDLE, pprocessmachine: *mut super::USHORT, pnativemachine: Option<*mut super::USHORT>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn IsWow64Process2(hprocess : super::HANDLE, pprocessmachine : *mut super::USHORT, pnativemachine : *mut super::USHORT) -> windows_core::BOOL);
     unsafe { IsWow64Process2(hprocess, pprocessmachine as _, pnativemachine.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn Wow64DisableWow64FsRedirection(oldvalue : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn Wow64DisableWow64FsRedirection(oldvalue : *mut super::PVOID) -> windows_core::BOOL);
     unsafe { Wow64DisableWow64FsRedirection(oldvalue as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: super::BOOLEAN) -> super::BOOLEAN {
     windows_core::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : super::BOOLEAN) -> super::BOOLEAN);
     unsafe { Wow64EnableWow64FsRedirection(wow64fsenableredirection) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn Wow64GetThreadContext(hthread: super::HANDLE, lpcontext: super::PWOW64_CONTEXT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::HANDLE, lpcontext : super::PWOW64_CONTEXT) -> windows_core::BOOL);
     unsafe { Wow64GetThreadContext(hthread, lpcontext as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn Wow64RevertWow64FsRedirection(olvalue : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn Wow64RevertWow64FsRedirection(olvalue : super::PVOID) -> windows_core::BOOL);
     unsafe { Wow64RevertWow64FsRedirection(olvalue) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn Wow64SetThreadContext(hthread: super::HANDLE, lpcontext: *const super::WOW64_CONTEXT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::HANDLE, lpcontext : *const super::WOW64_CONTEXT) -> windows_core::BOOL);
     unsafe { Wow64SetThreadContext(hthread, lpcontext) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
-    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn Wow64SetThreadDefaultGuestMachine(machine : u16) -> u16);
+pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: super::USHORT) -> super::USHORT {
+    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn Wow64SetThreadDefaultGuestMachine(machine : super::USHORT) -> super::USHORT);
     unsafe { Wow64SetThreadDefaultGuestMachine(machine) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn Wow64SuspendThread(hthread: super::HANDLE) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn Wow64SuspendThread(hthread : super::HANDLE) -> u32);
+pub unsafe fn Wow64SuspendThread(hthread: super::HANDLE) -> super::DWORD {
+    windows_core::link!("kernel32.dll" "system" fn Wow64SuspendThread(hthread : super::HANDLE) -> super::DWORD);
     unsafe { Wow64SuspendThread(hthread) }
 }

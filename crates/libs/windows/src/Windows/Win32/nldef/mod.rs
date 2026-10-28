@@ -42,32 +42,85 @@ pub const MIB_IPPROTO_OSPF: NL_ROUTE_PROTOCOL = 13;
 pub const MIB_IPPROTO_OTHER: NL_ROUTE_PROTOCOL = 1;
 pub const MIB_IPPROTO_RIP: NL_ROUTE_PROTOCOL = 8;
 pub const MIB_IPPROTO_RPL: NL_ROUTE_PROTOCOL = 18;
-pub const NET_IF_CURRENT_SESSION: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const NET_IF_CURRENT_SESSION: super::ULONG = 4294967295;
 pub type NL_ADDRESS_TYPE = i32;
 pub type NL_BANDWIDTH_FLAG = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_BANDWIDTH_INFORMATION {
-    pub Bandwidth: u64,
-    pub Instability: u64,
+    pub Bandwidth: super::ULONG64,
+    pub Instability: super::ULONG64,
     pub BandwidthPeaked: super::BOOLEAN,
 }
 pub type NL_DAD_STATE = i32;
 pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
-    pub _bitfield: super::BOOLEAN,
+    pub _bitfield: u8,
+}
+#[cfg(feature = "shared")]
+impl NL_INTERFACE_OFFLOAD_ROD {
+    pub fn NlChecksumSupported(&self) -> super::BOOLEAN {
+        (self._bitfield) & 1
+    }
+    pub fn set_NlChecksumSupported(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn NlOptionsSupported(&self) -> super::BOOLEAN {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_NlOptionsSupported(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn TlDatagramChecksumSupported(&self) -> super::BOOLEAN {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_TlDatagramChecksumSupported(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn TlStreamChecksumSupported(&self) -> super::BOOLEAN {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_TlStreamChecksumSupported(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn TlStreamOptionsSupported(&self) -> super::BOOLEAN {
+        (self._bitfield >> 4) & 1
+    }
+    pub fn set_TlStreamOptionsSupported(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
+    }
+    pub fn FastPathCompatible(&self) -> super::BOOLEAN {
+        (self._bitfield >> 5) & 1
+    }
+    pub fn set_FastPathCompatible(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
+    }
+    pub fn TlLargeSendOffloadSupported(&self) -> super::BOOLEAN {
+        (self._bitfield >> 6) & 1
+    }
+    pub fn set_TlLargeSendOffloadSupported(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
+    }
+    pub fn TlGiantSendOffloadSupported(&self) -> super::BOOLEAN {
+        self._bitfield >> 7
+    }
+    pub fn set_TlGiantSendOffloadSupported(&mut self, value: super::BOOLEAN) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
+    }
 }
 pub type NL_LINK_LOCAL_ADDRESS_BEHAVIOR = i32;
-pub const NL_MAX_METRIC_COMPONENT: u32 = 2147483647;
+#[cfg(feature = "shared")]
+pub const NL_MAX_METRIC_COMPONENT: super::ULONG = 2147483647;
 pub type NL_NEIGHBOR_STATE = i32;
 pub type NL_NETWORK_CATEGORY = i32;
 pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
@@ -78,11 +131,11 @@ pub struct NL_NETWORK_CONNECTIVITY_HINT {
 }
 pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_PATH_BANDWIDTH_ROD {
-    pub Bandwidth: u64,
-    pub Instability: u64,
+    pub Bandwidth: super::ULONG64,
+    pub Instability: super::ULONG64,
     pub BandwidthPeaked: super::BOOLEAN,
 }
 pub type NL_PREFIX_ORIGIN = i32;
@@ -150,14 +203,14 @@ pub const NlsoRandom: NL_SUFFIX_ORIGIN = 5;
 pub const NlsoWellKnown: NL_SUFFIX_ORIGIN = 2;
 pub type PNL_ADDRESS_TYPE = *mut NL_ADDRESS_TYPE;
 pub type PNL_BANDWIDTH_FLAG = *mut NL_BANDWIDTH_FLAG;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PNL_BANDWIDTH_INFORMATION = *mut NL_BANDWIDTH_INFORMATION;
 pub type PNL_INTERFACE_NETWORK_CATEGORY_STATE = *mut NL_INTERFACE_NETWORK_CATEGORY_STATE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PNL_INTERFACE_OFFLOAD_ROD = *mut NL_INTERFACE_OFFLOAD_ROD;
 pub type PNL_NEIGHBOR_STATE = *mut NL_NEIGHBOR_STATE;
 pub type PNL_NETWORK_CATEGORY = *mut NL_NETWORK_CATEGORY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PNL_PATH_BANDWIDTH_ROD = *mut NL_PATH_BANDWIDTH_ROD;
 pub type PNL_ROUTE_ORIGIN = *mut NL_ROUTE_ORIGIN;
 pub type PNL_ROUTE_PROTOCOL = *mut NL_ROUTE_PROTOCOL;

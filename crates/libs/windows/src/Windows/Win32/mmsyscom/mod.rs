@@ -4,7 +4,8 @@ pub const CALLBACK_TASK: i32 = 131072;
 pub const CALLBACK_THREAD: i32 = 131072;
 pub const CALLBACK_TYPEMASK: i32 = 458752;
 pub const CALLBACK_WINDOW: i32 = 65536;
-pub type DRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[cfg(feature = "shared")]
+pub type DRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
 pub type HDRVR = *mut HDRVR__;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -12,9 +13,10 @@ pub struct HDRVR__ {
     pub unused: i32,
 }
 pub const JOYERR_BASE: i32 = 160;
-pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[cfg(feature = "shared")]
+pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
+#[cfg(feature = "shared")]
 pub type LPMMTIME = *mut MMTIME;
-pub type LPUINT = *mut u32;
 pub const MAXERRORLENGTH: i32 = 256;
 pub const MAXPNAMELEN: i32 = 32;
 pub const MAX_JOYSTICKOEMVXDNAME: i32 = 260;
@@ -52,51 +54,58 @@ pub const MMSYSERR_READERROR: i32 = 16;
 pub const MMSYSERR_VALNOTFOUND: i32 = 19;
 pub const MMSYSERR_WRITEERROR: i32 = 17;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MMTIME {
-    pub wType: u32,
+    pub wType: super::UINT,
     pub u: MMTIME_0,
 }
+#[cfg(feature = "shared")]
 impl Default for MMTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MMTIME_0 {
-    pub ms: u32,
-    pub sample: u32,
-    pub cb: u32,
-    pub ticks: u32,
+    pub ms: super::DWORD,
+    pub sample: super::DWORD,
+    pub cb: super::DWORD,
+    pub ticks: super::DWORD,
     pub smpte: MMTIME_0_0,
     pub midi: MMTIME_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for MMTIME_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct MMTIME_0_0 {
-    pub hour: u8,
-    pub min: u8,
-    pub sec: u8,
-    pub frame: u8,
-    pub fps: u8,
-    pub dummy: u8,
-    pub pad: [u8; 2],
+    pub hour: super::BYTE,
+    pub min: super::BYTE,
+    pub sec: super::BYTE,
+    pub frame: super::BYTE,
+    pub fps: super::BYTE,
+    pub dummy: super::BYTE,
+    pub pad: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for MMTIME_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MMTIME_0_1 {
-    pub songptrpos: u32,
+    pub songptrpos: super::DWORD,
 }
 pub type MMVERSION = u32;
 pub const MM_DRVM_CLOSE: i32 = 977;
@@ -136,8 +145,11 @@ pub const MM_WIM_OPEN: i32 = 958;
 pub const MM_WOM_CLOSE: i32 = 956;
 pub const MM_WOM_DONE: i32 = 957;
 pub const MM_WOM_OPEN: i32 = 955;
+#[cfg(feature = "shared")]
 pub type NPMMTIME = *mut MMTIME;
-pub type PDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[cfg(feature = "shared")]
+pub type PDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
+#[cfg(feature = "shared")]
 pub type PMMTIME = *mut MMTIME;
 pub const TIMERR_BASE: i32 = 96;
 pub const TIME_BYTES: i32 = 4;

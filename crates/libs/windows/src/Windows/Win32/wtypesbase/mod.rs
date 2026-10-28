@@ -15,32 +15,33 @@ pub const APPIDREGFLAGS_RESERVED8: i32 = 8192;
 pub const APPIDREGFLAGS_RESERVED9: i32 = 16384;
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLOB {
-    pub cbSize: u32,
-    pub pBlobData: *mut u8,
+    pub cbSize: super::ULONG,
+    pub pBlobData: *mut super::BYTE,
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BYTE_BLOB {
-    pub clSize: u32,
+    pub clSize: super::ULONG,
     pub abData: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BYTE_SIZEDARR {
-    pub clSize: u32,
+    pub clSize: super::ULONG,
     pub pData: *mut super::byte,
 }
-pub type CLSCTX = u32;
+pub type CLSCTX = i32;
 pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = 262144;
 pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = 524288;
 pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = 8388608;
@@ -62,7 +63,7 @@ pub const CLSCTX_LOCAL_SERVER: CLSCTX = 4;
 pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = 1024;
 pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = 4096;
 pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = 16384;
-pub const CLSCTX_PS_DLL: CLSCTX = 2147483648;
+pub const CLSCTX_PS_DLL: CLSCTX = -2147483648;
 pub const CLSCTX_REMOTE_SERVER: CLSCTX = 16;
 pub const CLSCTX_RESERVED1: CLSCTX = 64;
 pub const CLSCTX_RESERVED2: CLSCTX = 128;
@@ -71,28 +72,30 @@ pub const CLSCTX_RESERVED4: CLSCTX = 512;
 pub const CLSCTX_RESERVED5: CLSCTX = 2048;
 pub const CLSCTX_RESERVED6: CLSCTX = 16777216;
 pub const CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE: CLSCTX = 134217728;
-pub const CLSCTX_VALID_MASK: CLSCTX = 2682254367;
+pub const CLSCTX_VALID_MASK: CLSCTX = -1612712929;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COAUTHIDENTITY {
-    pub User: *mut u16,
-    pub UserLength: u32,
-    pub Domain: *mut u16,
-    pub DomainLength: u32,
-    pub Password: *mut u16,
-    pub PasswordLength: u32,
-    pub Flags: u32,
+    pub User: *mut super::USHORT,
+    pub UserLength: super::ULONG,
+    pub Domain: *mut super::USHORT,
+    pub DomainLength: super::ULONG,
+    pub Password: *mut super::USHORT,
+    pub PasswordLength: super::ULONG,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COAUTHINFO {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
+    pub dwAuthnSvc: super::DWORD,
+    pub dwAuthzSvc: super::DWORD,
     pub pwszServerPrincName: windows_core::PWSTR,
-    pub dwAuthnLevel: u32,
-    pub dwImpersonationLevel: u32,
+    pub dwAuthnLevel: super::DWORD,
+    pub dwImpersonationLevel: super::DWORD,
     pub pAuthIdentityData: *mut COAUTHIDENTITY,
-    pub dwCapabilities: u32,
+    pub dwCapabilities: super::DWORD,
 }
 pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: i32 = 2;
 pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: i32 = 1;
@@ -100,58 +103,66 @@ pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: i32 = 32;
 pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: i32 = 16;
 pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: i32 = 8;
 pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: i32 = 4;
+pub type DOUBLE = f64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWORD_BLOB {
-    pub clSize: u32,
-    pub alData: [u32; 1],
+    pub clSize: super::ULONG,
+    pub alData: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DWORD_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWORD_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u32,
+    pub clSize: super::ULONG,
+    pub pData: *mut super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLAGGED_BYTE_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
+    pub fFlags: super::ULONG,
+    pub clSize: super::ULONG,
     pub abData: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for FLAGGED_BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLAGGED_WORD_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
+    pub fFlags: super::ULONG,
+    pub clSize: super::ULONG,
     pub asData: [u16; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FLAGGED_WORD_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYPER_SIZEDARR {
-    pub clSize: u32,
+    pub clSize: super::ULONG,
     pub pData: *mut i64,
 }
+#[cfg(feature = "shared")]
 pub type LPBLOB = *mut BLOB;
-pub type LPCOLESTR = *const OLECHAR;
-pub type LPOLESTR = *mut OLECHAR;
+pub type LPCOLESTR = *const u16;
+pub type LPOLESTR = *mut u16;
 pub type MEMCTX = i32;
 pub const MEMCTX_MACSYSTEM: MEMCTX = 3;
 pub const MEMCTX_SAME: MEMCTX = -2;
@@ -175,30 +186,36 @@ pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = 64;
 pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = 1;
 pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = 2;
 pub type OLECHAR = u16;
-pub type PSCODE = *mut SCODE;
+pub type PSCODE = *mut i32;
 pub const ROTREGFLAGS_ALLOWANYCLIENT: i32 = 1;
 pub type SCODE = i32;
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub type UP_BYTE_BLOB = *mut BYTE_BLOB;
+#[cfg(feature = "shared")]
 pub type UP_DWORD_BLOB = *mut DWORD_BLOB;
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub type UP_FLAGGED_BYTE_BLOB = *mut FLAGGED_BYTE_BLOB;
+#[cfg(feature = "shared")]
 pub type UP_FLAGGED_WORD_BLOB = *mut FLAGGED_WORD_BLOB;
+#[cfg(feature = "shared")]
 pub type UP_WORD_BLOB = *mut WORD_BLOB;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WORD_BLOB {
-    pub clSize: u32,
+    pub clSize: super::ULONG,
     pub asData: [u16; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for WORD_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORD_SIZEDARR {
-    pub clSize: u32,
+    pub clSize: super::ULONG,
     pub pData: *mut u16,
 }

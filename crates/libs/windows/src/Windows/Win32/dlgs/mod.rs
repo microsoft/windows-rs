@@ -1,11 +1,12 @@
 pub const COLORMGMTDLGORD: i32 = 1551;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRGB {
-    pub bRed: u8,
-    pub bGreen: u8,
-    pub bBlue: u8,
-    pub bExtra: u8,
+    pub bRed: super::BYTE,
+    pub bGreen: super::BYTE,
+    pub bBlue: super::BYTE,
+    pub bExtra: super::BYTE,
 }
 pub const FILEOPENORD: i32 = 1536;
 pub const FINDDLGORD: i32 = 1540;

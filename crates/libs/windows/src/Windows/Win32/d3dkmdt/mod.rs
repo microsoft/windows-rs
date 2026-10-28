@@ -1,11 +1,13 @@
 pub const D3DKARG_FENCESTORAGETYPE_CURRENTVALUE: DXGKARG_FENCESTORAGEVALUETYPE = 0;
 pub const D3DKARG_FENCESTORAGETYPE_MONITOREDVALUE: DXGKARG_FENCESTORAGEVALUETYPE = 1;
+#[cfg(feature = "shared")]
 pub type D3DKMDT_2DOFFSET = D3DKMDT_2DREGION;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_2DREGION {
-    pub cx: u32,
-    pub cy: u32,
+    pub cx: super::UINT,
+    pub cy: super::UINT,
 }
 pub type D3DKMDT_ADAPTER = *mut core::ffi::c_void;
 pub const D3DKMDT_BITS_PER_COMPONENT_06: i32 = 1;
@@ -22,12 +24,13 @@ pub const D3DKMDT_CB_YCBCR: D3DKMDT_COLOR_BASIS = 4;
 pub const D3DKMDT_CB_YPBPR: D3DKMDT_COLOR_BASIS = 5;
 pub type D3DKMDT_COLOR_BASIS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
-    pub FirstChannel: u32,
-    pub SecondChannel: u32,
-    pub ThirdChannel: u32,
-    pub FourthChannel: u32,
+    pub FirstChannel: super::UINT,
+    pub SecondChannel: super::UINT,
+    pub ThirdChannel: super::UINT,
+    pub FourthChannel: super::UINT,
 }
 pub const D3DKMDT_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = 200;
 pub const D3DKMDT_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = 100;
@@ -36,8 +39,10 @@ pub const D3DKMDT_COMPUTE_PREEMPTION_NONE: D3DKMDT_COMPUTE_PREEMPTION_GRANULARIT
 pub const D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = 500;
 pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = 400;
 pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = 300;
-pub const D3DKMDT_DIMENSION_NOTSPECIFIED: u32 = 4294967294;
-pub const D3DKMDT_DIMENSION_UNINITIALIZED: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const D3DKMDT_DIMENSION_NOTSPECIFIED: super::UINT = 4294967294;
+#[cfg(feature = "shared")]
+pub const D3DKMDT_DIMENSION_UNINITIALIZED: super::UINT = 4294967295;
 pub type D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = i32;
 pub const D3DKMDT_EPT_NOPIVOT: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 5;
 pub const D3DKMDT_EPT_ROTATION: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 4;
@@ -45,9 +50,10 @@ pub const D3DKMDT_EPT_SCALING: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 3;
 pub const D3DKMDT_EPT_UNINITIALIZED: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 0;
 pub const D3DKMDT_EPT_VIDPNSOURCE: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 1;
 pub const D3DKMDT_EPT_VIDPNTARGET: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 2;
-pub const D3DKMDT_FREQUENCY_NOTSPECIFIED: u32 = 4294967294;
+#[cfg(feature = "shared")]
+pub const D3DKMDT_FREQUENCY_NOTSPECIFIED: super::UINT = 4294967294;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MinVSyncFreq: super::D3DDDI_RATIONAL,
@@ -55,23 +61,24 @@ pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MinHSyncFreq: super::D3DDDI_RATIONAL,
     pub MaxHSyncFreq: super::D3DDDI_RATIONAL,
 }
-pub const D3DKMDT_FREQUENCY_UNINITIALIZED: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const D3DKMDT_FREQUENCY_UNINITIALIZED: super::UINT = 4294967295;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_GAMMA_RAMP {
     pub Type: super::D3DDDI_GAMMARAMP_TYPE,
-    pub DataSize: usize,
+    pub DataSize: super::SIZE_T,
     pub Data: D3DKMDT_GAMMA_RAMP_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_GAMMA_RAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pRgb256x3x16: *mut super::D3DDDI_GAMMA_RAMP_RGB256x3x16,
@@ -80,61 +87,67 @@ pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pMatrixV2: *mut super::D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2,
     pub pRaw: *mut core::ffi::c_void,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_GAMMA_RAMP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_GDISURFACEDATA {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: super::D3DDDIFORMAT,
     pub Type: D3DKMDT_GDISURFACETYPE,
     pub Flags: D3DKMDT_GDISURFACEFLAGS,
-    pub Pitch: u32,
+    pub Pitch: super::UINT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_GDISURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_GDISURFACEFLAGS {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMDT_GDISURFACEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_GDISURFACEFLAGS_0 {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMDT_GDISURFACEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_GDISURFACEFLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMDT_GDISURFACEFLAGS_0_0 {
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield
     }
-    pub fn set_Reserved(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !4294967295) | (value & 4294967295);
+    pub fn set_Reserved(&mut self, value: super::UINT) {
+        self._bitfield = value;
     }
 }
 pub type D3DKMDT_GDISURFACETYPE = i32;
@@ -155,12 +168,12 @@ pub const D3DKMDT_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: D3DKMDT_GRAPHICS_PREEM
 pub const D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = 500;
 pub const D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = 300;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub PrimSurfSize: D3DKMDT_2DREGION,
     pub VisibleRegionSize: D3DKMDT_2DREGION,
-    pub Stride: u32,
+    pub Stride: super::DWORD,
     pub PixelFormat: super::D3DDDIFORMAT,
     pub ColorBasis: D3DKMDT_COLOR_BASIS,
     pub PixelValueAccessMode: D3DKMDT_PIXEL_VALUE_ACCESS_MODE,
@@ -250,18 +263,19 @@ pub type D3DKMDT_MODE_PREFERENCE = i32;
 pub type D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = i32;
 pub type D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Id: D3DKMDT_MONITOR_DESCRIPTOR_ID,
     pub Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
-    pub DataSize: usize,
+    pub DataSize: super::SIZE_T,
     pub pData: *mut core::ffi::c_void,
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
 }
 pub type D3DKMDT_MONITOR_DESCRIPTOR_ID = u32;
 pub type D3DKMDT_MONITOR_DESCRIPTOR_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
@@ -269,20 +283,20 @@ pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub ConstraintType: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT,
     pub Constraint: D3DKMDT_MONITOR_FREQUENCY_RANGE_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_MONITOR_FREQUENCY_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     pub ActiveSize: D3DKMDT_2DREGION,
-    pub MaxPixelRate: usize,
+    pub MaxPixelRate: super::SIZE_T,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -292,7 +306,7 @@ pub type D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = i32;
 pub type D3DKMDT_MONITOR_ORIENTATION = i32;
 pub type D3DKMDT_MONITOR_ORIENTATION_AWARENESS = i32;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Id: D3DKMDT_MONITOR_SOURCE_MODE_ID,
@@ -302,7 +316,7 @@ pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
     pub Preference: D3DKMDT_MODE_PREFERENCE,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_MONITOR_SOURCE_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -326,12 +340,13 @@ pub const D3DKMDT_MTT_EXTRASTANDARD: D3DKMDT_MONITOR_TIMING_TYPE = 3;
 pub const D3DKMDT_MTT_STANDARD: D3DKMDT_MONITOR_TIMING_TYPE = 2;
 pub const D3DKMDT_MTT_UNINITIALIZED: D3DKMDT_MONITOR_TIMING_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_PALETTEDATA {
-    pub Red: u8,
-    pub Green: u8,
-    pub Blue: u8,
-    pub Unused: u8,
+    pub Red: super::BYTE,
+    pub Green: super::BYTE,
+    pub Blue: super::BYTE,
+    pub Unused: super::BYTE,
 }
 pub type D3DKMDT_PIXEL_VALUE_ACCESS_MODE = i32;
 #[repr(C)]
@@ -349,33 +364,32 @@ pub const D3DKMDT_RMT_GRAPHICS_STEREO: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = 3;
 pub const D3DKMDT_RMT_GRAPHICS_STEREO_ADVANCED_SCAN: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = 4;
 pub const D3DKMDT_RMT_TEXT: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = 2;
 pub const D3DKMDT_RMT_UNINITIALIZED: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = 0;
-pub const D3DKMDT_ROTATION_SUPPORT_MASK: i32 = 255;
-pub const D3DKMDT_SCALING_SUPPORT_MASK: i32 = 31;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_SHADOWSURFACEDATA {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: super::D3DDDIFORMAT,
-    pub Pitch: u32,
+    pub Pitch: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: super::D3DDDIFORMAT,
     pub RefreshRate: super::D3DDDI_RATIONAL,
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_STAGINGSURFACEDATA {
-    pub Width: u32,
-    pub Height: u32,
-    pub Pitch: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Pitch: super::UINT,
 }
 pub const D3DKMDT_STANDARDALLOCATION_FENCESTORAGE: D3DKMDT_STANDARDALLOCATION_TYPE = 6;
 pub const D3DKMDT_STANDARDALLOCATION_GDISURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = 4;
@@ -388,15 +402,15 @@ pub type D3DKMDT_TEXT_RENDERING_FORMAT = i32;
 pub const D3DKMDT_TRF_UNINITIALIZED: D3DKMDT_TEXT_RENDERING_FORMAT = 0;
 pub type D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = i32;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
     pub Id: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
 pub type D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID = u32;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub Id: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
@@ -407,7 +421,7 @@ pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
 }
 pub type D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID = u32;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
@@ -415,86 +429,109 @@ pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub ActiveSize: D3DKMDT_2DREGION,
     pub VSyncFreq: super::D3DDDI_RATIONAL,
     pub HSyncFreq: super::D3DDDI_RATIONAL,
-    pub PixelRate: usize,
+    pub PixelRate: super::SIZE_T,
     pub Anonymous: D3DKMDT_VIDEO_SIGNAL_INFO_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_VIDEO_SIGNAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     pub AdditionalSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO_0_0,
     pub ScanLineOrdering: super::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
-    pub _bitfield: super::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
+    pub _bitfield: i32,
+}
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
+impl D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
+    pub fn ScanLineOrdering(&self) -> super::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
+        ((((self._bitfield as u32) & 7) as i32) << 29) >> 29
+    }
+    pub fn set_ScanLineOrdering(&mut self, value: super::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING) {
+        self._bitfield = (((self._bitfield as u32) & !7) | ((value as u32) & 7)) as i32;
+    }
+    pub fn VSyncFreqDivider(&self) -> super::UINT {
+        ((self._bitfield as u32) >> 3) & 63
+    }
+    pub fn set_VSyncFreqDivider(&mut self, value: super::UINT) {
+        self._bitfield = (((self._bitfield as u32) & !(63 << 3)) | ((value & 63) << 3)) as i32;
+    }
+    pub fn Reserved(&self) -> super::UINT {
+        (self._bitfield as u32) >> 9
+    }
+    pub fn set_Reserved(&mut self, value: super::UINT) {
+        self._bitfield = (((self._bitfield as u32) & !(8388607 << 9)) | ((value & 8388607) << 9)) as i32;
+    }
 }
 pub type D3DKMDT_VIDEO_SIGNAL_STANDARD = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMDT_VIDPN_HW_CAPABILITY {
-    pub fn DriverRotation(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DriverRotation(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_DriverRotation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DriverRotation(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn DriverScaling(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn DriverScaling(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_DriverScaling(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_DriverScaling(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn DriverCloning(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn DriverCloning(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_DriverCloning(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_DriverCloning(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn DriverColorConvert(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn DriverColorConvert(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_DriverColorConvert(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_DriverColorConvert(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn DriverLinkedAdapaterOutput(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn DriverLinkedAdapaterOutput(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_DriverLinkedAdapaterOutput(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_DriverLinkedAdapaterOutput(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn DriverRemoteDisplay(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn DriverRemoteDisplay(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_DriverRemoteDisplay(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_DriverRemoteDisplay(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -509,7 +546,7 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub CopyProtection: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION,
     pub GammaRamp: D3DKMDT_GAMMA_RAMP,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -517,46 +554,50 @@ impl Default for D3DKMDT_VIDPN_PRESENT_PATH {
 }
 pub type D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     pub CopyProtectionType: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE,
-    pub APSTriggerBits: u32,
-    pub OEMCopyProtection: [u8; 256],
+    pub APSTriggerBits: super::UINT,
+    pub OEMCopyProtection: [super::BYTE; 256],
     pub CopyProtectionSupport: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
-    pub fn NoProtection(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn NoProtection(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_NoProtection(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_NoProtection(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn MacroVisionApsTrigger(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn MacroVisionApsTrigger(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_MacroVisionApsTrigger(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_MacroVisionApsTrigger(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn MacroVisionFull(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn MacroVisionFull(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_MacroVisionFull(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_MacroVisionFull(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
@@ -565,99 +606,104 @@ pub type D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = i32;
 pub type D3DKMDT_VIDPN_PRESENT_PATH_INDEX = usize;
 pub type D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
-    pub fn Identity(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Identity(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Identity(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Identity(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Rotate90(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Rotate90(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Rotate90(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Rotate90(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Rotate180(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Rotate180(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Rotate180(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_Rotate180(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Rotate270(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn Rotate270(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_Rotate270(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_Rotate270(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Offset0(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn Offset0(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_Offset0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_Offset0(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Offset90(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn Offset90(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_Offset90(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_Offset90(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Offset180(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn Offset180(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_Offset180(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_Offset180(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn Offset270(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn Offset270(&self) -> super::UINT {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_Offset270(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_Offset270(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
 }
 pub type D3DKMDT_VIDPN_PRESENT_PATH_SCALING = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
-    pub fn Identity(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Identity(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Identity(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Identity(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Centered(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Centered(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Centered(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Centered(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Stretched(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Stretched(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Stretched(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_Stretched(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AspectRatioCenteredMax(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AspectRatioCenteredMax(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AspectRatioCenteredMax(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_AspectRatioCenteredMax(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Custom(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn Custom(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_Custom(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_Custom(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub Scaling: D3DKMDT_VIDPN_PRESENT_PATH_SCALING,
@@ -666,27 +712,27 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub RotationSupport: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_SOURCE_MODE {
     pub Id: D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID,
     pub Type: D3DKMDT_VIDPN_SOURCE_MODE_TYPE,
     pub Format: D3DKMDT_VIDPN_SOURCE_MODE_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_VIDPN_SOURCE_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_VIDPN_SOURCE_MODE_0 {
     pub Graphics: D3DKMDT_GRAPHICS_RENDERING_FORMAT,
     pub Text: D3DKMDT_TEXT_RENDERING_FORMAT,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_VIDPN_SOURCE_MODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -694,7 +740,7 @@ impl Default for D3DKMDT_VIDPN_SOURCE_MODE_0 {
 }
 pub type D3DKMDT_VIDPN_SOURCE_MODE_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub Id: D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID,
@@ -702,38 +748,48 @@ pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0,
     pub MinimumVSyncFreq: super::D3DDDI_RATIONAL,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_VIDPN_TARGET_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_VIDPN_TARGET_MODE_0 {
     pub WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0_0,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMDT_VIDPN_TARGET_MODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE_0_0 {
-    pub _bitfield: D3DKMDT_MODE_PREFERENCE,
+    pub _bitfield: i32,
+}
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
+impl D3DKMDT_VIDPN_TARGET_MODE_0_0 {
+    pub fn Preference(&self) -> D3DKMDT_MODE_PREFERENCE {
+        ((((self._bitfield as u32) & 3) as i32) << 30) >> 30
+    }
+    pub fn set_Preference(&mut self, value: D3DKMDT_MODE_PREFERENCE) {
+        self._bitfield = (((self._bitfield as u32) & !3) | ((value as u32) & 3)) as i32;
+    }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIRTUALGPUSURFACEDATA {
-    pub Size: u64,
-    pub Alignment: u32,
-    pub DriverSegmentId: u32,
-    pub PrivateDriverData: u32,
+    pub Size: super::UINT64,
+    pub Alignment: super::UINT,
+    pub DriverSegmentId: super::UINT,
+    pub PrivateDriverData: super::UINT,
 }
 pub const D3DKMDT_VOT_BNC: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = 3;
 pub const D3DKMDT_VOT_COMPONENT_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = 3;
@@ -840,595 +896,576 @@ pub const D3DKMDT_VSS_VESA_CVT: D3DKMDT_VIDEO_SIGNAL_STANDARD = 3;
 pub const D3DKMDT_VSS_VESA_DMT: D3DKMDT_VIDEO_SIGNAL_STANDARD = 1;
 pub const D3DKMDT_VSS_VESA_GTF: D3DKMDT_VIDEO_SIGNAL_STANDARD = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     pub Anonymous: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
-    pub _bitfield: D3DKMDT_MODE_PREFERENCE,
+    pub _bitfield: i32,
 }
-#[repr(C)]
+#[cfg(feature = "shared")]
+impl D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
+    pub fn Preference(&self) -> D3DKMDT_MODE_PREFERENCE {
+        ((((self._bitfield as u32) & 3) as i32) << 30) >> 30
+    }
+    pub fn set_Preference(&mut self, value: D3DKMDT_MODE_PREFERENCE) {
+        self._bitfield = (((self._bitfield as u32) & !3) | ((value as u32) & 3)) as i32;
+    }
+    pub fn Rgb(&self) -> super::UINT {
+        ((self._bitfield as u32) >> 2) & 63
+    }
+    pub fn set_Rgb(&mut self, value: super::UINT) {
+        self._bitfield = (((self._bitfield as u32) & !(63 << 2)) | ((value & 63) << 2)) as i32;
+    }
+    pub fn YCbCr444(&self) -> super::UINT {
+        ((self._bitfield as u32) >> 8) & 63
+    }
+    pub fn set_YCbCr444(&mut self, value: super::UINT) {
+        self._bitfield = (((self._bitfield as u32) & !(63 << 8)) | ((value & 63) << 8)) as i32;
+    }
+    pub fn YCbCr422(&self) -> super::UINT {
+        ((self._bitfield as u32) >> 14) & 63
+    }
+    pub fn set_YCbCr422(&mut self, value: super::UINT) {
+        self._bitfield = (((self._bitfield as u32) & !(63 << 14)) | ((value & 63) << 14)) as i32;
+    }
+    pub fn YCbCr420(&self) -> super::UINT {
+        ((self._bitfield as u32) >> 20) & 63
+    }
+    pub fn set_YCbCr420(&mut self, value: super::UINT) {
+        self._bitfield = (((self._bitfield as u32) & !(63 << 20)) | ((value & 63) << 20)) as i32;
+    }
+    pub fn Intensity(&self) -> super::UINT {
+        (self._bitfield as u32) >> 26
+    }
+    pub fn set_Intensity(&mut self, value: super::UINT) {
+        self._bitfield = (((self._bitfield as u32) & !(63 << 26)) | ((value & 63) << 26)) as i32;
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAY_CAPS {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_DISPLAY_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_DISPLAY_CAPS_0 {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0_0,
-    pub Value: u64,
+    pub Value: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_DISPLAY_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DISPLAY_CAPS_0_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "shared")]
 impl D3DKMT_DISPLAY_CAPS_0_0 {
-    pub fn PreferPhysicallyContiguous(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn PreferPhysicallyContiguous(&self) -> super::UINT64 {
+        (self._bitfield) & 1
     }
-    pub fn set_PreferPhysicallyContiguous(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u64);
+    pub fn set_PreferPhysicallyContiguous(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn CursorScaledWithMultiPlaneOverlayPlane0(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn CursorScaledWithMultiPlaneOverlayPlane0(&self) -> super::UINT64 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_CursorScaledWithMultiPlaneOverlayPlane0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    pub fn set_CursorScaledWithMultiPlaneOverlayPlane0(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn CursorDoesNotSupportXorBlendWithMultiPlaneOverlay(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn CursorDoesNotSupportXorBlendWithMultiPlaneOverlay(&self) -> super::UINT64 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_CursorDoesNotSupportXorBlendWithMultiPlaneOverlay(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    pub fn set_CursorDoesNotSupportXorBlendWithMultiPlaneOverlay(&mut self, value: super::UINT64) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::UINT64 {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::UINT64) {
         self._bitfield = (self._bitfield & !(2305843009213693951 << 3)) | ((value & 2305843009213693951) << 3);
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVERCAPS_EXT {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_DRIVERCAPS_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_DRIVERCAPS_EXT_0 {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_DRIVERCAPS_EXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMT_DRIVERCAPS_EXT_0_0 {
-    pub fn VirtualModeSupport(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn VirtualModeSupport(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_VirtualModeSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_VirtualModeSupport(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Usb4MonitorSupport(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Usb4MonitorSupport(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Usb4MonitorSupport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Usb4MonitorSupport(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MOVE_RECT {
     pub SourcePoint: super::POINT,
     pub DestRect: super::RECT,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_NODEMETADATA {
-    pub NodeOrdinalAndAdapterIndex: u32,
+    pub NodeOrdinalAndAdapterIndex: super::UINT,
     pub NodeData: DXGK_NODEMETADATA,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DKMT_NODEMETADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub hAdapter: super::D3DKMT_HANDLE,
-    pub NodeOrdinal: u32,
-    pub PhysicalAdapterIndex: u32,
+    pub NodeOrdinal: super::UINT32,
+    pub PhysicalAdapterIndex: super::UINT32,
     pub ClockData: DXGK_GPUCLOCKDATA,
 }
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 impl Default for D3DKMT_QUERYCLOCKCALIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
-    pub PhysicalAdapterIndex: u32,
+    pub PhysicalAdapterIndex: super::UINT,
     pub EngineType: DXGK_ENGINE_TYPE,
     pub Support: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_2_CAPS {
     pub PreemptionCaps: D3DKMDT_PREEMPTION_CAPS,
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_1_2_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_1_2_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_1_2_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WDDM_1_2_CAPS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMT_WDDM_1_2_CAPS_0_0 {
-    pub fn SupportNonVGA(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SupportNonVGA(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_SupportNonVGA(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SupportNonVGA(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn SupportSmoothRotation(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn SupportSmoothRotation(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_SupportSmoothRotation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_SupportSmoothRotation(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn SupportPerEngineTDR(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn SupportPerEngineTDR(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_SupportPerEngineTDR(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_SupportPerEngineTDR(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn SupportKernelModeCommandBuffer(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn SupportKernelModeCommandBuffer(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_SupportKernelModeCommandBuffer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_SupportKernelModeCommandBuffer(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SupportCCD(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SupportCCD(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SupportCCD(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_SupportCCD(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn SupportSoftwareDeviceBitmaps(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn SupportSoftwareDeviceBitmaps(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_SupportSoftwareDeviceBitmaps(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_SupportSoftwareDeviceBitmaps(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn SupportGammaRamp(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn SupportGammaRamp(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_SupportGammaRamp(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_SupportGammaRamp(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn SupportHWCursor(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn SupportHWCursor(&self) -> super::UINT {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_SupportHWCursor(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_SupportHWCursor(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn SupportHWVSync(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn SupportHWVSync(&self) -> super::UINT {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_SupportHWVSync(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_SupportHWVSync(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn SupportSurpriseRemovalInHibernation(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn SupportSurpriseRemovalInHibernation(&self) -> super::UINT {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_SupportSurpriseRemovalInHibernation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_SupportSurpriseRemovalInHibernation(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 10
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_3_CAPS {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_1_3_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_1_3_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_1_3_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_1_3_CAPS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMT_WDDM_1_3_CAPS_0_0 {
-    pub fn SupportMiracast(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SupportMiracast(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_SupportMiracast(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SupportMiracast(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn IsHybridIntegratedGPU(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn IsHybridIntegratedGPU(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_IsHybridIntegratedGPU(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_IsHybridIntegratedGPU(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn IsHybridDiscreteGPU(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn IsHybridDiscreteGPU(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_IsHybridDiscreteGPU(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_IsHybridDiscreteGPU(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn SupportPowerManagementPStates(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn SupportPowerManagementPStates(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_SupportPowerManagementPStates(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_SupportPowerManagementPStates(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SupportVirtualModes(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SupportVirtualModes(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SupportVirtualModes(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_SupportVirtualModes(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn SupportCrossAdapterResource(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn SupportCrossAdapterResource(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_SupportCrossAdapterResource(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_SupportCrossAdapterResource(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_0_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_2_0_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_2_0_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_2_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMT_WDDM_2_0_CAPS_0_0 {
-    pub fn Support64BitAtomics(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Support64BitAtomics(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Support64BitAtomics(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Support64BitAtomics(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn GpuMmuSupported(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn GpuMmuSupported(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_GpuMmuSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_GpuMmuSupported(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn IoMmuSupported(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn IoMmuSupported(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_IoMmuSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_IoMmuSupported(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn FlipOverwriteSupported(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn FlipOverwriteSupported(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_FlipOverwriteSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_FlipOverwriteSupported(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SupportContextlessPresent(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SupportContextlessPresent(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SupportContextlessPresent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_SupportContextlessPresent(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn SupportSurpriseRemoval(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn SupportSurpriseRemoval(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_SupportSurpriseRemoval(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_SupportSurpriseRemoval(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 6
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_7_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_2_7_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_7_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_2_7_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_2_7_CAPS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMT_WDDM_2_7_CAPS_0_0 {
-    pub fn HwSchSupported(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn HwSchSupported(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_HwSchSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_HwSchSupported(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn HwSchEnabled(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn HwSchEnabled(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_HwSchEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_HwSchEnabled(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn HwSchEnabledByDefault(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn HwSchEnabledByDefault(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_HwSchEnabledByDefault(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_HwSchEnabledByDefault(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn IndependentVidPnVSyncControl(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn IndependentVidPnVSyncControl(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_IndependentVidPnVSyncControl(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_IndependentVidPnVSyncControl(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 4
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_WDDM_2_9_CAPS {
-    pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0,
-}
-impl Default for D3DKMT_WDDM_2_9_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union D3DKMT_WDDM_2_9_CAPS_0 {
-    pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0_0,
-    pub Value: u32,
-}
-impl Default for D3DKMT_WDDM_2_9_CAPS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_WDDM_2_9_CAPS_0_0 {
-    pub _bitfield: u32,
-}
-impl D3DKMT_WDDM_2_9_CAPS_0_0 {
-    pub fn HwSchSupportState(&self) -> u32 {
-        (self._bitfield << 30) >> 30
-    }
-    pub fn set_HwSchSupportState(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !3) | (value & 3);
-    }
-    pub fn HwSchEnabled(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
-    }
-    pub fn set_HwSchEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
-    }
-    pub fn SelfRefreshMemorySupported(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
-    }
-    pub fn set_SelfRefreshMemorySupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
-    }
-    pub fn Reserved(&self) -> u32 {
-        self._bitfield >> 4
-    }
-    pub fn set_Reserved(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_WDDM_3_0_CAPS {
-    pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0,
-}
-impl Default for D3DKMT_WDDM_3_0_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union D3DKMT_WDDM_3_0_CAPS_0 {
-    pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0_0,
-    pub Value: u32,
-}
-impl Default for D3DKMT_WDDM_3_0_CAPS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_WDDM_3_0_CAPS_0_0 {
-    pub _bitfield: u32,
-}
-impl D3DKMT_WDDM_3_0_CAPS_0_0 {
-    pub fn HwFlipQueueSupportState(&self) -> u32 {
-        (self._bitfield << 30) >> 30
-    }
-    pub fn set_HwFlipQueueSupportState(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !3) | (value & 3);
-    }
-    pub fn HwFlipQueueEnabled(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
-    }
-    pub fn set_HwFlipQueueEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
-    }
-    pub fn DisplayableSupported(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
-    }
-    pub fn set_DisplayableSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
-    }
-    pub fn Reserved(&self) -> u32 {
-        self._bitfield >> 4
-    }
-    pub fn set_Reserved(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_1_CAPS {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_3_1_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_3_1_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DKMT_WDDM_3_1_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_3_1_CAPS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl D3DKMT_WDDM_3_1_CAPS_0_0 {
-    pub fn NativeGpuFenceSupported(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn NativeGpuFenceSupported(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_NativeGpuFenceSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_NativeGpuFenceSupported(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
@@ -1446,111 +1483,119 @@ pub const DIDDT1_Stereo: _DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = 1;
 pub const DIDDT1_Sync_Negative: _DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = 1;
 pub const DIDDT1_Sync_Positive: _DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub Anonymous: DISPLAYID_DETAILED_TIMING_TYPE_I_0,
-    pub HorizontalActivePixels: u16,
-    pub HorizontalBlankPixels: u16,
+    pub HorizontalActivePixels: super::USHORT,
+    pub HorizontalBlankPixels: super::USHORT,
     pub Anonymous2: DISPLAYID_DETAILED_TIMING_TYPE_I_1,
-    pub HorizontalSyncWidth: u16,
-    pub VerticalActiveLines: u16,
-    pub VerticalBlankLines: u16,
+    pub HorizontalSyncWidth: super::USHORT,
+    pub VerticalActiveLines: super::USHORT,
+    pub VerticalBlankLines: super::USHORT,
     pub Anonymous3: DISPLAYID_DETAILED_TIMING_TYPE_I_2,
-    pub VerticalSyncWidth: u16,
+    pub VerticalSyncWidth: super::USHORT,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
-    pub fn PixelClock(&self) -> u32 {
-        (self._bitfield << 8) >> 8
+    pub fn PixelClock(&self) -> super::ULONG {
+        (self._bitfield) & 16777215
     }
-    pub fn set_PixelClock(&mut self, value: u32) {
+    pub fn set_PixelClock(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !16777215) | (value & 16777215);
     }
-    pub fn AspectRatio(&self) -> u32 {
-        (self._bitfield << 5) >> 29
+    pub fn AspectRatio(&self) -> super::ULONG {
+        (self._bitfield >> 24) & 7
     }
-    pub fn set_AspectRatio(&mut self, value: u32) {
+    pub fn set_AspectRatio(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(7 << 24)) | ((value & 7) << 24);
     }
-    pub fn Reserved(&self) -> bool {
-        (self._bitfield >> 27) & 1 != 0
+    pub fn Reserved(&self) -> super::ULONG {
+        (self._bitfield >> 27) & 1
     }
-    pub fn set_Reserved(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    pub fn set_Reserved(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value & 1) << 27);
     }
-    pub fn ScanningType(&self) -> bool {
-        (self._bitfield >> 28) & 1 != 0
+    pub fn ScanningType(&self) -> super::ULONG {
+        (self._bitfield >> 28) & 1
     }
-    pub fn set_ScanningType(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u32) << 28);
+    pub fn set_ScanningType(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value & 1) << 28);
     }
-    pub fn StereoMode(&self) -> u32 {
-        (self._bitfield << 1) >> 30
+    pub fn StereoMode(&self) -> super::ULONG {
+        (self._bitfield >> 29) & 3
     }
-    pub fn set_StereoMode(&mut self, value: u32) {
+    pub fn set_StereoMode(&mut self, value: super::ULONG) {
         self._bitfield = (self._bitfield & !(3 << 29)) | ((value & 3) << 29);
     }
-    pub fn PreferredTiming(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn PreferredTiming(&self) -> super::ULONG {
+        self._bitfield >> 31
     }
-    pub fn set_PreferredTiming(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_PreferredTiming(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
-    pub fn HorizontalFrontPorch(&self) -> u16 {
-        (self._bitfield << 1) >> 1
+    pub fn HorizontalFrontPorch(&self) -> super::USHORT {
+        (self._bitfield) & 32767
     }
-    pub fn set_HorizontalFrontPorch(&mut self, value: u16) {
+    pub fn set_HorizontalFrontPorch(&mut self, value: super::USHORT) {
         self._bitfield = (self._bitfield & !32767) | (value & 32767);
     }
-    pub fn HorizontalSyncPolarity(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn HorizontalSyncPolarity(&self) -> super::USHORT {
+        self._bitfield >> 15
     }
-    pub fn set_HorizontalSyncPolarity(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    pub fn set_HorizontalSyncPolarity(&mut self, value: super::USHORT) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
-    pub fn VerticalFrontPorch(&self) -> u16 {
-        (self._bitfield << 1) >> 1
+    pub fn VerticalFrontPorch(&self) -> super::USHORT {
+        (self._bitfield) & 32767
     }
-    pub fn set_VerticalFrontPorch(&mut self, value: u16) {
+    pub fn set_VerticalFrontPorch(&mut self, value: super::USHORT) {
         self._bitfield = (self._bitfield & !32767) | (value & 32767);
     }
-    pub fn VerticalSyncPolarity(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn VerticalSyncPolarity(&self) -> super::USHORT {
+        self._bitfield >> 15
     }
-    pub fn set_VerticalSyncPolarity(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    pub fn set_VerticalSyncPolarity(&mut self, value: super::USHORT) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
 }
 pub const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: i32 = 20;
+#[cfg(feature = "shared")]
 pub type DXGKARG_CALIBRATEGPUCLOCK = DXGK_GPUCLOCKDATA;
 pub type DXGKARG_FENCESTORAGEVALUETYPE = i32;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
 #[repr(C)]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKARG_SETPALETTE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-    pub FirstEntry: u32,
-    pub NumEntries: u32,
+    pub FirstEntry: super::UINT,
+    pub NumEntries: super::UINT,
     pub pLookupTable: *mut D3DKMDT_PALETTEDATA,
 }
 pub type DXGKDT_OPM_DVI_CHARACTERISTICS = i32;
@@ -1562,22 +1607,24 @@ pub const DXGKMDT_I2C_NO_FLAGS: i32 = 0;
 pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 3;
 pub const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: i32 = 16;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-    pub ulStatusFlags: u32,
-    pub ulAvailableTVProtectionStandards: u32,
-    pub ulActiveTVProtectionStandard: u32,
-    pub ulReserved: u32,
-    pub ulAspectRatioValidMask1: u32,
-    pub ulAspectRatioData1: u32,
-    pub ulAspectRatioValidMask2: u32,
-    pub ulAspectRatioData2: u32,
-    pub ulAspectRatioValidMask3: u32,
-    pub ulAspectRatioData3: u32,
-    pub ulReserved2: [u32; 4],
-    pub ulReserved3: [u32; 4],
+    pub ulStatusFlags: super::ULONG,
+    pub ulAvailableTVProtectionStandards: super::ULONG,
+    pub ulActiveTVProtectionStandard: super::ULONG,
+    pub ulReserved: super::ULONG,
+    pub ulAspectRatioValidMask1: super::ULONG,
+    pub ulAspectRatioData1: super::ULONG,
+    pub ulAspectRatioValidMask2: super::ULONG,
+    pub ulAspectRatioData2: super::ULONG,
+    pub ulAspectRatioValidMask3: super::ULONG,
+    pub ulAspectRatioData3: super::ULONG,
+    pub ulReserved2: [super::ULONG; 4],
+    pub ulReserved3: [super::ULONG; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1590,16 +1637,17 @@ pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 2;
 pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 0;
 pub type DXGKMDT_OPM_ACP_PROTECTION_LEVEL = i32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-    pub ulStatusFlags: u32,
-    pub ulDisplayWidth: u32,
-    pub ulDisplayHeight: u32,
+    pub ulStatusFlags: super::ULONG,
+    pub ulDisplayWidth: super::ULONG,
+    pub ulDisplayHeight: super::ULONG,
     pub ifInterleaveFormat: DXGKMDT_OPM_INTERLEAVE_FORMAT,
-    pub d3dFormat: u32,
-    pub ulFrequencyNumerator: u32,
-    pub ulFrequencyDenominator: u32,
+    pub d3dFormat: super::ULONG,
+    pub ulFrequencyNumerator: super::ULONG,
+    pub ulFrequencyDenominator: super::ULONG,
 }
 pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = 1;
 pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = 2;
@@ -1630,14 +1678,16 @@ pub const DXGKMDT_OPM_CGMSA_COPY_NO_MORE: DXGKMDT_OPM_CGMSA = 2;
 pub const DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION: DXGKMDT_OPM_CGMSA = 3;
 pub const DXGKMDT_OPM_CGMSA_OFF: DXGKMDT_OPM_CGMSA = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
     pub guidSetting: windows_core::GUID,
-    pub ulSequenceNumber: u32,
-    pub cbParametersSize: u32,
-    pub abParameters: [u8; 4056],
+    pub ulSequenceNumber: super::ULONG,
+    pub cbParametersSize: super::ULONG,
+    pub abParameters: [super::BYTE; 4056],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1645,16 +1695,18 @@ impl Default for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
 }
 pub const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: i32 = 4056;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-    pub ulStatusFlags: u32,
-    pub ulHDCPFlags: u32,
+    pub ulStatusFlags: super::ULONG,
+    pub ulHDCPFlags: super::ULONG,
     pub ksvB: DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR,
-    pub Reserved: [u8; 11],
-    pub Reserved2: [u8; 16],
-    pub Reserved3: [u8; 16],
+    pub Reserved: [super::BYTE; 11],
+    pub Reserved2: [super::BYTE; 16],
+    pub Reserved3: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1682,21 +1734,23 @@ pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = 
 pub const DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = -2147483648;
 pub const DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = -2147483648;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub guidInformation: windows_core::GUID,
-    pub ulSequenceNumber: u32,
-    pub cbParametersSize: u32,
-    pub abParameters: [u8; 4056],
+    pub ulSequenceNumber: super::ULONG,
+    pub cbParametersSize: super::ULONG,
+    pub abParameters: [super::BYTE; 4056],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub AdapterLuid: super::LUID,
@@ -1710,11 +1764,13 @@ pub type DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = i32;
 pub const DXGKMDT_OPM_DVI_CHARACTERISTICS_FORCE_ULONG: DXGKDT_OPM_DVI_CHARACTERISTICS = -1;
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = 1;
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
-    pub abEncryptedParameters: [u8; 256],
+    pub abEncryptedParameters: [super::BYTE; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1732,15 +1788,17 @@ pub const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: windows_core::GUID = windows
 pub const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: windows_core::GUID = windows_core::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
 pub const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: i32 = 4056;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub guidInformation: windows_core::GUID,
-    pub ulSequenceNumber: u32,
-    pub cbParametersSize: u32,
-    pub abParameters: [u8; 4056],
+    pub ulSequenceNumber: super::ULONG,
+    pub cbParametersSize: super::ULONG,
+    pub abParameters: [super::BYTE; 4056],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_GET_INFO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1754,11 +1812,13 @@ pub type DXGKMDT_OPM_HDCP_FLAG = i32;
 pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = 0;
 pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = 1;
 pub const DXGKMDT_OPM_HDCP_FORCE_ULONG: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 2147483647;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
-    pub abKeySelectionVector: [u8; 5],
+    pub abKeySelectionVector: [super::BYTE; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1775,11 +1835,13 @@ pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTE
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = 4;
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = 0;
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORMAT = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_OMAC {
-    pub abOMAC: [u8; 16],
+    pub abOMAC: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_OMAC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1790,11 +1852,12 @@ pub type DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = i32;
 pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = 0;
 pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_OUTPUT_ID {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-    pub ulStatusFlags: u32,
-    pub OutputId: u64,
+    pub ulStatusFlags: super::ULONG,
+    pub OutputId: super::UINT64,
 }
 pub type DXGKMDT_OPM_PROTECTION_STANDARD = i32;
 pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = 16384;
@@ -1825,11 +1888,13 @@ pub const DXGKMDT_OPM_PROTECTION_TYPE_NONE: DXGKMDT_OPM_PROTECTION_TYPE = 0;
 pub const DXGKMDT_OPM_PROTECTION_TYPE_OTHER: DXGKMDT_OPM_PROTECTION_TYPE = -2147483648;
 pub const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: i32 = 4;
 pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = 32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_RANDOM_NUMBER {
-    pub abRandomNumber: [u8; 16],
+    pub abRandomNumber: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_RANDOM_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1837,12 +1902,14 @@ impl Default for DXGKMDT_OPM_RANDOM_NUMBER {
 }
 pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = 8;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_REQUESTED_INFORMATION {
     pub omac: DXGKMDT_OPM_OMAC,
-    pub cbRequestedInformationSize: u32,
-    pub abRequestedInformation: [u8; 4076],
+    pub cbRequestedInformationSize: super::ULONG,
+    pub abRequestedInformation: [super::BYTE; 4076],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_REQUESTED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1851,19 +1918,21 @@ impl Default for DXGKMDT_OPM_REQUESTED_INFORMATION {
 pub const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: i32 = 4076;
 pub const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: windows_core::GUID = windows_core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
-    pub ulNewTVProtectionStandard: u32,
-    pub ulAspectRatioChangeMask1: u32,
-    pub ulAspectRatioData1: u32,
-    pub ulAspectRatioChangeMask2: u32,
-    pub ulAspectRatioData2: u32,
-    pub ulAspectRatioChangeMask3: u32,
-    pub ulAspectRatioData3: u32,
-    pub ulReserved: [u32; 4],
-    pub ulReserved2: [u32; 4],
-    pub ulReserved3: u32,
+    pub ulNewTVProtectionStandard: super::ULONG,
+    pub ulAspectRatioChangeMask1: super::ULONG,
+    pub ulAspectRatioData1: super::ULONG,
+    pub ulAspectRatioChangeMask2: super::ULONG,
+    pub ulAspectRatioData2: super::ULONG,
+    pub ulAspectRatioChangeMask3: super::ULONG,
+    pub ulAspectRatioData3: super::ULONG,
+    pub ulReserved: [super::ULONG; 4],
+    pub ulReserved2: [super::ULONG; 4],
+    pub ulReserved3: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1871,28 +1940,31 @@ impl Default for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
 }
 pub const DXGKMDT_OPM_SET_HDCP_SRM: windows_core::GUID = windows_core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
-    pub ulSRMVersion: u32,
+    pub ulSRMVersion: super::ULONG,
 }
 pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
 pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: windows_core::GUID = windows_core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
-    pub ulProtectionType: u32,
-    pub ulProtectionLevel: u32,
-    pub Reserved: u32,
-    pub Reserved2: u32,
+    pub ulProtectionType: super::ULONG,
+    pub ulProtectionLevel: super::ULONG,
+    pub Reserved: super::ULONG,
+    pub Reserved2: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-    pub ulStatusFlags: u32,
-    pub ulInformation: u32,
-    pub ulReserved: u32,
-    pub ulReserved2: u32,
+    pub ulStatusFlags: super::ULONG,
+    pub ulInformation: super::ULONG,
+    pub ulReserved: super::ULONG,
+    pub ulReserved2: super::ULONG,
 }
 pub type DXGKMDT_OPM_STATUS = i32;
 pub const DXGKMDT_OPM_STATUS_LINK_LOST: DXGKMDT_OPM_STATUS = 1;
@@ -1911,169 +1983,187 @@ pub const DXGKMDT_OPM_VOS_OPM_INDIRECT_DISPLAY: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI
 pub const DXGKMDT_OPM_VOS_OPM_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = 1;
 pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 2;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_ADAPTER_PERFDATA {
-    pub MemoryFrequency: u64,
-    pub MaxMemoryFrequency: u64,
-    pub MaxMemoryFrequencyOC: u64,
-    pub MemoryBandwidth: u64,
-    pub PCIEBandwidth: u64,
-    pub FanRPM: u32,
-    pub Power: u32,
-    pub Temperature: u32,
-    pub PowerStateOverride: u8,
+    pub MemoryFrequency: super::ULONGLONG,
+    pub MaxMemoryFrequency: super::ULONGLONG,
+    pub MaxMemoryFrequencyOC: super::ULONGLONG,
+    pub MemoryBandwidth: super::ULONGLONG,
+    pub PCIEBandwidth: super::ULONGLONG,
+    pub FanRPM: super::ULONG,
+    pub Power: super::ULONG,
+    pub Temperature: super::ULONG,
+    pub PowerStateOverride: super::UCHAR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_ADAPTER_PERFDATACAPS {
-    pub MaxMemoryBandwidth: u64,
-    pub MaxPCIEBandwidth: u64,
-    pub MaxFanRPM: u32,
-    pub TemperatureMax: u32,
-    pub TemperatureWarning: u32,
+    pub MaxMemoryBandwidth: super::ULONGLONG,
+    pub MaxPCIEBandwidth: super::ULONGLONG,
+    pub MaxFanRPM: super::ULONG,
+    pub TemperatureMax: super::ULONG,
+    pub TemperatureWarning: super::ULONG,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "d3dukmdt")]
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BACKLIGHT_INFO {
-    pub BacklightUsersetting: u16,
-    pub BacklightEffective: u16,
+    pub BacklightUsersetting: super::USHORT,
+    pub BacklightEffective: super::USHORT,
     pub GammaRamp: super::D3DDDI_GAMMA_RAMP_RGB256x3x16,
 }
 pub type DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = i32;
 pub const DXGK_BIND_TABLE_ENTRY_UNKNOWN: u32 = 4294967295;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_CAPS {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_CAPS_0 {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_BRIGHTNESS_CAPS_0_0 {
-    pub fn SmoothBrightness(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SmoothBrightness(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_SmoothBrightness(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SmoothBrightness(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AdaptiveBrightness(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AdaptiveBrightness(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AdaptiveBrightness(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AdaptiveBrightness(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn NitsBrightness(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn NitsBrightness(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_NitsBrightness(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_NitsBrightness(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
-    pub NormalRangeCount: u32,
-    pub RangeCount: u32,
-    pub PreferredMaximumBrightness: u32,
+    pub NormalRangeCount: super::UINT32,
+    pub RangeCount: super::UINT32,
+    pub PreferredMaximumBrightness: super::UINT32,
     pub SupportedRanges: [DXGK_BRIGHTNESS_NIT_RANGE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_GET_OUT {
-    pub CurrentBrightnessMillinits: u32,
-    pub TargetBrightnessMillinits: u32,
+    pub CurrentBrightnessMillinits: super::UINT32,
+    pub TargetBrightnessMillinits: super::UINT32,
 }
 pub const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: i32 = 16;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_NIT_RANGE {
-    pub MinimumLevelMillinit: u32,
-    pub MaximumLevelMillinit: u32,
-    pub StepSizeMillinit: u32,
+    pub MinimumLevelMillinit: super::UINT32,
+    pub MaximumLevelMillinit: super::UINT32,
+    pub StepSizeMillinit: super::UINT32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA {
-    pub Size: u32,
+    pub Size: super::UINT32,
     pub Anonymous: DXGK_BRIGHTNESS_SENSOR_DATA_0,
     pub AlsReading: f32,
     pub Chromaticity: DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY,
     pub ColorTemperature: f32,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_SENSOR_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     pub Flags: DXGK_BRIGHTNESS_SENSOR_DATA_0_0,
-    pub ValidSensorValues: u32,
+    pub ValidSensorValues: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
-    pub fn AlsReadingValid(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn AlsReadingValid(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_AlsReadingValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_AlsReadingValid(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ChromaticityValid(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn ChromaticityValid(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_ChromaticityValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_ChromaticityValid(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ColorTemperatureValid(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn ColorTemperatureValid(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_ColorTemperatureValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_ColorTemperatureValid(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
@@ -2084,54 +2174,62 @@ pub struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     pub ChromaticityY: f32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SET_IN {
-    pub BrightnessMillinits: u32,
-    pub TransitionTimeMs: u32,
+    pub BrightnessMillinits: super::UINT32,
+    pub TransitionTimeMs: super::UINT32,
     pub SensorReadings: DXGK_BRIGHTNESS_SENSOR_DATA,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_SET_IN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_STATE {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_STATE_0 {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_BRIGHTNESS_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_BRIGHTNESS_STATE_0_0 {
-    pub fn SmoothBrightness(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SmoothBrightness(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_SmoothBrightness(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SmoothBrightness(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
@@ -2150,15 +2248,15 @@ pub const DXGK_DISPLAYMUX_RUNTIME_STATUS_NON_CRITICAL_SYSTEM_INFO_MISSING: DXGK_
 pub const DXGK_DISPLAYMUX_RUNTIME_STATUS_NO_GPU_SUPPORT: DXGK_DISPLAYMUX_RUNTIME_STATUS = 2;
 pub const DXGK_DISPLAYMUX_RUNTIME_STATUS_OK: DXGK_DISPLAYMUX_RUNTIME_STATUS = 1;
 pub const DXGK_DISPLAYMUX_RUNTIME_STATUS_UNINITIALIZED: DXGK_DISPLAYMUX_RUNTIME_STATUS = 0;
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
     pub Brightness3Supported: super::BOOLEAN,
     pub Brightness3Caps: DXGK_BRIGHTNESS_CAPS,
     pub Bridgtness3Ranges: DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2167,18 +2265,18 @@ impl Default for DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
 pub type DXGK_DISPLAYMUX_SUPPORT_LEVEL = i32;
 pub type DXGK_DISPLAY_DESCRIPTOR_TYPE = u8;
 #[repr(C)]
-#[cfg(all(feature = "d3dukmdt", feature = "usb", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGK_DISPLAY_INFORMATION {
-    pub Width: u32,
-    pub Height: u32,
-    pub Pitch: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Pitch: super::UINT,
     pub ColorFormat: super::D3DDDIFORMAT,
     pub PhysicAddress: super::PHYSICAL_ADDRESS,
     pub TargetId: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
-    pub AcpiId: u32,
+    pub AcpiId: super::ULONG,
 }
-#[cfg(all(feature = "d3dukmdt", feature = "usb", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 impl Default for DXGK_DISPLAY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2211,372 +2309,408 @@ pub const DXGK_ENGINE_TYPE_VIDEO_CODEC: DXGK_ENGINE_TYPE = 9;
 pub const DXGK_ENGINE_TYPE_VIDEO_DECODE: DXGK_ENGINE_TYPE = 2;
 pub const DXGK_ENGINE_TYPE_VIDEO_ENCODE: DXGK_ENGINE_TYPE = 3;
 pub const DXGK_ENGINE_TYPE_VIDEO_PROCESSING: DXGK_ENGINE_TYPE = 4;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_FAULT_ERROR_CODE {
     pub Anonymous: DXGK_FAULT_ERROR_CODE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_FAULT_ERROR_CODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_FAULT_ERROR_CODE_0 {
     pub Anonymous: DXGK_FAULT_ERROR_CODE_0_0,
     pub Anonymous2: DXGK_FAULT_ERROR_CODE_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_FAULT_ERROR_CODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_FAULT_ERROR_CODE_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_FAULT_ERROR_CODE_0_0 {
-    pub fn IsDeviceSpecificCode(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsDeviceSpecificCode(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_IsDeviceSpecificCode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_IsDeviceSpecificCode(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn GeneralErrorCode(&self) -> u32 {
-        self._bitfield >> 1
+    pub fn GeneralErrorCode(&self) -> DXGK_GENERAL_ERROR_CODE {
+        (((self._bitfield >> 1) as i32) << 1) >> 1
     }
-    pub fn set_GeneralErrorCode(&mut self, value: u32) {
-        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    pub fn set_GeneralErrorCode(&mut self, value: DXGK_GENERAL_ERROR_CODE) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | (((value as u32) & 2147483647) << 1);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_FAULT_ERROR_CODE_0_1 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_FAULT_ERROR_CODE_0_1 {
-    pub fn IsDeviceSpecificCodeReservedBit(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsDeviceSpecificCodeReservedBit(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_IsDeviceSpecificCodeReservedBit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_IsDeviceSpecificCodeReservedBit(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn DeviceSpecificCode(&self) -> u32 {
+    pub fn DeviceSpecificCode(&self) -> super::UINT {
         self._bitfield >> 1
     }
-    pub fn set_DeviceSpecificCode(&mut self, value: u32) {
+    pub fn set_DeviceSpecificCode(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
-pub const DXGK_FEATURE_SUPPORT_ALWAYS_OFF: u32 = 0;
-pub const DXGK_FEATURE_SUPPORT_ALWAYS_ON: u32 = 3;
-pub const DXGK_FEATURE_SUPPORT_EXPERIMENTAL: u32 = 1;
-pub const DXGK_FEATURE_SUPPORT_STABLE: u32 = 2;
+#[cfg(feature = "shared")]
+pub const DXGK_FEATURE_SUPPORT_ALWAYS_OFF: super::UINT = 0;
+#[cfg(feature = "shared")]
+pub const DXGK_FEATURE_SUPPORT_ALWAYS_ON: super::UINT = 3;
+#[cfg(feature = "shared")]
+pub const DXGK_FEATURE_SUPPORT_EXPERIMENTAL: super::UINT = 1;
+#[cfg(feature = "shared")]
+pub const DXGK_FEATURE_SUPPORT_STABLE: super::UINT = 2;
 pub type DXGK_GENERAL_ERROR_CODE = i32;
 pub const DXGK_GENERAL_ERROR_INVALID_INSTRUCTION: DXGK_GENERAL_ERROR_CODE = 1;
 pub const DXGK_GENERAL_ERROR_PAGE_FAULT: DXGK_GENERAL_ERROR_CODE = 0;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA {
-    pub GpuFrequency: u64,
-    pub GpuClockCounter: u64,
-    pub CpuClockCounter: u64,
+    pub GpuFrequency: super::ULONGLONG,
+    pub GpuClockCounter: super::ULONGLONG,
+    pub CpuClockCounter: super::ULONGLONG,
     pub Flags: DXGK_GPUCLOCKDATA_FLAGS,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_GPUCLOCKDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_GPUCLOCKDATA_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_GPUCLOCKDATA_FLAGS_0 {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT32,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_GPUCLOCKDATA_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_GPUCLOCKDATA_FLAGS_0_0 {
-    pub fn ContextManagementProcessor(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ContextManagementProcessor(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_ContextManagementProcessor(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_ContextManagementProcessor(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUVERSION {
-    pub BiosVersion: [u16; 32],
-    pub GpuArchitecture: [u16; 32],
+    pub BiosVersion: [super::WCHAR; 32],
+    pub GpuArchitecture: [super::WCHAR; 32],
 }
+#[cfg(feature = "winnt")]
 impl Default for DXGK_GPUVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DXGK_MAX_GPUVERSION_NAME_LENGTH: i32 = 32;
 pub const DXGK_MAX_METADATA_NAME_LENGTH: i32 = 32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_CAPABILITIES {
     pub Anonymous: DXGK_MONITORLINKINFO_CAPABILITIES_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_MONITORLINKINFO_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_MONITORLINKINFO_CAPABILITIES_0 {
-    pub fn Stereo(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Stereo(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Stereo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Stereo(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn WideColorSpace(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn WideColorSpace(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_WideColorSpace(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_WideColorSpace(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn HighColorSpace(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn HighColorSpace(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_HighColorSpace(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_HighColorSpace(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn DynamicColorSpace(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn DynamicColorSpace(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_DynamicColorSpace(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_DynamicColorSpace(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn DynamicBitsPerColorChannel(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn DynamicBitsPerColorChannel(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_DynamicBitsPerColorChannel(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_DynamicBitsPerColorChannel(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn DynamicColorEncodingFormat(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn DynamicColorEncodingFormat(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_DynamicColorEncodingFormat(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_DynamicColorEncodingFormat(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn DedicatedTimingGeneration(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn DedicatedTimingGeneration(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_DedicatedTimingGeneration(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_DedicatedTimingGeneration(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn TargetIndependentPrimary(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn TargetIndependentPrimary(&self) -> super::UINT {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_TargetIndependentPrimary(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_TargetIndependentPrimary(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn SyncLockIdentical(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn SyncLockIdentical(&self) -> super::UINT {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_SyncLockIdentical(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_SyncLockIdentical(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn Hdr10Plus(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn Hdr10Plus(&self) -> super::UINT {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_Hdr10Plus(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_Hdr10Plus(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn DolbyVisionLowLatency(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn DolbyVisionLowLatency(&self) -> super::UINT {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_DolbyVisionLowLatency(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    pub fn set_DolbyVisionLowLatency(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn VariableRefresh(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn VariableRefresh(&self) -> super::UINT {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_VariableRefresh(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    pub fn set_VariableRefresh(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 12
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_USAGEHINTS {
     pub Anonymous: DXGK_MONITORLINKINFO_USAGEHINTS_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_MONITORLINKINFO_USAGEHINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_MONITORLINKINFO_USAGEHINTS_0 {
-    pub fn Hidden(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Hidden(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_Hidden(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Hidden(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn HeadMounted(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn HeadMounted(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_HeadMounted(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_HeadMounted(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::UINT {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA {
     pub EngineType: DXGK_ENGINE_TYPE,
-    pub FriendlyName: [u16; 32],
+    pub FriendlyName: [super::WCHAR; 32],
     pub Flags: DXGK_NODEMETADATA_FLAGS,
     pub GpuMmuSupported: super::BOOLEAN,
     pub IoMmuSupported: super::BOOLEAN,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGK_NODEMETADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA_FLAGS {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_NODEMETADATA_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_NODEMETADATA_FLAGS_0 {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT32,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_NODEMETADATA_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NODEMETADATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl DXGK_NODEMETADATA_FLAGS_0_0 {
-    pub fn ContextSchedulingSupported(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ContextSchedulingSupported(&self) -> super::UINT {
+        (self._bitfield) & 1
     }
-    pub fn set_ContextSchedulingSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_ContextSchedulingSupported(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn RingBufferFenceRelease(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn RingBufferFenceRelease(&self) -> super::UINT {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_RingBufferFenceRelease(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_RingBufferFenceRelease(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn SupportTrackedWorkload(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn SupportTrackedWorkload(&self) -> super::UINT {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_SupportTrackedWorkload(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_SupportTrackedWorkload(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn UserModeSubmission(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn UserModeSubmission(&self) -> super::UINT {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_UserModeSubmission(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_UserModeSubmission(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn SupportBuildTestCommandBuffer(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn SupportBuildTestCommandBuffer(&self) -> super::UINT {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_SupportBuildTestCommandBuffer(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_SupportBuildTestCommandBuffer(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn SupportFaultAndStall(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn SupportFaultAndStall(&self) -> super::UINT {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_SupportFaultAndStall(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_SupportFaultAndStall(&mut self, value: super::UINT) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn Reserved(&self) -> u32 {
-        (self._bitfield << 16) >> 22
+    pub fn Reserved(&self) -> super::UINT {
+        (self._bitfield >> 6) & 1023
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(1023 << 6)) | ((value & 1023) << 6);
     }
-    pub fn MaxInFlightHwQueueBuffers(&self) -> u32 {
+    pub fn MaxInFlightHwQueueBuffers(&self) -> super::UINT {
         self._bitfield >> 16
     }
-    pub fn set_MaxInFlightHwQueueBuffers(&mut self, value: u32) {
+    pub fn set_MaxInFlightHwQueueBuffers(&mut self, value: super::UINT) {
         self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NODE_PERFDATA {
-    pub Frequency: u64,
-    pub MaxFrequency: u64,
-    pub MaxFrequencyOC: u64,
-    pub Voltage: u32,
-    pub VoltageMax: u32,
-    pub VoltageMaxOC: u32,
-    pub MaxTransitionLatency: u64,
+    pub Frequency: super::ULONGLONG,
+    pub MaxFrequency: super::ULONGLONG,
+    pub MaxFrequencyOC: super::ULONGLONG,
+    pub Voltage: super::ULONG,
+    pub VoltageMax: super::ULONG,
+    pub VoltageMaxOC: super::ULONG,
+    pub MaxTransitionLatency: super::ULONGLONG,
 }
 pub const DXGK_PAGE_FAULT_ADAPTER_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = 4;
 pub const DXGK_PAGE_FAULT_AND_STALL: DXGK_PAGE_FAULT_FLAGS = 256;
@@ -2600,10 +2734,11 @@ pub const DXGK_RENDER_PIPELINE_STAGE_STREAM_OUTPUT: DXGK_RENDER_PIPELINE_STAGE =
 pub const DXGK_RENDER_PIPELINE_STAGE_UNKNOWN: DXGK_RENDER_PIPELINE_STAGE = 0;
 pub const DXGK_RENDER_PIPELINE_STAGE_VERTEX_SHADER: DXGK_RENDER_PIPELINE_STAGE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_TARGETMODE_DETAIL_TIMING {
     pub VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
-    pub TimingId: u32,
+    pub TimingId: super::UINT,
     pub DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I,
 }
 pub const DXGK_VALID_FAULT_AND_STALL_FLAGS: i32 = 268;
@@ -2617,28 +2752,41 @@ pub const HpdAwarenessInterruptible: DXGK_CHILD_DEVICE_HPD_AWARENESS = 4;
 pub const HpdAwarenessNone: DXGK_CHILD_DEVICE_HPD_AWARENESS = 2;
 pub const HpdAwarenessPolled: DXGK_CHILD_DEVICE_HPD_AWARENESS = 3;
 pub const HpdAwarenessUninitialized: DXGK_CHILD_DEVICE_HPD_AWARENESS = 0;
+#[cfg(feature = "shared")]
 pub type PD3DKMDT_WIRE_FORMAT_AND_PREFERENCE = *mut D3DKMDT_WIRE_FORMAT_AND_PREFERENCE;
+#[cfg(feature = "shared")]
 pub type PDXGKMDT_OPM_CONFIGURE_PARAMETERS = *mut DXGKMDT_OPM_CONFIGURE_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS = *mut DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDXGKMDT_OPM_ENCRYPTED_PARAMETERS = *mut DXGKMDT_OPM_ENCRYPTED_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDXGKMDT_OPM_GET_INFO_PARAMETERS = *mut DXGKMDT_OPM_GET_INFO_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDXGKMDT_OPM_OMAC = *mut DXGKMDT_OPM_OMAC;
+#[cfg(feature = "shared")]
 pub type PDXGKMDT_OPM_RANDOM_NUMBER = *mut DXGKMDT_OPM_RANDOM_NUMBER;
+#[cfg(feature = "shared")]
 pub type PDXGKMDT_OPM_REQUESTED_INFORMATION = *mut DXGKMDT_OPM_REQUESTED_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PDXGK_BRIGHTNESS_GET_NIT_RANGES_OUT = *mut DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT;
+#[cfg(feature = "shared")]
 pub type PDXGK_BRIGHTNESS_GET_OUT = *mut DXGK_BRIGHTNESS_GET_OUT;
+#[cfg(feature = "shared")]
 pub type PDXGK_BRIGHTNESS_SET_IN = *mut DXGK_BRIGHTNESS_SET_IN;
 pub type PDXGK_CHILD_DEVICE_HPD_AWARENESS = *mut DXGK_CHILD_DEVICE_HPD_AWARENESS;
 pub type PDXGK_DISPLAYMUX_RUNTIME_STATUS = *mut DXGK_DISPLAYMUX_RUNTIME_STATUS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO = *mut DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO;
 pub type PDXGK_DISPLAYMUX_SUPPORT_LEVEL = *mut DXGK_DISPLAYMUX_SUPPORT_LEVEL;
 pub type PDXGK_DISPLAY_DESCRIPTOR_TYPE = *mut DXGK_DISPLAY_DESCRIPTOR_TYPE;
-#[cfg(all(feature = "d3dukmdt", feature = "usb", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "shared", feature = "winnt"))]
 pub type PDXGK_DISPLAY_INFORMATION = *mut DXGK_DISPLAY_INFORMATION;
 pub type PDXGK_DISPLAY_TECHNOLOGY = *mut DXGK_DISPLAY_TECHNOLOGY;
 pub type PDXGK_DISPLAY_USAGE = *mut DXGK_DISPLAY_USAGE;
+#[cfg(feature = "shared")]
 pub type PDXGK_MONITORLINKINFO_CAPABILITIES = *mut DXGK_MONITORLINKINFO_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PDXGK_MONITORLINKINFO_USAGEHINTS = *mut DXGK_MONITORLINKINFO_USAGEHINTS;
 pub type _DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = i32;
 pub type _DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = i32;

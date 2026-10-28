@@ -1,69 +1,75 @@
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RmAddFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3, filteraction: RM_FILTER_ACTION) -> u32
+pub unsafe fn RmAddFilter<P1, P3>(dwsessionhandle: super::DWORD, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3, filteraction: RM_FILTER_ACTION) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> u32);
+    windows_core::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : super::DWORD, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> super::DWORD);
     unsafe { RmAddFilter(dwsessionhandle, strmodulename.param().abi(), pprocess.unwrap_or(core::mem::zeroed()) as _, strserviceshortname.param().abi(), filteraction) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmCancelCurrentTask(dwsessionhandle : u32) -> u32);
+pub unsafe fn RmCancelCurrentTask(dwsessionhandle: super::DWORD) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmCancelCurrentTask(dwsessionhandle : super::DWORD) -> super::DWORD);
     unsafe { RmCancelCurrentTask(dwsessionhandle) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmEndSession(dwsessionhandle : u32) -> u32);
+pub unsafe fn RmEndSession(dwsessionhandle: super::DWORD) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmEndSession(dwsessionhandle : super::DWORD) -> super::DWORD);
     unsafe { RmEndSession(dwsessionhandle) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<super::PBYTE>, cbfilterbuf: u32, cbfilterbufneeded: super::LPDWORD) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : super::PBYTE, cbfilterbuf : u32, cbfilterbufneeded : super::LPDWORD) -> u32);
+pub unsafe fn RmGetFilterList(dwsessionhandle: super::DWORD, pbfilterbuf: Option<super::PBYTE>, cbfilterbuf: super::DWORD, cbfilterbufneeded: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : super::DWORD, pbfilterbuf : super::PBYTE, cbfilterbuf : super::DWORD, cbfilterbufneeded : super::LPDWORD) -> super::DWORD);
     unsafe { RmGetFilterList(dwsessionhandle, pbfilterbuf.unwrap_or(core::mem::zeroed()) as _, cbfilterbuf, cbfilterbufneeded as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: super::LPDWORD) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : super::LPDWORD) -> u32);
+pub unsafe fn RmGetList(dwsessionhandle: super::DWORD, pnprocinfoneeded: *mut super::UINT, pnprocinfo: *mut super::UINT, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: super::LPDWORD) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : super::DWORD, pnprocinfoneeded : *mut super::UINT, pnprocinfo : *mut super::UINT, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : super::LPDWORD) -> super::DWORD);
     unsafe { RmGetList(dwsessionhandle, pnprocinfoneeded as _, pnprocinfo as _, rgaffectedapps.unwrap_or(core::mem::zeroed()) as _, lpdwrebootreasons as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RmJoinSession(psessionhandle: *mut u32, strsessionkey: *const u16) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : *const u16) -> u32);
+pub unsafe fn RmJoinSession(psessionhandle: *mut super::DWORD, strsessionkey: *const super::WCHAR) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut super::DWORD, strsessionkey : *const super::WCHAR) -> super::DWORD);
     unsafe { RmJoinSession(psessionhandle as _, strsessionkey) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const windows_core::PCWSTR) -> u32);
+pub unsafe fn RmRegisterResources(dwsessionhandle: super::DWORD, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : super::DWORD, nfiles : super::UINT, rgsfilenames : *const windows_core::PCWSTR, napplications : super::UINT, rgapplications : *const RM_UNIQUE_PROCESS, nservices : super::UINT, rgsservicenames : *const windows_core::PCWSTR) -> super::DWORD);
     unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RmRemoveFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3) -> u32
+pub unsafe fn RmRemoveFilter<P1, P3>(dwsessionhandle: super::DWORD, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> u32);
+    windows_core::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : super::DWORD, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> super::DWORD);
     unsafe { RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), pprocess.unwrap_or(core::mem::zeroed()) as _, strserviceshortname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: Option<u32>, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> u32);
+pub unsafe fn RmRestart(dwsessionhandle: super::DWORD, dwrestartflags: Option<super::DWORD>, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : super::DWORD, dwrestartflags : super::DWORD, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::DWORD);
     unsafe { RmRestart(dwsessionhandle, dwrestartflags.unwrap_or(core::mem::zeroed()) as _, fnstatus) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> u32);
+pub unsafe fn RmShutdown(dwsessionhandle: super::DWORD, lactionflags: super::ULONG, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : super::DWORD, lactionflags : super::ULONG, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::DWORD);
     unsafe { RmShutdown(dwsessionhandle, lactionflags, fnstatus) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: Option<u32>, strsessionkey: *mut u16) -> u32 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : *mut u16) -> u32);
+pub unsafe fn RmStartSession(psessionhandle: *mut super::DWORD, dwsessionflags: Option<super::DWORD>, strsessionkey: *mut super::WCHAR) -> super::DWORD {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut super::DWORD, dwsessionflags : super::DWORD, strsessionkey : *mut super::WCHAR) -> super::DWORD);
     unsafe { RmStartSession(psessionhandle as _, dwsessionflags.unwrap_or(core::mem::zeroed()) as _, strsessionkey as _) }
 }
 pub const CCH_RM_MAX_APP_NAME: i32 = 255;
@@ -72,39 +78,39 @@ pub const CCH_RM_MAX_SVC_NAME: i32 = 63;
 pub const CCH_RM_SESSION_KEY: u32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const CCH_RM_SESSION_KEY: u64 = 32;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PRM_FILTER_INFO = *mut RM_FILTER_INFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PRM_PROCESS_INFO = *mut RM_PROCESS_INFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PRM_UNIQUE_PROCESS = *mut RM_UNIQUE_PROCESS;
 pub type RM_APP_STATUS = i32;
 pub type RM_APP_TYPE = i32;
 pub type RM_FILTER_ACTION = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RM_FILTER_INFO {
     pub FilterAction: RM_FILTER_ACTION,
     pub FilterTrigger: RM_FILTER_TRIGGER,
-    pub cbNextOffset: u32,
+    pub cbNextOffset: super::DWORD,
     pub Anonymous: RM_FILTER_INFO_0,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for RM_FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union RM_FILTER_INFO_0 {
     pub strFilename: windows_core::PWSTR,
     pub Process: RM_UNIQUE_PROCESS,
     pub strServiceShortName: windows_core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for RM_FILTER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -114,18 +120,18 @@ pub type RM_FILTER_TRIGGER = i32;
 pub const RM_INVALID_PROCESS: i32 = -1;
 pub const RM_INVALID_TS_SESSION: i32 = -1;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
-    pub strAppName: [u16; 256],
-    pub strServiceShortName: [u16; 64],
+    pub strAppName: [super::WCHAR; 256],
+    pub strServiceShortName: [super::WCHAR; 64],
     pub ApplicationType: RM_APP_TYPE,
-    pub AppStatus: u32,
-    pub TSSessionId: u32,
+    pub AppStatus: super::ULONG,
+    pub TSSessionId: super::DWORD,
     pub bRestartable: windows_core::BOOL,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for RM_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -138,13 +144,14 @@ pub const RM_SESSION_KEY_LEN: u32 = 16;
 pub const RM_SESSION_KEY_LEN: u64 = 16;
 pub type RM_SHUTDOWN_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_UNIQUE_PROCESS {
-    pub dwProcessId: u32,
+    pub dwProcessId: super::DWORD,
     pub ProcessStartTime: super::FILETIME,
 }
-pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "C" fn(npercentcomplete: u32)>;
+#[cfg(feature = "shared")]
+pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "C" fn(npercentcomplete: super::UINT)>;
 pub const RmConsole: RM_APP_TYPE = 5;
 pub const RmCritical: RM_APP_TYPE = 1000;
 pub const RmExplorer: RM_APP_TYPE = 4;

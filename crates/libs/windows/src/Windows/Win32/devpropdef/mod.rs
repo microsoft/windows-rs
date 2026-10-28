@@ -6,12 +6,13 @@ pub struct DEVPROPCOMPKEY {
     pub LocaleName: windows_core::PCWSTR,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
+    pub BufferSize: super::ULONG,
+    pub Buffer: super::PVOID,
 }
 pub type DEVPROPGUID = windows_core::GUID;
 pub type DEVPROPID = u32;
@@ -64,6 +65,7 @@ pub const DEVPROP_TYPE_UINT64: i32 = 9;
 pub const MAX_DEVPROP_TYPE: i32 = 25;
 pub const MAX_DEVPROP_TYPEMOD: i32 = 8192;
 pub type PDEVPROPCOMPKEY = *mut DEVPROPCOMPKEY;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEVPROPERTY = *mut DEVPROPERTY;
 pub type PDEVPROPGUID = *mut windows_core::GUID;
 pub type PDEVPROPID = *mut u32;

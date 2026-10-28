@@ -1,8 +1,9 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_EXTENT {
-    pub VolumeOffset: u64,
-    pub ExtentLength: u64,
+    pub VolumeOffset: super::ULONGLONG,
+    pub ExtentLength: super::ULONGLONG,
 }
 pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: i32 = 5685312;
 pub const IOCTL_VOLUME_BC_VERSION: i32 = 1;
@@ -27,171 +28,201 @@ pub const IOCTL_VOLUME_READ_PLEX: i32 = 5652526;
 pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: i32 = 5636148;
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: i32 = 5636100;
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: i32 = 5636180;
+#[cfg(feature = "shared")]
 pub type PFILE_EXTENT = *mut FILE_EXTENT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PVOLUME_ALLOCATE_BC_STREAM_INPUT = *mut VOLUME_ALLOCATE_BC_STREAM_INPUT;
+#[cfg(feature = "shared")]
 pub type PVOLUME_ALLOCATE_BC_STREAM_OUTPUT = *mut VOLUME_ALLOCATE_BC_STREAM_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PVOLUME_ALLOCATION_HINT_INPUT = *mut VOLUME_ALLOCATION_HINT_INPUT;
+#[cfg(feature = "shared")]
 pub type PVOLUME_ALLOCATION_HINT_OUTPUT = *mut VOLUME_ALLOCATION_HINT_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PVOLUME_CRITICAL_IO = *mut VOLUME_CRITICAL_IO;
+#[cfg(feature = "shared")]
 pub type PVOLUME_FAILOVER_SET = *mut VOLUME_FAILOVER_SET;
+#[cfg(feature = "shared")]
 pub type PVOLUME_GET_BC_PROPERTIES_INPUT = *mut VOLUME_GET_BC_PROPERTIES_INPUT;
+#[cfg(feature = "shared")]
 pub type PVOLUME_GET_BC_PROPERTIES_OUTPUT = *mut VOLUME_GET_BC_PROPERTIES_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PVOLUME_LOGICAL_OFFSET = *mut VOLUME_LOGICAL_OFFSET;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PVOLUME_NUMBER = *mut VOLUME_NUMBER;
+#[cfg(feature = "shared")]
 pub type PVOLUME_PHYSICAL_OFFSET = *mut VOLUME_PHYSICAL_OFFSET;
+#[cfg(feature = "shared")]
 pub type PVOLUME_PHYSICAL_OFFSETS = *mut VOLUME_PHYSICAL_OFFSETS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PVOLUME_READ_PLEX_INPUT = *mut VOLUME_READ_PLEX_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PVOLUME_SET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_SET_GPT_ATTRIBUTES_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PVOLUME_SHRINK_INFO = *mut VOLUME_SHRINK_INFO;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    pub Version: u32,
-    pub RequestsPerPeriod: u32,
-    pub Period: u32,
+    pub Version: super::ULONG,
+    pub RequestsPerPeriod: super::ULONG,
+    pub Period: super::ULONG,
     pub RetryFailures: super::BOOLEAN,
     pub Discardable: super::BOOLEAN,
     pub Reserved1: [super::BOOLEAN; 2],
-    pub LowestByteOffset: u64,
-    pub HighestByteOffset: u64,
-    pub AccessType: u32,
-    pub AccessMode: u32,
+    pub LowestByteOffset: super::ULONGLONG,
+    pub HighestByteOffset: super::ULONGLONG,
+    pub AccessType: super::ULONG,
+    pub AccessMode: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    pub RequestSize: u64,
-    pub NumOutStandingRequests: u32,
+    pub RequestSize: super::ULONGLONG,
+    pub NumOutStandingRequests: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
-    pub ClusterSize: u32,
-    pub NumberOfClusters: u32,
-    pub StartingClusterNumber: i64,
+    pub ClusterSize: super::ULONG,
+    pub NumberOfClusters: super::ULONG,
+    pub StartingClusterNumber: super::LONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
-    pub Bitmap: [u32; 1],
+    pub Bitmap: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for VOLUME_ALLOCATION_HINT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_CRITICAL_IO {
-    pub AccessType: u32,
-    pub ExtentsCount: u32,
+    pub AccessType: super::ULONG,
+    pub ExtentsCount: super::ULONG,
     pub Extents: [FILE_EXTENT; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for VOLUME_CRITICAL_IO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_FAILOVER_SET {
-    pub NumberOfDisks: u32,
-    pub DiskNumbers: [u32; 1],
+    pub NumberOfDisks: super::ULONG,
+    pub DiskNumbers: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for VOLUME_FAILOVER_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
-    pub Version: u32,
-    pub Reserved1: u32,
-    pub LowestByteOffset: u64,
-    pub HighestByteOffset: u64,
-    pub AccessType: u32,
-    pub AccessMode: u32,
+    pub Version: super::ULONG,
+    pub Reserved1: super::ULONG,
+    pub LowestByteOffset: super::ULONGLONG,
+    pub HighestByteOffset: super::ULONGLONG,
+    pub AccessType: super::ULONG,
+    pub AccessMode: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    pub MaximumRequestsPerPeriod: u32,
-    pub MinimumPeriod: u32,
-    pub MaximumRequestSize: u64,
-    pub EstimatedTimePerRequest: u32,
-    pub NumOutStandingRequests: u32,
-    pub RequestSize: u64,
+    pub MaximumRequestsPerPeriod: super::ULONG,
+    pub MinimumPeriod: super::ULONG,
+    pub MaximumRequestSize: super::ULONGLONG,
+    pub EstimatedTimePerRequest: super::ULONG,
+    pub NumOutStandingRequests: super::ULONG,
+    pub RequestSize: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_LOGICAL_OFFSET {
-    pub LogicalOffset: i64,
+    pub LogicalOffset: super::LONGLONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_NUMBER {
-    pub VolumeNumber: u32,
-    pub VolumeManagerName: [u16; 8],
+    pub VolumeNumber: super::ULONG,
+    pub VolumeManagerName: [super::WCHAR; 8],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for VOLUME_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSET {
-    pub DiskNumber: u32,
-    pub Offset: i64,
+    pub DiskNumber: super::ULONG,
+    pub Offset: super::LONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSETS {
-    pub NumberOfPhysicalOffsets: u32,
+    pub NumberOfPhysicalOffsets: super::ULONG,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for VOLUME_PHYSICAL_OFFSETS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: super::LARGE_INTEGER,
-    pub Length: u32,
-    pub PlexNumber: u32,
+    pub Length: super::ULONG,
+    pub PlexNumber: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for VOLUME_READ_PLEX_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    pub GptAttributes: u64,
+    pub GptAttributes: super::ULONGLONG,
     pub RevertOnClose: super::BOOLEAN,
     pub ApplyToAllConnectedVolumes: super::BOOLEAN,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
+    pub Reserved1: super::USHORT,
+    pub Reserved2: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_SHRINK_INFO {
-    pub VolumeSize: u64,
+    pub VolumeSize: super::ULONGLONG,
 }

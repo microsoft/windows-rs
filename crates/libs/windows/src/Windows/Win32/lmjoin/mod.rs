@@ -1,36 +1,37 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetAddAlternateComputerName<P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
+pub unsafe fn NetAddAlternateComputerName<P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: super::ULONG) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetAddAlternateComputerName(server : windows_core::PCWSTR, alternatename : windows_core::PCWSTR, domainaccount : windows_core::PCWSTR, domainaccountpassword : windows_core::PCWSTR, reserved : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetAddAlternateComputerName(server : windows_core::PCWSTR, alternatename : windows_core::PCWSTR, domainaccount : windows_core::PCWSTR, domainaccountpassword : windows_core::PCWSTR, reserved : super::ULONG) -> super::DWORD);
     unsafe { NetAddAlternateComputerName(server.param().abi(), alternatename.param().abi(), domainaccount.param().abi(), domainaccountpassword.param().abi(), reserved) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: PNETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut super::PBYTE, pdwpackagebindatasize: Option<*mut u32>, pppackagetextdata: *mut windows_core::PWSTR) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : PNETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut super::PBYTE, pdwpackagebindatasize : *mut u32, pppackagetextdata : *mut windows_core::PWSTR) -> u32);
-    unsafe { NetCreateProvisioningPackage(pprovisioningparams, pppackagebindata as _, pdwpackagebindatasize.unwrap_or(core::mem::zeroed()) as _, pppackagetextdata as _) }
+pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: PNETSETUP_PROVISIONING_PARAMS, pppackagebindata: Option<*mut super::PBYTE>, pdwpackagebindatasize: Option<*mut super::DWORD>, pppackagetextdata: Option<*mut windows_core::PWSTR>) -> super::DWORD {
+    windows_core::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : PNETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut super::PBYTE, pdwpackagebindatasize : *mut super::DWORD, pppackagetextdata : *mut windows_core::PWSTR) -> super::DWORD);
+    unsafe { NetCreateProvisioningPackage(pprovisioningparams, pppackagebindata.unwrap_or(core::mem::zeroed()) as _, pdwpackagebindatasize.unwrap_or(core::mem::zeroed()) as _, pppackagetextdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetEnumerateComputerNames<P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: super::PDWORD, computernames: *mut *mut windows_core::PWSTR) -> u32
+pub unsafe fn NetEnumerateComputerNames<P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: super::ULONG, entrycount: super::PDWORD, computernames: *mut *mut windows_core::PWSTR) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : windows_core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : u32, entrycount : super::PDWORD, computernames : *mut *mut windows_core::PWSTR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : windows_core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : super::ULONG, entrycount : super::PDWORD, computernames : *mut *mut windows_core::PWSTR) -> super::DWORD);
     unsafe { NetEnumerateComputerNames(server.param().abi(), nametype, reserved, entrycount as _, computernames as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 #[inline]
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: Option<PDSREG_JOIN_INFO>) {
     windows_core::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : PDSREG_JOIN_INFO));
     unsafe { NetFreeAadJoinInformation(pjoininfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 #[inline]
 pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> windows_core::Result<PDSREG_JOIN_INFO>
 where
@@ -42,27 +43,30 @@ where
         NetGetAadJoinInformation(pcsztenantid.param().abi(), &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetGetJoinInformation<P0>(lpserver: P0, lpnamebuffer: *mut windows_core::PWSTR, buffertype: PNETSETUP_JOIN_STATUS) -> u32
+pub unsafe fn NetGetJoinInformation<P0>(lpserver: P0, lpnamebuffer: *mut windows_core::PWSTR, buffertype: PNETSETUP_JOIN_STATUS) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : windows_core::PCWSTR, lpnamebuffer : *mut windows_core::PWSTR, buffertype : PNETSETUP_JOIN_STATUS) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : windows_core::PCWSTR, lpnamebuffer : *mut windows_core::PWSTR, buffertype : PNETSETUP_JOIN_STATUS) -> super::DWORD);
     unsafe { NetGetJoinInformation(lpserver.param().abi(), lpnamebuffer as _, buffertype as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetGetJoinableOUs<P0, P1, P2, P3>(lpserver: P0, lpdomain: P1, lpaccount: P2, lppassword: P3, oucount: *mut u32, ous: *mut *mut windows_core::PWSTR) -> u32
+pub unsafe fn NetGetJoinableOUs<P0, P1, P2, P3>(lpserver: P0, lpdomain: P1, lpaccount: P2, lppassword: P3, oucount: *mut super::DWORD, ous: *mut *mut windows_core::PWSTR) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetGetJoinableOUs(lpserver : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, oucount : *mut u32, ous : *mut *mut windows_core::PWSTR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetGetJoinableOUs(lpserver : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, oucount : *mut super::DWORD, ous : *mut *mut windows_core::PWSTR) -> super::DWORD);
     unsafe { NetGetJoinableOUs(lpserver.param().abi(), lpdomain.param().abi(), lpaccount.param().abi(), lppassword.param().abi(), oucount as _, ous as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetJoinDomain<P0, P1, P2, P3, P4>(lpserver: P0, lpdomain: P1, lpmachineaccountou: P2, lpaccount: P3, lppassword: P4, fjoinoptions: u32) -> u32
+pub unsafe fn NetJoinDomain<P0, P1, P2, P3, P4>(lpserver: P0, lpdomain: P1, lpmachineaccountou: P2, lpaccount: P3, lppassword: P4, fjoinoptions: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -70,94 +74,101 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lpmachineaccountou : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, fjoinoptions : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lpmachineaccountou : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, fjoinoptions : super::DWORD) -> super::DWORD);
     unsafe { NetJoinDomain(lpserver.param().abi(), lpdomain.param().abi(), lpmachineaccountou.param().abi(), lpaccount.param().abi(), lppassword.param().abi(), fjoinoptions) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetProvisionComputerAccount<P0, P1, P2, P3>(lpdomain: P0, lpmachinename: P1, lpmachineaccountou: P2, lpdcname: P3, dwoptions: u32, pprovisionbindata: *mut super::PBYTE, pdwprovisionbindatasize: Option<*mut u32>, pprovisiontextdata: *mut windows_core::PWSTR) -> u32
+pub unsafe fn NetProvisionComputerAccount<P0, P1, P2, P3>(lpdomain: P0, lpmachinename: P1, lpmachineaccountou: P2, lpdcname: P3, dwoptions: super::DWORD, pprovisionbindata: Option<*mut super::PBYTE>, pdwprovisionbindatasize: Option<*mut super::DWORD>, pprovisiontextdata: Option<*mut windows_core::PWSTR>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetProvisionComputerAccount(lpdomain : windows_core::PCWSTR, lpmachinename : windows_core::PCWSTR, lpmachineaccountou : windows_core::PCWSTR, lpdcname : windows_core::PCWSTR, dwoptions : u32, pprovisionbindata : *mut super::PBYTE, pdwprovisionbindatasize : *mut u32, pprovisiontextdata : *mut windows_core::PWSTR) -> u32);
-    unsafe { NetProvisionComputerAccount(lpdomain.param().abi(), lpmachinename.param().abi(), lpmachineaccountou.param().abi(), lpdcname.param().abi(), dwoptions, pprovisionbindata as _, pdwprovisionbindatasize.unwrap_or(core::mem::zeroed()) as _, pprovisiontextdata as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetProvisionComputerAccount(lpdomain : windows_core::PCWSTR, lpmachinename : windows_core::PCWSTR, lpmachineaccountou : windows_core::PCWSTR, lpdcname : windows_core::PCWSTR, dwoptions : super::DWORD, pprovisionbindata : *mut super::PBYTE, pdwprovisionbindatasize : *mut super::DWORD, pprovisiontextdata : *mut windows_core::PWSTR) -> super::DWORD);
+    unsafe { NetProvisionComputerAccount(lpdomain.param().abi(), lpmachinename.param().abi(), lpmachineaccountou.param().abi(), lpdcname.param().abi(), dwoptions, pprovisionbindata.unwrap_or(core::mem::zeroed()) as _, pdwprovisionbindatasize.unwrap_or(core::mem::zeroed()) as _, pprovisiontextdata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetRemoveAlternateComputerName<P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
+pub unsafe fn NetRemoveAlternateComputerName<P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: super::ULONG) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRemoveAlternateComputerName(server : windows_core::PCWSTR, alternatename : windows_core::PCWSTR, domainaccount : windows_core::PCWSTR, domainaccountpassword : windows_core::PCWSTR, reserved : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetRemoveAlternateComputerName(server : windows_core::PCWSTR, alternatename : windows_core::PCWSTR, domainaccount : windows_core::PCWSTR, domainaccountpassword : windows_core::PCWSTR, reserved : super::ULONG) -> super::DWORD);
     unsafe { NetRemoveAlternateComputerName(server.param().abi(), alternatename.param().abi(), domainaccount.param().abi(), domainaccountpassword.param().abi(), reserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetRenameMachineInDomain<P0, P1, P2, P3>(lpserver: P0, lpnewmachinename: P1, lpaccount: P2, lppassword: P3, frenameoptions: u32) -> u32
+pub unsafe fn NetRenameMachineInDomain<P0, P1, P2, P3>(lpserver: P0, lpnewmachinename: P1, lpaccount: P2, lppassword: P3, frenameoptions: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRenameMachineInDomain(lpserver : windows_core::PCWSTR, lpnewmachinename : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, frenameoptions : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetRenameMachineInDomain(lpserver : windows_core::PCWSTR, lpnewmachinename : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, frenameoptions : super::DWORD) -> super::DWORD);
     unsafe { NetRenameMachineInDomain(lpserver.param().abi(), lpnewmachinename.param().abi(), lpaccount.param().abi(), lppassword.param().abi(), frenameoptions) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetRequestOfflineDomainJoin<P3>(pprovisionbindata: &[u8], dwoptions: u32, lpwindowspath: P3) -> u32
+pub unsafe fn NetRequestOfflineDomainJoin<P3>(pprovisionbindata: &[u8], dwoptions: super::DWORD, lpwindowspath: P3) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const u8, cbprovisionbindatasize : u32, dwoptions : u32, lpwindowspath : windows_core::PCWSTR) -> u32);
-    unsafe { NetRequestOfflineDomainJoin(pprovisionbindata.as_ptr(), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
+    windows_core::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const super::BYTE, cbprovisionbindatasize : super::DWORD, dwoptions : super::DWORD, lpwindowspath : windows_core::PCWSTR) -> super::DWORD);
+    unsafe { NetRequestOfflineDomainJoin(core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: &[u8], dwprovisionoptions: u32, lpwindowspath: P3, pvreserved: Option<*mut core::ffi::c_void>) -> u32
+pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: &[u8], dwprovisionoptions: super::DWORD, lpwindowspath: P3, pvreserved: Option<super::PVOID>) -> super::DWORD
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const u8, dwpackagebindatasize : u32, dwprovisionoptions : u32, lpwindowspath : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> u32);
-    unsafe { NetRequestProvisioningPackageInstall(ppackagebindata.as_ptr(), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const super::BYTE, dwpackagebindatasize : super::DWORD, dwprovisionoptions : super::DWORD, lpwindowspath : windows_core::PCWSTR, pvreserved : super::PVOID) -> super::DWORD);
+    unsafe { NetRequestProvisioningPackageInstall(core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetSetPrimaryComputerName<P0, P1, P2, P3>(server: P0, primaryname: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
+pub unsafe fn NetSetPrimaryComputerName<P0, P1, P2, P3>(server: P0, primaryname: P1, domainaccount: P2, domainaccountpassword: P3, reserved: super::ULONG) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetSetPrimaryComputerName(server : windows_core::PCWSTR, primaryname : windows_core::PCWSTR, domainaccount : windows_core::PCWSTR, domainaccountpassword : windows_core::PCWSTR, reserved : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetSetPrimaryComputerName(server : windows_core::PCWSTR, primaryname : windows_core::PCWSTR, domainaccount : windows_core::PCWSTR, domainaccountpassword : windows_core::PCWSTR, reserved : super::ULONG) -> super::DWORD);
     unsafe { NetSetPrimaryComputerName(server.param().abi(), primaryname.param().abi(), domainaccount.param().abi(), domainaccountpassword.param().abi(), reserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetUnjoinDomain<P0, P1, P2>(lpserver: P0, lpaccount: P1, lppassword: P2, funjoinoptions: u32) -> u32
+pub unsafe fn NetUnjoinDomain<P0, P1, P2>(lpserver: P0, lpaccount: P1, lppassword: P2, funjoinoptions: super::DWORD) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetUnjoinDomain(lpserver : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, funjoinoptions : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetUnjoinDomain(lpserver : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, funjoinoptions : super::DWORD) -> super::DWORD);
     unsafe { NetUnjoinDomain(lpserver.param().abi(), lpaccount.param().abi(), lppassword.param().abi(), funjoinoptions) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetValidateName<P0, P1, P2, P3>(lpserver: P0, lpname: P1, lpaccount: P2, lppassword: P3, nametype: NETSETUP_NAME_TYPE) -> u32
+pub unsafe fn NetValidateName<P0, P1, P2, P3>(lpserver: P0, lpname: P1, lpaccount: P2, lppassword: P3, nametype: NETSETUP_NAME_TYPE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetValidateName(lpserver : windows_core::PCWSTR, lpname : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, nametype : NETSETUP_NAME_TYPE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetValidateName(lpserver : windows_core::PCWSTR, lpname : windows_core::PCWSTR, lpaccount : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, nametype : NETSETUP_NAME_TYPE) -> super::DWORD);
     unsafe { NetValidateName(lpserver.param().abi(), lpname.param().abi(), lpaccount.param().abi(), lppassword.param().abi(), nametype) }
 }
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
@@ -206,20 +217,21 @@ pub const NETSETUP_NO_ACCT_REUSE: i32 = 131072;
 pub const NETSETUP_NO_NETLOGON_CACHE: i32 = 8192;
 pub const NETSETUP_PROCESS_OFFLINE_FLAGS: i32 = 17569;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETSETUP_PROVISIONING_PARAMS {
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub lpDomain: windows_core::PCWSTR,
     pub lpHostName: windows_core::PCWSTR,
     pub lpMachineAccountOU: windows_core::PCWSTR,
     pub lpDcName: windows_core::PCWSTR,
-    pub dwProvisionOptions: u32,
+    pub dwProvisionOptions: super::DWORD,
     pub aCertTemplateNames: *mut windows_core::PCWSTR,
-    pub cCertTemplateNames: u32,
+    pub cCertTemplateNames: super::DWORD,
     pub aMachinePolicyNames: *mut windows_core::PCWSTR,
-    pub cMachinePolicyNames: u32,
+    pub cMachinePolicyNames: super::DWORD,
     pub aMachinePolicyPaths: *mut windows_core::PCWSTR,
-    pub cMachinePolicyPaths: u32,
+    pub cMachinePolicyPaths: super::DWORD,
     pub lpNetbiosName: windows_core::PWSTR,
     pub lpSiteName: windows_core::PWSTR,
     pub lpPrimaryDNSDomain: windows_core::PWSTR,
@@ -253,11 +265,12 @@ pub const NetSetupUnknown: NETSETUP_NAME_TYPE = 0;
 pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = 0;
 pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = 2;
 pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = 2;
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 pub type PDSREG_JOIN_INFO = *mut DSREG_JOIN_INFO;
 pub type PDSREG_JOIN_TYPE = *mut DSREG_JOIN_TYPE;
 pub type PDSREG_USER_INFO = *mut DSREG_USER_INFO;
 pub type PNETSETUP_JOIN_STATUS = *mut NETSETUP_JOIN_STATUS;
 pub type PNETSETUP_NAME_TYPE = *mut NETSETUP_NAME_TYPE;
+#[cfg(feature = "shared")]
 pub type PNETSETUP_PROVISIONING_PARAMS = *mut NETSETUP_PROVISIONING_PARAMS;
 pub type PNET_COMPUTER_NAME_TYPE = *mut NET_COMPUTER_NAME_TYPE;

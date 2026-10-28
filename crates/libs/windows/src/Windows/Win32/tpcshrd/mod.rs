@@ -5,31 +5,37 @@ pub const IP_MARGIN: i32 = 4;
 pub const MAX_PACKET_BUTTON_COUNT: i32 = 32;
 pub const MAX_PACKET_PROPERTY_COUNT: i32 = 32;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKET_DESCRIPTION {
-    pub cbPacketSize: u32,
-    pub cPacketProperties: u32,
+    pub cbPacketSize: super::ULONG,
+    pub cPacketProperties: super::ULONG,
     pub pPacketProperties: *mut PACKET_PROPERTY,
-    pub cButtons: u32,
+    pub cButtons: super::ULONG,
     pub pguidButtons: *mut windows_core::GUID,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PPACKET_DESCRIPTION = *mut PACKET_DESCRIPTION;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PPACKET_PROPERTY = *mut PACKET_PROPERTY;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PPROPERTY_METRICS = *mut PROPERTY_METRICS;
 pub type PPROPERTY_UNITS = *mut PROPERTY_UNITS;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTY_METRICS {
-    pub nLogicalMin: i32,
-    pub nLogicalMax: i32,
+    pub nLogicalMin: super::LONG,
+    pub nLogicalMax: super::LONG,
     pub Units: PROPERTY_UNITS,
-    pub fResolution: f32,
+    pub fResolution: super::FLOAT,
 }
 pub type PROPERTY_UNITS = i32;
 pub const PROPERTY_UNITS_AMPERE: PROPERTY_UNITS = 15;
@@ -50,21 +56,23 @@ pub const PROPERTY_UNITS_SILINEAR: PROPERTY_UNITS = 8;
 pub const PROPERTY_UNITS_SIROTATION: PROPERTY_UNITS = 9;
 pub const PROPERTY_UNITS_SLUGS: PROPERTY_UNITS = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STROKE_RANGE {
-    pub iStrokeBegin: u32,
-    pub iStrokeEnd: u32,
+    pub iStrokeBegin: super::ULONG,
+    pub iStrokeEnd: super::ULONG,
 }
 pub type SYSTEM_EVENT = u16;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_EVENT_DATA {
-    pub bModifier: u8,
-    pub wKey: u16,
-    pub xPos: i32,
-    pub yPos: i32,
-    pub bCursorMode: u8,
-    pub dwButtonState: u32,
+    pub bModifier: super::BYTE,
+    pub wKey: super::WCHAR,
+    pub xPos: super::LONG,
+    pub yPos: super::LONG,
+    pub bCursorMode: super::BYTE,
+    pub dwButtonState: super::DWORD,
 }
 pub type TABLET_CONTEXT_ID = u32;
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: i32 = 1048576;

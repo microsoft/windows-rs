@@ -1,95 +1,86 @@
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleCreateFontIndirect(lpfontdesc: LPFONTDESC, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("oleaut32.dll" "system" fn OleCreateFontIndirect(lpfontdesc : LPFONTDESC, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleCreateFontIndirect(lpfontdesc, riid, lplpvobj as _) }
+pub unsafe fn OleCreateFontIndirect(lpfontdesc: LPFONTDESC, riid: *const super::IID, lplpvobj: *mut super::LPVOID) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleCreateFontIndirect(lpfontdesc : LPFONTDESC, riid : *const super::IID, lplpvobj : *mut super::LPVOID) -> windows_core::HRESULT);
+    unsafe { OleCreateFontIndirect(lpfontdesc as _, riid, lplpvobj as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn OleCreatePictureIndirect(lppictdesc: LPPICTDESC, riid: *const windows_core::GUID, fown: bool, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : LPPICTDESC, riid : *const windows_core::GUID, fown : windows_core::BOOL, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleCreatePictureIndirect(lppictdesc, riid, fown.into(), lplpvobj as _) }
+pub unsafe fn OleCreatePictureIndirect(lppictdesc: LPPICTDESC, riid: *const super::IID, fown: bool, lplpvobj: *mut super::LPVOID) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : LPPICTDESC, riid : *const super::IID, fown : windows_core::BOOL, lplpvobj : *mut super::LPVOID) -> windows_core::HRESULT);
+    unsafe { OleCreatePictureIndirect(lppictdesc as _, riid, fown.into(), lplpvobj as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleCreatePropertyFrame(hwndowner: super::HWND, x: u32, y: u32, lpszcaption: super::LPCOLESTR, cobjects: u32, ppunk: *mut Option<windows_core::IUnknown>, cpages: u32, ppageclsid: super::LPCLSID, lcid: super::LCID, dwreserved: u32, pvreserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::HWND, x : u32, y : u32, lpszcaption : super::LPCOLESTR, cobjects : u32, ppunk : *mut *mut core::ffi::c_void, cpages : u32, ppageclsid : super::LPCLSID, lcid : super::LCID, dwreserved : u32, pvreserved : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleCreatePropertyFrame(hwndowner, x, y, lpszcaption, cobjects, core::mem::transmute(ppunk), cpages, ppageclsid, lcid, dwreserved, pvreserved as _) }
+pub unsafe fn OleCreatePropertyFrame(hwndowner: super::HWND, x: super::UINT, y: super::UINT, lpszcaption: super::LPCOLESTR, cobjects: super::ULONG, ppunk: *mut Option<super::LPUNKNOWN>, cpages: super::ULONG, ppageclsid: super::LPCLSID, lcid: super::LCID, dwreserved: super::DWORD, pvreserved: super::LPVOID) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::HWND, x : super::UINT, y : super::UINT, lpszcaption : super::LPCOLESTR, cobjects : super::ULONG, ppunk : *mut *mut core::ffi::c_void, cpages : super::ULONG, ppageclsid : super::LPCLSID, lcid : super::LCID, dwreserved : super::DWORD, pvreserved : super::LPVOID) -> windows_core::HRESULT);
+    unsafe { OleCreatePropertyFrame(hwndowner as _, x, y, lpszcaption, cobjects, ppunk as _, cpages, ppageclsid as _, lcid, dwreserved, pvreserved as _) }
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: LPOCPFIPARAMS) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn OleCreatePropertyFrameIndirect(lpparams : LPOCPFIPARAMS) -> windows_core::HRESULT);
-    unsafe { OleCreatePropertyFrameIndirect(lpparams) }
+    unsafe { OleCreatePropertyFrameIndirect(lpparams as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn OleIconToCursor(hinstexe: super::HINSTANCE, hicon: super::HICON) -> super::HCURSOR {
     windows_core::link!("oleaut32.dll" "system" fn OleIconToCursor(hinstexe : super::HINSTANCE, hicon : super::HICON) -> super::HCURSOR);
-    unsafe { OleIconToCursor(hinstexe, hicon) }
+    unsafe { OleIconToCursor(hinstexe as _, hicon as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn OleLoadPicture<P0>(lpstream: P0, lsize: i32, frunmode: bool, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn OleLoadPicture<P0>(lpstream: P0, lsize: super::LONG, frunmode: bool, riid: *const super::IID, lplpvobj: *mut super::LPVOID) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
-    windows_core::link!("oleaut32.dll" "system" fn OleLoadPicture(lpstream : *mut core::ffi::c_void, lsize : i32, frunmode : windows_core::BOOL, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleaut32.dll" "system" fn OleLoadPicture(lpstream : *mut core::ffi::c_void, lsize : super::LONG, frunmode : windows_core::BOOL, riid : *const super::IID, lplpvobj : *mut super::LPVOID) -> windows_core::HRESULT);
     unsafe { OleLoadPicture(lpstream.param().abi(), lsize, frunmode.into(), riid, lplpvobj as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidlbase", feature = "shared"))]
 #[inline]
-pub unsafe fn OleLoadPictureEx<P0>(lpstream: P0, lsize: i32, frunmode: bool, riid: *const windows_core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn OleLoadPictureEx<P0>(lpstream: P0, lsize: super::LONG, frunmode: bool, riid: *const super::IID, xsizedesired: super::DWORD, ysizedesired: super::DWORD, dwflags: super::DWORD, lplpvobj: *mut super::LPVOID) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
-    windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureEx(lpstream : *mut core::ffi::c_void, lsize : i32, frunmode : windows_core::BOOL, riid : *const windows_core::GUID, xsizedesired : u32, ysizedesired : u32, dwflags : u32, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureEx(lpstream : *mut core::ffi::c_void, lsize : super::LONG, frunmode : windows_core::BOOL, riid : *const super::IID, xsizedesired : super::DWORD, ysizedesired : super::DWORD, dwflags : super::DWORD, lplpvobj : *mut super::LPVOID) -> windows_core::HRESULT);
     unsafe { OleLoadPictureEx(lpstream.param().abi(), lsize, frunmode.into(), riid, xsizedesired, ysizedesired, dwflags, lplpvobj as _) }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleLoadPictureFile(varfilename: &super::VARIANT) -> windows_core::Result<super::IDispatch> {
+pub unsafe fn OleLoadPictureFile(varfilename: &super::VARIANT, lplpdisppicture: *mut Option<super::LPDISPATCH>) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : super::VARIANT, lplpdisppicture : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        OleLoadPictureFile(core::mem::transmute_copy(varfilename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+    unsafe { OleLoadPictureFile(core::mem::transmute_copy(varfilename), lplpdisppicture as _) }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleLoadPictureFileEx(varfilename: &super::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> windows_core::Result<super::IDispatch> {
-    windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : super::VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : u32, lplpdisppicture : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        OleLoadPictureFileEx(core::mem::transmute_copy(varfilename), xsizedesired, ysizedesired, dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-    }
+pub unsafe fn OleLoadPictureFileEx(varfilename: &super::VARIANT, xsizedesired: super::DWORD, ysizedesired: super::DWORD, dwflags: super::DWORD, lplpdisppicture: *mut Option<super::LPDISPATCH>) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : super::VARIANT, xsizedesired : super::DWORD, ysizedesired : super::DWORD, dwflags : super::DWORD, lplpdisppicture : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { OleLoadPictureFileEx(core::mem::transmute_copy(varfilename), xsizedesired, ysizedesired, dwflags, lplpdisppicture as _) }
 }
-#[cfg(all(feature = "ocidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "ocidl", feature = "shared", feature = "unknwnbase", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleLoadPicturePath<P1>(szurlorpath: super::LPOLESTR, punkcaller: P1, dwreserved: u32, clrreserved: super::OLE_COLOR, riid: *const windows_core::GUID, ppvret: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn OleLoadPicturePath<P1>(szurlorpath: super::LPOLESTR, punkcaller: P1, dwreserved: super::DWORD, clrreserved: super::OLE_COLOR, riid: *const super::IID, ppvret: *mut super::LPVOID) -> windows_core::HRESULT
 where
-    P1: windows_core::Param<windows_core::IUnknown>,
+    P1: windows_core::Param<super::LPUNKNOWN>,
 {
-    windows_core::link!("oleaut32.dll" "system" fn OleLoadPicturePath(szurlorpath : super::LPOLESTR, punkcaller : *mut core::ffi::c_void, dwreserved : u32, clrreserved : super::OLE_COLOR, riid : *const windows_core::GUID, ppvret : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleaut32.dll" "system" fn OleLoadPicturePath(szurlorpath : super::LPOLESTR, punkcaller : *mut core::ffi::c_void, dwreserved : super::DWORD, clrreserved : super::OLE_COLOR, riid : *const super::IID, ppvret : *mut super::LPVOID) -> windows_core::HRESULT);
     unsafe { OleLoadPicturePath(szurlorpath, punkcaller.param().abi(), dwreserved, clrreserved, riid, ppvret as _) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
 pub unsafe fn OleSavePictureFile<P0>(lpdisppicture: P0, bstrfilename: &windows_core::BSTR) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IDispatch>,
+    P0: windows_core::Param<super::LPDISPATCH>,
 {
     windows_core::link!("oleaut32.dll" "system" fn OleSavePictureFile(lpdisppicture : *mut core::ffi::c_void, bstrfilename : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { OleSavePictureFile(lpdisppicture.param().abi(), core::mem::transmute_copy(bstrfilename)) }
 }
 #[cfg(all(feature = "ocidl", feature = "windef"))]
 #[inline]
-pub unsafe fn OleTranslateColor(clr: super::OLE_COLOR, hpal: super::HPALETTE) -> windows_core::Result<super::COLORREF> {
+pub unsafe fn OleTranslateColor(clr: super::OLE_COLOR, hpal: super::HPALETTE, lpcolorref: *mut super::COLORREF) -> windows_core::HRESULT {
     windows_core::link!("oleaut32.dll" "system" fn OleTranslateColor(clr : super::OLE_COLOR, hpal : super::HPALETTE, lpcolorref : *mut super::COLORREF) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        OleTranslateColor(clr, hpal, &mut result__).map(|| result__)
-    }
+    unsafe { OleTranslateColor(clr, hpal as _, lpcolorref as _) }
 }
 pub const CLSID_CColorPropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35201_8f91_11ce_9de3_00aa004bb851);
 pub const CLSID_CFontPropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35200_8f91_11ce_9de3_00aa004bb851);
@@ -300,24 +291,23 @@ pub const DISPID_SELTEXT: i32 = -546;
 pub const DISPID_TABKEYBEHAVIOR: i32 = -545;
 pub const DISPID_TABSTOP: i32 = -516;
 pub const DISPID_TEXT: i32 = -517;
-pub const DISPID_THIS: i32 = -613;
 pub const DISPID_TOPTOBOTTOM: i32 = -612;
 pub const DISPID_VALID: i32 = -524;
 pub const DISPID_WORDWRAP: i32 = -536;
-#[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct FONTDESC {
-    pub cbSizeofstruct: u32,
+    pub cbSizeofstruct: super::UINT,
     pub lpstrName: super::LPOLESTR,
     pub cySize: super::CY,
-    pub sWeight: i16,
-    pub sCharset: i16,
+    pub sWeight: super::SHORT,
+    pub sCharset: super::SHORT,
     pub fItalic: windows_core::BOOL,
     pub fUnderline: windows_core::BOOL,
     pub fStrikethrough: windows_core::BOOL,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for FONTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -343,11 +333,11 @@ pub const GUID_YPOSPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x6
 pub const GUID_YSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x66504309_be0f_101a_8bbb_00aa00300cab);
 pub const GUID_YSIZEPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504305_be0f_101a_8bbb_00aa00300cab);
 pub const IID_IPropertyFrame: windows_core::GUID = windows_core::GUID::from_u128(0xb196b28a_bab4_101a_b69c_00aa00341d07);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPFONTDESC = *mut FONTDESC;
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "wtypesbase"))]
 pub type LPOCPFIPARAMS = *mut OCPFIPARAMS;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPPICTDESC = *mut PICTDESC;
 pub const LP_COLOR: i32 = 4;
 pub const LP_DEFAULT: i32 = 0;
@@ -372,19 +362,19 @@ pub const OCM_PARENTNOTIFY: i32 = 8720;
 pub const OCM_VKEYTOITEM: i32 = 8238;
 pub const OCM_VSCROLL: i32 = 8469;
 pub const OCM__BASE: i32 = 8192;
-#[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct OCPFIPARAMS {
-    pub cbStructSize: u32,
+    pub cbStructSize: super::ULONG,
     pub hWndOwner: super::HWND,
     pub x: i32,
     pub y: i32,
     pub lpszCaption: super::LPCOLESTR,
-    pub cObjects: u32,
-    pub lplpUnk: *mut Option<windows_core::IUnknown>,
-    pub cPages: u32,
-    pub lpPages: *mut windows_core::GUID,
+    pub cObjects: super::ULONG,
+    pub lplpUnk: *mut Option<super::LPUNKNOWN>,
+    pub cPages: super::ULONG,
+    pub lpPages: *mut super::CLSID,
     pub lcid: super::LCID,
     pub dispidInitialProperty: super::DISPID,
 }
@@ -398,12 +388,9 @@ pub const OLEMISC_INVISIBLEATRUNTIME: i32 = 1024;
 pub const OLEMISC_NOUIACTIVATE: i32 = 16384;
 pub const OLEMISC_SETCLIENTSITEFIRST: i32 = 131072;
 pub const OLEMISC_SIMPLEFRAME: i32 = 65536;
-#[cfg(feature = "wtypes")]
-pub type OLE_CANCELBOOL = super::VARIANT_BOOL;
-#[cfg(feature = "wtypes")]
-pub type OLE_ENABLEDEFAULTBOOL = super::VARIANT_BOOL;
-#[cfg(feature = "wtypes")]
-pub type OLE_OPTEXCLUSIVE = super::VARIANT_BOOL;
+pub type OLE_CANCELBOOL = i16;
+pub type OLE_ENABLEDEFAULTBOOL = i16;
+pub type OLE_OPTEXCLUSIVE = i16;
 pub type OLE_TRISTATE = i32;
 pub type OLE_XPOS_CONTAINER = f32;
 pub type OLE_XPOS_PIXELS = i32;
@@ -423,22 +410,22 @@ pub const PERPROP_E_NOPAGEAVAILABLE: super::SCODE = 0x80040200_u32 as _;
 pub const PERPROP_S_FIRST: super::SCODE = 0x40200_u32 as _;
 #[cfg(feature = "wtypesbase")]
 pub const PERPROP_S_LAST: super::SCODE = 0x4020F_u32 as _;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct PICTDESC {
-    pub cbSizeofstruct: u32,
-    pub picType: u32,
+    pub cbSizeofstruct: super::UINT,
+    pub picType: super::UINT,
     pub Anonymous: PICTDESC_0,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for PICTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union PICTDESC_0 {
     pub bmp: PICTDESC_0_0,
@@ -446,36 +433,36 @@ pub union PICTDESC_0 {
     pub icon: PICTDESC_0_2,
     pub emf: PICTDESC_0_3,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for PICTDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::HBITMAP,
     pub hpal: super::HPALETTE,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_1 {
     pub hmeta: super::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::HICON,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_3 {
     pub hemf: super::HENHMETAFILE,
 }

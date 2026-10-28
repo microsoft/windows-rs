@@ -33,33 +33,38 @@ impl core::ops::Deref for ICertAdmin {
 windows_core::imp::interface_hierarchy!(ICertAdmin, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ICertAdmin {
-    pub unsafe fn IsValidCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn IsValidCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsValidCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strserialnumber), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRevocationReason(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRevocationReason(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRevocationReason)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: i32, date: super::DATE) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "wtypes"))]
+    pub unsafe fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: super::LONG, date: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RevokeCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strserialnumber), reason, date) }
     }
-    pub unsafe fn SetRequestAttributes(&self, strconfig: &windows_core::BSTR, requestid: i32, strattributes: &windows_core::BSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetRequestAttributes(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, strattributes: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRequestAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, core::mem::transmute_copy(strattributes)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: i32, strextensionname: &windows_core::BSTR, r#type: i32, flags: i32, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, strextensionname: &windows_core::BSTR, r#type: super::LONG, flags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, core::mem::transmute_copy(strextensionname), r#type, flags, pvarvalue) }
     }
-    pub unsafe fn DenyRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn DenyRequest(&self, strconfig: &windows_core::BSTR, requestid: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DenyRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid) }
     }
-    pub unsafe fn ResubmitRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ResubmitRequest(&self, strconfig: &windows_core::BSTR, requestid: super::LONG) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResubmitRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, &mut result__).map(|| result__)
@@ -69,13 +74,15 @@ impl ICertAdmin {
     pub unsafe fn PublishCRL(&self, strconfig: &windows_core::BSTR, date: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PublishCRL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), date) }
     }
-    pub unsafe fn GetCRL(&self, strconfig: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCRL(&self, strconfig: &windows_core::BSTR, flags: super::LONG) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCRL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ImportCertificate(&self, strconfig: &windows_core::BSTR, strcertificate: &windows_core::BSTR, flags: i32) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ImportCertificate(&self, strconfig: &windows_core::BSTR, strcertificate: &windows_core::BSTR, flags: super::LONG) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strcertificate), flags, &mut result__).map(|| result__)
@@ -87,43 +94,64 @@ impl ICertAdmin {
 #[doc(hidden)]
 pub struct ICertAdmin_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub IsValidCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetRevocationReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "wtypes")]
-    pub RevokeCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::DATE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(feature = "shared")]
+    pub IsValidCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    IsValidCertificate: usize,
+    #[cfg(feature = "shared")]
+    pub GetRevocationReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRevocationReason: usize,
+    #[cfg(all(feature = "shared", feature = "wtypes"))]
+    pub RevokeCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypes")))]
     RevokeCertificate: usize,
-    pub SetRequestAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, i32, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub SetRequestAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetRequestAttributes: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetCertificateExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut core::ffi::c_void, super::LONG, super::LONG, *const super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetCertificateExtension: usize,
-    pub DenyRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ResubmitRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub DenyRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    DenyRequest: usize,
+    #[cfg(feature = "shared")]
+    pub ResubmitRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ResubmitRequest: usize,
     #[cfg(feature = "wtypes")]
     pub PublishCRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     PublishCRL: usize,
-    pub GetCRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ImportCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCRL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCRL: usize,
+    #[cfg(feature = "shared")]
+    pub ImportCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ImportCertificate: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertAdmin_Impl: super::IDispatch_Impl {
-    fn IsValidCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn GetRevocationReason(&self) -> windows_core::Result<i32>;
-    fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: i32, date: super::DATE) -> windows_core::Result<()>;
-    fn SetRequestAttributes(&self, strconfig: &windows_core::BSTR, requestid: i32, strattributes: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: i32, strextensionname: &windows_core::BSTR, r#type: i32, flags: i32, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
-    fn DenyRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::Result<()>;
-    fn ResubmitRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::Result<i32>;
+    fn IsValidCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
+    fn GetRevocationReason(&self) -> windows_core::Result<super::LONG>;
+    fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: super::LONG, date: super::DATE) -> windows_core::Result<()>;
+    fn SetRequestAttributes(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, strattributes: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, strextensionname: &windows_core::BSTR, r#type: super::LONG, flags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
+    fn DenyRequest(&self, strconfig: &windows_core::BSTR, requestid: super::LONG) -> windows_core::Result<()>;
+    fn ResubmitRequest(&self, strconfig: &windows_core::BSTR, requestid: super::LONG) -> windows_core::Result<super::LONG>;
     fn PublishCRL(&self, strconfig: &windows_core::BSTR, date: super::DATE) -> windows_core::Result<()>;
-    fn GetCRL(&self, strconfig: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn ImportCertificate(&self, strconfig: &windows_core::BSTR, strcertificate: &windows_core::BSTR, flags: i32) -> windows_core::Result<i32>;
+    fn GetCRL(&self, strconfig: &windows_core::BSTR, flags: super::LONG) -> windows_core::Result<windows_core::BSTR>;
+    fn ImportCertificate(&self, strconfig: &windows_core::BSTR, strcertificate: &windows_core::BSTR, flags: super::LONG) -> windows_core::Result<super::LONG>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertAdmin_Vtbl {
     pub const fn new<Identity: ICertAdmin_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsValidCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, pdisposition: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsValidCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::IsValidCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strserialnumber)) {
@@ -135,7 +163,7 @@ impl ICertAdmin_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRevocationReason<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preason: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRevocationReason<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preason: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::GetRevocationReason(this) {
@@ -147,31 +175,31 @@ impl ICertAdmin_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RevokeCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, reason: i32, date: super::DATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn RevokeCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strserialnumber: *mut core::ffi::c_void, reason: super::LONG, date: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin_Impl::RevokeCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strserialnumber), core::mem::transmute_copy(&reason), core::mem::transmute_copy(&date)).into()
             }
         }
-        unsafe extern "system" fn SetRequestAttributes<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: i32, strattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRequestAttributes<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, strattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin_Impl::SetRequestAttributes(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strattributes)).into()
             }
         }
-        unsafe extern "system" fn SetCertificateExtension<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: i32, strextensionname: *mut core::ffi::c_void, r#type: i32, flags: i32, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCertificateExtension<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, strextensionname: *mut core::ffi::c_void, r#type: super::LONG, flags: super::LONG, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin_Impl::SetCertificateExtension(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarvalue)).into()
             }
         }
-        unsafe extern "system" fn DenyRequest<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DenyRequest<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin_Impl::DenyRequest(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid)).into()
             }
         }
-        unsafe extern "system" fn ResubmitRequest<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: i32, pdisposition: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResubmitRequest<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, pdisposition: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::ResubmitRequest(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid)) {
@@ -189,7 +217,7 @@ impl ICertAdmin_Vtbl {
                 ICertAdmin_Impl::PublishCRL(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&date)).into()
             }
         }
-        unsafe extern "system" fn GetCRL<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: i32, pstrcrl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCRL<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: super::LONG, pstrcrl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::GetCRL(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&flags)) {
@@ -201,7 +229,7 @@ impl ICertAdmin_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ImportCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strcertificate: *mut core::ffi::c_void, flags: i32, prequestid: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, strcertificate: *mut core::ffi::c_void, flags: super::LONG, prequestid: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::ImportCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strcertificate), core::mem::transmute_copy(&flags)) {
@@ -231,7 +259,7 @@ impl ICertAdmin_Vtbl {
         iid == &<ICertAdmin as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertAdmin {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertAdmin2, ICertAdmin2_Vtbl, 0xf7c3ac41_b8ce_4fb4_aa58_3d1dc0e36b39);
@@ -246,61 +274,66 @@ impl core::ops::Deref for ICertAdmin2 {
 windows_core::imp::interface_hierarchy!(ICertAdmin2, windows_core::IUnknown, super::IDispatch, ICertAdmin);
 #[cfg(feature = "oaidl")]
 impl ICertAdmin2 {
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: super::DATE, crlflags: i32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "wtypes"))]
+    pub unsafe fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: super::DATE, crlflags: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PublishCRLs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), date, crlflags) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, flags: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCAProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), propid, propindex, proptype, flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCAProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), propid, propindex, proptype, pvarpropertyvalue) }
     }
-    pub unsafe fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: super::LONG) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCAPropertyFlags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), propid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCAPropertyDisplayName(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<windows_core::BSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCAPropertyDisplayName(&self, strconfig: &windows_core::BSTR, propid: super::LONG) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCAPropertyDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), propid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetArchivedKey(&self, strconfig: &windows_core::BSTR, requestid: i32, flags: i32) -> windows_core::Result<windows_core::BSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetArchivedKey(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, flags: super::LONG) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetArchivedKey)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConfigEntry)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strnodepath), core::mem::transmute_copy(strentryname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR, pvarentry: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetConfigEntry)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strnodepath), core::mem::transmute_copy(strentryname), pvarentry) }
     }
-    pub unsafe fn ImportKey(&self, strconfig: &windows_core::BSTR, requestid: i32, strcerthash: &windows_core::BSTR, flags: i32, strkey: &windows_core::BSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ImportKey(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, strcerthash: &windows_core::BSTR, flags: super::LONG, strkey: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ImportKey)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, core::mem::transmute_copy(strcerthash), flags, core::mem::transmute_copy(strkey)) }
     }
-    pub unsafe fn GetMyRoles(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMyRoles(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMyRoles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: i32, date: super::DATE, table: i32, rowid: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "shared", feature = "wtypes"))]
+    pub unsafe fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: super::LONG, date: super::DATE, table: super::LONG, rowid: super::LONG) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeleteRow)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), flags, date, table, rowid, &mut result__).map(|| result__)
@@ -312,60 +345,75 @@ impl ICertAdmin2 {
 #[doc(hidden)]
 pub struct ICertAdmin2_Vtbl {
     pub base__: ICertAdmin_Vtbl,
-    #[cfg(feature = "wtypes")]
-    pub PublishCRLs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DATE, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(all(feature = "shared", feature = "wtypes"))]
+    pub PublishCRLs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DATE, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypes")))]
     PublishCRLs: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetCAProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetCAProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, super::LONG, super::LONG, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCAProperty: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetCAProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetCAProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, super::LONG, super::LONG, *const super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetCAProperty: usize,
-    pub GetCAPropertyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    pub GetCAPropertyDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetArchivedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "shared")]
+    pub GetCAPropertyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCAPropertyFlags: usize,
+    #[cfg(feature = "shared")]
+    pub GetCAPropertyDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCAPropertyDisplayName: usize,
+    #[cfg(feature = "shared")]
+    pub GetArchivedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, super::LONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetArchivedKey: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetConfigEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetConfigEntry: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetConfigEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetConfigEntry: usize,
-    pub ImportKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetMyRoles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "wtypes")]
-    pub DeleteRow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::DATE, i32, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(feature = "shared")]
+    pub ImportKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, *mut core::ffi::c_void, super::LONG, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ImportKey: usize,
+    #[cfg(feature = "shared")]
+    pub GetMyRoles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMyRoles: usize,
+    #[cfg(all(feature = "shared", feature = "wtypes"))]
+    pub DeleteRow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LONG, super::DATE, super::LONG, super::LONG, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypes")))]
     DeleteRow: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertAdmin2_Impl: ICertAdmin_Impl {
-    fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: super::DATE, crlflags: i32) -> windows_core::Result<()>;
-    fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::VARIANT>;
-    fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, pvarpropertyvalue: *const super::VARIANT) -> windows_core::Result<()>;
-    fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<i32>;
-    fn GetCAPropertyDisplayName(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetArchivedKey(&self, strconfig: &windows_core::BSTR, requestid: i32, flags: i32) -> windows_core::Result<windows_core::BSTR>;
+    fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: super::DATE, crlflags: super::LONG) -> windows_core::Result<()>;
+    fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, flags: super::LONG) -> windows_core::Result<super::VARIANT>;
+    fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::Result<()>;
+    fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: super::LONG) -> windows_core::Result<super::LONG>;
+    fn GetCAPropertyDisplayName(&self, strconfig: &windows_core::BSTR, propid: super::LONG) -> windows_core::Result<windows_core::BSTR>;
+    fn GetArchivedKey(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, flags: super::LONG) -> windows_core::Result<windows_core::BSTR>;
     fn GetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn SetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR, pvarentry: *const super::VARIANT) -> windows_core::Result<()>;
-    fn ImportKey(&self, strconfig: &windows_core::BSTR, requestid: i32, strcerthash: &windows_core::BSTR, flags: i32, strkey: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetMyRoles(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: i32, date: super::DATE, table: i32, rowid: i32) -> windows_core::Result<i32>;
+    fn ImportKey(&self, strconfig: &windows_core::BSTR, requestid: super::LONG, strcerthash: &windows_core::BSTR, flags: super::LONG, strkey: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetMyRoles(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
+    fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: super::LONG, date: super::DATE, table: super::LONG, rowid: super::LONG) -> windows_core::Result<super::LONG>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertAdmin2_Vtbl {
     pub const fn new<Identity: ICertAdmin2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PublishCRLs<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: super::DATE, crlflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PublishCRLs<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, date: super::DATE, crlflags: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin2_Impl::PublishCRLs(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&date), core::mem::transmute_copy(&crlflags)).into()
             }
         }
-        unsafe extern "system" fn GetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, flags: super::LONG, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::GetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
@@ -377,13 +425,13 @@ impl ICertAdmin2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: i32, propindex: i32, proptype: i32, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, propindex: super::LONG, proptype: super::LONG, pvarpropertyvalue: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin2_Impl::SetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&pvarpropertyvalue)).into()
             }
         }
-        unsafe extern "system" fn GetCAPropertyFlags<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: i32, ppropflags: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCAPropertyFlags<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, ppropflags: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::GetCAPropertyFlags(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
@@ -395,7 +443,7 @@ impl ICertAdmin2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCAPropertyDisplayName<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: i32, pstrdisplayname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCAPropertyDisplayName<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, propid: super::LONG, pstrdisplayname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::GetCAPropertyDisplayName(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
@@ -407,7 +455,7 @@ impl ICertAdmin2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetArchivedKey<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: i32, flags: i32, pstrarchivedkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetArchivedKey<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, flags: super::LONG, pstrarchivedkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::GetArchivedKey(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&flags)) {
@@ -437,13 +485,13 @@ impl ICertAdmin2_Vtbl {
                 ICertAdmin2_Impl::SetConfigEntry(this, core::mem::transmute(&strconfig), core::mem::transmute(&strnodepath), core::mem::transmute(&strentryname), core::mem::transmute_copy(&pvarentry)).into()
             }
         }
-        unsafe extern "system" fn ImportKey<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: i32, strcerthash: *mut core::ffi::c_void, flags: i32, strkey: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportKey<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, requestid: super::LONG, strcerthash: *mut core::ffi::c_void, flags: super::LONG, strkey: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertAdmin2_Impl::ImportKey(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strcerthash), core::mem::transmute_copy(&flags), core::mem::transmute(&strkey)).into()
             }
         }
-        unsafe extern "system" fn GetMyRoles<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, proles: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMyRoles<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, proles: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::GetMyRoles(this, core::mem::transmute(&strconfig)) {
@@ -455,7 +503,7 @@ impl ICertAdmin2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DeleteRow<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: i32, date: super::DATE, table: i32, rowid: i32, pcdeleted: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteRow<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void, flags: super::LONG, date: super::DATE, table: super::LONG, rowid: super::LONG, pcdeleted: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::DeleteRow(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&date), core::mem::transmute_copy(&table), core::mem::transmute_copy(&rowid)) {
@@ -486,7 +534,7 @@ impl ICertAdmin2_Vtbl {
         iid == &<ICertAdmin2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertAdmin as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertAdmin2 {}
 pub const IKF_OVERWRITE: i32 = 65536;
 #[cfg(feature = "oaidl")]
@@ -522,7 +570,8 @@ impl IOCSPAdmin {
     pub unsafe fn SetConfiguration(&self, bstrservername: &windows_core::BSTR, bforce: super::VARIANT_BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservername), bforce) }
     }
-    pub unsafe fn GetMyRoles(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMyRoles(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMyRoles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservername), &mut result__).map(|| result__)
@@ -540,14 +589,14 @@ impl IOCSPAdmin {
             (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservername), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetSigningCertificates(&self, bstrservername: &windows_core::BSTR, pcacertvar: *const super::VARIANT) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSigningCertificates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservername), pcacertvar, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetHashAlgorithms(&self, bstrservername: &windows_core::BSTR, bstrcaid: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -570,33 +619,36 @@ pub struct IOCSPAdmin_Vtbl {
     pub SetConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetConfiguration: usize,
-    pub GetMyRoles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMyRoles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMyRoles: usize,
     pub Ping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetSigningCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetSigningCertificates: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetHashAlgorithms: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetHashAlgorithms: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOCSPAdmin_Impl: super::IDispatch_Impl {
     fn OCSPServiceProperties(&self) -> windows_core::Result<IOCSPPropertyCollection>;
     fn OCSPCAConfigurationCollection(&self) -> windows_core::Result<IOCSPCAConfigurationCollection>;
     fn GetConfiguration(&self, bstrservername: &windows_core::BSTR, bforce: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetConfiguration(&self, bstrservername: &windows_core::BSTR, bforce: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn GetMyRoles(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<i32>;
+    fn GetMyRoles(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<super::LONG>;
     fn Ping(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetSecurity(&self, bstrservername: &windows_core::BSTR, bstrval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetSecurity(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn GetSigningCertificates(&self, bstrservername: &windows_core::BSTR, pcacertvar: *const super::VARIANT) -> windows_core::Result<super::VARIANT>;
     fn GetHashAlgorithms(&self, bstrservername: &windows_core::BSTR, bstrcaid: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOCSPAdmin_Vtbl {
     pub const fn new<Identity: IOCSPAdmin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OCSPServiceProperties<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -635,7 +687,7 @@ impl IOCSPAdmin_Vtbl {
                 IOCSPAdmin_Impl::SetConfiguration(this, core::mem::transmute(&bstrservername), core::mem::transmute_copy(&bforce)).into()
             }
         }
-        unsafe extern "system" fn GetMyRoles<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, proles: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMyRoles<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: *mut core::ffi::c_void, proles: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPAdmin_Impl::GetMyRoles(this, core::mem::transmute(&bstrservername)) {
@@ -713,7 +765,7 @@ impl IOCSPAdmin_Vtbl {
         iid == &<IOCSPAdmin as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOCSPAdmin {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IOCSPCAConfiguration, IOCSPCAConfiguration_Vtbl, 0xaec92b40_3d46_433f_87d1_b84d5c1e790d);
@@ -734,7 +786,7 @@ impl IOCSPCAConfiguration {
             (windows_core::Interface::vtable(self).Identifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CACertificate(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -750,36 +802,41 @@ impl IOCSPCAConfiguration {
     pub unsafe fn SetHashAlgorithm(&self, newval: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHashAlgorithm)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)) }
     }
-    pub unsafe fn SigningFlags(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SigningFlags(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SigningFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSigningFlags(&self, newval: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSigningFlags(&self, newval: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSigningFlags)(windows_core::Interface::as_raw(self), newval) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SigningCertificate(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SigningCertificate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetSigningCertificate(&self, newval: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSigningCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)) }
     }
-    pub unsafe fn ReminderDuration(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReminderDuration(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReminderDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetReminderDuration(&self, newval: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetReminderDuration(&self, newval: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetReminderDuration)(windows_core::Interface::as_raw(self), newval) }
     }
-    pub unsafe fn ErrorCode(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ErrorCode(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ErrorCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -791,7 +848,8 @@ impl IOCSPCAConfiguration {
             (windows_core::Interface::vtable(self).CSPName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn KeySpec(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn KeySpec(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KeySpec)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -806,14 +864,14 @@ impl IOCSPCAConfiguration {
     pub unsafe fn SetProviderCLSID(&self, newval: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProviderCLSID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ProviderProperties(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProviderProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProviderProperties(&self, newval: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProviderProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)) }
     }
@@ -824,14 +882,14 @@ impl IOCSPCAConfiguration {
             (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn LocalRevocationInformation(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocalRevocationInformation)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetLocalRevocationInformation(&self, newval: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLocalRevocationInformation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)) }
     }
@@ -860,69 +918,87 @@ impl IOCSPCAConfiguration {
 pub struct IOCSPCAConfiguration_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Identifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CACertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CACertificate: usize,
     pub HashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetHashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SigningFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetSigningFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "shared")]
+    pub SigningFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SigningFlags: usize,
+    #[cfg(feature = "shared")]
+    pub SetSigningFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSigningFlags: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SigningCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SigningCertificate: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetSigningCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetSigningCertificate: usize,
-    pub ReminderDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetReminderDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ReminderDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReminderDuration: usize,
+    #[cfg(feature = "shared")]
+    pub SetReminderDuration: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetReminderDuration: usize,
+    #[cfg(feature = "shared")]
+    pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ErrorCode: usize,
     pub CSPName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub KeySpec: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub KeySpec: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    KeySpec: usize,
     pub ProviderCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetProviderCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ProviderProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ProviderProperties: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetProviderProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetProviderProperties: usize,
     #[cfg(feature = "wtypes")]
     pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     Modified: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub LocalRevocationInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     LocalRevocationInformation: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetLocalRevocationInformation: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetLocalRevocationInformation: usize,
     pub SigningCertificateTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSigningCertificateTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CAConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCAConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOCSPCAConfiguration_Impl: super::IDispatch_Impl {
     fn Identifier(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CACertificate(&self) -> windows_core::Result<super::VARIANT>;
     fn HashAlgorithm(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetHashAlgorithm(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SigningFlags(&self) -> windows_core::Result<u32>;
-    fn SetSigningFlags(&self, newval: u32) -> windows_core::Result<()>;
+    fn SigningFlags(&self) -> windows_core::Result<super::ULONG>;
+    fn SetSigningFlags(&self, newval: super::ULONG) -> windows_core::Result<()>;
     fn SigningCertificate(&self) -> windows_core::Result<super::VARIANT>;
     fn SetSigningCertificate(&self, newval: &super::VARIANT) -> windows_core::Result<()>;
-    fn ReminderDuration(&self) -> windows_core::Result<u32>;
-    fn SetReminderDuration(&self, newval: u32) -> windows_core::Result<()>;
-    fn ErrorCode(&self) -> windows_core::Result<u32>;
+    fn ReminderDuration(&self) -> windows_core::Result<super::ULONG>;
+    fn SetReminderDuration(&self, newval: super::ULONG) -> windows_core::Result<()>;
+    fn ErrorCode(&self) -> windows_core::Result<super::ULONG>;
     fn CSPName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn KeySpec(&self) -> windows_core::Result<u32>;
+    fn KeySpec(&self) -> windows_core::Result<super::ULONG>;
     fn ProviderCLSID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetProviderCLSID(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ProviderProperties(&self) -> windows_core::Result<super::VARIANT>;
@@ -935,7 +1011,7 @@ pub trait IOCSPCAConfiguration_Impl: super::IDispatch_Impl {
     fn CAConfig(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetCAConfig(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOCSPCAConfiguration_Vtbl {
     pub const fn new<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Identifier<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -980,7 +1056,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 IOCSPCAConfiguration_Impl::SetHashAlgorithm(this, core::mem::transmute(&newval)).into()
             }
         }
-        unsafe extern "system" fn SigningFlags<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SigningFlags<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::SigningFlags(this) {
@@ -992,7 +1068,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSigningFlags<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSigningFlags<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOCSPCAConfiguration_Impl::SetSigningFlags(this, core::mem::transmute_copy(&newval)).into()
@@ -1016,7 +1092,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 IOCSPCAConfiguration_Impl::SetSigningCertificate(this, core::mem::transmute(&newval)).into()
             }
         }
-        unsafe extern "system" fn ReminderDuration<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReminderDuration<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::ReminderDuration(this) {
@@ -1028,13 +1104,13 @@ impl IOCSPCAConfiguration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetReminderDuration<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReminderDuration<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOCSPCAConfiguration_Impl::SetReminderDuration(this, core::mem::transmute_copy(&newval)).into()
             }
         }
-        unsafe extern "system" fn ErrorCode<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::ErrorCode(this) {
@@ -1058,7 +1134,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn KeySpec<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn KeySpec<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::KeySpec(this) {
@@ -1204,7 +1280,7 @@ impl IOCSPCAConfiguration_Vtbl {
         iid == &<IOCSPCAConfiguration as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOCSPCAConfiguration {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IOCSPCAConfigurationCollection, IOCSPCAConfigurationCollection_Vtbl, 0x2bebea0b_5ece_4f28_a91c_86b4bb20f0d3);
@@ -1225,27 +1301,28 @@ impl IOCSPCAConfigurationCollection {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Item(&self, index: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Count(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ItemByName(&self, bstridentifier: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstridentifier), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateCAConfiguration(&self, bstridentifier: &windows_core::BSTR, varcacert: &super::VARIANT) -> windows_core::Result<IOCSPCAConfiguration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1262,31 +1339,34 @@ impl IOCSPCAConfigurationCollection {
 pub struct IOCSPCAConfigurationCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "shared")]
+    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Count: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ItemByName: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CreateCAConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateCAConfiguration: usize,
     pub DeleteCAConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOCSPCAConfigurationCollection_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, index: i32) -> windows_core::Result<super::VARIANT>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn Item(&self, index: super::LONG) -> windows_core::Result<super::VARIANT>;
+    fn Count(&self) -> windows_core::Result<super::LONG>;
     fn ItemByName(&self, bstridentifier: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn CreateCAConfiguration(&self, bstridentifier: &windows_core::BSTR, varcacert: &super::VARIANT) -> windows_core::Result<IOCSPCAConfiguration>;
     fn DeleteCAConfiguration(&self, bstridentifier: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOCSPCAConfigurationCollection_Vtbl {
     pub const fn new<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1301,7 +1381,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Item<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, pval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfigurationCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
@@ -1313,7 +1393,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Count<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Count<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfigurationCollection_Impl::Count(this) {
@@ -1369,7 +1449,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         iid == &<IOCSPCAConfigurationCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOCSPCAConfigurationCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IOCSPProperty, IOCSPProperty_Vtbl, 0x66fb7839_5f04_4c25_ad18_9ff1a8376ee0);
@@ -1390,14 +1470,14 @@ impl IOCSPProperty {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, newval: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)) }
     }
@@ -1415,27 +1495,27 @@ impl IOCSPProperty {
 pub struct IOCSPProperty_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Value: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     #[cfg(feature = "wtypes")]
     pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     Modified: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOCSPProperty_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Value(&self) -> windows_core::Result<super::VARIANT>;
     fn SetValue(&self, newval: &super::VARIANT) -> windows_core::Result<()>;
     fn Modified(&self) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOCSPProperty_Vtbl {
     pub const fn new<Identity: IOCSPProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1492,7 +1572,7 @@ impl IOCSPProperty_Vtbl {
         iid == &<IOCSPProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOCSPProperty {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IOCSPPropertyCollection, IOCSPPropertyCollection_Vtbl, 0x2597c18d_54e6_4b74_9fa9_a6bfda99cbbe);
@@ -1513,27 +1593,28 @@ impl IOCSPPropertyCollection {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Item(&self, index: super::LONG) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Count(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ItemByName(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateProperty(&self, bstrpropname: &windows_core::BSTR, pvarpropvalue: *const super::VARIANT) -> windows_core::Result<IOCSPProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1543,11 +1624,11 @@ impl IOCSPPropertyCollection {
     pub unsafe fn DeleteProperty(&self, bstrpropname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InitializeFromProperties(&self, pvarproperties: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromProperties)(windows_core::Interface::as_raw(self), pvarproperties) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllProperties(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1561,41 +1642,44 @@ impl IOCSPPropertyCollection {
 pub struct IOCSPPropertyCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "shared")]
+    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Count: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ItemByName: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CreateProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateProperty: usize,
     pub DeleteProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub InitializeFromProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     InitializeFromProperties: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAllProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetAllProperties: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOCSPPropertyCollection_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, index: i32) -> windows_core::Result<super::VARIANT>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn Item(&self, index: super::LONG) -> windows_core::Result<super::VARIANT>;
+    fn Count(&self) -> windows_core::Result<super::LONG>;
     fn ItemByName(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn CreateProperty(&self, bstrpropname: &windows_core::BSTR, pvarpropvalue: *const super::VARIANT) -> windows_core::Result<IOCSPProperty>;
     fn DeleteProperty(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromProperties(&self, pvarproperties: *const super::VARIANT) -> windows_core::Result<()>;
     fn GetAllProperties(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOCSPPropertyCollection_Vtbl {
     pub const fn new<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1610,7 +1694,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Item<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::LONG, pval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPPropertyCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
@@ -1622,7 +1706,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Count<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Count<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPPropertyCollection_Impl::Count(this) {
@@ -1698,7 +1782,7 @@ impl IOCSPPropertyCollection_Vtbl {
         iid == &<IOCSPPropertyCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOCSPPropertyCollection {}
 pub const KRA_DISP_EXPIRED: i32 = 0;
 pub const KRA_DISP_INVALID: i32 = 4;

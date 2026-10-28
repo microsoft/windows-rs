@@ -1,52 +1,54 @@
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 pub type LPQOS_DIFFSERV = *mut QOS_DIFFSERV;
+#[cfg(feature = "shared")]
 pub type LPQOS_DIFFSERV_RULE = *mut QOS_DIFFSERV_RULE;
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 pub type LPQOS_DS_CLASS = *mut QOS_DS_CLASS;
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
 pub type LPQOS_FRIENDLY_NAME = *mut QOS_FRIENDLY_NAME;
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 pub type LPQOS_TCP_TRAFFIC = *mut QOS_TCP_TRAFFIC;
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 pub type LPQOS_TRAFFIC_CLASS = *mut QOS_TRAFFIC_CLASS;
 #[repr(C)]
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QOS_DIFFSERV {
     pub ObjectHdr: super::QOS_OBJECT_HDR,
-    pub DSFieldCount: u32,
-    pub DiffservRule: [u8; 1],
+    pub DSFieldCount: super::ULONG,
+    pub DiffservRule: [super::UCHAR; 1],
 }
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 impl Default for QOS_DIFFSERV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_DIFFSERV_RULE {
-    pub InboundDSField: u8,
-    pub ConformingOutboundDSField: u8,
-    pub NonConformingOutboundDSField: u8,
-    pub ConformingUserPriority: u8,
-    pub NonConformingUserPriority: u8,
+    pub InboundDSField: super::UCHAR,
+    pub ConformingOutboundDSField: super::UCHAR,
+    pub NonConformingOutboundDSField: super::UCHAR,
+    pub ConformingUserPriority: super::UCHAR,
+    pub NonConformingUserPriority: super::UCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_DS_CLASS {
     pub ObjectHdr: super::QOS_OBJECT_HDR,
-    pub DSField: u32,
+    pub DSField: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QOS_FRIENDLY_NAME {
     pub ObjectHdr: super::QOS_OBJECT_HDR,
-    pub FriendlyName: [u16; 256],
+    pub FriendlyName: [super::WCHAR; 256],
 }
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared", feature = "winnt"))]
 impl Default for QOS_FRIENDLY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -59,16 +61,16 @@ pub const QOS_OBJECT_FRIENDLY_NAME: i32 = 4005;
 pub const QOS_OBJECT_TCP_TRAFFIC: i32 = 4004;
 pub const QOS_OBJECT_TRAFFIC_CLASS: i32 = 4002;
 #[repr(C)]
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_TCP_TRAFFIC {
     pub ObjectHdr: super::QOS_OBJECT_HDR,
 }
 #[repr(C)]
-#[cfg(feature = "qos")]
+#[cfg(all(feature = "qos", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_TRAFFIC_CLASS {
     pub ObjectHdr: super::QOS_OBJECT_HDR,
-    pub TrafficClass: u32,
+    pub TrafficClass: super::ULONG,
 }
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: i32 = 4000;

@@ -203,7 +203,8 @@ impl ISpellChecker {
     {
         unsafe { (windows_core::Interface::vtable(self).AutoCorrect)(windows_core::Interface::as_raw(self), from.param().abi(), to.param().abi()) }
     }
-    pub unsafe fn GetOptionValue<P0>(&self, optionid: P0) -> windows_core::Result<u8>
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOptionValue<P0>(&self, optionid: P0) -> windows_core::Result<super::BYTE>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -231,7 +232,8 @@ impl ISpellChecker {
             (windows_core::Interface::vtable(self).LocalizedName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn add_SpellCheckerChanged<P0>(&self, handler: P0) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn add_SpellCheckerChanged<P0>(&self, handler: P0) -> windows_core::Result<super::DWORD>
     where
         P0: windows_core::Param<ISpellCheckerChangedEventHandler>,
     {
@@ -240,7 +242,8 @@ impl ISpellChecker {
             (windows_core::Interface::vtable(self).add_SpellCheckerChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn remove_SpellCheckerChanged(&self, eventcookie: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).remove_SpellCheckerChanged)(windows_core::Interface::as_raw(self), eventcookie) }
     }
     pub unsafe fn GetOptionDescription<P0>(&self, optionid: P0) -> windows_core::Result<IOptionDescription>
@@ -275,19 +278,28 @@ pub struct ISpellChecker_Vtbl {
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Ignore: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub AutoCorrect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetOptionValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u8) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetOptionValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOptionValue: usize,
     #[cfg(feature = "objidlbase")]
     pub OptionIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidlbase"))]
     OptionIds: usize,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub LocalizedName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub add_SpellCheckerChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub remove_SpellCheckerChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub add_SpellCheckerChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    add_SpellCheckerChanged: usize,
+    #[cfg(feature = "shared")]
+    pub remove_SpellCheckerChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    remove_SpellCheckerChanged: usize,
     pub GetOptionDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ComprehensiveCheck: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait ISpellChecker_Impl: windows_core::IUnknownImpl {
     fn LanguageTag(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Check(&self, text: &windows_core::PCWSTR) -> windows_core::Result<IEnumSpellingError>;
@@ -295,16 +307,16 @@ pub trait ISpellChecker_Impl: windows_core::IUnknownImpl {
     fn Add(&self, word: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Ignore(&self, word: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AutoCorrect(&self, from: &windows_core::PCWSTR, to: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetOptionValue(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<u8>;
+    fn GetOptionValue(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<super::BYTE>;
     fn OptionIds(&self) -> windows_core::Result<super::IEnumString>;
     fn Id(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn LocalizedName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn add_SpellCheckerChanged(&self, handler: windows_core::Ref<ISpellCheckerChangedEventHandler>) -> windows_core::Result<u32>;
-    fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> windows_core::Result<()>;
+    fn add_SpellCheckerChanged(&self, handler: windows_core::Ref<ISpellCheckerChangedEventHandler>) -> windows_core::Result<super::DWORD>;
+    fn remove_SpellCheckerChanged(&self, eventcookie: super::DWORD) -> windows_core::Result<()>;
     fn GetOptionDescription(&self, optionid: &windows_core::PCWSTR) -> windows_core::Result<IOptionDescription>;
     fn ComprehensiveCheck(&self, text: &windows_core::PCWSTR) -> windows_core::Result<IEnumSpellingError>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl ISpellChecker_Vtbl {
     pub const fn new<Identity: ISpellChecker_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LanguageTag<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -361,7 +373,7 @@ impl ISpellChecker_Vtbl {
                 ISpellChecker_Impl::AutoCorrect(this, core::mem::transmute(&from), core::mem::transmute(&to)).into()
             }
         }
-        unsafe extern "system" fn GetOptionValue<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: windows_core::PCWSTR, value: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOptionValue<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionid: windows_core::PCWSTR, value: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpellChecker_Impl::GetOptionValue(this, core::mem::transmute(&optionid)) {
@@ -409,7 +421,7 @@ impl ISpellChecker_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn add_SpellCheckerChanged<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, eventcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn add_SpellCheckerChanged<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, eventcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpellChecker_Impl::add_SpellCheckerChanged(this, core::mem::transmute_copy(&handler)) {
@@ -421,7 +433,7 @@ impl ISpellChecker_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn remove_SpellCheckerChanged<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn remove_SpellCheckerChanged<Identity: ISpellChecker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISpellChecker_Impl::remove_SpellCheckerChanged(this, core::mem::transmute_copy(&eventcookie)).into()
@@ -473,7 +485,7 @@ impl ISpellChecker_Vtbl {
         iid == &<ISpellChecker as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for ISpellChecker {}
 windows_core::imp::define_interface!(ISpellChecker2, ISpellChecker2_Vtbl, 0xe7ed1c71_87f7_4378_a840_c9200dacee47);
 impl core::ops::Deref for ISpellChecker2 {
@@ -497,11 +509,11 @@ pub struct ISpellChecker2_Vtbl {
     pub base__: ISpellChecker_Vtbl,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 pub trait ISpellChecker2_Impl: ISpellChecker_Impl {
     fn Remove(&self, word: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl ISpellChecker2_Vtbl {
     pub const fn new<Identity: ISpellChecker2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Remove<Identity: ISpellChecker2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, word: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -516,7 +528,7 @@ impl ISpellChecker2_Vtbl {
         iid == &<ISpellChecker2 as windows_core::Interface>::IID || iid == &<ISpellChecker as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 impl windows_core::RuntimeName for ISpellChecker2 {}
 windows_core::imp::define_interface!(ISpellCheckerChangedEventHandler, ISpellCheckerChangedEventHandler_Vtbl, 0x0b83a5b0_792f_4eab_9799_acf52c5ed08a);
 windows_core::imp::interface_hierarchy!(ISpellCheckerChangedEventHandler, windows_core::IUnknown);
@@ -653,13 +665,15 @@ impl windows_core::RuntimeName for ISpellCheckerFactory {}
 windows_core::imp::define_interface!(ISpellingError, ISpellingError_Vtbl, 0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3);
 windows_core::imp::interface_hierarchy!(ISpellingError, windows_core::IUnknown);
 impl ISpellingError {
-    pub unsafe fn StartIndex(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn StartIndex(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Length(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Length(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -682,20 +696,28 @@ impl ISpellingError {
 #[doc(hidden)]
 pub struct ISpellingError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub StartIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub StartIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    StartIndex: usize,
+    #[cfg(feature = "shared")]
+    pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Length: usize,
     pub CorrectiveAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CORRECTIVE_ACTION) -> windows_core::HRESULT,
     pub Replacement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ISpellingError_Impl: windows_core::IUnknownImpl {
-    fn StartIndex(&self) -> windows_core::Result<u32>;
-    fn Length(&self) -> windows_core::Result<u32>;
+    fn StartIndex(&self) -> windows_core::Result<super::ULONG>;
+    fn Length(&self) -> windows_core::Result<super::ULONG>;
     fn CorrectiveAction(&self) -> windows_core::Result<CORRECTIVE_ACTION>;
     fn Replacement(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
+#[cfg(feature = "shared")]
 impl ISpellingError_Vtbl {
     pub const fn new<Identity: ISpellingError_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn StartIndex<Identity: ISpellingError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartIndex<Identity: ISpellingError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpellingError_Impl::StartIndex(this) {
@@ -707,7 +729,7 @@ impl ISpellingError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Length<Identity: ISpellingError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Length<Identity: ISpellingError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpellingError_Impl::Length(this) {
@@ -755,6 +777,7 @@ impl ISpellingError_Vtbl {
         iid == &<ISpellingError as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISpellingError {}
 windows_core::imp::define_interface!(IUserDictionariesRegistrar, IUserDictionariesRegistrar_Vtbl, 0xaa176b85_0e12_4844_8e1a_eef1da77f586);
 windows_core::imp::interface_hierarchy!(IUserDictionariesRegistrar, windows_core::IUnknown);

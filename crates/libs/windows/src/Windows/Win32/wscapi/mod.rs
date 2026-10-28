@@ -6,21 +6,22 @@ pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR
         WscGetAntiMalwareUri(&mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: PWSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT {
-    windows_core::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : PWSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
-    unsafe { WscGetSecurityProviderHealth(providers, phealth) }
+pub unsafe fn WscGetSecurityProviderHealth(providers: super::DWORD, phealth: PWSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT {
+    windows_core::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : super::DWORD, phealth : PWSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
+    unsafe { WscGetSecurityProviderHealth(providers, phealth as _) }
 }
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::HRESULT {
     windows_core::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_core::HRESULT);
     unsafe { WscQueryAntiMalwareUri() }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: super::PHANDLE, lpcallbackaddress: super::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
-    windows_core::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : super::PHANDLE, lpcallbackaddress : super::LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WscRegisterForChanges(reserved as _, phcallbackregistration, lpcallbackaddress, pcontext as _) }
+pub unsafe fn WscRegisterForChanges(reserved: super::LPVOID, phcallbackregistration: super::PHANDLE, lpcallbackaddress: super::LPTHREAD_START_ROUTINE, pcontext: super::PVOID) -> windows_core::HRESULT {
+    windows_core::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : super::LPVOID, phcallbackregistration : super::PHANDLE, lpcallbackaddress : super::LPTHREAD_START_ROUTINE, pcontext : super::PVOID) -> windows_core::HRESULT);
+    unsafe { WscRegisterForChanges(reserved as _, phcallbackregistration as _, lpcallbackaddress, pcontext as _) }
 }
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> windows_core::HRESULT {
@@ -31,14 +32,7 @@ pub unsafe fn WscRegisterForUserNotifications() -> windows_core::HRESULT {
 #[inline]
 pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::HANDLE) -> windows_core::HRESULT);
-    unsafe { WscUnRegisterChanges(hregistrationhandle) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
-#[inline]
-pub unsafe fn wscShowAMSCN(inputflags: u32, pdwresultflags: Option<super::PDWORD>) -> windows_core::HRESULT {
-    windows_core::link!("wscapi.dll" "C" "?wscShowAMSCN@@YAJKPEAK@Z" fn wscShowAMSCN(inputflags : u32, pdwresultflags : super::PDWORD) -> windows_core::HRESULT);
-    unsafe { wscShowAMSCN(inputflags, pdwresultflags.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WscUnRegisterChanges(hregistrationhandle as _) }
 }
 pub type PWSC_SECURITY_PROVIDER = *mut WSC_SECURITY_PROVIDER;
 pub type PWSC_SECURITY_PROVIDER_HEALTH = *mut WSC_SECURITY_PROVIDER_HEALTH;

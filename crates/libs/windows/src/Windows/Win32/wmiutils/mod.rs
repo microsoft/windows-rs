@@ -1,16 +1,19 @@
 windows_core::imp::define_interface!(IWbemPath, IWbemPath_Vtbl, 0x3bc15af2_736c_477e_9e51_238af8667dcc);
 windows_core::imp::interface_hierarchy!(IWbemPath, windows_core::IUnknown);
 impl IWbemPath {
-    pub unsafe fn SetText<P1>(&self, umode: u32, pszpath: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetText<P1>(&self, umode: super::ULONG, pszpath: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), umode, pszpath.param().abi()) }
     }
-    pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, psztext) }
     }
-    pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetInfo(&self, urequestedinfo: super::ULONG) -> windows_core::Result<super::ULONGLONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), urequestedinfo, &mut result__).map(|| result__)
@@ -22,55 +25,66 @@ impl IWbemPath {
     {
         unsafe { (windows_core::Interface::vtable(self).SetServer)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
-    pub unsafe fn GetServer(&self, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetServer(&self, punamebuflength: *mut super::ULONG, pname: windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetServer)(windows_core::Interface::as_raw(self), punamebuflength as _, pname) }
     }
-    pub unsafe fn GetNamespaceCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNamespaceCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNamespaceCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNamespaceAt<P1>(&self, uindex: u32, pszname: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetNamespaceAt<P1>(&self, uindex: super::ULONG, pszname: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, pszname.param().abi()) }
     }
-    pub unsafe fn GetNamespaceAt(&self, uindex: u32, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNamespaceAt(&self, uindex: super::ULONG, punamebuflength: *mut super::ULONG, pname: windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, punamebuflength as _, pname) }
     }
-    pub unsafe fn RemoveNamespaceAt(&self, uindex: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveNamespaceAt(&self, uindex: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveNamespaceAt)(windows_core::Interface::as_raw(self), uindex) }
     }
     pub unsafe fn RemoveAllNamespaces(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllNamespaces)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetScopeCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetScopeCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetScopeCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScope<P1>(&self, uindex: u32, pszclass: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetScope<P1>(&self, uindex: super::ULONG, pszclass: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetScope)(windows_core::Interface::as_raw(self), uindex, pszclass.param().abi()) }
     }
-    pub unsafe fn SetScopeFromText<P1>(&self, uindex: u32, psztext: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetScopeFromText<P1>(&self, uindex: super::ULONG, psztext: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetScopeFromText)(windows_core::Interface::as_raw(self), uindex, psztext.param().abi()) }
     }
-    pub unsafe fn GetScope(&self, uindex: u32, puclassnamebufsize: *mut u32, pszclass: windows_core::PWSTR, pkeylist: *mut Option<IWbemPathKeyList>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetScope(&self, uindex: super::ULONG, puclassnamebufsize: *mut super::ULONG, pszclass: windows_core::PWSTR, pkeylist: *mut Option<IWbemPathKeyList>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetScope)(windows_core::Interface::as_raw(self), uindex, puclassnamebufsize as _, pszclass, core::mem::transmute(pkeylist)) }
     }
-    pub unsafe fn GetScopeAsText(&self, uindex: u32, putextbufsize: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetScopeAsText(&self, uindex: super::ULONG, putextbufsize: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetScopeAsText)(windows_core::Interface::as_raw(self), uindex, putextbufsize as _, psztext) }
     }
-    pub unsafe fn RemoveScope(&self, uindex: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveScope(&self, uindex: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveScope)(windows_core::Interface::as_raw(self), uindex) }
     }
     pub unsafe fn RemoveAllScopes(&self) -> windows_core::HRESULT {
@@ -82,7 +96,8 @@ impl IWbemPath {
     {
         unsafe { (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
-    pub unsafe fn GetClassName(&self, pubufflength: *mut u32, pszname: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetClassName(&self, pubufflength: *mut super::ULONG, pszname: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetClassName)(windows_core::Interface::as_raw(self), pubufflength as _, pszname.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetKeyList(&self) -> windows_core::Result<IWbemPathKeyList> {
@@ -131,25 +146,70 @@ impl IWbemPath {
 #[doc(hidden)]
 pub struct IWbemPath_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetText: usize,
+    #[cfg(feature = "shared")]
+    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::ULONG, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetText: usize,
+    #[cfg(feature = "shared")]
+    pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetInfo: usize,
     pub SetServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetNamespaceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetNamespaceAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetNamespaceAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
-    pub RemoveNamespaceAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetServer: usize,
+    #[cfg(feature = "shared")]
+    pub GetNamespaceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetNamespaceCount: usize,
+    #[cfg(feature = "shared")]
+    pub SetNamespaceAt: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetNamespaceAt: usize,
+    #[cfg(feature = "shared")]
+    pub GetNamespaceAt: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::ULONG, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetNamespaceAt: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveNamespaceAt: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveNamespaceAt: usize,
     pub RemoveAllNamespaces: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetScopeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetScope: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetScopeFromText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetScope: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetScopeAsText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
-    pub RemoveScope: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetScopeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetScopeCount: usize,
+    #[cfg(feature = "shared")]
+    pub SetScope: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetScope: usize,
+    #[cfg(feature = "shared")]
+    pub SetScopeFromText: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetScopeFromText: usize,
+    #[cfg(feature = "shared")]
+    pub GetScope: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::ULONG, windows_core::PWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetScope: usize,
+    #[cfg(feature = "shared")]
+    pub GetScopeAsText: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::ULONG, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetScopeAsText: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveScope: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveScope: usize,
     pub RemoveAllScopes: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetClassName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetClassName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetClassName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetClassName: usize,
     pub GetKeyList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClassPart: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub DeleteClassPart: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -158,26 +218,27 @@ pub struct IWbemPath_Vtbl {
     pub IsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::BOOL,
     pub IsSameClassName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::BOOL,
 }
+#[cfg(feature = "shared")]
 pub trait IWbemPath_Impl: windows_core::IUnknownImpl {
-    fn SetText(&self, umode: u32, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64>;
+    fn SetText(&self, umode: super::ULONG, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetText(&self, lflags: i32, pubufflength: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetInfo(&self, urequestedinfo: super::ULONG) -> windows_core::Result<super::ULONGLONG>;
     fn SetServer(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetServer(&self, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetNamespaceCount(&self) -> windows_core::Result<u32>;
-    fn SetNamespaceAt(&self, uindex: u32, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetNamespaceAt(&self, uindex: u32, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn RemoveNamespaceAt(&self, uindex: u32) -> windows_core::Result<()>;
+    fn GetServer(&self, punamebuflength: *mut super::ULONG, pname: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetNamespaceCount(&self) -> windows_core::Result<super::ULONG>;
+    fn SetNamespaceAt(&self, uindex: super::ULONG, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetNamespaceAt(&self, uindex: super::ULONG, punamebuflength: *mut super::ULONG, pname: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn RemoveNamespaceAt(&self, uindex: super::ULONG) -> windows_core::Result<()>;
     fn RemoveAllNamespaces(&self) -> windows_core::Result<()>;
-    fn GetScopeCount(&self) -> windows_core::Result<u32>;
-    fn SetScope(&self, uindex: u32, pszclass: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetScopeFromText(&self, uindex: u32, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetScope(&self, uindex: u32, puclassnamebufsize: *mut u32, pszclass: windows_core::PWSTR, pkeylist: windows_core::OutRef<IWbemPathKeyList>) -> windows_core::Result<()>;
-    fn GetScopeAsText(&self, uindex: u32, putextbufsize: *mut u32, psztext: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn RemoveScope(&self, uindex: u32) -> windows_core::Result<()>;
+    fn GetScopeCount(&self) -> windows_core::Result<super::ULONG>;
+    fn SetScope(&self, uindex: super::ULONG, pszclass: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetScopeFromText(&self, uindex: super::ULONG, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetScope(&self, uindex: super::ULONG, puclassnamebufsize: *mut super::ULONG, pszclass: windows_core::PWSTR, pkeylist: windows_core::OutRef<IWbemPathKeyList>) -> windows_core::Result<()>;
+    fn GetScopeAsText(&self, uindex: super::ULONG, putextbufsize: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn RemoveScope(&self, uindex: super::ULONG) -> windows_core::Result<()>;
     fn RemoveAllScopes(&self) -> windows_core::Result<()>;
     fn SetClassName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetClassName(&self, pubufflength: *mut u32, pszname: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetClassName(&self, pubufflength: *mut super::ULONG, pszname: windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetKeyList(&self) -> windows_core::Result<IWbemPathKeyList>;
     fn CreateClassPart(&self, lflags: i32, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DeleteClassPart(&self, lflags: i32) -> windows_core::Result<()>;
@@ -186,21 +247,22 @@ pub trait IWbemPath_Impl: windows_core::IUnknownImpl {
     fn IsLocal(&self, wszmachine: &windows_core::PCWSTR) -> windows_core::BOOL;
     fn IsSameClassName(&self, wszclass: &windows_core::PCWSTR) -> windows_core::BOOL;
 }
+#[cfg(feature = "shared")]
 impl IWbemPath_Vtbl {
     pub const fn new<Identity: IWbemPath_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umode: u32, pszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, umode: super::ULONG, pszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::SetText(this, core::mem::transmute_copy(&umode), core::mem::transmute(&pszpath)).into()
             }
         }
-        unsafe extern "system" fn GetText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pubufflength: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::GetText(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pubufflength), core::mem::transmute_copy(&psztext)).into()
             }
         }
-        unsafe extern "system" fn GetInfo<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, urequestedinfo: u32, puresponse: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInfo<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, urequestedinfo: super::ULONG, puresponse: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPath_Impl::GetInfo(this, core::mem::transmute_copy(&urequestedinfo)) {
@@ -218,13 +280,13 @@ impl IWbemPath_Vtbl {
                 IWbemPath_Impl::SetServer(this, core::mem::transmute(&name)).into()
             }
         }
-        unsafe extern "system" fn GetServer<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetServer<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punamebuflength: *mut super::ULONG, pname: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::GetServer(this, core::mem::transmute_copy(&punamebuflength), core::mem::transmute_copy(&pname)).into()
             }
         }
-        unsafe extern "system" fn GetNamespaceCount<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNamespaceCount<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPath_Impl::GetNamespaceCount(this) {
@@ -236,19 +298,19 @@ impl IWbemPath_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNamespaceAt<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNamespaceAt<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::SetNamespaceAt(this, core::mem::transmute_copy(&uindex), core::mem::transmute(&pszname)).into()
             }
         }
-        unsafe extern "system" fn GetNamespaceAt<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNamespaceAt<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG, punamebuflength: *mut super::ULONG, pname: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::GetNamespaceAt(this, core::mem::transmute_copy(&uindex), core::mem::transmute_copy(&punamebuflength), core::mem::transmute_copy(&pname)).into()
             }
         }
-        unsafe extern "system" fn RemoveNamespaceAt<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveNamespaceAt<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::RemoveNamespaceAt(this, core::mem::transmute_copy(&uindex)).into()
@@ -260,7 +322,7 @@ impl IWbemPath_Vtbl {
                 IWbemPath_Impl::RemoveAllNamespaces(this).into()
             }
         }
-        unsafe extern "system" fn GetScopeCount<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetScopeCount<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPath_Impl::GetScopeCount(this) {
@@ -272,31 +334,31 @@ impl IWbemPath_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetScope<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32, pszclass: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScope<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG, pszclass: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::SetScope(this, core::mem::transmute_copy(&uindex), core::mem::transmute(&pszclass)).into()
             }
         }
-        unsafe extern "system" fn SetScopeFromText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32, psztext: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScopeFromText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG, psztext: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::SetScopeFromText(this, core::mem::transmute_copy(&uindex), core::mem::transmute(&psztext)).into()
             }
         }
-        unsafe extern "system" fn GetScope<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32, puclassnamebufsize: *mut u32, pszclass: windows_core::PWSTR, pkeylist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetScope<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG, puclassnamebufsize: *mut super::ULONG, pszclass: windows_core::PWSTR, pkeylist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::GetScope(this, core::mem::transmute_copy(&uindex), core::mem::transmute_copy(&puclassnamebufsize), core::mem::transmute_copy(&pszclass), core::mem::transmute_copy(&pkeylist)).into()
             }
         }
-        unsafe extern "system" fn GetScopeAsText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32, putextbufsize: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetScopeAsText<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG, putextbufsize: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::GetScopeAsText(this, core::mem::transmute_copy(&uindex), core::mem::transmute_copy(&putextbufsize), core::mem::transmute_copy(&psztext)).into()
             }
         }
-        unsafe extern "system" fn RemoveScope<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveScope<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::RemoveScope(this, core::mem::transmute_copy(&uindex)).into()
@@ -314,7 +376,7 @@ impl IWbemPath_Vtbl {
                 IWbemPath_Impl::SetClassName(this, core::mem::transmute(&name)).into()
             }
         }
-        unsafe extern "system" fn GetClassName<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pubufflength: *mut u32, pszname: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClassName<Identity: IWbemPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pubufflength: *mut super::ULONG, pszname: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPath_Impl::GetClassName(this, core::mem::transmute_copy(&pubufflength), core::mem::transmute_copy(&pszname)).into()
@@ -402,55 +464,64 @@ impl IWbemPath_Vtbl {
         iid == &<IWbemPath as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWbemPath {}
 windows_core::imp::define_interface!(IWbemPathKeyList, IWbemPathKeyList_Vtbl, 0x9ae62877_7544_4bb0_aa26_a13824659ed6);
 windows_core::imp::interface_hierarchy!(IWbemPathKeyList, windows_core::IUnknown);
 impl IWbemPathKeyList {
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetKey<P0>(&self, wszname: P0, uflags: u32, ucimtype: u32, pkeyval: *const core::ffi::c_void) -> windows_core::HRESULT
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn SetKey<P0>(&self, wszname: P0, uflags: super::ULONG, ucimtype: super::ULONG, pkeyval: super::LPVOID) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), wszname.param().abi(), uflags, ucimtype, pkeyval) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetKey2<P0>(&self, wszname: P0, uflags: u32, ucimtype: u32, pkeyval: *const super::VARIANT) -> windows_core::HRESULT
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn SetKey2<P0>(&self, wszname: P0, uflags: super::ULONG, ucimtype: super::ULONG, pkeyval: *const super::VARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetKey2)(windows_core::Interface::as_raw(self), wszname.param().abi(), uflags, ucimtype, pkeyval) }
     }
-    pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pukeyvalbufsize: *mut u32, pkeyval: *mut core::ffi::c_void, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn GetKey(&self, ukeyix: super::ULONG, uflags: super::ULONG, punamebufsize: *mut super::ULONG, pszkeyname: Option<windows_core::PWSTR>, pukeyvalbufsize: *mut super::ULONG, pkeyval: super::LPVOID, puapparentcimtype: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), ukeyix, uflags, punamebufsize as _, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pukeyvalbufsize as _, pkeyval as _, puapparentcimtype as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pkeyvalue: *mut super::VARIANT, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetKey2(&self, ukeyix: super::ULONG, uflags: super::ULONG, punamebufsize: *mut super::ULONG, pszkeyname: Option<windows_core::PWSTR>, pkeyvalue: *mut super::VARIANT, puapparentcimtype: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetKey2)(windows_core::Interface::as_raw(self), ukeyix, uflags, punamebufsize as _, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pkeyvalue, puapparentcimtype as _) }
     }
-    pub unsafe fn RemoveKey<P0>(&self, wszname: P0, uflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveKey<P0>(&self, wszname: P0, uflags: super::ULONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveKey)(windows_core::Interface::as_raw(self), wszname.param().abi(), uflags) }
     }
-    pub unsafe fn RemoveAllKeys(&self, uflags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveAllKeys(&self, uflags: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllKeys)(windows_core::Interface::as_raw(self), uflags) }
     }
-    pub unsafe fn MakeSingleton(&self, bset: u8) -> windows_core::HRESULT {
+    #[cfg(feature = "rpc")]
+    pub unsafe fn MakeSingleton(&self, bset: super::boolean) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MakeSingleton)(windows_core::Interface::as_raw(self), bset) }
     }
-    pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetInfo(&self, urequestedinfo: super::ULONG) -> windows_core::Result<super::ULONGLONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), urequestedinfo, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, psztext) }
     }
 }
@@ -458,40 +529,64 @@ impl IWbemPathKeyList {
 #[doc(hidden)]
 pub struct IWbemPathKeyList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub SetKey2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCount: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub SetKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG, super::ULONG, super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
+    SetKey: usize,
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetKey2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG, super::ULONG, *const super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetKey2: usize,
-    pub GetKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, windows_core::PWSTR, *mut u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetKey2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, windows_core::PWSTR, *mut super::VARIANT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub GetKey: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, *mut super::ULONG, windows_core::PWSTR, *mut super::ULONG, super::LPVOID, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
+    GetKey: usize,
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetKey2: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, *mut super::ULONG, windows_core::PWSTR, *mut super::VARIANT, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetKey2: usize,
-    pub RemoveKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    pub RemoveAllKeys: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub MakeSingleton: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
-    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub RemoveKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveKey: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveAllKeys: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveAllKeys: usize,
+    #[cfg(feature = "rpc")]
+    pub MakeSingleton: unsafe extern "system" fn(*mut core::ffi::c_void, super::boolean) -> windows_core::HRESULT,
+    #[cfg(not(feature = "rpc"))]
+    MakeSingleton: usize,
+    #[cfg(feature = "shared")]
+    pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::ULONGLONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetInfo: usize,
+    #[cfg(feature = "shared")]
+    pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::ULONG, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetText: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWbemPathKeyList_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<u32>;
-    fn SetKey(&self, wszname: &windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetKey2(&self, wszname: &windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const super::VARIANT) -> windows_core::Result<()>;
-    fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pukeyvalbufsize: *mut u32, pkeyval: *mut core::ffi::c_void, puapparentcimtype: *mut u32) -> windows_core::Result<()>;
-    fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut super::VARIANT, puapparentcimtype: *mut u32) -> windows_core::Result<()>;
-    fn RemoveKey(&self, wszname: &windows_core::PCWSTR, uflags: u32) -> windows_core::Result<()>;
-    fn RemoveAllKeys(&self, uflags: u32) -> windows_core::Result<()>;
-    fn MakeSingleton(&self, bset: u8) -> windows_core::Result<()>;
-    fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64>;
-    fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
+    fn SetKey(&self, wszname: &windows_core::PCWSTR, uflags: super::ULONG, ucimtype: super::ULONG, pkeyval: super::LPVOID) -> windows_core::Result<()>;
+    fn SetKey2(&self, wszname: &windows_core::PCWSTR, uflags: super::ULONG, ucimtype: super::ULONG, pkeyval: *const super::VARIANT) -> windows_core::Result<()>;
+    fn GetKey(&self, ukeyix: super::ULONG, uflags: super::ULONG, punamebufsize: *mut super::ULONG, pszkeyname: windows_core::PWSTR, pukeyvalbufsize: *mut super::ULONG, pkeyval: super::LPVOID, puapparentcimtype: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetKey2(&self, ukeyix: super::ULONG, uflags: super::ULONG, punamebufsize: *mut super::ULONG, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut super::VARIANT, puapparentcimtype: *mut super::ULONG) -> windows_core::Result<()>;
+    fn RemoveKey(&self, wszname: &windows_core::PCWSTR, uflags: super::ULONG) -> windows_core::Result<()>;
+    fn RemoveAllKeys(&self, uflags: super::ULONG) -> windows_core::Result<()>;
+    fn MakeSingleton(&self, bset: super::boolean) -> windows_core::Result<()>;
+    fn GetInfo(&self, urequestedinfo: super::ULONG) -> windows_core::Result<super::ULONGLONG>;
+    fn GetText(&self, lflags: i32, pubufflength: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWbemPathKeyList_Vtbl {
     pub const fn new<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCount<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pukeycount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pukeycount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPathKeyList_Impl::GetCount(this) {
@@ -503,49 +598,49 @@ impl IWbemPathKeyList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetKey<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetKey<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: super::ULONG, ucimtype: super::ULONG, pkeyval: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::SetKey(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&ucimtype), core::mem::transmute_copy(&pkeyval)).into()
             }
         }
-        unsafe extern "system" fn SetKey2<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetKey2<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: super::ULONG, ucimtype: super::ULONG, pkeyval: *const super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::SetKey2(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&ucimtype), core::mem::transmute_copy(&pkeyval)).into()
             }
         }
-        unsafe extern "system" fn GetKey<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pukeyvalbufsize: *mut u32, pkeyval: *mut core::ffi::c_void, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKey<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ukeyix: super::ULONG, uflags: super::ULONG, punamebufsize: *mut super::ULONG, pszkeyname: windows_core::PWSTR, pukeyvalbufsize: *mut super::ULONG, pkeyval: super::LPVOID, puapparentcimtype: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::GetKey(this, core::mem::transmute_copy(&ukeyix), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&punamebufsize), core::mem::transmute_copy(&pszkeyname), core::mem::transmute_copy(&pukeyvalbufsize), core::mem::transmute_copy(&pkeyval), core::mem::transmute_copy(&puapparentcimtype)).into()
             }
         }
-        unsafe extern "system" fn GetKey2<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut super::VARIANT, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKey2<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ukeyix: super::ULONG, uflags: super::ULONG, punamebufsize: *mut super::ULONG, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut super::VARIANT, puapparentcimtype: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::GetKey2(this, core::mem::transmute_copy(&ukeyix), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&punamebufsize), core::mem::transmute_copy(&pszkeyname), core::mem::transmute_copy(&pkeyvalue), core::mem::transmute_copy(&puapparentcimtype)).into()
             }
         }
-        unsafe extern "system" fn RemoveKey<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveKey<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszname: windows_core::PCWSTR, uflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::RemoveKey(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&uflags)).into()
             }
         }
-        unsafe extern "system" fn RemoveAllKeys<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveAllKeys<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::RemoveAllKeys(this, core::mem::transmute_copy(&uflags)).into()
             }
         }
-        unsafe extern "system" fn MakeSingleton<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bset: u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn MakeSingleton<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bset: super::boolean) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::MakeSingleton(this, core::mem::transmute_copy(&bset)).into()
             }
         }
-        unsafe extern "system" fn GetInfo<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, urequestedinfo: u32, puresponse: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInfo<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, urequestedinfo: super::ULONG, puresponse: *mut super::ULONGLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPathKeyList_Impl::GetInfo(this, core::mem::transmute_copy(&urequestedinfo)) {
@@ -557,7 +652,7 @@ impl IWbemPathKeyList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetText<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pubufflength: *mut super::ULONG, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::GetText(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pubufflength), core::mem::transmute_copy(&psztext)).into()
@@ -581,7 +676,7 @@ impl IWbemPathKeyList_Vtbl {
         iid == &<IWbemPathKeyList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWbemPathKeyList {}
 windows_core::imp::define_interface!(IWbemQuery, IWbemQuery_Vtbl, 0x81166f58_dd98_11d3_a120_00105a1f515a);
 windows_core::imp::interface_hierarchy!(IWbemQuery, windows_core::IUnknown);
@@ -589,26 +684,32 @@ impl IWbemQuery {
     pub unsafe fn Empty(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Empty)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetLanguageFeatures(&self, uflags: u32, uarraysize: u32, pufeatures: *const u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetLanguageFeatures(&self, uflags: super::ULONG, uarraysize: super::ULONG, pufeatures: *const super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLanguageFeatures)(windows_core::Interface::as_raw(self), uflags, uarraysize, pufeatures) }
     }
-    pub unsafe fn TestLanguageFeatures(&self, uflags: u32, uarraysize: *mut u32, pufeatures: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn TestLanguageFeatures(&self, uflags: super::ULONG, uarraysize: *mut super::ULONG, pufeatures: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TestLanguageFeatures)(windows_core::Interface::as_raw(self), uflags, uarraysize as _, pufeatures as _) }
     }
-    pub unsafe fn Parse<P0, P1>(&self, pszlang: P0, pszquery: P1, uflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn Parse<P0, P1>(&self, pszlang: P0, pszquery: P1, uflags: super::ULONG) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).Parse)(windows_core::Interface::as_raw(self), pszlang.param().abi(), pszquery.param().abi(), uflags) }
     }
-    pub unsafe fn GetAnalysis(&self, uanalysistype: u32, uflags: u32, panalysis: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn GetAnalysis(&self, uanalysistype: super::ULONG, uflags: super::ULONG, panalysis: *mut super::LPVOID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAnalysis)(windows_core::Interface::as_raw(self), uanalysistype, uflags, panalysis as _) }
     }
-    pub unsafe fn FreeMemory(&self, pmem: *const core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn FreeMemory(&self, pmem: super::LPVOID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FreeMemory)(windows_core::Interface::as_raw(self), pmem) }
     }
-    pub unsafe fn GetQueryInfo(&self, uanalysistype: u32, uinfoid: u32, ubufsize: u32, pdestbuf: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn GetQueryInfo(&self, uanalysistype: super::ULONG, uinfoid: super::ULONG, ubufsize: super::ULONG, pdestbuf: super::LPVOID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetQueryInfo)(windows_core::Interface::as_raw(self), uanalysistype, uinfoid, ubufsize, pdestbuf as _) }
     }
 }
@@ -617,22 +718,42 @@ impl IWbemQuery {
 pub struct IWbemQuery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Empty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLanguageFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32) -> windows_core::HRESULT,
-    pub TestLanguageFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
-    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    pub GetAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FreeMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetQueryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetLanguageFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, *const super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetLanguageFeatures: usize,
+    #[cfg(feature = "shared")]
+    pub TestLanguageFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::ULONG, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    TestLanguageFeatures: usize,
+    #[cfg(feature = "shared")]
+    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Parse: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub GetAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, *mut super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
+    GetAnalysis: usize,
+    #[cfg(feature = "minwindef")]
+    pub FreeMemory: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    FreeMemory: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub GetQueryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::ULONG, super::ULONG, super::LPVOID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
+    GetQueryInfo: usize,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait IWbemQuery_Impl: windows_core::IUnknownImpl {
     fn Empty(&self) -> windows_core::Result<()>;
-    fn SetLanguageFeatures(&self, uflags: u32, uarraysize: u32, pufeatures: *const u32) -> windows_core::Result<()>;
-    fn TestLanguageFeatures(&self, uflags: u32, uarraysize: *mut u32, pufeatures: *mut u32) -> windows_core::Result<()>;
-    fn Parse(&self, pszlang: &windows_core::PCWSTR, pszquery: &windows_core::PCWSTR, uflags: u32) -> windows_core::Result<()>;
-    fn GetAnalysis(&self, uanalysistype: u32, uflags: u32, panalysis: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn FreeMemory(&self, pmem: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetQueryInfo(&self, uanalysistype: u32, uinfoid: u32, ubufsize: u32, pdestbuf: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn SetLanguageFeatures(&self, uflags: super::ULONG, uarraysize: super::ULONG, pufeatures: *const super::ULONG) -> windows_core::Result<()>;
+    fn TestLanguageFeatures(&self, uflags: super::ULONG, uarraysize: *mut super::ULONG, pufeatures: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Parse(&self, pszlang: &windows_core::PCWSTR, pszquery: &windows_core::PCWSTR, uflags: super::ULONG) -> windows_core::Result<()>;
+    fn GetAnalysis(&self, uanalysistype: super::ULONG, uflags: super::ULONG, panalysis: *mut super::LPVOID) -> windows_core::Result<()>;
+    fn FreeMemory(&self, pmem: super::LPVOID) -> windows_core::Result<()>;
+    fn GetQueryInfo(&self, uanalysistype: super::ULONG, uinfoid: super::ULONG, ubufsize: super::ULONG, pdestbuf: super::LPVOID) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl IWbemQuery_Vtbl {
     pub const fn new<Identity: IWbemQuery_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Empty<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -641,37 +762,37 @@ impl IWbemQuery_Vtbl {
                 IWbemQuery_Impl::Empty(this).into()
             }
         }
-        unsafe extern "system" fn SetLanguageFeatures<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: u32, uarraysize: u32, pufeatures: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLanguageFeatures<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: super::ULONG, uarraysize: super::ULONG, pufeatures: *const super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemQuery_Impl::SetLanguageFeatures(this, core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&uarraysize), core::mem::transmute_copy(&pufeatures)).into()
             }
         }
-        unsafe extern "system" fn TestLanguageFeatures<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: u32, uarraysize: *mut u32, pufeatures: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn TestLanguageFeatures<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uflags: super::ULONG, uarraysize: *mut super::ULONG, pufeatures: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemQuery_Impl::TestLanguageFeatures(this, core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&uarraysize), core::mem::transmute_copy(&pufeatures)).into()
             }
         }
-        unsafe extern "system" fn Parse<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszlang: windows_core::PCWSTR, pszquery: windows_core::PCWSTR, uflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Parse<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszlang: windows_core::PCWSTR, pszquery: windows_core::PCWSTR, uflags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemQuery_Impl::Parse(this, core::mem::transmute(&pszlang), core::mem::transmute(&pszquery), core::mem::transmute_copy(&uflags)).into()
             }
         }
-        unsafe extern "system" fn GetAnalysis<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uanalysistype: u32, uflags: u32, panalysis: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAnalysis<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uanalysistype: super::ULONG, uflags: super::ULONG, panalysis: *mut super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemQuery_Impl::GetAnalysis(this, core::mem::transmute_copy(&uanalysistype), core::mem::transmute_copy(&uflags), core::mem::transmute_copy(&panalysis)).into()
             }
         }
-        unsafe extern "system" fn FreeMemory<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmem: *const core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FreeMemory<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmem: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemQuery_Impl::FreeMemory(this, core::mem::transmute_copy(&pmem)).into()
             }
         }
-        unsafe extern "system" fn GetQueryInfo<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uanalysistype: u32, uinfoid: u32, ubufsize: u32, pdestbuf: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetQueryInfo<Identity: IWbemQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uanalysistype: super::ULONG, uinfoid: super::ULONG, ubufsize: super::ULONG, pdestbuf: super::LPVOID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemQuery_Impl::GetQueryInfo(this, core::mem::transmute_copy(&uanalysistype), core::mem::transmute_copy(&uinfoid), core::mem::transmute_copy(&ubufsize), core::mem::transmute_copy(&pdestbuf)).into()
@@ -692,32 +813,36 @@ impl IWbemQuery_Vtbl {
         iid == &<IWbemQuery as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl windows_core::RuntimeName for IWbemQuery {}
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrix {
-    pub m_uVersion: u32,
-    pub m_uMatrixType: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uMatrixType: super::ULONG,
     pub m_pszProperty: windows_core::PCWSTR,
-    pub m_uPropertyType: u32,
-    pub m_uEntries: u32,
-    pub m_pValues: *mut *mut core::ffi::c_void,
+    pub m_uPropertyType: super::ULONG,
+    pub m_uEntries: super::ULONG,
+    pub m_pValues: *mut super::LPVOID,
     pub m_pbTruthTable: *mut windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrixList {
-    pub m_uVersion: u32,
-    pub m_uMatrixType: u32,
-    pub m_uNumMatrices: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uMatrixType: super::ULONG,
+    pub m_uNumMatrices: super::ULONG,
     pub m_pMatrices: *mut SWbemAnalysisMatrix,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct SWbemAssocQueryInf {
-    pub m_uVersion: u32,
-    pub m_uAnalysisType: u32,
-    pub m_uFeatureMask: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uAnalysisType: super::ULONG,
+    pub m_uFeatureMask: super::ULONG,
     pub m_pPath: core::mem::ManuallyDrop<Option<IWbemPath>>,
     pub m_pszPath: windows_core::PWSTR,
     pub m_pszQueryText: windows_core::PWSTR,
@@ -729,81 +854,88 @@ pub struct SWbemAssocQueryInf {
     pub m_pszRequiredAssocQualifier: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SWbemQueryQualifiedName {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
-    pub m_uNameListSize: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
+    pub m_uNameListSize: super::ULONG,
     pub m_ppszNameList: *mut windows_core::PCWSTR,
     pub m_bArraysUsed: windows_core::BOOL,
     pub m_pbArrayElUsed: *mut windows_core::BOOL,
-    pub m_puArrayIndex: *mut u32,
+    pub m_puArrayIndex: *mut super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: windows_core::PCWSTR,
     pub m_bBoolVal: windows_core::BOOL,
-    pub m_lLongVal: i32,
-    pub m_uLongVal: u32,
+    pub m_lLongVal: super::LONG,
+    pub m_uLongVal: super::ULONG,
     pub m_dblVal: f64,
     pub m_lVal64: i64,
     pub m_uVal64: i64,
 }
+#[cfg(feature = "shared")]
 impl Default for SWbemRpnConst {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SWbemRpnEncodedQuery {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
     pub m_uParsedFeatureMask: u64,
-    pub m_uDetectedArraySize: u32,
-    pub m_puDetectedFeatures: *mut u32,
-    pub m_uSelectListSize: u32,
+    pub m_uDetectedArraySize: super::ULONG,
+    pub m_puDetectedFeatures: *mut super::ULONG,
+    pub m_uSelectListSize: super::ULONG,
     pub m_ppSelectList: *mut *mut SWbemQueryQualifiedName,
-    pub m_uFromTargetType: u32,
+    pub m_uFromTargetType: super::ULONG,
     pub m_pszOptionalFromPath: windows_core::PCWSTR,
-    pub m_uFromListSize: u32,
+    pub m_uFromListSize: super::ULONG,
     pub m_ppszFromList: *mut windows_core::PCWSTR,
-    pub m_uWhereClauseSize: u32,
+    pub m_uWhereClauseSize: super::ULONG,
     pub m_ppRpnWhereClause: *mut *mut SWbemRpnQueryToken,
     pub m_dblWithinPolling: f64,
     pub m_dblWithinWindow: f64,
-    pub m_uOrderByListSize: u32,
+    pub m_uOrderByListSize: super::ULONG,
     pub m_ppszOrderByList: *mut windows_core::PCWSTR,
-    pub m_uOrderDirectionEl: *mut u32,
+    pub m_uOrderDirectionEl: *mut super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SWbemRpnQueryToken {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
-    pub m_uSubexpressionShape: u32,
-    pub m_uOperator: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
+    pub m_uSubexpressionShape: super::ULONG,
+    pub m_uOperator: super::ULONG,
     pub m_pRightIdent: *mut SWbemQueryQualifiedName,
     pub m_pLeftIdent: *mut SWbemQueryQualifiedName,
-    pub m_uConstApparentType: u32,
+    pub m_uConstApparentType: super::ULONG,
     pub m_Const: SWbemRpnConst,
-    pub m_uConst2ApparentType: u32,
+    pub m_uConst2ApparentType: super::ULONG,
     pub m_Const2: SWbemRpnConst,
     pub m_pszRightFunc: windows_core::PCWSTR,
     pub m_pszLeftFunc: windows_core::PCWSTR,
 }
+#[cfg(feature = "shared")]
 impl Default for SWbemRpnQueryToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SWbemRpnTokenList {
-    pub m_uVersion: u32,
-    pub m_uTokenType: u32,
-    pub m_uNumTokens: u32,
+    pub m_uVersion: super::ULONG,
+    pub m_uTokenType: super::ULONG,
+    pub m_uNumTokens: super::ULONG,
 }
 pub const WBEMPATH_COMPRESSED: tag_WBEM_GET_TEXT_FLAGS = 1;
 pub const WBEMPATH_CREATE_ACCEPT_ABSOLUTE: tag_WBEM_PATH_CREATE_FLAG = 2;

@@ -17,228 +17,220 @@ pub struct ADPCMCOEFSET {
     pub iCoef2: i16,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub struct ADPCMWAVEFORMAT {
-    pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-    pub wNumCoef: u16,
-    pub aCoef: [ADPCMCOEFSET; 0],
-}
-#[cfg(feature = "mmeapi")]
-impl Default for ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 pub const AVIIF_CONTROLFRAME: i32 = 512;
-pub const BICOMP_CREATIVEYUV: u32 = 1987410275;
-pub const BICOMP_IBMPHOTOMOTION: u32 = 1330464848;
-pub const BICOMP_IBMULTIMOTION: u32 = 1230261333;
+#[cfg(feature = "shared")]
+pub const BICOMP_CREATIVEYUV: super::DWORD = 1987410275;
+#[cfg(feature = "shared")]
+pub const BICOMP_IBMPHOTOMOTION: super::DWORD = 1330464848;
+#[cfg(feature = "shared")]
+pub const BICOMP_IBMULTIMOTION: super::DWORD = 1230261333;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CONTRESVQLPCWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wRevision: u16,
+    pub wRevision: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wRevision: u16,
+    pub wRevision: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wRevision: u16,
+    pub wRevision: super::WORD,
 }
 pub const CRYSTAL_NET_SFM_CODEC: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DOLBYAC2WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub nAuxBitsCode: u16,
+    pub nAuxBitsCode: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DRMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wReserved: u16,
-    pub ulContentId: u32,
+    pub wReserved: super::WORD,
+    pub ulContentId: super::ULONG,
     pub wfxSecure: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DVIADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
-    pub dwVolume: u32,
-    pub dwDelay: u32,
+    pub dwVolume: super::DWORD,
+    pub dwDelay: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct EXBMINFOHEADER {
     pub bmi: super::BITMAPINFOHEADER,
-    pub biExtDataOffset: u32,
+    pub biExtDataOffset: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wRevision: u16,
+    pub wRevision: super::WORD,
 }
-pub const FOURCC_RDSP: u32 = 1347634258;
+#[cfg(feature = "shared")]
+pub const FOURCC_RDSP: super::DWORD = 1347634258;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub nAuxBlockSize: u16,
+    pub nAuxBlockSize: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct G723_ADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub cbExtraSize: u16,
-    pub nAuxBlockSize: u16,
+    pub cbExtraSize: super::WORD,
+    pub nAuxBlockSize: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct GSM610WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct HEAACWAVEFORMAT {
     pub wfInfo: HEAACWAVEINFO,
-    pub pbAudioSpecificConfig: [u8; 1],
+    pub pbAudioSpecificConfig: [super::BYTE; 1],
 }
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 impl Default for HEAACWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct HEAACWAVEINFO {
     pub wfx: super::WAVEFORMATEX,
-    pub wPayloadType: u16,
-    pub wAudioProfileLevelIndication: u16,
-    pub wStructType: u16,
-    pub wReserved1: u16,
-    pub dwReserved2: u32,
+    pub wPayloadType: super::WORD,
+    pub wAudioProfileLevelIndication: super::WORD,
+    pub wStructType: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwReserved2: super::DWORD,
 }
-pub const ICTYPE_AUDIO: u32 = 1667528033;
-pub const ICTYPE_VIDEO: u32 = 1667524982;
+#[cfg(feature = "shared")]
+pub const ICTYPE_AUDIO: super::DWORD = 1667528033;
+#[cfg(feature = "shared")]
+pub const ICTYPE_VIDEO: super::DWORD = 1667524982;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
 pub const JIFMK_00: i32 = 65280;
 pub const JIFMK_APP0: i32 = 65504;
@@ -300,126 +292,128 @@ pub const JIFMK_SOI: i32 = 65496;
 pub const JIFMK_SOS: i32 = 65498;
 pub const JIFMK_TEM: i32 = 65281;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct JPEGINFOHEADER {
-    pub JPEGSize: u32,
-    pub JPEGProcess: u32,
-    pub JPEGColorSpaceID: u32,
-    pub JPEGBitsPerSample: u32,
-    pub JPEGHSubSampling: u32,
-    pub JPEGVSubSampling: u32,
+    pub JPEGSize: super::DWORD,
+    pub JPEGProcess: super::DWORD,
+    pub JPEGColorSpaceID: super::DWORD,
+    pub JPEGBitsPerSample: super::DWORD,
+    pub JPEGHSubSampling: super::DWORD,
+    pub JPEGVSubSampling: super::DWORD,
 }
-pub const JPEG_DIB: u32 = 1195724874;
+#[cfg(feature = "shared")]
+pub const JPEG_DIB: super::DWORD = 1195724874;
 pub const JPEG_PROCESS_BASELINE: i32 = 0;
 pub const JPEG_RGB: i32 = 3;
 pub const JPEG_Y: i32 = 1;
 pub const JPEG_YCbCr: i32 = 2;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_core::GUID = windows_core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_PCM: windows_core::GUID = windows_core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
 pub type LPADPCMCOEFSET = *mut ADPCMCOEFSET;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
-pub type LPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type LPECHOWAVEFILTER = *mut ECHOWAVEFILTER;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPHEAACWAVEINFO = *mut HEAACWAVEINFO;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPMSAUDIO1WAVEFORMAT = *mut MSAUDIO1WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPOLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPOLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPOLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPOLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPOLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type LPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
+#[cfg(feature = "shared")]
 pub type LPWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "mmeapi")]
-pub type LPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "mmeapi")]
-pub type LPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type LPWAVEFORMATIEEEFLOATEX = *mut super::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type LPWAVEFORMATPCMEX = *mut super::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPWMAUDIO2WAVEFORMAT = *mut WMAUDIO2WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPWMAUDIO3WAVEFORMAT = *mut WMAUDIO3WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wRevision: u16,
+    pub wRevision: super::WORD,
 }
 pub const MIXERCONTROL_CONTROLTYPE_SRS_MTS: i32 = 536936454;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_ONOFF: i32 = 536936455;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_SYNTHSELECT: i32 = 536936456;
-pub const MJPG_DIB: u32 = 1196444237;
+#[cfg(feature = "shared")]
+pub const MJPG_DIB: super::DWORD = 1196444237;
 pub const MM_3COM: i32 = 260;
 pub const MM_3COM_CB_MIXER: i32 = 1;
 pub const MM_3COM_CB_WAVEIN: i32 = 2;
@@ -1942,29 +1936,29 @@ pub const MM_ZEFIRO_ZA2: i32 = 2;
 pub const MM_ZYXEL: i32 = 9;
 pub const MM_ZYXEL_ACM_ADPCM: i32 = 1;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MPEG1WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub fwHeadLayer: u16,
-    pub dwHeadBitrate: u32,
-    pub fwHeadMode: u16,
-    pub fwHeadModeExt: u16,
-    pub wHeadEmphasis: u16,
-    pub fwHeadFlags: u16,
-    pub dwPTSLow: u32,
-    pub dwPTSHigh: u32,
+    pub fwHeadLayer: super::WORD,
+    pub dwHeadBitrate: super::DWORD,
+    pub fwHeadMode: super::WORD,
+    pub fwHeadModeExt: super::WORD,
+    pub wHeadEmphasis: super::WORD,
+    pub fwHeadFlags: super::WORD,
+    pub dwPTSLow: super::DWORD,
+    pub dwPTSHigh: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MPEGLAYER3WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wID: u16,
-    pub fdwFlags: u32,
-    pub nBlockSize: u16,
-    pub nFramesPerBlock: u16,
-    pub nCodecDelay: u16,
+    pub wID: super::WORD,
+    pub fdwFlags: super::DWORD,
+    pub nBlockSize: super::WORD,
+    pub nFramesPerBlock: super::WORD,
+    pub nCodecDelay: super::WORD,
 }
 pub const MPEGLAYER3_FLAG_PADDING_ISO: i32 = 0;
 pub const MPEGLAYER3_FLAG_PADDING_OFF: i32 = 2;
@@ -1974,12 +1968,12 @@ pub const MPEGLAYER3_ID_MPEG: i32 = 1;
 pub const MPEGLAYER3_ID_UNKNOWN: i32 = 0;
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: i32 = 12;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSAUDIO1WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-    pub wEncodeOptions: u16,
+    pub wSamplesPerBlock: super::WORD,
+    pub wEncodeOptions: super::WORD,
 }
 pub const MSAUDIO1_BITS_PER_SAMPLE: i32 = 16;
 pub const MSAUDIO1_MAX_CHANNELS: i32 = 2;
@@ -1988,259 +1982,302 @@ pub const MSAUDIO1_WFX_EXTRA_BYTES: u32 = 4;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const MSAUDIO1_WFX_EXTRA_BYTES: u64 = 4;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
+    pub wSamplesPerBlock: super::WORD,
 }
 pub type NPADPCMCOEFSET = *mut ADPCMCOEFSET;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
-pub type NPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type NPECHOWAVEFILTER = *mut ECHOWAVEFILTER;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPHEAACWAVEINFO = *mut HEAACWAVEINFO;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPOLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPOLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPOLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPOLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPOLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type NPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
+#[cfg(feature = "shared")]
 pub type NPWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "mmeapi")]
-pub type NPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "mmeapi")]
-pub type NPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type NPWAVEFORMATIEEEFLOATEX = *mut super::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type NPWAVEFORMATPCMEX = *mut super::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type NPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
 }
 pub type PADPCMCOEFSET = *mut ADPCMCOEFSET;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
-pub type PADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type PECHOWAVEFILTER = *mut ECHOWAVEFILTER;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PHEAACWAVEINFO = *mut HEAACWAVEINFO;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type POLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type POLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type POLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type POLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type POLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type PVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
+#[cfg(feature = "shared")]
 pub type PWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "mmeapi")]
-pub type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "mmeapi")]
-pub type PWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "mmeapi")]
-pub type PWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type PWAVEFORMATIEEEFLOATEX = *mut super::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type PWAVEFORMATPCMEX = *mut super::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
-pub const RIFFCPPO: u32 = 1330663491;
-pub const RIFFCPPO_byte: u32 = 1702132066;
-pub const RIFFCPPO_char: u32 = 1918986339;
-pub const RIFFCPPO_clsi: u32 = 1769172067;
-pub const RIFFCPPO_clsr: u32 = 1920167011;
-pub const RIFFCPPO_dbl: u32 = 543973988;
-pub const RIFFCPPO_dwrd: u32 = 1685223268;
-pub const RIFFCPPO_flt: u32 = 544500838;
-pub const RIFFCPPO_int: u32 = 544501353;
-pub const RIFFCPPO_long: u32 = 1735290732;
-pub const RIFFCPPO_mbr: u32 = 544367213;
-pub const RIFFCPPO_obji: u32 = 1768579695;
-pub const RIFFCPPO_objr: u32 = 1919574639;
-pub const RIFFCPPO_str: u32 = 544371827;
-pub const RIFFCPPO_word: u32 = 1685221239;
-pub const RIFFINFO_IARL: u32 = 1280459081;
-pub const RIFFINFO_IART: u32 = 1414676809;
-pub const RIFFINFO_ICMS: u32 = 1397572425;
-pub const RIFFINFO_ICMT: u32 = 1414349641;
-pub const RIFFINFO_ICOP: u32 = 1347371849;
-pub const RIFFINFO_ICRD: u32 = 1146241865;
-pub const RIFFINFO_ICRP: u32 = 1347568457;
-pub const RIFFINFO_IDIM: u32 = 1296647241;
-pub const RIFFINFO_IDIT: u32 = 1414087753;
-pub const RIFFINFO_IDPI: u32 = 1229997129;
-pub const RIFFINFO_IENG: u32 = 1196311881;
-pub const RIFFINFO_IGNR: u32 = 1380861769;
-pub const RIFFINFO_IKEY: u32 = 1497713481;
-pub const RIFFINFO_ILGT: u32 = 1413958729;
-pub const RIFFINFO_IMED: u32 = 1145392457;
-pub const RIFFINFO_INAM: u32 = 1296125513;
-pub const RIFFINFO_IPLT: u32 = 1414287433;
-pub const RIFFINFO_IPRD: u32 = 1146245193;
-pub const RIFFINFO_ISBJ: u32 = 1245860681;
-pub const RIFFINFO_ISFT: u32 = 1413894985;
-pub const RIFFINFO_ISHP: u32 = 1346917193;
-pub const RIFFINFO_ISMP: u32 = 1347244873;
-pub const RIFFINFO_ISRC: u32 = 1129468745;
-pub const RIFFINFO_ISRF: u32 = 1179800393;
-pub const RIFFINFO_ITCH: u32 = 1212372041;
-pub const RIFFINFO_ITOC: u32 = 1129272393;
-pub const RIFFINFO_ITRK: u32 = 1263686729;
-pub const RIFFWAVE_inst: u32 = 1953721961;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO: super::DWORD = 1330663491;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_byte: super::DWORD = 1702132066;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_char: super::DWORD = 1918986339;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_clsi: super::DWORD = 1769172067;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_clsr: super::DWORD = 1920167011;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_dbl: super::DWORD = 543973988;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_dwrd: super::DWORD = 1685223268;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_flt: super::DWORD = 544500838;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_int: super::DWORD = 544501353;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_long: super::DWORD = 1735290732;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_mbr: super::DWORD = 544367213;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_obji: super::DWORD = 1768579695;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_objr: super::DWORD = 1919574639;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_str: super::DWORD = 544371827;
+#[cfg(feature = "shared")]
+pub const RIFFCPPO_word: super::DWORD = 1685221239;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IARL: super::DWORD = 1280459081;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IART: super::DWORD = 1414676809;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ICMS: super::DWORD = 1397572425;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ICMT: super::DWORD = 1414349641;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ICOP: super::DWORD = 1347371849;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ICRD: super::DWORD = 1146241865;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ICRP: super::DWORD = 1347568457;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IDIM: super::DWORD = 1296647241;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IDIT: super::DWORD = 1414087753;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IDPI: super::DWORD = 1229997129;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IENG: super::DWORD = 1196311881;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IGNR: super::DWORD = 1380861769;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IKEY: super::DWORD = 1497713481;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ILGT: super::DWORD = 1413958729;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IMED: super::DWORD = 1145392457;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_INAM: super::DWORD = 1296125513;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IPLT: super::DWORD = 1414287433;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_IPRD: super::DWORD = 1146245193;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ISBJ: super::DWORD = 1245860681;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ISFT: super::DWORD = 1413894985;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ISHP: super::DWORD = 1346917193;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ISMP: super::DWORD = 1347244873;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ISRC: super::DWORD = 1129468745;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ISRF: super::DWORD = 1179800393;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ITCH: super::DWORD = 1212372041;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ITOC: super::DWORD = 1129272393;
+#[cfg(feature = "shared")]
+pub const RIFFINFO_ITRK: super::DWORD = 1263686729;
+#[cfg(feature = "shared")]
+pub const RIFFWAVE_inst: super::DWORD = 1953721961;
 pub const ROCKWELL_WA1_MIXER: i32 = 103;
 pub const ROCKWELL_WA1_MPU401_IN: i32 = 104;
 pub const ROCKWELL_WA1_MPU401_OUT: i32 = 105;
@@ -2254,106 +2291,60 @@ pub const ROCKWELL_WA2_SYNTH: i32 = 202;
 pub const ROCKWELL_WA2_WAVEIN: i32 = 200;
 pub const ROCKWELL_WA2_WAVEOUT: i32 = 201;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wRevision: u16,
+    pub wRevision: super::WORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SONARCWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wCompType: u16,
+    pub wCompType: super::WORD,
 }
-pub const SPEAKER_ALL: u32 = 2147483648;
-pub const SPEAKER_BACK_CENTER: i32 = 256;
-pub const SPEAKER_BACK_LEFT: i32 = 16;
-pub const SPEAKER_BACK_RIGHT: i32 = 32;
-pub const SPEAKER_FRONT_CENTER: i32 = 4;
-pub const SPEAKER_FRONT_LEFT: i32 = 1;
-pub const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
-pub const SPEAKER_FRONT_RIGHT: i32 = 2;
-pub const SPEAKER_FRONT_RIGHT_OF_CENTER: i32 = 128;
-pub const SPEAKER_LOW_FREQUENCY: i32 = 8;
-pub const SPEAKER_RESERVED: i32 = 2147221504;
-pub const SPEAKER_SIDE_LEFT: i32 = 512;
-pub const SPEAKER_SIDE_RIGHT: i32 = 1024;
-pub const SPEAKER_TOP_BACK_CENTER: i32 = 65536;
-pub const SPEAKER_TOP_BACK_LEFT: i32 = 32768;
-pub const SPEAKER_TOP_BACK_RIGHT: i32 = 131072;
-pub const SPEAKER_TOP_CENTER: i32 = 2048;
-pub const SPEAKER_TOP_FRONT_CENTER: i32 = 8192;
-pub const SPEAKER_TOP_FRONT_LEFT: i32 = 4096;
-pub const SPEAKER_TOP_FRONT_RIGHT: i32 = 16384;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct TRUESPEECHWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wRevision: u16,
-    pub nSamplesPerBlock: u16,
-    pub abReserved: [u8; 28],
+    pub wRevision: super::WORD,
+    pub nSamplesPerBlock: super::WORD,
+    pub abReserved: [super::BYTE; 28],
 }
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 impl Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VOLUMEWAVEFILTER {
     pub wfltr: WAVEFILTER,
-    pub dwVolume: u32,
+    pub dwVolume: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WAVEFILTER {
-    pub cbStruct: u32,
-    pub dwFilterTag: u32,
-    pub fdwFilter: u32,
-    pub dwReserved: [u32; 5],
+    pub cbStruct: super::DWORD,
+    pub dwFilterTag: super::DWORD,
+    pub fdwFilter: super::DWORD,
+    pub dwReserved: [super::DWORD; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for WAVEFILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub struct WAVEFORMATEXTENSIBLE {
-    pub Format: super::WAVEFORMATEX,
-    pub Samples: WAVEFORMATEXTENSIBLE_0,
-    pub dwChannelMask: u32,
-    pub SubFormat: windows_core::GUID,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub union WAVEFORMATEXTENSIBLE_0 {
-    pub wValidBitsPerSample: u16,
-    pub wSamplesPerBlock: u16,
-    pub wReserved: u16,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-pub type WAVEFORMATIEEEFLOATEX = WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "mmeapi")]
-pub type WAVEFORMATPCMEX = WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type WAVEFORMATIEEEFLOATEX = super::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+pub type WAVEFORMATPCMEX = super::WAVEFORMATEXTENSIBLE;
 pub const WAVE_FILTER_DEVELOPMENT: i32 = 65535;
 pub const WAVE_FILTER_ECHO: i32 = 2;
 pub const WAVE_FILTER_UNKNOWN: i32 = 0;
@@ -2403,7 +2394,6 @@ pub const WAVE_FORMAT_DIVIO_MPEG4_AAC: i32 = 16707;
 pub const WAVE_FORMAT_DOLBY_AC2: i32 = 48;
 pub const WAVE_FORMAT_DOLBY_AC3_SPDIF: i32 = 146;
 pub const WAVE_FORMAT_DOLBY_AC4: i32 = 44096;
-pub const WAVE_FORMAT_DRM: i32 = 9;
 pub const WAVE_FORMAT_DSAT: i32 = 102;
 pub const WAVE_FORMAT_DSAT_DISPLAY: i32 = 103;
 pub const WAVE_FORMAT_DSPGROUP_TRUESPEECH: i32 = 34;
@@ -2417,7 +2407,6 @@ pub const WAVE_FORMAT_ECHOSC3: i32 = 58;
 pub const WAVE_FORMAT_ENCORE_G726: i32 = 41223;
 pub const WAVE_FORMAT_ESPCM: i32 = 97;
 pub const WAVE_FORMAT_ESST_AC3: i32 = 577;
-pub const WAVE_FORMAT_EXTENSIBLE: i32 = 65534;
 pub const WAVE_FORMAT_FAAD_AAC: i32 = 28781;
 pub const WAVE_FORMAT_FLAC: i32 = 61868;
 pub const WAVE_FORMAT_FM_TOWNS_SND: i32 = 768;
@@ -2627,13 +2616,13 @@ pub const WAVE_FORMAT_YAMAHA_ADPCM: i32 = 32;
 pub const WAVE_FORMAT_ZOLL_ASAO: i32 = 41224;
 pub const WAVE_FORMAT_ZYXEL_ADPCM: i32 = 151;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WMAUDIO2WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub dwSamplesPerBlock: u32,
-    pub wEncodeOptions: u16,
-    pub dwSuperBlockAlign: u32,
+    pub dwSamplesPerBlock: super::DWORD,
+    pub wEncodeOptions: super::WORD,
+    pub dwSuperBlockAlign: super::DWORD,
 }
 pub const WMAUDIO2_BITS_PER_SAMPLE: i32 = 16;
 pub const WMAUDIO2_MAX_CHANNELS: i32 = 2;
@@ -2642,16 +2631,16 @@ pub const WMAUDIO2_WFX_EXTRA_BYTES: u32 = 10;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WMAUDIO2_WFX_EXTRA_BYTES: u64 = 10;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WMAUDIO3WAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
-    pub wValidBitsPerSample: u16,
-    pub dwChannelMask: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub wEncodeOptions: u16,
-    pub wReserved3: u16,
+    pub wValidBitsPerSample: super::WORD,
+    pub dwChannelMask: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
+    pub wEncodeOptions: super::WORD,
+    pub wReserved3: super::WORD,
 }
 #[cfg(target_arch = "x86")]
 pub const WMAUDIO3_WFX_EXTRA_BYTES: u32 = 18;
@@ -2659,8 +2648,8 @@ pub const WMAUDIO3_WFX_EXTRA_BYTES: u32 = 18;
 pub const WMAUDIO3_WFX_EXTRA_BYTES: u64 = 18;
 pub const WMAUDIO_BITS_PER_SAMPLE: i32 = 16;
 pub const WMAUDIO_MAX_CHANNELS: i32 = 2;
-#[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::WAVEFORMATEX,
@@ -2670,14 +2659,15 @@ pub type s_RIFFWAVE_inst = tag_s_RIFFWAVE_INST;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tag_s_RIFFWAVE_INST(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct tag_s_RIFFWAVE_inst {
-    pub bUnshiftedNote: u8,
+    pub bUnshiftedNote: super::BYTE,
     pub chFineTune: i8,
     pub chGain: i8,
-    pub bLowNote: u8,
-    pub bHighNote: u8,
-    pub bLowVelocity: u8,
-    pub bHighVelocity: u8,
+    pub bLowNote: super::BYTE,
+    pub bHighNote: super::BYTE,
+    pub bLowVelocity: super::BYTE,
+    pub bHighVelocity: super::BYTE,
 }

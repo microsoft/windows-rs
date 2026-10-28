@@ -69,16 +69,18 @@ pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = 0;
 pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DBBINDEXT {
-    pub pExtension: *mut u8,
+    pub pExtension: *mut super::BYTE,
     pub ulExtension: DBCOUNTITEM,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct DBBINDEXT {
-    pub pExtension: *mut u8,
+    pub pExtension: *mut super::BYTE,
     pub ulExtension: DBCOUNTITEM,
 }
 pub type DBBINDFLAG = u32;
@@ -86,7 +88,7 @@ pub type DBBINDFLAGENUM = i32;
 pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 #[derive(Default)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
@@ -100,15 +102,15 @@ pub struct DBBINDING {
     pub dwMemOwner: DBMEMOWNER,
     pub eParamIO: DBPARAMIO,
     pub cbMaxLen: DBLENGTH,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "oaidl")]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
+#[derive(Default)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
     pub obValue: DBBYTEOFFSET,
@@ -121,10 +123,10 @@ pub struct DBBINDING {
     pub dwMemOwner: DBMEMOWNER,
     pub eParamIO: DBPARAMIO,
     pub cbMaxLen: DBLENGTH,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
 pub type DBBINDSTATUS = u32;
 pub type DBBINDSTATUSENUM = i32;
@@ -160,21 +162,15 @@ pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = 1;
 pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = 4;
 pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = 0;
 pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = 8;
-#[cfg(target_arch = "x86")]
-pub type DBBKMARK = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DBBKMARK = u64;
+pub type DBBKMARK = usize;
 pub const DBBMK_FIRST: DBBOOKMARK = 1;
 pub const DBBMK_INVALID: DBBOOKMARK = 0;
 pub const DBBMK_LAST: DBBOOKMARK = 2;
 pub type DBBOOKMARK = i32;
-#[cfg(target_arch = "x86")]
-pub type DBBYTEOFFSET = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DBBYTEOFFSET = u64;
+pub type DBBYTEOFFSET = usize;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DBCOLUMNACCESS {
     pub pData: *mut core::ffi::c_void,
@@ -184,19 +180,19 @@ pub struct DBCOLUMNACCESS {
     pub cbMaxLen: DBLENGTH,
     pub dwReserved: DB_DWRESERVE,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBCOLUMNACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DBCOLUMNACCESS {
     pub pData: *mut core::ffi::c_void,
@@ -206,11 +202,11 @@ pub struct DBCOLUMNACCESS {
     pub cbMaxLen: DBLENGTH,
     pub dwReserved: DB_DWRESERVE,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBCOLUMNACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -218,57 +214,57 @@ impl Default for DBCOLUMNACCESS {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: super::LPOLESTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::ITypeInfo>>,
     pub rgPropertySets: *mut DBPROPSET,
-    pub pclsid: *mut windows_core::GUID,
-    pub cPropertySets: u32,
+    pub pclsid: *mut super::CLSID,
+    pub cPropertySets: super::ULONG,
     pub ulColumnSize: DBLENGTH,
     pub dbcid: DBID,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: super::LPOLESTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::ITypeInfo>>,
     pub rgPropertySets: *mut DBPROPSET,
-    pub pclsid: *mut windows_core::GUID,
-    pub cPropertySets: u32,
+    pub pclsid: *mut super::CLSID,
+    pub cPropertySets: super::ULONG,
     pub ulColumnSize: DBLENGTH,
     pub dbcid: DBID,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -314,7 +310,7 @@ pub const DBCOLUMNFLAGS_WRITE: DBCOLUMNFLAGSENUM = 4;
 pub const DBCOLUMNFLAGS_WRITEUNKNOWN: DBCOLUMNFLAGSENUM = 8;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: super::LPOLESTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::ITypeInfo>>,
@@ -322,27 +318,27 @@ pub struct DBCOLUMNINFO {
     pub dwFlags: DBCOLUMNFLAGS,
     pub ulColumnSize: DBLENGTH,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
     pub columnid: DBID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl Default for DBCOLUMNINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: super::LPOLESTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::ITypeInfo>>,
@@ -350,19 +346,19 @@ pub struct DBCOLUMNINFO {
     pub dwFlags: DBCOLUMNFLAGS,
     pub ulColumnSize: DBLENGTH,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
     pub columnid: DBID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl Default for DBCOLUMNINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -403,7 +399,7 @@ pub const DBCOMPUTEMODE_DYNAMIC: i32 = 2;
 pub const DBCOMPUTEMODE_NOTCOMPUTED: i32 = 3;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
@@ -421,10 +417,10 @@ pub struct DBCONSTRAINTDESC {
     pub cReserved: DB_URESERVE,
     pub rgReserved: *mut DBPROPSET,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
     pub ConstraintType: DBCONSTRAINTTYPE,
@@ -462,16 +458,24 @@ pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = 256;
 pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = 4096;
 pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = 2048;
 pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = 512;
+pub type DBCOUNTITEM = usize;
+#[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-pub type DBCOUNTITEM = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DBCOUNTITEM = u64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct DBDATE {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
+    pub year: super::SHORT,
+    pub month: super::USHORT,
+    pub day: super::USHORT,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct DBDATE {
+    pub year: super::SHORT,
+    pub month: super::USHORT,
+    pub day: super::USHORT,
 }
 pub type DBDEFERRABILITY = u32;
 pub type DBDEFERRABILITYENUM = i32;
@@ -496,22 +500,18 @@ pub struct DBFAILUREINFO {
     pub iColumn: DBORDINAL,
     pub failure: windows_core::HRESULT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct DBFAILUREINFO {
     pub hRow: HROW,
     pub iColumn: DBORDINAL,
     pub failure: windows_core::HRESULT,
 }
-#[cfg(target_arch = "x86")]
-pub type DBHASHVALUE = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-pub type DBHASHVALUE = super::DWORDLONG;
+pub type DBHASHVALUE = usize;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
@@ -519,7 +519,7 @@ pub struct DBID {
     pub uName: DBID_1,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -527,14 +527,14 @@ impl Default for DBID {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_core::GUID,
     pub pguid: *mut windows_core::GUID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -542,22 +542,22 @@ impl Default for DBID_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: super::LPOLESTR,
-    pub ulPropid: u32,
+    pub ulPropid: super::ULONG,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBID_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
@@ -565,37 +565,37 @@ pub struct DBID {
     pub uName: DBID_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_core::GUID,
     pub pguid: *mut windows_core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: super::LPOLESTR,
-    pub ulPropid: u32,
+    pub ulPropid: super::ULONG,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for DBID_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -603,32 +603,34 @@ impl Default for DBID_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "guiddef")]
 #[derive(Default)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub piid: *mut windows_core::GUID,
+    pub piid: *mut super::IID,
     pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "guiddef")]
+#[derive(Default)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub piid: *mut windows_core::GUID,
+    pub piid: *mut super::IID,
     pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
@@ -646,17 +648,14 @@ pub const DBKIND_NAME: DBKINDENUM = 2;
 pub const DBKIND_PGUID_NAME: DBKINDENUM = 3;
 pub const DBKIND_PGUID_PROPID: DBKINDENUM = 4;
 pub const DBKIND_PROPID: DBKINDENUM = 5;
-#[cfg(target_arch = "x86")]
-pub type DBLENGTH = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DBLENGTH = u64;
+pub type DBLENGTH = usize;
 pub type DBLITERAL = u32;
 pub type DBLITERALENUM = i32;
 pub type DBLITERALENUM20 = i32;
 pub type DBLITERALENUM21 = i32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: super::LPOLESTR,
@@ -664,19 +663,19 @@ pub struct DBLITERALINFO {
     pub pwszInvalidStartingChars: super::LPOLESTR,
     pub lt: DBLITERAL,
     pub fSupported: windows_core::BOOL,
-    pub cchMaxLen: u32,
+    pub cchMaxLen: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: super::LPOLESTR,
     pub pwszInvalidChars: super::LPOLESTR,
     pub pwszInvalidStartingChars: super::LPOLESTR,
     pub lt: DBLITERAL,
     pub fSupported: windows_core::BOOL,
-    pub cchMaxLen: u32,
+    pub cchMaxLen: super::ULONG,
 }
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = 1;
 pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = 2;
@@ -730,45 +729,44 @@ pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = 512;
 pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DBOBJECT {
-    pub dwFlags: u32,
-    pub iid: windows_core::GUID,
+    pub dwFlags: super::DWORD,
+    pub iid: super::IID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct DBOBJECT {
-    pub dwFlags: u32,
-    pub iid: windows_core::GUID,
+    pub dwFlags: super::DWORD,
+    pub iid: super::IID,
 }
-#[cfg(target_arch = "x86")]
-pub type DBORDINAL = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DBORDINAL = u64;
+pub type DBORDINAL = usize;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: super::LPOLESTR,
     pub pwszName: super::LPOLESTR,
     pub ulParamSize: DBLENGTH,
     pub dwFlags: DBPARAMFLAGS,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: super::LPOLESTR,
     pub pwszName: super::LPOLESTR,
     pub ulParamSize: DBLENGTH,
     pub dwFlags: DBPARAMFLAGS,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
 pub type DBPARAMFLAGS = u32;
 pub type DBPARAMFLAGSENUM = i32;
@@ -781,7 +779,7 @@ pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = 16;
 pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = 256;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 #[derive(Default)]
 pub struct DBPARAMINFO {
     pub dwFlags: DBPARAMFLAGS,
@@ -790,13 +788,13 @@ pub struct DBPARAMINFO {
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::ITypeInfo>>,
     pub ulParamSize: DBLENGTH,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
+#[derive(Default)]
 pub struct DBPARAMINFO {
     pub dwFlags: DBPARAMFLAGS,
     pub iOrdinal: DBORDINAL,
@@ -804,8 +802,8 @@ pub struct DBPARAMINFO {
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::ITypeInfo>>,
     pub ulParamSize: DBLENGTH,
     pub wType: DBTYPE,
-    pub bPrecision: u8,
-    pub bScale: u8,
+    pub bPrecision: super::BYTE,
+    pub bScale: super::BYTE,
 }
 pub type DBPARAMIO = u32;
 pub type DBPARAMIOENUM = i32;
@@ -820,9 +818,9 @@ pub struct DBPARAMS {
     pub cParamSets: DB_UPARAMS,
     pub hAccessor: HACCESSOR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: DB_UPARAMS,
@@ -857,7 +855,7 @@ pub const DBPROMPT_NOPROMPT: i32 = 4;
 pub const DBPROMPT_PROMPT: i32 = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct DBPROP {
     pub dwPropertyID: DBPROPID,
     pub dwOptions: DBPROPOPTIONS,
@@ -866,22 +864,22 @@ pub struct DBPROP {
     pub vValue: super::VARIANT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for DBPROP {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for DBPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct DBPROP {
     pub dwPropertyID: DBPROPID,
     pub dwOptions: DBPROPOPTIONS,
@@ -890,14 +888,14 @@ pub struct DBPROP {
     pub vValue: super::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for DBPROP {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for DBPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -934,23 +932,25 @@ pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = 1024;
 pub type DBPROPID = u32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
-    pub cPropertyIDs: u32,
+    pub cPropertyIDs: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
-    pub cPropertyIDs: u32,
+    pub cPropertyIDs: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct DBPROPINFO {
     pub pwszDescription: super::LPOLESTR,
     pub dwPropertyID: DBPROPID,
@@ -959,22 +959,22 @@ pub struct DBPROPINFO {
     pub vValues: super::VARIANT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for DBPROPINFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct DBPROPINFO {
     pub pwszDescription: super::LPOLESTR,
     pub dwPropertyID: DBPROPID,
@@ -983,14 +983,14 @@ pub struct DBPROPINFO {
     pub vValues: super::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for DBPROPINFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -998,20 +998,20 @@ impl Default for DBPROPINFO {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: PDBPROPINFO,
-    pub cPropertyInfos: u32,
+    pub cPropertyInfos: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: PDBPROPINFO,
-    pub cPropertyInfos: u32,
+    pub cPropertyInfos: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
 pub type DBPROPOPTIONS = u32;
@@ -1021,20 +1021,20 @@ pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = 0;
 pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
-    pub cProperties: u32,
+    pub cProperties: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
-    pub cProperties: u32,
+    pub cProperties: super::ULONG,
     pub guidPropertySet: windows_core::GUID,
 }
 pub type DBPROPSTATUS = u32;
@@ -1506,19 +1506,13 @@ pub const DBREASON_ROW_UNDODELETE: DBREASONENUM = 12;
 pub const DBREASON_ROW_UNDOINSERT: DBREASONENUM = 11;
 pub const DBREASON_ROW_UPDATE: DBREASONENUM = 13;
 pub type DBREFCOUNT = u32;
-pub type DBRESULTFLAG = DB_LRESERVE;
+pub type DBRESULTFLAG = isize;
 pub type DBRESULTFLAGENUM = i32;
 pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = 0;
 pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = 2;
 pub const DBRESULTFLAG_ROWSET: DBRESULTFLAGENUM = 1;
-#[cfg(target_arch = "x86")]
-pub type DBROWCOUNT = i32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DBROWCOUNT = i64;
-#[cfg(target_arch = "x86")]
-pub type DBROWOFFSET = i32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DBROWOFFSET = i64;
+pub type DBROWCOUNT = isize;
+pub type DBROWOFFSET = isize;
 pub type DBROWOPTIONS = u32;
 pub type DBROWSTATUS = u32;
 pub type DBROWSTATUSENUM = i32;
@@ -1607,36 +1601,49 @@ pub const DBSTAT_COLUMN_CARDINALITY: DBTABLESTATISTICSTYPE26 = 2;
 pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = 1;
 pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = 4;
 pub type DBTABLESTATISTICSTYPE26 = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct DBTIME {
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
+    pub hour: super::USHORT,
+    pub minute: super::USHORT,
+    pub second: super::USHORT,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct DBTIME {
+    pub hour: super::USHORT,
+    pub minute: super::USHORT,
+    pub second: super::USHORT,
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DBTIMESTAMP {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
-    pub fraction: u32,
+    pub year: super::SHORT,
+    pub month: super::USHORT,
+    pub day: super::USHORT,
+    pub hour: super::USHORT,
+    pub minute: super::USHORT,
+    pub second: super::USHORT,
+    pub fraction: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct DBTIMESTAMP {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
-    pub fraction: u32,
+    pub year: super::SHORT,
+    pub month: super::USHORT,
+    pub day: super::USHORT,
+    pub hour: super::USHORT,
+    pub minute: super::USHORT,
+    pub second: super::USHORT,
+    pub fraction: super::ULONG,
 }
 pub type DBTYPE = u16;
 pub type DBTYPEENUM = i32;
@@ -1705,9 +1712,9 @@ pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
@@ -1725,11 +1732,7 @@ pub const DB_BINDFLAGS_RECURSIVE: i32 = 4;
 pub const DB_COLLATION_ASC: i32 = 1;
 pub const DB_COLLATION_DESC: i32 = 2;
 pub const DB_COUNTUNAVAILABLE: i32 = -1;
-#[cfg(target_arch = "x86")]
-pub type DB_DWRESERVE = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-pub type DB_DWRESERVE = super::DWORDLONG;
+pub type DB_DWRESERVE = usize;
 pub const DB_IMP_LEVEL_ANONYMOUS: i32 = 0;
 pub const DB_IMP_LEVEL_DELEGATE: i32 = 3;
 pub const DB_IMP_LEVEL_IDENTIFY: i32 = 1;
@@ -1743,18 +1746,9 @@ pub const DB_INVALID_HCHAPTER: i32 = 0;
 pub const DB_LIKE_ONLY: i32 = 2;
 pub const DB_LOCAL_EXCLUSIVE: i32 = 3;
 pub const DB_LOCAL_SHARED: i32 = 2;
-#[cfg(target_arch = "x86")]
-pub type DB_LORDINAL = i32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DB_LORDINAL = i64;
-#[cfg(target_arch = "x86")]
-pub type DB_LPARAMS = i32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DB_LPARAMS = i64;
-#[cfg(target_arch = "x86")]
-pub type DB_LRESERVE = i32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DB_LRESERVE = i64;
+pub type DB_LORDINAL = isize;
+pub type DB_LPARAMS = isize;
+pub type DB_LRESERVE = isize;
 pub const DB_MODE_READ: i32 = 1;
 pub const DB_MODE_READWRITE: i32 = 3;
 pub const DB_MODE_SHARE_DENY_NONE: i32 = 16;
@@ -1765,14 +1759,35 @@ pub const DB_MODE_WRITE: i32 = 2;
 pub const DB_NULL_HACCESSOR: i32 = 0;
 pub const DB_NULL_HCHAPTER: i32 = 0;
 pub const DB_NULL_HROW: i32 = 0;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct DB_NUMERIC {
-    pub precision: u8,
-    pub scale: u8,
-    pub sign: u8,
-    pub val: [u8; 16],
+    pub precision: super::BYTE,
+    pub scale: super::BYTE,
+    pub sign: super::BYTE,
+    pub val: [super::BYTE; 16],
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for DB_NUMERIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct DB_NUMERIC {
+    pub precision: super::BYTE,
+    pub scale: super::BYTE,
+    pub sign: super::BYTE,
+    pub val: [super::BYTE; 16],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for DB_NUMERIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1790,22 +1805,37 @@ pub const DB_PT_UNKNOWN: i32 = 1;
 pub const DB_REMOTE: i32 = 1;
 pub const DB_SEARCHABLE: i32 = 4;
 pub const DB_UNSEARCHABLE: i32 = 1;
+pub type DB_UPARAMS = usize;
+pub type DB_URESERVE = usize;
+#[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-pub type DB_UPARAMS = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DB_UPARAMS = u64;
-#[cfg(target_arch = "x86")]
-pub type DB_URESERVE = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type DB_URESERVE = u64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct DB_VARNUMERIC {
-    pub precision: u8,
+    pub precision: super::BYTE,
     pub scale: SBYTE,
-    pub sign: u8,
-    pub val: [u8; 1],
+    pub sign: super::BYTE,
+    pub val: [super::BYTE; 1],
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for DB_VARNUMERIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct DB_VARNUMERIC {
+    pub precision: super::BYTE,
+    pub scale: SBYTE,
+    pub sign: super::BYTE,
+    pub val: [super::BYTE; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for DB_VARNUMERIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1813,24 +1843,24 @@ impl Default for DB_VARNUMERIC {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
-    pub dwMinor: u32,
-    pub clsid: windows_core::GUID,
-    pub iid: windows_core::GUID,
+    pub dwMinor: super::DWORD,
+    pub clsid: super::CLSID,
+    pub iid: super::IID,
     pub dispid: super::DISPID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "oaidl")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
-    pub dwMinor: u32,
-    pub clsid: windows_core::GUID,
-    pub iid: windows_core::GUID,
+    pub dwMinor: super::DWORD,
+    pub clsid: super::CLSID,
+    pub iid: super::IID,
     pub dispid: super::DISPID,
 }
 pub type HACCESSOR = usize;
@@ -1843,11 +1873,11 @@ impl IAccessor {
     pub unsafe fn AddRefAccessor(&self, haccessor: HACCESSOR, pcrefcount: Option<*mut DBREFCOUNT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddRefAccessor)(windows_core::Interface::as_raw(self), haccessor, pcrefcount.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
     pub unsafe fn CreateAccessor(&self, dwaccessorflags: DBACCESSORFLAGS, cbindings: DBCOUNTITEM, rgbindings: *const DBBINDING, cbrowsize: DBLENGTH, phaccessor: *mut HACCESSOR, rgstatus: Option<*mut DBBINDSTATUS>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateAccessor)(windows_core::Interface::as_raw(self), dwaccessorflags, cbindings, rgbindings, cbrowsize, phaccessor as _, rgstatus.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
     pub unsafe fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut DBACCESSORFLAGS, pcbindings: Option<*mut DBCOUNTITEM>, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBindings)(windows_core::Interface::as_raw(self), haccessor, pdwaccessorflags as _, pcbindings.unwrap_or(core::mem::zeroed()) as _, prgbindings as _) }
     }
@@ -1860,24 +1890,24 @@ impl IAccessor {
 pub struct IAccessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddRefAccessor: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, *mut DBREFCOUNT) -> windows_core::HRESULT,
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
     pub CreateAccessor: unsafe extern "system" fn(*mut core::ffi::c_void, DBACCESSORFLAGS, DBCOUNTITEM, *const DBBINDING, DBLENGTH, *mut HACCESSOR, *mut DBBINDSTATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "oaidl"))]
+    #[cfg(not(all(feature = "guiddef", feature = "oaidl", feature = "shared")))]
     CreateAccessor: usize,
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
     pub GetBindings: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, *mut DBACCESSORFLAGS, *mut DBCOUNTITEM, *mut *mut DBBINDING) -> windows_core::HRESULT,
-    #[cfg(not(feature = "oaidl"))]
+    #[cfg(not(all(feature = "guiddef", feature = "oaidl", feature = "shared")))]
     GetBindings: usize,
     pub ReleaseAccessor: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, *mut DBREFCOUNT) -> windows_core::HRESULT,
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 pub trait IAccessor_Impl: windows_core::IUnknownImpl {
     fn AddRefAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::Result<()>;
     fn CreateAccessor(&self, dwaccessorflags: DBACCESSORFLAGS, cbindings: DBCOUNTITEM, rgbindings: *const DBBINDING, cbrowsize: DBLENGTH, phaccessor: *mut HACCESSOR, rgstatus: *mut DBBINDSTATUS) -> windows_core::Result<()>;
     fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut DBACCESSORFLAGS, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::Result<()>;
     fn ReleaseAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 impl IAccessor_Vtbl {
     pub const fn new<Identity: IAccessor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddRefAccessor<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut DBREFCOUNT) -> windows_core::HRESULT {
@@ -1916,13 +1946,13 @@ impl IAccessor_Vtbl {
         iid == &<IAccessor as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 impl windows_core::RuntimeName for IAccessor {}
 windows_core::imp::define_interface!(IAlterIndex, IAlterIndex_Vtbl, 0x0c733aa6_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IAlterIndex, windows_core::IUnknown);
 impl IAlterIndex {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn AlterIndex(&self, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn AlterIndex(&self, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AlterIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid, pnewindexid, cpropertysets, rgpropertysets as _) }
     }
 }
@@ -1930,19 +1960,19 @@ impl IAlterIndex {
 #[doc(hidden)]
 pub struct IAlterIndex_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub AlterIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID, *const DBID, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub AlterIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID, *const DBID, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AlterIndex: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlterIndex_Impl: windows_core::IUnknownImpl {
-    fn AlterIndex(&self, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn AlterIndex(&self, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlterIndex_Vtbl {
     pub const fn new<Identity: IAlterIndex_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AlterIndex<Identity: IAlterIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn AlterIndex<Identity: IAlterIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, pnewindexid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAlterIndex_Impl::AlterIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&pnewindexid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
@@ -1954,17 +1984,17 @@ impl IAlterIndex_Vtbl {
         iid == &<IAlterIndex as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAlterIndex {}
 windows_core::imp::define_interface!(IAlterTable, IAlterTable_Vtbl, 0x0c733aa5_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IAlterTable, windows_core::IUnknown);
 impl IAlterTable {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AlterColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AlterColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumnid, dwcolumndescflags, pcolumndesc) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AlterTable)(windows_core::Interface::as_raw(self), ptableid, pnewtableid, cpropertysets, rgpropertysets as _) }
     }
 }
@@ -1972,21 +2002,21 @@ impl IAlterTable {
 #[doc(hidden)]
 pub struct IAlterTable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AlterColumn: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID, DBCOLUMNDESCFLAGS, *const DBCOLUMNDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AlterColumn: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub AlterTable: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub AlterTable: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AlterTable: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAlterTable_Impl: windows_core::IUnknownImpl {
     fn AlterColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::Result<()>;
-    fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAlterTable_Vtbl {
     pub const fn new<Identity: IAlterTable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AlterColumn<Identity: IAlterTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::HRESULT {
@@ -1995,7 +2025,7 @@ impl IAlterTable_Vtbl {
                 IAlterTable_Impl::AlterColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&dwcolumndescflags), core::mem::transmute_copy(&pcolumndesc)).into()
             }
         }
-        unsafe extern "system" fn AlterTable<Identity: IAlterTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn AlterTable<Identity: IAlterTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAlterTable_Impl::AlterTable(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pnewtableid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
@@ -2011,39 +2041,37 @@ impl IAlterTable_Vtbl {
         iid == &<IAlterTable as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAlterTable {}
 windows_core::imp::define_interface!(IBindResource, IBindResource_Vtbl, 0x0c733ab1_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IBindResource, windows_core::IUnknown);
 impl IBindResource {
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub unsafe fn Bind<P0, P5, T>(&self, punkouter: P0, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, pauthenticate: P5, pimplsession: Option<*mut DBIMPLICITSESSION>, pdwbindstatus: Option<*mut DBBINDURLSTATUS>) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
+    pub unsafe fn Bind<P0, P5>(&self, punkouter: P0, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: P5, pimplsession: Option<*mut DBIMPLICITSESSION>, pdwbindstatus: Option<*mut DBBINDURLSTATUS>, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<super::IAuthenticate>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl, dwbindurlflags, rguid, &T::IID, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl, dwbindurlflags, rguid, riid, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppunk)) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindResource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCOLESTR, DBBINDURLFLAG, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void, *mut DBIMPLICITSESSION, *mut DBBINDURLSTATUS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "urlmon", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
+    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCOLESTR, DBBINDURLFLAG, *const windows_core::GUID, *const super::IID, *mut core::ffi::c_void, *mut DBIMPLICITSESSION, *mut DBBINDURLSTATUS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase")))]
     Bind: usize,
 }
-#[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 pub trait IBindResource_Impl: windows_core::IUnknownImpl {
-    fn Bind(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Bind(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 impl IBindResource_Vtbl {
     pub const fn new<Identity: IBindResource_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Bind<Identity: IBindResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: *mut core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Bind<Identity: IBindResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: *mut core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBindResource_Impl::Bind(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwbindurlflags), core::mem::transmute_copy(&rguid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&pimplsession), core::mem::transmute_copy(&pdwbindstatus), core::mem::transmute_copy(&ppunk)).into()
@@ -2055,7 +2083,7 @@ impl IBindResource_Vtbl {
         iid == &<IBindResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBindResource {}
 windows_core::imp::define_interface!(IChapteredRowset, IChapteredRowset_Vtbl, 0x0c733a93_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IChapteredRowset, windows_core::IUnknown);
@@ -2106,11 +2134,11 @@ impl windows_core::RuntimeName for IChapteredRowset {}
 windows_core::imp::define_interface!(IColumnsInfo, IColumnsInfo_Vtbl, 0x0c733a11_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IColumnsInfo, windows_core::IUnknown);
 impl IColumnsInfo {
-    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn GetColumnInfo(&self, pccolumns: *mut DBORDINAL, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetColumnInfo)(windows_core::Interface::as_raw(self), pccolumns as _, prginfo as _, ppstringsbuffer as _) }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn MapColumnIDs(&self, ccolumnids: DBORDINAL, rgcolumnids: Option<*const DBID>, rgcolumns: Option<*mut DBORDINAL>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MapColumnIDs)(windows_core::Interface::as_raw(self), ccolumnids, rgcolumnids.unwrap_or(core::mem::zeroed()) as _, rgcolumns.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -2119,21 +2147,21 @@ impl IColumnsInfo {
 #[doc(hidden)]
 pub struct IColumnsInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
     pub GetColumnInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DBORDINAL, *mut *mut DBCOLUMNINFO, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "shared", feature = "wtypesbase")))]
     GetColumnInfo: usize,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub MapColumnIDs: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const DBID, *mut DBORDINAL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     MapColumnIDs: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IColumnsInfo_Impl: windows_core::IUnknownImpl {
     fn GetColumnInfo(&self, pccolumns: *mut DBORDINAL, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
     fn MapColumnIDs(&self, ccolumnids: DBORDINAL, rgcolumnids: *const DBID, rgcolumns: *mut DBORDINAL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl IColumnsInfo_Vtbl {
     pub const fn new<Identity: IColumnsInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetColumnInfo<Identity: IColumnsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccolumns: *mut DBORDINAL, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
@@ -2158,7 +2186,7 @@ impl IColumnsInfo_Vtbl {
         iid == &<IColumnsInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IColumnsInfo {}
 windows_core::imp::define_interface!(IColumnsInfo2, IColumnsInfo2_Vtbl, 0x0c733ab8_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for IColumnsInfo2 {
@@ -2169,28 +2197,28 @@ impl core::ops::Deref for IColumnsInfo2 {
 }
 windows_core::imp::interface_hierarchy!(IColumnsInfo2, windows_core::IUnknown, IColumnsInfo);
 impl IColumnsInfo2 {
-    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
-    pub unsafe fn GetRestrictedColumnInfo(&self, rgcolumnidmasks: &[DBID], dwflags: u32, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRestrictedColumnInfo)(windows_core::Interface::as_raw(self), rgcolumnidmasks.len().try_into().unwrap(), rgcolumnidmasks.as_ptr(), dwflags, pccolumns as _, prgcolumnids as _, prgcolumninfo as _, ppstringsbuffer as _) }
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn GetRestrictedColumnInfo(&self, rgcolumnidmasks: &[DBID], dwflags: super::DWORD, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: Option<*mut *mut super::OLECHAR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRestrictedColumnInfo)(windows_core::Interface::as_raw(self), rgcolumnidmasks.len().try_into().unwrap(), rgcolumnidmasks.as_ptr(), dwflags, pccolumns as _, prgcolumnids as _, prgcolumninfo as _, ppstringsbuffer.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnsInfo2_Vtbl {
     pub base__: IColumnsInfo_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
-    pub GetRestrictedColumnInfo: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const DBID, u32, *mut DBORDINAL, *mut *mut DBID, *mut *mut DBCOLUMNINFO, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypesbase")))]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
+    pub GetRestrictedColumnInfo: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const DBID, super::DWORD, *mut DBORDINAL, *mut *mut DBID, *mut *mut DBCOLUMNINFO, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "oaidl", feature = "shared", feature = "wtypesbase")))]
     GetRestrictedColumnInfo: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IColumnsInfo2_Impl: IColumnsInfo_Impl {
-    fn GetRestrictedColumnInfo(&self, ccolumnidmasks: DBORDINAL, rgcolumnidmasks: *const DBID, dwflags: u32, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn GetRestrictedColumnInfo(&self, ccolumnidmasks: DBORDINAL, rgcolumnidmasks: *const DBID, dwflags: super::DWORD, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl IColumnsInfo2_Vtbl {
     pub const fn new<Identity: IColumnsInfo2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRestrictedColumnInfo<Identity: IColumnsInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumnidmasks: DBORDINAL, rgcolumnidmasks: *const DBID, dwflags: u32, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRestrictedColumnInfo<Identity: IColumnsInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumnidmasks: DBORDINAL, rgcolumnidmasks: *const DBID, dwflags: super::DWORD, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IColumnsInfo2_Impl::GetRestrictedColumnInfo(this, core::mem::transmute_copy(&ccolumnidmasks), core::mem::transmute_copy(&rgcolumnidmasks), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pccolumns), core::mem::transmute_copy(&prgcolumnids), core::mem::transmute_copy(&prgcolumninfo), core::mem::transmute_copy(&ppstringsbuffer)).into()
@@ -2202,44 +2230,42 @@ impl IColumnsInfo2_Vtbl {
         iid == &<IColumnsInfo2 as windows_core::Interface>::IID || iid == &<IColumnsInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IColumnsInfo2 {}
 windows_core::imp::define_interface!(IColumnsRowset, IColumnsRowset_Vtbl, 0x0c733a10_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IColumnsRowset, windows_core::IUnknown);
 impl IColumnsRowset {
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn GetAvailableColumns(&self, pcoptcolumns: *mut DBORDINAL, prgoptcolumns: *mut *mut DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAvailableColumns)(windows_core::Interface::as_raw(self), pcoptcolumns as _, prgoptcolumns as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetColumnsRowset<P0, T>(&self, punkouter: P0, rgoptcolumns: &[DBID], rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetColumnsRowset<P0>(&self, punkouter: P0, rgoptcolumns: &[DBID], riid: *const super::IID, rgpropertysets: Option<&mut [DBPROPSET]>, ppcolrowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rgoptcolumns.len().try_into().unwrap(), rgoptcolumns.as_ptr(), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rgoptcolumns.len().try_into().unwrap(), rgoptcolumns.as_ptr(), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), core::mem::transmute(ppcolrowset)) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnsRowset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub GetAvailableColumns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DBORDINAL, *mut *mut DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     GetAvailableColumns: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetColumnsRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBORDINAL, *const DBID, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetColumnsRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBORDINAL, *const DBID, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetColumnsRowset: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IColumnsRowset_Impl: windows_core::IUnknownImpl {
     fn GetAvailableColumns(&self, pcoptcolumns: *mut DBORDINAL, prgoptcolumns: *mut *mut DBID) -> windows_core::Result<()>;
-    fn GetColumnsRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, coptcolumns: DBORDINAL, rgoptcolumns: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetColumnsRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, coptcolumns: DBORDINAL, rgoptcolumns: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppcolrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IColumnsRowset_Vtbl {
     pub const fn new<Identity: IColumnsRowset_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAvailableColumns<Identity: IColumnsRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcoptcolumns: *mut DBORDINAL, prgoptcolumns: *mut *mut DBID) -> windows_core::HRESULT {
@@ -2248,7 +2274,7 @@ impl IColumnsRowset_Vtbl {
                 IColumnsRowset_Impl::GetAvailableColumns(this, core::mem::transmute_copy(&pcoptcolumns), core::mem::transmute_copy(&prgoptcolumns)).into()
             }
         }
-        unsafe extern "system" fn GetColumnsRowset<Identity: IColumnsRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, coptcolumns: DBORDINAL, rgoptcolumns: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetColumnsRowset<Identity: IColumnsRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, coptcolumns: DBORDINAL, rgoptcolumns: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IColumnsRowset_Impl::GetColumnsRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&coptcolumns), core::mem::transmute_copy(&rgoptcolumns), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&ppcolrowset)).into()
@@ -2264,7 +2290,7 @@ impl IColumnsRowset_Vtbl {
         iid == &<IColumnsRowset as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IColumnsRowset {}
 windows_core::imp::define_interface!(ICommand, ICommand_Vtbl, 0x0c733a63_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICommand, windows_core::IUnknown);
@@ -2272,20 +2298,19 @@ impl ICommand {
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Execute<P0, T>(&self, punkouter: P0, pparams: Option<*mut DBPARAMS>, pcrowsaffected: Option<*mut DBROWCOUNT>) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn Execute<P0>(&self, punkouter: P0, riid: *const super::IID, pparams: Option<*mut DBPARAMS>, pcrowsaffected: Option<*mut DBROWCOUNT>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, pparams.unwrap_or(core::mem::zeroed()) as _, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, pparams.unwrap_or(core::mem::zeroed()) as _, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, pprowset.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetDBSession<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetDBSession)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetDBSession(&self, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDBSession)(windows_core::Interface::as_raw(self), riid, &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
+        }
     }
 }
 #[repr(C)]
@@ -2293,14 +2318,22 @@ impl ICommand {
 pub struct ICommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut DBPARAMS, *mut DBROWCOUNT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDBSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::IID, *mut DBPARAMS, *mut DBROWCOUNT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    Execute: usize,
+    #[cfg(feature = "guiddef")]
+    pub GetDBSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetDBSession: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait ICommand_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self) -> windows_core::Result<()>;
-    fn Execute(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDBSession(&self, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Execute(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, pparams: *mut DBPARAMS, pcrowsaffected: *mut DBROWCOUNT, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetDBSession(&self, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>>;
 }
+#[cfg(feature = "guiddef")]
 impl ICommand_Vtbl {
     pub const fn new<Identity: ICommand_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Cancel<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2309,16 +2342,22 @@ impl ICommand_Vtbl {
                 ICommand_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Execute<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Execute<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, pparams: *mut DBPARAMS, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommand_Impl::Execute(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pcrowsaffected), core::mem::transmute_copy(&pprowset)).into()
             }
         }
-        unsafe extern "system" fn GetDBSession<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDBSession<Identity: ICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICommand_Impl::GetDBSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession)).into()
+                match ICommand_Impl::GetDBSession(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppsession.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -2332,27 +2371,28 @@ impl ICommand_Vtbl {
         iid == &<ICommand as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for ICommand {}
 windows_core::imp::define_interface!(ICommandPersist, ICommandPersist_Vtbl, 0x0c733aa7_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICommandPersist, windows_core::IUnknown);
 impl ICommandPersist {
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn DeleteCommand(&self, pcommandid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteCommand)(windows_core::Interface::as_raw(self), pcommandid) }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn GetCurrentCommand(&self) -> windows_core::Result<*mut DBID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentCommand)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypesbase")]
-    pub unsafe fn LoadCommand(&self, pcommandid: *const DBID, dwflags: u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn LoadCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LoadCommand)(windows_core::Interface::as_raw(self), pcommandid, dwflags) }
     }
-    #[cfg(feature = "wtypesbase")]
-    pub unsafe fn SaveCommand(&self, pcommandid: *const DBID, dwflags: u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn SaveCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SaveCommand)(windows_core::Interface::as_raw(self), pcommandid, dwflags) }
     }
 }
@@ -2360,31 +2400,31 @@ impl ICommandPersist {
 #[doc(hidden)]
 pub struct ICommandPersist_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub DeleteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     DeleteCommand: usize,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub GetCurrentCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     GetCurrentCommand: usize,
-    #[cfg(feature = "wtypesbase")]
-    pub LoadCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub LoadCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     LoadCommand: usize,
-    #[cfg(feature = "wtypesbase")]
-    pub SaveCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub SaveCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     SaveCommand: usize,
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait ICommandPersist_Impl: windows_core::IUnknownImpl {
     fn DeleteCommand(&self, pcommandid: *const DBID) -> windows_core::Result<()>;
     fn GetCurrentCommand(&self) -> windows_core::Result<*mut DBID>;
-    fn LoadCommand(&self, pcommandid: *const DBID, dwflags: u32) -> windows_core::Result<()>;
-    fn SaveCommand(&self, pcommandid: *const DBID, dwflags: u32) -> windows_core::Result<()>;
+    fn LoadCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn SaveCommand(&self, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl ICommandPersist_Vtbl {
     pub const fn new<Identity: ICommandPersist_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeleteCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID) -> windows_core::HRESULT {
@@ -2405,13 +2445,13 @@ impl ICommandPersist_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LoadCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommandPersist_Impl::LoadCommand(this, core::mem::transmute_copy(&pcommandid), core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn SaveCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveCommand<Identity: ICommandPersist_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommandid: *const DBID, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommandPersist_Impl::SaveCommand(this, core::mem::transmute_copy(&pcommandid), core::mem::transmute_copy(&dwflags)).into()
@@ -2429,12 +2469,13 @@ impl ICommandPersist_Vtbl {
         iid == &<ICommandPersist as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICommandPersist {}
 windows_core::imp::define_interface!(ICommandPrepare, ICommandPrepare_Vtbl, 0x0c733a26_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICommandPrepare, windows_core::IUnknown);
 impl ICommandPrepare {
-    pub unsafe fn Prepare(&self, cexpectedruns: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Prepare(&self, cexpectedruns: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Prepare)(windows_core::Interface::as_raw(self), cexpectedruns) }
     }
     pub unsafe fn Unprepare(&self) -> windows_core::HRESULT {
@@ -2445,16 +2486,21 @@ impl ICommandPrepare {
 #[doc(hidden)]
 pub struct ICommandPrepare_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Prepare: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Prepare: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Prepare: usize,
     pub Unprepare: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ICommandPrepare_Impl: windows_core::IUnknownImpl {
-    fn Prepare(&self, cexpectedruns: u32) -> windows_core::Result<()>;
+    fn Prepare(&self, cexpectedruns: super::ULONG) -> windows_core::Result<()>;
     fn Unprepare(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ICommandPrepare_Vtbl {
     pub const fn new<Identity: ICommandPrepare_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Prepare<Identity: ICommandPrepare_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cexpectedruns: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Prepare<Identity: ICommandPrepare_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cexpectedruns: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommandPrepare_Impl::Prepare(this, core::mem::transmute_copy(&cexpectedruns)).into()
@@ -2472,15 +2518,16 @@ impl ICommandPrepare_Vtbl {
         iid == &<ICommandPrepare as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ICommandPrepare {}
 windows_core::imp::define_interface!(ICommandProperties, ICommandProperties_Vtbl, 0x0c733a79_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICommandProperties, windows_core::IUnknown);
 impl ICommandProperties {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: &mut [DBPROPSET]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_mut_ptr()) }
     }
@@ -2489,30 +2536,30 @@ impl ICommandProperties {
 #[doc(hidden)]
 pub struct ICommandProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DBPROPIDSET, *mut u32, *mut *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const DBPROPIDSET, *mut super::ULONG, *mut *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetProperties: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetProperties: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICommandProperties_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn SetProperties(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
+    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICommandProperties_Vtbl {
     pub const fn new<Identity: ICommandProperties_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetProperties<Identity: ICommandProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperties<Identity: ICommandProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommandProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
             }
         }
-        unsafe extern "system" fn SetProperties<Identity: ICommandProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperties<Identity: ICommandProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommandProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
@@ -2528,15 +2575,17 @@ impl ICommandProperties_Vtbl {
         iid == &<ICommandProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICommandProperties {}
 windows_core::imp::define_interface!(ICommandStream, ICommandStream_Vtbl, 0x0c733abf_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICommandStream, windows_core::IUnknown);
 impl ICommandStream {
-    pub unsafe fn GetCommandStream(&self, piid: Option<*mut windows_core::GUID>, pguiddialect: Option<*mut windows_core::GUID>, ppcommandstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCommandStream)(windows_core::Interface::as_raw(self), piid.unwrap_or(core::mem::zeroed()) as _, pguiddialect.unwrap_or(core::mem::zeroed()) as _, ppcommandstream as _) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetCommandStream(&self, piid: Option<*mut super::IID>, pguiddialect: Option<*mut windows_core::GUID>, ppcommandstream: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCommandStream)(windows_core::Interface::as_raw(self), piid.unwrap_or(core::mem::zeroed()) as _, pguiddialect.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppcommandstream)) }
     }
-    pub unsafe fn SetCommandStream<P2>(&self, riid: *const windows_core::GUID, rguiddialect: *const windows_core::GUID, pcommandstream: P2) -> windows_core::HRESULT
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetCommandStream<P2>(&self, riid: *const super::IID, rguiddialect: *const windows_core::GUID, pcommandstream: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
@@ -2547,22 +2596,30 @@ impl ICommandStream {
 #[doc(hidden)]
 pub struct ICommandStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetCommandStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCommandStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetCommandStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::IID, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetCommandStream: usize,
+    #[cfg(feature = "guiddef")]
+    pub SetCommandStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetCommandStream: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait ICommandStream_Impl: windows_core::IUnknownImpl {
-    fn GetCommandStream(&self, piid: *mut windows_core::GUID, pguiddialect: *mut windows_core::GUID, ppcommandstream: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetCommandStream(&self, riid: *const windows_core::GUID, rguiddialect: *const windows_core::GUID, pcommandstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetCommandStream(&self, piid: *mut super::IID, pguiddialect: *mut windows_core::GUID, ppcommandstream: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetCommandStream(&self, riid: *const super::IID, rguiddialect: *const windows_core::GUID, pcommandstream: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl ICommandStream_Vtbl {
     pub const fn new<Identity: ICommandStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCommandStream<Identity: ICommandStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piid: *mut windows_core::GUID, pguiddialect: *mut windows_core::GUID, ppcommandstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCommandStream<Identity: ICommandStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piid: *mut super::IID, pguiddialect: *mut windows_core::GUID, ppcommandstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommandStream_Impl::GetCommandStream(this, core::mem::transmute_copy(&piid), core::mem::transmute_copy(&pguiddialect), core::mem::transmute_copy(&ppcommandstream)).into()
             }
         }
-        unsafe extern "system" fn SetCommandStream<Identity: ICommandStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, rguiddialect: *const windows_core::GUID, pcommandstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCommandStream<Identity: ICommandStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, rguiddialect: *const windows_core::GUID, pcommandstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICommandStream_Impl::SetCommandStream(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rguiddialect), core::mem::transmute_copy(&pcommandstream)).into()
@@ -2578,6 +2635,7 @@ impl ICommandStream_Vtbl {
         iid == &<ICommandStream as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for ICommandStream {}
 windows_core::imp::define_interface!(ICommandText, ICommandText_Vtbl, 0x0c733a27_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for ICommandText {
@@ -2610,12 +2668,12 @@ pub struct ICommandText_Vtbl {
     #[cfg(not(feature = "wtypesbase"))]
     SetCommandText: usize,
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 pub trait ICommandText_Impl: ICommand_Impl {
     fn GetCommandText(&self, pguiddialect: *mut windows_core::GUID, ppwszcommand: *mut super::LPOLESTR) -> windows_core::Result<()>;
     fn SetCommandText(&self, rguiddialect: *const windows_core::GUID, pwszcommand: super::LPCOLESTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl ICommandText_Vtbl {
     pub const fn new<Identity: ICommandText_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCommandText<Identity: ICommandText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguiddialect: *mut windows_core::GUID, ppwszcommand: *mut super::LPOLESTR) -> windows_core::HRESULT {
@@ -2640,19 +2698,19 @@ impl ICommandText_Vtbl {
         iid == &<ICommandText as windows_core::Interface>::IID || iid == &<ICommand as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICommandText {}
 windows_core::imp::define_interface!(ICommandWithParameters, ICommandWithParameters_Vtbl, 0x0c733a64_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICommandWithParameters, windows_core::IUnknown);
 impl ICommandWithParameters {
-    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
-    pub unsafe fn GetParameterInfo(&self, pcparams: *mut DB_UPARAMS, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetParameterInfo)(windows_core::Interface::as_raw(self), pcparams as _, prgparaminfo as _, ppnamesbuffer as _) }
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn GetParameterInfo(&self, pcparams: *mut DB_UPARAMS, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: Option<*mut *mut super::OLECHAR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetParameterInfo)(windows_core::Interface::as_raw(self), pcparams as _, prgparaminfo as _, ppnamesbuffer.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn MapParameterNames(&self, cparamnames: DB_UPARAMS, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut DB_LPARAMS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MapParameterNames)(windows_core::Interface::as_raw(self), cparamnames, rgparamnames, rgparamordinals as _) }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn SetParameterInfo(&self, cparams: DB_UPARAMS, rgparamordinals: Option<*const DB_UPARAMS>, rgparambindinfo: Option<*const DBPARAMBINDINFO>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameterInfo)(windows_core::Interface::as_raw(self), cparams, rgparamordinals.unwrap_or(core::mem::zeroed()) as _, rgparambindinfo.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -2661,23 +2719,23 @@ impl ICommandWithParameters {
 #[doc(hidden)]
 pub struct ICommandWithParameters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
     pub GetParameterInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DB_UPARAMS, *mut *mut DBPARAMINFO, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "shared", feature = "wtypesbase")))]
     GetParameterInfo: usize,
     pub MapParameterNames: unsafe extern "system" fn(*mut core::ffi::c_void, DB_UPARAMS, *const windows_core::PCWSTR, *mut DB_LPARAMS) -> windows_core::HRESULT,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub SetParameterInfo: unsafe extern "system" fn(*mut core::ffi::c_void, DB_UPARAMS, *const DB_UPARAMS, *const DBPARAMBINDINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     SetParameterInfo: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait ICommandWithParameters_Impl: windows_core::IUnknownImpl {
     fn GetParameterInfo(&self, pcparams: *mut DB_UPARAMS, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
     fn MapParameterNames(&self, cparamnames: DB_UPARAMS, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut DB_LPARAMS) -> windows_core::Result<()>;
     fn SetParameterInfo(&self, cparams: DB_UPARAMS, rgparamordinals: *const DB_UPARAMS, rgparambindinfo: *const DBPARAMBINDINFO) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl ICommandWithParameters_Vtbl {
     pub const fn new<Identity: ICommandWithParameters_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetParameterInfo<Identity: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcparams: *mut DB_UPARAMS, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
@@ -2709,7 +2767,7 @@ impl ICommandWithParameters_Vtbl {
         iid == &<ICommandWithParameters as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICommandWithParameters {}
 windows_core::imp::define_interface!(IConvertType, IConvertType_Vtbl, 0x0c733a88_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IConvertType, windows_core::IUnknown);
@@ -2745,34 +2803,32 @@ impl windows_core::RuntimeName for IConvertType {}
 windows_core::imp::define_interface!(ICreateRow, ICreateRow_Vtbl, 0x0c733ab2_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICreateRow, windows_core::IUnknown);
 impl ICreateRow {
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub unsafe fn CreateRow<P0, P5, T>(&self, punkouter: P0, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, pauthenticate: P5, pimplsession: Option<*mut DBIMPLICITSESSION>, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
+    pub unsafe fn CreateRow<P0, P5>(&self, punkouter: P0, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: P5, pimplsession: Option<*mut DBIMPLICITSESSION>, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: Option<*mut super::LPOLESTR>, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<super::IAuthenticate>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateRow)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl, dwbindurlflags, rguid, &T::IID, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus as _, ppwsznewurl as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateRow)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl, dwbindurlflags, rguid, riid, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus as _, ppwsznewurl.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppunk)) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateRow_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub CreateRow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCOLESTR, DBBINDURLFLAG, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void, *mut DBIMPLICITSESSION, *mut DBBINDURLSTATUS, *mut super::LPOLESTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "urlmon", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
+    pub CreateRow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCOLESTR, DBBINDURLFLAG, *const windows_core::GUID, *const super::IID, *mut core::ffi::c_void, *mut DBIMPLICITSESSION, *mut DBBINDURLSTATUS, *mut super::LPOLESTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase")))]
     CreateRow: usize,
 }
-#[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 pub trait ICreateRow_Impl: windows_core::IUnknownImpl {
-    fn CreateRow(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateRow(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: windows_core::Ref<super::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 impl ICreateRow_Vtbl {
     pub const fn new<Identity: ICreateRow_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateRow<Identity: ICreateRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: *mut core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateRow<Identity: ICreateRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwbindurlflags: DBBINDURLFLAG, rguid: *const windows_core::GUID, riid: *const super::IID, pauthenticate: *mut core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut DBBINDURLSTATUS, ppwsznewurl: *mut super::LPOLESTR, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICreateRow_Impl::CreateRow(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwbindurlflags), core::mem::transmute_copy(&rguid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&pimplsession), core::mem::transmute_copy(&pdwbindstatus), core::mem::transmute_copy(&ppwsznewurl), core::mem::transmute_copy(&ppunk)).into()
@@ -2784,12 +2840,11 @@ impl ICreateRow_Vtbl {
         iid == &<ICreateRow as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "urlmon", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICreateRow {}
 windows_core::imp::define_interface!(IDBAsynchNotify, IDBAsynchNotify_Vtbl, 0x0c733a96_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBAsynchNotify, windows_core::IUnknown);
 impl IDBAsynchNotify {
-    #[cfg(feature = "winnt")]
     pub unsafe fn OnLowResource(&self, dwreserved: DB_DWRESERVE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnLowResource)(windows_core::Interface::as_raw(self), dwreserved) }
     }
@@ -2806,10 +2861,7 @@ impl IDBAsynchNotify {
 #[doc(hidden)]
 pub struct IDBAsynchNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "winnt")]
     pub OnLowResource: unsafe extern "system" fn(*mut core::ffi::c_void, DB_DWRESERVE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
-    OnLowResource: usize,
     #[cfg(feature = "wtypesbase")]
     pub OnProgress: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBASYNCHOP, DBCOUNTITEM, DBCOUNTITEM, DBASYNCHPHASE, super::LPOLESTR) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypesbase"))]
@@ -2819,13 +2871,13 @@ pub struct IDBAsynchNotify_Vtbl {
     #[cfg(not(feature = "wtypesbase"))]
     OnStop: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(feature = "wtypesbase")]
 pub trait IDBAsynchNotify_Impl: windows_core::IUnknownImpl {
     fn OnLowResource(&self, dwreserved: DB_DWRESERVE) -> windows_core::Result<()>;
     fn OnProgress(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, ulprogress: DBCOUNTITEM, ulprogressmax: DBCOUNTITEM, easynchphase: DBASYNCHPHASE, pwszstatustext: super::LPOLESTR) -> windows_core::Result<()>;
     fn OnStop(&self, hchapter: HCHAPTER, eoperation: DBASYNCHOP, hrstatus: windows_core::HRESULT, pwszstatustext: super::LPOLESTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(feature = "wtypesbase")]
 impl IDBAsynchNotify_Vtbl {
     pub const fn new<Identity: IDBAsynchNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLowResource<Identity: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: DB_DWRESERVE) -> windows_core::HRESULT {
@@ -2857,7 +2909,7 @@ impl IDBAsynchNotify_Vtbl {
         iid == &<IDBAsynchNotify as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IDBAsynchNotify {}
 windows_core::imp::define_interface!(IDBAsynchStatus, IDBAsynchStatus_Vtbl, 0x0c733a95_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBAsynchStatus, windows_core::IUnknown);
@@ -2927,11 +2979,11 @@ pub struct IDBBinderProperties_Vtbl {
     pub base__: IDBProperties_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBBinderProperties_Impl: IDBProperties_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBBinderProperties_Vtbl {
     pub const fn new<Identity: IDBBinderProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Reset<Identity: IDBBinderProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2946,35 +2998,48 @@ impl IDBBinderProperties_Vtbl {
         iid == &<IDBBinderProperties as windows_core::Interface>::IID || iid == &<IDBProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDBBinderProperties {}
 windows_core::imp::define_interface!(IDBCreateCommand, IDBCreateCommand_Vtbl, 0x0c733a1d_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBCreateCommand, windows_core::IUnknown);
 impl IDBCreateCommand {
-    pub unsafe fn CreateCommand<P0, T>(&self, punkouter: P0) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn CreateCommand<P0>(&self, punkouter: P0, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateCommand)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateCommand)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBCreateCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub CreateCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    CreateCommand: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IDBCreateCommand_Impl: windows_core::IUnknownImpl {
-    fn CreateCommand(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppcommand: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateCommand(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
 }
+#[cfg(feature = "guiddef")]
 impl IDBCreateCommand_Vtbl {
     pub const fn new<Identity: IDBCreateCommand_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateCommand<Identity: IDBCreateCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppcommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateCommand<Identity: IDBCreateCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppcommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBCreateCommand_Impl::CreateCommand(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcommand)).into()
+                match IDBCreateCommand_Impl::CreateCommand(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppcommand.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateCommand: CreateCommand::<Identity, OFFSET> }
@@ -2983,34 +3048,48 @@ impl IDBCreateCommand_Vtbl {
         iid == &<IDBCreateCommand as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IDBCreateCommand {}
 windows_core::imp::define_interface!(IDBCreateSession, IDBCreateSession_Vtbl, 0x0c733a5d_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBCreateSession, windows_core::IUnknown);
 impl IDBCreateSession {
-    pub unsafe fn CreateSession<P0, T>(&self, punkouter: P0) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn CreateSession<P0>(&self, punkouter: P0, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBCreateSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    CreateSession: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IDBCreateSession_Impl: windows_core::IUnknownImpl {
-    fn CreateSession(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateSession(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
 }
+#[cfg(feature = "guiddef")]
 impl IDBCreateSession_Vtbl {
     pub const fn new<Identity: IDBCreateSession_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateSession<Identity: IDBCreateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSession<Identity: IDBCreateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDBCreateSession_Impl::CreateSession(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdbsession)).into()
+                match IDBCreateSession_Impl::CreateSession(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppdbsession.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateSession: CreateSession::<Identity, OFFSET> }
@@ -3019,27 +3098,26 @@ impl IDBCreateSession_Vtbl {
         iid == &<IDBCreateSession as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IDBCreateSession {}
 windows_core::imp::define_interface!(IDBDataSourceAdmin, IDBDataSourceAdmin_Vtbl, 0x0c733a7a_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBDataSourceAdmin, windows_core::IUnknown);
 impl IDBDataSourceAdmin {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateDataSource<P2, T>(&self, rgpropertysets: Option<&mut [DBPROPSET]>, punkouter: P2) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn CreateDataSource<P2>(&self, rgpropertysets: Option<&mut [DBPROPSET]>, punkouter: P2, riid: *const super::IID, ppdbsession: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), punkouter.param().abi(), riid, ppdbsession.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn DestroyDataSource(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DestroyDataSource)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _) }
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: Option<*mut *mut super::OLECHAR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ModifyDataSource(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ModifyDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
@@ -3048,31 +3126,31 @@ impl IDBDataSourceAdmin {
 #[doc(hidden)]
 pub struct IDBDataSourceAdmin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub CreateDataSource: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DBPROPSET, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub CreateDataSource: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut DBPROPSET, *mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateDataSource: usize,
     pub DestroyDataSource: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetCreationProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DBPROPIDSET, *mut u32, *mut *mut DBPROPINFOSET, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetCreationProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const DBPROPIDSET, *mut super::ULONG, *mut *mut DBPROPINFOSET, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCreationProperties: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub ModifyDataSource: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub ModifyDataSource: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ModifyDataSource: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBDataSourceAdmin_Impl: windows_core::IUnknownImpl {
-    fn CreateDataSource(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateDataSource(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, ppdbsession: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DestroyDataSource(&self) -> windows_core::Result<()>;
-    fn GetCreationProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn ModifyDataSource(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetCreationProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn ModifyDataSource(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBDataSourceAdmin_Vtbl {
     pub const fn new<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateDataSource<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDataSource<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppdbsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBDataSourceAdmin_Impl::CreateDataSource(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdbsession)).into()
@@ -3084,13 +3162,13 @@ impl IDBDataSourceAdmin_Vtbl {
                 IDBDataSourceAdmin_Impl::DestroyDataSource(this).into()
             }
         }
-        unsafe extern "system" fn GetCreationProperties<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCreationProperties<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBDataSourceAdmin_Impl::GetCreationProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertyinfosets), core::mem::transmute_copy(&prgpropertyinfosets), core::mem::transmute_copy(&ppdescbuffer)).into()
             }
         }
-        unsafe extern "system" fn ModifyDataSource<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyDataSource<Identity: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBDataSourceAdmin_Impl::ModifyDataSource(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
@@ -3108,7 +3186,7 @@ impl IDBDataSourceAdmin_Vtbl {
         iid == &<IDBDataSourceAdmin as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDBDataSourceAdmin {}
 windows_core::imp::define_interface!(IDBInfo, IDBInfo_Vtbl, 0x0c733a89_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBInfo, windows_core::IUnknown);
@@ -3120,8 +3198,8 @@ impl IDBInfo {
             (windows_core::Interface::vtable(self).GetKeywords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypesbase")]
-    pub unsafe fn GetLiteralInfo(&self, rgliterals: Option<&[DBLITERAL]>, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn GetLiteralInfo(&self, rgliterals: Option<&[DBLITERAL]>, pcliteralinfo: *mut super::ULONG, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLiteralInfo)(windows_core::Interface::as_raw(self), rgliterals.map_or(0, |slice| slice.len().try_into().unwrap()), rgliterals.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcliteralinfo as _, prgliteralinfo as _, ppcharbuffer as _) }
     }
 }
@@ -3133,17 +3211,17 @@ pub struct IDBInfo_Vtbl {
     pub GetKeywords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LPOLESTR) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypesbase"))]
     GetKeywords: usize,
-    #[cfg(feature = "wtypesbase")]
-    pub GetLiteralInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DBLITERAL, *mut u32, *mut *mut DBLITERALINFO, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub GetLiteralInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const DBLITERAL, *mut super::ULONG, *mut *mut DBLITERALINFO, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     GetLiteralInfo: usize,
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait IDBInfo_Impl: windows_core::IUnknownImpl {
     fn GetKeywords(&self) -> windows_core::Result<super::LPOLESTR>;
-    fn GetLiteralInfo(&self, cliterals: u32, rgliterals: *const DBLITERAL, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn GetLiteralInfo(&self, cliterals: super::ULONG, rgliterals: *const DBLITERAL, pcliteralinfo: *mut super::ULONG, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IDBInfo_Vtbl {
     pub const fn new<Identity: IDBInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetKeywords<Identity: IDBInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszkeywords: *mut super::LPOLESTR) -> windows_core::HRESULT {
@@ -3158,7 +3236,7 @@ impl IDBInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLiteralInfo<Identity: IDBInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cliterals: u32, rgliterals: *const DBLITERAL, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLiteralInfo<Identity: IDBInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cliterals: super::ULONG, rgliterals: *const DBLITERAL, pcliteralinfo: *mut super::ULONG, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBInfo_Impl::GetLiteralInfo(this, core::mem::transmute_copy(&cliterals), core::mem::transmute_copy(&rgliterals), core::mem::transmute_copy(&pcliteralinfo), core::mem::transmute_copy(&prgliteralinfo), core::mem::transmute_copy(&ppcharbuffer)).into()
@@ -3174,7 +3252,7 @@ impl IDBInfo_Vtbl {
         iid == &<IDBInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDBInfo {}
 windows_core::imp::define_interface!(IDBInitialize, IDBInitialize_Vtbl, 0x0c733a8b_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBInitialize, windows_core::IUnknown);
@@ -3225,15 +3303,15 @@ impl windows_core::RuntimeName for IDBInitialize {}
 windows_core::imp::define_interface!(IDBProperties, IDBProperties_Vtbl, 0x0c733a8a_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBProperties, windows_core::IUnknown);
 impl IDBProperties {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _) }
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: Option<*mut *mut super::OLECHAR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
@@ -3242,41 +3320,41 @@ impl IDBProperties {
 #[doc(hidden)]
 pub struct IDBProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DBPROPIDSET, *mut u32, *mut *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const DBPROPIDSET, *mut super::ULONG, *mut *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetProperties: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DBPROPIDSET, *mut u32, *mut *mut DBPROPINFOSET, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const DBPROPIDSET, *mut super::ULONG, *mut *mut DBPROPINFOSET, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPropertyInfo: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetProperties: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBProperties_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn GetPropertyInfo(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn SetProperties(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetPropertyInfo(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBProperties_Vtbl {
     pub const fn new<Identity: IDBProperties_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetProperties<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperties<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
             }
         }
-        unsafe extern "system" fn GetPropertyInfo<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyInfo<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut super::ULONG, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBProperties_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertyinfosets), core::mem::transmute_copy(&prgpropertyinfosets), core::mem::transmute_copy(&ppdescbuffer)).into()
             }
         }
-        unsafe extern "system" fn SetProperties<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperties<Identity: IDBProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
@@ -3293,21 +3371,20 @@ impl IDBProperties_Vtbl {
         iid == &<IDBProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDBProperties {}
 windows_core::imp::define_interface!(IDBSchemaRowset, IDBSchemaRowset_Vtbl, 0x0c733a7b_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDBSchemaRowset, windows_core::IUnknown);
 impl IDBSchemaRowset {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetRowset<P0, T>(&self, punkouter: P0, rguidschema: *const windows_core::GUID, rgrestrictions: Option<&[super::VARIANT]>, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetRowset<P0>(&self, punkouter: P0, rguidschema: *const windows_core::GUID, rgrestrictions: Option<&[super::VARIANT]>, riid: *const super::IID, rgpropertysets: Option<&mut [DBPROPSET]>, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.map_or(0, |slice| slice.len().try_into().unwrap()), rgrestrictions.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.map_or(0, |slice| slice.len().try_into().unwrap()), rgrestrictions.map_or(core::ptr::null(), |slice| slice.as_ptr()), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), core::mem::transmute(pprowset)) }
     }
-    pub unsafe fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSchemas(&self, pcschemas: *mut super::ULONG, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSchemas)(windows_core::Interface::as_raw(self), pcschemas as _, prgschemas as _, prgrestrictionsupport as _) }
     }
 }
@@ -3315,27 +3392,30 @@ impl IDBSchemaRowset {
 #[doc(hidden)]
 pub struct IDBSchemaRowset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, u32, *const super::VARIANT, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, super::ULONG, *const super::VARIANT, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRowset: usize,
-    pub GetSchemas: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID, *mut *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSchemas: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG, *mut *mut windows_core::GUID, *mut *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSchemas: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDBSchemaRowset_Impl: windows_core::IUnknownImpl {
-    fn GetRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, rguidschema: *const windows_core::GUID, crestrictions: u32, rgrestrictions: *const super::VARIANT, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> windows_core::Result<()>;
+    fn GetRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, rguidschema: *const windows_core::GUID, crestrictions: super::ULONG, rgrestrictions: *const super::VARIANT, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetSchemas(&self, pcschemas: *mut super::ULONG, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDBSchemaRowset_Vtbl {
     pub const fn new<Identity: IDBSchemaRowset_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRowset<Identity: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, rguidschema: *const windows_core::GUID, crestrictions: u32, rgrestrictions: *const super::VARIANT, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRowset<Identity: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, rguidschema: *const windows_core::GUID, crestrictions: super::ULONG, rgrestrictions: *const super::VARIANT, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBSchemaRowset_Impl::GetRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&rguidschema), core::mem::transmute_copy(&crestrictions), core::mem::transmute_copy(&rgrestrictions), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
             }
         }
-        unsafe extern "system" fn GetSchemas<Identity: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcschemas: *mut u32, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSchemas<Identity: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcschemas: *mut super::ULONG, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDBSchemaRowset_Impl::GetSchemas(this, core::mem::transmute_copy(&pcschemas), core::mem::transmute_copy(&prgschemas), core::mem::transmute_copy(&prgrestrictionsupport)).into()
@@ -3351,22 +3431,23 @@ impl IDBSchemaRowset_Vtbl {
         iid == &<IDBSchemaRowset as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDBSchemaRowset {}
 pub const IDENTIFIER_SDK_ERROR: i32 = 268435456;
 pub const IDENTIFIER_SDK_MASK: u32 = 4026531840;
 windows_core::imp::define_interface!(IErrorLookup, IErrorLookup_Vtbl, 0x0c733a66_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IErrorLookup, windows_core::IUnknown);
 impl IErrorLookup {
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut windows_core::BSTR, pbstrdescription: *mut windows_core::BSTR) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut windows_core::BSTR, pbstrdescription: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), hrerror, dwlookupid, pdispparams, lcid, core::mem::transmute(pbstrsource), core::mem::transmute(pbstrdescription)) }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn GetHelpInfo(&self, hrerror: windows_core::HRESULT, dwlookupid: u32, lcid: super::LCID, pbstrhelpfile: *mut windows_core::BSTR, pdwhelpcontext: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetHelpInfo(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, lcid: super::LCID, pbstrhelpfile: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetHelpInfo)(windows_core::Interface::as_raw(self), hrerror, dwlookupid, lcid, core::mem::transmute(pbstrhelpfile), pdwhelpcontext as _) }
     }
-    pub unsafe fn ReleaseErrors(&self, dwdynamicerrorid: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReleaseErrors(&self, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseErrors)(windows_core::Interface::as_raw(self), dwdynamicerrorid) }
     }
 }
@@ -3374,38 +3455,41 @@ impl IErrorLookup {
 #[doc(hidden)]
 pub struct IErrorLookup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetErrorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, *const super::DISPPARAMS, super::LCID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetErrorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, super::DWORD, *const super::DISPPARAMS, super::LCID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetErrorDescription: usize,
-    #[cfg(feature = "winnt")]
-    pub GetHelpInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, super::LCID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(feature = "shared")]
+    pub GetHelpInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, super::DWORD, super::LCID, *mut *mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
     GetHelpInfo: usize,
-    pub ReleaseErrors: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ReleaseErrors: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReleaseErrors: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IErrorLookup_Impl: windows_core::IUnknownImpl {
-    fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut windows_core::BSTR, pbstrdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetHelpInfo(&self, hrerror: windows_core::HRESULT, dwlookupid: u32, lcid: super::LCID, pbstrhelpfile: *mut windows_core::BSTR, pdwhelpcontext: *mut u32) -> windows_core::Result<()>;
-    fn ReleaseErrors(&self, dwdynamicerrorid: u32) -> windows_core::Result<()>;
+    fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut windows_core::BSTR, pbstrdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetHelpInfo(&self, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, lcid: super::LCID, pbstrhelpfile: *mut windows_core::BSTR, pdwhelpcontext: *mut super::DWORD) -> windows_core::Result<()>;
+    fn ReleaseErrors(&self, dwdynamicerrorid: super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IErrorLookup_Vtbl {
     pub const fn new<Identity: IErrorLookup_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetErrorDescription<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrerror: windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut *mut core::ffi::c_void, pbstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, lcid: super::LCID, pbstrsource: *mut *mut core::ffi::c_void, pbstrdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IErrorLookup_Impl::GetErrorDescription(this, core::mem::transmute_copy(&hrerror), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrsource), core::mem::transmute_copy(&pbstrdescription)).into()
             }
         }
-        unsafe extern "system" fn GetHelpInfo<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrerror: windows_core::HRESULT, dwlookupid: u32, lcid: super::LCID, pbstrhelpfile: *mut *mut core::ffi::c_void, pdwhelpcontext: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHelpInfo<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrerror: windows_core::HRESULT, dwlookupid: super::DWORD, lcid: super::LCID, pbstrhelpfile: *mut *mut core::ffi::c_void, pdwhelpcontext: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IErrorLookup_Impl::GetHelpInfo(this, core::mem::transmute_copy(&hrerror), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&pbstrhelpfile), core::mem::transmute_copy(&pdwhelpcontext)).into()
             }
         }
-        unsafe extern "system" fn ReleaseErrors<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdynamicerrorid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseErrors<Identity: IErrorLookup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IErrorLookup_Impl::ReleaseErrors(this, core::mem::transmute_copy(&dwdynamicerrorid)).into()
@@ -3422,44 +3506,45 @@ impl IErrorLookup_Vtbl {
         iid == &<IErrorLookup as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IErrorLookup {}
 windows_core::imp::define_interface!(IErrorRecords, IErrorRecords_Vtbl, 0x0c733a67_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IErrorRecords, windows_core::IUnknown);
 impl IErrorRecords {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn AddErrorRecord<P3>(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: Option<*const super::DISPPARAMS>, punkcustomerror: P3, dwdynamicerrorid: u32) -> windows_core::HRESULT
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn AddErrorRecord<P3>(&self, perrorinfo: *const ERRORINFO, dwlookupid: super::DWORD, pdispparams: Option<*const super::DISPPARAMS>, punkcustomerror: P3, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddErrorRecord)(windows_core::Interface::as_raw(self), perrorinfo, dwlookupid, pdispparams.unwrap_or(core::mem::zeroed()) as _, punkcustomerror.param().abi(), dwdynamicerrorid) }
     }
-    #[cfg(feature = "oaidl")]
-    pub unsafe fn GetBasicErrorInfo(&self, ulrecordnum: u32, perrorinfo: *mut ERRORINFO) -> windows_core::HRESULT {
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn GetBasicErrorInfo(&self, ulrecordnum: super::ULONG, perrorinfo: *mut ERRORINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBasicErrorInfo)(windows_core::Interface::as_raw(self), ulrecordnum, perrorinfo as _) }
     }
-    pub unsafe fn GetCustomErrorObject<T>(&self, ulrecordnum: u32) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetCustomErrorObject)(windows_core::Interface::as_raw(self), ulrecordnum, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn GetCustomErrorObject(&self, ulrecordnum: super::ULONG, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCustomErrorObject)(windows_core::Interface::as_raw(self), ulrecordnum, riid, &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
+        }
     }
-    #[cfg(all(feature = "oaidl", feature = "winnt"))]
-    pub unsafe fn GetErrorInfo(&self, ulrecordnum: u32, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo> {
+    #[cfg(all(feature = "oaidl", feature = "shared"))]
+    pub unsafe fn GetErrorInfo(&self, ulrecordnum: super::ULONG, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), ulrecordnum, lcid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetErrorParameters(&self, ulrecordnum: u32) -> windows_core::Result<super::DISPPARAMS> {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetErrorParameters(&self, ulrecordnum: super::ULONG) -> windows_core::Result<super::DISPPARAMS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorParameters)(windows_core::Interface::as_raw(self), ulrecordnum, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRecordCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRecordCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecordCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3470,56 +3555,68 @@ impl IErrorRecords {
 #[doc(hidden)]
 pub struct IErrorRecords_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub AddErrorRecord: unsafe extern "system" fn(*mut core::ffi::c_void, *const ERRORINFO, u32, *const super::DISPPARAMS, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub AddErrorRecord: unsafe extern "system" fn(*mut core::ffi::c_void, *const ERRORINFO, super::DWORD, *const super::DISPPARAMS, *mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddErrorRecord: usize,
-    #[cfg(feature = "oaidl")]
-    pub GetBasicErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut ERRORINFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "oaidl"))]
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub GetBasicErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut ERRORINFO) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
     GetBasicErrorInfo: usize,
-    pub GetCustomErrorObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "winnt"))]
-    pub GetErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LCID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "winnt")))]
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub GetCustomErrorObject: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    GetCustomErrorObject: usize,
+    #[cfg(all(feature = "oaidl", feature = "shared"))]
+    pub GetErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, super::LCID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "oaidl", feature = "shared")))]
     GetErrorInfo: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetErrorParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::DISPPARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetErrorParameters: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::DISPPARAMS) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetErrorParameters: usize,
-    pub GetRecordCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetRecordCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRecordCount: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IErrorRecords_Impl: windows_core::IUnknownImpl {
-    fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::DISPPARAMS, punkcustomerror: windows_core::Ref<windows_core::IUnknown>, dwdynamicerrorid: u32) -> windows_core::Result<()>;
-    fn GetBasicErrorInfo(&self, ulrecordnum: u32, perrorinfo: *mut ERRORINFO) -> windows_core::Result<()>;
-    fn GetCustomErrorObject(&self, ulrecordnum: u32, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetErrorInfo(&self, ulrecordnum: u32, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo>;
-    fn GetErrorParameters(&self, ulrecordnum: u32) -> windows_core::Result<super::DISPPARAMS>;
-    fn GetRecordCount(&self) -> windows_core::Result<u32>;
+    fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, punkcustomerror: windows_core::Ref<windows_core::IUnknown>, dwdynamicerrorid: super::DWORD) -> windows_core::Result<()>;
+    fn GetBasicErrorInfo(&self, ulrecordnum: super::ULONG, perrorinfo: *mut ERRORINFO) -> windows_core::Result<()>;
+    fn GetCustomErrorObject(&self, ulrecordnum: super::ULONG, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>>;
+    fn GetErrorInfo(&self, ulrecordnum: super::ULONG, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo>;
+    fn GetErrorParameters(&self, ulrecordnum: super::ULONG) -> windows_core::Result<super::DISPPARAMS>;
+    fn GetRecordCount(&self) -> windows_core::Result<super::ULONG>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IErrorRecords_Vtbl {
     pub const fn new<Identity: IErrorRecords_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddErrorRecord<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::DISPPARAMS, punkcustomerror: *mut core::ffi::c_void, dwdynamicerrorid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddErrorRecord<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorinfo: *const ERRORINFO, dwlookupid: super::DWORD, pdispparams: *const super::DISPPARAMS, punkcustomerror: *mut core::ffi::c_void, dwdynamicerrorid: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IErrorRecords_Impl::AddErrorRecord(this, core::mem::transmute_copy(&perrorinfo), core::mem::transmute_copy(&dwlookupid), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&punkcustomerror), core::mem::transmute_copy(&dwdynamicerrorid)).into()
             }
         }
-        unsafe extern "system" fn GetBasicErrorInfo<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: u32, perrorinfo: *mut ERRORINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBasicErrorInfo<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, perrorinfo: *mut ERRORINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IErrorRecords_Impl::GetBasicErrorInfo(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&perrorinfo)).into()
             }
         }
-        unsafe extern "system" fn GetCustomErrorObject<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: u32, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCustomErrorObject<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, riid: *const super::IID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorRecords_Impl::GetCustomErrorObject(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppobject)).into()
+                match IErrorRecords_Impl::GetCustomErrorObject(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn GetErrorInfo<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: u32, lcid: super::LCID, pperrorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorInfo<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, lcid: super::LCID, pperrorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IErrorRecords_Impl::GetErrorInfo(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&lcid)) {
@@ -3531,7 +3628,7 @@ impl IErrorRecords_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetErrorParameters<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: u32, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorParameters<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulrecordnum: super::ULONG, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IErrorRecords_Impl::GetErrorParameters(this, core::mem::transmute_copy(&ulrecordnum)) {
@@ -3543,7 +3640,7 @@ impl IErrorRecords_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRecordCount<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcrecords: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordCount<Identity: IErrorRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcrecords: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IErrorRecords_Impl::GetRecordCount(this) {
@@ -3569,34 +3666,45 @@ impl IErrorRecords_Vtbl {
         iid == &<IErrorRecords as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IErrorRecords {}
 windows_core::imp::define_interface!(IGetDataSource, IGetDataSource_Vtbl, 0x0c733a75_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IGetDataSource, windows_core::IUnknown);
 impl IGetDataSource {
-    pub unsafe fn GetDataSource<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetDataSource)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetDataSource(&self, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDataSource)(windows_core::Interface::as_raw(self), riid, &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetDataSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDataSource: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetDataSource: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetDataSource: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IGetDataSource_Impl: windows_core::IUnknownImpl {
-    fn GetDataSource(&self, riid: *const windows_core::GUID, ppdatasource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetDataSource(&self, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>>;
 }
+#[cfg(feature = "guiddef")]
 impl IGetDataSource_Vtbl {
     pub const fn new<Identity: IGetDataSource_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDataSource<Identity: IGetDataSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppdatasource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDataSource<Identity: IGetDataSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppdatasource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetDataSource_Impl::GetDataSource(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdatasource)).into()
+                match IGetDataSource_Impl::GetDataSource(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppdatasource.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDataSource: GetDataSource::<Identity, OFFSET> }
@@ -3605,17 +3713,20 @@ impl IGetDataSource_Vtbl {
         iid == &<IGetDataSource as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IGetDataSource {}
 windows_core::imp::define_interface!(IGetRow, IGetRow_Vtbl, 0x0c733aaf_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IGetRow, windows_core::IUnknown);
 impl IGetRow {
-    pub unsafe fn GetRowFromHROW<P0, T>(&self, punkouter: P0, hrow: HROW) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetRowFromHROW<P0>(&self, punkouter: P0, hrow: HROW, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRowFromHROW)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hrow, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRowFromHROW)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hrow, riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn GetURLFromHROW(&self, hrow: HROW) -> windows_core::Result<super::LPOLESTR> {
@@ -3629,24 +3740,33 @@ impl IGetRow {
 #[doc(hidden)]
 pub struct IGetRow_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetRowFromHROW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, HROW, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetRowFromHROW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, HROW, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetRowFromHROW: usize,
     #[cfg(feature = "wtypesbase")]
     pub GetURLFromHROW: unsafe extern "system" fn(*mut core::ffi::c_void, HROW, *mut super::LPOLESTR) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypesbase"))]
     GetURLFromHROW: usize,
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 pub trait IGetRow_Impl: windows_core::IUnknownImpl {
-    fn GetRowFromHROW(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, hrow: HROW, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetRowFromHROW(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, hrow: HROW, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
     fn GetURLFromHROW(&self, hrow: HROW) -> windows_core::Result<super::LPOLESTR>;
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl IGetRow_Vtbl {
     pub const fn new<Identity: IGetRow_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRowFromHROW<Identity: IGetRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, hrow: HROW, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRowFromHROW<Identity: IGetRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, hrow: HROW, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetRow_Impl::GetRowFromHROW(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
+                match IGetRow_Impl::GetRowFromHROW(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetURLFromHROW<Identity: IGetRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrow: HROW, ppwszurl: *mut super::LPOLESTR) -> windows_core::HRESULT {
@@ -3671,34 +3791,45 @@ impl IGetRow_Vtbl {
         iid == &<IGetRow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IGetRow {}
 windows_core::imp::define_interface!(IGetSession, IGetSession_Vtbl, 0x0c733aba_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IGetSession, windows_core::IUnknown);
 impl IGetSession {
-    pub unsafe fn GetSession<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSession)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetSession(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSession)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetSession: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IGetSession_Impl: windows_core::IUnknownImpl {
-    fn GetSession(&self, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSession(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
 }
+#[cfg(feature = "guiddef")]
 impl IGetSession_Vtbl {
     pub const fn new<Identity: IGetSession_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSession<Identity: IGetSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSession<Identity: IGetSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetSession_Impl::GetSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsession)).into()
+                match IGetSession_Impl::GetSession(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppsession.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSession: GetSession::<Identity, OFFSET> }
@@ -3707,33 +3838,45 @@ impl IGetSession_Vtbl {
         iid == &<IGetSession as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IGetSession {}
 windows_core::imp::define_interface!(IGetSourceRow, IGetSourceRow_Vtbl, 0x0c733abb_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IGetSourceRow, windows_core::IUnknown);
 impl IGetSourceRow {
-    pub unsafe fn GetSourceRow<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSourceRow)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetSourceRow(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSourceRow)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetSourceRow_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSourceRow: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetSourceRow: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetSourceRow: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IGetSourceRow_Impl: windows_core::IUnknownImpl {
-    fn GetSourceRow(&self, riid: *const windows_core::GUID, pprow: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSourceRow(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
 }
+#[cfg(feature = "guiddef")]
 impl IGetSourceRow_Vtbl {
     pub const fn new<Identity: IGetSourceRow_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSourceRow<Identity: IGetSourceRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pprow: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceRow<Identity: IGetSourceRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprow: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetSourceRow_Impl::GetSourceRow(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprow)).into()
+                match IGetSourceRow_Impl::GetSourceRow(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        pprow.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSourceRow: GetSourceRow::<Identity, OFFSET> }
@@ -3742,15 +3885,16 @@ impl IGetSourceRow_Vtbl {
         iid == &<IGetSourceRow as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IGetSourceRow {}
 windows_core::imp::define_interface!(IIndexDefinition, IIndexDefinition_Vtbl, 0x0c733a68_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IIndexDefinition, windows_core::IUnknown);
 impl IIndexDefinition {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateIndex(&self, ptableid: *const DBID, pindexid: Option<*const DBID>, rgindexcolumndescs: &[DBINDEXCOLUMNDESC], rgpropertysets: &mut [DBPROPSET], ppindexid: *mut *mut DBID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _, rgindexcolumndescs.len().try_into().unwrap(), rgindexcolumndescs.as_ptr(), rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_mut_ptr(), ppindexid as _) }
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn CreateIndex(&self, ptableid: *const DBID, pindexid: Option<*const DBID>, rgindexcolumndescs: &[DBINDEXCOLUMNDESC], rgpropertysets: &mut [DBPROPSET], ppindexid: Option<*mut *mut DBID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _, rgindexcolumndescs.len().try_into().unwrap(), rgindexcolumndescs.as_ptr(), rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_mut_ptr(), ppindexid.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn DropIndex(&self, ptableid: *const DBID, pindexid: Option<*const DBID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -3759,24 +3903,24 @@ impl IIndexDefinition {
 #[doc(hidden)]
 pub struct IIndexDefinition_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub CreateIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID, DBORDINAL, *const DBINDEXCOLUMNDESC, u32, *mut DBPROPSET, *mut *mut DBID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub CreateIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID, DBORDINAL, *const DBINDEXCOLUMNDESC, super::ULONG, *mut DBPROPSET, *mut *mut DBID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateIndex: usize,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub DropIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     DropIndex: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IIndexDefinition_Impl: windows_core::IUnknownImpl {
-    fn CreateIndex(&self, ptableid: *const DBID, pindexid: *const DBID, cindexcolumndescs: DBORDINAL, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut DBID) -> windows_core::Result<()>;
+    fn CreateIndex(&self, ptableid: *const DBID, pindexid: *const DBID, cindexcolumndescs: DBORDINAL, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut DBID) -> windows_core::Result<()>;
     fn DropIndex(&self, ptableid: *const DBID, pindexid: *const DBID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IIndexDefinition_Vtbl {
     pub const fn new<Identity: IIndexDefinition_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateIndex<Identity: IIndexDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, cindexcolumndescs: DBORDINAL, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut DBID) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateIndex<Identity: IIndexDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, cindexcolumndescs: DBORDINAL, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IIndexDefinition_Impl::CreateIndex(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&cindexcolumndescs), core::mem::transmute_copy(&rgindexcolumndescs), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&ppindexid)).into()
@@ -3798,7 +3942,7 @@ impl IIndexDefinition_Vtbl {
         iid == &<IIndexDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IIndexDefinition {}
 windows_core::imp::define_interface!(IMDDataset, IMDDataset_Vtbl, 0xa07cccd1_8148_11d0_87bb_00c04fc33942);
 windows_core::imp::interface_hierarchy!(IMDDataset, windows_core::IUnknown);
@@ -3811,24 +3955,22 @@ impl IMDDataset {
     pub unsafe fn GetAxisInfo(&self, pcaxes: *mut DBCOUNTITEM, prgaxisinfo: *mut *mut MDAXISINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAxisInfo)(windows_core::Interface::as_raw(self), pcaxes as _, prgaxisinfo as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetAxisRowset<P0, T>(&self, punkouter: P0, iaxis: DBCOUNTITEM, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetAxisRowset<P0>(&self, punkouter: P0, iaxis: DBCOUNTITEM, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetAxisRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iaxis, &T::IID, cpropertysets, rgpropertysets as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAxisRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iaxis, riid, cpropertysets, rgpropertysets as _, core::mem::transmute(pprowset)) }
     }
     pub unsafe fn GetCellData(&self, haccessor: HACCESSOR, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCellData)(windows_core::Interface::as_raw(self), haccessor, ulstartcell, ulendcell, pdata as _) }
     }
-    pub unsafe fn GetSpecification<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3843,22 +3985,25 @@ pub struct IMDDataset_Vtbl {
     pub GetAxisInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DBCOUNTITEM, *mut *mut MDAXISINFO) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypesbase"))]
     GetAxisInfo: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetAxisRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBCOUNTITEM, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetAxisRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBCOUNTITEM, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetAxisRowset: usize,
     pub GetCellData: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, DBORDINAL, DBORDINAL, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetSpecification: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMDDataset_Impl: windows_core::IUnknownImpl {
     fn FreeAxisInfo(&self, caxes: DBCOUNTITEM, rgaxisinfo: *const MDAXISINFO) -> windows_core::Result<()>;
     fn GetAxisInfo(&self, pcaxes: *mut DBCOUNTITEM, prgaxisinfo: *mut *mut MDAXISINFO) -> windows_core::Result<()>;
-    fn GetAxisRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iaxis: DBCOUNTITEM, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetAxisRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iaxis: DBCOUNTITEM, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetCellData(&self, haccessor: HACCESSOR, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetSpecification(&self, riid: *const windows_core::GUID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMDDataset_Vtbl {
     pub const fn new<Identity: IMDDataset_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FreeAxisInfo<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, caxes: DBCOUNTITEM, rgaxisinfo: *const MDAXISINFO) -> windows_core::HRESULT {
@@ -3873,7 +4018,7 @@ impl IMDDataset_Vtbl {
                 IMDDataset_Impl::GetAxisInfo(this, core::mem::transmute_copy(&pcaxes), core::mem::transmute_copy(&prgaxisinfo)).into()
             }
         }
-        unsafe extern "system" fn GetAxisRowset<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, iaxis: DBCOUNTITEM, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAxisRowset<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, iaxis: DBCOUNTITEM, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMDDataset_Impl::GetAxisRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&iaxis), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
@@ -3885,10 +4030,16 @@ impl IMDDataset_Vtbl {
                 IMDDataset_Impl::GetCellData(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&ulstartcell), core::mem::transmute_copy(&ulendcell), core::mem::transmute_copy(&pdata)).into()
             }
         }
-        unsafe extern "system" fn GetSpecification<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpecification<Identity: IMDDataset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDDataset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppspecification)).into()
+                match IMDDataset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppspecification.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3904,7 +4055,7 @@ impl IMDDataset_Vtbl {
         iid == &<IMDDataset as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMDDataset {}
 windows_core::imp::define_interface!(IMDFind, IMDFind_Vtbl, 0xa07cccd2_8148_11d0_87bb_00c04fc33942);
 windows_core::imp::interface_hierarchy!(IMDFind, windows_core::IUnknown);
@@ -3916,8 +4067,8 @@ impl IMDFind {
             (windows_core::Interface::vtable(self).FindCell)(windows_core::Interface::as_raw(self), ulstartingordinal, cmembers, rgpwszmember, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypesbase")]
-    pub unsafe fn FindTuple(&self, ulaxisidentifier: u32, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn FindTuple(&self, ulaxisidentifier: super::ULONG, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindTuple)(windows_core::Interface::as_raw(self), ulaxisidentifier, ulstartingordinal, cmembers, rgpwszmember, &mut result__).map(|| result__)
@@ -3932,17 +4083,17 @@ pub struct IMDFind_Vtbl {
     pub FindCell: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, DBCOUNTITEM, *const super::LPCOLESTR, *mut DBORDINAL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypesbase"))]
     FindCell: usize,
-    #[cfg(feature = "wtypesbase")]
-    pub FindTuple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DBORDINAL, DBCOUNTITEM, *const super::LPCOLESTR, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub FindTuple: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, DBORDINAL, DBCOUNTITEM, *const super::LPCOLESTR, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     FindTuple: usize,
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait IMDFind_Impl: windows_core::IUnknownImpl {
     fn FindCell(&self, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR) -> windows_core::Result<DBORDINAL>;
-    fn FindTuple(&self, ulaxisidentifier: u32, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR) -> windows_core::Result<u32>;
+    fn FindTuple(&self, ulaxisidentifier: super::ULONG, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR) -> windows_core::Result<super::ULONG>;
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IMDFind_Vtbl {
     pub const fn new<Identity: IMDFind_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindCell<Identity: IMDFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pulcellordinal: *mut DBORDINAL) -> windows_core::HRESULT {
@@ -3957,7 +4108,7 @@ impl IMDFind_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FindTuple<Identity: IMDFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulaxisidentifier: u32, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pultupleordinal: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindTuple<Identity: IMDFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulaxisidentifier: super::ULONG, ulstartingordinal: DBORDINAL, cmembers: DBCOUNTITEM, rgpwszmember: *const super::LPCOLESTR, pultupleordinal: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDFind_Impl::FindTuple(this, core::mem::transmute_copy(&ulaxisidentifier), core::mem::transmute_copy(&ulstartingordinal), core::mem::transmute_copy(&cmembers), core::mem::transmute_copy(&rgpwszmember)) {
@@ -3975,38 +4126,36 @@ impl IMDFind_Vtbl {
         iid == &<IMDFind as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMDFind {}
 windows_core::imp::define_interface!(IMDRangeRowset, IMDRangeRowset_Vtbl, 0x0c733aa0_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IMDRangeRowset, windows_core::IUnknown);
 impl IMDRangeRowset {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetRangeRowset<P0, T>(&self, punkouter: P0, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetRangeRowset<P0>(&self, punkouter: P0, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRangeRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ulstartcell, ulendcell, &T::IID, cpropertysets, rgpropertysets as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRangeRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ulstartcell, ulendcell, riid, cpropertysets, rgpropertysets as _, core::mem::transmute(pprowset)) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDRangeRowset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetRangeRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBORDINAL, DBORDINAL, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetRangeRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBORDINAL, DBORDINAL, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRangeRowset: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMDRangeRowset_Impl: windows_core::IUnknownImpl {
-    fn GetRangeRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetRangeRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMDRangeRowset_Vtbl {
     pub const fn new<Identity: IMDRangeRowset_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRangeRowset<Identity: IMDRangeRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRangeRowset<Identity: IMDRangeRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMDRangeRowset_Impl::GetRangeRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ulstartcell), core::mem::transmute_copy(&ulendcell), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
@@ -4018,32 +4167,36 @@ impl IMDRangeRowset_Vtbl {
         iid == &<IMDRangeRowset as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMDRangeRowset {}
 windows_core::imp::define_interface!(IMultipleResults, IMultipleResults_Vtbl, 0x0c733a90_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IMultipleResults, windows_core::IUnknown);
 impl IMultipleResults {
-    pub unsafe fn GetResult<P0, T>(&self, punkouter: P0, lresultflag: DBRESULTFLAG, pcrowsaffected: Option<*mut DBROWCOUNT>) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetResult<P0>(&self, punkouter: P0, lresultflag: DBRESULTFLAG, riid: *const super::IID, pcrowsaffected: Option<*mut DBROWCOUNT>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), punkouter.param().abi(), lresultflag, &T::IID, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), punkouter.param().abi(), lresultflag, riid, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, pprowset.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleResults_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBRESULTFLAG, *const windows_core::GUID, *mut DBROWCOUNT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBRESULTFLAG, *const super::IID, *mut DBROWCOUNT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetResult: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IMultipleResults_Impl: windows_core::IUnknownImpl {
-    fn GetResult(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, lresultflag: DBRESULTFLAG, riid: *const windows_core::GUID, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetResult(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, lresultflag: DBRESULTFLAG, riid: *const super::IID, pcrowsaffected: *mut DBROWCOUNT, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IMultipleResults_Vtbl {
     pub const fn new<Identity: IMultipleResults_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetResult<Identity: IMultipleResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, lresultflag: DBRESULTFLAG, riid: *const windows_core::GUID, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetResult<Identity: IMultipleResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, lresultflag: DBRESULTFLAG, riid: *const super::IID, pcrowsaffected: *mut DBROWCOUNT, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMultipleResults_Impl::GetResult(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&lresultflag), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pcrowsaffected), core::mem::transmute_copy(&pprowset)).into()
@@ -4055,33 +4208,34 @@ impl IMultipleResults_Vtbl {
         iid == &<IMultipleResults as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IMultipleResults {}
 windows_core::imp::define_interface!(IObjectAccessControl, IObjectAccessControl_Vtbl, 0x0c733aa3_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IObjectAccessControl, windows_core::IUnknown);
 impl IObjectAccessControl {
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn GetObjectAccessRights(&self, pobject: *const SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
+    pub unsafe fn GetObjectAccessRights(&self, pobject: *const SEC_OBJECT, pcaccessentries: *mut super::ULONG, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetObjectAccessRights)(windows_core::Interface::as_raw(self), pobject, pcaccessentries as _, prgaccessentries as _) }
     }
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
     pub unsafe fn GetObjectOwner(&self, pobject: *const SEC_OBJECT) -> windows_core::Result<*mut super::TRUSTEE_W> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetObjectOwner)(windows_core::Interface::as_raw(self), pobject, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
     pub unsafe fn IsObjectAccessAllowed(&self, pobject: *const SEC_OBJECT, paccessentry: *const super::EXPLICIT_ACCESS_W) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsObjectAccessAllowed)(windows_core::Interface::as_raw(self), pobject, paccessentry, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn SetObjectAccessRights(&self, pobject: *const SEC_OBJECT, caccessentries: u32, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
+    pub unsafe fn SetObjectAccessRights(&self, pobject: *const SEC_OBJECT, caccessentries: super::ULONG, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetObjectAccessRights)(windows_core::Interface::as_raw(self), pobject, caccessentries, prgaccessentries as _) }
     }
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
     pub unsafe fn SetObjectOwner(&self, pobject: *const SEC_OBJECT, powner: *const super::TRUSTEE_W) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetObjectOwner)(windows_core::Interface::as_raw(self), pobject, powner) }
     }
@@ -4090,39 +4244,39 @@ impl IObjectAccessControl {
 #[doc(hidden)]
 pub struct IObjectAccessControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
-    pub GetObjectAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, *const SEC_OBJECT, *mut u32, *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
+    pub GetObjectAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, *const SEC_OBJECT, *mut super::ULONG, *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase")))]
     GetObjectAccessRights: usize,
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
     pub GetObjectOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *const SEC_OBJECT, *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase")))]
     GetObjectOwner: usize,
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
     pub IsObjectAccessAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *const SEC_OBJECT, *const super::EXPLICIT_ACCESS_W, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase")))]
     IsObjectAccessAllowed: usize,
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
-    pub SetObjectAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, *const SEC_OBJECT, u32, *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
+    pub SetObjectAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, *const SEC_OBJECT, super::ULONG, *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase")))]
     SetObjectAccessRights: usize,
-    #[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
     pub SetObjectOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *const SEC_OBJECT, *const super::TRUSTEE_W) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase")))]
     SetObjectOwner: usize,
 }
-#[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 pub trait IObjectAccessControl_Impl: windows_core::IUnknownImpl {
-    fn GetObjectAccessRights(&self, pobject: *const SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::Result<()>;
+    fn GetObjectAccessRights(&self, pobject: *const SEC_OBJECT, pcaccessentries: *mut super::ULONG, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::Result<()>;
     fn GetObjectOwner(&self, pobject: *const SEC_OBJECT) -> windows_core::Result<*mut super::TRUSTEE_W>;
     fn IsObjectAccessAllowed(&self, pobject: *const SEC_OBJECT, paccessentry: *const super::EXPLICIT_ACCESS_W) -> windows_core::Result<windows_core::BOOL>;
-    fn SetObjectAccessRights(&self, pobject: *const SEC_OBJECT, caccessentries: u32, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::Result<()>;
+    fn SetObjectAccessRights(&self, pobject: *const SEC_OBJECT, caccessentries: super::ULONG, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::Result<()>;
     fn SetObjectOwner(&self, pobject: *const SEC_OBJECT, powner: *const super::TRUSTEE_W) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl IObjectAccessControl_Vtbl {
     pub const fn new<Identity: IObjectAccessControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetObjectAccessRights<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectAccessRights<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, pcaccessentries: *mut super::ULONG, prgaccessentries: *mut *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IObjectAccessControl_Impl::GetObjectAccessRights(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&pcaccessentries), core::mem::transmute_copy(&prgaccessentries)).into()
@@ -4152,7 +4306,7 @@ impl IObjectAccessControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetObjectAccessRights<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, caccessentries: u32, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetObjectAccessRights<Identity: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *const SEC_OBJECT, caccessentries: super::ULONG, prgaccessentries: *mut super::EXPLICIT_ACCESS_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IObjectAccessControl_Impl::SetObjectAccessRights(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&caccessentries), core::mem::transmute_copy(&prgaccessentries)).into()
@@ -4177,38 +4331,36 @@ impl IObjectAccessControl_Vtbl {
         iid == &<IObjectAccessControl as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "accctrl", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IObjectAccessControl {}
 windows_core::imp::define_interface!(IOpenRowset, IOpenRowset_Vtbl, 0x0c733a69_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IOpenRowset, windows_core::IUnknown);
 impl IOpenRowset {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn OpenRowset<P0, T>(&self, punkouter: P0, ptableid: Option<*const DBID>, pindexid: Option<*const DBID>, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: Option<*const DBID>, pindexid: Option<*const DBID>, riid: *const super::IID, rgpropertysets: Option<&mut [DBPROPSET]>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pprowset.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpenRowset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub OpenRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, *const DBID, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub OpenRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, *const DBID, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     OpenRowset: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IOpenRowset_Impl: windows_core::IUnknownImpl {
-    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IOpenRowset_Vtbl {
     pub const fn new<Identity: IOpenRowset_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OpenRowset<Identity: IOpenRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenRowset<Identity: IOpenRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IOpenRowset_Impl::OpenRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
@@ -4220,35 +4372,48 @@ impl IOpenRowset_Vtbl {
         iid == &<IOpenRowset as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOpenRowset {}
 windows_core::imp::define_interface!(IParentRowset, IParentRowset_Vtbl, 0x0c733aaa_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IParentRowset, windows_core::IUnknown);
 impl IParentRowset {
-    pub unsafe fn GetChildRowset<P0, T>(&self, punkouter: P0, iordinal: DBORDINAL) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetChildRowset<P0>(&self, punkouter: P0, iordinal: DBORDINAL, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetChildRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iordinal, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetChildRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iordinal, riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IParentRowset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetChildRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBORDINAL, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetChildRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DBORDINAL, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetChildRowset: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IParentRowset_Impl: windows_core::IUnknownImpl {
-    fn GetChildRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iordinal: DBORDINAL, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetChildRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, iordinal: DBORDINAL, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
 }
+#[cfg(feature = "guiddef")]
 impl IParentRowset_Vtbl {
     pub const fn new<Identity: IParentRowset_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetChildRowset<Identity: IParentRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, iordinal: DBORDINAL, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetChildRowset<Identity: IParentRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, iordinal: DBORDINAL, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IParentRowset_Impl::GetChildRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                match IParentRowset_Impl::GetChildRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        pprowset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetChildRowset: GetChildRowset::<Identity, OFFSET> }
@@ -4257,53 +4422,54 @@ impl IParentRowset_Vtbl {
         iid == &<IParentRowset as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IParentRowset {}
 windows_core::imp::define_interface!(IRegisterProvider, IRegisterProvider_Vtbl, 0x0c733ab9_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRegisterProvider, windows_core::IUnknown);
 impl IRegisterProvider {
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn GetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE) -> windows_core::Result<windows_core::GUID> {
+    #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+    pub unsafe fn GetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE) -> windows_core::Result<super::CLSID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetURLMapping)(windows_core::Interface::as_raw(self), pwszurl, dwreserved, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn SetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetURLMapping)(windows_core::Interface::as_raw(self), pwszurl, dwreserved, rclsidprovider) }
+    #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+    pub unsafe fn SetURLMapping(&self, pwszurl: Option<super::LPCOLESTR>, dwreserved: DB_DWRESERVE, rclsidprovider: Option<*const super::IID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetURLMapping)(windows_core::Interface::as_raw(self), pwszurl.unwrap_or(core::mem::zeroed()) as _, dwreserved, rclsidprovider.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-    pub unsafe fn UnregisterProvider(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterProvider)(windows_core::Interface::as_raw(self), pwszurl, dwreserved, rclsidprovider) }
+    #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+    pub unsafe fn UnregisterProvider(&self, pwszurl: Option<super::LPCOLESTR>, dwreserved: DB_DWRESERVE, rclsidprovider: Option<*const super::IID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnregisterProvider)(windows_core::Interface::as_raw(self), pwszurl.unwrap_or(core::mem::zeroed()) as _, dwreserved, rclsidprovider.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegisterProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-    pub GetURLMapping: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, DB_DWRESERVE, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+    pub GetURLMapping: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, DB_DWRESERVE, *mut super::CLSID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "wtypesbase")))]
     GetURLMapping: usize,
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-    pub SetURLMapping: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, DB_DWRESERVE, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+    pub SetURLMapping: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, DB_DWRESERVE, *const super::IID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "wtypesbase")))]
     SetURLMapping: usize,
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-    pub UnregisterProvider: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, DB_DWRESERVE, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+    pub UnregisterProvider: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, DB_DWRESERVE, *const super::IID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "wtypesbase")))]
     UnregisterProvider: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 pub trait IRegisterProvider_Impl: windows_core::IUnknownImpl {
-    fn GetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE) -> windows_core::Result<windows_core::GUID>;
-    fn SetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn UnregisterProvider(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE) -> windows_core::Result<super::CLSID>;
+    fn SetURLMapping(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::Result<()>;
+    fn UnregisterProvider(&self, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl IRegisterProvider_Vtbl {
     pub const fn new<Identity: IRegisterProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetURLMapping<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, pclsidprovider: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetURLMapping<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, pclsidprovider: *mut super::CLSID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisterProvider_Impl::GetURLMapping(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved)) {
@@ -4315,13 +4481,13 @@ impl IRegisterProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetURLMapping<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetURLMapping<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRegisterProvider_Impl::SetURLMapping(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&rclsidprovider)).into()
             }
         }
-        unsafe extern "system" fn UnregisterProvider<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterProvider<Identity: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: super::LPCOLESTR, dwreserved: DB_DWRESERVE, rclsidprovider: *const super::IID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRegisterProvider_Impl::UnregisterProvider(this, core::mem::transmute_copy(&pwszurl), core::mem::transmute_copy(&dwreserved), core::mem::transmute_copy(&rclsidprovider)).into()
@@ -4338,53 +4504,51 @@ impl IRegisterProvider_Vtbl {
         iid == &<IRegisterProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRegisterProvider {}
 windows_core::imp::define_interface!(IRow, IRow_Vtbl, 0x0c733ab4_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRow, windows_core::IUnknown);
 impl IRow {
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn GetColumns(&self, rgcolumns: &mut [DBCOLUMNACCESS]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetColumns)(windows_core::Interface::as_raw(self), rgcolumns.len().try_into().unwrap(), rgcolumns.as_mut_ptr()) }
     }
-    pub unsafe fn GetSourceRowset<T>(&self, phrow: Option<*mut HROW>) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSourceRowset)(windows_core::Interface::as_raw(self), &T::IID, &mut result__, phrow.unwrap_or(core::mem::zeroed()) as _).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetSourceRowset(&self, riid: *const super::IID, pprowset: Option<*mut Option<windows_core::IUnknown>>, phrow: Option<*mut HROW>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceRowset)(windows_core::Interface::as_raw(self), riid, pprowset.unwrap_or(core::mem::zeroed()) as _, phrow.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "wtypesbase")]
-    pub unsafe fn Open<P0, T>(&self, punkouter: P0, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn Open<P0>(&self, punkouter: P0, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: super::DWORD, riid: *const super::IID, ppunk: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pcolumnid, rguidcolumntype, dwbindflags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pcolumnid, rguidcolumntype, dwbindflags, riid, ppunk.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRow_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub GetColumns: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *mut DBCOLUMNACCESS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     GetColumns: usize,
-    pub GetSourceRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut HROW) -> windows_core::HRESULT,
-    #[cfg(feature = "wtypesbase")]
-    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, *const windows_core::GUID, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(feature = "guiddef")]
+    pub GetSourceRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void, *mut HROW) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetSourceRowset: usize,
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
+    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, *const windows_core::GUID, super::DWORD, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared", feature = "wtypesbase")))]
     Open: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 pub trait IRow_Impl: windows_core::IUnknownImpl {
     fn GetColumns(&self, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::Result<()>;
-    fn GetSourceRowset(&self, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void, phrow: *mut HROW) -> windows_core::Result<()>;
-    fn Open(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSourceRowset(&self, riid: *const super::IID, pprowset: windows_core::OutRef<windows_core::IUnknown>, phrow: *mut HROW) -> windows_core::Result<()>;
+    fn Open(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: super::DWORD, riid: *const super::IID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 impl IRow_Vtbl {
     pub const fn new<Identity: IRow_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetColumns<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
@@ -4393,13 +4557,13 @@ impl IRow_Vtbl {
                 IRow_Impl::GetColumns(this, core::mem::transmute_copy(&ccolumns), core::mem::transmute_copy(&rgcolumns)).into()
             }
         }
-        unsafe extern "system" fn GetSourceRowset<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void, phrow: *mut HROW) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceRowset<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void, phrow: *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRow_Impl::GetSourceRowset(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset), core::mem::transmute_copy(&phrow)).into()
             }
         }
-        unsafe extern "system" fn Open<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: super::DWORD, riid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRow_Impl::Open(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&rguidcolumntype), core::mem::transmute_copy(&dwbindflags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
@@ -4416,12 +4580,12 @@ impl IRow_Vtbl {
         iid == &<IRow as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRow {}
 windows_core::imp::define_interface!(IRowChange, IRowChange_Vtbl, 0x0c733ab5_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowChange, windows_core::IUnknown);
 impl IRowChange {
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn SetColumns(&self, rgcolumns: &mut [DBCOLUMNACCESS]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColumns)(windows_core::Interface::as_raw(self), rgcolumns.len().try_into().unwrap(), rgcolumns.as_mut_ptr()) }
     }
@@ -4430,16 +4594,16 @@ impl IRowChange {
 #[doc(hidden)]
 pub struct IRowChange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub SetColumns: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *mut DBCOLUMNACCESS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     SetColumns: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub trait IRowChange_Impl: windows_core::IUnknownImpl {
     fn SetColumns(&self, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl IRowChange_Vtbl {
     pub const fn new<Identity: IRowChange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetColumns<Identity: IRowChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumns: DBORDINAL, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
@@ -4454,7 +4618,7 @@ impl IRowChange_Vtbl {
         iid == &<IRowChange as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowChange {}
 windows_core::imp::define_interface!(IRowPosition, IRowPosition_Vtbl, 0x0c733a94_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowPosition, windows_core::IUnknown);
@@ -4465,12 +4629,12 @@ impl IRowPosition {
     pub unsafe fn GetRowPosition(&self, phchapter: Option<*mut HCHAPTER>, phrow: *mut HROW, pdwpositionflags: Option<*mut DBPOSITIONFLAGS>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRowPosition)(windows_core::Interface::as_raw(self), phchapter.unwrap_or(core::mem::zeroed()) as _, phrow as _, pdwpositionflags.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetRowset<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetRowset(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Initialize<P0>(&self, prowset: P0) -> windows_core::HRESULT
     where
@@ -4488,17 +4652,22 @@ pub struct IRowPosition_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ClearRowPosition: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRowPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HCHAPTER, *mut HROW, *mut DBPOSITIONFLAGS) -> windows_core::HRESULT,
-    pub GetRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetRowset: usize,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRowPosition: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, HROW, DBPOSITIONFLAGS) -> windows_core::HRESULT,
 }
+#[cfg(feature = "guiddef")]
 pub trait IRowPosition_Impl: windows_core::IUnknownImpl {
     fn ClearRowPosition(&self) -> windows_core::Result<()>;
     fn GetRowPosition(&self, phchapter: *mut HCHAPTER, phrow: *mut HROW, pdwpositionflags: *mut DBPOSITIONFLAGS) -> windows_core::Result<()>;
-    fn GetRowset(&self, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetRowset(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
     fn Initialize(&self, prowset: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetRowPosition(&self, hchapter: HCHAPTER, hrow: HROW, dwpositionflags: DBPOSITIONFLAGS) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IRowPosition_Vtbl {
     pub const fn new<Identity: IRowPosition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ClearRowPosition<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4513,10 +4682,16 @@ impl IRowPosition_Vtbl {
                 IRowPosition_Impl::GetRowPosition(this, core::mem::transmute_copy(&phchapter), core::mem::transmute_copy(&phrow), core::mem::transmute_copy(&pdwpositionflags)).into()
             }
         }
-        unsafe extern "system" fn GetRowset<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRowset<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowPosition_Impl::GetRowset(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                match IRowPosition_Impl::GetRowset(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        pprowset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Initialize<Identity: IRowPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prowset: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4544,6 +4719,7 @@ impl IRowPosition_Vtbl {
         iid == &<IRowPosition as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IRowPosition {}
 windows_core::imp::define_interface!(IRowPositionChange, IRowPositionChange_Vtbl, 0x0997a571_126e_11d0_9f8a_00a0c9a0631e);
 windows_core::imp::interface_hierarchy!(IRowPositionChange, windows_core::IUnknown);
@@ -4585,11 +4761,11 @@ impl core::ops::Deref for IRowSchemaChange {
 }
 windows_core::imp::interface_hierarchy!(IRowSchemaChange, windows_core::IUnknown, IRowChange);
 impl IRowSchemaChange {
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn DeleteColumns(&self, ccolumns: DBORDINAL, rgcolumnids: *const DBID, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteColumns)(windows_core::Interface::as_raw(self), ccolumns, rgcolumnids, rgdwstatus as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn AddColumns(&self, ccolumns: DBORDINAL, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddColumns)(windows_core::Interface::as_raw(self), ccolumns, rgnewcolumninfo, rgcolumns as _) }
     }
@@ -4598,21 +4774,21 @@ impl IRowSchemaChange {
 #[doc(hidden)]
 pub struct IRowSchemaChange_Vtbl {
     pub base__: IRowChange_Vtbl,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub DeleteColumns: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const DBID, *mut DBSTATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     DeleteColumns: usize,
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypesbase"))]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
     pub AddColumns: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const DBCOLUMNINFO, *mut DBCOLUMNACCESS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "winnt", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "oaidl", feature = "shared", feature = "wtypesbase")))]
     AddColumns: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 pub trait IRowSchemaChange_Impl: IRowChange_Impl {
     fn DeleteColumns(&self, ccolumns: DBORDINAL, rgcolumnids: *const DBID, rgdwstatus: *mut DBSTATUS) -> windows_core::Result<()>;
     fn AddColumns(&self, ccolumns: DBORDINAL, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl IRowSchemaChange_Vtbl {
     pub const fn new<Identity: IRowSchemaChange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeleteColumns<Identity: IRowSchemaChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccolumns: DBORDINAL, rgcolumnids: *const DBID, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
@@ -4633,7 +4809,7 @@ impl IRowSchemaChange_Vtbl {
         iid == &<IRowSchemaChange as windows_core::Interface>::IID || iid == &<IRowChange as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowSchemaChange {}
 windows_core::imp::define_interface!(IRowset, IRowset_Vtbl, 0x0c733a7c_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowset, windows_core::IUnknown);
@@ -4720,22 +4896,28 @@ impl windows_core::RuntimeName for IRowset {}
 windows_core::imp::define_interface!(IRowsetBookmark, IRowsetBookmark_Vtbl, 0x0c733ac2_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetBookmark, windows_core::IUnknown);
 impl IRowsetBookmark {
+    #[cfg(feature = "shared")]
     pub unsafe fn PositionOnBookmark(&self, hchapter: HCHAPTER, pbookmark: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PositionOnBookmark)(windows_core::Interface::as_raw(self), hchapter, pbookmark.len().try_into().unwrap(), pbookmark.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).PositionOnBookmark)(windows_core::Interface::as_raw(self), hchapter, pbookmark.len().try_into().unwrap(), core::mem::transmute(pbookmark.as_ptr())) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetBookmark_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub PositionOnBookmark: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const u8) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub PositionOnBookmark: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    PositionOnBookmark: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IRowsetBookmark_Impl: windows_core::IUnknownImpl {
-    fn PositionOnBookmark(&self, hchapter: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8) -> windows_core::Result<()>;
+    fn PositionOnBookmark(&self, hchapter: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IRowsetBookmark_Vtbl {
     pub const fn new<Identity: IRowsetBookmark_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PositionOnBookmark<Identity: IRowsetBookmark_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn PositionOnBookmark<Identity: IRowsetBookmark_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetBookmark_Impl::PositionOnBookmark(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark)).into()
@@ -4747,6 +4929,7 @@ impl IRowsetBookmark_Vtbl {
         iid == &<IRowsetBookmark as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IRowsetBookmark {}
 windows_core::imp::define_interface!(IRowsetChange, IRowsetChange_Vtbl, 0x0c733a05_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetChange, windows_core::IUnknown);
@@ -4864,14 +5047,14 @@ impl core::ops::Deref for IRowsetCurrentIndex {
 }
 windows_core::imp::interface_hierarchy!(IRowsetCurrentIndex, windows_core::IUnknown, IRowsetIndex);
 impl IRowsetCurrentIndex {
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn GetIndex(&self) -> windows_core::Result<*mut DBID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn SetIndex(&self, pindexid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetIndex)(windows_core::Interface::as_raw(self), pindexid) }
     }
@@ -4880,21 +5063,21 @@ impl IRowsetCurrentIndex {
 #[doc(hidden)]
 pub struct IRowsetCurrentIndex_Vtbl {
     pub base__: IRowsetIndex_Vtbl,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub GetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     GetIndex: usize,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub SetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     SetIndex: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRowsetCurrentIndex_Impl: IRowsetIndex_Impl {
     fn GetIndex(&self) -> windows_core::Result<*mut DBID>;
     fn SetIndex(&self, pindexid: *const DBID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRowsetCurrentIndex_Vtbl {
     pub const fn new<Identity: IRowsetCurrentIndex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIndex<Identity: IRowsetCurrentIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppindexid: *mut *mut DBID) -> windows_core::HRESULT {
@@ -4921,7 +5104,7 @@ impl IRowsetCurrentIndex_Vtbl {
         iid == &<IRowsetCurrentIndex as windows_core::Interface>::IID || iid == &<IRowsetIndex as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowsetCurrentIndex {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4929,7 +5112,8 @@ pub struct IRowsetExactScroll(pub u8);
 windows_core::imp::define_interface!(IRowsetFind, IRowsetFind_Vtbl, 0x0c733a9d_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetFind, windows_core::IUnknown);
 impl IRowsetFind {
-    pub unsafe fn FindNextRow(&self, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const u8, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn FindNextRow(&self, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FindNextRow)(windows_core::Interface::as_raw(self), hchapter, haccessor, pfindvalue, compareop, cbbookmark, pbookmark, lrowsoffset, crows, pcrowsobtained as _, prghrows as _) }
     }
 }
@@ -4937,14 +5121,19 @@ impl IRowsetFind {
 #[doc(hidden)]
 pub struct IRowsetFind_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub FindNextRow: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, HACCESSOR, *const core::ffi::c_void, DBCOMPAREOP, DBBKMARK, *const u8, DBROWOFFSET, DBROWCOUNT, *mut DBCOUNTITEM, *mut *mut HROW) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub FindNextRow: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, HACCESSOR, *const core::ffi::c_void, DBCOMPAREOP, DBBKMARK, *const super::BYTE, DBROWOFFSET, DBROWCOUNT, *mut DBCOUNTITEM, *mut *mut HROW) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    FindNextRow: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IRowsetFind_Impl: windows_core::IUnknownImpl {
-    fn FindNextRow(&self, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const u8, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
+    fn FindNextRow(&self, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IRowsetFind_Vtbl {
     pub const fn new<Identity: IRowsetFind_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FindNextRow<Identity: IRowsetFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const u8, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindNextRow<Identity: IRowsetFind_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, haccessor: HACCESSOR, pfindvalue: *const core::ffi::c_void, compareop: DBCOMPAREOP, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetFind_Impl::FindNextRow(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pfindvalue), core::mem::transmute_copy(&compareop), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows)).into()
@@ -4956,6 +5145,7 @@ impl IRowsetFind_Vtbl {
         iid == &<IRowsetFind as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IRowsetFind {}
 windows_core::imp::define_interface!(IRowsetIdentity, IRowsetIdentity_Vtbl, 0x0c733a09_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetIdentity, windows_core::IUnknown);
@@ -4991,8 +5181,8 @@ impl windows_core::RuntimeName for IRowsetIdentity {}
 windows_core::imp::define_interface!(IRowsetIndex, IRowsetIndex_Vtbl, 0x0c733a82_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetIndex, windows_core::IUnknown);
 impl IRowsetIndex {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetIndexInfo(&self, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetIndexInfo(&self, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut super::ULONG, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetIndexInfo)(windows_core::Interface::as_raw(self), pckeycolumns as _, prgindexcolumndesc as _, pcindexpropertysets as _, prgindexpropertysets as _) }
     }
     pub unsafe fn Seek(&self, haccessor: HACCESSOR, ckeyvalues: DBORDINAL, pdata: *const core::ffi::c_void, dwseekoptions: DBSEEK) -> windows_core::HRESULT {
@@ -5006,23 +5196,23 @@ impl IRowsetIndex {
 #[doc(hidden)]
 pub struct IRowsetIndex_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetIndexInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DBORDINAL, *mut *mut DBINDEXCOLUMNDESC, *mut u32, *mut *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetIndexInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DBORDINAL, *mut *mut DBINDEXCOLUMNDESC, *mut super::ULONG, *mut *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetIndexInfo: usize,
     pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, DBORDINAL, *const core::ffi::c_void, DBSEEK) -> windows_core::HRESULT,
     pub SetRange: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, DBORDINAL, *const core::ffi::c_void, DBORDINAL, *const core::ffi::c_void, DBRANGE) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRowsetIndex_Impl: windows_core::IUnknownImpl {
-    fn GetIndexInfo(&self, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetIndexInfo(&self, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut super::ULONG, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
     fn Seek(&self, haccessor: HACCESSOR, ckeyvalues: DBORDINAL, pdata: *const core::ffi::c_void, dwseekoptions: DBSEEK) -> windows_core::Result<()>;
     fn SetRange(&self, haccessor: HACCESSOR, cstartkeycolumns: DBORDINAL, pstartdata: *const core::ffi::c_void, cendkeycolumns: DBORDINAL, penddata: *const core::ffi::c_void, dwrangeoptions: DBRANGE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRowsetIndex_Vtbl {
     pub const fn new<Identity: IRowsetIndex_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIndexInfo<Identity: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIndexInfo<Identity: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pckeycolumns: *mut DBORDINAL, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut super::ULONG, prgindexpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetIndex_Impl::GetIndexInfo(this, core::mem::transmute_copy(&pckeycolumns), core::mem::transmute_copy(&prgindexcolumndesc), core::mem::transmute_copy(&pcindexpropertysets), core::mem::transmute_copy(&prgindexpropertysets)).into()
@@ -5051,66 +5241,84 @@ impl IRowsetIndex_Vtbl {
         iid == &<IRowsetIndex as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowsetIndex {}
 windows_core::imp::define_interface!(IRowsetInfo, IRowsetInfo_Vtbl, 0x0c733a55_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetInfo, windows_core::IUnknown);
 impl IRowsetInfo {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
-    pub unsafe fn GetReferencedRowset<T>(&self, iordinal: DBORDINAL) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetReferencedRowset)(windows_core::Interface::as_raw(self), iordinal, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetReferencedRowset(&self, iordinal: DBORDINAL, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetReferencedRowset)(windows_core::Interface::as_raw(self), iordinal, riid, &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
+        }
     }
-    pub unsafe fn GetSpecification<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), riid, &mut result__).map(|| if result__.is_null() { None } else { Some(windows_core::Interface::from_raw(result__)) })
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DBPROPIDSET, *mut u32, *mut *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const DBPROPIDSET, *mut super::ULONG, *mut *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetProperties: usize,
-    pub GetReferencedRowset: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetReferencedRowset: unsafe extern "system" fn(*mut core::ffi::c_void, DBORDINAL, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetReferencedRowset: usize,
+    #[cfg(feature = "guiddef")]
+    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetSpecification: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRowsetInfo_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn GetReferencedRowset(&self, iordinal: DBORDINAL, riid: *const windows_core::GUID, ppreferencedrowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetSpecification(&self, riid: *const windows_core::GUID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetReferencedRowset(&self, iordinal: DBORDINAL, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>>;
+    fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<Option<windows_core::IUnknown>>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRowsetInfo_Vtbl {
     pub const fn new<Identity: IRowsetInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetProperties<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperties<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetInfo_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
             }
         }
-        unsafe extern "system" fn GetReferencedRowset<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iordinal: DBORDINAL, riid: *const windows_core::GUID, ppreferencedrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetReferencedRowset<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iordinal: DBORDINAL, riid: *const super::IID, ppreferencedrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetInfo_Impl::GetReferencedRowset(this, core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppreferencedrowset)).into()
+                match IRowsetInfo_Impl::GetReferencedRowset(this, core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppreferencedrowset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn GetSpecification<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpecification<Identity: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppspecification: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetInfo_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppspecification)).into()
+                match IRowsetInfo_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppspecification.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5124,7 +5332,7 @@ impl IRowsetInfo_Vtbl {
         iid == &<IRowsetInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowsetInfo {}
 windows_core::imp::define_interface!(IRowsetLocate, IRowsetLocate_Vtbl, 0x0c733a7d_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for IRowsetLocate {
@@ -5135,20 +5343,23 @@ impl core::ops::Deref for IRowsetLocate {
 }
 windows_core::imp::interface_hierarchy!(IRowsetLocate, windows_core::IUnknown, IRowset);
 impl IRowsetLocate {
-    pub unsafe fn Compare(&self, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const u8, cbbookmark2: DBBKMARK, pbookmark2: *const u8) -> windows_core::Result<DBCOMPARE> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Compare(&self, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const super::BYTE, cbbookmark2: DBBKMARK, pbookmark2: *const super::BYTE) -> windows_core::Result<DBCOMPARE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), hreserved, cbbookmark1, pbookmark1, cbbookmark2, pbookmark2, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRowsAt(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRowsAt(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRowsAt)(windows_core::Interface::as_raw(self), hreserved1, hreserved2, cbbookmark, pbookmark, lrowsoffset, crows, pcrowsobtained as _, prghrows as _) }
     }
-    pub unsafe fn GetRowsByBookmark(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const u8, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRowsByBookmark(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRowsByBookmark)(windows_core::Interface::as_raw(self), hreserved, crows, rgcbbookmarks, rgpbookmarks, rghrows as _, rgrowstatus as _) }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn Hash(&self, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const u8, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Hash(&self, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Hash)(windows_core::Interface::as_raw(self), hreserved, cbookmarks, rgcbbookmarks, rgpbookmarks, rghashedvalues as _, rgbookmarkstatus as _) }
     }
 }
@@ -5156,25 +5367,34 @@ impl IRowsetLocate {
 #[doc(hidden)]
 pub struct IRowsetLocate_Vtbl {
     pub base__: IRowset_Vtbl,
-    pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const u8, DBBKMARK, *const u8, *mut DBCOMPARE) -> windows_core::HRESULT,
-    pub GetRowsAt: unsafe extern "system" fn(*mut core::ffi::c_void, HWATCHREGION, HCHAPTER, DBBKMARK, *const u8, DBROWOFFSET, DBROWCOUNT, *mut DBCOUNTITEM, *mut *mut HROW) -> windows_core::HRESULT,
-    pub GetRowsByBookmark: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBCOUNTITEM, *const DBBKMARK, *const *const u8, *mut HROW, *mut DBROWSTATUS) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub Hash: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const DBBKMARK, *const *const u8, *mut DBHASHVALUE, *mut DBROWSTATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(feature = "shared")]
+    pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const super::BYTE, DBBKMARK, *const super::BYTE, *mut DBCOMPARE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Compare: usize,
+    #[cfg(feature = "shared")]
+    pub GetRowsAt: unsafe extern "system" fn(*mut core::ffi::c_void, HWATCHREGION, HCHAPTER, DBBKMARK, *const super::BYTE, DBROWOFFSET, DBROWCOUNT, *mut DBCOUNTITEM, *mut *mut HROW) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRowsAt: usize,
+    #[cfg(feature = "shared")]
+    pub GetRowsByBookmark: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBCOUNTITEM, *const DBBKMARK, *const *const super::BYTE, *mut HROW, *mut DBROWSTATUS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRowsByBookmark: usize,
+    #[cfg(feature = "shared")]
+    pub Hash: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const DBBKMARK, *const *const super::BYTE, *mut DBHASHVALUE, *mut DBROWSTATUS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
     Hash: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub trait IRowsetLocate_Impl: IRowset_Impl {
-    fn Compare(&self, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const u8, cbbookmark2: DBBKMARK, pbookmark2: *const u8) -> windows_core::Result<DBCOMPARE>;
-    fn GetRowsAt(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
-    fn GetRowsByBookmark(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const u8, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
-    fn Hash(&self, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const u8, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
+    fn Compare(&self, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const super::BYTE, cbbookmark2: DBBKMARK, pbookmark2: *const super::BYTE) -> windows_core::Result<DBCOMPARE>;
+    fn GetRowsAt(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
+    fn GetRowsByBookmark(&self, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
+    fn Hash(&self, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl IRowsetLocate_Vtbl {
     pub const fn new<Identity: IRowsetLocate_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Compare<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const u8, cbbookmark2: DBBKMARK, pbookmark2: *const u8, pcomparison: *mut DBCOMPARE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Compare<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbbookmark1: DBBKMARK, pbookmark1: *const super::BYTE, cbbookmark2: DBBKMARK, pbookmark2: *const super::BYTE, pcomparison: *mut DBCOMPARE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRowsetLocate_Impl::Compare(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbbookmark1), core::mem::transmute_copy(&pbookmark1), core::mem::transmute_copy(&cbbookmark2), core::mem::transmute_copy(&pbookmark2)) {
@@ -5186,19 +5406,19 @@ impl IRowsetLocate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRowsAt<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRowsAt<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, lrowsoffset: DBROWOFFSET, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetLocate_Impl::GetRowsAt(this, core::mem::transmute_copy(&hreserved1), core::mem::transmute_copy(&hreserved2), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&lrowsoffset), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&pcrowsobtained), core::mem::transmute_copy(&prghrows)).into()
             }
         }
-        unsafe extern "system" fn GetRowsByBookmark<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const u8, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRowsByBookmark<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, crows: DBCOUNTITEM, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghrows: *mut HROW, rgrowstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetLocate_Impl::GetRowsByBookmark(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgcbbookmarks), core::mem::transmute_copy(&rgpbookmarks), core::mem::transmute_copy(&rghrows), core::mem::transmute_copy(&rgrowstatus)).into()
             }
         }
-        unsafe extern "system" fn Hash<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const u8, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Hash<Identity: IRowsetLocate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbookmarks: DBBKMARK, rgcbbookmarks: *const DBBKMARK, rgpbookmarks: *const *const super::BYTE, rghashedvalues: *mut DBHASHVALUE, rgbookmarkstatus: *mut DBROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetLocate_Impl::Hash(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbookmarks), core::mem::transmute_copy(&rgcbbookmarks), core::mem::transmute_copy(&rgpbookmarks), core::mem::transmute_copy(&rghashedvalues), core::mem::transmute_copy(&rgbookmarkstatus)).into()
@@ -5216,7 +5436,7 @@ impl IRowsetLocate_Vtbl {
         iid == &<IRowsetLocate as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IRowsetLocate {}
 windows_core::imp::define_interface!(IRowsetNotify, IRowsetNotify_Vtbl, 0x0c733a83_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetNotify, windows_core::IUnknown);
@@ -5386,7 +5606,8 @@ impl core::ops::Deref for IRowsetScroll {
 }
 windows_core::imp::interface_hierarchy!(IRowsetScroll, windows_core::IUnknown, IRowset, IRowsetLocate);
 impl IRowsetScroll {
-    pub unsafe fn GetApproximatePosition(&self, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetApproximatePosition(&self, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetApproximatePosition)(windows_core::Interface::as_raw(self), hreserved, cbbookmark, pbookmark, pulposition as _, pcrows as _) }
     }
     pub unsafe fn GetRowsAtRatio(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, ulnumerator: DBCOUNTITEM, uldenominator: DBCOUNTITEM, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::HRESULT {
@@ -5397,18 +5618,21 @@ impl IRowsetScroll {
 #[doc(hidden)]
 pub struct IRowsetScroll_Vtbl {
     pub base__: IRowsetLocate_Vtbl,
-    pub GetApproximatePosition: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const u8, *mut DBCOUNTITEM, *mut DBCOUNTITEM) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetApproximatePosition: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, DBBKMARK, *const super::BYTE, *mut DBCOUNTITEM, *mut DBCOUNTITEM) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetApproximatePosition: usize,
     pub GetRowsAtRatio: unsafe extern "system" fn(*mut core::ffi::c_void, HWATCHREGION, HCHAPTER, DBCOUNTITEM, DBCOUNTITEM, DBROWCOUNT, *mut DBCOUNTITEM, *mut *mut HROW) -> windows_core::HRESULT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub trait IRowsetScroll_Impl: IRowsetLocate_Impl {
-    fn GetApproximatePosition(&self, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::Result<()>;
+    fn GetApproximatePosition(&self, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::Result<()>;
     fn GetRowsAtRatio(&self, hreserved1: HWATCHREGION, hreserved2: HCHAPTER, ulnumerator: DBCOUNTITEM, uldenominator: DBCOUNTITEM, crows: DBROWCOUNT, pcrowsobtained: *mut DBCOUNTITEM, prghrows: *mut *mut HROW) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl IRowsetScroll_Vtbl {
     pub const fn new<Identity: IRowsetScroll_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetApproximatePosition<Identity: IRowsetScroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const u8, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetApproximatePosition<Identity: IRowsetScroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: HCHAPTER, cbbookmark: DBBKMARK, pbookmark: *const super::BYTE, pulposition: *mut DBCOUNTITEM, pcrows: *mut DBCOUNTITEM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetScroll_Impl::GetApproximatePosition(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbbookmark), core::mem::transmute_copy(&pbookmark), core::mem::transmute_copy(&pulposition), core::mem::transmute_copy(&pcrows)).into()
@@ -5430,7 +5654,7 @@ impl IRowsetScroll_Vtbl {
         iid == &<IRowsetScroll as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID || iid == &<IRowsetLocate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IRowsetScroll {}
 windows_core::imp::define_interface!(IRowsetUpdate, IRowsetUpdate_Vtbl, 0x0c733a6d_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for IRowsetUpdate {
@@ -5532,42 +5756,55 @@ impl windows_core::RuntimeName for IRowsetUpdate {}
 windows_core::imp::define_interface!(IRowsetView, IRowsetView_Vtbl, 0x0c733a99_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetView, windows_core::IUnknown);
 impl IRowsetView {
-    pub unsafe fn CreateView<P0, T>(&self, punkouter: P0) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn CreateView<P0>(&self, punkouter: P0, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn GetView<T>(&self, hchapter: HCHAPTER, phchaptersource: *mut HCHAPTER) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), hchapter, &T::IID, phchaptersource as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetView(&self, hchapter: HCHAPTER, riid: *const super::IID, phchaptersource: *mut HCHAPTER, ppview: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), hchapter, riid, phchaptersource as _, core::mem::transmute(ppview)) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, *const windows_core::GUID, *mut HCHAPTER, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub CreateView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    CreateView: usize,
+    #[cfg(feature = "guiddef")]
+    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, *const super::IID, *mut HCHAPTER, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetView: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IRowsetView_Impl: windows_core::IUnknownImpl {
-    fn CreateView(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppview: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetView(&self, hchapter: HCHAPTER, riid: *const windows_core::GUID, phchaptersource: *mut HCHAPTER, ppview: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateView(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetView(&self, hchapter: HCHAPTER, riid: *const super::IID, phchaptersource: *mut HCHAPTER, ppview: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IRowsetView_Vtbl {
     pub const fn new<Identity: IRowsetView_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateView<Identity: IRowsetView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateView<Identity: IRowsetView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRowsetView_Impl::CreateView(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppview)).into()
+                match IRowsetView_Impl::CreateView(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppview.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn GetView<Identity: IRowsetView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, riid: *const windows_core::GUID, phchaptersource: *mut HCHAPTER, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetView<Identity: IRowsetView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: HCHAPTER, riid: *const super::IID, phchaptersource: *mut HCHAPTER, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRowsetView_Impl::GetView(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&phchaptersource), core::mem::transmute_copy(&ppview)).into()
@@ -5579,11 +5816,13 @@ impl IRowsetView_Vtbl {
         iid == &<IRowsetView as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IRowsetView {}
 windows_core::imp::define_interface!(ISQLErrorInfo, ISQLErrorInfo_Vtbl, 0x0c733a74_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ISQLErrorInfo, windows_core::IUnknown);
 impl ISQLErrorInfo {
-    pub unsafe fn GetSQLInfo(&self, pbstrsqlstate: *mut windows_core::BSTR, plnativeerror: *mut i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSQLInfo(&self, pbstrsqlstate: *mut windows_core::BSTR, plnativeerror: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSQLInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsqlstate), plnativeerror as _) }
     }
 }
@@ -5591,14 +5830,19 @@ impl ISQLErrorInfo {
 #[doc(hidden)]
 pub struct ISQLErrorInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSQLInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSQLInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSQLInfo: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ISQLErrorInfo_Impl: windows_core::IUnknownImpl {
-    fn GetSQLInfo(&self, pbstrsqlstate: *mut windows_core::BSTR, plnativeerror: *mut i32) -> windows_core::Result<()>;
+    fn GetSQLInfo(&self, pbstrsqlstate: *mut windows_core::BSTR, plnativeerror: *mut super::LONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ISQLErrorInfo_Vtbl {
     pub const fn new<Identity: ISQLErrorInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSQLInfo<Identity: ISQLErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsqlstate: *mut *mut core::ffi::c_void, plnativeerror: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSQLInfo<Identity: ISQLErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsqlstate: *mut *mut core::ffi::c_void, plnativeerror: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISQLErrorInfo_Impl::GetSQLInfo(this, core::mem::transmute_copy(&pbstrsqlstate), core::mem::transmute_copy(&plnativeerror)).into()
@@ -5610,6 +5854,7 @@ impl ISQLErrorInfo_Vtbl {
         iid == &<ISQLErrorInfo as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ISQLErrorInfo {}
 windows_core::imp::define_interface!(IScopedOperations, IScopedOperations_Vtbl, 0x0c733ab0_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for IScopedOperations {
@@ -5620,83 +5865,82 @@ impl core::ops::Deref for IScopedOperations {
 }
 windows_core::imp::interface_hierarchy!(IScopedOperations, windows_core::IUnknown, IBindResource);
 impl IScopedOperations {
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub unsafe fn Copy<P4>(&self, crows: DBCOUNTITEM, rgpwszsourceurls: Option<*const super::LPCOLESTR>, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: u32, pauthenticate: P4, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: Option<*mut super::LPOLESTR>, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "urlmon", feature = "wtypesbase"))]
+    pub unsafe fn Copy<P4>(&self, crows: DBCOUNTITEM, rgpwszsourceurls: Option<*const super::LPCOLESTR>, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: super::DWORD, pauthenticate: P4, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: Option<*mut super::LPOLESTR>, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT
     where
         P4: windows_core::Param<super::IAuthenticate>,
     {
         unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), crows, rgpwszsourceurls.unwrap_or(core::mem::zeroed()) as _, rgpwszdesturls, dwcopyflags, pauthenticate.param().abi(), rgdwstatus as _, rgpwsznewurls.unwrap_or(core::mem::zeroed()) as _, ppstringsbuffer as _) }
     }
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub unsafe fn Move<P4>(&self, crows: DBCOUNTITEM, rgpwszsourceurls: Option<*const super::LPCOLESTR>, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: u32, pauthenticate: P4, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: Option<*mut super::LPOLESTR>, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "urlmon", feature = "wtypesbase"))]
+    pub unsafe fn Move<P4>(&self, crows: DBCOUNTITEM, rgpwszsourceurls: Option<*const super::LPCOLESTR>, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: super::DWORD, pauthenticate: P4, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: Option<*mut super::LPOLESTR>, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT
     where
         P4: windows_core::Param<super::IAuthenticate>,
     {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), crows, rgpwszsourceurls.unwrap_or(core::mem::zeroed()) as _, rgpwszdesturls, dwmoveflags, pauthenticate.param().abi(), rgdwstatus as _, rgpwsznewurls.unwrap_or(core::mem::zeroed()) as _, ppstringsbuffer as _) }
     }
-    #[cfg(feature = "wtypesbase")]
-    pub unsafe fn Delete(&self, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: u32, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub unsafe fn Delete(&self, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: super::DWORD, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), crows, rgpwszurls, dwdeleteflags, rgdwstatus as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn OpenRowset<P0, T>(&self, punkouter: P0, ptableid: Option<*const DBID>, pindexid: Option<*const DBID>, rgpropertysets: &mut [DBPROPSET], result__: *mut Option<T>) -> windows_core::Result<()>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: Option<*const DBID>, pindexid: Option<*const DBID>, riid: *const super::IID, rgpropertysets: &mut [DBPROPSET], pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_mut_ptr(), result__ as *mut _ as *mut _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, riid, rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_mut_ptr(), pprowset.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScopedOperations_Vtbl {
     pub base__: IBindResource_Vtbl,
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, DBCOUNTITEM, *const super::LPCOLESTR, *const super::LPCOLESTR, u32, *mut core::ffi::c_void, *mut DBSTATUS, *mut super::LPOLESTR, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "urlmon", feature = "wtypesbase")))]
+    #[cfg(all(feature = "shared", feature = "urlmon", feature = "wtypesbase"))]
+    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, DBCOUNTITEM, *const super::LPCOLESTR, *const super::LPCOLESTR, super::DWORD, *mut core::ffi::c_void, *mut DBSTATUS, *mut super::LPOLESTR, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "urlmon", feature = "wtypesbase")))]
     Copy: usize,
-    #[cfg(all(feature = "urlmon", feature = "wtypesbase"))]
-    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, DBCOUNTITEM, *const super::LPCOLESTR, *const super::LPCOLESTR, u32, *mut core::ffi::c_void, *mut DBSTATUS, *mut super::LPOLESTR, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "urlmon", feature = "wtypesbase")))]
+    #[cfg(all(feature = "shared", feature = "urlmon", feature = "wtypesbase"))]
+    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, DBCOUNTITEM, *const super::LPCOLESTR, *const super::LPCOLESTR, super::DWORD, *mut core::ffi::c_void, *mut DBSTATUS, *mut super::LPOLESTR, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "urlmon", feature = "wtypesbase")))]
     Move: usize,
-    #[cfg(feature = "wtypesbase")]
-    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, DBCOUNTITEM, *const super::LPCOLESTR, u32, *mut DBSTATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
+    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, DBCOUNTITEM, *const super::LPCOLESTR, super::DWORD, *mut DBSTATUS) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     Delete: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub OpenRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, *const DBID, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub OpenRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, *const DBID, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     OpenRowset: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "urlmon", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "urlmon", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IScopedOperations_Impl: IBindResource_Impl {
-    fn Copy(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: u32, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn Move(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: u32, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
-    fn Delete(&self, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: u32, rgdwstatus: *mut DBSTATUS) -> windows_core::Result<()>;
-    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Copy(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: super::DWORD, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn Move(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: super::DWORD, pauthenticate: windows_core::Ref<super::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn Delete(&self, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: super::DWORD, rgdwstatus: *mut DBSTATUS) -> windows_core::Result<()>;
+    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "urlmon", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "urlmon", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IScopedOperations_Vtbl {
     pub const fn new<Identity: IScopedOperations_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Copy<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: u32, pauthenticate: *mut core::ffi::c_void, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Copy<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwcopyflags: super::DWORD, pauthenticate: *mut core::ffi::c_void, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IScopedOperations_Impl::Copy(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszsourceurls), core::mem::transmute_copy(&rgpwszdesturls), core::mem::transmute_copy(&dwcopyflags), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&rgdwstatus), core::mem::transmute_copy(&rgpwsznewurls), core::mem::transmute_copy(&ppstringsbuffer)).into()
             }
         }
-        unsafe extern "system" fn Move<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: u32, pauthenticate: *mut core::ffi::c_void, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Move<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszsourceurls: *const super::LPCOLESTR, rgpwszdesturls: *const super::LPCOLESTR, dwmoveflags: super::DWORD, pauthenticate: *mut core::ffi::c_void, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut super::LPOLESTR, ppstringsbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IScopedOperations_Impl::Move(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszsourceurls), core::mem::transmute_copy(&rgpwszdesturls), core::mem::transmute_copy(&dwmoveflags), core::mem::transmute_copy(&pauthenticate), core::mem::transmute_copy(&rgdwstatus), core::mem::transmute_copy(&rgpwsznewurls), core::mem::transmute_copy(&ppstringsbuffer)).into()
             }
         }
-        unsafe extern "system" fn Delete<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: u32, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crows: DBCOUNTITEM, rgpwszurls: *const super::LPCOLESTR, dwdeleteflags: super::DWORD, rgdwstatus: *mut DBSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IScopedOperations_Impl::Delete(this, core::mem::transmute_copy(&crows), core::mem::transmute_copy(&rgpwszurls), core::mem::transmute_copy(&dwdeleteflags), core::mem::transmute_copy(&rgdwstatus)).into()
             }
         }
-        unsafe extern "system" fn OpenRowset<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenRowset<Identity: IScopedOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, pindexid: *const DBID, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IScopedOperations_Impl::OpenRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pindexid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pprowset)).into()
@@ -5714,7 +5958,7 @@ impl IScopedOperations_Vtbl {
         iid == &<IScopedOperations as windows_core::Interface>::IID || iid == &<IBindResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "urlmon", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "urlmon", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IScopedOperations {}
 windows_core::imp::define_interface!(ISecurityInfo, ISecurityInfo_Vtbl, 0x0c733aa4_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ISecurityInfo, windows_core::IUnknown);
@@ -5726,10 +5970,11 @@ impl ISecurityInfo {
             (windows_core::Interface::vtable(self).GetCurrentTrustee)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetObjectTypes(&self, cobjecttypes: *mut u32, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetObjectTypes(&self, cobjecttypes: *mut super::ULONG, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetObjectTypes)(windows_core::Interface::as_raw(self), cobjecttypes as _, rgobjecttypes as _) }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(feature = "shared")]
     pub unsafe fn GetPermissions(&self, objecttype: windows_core::GUID) -> windows_core::Result<super::ACCESS_MASK> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5745,19 +5990,22 @@ pub struct ISecurityInfo_Vtbl {
     pub GetCurrentTrustee: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "accctrl", feature = "winnt")))]
     GetCurrentTrustee: usize,
-    pub GetObjectTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
+    #[cfg(feature = "shared")]
+    pub GetObjectTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetObjectTypes: usize,
+    #[cfg(feature = "shared")]
     pub GetPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut super::ACCESS_MASK) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(feature = "shared"))]
     GetPermissions: usize,
 }
-#[cfg(all(feature = "accctrl", feature = "winnt"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 pub trait ISecurityInfo_Impl: windows_core::IUnknownImpl {
     fn GetCurrentTrustee(&self) -> windows_core::Result<*mut super::TRUSTEE_W>;
-    fn GetObjectTypes(&self, cobjecttypes: *mut u32, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn GetObjectTypes(&self, cobjecttypes: *mut super::ULONG, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetPermissions(&self, objecttype: &windows_core::GUID) -> windows_core::Result<super::ACCESS_MASK>;
 }
-#[cfg(all(feature = "accctrl", feature = "winnt"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 impl ISecurityInfo_Vtbl {
     pub const fn new<Identity: ISecurityInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCurrentTrustee<Identity: ISecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptrustee: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
@@ -5772,7 +6020,7 @@ impl ISecurityInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetObjectTypes<Identity: ISecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cobjecttypes: *mut u32, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectTypes<Identity: ISecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cobjecttypes: *mut super::ULONG, rgobjecttypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISecurityInfo_Impl::GetObjectTypes(this, core::mem::transmute_copy(&cobjecttypes), core::mem::transmute_copy(&rgobjecttypes)).into()
@@ -5801,16 +6049,16 @@ impl ISecurityInfo_Vtbl {
         iid == &<ISecurityInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "accctrl", feature = "winnt"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for ISecurityInfo {}
 windows_core::imp::define_interface!(ISessionProperties, ISessionProperties_Vtbl, 0x0c733a85_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ISessionProperties, windows_core::IUnknown);
 impl ISessionProperties {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
@@ -5819,30 +6067,30 @@ impl ISessionProperties {
 #[doc(hidden)]
 pub struct ISessionProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DBPROPIDSET, *mut u32, *mut *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const DBPROPIDSET, *mut super::ULONG, *mut *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetProperties: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetProperties: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISessionProperties_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
-    fn SetProperties(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetProperties(&self, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
+    fn SetProperties(&self, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISessionProperties_Vtbl {
     pub const fn new<Identity: ISessionProperties_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetProperties<Identity: ISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperties<Identity: ISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISessionProperties_Impl::GetProperties(this, core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
             }
         }
-        unsafe extern "system" fn SetProperties<Identity: ISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperties<Identity: ISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISessionProperties_Impl::SetProperties(this, core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
@@ -5858,38 +6106,36 @@ impl ISessionProperties_Vtbl {
         iid == &<ISessionProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISessionProperties {}
 windows_core::imp::define_interface!(ISourcesRowset, ISourcesRowset_Vtbl, 0x0c733a1e_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ISourcesRowset, windows_core::IUnknown);
 impl ISourcesRowset {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetSourcesRowset<P0, T>(&self, punkouter: P0, rgproperties: Option<&mut [DBPROPSET]>) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetSourcesRowset<P0>(&self, punkouter: P0, riid: *const super::IID, rgproperties: Option<&mut [DBPROPSET]>, ppsourcesrowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, rgproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgproperties.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, rgproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgproperties.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), core::mem::transmute(ppsourcesrowset)) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISourcesRowset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetSourcesRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetSourcesRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetSourcesRowset: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISourcesRowset_Impl: windows_core::IUnknownImpl {
-    fn GetSourcesRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSourcesRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID, cpropertysets: super::ULONG, rgproperties: *mut DBPROPSET, ppsourcesrowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISourcesRowset_Vtbl {
     pub const fn new<Identity: ISourcesRowset_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSourcesRowset<Identity: ISourcesRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourcesRowset<Identity: ISourcesRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, cpropertysets: super::ULONG, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISourcesRowset_Impl::GetSourcesRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgproperties), core::mem::transmute_copy(&ppsourcesrowset)).into()
@@ -5901,7 +6147,7 @@ impl ISourcesRowset_Vtbl {
         iid == &<ISourcesRowset as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISourcesRowset {}
 windows_core::imp::define_interface!(ITableCreation, ITableCreation_Vtbl, 0x0c733abc_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for ITableCreation {
@@ -5912,28 +6158,28 @@ impl core::ops::Deref for ITableCreation {
 }
 windows_core::imp::interface_hierarchy!(ITableCreation, windows_core::IUnknown, ITableDefinition);
 impl ITableCreation {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetTableDefinition(&self, ptableid: *const DBID, pccolumndescs: Option<*mut DBORDINAL>, prgcolumndescs: Option<*mut *mut DBCOLUMNDESC>, pcpropertysets: Option<*mut u32>, prgpropertysets: Option<*mut *mut DBPROPSET>, pcconstraintdescs: Option<*mut u32>, prgconstraintdescs: Option<*mut *mut DBCONSTRAINTDESC>, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTableDefinition)(windows_core::Interface::as_raw(self), ptableid, pccolumndescs.unwrap_or(core::mem::zeroed()) as _, prgcolumndescs.unwrap_or(core::mem::zeroed()) as _, pcpropertysets.unwrap_or(core::mem::zeroed()) as _, prgpropertysets.unwrap_or(core::mem::zeroed()) as _, pcconstraintdescs.unwrap_or(core::mem::zeroed()) as _, prgconstraintdescs.unwrap_or(core::mem::zeroed()) as _, ppwszstringbuffer as _) }
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetTableDefinition(&self, ptableid: *const DBID, pccolumndescs: Option<*mut DBORDINAL>, prgcolumndescs: Option<*mut *mut DBCOLUMNDESC>, pcpropertysets: Option<*mut super::ULONG>, prgpropertysets: Option<*mut *mut DBPROPSET>, pcconstraintdescs: Option<*mut super::ULONG>, prgconstraintdescs: Option<*mut *mut DBCONSTRAINTDESC>, ppwszstringbuffer: Option<*mut *mut super::OLECHAR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTableDefinition)(windows_core::Interface::as_raw(self), ptableid, pccolumndescs.unwrap_or(core::mem::zeroed()) as _, prgcolumndescs.unwrap_or(core::mem::zeroed()) as _, pcpropertysets.unwrap_or(core::mem::zeroed()) as _, prgpropertysets.unwrap_or(core::mem::zeroed()) as _, pcconstraintdescs.unwrap_or(core::mem::zeroed()) as _, prgconstraintdescs.unwrap_or(core::mem::zeroed()) as _, ppwszstringbuffer.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableCreation_Vtbl {
     pub base__: ITableDefinition_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetTableDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *mut DBORDINAL, *mut *mut DBCOLUMNDESC, *mut u32, *mut *mut DBPROPSET, *mut u32, *mut *mut DBCONSTRAINTDESC, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetTableDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *mut DBORDINAL, *mut *mut DBCOLUMNDESC, *mut super::ULONG, *mut *mut DBPROPSET, *mut super::ULONG, *mut *mut DBCONSTRAINTDESC, *mut *mut super::OLECHAR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetTableDefinition: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITableCreation_Impl: ITableDefinition_Impl {
-    fn GetTableDefinition(&self, ptableid: *const DBID, pccolumndescs: *mut DBORDINAL, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
+    fn GetTableDefinition(&self, ptableid: *const DBID, pccolumndescs: *mut DBORDINAL, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut super::ULONG, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITableCreation_Vtbl {
     pub const fn new<Identity: ITableCreation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetTableDefinition<Identity: ITableCreation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pccolumndescs: *mut DBORDINAL, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTableDefinition<Identity: ITableCreation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pccolumndescs: *mut DBORDINAL, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut super::ULONG, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut super::OLECHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITableCreation_Impl::GetTableDefinition(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pccolumndescs), core::mem::transmute_copy(&prgcolumndescs), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets), core::mem::transmute_copy(&pcconstraintdescs), core::mem::transmute_copy(&prgconstraintdescs), core::mem::transmute_copy(&ppwszstringbuffer)).into()
@@ -5945,29 +6191,40 @@ impl ITableCreation_Vtbl {
         iid == &<ITableCreation as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITableCreation {}
 windows_core::imp::define_interface!(ITableDefinition, ITableDefinition_Vtbl, 0x0c733a86_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ITableDefinition, windows_core::IUnknown);
 impl ITableDefinition {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateTable<P0, T>(&self, punkouter: P0, ptableid: Option<*const DBID>, rgcolumndescs: Option<&[DBCOLUMNDESC]>, rgpropertysets: Option<&mut [DBPROPSET]>, pptableid: *mut *mut DBID) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn CreateTable<P0>(&self, punkouter: P0, ptableid: Option<*const DBID>, rgcolumndescs: Option<&[DBCOLUMNDESC]>, riid: *const super::IID, rgpropertysets: Option<&mut [DBPROPSET]>, pptableid: Option<*mut *mut DBID>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, rgcolumndescs.map_or(0, |slice| slice.len().try_into().unwrap()), rgcolumndescs.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pptableid as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CreateTable)(
+                windows_core::Interface::as_raw(self),
+                punkouter.param().abi(),
+                ptableid.unwrap_or(core::mem::zeroed()) as _,
+                rgcolumndescs.map_or(0, |slice| slice.len().try_into().unwrap()),
+                rgcolumndescs.map_or(core::ptr::null(), |slice| slice.as_ptr()),
+                riid,
+                rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
+                pptableid.unwrap_or(core::mem::zeroed()) as _,
+                pprowset.unwrap_or(core::mem::zeroed()) as _,
+            )
+        }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn DropTable(&self, ptableid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropTable)(windows_core::Interface::as_raw(self), ptableid) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn AddColumn(&self, ptableid: *const DBID, pcolumndesc: *mut DBCOLUMNDESC, ppcolumnid: *mut *mut DBID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumndesc, ppcolumnid as _) }
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn AddColumn(&self, ptableid: *const DBID, pcolumndesc: *mut DBCOLUMNDESC, ppcolumnid: Option<*mut *mut DBID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumndesc, ppcolumnid.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn DropColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumnid) }
     }
@@ -5976,34 +6233,34 @@ impl ITableDefinition {
 #[doc(hidden)]
 pub struct ITableDefinition_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub CreateTable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, DBORDINAL, *const DBCOLUMNDESC, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut DBID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub CreateTable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, DBORDINAL, *const DBCOLUMNDESC, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut DBID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateTable: usize,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub DropTable: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     DropTable: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddColumn: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *mut DBCOLUMNDESC, *mut *mut DBID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddColumn: usize,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub DropColumn: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     DropColumn: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITableDefinition_Impl: windows_core::IUnknownImpl {
-    fn CreateTable(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *const DBCOLUMNDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateTable(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *const DBCOLUMNDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DropTable(&self, ptableid: *const DBID) -> windows_core::Result<()>;
     fn AddColumn(&self, ptableid: *const DBID, pcolumndesc: *mut DBCOLUMNDESC, ppcolumnid: *mut *mut DBID) -> windows_core::Result<()>;
     fn DropColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITableDefinition_Vtbl {
     pub const fn new<Identity: ITableDefinition_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateTable<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *const DBCOLUMNDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTable<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *const DBCOLUMNDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITableDefinition_Impl::CreateTable(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&ccolumndescs), core::mem::transmute_copy(&rgcolumndescs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pptableid), core::mem::transmute_copy(&pprowset)).into()
@@ -6039,7 +6296,7 @@ impl ITableDefinition_Vtbl {
         iid == &<ITableDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITableDefinition {}
 windows_core::imp::define_interface!(ITableDefinitionWithConstraints, ITableDefinitionWithConstraints_Vtbl, 0x0c733aab_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for ITableDefinitionWithConstraints {
@@ -6050,18 +6307,18 @@ impl core::ops::Deref for ITableDefinitionWithConstraints {
 }
 windows_core::imp::interface_hierarchy!(ITableDefinitionWithConstraints, windows_core::IUnknown, ITableDefinition, ITableCreation);
 impl ITableDefinitionWithConstraints {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddConstraint(&self, ptableid: *const DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddConstraint)(windows_core::Interface::as_raw(self), ptableid, pconstraintdesc) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateTableWithConstraints<P0>(&self, punkouter: P0, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn CreateTableWithConstraints<P0>(&self, punkouter: P0, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: super::ULONG, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, rgcolumndescs, cconstraintdescs, rgconstraintdescs, riid, cpropertysets, rgpropertysets as _, pptableid as _, core::mem::transmute(pprowset)) }
     }
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub unsafe fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropConstraint)(windows_core::Interface::as_raw(self), ptableid, pconstraintid) }
     }
@@ -6070,26 +6327,26 @@ impl ITableDefinitionWithConstraints {
 #[doc(hidden)]
 pub struct ITableDefinitionWithConstraints_Vtbl {
     pub base__: ITableCreation_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AddConstraint: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBCONSTRAINTDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AddConstraint: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub CreateTableWithConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, DBORDINAL, *mut DBCOLUMNDESC, u32, *const DBCONSTRAINTDESC, *const windows_core::GUID, u32, *mut DBPROPSET, *mut *mut DBID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub CreateTableWithConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DBID, DBORDINAL, *mut DBCOLUMNDESC, super::ULONG, *const DBCONSTRAINTDESC, *const super::IID, super::ULONG, *mut DBPROPSET, *mut *mut DBID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateTableWithConstraints: usize,
-    #[cfg(feature = "wtypesbase")]
+    #[cfg(all(feature = "shared", feature = "wtypesbase"))]
     pub DropConstraint: unsafe extern "system" fn(*mut core::ffi::c_void, *const DBID, *const DBID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypesbase"))]
+    #[cfg(not(all(feature = "shared", feature = "wtypesbase")))]
     DropConstraint: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITableDefinitionWithConstraints_Impl: ITableCreation_Impl {
     fn AddConstraint(&self, ptableid: *const DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> windows_core::Result<()>;
-    fn CreateTableWithConstraints(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateTableWithConstraints(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: super::ULONG, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITableDefinitionWithConstraints_Vtbl {
     pub const fn new<Identity: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddConstraint<Identity: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> windows_core::HRESULT {
@@ -6098,7 +6355,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
                 ITableDefinitionWithConstraints_Impl::AddConstraint(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pconstraintdesc)).into()
             }
         }
-        unsafe extern "system" fn CreateTableWithConstraints<Identity: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTableWithConstraints<Identity: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: super::ULONG, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const super::IID, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITableDefinitionWithConstraints_Impl::CreateTableWithConstraints(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&ccolumndescs), core::mem::transmute_copy(&rgcolumndescs), core::mem::transmute_copy(&cconstraintdescs), core::mem::transmute_copy(&rgconstraintdescs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets), core::mem::transmute_copy(&pptableid), core::mem::transmute_copy(&pprowset)).into()
@@ -6121,7 +6378,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
         iid == &<ITableDefinitionWithConstraints as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID || iid == &<ITableCreation as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITableDefinitionWithConstraints {}
 windows_core::imp::define_interface!(ITransactionJoin, ITransactionJoin_Vtbl, 0x0c733a5e_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ITransactionJoin, windows_core::IUnknown);
@@ -6133,8 +6390,8 @@ impl ITransactionJoin {
             (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "transact")]
-    pub unsafe fn JoinTransaction<P0, P3>(&self, punktransactioncoord: P0, isolevel: super::ISOLEVEL, isoflags: u32, potheroptions: P3) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub unsafe fn JoinTransaction<P0, P3>(&self, punktransactioncoord: P0, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<super::ITransactionOptions>,
@@ -6150,17 +6407,17 @@ pub struct ITransactionJoin_Vtbl {
     pub GetOptionsObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "transact"))]
     GetOptionsObject: usize,
-    #[cfg(feature = "transact")]
-    pub JoinTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::ISOLEVEL, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "transact"))]
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub JoinTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::ISOLEVEL, super::ULONG, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "transact")))]
     JoinTransaction: usize,
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 pub trait ITransactionJoin_Impl: windows_core::IUnknownImpl {
     fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions>;
-    fn JoinTransaction(&self, punktransactioncoord: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: u32, potheroptions: windows_core::Ref<super::ITransactionOptions>) -> windows_core::Result<()>;
+    fn JoinTransaction(&self, punktransactioncoord: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl ITransactionJoin_Vtbl {
     pub const fn new<Identity: ITransactionJoin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOptionsObject<Identity: ITransactionJoin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6175,7 +6432,7 @@ impl ITransactionJoin_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn JoinTransaction<Identity: ITransactionJoin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punktransactioncoord: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: u32, potheroptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn JoinTransaction<Identity: ITransactionJoin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punktransactioncoord: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITransactionJoin_Impl::JoinTransaction(this, core::mem::transmute_copy(&punktransactioncoord), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions)).into()
@@ -6191,7 +6448,7 @@ impl ITransactionJoin_Vtbl {
         iid == &<ITransactionJoin as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionJoin {}
 #[cfg(feature = "transact")]
 windows_core::imp::define_interface!(ITransactionLocal, ITransactionLocal_Vtbl, 0x0c733a5f_2a1c_11ce_ade5_00aa0044773d);
@@ -6212,7 +6469,8 @@ impl ITransactionLocal {
             (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn StartTransaction<P2>(&self, isolevel: super::ISOLEVEL, isoflags: u32, potheroptions: P2, pultransactionlevel: Option<*mut u32>) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn StartTransaction<P2>(&self, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: P2, pultransactionlevel: Option<*mut super::ULONG>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::ITransactionOptions>,
     {
@@ -6225,14 +6483,17 @@ impl ITransactionLocal {
 pub struct ITransactionLocal_Vtbl {
     pub base__: super::ITransaction_Vtbl,
     pub GetOptionsObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, super::ISOLEVEL, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub StartTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, super::ISOLEVEL, super::ULONG, *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    StartTransaction: usize,
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionLocal_Impl: super::ITransaction_Impl {
     fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions>;
-    fn StartTransaction(&self, isolevel: super::ISOLEVEL, isoflags: u32, potheroptions: windows_core::Ref<super::ITransactionOptions>, pultransactionlevel: *mut u32) -> windows_core::Result<()>;
+    fn StartTransaction(&self, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: windows_core::Ref<super::ITransactionOptions>, pultransactionlevel: *mut super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionLocal_Vtbl {
     pub const fn new<Identity: ITransactionLocal_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOptionsObject<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6247,7 +6508,7 @@ impl ITransactionLocal_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StartTransaction<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: u32, potheroptions: *mut core::ffi::c_void, pultransactionlevel: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartTransaction<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, potheroptions: *mut core::ffi::c_void, pultransactionlevel: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITransactionLocal_Impl::StartTransaction(this, core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions), core::mem::transmute_copy(&pultransactionlevel)).into()
@@ -6263,13 +6524,13 @@ impl ITransactionLocal_Vtbl {
         iid == &<ITransactionLocal as windows_core::Interface>::IID || iid == &<super::ITransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionLocal {}
 windows_core::imp::define_interface!(ITransactionObject, ITransactionObject_Vtbl, 0x0c733a60_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ITransactionObject, windows_core::IUnknown);
 impl ITransactionObject {
-    #[cfg(feature = "transact")]
-    pub unsafe fn GetTransactionObject(&self, ultransactionlevel: u32) -> windows_core::Result<super::ITransaction> {
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub unsafe fn GetTransactionObject(&self, ultransactionlevel: super::ULONG) -> windows_core::Result<super::ITransaction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTransactionObject)(windows_core::Interface::as_raw(self), ultransactionlevel, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -6280,19 +6541,19 @@ impl ITransactionObject {
 #[doc(hidden)]
 pub struct ITransactionObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "transact")]
-    pub GetTransactionObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "transact"))]
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub GetTransactionObject: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "transact")))]
     GetTransactionObject: usize,
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 pub trait ITransactionObject_Impl: windows_core::IUnknownImpl {
-    fn GetTransactionObject(&self, ultransactionlevel: u32) -> windows_core::Result<super::ITransaction>;
+    fn GetTransactionObject(&self, ultransactionlevel: super::ULONG) -> windows_core::Result<super::ITransaction>;
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl ITransactionObject_Vtbl {
     pub const fn new<Identity: ITransactionObject_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetTransactionObject<Identity: ITransactionObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultransactionlevel: u32, pptransactionobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTransactionObject<Identity: ITransactionObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultransactionlevel: super::ULONG, pptransactionobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionObject_Impl::GetTransactionObject(this, core::mem::transmute_copy(&ultransactionlevel)) {
@@ -6310,7 +6571,7 @@ impl ITransactionObject_Vtbl {
         iid == &<ITransactionObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionObject {}
 windows_core::imp::define_interface!(ITrusteeAdmin, ITrusteeAdmin_Vtbl, 0x0c733aa1_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ITrusteeAdmin, windows_core::IUnknown);
@@ -6319,20 +6580,20 @@ impl ITrusteeAdmin {
     pub unsafe fn CompareTrustees(&self, ptrustee1: *const super::TRUSTEE_W, ptrustee2: *const super::TRUSTEE_W) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CompareTrustees)(windows_core::Interface::as_raw(self), ptrustee1, ptrustee2) }
     }
-    #[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateTrustee(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn CreateTrustee(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateTrustee)(windows_core::Interface::as_raw(self), ptrustee, cpropertysets, rgpropertysets as _) }
     }
     #[cfg(all(feature = "accctrl", feature = "winnt"))]
     pub unsafe fn DeleteTrustee(&self, ptrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteTrustee)(windows_core::Interface::as_raw(self), ptrustee) }
     }
-    #[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn SetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTrusteeProperties)(windows_core::Interface::as_raw(self), ptrustee, cpropertysets, rgpropertysets as _) }
     }
-    #[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+    #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTrusteeProperties)(windows_core::Interface::as_raw(self), ptrustee, cpropertyidsets, rgpropertyidsets, pcpropertysets as _, prgpropertysets as _) }
     }
 }
@@ -6344,32 +6605,32 @@ pub struct ITrusteeAdmin_Vtbl {
     pub CompareTrustees: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, *const super::TRUSTEE_W) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "accctrl", feature = "winnt")))]
     CompareTrustees: usize,
-    #[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub CreateTrustee: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub CreateTrustee: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateTrustee: usize,
     #[cfg(all(feature = "accctrl", feature = "winnt"))]
     pub DeleteTrustee: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "accctrl", feature = "winnt")))]
     DeleteTrustee: usize,
-    #[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub SetTrusteeProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, u32, *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub SetTrusteeProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, super::ULONG, *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetTrusteeProperties: usize,
-    #[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetTrusteeProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, u32, *const DBPROPIDSET, *mut u32, *mut *mut DBPROPSET) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetTrusteeProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, super::ULONG, *const DBPROPIDSET, *mut super::ULONG, *mut *mut DBPROPSET) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetTrusteeProperties: usize,
 }
-#[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITrusteeAdmin_Impl: windows_core::IUnknownImpl {
     fn CompareTrustees(&self, ptrustee1: *const super::TRUSTEE_W, ptrustee2: *const super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn CreateTrustee(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn CreateTrustee(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
     fn DeleteTrustee(&self, ptrustee: *const super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn SetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
-    fn GetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
+    fn SetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::Result<()>;
+    fn GetTrusteeProperties(&self, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITrusteeAdmin_Vtbl {
     pub const fn new<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CompareTrustees<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee1: *const super::TRUSTEE_W, ptrustee2: *const super::TRUSTEE_W) -> windows_core::HRESULT {
@@ -6378,7 +6639,7 @@ impl ITrusteeAdmin_Vtbl {
                 ITrusteeAdmin_Impl::CompareTrustees(this, core::mem::transmute_copy(&ptrustee1), core::mem::transmute_copy(&ptrustee2)).into()
             }
         }
-        unsafe extern "system" fn CreateTrustee<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTrustee<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITrusteeAdmin_Impl::CreateTrustee(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
@@ -6390,13 +6651,13 @@ impl ITrusteeAdmin_Vtbl {
                 ITrusteeAdmin_Impl::DeleteTrustee(this, core::mem::transmute_copy(&ptrustee)).into()
             }
         }
-        unsafe extern "system" fn SetTrusteeProperties<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTrusteeProperties<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertysets: super::ULONG, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITrusteeAdmin_Impl::SetTrusteeProperties(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertysets), core::mem::transmute_copy(&rgpropertysets)).into()
             }
         }
-        unsafe extern "system" fn GetTrusteeProperties<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTrusteeProperties<Identity: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, cpropertyidsets: super::ULONG, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut super::ULONG, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITrusteeAdmin_Impl::GetTrusteeProperties(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&cpropertyidsets), core::mem::transmute_copy(&rgpropertyidsets), core::mem::transmute_copy(&pcpropertysets), core::mem::transmute_copy(&prgpropertysets)).into()
@@ -6415,7 +6676,7 @@ impl ITrusteeAdmin_Vtbl {
         iid == &<ITrusteeAdmin as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "accctrl", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "accctrl", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITrusteeAdmin {}
 windows_core::imp::define_interface!(ITrusteeGroupAdmin, ITrusteeGroupAdmin_Vtbl, 0x0c733aa2_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ITrusteeGroupAdmin, windows_core::IUnknown);
@@ -6435,12 +6696,12 @@ impl ITrusteeGroupAdmin {
             (windows_core::Interface::vtable(self).IsMember)(windows_core::Interface::as_raw(self), pmembershiptrustee, pmembertrustee, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "accctrl", feature = "winnt"))]
-    pub unsafe fn GetMembers(&self, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut u32, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
+    pub unsafe fn GetMembers(&self, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut super::ULONG, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMembers)(windows_core::Interface::as_raw(self), pmembershiptrustee, pcmembers as _, prgmembers as _) }
     }
-    #[cfg(all(feature = "accctrl", feature = "winnt"))]
-    pub unsafe fn GetMemberships(&self, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut u32, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
+    pub unsafe fn GetMemberships(&self, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut super::ULONG, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMemberships)(windows_core::Interface::as_raw(self), ptrustee, pcmemberships as _, prgmemberships as _) }
     }
 }
@@ -6460,24 +6721,24 @@ pub struct ITrusteeGroupAdmin_Vtbl {
     pub IsMember: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, *const super::TRUSTEE_W, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "accctrl", feature = "winnt")))]
     IsMember: usize,
-    #[cfg(all(feature = "accctrl", feature = "winnt"))]
-    pub GetMembers: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, *mut u32, *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "winnt")))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
+    pub GetMembers: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, *mut super::ULONG, *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "accctrl", feature = "shared", feature = "winnt")))]
     GetMembers: usize,
-    #[cfg(all(feature = "accctrl", feature = "winnt"))]
-    pub GetMemberships: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, *mut u32, *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "accctrl", feature = "winnt")))]
+    #[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
+    pub GetMemberships: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TRUSTEE_W, *mut super::ULONG, *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "accctrl", feature = "shared", feature = "winnt")))]
     GetMemberships: usize,
 }
-#[cfg(all(feature = "accctrl", feature = "winnt"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 pub trait ITrusteeGroupAdmin_Impl: windows_core::IUnknownImpl {
     fn AddMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::Result<()>;
     fn DeleteMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::Result<()>;
     fn IsMember(&self, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::Result<windows_core::BOOL>;
-    fn GetMembers(&self, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut u32, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
-    fn GetMemberships(&self, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut u32, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
+    fn GetMembers(&self, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut super::ULONG, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
+    fn GetMemberships(&self, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut super::ULONG, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "accctrl", feature = "winnt"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 impl ITrusteeGroupAdmin_Vtbl {
     pub const fn new<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddMember<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmembershiptrustee: *const super::TRUSTEE_W, pmembertrustee: *const super::TRUSTEE_W) -> windows_core::HRESULT {
@@ -6504,13 +6765,13 @@ impl ITrusteeGroupAdmin_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMembers<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut u32, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMembers<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmembershiptrustee: *const super::TRUSTEE_W, pcmembers: *mut super::ULONG, prgmembers: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITrusteeGroupAdmin_Impl::GetMembers(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pcmembers), core::mem::transmute_copy(&prgmembers)).into()
             }
         }
-        unsafe extern "system" fn GetMemberships<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut u32, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMemberships<Identity: ITrusteeGroupAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptrustee: *const super::TRUSTEE_W, pcmemberships: *mut super::ULONG, prgmemberships: *mut *mut super::TRUSTEE_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITrusteeGroupAdmin_Impl::GetMemberships(this, core::mem::transmute_copy(&ptrustee), core::mem::transmute_copy(&pcmemberships), core::mem::transmute_copy(&prgmemberships)).into()
@@ -6529,17 +6790,17 @@ impl ITrusteeGroupAdmin_Vtbl {
         iid == &<ITrusteeGroupAdmin as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "accctrl", feature = "winnt"))]
+#[cfg(all(feature = "accctrl", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for ITrusteeGroupAdmin {}
 windows_core::imp::define_interface!(IViewChapter, IViewChapter_Vtbl, 0x0c733a98_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IViewChapter, windows_core::IUnknown);
 impl IViewChapter {
-    pub unsafe fn GetSpecification<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
     pub unsafe fn OpenViewChapter(&self, hsource: HCHAPTER, phviewchapter: Option<*mut HCHAPTER>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OpenViewChapter)(windows_core::Interface::as_raw(self), hsource, phviewchapter.unwrap_or(core::mem::zeroed()) as _) }
@@ -6549,19 +6810,30 @@ impl IViewChapter {
 #[doc(hidden)]
 pub struct IViewChapter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetSpecification: usize,
     pub OpenViewChapter: unsafe extern "system" fn(*mut core::ffi::c_void, HCHAPTER, *mut HCHAPTER) -> windows_core::HRESULT,
 }
+#[cfg(feature = "guiddef")]
 pub trait IViewChapter_Impl: windows_core::IUnknownImpl {
-    fn GetSpecification(&self, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
     fn OpenViewChapter(&self, hsource: HCHAPTER, phviewchapter: *mut HCHAPTER) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IViewChapter_Vtbl {
     pub const fn new<Identity: IViewChapter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSpecification<Identity: IViewChapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpecification<Identity: IViewChapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewChapter_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                match IViewChapter_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        pprowset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OpenViewChapter<Identity: IViewChapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hsource: HCHAPTER, phviewchapter: *mut HCHAPTER) -> windows_core::HRESULT {
@@ -6580,6 +6852,7 @@ impl IViewChapter_Vtbl {
         iid == &<IViewChapter as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IViewChapter {}
 windows_core::imp::define_interface!(IViewFilter, IViewFilter_Vtbl, 0x0c733a9b_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IViewFilter, windows_core::IUnknown);
@@ -6587,7 +6860,7 @@ impl IViewFilter {
     pub unsafe fn GetFilter(&self, haccessor: HACCESSOR, pcrows: *mut DBCOUNTITEM, pcompareops: *mut *mut DBCOMPAREOP, pcriteriadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFilter)(windows_core::Interface::as_raw(self), haccessor, pcrows as _, pcompareops as _, pcriteriadata as _) }
     }
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
     pub unsafe fn GetFilterBindings(&self, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFilterBindings)(windows_core::Interface::as_raw(self), pcbindings as _, prgbindings as _) }
     }
@@ -6600,19 +6873,19 @@ impl IViewFilter {
 pub struct IViewFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, *mut DBCOUNTITEM, *mut *mut DBCOMPAREOP, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
     pub GetFilterBindings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DBCOUNTITEM, *mut *mut DBBINDING) -> windows_core::HRESULT,
-    #[cfg(not(feature = "oaidl"))]
+    #[cfg(not(all(feature = "guiddef", feature = "oaidl", feature = "shared")))]
     GetFilterBindings: usize,
     pub SetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, HACCESSOR, DBCOUNTITEM, *const DBCOMPAREOP, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 pub trait IViewFilter_Impl: windows_core::IUnknownImpl {
     fn GetFilter(&self, haccessor: HACCESSOR, pcrows: *mut DBCOUNTITEM, pcompareops: *mut *mut DBCOMPAREOP, pcriteriadata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetFilterBindings(&self, pcbindings: *mut DBCOUNTITEM, prgbindings: *mut *mut DBBINDING) -> windows_core::Result<()>;
     fn SetFilter(&self, haccessor: HACCESSOR, crows: DBCOUNTITEM, compareops: *const DBCOMPAREOP, pcriteriadata: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 impl IViewFilter_Vtbl {
     pub const fn new<Identity: IViewFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFilter<Identity: IViewFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pcrows: *mut DBCOUNTITEM, pcompareops: *mut *mut DBCOMPAREOP, pcriteriadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6644,50 +6917,72 @@ impl IViewFilter_Vtbl {
         iid == &<IViewFilter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "guiddef", feature = "oaidl", feature = "shared"))]
 impl windows_core::RuntimeName for IViewFilter {}
 windows_core::imp::define_interface!(IViewRowset, IViewRowset_Vtbl, 0x0c733a97_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IViewRowset, windows_core::IUnknown);
 impl IViewRowset {
-    pub unsafe fn GetSpecification<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn OpenViewRowset<P0, T>(&self, punkouter: P0) -> windows_core::Result<T>
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn OpenViewRowset<P0>(&self, punkouter: P0, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).OpenViewRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).OpenViewRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewRowset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OpenViewRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetSpecification: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetSpecification: usize,
+    #[cfg(feature = "guiddef")]
+    pub OpenViewRowset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    OpenViewRowset: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IViewRowset_Impl: windows_core::IUnknownImpl {
-    fn GetSpecification(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn OpenViewRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSpecification(&self, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
+    fn OpenViewRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const super::IID) -> windows_core::Result<windows_core::IUnknown>;
 }
+#[cfg(feature = "guiddef")]
 impl IViewRowset_Vtbl {
     pub const fn new<Identity: IViewRowset_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSpecification<Identity: IViewRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSpecification<Identity: IViewRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewRowset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppobject)).into()
+                match IViewRowset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppobject.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn OpenViewRowset<Identity: IViewRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenViewRowset<Identity: IViewRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, riid: *const super::IID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IViewRowset_Impl::OpenViewRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pprowset)).into()
+                match IViewRowset_Impl::OpenViewRowset(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        pprowset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -6700,6 +6995,7 @@ impl IViewRowset_Vtbl {
         iid == &<IViewRowset as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IViewRowset {}
 windows_core::imp::define_interface!(IViewSort, IViewSort_Vtbl, 0x0c733a9a_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IViewSort, windows_core::IUnknown);
@@ -6759,10 +7055,10 @@ pub struct MDAXISINFO {
     pub rgcColumns: *mut DBORDINAL,
     pub rgpwszDimensionNames: *mut super::LPOLESTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct MDAXISINFO {
     pub cbSize: DBLENGTH,
     pub iAxis: DBCOUNTITEM,
@@ -6941,7 +7237,7 @@ pub const MD_DIMTYPE_OTHER: i32 = 3;
 pub const MD_DIMTYPE_TIME: i32 = 1;
 pub const MD_DIMTYPE_UNKNOWN: i32 = 0;
 pub const OLEDBVER: i32 = 624;
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub type PDBPROPINFO = *mut DBPROPINFO;
 pub const PERM_ALL: ACCESS_MASKENUM = 268435456;
 pub const PERM_CREATE: ACCESS_MASKENUM = 16384;
@@ -6963,86 +7259,86 @@ pub const PERM_WRITEOWNER: ACCESS_MASKENUM = 524288;
 pub const PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = 262144;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Default)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::ISequentialStream>>,
-    pub cbData: u32,
-    pub cBSTR: u32,
+    pub cbData: super::ULONG,
+    pub cBSTR: super::ULONG,
     pub rgBSTR: *mut windows_core::BSTR,
-    pub cVARIANT: u32,
+    pub cVARIANT: super::ULONG,
     pub rgVARIANT: *mut super::VARIANT,
-    pub cIDISPATCH: u32,
+    pub cIDISPATCH: super::ULONG,
     pub rgIDISPATCH: *mut Option<super::IDispatch>,
-    pub cIUNKNOWN: u32,
+    pub cIUNKNOWN: super::ULONG,
     pub rgIUNKNOWN: *mut Option<windows_core::IUnknown>,
-    pub cPROPVARIANT: u32,
+    pub cPROPVARIANT: super::ULONG,
     pub rgPROPVARIANT: *mut super::PROPVARIANT,
-    pub cArray: u32,
+    pub cArray: super::ULONG,
     pub rgArray: *mut super::VARIANT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Default)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::ISequentialStream>>,
-    pub cbData: u32,
-    pub cBSTR: u32,
+    pub cbData: super::ULONG,
+    pub cBSTR: super::ULONG,
     pub rgBSTR: *mut windows_core::BSTR,
-    pub cVARIANT: u32,
+    pub cVARIANT: super::ULONG,
     pub rgVARIANT: *mut super::VARIANT,
-    pub cIDISPATCH: u32,
+    pub cIDISPATCH: super::ULONG,
     pub rgIDISPATCH: *mut Option<super::IDispatch>,
-    pub cIUNKNOWN: u32,
+    pub cIUNKNOWN: super::ULONG,
     pub rgIUNKNOWN: *mut Option<windows_core::IUnknown>,
-    pub cPROPVARIANT: u32,
+    pub cPROPVARIANT: super::ULONG,
     pub rgPROPVARIANT: *mut super::PROPVARIANT,
-    pub cArray: u32,
+    pub cArray: super::ULONG,
     pub rgArray: *mut super::VARIANT,
 }
 pub type SBYTE = i8;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SEC_OBJECT {
-    pub cObjects: u32,
+    pub cObjects: super::DWORD,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
 pub struct SEC_OBJECT {
-    pub cObjects: u32,
+    pub cObjects: super::DWORD,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: windows_core::GUID,
     pub ObjectID: DBID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for SEC_OBJECT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: windows_core::GUID,
     pub ObjectID: DBID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for SEC_OBJECT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

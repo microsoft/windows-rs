@@ -20,7 +20,8 @@ impl AsyncIBackgroundCopyCallback {
     pub unsafe fn Finish_JobError(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finish_JobError)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Begin_JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn Begin_JobModification<P0>(&self, pjob: P0, dwreserved: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
     {
@@ -38,17 +39,22 @@ pub struct AsyncIBackgroundCopyCallback_Vtbl {
     pub Finish_JobTransferred: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Begin_JobError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Finish_JobError: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Begin_JobModification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Begin_JobModification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Begin_JobModification: usize,
     pub Finish_JobModification: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait AsyncIBackgroundCopyCallback_Impl: windows_core::IUnknownImpl {
     fn Begin_JobTransferred(&self, pjob: windows_core::Ref<IBackgroundCopyJob>) -> windows_core::Result<()>;
     fn Finish_JobTransferred(&self) -> windows_core::Result<()>;
     fn Begin_JobError(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, perror: windows_core::Ref<IBackgroundCopyError>) -> windows_core::Result<()>;
     fn Finish_JobError(&self) -> windows_core::Result<()>;
-    fn Begin_JobModification(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, dwreserved: u32) -> windows_core::Result<()>;
+    fn Begin_JobModification(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, dwreserved: super::DWORD) -> windows_core::Result<()>;
     fn Finish_JobModification(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl AsyncIBackgroundCopyCallback_Vtbl {
     pub const fn new<Identity: AsyncIBackgroundCopyCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Begin_JobTransferred<Identity: AsyncIBackgroundCopyCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjob: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -75,7 +81,7 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
                 AsyncIBackgroundCopyCallback_Impl::Finish_JobError(this).into()
             }
         }
-        unsafe extern "system" fn Begin_JobModification<Identity: AsyncIBackgroundCopyCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjob: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_JobModification<Identity: AsyncIBackgroundCopyCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjob: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIBackgroundCopyCallback_Impl::Begin_JobModification(this, core::mem::transmute_copy(&pjob), core::mem::transmute_copy(&dwreserved)).into()
@@ -101,6 +107,7 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         iid == &<AsyncIBackgroundCopyCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for AsyncIBackgroundCopyCallback {}
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -300,17 +307,19 @@ pub struct BG_FILE_INFO {
     pub LocalName: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_PROGRESS {
-    pub BytesTotal: u64,
-    pub BytesTransferred: u64,
+    pub BytesTotal: super::UINT64,
+    pub BytesTransferred: super::UINT64,
     pub Completed: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_RANGE {
-    pub InitialOffset: u64,
-    pub Length: u64,
+    pub InitialOffset: super::UINT64,
+    pub Length: super::UINT64,
 }
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: i32 = 2048;
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: i32 = 256;
@@ -327,12 +336,13 @@ pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = 1;
 pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = 3;
 pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_PROGRESS {
-    pub BytesTotal: u64,
-    pub BytesTransferred: u64,
-    pub FilesTotal: u32,
-    pub FilesTransferred: u32,
+    pub BytesTotal: super::UINT64,
+    pub BytesTransferred: super::UINT64,
+    pub FilesTotal: super::ULONG,
+    pub FilesTransferred: super::ULONG,
 }
 pub type BG_JOB_PROXY_USAGE = i32;
 pub const BG_JOB_PROXY_USAGE_AUTODETECT: BG_JOB_PROXY_USAGE = 3;
@@ -340,10 +350,11 @@ pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = 1;
 pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = 2;
 pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_REPLY_PROGRESS {
-    pub BytesTotal: u64,
-    pub BytesTransferred: u64,
+    pub BytesTotal: super::UINT64,
+    pub BytesTransferred: super::UINT64,
 }
 pub type BG_JOB_STATE = i32;
 pub const BG_JOB_STATE_ACKNOWLEDGED: BG_JOB_STATE = 7;
@@ -356,7 +367,7 @@ pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = 6;
 pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = 2;
 pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = 5;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::FILETIME,
@@ -367,14 +378,16 @@ pub type BG_JOB_TYPE = i32;
 pub const BG_JOB_TYPE_DOWNLOAD: BG_JOB_TYPE = 0;
 pub const BG_JOB_TYPE_UPLOAD: BG_JOB_TYPE = 1;
 pub const BG_JOB_TYPE_UPLOAD_REPLY: BG_JOB_TYPE = 2;
-pub const BG_LENGTH_TO_EOF: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const BG_LENGTH_TO_EOF: super::UINT64 = 18446744073709551615;
 pub const BG_NOTIFY_DISABLE: i32 = 4;
 pub const BG_NOTIFY_FILE_RANGES_TRANSFERRED: i32 = 32;
 pub const BG_NOTIFY_FILE_TRANSFERRED: i32 = 16;
 pub const BG_NOTIFY_JOB_ERROR: i32 = 2;
 pub const BG_NOTIFY_JOB_MODIFICATION: i32 = 8;
 pub const BG_NOTIFY_JOB_TRANSFERRED: i32 = 1;
-pub const BG_SIZE_UNKNOWN: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const BG_SIZE_UNKNOWN: super::UINT64 = 18446744073709551615;
 pub const BG_SSL_ENABLE_CRL_CHECK: i32 = 1;
 pub const BG_SSL_IGNORE_CERT_CN_INVALID: i32 = 2;
 pub const BG_SSL_IGNORE_CERT_DATE_INVALID: i32 = 4;
@@ -424,14 +437,16 @@ pub const BITS_JOB_PROPERTY_NOTIFICATION_CLSID: BITS_JOB_PROPERTY_ID = 2;
 pub const BITS_JOB_PROPERTY_ON_DEMAND_MODE: BITS_JOB_PROPERTY_ID = 10;
 pub const BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS: BITS_JOB_PROPERTY_ID = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union BITS_JOB_PROPERTY_VALUE {
-    pub Dword: u32,
+    pub Dword: super::DWORD,
     pub ClsID: windows_core::GUID,
     pub Enable: windows_core::BOOL,
-    pub Uint64: u64,
+    pub Uint64: super::UINT64,
     pub Target: BG_AUTH_TARGET,
 }
+#[cfg(feature = "shared")]
 impl Default for BITS_JOB_PROPERTY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -481,7 +496,8 @@ impl IBackgroundCopyCallback {
     {
         unsafe { (windows_core::Interface::vtable(self).JobError)(windows_core::Interface::as_raw(self), pjob.param().abi(), perror.param().abi()) }
     }
-    pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: super::DWORD) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
     {
@@ -494,13 +510,18 @@ pub struct IBackgroundCopyCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub JobTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub JobError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub JobModification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub JobModification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    JobModification: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyCallback_Impl: windows_core::IUnknownImpl {
     fn JobTransferred(&self, pjob: windows_core::Ref<IBackgroundCopyJob>) -> windows_core::Result<()>;
     fn JobError(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, perror: windows_core::Ref<IBackgroundCopyError>) -> windows_core::Result<()>;
-    fn JobModification(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, dwreserved: u32) -> windows_core::Result<()>;
+    fn JobModification(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, dwreserved: super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyCallback_Vtbl {
     pub const fn new<Identity: IBackgroundCopyCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn JobTransferred<Identity: IBackgroundCopyCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjob: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -515,7 +536,7 @@ impl IBackgroundCopyCallback_Vtbl {
                 IBackgroundCopyCallback_Impl::JobError(this, core::mem::transmute_copy(&pjob), core::mem::transmute_copy(&perror)).into()
             }
         }
-        unsafe extern "system" fn JobModification<Identity: IBackgroundCopyCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjob: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn JobModification<Identity: IBackgroundCopyCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjob: *mut core::ffi::c_void, dwreserved: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyCallback_Impl::JobModification(this, core::mem::transmute_copy(&pjob), core::mem::transmute_copy(&dwreserved)).into()
@@ -532,6 +553,7 @@ impl IBackgroundCopyCallback_Vtbl {
         iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyCallback {}
 windows_core::imp::define_interface!(IBackgroundCopyCallback2, IBackgroundCopyCallback2_Vtbl, 0x659cdeac_489e_11d9_a9cd_000d56965251);
 impl core::ops::Deref for IBackgroundCopyCallback2 {
@@ -556,9 +578,11 @@ pub struct IBackgroundCopyCallback2_Vtbl {
     pub base__: IBackgroundCopyCallback_Vtbl,
     pub FileTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyCallback2_Impl: IBackgroundCopyCallback_Impl {
     fn FileTransferred(&self, pjob: windows_core::Ref<IBackgroundCopyJob>, pfile: windows_core::Ref<IBackgroundCopyFile>) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyCallback2_Vtbl {
     pub const fn new<Identity: IBackgroundCopyCallback2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FileTransferred<Identity: IBackgroundCopyCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjob: *mut core::ffi::c_void, pfile: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -573,6 +597,7 @@ impl IBackgroundCopyCallback2_Vtbl {
         iid == &<IBackgroundCopyCallback2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyCallback2 {}
 windows_core::imp::define_interface!(IBackgroundCopyCallback3, IBackgroundCopyCallback3_Vtbl, 0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
 impl core::ops::Deref for IBackgroundCopyCallback3 {
@@ -583,26 +608,32 @@ impl core::ops::Deref for IBackgroundCopyCallback3 {
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback3, windows_core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
 impl IBackgroundCopyCallback3 {
-    pub unsafe fn FileRangesTransferred<P0, P1>(&self, job: P0, file: P1, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn FileRangesTransferred<P0, P1>(&self, job: P0, file: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
         P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FileRangesTransferred)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), rangecount, ranges) }
+        unsafe { (windows_core::Interface::vtable(self).FileRangesTransferred)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), ranges.len().try_into().unwrap(), ranges.as_ptr()) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback3_Vtbl {
     pub base__: IBackgroundCopyCallback2_Vtbl,
-    pub FileRangesTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub FileRangesTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD, *const BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    FileRangesTransferred: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyCallback3_Impl: IBackgroundCopyCallback2_Impl {
-    fn FileRangesTransferred(&self, job: windows_core::Ref<IBackgroundCopyJob>, file: windows_core::Ref<IBackgroundCopyFile>, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
+    fn FileRangesTransferred(&self, job: windows_core::Ref<IBackgroundCopyJob>, file: windows_core::Ref<IBackgroundCopyFile>, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyCallback3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyCallback3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FileRangesTransferred<Identity: IBackgroundCopyCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, job: *mut core::ffi::c_void, file: *mut core::ffi::c_void, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn FileRangesTransferred<Identity: IBackgroundCopyCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, job: *mut core::ffi::c_void, file: *mut core::ffi::c_void, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyCallback3_Impl::FileRangesTransferred(this, core::mem::transmute_copy(&job), core::mem::transmute_copy(&file), core::mem::transmute_copy(&rangecount), core::mem::transmute_copy(&ranges)).into()
@@ -614,6 +645,7 @@ impl IBackgroundCopyCallback3_Vtbl {
         iid == &<IBackgroundCopyCallback3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyCallback3 {}
 windows_core::imp::define_interface!(IBackgroundCopyError, IBackgroundCopyError_Vtbl, 0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyError, windows_core::IUnknown);
@@ -627,13 +659,15 @@ impl IBackgroundCopyError {
             (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetErrorDescription(&self, languageid: u32) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetErrorDescription(&self, languageid: super::DWORD) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), languageid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetErrorContextDescription(&self, languageid: u32) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetErrorContextDescription(&self, languageid: super::DWORD) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorContextDescription)(windows_core::Interface::as_raw(self), languageid, &mut result__).map(|| result__)
@@ -652,17 +686,25 @@ pub struct IBackgroundCopyError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_ERROR_CONTEXT, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub GetFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetErrorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetErrorContextDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetErrorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetErrorDescription: usize,
+    #[cfg(feature = "shared")]
+    pub GetErrorContextDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetErrorContextDescription: usize,
     pub GetProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyError_Impl: windows_core::IUnknownImpl {
     fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetFile(&self) -> windows_core::Result<IBackgroundCopyFile>;
-    fn GetErrorDescription(&self, languageid: u32) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetErrorContextDescription(&self, languageid: u32) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetErrorDescription(&self, languageid: super::DWORD) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetErrorContextDescription(&self, languageid: super::DWORD) -> windows_core::Result<windows_core::PWSTR>;
     fn GetProtocol(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyError_Vtbl {
     pub const fn new<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetError<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut windows_core::HRESULT) -> windows_core::HRESULT {
@@ -683,7 +725,7 @@ impl IBackgroundCopyError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetErrorDescription<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: u32, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyError_Impl::GetErrorDescription(this, core::mem::transmute_copy(&languageid)) {
@@ -695,7 +737,7 @@ impl IBackgroundCopyError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetErrorContextDescription<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: u32, pcontextdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorContextDescription<Identity: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageid: super::DWORD, pcontextdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyError_Impl::GetErrorContextDescription(this, core::mem::transmute_copy(&languageid)) {
@@ -732,6 +774,7 @@ impl IBackgroundCopyError_Vtbl {
         iid == &<IBackgroundCopyError as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyError {}
 windows_core::imp::define_interface!(IBackgroundCopyFile, IBackgroundCopyFile_Vtbl, 0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile, windows_core::IUnknown);
@@ -748,6 +791,7 @@ impl IBackgroundCopyFile {
             (windows_core::Interface::vtable(self).GetLocalName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), pval as _) }
     }
@@ -758,13 +802,18 @@ pub struct IBackgroundCopyFile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRemoteName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetLocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub GetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_FILE_PROGRESS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetProgress: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyFile_Impl: windows_core::IUnknownImpl {
     fn GetRemoteName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetLocalName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetProgress(&self, pval: *mut BG_FILE_PROGRESS) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyFile_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRemoteName<Identity: IBackgroundCopyFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -808,6 +857,7 @@ impl IBackgroundCopyFile_Vtbl {
         iid == &<IBackgroundCopyFile as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyFile {}
 windows_core::imp::define_interface!(IBackgroundCopyFile2, IBackgroundCopyFile2_Vtbl, 0x83e81b93_0873_474d_8a8c_f2018b1a939c);
 impl core::ops::Deref for IBackgroundCopyFile2 {
@@ -818,8 +868,9 @@ impl core::ops::Deref for IBackgroundCopyFile2 {
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile2, windows_core::IUnknown, IBackgroundCopyFile);
 impl IBackgroundCopyFile2 {
-    pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFileRanges)(windows_core::Interface::as_raw(self), rangecount as _, ranges as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFileRanges(&self, rangecount: Option<*mut super::DWORD>, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFileRanges)(windows_core::Interface::as_raw(self), rangecount.unwrap_or(core::mem::zeroed()) as _, ranges as _) }
     }
     pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> windows_core::HRESULT
     where
@@ -832,16 +883,21 @@ impl IBackgroundCopyFile2 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile2_Vtbl {
     pub base__: IBackgroundCopyFile_Vtbl,
-    pub GetFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFileRanges: usize,
     pub SetRemoteName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyFile2_Impl: IBackgroundCopyFile_Impl {
-    fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
+    fn GetFileRanges(&self, rangecount: *mut super::DWORD, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
     fn SetRemoteName(&self, val: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyFile2_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetFileRanges<Identity: IBackgroundCopyFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFileRanges<Identity: IBackgroundCopyFile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangecount: *mut super::DWORD, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyFile2_Impl::GetFileRanges(this, core::mem::transmute_copy(&rangecount), core::mem::transmute_copy(&ranges)).into()
@@ -863,6 +919,7 @@ impl IBackgroundCopyFile2_Vtbl {
         iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyFile2 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile3, IBackgroundCopyFile3_Vtbl, 0x659cdeaa_489e_11d9_a9cd_000d56965251);
 impl core::ops::Deref for IBackgroundCopyFile3 {
@@ -904,12 +961,14 @@ pub struct IBackgroundCopyFile3_Vtbl {
     pub GetValidationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub IsDownloadedFromPeer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyFile3_Impl: IBackgroundCopyFile2_Impl {
     fn GetTemporaryName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetValidationState(&self, state: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetValidationState(&self) -> windows_core::Result<windows_core::BOOL>;
     fn IsDownloadedFromPeer(&self) -> windows_core::Result<windows_core::BOOL>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyFile3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTemporaryName<Identity: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -966,6 +1025,7 @@ impl IBackgroundCopyFile3_Vtbl {
         iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyFile3 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile4, IBackgroundCopyFile4_Vtbl, 0xef7e0655_7888_4960_b0e5_730846e03492);
 impl core::ops::Deref for IBackgroundCopyFile4 {
@@ -990,11 +1050,11 @@ pub struct IBackgroundCopyFile4_Vtbl {
     #[cfg(not(feature = "basetsd"))]
     GetPeerDownloadStats: usize,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub trait IBackgroundCopyFile4_Impl: IBackgroundCopyFile3_Impl {
     fn GetPeerDownloadStats(&self, pfromorigin: super::PUINT64, pfrompeers: super::PUINT64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl IBackgroundCopyFile4_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPeerDownloadStats<Identity: IBackgroundCopyFile4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfromorigin: super::PUINT64, pfrompeers: super::PUINT64) -> windows_core::HRESULT {
@@ -1009,7 +1069,7 @@ impl IBackgroundCopyFile4_Vtbl {
         iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl windows_core::RuntimeName for IBackgroundCopyFile4 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile5, IBackgroundCopyFile5_Vtbl, 0x85c1657f_dafc_40e8_8834_df18ea25717e);
 impl core::ops::Deref for IBackgroundCopyFile5 {
@@ -1037,12 +1097,12 @@ pub struct IBackgroundCopyFile5_Vtbl {
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_FILE_PROPERTY_ID, BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_FILE_PROPERTY_ID, *mut BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub trait IBackgroundCopyFile5_Impl: IBackgroundCopyFile4_Impl {
     fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> windows_core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> windows_core::Result<BITS_FILE_PROPERTY_VALUE>;
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl IBackgroundCopyFile5_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProperty<Identity: IBackgroundCopyFile5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT {
@@ -1073,7 +1133,7 @@ impl IBackgroundCopyFile5_Vtbl {
         iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl windows_core::RuntimeName for IBackgroundCopyFile5 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile6, IBackgroundCopyFile6_Vtbl, 0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
 impl core::ops::Deref for IBackgroundCopyFile6 {
@@ -1084,13 +1144,16 @@ impl core::ops::Deref for IBackgroundCopyFile6 {
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile6, windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
 impl IBackgroundCopyFile6 {
-    pub unsafe fn UpdateDownloadPosition(&self, offset: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn UpdateDownloadPosition(&self, offset: super::UINT64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateDownloadPosition)(windows_core::Interface::as_raw(self), offset) }
     }
-    pub unsafe fn RequestFileRanges(&self, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RequestFileRanges)(windows_core::Interface::as_raw(self), rangecount, ranges) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn RequestFileRanges(&self, ranges: &[BG_FILE_RANGE]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RequestFileRanges)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), ranges.as_ptr()) }
     }
-    pub unsafe fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFilledFileRanges(&self, rangecount: *mut super::DWORD, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFilledFileRanges)(windows_core::Interface::as_raw(self), rangecount as _, ranges as _) }
     }
 }
@@ -1098,32 +1161,41 @@ impl IBackgroundCopyFile6 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile6_Vtbl {
     pub base__: IBackgroundCopyFile5_Vtbl,
-    pub UpdateDownloadPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub RequestFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const BG_FILE_RANGE) -> windows_core::HRESULT,
-    pub GetFilledFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub UpdateDownloadPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    UpdateDownloadPosition: usize,
+    #[cfg(feature = "shared")]
+    pub RequestFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *const BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RequestFileRanges: usize,
+    #[cfg(feature = "shared")]
+    pub GetFilledFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFilledFileRanges: usize,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub trait IBackgroundCopyFile6_Impl: IBackgroundCopyFile5_Impl {
-    fn UpdateDownloadPosition(&self, offset: u64) -> windows_core::Result<()>;
-    fn RequestFileRanges(&self, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
-    fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
+    fn UpdateDownloadPosition(&self, offset: super::UINT64) -> windows_core::Result<()>;
+    fn RequestFileRanges(&self, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
+    fn GetFilledFileRanges(&self, rangecount: *mut super::DWORD, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl IBackgroundCopyFile6_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn UpdateDownloadPosition<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateDownloadPosition<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyFile6_Impl::UpdateDownloadPosition(this, core::mem::transmute_copy(&offset)).into()
             }
         }
-        unsafe extern "system" fn RequestFileRanges<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestFileRanges<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyFile6_Impl::RequestFileRanges(this, core::mem::transmute_copy(&rangecount), core::mem::transmute_copy(&ranges)).into()
             }
         }
-        unsafe extern "system" fn GetFilledFileRanges<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFilledFileRanges<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangecount: *mut super::DWORD, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyFile6_Impl::GetFilledFileRanges(this, core::mem::transmute_copy(&rangecount), core::mem::transmute_copy(&ranges)).into()
@@ -1140,13 +1212,14 @@ impl IBackgroundCopyFile6_Vtbl {
         iid == &<IBackgroundCopyFile6 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl windows_core::RuntimeName for IBackgroundCopyFile6 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob, IBackgroundCopyJob_Vtbl, 0x37668d37_507e_4160_9316_26306d150b12);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob, windows_core::IUnknown);
 impl IBackgroundCopyJob {
-    pub unsafe fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddFileSet)(windows_core::Interface::as_raw(self), cfilecount, pfileset) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddFileSet)(windows_core::Interface::as_raw(self), pfileset.len().try_into().unwrap(), pfileset.as_ptr()) }
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> windows_core::HRESULT
     where
@@ -1185,10 +1258,11 @@ impl IBackgroundCopyJob {
             (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetProgress(&self, pval: *mut BG_JOB_PROGRESS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), pval as _) }
     }
-    #[cfg(feature = "minwindef")]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetTimes(&self, pval: *mut BG_JOB_TIMES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTimes)(windows_core::Interface::as_raw(self), pval as _) }
     }
@@ -1243,10 +1317,12 @@ impl IBackgroundCopyJob {
             (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNotifyFlags(&self, val: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetNotifyFlags(&self, val: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNotifyFlags)(windows_core::Interface::as_raw(self), val) }
     }
-    pub unsafe fn GetNotifyFlags(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNotifyFlags(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNotifyFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1264,32 +1340,38 @@ impl IBackgroundCopyJob {
             (windows_core::Interface::vtable(self).GetNotifyInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetMinimumRetryDelay(&self, seconds: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMinimumRetryDelay(&self, seconds: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMinimumRetryDelay)(windows_core::Interface::as_raw(self), seconds) }
     }
-    pub unsafe fn GetMinimumRetryDelay(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMinimumRetryDelay(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinimumRetryDelay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNoProgressTimeout(&self, seconds: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetNoProgressTimeout(&self, seconds: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNoProgressTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
-    pub unsafe fn GetNoProgressTimeout(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNoProgressTimeout(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNoProgressTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetErrorCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetErrorCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetProxySettings(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: *const u16, proxybypasslist: *const u16) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist, proxybypasslist) }
+    #[cfg(feature = "winnt")]
+    pub unsafe fn SetProxySettings(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: Option<*const super::WCHAR>, proxybypasslist: Option<*const super::WCHAR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.unwrap_or(core::mem::zeroed()) as _, proxybypasslist.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProxySettings)(windows_core::Interface::as_raw(self), pproxyusage as _, pproxylist as _, pproxybypasslist as _) }
@@ -1302,7 +1384,10 @@ impl IBackgroundCopyJob {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddFileSet: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const BG_FILE_INFO) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub AddFileSet: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const BG_FILE_INFO) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddFileSet: usize,
     pub AddFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub EnumFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Suspend: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1311,10 +1396,13 @@ pub struct IBackgroundCopyJob_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_TYPE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub GetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_PROGRESS) -> windows_core::HRESULT,
-    #[cfg(feature = "minwindef")]
+    #[cfg(not(feature = "shared"))]
+    GetProgress: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub GetTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_TIMES) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     GetTimes: usize,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_STATE) -> windows_core::HRESULT,
     pub GetError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1325,22 +1413,46 @@ pub struct IBackgroundCopyJob_Vtbl {
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, BG_JOB_PRIORITY) -> windows_core::HRESULT,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_PRIORITY) -> windows_core::HRESULT,
-    pub SetNotifyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetNotifyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetNotifyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetNotifyFlags: usize,
+    #[cfg(feature = "shared")]
+    pub GetNotifyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetNotifyFlags: usize,
     pub SetNotifyInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNotifyInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetMinimumRetryDelay: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetMinimumRetryDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetNoProgressTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetNoProgressTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetErrorCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetProxySettings: unsafe extern "system" fn(*mut core::ffi::c_void, BG_JOB_PROXY_USAGE, *const u16, *const u16) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetMinimumRetryDelay: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMinimumRetryDelay: usize,
+    #[cfg(feature = "shared")]
+    pub GetMinimumRetryDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMinimumRetryDelay: usize,
+    #[cfg(feature = "shared")]
+    pub SetNoProgressTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetNoProgressTimeout: usize,
+    #[cfg(feature = "shared")]
+    pub GetNoProgressTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetNoProgressTimeout: usize,
+    #[cfg(feature = "shared")]
+    pub GetErrorCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetErrorCount: usize,
+    #[cfg(feature = "winnt")]
+    pub SetProxySettings: unsafe extern "system" fn(*mut core::ffi::c_void, BG_JOB_PROXY_USAGE, *const super::WCHAR, *const super::WCHAR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    SetProxySettings: usize,
     pub GetProxySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_PROXY_USAGE, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub TakeOwnership: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
-    fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> windows_core::Result<()>;
+    fn AddFileSet(&self, cfilecount: super::ULONG, pfileset: *const BG_FILE_INFO) -> windows_core::Result<()>;
     fn AddFile(&self, remoteurl: &windows_core::PCWSTR, localname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles>;
     fn Suspend(&self) -> windows_core::Result<()>;
@@ -1360,23 +1472,23 @@ pub trait IBackgroundCopyJob_Impl: windows_core::IUnknownImpl {
     fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetPriority(&self, val: BG_JOB_PRIORITY) -> windows_core::Result<()>;
     fn GetPriority(&self) -> windows_core::Result<BG_JOB_PRIORITY>;
-    fn SetNotifyFlags(&self, val: u32) -> windows_core::Result<()>;
-    fn GetNotifyFlags(&self) -> windows_core::Result<u32>;
+    fn SetNotifyFlags(&self, val: super::ULONG) -> windows_core::Result<()>;
+    fn GetNotifyFlags(&self) -> windows_core::Result<super::ULONG>;
     fn SetNotifyInterface(&self, val: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetMinimumRetryDelay(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetMinimumRetryDelay(&self) -> windows_core::Result<u32>;
-    fn SetNoProgressTimeout(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetNoProgressTimeout(&self) -> windows_core::Result<u32>;
-    fn GetErrorCount(&self) -> windows_core::Result<u32>;
-    fn SetProxySettings(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: *const u16, proxybypasslist: *const u16) -> windows_core::Result<()>;
+    fn SetMinimumRetryDelay(&self, seconds: super::ULONG) -> windows_core::Result<()>;
+    fn GetMinimumRetryDelay(&self) -> windows_core::Result<super::ULONG>;
+    fn SetNoProgressTimeout(&self, seconds: super::ULONG) -> windows_core::Result<()>;
+    fn GetNoProgressTimeout(&self) -> windows_core::Result<super::ULONG>;
+    fn GetErrorCount(&self) -> windows_core::Result<super::ULONG>;
+    fn SetProxySettings(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: *const super::WCHAR, proxybypasslist: *const super::WCHAR) -> windows_core::Result<()>;
     fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn TakeOwnership(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IBackgroundCopyJob_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddFileSet<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddFileSet<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cfilecount: super::ULONG, pfileset: *const BG_FILE_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob_Impl::AddFileSet(this, core::mem::transmute_copy(&cfilecount), core::mem::transmute_copy(&pfileset)).into()
@@ -1550,13 +1662,13 @@ impl IBackgroundCopyJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNotifyFlags<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNotifyFlags<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob_Impl::SetNotifyFlags(this, core::mem::transmute_copy(&val)).into()
             }
         }
-        unsafe extern "system" fn GetNotifyFlags<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNotifyFlags<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetNotifyFlags(this) {
@@ -1586,13 +1698,13 @@ impl IBackgroundCopyJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMinimumRetryDelay<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMinimumRetryDelay<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob_Impl::SetMinimumRetryDelay(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetMinimumRetryDelay<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMinimumRetryDelay<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetMinimumRetryDelay(this) {
@@ -1604,13 +1716,13 @@ impl IBackgroundCopyJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNoProgressTimeout<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNoProgressTimeout<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob_Impl::SetNoProgressTimeout(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetNoProgressTimeout<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNoProgressTimeout<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetNoProgressTimeout(this) {
@@ -1622,7 +1734,7 @@ impl IBackgroundCopyJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetErrorCount<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errors: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorCount<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errors: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetErrorCount(this) {
@@ -1634,7 +1746,7 @@ impl IBackgroundCopyJob_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetProxySettings<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proxyusage: BG_JOB_PROXY_USAGE, proxylist: *const u16, proxybypasslist: *const u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProxySettings<Identity: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proxyusage: BG_JOB_PROXY_USAGE, proxylist: *const super::WCHAR, proxybypasslist: *const super::WCHAR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob_Impl::SetProxySettings(this, core::mem::transmute_copy(&proxyusage), core::mem::transmute_copy(&proxylist), core::mem::transmute_copy(&proxybypasslist)).into()
@@ -1692,7 +1804,7 @@ impl IBackgroundCopyJob_Vtbl {
         iid == &<IBackgroundCopyJob as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob {}
 windows_core::imp::define_interface!(IBackgroundCopyJob2, IBackgroundCopyJob2_Vtbl, 0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
 impl core::ops::Deref for IBackgroundCopyJob2 {
@@ -1713,12 +1825,13 @@ impl IBackgroundCopyJob2 {
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNotifyCmdLine)(windows_core::Interface::as_raw(self), pprogram as _, pparameters as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetReplyProgress)(windows_core::Interface::as_raw(self), pprogress as _) }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut super::byte, plength: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReplyData)(windows_core::Interface::as_raw(self), ppbuffer as _, plength as _) }
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut super::byte, plength: Option<*mut super::UINT64>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReplyData)(windows_core::Interface::as_raw(self), ppbuffer as _, plength.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> windows_core::HRESULT
     where
@@ -1732,11 +1845,8 @@ impl IBackgroundCopyJob2 {
             (windows_core::Interface::vtable(self).GetReplyFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCredentials(&self) -> windows_core::Result<BG_AUTH_CREDENTIALS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), credentials) }
     }
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveCredentials)(windows_core::Interface::as_raw(self), target, scheme) }
@@ -1748,28 +1858,31 @@ pub struct IBackgroundCopyJob2_Vtbl {
     pub base__: IBackgroundCopyJob_Vtbl,
     pub SetNotifyCmdLine: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetNotifyCmdLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub GetReplyProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_JOB_REPLY_PROGRESS) -> windows_core::HRESULT,
-    #[cfg(feature = "rpc")]
-    pub GetReplyData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::byte, *mut u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(not(feature = "shared"))]
+    GetReplyProgress: usize,
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub GetReplyData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::byte, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     GetReplyData: usize,
     pub SetReplyFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetReplyFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BG_AUTH_CREDENTIALS) -> windows_core::HRESULT,
+    pub SetCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, *const BG_AUTH_CREDENTIALS) -> windows_core::HRESULT,
     pub RemoveCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, BG_AUTH_TARGET, BG_AUTH_SCHEME) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 pub trait IBackgroundCopyJob2_Impl: IBackgroundCopyJob_Impl {
     fn SetNotifyCmdLine(&self, program: &windows_core::PCWSTR, parameters: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> windows_core::Result<()>;
-    fn GetReplyData(&self, ppbuffer: *mut *mut super::byte, plength: *mut u64) -> windows_core::Result<()>;
+    fn GetReplyData(&self, ppbuffer: *mut *mut super::byte, plength: *mut super::UINT64) -> windows_core::Result<()>;
     fn SetReplyFileName(&self, replyfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetReplyFileName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetCredentials(&self) -> windows_core::Result<BG_AUTH_CREDENTIALS>;
+    fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> windows_core::Result<()>;
     fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl IBackgroundCopyJob2_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetNotifyCmdLine<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, program: windows_core::PCWSTR, parameters: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -1790,7 +1903,7 @@ impl IBackgroundCopyJob2_Vtbl {
                 IBackgroundCopyJob2_Impl::GetReplyProgress(this, core::mem::transmute_copy(&pprogress)).into()
             }
         }
-        unsafe extern "system" fn GetReplyData<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuffer: *mut *mut super::byte, plength: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetReplyData<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuffer: *mut *mut super::byte, plength: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob2_Impl::GetReplyData(this, core::mem::transmute_copy(&ppbuffer), core::mem::transmute_copy(&plength)).into()
@@ -1814,16 +1927,10 @@ impl IBackgroundCopyJob2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCredentials<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credentials: *mut BG_AUTH_CREDENTIALS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCredentials<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credentials: *const BG_AUTH_CREDENTIALS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundCopyJob2_Impl::SetCredentials(this) {
-                    Ok(ok__) => {
-                        credentials.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBackgroundCopyJob2_Impl::SetCredentials(this, core::mem::transmute_copy(&credentials)).into()
             }
         }
         unsafe extern "system" fn RemoveCredentials<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> windows_core::HRESULT {
@@ -1848,7 +1955,7 @@ impl IBackgroundCopyJob2_Vtbl {
         iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob2 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob3, IBackgroundCopyJob3_Vtbl, 0x443c8934_90ff_48ed_bcde_26f5c7450042);
 impl core::ops::Deref for IBackgroundCopyJob3 {
@@ -1866,17 +1973,20 @@ impl IBackgroundCopyJob3 {
     {
         unsafe { (windows_core::Interface::vtable(self).ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.param().abi(), newprefix.param().abi()) }
     }
-    pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), rangecount, ranges) }
+        unsafe { (windows_core::Interface::vtable(self).AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), ranges.len().try_into().unwrap(), ranges.as_ptr()) }
     }
-    pub unsafe fn SetFileACLFlags(&self, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetFileACLFlags(&self, flags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFileACLFlags)(windows_core::Interface::as_raw(self), flags) }
     }
-    pub unsafe fn GetFileACLFlags(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFileACLFlags(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileACLFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1888,18 +1998,27 @@ impl IBackgroundCopyJob3 {
 pub struct IBackgroundCopyJob3_Vtbl {
     pub base__: IBackgroundCopyJob2_Vtbl,
     pub ReplaceRemotePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub AddFileWithRanges: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, *const BG_FILE_RANGE) -> windows_core::HRESULT,
-    pub SetFileACLFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetFileACLFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub AddFileWithRanges: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, super::DWORD, *const BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddFileWithRanges: usize,
+    #[cfg(feature = "shared")]
+    pub SetFileACLFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetFileACLFlags: usize,
+    #[cfg(feature = "shared")]
+    pub GetFileACLFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFileACLFlags: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 pub trait IBackgroundCopyJob3_Impl: IBackgroundCopyJob2_Impl {
     fn ReplaceRemotePrefix(&self, oldprefix: &windows_core::PCWSTR, newprefix: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AddFileWithRanges(&self, remoteurl: &windows_core::PCWSTR, localname: &windows_core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
-    fn SetFileACLFlags(&self, flags: u32) -> windows_core::Result<()>;
-    fn GetFileACLFlags(&self) -> windows_core::Result<u32>;
+    fn AddFileWithRanges(&self, remoteurl: &windows_core::PCWSTR, localname: &windows_core::PCWSTR, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
+    fn SetFileACLFlags(&self, flags: super::DWORD) -> windows_core::Result<()>;
+    fn GetFileACLFlags(&self) -> windows_core::Result<super::DWORD>;
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl IBackgroundCopyJob3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReplaceRemotePrefix<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldprefix: windows_core::PCWSTR, newprefix: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -1908,19 +2027,19 @@ impl IBackgroundCopyJob3_Vtbl {
                 IBackgroundCopyJob3_Impl::ReplaceRemotePrefix(this, core::mem::transmute(&oldprefix), core::mem::transmute(&newprefix)).into()
             }
         }
-        unsafe extern "system" fn AddFileWithRanges<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteurl: windows_core::PCWSTR, localname: windows_core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddFileWithRanges<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteurl: windows_core::PCWSTR, localname: windows_core::PCWSTR, rangecount: super::DWORD, ranges: *const BG_FILE_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob3_Impl::AddFileWithRanges(this, core::mem::transmute(&remoteurl), core::mem::transmute(&localname), core::mem::transmute_copy(&rangecount), core::mem::transmute_copy(&ranges)).into()
             }
         }
-        unsafe extern "system" fn SetFileACLFlags<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFileACLFlags<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob3_Impl::SetFileACLFlags(this, core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetFileACLFlags<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFileACLFlags<Identity: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob3_Impl::GetFileACLFlags(this) {
@@ -1944,7 +2063,7 @@ impl IBackgroundCopyJob3_Vtbl {
         iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob3 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob4, IBackgroundCopyJob4_Vtbl, 0x659cdeae_489e_11d9_a9cd_000d56965251);
 impl core::ops::Deref for IBackgroundCopyJob4 {
@@ -1955,16 +2074,19 @@ impl core::ops::Deref for IBackgroundCopyJob4 {
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob4, windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3);
 impl IBackgroundCopyJob4 {
-    pub unsafe fn SetPeerCachingFlags(&self, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetPeerCachingFlags(&self, flags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPeerCachingFlags)(windows_core::Interface::as_raw(self), flags) }
     }
-    pub unsafe fn GetPeerCachingFlags(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPeerCachingFlags(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPeerCachingFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetOwnerIntegrityLevel(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOwnerIntegrityLevel(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOwnerIntegrityLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1976,10 +2098,12 @@ impl IBackgroundCopyJob4 {
             (windows_core::Interface::vtable(self).GetOwnerElevationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaximumDownloadTime(&self, timeout: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaximumDownloadTime(&self, timeout: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumDownloadTime)(windows_core::Interface::as_raw(self), timeout) }
     }
-    pub unsafe fn GetMaximumDownloadTime(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaximumDownloadTime(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaximumDownloadTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1990,32 +2114,47 @@ impl IBackgroundCopyJob4 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob4_Vtbl {
     pub base__: IBackgroundCopyJob3_Vtbl,
-    pub SetPeerCachingFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetPeerCachingFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetOwnerIntegrityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetPeerCachingFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetPeerCachingFlags: usize,
+    #[cfg(feature = "shared")]
+    pub GetPeerCachingFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPeerCachingFlags: usize,
+    #[cfg(feature = "shared")]
+    pub GetOwnerIntegrityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOwnerIntegrityLevel: usize,
     pub GetOwnerElevationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaximumDownloadTime: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaximumDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaximumDownloadTime: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 pub trait IBackgroundCopyJob4_Impl: IBackgroundCopyJob3_Impl {
-    fn SetPeerCachingFlags(&self, flags: u32) -> windows_core::Result<()>;
-    fn GetPeerCachingFlags(&self) -> windows_core::Result<u32>;
-    fn GetOwnerIntegrityLevel(&self) -> windows_core::Result<u32>;
+    fn SetPeerCachingFlags(&self, flags: super::DWORD) -> windows_core::Result<()>;
+    fn GetPeerCachingFlags(&self) -> windows_core::Result<super::DWORD>;
+    fn GetOwnerIntegrityLevel(&self) -> windows_core::Result<super::ULONG>;
     fn GetOwnerElevationState(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetMaximumDownloadTime(&self, timeout: u32) -> windows_core::Result<()>;
-    fn GetMaximumDownloadTime(&self) -> windows_core::Result<u32>;
+    fn SetMaximumDownloadTime(&self, timeout: super::ULONG) -> windows_core::Result<()>;
+    fn GetMaximumDownloadTime(&self) -> windows_core::Result<super::ULONG>;
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl IBackgroundCopyJob4_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetPeerCachingFlags<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPeerCachingFlags<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob4_Impl::SetPeerCachingFlags(this, core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetPeerCachingFlags<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPeerCachingFlags<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetPeerCachingFlags(this) {
@@ -2027,7 +2166,7 @@ impl IBackgroundCopyJob4_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOwnerIntegrityLevel<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plevel: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOwnerIntegrityLevel<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plevel: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetOwnerIntegrityLevel(this) {
@@ -2051,13 +2190,13 @@ impl IBackgroundCopyJob4_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMaximumDownloadTime<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaximumDownloadTime<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJob4_Impl::SetMaximumDownloadTime(this, core::mem::transmute_copy(&timeout)).into()
             }
         }
-        unsafe extern "system" fn GetMaximumDownloadTime<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimeout: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaximumDownloadTime<Identity: IBackgroundCopyJob4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimeout: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetMaximumDownloadTime(this) {
@@ -2083,7 +2222,7 @@ impl IBackgroundCopyJob4_Vtbl {
         iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob4 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob5, IBackgroundCopyJob5_Vtbl, 0xe847030c_bbba_4657_af6d_484aa42bf1fe);
 impl core::ops::Deref for IBackgroundCopyJob5 {
@@ -2094,9 +2233,11 @@ impl core::ops::Deref for IBackgroundCopyJob5 {
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob5, windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
 impl IBackgroundCopyJob5 {
+    #[cfg(feature = "shared")]
     pub unsafe fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, propertyvalue) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> windows_core::Result<BITS_JOB_PROPERTY_VALUE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2108,15 +2249,21 @@ impl IBackgroundCopyJob5 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob5_Vtbl {
     pub base__: IBackgroundCopyJob4_Vtbl,
+    #[cfg(feature = "shared")]
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_JOB_PROPERTY_ID, BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetProperty: usize,
+    #[cfg(feature = "shared")]
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_JOB_PROPERTY_ID, *mut BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetProperty: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 pub trait IBackgroundCopyJob5_Impl: IBackgroundCopyJob4_Impl {
     fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> windows_core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> windows_core::Result<BITS_JOB_PROPERTY_VALUE>;
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl IBackgroundCopyJob5_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJob5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProperty<Identity: IBackgroundCopyJob5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT {
@@ -2147,17 +2294,17 @@ impl IBackgroundCopyJob5_Vtbl {
         iid == &<IBackgroundCopyJob5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "rpc"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IBackgroundCopyJob5 {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions_Vtbl, 0xf1bd1079_9f01_4bdc_8036_f09b70095066);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions, windows_core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
     #[cfg(feature = "rpc")]
-    pub unsafe fn SetClientCertificateByID<P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, pcerthashblob: *const super::byte) -> windows_core::HRESULT
+    pub unsafe fn SetClientCertificateByID<P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, pcerthashblob: &[super::byte; 20]) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), pcerthashblob) }
+        unsafe { (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), pcerthashblob.as_ptr()) }
     }
     pub unsafe fn SetClientCertificateByName<P1, P2>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P1, subjectname: P2) -> windows_core::HRESULT
     where
@@ -2185,10 +2332,12 @@ impl IBackgroundCopyJobHttpOptions {
             (windows_core::Interface::vtable(self).GetCustomHeaders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSecurityFlags(&self, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSecurityFlags(&self, flags: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSecurityFlags)(windows_core::Interface::as_raw(self), flags) }
     }
-    pub unsafe fn GetSecurityFlags(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSecurityFlags(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSecurityFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2211,10 +2360,16 @@ pub struct IBackgroundCopyJobHttpOptions_Vtbl {
     GetClientCertificate: usize,
     pub SetCustomHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetCustomHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetSecurityFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetSecurityFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetSecurityFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSecurityFlags: usize,
+    #[cfg(feature = "shared")]
+    pub GetSecurityFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSecurityFlags: usize,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IBackgroundCopyJobHttpOptions_Impl: windows_core::IUnknownImpl {
     fn SetClientCertificateByID(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &windows_core::PCWSTR, pcerthashblob: *const super::byte) -> windows_core::Result<()>;
     fn SetClientCertificateByName(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &windows_core::PCWSTR, subjectname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -2222,10 +2377,10 @@ pub trait IBackgroundCopyJobHttpOptions_Impl: windows_core::IUnknownImpl {
     fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut windows_core::PWSTR, ppcerthashblob: *mut *mut super::byte, psubjectname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetCustomHeaders(&self, requestheaders: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetCustomHeaders(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetSecurityFlags(&self, flags: u32) -> windows_core::Result<()>;
-    fn GetSecurityFlags(&self) -> windows_core::Result<u32>;
+    fn SetSecurityFlags(&self, flags: super::ULONG) -> windows_core::Result<()>;
+    fn GetSecurityFlags(&self) -> windows_core::Result<super::ULONG>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl IBackgroundCopyJobHttpOptions_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetClientCertificateByID<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: windows_core::PCWSTR, pcerthashblob: *const super::byte) -> windows_core::HRESULT {
@@ -2270,13 +2425,13 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSecurityFlags<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecurityFlags<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyJobHttpOptions_Impl::SetSecurityFlags(this, core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetSecurityFlags<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSecurityFlags<Identity: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJobHttpOptions_Impl::GetSecurityFlags(this) {
@@ -2304,7 +2459,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions2, IBackgroundCopyJobHttpOptions2_Vtbl, 0xb591a192_a405_4fc3_8323_4c5c542578fc);
 impl core::ops::Deref for IBackgroundCopyJobHttpOptions2 {
@@ -2335,12 +2490,12 @@ pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
     pub SetHttpMethod: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetHttpMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IBackgroundCopyJobHttpOptions2_Impl: IBackgroundCopyJobHttpOptions_Impl {
     fn SetHttpMethod(&self, method: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetHttpMethod(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl IBackgroundCopyJobHttpOptions2_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetHttpMethod<Identity: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -2371,7 +2526,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions2 {}
 windows_core::imp::define_interface!(IBackgroundCopyJobHttpOptions3, IBackgroundCopyJobHttpOptions3_Vtbl, 0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
 impl core::ops::Deref for IBackgroundCopyJobHttpOptions3 {
@@ -2399,12 +2554,12 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
     pub SetServerCertificateValidationInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MakeCustomHeadersWriteOnly: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IBackgroundCopyJobHttpOptions3_Impl: IBackgroundCopyJobHttpOptions2_Impl {
     fn SetServerCertificateValidationInterface(&self, certvalidationcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MakeCustomHeadersWriteOnly(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl IBackgroundCopyJobHttpOptions3_Vtbl {
     pub const fn new<Identity: IBackgroundCopyJobHttpOptions3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetServerCertificateValidationInterface<Identity: IBackgroundCopyJobHttpOptions3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, certvalidationcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2429,7 +2584,7 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions3 {}
 windows_core::imp::define_interface!(IBackgroundCopyManager, IBackgroundCopyManager_Vtbl, 0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyManager, windows_core::IUnknown);
@@ -2446,13 +2601,15 @@ impl IBackgroundCopyManager {
             (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), jobid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumJobs(&self, dwflags: u32) -> windows_core::Result<IEnumBackgroundCopyJobs> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumJobs(&self, dwflags: super::DWORD) -> windows_core::Result<IEnumBackgroundCopyJobs> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumJobs)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetErrorDescription(&self, hresult: windows_core::HRESULT, languageid: u32) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetErrorDescription(&self, hresult: windows_core::HRESULT, languageid: super::DWORD) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), hresult, languageid, &mut result__).map(|| result__)
@@ -2465,15 +2622,23 @@ pub struct IBackgroundCopyManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateJob: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, BG_JOB_TYPE, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetJob: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnumJobs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetErrorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub EnumJobs: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumJobs: usize,
+    #[cfg(feature = "shared")]
+    pub GetErrorDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, super::DWORD, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetErrorDescription: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyManager_Impl: windows_core::IUnknownImpl {
     fn CreateJob(&self, displayname: &windows_core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID, ppjob: windows_core::OutRef<IBackgroundCopyJob>) -> windows_core::Result<()>;
     fn GetJob(&self, jobid: *const windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob>;
-    fn EnumJobs(&self, dwflags: u32) -> windows_core::Result<IEnumBackgroundCopyJobs>;
-    fn GetErrorDescription(&self, hresult: windows_core::HRESULT, languageid: u32) -> windows_core::Result<windows_core::PWSTR>;
+    fn EnumJobs(&self, dwflags: super::DWORD) -> windows_core::Result<IEnumBackgroundCopyJobs>;
+    fn GetErrorDescription(&self, hresult: windows_core::HRESULT, languageid: super::DWORD) -> windows_core::Result<windows_core::PWSTR>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyManager_Vtbl {
     pub const fn new<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateJob<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: windows_core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID, ppjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2494,7 +2659,7 @@ impl IBackgroundCopyManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnumJobs<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumJobs<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyManager_Impl::EnumJobs(this, core::mem::transmute_copy(&dwflags)) {
@@ -2506,7 +2671,7 @@ impl IBackgroundCopyManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetErrorDescription<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresult: windows_core::HRESULT, languageid: u32, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresult: windows_core::HRESULT, languageid: super::DWORD, perrordescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyManager_Impl::GetErrorDescription(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&languageid)) {
@@ -2530,30 +2695,37 @@ impl IBackgroundCopyManager_Vtbl {
         iid == &<IBackgroundCopyManager as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyManager {}
 windows_core::imp::define_interface!(IBackgroundCopyServerCertificateValidationCallback, IBackgroundCopyServerCertificateValidationCallback_Vtbl, 0x4cec0d02_def7_4158_813a_c32a46945ff7);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, windows_core::IUnknown);
 impl IBackgroundCopyServerCertificateValidationCallback {
-    pub unsafe fn ValidateServerCertificate<P0, P1>(&self, job: P0, file: P1, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn ValidateServerCertificate<P0, P1>(&self, job: P0, file: P1, certdata: &[super::BYTE], certencodingtype: super::DWORD, certstoredata: &[super::BYTE]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IBackgroundCopyJob>,
         P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), certlength, certdata, certencodingtype, certstorelength, certstoredata) }
+        unsafe { (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), certdata.len().try_into().unwrap(), certdata.as_ptr(), certencodingtype, certstoredata.len().try_into().unwrap(), certstoredata.as_ptr()) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ValidateServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ValidateServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::DWORD, *const super::BYTE, super::DWORD, super::DWORD, *const super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ValidateServerCertificate: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IBackgroundCopyServerCertificateValidationCallback_Impl: windows_core::IUnknownImpl {
-    fn ValidateServerCertificate(&self, job: windows_core::Ref<IBackgroundCopyJob>, file: windows_core::Ref<IBackgroundCopyFile>, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> windows_core::Result<()>;
+    fn ValidateServerCertificate(&self, job: windows_core::Ref<IBackgroundCopyJob>, file: windows_core::Ref<IBackgroundCopyFile>, certlength: super::DWORD, certdata: *const super::BYTE, certencodingtype: super::DWORD, certstorelength: super::DWORD, certstoredata: *const super::BYTE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub const fn new<Identity: IBackgroundCopyServerCertificateValidationCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ValidateServerCertificate<Identity: IBackgroundCopyServerCertificateValidationCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, job: *mut core::ffi::c_void, file: *mut core::ffi::c_void, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValidateServerCertificate<Identity: IBackgroundCopyServerCertificateValidationCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, job: *mut core::ffi::c_void, file: *mut core::ffi::c_void, certlength: super::DWORD, certdata: *const super::BYTE, certencodingtype: super::DWORD, certstorelength: super::DWORD, certstoredata: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyServerCertificateValidationCallback_Impl::ValidateServerCertificate(this, core::mem::transmute_copy(&job), core::mem::transmute_copy(&file), core::mem::transmute_copy(&certlength), core::mem::transmute_copy(&certdata), core::mem::transmute_copy(&certencodingtype), core::mem::transmute_copy(&certstorelength), core::mem::transmute_copy(&certstoredata)).into()
@@ -2565,6 +2737,7 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
         iid == &<IBackgroundCopyServerCertificateValidationCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBackgroundCopyServerCertificateValidationCallback {}
 windows_core::imp::define_interface!(IBitsPeer, IBitsPeer_Vtbl, 0x659cdea2_489e_11d9_a9cd_000d56965251);
 windows_core::imp::interface_hierarchy!(IBitsPeer, windows_core::IUnknown);
@@ -2654,31 +2827,37 @@ impl windows_core::RuntimeName for IBitsPeer {}
 windows_core::imp::define_interface!(IBitsPeerCacheAdministration, IBitsPeerCacheAdministration_Vtbl, 0x659cdead_489e_11d9_a9cd_000d56965251);
 windows_core::imp::interface_hierarchy!(IBitsPeerCacheAdministration, windows_core::IUnknown);
 impl IBitsPeerCacheAdministration {
-    pub unsafe fn GetMaximumCacheSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaximumCacheSize(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaximumCacheSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaximumCacheSize(&self, bytes: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaximumCacheSize(&self, bytes: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumCacheSize)(windows_core::Interface::as_raw(self), bytes) }
     }
-    pub unsafe fn GetMaximumContentAge(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaximumContentAge(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaximumContentAge)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaximumContentAge(&self, seconds: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaximumContentAge(&self, seconds: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumContentAge)(windows_core::Interface::as_raw(self), seconds) }
     }
-    pub unsafe fn GetConfigurationFlags(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetConfigurationFlags(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConfigurationFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetConfigurationFlags(&self, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetConfigurationFlags(&self, flags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetConfigurationFlags)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn EnumRecords(&self) -> windows_core::Result<IEnumBitsPeerCacheRecords> {
@@ -2722,12 +2901,30 @@ impl IBitsPeerCacheAdministration {
 #[doc(hidden)]
 pub struct IBitsPeerCacheAdministration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetMaximumCacheSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetMaximumCacheSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetMaximumContentAge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetMaximumContentAge: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetConfigurationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetConfigurationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMaximumCacheSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaximumCacheSize: usize,
+    #[cfg(feature = "shared")]
+    pub SetMaximumCacheSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaximumCacheSize: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaximumContentAge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaximumContentAge: usize,
+    #[cfg(feature = "shared")]
+    pub SetMaximumContentAge: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaximumContentAge: usize,
+    #[cfg(feature = "shared")]
+    pub GetConfigurationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetConfigurationFlags: usize,
+    #[cfg(feature = "shared")]
+    pub SetConfigurationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetConfigurationFlags: usize,
     pub EnumRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRecord: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearRecords: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2737,13 +2934,14 @@ pub struct IBitsPeerCacheAdministration_Vtbl {
     pub ClearPeers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DiscoverPeers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IBitsPeerCacheAdministration_Impl: windows_core::IUnknownImpl {
-    fn GetMaximumCacheSize(&self) -> windows_core::Result<u32>;
-    fn SetMaximumCacheSize(&self, bytes: u32) -> windows_core::Result<()>;
-    fn GetMaximumContentAge(&self) -> windows_core::Result<u32>;
-    fn SetMaximumContentAge(&self, seconds: u32) -> windows_core::Result<()>;
-    fn GetConfigurationFlags(&self) -> windows_core::Result<u32>;
-    fn SetConfigurationFlags(&self, flags: u32) -> windows_core::Result<()>;
+    fn GetMaximumCacheSize(&self) -> windows_core::Result<super::DWORD>;
+    fn SetMaximumCacheSize(&self, bytes: super::DWORD) -> windows_core::Result<()>;
+    fn GetMaximumContentAge(&self) -> windows_core::Result<super::ULONG>;
+    fn SetMaximumContentAge(&self, seconds: super::ULONG) -> windows_core::Result<()>;
+    fn GetConfigurationFlags(&self) -> windows_core::Result<super::DWORD>;
+    fn SetConfigurationFlags(&self, flags: super::DWORD) -> windows_core::Result<()>;
     fn EnumRecords(&self) -> windows_core::Result<IEnumBitsPeerCacheRecords>;
     fn GetRecord(&self, id: *const windows_core::GUID) -> windows_core::Result<IBitsPeerCacheRecord>;
     fn ClearRecords(&self) -> windows_core::Result<()>;
@@ -2753,9 +2951,10 @@ pub trait IBitsPeerCacheAdministration_Impl: windows_core::IUnknownImpl {
     fn ClearPeers(&self) -> windows_core::Result<()>;
     fn DiscoverPeers(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IBitsPeerCacheAdministration_Vtbl {
     pub const fn new<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMaximumCacheSize<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaximumCacheSize<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbytes: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::GetMaximumCacheSize(this) {
@@ -2767,13 +2966,13 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMaximumCacheSize<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bytes: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaximumCacheSize<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bytes: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBitsPeerCacheAdministration_Impl::SetMaximumCacheSize(this, core::mem::transmute_copy(&bytes)).into()
             }
         }
-        unsafe extern "system" fn GetMaximumContentAge<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pseconds: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaximumContentAge<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pseconds: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::GetMaximumContentAge(this) {
@@ -2785,13 +2984,13 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMaximumContentAge<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaximumContentAge<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seconds: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBitsPeerCacheAdministration_Impl::SetMaximumContentAge(this, core::mem::transmute_copy(&seconds)).into()
             }
         }
-        unsafe extern "system" fn GetConfigurationFlags<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConfigurationFlags<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::GetConfigurationFlags(this) {
@@ -2803,7 +3002,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetConfigurationFlags<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConfigurationFlags<Identity: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBitsPeerCacheAdministration_Impl::SetConfigurationFlags(this, core::mem::transmute_copy(&flags)).into()
@@ -2897,6 +3096,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
         iid == &<IBitsPeerCacheAdministration as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBitsPeerCacheAdministration {}
 windows_core::imp::define_interface!(IBitsPeerCacheRecord, IBitsPeerCacheRecord_Vtbl, 0x659cdeaf_489e_11d9_a9cd_000d56965251);
 windows_core::imp::interface_hierarchy!(IBitsPeerCacheRecord, windows_core::IUnknown);
@@ -2913,20 +3113,21 @@ impl IBitsPeerCacheRecord {
             (windows_core::Interface::vtable(self).GetOriginUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFileSize(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFileSize(&self) -> windows_core::Result<super::UINT64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "minwindef")]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetFileModificationTime(&self) -> windows_core::Result<super::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileModificationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "minwindef")]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetLastAccessTime(&self) -> windows_core::Result<super::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2936,7 +3137,8 @@ impl IBitsPeerCacheRecord {
     pub unsafe fn IsFileValidated(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsFileValidated)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetFileRanges(&self, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFileRanges(&self, prangecount: *mut super::DWORD, ppranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFileRanges)(windows_core::Interface::as_raw(self), prangecount as _, ppranges as _) }
     }
 }
@@ -2946,29 +3148,35 @@ pub struct IBitsPeerCacheRecord_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetOriginUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetFileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    #[cfg(feature = "minwindef")]
+    #[cfg(feature = "shared")]
+    pub GetFileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFileSize: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub GetFileModificationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     GetFileModificationTime: usize,
-    #[cfg(feature = "minwindef")]
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
     pub GetLastAccessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FILETIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
     GetLastAccessTime: usize,
     pub IsFileValidated: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFileRanges: usize,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait IBitsPeerCacheRecord_Impl: windows_core::IUnknownImpl {
     fn GetId(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetOriginUrl(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetFileSize(&self) -> windows_core::Result<u64>;
+    fn GetFileSize(&self) -> windows_core::Result<super::UINT64>;
     fn GetFileModificationTime(&self) -> windows_core::Result<super::FILETIME>;
     fn GetLastAccessTime(&self) -> windows_core::Result<super::FILETIME>;
     fn IsFileValidated(&self) -> windows_core::Result<()>;
-    fn GetFileRanges(&self, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
+    fn GetFileRanges(&self, prangecount: *mut super::DWORD, ppranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl IBitsPeerCacheRecord_Vtbl {
     pub const fn new<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetId<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2995,7 +3203,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetFileSize<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFileSize<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheRecord_Impl::GetFileSize(this) {
@@ -3037,7 +3245,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 IBitsPeerCacheRecord_Impl::IsFileValidated(this).into()
             }
         }
-        unsafe extern "system" fn GetFileRanges<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFileRanges<Identity: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangecount: *mut super::DWORD, ppranges: *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBitsPeerCacheRecord_Impl::GetFileRanges(this, core::mem::transmute_copy(&prangecount), core::mem::transmute_copy(&ppranges)).into()
@@ -3058,15 +3266,17 @@ impl IBitsPeerCacheRecord_Vtbl {
         iid == &<IBitsPeerCacheRecord as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl windows_core::RuntimeName for IBitsPeerCacheRecord {}
 windows_core::imp::define_interface!(IBitsTokenOptions, IBitsTokenOptions_Vtbl, 0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
 windows_core::imp::interface_hierarchy!(IBitsTokenOptions, windows_core::IUnknown);
 impl IBitsTokenOptions {
-    pub unsafe fn SetHelperTokenFlags(&self, usageflags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetHelperTokenFlags(&self, usageflags: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHelperTokenFlags)(windows_core::Interface::as_raw(self), usageflags) }
     }
-    pub unsafe fn GetHelperTokenFlags(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetHelperTokenFlags(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHelperTokenFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3089,28 +3299,36 @@ impl IBitsTokenOptions {
 #[doc(hidden)]
 pub struct IBitsTokenOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetHelperTokenFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetHelperTokenFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetHelperTokenFlags: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetHelperTokenFlags: usize,
+    #[cfg(feature = "shared")]
+    pub GetHelperTokenFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetHelperTokenFlags: usize,
     pub SetHelperToken: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearHelperToken: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetHelperTokenSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IBitsTokenOptions_Impl: windows_core::IUnknownImpl {
-    fn SetHelperTokenFlags(&self, usageflags: u32) -> windows_core::Result<()>;
-    fn GetHelperTokenFlags(&self) -> windows_core::Result<u32>;
+    fn SetHelperTokenFlags(&self, usageflags: super::DWORD) -> windows_core::Result<()>;
+    fn GetHelperTokenFlags(&self) -> windows_core::Result<super::DWORD>;
     fn SetHelperToken(&self) -> windows_core::Result<()>;
     fn ClearHelperToken(&self) -> windows_core::Result<()>;
     fn GetHelperTokenSid(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
+#[cfg(feature = "shared")]
 impl IBitsTokenOptions_Vtbl {
     pub const fn new<Identity: IBitsTokenOptions_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetHelperTokenFlags<Identity: IBitsTokenOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usageflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHelperTokenFlags<Identity: IBitsTokenOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usageflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBitsTokenOptions_Impl::SetHelperTokenFlags(this, core::mem::transmute_copy(&usageflags)).into()
             }
         }
-        unsafe extern "system" fn GetHelperTokenFlags<Identity: IBitsTokenOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHelperTokenFlags<Identity: IBitsTokenOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsTokenOptions_Impl::GetHelperTokenFlags(this) {
@@ -3159,14 +3377,17 @@ impl IBitsTokenOptions_Vtbl {
         iid == &<IBitsTokenOptions as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IBitsTokenOptions {}
 windows_core::imp::define_interface!(IEnumBackgroundCopyFiles, IEnumBackgroundCopyFiles_Vtbl, 0xca51e165_c365_424c_8d41_24aaa4ff3c40);
 windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyFiles, windows_core::IUnknown);
 impl IEnumBackgroundCopyFiles {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IBackgroundCopyFile>, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyFile>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -3178,7 +3399,8 @@ impl IEnumBackgroundCopyFiles {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3189,28 +3411,39 @@ impl IEnumBackgroundCopyFiles {
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyFiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Next: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCount: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IEnumBackgroundCopyFiles_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<IBackgroundCopyFile>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyFile>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumBackgroundCopyFiles>;
-    fn GetCount(&self) -> windows_core::Result<u32>;
+    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
 }
+#[cfg(feature = "shared")]
 impl IEnumBackgroundCopyFiles_Vtbl {
     pub const fn new<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBackgroundCopyFiles_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBackgroundCopyFiles_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
@@ -3234,7 +3467,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCount<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyFiles_Impl::GetCount(this) {
@@ -3259,14 +3492,17 @@ impl IEnumBackgroundCopyFiles_Vtbl {
         iid == &<IEnumBackgroundCopyFiles as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IEnumBackgroundCopyFiles {}
 windows_core::imp::define_interface!(IEnumBackgroundCopyJobs, IEnumBackgroundCopyJobs_Vtbl, 0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
 windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyJobs, windows_core::IUnknown);
 impl IEnumBackgroundCopyJobs {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IBackgroundCopyJob>, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyJob>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -3278,7 +3514,8 @@ impl IEnumBackgroundCopyJobs {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3289,28 +3526,39 @@ impl IEnumBackgroundCopyJobs {
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyJobs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Next: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCount: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IEnumBackgroundCopyJobs_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<IBackgroundCopyJob>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBackgroundCopyJob>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumBackgroundCopyJobs>;
-    fn GetCount(&self) -> windows_core::Result<u32>;
+    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
 }
+#[cfg(feature = "shared")]
 impl IEnumBackgroundCopyJobs_Vtbl {
     pub const fn new<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBackgroundCopyJobs_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBackgroundCopyJobs_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
@@ -3334,7 +3582,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCount<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyJobs_Impl::GetCount(this) {
@@ -3359,14 +3607,17 @@ impl IEnumBackgroundCopyJobs_Vtbl {
         iid == &<IEnumBackgroundCopyJobs as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IEnumBackgroundCopyJobs {}
 windows_core::imp::define_interface!(IEnumBitsPeerCacheRecords, IEnumBitsPeerCacheRecords_Vtbl, 0x659cdea4_489e_11d9_a9cd_000d56965251);
 windows_core::imp::interface_hierarchy!(IEnumBitsPeerCacheRecords, windows_core::IUnknown);
 impl IEnumBitsPeerCacheRecords {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeerCacheRecord>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -3378,7 +3629,8 @@ impl IEnumBitsPeerCacheRecords {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3389,28 +3641,39 @@ impl IEnumBitsPeerCacheRecords {
 #[doc(hidden)]
 pub struct IEnumBitsPeerCacheRecords_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Next: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCount: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IEnumBitsPeerCacheRecords_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeerCacheRecord>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumBitsPeerCacheRecords>;
-    fn GetCount(&self) -> windows_core::Result<u32>;
+    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
 }
+#[cfg(feature = "shared")]
 impl IEnumBitsPeerCacheRecords_Vtbl {
     pub const fn new<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBitsPeerCacheRecords_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBitsPeerCacheRecords_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
@@ -3434,7 +3697,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCount<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBitsPeerCacheRecords_Impl::GetCount(this) {
@@ -3459,14 +3722,17 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
         iid == &<IEnumBitsPeerCacheRecords as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IEnumBitsPeerCacheRecords {}
 windows_core::imp::define_interface!(IEnumBitsPeers, IEnumBitsPeers_Vtbl, 0x659cdea5_489e_11d9_a9cd_000d56965251);
 windows_core::imp::interface_hierarchy!(IEnumBitsPeers, windows_core::IUnknown);
 impl IEnumBitsPeers {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IBitsPeer>, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeer>, pceltfetched: Option<*mut super::ULONG>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Skip(&self, celt: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -3478,7 +3744,8 @@ impl IEnumBitsPeers {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCount(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3489,28 +3756,39 @@ impl IEnumBitsPeers {
 #[doc(hidden)]
 pub struct IEnumBitsPeers_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut *mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Next: usize,
+    #[cfg(feature = "shared")]
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Skip: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCount: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IEnumBitsPeers_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<IBitsPeer>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: super::ULONG, rgelt: *mut Option<IBitsPeer>, pceltfetched: *mut super::ULONG) -> windows_core::Result<()>;
+    fn Skip(&self, celt: super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumBitsPeers>;
-    fn GetCount(&self) -> windows_core::Result<u32>;
+    fn GetCount(&self) -> windows_core::Result<super::ULONG>;
 }
+#[cfg(feature = "shared")]
 impl IEnumBitsPeers_Vtbl {
     pub const fn new<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBitsPeers_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumBitsPeers_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
@@ -3534,7 +3812,7 @@ impl IEnumBitsPeers_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCount<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: IEnumBitsPeers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBitsPeers_Impl::GetCount(this) {
@@ -3559,6 +3837,7 @@ impl IEnumBitsPeers_Vtbl {
         iid == &<IEnumBitsPeers as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IEnumBitsPeers {}
 pub type PBG_AUTH_CREDENTIALS = *mut BG_AUTH_CREDENTIALS;
 pub type PBG_BASIC_CREDENTIALS = *mut BG_BASIC_CREDENTIALS;

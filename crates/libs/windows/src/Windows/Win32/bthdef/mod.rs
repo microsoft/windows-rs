@@ -6,9 +6,12 @@ pub const A2DP_SOURCE_SUPPORTED_FEATURES_MICROPHONE: i32 = 2;
 pub const A2DP_SOURCE_SUPPORTED_FEATURES_MIXER: i32 = 8;
 pub const A2DP_SOURCE_SUPPORTED_FEATURES_PLAYER: i32 = 1;
 pub const A2DP_SOURCE_SUPPORTED_FEATURES_TUNER: i32 = 4;
+pub const ATT_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000007_0000_1000_8000_00805f9b34fb);
 pub const ATT_PROTOCOL_UUID16: i32 = 7;
 pub type AUTHENTICATION_REQUIREMENTS = i32;
+pub const AVCTP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000017_0000_1000_8000_00805f9b34fb);
 pub const AVCTP_PROTOCOL_UUID16: i32 = 23;
+pub const AVDTP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000019_0000_1000_8000_00805f9b34fb);
 pub const AVDTP_PROTOCOL_UUID16: i32 = 25;
 pub const AVRCP_SUPPORTED_FEATURES_CATEGORY_1: i32 = 1;
 pub const AVRCP_SUPPORTED_FEATURES_CATEGORY_2: i32 = 2;
@@ -23,15 +26,22 @@ pub const AVRCP_SUPPORTED_FEATURES_TG_COVER_ART: i32 = 256;
 pub const AVRCP_SUPPORTED_FEATURES_TG_GROUP_NAVIGATION: i32 = 32;
 pub const AVRCP_SUPPORTED_FEATURES_TG_MULTIPLE_PLAYER_APPLICATIONS: i32 = 128;
 pub const AVRCP_SUPPORTED_FEATURES_TG_PLAYER_APPLICATION_SETTINGS: i32 = 16;
+pub const AVRemoteControlControllerServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000110f_0000_1000_8000_00805f9b34fb);
 pub const AVRemoteControlControllerServiceClass_UUID16: i32 = 4367;
 pub const AVRemoteControlServiceClassID_UUID16: i32 = 4366;
+pub const AVRemoteControlServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000110e_0000_1000_8000_00805f9b34fb);
 pub const AVRemoteControlTargetServiceClassID_UUID16: i32 = 4364;
+pub const AVRemoteControlTargetServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000110c_0000_1000_8000_00805f9b34fb);
 pub const AdvancedAudioDistributionProfileID_UUID16: i32 = 4365;
+pub const AdvancedAudioDistributionProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000110d_0000_1000_8000_00805f9b34fb);
 pub const AdvancedAudioDistributionServiceClassID_UUID16: i32 = 4365;
 pub const AudioSinkServiceClassID_UUID16: i32 = 4363;
+pub const AudioSinkServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000110b_0000_1000_8000_00805f9b34fb);
 pub const AudioSinkSourceServiceClassID_UUID16: i32 = 4363;
 pub const AudioSourceServiceClassID_UUID16: i32 = 4362;
+pub const AudioSourceServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000110a_0000_1000_8000_00805f9b34fb);
 pub const AudioVideoServiceClassID_UUID16: i32 = 4396;
+pub const AudioVideoServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000112c_0000_1000_8000_00805f9b34fb);
 pub const AudioVideoServiceClass_UUID16: i32 = 4396;
 pub const BDIF_ADDRESS: i32 = 1;
 pub const BDIF_BR: i32 = 16384;
@@ -64,23 +74,26 @@ pub const BDIF_SSP_SUPPORTED: i32 = 256;
 pub const BDIF_TX_POWER: u32 = 2147483648;
 pub const BDIF_VALID_FLAGS: u32 = 4227856127;
 pub const BDIF_VISIBLE: i32 = 128;
+pub const BNEP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000000f_0000_1000_8000_00805f9b34fb);
 pub const BNEP_PROTOCOL_UUID16: i32 = 15;
 pub type BTHSTATUS = u8;
-pub type BTH_ADDR = u64;
 pub const BTH_ADDR_GIAC: i32 = 10390323;
 pub const BTH_ADDR_IAC_FIRST: i32 = 10390272;
 pub const BTH_ADDR_IAC_LAST: i32 = 10390335;
 pub const BTH_ADDR_LIAC: i32 = 10390272;
-pub const BTH_ADDR_NULL: u64 = 0;
+#[cfg(feature = "shared")]
+pub const BTH_ADDR_NULL: super::ULONGLONG = 0;
 pub type BTH_COD = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_DEVICE_INFO {
-    pub flags: u32,
-    pub address: BTH_ADDR,
+    pub flags: super::ULONG,
+    pub address: super::BTH_ADDR,
     pub classOfDevice: BTH_COD,
-    pub name: [i8; 248],
+    pub name: [super::CHAR; 248],
 }
+#[cfg(feature = "shared")]
 impl Default for BTH_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -172,19 +185,21 @@ pub const BTH_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER: i32 = 17;
 pub const BTH_ERROR_UNSUPPORTED_LMP_PARM_VALUE: i32 = 32;
 pub const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: i32 = 26;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_HCI_EVENT_INFO {
-    pub bthAddress: BTH_ADDR,
-    pub connectionType: u8,
-    pub connected: u8,
+    pub bthAddress: super::BTH_ADDR,
+    pub connectionType: super::UCHAR,
+    pub connected: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_L2CAP_EVENT_INFO {
-    pub bthAddress: BTH_ADDR,
-    pub psm: u16,
-    pub connected: u8,
-    pub initiated: u8,
+    pub bthAddress: super::BTH_ADDR,
+    pub psm: super::USHORT,
+    pub connected: super::UCHAR,
+    pub initiated: super::UCHAR,
 }
 pub type BTH_LAP = u32;
 pub const BTH_LINK_KEY_LENGTH: i32 = 16;
@@ -244,16 +259,20 @@ pub const BTH_MFG_WIDCOMM: i32 = 17;
 pub const BTH_MFG_ZEEVO: i32 = 18;
 pub const BTH_MINORVERSION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_RADIO_IN_RANGE {
     pub deviceInfo: BTH_DEVICE_INFO,
-    pub previousDeviceFlags: u32,
+    pub previousDeviceFlags: super::ULONG,
 }
 pub const BTH_VID_DEFAULT_VALUE: i32 = 65535;
 pub const BasicPrintingProfileID_UUID16: i32 = 4386;
+pub const BasicPrintingProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001122_0000_1000_8000_00805f9b34fb);
 pub const BasicPrintingServiceClassID_UUID16: i32 = 4386;
 pub const Bluetooth_Base_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
+pub const BrowseGroupDescriptorServiceClassID_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001001_0000_1000_8000_00805f9b34fb);
 pub const BrowseGroupDescriptorServiceClassID_UUID16: i32 = 4097;
+pub const CMPT_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000001b_0000_1000_8000_00805f9b34fb);
 pub const CMPT_PROTOCOL_UUID16: i32 = 27;
 pub const COD_AUDIO_MINOR_CAMCORDER: i32 = 13;
 pub const COD_AUDIO_MINOR_CAR_AUDIO: i32 = 8;
@@ -366,26 +385,42 @@ pub const CORDLESS_EXTERNAL_NETWORK_OTHER: i32 = 7;
 pub const CORDLESS_EXTERNAL_NETWORK_PACKET_SWITCHED: i32 = 6;
 pub const CORDLESS_EXTERNAL_NETWORK_PSTN: i32 = 1;
 pub const CTNAccessServiceClassID_UUID16: i32 = 4412;
+pub const CTNAccessServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000113c_0000_1000_8000_00805f9b34fb);
 pub const CTNNotificationServiceClassID_UUID16: i32 = 4413;
+pub const CTNNotificationServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000113d_0000_1000_8000_00805f9b34fb);
 pub const CTNProfileID_UUID16: i32 = 4414;
+pub const CTNProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000113e_0000_1000_8000_00805f9b34fb);
 pub const CommonISDNAccessServiceClassID_UUID16: i32 = 4392;
+pub const CommonISDNAccessServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001128_0000_1000_8000_00805f9b34fb);
 pub const CommonISDNAccessServiceClass_UUID16: i32 = 4392;
 pub const CordlessServiceClassID_UUID16: i32 = 4361;
 pub const CordlessTelephonyServiceClassID_UUID16: i32 = 4361;
+pub const CordlessTelephonyServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001109_0000_1000_8000_00805f9b34fb);
 pub const DI_VENDOR_ID_SOURCE_BLUETOOTH_SIG: i32 = 1;
 pub const DI_VENDOR_ID_SOURCE_USB_IF: i32 = 2;
 pub const DialupNetworkingServiceClassID_UUID16: i32 = 4355;
+pub const DialupNetworkingServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001103_0000_1000_8000_00805f9b34fb);
 pub const DirectPrintingReferenceObjectsServiceClassID_UUID16: i32 = 4384;
+pub const DirectPrintingReferenceObjectsServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001120_0000_1000_8000_00805f9b34fb);
 pub const DirectPrintingServiceClassID_UUID16: i32 = 4376;
+pub const DirectPrintingServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001118_0000_1000_8000_00805f9b34fb);
 pub const ENCODING_UTF_8: i32 = 106;
 pub const ESdpUpnpIpLapServiceClassID_UUID16: i32 = 4865;
+pub const ESdpUpnpIpLapServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001301_0000_1000_8000_00805f9b34fb);
 pub const ESdpUpnpIpPanServiceClassID_UUID16: i32 = 4864;
+pub const ESdpUpnpIpPanServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001300_0000_1000_8000_00805f9b34fb);
 pub const ESdpUpnpL2capServiceClassID_UUID16: i32 = 4866;
+pub const ESdpUpnpL2capServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001302_0000_1000_8000_00805f9b34fb);
+pub const FTP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000000a_0000_1000_8000_00805f9b34fb);
 pub const FTP_PROTOCOL_UUID16: i32 = 10;
 pub const FaxServiceClassID_UUID16: i32 = 4369;
+pub const FaxServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001111_0000_1000_8000_00805f9b34fb);
 pub const GNSSProfileID_UUID16: i32 = 4405;
+pub const GNSSProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001135_0000_1000_8000_00805f9b34fb);
 pub const GNSSServerServiceClassID_UUID16: i32 = 4406;
+pub const GNSSServerServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001136_0000_1000_8000_00805f9b34fb);
 pub const GNServiceClassID_UUID16: i32 = 4375;
+pub const GNServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001117_0000_1000_8000_00805f9b34fb);
 pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x5dc9136d_996c_46db_84f5_32c0a3f47352);
 pub const GUID_BLUETOOTH_HCI_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0xfc240062_1541_49be_b463_84c4dcd7bf7f);
 pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x547247e6_45bb_4c33_af8c_c00efe15a71d);
@@ -396,19 +431,28 @@ pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: windows_core::GUID = windows_core::
 pub const GUID_BTHPORT_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x0850302a_b344_4fda_9be9_90576b8d46f0);
 pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xb142fc3e_fa4e_460b_8abc_072b628b3c70);
 pub const GenericAudioServiceClassID_UUID16: i32 = 4611;
+pub const GenericAudioServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001203_0000_1000_8000_00805f9b34fb);
 pub const GenericFileTransferServiceClassID_UUID16: i32 = 4610;
+pub const GenericFileTransferServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001202_0000_1000_8000_00805f9b34fb);
 pub const GenericNetworkingServiceClassID_UUID16: i32 = 4609;
+pub const GenericNetworkingServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001201_0000_1000_8000_00805f9b34fb);
 pub const GenericTelephonyServiceClassID_UUID16: i32 = 4612;
+pub const GenericTelephonyServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001204_0000_1000_8000_00805f9b34fb);
+pub const HCCC_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000012_0000_1000_8000_00805f9b34fb);
 pub const HCCC_PROTOCOL_UUID16: i32 = 18;
+pub const HCDC_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000014_0000_1000_8000_00805f9b34fb);
 pub const HCDC_PROTOCOL_UUID16: i32 = 20;
 pub const HCI_CONNECTION_TYPE_ACL: i32 = 1;
 pub const HCI_CONNECTION_TYPE_LE: i32 = 3;
 pub const HCI_CONNECTION_TYPE_SCO: i32 = 2;
 pub const HCI_CONNNECTION_TYPE_ACL: i32 = 1;
 pub const HCI_CONNNECTION_TYPE_SCO: i32 = 2;
+pub const HCN_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000016_0000_1000_8000_00805f9b34fb);
 pub const HCN_PROTOCOL_UUID16: i32 = 22;
 pub const HCRPrintServiceClassID_UUID16: i32 = 4390;
+pub const HCRPrintServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001126_0000_1000_8000_00805f9b34fb);
 pub const HCRScanServiceClassID_UUID16: i32 = 4391;
+pub const HCRScanServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001127_0000_1000_8000_00805f9b34fb);
 pub const HFP_AG_BRSF_SUPPORTED_FEATURE_CODEC_NEGOTIATION: i32 = 512;
 pub const HFP_AG_BRSF_SUPPORTED_FEATURE_ECHO_CANCELLATION: i32 = 2;
 pub const HFP_AG_BRSF_SUPPORTED_FEATURE_ENHANCED_CALL_CONTROL: i32 = 128;
@@ -452,39 +496,61 @@ pub const HFP_HF_SDP_SUPPORTED_FEATURE_VOICE_RECOGNITION: i32 = 8;
 pub const HFP_HF_SDP_SUPPORTED_FEATURE_WIDE_BAND_SPEECH: i32 = 32;
 pub const HFP_NETWORK_ABILITY_TO_REJECT: i32 = 1;
 pub const HFP_NETWORK_NO_ABILITY_TO_REJECT: i32 = 0;
+pub const HID_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000011_0000_1000_8000_00805f9b34fb);
 pub const HID_PROTOCOL_UUID16: i32 = 17;
+pub const HTTP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000000c_0000_1000_8000_00805f9b34fb);
 pub const HTTP_PROTOCOL_UUID16: i32 = 12;
 pub const HandsfreeAudioGatewayServiceClassID_UUID16: i32 = 4383;
+pub const HandsfreeAudioGatewayServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000111f_0000_1000_8000_00805f9b34fb);
 pub const HandsfreeServiceClassID_UUID16: i32 = 4382;
+pub const HandsfreeServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000111e_0000_1000_8000_00805f9b34fb);
 pub const HardcopyCableReplacementProfileID_UUID16: i32 = 4389;
+pub const HardcopyCableReplacementProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001125_0000_1000_8000_00805f9b34fb);
 pub const HardcopyCableReplacementServiceClassID_UUID16: i32 = 4389;
 pub const HeadsetAudioGatewayServiceClassID_UUID16: i32 = 4370;
+pub const HeadsetAudioGatewayServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001112_0000_1000_8000_00805f9b34fb);
 pub const HeadsetHSServiceClassID_UUID16: i32 = 4401;
+pub const HeadsetHSServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001131_0000_1000_8000_00805f9b34fb);
 pub const HeadsetServiceClassID_UUID16: i32 = 4360;
+pub const HeadsetServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001108_0000_1000_8000_00805f9b34fb);
 pub const HealthDeviceProfileID_UUID16: i32 = 5120;
 pub const HealthDeviceProfileSinkServiceClassID_UUID16: i32 = 5122;
+pub const HealthDeviceProfileSinkServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001402_0000_1000_8000_00805f9b34fb);
 pub const HealthDeviceProfileSourceServiceClassID_UUID16: i32 = 5121;
+pub const HealthDeviceProfileSourceServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001401_0000_1000_8000_00805f9b34fb);
+pub const HealthDeviceProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001400_0000_1000_8000_00805f9b34fb);
 pub const HumanInterfaceDeviceServiceClassID_UUID16: i32 = 4388;
+pub const HumanInterfaceDeviceServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001124_0000_1000_8000_00805f9b34fb);
 pub type IO_CAPABILITY = i32;
+pub const IP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000009_0000_1000_8000_00805f9b34fb);
 pub const IP_PROTOCOL_UUID16: i32 = 9;
 pub const ImagingAutomaticArchiveServiceClassID_UUID16: i32 = 4380;
+pub const ImagingAutomaticArchiveServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000111c_0000_1000_8000_00805f9b34fb);
 pub const ImagingReferenceObjectsServiceClassID_UUID16: i32 = 4381;
+pub const ImagingReferenceObjectsServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000111d_0000_1000_8000_00805f9b34fb);
 pub const ImagingResponderServiceClassID_UUID16: i32 = 4379;
+pub const ImagingResponderServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000111b_0000_1000_8000_00805f9b34fb);
 pub const ImagingServiceClassID_UUID16: i32 = 4378;
 pub const ImagingServiceProfileID_UUID16: i32 = 4378;
+pub const ImagingServiceProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000111a_0000_1000_8000_00805f9b34fb);
 pub const IntercomServiceClassID_UUID16: i32 = 4368;
+pub const IntercomServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001110_0000_1000_8000_00805f9b34fb);
 pub const IoCaps_DisplayOnly: IO_CAPABILITY = 0;
 pub const IoCaps_DisplayYesNo: IO_CAPABILITY = 1;
 pub const IoCaps_KeyboardOnly: IO_CAPABILITY = 2;
 pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = 3;
 pub const IoCaps_Undefined: IO_CAPABILITY = 255;
+pub const IrMCSyncCommandServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001107_0000_1000_8000_00805f9b34fb);
 pub const IrMCSyncServiceClassID_UUID16: i32 = 4356;
+pub const IrMCSyncServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001104_0000_1000_8000_00805f9b34fb);
 pub const IrMcSyncCommandServiceClassID_UUID16: i32 = 4359;
 pub const L2CAP_DEFAULT_MTU: i32 = 672;
 pub const L2CAP_MAX_MTU: i32 = 65535;
 pub const L2CAP_MIN_MTU: i32 = 48;
+pub const L2CAP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000100_0000_1000_8000_00805f9b34fb);
 pub const L2CAP_PROTOCOL_UUID16: i32 = 256;
 pub const LANAccessUsingPPPServiceClassID_UUID16: i32 = 4354;
+pub const LANAccessUsingPPPServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001102_0000_1000_8000_00805f9b34fb);
 pub const LANGUAGE_EN_US: i32 = 25966;
 pub const LANG_BASE_ENCODING_INDEX: i32 = 1;
 pub const LANG_BASE_LANGUAGE_INDEX: i32 = 0;
@@ -503,15 +569,25 @@ pub const MITMProtectionRequired: AUTHENTICATION_REQUIREMENTS = 1;
 pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = 3;
 pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = 5;
 pub const MPSProfileID_UUID16: i32 = 4410;
+pub const MPSProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000113a_0000_1000_8000_00805f9b34fb);
 pub const MPSServiceClassID_UUID16: i32 = 4411;
+pub const MPSServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000113b_0000_1000_8000_00805f9b34fb);
 pub const MessageAccessProfileID_UUID16: i32 = 4404;
+pub const MessageAccessProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001134_0000_1000_8000_00805f9b34fb);
 pub const MessageAccessServerServiceClassID_UUID16: i32 = 4402;
+pub const MessageAccessServerServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001132_0000_1000_8000_00805f9b34fb);
 pub const MessageNotificationServerServiceClassID_UUID16: i32 = 4403;
+pub const MessageNotificationServerServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001133_0000_1000_8000_00805f9b34fb);
 pub const NAPServiceClassID_UUID16: i32 = 4374;
+pub const NAPServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001116_0000_1000_8000_00805f9b34fb);
 pub const NAP_BIT_OFFSET: i32 = 32;
-pub const NAP_MASK: u64 = 281470681743360;
+#[cfg(feature = "shared")]
+pub const NAP_MASK: super::ULONGLONG = 281470681743360;
 pub const OBEXFileTransferServiceClassID_UUID16: i32 = 4358;
+pub const OBEXFileTransferServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001106_0000_1000_8000_00805f9b34fb);
 pub const OBEXObjectPushServiceClassID_UUID16: i32 = 4357;
+pub const OBEXObjectPushServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001105_0000_1000_8000_00805f9b34fb);
+pub const OBEX_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000008_0000_1000_8000_00805f9b34fb);
 pub const OBEX_PROTOCOL_UUID16: i32 = 8;
 pub const OBJECT_PUSH_FORMAT_ANY: i32 = 255;
 pub const OBJECT_PUSH_FORMAT_ICAL_2_0: i32 = 4;
@@ -521,13 +597,18 @@ pub const OBJECT_PUSH_FORMAT_VCARD_3_0: i32 = 2;
 pub const OBJECT_PUSH_FORMAT_VMESSAGE: i32 = 6;
 pub const OBJECT_PUSH_FORMAT_VNOTE: i32 = 5;
 pub const PANUServiceClassID_UUID16: i32 = 4373;
+pub const PANUServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001115_0000_1000_8000_00805f9b34fb);
 pub type PBTHSTATUS = *mut u8;
 pub type PBTH_ADDR = *mut u64;
 pub type PBTH_COD = *mut u32;
+#[cfg(feature = "shared")]
 pub type PBTH_DEVICE_INFO = *mut BTH_DEVICE_INFO;
+#[cfg(feature = "shared")]
 pub type PBTH_HCI_EVENT_INFO = *mut BTH_HCI_EVENT_INFO;
+#[cfg(feature = "shared")]
 pub type PBTH_L2CAP_EVENT_INFO = *mut BTH_L2CAP_EVENT_INFO;
 pub type PBTH_LAP = *mut u32;
+#[cfg(feature = "shared")]
 pub type PBTH_RADIO_IN_RANGE = *mut BTH_RADIO_IN_RANGE;
 pub const PSM_3DSP: i32 = 33;
 pub const PSM_ATT: i32 = 31;
@@ -545,16 +626,26 @@ pub const PSM_TCS_BIN_CORDLESS: i32 = 7;
 pub const PSM_UDI_C_PLANE: i32 = 29;
 pub const PSM_UPNP: i32 = 21;
 pub const PhonebookAccessPceServiceClassID_UUID16: i32 = 4398;
+pub const PhonebookAccessPceServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000112e_0000_1000_8000_00805f9b34fb);
 pub const PhonebookAccessProfileID_UUID16: i32 = 4400;
+pub const PhonebookAccessProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001130_0000_1000_8000_00805f9b34fb);
 pub const PhonebookAccessPseServiceClassID_UUID16: i32 = 4399;
+pub const PhonebookAccessPseServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000112f_0000_1000_8000_00805f9b34fb);
 pub const PnPInformationServiceClassID_UUID16: i32 = 4608;
+pub const PnPInformationServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001200_0000_1000_8000_00805f9b34fb);
 pub const PrintingStatusServiceClassID_UUID16: i32 = 4387;
+pub const PrintingStatusServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001123_0000_1000_8000_00805f9b34fb);
 pub const PublicBrowseGroupServiceClassID_UUID16: i32 = 4098;
+pub const PublicBrowseGroupServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001002_0000_1000_8000_00805f9b34fb);
+pub const RFCOMM_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000003_0000_1000_8000_00805f9b34fb);
 pub const RFCOMM_PROTOCOL_UUID16: i32 = 3;
 pub const ReferencePrintingServiceClassID_UUID16: i32 = 4377;
+pub const ReferencePrintingServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001119_0000_1000_8000_00805f9b34fb);
+pub const ReflectedUIServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001121_0000_1000_8000_00805f9b34fb);
 pub const ReflectsUIServiceClassID_UUID16: i32 = 4385;
 pub const SAP_BIT_OFFSET: i32 = 0;
-pub const SAP_MASK: u64 = 4294967295;
+#[cfg(feature = "shared")]
+pub const SAP_MASK: super::ULONGLONG = 4294967295;
 pub const SDP_ATTRIB_A2DP_SUPPORTED_FEATURES: i32 = 785;
 pub const SDP_ATTRIB_ADDITIONAL_PROTOCOL_DESCRIPTOR_LIST: i32 = 13;
 pub const SDP_ATTRIB_AVAILABILITY: i32 = 8;
@@ -638,6 +729,7 @@ pub const SDP_ERROR_SERVER_INVALID_RESPONSE: super::SDP_ERROR = 256;
 pub const SDP_ERROR_SERVER_RESPONSE_DID_NOT_PARSE: super::SDP_ERROR = 512;
 #[cfg(feature = "bthsdpdef")]
 pub const SDP_ERROR_SUCCESS: super::SDP_ERROR = 0;
+pub const SDP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000001_0000_1000_8000_00805f9b34fb);
 pub const SDP_PROTOCOL_UUID16: i32 = 1;
 pub const STRING_DESCRIPTION_OFFSET: i32 = 1;
 pub const STRING_NAME_OFFSET: i32 = 0;
@@ -656,29 +748,52 @@ pub const SYNCH_DATA_STORE_MESSAGES: i32 = 6;
 pub const SYNCH_DATA_STORE_NOTES: i32 = 5;
 pub const SYNCH_DATA_STORE_PHONEBOOK: i32 = 1;
 pub const SerialPortServiceClassID_UUID16: i32 = 4353;
+pub const SerialPortServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001101_0000_1000_8000_00805f9b34fb);
+pub const ServiceDiscoveryServerServiceClassID_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001000_0000_1000_8000_00805f9b34fb);
 pub const ServiceDiscoveryServerServiceClassID_UUID16: i32 = 4096;
 pub const SimAccessServiceClassID_UUID16: i32 = 4397;
+pub const SimAccessServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000112d_0000_1000_8000_00805f9b34fb);
+pub const TCP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000004_0000_1000_8000_00805f9b34fb);
 pub const TCP_PROTOCOL_UUID16: i32 = 4;
+pub const TCSAT_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000006_0000_1000_8000_00805f9b34fb);
 pub const TCSAT_PROTOCOL_UUID16: i32 = 6;
+pub const TCSBIN_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000005_0000_1000_8000_00805f9b34fb);
 pub const TCSBIN_PROTOCOL_UUID16: i32 = 5;
 pub const ThreeDimensionalDisplayServiceClassID_UUID16: i32 = 4407;
+pub const ThreeDimensionalDisplayServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001137_0000_1000_8000_00805f9b34fb);
 pub const ThreeDimensionalGlassesServiceClassID_UUID16: i32 = 4408;
+pub const ThreeDimensionalGlassesServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001138_0000_1000_8000_00805f9b34fb);
 pub const ThreeDimensionalSynchronizationProfileID_UUID16: i32 = 4409;
+pub const ThreeDimensionalSynchronizationProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001139_0000_1000_8000_00805f9b34fb);
 pub const UDIMTServiceClassID_UUID16: i32 = 4394;
+pub const UDIMTServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000112a_0000_1000_8000_00805f9b34fb);
 pub const UDIMTServiceClass_UUID16: i32 = 4394;
 pub const UDITAServiceClassID_UUID16: i32 = 4395;
+pub const UDITAServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000112b_0000_1000_8000_00805f9b34fb);
 pub const UDITAServiceClass_UUID16: i32 = 4395;
+pub const UDI_C_PLANE_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000001d_0000_1000_8000_00805f9b34fb);
 pub const UDI_C_PLANE_PROTOCOL_UUID16: i32 = 29;
+pub const UDP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000002_0000_1000_8000_00805f9b34fb);
 pub const UDP_PROTOCOL_UUID16: i32 = 2;
+pub const UPNP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000010_0000_1000_8000_00805f9b34fb);
 pub const UPNP_PROTOCOL_UUID16: i32 = 16;
 pub const UPnpIpServiceClassID_UUID16: i32 = 4614;
+pub const UPnpIpServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001206_0000_1000_8000_00805f9b34fb);
 pub const UPnpServiceClassID_UUID16: i32 = 4613;
+pub const UPnpServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001205_0000_1000_8000_00805f9b34fb);
 pub const VideoConferencingGWServiceClassID_UUID16: i32 = 4393;
+pub const VideoConferencingGWServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001129_0000_1000_8000_00805f9b34fb);
 pub const VideoConferencingGWServiceClass_UUID16: i32 = 4393;
 pub const VideoConferencingServiceClassID_UUID16: i32 = 4367;
 pub const VideoDistributionProfileID_UUID16: i32 = 4869;
+pub const VideoDistributionProfile_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001305_0000_1000_8000_00805f9b34fb);
 pub const VideoSinkServiceClassID_UUID16: i32 = 4868;
+pub const VideoSinkServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001304_0000_1000_8000_00805f9b34fb);
 pub const VideoSourceServiceClassID_UUID16: i32 = 4867;
+pub const VideoSourceServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001303_0000_1000_8000_00805f9b34fb);
 pub const WAPClientServiceClassID_UUID16: i32 = 4372;
+pub const WAPClientServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001114_0000_1000_8000_00805f9b34fb);
 pub const WAPServiceClassID_UUID16: i32 = 4371;
+pub const WAPServiceClass_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x00001113_0000_1000_8000_00805f9b34fb);
+pub const WSP_PROTOCOL_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x0000000e_0000_1000_8000_00805f9b34fb);
 pub const WSP_PROTOCOL_UUID16: i32 = 14;
