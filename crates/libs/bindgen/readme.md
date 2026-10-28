@@ -41,7 +41,7 @@ In `src/main.rs`:
 
 ```rust,ignore
 mod bindings {
-    include!(concat!(env!("OUT_DIR"), "\\bindings.rs"));
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 }
 
 fn main() {
