@@ -394,6 +394,27 @@ pub const FACTOID_UPPERCHAR: windows_sys::core::PCWSTR = windows_sys::core::w!("
 pub const FACTOID_WEB: windows_sys::core::PCWSTR = windows_sys::core::w!("WEB");
 pub const FACTOID_WORDLIST: windows_sys::core::PCWSTR = windows_sys::core::w!("WORDLIST");
 pub type GET_DANDIDATE_FLAGS = i32;
+pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82dec5c7_f6ba_4906_894f_66d68dfc456c);
+pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x029123b4_8828_410b_b250_a0536595e5dc);
+pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b7fefc4_96aa_4bfe_ac26_8a5f0be07bf5);
+pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x02585b91_049b_4750_9615_df8948ab3c9c);
+pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe706c804_57f0_4f00_8a0c_853d57789be9);
+pub const GUID_PACKETPROPERTY_GUID_HEIGHT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe61858d2_e447_4218_9d3f_18865c203df4);
+pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7307502d_f9f4_4e18_b3f2_2ce1b1a3610c);
+pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e0e07bf_afe7_4cf7_87d1_af6446208418);
+pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f7e57b7_be37_4be1_a356_7a84160e1893);
+pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d5d5e56_6ba9_4c5b_9fb0_851c91714e56);
+pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x78a81b56_0935_4493_baae_00541a8a16c4);
+pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6da4488b_5244_41ec_905b_32d89ab80809);
+pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x436510c5_fed3_45d1_8b76_71d3ea7a829d);
+pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0d324960_13b2_41e4_ace6_7ae9d43d2d3b);
+pub const GUID_PACKETPROPERTY_GUID_WIDTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbaabe94d_2712_48f5_be9d_8f8b5ea0711a);
+pub const GUID_PACKETPROPERTY_GUID_X: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x598a6a8f_52c0_4ba0_93af_af357411a561);
+pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa8d07b3a_8bf0_40b0_95a9_b80a6bb787bf);
+pub const GUID_PACKETPROPERTY_GUID_Y: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb53f9f75_04e0_4498_a7ee_c30dbb5a9011);
+pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a849980_7c3a_45b7_aa82_90a262950e89);
+pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e932389_1d77_43af_ac00_5b950d6d4b2d);
+pub const GUID_PACKETPROPERTY_GUID_Z: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x735adb30_0ebb_4788_a0e4_0f316490055d);
 pub const IAG_AllGestures: InkApplicationGesture = 0;
 pub const IAG_ArrowDown: InkApplicationGesture = 61497;
 pub const IAG_ArrowLeft: InkApplicationGesture = 61498;
@@ -517,13 +538,13 @@ pub const IMP_SizeNWSE: InkMousePointer = 6;
 pub const IMP_SizeWE: InkMousePointer = 7;
 pub const IMP_UpArrow: InkMousePointer = 8;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct INKMETRIC {
-    pub iHeight: i32,
-    pub iFontAscent: i32,
-    pub iFontDescent: i32,
-    pub dwFlags: u32,
+    pub iHeight: super::INT,
+    pub iFontAscent: super::INT,
+    pub iFontDescent: super::INT,
+    pub dwFlags: super::DWORD,
     pub color: super::COLORREF,
 }
 pub const INKRECOGNITIONPROPERTY_BOXNUMBER: windows_sys::core::PCWSTR = windows_sys::core::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
@@ -651,11 +672,19 @@ pub type InkClipboardFormats = i32;
 pub type InkClipboardModes = i32;
 pub type InkCollectionMode = i32;
 pub const InkCollector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43fb1553_ad74_4ee8_88e4_3e6daac915db);
+#[cfg(feature = "shared")]
+pub const InkCollectorClipInkToMargin: super::LONG = 0x0_u32 as _;
+#[cfg(feature = "shared")]
+pub const InkCollectorDefaultMargin: super::LONG = 0x80000000_u32 as _;
 pub type InkCollectorEventInterest = i32;
 pub type InkCursorButtonState = i32;
 pub const InkDisp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x937c1a34_151d_4610_9ca6_a8cc9bdb5d83);
 pub const InkDrawingAttributes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8bf32a2_05a5_44c3_b3aa_5e80ac7d2576);
 pub type InkExtractFlags = i32;
+#[cfg(feature = "shared")]
+pub const InkMaxTransparencyValue: super::LONG = 0xFF_u32 as _;
+#[cfg(feature = "shared")]
+pub const InkMinTransparencyValue: super::LONG = 0x0_u32 as _;
 pub type InkMouseButton = i32;
 pub type InkMousePointer = i32;
 pub const InkOverlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
@@ -669,7 +698,7 @@ pub const InkPicture: windows_sys::core::GUID = windows_sys::core::GUID::from_u1
 pub type InkPictureSizeMode = i32;
 pub type InkRasterOperation = i32;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::RECT,
@@ -696,7 +725,7 @@ pub type InkSystemGesture = i32;
 pub const InkTablets: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e4fcb12_510a_4d40_9304_1da10ae9147c);
 pub const InkTransform: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
 pub const InkWordList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PINKMETRIC = *mut INKMETRIC;
 pub const SHR_E: SelectionHitResult = 5;
 pub const SHR_N: SelectionHitResult = 7;

@@ -1,55 +1,60 @@
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmAttachMilContent(hwnd : super::HWND) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("dwmapi.dll" "system" fn DwmDefWindowProc(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM, plresult : *mut super::LRESULT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmDefWindowProc(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, plresult : *mut super::LRESULT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmDetachMilContent(hwnd : super::HWND) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmEnableBlurBehindWindow(hwnd : super::HWND, pblurbehind : *const DWM_BLURBEHIND) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmEnableComposition(ucompositionaction : u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("dwmapi.dll" "system" fn DwmEnableComposition(ucompositionaction : super::UINT) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmEnableMMCSS(fenablemmcss : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "uxtheme", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmExtendFrameIntoClientArea(hwnd : super::HWND, pmarinset : *const super::MARGINS) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmFlush() -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmGetColorizationColor(pcrcolorization : *mut u32, pfopaqueblend : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
+#[cfg(feature = "shared")]
+windows_link::link!("dwmapi.dll" "system" fn DwmGetColorizationColor(pcrcolorization : *mut super::DWORD, pfopaqueblend : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmGetCompositionTimingInfo(hwnd : super::HWND, ptiminginfo : *mut DWM_TIMING_INFO) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex : u32, pclientuuid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamTransformHint(uindex : u32, ptransform : *mut MilMatrix3x2D) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_sys::core::BOOL, pfisconnected : *mut windows_sys::core::BOOL, pdwgeneration : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "rpc", feature = "shared"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex : super::UINT, pclientuuid : *mut super::UUID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamTransformHint(uindex : super::UINT, ptransform : *mut MilMatrix3x2D) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_sys::core::BOOL, pfisconnected : *mut windows_sys::core::BOOL, pdwgeneration : *mut super::DWORD) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::HWND, dwattribute : super::DWORD, pvattribute : super::PVOID, cbattribute : super::DWORD) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmInvalidateIconicBitmaps(hwnd : super::HWND) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::HWND, crefreshes : i32, frelative : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::HWND, crefreshes : super::INT, frelative : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : super::PSIZE) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::HWND, hwndsource : super::HWND, phthumbnailid : PHTHUMBNAIL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::POINT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmSetDxFrameDuration(hwnd : super::HWND, crefreshes : i32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::HWND, hbmp : super::HBITMAP, pptclient : *const super::POINT, dwsitflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::HWND, hbmp : super::HBITMAP, dwsitflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : super::UINT, pdwpointerid : *const super::DWORD, ppoints : *const super::POINT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmSetDxFrameDuration(hwnd : super::HWND, crefreshes : super::INT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::HWND, hbmp : super::HBITMAP, pptclient : *const super::POINT, dwsitflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::HWND, hbmp : super::HBITMAP, dwsitflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : super::LPCVOID, cbattribute : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_sys::core::BOOL, pttether : super::POINT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : super::DWORD, pvattribute : super::LPCVOID, cbattribute : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : super::DWORD, eshowcontact : DWM_SHOWCONTACT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : super::DWORD, fenable : windows_sys::core::BOOL, pttether : super::POINT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmTransitionOwnedWindow(hwnd : super::HWND, target : DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
 windows_link::link!("dwmapi.dll" "system" fn DwmUnregisterThumbnail(hthumbnailid : HTHUMBNAIL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("dwmapi.dll" "system" fn DwmUpdateThumbnailProperties(hthumbnailid : HTHUMBNAIL, ptnproperties : *const DWM_THUMBNAIL_PROPERTIES) -> windows_sys::core::HRESULT);
 pub type DWMFLIP3DWINDOWPOLICY = i32;
 pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = 0;
@@ -66,7 +71,7 @@ pub const DWMSBT_MAINWINDOW: DWM_SYSTEMBACKDROP_TYPE = 2;
 pub const DWMSBT_NONE: DWM_SYSTEMBACKDROP_TYPE = 1;
 pub const DWMSBT_TABBEDWINDOW: DWM_SYSTEMBACKDROP_TYPE = 4;
 pub const DWMSBT_TRANSIENTWINDOW: DWM_SYSTEMBACKDROP_TYPE = 3;
-pub const DWMSC_ALL: DWM_SHOWCONTACT = 4294967295;
+pub const DWMSC_ALL: DWM_SHOWCONTACT = -1;
 pub const DWMSC_DOWN: DWM_SHOWCONTACT = 1;
 pub const DWMSC_DRAG: DWM_SHOWCONTACT = 4;
 pub const DWMSC_HOLD: DWM_SHOWCONTACT = 8;
@@ -125,10 +130,10 @@ pub const DWM_BB_BLURREGION: i32 = 2;
 pub const DWM_BB_ENABLE: i32 = 1;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: i32 = 4;
 #[repr(C, packed(1))]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_BLURBEHIND {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub fEnable: windows_sys::core::BOOL,
     pub hRgnBlur: super::HRGN,
     pub fTransitionOnMaximized: windows_sys::core::BOOL,
@@ -141,58 +146,60 @@ pub const DWM_EC_ENABLECOMPOSITION: i32 = 1;
 pub type DWM_FRAME_COUNT = u64;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_PRESENT_PARAMETERS {
-    pub cbSize: u32,
+    pub cbSize: super::UINT32,
     pub fQueue: windows_sys::core::BOOL,
     pub cRefreshStart: DWM_FRAME_COUNT,
-    pub cBuffer: u32,
+    pub cBuffer: super::UINT,
     pub fUseSourceRate: windows_sys::core::BOOL,
     pub rateSource: UNSIGNED_RATIO,
-    pub cRefreshesPerFrame: u32,
+    pub cRefreshesPerFrame: super::UINT,
     pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
 }
-pub type DWM_SHOWCONTACT = u32;
+pub type DWM_SHOWCONTACT = i32;
 pub const DWM_SIT_DISPLAYFRAME: i32 = 1;
 pub type DWM_SOURCE_FRAME_SAMPLING = i32;
 pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = 1;
 pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = 2;
 pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0;
 pub type DWM_SYSTEMBACKDROP_TYPE = i32;
-pub type DWM_TAB_WINDOW_REQUIREMENTS = u32;
+pub type DWM_TAB_WINDOW_REQUIREMENTS = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub rcDestination: super::RECT,
     pub rcSource: super::RECT,
-    pub opacity: u8,
+    pub opacity: super::BYTE,
     pub fVisible: windows_sys::core::BOOL,
     pub fSourceClientAreaOnly: windows_sys::core::BOOL,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_TIMING_INFO {
-    pub cbSize: u32,
+    pub cbSize: super::UINT32,
     pub rateRefresh: UNSIGNED_RATIO,
     pub qpcRefreshPeriod: QPC_TIME,
     pub rateCompose: UNSIGNED_RATIO,
     pub qpcVBlank: QPC_TIME,
     pub cRefresh: DWM_FRAME_COUNT,
-    pub cDXRefresh: u32,
+    pub cDXRefresh: super::UINT,
     pub qpcCompose: QPC_TIME,
     pub cFrame: DWM_FRAME_COUNT,
-    pub cDXPresent: u32,
+    pub cDXPresent: super::UINT,
     pub cRefreshFrame: DWM_FRAME_COUNT,
     pub cFrameSubmitted: DWM_FRAME_COUNT,
-    pub cDXPresentSubmitted: u32,
+    pub cDXPresentSubmitted: super::UINT,
     pub cFrameConfirmed: DWM_FRAME_COUNT,
-    pub cDXPresentConfirmed: u32,
+    pub cDXPresentConfirmed: super::UINT,
     pub cRefreshConfirmed: DWM_FRAME_COUNT,
-    pub cDXRefreshConfirmed: u32,
+    pub cDXRefreshConfirmed: super::UINT,
     pub cFramesLate: DWM_FRAME_COUNT,
-    pub cFramesOutstanding: u32,
+    pub cFramesOutstanding: super::UINT,
     pub cFrameDisplayed: DWM_FRAME_COUNT,
     pub qpcFrameDisplayed: QPC_TIME,
     pub cRefreshFrameDisplayed: DWM_FRAME_COUNT,
@@ -211,8 +218,8 @@ pub struct DWM_TIMING_INFO {
     pub cRefreshesDisplayed: DWM_FRAME_COUNT,
     pub cRefreshesPresented: DWM_FRAME_COUNT,
     pub cRefreshStarted: DWM_FRAME_COUNT,
-    pub cPixelsReceived: u64,
-    pub cPixelsDrawn: u64,
+    pub cPixelsReceived: super::ULONGLONG,
+    pub cPixelsDrawn: super::ULONGLONG,
     pub cBuffersEmpty: DWM_FRAME_COUNT,
 }
 pub const DWM_TNP_OPACITY: i32 = 4;
@@ -233,29 +240,36 @@ pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = 9;
 pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10;
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7;
 pub const GT_TOUCH_TAP: GESTURE_TYPE = 5;
-#[cfg(feature = "winnt")]
-pub type HTHUMBNAIL = super::HANDLE;
+pub type HTHUMBNAIL = *mut core::ffi::c_void;
+#[cfg(feature = "wtypesbase")]
 pub type MIL_MATRIX3X2D = MilMatrix3x2D;
 #[repr(C, packed(1))]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Default)]
 pub struct MilMatrix3x2D {
-    pub S_11: f64,
-    pub S_12: f64,
-    pub S_21: f64,
-    pub S_22: f64,
-    pub DX: f64,
-    pub DY: f64,
+    pub S_11: super::DOUBLE,
+    pub S_12: super::DOUBLE,
+    pub S_21: super::DOUBLE,
+    pub S_22: super::DOUBLE,
+    pub DX: super::DOUBLE,
+    pub DY: super::DOUBLE,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PDWM_BLURBEHIND = *mut DWM_BLURBEHIND;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PDWM_THUMBNAIL_PROPERTIES = *mut DWM_THUMBNAIL_PROPERTIES;
-#[cfg(feature = "winnt")]
-pub type PHTHUMBNAIL = *mut HTHUMBNAIL;
+pub type PHTHUMBNAIL = *mut *mut core::ffi::c_void;
 pub type QPC_TIME = u64;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct UNSIGNED_RATIO {
-    pub uiNumerator: u32,
-    pub uiDenominator: u32,
+    pub uiNumerator: super::UINT32,
+    pub uiDenominator: super::UINT32,
 }
+#[cfg(feature = "shared")]
+pub const c_DwmMaxAdapters: super::UINT = 16;
+#[cfg(feature = "shared")]
+pub const c_DwmMaxMonitors: super::UINT = 16;
+#[cfg(feature = "shared")]
+pub const c_DwmMaxQueuedBuffers: super::UINT = 8;

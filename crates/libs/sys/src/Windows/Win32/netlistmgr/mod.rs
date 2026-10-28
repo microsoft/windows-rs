@@ -33,17 +33,17 @@ pub const NLM_CONNECTIVITY_IPV6_LOCALNETWORK: NLM_CONNECTIVITY = 512;
 pub const NLM_CONNECTIVITY_IPV6_NOTRAFFIC: NLM_CONNECTIVITY = 2;
 pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = 256;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: windows_sys::core::GUID,
     pub UsageData: NLM_USAGE_DATA,
-    pub DataLimitInMegabytes: u32,
-    pub InboundBandwidthInKbps: u32,
-    pub OutboundBandwidthInKbps: u32,
+    pub DataLimitInMegabytes: super::DWORD,
+    pub InboundBandwidthInKbps: super::DWORD,
+    pub OutboundBandwidthInKbps: super::DWORD,
     pub NextBillingCycle: super::FILETIME,
-    pub MaxTransferSizeInMegabytes: u32,
-    pub Reserved: u32,
+    pub MaxTransferSizeInMegabytes: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub type NLM_DOMAIN_AUTHENTICATION_KIND = i32;
 pub const NLM_DOMAIN_AUTHENTICATION_KIND_LDAP: NLM_DOMAIN_AUTHENTICATION_KIND = 1;
@@ -77,23 +77,27 @@ pub const NLM_NETWORK_PROPERTY_CHANGE_ICON: NLM_NETWORK_PROPERTY_CHANGE = 8;
 pub const NLM_NETWORK_PROPERTY_CHANGE_NAME: NLM_NETWORK_PROPERTY_CHANGE = 4;
 pub const NLM_NETWORK_UNIDENTIFIED: NLM_NETWORK_CLASS = 3;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NLM_SIMULATED_PROFILE_INFO {
-    pub ProfileName: [u16; 256],
+    pub ProfileName: [super::WCHAR; 256],
     pub cost: NLM_CONNECTION_COST,
-    pub UsageInMegabytes: u32,
-    pub DataLimitInMegabytes: u32,
+    pub UsageInMegabytes: super::DWORD,
+    pub DataLimitInMegabytes: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for NLM_SIMULATED_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NLM_SOCKADDR {
-    pub data: [u8; 128],
+    pub data: [super::BYTE; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for NLM_SOCKADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -101,10 +105,10 @@ impl Default for NLM_SOCKADDR {
 }
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct NLM_USAGE_DATA {
-    pub UsageInMegabytes: u32,
+    pub UsageInMegabytes: super::DWORD,
     pub LastSyncTime: super::FILETIME,
 }
 pub const NetworkListManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);

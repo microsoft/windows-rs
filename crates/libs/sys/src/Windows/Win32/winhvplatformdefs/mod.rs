@@ -1,8 +1,14 @@
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PWHV_HYPERCALL_CONTEXT = *mut WHV_HYPERCALL_CONTEXT;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+pub type PWHV_HYPERCALL_CONTEXT = *mut WHV_X64_HYPERCALL_CONTEXT;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+pub type PWHV_HYPERCALL_CONTEXT = *mut WHV_ARM64_HYPERCALL_CONTEXT;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PWHV_PROCESSOR_PERFMON_FEATURES = *mut WHV_PROCESSOR_PERFMON_FEATURES;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PWHV_PROCESSOR_XSAVE_FEATURES = *mut WHV_PROCESSOR_XSAVE_FEATURES;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT = *mut WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT;
@@ -10,12 +16,14 @@ pub type PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT = *mut WHV_X64_INTERRUPTION_D
 pub type PWHV_X64_PENDING_INTERRUPTION_TYPE = *mut WHV_X64_PENDING_INTERRUPTION_TYPE;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ACCESS_GPA_CONTROLS {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_ACCESS_GPA_CONTROLS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ACCESS_GPA_CONTROLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,14 +31,16 @@ impl Default for WHV_ACCESS_GPA_CONTROLS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ACCESS_GPA_CONTROLS_0 {
     pub CacheType: WHV_CACHE_TYPE,
     pub InputVtl: WHV_INPUT_VTL,
-    pub Reserved: u8,
-    pub Reserved1: u16,
+    pub Reserved: super::UINT8,
+    pub Reserved1: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ACCESS_GPA_CONTROLS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -38,11 +48,13 @@ impl Default for WHV_ACCESS_GPA_CONTROLS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ADVISE_GPA_RANGE {
     pub Populate: WHV_ADVISE_GPA_RANGE_POPULATE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ADVISE_GPA_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -52,12 +64,14 @@ impl Default for WHV_ADVISE_GPA_RANGE {
 pub type WHV_ADVISE_GPA_RANGE_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
     pub Flags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub AccessType: WHV_MEMORY_ACCESS_TYPE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ADVISE_GPA_RANGE_POPULATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -65,12 +79,14 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -78,26 +94,29 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = u32;
+pub type WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_ANY_VP: u32 = 4294967295;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE {
-    pub Version: u8,
-    pub GicVersion: u8,
-    pub Reserved0: [u8; 2],
-    pub NumInterrupts: u32,
-    pub GicdCtlrEnableGrp1A: u64,
+    pub Version: super::UINT8,
+    pub GicVersion: super::UINT8,
+    pub Reserved0: [super::UINT8; 2],
+    pub NumInterrupts: super::UINT32,
+    pub GicdCtlrEnableGrp1A: super::UINT64,
     pub Interrupts: [WHV_ARM64_GLOBAL_INTERRUPT_STATE; 1],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -107,14 +126,16 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE {
 pub const WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_GLOBAL_INTERRUPT_STATE {
-    pub InterruptId: u32,
-    pub ActiveVpIndex: u32,
+    pub InterruptId: super::UINT32,
+    pub ActiveVpIndex: super::UINT32,
     pub Anonymous: WHV_ARM64_GLOBAL_INTERRUPT_STATE_0,
     pub InterruptState: WHV_ARM64_INTERRUPT_STATE,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -122,13 +143,33 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_GLOBAL_INTERRUPT_STATE_0 {
-    pub TargetMpidr: u32,
-    pub TargetVpIndex: u32,
+    pub TargetMpidr: super::UINT32,
+    pub TargetVpIndex: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct WHV_ARM64_HYPERCALL_CONTEXT {
+    pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
+    pub Immediate: super::UINT16,
+    pub Reserved1: super::UINT16,
+    pub Reserved2: super::UINT32,
+    pub X: [super::UINT64; 18],
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_ARM64_HYPERCALL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -137,17 +178,19 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE_0 {
 pub type WHV_ARM64_IC_EMULATION_MODE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_IC_GIC_V3_PARAMETERS {
     pub GicdBaseAddress: WHV_GUEST_PHYSICAL_ADDRESS,
     pub GitsTranslaterBaseAddress: WHV_GUEST_PHYSICAL_ADDRESS,
-    pub Reserved: u32,
-    pub GicLpiIntIdBits: u32,
+    pub Reserved: super::UINT32,
+    pub GicLpiIntIdBits: super::UINT32,
     pub GicPpiOverflowInterruptFromCntv: WHV_ARM64_INTERRUPT_VECTOR,
     pub GicPpiPerformanceMonitorsInterrupt: WHV_ARM64_INTERRUPT_VECTOR,
-    pub Reserved1: [u32; 6],
+    pub Reserved1: [super::UINT32; 6],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_IC_GIC_V3_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -155,13 +198,15 @@ impl Default for WHV_ARM64_IC_GIC_V3_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_IC_PARAMETERS {
     pub EmulationMode: WHV_ARM64_IC_EMULATION_MODE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_ARM64_IC_PARAMETERS_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_IC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -169,11 +214,13 @@ impl Default for WHV_ARM64_IC_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_IC_PARAMETERS_0 {
     pub GicV3Parameters: WHV_ARM64_IC_GIC_V3_PARAMETERS,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_IC_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -183,15 +230,17 @@ impl Default for WHV_ARM64_IC_PARAMETERS_0 {
 pub const WHV_ARM64_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ARM64_INTERRUPT_STATE {
     pub Anonymous: WHV_ARM64_INTERRUPT_STATE_0,
-    pub GicrIpriorityrConfigured: u8,
-    pub GicrIpriorityrActive: u8,
-    pub Reserved1: u8,
+    pub GicrIpriorityrConfigured: super::UINT8,
+    pub GicrIpriorityrActive: super::UINT8,
+    pub Reserved1: super::UINT8,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ARM64_INTERRUPT_STATE_0 {
     pub _bitfield: u8,
@@ -200,21 +249,23 @@ pub struct WHV_ARM64_INTERRUPT_STATE_0 {
 pub type WHV_ARM64_INTERRUPT_VECTOR = u32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_LOCAL_INTERRUPT_CONTROLLER_STATE {
-    pub Version: u8,
-    pub GicVersion: u8,
-    pub Reserved0: [u8; 6],
-    pub IccIgrpen1El1: u64,
-    pub GicrCtlrEnableLpis: u64,
-    pub IccBpr1El1: u64,
-    pub IccPmrEl1: u64,
-    pub GicrPropbaser: u64,
-    pub GicrPendbaser: u64,
-    pub IchAp1REl2: [u32; 4],
+    pub Version: super::UINT8,
+    pub GicVersion: super::UINT8,
+    pub Reserved0: [super::UINT8; 6],
+    pub IccIgrpen1El1: super::UINT64,
+    pub GicrCtlrEnableLpis: super::UINT64,
+    pub IccBpr1El1: super::UINT64,
+    pub IccPmrEl1: super::UINT64,
+    pub GicrPropbaser: super::UINT64,
+    pub GicrPendbaser: super::UINT64,
+    pub IchAp1REl2: [super::UINT32; 4],
     pub BankedInterruptState: [WHV_ARM64_INTERRUPT_STATE; 32],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_LOCAL_INTERRUPT_CONTROLLER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -222,6 +273,7 @@ impl Default for WHV_ARM64_LOCAL_INTERRUPT_CONTROLLER_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_PENDING_EVENT {
     pub Anonymous: WHV_ARM64_PENDING_EVENT_0,
@@ -230,6 +282,7 @@ pub union WHV_ARM64_PENDING_EVENT {
     pub SyntheticException: WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -237,12 +290,14 @@ impl Default for WHV_ARM64_PENDING_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_PENDING_EVENT_0 {
     pub Reg0: WHV_UINT128,
     pub Reg1: WHV_UINT128,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -250,12 +305,14 @@ impl Default for WHV_ARM64_PENDING_EVENT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_PENDING_EVENT_1 {
     pub _bitfield: u8,
-    pub EventData: [u8; 15],
+    pub EventData: [super::UINT8; 15],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EVENT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -265,12 +322,14 @@ impl Default for WHV_ARM64_PENDING_EVENT_1 {
 pub type WHV_ARM64_PENDING_EVENT_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_PENDING_EXCEPTION_EVENT {
-    pub AsUINT64: [u64; 3],
+    pub AsUINT64: [super::UINT64; 3],
     pub Anonymous: WHV_ARM64_PENDING_EXCEPTION_EVENT_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_EXCEPTION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -278,23 +337,26 @@ impl Default for WHV_ARM64_PENDING_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ARM64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u16,
-    pub Reserved3: u32,
-    pub EsrElx: u64,
-    pub FarElx: u64,
+    pub Reserved1: super::UINT8,
+    pub Reserved2: super::UINT16,
+    pub Reserved3: super::UINT32,
+    pub EsrElx: super::UINT64,
+    pub FarElx: super::UINT64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
-    pub AsUINT64: [u64; 2],
+    pub AsUINT64: [super::UINT64; 2],
     pub Anonymous: WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -302,23 +364,70 @@ impl Default for WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0 {
     pub _bitfield: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u16,
-    pub ExceptionType: u32,
-    pub Context: u64,
+    pub Reserved1: super::UINT8,
+    pub Reserved2: super::UINT16,
+    pub ExceptionType: super::UINT32,
+    pub Context: super::UINT64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_ARM64_PROCESSOR_FEATURES {
+    pub Anonymous: WHV_ARM64_PROCESSOR_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_ARM64_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_ARM64_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_ARM64_PROCESSOR_FEATURES1 {
+    pub Anonymous: WHV_ARM64_PROCESSOR_FEATURES1_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_ARM64_PROCESSOR_FEATURES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_ARM64_PROCESSOR_FEATURES1_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_ARM64_RESET_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
     pub ResetType: WHV_ARM64_RESET_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_ARM64_RESET_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -330,21 +439,23 @@ pub type WHV_ARM64_RESET_TYPE = i32;
 pub type WHV_ARM64_SYNTHETIC_EXCEPTION_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ARM64_VP_STATE_SME {
-    pub Version: u16,
-    pub RegisterDataOffset: u16,
-    pub StreamingVectorLength: u32,
-    pub Reserved0: u64,
+    pub Version: super::USHORT,
+    pub RegisterDataOffset: super::USHORT,
+    pub StreamingVectorLength: super::UINT32,
+    pub Reserved0: super::UINT64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ARM64_VP_STATE_SVE {
-    pub Version: u16,
-    pub RegisterDataOffset: u16,
-    pub VectorLength: u32,
-    pub Reserved0: u64,
+    pub Version: super::USHORT,
+    pub RegisterDataOffset: super::USHORT,
+    pub VectorLength: super::UINT32,
+    pub Reserved0: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_CACHE_TYPE = i32;
@@ -352,6 +463,7 @@ pub type WHV_CACHE_TYPE = i32;
 pub type WHV_CACHE_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
     pub HypervisorPresent: windows_sys::core::BOOL,
@@ -360,21 +472,22 @@ pub union WHV_CAPABILITY {
     pub ProcessorVendor: WHV_PROCESSOR_VENDOR,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
     pub GpaRangePopulateFlags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub ProcessorFrequencyCap: WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP,
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
-    pub PhysicalAddressWidth: u32,
-    pub NestedFeatureRegister: u64,
+    pub PhysicalAddressWidth: super::UINT32,
+    pub NestedFeatureRegister: super::UINT64,
     pub ProcessorXsaveFeatures: WHV_PROCESSOR_XSAVE_FEATURES,
-    pub InterruptClockFrequency: u64,
+    pub InterruptClockFrequency: super::UINT64,
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub X64MsrExitBitmap: WHV_X64_MSR_EXIT_BITMAP,
-    pub ExceptionExitBitmap: u64,
+    pub ExceptionExitBitmap: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -382,6 +495,7 @@ impl Default for WHV_CAPABILITY {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
     pub HypervisorPresent: windows_sys::core::BOOL,
@@ -390,19 +504,20 @@ pub union WHV_CAPABILITY {
     pub ProcessorVendor: WHV_PROCESSOR_VENDOR,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
     pub GpaRangePopulateFlags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub ProcessorFrequencyCap: WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP,
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
-    pub PhysicalAddressWidth: u32,
-    pub NestedFeatureRegister: u64,
-    pub GicLpiIntIdBits: u32,
-    pub MaxSveVectorLength: u32,
-    pub MaxSmeStreamingVectorLength: u32,
+    pub PhysicalAddressWidth: super::UINT32,
+    pub NestedFeatureRegister: super::UINT64,
+    pub GicLpiIntIdBits: super::UINT32,
+    pub MaxSveVectorLength: super::UINT32,
+    pub MaxSmeStreamingVectorLength: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -413,53 +528,126 @@ pub type WHV_CAPABILITY_CODE = i32;
 #[cfg(target_arch = "aarch64")]
 pub type WHV_CAPABILITY_CODE = i32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY_FEATURES {
     pub Anonymous: WHV_CAPABILITY_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_CAPABILITY_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_CAPABILITY_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_CAPABILITY_FEATURES {
+    pub Anonymous: WHV_CAPABILITY_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_CAPABILITY_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_CAPABILITY_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub _bitfield: u32,
-    pub HighestFrequencyMhz: u32,
-    pub NominalFrequencyMhz: u32,
-    pub LowestFrequencyMhz: u32,
-    pub FrequencyStepMhz: u32,
+    pub HighestFrequencyMhz: super::UINT32,
+    pub NominalFrequencyMhz: super::UINT32,
+    pub LowestFrequencyMhz: super::UINT32,
+    pub FrequencyStepMhz: super::UINT32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_CPUID_OUTPUT {
-    pub Eax: u32,
-    pub Ebx: u32,
-    pub Ecx: u32,
-    pub Edx: u32,
+    pub Eax: super::UINT32,
+    pub Ebx: super::UINT32,
+    pub Ecx: super::UINT32,
+    pub Edx: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_CREATE_VPCI_DEVICE_FLAGS = u32;
+pub type WHV_CREATE_VPCI_DEVICE_FLAGS = i32;
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    pub Anonymous: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    pub Anonymous: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    pub _bitfield: u64,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_DISABLE_PARTITION_VTL_FLAGS {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_DISABLE_PARTITION_VTL_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_DISABLE_PARTITION_VTL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -467,18 +655,21 @@ impl Default for WHV_DISABLE_PARTITION_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_DISABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_DISABLE_VP_VTL_FLAGS {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_DISABLE_VP_VTL_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_DISABLE_VP_VTL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -486,27 +677,31 @@ impl Default for WHV_DISABLE_VP_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_DISABLE_VP_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_DOORBELL_MATCH_DATA {
     pub GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS,
-    pub Value: u64,
-    pub Length: u32,
+    pub Value: super::UINT64,
+    pub Length: super::UINT32,
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_ENABLE_PARTITION_VTL_FLAGS {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_ENABLE_PARTITION_VTL_FLAGS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_ENABLE_PARTITION_VTL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -514,6 +709,7 @@ impl Default for WHV_ENABLE_PARTITION_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_ENABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
@@ -521,20 +717,45 @@ pub struct WHV_ENABLE_PARTITION_VTL_FLAGS_0 {
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_EXCEPTION_TYPE = i32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_EXTENDED_VM_EXITS {
     pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_EXTENDED_VM_EXITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_EXTENDED_VM_EXITS_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_EXTENDED_VM_EXITS {
+    pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_EXTENDED_VM_EXITS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
@@ -545,52 +766,22 @@ pub const WHV_EXTENDED_VM_EXITS_RESERVED_BITFIELD_COUNT: i32 = 49;
 pub type WHV_GUEST_PHYSICAL_ADDRESS = u64;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_GUEST_VIRTUAL_ADDRESS = u64;
-#[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct WHV_HYPERCALL_CONTEXT {
-    pub Rax: u64,
-    pub Rbx: u64,
-    pub Rcx: u64,
-    pub Rdx: u64,
-    pub R8: u64,
-    pub Rsi: u64,
-    pub Rdi: u64,
-    pub Reserved0: u64,
-    pub XmmRegisters: [WHV_UINT128; 6],
-    pub Reserved1: [u64; 2],
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_HYPERCALL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
+pub type WHV_HYPERCALL_CONTEXT = WHV_X64_HYPERCALL_CONTEXT;
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
-pub struct WHV_HYPERCALL_CONTEXT {
-    pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
-    pub Immediate: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
-    pub X: [u64; 18],
-}
-#[cfg(target_arch = "aarch64")]
-impl Default for WHV_HYPERCALL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type WHV_HYPERCALL_CONTEXT = WHV_ARM64_HYPERCALL_CONTEXT;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: i32 = 6;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_INITIAL_VP_CONTEXT {
-    pub Rip: u64,
-    pub Rsp: u64,
-    pub Rflags: u64,
+    pub Rip: super::UINT64,
+    pub Rsp: super::UINT64,
+    pub Rflags: super::UINT64,
     pub Cs: WHV_X64_SEGMENT_REGISTER,
     pub Ds: WHV_X64_SEGMENT_REGISTER,
     pub Es: WHV_X64_SEGMENT_REGISTER,
@@ -601,13 +792,14 @@ pub struct WHV_INITIAL_VP_CONTEXT {
     pub Ldtr: WHV_X64_SEGMENT_REGISTER,
     pub Idtr: WHV_X64_TABLE_REGISTER,
     pub Gdtr: WHV_X64_TABLE_REGISTER,
-    pub Efer: u64,
-    pub Cr0: u64,
-    pub Cr3: u64,
-    pub Cr4: u64,
-    pub MsrCrPat: u64,
+    pub Efer: super::UINT64,
+    pub Cr0: super::UINT64,
+    pub Cr3: super::UINT64,
+    pub Cr4: super::UINT64,
+    pub MsrCrPat: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_INITIAL_VP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -615,26 +807,29 @@ impl Default for WHV_INITIAL_VP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_INITIAL_VP_CONTEXT {
-    pub Pc: u64,
-    pub Sp_ELh: u64,
-    pub SCTLR_EL1: u64,
-    pub MAIR_EL1: u64,
-    pub TCR_EL1: u64,
-    pub VBAR_EL1: u64,
-    pub TTBR0_EL1: u64,
-    pub TTBR1_EL1: u64,
-    pub X18: u64,
+    pub Pc: super::UINT64,
+    pub Sp_ELh: super::UINT64,
+    pub SCTLR_EL1: super::UINT64,
+    pub MAIR_EL1: super::UINT64,
+    pub TCR_EL1: super::UINT64,
+    pub VBAR_EL1: super::UINT64,
+    pub TTBR0_EL1: super::UINT64,
+    pub TTBR1_EL1: super::UINT64,
+    pub X18: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_INPUT_VTL {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_INPUT_VTL_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_INPUT_VTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -642,22 +837,25 @@ impl Default for WHV_INPUT_VTL {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_INPUT_VTL_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_INTERCEPT_MESSAGE_HEADER {
-    pub VpIndex: u32,
-    pub InstructionLength: u8,
-    pub InterceptAccessType: u8,
+    pub VpIndex: super::UINT32,
+    pub InstructionLength: super::UINT8,
+    pub InterceptAccessType: super::UINT8,
     pub ExecutionState: WHV_VP_EXECUTION_STATE,
-    pub Pc: u64,
-    pub Cpsr: u64,
+    pub Pc: super::UINT64,
+    pub Cpsr: super::UINT64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERCEPT_MESSAGE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -665,12 +863,14 @@ impl Default for WHV_INTERCEPT_MESSAGE_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_INTERNAL_ACTIVITY_REGISTER {
     pub Anonymous: WHV_INTERNAL_ACTIVITY_REGISTER_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -678,31 +878,35 @@ impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_INTERRUPT_CONTROL {
     pub _bitfield: u64,
-    pub Destination: u32,
-    pub Vector: u32,
+    pub Destination: super::UINT32,
+    pub Vector: super::UINT32,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_INTERRUPT_CONTROL {
-    pub TargetPartition: u64,
+    pub TargetPartition: super::UINT64,
     pub InterruptControl: WHV_INTERRUPT_CONTROL2,
-    pub DestinationAddress: u64,
-    pub RequestedVector: u32,
-    pub TargetVtl: u8,
-    pub ReservedZ0: u8,
-    pub ReservedZ1: u16,
+    pub DestinationAddress: super::UINT64,
+    pub RequestedVector: super::UINT32,
+    pub TargetVtl: super::UINT8,
+    pub ReservedZ0: super::UINT8,
+    pub ReservedZ1: super::UINT16,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERRUPT_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -710,12 +914,14 @@ impl Default for WHV_INTERRUPT_CONTROL {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_INTERRUPT_CONTROL2 {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_INTERRUPT_CONTROL2_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_INTERRUPT_CONTROL2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -723,6 +929,7 @@ impl Default for WHV_INTERRUPT_CONTROL2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_INTERRUPT_CONTROL2_0 {
     pub InterruptType: WHV_INTERRUPT_TYPE,
@@ -738,27 +945,30 @@ pub type WHV_INTERRUPT_TYPE = i32;
 pub type WHV_INTERRUPT_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_INVALID_VP_REGISTER_CONTEXT {
-    pub VpIndex: u32,
-    pub Reserved: u32,
+    pub VpIndex: super::UINT32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_MAP_GPA_RANGE_FLAGS = u32;
+pub type WHV_MAP_GPA_RANGE_FLAGS = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: i32 = 200;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
-    pub InstructionByteCount: u8,
-    pub Reserved: [u8; 3],
-    pub InstructionBytes: [u8; 16],
+    pub InstructionByteCount: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub InstructionBytes: [super::UINT8; 16],
     pub AccessInfo: WHV_MEMORY_ACCESS_INFO,
     pub Gpa: WHV_GUEST_PHYSICAL_ADDRESS,
     pub Gva: WHV_GUEST_VIRTUAL_ADDRESS,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -766,20 +976,22 @@ impl Default for WHV_MEMORY_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
-    pub Reserved0: u32,
-    pub InstructionByteCount: u8,
+    pub Reserved0: super::UINT32,
+    pub InstructionByteCount: super::UINT8,
     pub AccessInfo: WHV_MEMORY_ACCESS_INFO,
-    pub Reserved1: u16,
-    pub InstructionBytes: [u8; 4],
-    pub Reserved2: u32,
-    pub Gva: u64,
-    pub Gpa: u64,
-    pub Syndrome: u64,
+    pub Reserved1: super::UINT16,
+    pub InstructionBytes: [super::UINT8; 4],
+    pub Reserved2: super::UINT32,
+    pub Gva: super::UINT64,
+    pub Gpa: super::UINT64,
+    pub Syndrome: super::UINT64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -787,12 +999,14 @@ impl Default for WHV_MEMORY_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_MEMORY_ACCESS_INFO {
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -800,18 +1014,21 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_MEMORY_ACCESS_INFO {
-    pub AsUINT8: u8,
+    pub AsUINT8: super::UINT8,
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_MEMORY_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -819,6 +1036,7 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u8,
@@ -827,30 +1045,34 @@ pub struct WHV_MEMORY_ACCESS_INFO_0 {
 pub type WHV_MEMORY_ACCESS_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_MEMORY_RANGE_ENTRY {
-    pub GuestAddress: u64,
-    pub SizeInBytes: u64,
+    pub GuestAddress: super::UINT64,
+    pub SizeInBytes: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_MSR_ACTION = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_MSR_ACTION_ENTRY {
-    pub Index: u32,
-    pub ReadAction: u8,
-    pub WriteAction: u8,
-    pub Reserved: u16,
+    pub Index: super::UINT32,
+    pub ReadAction: super::UINT8,
+    pub WriteAction: super::UINT8,
+    pub Reserved: super::UINT16,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL {
     pub Features: WHV_NESTED_ENLIGHTENMENTS_CONTROL_0,
     pub HypercallControls: WHV_NESTED_ENLIGHTENMENTS_CONTROL_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -858,12 +1080,14 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -871,18 +1095,21 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -890,6 +1117,7 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0 {
     pub _bitfield: u32,
@@ -900,15 +1128,17 @@ pub type WHV_NESTED_STATE_TYPE = i32;
 pub type WHV_NOTIFICATION_PORT_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS {
     pub NotificationPortType: WHV_NOTIFICATION_PORT_TYPE,
-    pub Reserved: u16,
-    pub Reserved1: u8,
-    pub ConnectionVtl: u8,
+    pub Reserved: super::UINT16,
+    pub Reserved1: super::UINT8,
+    pub ConnectionVtl: super::UINT8,
     pub Anonymous: WHV_NOTIFICATION_PORT_PARAMETERS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NOTIFICATION_PORT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -916,12 +1146,14 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     pub Doorbell: WHV_DOORBELL_MATCH_DATA,
     pub Event: WHV_NOTIFICATION_PORT_PARAMETERS_0_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -929,9 +1161,10 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
-    pub ConnectionId: u32,
+    pub ConnectionId: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX: u64 = 18446744073709551615;
@@ -947,42 +1180,44 @@ pub type WHV_PARTITION_COUNTER_SET = i32;
 pub type WHV_PARTITION_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {
-    pub Mapped4KPageCount: u64,
-    pub Mapped2MPageCount: u64,
-    pub Mapped1GPageCount: u64,
+    pub Mapped4KPageCount: super::UINT64,
+    pub Mapped2MPageCount: super::UINT64,
+    pub Mapped1GPageCount: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PARTITION_PROPERTY {
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorCount: u32,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorCount: super::UINT32,
     pub SeparateSecurityDomain: windows_sys::core::BOOL,
     pub NestedVirtualization: windows_sys::core::BOOL,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
-    pub ReferenceTime: u64,
-    pub PrimaryNumaNode: u16,
-    pub CpuReserve: u32,
-    pub CpuCap: u32,
-    pub CpuWeight: u32,
-    pub CpuGroupId: u64,
-    pub ProcessorFrequencyCap: u32,
+    pub ReferenceTime: super::UINT64,
+    pub PrimaryNumaNode: super::USHORT,
+    pub CpuReserve: super::UINT32,
+    pub CpuCap: super::UINT32,
+    pub CpuWeight: super::UINT32,
+    pub CpuGroupId: super::UINT64,
+    pub ProcessorFrequencyCap: super::UINT32,
     pub AllowDeviceAssignment: windows_sys::core::BOOL,
     pub DisableSmt: windows_sys::core::BOOL,
-    pub PhysicalAddressWidth: u32,
+    pub PhysicalAddressWidth: super::UINT32,
     pub ProcessorXsaveFeatures: WHV_PROCESSOR_XSAVE_FEATURES,
-    pub CpuidExitList: [u32; 1],
-    pub ExceptionExitBitmap: u64,
+    pub CpuidExitList: [super::UINT32; 1],
+    pub ExceptionExitBitmap: super::UINT64,
     pub ApicRemoteRead: windows_sys::core::BOOL,
     pub X64MsrExitBitmap: WHV_X64_MSR_EXIT_BITMAP,
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
-    pub InterruptClockFrequency: u64,
+    pub InterruptClockFrequency: super::UINT64,
     pub CpuidResultList: [WHV_X64_CPUID_RESULT; 1],
     pub CpuidResultList2: [WHV_X64_CPUID_RESULT2; 1],
     pub MsrActionList: [WHV_MSR_ACTION_ENTRY; 1],
@@ -990,6 +1225,7 @@ pub union WHV_PARTITION_PROPERTY {
     pub LocalApicEmulationMode: WHV_X64_LOCAL_APIC_EMULATION_MODE,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PARTITION_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -997,30 +1233,32 @@ impl Default for WHV_PARTITION_PROPERTY {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PARTITION_PROPERTY {
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
     pub SyntheticProcessorFeaturesBanks: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS,
-    pub ProcessorClFlushSize: u8,
-    pub ProcessorCount: u32,
+    pub ProcessorClFlushSize: super::UINT8,
+    pub ProcessorCount: super::UINT32,
     pub SeparateSecurityDomain: windows_sys::core::BOOL,
     pub NestedVirtualization: windows_sys::core::BOOL,
-    pub ProcessorClockFrequency: u64,
+    pub ProcessorClockFrequency: super::UINT64,
     pub ProcessorFeaturesBanks: WHV_PROCESSOR_FEATURES_BANKS,
-    pub ReferenceTime: u64,
-    pub PrimaryNumaNode: u16,
-    pub CpuReserve: u32,
-    pub CpuCap: u32,
-    pub CpuWeight: u32,
-    pub CpuGroupId: u64,
-    pub ProcessorFrequencyCap: u32,
+    pub ReferenceTime: super::UINT64,
+    pub PrimaryNumaNode: super::USHORT,
+    pub CpuReserve: super::UINT32,
+    pub CpuCap: super::UINT32,
+    pub CpuWeight: super::UINT32,
+    pub CpuGroupId: super::UINT64,
+    pub ProcessorFrequencyCap: super::UINT32,
     pub AllowDeviceAssignment: windows_sys::core::BOOL,
     pub DisableSmt: windows_sys::core::BOOL,
-    pub PhysicalAddressWidth: u32,
+    pub PhysicalAddressWidth: super::UINT32,
     pub Arm64IcParameters: WHV_ARM64_IC_PARAMETERS,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_PARTITION_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1032,6 +1270,7 @@ pub type WHV_PARTITION_PROPERTY_CODE = i32;
 pub type WHV_PARTITION_PROPERTY_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub PageInvalidations: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -1051,6 +1290,7 @@ pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub OtherIntercepts: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -1060,6 +1300,7 @@ pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub Reserved: [WHV_PROCESSOR_INTERCEPT_COUNTER; 10],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_ACTIVITY_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1067,65 +1308,42 @@ impl Default for WHV_PROCESSOR_ACTIVITY_COUNTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
-    pub MmioAccessCount: u64,
-    pub EoiAccessCount: u64,
-    pub TprAccessCount: u64,
-    pub SentIpiCount: u64,
-    pub SelfIpiCount: u64,
+    pub MmioAccessCount: super::UINT64,
+    pub EoiAccessCount: super::UINT64,
+    pub TprAccessCount: super::UINT64,
+    pub SentIpiCount: super::UINT64,
+    pub SelfIpiCount: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_PROCESSOR_COUNTER_SET = i32;
 #[cfg(target_arch = "aarch64")]
 pub type WHV_PROCESSOR_COUNTER_SET = i32;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES = WHV_X64_PROCESSOR_FEATURES;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES = WHV_ARM64_PROCESSOR_FEATURES;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES1 = WHV_X64_PROCESSOR_FEATURES1;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+pub type WHV_PROCESSOR_FEATURES1 = WHV_ARM64_PROCESSOR_FEATURES1;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union WHV_PROCESSOR_FEATURES {
-    pub Anonymous: WHV_PROCESSOR_FEATURES_0,
-    pub AsUINT64: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_PROCESSOR_FEATURES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
-pub struct WHV_PROCESSOR_FEATURES_0 {
-    pub _bitfield: u64,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union WHV_PROCESSOR_FEATURES1 {
-    pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
-    pub AsUINT64: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_PROCESSOR_FEATURES1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
-pub struct WHV_PROCESSOR_FEATURES1_0 {
-    pub _bitfield: u64,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_PROCESSOR_FEATURES_BANKS {
-    pub BanksCount: u32,
-    pub Reserved0: u32,
+    pub BanksCount: super::UINT32,
+    pub Reserved0: super::UINT32,
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1133,12 +1351,14 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0_0,
-    pub AsUINT64: [u64; 2],
+    pub AsUINT64: [super::UINT64; 2],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1146,12 +1366,14 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_PROCESSOR_FEATURES,
     pub Bank1: WHV_PROCESSOR_FEATURES1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1161,27 +1383,31 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
 pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 2;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_GUEST_EVENT_COUNTERS {
-    pub PageFaultCount: u64,
-    pub ExceptionCount: u64,
-    pub InterruptCount: u64,
+    pub PageFaultCount: super::UINT64,
+    pub ExceptionCount: super::UINT64,
+    pub InterruptCount: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTER {
-    pub Count: u64,
-    pub Time100ns: u64,
+    pub Count: super::UINT64,
+    pub Time100ns: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_PERFMON_FEATURES {
     pub Anonymous: WHV_PROCESSOR_PERFMON_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1189,38 +1415,43 @@ impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_PERFMON_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_RUNTIME_COUNTERS {
-    pub TotalRuntime100ns: u64,
-    pub HypervisorRuntime100ns: u64,
+    pub TotalRuntime100ns: super::UINT64,
+    pub HypervisorRuntime100ns: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
-    pub SyntheticInterruptsCount: u64,
-    pub LongSpinWaitHypercallsCount: u64,
-    pub OtherHypercallsCount: u64,
-    pub SyntheticInterruptHypercallsCount: u64,
-    pub VirtualInterruptHypercallsCount: u64,
-    pub VirtualMmuHypercallsCount: u64,
+    pub SyntheticInterruptsCount: super::UINT64,
+    pub LongSpinWaitHypercallsCount: super::UINT64,
+    pub OtherHypercallsCount: super::UINT64,
+    pub SyntheticInterruptHypercallsCount: super::UINT64,
+    pub VirtualInterruptHypercallsCount: super::UINT64,
+    pub VirtualMmuHypercallsCount: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_PROCESSOR_VENDOR = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_XSAVE_FEATURES {
     pub Anonymous: WHV_PROCESSOR_XSAVE_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1228,6 +1459,7 @@ impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
@@ -1236,12 +1468,14 @@ pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
 pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: i32 = 16;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_REGISTER_ACCESS_INFO {
     pub SourceValue: WHV_REGISTER_VALUE,
     pub DestinationRegister: WHV_REGISTER_NAME,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1249,16 +1483,18 @@ impl Default for WHV_REGISTER_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_REGISTER_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
     pub Anonymous: WHV_REGISTER_CONTEXT_0,
-    pub Reserved8: u8,
-    pub Reserved16: u16,
+    pub Reserved8: super::UINT8,
+    pub Reserved16: super::UINT16,
     pub RegisterName: WHV_REGISTER_NAME,
     pub AccessInfo: WHV_REGISTER_ACCESS_INFO,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1266,6 +1502,7 @@ impl Default for WHV_REGISTER_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_REGISTER_CONTEXT_0 {
     pub _bitfield: u8,
@@ -1276,15 +1513,16 @@ pub type WHV_REGISTER_NAME = i32;
 pub type WHV_REGISTER_NAME = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_REGISTER_VALUE {
     pub Reg128: WHV_UINT128,
-    pub Reg64: u64,
-    pub Reg32: u32,
-    pub Reg16: u16,
-    pub Reg8: u8,
+    pub Reg64: super::UINT64,
+    pub Reg32: super::UINT32,
+    pub Reg16: super::UINT16,
+    pub Reg8: super::UINT8,
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-    pub DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+    pub DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
     pub Fp: WHV_X64_FP_REGISTER,
     pub FpControlStatus: WHV_X64_FP_CONTROL_STATUS_REGISTER,
     pub XmmControlStatus: WHV_X64_XMM_CONTROL_STATUS_REGISTER,
@@ -1308,6 +1546,7 @@ pub union WHV_REGISTER_VALUE {
     pub VmxNestedExit3: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1315,17 +1554,19 @@ impl Default for WHV_REGISTER_VALUE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_REGISTER_VALUE {
     pub Reg128: WHV_UINT128,
-    pub Reg64: u64,
-    pub Reg32: u32,
-    pub Reg16: u16,
-    pub Reg8: u8,
+    pub Reg64: super::UINT64,
+    pub Reg32: super::UINT32,
+    pub Reg16: super::UINT16,
+    pub Reg8: super::UINT8,
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-    pub DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+    pub DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_REGISTER_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1341,14 +1582,16 @@ pub struct WHV_RUN_VP_CANCELED_CONTEXT {
 pub type WHV_RUN_VP_CANCEL_REASON = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub ExitReason: WHV_RUN_VP_EXIT_REASON,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub VpContext: WHV_VP_EXIT_CONTEXT,
     pub Anonymous: WHV_RUN_VP_EXIT_CONTEXT_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1356,6 +1599,7 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub MemoryAccess: WHV_MEMORY_ACCESS_CONTEXT,
@@ -1373,9 +1617,10 @@ pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub ApicSmi: WHV_X64_APIC_SMI_CONTEXT,
     pub ApicInitSipi: WHV_X64_APIC_INIT_SIPI_CONTEXT,
     pub ApicWrite: WHV_X64_APIC_WRITE_CONTEXT,
-    pub AsUINT64: [u64; 22],
+    pub AsUINT64: [super::UINT64; 22],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1383,14 +1628,16 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub ExitReason: WHV_RUN_VP_EXIT_REASON,
-    pub Reserved: u32,
-    pub Reserved1: u64,
+    pub Reserved: super::UINT32,
+    pub Reserved1: super::UINT64,
     pub Anonymous: WHV_RUN_VP_EXIT_CONTEXT_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1398,6 +1645,7 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub MemoryAccess: WHV_MEMORY_ACCESS_CONTEXT,
@@ -1408,9 +1656,10 @@ pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub InvalidVpRegister: WHV_INVALID_VP_REGISTER_CONTEXT,
     pub Register: WHV_REGISTER_CONTEXT,
     pub Arm64Reset: WHV_ARM64_RESET_CONTEXT,
-    pub AsUINT64: [u64; 32],
+    pub AsUINT64: [super::UINT64; 32],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1422,12 +1671,14 @@ pub type WHV_RUN_VP_EXIT_REASON = i32;
 pub type WHV_RUN_VP_EXIT_REASON = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_SCHEDULER_FEATURES {
     pub Anonymous: WHV_SCHEDULER_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SCHEDULER_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1435,22 +1686,23 @@ impl Default for WHV_SCHEDULER_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_SCHEDULER_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
-    pub PnpInstanceId: [u16; 200],
+    pub PnpInstanceId: [super::WCHAR; 200],
     pub VirtualFunctionId: super::LUID,
-    pub VirtualFunctionIndex: u16,
-    pub Reserved: u16,
+    pub VirtualFunctionIndex: super::UINT16,
+    pub Reserved: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1458,26 +1710,28 @@ impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SVM_NESTED_HOST_STATE {
-    pub Rip: u64,
-    pub Rsp: u64,
-    pub Rflags: u64,
-    pub Rax: u64,
+    pub Rip: super::UINT64,
+    pub Rsp: super::UINT64,
+    pub Rflags: super::UINT64,
+    pub Rax: super::UINT64,
     pub Es: WHV_SVM_VMCB_SELECTOR,
     pub Cs: WHV_SVM_VMCB_SELECTOR,
     pub Ss: WHV_SVM_VMCB_SELECTOR,
     pub Ds: WHV_SVM_VMCB_SELECTOR,
     pub Gdtr: WHV_SVM_VMCB_SELECTOR,
     pub Idtr: WHV_SVM_VMCB_SELECTOR,
-    pub Efer: u64,
-    pub Cr0: u64,
-    pub Cr3: u64,
-    pub Cr4: u64,
-    pub VirtualTpr: u64,
-    pub Reserved: [u64; 6],
+    pub Efer: super::UINT64,
+    pub Cr0: super::UINT64,
+    pub Cr3: super::UINT64,
+    pub Cr4: super::UINT64,
+    pub VirtualTpr: super::UINT64,
+    pub Reserved: [super::UINT64; 6],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SVM_NESTED_HOST_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1485,75 +1739,107 @@ impl Default for WHV_SVM_NESTED_HOST_STATE {
 }
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_SVM_VMCB_SELECTOR {
-    pub Selector: u16,
-    pub Attrib: u16,
-    pub Limit: u32,
-    pub Base: u64,
+    pub Selector: super::UINT16,
+    pub Attrib: super::UINT16,
+    pub Limit: super::UINT32,
+    pub Base: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_SYNIC_EVENT_PARAMETERS {
-    pub VpIndex: u32,
-    pub TargetSint: u8,
+    pub VpIndex: super::UINT32,
+    pub TargetSint: super::UINT8,
     pub TargetVtl: WHV_VTL,
-    pub FlagNumber: u16,
+    pub FlagNumber: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_SYNIC_MESSAGE_SIZE: i32 = 256;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
-    pub DeliverableSints: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
+    pub DeliverableSints: super::UINT16,
+    pub Reserved1: super::UINT16,
+    pub Reserved2: super::UINT32,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
-    pub DeliverableSints: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
+    pub DeliverableSints: super::UINT16,
+    pub Reserved1: super::UINT16,
+    pub Reserved2: super::UINT32,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
-    pub BanksCount: u32,
-    pub Reserved0: u32,
+    pub BanksCount: super::UINT32,
+    pub Reserved0: super::UINT32,
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1561,12 +1847,14 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0,
-    pub AsUINT64: [u64; 1],
+    pub AsUINT64: [super::UINT64; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1574,11 +1862,13 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_SYNTHETIC_PROCESSOR_FEATURES,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1589,34 +1879,60 @@ pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 1;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_RESERVED_BITFIELD_COUNT: i32 = 17;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_TRANSLATE_GVA_2_FLAGS {
     pub Anonymous: WHV_TRANSLATE_GVA_2_FLAGS_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRANSLATE_GVA_2_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_TRANSLATE_GVA_2_FLAGS_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_TRANSLATE_GVA_2_FLAGS {
+    pub Anonymous: WHV_TRANSLATE_GVA_2_FLAGS_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+impl Default for WHV_TRANSLATE_GVA_2_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_TRANSLATE_GVA_2_FLAGS_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_TRANSLATE_GVA_FLAGS = u32;
+pub type WHV_TRANSLATE_GVA_FLAGS = i32;
 #[cfg(target_arch = "aarch64")]
-pub type WHV_TRANSLATE_GVA_FLAGS = u32;
+pub type WHV_TRANSLATE_GVA_FLAGS = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_TRANSLATE_GVA_RESULT {
     pub ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_TRANSLATE_GVA_RESULT_CODE = i32;
@@ -1624,13 +1940,15 @@ pub type WHV_TRANSLATE_GVA_RESULT_CODE = i32;
 pub type WHV_TRIGGER_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_TRIGGER_PARAMETERS {
     pub TriggerType: WHV_TRIGGER_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_TRIGGER_PARAMETERS_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1638,6 +1956,7 @@ impl Default for WHV_TRIGGER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_TRIGGER_PARAMETERS_0 {
     pub Interrupt: WHV_INTERRUPT_CONTROL,
@@ -1645,6 +1964,7 @@ pub union WHV_TRIGGER_PARAMETERS_0 {
     pub DeviceInterrupt: WHV_TRIGGER_PARAMETERS_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1652,22 +1972,25 @@ impl Default for WHV_TRIGGER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
-    pub LogicalDeviceId: u64,
-    pub MsiAddress: u64,
-    pub MsiData: u32,
-    pub Reserved: u32,
+    pub LogicalDeviceId: super::UINT64,
+    pub MsiAddress: super::UINT64,
+    pub MsiData: super::UINT32,
+    pub Reserved: super::UINT32,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_TRIGGER_PARAMETERS {
     pub TriggerType: WHV_TRIGGER_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_TRIGGER_PARAMETERS_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1675,12 +1998,14 @@ impl Default for WHV_TRIGGER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_TRIGGER_PARAMETERS_0 {
     pub SynicEvent: WHV_SYNIC_EVENT_PARAMETERS,
     pub DeviceInterrupt: WHV_TRIGGER_PARAMETERS_0_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_TRIGGER_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1688,12 +2013,13 @@ impl Default for WHV_TRIGGER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
-    pub LogicalDeviceId: u64,
-    pub MsiAddress: u64,
-    pub MsiData: u32,
-    pub Reserved: u32,
+    pub LogicalDeviceId: super::UINT64,
+    pub MsiAddress: super::UINT64,
+    pub MsiData: super::UINT32,
+    pub Reserved: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_TRIGGER_TYPE = i32;
@@ -1701,12 +2027,14 @@ pub type WHV_TRIGGER_TYPE = i32;
 pub type WHV_TRIGGER_TYPE = i32;
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_UINT128 {
     pub Anonymous: WHV_UINT128_0,
-    pub Dword: [u32; 4],
+    pub Dword: [super::UINT32; 4],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_UINT128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1714,18 +2042,21 @@ impl Default for WHV_UINT128 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_UINT128_0 {
-    pub Low64: u64,
-    pub High64: u64,
+    pub Low64: super::UINT64,
+    pub High64: super::UINT64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_UNRECOVERABLE_EXCEPTION_CONTEXT {
     pub Header: WHV_INTERCEPT_MESSAGE_HEADER,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_UNRECOVERABLE_EXCEPTION_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1733,13 +2064,15 @@ impl Default for WHV_UNRECOVERABLE_EXCEPTION_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY {
     pub PropertyCode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
     pub Anonymous: WHV_VIRTUAL_PROCESSOR_PROPERTY_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1747,12 +2080,14 @@ impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
-    pub NumaNode: u16,
-    pub Padding: u64,
+    pub NumaNode: super::USHORT,
+    pub Padding: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1770,13 +2105,15 @@ pub const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_ANY_VP: u32 = 1073741824;
 pub const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_PFN: u32 = 2147483648;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION {
     pub NotificationType: WHV_VPCI_DEVICE_NOTIFICATION_TYPE,
-    pub Reserved1: u32,
+    pub Reserved1: super::UINT32,
     pub Anonymous: WHV_VPCI_DEVICE_NOTIFICATION_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_DEVICE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1784,11 +2121,13 @@ impl Default for WHV_VPCI_DEVICE_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VPCI_DEVICE_NOTIFICATION_0 {
-    pub Reserved2: u64,
+    pub Reserved2: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1800,63 +2139,70 @@ pub type WHV_VPCI_DEVICE_NOTIFICATION_TYPE = i32;
 pub type WHV_VPCI_DEVICE_PROPERTY_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_VPCI_DEVICE_REGISTER {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
-    pub SizeInBytes: u32,
-    pub OffsetInBytes: u64,
+    pub SizeInBytes: super::UINT32,
+    pub OffsetInBytes: super::UINT64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_VPCI_DEVICE_REGISTER_SPACE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_VPCI_HARDWARE_IDS {
-    pub VendorID: u16,
-    pub DeviceID: u16,
-    pub RevisionID: u8,
-    pub ProgIf: u8,
-    pub SubClass: u8,
-    pub BaseClass: u8,
-    pub SubVendorID: u16,
-    pub SubSystemID: u16,
+    pub VendorID: super::UINT16,
+    pub DeviceID: super::UINT16,
+    pub RevisionID: super::UINT8,
+    pub ProgIf: super::UINT8,
+    pub SubClass: super::UINT8,
+    pub BaseClass: super::UINT8,
+    pub SubVendorID: super::UINT16,
+    pub SubSystemID: super::UINT16,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VPCI_INTERRUPT_TARGET {
-    pub Vector: u32,
+    pub Vector: super::UINT32,
     pub Flags: WHV_VPCI_INTERRUPT_TARGET_FLAGS,
-    pub ProcessorCount: u32,
-    pub Processors: [u32; 1],
+    pub ProcessorCount: super::UINT32,
+    pub Processors: [super::UINT32; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_INTERRUPT_TARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_VPCI_INTERRUPT_TARGET_FLAGS = u32;
+pub type WHV_VPCI_INTERRUPT_TARGET_FLAGS = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_VPCI_MMIO_MAPPING {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub Flags: WHV_VPCI_MMIO_RANGE_FLAGS,
-    pub SizeInBytes: u64,
-    pub OffsetInBytes: u64,
-    pub VirtualAddress: *mut core::ffi::c_void,
+    pub SizeInBytes: super::UINT64,
+    pub OffsetInBytes: super::UINT64,
+    pub VirtualAddress: super::PVOID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_VPCI_MMIO_RANGE_FLAGS = u32;
+pub type WHV_VPCI_MMIO_RANGE_FLAGS = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VPCI_PROBED_BARS {
-    pub Value: [u32; 6],
+    pub Value: [super::UINT32; 6],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VPCI_PROBED_BARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1866,18 +2212,20 @@ impl Default for WHV_VPCI_PROBED_BARS {
 pub const WHV_VPCI_TYPE0_BAR_COUNT: i32 = 6;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VP_EXCEPTION_CONTEXT {
-    pub InstructionByteCount: u8,
-    pub Reserved: [u8; 3],
-    pub InstructionBytes: [u8; 16],
+    pub InstructionByteCount: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub InstructionBytes: [super::UINT8; 16],
     pub ExceptionInfo: WHV_VP_EXCEPTION_INFO,
-    pub ExceptionType: u8,
-    pub Reserved2: [u8; 3],
-    pub ErrorCode: u32,
-    pub ExceptionParameter: u64,
+    pub ExceptionType: super::UINT8,
+    pub Reserved2: [super::UINT8; 3],
+    pub ErrorCode: super::UINT32,
+    pub ExceptionParameter: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VP_EXCEPTION_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1885,12 +2233,14 @@ impl Default for WHV_VP_EXCEPTION_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VP_EXCEPTION_INFO {
     pub Anonymous: WHV_VP_EXCEPTION_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VP_EXCEPTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1898,18 +2248,21 @@ impl Default for WHV_VP_EXCEPTION_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_VP_EXCEPTION_INFO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VP_EXECUTION_STATE {
-    pub AsUINT16: u16,
+    pub AsUINT16: super::UINT16,
     pub Anonymous: WHV_VP_EXECUTION_STATE_0,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for WHV_VP_EXECUTION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1917,40 +2270,28 @@ impl Default for WHV_VP_EXECUTION_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct WHV_VP_EXIT_CONTEXT {
-    pub ExecutionState: WHV_X64_VP_EXECUTION_STATE,
-    pub _bitfield: u8,
-    pub Reserved: u8,
-    pub Reserved2: u32,
-    pub Cs: WHV_X64_SEGMENT_REGISTER,
-    pub Rip: u64,
-    pub Rflags: u64,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_VP_EXIT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type WHV_VP_EXIT_CONTEXT = WHV_X64_VP_EXIT_CONTEXT;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_VTL = u8;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_VTL_ALL: i32 = 15;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_VTL_PERMISSION_SET {
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
     pub Anonymous: WHV_VTL_PERMISSION_SET_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VTL_PERMISSION_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1958,11 +2299,13 @@ impl Default for WHV_VTL_PERMISSION_SET {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_VTL_PERMISSION_SET_0 {
-    pub VtlPermissionFrom1: [u16; 2],
+    pub VtlPermissionFrom1: [super::UINT16; 2],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_VTL_PERMISSION_SET_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1970,57 +2313,64 @@ impl Default for WHV_VTL_PERMISSION_SET_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_EOI_CONTEXT {
-    pub InterruptVector: u32,
+    pub InterruptVector: super::UINT32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_INIT_SIPI_CONTEXT {
-    pub ApicIcr: u64,
+    pub ApicIcr: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_SMI_CONTEXT {
-    pub ApicIcr: u64,
+    pub ApicIcr: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_WRITE_CONTEXT {
     pub Type: WHV_X64_APIC_WRITE_TYPE,
-    pub Reserved: u32,
-    pub WriteValue: u64,
+    pub Reserved: super::UINT32,
+    pub WriteValue: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_APIC_WRITE_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
-    pub Rax: u64,
-    pub Rcx: u64,
-    pub Rdx: u64,
-    pub Rbx: u64,
-    pub DefaultResultRax: u64,
-    pub DefaultResultRcx: u64,
-    pub DefaultResultRdx: u64,
-    pub DefaultResultRbx: u64,
+    pub Rax: super::UINT64,
+    pub Rcx: super::UINT64,
+    pub Rdx: super::UINT64,
+    pub Rbx: super::UINT64,
+    pub DefaultResultRax: super::UINT64,
+    pub DefaultResultRcx: super::UINT64,
+    pub DefaultResultRdx: super::UINT64,
+    pub DefaultResultRbx: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_CPUID_RESULT {
-    pub Function: u32,
-    pub Reserved: [u32; 3],
-    pub Eax: u32,
-    pub Ebx: u32,
-    pub Ecx: u32,
-    pub Edx: u32,
+    pub Function: super::UINT32,
+    pub Reserved: [super::UINT32; 3],
+    pub Eax: super::UINT32,
+    pub Ebx: super::UINT32,
+    pub Ecx: super::UINT32,
+    pub Edx: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_CPUID_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2028,44 +2378,31 @@ impl Default for WHV_X64_CPUID_RESULT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_CPUID_RESULT2 {
-    pub Function: u32,
-    pub Index: u32,
-    pub VpIndex: u32,
+    pub Function: super::UINT32,
+    pub Index: super::UINT32,
+    pub VpIndex: super::UINT32,
     pub Flags: WHV_X64_CPUID_RESULT2_FLAGS,
     pub Output: WHV_CPUID_OUTPUT,
     pub Mask: WHV_CPUID_OUTPUT,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_X64_CPUID_RESULT2_FLAGS = u32;
-#[repr(C)]
+pub type WHV_X64_CPUID_RESULT2_FLAGS = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    pub Anonymous: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
-    pub AsUINT64: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
-pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    pub _bitfield: u64,
-}
+#[cfg(feature = "shared")]
+pub type WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER = WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2073,16 +2410,18 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
-    pub FpControl: u16,
-    pub FpStatus: u16,
-    pub FpTag: u8,
-    pub Reserved: u8,
-    pub LastFpOp: u16,
+    pub FpControl: super::UINT16,
+    pub FpStatus: super::UINT16,
+    pub FpTag: super::UINT8,
+    pub Reserved: super::UINT8,
+    pub LastFpOp: super::UINT16,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2090,12 +2429,14 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
-    pub LastFpRip: u64,
+    pub LastFpRip: super::UINT64,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2103,20 +2444,23 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
-    pub LastFpEip: u32,
-    pub LastFpCs: u16,
-    pub Reserved2: u16,
+    pub LastFpEip: super::UINT32,
+    pub LastFpCs: super::UINT16,
+    pub Reserved2: super::UINT16,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_FP_REGISTER {
     pub Anonymous: WHV_X64_FP_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_FP_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2124,10 +2468,34 @@ impl Default for WHV_X64_FP_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_FP_REGISTER_0 {
-    pub Mantissa: u64,
+    pub Mantissa: super::UINT64,
     pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct WHV_X64_HYPERCALL_CONTEXT {
+    pub Rax: super::UINT64,
+    pub Rbx: super::UINT64,
+    pub Rcx: super::UINT64,
+    pub Rdx: super::UINT64,
+    pub R8: super::UINT64,
+    pub Rsi: super::UINT64,
+    pub Rdi: super::UINT64,
+    pub Reserved0: super::UINT64,
+    pub XmmRegisters: [WHV_UINT128; 6],
+    pub Reserved1: [super::UINT64; 2],
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_HYPERCALL_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2137,12 +2505,14 @@ pub struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_INTERRUPT_STATE_REGISTER {
     pub Anonymous: WHV_X64_INTERRUPT_STATE_REGISTER_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2150,28 +2520,31 @@ impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT {
-    pub InstructionByteCount: u8,
-    pub Reserved: [u8; 3],
-    pub InstructionBytes: [u8; 16],
+    pub InstructionByteCount: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub InstructionBytes: [super::UINT8; 16],
     pub AccessInfo: WHV_X64_IO_PORT_ACCESS_INFO,
-    pub PortNumber: u16,
-    pub Reserved2: [u16; 3],
-    pub Rax: u64,
-    pub Rcx: u64,
-    pub Rsi: u64,
-    pub Rdi: u64,
+    pub PortNumber: super::UINT16,
+    pub Reserved2: [super::UINT16; 3],
+    pub Rax: super::UINT64,
+    pub Rcx: super::UINT64,
+    pub Rsi: super::UINT64,
+    pub Rdi: super::UINT64,
     pub Ds: WHV_X64_SEGMENT_REGISTER,
     pub Es: WHV_X64_SEGMENT_REGISTER,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2179,12 +2552,14 @@ impl Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_IO_PORT_ACCESS_INFO {
     pub Anonymous: WHV_X64_IO_PORT_ACCESS_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_IO_PORT_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2192,6 +2567,7 @@ impl Default for WHV_X64_IO_PORT_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
     pub _bitfield: u32,
@@ -2200,14 +2576,16 @@ pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
 pub type WHV_X64_LOCAL_APIC_EMULATION_MODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_MSR_ACCESS_CONTEXT {
     pub AccessInfo: WHV_X64_MSR_ACCESS_INFO,
-    pub MsrNumber: u32,
-    pub Rax: u64,
-    pub Rdx: u64,
+    pub MsrNumber: super::UINT32,
+    pub Rax: super::UINT64,
+    pub Rdx: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_MSR_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2215,12 +2593,14 @@ impl Default for WHV_X64_MSR_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_MSR_ACCESS_INFO {
     pub Anonymous: WHV_X64_MSR_ACCESS_INFO_0,
-    pub AsUINT32: u32,
+    pub AsUINT32: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_MSR_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2228,18 +2608,21 @@ impl Default for WHV_X64_MSR_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_MSR_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_MSR_EXIT_BITMAP {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_X64_MSR_EXIT_BITMAP_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_MSR_EXIT_BITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2247,18 +2630,21 @@ impl Default for WHV_X64_MSR_EXIT_BITMAP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_MSR_EXIT_BITMAP_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_GUEST_STATE {
     pub Anonymous: WHV_X64_NESTED_GUEST_STATE_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_GUEST_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2266,19 +2652,22 @@ impl Default for WHV_X64_NESTED_GUEST_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_NESTED_GUEST_STATE_0 {
     pub _bitfield: u64,
-    pub Reserved1: u64,
+    pub Reserved1: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_INVEPT_REGISTER {
     pub Anonymous: WHV_X64_NESTED_INVEPT_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVEPT_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2286,13 +2675,15 @@ impl Default for WHV_X64_NESTED_INVEPT_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_NESTED_INVEPT_REGISTER_0 {
-    pub Type: u8,
-    pub Reserved: [u8; 7],
-    pub Eptp: u64,
+    pub Type: super::UINT8,
+    pub Reserved: [super::UINT8; 7],
+    pub Eptp: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVEPT_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2300,12 +2691,14 @@ impl Default for WHV_X64_NESTED_INVEPT_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_INVVPID_REGISTER {
     pub Anonymous: WHV_X64_NESTED_INVVPID_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVVPID_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2313,14 +2706,16 @@ impl Default for WHV_X64_NESTED_INVVPID_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_NESTED_INVVPID_REGISTER_0 {
-    pub Type: u8,
-    pub Reserved: [u8; 3],
-    pub Vpid: u32,
-    pub LinearAddress: u64,
+    pub Type: super::UINT8,
+    pub Reserved: [super::UINT8; 3],
+    pub Vpid: super::UINT32,
+    pub LinearAddress: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_INVVPID_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2328,12 +2723,14 @@ impl Default for WHV_X64_NESTED_INVVPID_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_NESTED_STATE {
     pub Vmx: WHV_X64_VMX_NESTED_STATE,
     pub Svm: WHV_X64_SVM_NESTED_STATE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_NESTED_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2341,12 +2738,14 @@ impl Default for WHV_X64_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_DEBUG_EXCEPTION {
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
     pub Anonymous: WHV_X64_PENDING_DEBUG_EXCEPTION_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2354,6 +2753,7 @@ impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     pub _bitfield: u64,
@@ -2362,12 +2762,14 @@ pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
 pub type WHV_X64_PENDING_EVENT_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_EXCEPTION_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXCEPTION_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_EXCEPTION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2375,20 +2777,23 @@ impl Default for WHV_X64_PENDING_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u32,
-    pub ErrorCode: u32,
-    pub ExceptionParameter: u64,
+    pub ErrorCode: super::UINT32,
+    pub ExceptionParameter: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_EXT_INT_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXT_INT_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2396,19 +2801,22 @@ impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_EXT_INT_EVENT_0 {
     pub _bitfield: u64,
-    pub Reserved2: u64,
+    pub Reserved2: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_INTERRUPTION_REGISTER {
     pub Anonymous: WHV_X64_PENDING_INTERRUPTION_REGISTER_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2416,21 +2824,24 @@ impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub _bitfield: u32,
-    pub ErrorCode: u32,
+    pub ErrorCode: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_PENDING_INTERRUPTION_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2438,19 +2849,22 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u64,
-    pub ExitCode: u64,
+    pub ExitCode: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2458,19 +2872,22 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1_0 {
-    pub ExitInfo1: u64,
-    pub ExitInfo2: u64,
+    pub ExitInfo1: super::UINT64,
+    pub ExitInfo2: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2478,13 +2895,15 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0 {
-    pub NextRip: u64,
-    pub InstructionBytesFetchedCount: u8,
-    pub InstructionBytes: [u8; 7],
+    pub NextRip: super::UINT64,
+    pub InstructionBytesFetchedCount: super::UINT8,
+    pub InstructionBytes: [super::UINT8; 7],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2492,12 +2911,14 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
     pub Anonymous: WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2505,12 +2926,14 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0 {
-    pub InstructionBytes: [u8; 8],
-    pub Reserved2: u64,
+    pub InstructionBytes: [super::UINT8; 8],
+    pub Reserved2: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2518,12 +2941,14 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2531,20 +2956,23 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u32,
-    pub ExitReason: u32,
-    pub ExitQualification: u64,
+    pub ExitReason: super::UINT32,
+    pub ExitQualification: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2552,21 +2980,24 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1_0 {
-    pub InstructionLength: u32,
-    pub InstructionInfo: u32,
-    pub ExitInterruptionInfo: u32,
-    pub ExitExceptionErrorCode: u32,
+    pub InstructionLength: super::UINT32,
+    pub InstructionInfo: super::UINT32,
+    pub ExitInterruptionInfo: super::UINT32,
+    pub ExitExceptionErrorCode: super::UINT32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2574,19 +3005,22 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2_0 {
-    pub GuestLinearAddress: u64,
-    pub GuestPhysicalAddress: u64,
+    pub GuestLinearAddress: super::UINT64,
+    pub GuestPhysicalAddress: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
     pub Anonymous: WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2594,21 +3028,68 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3_0 {
-    pub MsrData: u64,
+    pub MsrData: super::UINT64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_X64_PROCESSOR_FEATURES {
+    pub Anonymous: WHV_X64_PROCESSOR_FEATURES_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_X64_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union WHV_X64_PROCESSOR_FEATURES1 {
+    pub Anonymous: WHV_X64_PROCESSOR_FEATURES1_0,
+    pub AsUINT64: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_PROCESSOR_FEATURES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_X64_PROCESSOR_FEATURES1_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_RDTSC_CONTEXT {
-    pub TscAux: u64,
-    pub VirtualOffset: u64,
-    pub Tsc: u64,
-    pub ReferenceTime: u64,
+    pub TscAux: super::UINT64,
+    pub VirtualOffset: super::UINT64,
+    pub Tsc: super::UINT64,
+    pub ReferenceTime: super::UINT64,
     pub RdtscInfo: WHV_X64_RDTSC_INFO,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_RDTSC_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2616,12 +3097,14 @@ impl Default for WHV_X64_RDTSC_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_RDTSC_INFO {
     pub Anonymous: WHV_X64_RDTSC_INFO_0,
-    pub AsUINT64: u64,
+    pub AsUINT64: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_RDTSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2629,20 +3112,23 @@ impl Default for WHV_X64_RDTSC_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_RDTSC_INFO_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_SEGMENT_REGISTER {
-    pub Base: u64,
-    pub Limit: u32,
-    pub Selector: u16,
+    pub Base: super::UINT64,
+    pub Limit: super::UINT32,
+    pub Selector: super::UINT16,
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_SEGMENT_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2650,12 +3136,14 @@ impl Default for WHV_X64_SEGMENT_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_SEGMENT_REGISTER_0 {
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0_0,
-    pub Attributes: u16,
+    pub Attributes: super::UINT16,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_SEGMENT_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2663,26 +3151,54 @@ impl Default for WHV_X64_SEGMENT_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_SEGMENT_REGISTER_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C, align(4096))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_SVM_NESTED_STATE {
     pub Vendor: WHV_NESTED_STATE_TYPE,
     pub Flags: WHV_X64_SVM_NESTED_STATE_0,
     pub NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
-    pub HostSaveGpa: u64,
-    pub VmControlMsr: u64,
-    pub VirtualTscRatioMsr: u64,
-    pub VmcbGpa: u64,
+    pub HostSaveGpa: super::UINT64,
+    pub VmControlMsr: super::UINT64,
+    pub VirtualTscRatioMsr: super::UINT64,
+    pub VmcbGpa: super::UINT64,
     pub HostState: WHV_SVM_NESTED_HOST_STATE,
-    pub Reserved: [u8; 3832],
-    pub VmcbBytes: [u8; 4096],
+    pub Reserved: [super::UINT8; 3832],
+    #[doc(hidden)]
+    pub __padding_9: [core::mem::MaybeUninit<u8>; {
+        let offset = 0usize;
+        let alignment =::core::mem::align_of::<WHV_NESTED_STATE_TYPE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_STATE_TYPE>();
+        let alignment =::core::mem::align_of::<WHV_X64_SVM_NESTED_STATE_0>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_X64_SVM_NESTED_STATE_0>();
+        let alignment =::core::mem::align_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<WHV_SVM_NESTED_HOST_STATE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_SVM_NESTED_HOST_STATE>();
+        let alignment =::core::mem::align_of::<[super::UINT8; 3832]>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<[super::UINT8; 3832]>();
+        let natural =::core::mem::align_of::<[super::UINT8; 4096]>();
+        let required = if natural < 4096 { 4096 } else { natural };
+        ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
+    }],
+    pub VmcbBytes: [super::UINT8; 4096],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_SVM_NESTED_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2690,19 +3206,22 @@ impl Default for WHV_X64_SVM_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_SVM_NESTED_STATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_TABLE_REGISTER {
-    pub Pad: [u16; 3],
-    pub Limit: u16,
-    pub Base: u64,
+    pub Pad: [super::UINT16; 3],
+    pub Limit: super::UINT16,
+    pub Base: super::UINT64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_TABLE_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2712,28 +3231,56 @@ impl Default for WHV_X64_TABLE_REGISTER {
 pub type WHV_X64_UNSUPPORTED_FEATURE_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     pub FeatureCode: WHV_X64_UNSUPPORTED_FEATURE_CODE,
-    pub Reserved: u32,
-    pub FeatureParameter: u64,
+    pub Reserved: super::UINT32,
+    pub FeatureParameter: super::UINT64,
 }
 #[repr(C, align(4096))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_VMX_NESTED_STATE {
     pub Vendor: WHV_NESTED_STATE_TYPE,
     pub Flags: WHV_X64_VMX_NESTED_STATE_0,
     pub NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
-    pub Pdpt: [u64; 4],
-    pub VmxonRegionGpa: u64,
-    pub VmcsGpa: u64,
-    pub CurrentEnlightenedVmcs: u64,
+    pub Pdpt: [super::UINT64; 4],
+    pub VmxonRegionGpa: super::UINT64,
+    pub VmcsGpa: super::UINT64,
+    pub CurrentEnlightenedVmcs: super::UINT64,
     pub VirtualApicRegs: WHV_X64_VMX_NESTED_STATE_1,
-    pub Reserved: [u8; 3944],
-    pub VmcsBytes: [u8; 4096],
+    pub Reserved: [super::UINT8; 3944],
+    #[doc(hidden)]
+    pub __padding_9: [core::mem::MaybeUninit<u8>; {
+        let offset = 0usize;
+        let alignment =::core::mem::align_of::<WHV_NESTED_STATE_TYPE>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_STATE_TYPE>();
+        let alignment =::core::mem::align_of::<WHV_X64_VMX_NESTED_STATE_0>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_X64_VMX_NESTED_STATE_0>();
+        let alignment =::core::mem::align_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_NESTED_ENLIGHTENMENTS_CONTROL>();
+        let alignment =::core::mem::align_of::<[super::UINT64; 4]>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<[super::UINT64; 4]>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<super::UINT64>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<super::UINT64>();
+        let alignment =::core::mem::align_of::<WHV_X64_VMX_NESTED_STATE_1>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<WHV_X64_VMX_NESTED_STATE_1>();
+        let alignment =::core::mem::align_of::<[super::UINT8; 3944]>();
+        let offset = ((offset + alignment - 1) & !(alignment - 1)) +::core::mem::size_of::<[super::UINT8; 3944]>();
+        let natural =::core::mem::align_of::<[super::UINT8; 4096]>();
+        let required = if natural < 4096 { 4096 } else { natural };
+        ((offset + required - 1) & !(required - 1)) - ((offset + natural - 1) & !(natural - 1))
+    }],
+    pub VmcsBytes: [super::UINT8; 4096],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_VMX_NESTED_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2741,22 +3288,25 @@ impl Default for WHV_X64_VMX_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_VMX_NESTED_STATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_VMX_NESTED_STATE_1 {
-    pub Tpr: u32,
-    pub Ppr: u32,
-    pub Isr: [u32; 8],
-    pub Irr: [u32; 8],
-    pub IcrLow: u32,
-    pub IcrHigh: u32,
+    pub Tpr: super::UINT32,
+    pub Ppr: super::UINT32,
+    pub Isr: [super::UINT32; 8],
+    pub Irr: [super::UINT32; 8],
+    pub IcrLow: super::UINT32,
+    pub IcrHigh: super::UINT32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_VMX_NESTED_STATE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2764,12 +3314,14 @@ impl Default for WHV_X64_VMX_NESTED_STATE_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_VP_EXECUTION_STATE {
     pub Anonymous: WHV_X64_VP_EXECUTION_STATE_0,
-    pub AsUINT16: u16,
+    pub AsUINT16: super::UINT16,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_VP_EXECUTION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2777,18 +3329,41 @@ impl Default for WHV_X64_VP_EXECUTION_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct WHV_X64_VP_EXIT_CONTEXT {
+    pub ExecutionState: WHV_X64_VP_EXECUTION_STATE,
+    pub _bitfield: u8,
+    pub Reserved: super::UINT8,
+    pub Reserved2: super::UINT32,
+    pub Cs: WHV_X64_SEGMENT_REGISTER,
+    pub Rip: super::UINT64,
+    pub Rflags: super::UINT64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for WHV_X64_VP_EXIT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2796,13 +3371,15 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0,
-    pub XmmStatusControl: u32,
-    pub XmmStatusControlMask: u32,
+    pub XmmStatusControl: super::UINT32,
+    pub XmmStatusControlMask: super::UINT32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2810,12 +3387,14 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
-    pub LastFpRdp: u64,
+    pub LastFpRdp: super::UINT64,
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2823,11 +3402,12 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
-    pub LastFpDp: u32,
-    pub LastFpDs: u16,
-    pub Reserved: u16,
+    pub LastFpDp: super::UINT32,
+    pub LastFpDs: super::UINT16,
+    pub Reserved: super::UINT16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvAdviseGpaRangeCodePin: WHV_ADVISE_GPA_RANGE_CODE = 1;

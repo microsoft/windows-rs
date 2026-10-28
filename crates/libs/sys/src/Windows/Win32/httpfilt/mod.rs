@@ -1,121 +1,147 @@
+#[cfg(feature = "shared")]
 windows_link::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> windows_sys::core::BOOL);
-windows_link::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : super::DWORD, pvnotification : *mut core::ffi::c_void) -> super::DWORD);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
-    pub pszURL: *const i8,
-    pub pszPhysicalPath: *const i8,
-    pub dwReason: u32,
+    pub pszURL: *const super::CHAR,
+    pub pszPhysicalPath: *const super::CHAR,
+    pub dwReason: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_AUTHENT {
-    pub pszUser: *mut i8,
-    pub cbUserBuff: u32,
-    pub pszPassword: *mut i8,
-    pub cbPasswordBuff: u32,
+    pub pszUser: *mut super::CHAR,
+    pub cbUserBuff: super::DWORD,
+    pub pszPassword: *mut super::CHAR,
+    pub cbPasswordBuff: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
-    pub GetHeader: *mut u8,
-    pub SetHeader: *mut u8,
-    pub AddHeader: *mut u8,
-    pub GetUserToken: *mut u8,
-    pub HttpStatus: u32,
+    pub GetHeader: Option<unsafe extern "system" fn(*mut HTTP_FILTER_CONTEXT, windows_sys::core::PSTR, super::LPVOID, super::LPDWORD) -> windows_sys::core::BOOL>,
+    pub SetHeader: Option<unsafe extern "system" fn(*mut HTTP_FILTER_CONTEXT, windows_sys::core::PSTR, windows_sys::core::PSTR) -> windows_sys::core::BOOL>,
+    pub AddHeader: Option<unsafe extern "system" fn(*mut HTTP_FILTER_CONTEXT, windows_sys::core::PSTR, windows_sys::core::PSTR) -> windows_sys::core::BOOL>,
+    pub GetUserToken: Option<unsafe extern "system" fn(*mut HTTP_FILTER_CONTEXT, *mut super::HANDLE) -> windows_sys::core::BOOL>,
+    pub HttpStatus: super::DWORD,
     pub fResetAuth: windows_sys::core::BOOL,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_CONTEXT {
-    pub cbSize: u32,
-    pub Revision: u32,
-    pub ServerContext: *mut core::ffi::c_void,
-    pub ulReserved: u32,
+    pub cbSize: super::DWORD,
+    pub Revision: super::DWORD,
+    pub ServerContext: super::PVOID,
+    pub ulReserved: super::DWORD,
     pub fIsSecurePort: windows_sys::core::BOOL,
-    pub pFilterContext: *mut core::ffi::c_void,
-    pub GetServerVariable: *mut u8,
-    pub AddResponseHeaders: *mut u8,
-    pub WriteClient: *mut u8,
-    pub AllocMem: *mut u8,
-    pub ServerSupportFunction: *mut u8,
+    pub pFilterContext: super::PVOID,
+    pub GetServerVariable: Option<unsafe extern "system" fn(*mut Self, windows_sys::core::PSTR, super::LPVOID, super::LPDWORD) -> windows_sys::core::BOOL>,
+    pub AddResponseHeaders: Option<unsafe extern "system" fn(*mut Self, windows_sys::core::PSTR, super::DWORD) -> windows_sys::core::BOOL>,
+    pub WriteClient: Option<unsafe extern "system" fn(*mut Self, super::LPVOID, super::LPDWORD, super::DWORD) -> windows_sys::core::BOOL>,
+    pub AllocMem: Option<unsafe extern "system" fn(*mut Self, super::DWORD, super::DWORD) -> *mut core::ffi::c_void>,
+    pub ServerSupportFunction: Option<unsafe extern "system" fn(*mut Self, SF_REQ_TYPE, super::PVOID, super::ULONG_PTR, super::ULONG_PTR) -> windows_sys::core::BOOL>,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_LOG {
-    pub pszClientHostName: *const i8,
-    pub pszClientUserName: *const i8,
-    pub pszServerName: *const i8,
-    pub pszOperation: *const i8,
-    pub pszTarget: *const i8,
-    pub pszParameters: *const i8,
-    pub dwHttpStatus: u32,
-    pub dwWin32Status: u32,
-    pub dwBytesSent: u32,
-    pub dwBytesRecvd: u32,
-    pub msTimeForProcessing: u32,
+    pub pszClientHostName: *const super::CHAR,
+    pub pszClientUserName: *const super::CHAR,
+    pub pszServerName: *const super::CHAR,
+    pub pszOperation: *const super::CHAR,
+    pub pszTarget: *const super::CHAR,
+    pub pszParameters: *const super::CHAR,
+    pub dwHttpStatus: super::DWORD,
+    pub dwWin32Status: super::DWORD,
+    pub dwBytesSent: super::DWORD,
+    pub dwBytesRecvd: super::DWORD,
+    pub msTimeForProcessing: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
-    pub GetHeader: *mut u8,
-    pub SetHeader: *mut u8,
-    pub AddHeader: *mut u8,
-    pub HttpStatus: u32,
-    pub dwReserved: u32,
+    pub GetHeader: Option<unsafe extern "system" fn(*mut HTTP_FILTER_CONTEXT, windows_sys::core::PSTR, super::LPVOID, super::LPDWORD) -> windows_sys::core::BOOL>,
+    pub SetHeader: Option<unsafe extern "system" fn(*mut HTTP_FILTER_CONTEXT, windows_sys::core::PSTR, windows_sys::core::PSTR) -> windows_sys::core::BOOL>,
+    pub AddHeader: Option<unsafe extern "system" fn(*mut HTTP_FILTER_CONTEXT, windows_sys::core::PSTR, windows_sys::core::PSTR) -> windows_sys::core::BOOL>,
+    pub HttpStatus: super::DWORD,
+    pub dwReserved: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_RAW_DATA {
-    pub pvInData: *mut core::ffi::c_void,
-    pub cbInData: u32,
-    pub cbInBuffer: u32,
-    pub dwReserved: u32,
+    pub pvInData: super::PVOID,
+    pub cbInData: super::DWORD,
+    pub cbInBuffer: super::DWORD,
+    pub dwReserved: super::DWORD,
 }
-pub const HTTP_FILTER_REVISION: i32 = 655360;
+#[cfg(feature = "shared")]
+pub const HTTP_FILTER_REVISION: super::LONG = 0xA0000_u32 as _;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type HTTP_FILTER_SEND_RESPONSE = HTTP_FILTER_PREPROC_HEADERS;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_URL_MAP {
-    pub pszURL: *const i8,
-    pub pszPhysicalPath: *mut i8,
-    pub cbPathBuff: u32,
+    pub pszURL: *const super::CHAR,
+    pub pszPhysicalPath: *mut super::CHAR,
+    pub cbPathBuff: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_URL_MAP_EX {
-    pub pszURL: *const i8,
-    pub pszPhysicalPath: *mut i8,
-    pub cbPathBuff: u32,
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-    pub pszScriptMapEntry: *const i8,
+    pub pszURL: *const super::CHAR,
+    pub pszPhysicalPath: *mut super::CHAR,
+    pub cbPathBuff: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub cchMatchingPath: super::DWORD,
+    pub cchMatchingURL: super::DWORD,
+    pub pszScriptMapEntry: *const super::CHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct HTTP_FILTER_VERSION {
-    pub dwServerFilterVersion: u32,
-    pub dwFilterVersion: u32,
-    pub lpszFilterDesc: [i8; 257],
-    pub dwFlags: u32,
+    pub dwServerFilterVersion: super::DWORD,
+    pub dwFilterVersion: super::DWORD,
+    pub lpszFilterDesc: [super::CHAR; 257],
+    pub dwFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for HTTP_FILTER_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type PHTTP_FILTER_ACCESS_DENIED = *mut HTTP_FILTER_ACCESS_DENIED;
+#[cfg(feature = "shared")]
 pub type PHTTP_FILTER_AUTHENT = *mut HTTP_FILTER_AUTHENT;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PHTTP_FILTER_AUTH_COMPLETE_INFO = *mut HTTP_FILTER_AUTH_COMPLETE_INFO;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PHTTP_FILTER_CONTEXT = *mut HTTP_FILTER_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PHTTP_FILTER_LOG = *mut HTTP_FILTER_LOG;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PHTTP_FILTER_PREPROC_HEADERS = *mut HTTP_FILTER_PREPROC_HEADERS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_FILTER_RAW_DATA = *mut HTTP_FILTER_RAW_DATA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PHTTP_FILTER_SEND_RESPONSE = *mut HTTP_FILTER_PREPROC_HEADERS;
+#[cfg(feature = "shared")]
 pub type PHTTP_FILTER_URL_MAP = *mut HTTP_FILTER_URL_MAP;
+#[cfg(feature = "shared")]
 pub type PHTTP_FILTER_URL_MAP_EX = *mut HTTP_FILTER_URL_MAP_EX;
+#[cfg(feature = "shared")]
 pub type PHTTP_FILTER_VERSION = *mut HTTP_FILTER_VERSION;
 pub const SF_DENIED_APPLICATION: i32 = 8;
 pub const SF_DENIED_BY_CONFIG: i32 = 65536;

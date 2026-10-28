@@ -1,27 +1,32 @@
 windows_link::link!("websocket.dll" "system" fn WebSocketAbortHandle(hwebsocket : WEB_SOCKET_HANDLE));
-#[cfg(feature = "winnt")]
-windows_link::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_sys::core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const windows_sys::core::PCSTR, ulextensioncount : u32, pinitialheaders : PWEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_sys::core::PCSTR, pszextensionselected : *const windows_sys::core::PCSTR, ulextensionselectedcount : u32, prequestheaders : PWEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut PWEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : *const core::ffi::c_void, ulbytestransferred : u32));
-windows_link::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_sys::core::PCSTR, ulsubprotocolcount : super::ULONG, pszextensions : *const windows_sys::core::PCSTR, ulextensioncount : super::ULONG, pinitialheaders : PWEB_SOCKET_HTTP_HEADER, ulinitialheadercount : super::ULONG, padditionalheaders : *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut super::ULONG) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_sys::core::PCSTR, pszextensionselected : *const windows_sys::core::PCSTR, ulextensionselectedcount : super::ULONG, prequestheaders : PWEB_SOCKET_HTTP_HEADER, ulrequestheadercount : super::ULONG, presponseheaders : *mut PWEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut super::ULONG) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : super::PVOID, ulbytestransferred : super::ULONG));
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : super::ULONG, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : PWEB_SOCKET_PROPERTY, ulpropertycount : super::ULONG, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("websocket.dll" "system" fn WebSocketDeleteHandle(hwebsocket : WEB_SOCKET_HANDLE));
-#[cfg(feature = "winnt")]
-windows_link::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : PWEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : PWEB_SOCKET_HTTP_HEADER, ulreponseheadercount : super::ULONG, pulselectedextensions : *mut super::ULONG, pulselectedextensioncount : *mut super::ULONG, pulselectedsubprotocol : *mut super::ULONG) -> windows_sys::core::HRESULT);
 windows_link::link!("websocket.dll" "system" fn WebSocketEndServerHandshake(hwebsocket : WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("websocket.dll" "system" fn WebSocketGetAction(hwebsocket : WEB_SOCKET_HANDLE, eactionqueue : WEB_SOCKET_ACTION_QUEUE, pdatabuffers : *mut WEB_SOCKET_BUFFER, puldatabuffercount : *mut u32, paction : *mut WEB_SOCKET_ACTION, pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext : *mut *mut core::ffi::c_void, pvactioncontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("websocket.dll" "system" fn WebSocketGetGlobalProperty(etype : WEB_SOCKET_PROPERTY_TYPE, pvvalue : *mut core::ffi::c_void, ulsize : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("websocket.dll" "system" fn WebSocketReceive(hwebsocket : WEB_SOCKET_HANDLE, pbuffer : *const WEB_SOCKET_BUFFER, pvcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketGetAction(hwebsocket : WEB_SOCKET_HANDLE, eactionqueue : WEB_SOCKET_ACTION_QUEUE, pdatabuffers : *mut WEB_SOCKET_BUFFER, puldatabuffercount : *mut super::ULONG, paction : *mut WEB_SOCKET_ACTION, pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext : *mut super::PVOID, pvactioncontext : *mut super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketGetGlobalProperty(etype : WEB_SOCKET_PROPERTY_TYPE, pvvalue : super::PVOID, ulsize : *mut super::ULONG) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketReceive(hwebsocket : WEB_SOCKET_HANDLE, pbuffer : *const WEB_SOCKET_BUFFER, pvcontext : super::PVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : super::PVOID) -> windows_sys::core::HRESULT);
 pub type PWEB_SOCKET_ACTION = *mut WEB_SOCKET_ACTION;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PWEB_SOCKET_BUFFER = *mut WEB_SOCKET_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWEB_SOCKET_HTTP_HEADER = *mut WEB_SOCKET_HTTP_HEADER;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWEB_SOCKET_PROPERTY = *mut WEB_SOCKET_PROPERTY;
 pub const WEB_SOCKET_ABORTED_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1006;
 pub type WEB_SOCKET_ACTION = i32;
@@ -31,32 +36,32 @@ pub const WEB_SOCKET_ALL_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = 3;
 pub const WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483645;
 pub const WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483646;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_0,
     pub CloseStatus: WEB_SOCKET_BUFFER_1,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 impl Default for WEB_SOCKET_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: super::PBYTE,
-    pub ulBufferLength: u32,
+    pub ulBufferLength: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbReason: super::PBYTE,
-    pub ulReasonLength: u32,
-    pub usStatus: u16,
+    pub ulReasonLength: super::ULONG,
+    pub usStatus: super::USHORT,
 }
 pub type WEB_SOCKET_BUFFER_TYPE = i32;
 pub const WEB_SOCKET_CLOSE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483644;
@@ -72,13 +77,13 @@ pub struct WEB_SOCKET_HANDLE__ {
     pub unused: i32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: super::PCHAR,
-    pub ulNameLength: u32,
+    pub ulNameLength: super::ULONG,
     pub pcValue: super::PCHAR,
-    pub ulValueLength: u32,
+    pub ulValueLength: super::ULONG,
 }
 pub const WEB_SOCKET_INDICATE_RECEIVE_COMPLETE_ACTION: WEB_SOCKET_ACTION = 4;
 pub const WEB_SOCKET_INDICATE_SEND_COMPLETE_ACTION: WEB_SOCKET_ACTION = 2;
@@ -91,11 +96,12 @@ pub const WEB_SOCKET_NO_ACTION: WEB_SOCKET_ACTION = 0;
 pub const WEB_SOCKET_PING_PONG_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483643;
 pub const WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1008;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
-    pub pvValue: *mut core::ffi::c_void,
-    pub ulValueSize: u32,
+    pub pvValue: super::PVOID,
+    pub ulValueSize: super::ULONG,
 }
 pub type WEB_SOCKET_PROPERTY_TYPE = i32;
 pub const WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1002;

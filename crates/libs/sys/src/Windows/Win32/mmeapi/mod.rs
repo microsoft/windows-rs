@@ -1,277 +1,284 @@
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : usize, pac : LPAUXCAPSA, cbac : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : usize, pac : LPAUXCAPSW, cbac : u32) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn auxGetNumDevs() -> u32);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : super::UINT_PTR, pac : LPAUXCAPSA, cbac : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : super::UINT_PTR, pac : LPAUXCAPSW, cbac : super::UINT) -> super::MMRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn auxGetNumDevs() -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : super::UINT, pdwvolume : super::LPDWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : super::UINT, umsg : super::UINT, dw1 : super::DWORD_PTR, dw2 : super::DWORD_PTR) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn auxSetVolume(udeviceid : super::UINT, dwvolume : super::DWORD) -> super::MMRESULT);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : super::LPDWORD) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn auxSetVolume(udeviceid : u32, dwvolume : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : super::LPVOID) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : super::LPVOID) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : LPMIDIINCAPSA, cbmic : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : LPMIDIINCAPSW, cbmic : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : super::UINT_PTR, pmic : LPMIDIINCAPSA, cbmic : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : super::UINT_PTR, pmic : LPMIDIINCAPSW, cbmic : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 windows_link::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : super::LPUINT) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInOpen(phmi : LPHMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn midiInGetNumDevs() -> super::UINT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : super::UINT, dw1 : super::DWORD_PTR, dw2 : super::DWORD_PTR) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInOpen(phmi : LPHMIDIIN, udeviceid : super::UINT, dwcallback : super::DWORD_PTR, dwinstance : super::DWORD_PTR, fdwopen : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInReset(hmi : HMIDIIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : super::LPWORD, fucache : u32) -> super::MMRESULT);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : super::LPWORD, fucache : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : super::UINT, pwkya : super::LPWORD, fucache : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : super::UINT, pwpa : super::LPWORD, fucache : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : LPMIDIOUTCAPSA, cbmoc : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : LPMIDIOUTCAPSW, cbmoc : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : super::UINT_PTR, pmoc : LPMIDIOUTCAPSA, cbmoc : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : super::UINT_PTR, pmoc : LPMIDIOUTCAPSW, cbmoc : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 windows_link::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : super::LPUINT) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> super::UINT);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : super::LPDWORD) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutOpen(phmo : LPHMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : super::UINT, dw1 : super::DWORD_PTR, dw2 : super::DWORD_PTR) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutOpen(phmo : LPHMIDIOUT, udeviceid : super::UINT, dwcallback : super::DWORD_PTR, dwinstance : super::DWORD_PTR, fdwopen : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutReset(hmo : HMIDIOUT) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwvolume : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwvolume : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiStreamClose(hms : HMIDISTRM) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiStreamOpen(phms : LPHMIDISTRM, pudeviceid : super::LPUINT, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiStreamOpen(phms : LPHMIDISTRM, pudeviceid : super::LPUINT, cmidi : super::DWORD, dwcallback : super::DWORD_PTR, dwinstance : super::DWORD_PTR, fdwopen : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : LPMIDIHDR, cbmh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiStreamPause(hms : HMIDISTRM) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : super::LPMMTIME, cbmmt : u32) -> super::MMRESULT);
-#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
-windows_link::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : super::LPBYTE, dwproperty : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : super::LPMMTIME, cbmmt : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : super::LPBYTE, dwproperty : super::DWORD) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiStreamRestart(hms : HMIDISTRM) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiStreamStop(hms : HMIDISTRM) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn mixerClose(hmx : HMIXER) -> super::MMRESULT);
-#[cfg(all(feature = "mmsyscom", feature = "windef"))]
-windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
-#[cfg(all(feature = "mmsyscom", feature = "windef"))]
-windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : usize, pmxcaps : LPMIXERCAPSA, cbmxcaps : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : usize, pmxcaps : LPMIXERCAPSW, cbmxcaps : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut u32, fdwid : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : LPMIXERLINECONTROLSA, fdwcontrols : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : LPMIXERLINECONTROLSW, fdwcontrols : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : LPMIXERLINEA, fdwinfo : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : LPMIXERLINEW, fdwinfo : u32) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn mixerGetNumDevs() -> u32);
-windows_link::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerOpen(phmx : LPHMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
-#[cfg(all(feature = "mmsyscom", feature = "windef"))]
-windows_link::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared", feature = "windef"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared", feature = "windef"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : super::UINT_PTR, pmxcaps : LPMIXERCAPSA, cbmxcaps : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : super::UINT_PTR, pmxcaps : LPMIXERCAPSW, cbmxcaps : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut super::UINT, fdwid : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : LPMIXERLINECONTROLSA, fdwcontrols : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : LPMIXERLINECONTROLSW, fdwcontrols : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : LPMIXERLINEA, fdwinfo : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : LPMIXERLINEW, fdwinfo : super::DWORD) -> super::MMRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn mixerGetNumDevs() -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : super::UINT, dwparam1 : super::DWORD_PTR, dwparam2 : super::DWORD_PTR) -> super::DWORD);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn mixerOpen(phmx : LPHMIXER, umxid : super::UINT, dwcallback : super::DWORD_PTR, dwinstance : super::DWORD_PTR, fdwopen : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom", feature = "shared", feature = "windef"))]
+windows_link::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : LPWAVEINCAPSA, cbwic : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : LPWAVEINCAPSW, cbwic : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : super::UINT_PTR, pwic : LPWAVEINCAPSA, cbwic : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : super::UINT_PTR, pwic : LPWAVEINCAPSW, cbwic : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 windows_link::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : super::LPUINT) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : super::LPMMTIME, cbmmt : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInOpen(phwi : LPHWAVEIN, udeviceid : u32, pwfx : LPCWAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn waveInGetNumDevs() -> super::UINT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : super::LPMMTIME, cbmmt : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : super::UINT, dw1 : super::DWORD_PTR, dw2 : super::DWORD_PTR) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInOpen(phwi : LPHWAVEIN, udeviceid : super::UINT, pwfx : LPCWAVEFORMATEX, dwcallback : super::DWORD_PTR, dwinstance : super::DWORD_PTR, fdwopen : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInReset(hwi : HWAVEIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInStart(hwi : HWAVEIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInStop(hwi : HWAVEIN) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutBreakLoop(hwo : HWAVEOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : LPWAVEOUTCAPSA, cbwoc : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : LPWAVEOUTCAPSW, cbwoc : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : super::UINT_PTR, pwoc : LPWAVEOUTCAPSA, cbwoc : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : super::UINT_PTR, pwoc : LPWAVEOUTCAPSW, cbwoc : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 windows_link::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : super::LPUINT) -> super::MMRESULT);
-windows_link::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> super::UINT);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : super::LPDWORD) -> super::MMRESULT);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : super::LPDWORD) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : super::LPMMTIME, cbmmt : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : super::LPMMTIME, cbmmt : super::UINT) -> super::MMRESULT);
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 windows_link::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : super::LPDWORD) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : LPHWAVEOUT, udeviceid : u32, pwfx : LPCWAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : super::UINT, dw1 : super::DWORD_PTR, dw2 : super::DWORD_PTR) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : LPHWAVEOUT, udeviceid : super::UINT, pwfx : LPCWAVEFORMATEX, dwcallback : super::DWORD_PTR, dwinstance : super::DWORD_PTR, fdwopen : super::DWORD) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : super::UINT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutRestart(hwo : HWAVEOUT) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutSetPitch(hwo : HWAVEOUT, dwpitch : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOUT, dwrate : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutSetPitch(hwo : HWAVEOUT, dwpitch : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOUT, dwrate : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : super::DWORD) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type AUXCAPS = AUXCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type AUXCAPS2 = AUXCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct AUXCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for AUXCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AUXCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for AUXCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct AUXCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for AUXCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct AUXCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for AUXCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -281,7 +288,8 @@ pub const AUXCAPS_AUXIN: i32 = 2;
 pub const AUXCAPS_CDAUDIO: i32 = 1;
 pub const AUXCAPS_LRVOLUME: i32 = 2;
 pub const AUXCAPS_VOLUME: i32 = 1;
-pub const AUX_MAPPER: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const AUX_MAPPER: super::UINT = 4294967295;
 pub type HMIDI = *mut HMIDI__;
 pub type HMIDIIN = *mut HMIDIIN__;
 #[repr(C, packed(1))]
@@ -337,135 +345,161 @@ pub struct HWAVE__ {
     pub unused: i32,
 }
 pub type KEYARRAY = [u16; 128];
-#[cfg(feature = "mmsyscom")]
-pub type LPAUXCAPS = LPAUXCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type LPAUXCAPS2 = LPAUXCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPAUXCAPS = *mut AUXCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPAUXCAPS2 = *mut AUXCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPAUXCAPS2A = *mut AUXCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPAUXCAPS2W = *mut AUXCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPAUXCAPSA = *mut AUXCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPAUXCAPSW = *mut AUXCAPSW;
+#[cfg(feature = "shared")]
 pub type LPCWAVEFORMATEX = *const WAVEFORMATEX;
-pub type LPHMIDI = *mut HMIDI;
-pub type LPHMIDIIN = *mut HMIDIIN;
-pub type LPHMIDIOUT = *mut HMIDIOUT;
-pub type LPHMIDISTRM = *mut HMIDISTRM;
-pub type LPHMIXER = *mut HMIXER;
-pub type LPHMIXEROBJ = *mut HMIXEROBJ;
-pub type LPHWAVEIN = *mut HWAVEIN;
-pub type LPHWAVEOUT = *mut HWAVEOUT;
+pub type LPHMIDI = *mut *mut HMIDI__;
+pub type LPHMIDIIN = *mut *mut HMIDIIN__;
+pub type LPHMIDIOUT = *mut *mut HMIDIOUT__;
+pub type LPHMIDISTRM = *mut *mut HMIDISTRM__;
+pub type LPHMIXER = *mut *mut HMIXER__;
+pub type LPHMIXEROBJ = *mut *mut HMIXEROBJ__;
+pub type LPHWAVEIN = *mut *mut HWAVEIN__;
+pub type LPHWAVEOUT = *mut *mut HWAVEOUT__;
 pub type LPKEYARRAY = *mut u16;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIDICALLBACK = Option<unsafe extern "C" fn(param0: super::HDRVR, param1: u32, param2: usize, param3: usize, param4: usize)>;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIDICALLBACK = Option<unsafe extern "system" fn(hdrvr: super::HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
+#[cfg(feature = "shared")]
 pub type LPMIDIHDR = *mut MIDIHDR;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIDIINCAPS = LPMIDIINCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIDIINCAPS2 = LPMIDIINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIDIINCAPS = *mut MIDIINCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIDIINCAPS2 = *mut MIDIINCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPMIDIINCAPS2A = *mut MIDIINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPMIDIINCAPS2W = *mut MIDIINCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPMIDIINCAPSA = *mut MIDIINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPMIDIINCAPSW = *mut MIDIINCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIDIOUTCAPS = LPMIDIOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIDIOUTCAPS2 = LPMIDIOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIDIOUTCAPS = *mut MIDIOUTCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIDIOUTCAPS2 = *mut MIDIOUTCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
+#[cfg(feature = "shared")]
 pub type LPMIDIPROPTEMPO = *mut MIDIPROPTEMPO;
+#[cfg(feature = "shared")]
 pub type LPMIDIPROPTIMEDIV = *mut MIDIPROPTIMEDIV;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIXERCAPS = LPMIXERCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIXERCAPS2 = LPMIXERCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIXERCAPS = *mut MIXERCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIXERCAPS2 = *mut MIXERCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPMIXERCAPS2A = *mut MIXERCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPMIXERCAPS2W = *mut MIXERCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPMIXERCAPSA = *mut MIXERCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPMIXERCAPSW = *mut MIXERCAPSW;
-pub type LPMIXERCONTROL = LPMIXERCONTROLA;
+#[cfg(feature = "shared")]
+pub type LPMIXERCONTROL = *mut MIXERCONTROLA;
+#[cfg(feature = "shared")]
 pub type LPMIXERCONTROLA = *mut MIXERCONTROLA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPMIXERCONTROLDETAILS = *mut MIXERCONTROLDETAILS;
+#[cfg(feature = "shared")]
 pub type LPMIXERCONTROLDETAILS_BOOLEAN = *mut MIXERCONTROLDETAILS_BOOLEAN;
-pub type LPMIXERCONTROLDETAILS_LISTTEXT = LPMIXERCONTROLDETAILS_LISTTEXTA;
+#[cfg(feature = "shared")]
+pub type LPMIXERCONTROLDETAILS_LISTTEXT = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+#[cfg(feature = "shared")]
 pub type LPMIXERCONTROLDETAILS_LISTTEXTA = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPMIXERCONTROLDETAILS_LISTTEXTW = *mut MIXERCONTROLDETAILS_LISTTEXTW;
+#[cfg(feature = "shared")]
 pub type LPMIXERCONTROLDETAILS_SIGNED = *mut MIXERCONTROLDETAILS_SIGNED;
+#[cfg(feature = "shared")]
 pub type LPMIXERCONTROLDETAILS_UNSIGNED = *mut MIXERCONTROLDETAILS_UNSIGNED;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPMIXERCONTROLW = *mut MIXERCONTROLW;
-#[cfg(feature = "mmsyscom")]
-pub type LPMIXERLINE = LPMIXERLINEA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPMIXERLINE = *mut MIXERLINEA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPMIXERLINEA = *mut MIXERLINEA;
-pub type LPMIXERLINECONTROLS = LPMIXERLINECONTROLSA;
+#[cfg(feature = "shared")]
+pub type LPMIXERLINECONTROLS = *mut MIXERLINECONTROLSA;
+#[cfg(feature = "shared")]
 pub type LPMIXERLINECONTROLSA = *mut MIXERLINECONTROLSA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPMIXERLINECONTROLSW = *mut MIXERLINECONTROLSW;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPMIXERLINEW = *mut MIXERLINEW;
 pub type LPPATCHARRAY = *mut u16;
+#[cfg(feature = "shared")]
 pub type LPPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
-#[cfg(feature = "mmsyscom")]
-pub type LPWAVECALLBACK = Option<unsafe extern "C" fn(param0: super::HDRVR, param1: u32, param2: usize, param3: usize, param4: usize)>;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPWAVECALLBACK = Option<unsafe extern "system" fn(hdrvr: super::HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
+#[cfg(feature = "shared")]
 pub type LPWAVEFORMAT = *mut WAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type LPWAVEFORMATEX = *mut WAVEFORMATEX;
+#[cfg(feature = "shared")]
 pub type LPWAVEHDR = *mut WAVEHDR;
-#[cfg(feature = "mmsyscom")]
-pub type LPWAVEINCAPS = LPWAVEINCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type LPWAVEINCAPS2 = LPWAVEINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPWAVEINCAPS = *mut WAVEINCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPWAVEINCAPS2 = *mut WAVEINCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPWAVEINCAPS2A = *mut WAVEINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPWAVEINCAPS2W = *mut WAVEINCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPWAVEINCAPSA = *mut WAVEINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPWAVEINCAPSW = *mut WAVEINCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type LPWAVEOUTCAPS = LPWAVEOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type LPWAVEOUTCAPS2 = LPWAVEOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPWAVEOUTCAPS = *mut WAVEOUTCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type LPWAVEOUTCAPS2 = *mut WAVEOUTCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type LPWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type LPWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
-pub const MEVT_COMMENT: u8 = 130;
+#[cfg(feature = "shared")]
+pub const MEVT_COMMENT: super::BYTE = 130;
 pub const MEVT_F_CALLBACK: i32 = 1073741824;
 pub const MEVT_F_LONG: u32 = 2147483648;
 pub const MEVT_F_SHORT: i32 = 0;
-pub const MEVT_LONGMSG: u8 = 128;
-pub const MEVT_NOP: u8 = 2;
-pub const MEVT_SHORTMSG: u8 = 0;
-pub const MEVT_TEMPO: u8 = 1;
-pub const MEVT_VERSION: u8 = 132;
+#[cfg(feature = "shared")]
+pub const MEVT_LONGMSG: super::BYTE = 128;
+#[cfg(feature = "shared")]
+pub const MEVT_NOP: super::BYTE = 2;
+#[cfg(feature = "shared")]
+pub const MEVT_SHORTMSG: super::BYTE = 0;
+#[cfg(feature = "shared")]
+pub const MEVT_TEMPO: super::BYTE = 1;
+#[cfg(feature = "shared")]
+pub const MEVT_VERSION: super::BYTE = 132;
 pub const MHDR_DONE: i32 = 1;
 pub const MHDR_INQUEUE: i32 = 4;
 pub const MHDR_ISSTRM: i32 = 8;
 pub const MHDR_PREPARED: i32 = 2;
-#[cfg(feature = "mmsyscom")]
-pub type MIDICALLBACK = Option<unsafe extern "C" fn(hdrvr: super::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type MIDICALLBACK = Option<unsafe extern "system" fn(hdrvr: super::HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
 pub const MIDICAPS_CACHE: i32 = 4;
 pub const MIDICAPS_LRVOLUME: i32 = 2;
 pub const MIDICAPS_STREAM: i32 = 8;
@@ -480,196 +514,201 @@ pub const MIDIERR_NOTREADY: i32 = 67;
 pub const MIDIERR_STILLPLAYING: i32 = 65;
 pub const MIDIERR_UNPREPARED: i32 = 64;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIDIEVENT {
-    pub dwDeltaTime: u32,
-    pub dwStreamID: u32,
-    pub dwEvent: u32,
-    pub dwParms: [u32; 1],
+    pub dwDeltaTime: super::DWORD,
+    pub dwStreamID: super::DWORD,
+    pub dwEvent: super::DWORD,
+    pub dwParms: [super::DWORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MIDIEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIDIHDR {
     pub lpData: windows_sys::core::PSTR,
-    pub dwBufferLength: u32,
-    pub dwBytesRecorded: u32,
-    pub dwUser: usize,
-    pub dwFlags: u32,
+    pub dwBufferLength: super::DWORD,
+    pub dwBytesRecorded: super::DWORD,
+    pub dwUser: super::DWORD_PTR,
+    pub dwFlags: super::DWORD,
     pub lpNext: *mut Self,
-    pub reserved: usize,
-    pub dwOffset: u32,
-    pub dwReserved: [usize; 8],
+    pub reserved: super::DWORD_PTR,
+    pub dwOffset: super::DWORD,
+    pub dwReserved: [super::DWORD_PTR; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for MIDIHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type MIDIINCAPS = MIDIINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type MIDIINCAPS2 = MIDIINCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIDIINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIDIINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIDIINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIDIINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MIDIMAPPER: u32 = 4294967295;
-#[cfg(feature = "mmsyscom")]
+#[cfg(feature = "shared")]
+pub const MIDIMAPPER: super::UINT = 4294967295;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type MIDIOUTCAPS = MIDIOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type MIDIOUTCAPS2 = MIDIOUTCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wVoices: super::WORD,
+    pub wNotes: super::WORD,
+    pub wChannelMask: super::WORD,
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIDIOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wVoices: super::WORD,
+    pub wNotes: super::WORD,
+    pub wChannelMask: super::WORD,
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIDIOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wVoices: super::WORD,
+    pub wNotes: super::WORD,
+    pub wChannelMask: super::WORD,
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIDIOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub wTechnology: super::WORD,
+    pub wVoices: super::WORD,
+    pub wNotes: super::WORD,
+    pub wChannelMask: super::WORD,
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIDIOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -677,34 +716,38 @@ impl Default for MIDIOUTCAPSW {
 }
 pub const MIDIPATCHSIZE: i32 = 128;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIDIPROPTEMPO {
-    pub cbStruct: u32,
-    pub dwTempo: u32,
+    pub cbStruct: super::DWORD,
+    pub dwTempo: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIDIPROPTIMEDIV {
-    pub cbStruct: u32,
-    pub dwTimeDiv: u32,
+    pub cbStruct: super::DWORD,
+    pub dwTimeDiv: super::DWORD,
 }
 pub const MIDIPROP_GET: i32 = 1073741824;
 pub const MIDIPROP_SET: u32 = 2147483648;
 pub const MIDIPROP_TEMPO: i32 = 2;
 pub const MIDIPROP_TIMEDIV: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIDISTRMBUFFVER {
-    pub dwVersion: u32,
-    pub dwMid: u32,
-    pub dwOEMVersion: u32,
+    pub dwVersion: super::DWORD,
+    pub dwMid: super::DWORD,
+    pub dwOEMVersion: super::DWORD,
 }
 pub const MIDISTRM_ERROR: i32 = -2;
 pub const MIDI_CACHE_ALL: i32 = 1;
 pub const MIDI_CACHE_BESTFIT: i32 = 2;
 pub const MIDI_CACHE_QUERY: i32 = 3;
 pub const MIDI_IO_STATUS: i32 = 32;
-pub const MIDI_MAPPER: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const MIDI_MAPPER: super::UINT = 4294967295;
 pub const MIDI_UNCACHE: i32 = 4;
 pub const MIM_CLOSE: i32 = 962;
 pub const MIM_DATA: i32 = 963;
@@ -713,258 +756,283 @@ pub const MIM_LONGDATA: i32 = 964;
 pub const MIM_LONGERROR: i32 = 966;
 pub const MIM_MOREDATA: i32 = 972;
 pub const MIM_OPEN: i32 = 961;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type MIXERCAPS = MIXERCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type MIXERCAPS2 = MIXERCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
+    pub szPname: [super::CHAR; 32],
+    pub fdwSupport: super::DWORD,
+    pub cDestinations: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIXERCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub fdwSupport: super::DWORD,
+    pub cDestinations: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIXERCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
+    pub szPname: [super::CHAR; 32],
+    pub fdwSupport: super::DWORD,
+    pub cDestinations: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIXERCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub fdwSupport: super::DWORD,
+    pub cDestinations: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIXERCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type MIXERCONTROL = MIXERCONTROLA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLA {
-    pub cbStruct: u32,
-    pub dwControlID: u32,
-    pub dwControlType: u32,
-    pub fdwControl: u32,
-    pub cMultipleItems: u32,
-    pub szShortName: [i8; 16],
-    pub szName: [i8; 64],
+    pub cbStruct: super::DWORD,
+    pub dwControlID: super::DWORD,
+    pub dwControlType: super::DWORD,
+    pub fdwControl: super::DWORD,
+    pub cMultipleItems: super::DWORD,
+    pub szShortName: [super::CHAR; 16],
+    pub szName: [super::CHAR; 64],
     pub Bounds: MIXERCONTROLA_0,
     pub Metrics: MIXERCONTROLA_1,
 }
+#[cfg(feature = "shared")]
 impl Default for MIXERCONTROLA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLA_0 {
     pub Anonymous: MIXERCONTROLA_0_0,
     pub Anonymous2: MIXERCONTROLA_0_1,
-    pub dwReserved: [u32; 6],
+    pub dwReserved: [super::DWORD; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for MIXERCONTROLA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLA_0_0 {
-    pub lMinimum: i32,
-    pub lMaximum: i32,
+    pub lMinimum: super::LONG,
+    pub lMaximum: super::LONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLA_0_1 {
-    pub dwMinimum: u32,
-    pub dwMaximum: u32,
+    pub dwMinimum: super::DWORD,
+    pub dwMaximum: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLA_1 {
-    pub cSteps: u32,
-    pub cbCustomData: u32,
-    pub dwReserved: [u32; 6],
+    pub cSteps: super::DWORD,
+    pub cbCustomData: super::DWORD,
+    pub dwReserved: [super::DWORD; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for MIXERCONTROLA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS {
-    pub cbStruct: u32,
-    pub dwControlID: u32,
-    pub cChannels: u32,
+    pub cbStruct: super::DWORD,
+    pub dwControlID: super::DWORD,
+    pub cChannels: super::DWORD,
     pub Anonymous: MIXERCONTROLDETAILS_0,
-    pub cbDetails: u32,
-    pub paDetails: *mut core::ffi::c_void,
+    pub cbDetails: super::DWORD,
+    pub paDetails: super::LPVOID,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for MIXERCONTROLDETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::HWND,
-    pub cMultipleItems: u32,
+    pub cMultipleItems: super::DWORD,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for MIXERCONTROLDETAILS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
-    pub fValue: i32,
+    pub fValue: super::LONG,
 }
+#[cfg(feature = "shared")]
 pub type MIXERCONTROLDETAILS_LISTTEXT = MIXERCONTROLDETAILS_LISTTEXTA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
-    pub dwParam1: u32,
-    pub dwParam2: u32,
-    pub szName: [i8; 64],
+    pub dwParam1: super::DWORD,
+    pub dwParam2: super::DWORD,
+    pub szName: [super::CHAR; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for MIXERCONTROLDETAILS_LISTTEXTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTW {
-    pub dwParam1: u32,
-    pub dwParam2: u32,
-    pub szName: [u16; 64],
+    pub dwParam1: super::DWORD,
+    pub dwParam2: super::DWORD,
+    pub szName: [super::WCHAR; 64],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIXERCONTROLDETAILS_LISTTEXTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_SIGNED {
-    pub lValue: i32,
+    pub lValue: super::LONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
-    pub dwValue: u32,
+    pub dwValue: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLW {
-    pub cbStruct: u32,
-    pub dwControlID: u32,
-    pub dwControlType: u32,
-    pub fdwControl: u32,
-    pub cMultipleItems: u32,
-    pub szShortName: [u16; 16],
-    pub szName: [u16; 64],
+    pub cbStruct: super::DWORD,
+    pub dwControlID: super::DWORD,
+    pub dwControlType: super::DWORD,
+    pub fdwControl: super::DWORD,
+    pub cMultipleItems: super::DWORD,
+    pub szShortName: [super::WCHAR; 16],
+    pub szName: [super::WCHAR; 64],
     pub Bounds: MIXERCONTROLW_0,
     pub Metrics: MIXERCONTROLW_1,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIXERCONTROLW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLW_0 {
     pub Anonymous: MIXERCONTROLW_0_0,
     pub Anonymous2: MIXERCONTROLW_0_1,
-    pub dwReserved: [u32; 6],
+    pub dwReserved: [super::DWORD; 6],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIXERCONTROLW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLW_0_0 {
-    pub lMinimum: i32,
-    pub lMaximum: i32,
+    pub lMinimum: super::LONG,
+    pub lMaximum: super::LONG,
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLW_0_1 {
-    pub dwMinimum: u32,
-    pub dwMaximum: u32,
+    pub dwMinimum: super::DWORD,
+    pub dwMaximum: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLW_1 {
-    pub cSteps: u32,
-    pub cbCustomData: u32,
-    pub dwReserved: [u32; 6],
+    pub cSteps: super::DWORD,
+    pub cbCustomData: super::DWORD,
+    pub dwReserved: [super::DWORD; 6],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIXERCONTROLW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1028,138 +1096,147 @@ pub const MIXERCONTROL_CT_UNITS_MASK: i32 = 16711680;
 pub const MIXERCONTROL_CT_UNITS_PERCENT: i32 = 327680;
 pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072;
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type MIXERLINE = MIXERLINEA;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEA {
-    pub cbStruct: u32,
-    pub dwDestination: u32,
-    pub dwSource: u32,
-    pub dwLineID: u32,
-    pub fdwLine: u32,
-    pub dwUser: usize,
-    pub dwComponentType: u32,
-    pub cChannels: u32,
-    pub cConnections: u32,
-    pub cControls: u32,
-    pub szShortName: [i8; 16],
-    pub szName: [i8; 64],
+    pub cbStruct: super::DWORD,
+    pub dwDestination: super::DWORD,
+    pub dwSource: super::DWORD,
+    pub dwLineID: super::DWORD,
+    pub fdwLine: super::DWORD,
+    pub dwUser: super::DWORD_PTR,
+    pub dwComponentType: super::DWORD,
+    pub cChannels: super::DWORD,
+    pub cConnections: super::DWORD,
+    pub cControls: super::DWORD,
+    pub szShortName: [super::CHAR; 16],
+    pub szName: [super::CHAR; 64],
     pub Target: MIXERLINEA_0,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIXERLINEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEA_0 {
-    pub dwType: u32,
-    pub dwDeviceID: u32,
-    pub wMid: u16,
-    pub wPid: u16,
+    pub dwType: super::DWORD,
+    pub dwDeviceID: super::DWORD,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
+    pub szPname: [super::CHAR; 32],
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for MIXERLINEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type MIXERLINECONTROLS = MIXERLINECONTROLSA;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSA {
-    pub cbStruct: u32,
-    pub dwLineID: u32,
+    pub cbStruct: super::DWORD,
+    pub dwLineID: super::DWORD,
     pub Anonymous: MIXERLINECONTROLSA_0,
-    pub cControls: u32,
-    pub cbmxctrl: u32,
+    pub cControls: super::DWORD,
+    pub cbmxctrl: super::DWORD,
     pub pamxctrl: LPMIXERCONTROLA,
 }
+#[cfg(feature = "shared")]
 impl Default for MIXERLINECONTROLSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSA_0 {
-    pub dwControlID: u32,
-    pub dwControlType: u32,
+    pub dwControlID: super::DWORD,
+    pub dwControlType: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for MIXERLINECONTROLSA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSW {
-    pub cbStruct: u32,
-    pub dwLineID: u32,
+    pub cbStruct: super::DWORD,
+    pub dwLineID: super::DWORD,
     pub Anonymous: MIXERLINECONTROLSW_0,
-    pub cControls: u32,
-    pub cbmxctrl: u32,
+    pub cControls: super::DWORD,
+    pub cbmxctrl: super::DWORD,
     pub pamxctrl: LPMIXERCONTROLW,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIXERLINECONTROLSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSW_0 {
-    pub dwControlID: u32,
-    pub dwControlType: u32,
+    pub dwControlID: super::DWORD,
+    pub dwControlType: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MIXERLINECONTROLSW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEW {
-    pub cbStruct: u32,
-    pub dwDestination: u32,
-    pub dwSource: u32,
-    pub dwLineID: u32,
-    pub fdwLine: u32,
-    pub dwUser: usize,
-    pub dwComponentType: u32,
-    pub cChannels: u32,
-    pub cConnections: u32,
-    pub cControls: u32,
-    pub szShortName: [u16; 16],
-    pub szName: [u16; 64],
+    pub cbStruct: super::DWORD,
+    pub dwDestination: super::DWORD,
+    pub dwSource: super::DWORD,
+    pub dwLineID: super::DWORD,
+    pub fdwLine: super::DWORD,
+    pub dwUser: super::DWORD_PTR,
+    pub dwComponentType: super::DWORD,
+    pub cChannels: super::DWORD,
+    pub cConnections: super::DWORD,
+    pub cControls: super::DWORD,
+    pub szShortName: [super::WCHAR; 16],
+    pub szName: [super::WCHAR; 64],
     pub Target: MIXERLINEW_0,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIXERLINEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEW_0 {
-    pub dwType: u32,
-    pub dwDeviceID: u32,
-    pub wMid: u16,
-    pub wPid: u16,
+    pub dwType: super::DWORD,
+    pub dwDeviceID: super::DWORD,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
+    pub szPname: [super::WCHAR; 32],
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for MIXERLINEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1243,177 +1320,200 @@ pub const MOM_CLOSE: i32 = 968;
 pub const MOM_DONE: i32 = 969;
 pub const MOM_OPEN: i32 = 967;
 pub const MOM_POSITIONCB: i32 = 970;
-#[cfg(feature = "mmsyscom")]
-pub type NPAUXCAPS = NPAUXCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type NPAUXCAPS2 = NPAUXCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPAUXCAPS = *mut AUXCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPAUXCAPS2 = *mut AUXCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPAUXCAPS2A = *mut AUXCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPAUXCAPS2W = *mut AUXCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPAUXCAPSA = *mut AUXCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPAUXCAPSW = *mut AUXCAPSW;
+#[cfg(feature = "shared")]
 pub type NPMIDIHDR = *mut MIDIHDR;
-#[cfg(feature = "mmsyscom")]
-pub type NPMIDIINCAPS = NPMIDIINCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type NPMIDIINCAPS2 = NPMIDIINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPMIDIINCAPS = *mut MIDIINCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPMIDIINCAPS2 = *mut MIDIINCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPMIDIINCAPS2A = *mut MIDIINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPMIDIINCAPS2W = *mut MIDIINCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPMIDIINCAPSA = *mut MIDIINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPMIDIINCAPSW = *mut MIDIINCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type NPMIDIOUTCAPS = NPMIDIOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type NPMIDIOUTCAPS2 = NPMIDIOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPMIDIOUTCAPS = *mut MIDIOUTCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPMIDIOUTCAPS2 = *mut MIDIOUTCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
+#[cfg(feature = "shared")]
 pub type NPPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type NPWAVEFORMAT = *mut WAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type NPWAVEFORMATEX = *mut WAVEFORMATEX;
+#[cfg(feature = "shared")]
 pub type NPWAVEHDR = *mut WAVEHDR;
-#[cfg(feature = "mmsyscom")]
-pub type NPWAVEINCAPS = NPWAVEINCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type NPWAVEINCAPS2 = NPWAVEINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPWAVEINCAPS = *mut WAVEINCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPWAVEINCAPS2 = *mut WAVEINCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPWAVEINCAPS2A = *mut WAVEINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPWAVEINCAPS2W = *mut WAVEINCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPWAVEINCAPSA = *mut WAVEINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPWAVEINCAPSW = *mut WAVEINCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type NPWAVEOUTCAPS = NPWAVEOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type NPWAVEOUTCAPS2 = NPWAVEOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPWAVEOUTCAPS = *mut WAVEOUTCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type NPWAVEOUTCAPS2 = *mut WAVEOUTCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type NPWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type NPWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
 pub type PATCHARRAY = [u16; 128];
-#[cfg(feature = "mmsyscom")]
-pub type PAUXCAPS = PAUXCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type PAUXCAPS2 = PAUXCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PAUXCAPS = *mut AUXCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PAUXCAPS2 = *mut AUXCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PAUXCAPS2A = *mut AUXCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PAUXCAPS2W = *mut AUXCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PAUXCAPSA = *mut AUXCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PAUXCAPSW = *mut AUXCAPSW;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
-    pub wBitsPerSample: u16,
+    pub wBitsPerSample: super::WORD,
 }
+#[cfg(feature = "shared")]
 pub type PMIDIHDR = *mut MIDIHDR;
-#[cfg(feature = "mmsyscom")]
-pub type PMIDIINCAPS = PMIDIINCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type PMIDIINCAPS2 = PMIDIINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PMIDIINCAPS = *mut MIDIINCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PMIDIINCAPS2 = *mut MIDIINCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PMIDIINCAPS2A = *mut MIDIINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PMIDIINCAPS2W = *mut MIDIINCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PMIDIINCAPSA = *mut MIDIINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PMIDIINCAPSW = *mut MIDIINCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type PMIDIOUTCAPS = PMIDIOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type PMIDIOUTCAPS2 = PMIDIOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PMIDIOUTCAPS = *mut MIDIOUTCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PMIDIOUTCAPS2 = *mut MIDIOUTCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type PMIXERCAPS = PMIXERCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type PMIXERCAPS2 = PMIXERCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PMIXERCAPS = *mut MIXERCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PMIXERCAPS2 = *mut MIXERCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PMIXERCAPS2A = *mut MIXERCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PMIXERCAPS2W = *mut MIXERCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PMIXERCAPSA = *mut MIXERCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PMIXERCAPSW = *mut MIXERCAPSW;
-pub type PMIXERCONTROL = PMIXERCONTROLA;
+#[cfg(feature = "shared")]
+pub type PMIXERCONTROL = *mut MIXERCONTROLA;
+#[cfg(feature = "shared")]
 pub type PMIXERCONTROLA = *mut MIXERCONTROLA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PMIXERCONTROLDETAILS = *mut MIXERCONTROLDETAILS;
+#[cfg(feature = "shared")]
 pub type PMIXERCONTROLDETAILS_BOOLEAN = *mut MIXERCONTROLDETAILS_BOOLEAN;
-pub type PMIXERCONTROLDETAILS_LISTTEXT = PMIXERCONTROLDETAILS_LISTTEXTA;
+#[cfg(feature = "shared")]
+pub type PMIXERCONTROLDETAILS_LISTTEXT = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+#[cfg(feature = "shared")]
 pub type PMIXERCONTROLDETAILS_LISTTEXTA = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIXERCONTROLDETAILS_LISTTEXTW = *mut MIXERCONTROLDETAILS_LISTTEXTW;
+#[cfg(feature = "shared")]
 pub type PMIXERCONTROLDETAILS_SIGNED = *mut MIXERCONTROLDETAILS_SIGNED;
+#[cfg(feature = "shared")]
 pub type PMIXERCONTROLDETAILS_UNSIGNED = *mut MIXERCONTROLDETAILS_UNSIGNED;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIXERCONTROLW = *mut MIXERCONTROLW;
-#[cfg(feature = "mmsyscom")]
-pub type PMIXERLINE = PMIXERLINEA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PMIXERLINE = *mut MIXERLINEA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PMIXERLINEA = *mut MIXERLINEA;
-pub type PMIXERLINECONTROLS = PMIXERLINECONTROLSA;
+#[cfg(feature = "shared")]
+pub type PMIXERLINECONTROLS = *mut MIXERLINECONTROLSA;
+#[cfg(feature = "shared")]
 pub type PMIXERLINECONTROLSA = *mut MIXERLINECONTROLSA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMIXERLINECONTROLSW = *mut MIXERLINECONTROLSW;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PMIXERLINEW = *mut MIXERLINEW;
+#[cfg(feature = "shared")]
 pub type PPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type PWAVEFORMAT = *mut WAVEFORMAT;
+#[cfg(feature = "shared")]
 pub type PWAVEFORMATEX = *mut WAVEFORMATEX;
+#[cfg(feature = "shared")]
 pub type PWAVEHDR = *mut WAVEHDR;
-#[cfg(feature = "mmsyscom")]
-pub type PWAVEINCAPS = PWAVEINCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type PWAVEINCAPS2 = PWAVEINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PWAVEINCAPS = *mut WAVEINCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PWAVEINCAPS2 = *mut WAVEINCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PWAVEINCAPS2A = *mut WAVEINCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PWAVEINCAPS2W = *mut WAVEINCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PWAVEINCAPSA = *mut WAVEINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PWAVEINCAPSW = *mut WAVEINCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type PWAVEOUTCAPS = PWAVEOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
-pub type PWAVEOUTCAPS2 = PWAVEOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PWAVEOUTCAPS = *mut WAVEOUTCAPSA;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type PWAVEOUTCAPS2 = *mut WAVEOUTCAPS2A;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type PWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 pub type PWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
-#[cfg(feature = "mmsyscom")]
-pub type WAVECALLBACK = Option<unsafe extern "C" fn(hdrvr: super::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+pub type WAVECALLBACK = Option<unsafe extern "system" fn(hdrvr: super::HDRVR, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
 pub const WAVECAPS_LRVOLUME: i32 = 8;
 pub const WAVECAPS_PITCH: i32 = 1;
 pub const WAVECAPS_PLAYBACKRATE: i32 = 2;
@@ -1421,200 +1521,203 @@ pub const WAVECAPS_SAMPLEACCURATE: i32 = 32;
 pub const WAVECAPS_SYNC: i32 = 16;
 pub const WAVECAPS_VOLUME: i32 = 4;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WAVEFORMAT {
-    pub wFormatTag: u16,
-    pub nChannels: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
+    pub wFormatTag: super::WORD,
+    pub nChannels: super::WORD,
+    pub nSamplesPerSec: super::DWORD,
+    pub nAvgBytesPerSec: super::DWORD,
+    pub nBlockAlign: super::WORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WAVEFORMATEX {
-    pub wFormatTag: u16,
-    pub nChannels: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-    pub wBitsPerSample: u16,
-    pub cbSize: u16,
+    pub wFormatTag: super::WORD,
+    pub nChannels: super::WORD,
+    pub nSamplesPerSec: super::DWORD,
+    pub nAvgBytesPerSec: super::DWORD,
+    pub nBlockAlign: super::WORD,
+    pub wBitsPerSample: super::WORD,
+    pub cbSize: super::WORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WAVEHDR {
     pub lpData: windows_sys::core::PSTR,
-    pub dwBufferLength: u32,
-    pub dwBytesRecorded: u32,
-    pub dwUser: usize,
-    pub dwFlags: u32,
-    pub dwLoops: u32,
+    pub dwBufferLength: super::DWORD,
+    pub dwBytesRecorded: super::DWORD,
+    pub dwUser: super::DWORD_PTR,
+    pub dwFlags: super::DWORD,
+    pub dwLoops: super::DWORD,
     pub lpNext: *mut Self,
-    pub reserved: usize,
+    pub reserved: super::DWORD_PTR,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type WAVEINCAPS = WAVEINCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type WAVEINCAPS2 = WAVEINCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
+    pub szPname: [super::CHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for WAVEINCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
+    pub szPname: [super::WCHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for WAVEINCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
+    pub szPname: [super::CHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for WAVEINCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
+    pub szPname: [super::WCHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for WAVEINCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type WAVEOUTCAPS = WAVEOUTCAPSA;
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type WAVEOUTCAPS2 = WAVEOUTCAPS2A;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for WAVEOUTCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
     pub ManufacturerGuid: windows_sys::core::GUID,
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for WAVEOUTCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [i8; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::CHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
 impl Default for WAVEOUTCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
+    pub wMid: super::WORD,
+    pub wPid: super::WORD,
     pub vDriverVersion: super::MMVERSION,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
+    pub szPname: [super::WCHAR; 32],
+    pub dwFormats: super::DWORD,
+    pub wChannels: super::WORD,
+    pub wReserved1: super::WORD,
+    pub dwSupport: super::DWORD,
 }
-#[cfg(feature = "mmsyscom")]
+#[cfg(all(feature = "mmsyscom", feature = "shared", feature = "winnt"))]
 impl Default for WAVEOUTCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1657,7 +1760,8 @@ pub const WAVE_FORMAT_QUERY: i32 = 1;
 pub const WAVE_INVALIDFORMAT: i32 = 0;
 pub const WAVE_MAPPED: i32 = 4;
 pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: i32 = 16;
-pub const WAVE_MAPPER: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const WAVE_MAPPER: super::UINT = 4294967295;
 pub const WHDR_BEGINLOOP: i32 = 4;
 pub const WHDR_DONE: i32 = 1;
 pub const WHDR_ENDLOOP: i32 = 8;

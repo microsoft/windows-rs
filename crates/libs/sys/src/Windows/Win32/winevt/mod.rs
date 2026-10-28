@@ -1,72 +1,68 @@
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : windows_sys::core::PCWSTR, locale : super::LCID, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : windows_sys::core::PCWSTR, locale : super::LCID, flags : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("wevtapi.dll" "system" fn EvtCancel(object : EVT_HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : windows_sys::core::PCWSTR, targetfilepath : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : windows_sys::core::PCWSTR, targetfilepath : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("wevtapi.dll" "system" fn EvtClose(object : EVT_HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
 windows_link::link!("wevtapi.dll" "system" fn EvtCreateBookmark(bookmarkxml : windows_sys::core::PCWSTR) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, targetfilepath : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : PEVT_VARIANT, flags : u32, buffersize : u32, buffer : windows_sys::core::PWSTR, bufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : u32, eventmetadatapropertybuffersize : u32, eventmetadatapropertybuffer : PEVT_VARIANT, eventmetadatapropertybufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : super::DWORD, valuepaths : *const windows_sys::core::PCWSTR, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, targetfilepath : windows_sys::core::PCWSTR, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : super::DWORD, valuecount : super::DWORD, values : PEVT_VARIANT, flags : super::DWORD, buffersize : super::DWORD, buffer : windows_sys::core::PWSTR, bufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : super::DWORD, propertyvaluebuffersize : super::DWORD, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : super::DWORD, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : super::DWORD, eventmetadatapropertybuffersize : super::DWORD, eventmetadatapropertybuffer : PEVT_VARIANT, eventmetadatapropertybufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : super::DWORD, buffer : windows_sys::core::PWSTR, bufferused : super::PDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : super::DWORD, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetObjectArrayProperty(objectarray : EVT_OBJECT_ARRAY_PROPERTY_HANDLE, propertyid : super::DWORD, arrayindex : super::DWORD, flags : super::DWORD, propertyvaluebuffersize : super::DWORD, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : windows_sys::core::PWSTR, bufferused : super::PDWORD) -> u32);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetObjectArrayProperty(objectarray : EVT_OBJECT_ARRAY_PROPERTY_HANDLE, propertyid : u32, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("wevtapi.dll" "system" fn EvtGetObjectArraySize(objectarray : EVT_OBJECT_ARRAY_PROPERTY_HANDLE, objectarraysize : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : u32, publishermetadatapropertybuffersize : u32, publishermetadatapropertybuffer : PEVT_VARIANT, publishermetadatapropertybufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : PEVT_HANDLE, timeout : u32, flags : u32, returned : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : windows_sys::core::PWSTR, channelpathbufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtNextEventMetadata(eventmetadataenum : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : windows_sys::core::PWSTR, publisheridbufferused : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtOpenChannelEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtOpenEventMetadataEnum(publishermetadata : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtOpenPublisherEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : windows_sys::core::PCWSTR, logfilepath : windows_sys::core::PCWSTR, locale : super::LCID, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtOpenSession(loginclass : EVT_LOGIN_CLASS, login : *mut core::ffi::c_void, timeout : u32, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, flags : u32) -> EVT_HANDLE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut core::ffi::c_void, bufferused : super::PDWORD, propertycount : super::PDWORD) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtSaveChannelConfig(channelconfig : EVT_HANDLE, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtSeek(resultset : EVT_HANDLE, position : i64, bookmark : EVT_HANDLE, timeout : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvalue : PEVT_VARIANT) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::HANDLE, channelpath : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, bookmark : EVT_HANDLE, context : *mut core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : super::DWORD, publishermetadatapropertybuffersize : super::DWORD, publishermetadatapropertybuffer : PEVT_VARIANT, publishermetadatapropertybufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : super::DWORD, propertyvaluebuffer : PEVT_VARIANT, propertyvaluebufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : super::DWORD, events : PEVT_HANDLE, timeout : super::DWORD, flags : super::DWORD, returned : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : super::DWORD, channelpathbuffer : windows_sys::core::PWSTR, channelpathbufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtNextEventMetadata(eventmetadataenum : EVT_HANDLE, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : super::DWORD, publisheridbuffer : windows_sys::core::PWSTR, publisheridbufferused : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : windows_sys::core::PCWSTR, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtOpenChannelEnum(session : EVT_HANDLE, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtOpenEventMetadataEnum(publishermetadata : EVT_HANDLE, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtOpenPublisherEnum(session : EVT_HANDLE, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : windows_sys::core::PCWSTR, logfilepath : windows_sys::core::PCWSTR, locale : super::LCID, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtOpenSession(loginclass : EVT_LOGIN_CLASS, login : super::PVOID, timeout : super::DWORD, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, flags : super::DWORD) -> EVT_HANDLE);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : super::DWORD, buffersize : super::DWORD, buffer : super::PVOID, bufferused : super::PDWORD, propertycount : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtSaveChannelConfig(channelconfig : EVT_HANDLE, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("wevtapi.dll" "system" fn EvtSeek(resultset : EVT_HANDLE, position : super::LONGLONG, bookmark : EVT_HANDLE, timeout : super::DWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : super::DWORD, propertyvalue : PEVT_VARIANT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::HANDLE, channelpath : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, bookmark : EVT_HANDLE, context : super::PVOID, callback : EVT_SUBSCRIBE_CALLBACK, flags : super::DWORD) -> EVT_HANDLE);
 windows_link::link!("wevtapi.dll" "system" fn EvtUpdateBookmark(bookmark : EVT_HANDLE, event : EVT_HANDLE) -> windows_sys::core::BOOL);
 pub const EVT_ALL_ACCESS: i32 = 7;
 pub type EVT_CHANNEL_CLOCK_TYPE = i32;
@@ -80,12 +76,10 @@ pub type EVT_EVENT_METADATA_PROPERTY_ID = i32;
 pub type EVT_EVENT_PROPERTY_ID = i32;
 pub type EVT_EXPORTLOG_FLAGS = i32;
 pub type EVT_FORMAT_MESSAGE_FLAGS = i32;
-#[cfg(feature = "winnt")]
-pub type EVT_HANDLE = super::HANDLE;
+pub type EVT_HANDLE = *mut core::ffi::c_void;
 pub type EVT_LOGIN_CLASS = i32;
 pub type EVT_LOG_PROPERTY_ID = i32;
-#[cfg(feature = "winnt")]
-pub type EVT_OBJECT_ARRAY_PROPERTY_HANDLE = super::HANDLE;
+pub type EVT_OBJECT_ARRAY_PROPERTY_HANDLE = *mut core::ffi::c_void;
 pub type EVT_OPEN_LOG_FLAGS = i32;
 pub type EVT_PUBLISHER_METADATA_PROPERTY_ID = i32;
 pub type EVT_QUERY_FLAGS = i32;
@@ -94,67 +88,68 @@ pub const EVT_READ_ACCESS: i32 = 1;
 pub type EVT_RENDER_CONTEXT_FLAGS = i32;
 pub type EVT_RENDER_FLAGS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_sys::core::PWSTR,
     pub User: windows_sys::core::PWSTR,
     pub Domain: windows_sys::core::PWSTR,
     pub Password: windows_sys::core::PWSTR,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 pub type EVT_RPC_LOGIN_FLAGS = i32;
 pub type EVT_SEEK_FLAGS = i32;
-#[cfg(feature = "winnt")]
-pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *mut core::ffi::c_void, event: EVT_HANDLE) -> u32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: super::PVOID, event: EVT_HANDLE) -> super::DWORD>;
 pub type EVT_SUBSCRIBE_FLAGS = i32;
 pub type EVT_SUBSCRIBE_NOTIFY_ACTION = i32;
 pub type EVT_SYSTEM_PROPERTY_ID = i32;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EVT_VARIANT {
     pub Anonymous: EVT_VARIANT_0,
-    pub Count: u32,
-    pub Type: u32,
+    pub Count: super::DWORD,
+    pub Type: super::DWORD,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for EVT_VARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union EVT_VARIANT_0 {
     pub BooleanVal: windows_sys::core::BOOL,
-    pub SByteVal: i8,
-    pub Int16Val: i16,
-    pub Int32Val: i32,
-    pub Int64Val: i64,
-    pub ByteVal: u8,
-    pub UInt16Val: u16,
-    pub UInt32Val: u32,
-    pub UInt64Val: u64,
+    pub SByteVal: super::INT8,
+    pub Int16Val: super::INT16,
+    pub Int32Val: super::INT32,
+    pub Int64Val: super::INT64,
+    pub ByteVal: super::UINT8,
+    pub UInt16Val: super::UINT16,
+    pub UInt32Val: super::UINT32,
+    pub UInt64Val: super::UINT64,
     pub SingleVal: f32,
     pub DoubleVal: f64,
-    pub FileTimeVal: u64,
+    pub FileTimeVal: super::ULONGLONG,
     pub SysTimeVal: *mut super::SYSTEMTIME,
     pub GuidVal: *mut windows_sys::core::GUID,
     pub StringVal: windows_sys::core::PCWSTR,
     pub AnsiStringVal: windows_sys::core::PCSTR,
     pub BinaryVal: super::PBYTE,
     pub SidVal: super::PSID,
-    pub SizeTVal: usize,
+    pub SizeTVal: super::size_t,
     pub BooleanArr: *mut windows_sys::core::BOOL,
-    pub SByteArr: *mut i8,
-    pub Int16Arr: *mut i16,
-    pub Int32Arr: *mut i32,
-    pub Int64Arr: *mut i64,
-    pub ByteArr: *mut u8,
-    pub UInt16Arr: *mut u16,
-    pub UInt32Arr: *mut u32,
-    pub UInt64Arr: *mut u64,
+    pub SByteArr: *mut super::INT8,
+    pub Int16Arr: *mut super::INT16,
+    pub Int32Arr: *mut super::INT32,
+    pub Int64Arr: *mut super::INT64,
+    pub ByteArr: *mut super::UINT8,
+    pub UInt16Arr: *mut super::UINT16,
+    pub UInt32Arr: *mut super::UINT32,
+    pub UInt64Arr: *mut super::UINT64,
     pub SingleArr: *mut f32,
     pub DoubleArr: *mut f64,
     pub FileTimeArr: *mut super::FILETIME,
@@ -163,12 +158,12 @@ pub union EVT_VARIANT_0 {
     pub StringArr: *mut windows_sys::core::PWSTR,
     pub AnsiStringArr: *mut windows_sys::core::PSTR,
     pub SidArr: *mut super::PSID,
-    pub SizeTArr: *mut usize,
+    pub SizeTArr: *mut super::size_t,
     pub EvtHandleVal: EVT_HANDLE,
     pub XmlVal: windows_sys::core::PCWSTR,
     pub XmlValArr: *mut windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for EVT_VARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -354,7 +349,6 @@ pub const EvtVarTypeSysTime: EVT_VARIANT_TYPE = 18;
 pub const EvtVarTypeUInt16: EVT_VARIANT_TYPE = 6;
 pub const EvtVarTypeUInt32: EVT_VARIANT_TYPE = 8;
 pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = 10;
-#[cfg(feature = "winnt")]
-pub type PEVT_HANDLE = *mut super::HANDLE;
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+pub type PEVT_HANDLE = *mut *mut core::ffi::c_void;
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PEVT_VARIANT = *mut EVT_VARIANT;

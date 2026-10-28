@@ -1,8 +1,13 @@
-windows_link::link!("evr.dll" "system" fn MFCreateVideoMixer(powner : *mut core::ffi::c_void, riiddevice : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("evr.dll" "system" fn MFCreateVideoMixerAndPresenter(pmixerowner : *mut core::ffi::c_void, ppresenterowner : *mut core::ffi::c_void, riidmixer : *const windows_sys::core::GUID, ppvvideomixer : *mut *mut core::ffi::c_void, riidpresenter : *const windows_sys::core::GUID, ppvvideopresenter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("evr.dll" "system" fn MFCreateVideoPresenter(powner : *mut core::ffi::c_void, riiddevice : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("mf.dll" "system" fn MFCreateVideoRenderer(riidrenderer : *const windows_sys::core::GUID, ppvideorenderer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("evr.dll" "system" fn MFCreateVideoSampleAllocator(riid : *const windows_sys::core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("evr.dll" "system" fn MFCreateVideoMixer(powner : *mut core::ffi::c_void, riiddevice : *const super::IID, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("evr.dll" "system" fn MFCreateVideoMixerAndPresenter(pmixerowner : *mut core::ffi::c_void, ppresenterowner : *mut core::ffi::c_void, riidmixer : *const super::IID, ppvvideomixer : *mut *mut core::ffi::c_void, riidpresenter : *const super::IID, ppvvideopresenter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("evr.dll" "system" fn MFCreateVideoPresenter(powner : *mut core::ffi::c_void, riiddevice : *const super::IID, riid : *const super::IID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("mf.dll" "system" fn MFCreateVideoRenderer(riidrenderer : *const super::IID, ppvideorenderer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("evr.dll" "system" fn MFCreateVideoSampleAllocator(riid : *const super::IID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "mfobjects")]
 windows_link::link!("evr.dll" "system" fn MFCreateVideoSampleFromSurface(punksurface : *mut core::ffi::c_void, ppsample : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type EVRFilterConfigPrefs = i32;
@@ -49,7 +54,6 @@ pub const MF_SERVICE_LOOKUP_GLOBAL: MF_SERVICE_LOOKUP_TYPE = 5;
 pub type MF_SERVICE_LOOKUP_TYPE = i32;
 pub const MF_SERVICE_LOOKUP_UPSTREAM: MF_SERVICE_LOOKUP_TYPE = 0;
 pub const MF_SERVICE_LOOKUP_UPSTREAM_DIRECT: MF_SERVICE_LOOKUP_TYPE = 1;
-pub const MR_BUFFER_SERVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa562248c_9ac6_4ffc_9fba_3af8f8ad1a4d);
 pub const MR_VIDEO_ACCELERATION_SERVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xefef5175_5c7d_4ce2_bbbd_34ff8bca6554);
 pub const MR_VIDEO_MIXER_SERVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x073cd2fc_6cf4_40b7_8859_e89552c841f8);
 pub const MR_VIDEO_RENDER_SERVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1092a86c_ab1a_459a_a336_831fbc4d11ff);

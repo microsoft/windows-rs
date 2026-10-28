@@ -1,73 +1,68 @@
 #[repr(C)]
-#[cfg(feature = "ntddndis")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ARP_SEND_REPLY {
     pub DestAddress: super::IPAddr,
     pub SrcAddress: super::IPAddr,
 }
+#[cfg(feature = "shared")]
 pub type ICMPV6_ECHO_REPLY = ICMPV6_ECHO_REPLY_LH;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ICMPV6_ECHO_REPLY_LH {
     pub Address: IPV6_ADDRESS_EX,
-    pub Status: u32,
+    pub Status: super::ULONG,
     pub RoundTripTime: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: super::IPAddr,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut core::ffi::c_void,
+    pub Status: super::ULONG,
+    pub RoundTripTime: super::ULONG,
+    pub DataSize: super::USHORT,
+    pub Reserved: super::USHORT,
+    pub Data: super::PVOID,
     pub Options: IP_OPTION_INFORMATION,
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Default)]
-pub struct ICMP_ECHO_REPLY32 {
-    pub Address: super::IPAddr,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut core::ffi::c_void,
-    pub Options: IP_OPTION_INFORMATION32,
-}
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IPV6_ADDRESS_EX {
-    pub sin6_port: u16,
-    pub sin6_flowinfo: u32,
-    pub sin6_addr: [u16; 8],
-    pub sin6_scope_id: u32,
+    pub sin6_port: super::USHORT,
+    pub sin6_flowinfo: super::ULONG,
+    pub sin6_addr: [super::USHORT; 8],
+    pub sin6_scope_id: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for IPV6_ADDRESS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_INDEX_MAP {
-    pub Index: u32,
-    pub Name: [u16; 128],
+    pub Index: super::ULONG,
+    pub Name: [super::WCHAR; 128],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IP_ADAPTER_INDEX_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ORDER_MAP {
-    pub NumAdapters: u32,
-    pub AdapterOrder: [u32; 1],
+    pub NumAdapters: super::ULONG,
+    pub AdapterOrder: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IP_ADAPTER_ORDER_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -102,11 +97,13 @@ pub const IP_HOP_LIMIT_EXCEEDED: i32 = 11013;
 pub const IP_HW_ERROR: i32 = 11008;
 pub const IP_ICMP_ERROR: i32 = 11044;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IP_INTERFACE_INFO {
-    pub NumAdapters: i32,
+    pub NumAdapters: super::LONG,
     pub Adapter: [IP_ADAPTER_INDEX_MAP; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IP_INTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -115,12 +112,13 @@ impl Default for IP_INTERFACE_INFO {
 pub const IP_INTERFACE_METRIC_CHANGE: i32 = 11030;
 pub const IP_INTERFACE_WOL_CAPABILITY_CHANGE: i32 = 11033;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_MCAST_COUNTER_INFO {
-    pub InMcastOctets: u64,
-    pub OutMcastOctets: u64,
-    pub InMcastPkts: u64,
-    pub OutMcastPkts: u64,
+    pub InMcastOctets: super::ULONG64,
+    pub OutMcastOctets: super::ULONG64,
+    pub InMcastPkts: super::ULONG64,
+    pub OutMcastPkts: super::ULONG64,
 }
 pub const IP_MEDIA_CONNECT: i32 = 11024;
 pub const IP_MEDIA_DISCONNECT: i32 = 11025;
@@ -128,24 +126,14 @@ pub const IP_MTU_CHANGE: i32 = 11021;
 pub const IP_NEGOTIATING_IPSEC: i32 = 11032;
 pub const IP_NO_RESOURCES: i32 = 11006;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct IP_OPTION_INFORMATION {
-    pub Ttl: u8,
-    pub Tos: u8,
-    pub Flags: u8,
-    pub OptionsSize: u8,
+    pub Ttl: super::UCHAR,
+    pub Tos: super::UCHAR,
+    pub Flags: super::UCHAR,
+    pub OptionsSize: super::UCHAR,
     pub OptionsData: super::PUCHAR,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
-pub struct IP_OPTION_INFORMATION32 {
-    pub Ttl: u8,
-    pub Tos: u8,
-    pub Flags: u8,
-    pub OptionsSize: u8,
-    pub OptionsData: *mut u8,
 }
 pub const IP_OPTION_TOO_BIG: i32 = 11017;
 pub const IP_OPT_EOL: i32 = 0;
@@ -174,13 +162,13 @@ pub const IP_TTL_EXPIRED_REASSEM: i32 = 11014;
 pub const IP_TTL_EXPIRED_TRANSIT: i32 = 11013;
 pub const IP_UNBIND_ADAPTER: i32 = 11027;
 #[repr(C)]
-#[cfg(feature = "ntddndis")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    pub NumAdapters: u32,
+    pub NumAdapters: super::ULONG,
     pub Address: [super::IPAddr; 1],
 }
-#[cfg(feature = "ntddndis")]
+#[cfg(feature = "shared")]
 impl Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -188,35 +176,39 @@ impl Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
 }
 pub const IP_UNLOAD: i32 = 11022;
 pub const IP_UNRECOGNIZED_NEXT_HEADER: i32 = 11043;
-#[cfg(feature = "in6addr")]
+#[cfg(all(feature = "in6addr", feature = "shared"))]
 pub type IPv6Addr = super::IN6_ADDR;
 pub const MAX_ADAPTER_NAME: i32 = 128;
 pub const MAX_IP_STATUS: i32 = 11050;
 pub const MAX_OPT_SIZE: i32 = 40;
-#[cfg(feature = "ntddndis")]
+#[cfg(feature = "shared")]
 pub type PARP_SEND_REPLY = *mut ARP_SEND_REPLY;
+#[cfg(feature = "shared")]
 pub type PICMPV6_ECHO_REPLY = *mut ICMPV6_ECHO_REPLY_LH;
+#[cfg(feature = "shared")]
 pub type PICMPV6_ECHO_REPLY_LH = *mut ICMPV6_ECHO_REPLY_LH;
-#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PICMP_ECHO_REPLY = *mut ICMP_ECHO_REPLY;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ntddndis")]
-pub type PICMP_ECHO_REPLY32 = *mut ICMP_ECHO_REPLY32;
+#[cfg(feature = "shared")]
 pub type PIPV6_ADDRESS_EX = *mut IPV6_ADDRESS_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIP_ADAPTER_INDEX_MAP = *mut IP_ADAPTER_INDEX_MAP;
+#[cfg(feature = "shared")]
 pub type PIP_ADAPTER_ORDER_MAP = *mut IP_ADAPTER_ORDER_MAP;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PIP_INTERFACE_INFO = *mut IP_INTERFACE_INFO;
+#[cfg(feature = "shared")]
 pub type PIP_MCAST_COUNTER_INFO = *mut IP_MCAST_COUNTER_INFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PIP_OPTION_INFORMATION = *mut IP_OPTION_INFORMATION;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIP_OPTION_INFORMATION32 = *mut IP_OPTION_INFORMATION32;
-#[cfg(feature = "ntddndis")]
+#[cfg(feature = "shared")]
 pub type PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS = *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PTCP_RESERVE_PORT_RANGE = *mut TCP_RESERVE_PORT_RANGE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_RESERVE_PORT_RANGE {
-    pub UpperRange: u16,
-    pub LowerRange: u16,
+    pub UpperRange: super::USHORT,
+    pub LowerRange: super::USHORT,
 }

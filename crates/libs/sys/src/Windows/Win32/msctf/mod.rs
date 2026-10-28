@@ -1,19 +1,3 @@
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserFree(param0 : *mut u32, param1 : *mut super::CLIPFORMAT));
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserFree64(param0 : *mut u32, param1 : *mut super::CLIPFORMAT));
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::CLIPFORMAT) -> u32);
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::CLIPFORMAT) -> u32);
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
-#[cfg(feature = "wtypes")]
-windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
 pub const TF_AE_END: TfActiveSelEnd = 2;
 pub const TF_AE_NONE: TfActiveSelEnd = 0;
 pub const TF_AE_START: TfActiveSelEnd = 1;
@@ -77,7 +61,8 @@ impl Default for TF_DA_COLOR_0 {
 }
 pub type TF_DA_COLORTYPE = i32;
 pub type TF_DA_LINESTYLE = i32;
-pub const TF_DEFAULT_SELECTION: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const TF_DEFAULT_SELECTION: super::ULONG = 4294967295;
 pub const TF_DISABLE_COMMANDING: i32 = 4;
 pub const TF_DISABLE_DICTATION: i32 = 2;
 pub const TF_DISABLE_SPEECH: i32 = 1;
@@ -98,6 +83,7 @@ impl Default for TF_DISPLAYATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const TF_ENABLE_PROCESS_ATOM: windows_sys::core::PCSTR = windows_sys::core::s!("_CTF_ENABLE_PROCESS_ATOM_");
 pub const TF_ES_ASYNC: i32 = 8;
 pub const TF_ES_ASYNCDONTCARE: i32 = 0;
 pub const TF_ES_READ: i32 = 2;
@@ -128,11 +114,12 @@ pub const TF_GRAVITY_BACKWARD: TfGravity = 0;
 pub const TF_GRAVITY_FORWARD: TfGravity = 1;
 pub const TF_GTP_INCL_TEXT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TF_HALTCOND {
     pub pHaltRange: *mut core::ffi::c_void,
     pub aHaltPos: TfAnchor,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 pub const TF_HF_OBJECT: i32 = 1;
 pub const TF_IAS_NOQUERY: i32 = 1;
@@ -140,23 +127,24 @@ pub const TF_IAS_NO_DEFAULT_COMPOSITION: u32 = 2147483648;
 pub const TF_IAS_QUERYONLY: i32 = 2;
 pub const TF_IE_CORRECTION: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TF_INPUTPROCESSORPROFILE {
-    pub dwProfileType: u32,
+    pub dwProfileType: super::DWORD,
     pub langid: super::LANGID,
-    pub clsid: windows_sys::core::GUID,
+    pub clsid: super::CLSID,
     pub guidProfile: windows_sys::core::GUID,
     pub catid: windows_sys::core::GUID,
     pub hklSubstitute: super::HKL,
-    pub dwCaps: u32,
+    pub dwCaps: super::DWORD,
     pub hkl: super::HKL,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 pub const TF_INVALID_COOKIE: u32 = 4294967295;
 pub const TF_INVALID_EDIT_COOKIE: i32 = 0;
 pub const TF_INVALID_GUIDATOM: TfGuidAtom = 0;
-pub const TF_INVALID_UIELEMENTID: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const TF_INVALID_UIELEMENTID: super::DWORD = 4294967295;
 pub const TF_IPPMF_DISABLEPROFILE: i32 = 2;
 pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: i32 = 4;
 pub const TF_IPPMF_ENABLEPROFILE: i32 = 1;
@@ -175,10 +163,10 @@ pub const TF_IPP_FLAG_ENABLED: i32 = 2;
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: i32 = 4;
 pub const TF_IPSINK_FLAG_ACTIVE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TF_LANGUAGEPROFILE {
-    pub clsid: windows_sys::core::GUID,
+    pub clsid: super::CLSID,
     pub langid: super::LANGID,
     pub catid: windows_sys::core::GUID,
     pub fActive: windows_sys::core::BOOL,
@@ -204,22 +192,25 @@ pub const TF_MOD_RCONTROL: i32 = 16;
 pub const TF_MOD_RSHIFT: i32 = 32;
 pub const TF_MOD_SHIFT: i32 = 4;
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_sys::core::GUID,
-    pub ichStart: i32,
-    pub cch: i32,
-    pub cb: u32,
-    pub dwPrivate: u32,
-    pub clsidTIP: windows_sys::core::GUID,
+    pub ichStart: super::LONG,
+    pub cch: super::LONG,
+    pub cb: super::ULONG,
+    pub dwPrivate: super::DWORD,
+    pub clsidTIP: super::CLSID,
 }
 pub const TF_POPF_ALL: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TF_PRESERVEDKEY {
-    pub uVKey: u32,
-    pub uModifiers: u32,
+    pub uVKey: super::UINT,
+    pub uModifiers: super::UINT,
 }
+pub const TF_PROCESS_ATOM: windows_sys::core::PCSTR = windows_sys::core::s!("_CTF_PROCESS_ATOM_");
 pub const TF_PROFILETYPE_INPUTPROCESSOR: i32 = 1;
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: i32 = 2;
 pub const TF_PROFILE_ARRAY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd38eff65_aa46_4fd5_91a7_67845fb02f5b);
@@ -237,13 +228,13 @@ pub const TF_PROFILE_TIGRINYA: windows_sys::core::GUID = windows_sys::core::GUID
 pub const TF_PROFILE_WUBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
 pub const TF_PROFILE_YI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_sys::core::GUID,
     pub varValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TF_PROPERTYVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -290,7 +281,7 @@ pub const TF_SS_REGIONS: i32 = 2;
 pub const TF_SS_TKBAUTOCORRECTENABLE: i32 = 16;
 pub const TF_SS_TKBPREDICTIONENABLE: i32 = 32;
 pub const TF_SS_TRANSITORY: i32 = 4;
-#[cfg(feature = "textstor")]
+#[cfg(all(feature = "shared", feature = "textstor"))]
 pub type TF_STATUS = super::TS_STATUS;
 pub const TF_ST_CORRECTION: i32 = 1;
 pub const TF_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;

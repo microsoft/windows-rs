@@ -1,11 +1,11 @@
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("compstui.dll" "system" fn CommonPropertySheetUIA(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : super::LPDWORD) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("compstui.dll" "system" fn CommonPropertySheetUIW(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : super::LPDWORD) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("compstui.dll" "system" fn GetCPSUIUserData(hdlg : super::HWND) -> usize);
-#[cfg(feature = "windef")]
-windows_link::link!("compstui.dll" "system" fn SetCPSUIUserData(hdlg : super::HWND, cpsuiuserdata : usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("compstui.dll" "system" fn CommonPropertySheetUIA(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : super::LPDWORD) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("compstui.dll" "system" fn CommonPropertySheetUIW(hwndowner : super::HWND, pfnpropsheetui : PFNPROPSHEETUI, lparam : super::LPARAM, presult : super::LPDWORD) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("compstui.dll" "system" fn GetCPSUIUserData(hdlg : super::HWND) -> super::ULONG_PTR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("compstui.dll" "system" fn SetCPSUIUserData(hdlg : super::HWND, cpsuiuserdata : super::ULONG_PTR) -> windows_sys::core::BOOL);
 pub const APPLYCPSUI_NO_NEWDEF: i32 = 1;
 pub const APPLYCPSUI_OK_CANCEL_BUTTON: i32 = 2;
 pub const CHKBOXS_FALSE_PDATA: i32 = 3;
@@ -16,27 +16,27 @@ pub const CHKBOXS_NO_YES: i32 = 1;
 pub const CHKBOXS_OFF_ON: i32 = 2;
 pub const CHKBOXS_OFF_PDATA: i32 = 5;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct COMPROPSHEETUI {
-    pub cbSize: u16,
-    pub Flags: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::WORD,
     pub hInstCaller: super::HINSTANCE,
     pub pCallerName: super::LPTSTR,
-    pub UserData: usize,
+    pub UserData: super::ULONG_PTR,
     pub pHelpFile: super::LPTSTR,
     pub pfnCallBack: _CPSUICALLBACK,
     pub pOptItem: POPTITEM,
     pub pDlgPage: PDLGPAGE,
-    pub cOptItem: u16,
-    pub cDlgPage: u16,
-    pub IconID: usize,
+    pub cOptItem: super::WORD,
+    pub cDlgPage: super::WORD,
+    pub IconID: super::ULONG_PTR,
     pub pOptItemName: super::LPTSTR,
-    pub CallerVersion: u16,
-    pub OptItemVersion: u16,
-    pub dwReserved: [usize; 4],
+    pub CallerVersion: super::WORD,
+    pub OptItemVersion: super::WORD,
+    pub dwReserved: [super::ULONG_PTR; 4],
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for COMPROPSHEETUI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -76,34 +76,34 @@ pub const CPSFUNC_SET_PSUIPAGE_TITLEA: i32 = 18;
 pub const CPSFUNC_SET_PSUIPAGE_TITLEW: i32 = 19;
 pub const CPSFUNC_SET_RESULT: i32 = 9;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct CPSUICBPARAM {
-    pub cbSize: u16,
-    pub Reason: u16,
+    pub cbSize: super::WORD,
+    pub Reason: super::WORD,
     pub hDlg: super::HWND,
     pub pOptItem: POPTITEM,
-    pub cOptItem: u16,
-    pub Flags: u16,
+    pub cOptItem: super::WORD,
+    pub Flags: super::WORD,
     pub pCurItem: POPTITEM,
     pub Anonymous: CPSUICBPARAM_0,
-    pub UserData: usize,
-    pub Result: usize,
+    pub UserData: super::ULONG_PTR,
+    pub Result: super::ULONG_PTR,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for CPSUICBPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union CPSUICBPARAM_0 {
-    pub OldSel: i32,
+    pub OldSel: super::LONG,
     pub pOldSel: super::LPTSTR,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for CPSUICBPARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -127,10 +127,10 @@ pub const CPSUICB_REASON_SEL_CHANGED: i32 = 0;
 pub const CPSUICB_REASON_SETACTIVE: i32 = 10;
 pub const CPSUICB_REASON_UNDO_CHANGES: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CPSUIDATABLOCK {
-    pub cbData: u32,
+    pub cbData: super::DWORD,
     pub pbData: super::LPBYTE,
 }
 pub const CPSUIF_ABOUT_CALLBACK: i32 = 4;
@@ -138,43 +138,43 @@ pub const CPSUIF_ICONID_AS_HICON: i32 = 2;
 pub const CPSUIF_UPDATE_PERMISSION: i32 = 1;
 pub const CPSUI_CANCEL: i32 = 0;
 pub const CPSUI_OK: i32 = 1;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_ADVDOCPROP: PDLGPAGE = 2 as _;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_DOCPROP: PDLGPAGE = 1 as _;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_PRINTERPROP: PDLGPAGE = 3 as _;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_TREEVIEWONLY: PDLGPAGE = 4 as _;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub const CPSUI_PDLGPAGE_TREEVIWONLY: PDLGPAGE = 4 as _;
 pub const CPSUI_REBOOTSYSTEM: i32 = 3;
 pub const CPSUI_RESTARTWINDOWS: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct DLGPAGE {
-    pub cbSize: u16,
-    pub Flags: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::WORD,
     pub DlgProc: super::DLGPROC,
     pub pTabName: super::LPTSTR,
-    pub IconID: usize,
+    pub IconID: super::ULONG_PTR,
     pub Anonymous: DLGPAGE_0,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for DLGPAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union DLGPAGE_0 {
-    pub DlgTemplateID: u16,
+    pub DlgTemplateID: super::WORD,
     pub hDlgTemplate: super::HANDLE,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for DLGPAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -278,63 +278,63 @@ pub const ERR_CPSUI_TOO_MANY_DLGPAGES: i32 = -15;
 pub const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9;
 pub const ERR_CPSUI_ZERO_OPTITEM: i32 = -44;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EXTCHKBOX {
-    pub cbSize: u16,
-    pub Flags: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::WORD,
     pub pTitle: super::LPTSTR,
     pub pSeparator: super::LPTSTR,
     pub pCheckedName: super::LPTSTR,
-    pub IconID: usize,
-    pub wReserved: [u16; 4],
-    pub dwReserved: [usize; 2],
+    pub IconID: super::ULONG_PTR,
+    pub wReserved: [super::WORD; 4],
+    pub dwReserved: [super::ULONG_PTR; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for EXTCHKBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct EXTPUSH {
-    pub cbSize: u16,
-    pub Flags: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::WORD,
     pub pTitle: super::LPTSTR,
     pub Anonymous: EXTPUSH_0,
-    pub IconID: usize,
+    pub IconID: super::ULONG_PTR,
     pub Anonymous2: EXTPUSH_1,
-    pub dwReserved: [usize; 3],
+    pub dwReserved: [super::ULONG_PTR; 3],
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for EXTPUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union EXTPUSH_0 {
     pub DlgProc: super::DLGPROC,
     pub pfnCallBack: super::FARPROC,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for EXTPUSH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union EXTPUSH_1 {
-    pub DlgTemplateID: u16,
+    pub DlgTemplateID: super::WORD,
     pub hDlgTemplate: super::HANDLE,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for EXTPUSH_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -660,14 +660,15 @@ pub const IDS_CPSUI_WARNING: i32 = 64847;
 pub const IDS_CPSUI_WATERMARK: i32 = 64797;
 pub const IDS_CPSUI_YES: i32 = 64729;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INSERTPSUIPAGE_INFO {
-    pub cbSize: u16,
-    pub Type: u8,
-    pub Mode: u8,
-    pub dwData1: usize,
-    pub dwData2: usize,
-    pub dwData3: usize,
+    pub cbSize: super::WORD,
+    pub Type: super::BYTE,
+    pub Mode: super::BYTE,
+    pub dwData1: super::ULONG_PTR,
+    pub dwData2: super::ULONG_PTR,
+    pub dwData3: super::ULONG_PTR,
 }
 pub const INSPSUIPAGE_MODE_AFTER: i32 = 1;
 pub const INSPSUIPAGE_MODE_BEFORE: i32 = 0;
@@ -680,16 +681,16 @@ pub const MAX_PROPSHEETUI_REASON_INDEX: i32 = 5;
 pub const MAX_PSUIPAGEINSERT_INDEX: i32 = 5;
 pub const MAX_RES_STR_CHARS: i32 = 160;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct OIEXT {
-    pub cbSize: u16,
-    pub Flags: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::WORD,
     pub hInstCaller: super::HINSTANCE,
     pub pHelpFile: super::LPTSTR,
-    pub dwReserved: [usize; 4],
+    pub dwReserved: [super::ULONG_PTR; 4],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for OIEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -699,17 +700,17 @@ pub const OIEXTF_ANSI_STRING: i32 = 1;
 pub const OPTCF_HIDE: i32 = 1;
 pub const OPTCF_MASK: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct OPTCOMBO {
-    pub cbSize: u16,
-    pub Flags: u8,
-    pub cListItem: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::BYTE,
+    pub cListItem: super::WORD,
     pub pListItem: POPTPARAM,
-    pub Sel: i32,
-    pub dwReserved: [u32; 3],
+    pub Sel: super::LONG,
+    pub dwReserved: [super::DWORD; 3],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for OPTCOMBO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -734,70 +735,70 @@ pub const OPTIF_OVERLAY_STOP_ICON: i32 = 8192;
 pub const OPTIF_OVERLAY_WARNING_ICON: i32 = 4096;
 pub const OPTIF_SEL_AS_HICON: i32 = 512;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub struct OPTITEM {
-    pub cbSize: u16,
-    pub Level: u8,
-    pub DlgPageIdx: u8,
-    pub Flags: u32,
-    pub UserData: usize,
+    pub cbSize: super::WORD,
+    pub Level: super::BYTE,
+    pub DlgPageIdx: super::BYTE,
+    pub Flags: super::DWORD,
+    pub UserData: super::ULONG_PTR,
     pub pName: super::LPTSTR,
     pub Anonymous: OPTITEM_0,
     pub Anonymous2: OPTITEM_1,
     pub pOptType: POPTTYPE,
-    pub HelpIndex: u32,
-    pub DMPubID: u8,
-    pub UserItemID: u8,
-    pub wReserved: u16,
+    pub HelpIndex: super::DWORD,
+    pub DMPubID: super::BYTE,
+    pub UserItemID: super::BYTE,
+    pub wReserved: super::WORD,
     pub pOIExt: POIEXT,
-    pub dwReserved: [usize; 3],
+    pub dwReserved: [super::ULONG_PTR; 3],
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for OPTITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union OPTITEM_0 {
-    pub Sel: i32,
+    pub Sel: super::LONG,
     pub pSel: super::LPTSTR,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for OPTITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[derive(Clone, Copy)]
 pub union OPTITEM_1 {
     pub pExtChkBox: PEXTCHKBOX,
     pub pExtPush: PEXTPUSH,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 impl Default for OPTITEM_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct OPTPARAM {
-    pub cbSize: u16,
-    pub Flags: u8,
-    pub Style: u8,
+    pub cbSize: super::WORD,
+    pub Flags: super::BYTE,
+    pub Style: super::BYTE,
     pub pData: super::LPTSTR,
-    pub IconID: usize,
+    pub IconID: super::ULONG_PTR,
     pub lParam: super::LPARAM,
-    pub dwReserved: [usize; 2],
+    pub dwReserved: [super::ULONG_PTR; 2],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for OPTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -815,20 +816,20 @@ pub const OPTTF_MASK: i32 = 3;
 pub const OPTTF_NOSPACE_BEFORE_POSTFIX: i32 = 2;
 pub const OPTTF_TYPE_DISABLED: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct OPTTYPE {
-    pub cbSize: u16,
-    pub Type: u8,
-    pub Flags: u8,
-    pub Count: u16,
-    pub BegCtrlID: u16,
+    pub cbSize: super::WORD,
+    pub Type: super::BYTE,
+    pub Flags: super::BYTE,
+    pub Count: super::WORD,
+    pub BegCtrlID: super::WORD,
     pub pOptParam: POPTPARAM,
-    pub Style: u16,
-    pub wReserved: [u16; 3],
-    pub dwReserved: [usize; 3],
+    pub Style: super::WORD,
+    pub wReserved: [super::WORD; 3],
+    pub dwReserved: [super::ULONG_PTR; 3],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for OPTTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -843,90 +844,91 @@ pub const OTS_MASK: i32 = 255;
 pub const OTS_PUSH_ENABLE_ALWAYS: i32 = 128;
 pub const OTS_PUSH_INCL_SETUP_TITLE: i32 = 32;
 pub const OTS_PUSH_NO_DOT_DOT_DOT: i32 = 64;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PCOMPROPSHEETUI = *mut COMPROPSHEETUI;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PCPSUICBPARAM = *mut CPSUICBPARAM;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PCPSUIDATABLOCK = *mut CPSUIDATABLOCK;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PDLGPAGE = *mut DLGPAGE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PEXTCHKBOX = *mut EXTCHKBOX;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type PEXTPUSH = *mut EXTPUSH;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::HANDLE, function: u32, lparam1: super::LPARAM, lparam2: super::LPARAM) -> isize>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: PPROPSHEETUI_INFO, lparam: super::LPARAM) -> i32>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::HANDLE, function: super::UINT, lparam1: super::LPARAM, lparam2: super::LPARAM) -> super::LONG_PTR>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: PPROPSHEETUI_INFO, lparam: super::LPARAM) -> super::LONG>;
+#[cfg(feature = "shared")]
 pub type PINSERTPSUIPAGE_INFO = *mut INSERTPSUIPAGE_INFO;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type POIEXT = *mut OIEXT;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type POPTCOMBO = *mut OPTCOMBO;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type POPTITEM = *mut OPTITEM;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type POPTPARAM = *mut OPTPARAM;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type POPTTYPE = *mut OPTTYPE;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PPROPSHEETUI_GETICON_INFO = *mut PROPSHEETUI_GETICON_INFO;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PPROPSHEETUI_INFO = *mut PROPSHEETUI_INFO;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PPROPSHEETUI_INFO_HEADER = *mut PROPSHEETUI_INFO_HEADER;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PPSPINFO = *mut PSPINFO;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROPSHEETUI_GETICON_INFO {
-    pub cbSize: u16,
-    pub Flags: u16,
-    pub cxIcon: u16,
-    pub cyIcon: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::WORD,
+    pub cxIcon: super::WORD,
+    pub cyIcon: super::WORD,
     pub hIcon: super::HICON,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROPSHEETUI_INFO {
-    pub cbSize: u16,
-    pub Version: u16,
-    pub Flags: u16,
-    pub Reason: u16,
+    pub cbSize: super::WORD,
+    pub Version: super::WORD,
+    pub Flags: super::WORD,
+    pub Reason: super::WORD,
     pub hComPropSheet: super::HANDLE,
     pub pfnComPropSheet: PFNCOMPROPSHEET,
     pub lParamInit: super::LPARAM,
-    pub UserData: usize,
-    pub Result: usize,
+    pub UserData: super::ULONG_PTR,
+    pub Result: super::ULONG_PTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PROPSHEETUI_INFO_HEADER {
-    pub cbSize: u16,
-    pub Flags: u16,
+    pub cbSize: super::WORD,
+    pub Flags: super::WORD,
     pub pTitle: super::LPTSTR,
     pub hWndParent: super::HWND,
     pub hInst: super::HINSTANCE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for PROPSHEETUI_INFO_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::HICON,
-    pub IconID: usize,
+    pub IconID: super::ULONG_PTR,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for PROPSHEETUI_INFO_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -939,14 +941,14 @@ pub const PROPSHEETUI_REASON_GET_ICON: i32 = 4;
 pub const PROPSHEETUI_REASON_GET_INFO_HEADER: i32 = 1;
 pub const PROPSHEETUI_REASON_INIT: i32 = 0;
 pub const PROPSHEETUI_REASON_SET_RESULT: i32 = 3;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PSETRESULT_INFO = *mut SETRESULT_INFO;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct PSPINFO {
-    pub cbSize: u16,
-    pub wReserved: u16,
+    pub cbSize: super::WORD,
+    pub wReserved: super::WORD,
     pub hComPropSheet: super::HANDLE,
     pub hCPSUIPage: super::HANDLE,
     pub pfnComPropSheet: PFNCOMPROPSHEET,
@@ -969,11 +971,11 @@ pub const PUSHBUTTON_TYPE_DLGPROC: i32 = 0;
 pub const PUSHBUTTON_TYPE_HTCLRADJ: i32 = 2;
 pub const PUSHBUTTON_TYPE_HTSETUP: i32 = 3;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SETRESULT_INFO {
-    pub cbSize: u16,
-    pub wReserved: u16,
+    pub cbSize: super::WORD,
+    pub wReserved: super::WORD,
     pub hSetResult: super::HANDLE,
     pub Result: super::LRESULT,
 }
@@ -995,5 +997,5 @@ pub const TVOT_PUSHBUTTON: i32 = 8;
 pub const TVOT_SCROLLBAR: i32 = 4;
 pub const TVOT_TRACKBAR: i32 = 3;
 pub const TVOT_UDARROW: i32 = 2;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: PCPSUICBPARAM) -> i32>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
+pub type _CPSUICALLBACK = Option<unsafe extern "system" fn(pcpsuicbparam: PCPSUICBPARAM) -> super::LONG>;

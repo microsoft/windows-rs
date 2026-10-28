@@ -1,8 +1,8 @@
 windows_link::link!("prntvpt.dll" "system" fn PTCloseProvider(hprovider : HPTPROVIDER) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "wingdi"))]
-windows_link::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : u32, pdevmode : super::PDEVMODE, scope : EPrintTicketScope, pprintticket : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "wingdi"))]
-windows_link::link!("prntvpt.dll" "system" fn PTConvertPrintTicketToDevMode(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, basedevmodetype : EDefaultDevmodeType, scope : EPrintTicketScope, pcbdevmode : *mut u32, ppdevmode : *mut super::PDEVMODE, pbstrerrormessage : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : super::ULONG, pdevmode : super::PDEVMODE, scope : EPrintTicketScope, pprintticket : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("prntvpt.dll" "system" fn PTConvertPrintTicketToDevMode(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, basedevmodetype : EDefaultDevmodeType, scope : EPrintTicketScope, pcbdevmode : *mut super::ULONG, ppdevmode : *mut super::PDEVMODE, pbstrerrormessage : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("prntvpt.dll" "system" fn PTGetPrintCapabilities(hprovider : HPTPROVIDER, pprintticket : *mut core::ffi::c_void, pcapabilities : *mut core::ffi::c_void, pbstrerrormessage : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
@@ -11,10 +11,14 @@ windows_link::link!("prntvpt.dll" "system" fn PTGetPrintDeviceCapabilities(hprov
 windows_link::link!("prntvpt.dll" "system" fn PTGetPrintDeviceResources(hprovider : HPTPROVIDER, pszlocalename : windows_sys::core::PCWSTR, pprintticket : *mut core::ffi::c_void, pdeviceresources : *mut core::ffi::c_void, pbstrerrormessage : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("prntvpt.dll" "system" fn PTMergeAndValidatePrintTicket(hprovider : HPTPROVIDER, pbaseticket : *mut core::ffi::c_void, pdeltaticket : *mut core::ffi::c_void, scope : EPrintTicketScope, presultticket : *mut core::ffi::c_void, pbstrerrormessage : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_sys::core::PCWSTR, dwversion : u32, phprovider : *mut HPTPROVIDER) -> windows_sys::core::HRESULT);
-windows_link::link!("prntvpt.dll" "system" fn PTOpenProviderEx(pszprintername : windows_sys::core::PCWSTR, dwmaxversion : u32, dwprefversion : u32, phprovider : *mut HPTPROVIDER, pusedversion : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_sys::core::PCWSTR, pmaxversion : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_sys::core::PCWSTR, dwversion : super::DWORD, phprovider : *mut HPTPROVIDER) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("prntvpt.dll" "system" fn PTOpenProviderEx(pszprintername : windows_sys::core::PCWSTR, dwmaxversion : super::DWORD, dwprefversion : super::DWORD, phprovider : *mut HPTPROVIDER, pusedversion : *mut super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_sys::core::PCWSTR, pmaxversion : *mut super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : super::PVOID) -> windows_sys::core::HRESULT);
 pub type EDefaultDevmodeType = i32;
 pub type EPrintTicketScope = i32;
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797;

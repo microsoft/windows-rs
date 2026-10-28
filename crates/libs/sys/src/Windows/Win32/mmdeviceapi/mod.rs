@@ -1,5 +1,5 @@
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, activationparams : *const super::PROPVARIANT, completionhandler : *mut core::ffi::c_void, activationoperation : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_sys::core::PCWSTR, riid : *const super::IID, activationparams : *const super::PROPVARIANT, completionhandler : *mut core::ffi::c_void, activationoperation : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = i32;
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 0;
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 3;
@@ -24,11 +24,12 @@ pub const DEVINTERFACE_AUDIO_RENDER: windows_sys::core::GUID = windows_sys::core
 pub const DEVINTERFACE_MIDI_INPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
 pub const DEVINTERFACE_MIDI_OUTPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
-    pub cbDirectXAudioActivationParams: u32,
+    pub cbDirectXAudioActivationParams: super::DWORD,
     pub guidAudioSession: windows_sys::core::GUID,
-    pub dwAudioStreamFlags: u32,
+    pub dwAudioStreamFlags: super::DWORD,
 }
 pub const DigitalAudioDisplayDevice: EndpointFormFactor = 9;
 pub type EDataFlow = i32;
@@ -47,42 +48,43 @@ pub const Headset: EndpointFormFactor = 5;
 pub const LineLevel: EndpointFormFactor = 2;
 pub const MMDeviceEnumerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 pub const Microphone: EndpointFormFactor = 4;
+#[cfg(feature = "shared")]
 pub type PDIRECTX_AUDIO_ACTIVATION_PARAMS = *mut DIRECTX_AUDIO_ACTIVATION_PARAMS;
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpointLogo_IconEffects: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpointLogo_IconPath: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpointSettings_LaunchContract: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpointSettings_MenuText: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 0 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Association: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 2 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 1 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 9 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Disable_SysFx: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 5 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_FormFactor: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 0 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 6 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_GUID: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 4 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_JackSubType: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 8 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Max_VolumeInDb: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 10 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Min_VolumeInDb: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 11 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEngine_DeviceFormat: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c), pid: 0 };
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub const PKEY_AudioEngine_OEMFormat: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3 };
 pub const RemoteNetworkDevice: EndpointFormFactor = 0;
 pub const SPDIF: EndpointFormFactor = 8;

@@ -1,12 +1,12 @@
 #[cfg(feature = "dxgi")]
 windows_link::link!("windows.data.pdf.dll" "system" fn PdfCreateRenderer(pdevice : *mut core::ffi::c_void, pprenderer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
-#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "winnt"))]
+#[cfg(all(feature = "d2d", feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::D2D_RECT_F,
-    pub DestinationWidth: u32,
-    pub DestinationHeight: u32,
+    pub DestinationWidth: super::UINT32,
+    pub DestinationHeight: super::UINT32,
     pub BackgroundColor: super::D2D_COLOR_F,
     pub IgnoreHighContrast: super::BOOLEAN,
 }

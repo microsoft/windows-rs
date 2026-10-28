@@ -1,66 +1,80 @@
+#[cfg(feature = "shared")]
 pub type PWIA_DATA_CALLBACK_HEADER = *mut WIA_DATA_CALLBACK_HEADER;
+#[cfg(feature = "shared")]
 pub type PWIA_DATA_TRANSFER_INFO = *mut WIA_DATA_TRANSFER_INFO;
+#[cfg(feature = "shared")]
 pub type PWIA_DEV_CAP = *mut WIA_DEV_CAP;
+#[cfg(feature = "shared")]
 pub type PWIA_DITHER_PATTERN_DATA = *mut WIA_DITHER_PATTERN_DATA;
+#[cfg(feature = "shared")]
 pub type PWIA_EVENT_HANDLER = *mut WIA_DEV_CAP;
+#[cfg(feature = "shared")]
 pub type PWIA_EXTENDED_TRANSFER_INFO = *mut WIA_EXTENDED_TRANSFER_INFO;
+#[cfg(feature = "shared")]
 pub type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_DATA_CALLBACK_HEADER {
-    pub lSize: i32,
+    pub lSize: super::LONG,
     pub guidFormatID: windows_sys::core::GUID,
-    pub lBufferSize: i32,
-    pub lPageCount: i32,
+    pub lBufferSize: super::LONG,
+    pub lPageCount: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_DATA_TRANSFER_INFO {
-    pub ulSize: u32,
-    pub ulSection: u32,
-    pub ulBufferSize: u32,
+    pub ulSize: super::ULONG,
+    pub ulSection: super::ULONG,
+    pub ulBufferSize: super::ULONG,
     pub bDoubleBuffer: windows_sys::core::BOOL,
-    pub ulReserved1: u32,
-    pub ulReserved2: u32,
-    pub ulReserved3: u32,
+    pub ulReserved1: super::ULONG,
+    pub ulReserved2: super::ULONG,
+    pub ulReserved3: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_DEV_CAP {
     pub guid: windows_sys::core::GUID,
-    pub ulFlags: u32,
+    pub ulFlags: super::ULONG,
     pub bstrName: windows_sys::core::BSTR,
     pub bstrDescription: windows_sys::core::BSTR,
     pub bstrIcon: windows_sys::core::BSTR,
     pub bstrCommandline: windows_sys::core::BSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_DITHER_PATTERN_DATA {
-    pub lSize: i32,
+    pub lSize: super::LONG,
     pub bstrPatternName: windows_sys::core::BSTR,
-    pub lPatternWidth: i32,
-    pub lPatternLength: i32,
-    pub cbPattern: i32,
-    pub pbPattern: *mut u8,
+    pub lPatternWidth: super::LONG,
+    pub lPatternLength: super::LONG,
+    pub cbPattern: super::LONG,
+    pub pbPattern: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
 pub type WIA_EVENT_HANDLER = WIA_DEV_CAP;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_EXTENDED_TRANSFER_INFO {
-    pub ulSize: u32,
-    pub ulMinBufferSize: u32,
-    pub ulOptimalBufferSize: u32,
-    pub ulMaxBufferSize: u32,
-    pub ulNumBuffers: u32,
+    pub ulSize: super::ULONG,
+    pub ulMinBufferSize: super::ULONG,
+    pub ulOptimalBufferSize: super::ULONG,
+    pub ulMaxBufferSize: super::ULONG,
+    pub ulNumBuffers: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_FORMAT_INFO {
     pub guidFormatID: windows_sys::core::GUID,
-    pub lTymed: i32,
+    pub lTymed: super::LONG,
 }
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -73,10 +87,11 @@ pub const WiaDevMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u12
 pub const WiaDevMgr2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
 pub const WiaLog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WiaTransferParams {
-    pub lMessage: i32,
-    pub lPercentComplete: i32,
-    pub ulTransferredBytes: u64,
+    pub lMessage: super::LONG,
+    pub lPercentComplete: super::LONG,
+    pub ulTransferredBytes: super::ULONG64,
     pub hrErrorStatus: windows_sys::core::HRESULT,
 }

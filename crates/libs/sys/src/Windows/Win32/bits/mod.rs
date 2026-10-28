@@ -196,17 +196,19 @@ pub struct BG_FILE_INFO {
     pub LocalName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BG_FILE_PROGRESS {
-    pub BytesTotal: u64,
-    pub BytesTransferred: u64,
+    pub BytesTotal: super::UINT64,
+    pub BytesTransferred: super::UINT64,
     pub Completed: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BG_FILE_RANGE {
-    pub InitialOffset: u64,
-    pub Length: u64,
+    pub InitialOffset: super::UINT64,
+    pub Length: super::UINT64,
 }
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: i32 = 2048;
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: i32 = 256;
@@ -223,12 +225,13 @@ pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = 1;
 pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = 3;
 pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BG_JOB_PROGRESS {
-    pub BytesTotal: u64,
-    pub BytesTransferred: u64,
-    pub FilesTotal: u32,
-    pub FilesTransferred: u32,
+    pub BytesTotal: super::UINT64,
+    pub BytesTransferred: super::UINT64,
+    pub FilesTotal: super::ULONG,
+    pub FilesTransferred: super::ULONG,
 }
 pub type BG_JOB_PROXY_USAGE = i32;
 pub const BG_JOB_PROXY_USAGE_AUTODETECT: BG_JOB_PROXY_USAGE = 3;
@@ -236,10 +239,11 @@ pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = 1;
 pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = 2;
 pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BG_JOB_REPLY_PROGRESS {
-    pub BytesTotal: u64,
-    pub BytesTransferred: u64,
+    pub BytesTotal: super::UINT64,
+    pub BytesTransferred: super::UINT64,
 }
 pub type BG_JOB_STATE = i32;
 pub const BG_JOB_STATE_ACKNOWLEDGED: BG_JOB_STATE = 7;
@@ -252,7 +256,7 @@ pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = 6;
 pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = 2;
 pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = 5;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::FILETIME,
@@ -263,14 +267,16 @@ pub type BG_JOB_TYPE = i32;
 pub const BG_JOB_TYPE_DOWNLOAD: BG_JOB_TYPE = 0;
 pub const BG_JOB_TYPE_UPLOAD: BG_JOB_TYPE = 1;
 pub const BG_JOB_TYPE_UPLOAD_REPLY: BG_JOB_TYPE = 2;
-pub const BG_LENGTH_TO_EOF: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const BG_LENGTH_TO_EOF: super::UINT64 = 18446744073709551615;
 pub const BG_NOTIFY_DISABLE: i32 = 4;
 pub const BG_NOTIFY_FILE_RANGES_TRANSFERRED: i32 = 32;
 pub const BG_NOTIFY_FILE_TRANSFERRED: i32 = 16;
 pub const BG_NOTIFY_JOB_ERROR: i32 = 2;
 pub const BG_NOTIFY_JOB_MODIFICATION: i32 = 8;
 pub const BG_NOTIFY_JOB_TRANSFERRED: i32 = 1;
-pub const BG_SIZE_UNKNOWN: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const BG_SIZE_UNKNOWN: super::UINT64 = 18446744073709551615;
 pub const BG_SSL_ENABLE_CRL_CHECK: i32 = 1;
 pub const BG_SSL_IGNORE_CERT_CN_INVALID: i32 = 2;
 pub const BG_SSL_IGNORE_CERT_DATE_INVALID: i32 = 4;
@@ -320,14 +326,16 @@ pub const BITS_JOB_PROPERTY_NOTIFICATION_CLSID: BITS_JOB_PROPERTY_ID = 2;
 pub const BITS_JOB_PROPERTY_ON_DEMAND_MODE: BITS_JOB_PROPERTY_ID = 10;
 pub const BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS: BITS_JOB_PROPERTY_ID = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union BITS_JOB_PROPERTY_VALUE {
-    pub Dword: u32,
+    pub Dword: super::DWORD,
     pub ClsID: windows_sys::core::GUID,
     pub Enable: windows_sys::core::BOOL,
-    pub Uint64: u64,
+    pub Uint64: super::UINT64,
     pub Target: BG_AUTH_TARGET,
 }
+#[cfg(feature = "shared")]
 impl Default for BITS_JOB_PROPERTY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1,57 +1,62 @@
 windows_link::link!("shell32.dll" "system" fn GetCurrentProcessExplicitAppUserModelID(appid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHAssocEnumHandlers(pszextra : windows_sys::core::PCWSTR, affilter : ASSOC_FILTER, ppenumhandler : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, enumhandlers : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : *mut core::ffi::c_void, pszname : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const super::KNOWNFOLDERID, dwkfflags : u32, pszitem : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : super::LPCITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : windows_sys::core::PCWSTR, riid : *const super::IID, enumhandlers : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : super::LPCITEMIDLIST, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : *mut core::ffi::c_void, pszname : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const super::KNOWNFOLDERID, dwkfflags : super::DWORD, pszitem : windows_sys::core::PCWSTR, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : super::LPCITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, riid : *const super::IID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, cidl : super::UINT, ppidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : super::UINT, rgpidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetIDListFromObject(punk : *mut core::ffi::c_void, ppidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "objidl")]
-windows_link::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : *mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "guiddef", feature = "objidl"))]
+windows_link::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : *mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetNameFromIDList(pidl : super::LPCITEMIDLIST, sigdnname : SIGDN, ppszname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "propsys", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromIDList(pidl : super::LPCITEMIDLIST, flags : super::GETPROPERTYSTOREFLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "propsys"))]
-windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, flags : super::GETPROPERTYSTOREFLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "propsys", feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromIDList(pidl : super::LPCITEMIDLIST, flags : super::GETPROPERTYSTOREFLAGS, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "propsys"))]
+windows_link::link!("shell32.dll" "system" fn SHGetPropertyStoreFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, flags : super::GETPROPERTYSTOREFLAGS, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHGetTemporaryPropertyForItem(psi : *mut core::ffi::c_void, propkey : *const super::PROPERTYKEY, ppropvar : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHResolveLibrary(psilibrary : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn SHSetTemporaryPropertyForItem(psi : *mut core::ffi::c_void, propkey : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHShowManageLibraryUI(psilibrary : *mut core::ffi::c_void, hwndowner : super::HWND, psztitle : windows_sys::core::PCWSTR, pszinstruction : windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHSimpleIDListFromPath(pszpath : windows_sys::core::PCWSTR) -> super::LPITEMIDLIST);
 windows_link::link!("shell32.dll" "system" fn SetCurrentProcessExplicitAppUserModelID(appid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-pub type ACTIVATEOPTIONS = u32;
+pub type ACTIVATEOPTIONS = i32;
 pub const ADE_LEFT: ADJACENT_DISPLAY_EDGES = 1;
 pub const ADE_NONE: ADJACENT_DISPLAY_EDGES = 0;
 pub const ADE_RIGHT: ADJACENT_DISPLAY_EDGES = 2;
-pub type ADJACENT_DISPLAY_EDGES = u32;
+pub type ADJACENT_DISPLAY_EDGES = i32;
 pub const ADLT_FREQUENT: APPDOCLISTTYPE = 1;
 pub const ADLT_RECENT: APPDOCLISTTYPE = 0;
 pub const AHE_DESKTOP: AHE_TYPE = 0;
 pub const AHE_IMMERSIVE: AHE_TYPE = 1;
 pub type AHE_TYPE = i32;
-pub type AHTYPE = u32;
+pub type AHTYPE = i32;
 pub const AHTYPE_ANY_APPLICATION: AHTYPE = 16;
 pub const AHTYPE_ANY_PROGID: AHTYPE = 512;
 pub const AHTYPE_APPLICATION: AHTYPE = 128;
@@ -63,7 +68,8 @@ pub const AHTYPE_USER_APPLICATION: AHTYPE = 8;
 pub const AL_EFFECTIVE: ASSOCIATIONLEVEL = 1;
 pub const AL_MACHINE: ASSOCIATIONLEVEL = 0;
 pub const AL_USER: ASSOCIATIONLEVEL = 2;
-pub const ANCESTORDEFAULT: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const ANCESTORDEFAULT: super::UINT = 4294967295;
 pub const AO_DESIGNMODE: ACTIVATEOPTIONS = 1;
 pub const AO_NOERRORUI: ACTIVATEOPTIONS = 2;
 pub const AO_NONE: ACTIVATEOPTIONS = 0;
@@ -99,7 +105,7 @@ pub const ARCONTENT_UNKNOWNCONTENT: i32 = 64;
 pub const ARCONTENT_VCD: i32 = 1024;
 pub type ASSOCIATIONLEVEL = i32;
 pub type ASSOCIATIONTYPE = i32;
-pub type ASSOC_FILTER = u32;
+pub type ASSOC_FILTER = i32;
 pub const ASSOC_FILTER_NONE: ASSOC_FILTER = 0;
 pub const ASSOC_FILTER_RECOMMENDED: ASSOC_FILTER = 1;
 pub type ATTACHMENT_ACTION = i32;
@@ -139,12 +145,13 @@ pub const ApplicationAssociationRegistration: windows_sys::core::GUID = windows_
 pub const ApplicationDesignModeSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x958a6fb5_dcb2_4faf_aafd_7fb054ad1a3b);
 pub const ApplicationDestinations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
 pub const ApplicationDocumentLists: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BANDSITEINFO {
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub dwStyle: u32,
+    pub dwMask: super::DWORD,
+    pub dwState: super::DWORD,
+    pub dwStyle: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -154,26 +161,26 @@ pub struct BANNER_NOTIFICATION {
     pub contentId: windows_sys::core::PCWSTR,
 }
 pub type BANNER_NOTIFICATION_EVENT = i32;
-pub const BFO_ADD_IE_TOCAPTIONBAR: BROWSERFRAMEOPTIONS = 512;
-pub const BFO_BOTH_OPTIONS: BROWSERFRAMEOPTIONS = 4;
-pub const BFO_BROWSER_PERSIST_SETTINGS: BROWSERFRAMEOPTIONS = 1;
-pub const BFO_BROWSE_NO_IN_NEW_PROCESS: BROWSERFRAMEOPTIONS = 16;
-pub const BFO_ENABLE_HYPERLINK_TRACKING: BROWSERFRAMEOPTIONS = 32;
-pub const BFO_GO_HOME_PAGE: BROWSERFRAMEOPTIONS = 16384;
-pub const BFO_NONE: BROWSERFRAMEOPTIONS = 0;
-pub const BFO_NO_PARENT_FOLDER_SUPPORT: BROWSERFRAMEOPTIONS = 4096;
-pub const BFO_NO_REOPEN_NEXT_RESTART: BROWSERFRAMEOPTIONS = 8192;
-pub const BFO_PREFER_IEPROCESS: BROWSERFRAMEOPTIONS = 32768;
-pub const BFO_QUERY_ALL: BROWSERFRAMEOPTIONS = 4294967295;
-pub const BFO_RENAME_FOLDER_OPTIONS_TOINTERNET: BROWSERFRAMEOPTIONS = 2;
-pub const BFO_SHOW_NAVIGATION_CANCELLED: BROWSERFRAMEOPTIONS = 65536;
-pub const BFO_SUBSTITUE_INTERNET_START_PAGE: BROWSERFRAMEOPTIONS = 128;
-pub const BFO_USE_DIALUP_REF: BROWSERFRAMEOPTIONS = 1024;
-pub const BFO_USE_IE_LOGOBANDING: BROWSERFRAMEOPTIONS = 256;
-pub const BFO_USE_IE_OFFLINE_SUPPORT: BROWSERFRAMEOPTIONS = 64;
-pub const BFO_USE_IE_STATUSBAR: BROWSERFRAMEOPTIONS = 131072;
-pub const BFO_USE_IE_TOOLBAR: BROWSERFRAMEOPTIONS = 2048;
-pub const BIF_PREFER_INTERNET_SHORTCUT: BROWSERFRAMEOPTIONS = 8;
+pub const BFO_ADD_IE_TOCAPTIONBAR: _BROWSERFRAMEOPTIONS = 512;
+pub const BFO_BOTH_OPTIONS: _BROWSERFRAMEOPTIONS = 4;
+pub const BFO_BROWSER_PERSIST_SETTINGS: _BROWSERFRAMEOPTIONS = 1;
+pub const BFO_BROWSE_NO_IN_NEW_PROCESS: _BROWSERFRAMEOPTIONS = 16;
+pub const BFO_ENABLE_HYPERLINK_TRACKING: _BROWSERFRAMEOPTIONS = 32;
+pub const BFO_GO_HOME_PAGE: _BROWSERFRAMEOPTIONS = 16384;
+pub const BFO_NONE: _BROWSERFRAMEOPTIONS = 0;
+pub const BFO_NO_PARENT_FOLDER_SUPPORT: _BROWSERFRAMEOPTIONS = 4096;
+pub const BFO_NO_REOPEN_NEXT_RESTART: _BROWSERFRAMEOPTIONS = 8192;
+pub const BFO_PREFER_IEPROCESS: _BROWSERFRAMEOPTIONS = 32768;
+pub const BFO_QUERY_ALL: _BROWSERFRAMEOPTIONS = -1;
+pub const BFO_RENAME_FOLDER_OPTIONS_TOINTERNET: _BROWSERFRAMEOPTIONS = 2;
+pub const BFO_SHOW_NAVIGATION_CANCELLED: _BROWSERFRAMEOPTIONS = 65536;
+pub const BFO_SUBSTITUE_INTERNET_START_PAGE: _BROWSERFRAMEOPTIONS = 128;
+pub const BFO_USE_DIALUP_REF: _BROWSERFRAMEOPTIONS = 1024;
+pub const BFO_USE_IE_LOGOBANDING: _BROWSERFRAMEOPTIONS = 256;
+pub const BFO_USE_IE_OFFLINE_SUPPORT: _BROWSERFRAMEOPTIONS = 64;
+pub const BFO_USE_IE_STATUSBAR: _BROWSERFRAMEOPTIONS = 131072;
+pub const BFO_USE_IE_TOOLBAR: _BROWSERFRAMEOPTIONS = 2048;
+pub const BIF_PREFER_INTERNET_SHORTCUT: _BROWSERFRAMEOPTIONS = 8;
 pub const BIND_INTERRUPTABLE: u32 = 4294967295;
 pub const BNE_Button1Clicked: BANNER_NOTIFICATION_EVENT = 4;
 pub const BNE_Button2Clicked: BANNER_NOTIFICATION_EVENT = 5;
@@ -201,13 +208,15 @@ pub const BSIS_SINGLECLICK: i32 = 8;
 pub const BSSF_NOTITLE: i32 = 2;
 pub const BSSF_UNDELETEABLE: i32 = 4096;
 pub const BSSF_VISIBLE: i32 = 1;
-pub type CATEGORYINFO_FLAGS = u32;
+pub type CATEGORYINFO_FLAGS = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CATEGORY_INFO {
     pub cif: CATEGORYINFO_FLAGS,
-    pub wszName: [u16; 260],
+    pub wszName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for CATEGORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -224,7 +233,7 @@ pub const CATINFO_SEPARATE_IMAGES: CATEGORYINFO_FLAGS = 128;
 pub const CATINFO_SHOWEMPTY: CATEGORYINFO_FLAGS = 256;
 pub const CATINFO_SUBSETTED: CATEGORYINFO_FLAGS = 64;
 pub const CATSORT_DEFAULT: CATSORT_FLAGS = 0;
-pub type CATSORT_FLAGS = u32;
+pub type CATSORT_FLAGS = i32;
 pub const CATSORT_NAME: CATSORT_FLAGS = 1;
 pub const CDB2GVF_ADDSHIELD: i32 = 64;
 pub const CDB2GVF_ALLOWPREVIEWPANE: i32 = 4;
@@ -240,7 +249,7 @@ pub const CDBOSC_RENAME: i32 = 3;
 pub const CDBOSC_SELCHANGE: i32 = 2;
 pub const CDBOSC_SETFOCUS: i32 = 0;
 pub const CDBOSC_STATECHANGE: i32 = 4;
-pub type CDCONTROLSTATEF = u32;
+pub type CDCONTROLSTATEF = i32;
 pub const CDCS_ENABLED: CDCONTROLSTATEF = 1;
 pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = 3;
 pub const CDCS_INACTIVE: CDCONTROLSTATEF = 0;
@@ -280,32 +289,32 @@ pub const CMIC_MASK_NO_CONSOLE: i32 = 32768;
 pub const CMIC_MASK_PTINVOKE: i32 = 536870912;
 pub const CMIC_MASK_SHIFT_DOWN: i32 = 268435456;
 pub const CMIC_MASK_UNICODE: i32 = 16384;
-#[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CMINVOKECOMMANDINFO {
-    pub cbSize: u32,
-    pub fMask: u32,
+    pub cbSize: super::DWORD,
+    pub fMask: super::DWORD,
     pub hwnd: super::HWND,
     pub lpVerb: windows_sys::core::PCSTR,
     pub lpParameters: windows_sys::core::PCSTR,
     pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
-    pub dwHotKey: u32,
+    pub dwHotKey: super::DWORD,
     pub hIcon: super::HANDLE,
 }
-#[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CMINVOKECOMMANDINFOEX {
-    pub cbSize: u32,
-    pub fMask: u32,
+    pub cbSize: super::DWORD,
+    pub fMask: super::DWORD,
     pub hwnd: super::HWND,
     pub lpVerb: windows_sys::core::PCSTR,
     pub lpParameters: windows_sys::core::PCSTR,
     pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
-    pub dwHotKey: u32,
+    pub dwHotKey: super::DWORD,
     pub hIcon: super::HANDLE,
     pub lpTitle: windows_sys::core::PCSTR,
     pub lpVerbW: windows_sys::core::PCWSTR,
@@ -314,54 +323,56 @@ pub struct CMINVOKECOMMANDINFOEX {
     pub lpTitleW: windows_sys::core::PCWSTR,
     pub ptInvoke: super::POINT,
 }
-#[repr(C)]
-#[cfg(feature = "windef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
-    pub cbSize: u32,
-    pub fMask: u32,
+    pub cbSize: super::DWORD,
+    pub fMask: super::DWORD,
     pub hwnd: super::HWND,
     pub lpVerbString: windows_sys::core::PCSTR,
     pub lpParameters: windows_sys::core::PCSTR,
     pub lpDirectory: windows_sys::core::PCSTR,
     pub nShow: i32,
-    pub dwHotKey: u32,
+    pub dwHotKey: super::DWORD,
     pub lpTitle: windows_sys::core::PCSTR,
     pub lpVerbWString: windows_sys::core::PCWSTR,
     pub lpParametersW: windows_sys::core::PCWSTR,
     pub lpDirectoryW: windows_sys::core::PCWSTR,
     pub lpTitleW: windows_sys::core::PCWSTR,
     pub ptInvoke: super::POINT,
-    pub lpVerbInt: u32,
-    pub lpVerbWInt: u32,
+    pub lpVerbInt: super::UINT,
+    pub lpVerbWInt: super::UINT,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_COLUMNINFO {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub uWidth: u32,
-    pub uDefaultWidth: u32,
-    pub uIdealWidth: u32,
-    pub wszName: [u16; 80],
+    pub cbSize: super::DWORD,
+    pub dwMask: super::DWORD,
+    pub dwState: super::DWORD,
+    pub uWidth: super::UINT,
+    pub uDefaultWidth: super::UINT,
+    pub uIdealWidth: super::UINT,
+    pub wszName: [super::WCHAR; 80],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CM_COLUMNINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const CM_ENUM_ALL: CM_ENUM_FLAGS = 1;
-pub type CM_ENUM_FLAGS = u32;
+pub type CM_ENUM_FLAGS = i32;
 pub const CM_ENUM_VISIBLE: CM_ENUM_FLAGS = 2;
-pub type CM_MASK = u32;
+pub type CM_MASK = i32;
 pub const CM_MASK_DEFAULTWIDTH: CM_MASK = 2;
 pub const CM_MASK_IDEALWIDTH: CM_MASK = 4;
 pub const CM_MASK_NAME: CM_MASK = 8;
 pub const CM_MASK_STATE: CM_MASK = 16;
 pub const CM_MASK_WIDTH: CM_MASK = 1;
 pub type CM_SET_WIDTH_VALUE = i32;
-pub type CM_STATE = u32;
+pub type CM_STATE = i32;
 pub const CM_STATE_ALWAYSVISIBLE: CM_STATE = 8;
 pub const CM_STATE_FIXEDWIDTH: CM_STATE = 2;
 pub const CM_STATE_NONE: CM_STATE = 0;
@@ -376,7 +387,7 @@ pub const CPVIEW_CATEGORY: CPVIEW = 1;
 pub const CPVIEW_CLASSIC: CPVIEW = 0;
 pub const CPVIEW_HOME: CPVIEW = 1;
 pub const CSIDL_FLAG_PFTI_TRACKTARGET: i32 = 16384;
-pub type DATAOBJ_GET_ITEM_FLAGS = u32;
+pub type DATAOBJ_GET_ITEM_FLAGS = i32;
 pub const DBID_BANDINFOCHANGED: tagDESKBANDCID = 0;
 pub const DBID_DELAYINIT: tagDESKBANDCID = 4;
 pub const DBID_FINISHINIT: tagDESKBANDCID = 5;
@@ -410,49 +421,53 @@ pub const DBIM_MAXSIZE: i32 = 2;
 pub const DBIM_MINSIZE: i32 = 1;
 pub const DBIM_MODEFLAGS: i32 = 32;
 pub const DBIM_TITLE: i32 = 16;
-pub const DBPC_SELECTFIRST: u32 = 4294967295;
-pub const DBPC_SELECTLAST: u32 = 4294967294;
+#[cfg(feature = "shared")]
+pub const DBPC_SELECTFIRST: super::DWORD = 4294967295;
+#[cfg(feature = "shared")]
+pub const DBPC_SELECTLAST: super::DWORD = 4294967294;
 pub type DEFAULTSAVEFOLDERTYPE = i32;
-pub type DEFAULT_FOLDER_MENU_RESTRICTIONS = u32;
+pub type DEFAULT_FOLDER_MENU_RESTRICTIONS = i32;
 pub const DEFSHAREID_PUBLIC: DEF_SHARE_ID = 2;
 pub const DEFSHAREID_USERS: DEF_SHARE_ID = 1;
 pub type DEF_SHARE_ID = i32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DELEGATEITEMID {
-    pub cbSize: u16,
-    pub wOuter: u16,
-    pub cbInner: u16,
-    pub rgb: [u8; 1],
+    pub cbSize: super::WORD,
+    pub wOuter: super::WORD,
+    pub cbInner: super::WORD,
+    pub rgb: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DELEGATEITEMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DEPRECATED_HRESULT = windows_sys::core::HRESULT;
-#[repr(C)]
-#[cfg(feature = "windef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DESKBANDINFO {
-    pub dwMask: u32,
+    pub dwMask: super::DWORD,
     pub ptMinSize: super::POINTL,
     pub ptMaxSize: super::POINTL,
     pub ptIntegral: super::POINTL,
     pub ptActual: super::POINTL,
-    pub wszTitle: [u16; 256],
-    pub dwModeFlags: u32,
+    pub wszTitle: [super::WCHAR; 256],
+    pub dwModeFlags: super::DWORD,
     pub crBkgnd: super::COLORREF,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DESKBANDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DESKTOP_SLIDESHOW_DIRECTION = i32;
-pub type DESKTOP_SLIDESHOW_OPTIONS = u32;
-pub type DESKTOP_SLIDESHOW_STATE = u32;
+pub type DESKTOP_SLIDESHOW_OPTIONS = i32;
+pub type DESKTOP_SLIDESHOW_STATE = i32;
 pub type DESKTOP_WALLPAPER_POSITION = i32;
 pub const DFMR_DEFAULT: DEFAULT_FOLDER_MENU_RESTRICTIONS = 0;
 pub const DFMR_NO_ASYNC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 1024;
@@ -465,6 +480,7 @@ pub const DFMR_RESOURCE_AND_FOLDER_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS 
 pub const DFMR_STATIC_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = 16;
 pub const DFMR_USE_SPECIFIED_HANDLERS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 256;
 pub const DFMR_USE_SPECIFIED_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 512;
+pub const DI_GETDRAGIMAGE: windows_sys::core::PCSTR = windows_sys::core::s!("ShellGetDragImage");
 pub const DOGIF_DEFAULT: DATAOBJ_GET_ITEM_FLAGS = 0;
 pub const DOGIF_NO_HDROP: DATAOBJ_GET_ITEM_FLAGS = 2;
 pub const DOGIF_NO_URL: DATAOBJ_GET_ITEM_FLAGS = 4;
@@ -503,52 +519,54 @@ pub const EBO_NOPERSISTVIEWSTATE: EXPLORER_BROWSER_OPTIONS = 128;
 pub const EBO_NOTRAVELLOG: EXPLORER_BROWSER_OPTIONS = 8;
 pub const EBO_NOWRAPPERWINDOW: EXPLORER_BROWSER_OPTIONS = 16;
 pub const EBO_SHOWFRAMES: EXPLORER_BROWSER_OPTIONS = 2;
-pub const ECF_AUTOMENUICONS: EXPCMDFLAGS = 512;
-pub const ECF_DEFAULT: EXPCMDFLAGS = 0;
-pub const ECF_HASLUASHIELD: EXPCMDFLAGS = 16;
-pub const ECF_HASSPLITBUTTON: EXPCMDFLAGS = 2;
-pub const ECF_HASSUBCOMMANDS: EXPCMDFLAGS = 1;
-pub const ECF_HIDELABEL: EXPCMDFLAGS = 4;
-pub const ECF_ISDROPDOWN: EXPCMDFLAGS = 128;
-pub const ECF_ISSEPARATOR: EXPCMDFLAGS = 8;
-pub const ECF_SEPARATORAFTER: EXPCMDFLAGS = 64;
-pub const ECF_SEPARATORBEFORE: EXPCMDFLAGS = 32;
-pub const ECF_TOGGLEABLE: EXPCMDFLAGS = 256;
+pub const ECF_AUTOMENUICONS: _EXPCMDFLAGS = 512;
+pub const ECF_DEFAULT: _EXPCMDFLAGS = 0;
+pub const ECF_HASLUASHIELD: _EXPCMDFLAGS = 16;
+pub const ECF_HASSPLITBUTTON: _EXPCMDFLAGS = 2;
+pub const ECF_HASSUBCOMMANDS: _EXPCMDFLAGS = 1;
+pub const ECF_HIDELABEL: _EXPCMDFLAGS = 4;
+pub const ECF_ISDROPDOWN: _EXPCMDFLAGS = 128;
+pub const ECF_ISSEPARATOR: _EXPCMDFLAGS = 8;
+pub const ECF_SEPARATORAFTER: _EXPCMDFLAGS = 64;
+pub const ECF_SEPARATORBEFORE: _EXPCMDFLAGS = 32;
+pub const ECF_TOGGLEABLE: _EXPCMDFLAGS = 256;
 pub const ECHUIM_DESKTOP: EC_HOST_UI_MODE = 0;
 pub const ECHUIM_IMMERSIVE: EC_HOST_UI_MODE = 1;
 pub const ECHUIM_SYSTEM_LAUNCHER: EC_HOST_UI_MODE = 2;
-pub const ECS_CHECKBOX: EXPCMDSTATE = 4;
-pub const ECS_CHECKED: EXPCMDSTATE = 8;
-pub const ECS_DISABLED: EXPCMDSTATE = 1;
-pub const ECS_ENABLED: EXPCMDSTATE = 0;
-pub const ECS_HIDDEN: EXPCMDSTATE = 2;
-pub const ECS_RADIOCHECK: EXPCMDSTATE = 16;
+pub const ECS_CHECKBOX: _EXPCMDSTATE = 4;
+pub const ECS_CHECKED: _EXPCMDSTATE = 8;
+pub const ECS_DISABLED: _EXPCMDSTATE = 1;
+pub const ECS_ENABLED: _EXPCMDSTATE = 0;
+pub const ECS_HIDDEN: _EXPCMDSTATE = 2;
+pub const ECS_RADIOCHECK: _EXPCMDSTATE = 16;
 pub type EC_HOST_UI_MODE = i32;
 pub type EDGE_GESTURE_KIND = i32;
 pub const EGK_KEYBOARD: EDGE_GESTURE_KIND = 1;
 pub const EGK_MOUSE: EDGE_GESTURE_KIND = 2;
 pub const EGK_TOUCH: EDGE_GESTURE_KIND = 0;
-pub const EPS_DEFAULT_OFF: EXPLORERPANESTATE = 2;
-pub const EPS_DEFAULT_ON: EXPLORERPANESTATE = 1;
-pub const EPS_DONTCARE: EXPLORERPANESTATE = 0;
-pub const EPS_FORCE: EXPLORERPANESTATE = 131072;
-pub const EPS_INITIALSTATE: EXPLORERPANESTATE = 65536;
-pub const EPS_STATEMASK: EXPLORERPANESTATE = 65535;
+pub const EPS_DEFAULT_OFF: _EXPLORERPANESTATE = 2;
+pub const EPS_DEFAULT_ON: _EXPLORERPANESTATE = 1;
+pub const EPS_DONTCARE: _EXPLORERPANESTATE = 0;
+pub const EPS_FORCE: _EXPLORERPANESTATE = 131072;
+pub const EPS_INITIALSTATE: _EXPLORERPANESTATE = 65536;
+pub const EPS_STATEMASK: _EXPLORERPANESTATE = 65535;
 pub type EXPCMDFLAGS = u32;
 pub type EXPCMDSTATE = u32;
 pub type EXPLORERPANE = windows_sys::core::GUID;
 pub type EXPLORERPANESTATE = u32;
-pub type EXPLORER_BROWSER_FILL_FLAGS = u32;
-pub type EXPLORER_BROWSER_OPTIONS = u32;
+pub type EXPLORER_BROWSER_FILL_FLAGS = i32;
+pub type EXPLORER_BROWSER_OPTIONS = i32;
 pub type EXPPS = u32;
-pub const EXPPS_FILETYPES: EXPPS = 1;
+pub const EXPPS_FILETYPES: _EXPPS = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct EXTRASEARCH {
     pub guidSearch: windows_sys::core::GUID,
-    pub wszFriendlyName: [u16; 80],
-    pub wszUrl: [u16; 2084],
+    pub wszFriendlyName: [super::WCHAR; 80],
+    pub wszUrl: [super::WCHAR; 2084],
 }
+#[cfg(feature = "winnt")]
 impl Default for EXTRASEARCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -585,7 +603,7 @@ pub const FFFP_EXACTMATCH: FFFP_MODE = 0;
 pub type FFFP_MODE = i32;
 pub const FFFP_NEARESTPARENTMATCH: FFFP_MODE = 1;
 pub type FILEOPENDIALOGOPTIONS = u32;
-pub type FILE_OPERATION_FLAGS2 = u32;
+pub type FILE_OPERATION_FLAGS2 = i32;
 pub type FILE_USAGE_TYPE = i32;
 pub const FLVM_CONTENT: FOLDERLOGICALVIEWMODE = 5;
 pub const FLVM_DETAILS: FOLDERLOGICALVIEWMODE = 1;
@@ -614,39 +632,40 @@ pub const FOFX_PRESERVEFILEEXTENSIONS: i32 = 2097152;
 pub const FOFX_RECYCLEONDELETE: i32 = 524288;
 pub const FOFX_REQUIREELEVATION: i32 = 268435456;
 pub const FOFX_SHOWELEVATIONPROMPT: i32 = 262144;
-pub type FOLDERFLAGS = u32;
+pub type FOLDERFLAGS = i32;
 pub type FOLDERLOGICALVIEWMODE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FOLDERSETTINGS {
-    pub ViewMode: u32,
-    pub fFlags: u32,
+    pub ViewMode: super::UINT,
+    pub fFlags: super::UINT,
 }
 pub type FOLDERVIEWMODE = i32;
 pub type FOLDER_ENUM_MODE = i32;
-pub const FOS_ALLNONSTORAGEITEMS: FILEOPENDIALOGOPTIONS = 128;
-pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = 512;
-pub const FOS_CREATEPROMPT: FILEOPENDIALOGOPTIONS = 8192;
-pub const FOS_DEFAULTNOMINIMODE: FILEOPENDIALOGOPTIONS = 536870912;
-pub const FOS_DONTADDTORECENT: FILEOPENDIALOGOPTIONS = 33554432;
-pub const FOS_FILEMUSTEXIST: FILEOPENDIALOGOPTIONS = 4096;
-pub const FOS_FORCEFILESYSTEM: FILEOPENDIALOGOPTIONS = 64;
-pub const FOS_FORCEPREVIEWPANEON: FILEOPENDIALOGOPTIONS = 1073741824;
-pub const FOS_FORCESHOWHIDDEN: FILEOPENDIALOGOPTIONS = 268435456;
-pub const FOS_HIDEMRUPLACES: FILEOPENDIALOGOPTIONS = 131072;
-pub const FOS_HIDEPINNEDPLACES: FILEOPENDIALOGOPTIONS = 262144;
-pub const FOS_NOCHANGEDIR: FILEOPENDIALOGOPTIONS = 8;
-pub const FOS_NODEREFERENCELINKS: FILEOPENDIALOGOPTIONS = 1048576;
-pub const FOS_NOREADONLYRETURN: FILEOPENDIALOGOPTIONS = 32768;
-pub const FOS_NOTESTFILECREATE: FILEOPENDIALOGOPTIONS = 65536;
-pub const FOS_NOVALIDATE: FILEOPENDIALOGOPTIONS = 256;
-pub const FOS_OKBUTTONNEEDSINTERACTION: FILEOPENDIALOGOPTIONS = 2097152;
-pub const FOS_OVERWRITEPROMPT: FILEOPENDIALOGOPTIONS = 2;
-pub const FOS_PATHMUSTEXIST: FILEOPENDIALOGOPTIONS = 2048;
-pub const FOS_PICKFOLDERS: FILEOPENDIALOGOPTIONS = 32;
-pub const FOS_SHAREAWARE: FILEOPENDIALOGOPTIONS = 16384;
-pub const FOS_STRICTFILETYPES: FILEOPENDIALOGOPTIONS = 4;
-pub const FOS_SUPPORTSTREAMABLEITEMS: FILEOPENDIALOGOPTIONS = 2147483648;
+pub const FOS_ALLNONSTORAGEITEMS: _FILEOPENDIALOGOPTIONS = 128;
+pub const FOS_ALLOWMULTISELECT: _FILEOPENDIALOGOPTIONS = 512;
+pub const FOS_CREATEPROMPT: _FILEOPENDIALOGOPTIONS = 8192;
+pub const FOS_DEFAULTNOMINIMODE: _FILEOPENDIALOGOPTIONS = 536870912;
+pub const FOS_DONTADDTORECENT: _FILEOPENDIALOGOPTIONS = 33554432;
+pub const FOS_FILEMUSTEXIST: _FILEOPENDIALOGOPTIONS = 4096;
+pub const FOS_FORCEFILESYSTEM: _FILEOPENDIALOGOPTIONS = 64;
+pub const FOS_FORCEPREVIEWPANEON: _FILEOPENDIALOGOPTIONS = 1073741824;
+pub const FOS_FORCESHOWHIDDEN: _FILEOPENDIALOGOPTIONS = 268435456;
+pub const FOS_HIDEMRUPLACES: _FILEOPENDIALOGOPTIONS = 131072;
+pub const FOS_HIDEPINNEDPLACES: _FILEOPENDIALOGOPTIONS = 262144;
+pub const FOS_NOCHANGEDIR: _FILEOPENDIALOGOPTIONS = 8;
+pub const FOS_NODEREFERENCELINKS: _FILEOPENDIALOGOPTIONS = 1048576;
+pub const FOS_NOREADONLYRETURN: _FILEOPENDIALOGOPTIONS = 32768;
+pub const FOS_NOTESTFILECREATE: _FILEOPENDIALOGOPTIONS = 65536;
+pub const FOS_NOVALIDATE: _FILEOPENDIALOGOPTIONS = 256;
+pub const FOS_OKBUTTONNEEDSINTERACTION: _FILEOPENDIALOGOPTIONS = 2097152;
+pub const FOS_OVERWRITEPROMPT: _FILEOPENDIALOGOPTIONS = 2;
+pub const FOS_PATHMUSTEXIST: _FILEOPENDIALOGOPTIONS = 2048;
+pub const FOS_PICKFOLDERS: _FILEOPENDIALOGOPTIONS = 32;
+pub const FOS_SHAREAWARE: _FILEOPENDIALOGOPTIONS = 16384;
+pub const FOS_STRICTFILETYPES: _FILEOPENDIALOGOPTIONS = 4;
+pub const FOS_SUPPORTSTREAMABLEITEMS: _FILEOPENDIALOGOPTIONS = -2147483648;
 pub const FP_ABOVE: FLYOUT_PLACEMENT = 1;
 pub const FP_BELOW: FLYOUT_PLACEMENT = 2;
 pub const FP_DEFAULT: FLYOUT_PLACEMENT = 0;
@@ -670,7 +689,7 @@ pub const FVST_EMPTYTEXT: FVTEXTTYPE = 0;
 pub type FVTEXTTYPE = i32;
 pub const FWF_ABBREVIATEDNAMES: FOLDERFLAGS = 2;
 pub const FWF_ALIGNLEFT: FOLDERFLAGS = 2048;
-pub const FWF_ALLOWRTLREADING: FOLDERFLAGS = 2147483648;
+pub const FWF_ALLOWRTLREADING: FOLDERFLAGS = -2147483648;
 pub const FWF_AUTOARRANGE: FOLDERFLAGS = 1;
 pub const FWF_AUTOCHECKSELECT: FOLDERFLAGS = 134217728;
 pub const FWF_BESTFITWINDOW: FOLDERFLAGS = 16;
@@ -723,11 +742,9 @@ pub const HGSC_NONE: HOMEGROUPSHARINGCHOICES = 0;
 pub const HGSC_PICTURESLIBRARY: HOMEGROUPSHARINGCHOICES = 2;
 pub const HGSC_PRINTERS: HOMEGROUPSHARINGCHOICES = 16;
 pub const HGSC_VIDEOSLIBRARY: HOMEGROUPSHARINGCHOICES = 4;
-pub type HOMEGROUPSHARINGCHOICES = u32;
+pub type HOMEGROUPSHARINGCHOICES = i32;
 pub const HOMEGROUP_SECURITY_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("HomeUsers");
 pub const HOMEGROUP_SECURITY_GROUP_MULTI: windows_sys::core::PCWSTR = windows_sys::core::w!("HUG");
-#[cfg(feature = "winnt")]
-pub type HTHEME = super::HANDLE;
 pub const HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
 pub const IEIFLAG_ASPECT: i32 = 4;
 pub const IEIFLAG_ASYNC: i32 = 1;
@@ -751,9 +768,11 @@ pub const IRTIR_TASK_SUSPENDED: i32 = 2;
 pub const ISIOI_ICONFILE: i32 = 1;
 pub const ISIOI_ICONINDEX: i32 = 2;
 #[cfg(target_arch = "x86")]
-pub const ITSAT_DEFAULT_LPARAM: usize = 4294967295;
+#[cfg(feature = "shared")]
+pub const ITSAT_DEFAULT_LPARAM: super::DWORD_PTR = 4294967295;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const ITSAT_DEFAULT_LPARAM: usize = 18446744073709551615u64 as usize;
+#[cfg(feature = "shared")]
+pub const ITSAT_DEFAULT_LPARAM: super::DWORD_PTR = 18446744073709551615u64 as usize;
 pub const ITSAT_DEFAULT_PRIORITY: i32 = 268435456;
 pub const ITSAT_MAX_PRIORITY: i32 = 2147483647;
 pub const ITSAT_MIN_PRIORITY: i32 = 0;
@@ -765,12 +784,12 @@ pub const ITSS_THREAD_TERMINATE_TIMEOUT: u32 = 4294967295;
 pub const ITSS_THREAD_TIMEOUT_NO_CHANGE: u32 = 4294967294;
 pub const KDC_FREQUENT: KNOWNDESTCATEGORY = 1;
 pub const KDC_RECENT: KNOWNDESTCATEGORY = 2;
-pub const KFDF_LOCAL_REDIRECT_ONLY: KF_DEFINITION_FLAGS = 2;
-pub const KFDF_NO_REDIRECT_UI: KF_DEFINITION_FLAGS = 64;
-pub const KFDF_PRECREATE: KF_DEFINITION_FLAGS = 8;
-pub const KFDF_PUBLISHEXPANDEDPATH: KF_DEFINITION_FLAGS = 32;
-pub const KFDF_ROAMABLE: KF_DEFINITION_FLAGS = 4;
-pub const KFDF_STREAM: KF_DEFINITION_FLAGS = 16;
+pub const KFDF_LOCAL_REDIRECT_ONLY: _KF_DEFINITION_FLAGS = 2;
+pub const KFDF_NO_REDIRECT_UI: _KF_DEFINITION_FLAGS = 64;
+pub const KFDF_PRECREATE: _KF_DEFINITION_FLAGS = 8;
+pub const KFDF_PUBLISHEXPANDEDPATH: _KF_DEFINITION_FLAGS = 32;
+pub const KFDF_ROAMABLE: _KF_DEFINITION_FLAGS = 4;
+pub const KFDF_STREAM: _KF_DEFINITION_FLAGS = 16;
 pub type KF_CATEGORY = i32;
 pub const KF_CATEGORY_COMMON: KF_CATEGORY = 3;
 pub const KF_CATEGORY_FIXED: KF_CATEGORY = 2;
@@ -778,37 +797,26 @@ pub const KF_CATEGORY_PERUSER: KF_CATEGORY = 4;
 pub const KF_CATEGORY_VIRTUAL: KF_CATEGORY = 1;
 pub type KF_DEFINITION_FLAGS = u32;
 pub type KF_REDIRECTION_CAPABILITIES = u32;
-pub const KF_REDIRECTION_CAPABILITIES_ALLOW_ALL: KF_REDIRECTION_CAPABILITIES = 255;
-pub const KF_REDIRECTION_CAPABILITIES_DENY_ALL: KF_REDIRECTION_CAPABILITIES = 1048320;
-pub const KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS: KF_REDIRECTION_CAPABILITIES = 1024;
-pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY: KF_REDIRECTION_CAPABILITIES = 512;
-pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED: KF_REDIRECTION_CAPABILITIES = 256;
-pub const KF_REDIRECTION_CAPABILITIES_REDIRECTABLE: KF_REDIRECTION_CAPABILITIES = 1;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_CHECK_ONLY: super::KF_REDIRECT_FLAGS = 16;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_COPY_CONTENTS: super::KF_REDIRECT_FLAGS = 512;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_COPY_SOURCE_DACL: super::KF_REDIRECT_FLAGS = 2;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_DEL_SOURCE_CONTENTS: super::KF_REDIRECT_FLAGS = 1024;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS: super::KF_REDIRECT_FLAGS = 2048;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_OWNER_USER: super::KF_REDIRECT_FLAGS = 4;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_PIN: super::KF_REDIRECT_FLAGS = 128;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_SET_OWNER_EXPLICIT: super::KF_REDIRECT_FLAGS = 8;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_UNPIN: super::KF_REDIRECT_FLAGS = 64;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_USER_EXCLUSIVE: super::KF_REDIRECT_FLAGS = 1;
-#[cfg(feature = "shtypes")]
-pub const KF_REDIRECT_WITH_UI: super::KF_REDIRECT_FLAGS = 32;
+pub const KF_REDIRECTION_CAPABILITIES_ALLOW_ALL: _KF_REDIRECTION_CAPABILITIES = 255;
+pub const KF_REDIRECTION_CAPABILITIES_DENY_ALL: _KF_REDIRECTION_CAPABILITIES = 1048320;
+pub const KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS: _KF_REDIRECTION_CAPABILITIES = 1024;
+pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY: _KF_REDIRECTION_CAPABILITIES = 512;
+pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED: _KF_REDIRECTION_CAPABILITIES = 256;
+pub const KF_REDIRECTION_CAPABILITIES_REDIRECTABLE: _KF_REDIRECTION_CAPABILITIES = 1;
+pub const KF_REDIRECT_CHECK_ONLY: _KF_REDIRECT_FLAGS = 16;
+pub const KF_REDIRECT_COPY_CONTENTS: _KF_REDIRECT_FLAGS = 512;
+pub const KF_REDIRECT_COPY_SOURCE_DACL: _KF_REDIRECT_FLAGS = 2;
+pub const KF_REDIRECT_DEL_SOURCE_CONTENTS: _KF_REDIRECT_FLAGS = 1024;
+pub const KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS: _KF_REDIRECT_FLAGS = 2048;
+pub const KF_REDIRECT_OWNER_USER: _KF_REDIRECT_FLAGS = 4;
+pub const KF_REDIRECT_PIN: _KF_REDIRECT_FLAGS = 128;
+pub const KF_REDIRECT_SET_OWNER_EXPLICIT: _KF_REDIRECT_FLAGS = 8;
+pub const KF_REDIRECT_UNPIN: _KF_REDIRECT_FLAGS = 64;
+pub const KF_REDIRECT_USER_EXCLUSIVE: _KF_REDIRECT_FLAGS = 1;
+pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = 32;
 pub type KNOWNDESTCATEGORY = i32;
 #[repr(C)]
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
@@ -821,7 +829,7 @@ pub struct KNOWNFOLDER_DEFINITION {
     pub pszLocalizedName: windows_sys::core::PWSTR,
     pub pszIcon: windows_sys::core::PWSTR,
     pub pszSecurity: windows_sys::core::PWSTR,
-    pub dwAttributes: u32,
+    pub dwAttributes: super::DWORD,
     pub kfdFlags: KF_DEFINITION_FLAGS,
     pub ftidType: super::FOLDERTYPEID,
 }
@@ -830,33 +838,55 @@ pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = 3;
 pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = 1;
 pub const LFF_STORAGEITEMS: LIBRARYFOLDERFILTER = 2;
 pub type LIBRARYFOLDERFILTER = i32;
-pub type LIBRARYMANAGEDIALOGOPTIONS = u32;
-pub type LIBRARYOPTIONFLAGS = u32;
-pub type LIBRARYSAVEFLAGS = u32;
+pub type LIBRARYMANAGEDIALOGOPTIONS = i32;
+pub type LIBRARYOPTIONFLAGS = i32;
+pub type LIBRARYSAVEFLAGS = i32;
 pub const LMD_ALLOWUNINDEXABLENETWORKLOCATIONS: LIBRARYMANAGEDIALOGOPTIONS = 1;
 pub const LMD_DEFAULT: LIBRARYMANAGEDIALOGOPTIONS = 0;
 pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = 0;
 pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = 1;
 pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = 1;
+pub type LPBROWSERFRAMEOPTIONS = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type LPCFOLDERSETTINGS = *const FOLDERSETTINGS;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPCMINVOKECOMMANDINFO = *mut CMINVOKECOMMANDINFO;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPCMINVOKECOMMANDINFOEX = *mut CMINVOKECOMMANDINFOEX;
+pub type LPCOMMDLGBROWSER = *mut core::ffi::c_void;
+pub type LPCOMMDLGBROWSER2 = *mut core::ffi::c_void;
+pub type LPCONTEXTMENU = *mut core::ffi::c_void;
+pub type LPCONTEXTMENU2 = *mut core::ffi::c_void;
+pub type LPCONTEXTMENU3 = *mut core::ffi::c_void;
+pub type LPENUMEXTRASEARCH = *mut core::ffi::c_void;
+pub type LPENUMIDLIST = *mut core::ffi::c_void;
+pub type LPEXTRACTIMAGE = *mut core::ffi::c_void;
+pub type LPEXTRACTIMAGE2 = *mut core::ffi::c_void;
+#[cfg(feature = "winnt")]
 pub type LPEXTRASEARCH = *mut EXTRASEARCH;
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
-pub type LPFNSVADDPROPSHEETPAGE = super::LPFNADDPROPSHEETPAGE;
+pub type LPFNSVADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: super::HPROPSHEETPAGE, param1: super::LPARAM) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
 pub type LPFOLDERSETTINGS = *mut FOLDERSETTINGS;
-#[cfg(feature = "windef")]
+#[cfg(feature = "objidl")]
+pub type LPPERSISTFOLDER = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPSHDRAGIMAGE = *mut SHDRAGIMAGE;
-#[cfg(all(feature = "shtypes", feature = "windef"))]
+#[cfg(feature = "oleidl")]
+pub type LPSHELLBROWSER = *mut core::ffi::c_void;
+pub type LPSHELLEXTINIT = *mut core::ffi::c_void;
+pub type LPSHELLFOLDER = *mut core::ffi::c_void;
+pub type LPSHELLPROPSHEETEXT = *mut core::ffi::c_void;
+#[cfg(feature = "oleidl")]
+pub type LPSHELLVIEW = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 pub type LPSMDATA = *mut SMDATA;
 pub type LPSTGTRANSCONFIRMATION = *mut windows_sys::core::GUID;
-#[cfg(all(feature = "oleidl", feature = "windef"))]
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
 pub type LPSV2CVW2_PARAMS = *mut SV2CVW2_PARAMS;
-#[cfg(feature = "commctrl")]
-pub type LPTBBUTTONSB = super::LPTBBUTTON;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "commctrl", feature = "shared"))]
+pub type LPTBBUTTONSB = *mut super::TBBUTTON;
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPTHUMBBUTTON = *mut THUMBBUTTON;
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = 0;
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = 2;
@@ -892,21 +922,21 @@ pub const MUS_COMPLETE: MERGE_UPDATE_STATUS = 0;
 pub const MUS_FAILED: MERGE_UPDATE_STATUS = 2;
 pub const MUS_USERINPUTNEEDED: MERGE_UPDATE_STATUS = 1;
 pub const MailRecipient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
-pub type NAMESPACEWALKFLAG = u32;
+pub type NAMESPACEWALKFLAG = i32;
 pub type NATIVE_DISPLAY_ORIENTATION = i32;
 pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = 0;
 pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = 1;
 pub type NMCII_FLAGS = i32;
-pub const NMCII_FOLDERS: NMCII_FLAGS = 0x2_u32 as _;
-pub const NMCII_ITEMS: NMCII_FLAGS = 0x1_u32 as _;
-pub const NMCII_NONE: NMCII_FLAGS = 0x0_u32 as _;
-pub const NMCSAEI_EDIT: NMCSAEI_FLAGS = 0x1_u32 as _;
+pub const NMCII_FOLDERS: _NMCII_FLAGS = 2;
+pub const NMCII_ITEMS: _NMCII_FLAGS = 1;
+pub const NMCII_NONE: _NMCII_FLAGS = 0;
+pub const NMCSAEI_EDIT: _NMCSAEI_FLAGS = 1;
 pub type NMCSAEI_FLAGS = i32;
-pub const NMCSAEI_SELECT: NMCSAEI_FLAGS = 0x0_u32 as _;
+pub const NMCSAEI_SELECT: _NMCSAEI_FLAGS = 0;
 pub const NSTCFC_DELAY_REGISTER_NOTIFY: NSTCFOLDERCAPABILITIES = 2;
 pub const NSTCFC_NONE: NSTCFOLDERCAPABILITIES = 0;
 pub const NSTCFC_PINNEDITEMFILTERING: NSTCFOLDERCAPABILITIES = 1;
-pub type NSTCFOLDERCAPABILITIES = u32;
+pub type NSTCFOLDERCAPABILITIES = i32;
 pub type NSTCGNI = i32;
 pub const NSTCGNI_CHILD: NSTCGNI = 5;
 pub const NSTCGNI_FIRSTVISIBLE: NSTCGNI = 6;
@@ -916,48 +946,48 @@ pub const NSTCGNI_NEXTVISIBLE: NSTCGNI = 1;
 pub const NSTCGNI_PARENT: NSTCGNI = 4;
 pub const NSTCGNI_PREV: NSTCGNI = 2;
 pub const NSTCGNI_PREVVISIBLE: NSTCGNI = 3;
-pub const NSTCIS_BOLD: NSTCITEMSTATE = 4;
-pub const NSTCIS_DISABLED: NSTCITEMSTATE = 8;
-pub const NSTCIS_EXPANDED: NSTCITEMSTATE = 2;
-pub const NSTCIS_NONE: NSTCITEMSTATE = 0;
-pub const NSTCIS_SELECTED: NSTCITEMSTATE = 1;
-pub const NSTCIS_SELECTEDNOEXPAND: NSTCITEMSTATE = 16;
+pub const NSTCIS_BOLD: _NSTCITEMSTATE = 4;
+pub const NSTCIS_DISABLED: _NSTCITEMSTATE = 8;
+pub const NSTCIS_EXPANDED: _NSTCITEMSTATE = 2;
+pub const NSTCIS_NONE: _NSTCITEMSTATE = 0;
+pub const NSTCIS_SELECTED: _NSTCITEMSTATE = 1;
+pub const NSTCIS_SELECTEDNOEXPAND: _NSTCITEMSTATE = 16;
 pub type NSTCITEMSTATE = u32;
 pub type NSTCROOTSTYLE = u32;
-pub const NSTCRS_EXPANDED: NSTCROOTSTYLE = 2;
-pub const NSTCRS_HIDDEN: NSTCROOTSTYLE = 1;
-pub const NSTCRS_VISIBLE: NSTCROOTSTYLE = 0;
+pub const NSTCRS_EXPANDED: _NSTCROOTSTYLE = 2;
+pub const NSTCRS_HIDDEN: _NSTCROOTSTYLE = 1;
+pub const NSTCRS_VISIBLE: _NSTCROOTSTYLE = 0;
 pub type NSTCSTYLE = u32;
-pub const NSTCS_ALLOWJUNCTIONS: NSTCSTYLE = 268435456;
-pub const NSTCS_AUTOHSCROLL: NSTCSTYLE = 1048576;
-pub const NSTCS_BORDER: NSTCSTYLE = 32768;
-pub const NSTCS_CHECKBOXES: NSTCSTYLE = 8388608;
-pub const NSTCS_DIMMEDCHECKBOXES: NSTCSTYLE = 67108864;
-pub const NSTCS_DISABLEDRAGDROP: NSTCSTYLE = 4096;
-pub const NSTCS_EMPTYTEXT: NSTCSTYLE = 4194304;
-pub const NSTCS_EVENHEIGHT: NSTCSTYLE = 1024;
-pub const NSTCS_EXCLUSIONCHECKBOXES: NSTCSTYLE = 33554432;
-pub const NSTCS_FADEINOUTEXPANDOS: NSTCSTYLE = 2097152;
-pub const NSTCS_FAVORITESMODE: NSTCSTYLE = 524288;
-pub const NSTCS_FULLROWSELECT: NSTCSTYLE = 8;
-pub const NSTCS_HASEXPANDOS: NSTCSTYLE = 1;
-pub const NSTCS_HASLINES: NSTCSTYLE = 2;
-pub const NSTCS_HORIZONTALSCROLL: NSTCSTYLE = 32;
-pub const NSTCS_NOEDITLABELS: NSTCSTYLE = 65536;
-pub const NSTCS_NOINDENTCHECKS: NSTCSTYLE = 134217728;
-pub const NSTCS_NOINFOTIP: NSTCSTYLE = 512;
-pub const NSTCS_NOORDERSTREAM: NSTCSTYLE = 8192;
-pub const NSTCS_NOREPLACEOPEN: NSTCSTYLE = 2048;
-pub const NSTCS_PARTIALCHECKBOXES: NSTCSTYLE = 16777216;
-pub const NSTCS_RICHTOOLTIP: NSTCSTYLE = 16384;
-pub const NSTCS_ROOTHASEXPANDO: NSTCSTYLE = 64;
-pub const NSTCS_SHOWDELETEBUTTON: NSTCSTYLE = 1073741824;
-pub const NSTCS_SHOWREFRESHBUTTON: NSTCSTYLE = 2147483648;
-pub const NSTCS_SHOWSELECTIONALWAYS: NSTCSTYLE = 128;
-pub const NSTCS_SHOWTABSBUTTON: NSTCSTYLE = 536870912;
-pub const NSTCS_SINGLECLICKEXPAND: NSTCSTYLE = 4;
-pub const NSTCS_SPRINGEXPAND: NSTCSTYLE = 16;
-pub const NSTCS_TABSTOP: NSTCSTYLE = 131072;
+pub const NSTCS_ALLOWJUNCTIONS: _NSTCSTYLE = 268435456;
+pub const NSTCS_AUTOHSCROLL: _NSTCSTYLE = 1048576;
+pub const NSTCS_BORDER: _NSTCSTYLE = 32768;
+pub const NSTCS_CHECKBOXES: _NSTCSTYLE = 8388608;
+pub const NSTCS_DIMMEDCHECKBOXES: _NSTCSTYLE = 67108864;
+pub const NSTCS_DISABLEDRAGDROP: _NSTCSTYLE = 4096;
+pub const NSTCS_EMPTYTEXT: _NSTCSTYLE = 4194304;
+pub const NSTCS_EVENHEIGHT: _NSTCSTYLE = 1024;
+pub const NSTCS_EXCLUSIONCHECKBOXES: _NSTCSTYLE = 33554432;
+pub const NSTCS_FADEINOUTEXPANDOS: _NSTCSTYLE = 2097152;
+pub const NSTCS_FAVORITESMODE: _NSTCSTYLE = 524288;
+pub const NSTCS_FULLROWSELECT: _NSTCSTYLE = 8;
+pub const NSTCS_HASEXPANDOS: _NSTCSTYLE = 1;
+pub const NSTCS_HASLINES: _NSTCSTYLE = 2;
+pub const NSTCS_HORIZONTALSCROLL: _NSTCSTYLE = 32;
+pub const NSTCS_NOEDITLABELS: _NSTCSTYLE = 65536;
+pub const NSTCS_NOINDENTCHECKS: _NSTCSTYLE = 134217728;
+pub const NSTCS_NOINFOTIP: _NSTCSTYLE = 512;
+pub const NSTCS_NOORDERSTREAM: _NSTCSTYLE = 8192;
+pub const NSTCS_NOREPLACEOPEN: _NSTCSTYLE = 2048;
+pub const NSTCS_PARTIALCHECKBOXES: _NSTCSTYLE = 16777216;
+pub const NSTCS_RICHTOOLTIP: _NSTCSTYLE = 16384;
+pub const NSTCS_ROOTHASEXPANDO: _NSTCSTYLE = 64;
+pub const NSTCS_SHOWDELETEBUTTON: _NSTCSTYLE = 1073741824;
+pub const NSTCS_SHOWREFRESHBUTTON: _NSTCSTYLE = -2147483648;
+pub const NSTCS_SHOWSELECTIONALWAYS: _NSTCSTYLE = 128;
+pub const NSTCS_SHOWTABSBUTTON: _NSTCSTYLE = 536870912;
+pub const NSTCS_SINGLECLICKEXPAND: _NSTCSTYLE = 4;
+pub const NSTCS_SPRINGEXPAND: _NSTCSTYLE = 16;
+pub const NSTCS_TABSTOP: _NSTCSTYLE = 131072;
 pub const NSWF_ACCUMULATE_FOLDERS: NAMESPACEWALKFLAG = 2048;
 pub const NSWF_ANY_IMPLIES_ALL: NAMESPACEWALKFLAG = 32768;
 pub const NSWF_ASYNC: NAMESPACEWALKFLAG = 512;
@@ -975,7 +1005,7 @@ pub const NSWF_ONE_IMPLIES_ALL: NAMESPACEWALKFLAG = 2;
 pub const NSWF_SHOW_PROGRESS: NAMESPACEWALKFLAG = 64;
 pub const NSWF_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = 16;
 pub const NSWF_USE_TRANSFER_MEDIUM: NAMESPACEWALKFLAG = 8192;
-pub type NWMF = u32;
+pub type NWMF = i32;
 pub const NWMF_FIRST: NWMF = 4;
 pub const NWMF_FORCETAB: NWMF = 131072;
 pub const NWMF_FORCEWINDOW: NWMF = 65536;
@@ -997,45 +1027,47 @@ pub const NetworkPlaces: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const OF_CAP_CANCLOSE: i32 = 2;
 pub const OF_CAP_CANSWITCHTO: i32 = 1;
 pub type OPPROGDLGF = u32;
-pub const OPPROGDLG_ALLOWUNDO: OPPROGDLGF = 256;
-pub const OPPROGDLG_DEFAULT: OPPROGDLGF = 0;
-pub const OPPROGDLG_DONTDISPLAYDESTPATH: OPPROGDLGF = 1024;
-pub const OPPROGDLG_DONTDISPLAYLOCATIONS: OPPROGDLGF = 4096;
-pub const OPPROGDLG_DONTDISPLAYSOURCEPATH: OPPROGDLGF = 512;
-pub const OPPROGDLG_ENABLEPAUSE: OPPROGDLGF = 128;
-pub const OPPROGDLG_NOMULTIDAYESTIMATES: OPPROGDLGF = 2048;
+pub const OPPROGDLG_ALLOWUNDO: _OPPROGDLGF = 256;
+pub const OPPROGDLG_DEFAULT: _OPPROGDLGF = 0;
+pub const OPPROGDLG_DONTDISPLAYDESTPATH: _OPPROGDLGF = 1024;
+pub const OPPROGDLG_DONTDISPLAYLOCATIONS: _OPPROGDLGF = 4096;
+pub const OPPROGDLG_DONTDISPLAYSOURCEPATH: _OPPROGDLGF = 512;
+pub const OPPROGDLG_ENABLEPAUSE: _OPPROGDLGF = 128;
+pub const OPPROGDLG_NOMULTIDAYESTIMATES: _OPPROGDLGF = 2048;
 pub const OpenControlPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
 pub type PACKAGE_EXECUTION_STATE = i32;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PCCMINVOKECOMMANDINFO = *const CMINVOKECOMMANDINFO;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PCCMINVOKECOMMANDINFOEX = *const CMINVOKECOMMANDINFOEX;
+#[cfg(feature = "shared")]
 pub type PCDELEGATEITEMID = *const DELEGATEITEMID;
+#[cfg(feature = "shared")]
 pub type PDELEGATEITEMID = *mut DELEGATEITEMID;
 pub type PDMODE = u32;
-pub const PDM_DEFAULT: PDMODE = 0;
-pub const PDM_ERRORSBLOCKING: PDMODE = 8;
-pub const PDM_INDETERMINATE: PDMODE = 16;
-pub const PDM_PREFLIGHT: PDMODE = 2;
-pub const PDM_RUN: PDMODE = 1;
-pub const PDM_UNDOING: PDMODE = 4;
+pub const PDM_DEFAULT: _PDMODE = 0;
+pub const PDM_ERRORSBLOCKING: _PDMODE = 8;
+pub const PDM_INDETERMINATE: _PDMODE = 16;
+pub const PDM_PREFLIGHT: _PDMODE = 2;
+pub const PDM_RUN: _PDMODE = 1;
+pub const PDM_UNDOING: _PDMODE = 4;
 pub type PDOPSTATUS = i32;
 pub const PDOPS_CANCELLED: PDOPSTATUS = 3;
 pub const PDOPS_ERRORS: PDOPSTATUS = 5;
 pub const PDOPS_PAUSED: PDOPSTATUS = 2;
 pub const PDOPS_RUNNING: PDOPSTATUS = 1;
 pub const PDOPS_STOPPED: PDOPSTATUS = 4;
-#[repr(C)]
-#[cfg(feature = "shtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PERSIST_FOLDER_TARGET_INFO {
     pub pidlTargetFolder: super::LPITEMIDLIST,
-    pub szTargetParsingName: [u16; 260],
-    pub szNetworkProvider: [u16; 260],
-    pub dwAttributes: u32,
+    pub szTargetParsingName: [super::WCHAR; 260],
+    pub szNetworkProvider: [super::WCHAR; 260],
+    pub dwAttributes: super::DWORD,
     pub csidl: i32,
 }
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt"))]
 impl Default for PERSIST_FOLDER_TARGET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1046,21 +1078,23 @@ pub const PES_SUSPENDED: PACKAGE_EXECUTION_STATE = 3;
 pub const PES_SUSPENDING: PACKAGE_EXECUTION_STATE = 2;
 pub const PES_TERMINATED: PACKAGE_EXECUTION_STATE = 4;
 pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = 0;
+#[cfg(feature = "shared")]
 pub type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
-pub type PLACEHOLDER_STATES = u32;
+pub type PLACEHOLDER_STATES = i32;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::HACCEL,
-    pub cAccelEntries: u32,
+    pub cAccelEntries: super::UINT,
 }
 pub type PROPERTYUI_FLAGS = u32;
 pub type PROPERTYUI_FORMAT_FLAGS = u32;
 pub type PROPERTYUI_NAME_FLAGS = u32;
 pub const PROP_CONTRACT_DELEGATE: windows_sys::core::PCWSTR = windows_sys::core::w!("ContractDelegate");
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 pub type PSMCSHCHANGENOTIFYSTRUCT = *mut SMCSHCHANGENOTIFYSTRUCT;
+#[cfg(feature = "shared")]
 pub type PSMINFO = *mut SMINFO;
 pub const PS_ALL: PLACEHOLDER_STATES = 15;
 pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = 8;
@@ -1069,16 +1103,16 @@ pub const PS_DEFAULT: PLACEHOLDER_STATES = 7;
 pub const PS_FULL_PRIMARY_STREAM_AVAILABLE: PLACEHOLDER_STATES = 2;
 pub const PS_MARKED_FOR_OFFLINE_AVAILABILITY: PLACEHOLDER_STATES = 1;
 pub const PS_NONE: PLACEHOLDER_STATES = 0;
-pub const PUIFFDF_DEFAULT: PROPERTYUI_FORMAT_FLAGS = 0;
-pub const PUIFFDF_FRIENDLYDATE: PROPERTYUI_FORMAT_FLAGS = 8;
-pub const PUIFFDF_NOTIME: PROPERTYUI_FORMAT_FLAGS = 4;
-pub const PUIFFDF_RIGHTTOLEFT: PROPERTYUI_FORMAT_FLAGS = 1;
-pub const PUIFFDF_SHORTFORMAT: PROPERTYUI_FORMAT_FLAGS = 2;
-pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = 0;
-pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = 1;
-pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = 0;
-pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = 2;
-pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = 1;
+pub const PUIFFDF_DEFAULT: _PROPERTYUI_FORMAT_FLAGS = 0;
+pub const PUIFFDF_FRIENDLYDATE: _PROPERTYUI_FORMAT_FLAGS = 8;
+pub const PUIFFDF_NOTIME: _PROPERTYUI_FORMAT_FLAGS = 4;
+pub const PUIFFDF_RIGHTTOLEFT: _PROPERTYUI_FORMAT_FLAGS = 1;
+pub const PUIFFDF_SHORTFORMAT: _PROPERTYUI_FORMAT_FLAGS = 2;
+pub const PUIFNF_DEFAULT: _PROPERTYUI_NAME_FLAGS = 0;
+pub const PUIFNF_MNEMONIC: _PROPERTYUI_NAME_FLAGS = 1;
+pub const PUIF_DEFAULT: _PROPERTYUI_FLAGS = 0;
+pub const PUIF_NOLABELININFOTIP: _PROPERTYUI_FLAGS = 2;
+pub const PUIF_RIGHTALIGN: _PROPERTYUI_FLAGS = 1;
 pub const PackageDebugSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d);
 pub const PropertiesUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
 pub const SBSP_ABSOLUTE: i32 = 0;
@@ -1159,21 +1193,21 @@ pub const SHCIDS_BITMASK: u32 = 4294901760;
 pub const SHCIDS_CANONICALONLY: i32 = 268435456;
 pub const SHCIDS_COLUMNMASK: i32 = 65535;
 pub type SHCONTF = u32;
-pub const SHCONTF_CHECKING_FOR_CHILDREN: SHCONTF = 16;
-pub const SHCONTF_ENABLE_ASYNC: SHCONTF = 32768;
-pub const SHCONTF_FASTITEMS: SHCONTF = 8192;
-pub const SHCONTF_FLATLIST: SHCONTF = 16384;
-pub const SHCONTF_FOLDERS: SHCONTF = 32;
-pub const SHCONTF_INCLUDEHIDDEN: SHCONTF = 128;
-pub const SHCONTF_INCLUDESUPERHIDDEN: SHCONTF = 65536;
-pub const SHCONTF_INIT_ON_FIRST_NEXT: SHCONTF = 256;
-pub const SHCONTF_NAVIGATION_ENUM: SHCONTF = 4096;
-pub const SHCONTF_NETPRINTERSRCH: SHCONTF = 512;
-pub const SHCONTF_NONFOLDERS: SHCONTF = 64;
-pub const SHCONTF_SHAREABLE: SHCONTF = 1024;
-pub const SHCONTF_STORAGE: SHCONTF = 2048;
-#[repr(C)]
-#[cfg(feature = "windef")]
+pub const SHCONTF_CHECKING_FOR_CHILDREN: _SHCONTF = 16;
+pub const SHCONTF_ENABLE_ASYNC: _SHCONTF = 32768;
+pub const SHCONTF_FASTITEMS: _SHCONTF = 8192;
+pub const SHCONTF_FLATLIST: _SHCONTF = 16384;
+pub const SHCONTF_FOLDERS: _SHCONTF = 32;
+pub const SHCONTF_INCLUDEHIDDEN: _SHCONTF = 128;
+pub const SHCONTF_INCLUDESUPERHIDDEN: _SHCONTF = 65536;
+pub const SHCONTF_INIT_ON_FIRST_NEXT: _SHCONTF = 256;
+pub const SHCONTF_NAVIGATION_ENUM: _SHCONTF = 4096;
+pub const SHCONTF_NETPRINTERSRCH: _SHCONTF = 512;
+pub const SHCONTF_NONFOLDERS: _SHCONTF = 64;
+pub const SHCONTF_SHAREABLE: _SHCONTF = 1024;
+pub const SHCONTF_STORAGE: _SHCONTF = 2048;
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::SIZE,
@@ -1183,36 +1217,41 @@ pub struct SHDRAGIMAGE {
 }
 pub type SHELLVIEWID = windows_sys::core::GUID;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SHELL_ITEM_RESOURCE {
     pub guidType: windows_sys::core::GUID,
-    pub szName: [u16; 260],
+    pub szName: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for SHELL_ITEM_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type SHGDNF = u32;
-pub const SHGDN_FORADDRESSBAR: SHGDNF = 16384;
-pub const SHGDN_FOREDITING: SHGDNF = 4096;
-pub const SHGDN_FORPARSING: SHGDNF = 32768;
-pub const SHGDN_INFOLDER: SHGDNF = 1;
-pub const SHGDN_NORMAL: SHGDNF = 0;
-pub type SIATTRIBFLAGS = u32;
+pub const SHGDN_FORADDRESSBAR: _SHGDNF = 16384;
+pub const SHGDN_FOREDITING: _SHGDNF = 4096;
+pub const SHGDN_FORPARSING: _SHGDNF = 32768;
+pub const SHGDN_INFOLDER: _SHGDNF = 1;
+pub const SHGDN_NORMAL: _SHGDNF = 0;
+pub type SIATTRIBFLAGS = i32;
 pub const SIATTRIBFLAGS_ALLITEMS: SIATTRIBFLAGS = 16384;
 pub const SIATTRIBFLAGS_AND: SIATTRIBFLAGS = 1;
 pub const SIATTRIBFLAGS_APPCOMPAT: SIATTRIBFLAGS = 3;
 pub const SIATTRIBFLAGS_MASK: SIATTRIBFLAGS = 3;
 pub const SIATTRIBFLAGS_OR: SIATTRIBFLAGS = 2;
 pub type SICHINTF = u32;
-pub const SICHINT_ALLFIELDS: SICHINTF = 2147483648;
-pub const SICHINT_CANONICAL: SICHINTF = 268435456;
-pub const SICHINT_DISPLAY: SICHINTF = 0;
-pub const SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL: SICHINTF = 536870912;
+pub const SICHINT_ALLFIELDS: _SICHINTF = -2147483648;
+pub const SICHINT_CANONICAL: _SICHINTF = 268435456;
+pub const SICHINT_DISPLAY: _SICHINTF = 0;
+pub const SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL: _SICHINTF = 536870912;
+pub const SID_ExecuteCreatingProcess: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc2b937a9_3110_4398_8a56_f34c6342d244);
 pub const SID_LaunchSourceAppUserModelId: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ce78010_74db_48bc_9c6a_10f372495723);
 pub const SID_LaunchSourceViewSizePreference: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x80605492_67d9_414f_af89_a1cdf1242bc1);
+pub const SID_LaunchTargetMonitor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d547fa1_cc45_40c8_b7c1_d48c183f13f3);
 pub const SID_LaunchTargetViewSizePreference: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x26db2472_b7b7_406b_9702_730a4e20d3bf);
+pub const SID_LaunchUIContextProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0d12c4c8_a3d9_4e24_94c1_0e20c5a956c4);
 pub const SID_ShellExecuteNamedPropertyStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb84ada2_00ff_4992_8324_ed5ce061cb29);
 pub const SID_URLExecutionContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb5f8ebc_bbb6_4d10_a461_777291a09030);
 pub type SIGDN = i32;
@@ -1227,23 +1266,23 @@ pub const SIGDN_PARENTRELATIVEFORUI: SIGDN = -2146877439;
 pub const SIGDN_PARENTRELATIVEPARSING: SIGDN = -2147385343;
 pub const SIGDN_URL: SIGDN = -2147057664;
 pub type SIIGBF = i32;
-pub const SIIGBF_BIGGERSIZEOK: SIIGBF = 0x1_u32 as _;
-pub const SIIGBF_CROPTOSQUARE: SIIGBF = 0x20_u32 as _;
-pub const SIIGBF_ICONBACKGROUND: SIIGBF = 0x80_u32 as _;
-pub const SIIGBF_ICONONLY: SIIGBF = 0x4_u32 as _;
-pub const SIIGBF_INCACHEONLY: SIIGBF = 0x10_u32 as _;
-pub const SIIGBF_MEMORYONLY: SIIGBF = 0x2_u32 as _;
-pub const SIIGBF_RESIZETOFIT: SIIGBF = 0x0_u32 as _;
-pub const SIIGBF_SCALEUP: SIIGBF = 0x100_u32 as _;
-pub const SIIGBF_THUMBNAILONLY: SIIGBF = 0x8_u32 as _;
-pub const SIIGBF_WIDETHUMBNAILS: SIIGBF = 0x40_u32 as _;
-pub type SLGP_FLAGS = u32;
+pub const SIIGBF_BIGGERSIZEOK: _SIIGBF = 1;
+pub const SIIGBF_CROPTOSQUARE: _SIIGBF = 32;
+pub const SIIGBF_ICONBACKGROUND: _SIIGBF = 128;
+pub const SIIGBF_ICONONLY: _SIIGBF = 4;
+pub const SIIGBF_INCACHEONLY: _SIIGBF = 16;
+pub const SIIGBF_MEMORYONLY: _SIIGBF = 2;
+pub const SIIGBF_RESIZETOFIT: _SIIGBF = 0;
+pub const SIIGBF_SCALEUP: _SIIGBF = 256;
+pub const SIIGBF_THUMBNAILONLY: _SIIGBF = 8;
+pub const SIIGBF_WIDETHUMBNAILS: _SIIGBF = 64;
+pub type SLGP_FLAGS = i32;
 pub const SLGP_RAWPATH: SLGP_FLAGS = 4;
 pub const SLGP_RELATIVEPRIORITY: SLGP_FLAGS = 8;
 pub const SLGP_SHORTPATH: SLGP_FLAGS = 1;
 pub const SLGP_UNCPRIORITY: SLGP_FLAGS = 2;
 pub const SLR_ANY_MATCH: SLR_FLAGS = 2;
-pub type SLR_FLAGS = u32;
+pub type SLR_FLAGS = i32;
 pub const SLR_INVOKE_MSI: SLR_FLAGS = 128;
 pub const SLR_KNOWNFOLDER: SLR_FLAGS = 1024;
 pub const SLR_MACHINE_IN_LOCAL_TARGET: SLR_FLAGS = 2048;
@@ -1262,8 +1301,8 @@ pub const SMAE_CONTRACTED: i32 = 2;
 pub const SMAE_EXPANDED: i32 = 1;
 pub const SMAE_USER: i32 = 4;
 pub const SMAE_VALID: i32 = 7;
-#[repr(C)]
-#[cfg(feature = "shtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
@@ -1296,17 +1335,17 @@ pub const SMC_SFEXEC: i32 = 9;
 pub const SMC_SFEXEC_MIDDLE: i32 = 49;
 pub const SMC_SFSELECTITEM: i32 = 10;
 pub const SMC_SHCHANGENOTIFY: i32 = 46;
-#[repr(C)]
-#[cfg(all(feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct SMDATA {
-    pub dwMask: u32,
-    pub dwFlags: u32,
+    pub dwMask: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub hmenu: super::HMENU,
     pub hwnd: super::HWND,
-    pub uId: u32,
-    pub uIdParent: u32,
-    pub uIdAncestor: u32,
+    pub uId: super::UINT,
+    pub uIdParent: super::UINT,
+    pub uIdAncestor: super::UINT,
     pub punk: *mut core::ffi::c_void,
     pub pidlFolder: super::LPITEMIDLIST,
     pub pidlItem: super::LPITEMIDLIST,
@@ -1332,12 +1371,13 @@ pub const SMIF_TRACKPOPUP: tagSMINFOFLAGS = 512;
 pub const SMIM_FLAGS: tagSMINFOMASK = 2;
 pub const SMIM_ICON: tagSMINFOMASK = 4;
 pub const SMIM_TYPE: tagSMINFOMASK = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SMINFO {
-    pub dwMask: u32,
-    pub dwType: u32,
-    pub dwFlags: u32,
+    pub dwMask: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub iIcon: i32,
 }
 pub const SMINIT_AUTOEXPAND: i32 = 256;
@@ -1357,7 +1397,7 @@ pub const SMSET_BOTTOM: i32 = 536870912;
 pub const SMSET_DONTOWN: i32 = 1;
 pub const SMSET_TOP: i32 = 268435456;
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct SORTCOLUMN {
     pub propkey: super::PROPERTYKEY,
@@ -1385,18 +1425,18 @@ pub const SPACTION_SEARCHING_FILES: SPACTION = 9;
 pub const SPACTION_SEARCHING_INTERNET: SPACTION = 6;
 pub const SPACTION_UPLOADING: SPACTION = 8;
 pub type SPBEGINF = u32;
-pub const SPBEGINF_AUTOTIME: SPBEGINF = 2;
-pub const SPBEGINF_MARQUEEPROGRESS: SPBEGINF = 32;
-pub const SPBEGINF_NOCANCELBUTTON: SPBEGINF = 64;
-pub const SPBEGINF_NOPROGRESSBAR: SPBEGINF = 16;
-pub const SPBEGINF_NORMAL: SPBEGINF = 0;
+pub const SPBEGINF_AUTOTIME: _SPBEGINF = 2;
+pub const SPBEGINF_MARQUEEPROGRESS: _SPBEGINF = 32;
+pub const SPBEGINF_NOCANCELBUTTON: _SPBEGINF = 64;
+pub const SPBEGINF_NOPROGRESSBAR: _SPBEGINF = 16;
+pub const SPBEGINF_NORMAL: _SPBEGINF = 0;
 pub const SPFF_CREATED_ON_THIS_DEVICE: STORAGE_PROVIDER_FILE_FLAGS = 2;
 pub const SPFF_DOWNLOAD_BY_DEFAULT: STORAGE_PROVIDER_FILE_FLAGS = 1;
 pub const SPFF_NONE: STORAGE_PROVIDER_FILE_FLAGS = 0;
 pub type SPINITF = u32;
-pub const SPINITF_MODAL: SPINITF = 1;
-pub const SPINITF_NOMINIMIZE: SPINITF = 8;
-pub const SPINITF_NORMAL: SPINITF = 0;
+pub const SPINITF_MODAL: _SPINITF = 1;
+pub const SPINITF_NOMINIMIZE: _SPINITF = 8;
+pub const SPINITF_NORMAL: _SPINITF = 0;
 pub type SPTEXT = i32;
 pub const SPTEXT_ACTIONDESCRIPTION: SPTEXT = 1;
 pub const SPTEXT_ACTIONDETAIL: SPTEXT = 2;
@@ -1409,8 +1449,8 @@ pub const STGOP_REMOVE: STGOP = 5;
 pub const STGOP_RENAME: STGOP = 6;
 pub const STGOP_SYNC: STGOP = 3;
 pub type STGTRANSCONFIRMATION = windows_sys::core::GUID;
-pub type STORAGE_PROVIDER_FILE_FLAGS = u32;
-pub type STPFLAG = u32;
+pub type STORAGE_PROVIDER_FILE_FLAGS = i32;
+pub type STPFLAG = i32;
 pub const STPF_NONE: STPFLAG = 0;
 pub const STPF_USEAPPPEEKALWAYS: STPFLAG = 4;
 pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = 8;
@@ -1468,11 +1508,11 @@ pub const STS_PAUSED: SYNC_TRANSFER_STATUS = 8;
 pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = 1024;
 pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64;
-#[repr(C)]
-#[cfg(all(feature = "oleidl", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct SV2CVW2_PARAMS {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub psvPrev: *mut core::ffi::c_void,
     pub pfs: LPCFOLDERSETTINGS,
     pub psbOwner: *mut core::ffi::c_void,
@@ -1480,13 +1520,15 @@ pub struct SV2CVW2_PARAMS {
     pub pvid: *const SHELLVIEWID,
     pub hwndView: super::HWND,
 }
-pub const SV2GV_CURRENTVIEW: u32 = 4294967295;
-pub const SV2GV_DEFAULTVIEW: u32 = 4294967294;
+#[cfg(feature = "shared")]
+pub const SV2GV_CURRENTVIEW: super::UINT = 4294967295;
+#[cfg(feature = "shared")]
+pub const SV2GV_DEFAULTVIEW: super::UINT = 4294967294;
 pub type SVGIO = i32;
 pub const SVGIO_ALLVIEW: _SVGIO = 2;
 pub const SVGIO_BACKGROUND: _SVGIO = 0;
 pub const SVGIO_CHECKED: _SVGIO = 3;
-pub const SVGIO_FLAG_VIEWORDER: _SVGIO = 2147483648;
+pub const SVGIO_FLAG_VIEWORDER: _SVGIO = -2147483648;
 pub const SVGIO_SELECTION: _SVGIO = 1;
 pub const SVGIO_TYPE_MASK: _SVGIO = 15;
 pub type SVSIF = u32;
@@ -1498,7 +1540,8 @@ pub const SVSI_EDIT: _SVSIF = 3;
 pub const SVSI_ENSUREVISIBLE: _SVSIF = 8;
 pub const SVSI_FOCUSED: _SVSIF = 16;
 pub const SVSI_KEYBOARDSELECT: _SVSIF = 1025;
-pub const SVSI_NOSTATECHANGE: u32 = 2147483648;
+#[cfg(feature = "shared")]
+pub const SVSI_NOSTATECHANGE: super::UINT = 2147483648;
 pub const SVSI_NOTAKEFOCUS: _SVSIF = 1073741824;
 pub const SVSI_POSITIONITEM: _SVSIF = 128;
 pub const SVSI_SELECT: _SVSIF = 1;
@@ -1509,7 +1552,7 @@ pub const SVUIA_ACTIVATE_NOFOCUS: SVUIA_STATUS = 1;
 pub const SVUIA_DEACTIVATE: SVUIA_STATUS = 0;
 pub const SVUIA_INPLACEACTIVATE: SVUIA_STATUS = 3;
 pub type SVUIA_STATUS = i32;
-pub type SYNC_TRANSFER_STATUS = u32;
+pub type SYNC_TRANSFER_STATUS = i32;
 pub const ScheduledTasks: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
 pub const SearchFolderItemFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
 pub const SharingConfigurationManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49f371e1_8c5c_4d9c_9a3b_54a6827f513c);
@@ -1520,7 +1563,7 @@ pub const ShellLibrary: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const ShellLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00021401_0000_0000_c000_000000000046);
 pub const SizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55d7b852_f6d1_42f2_aa75_8728a1b2d264);
 pub const SuspensionDependencyManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b273fc5_61fd_4918_95a2_c3b5e9d7f581);
-pub type TBPFLAG = u32;
+pub type TBPFLAG = i32;
 pub const TBPF_ERROR: TBPFLAG = 4;
 pub const TBPF_INDETERMINATE: TBPFLAG = 1;
 pub const TBPF_NOPROGRESS: TBPFLAG = 0;
@@ -1537,49 +1580,77 @@ pub const THB_BITMAP: THUMBBUTTONMASK = 1;
 pub const THB_FLAGS: THUMBBUTTONMASK = 8;
 pub const THB_ICON: THUMBBUTTONMASK = 2;
 pub const THB_TOOLTIP: THUMBBUTTONMASK = 4;
-#[repr(C)]
-#[cfg(feature = "windef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct THUMBBUTTON {
     pub dwMask: THUMBBUTTONMASK,
-    pub iId: u32,
-    pub iBitmap: u32,
+    pub iId: super::UINT,
+    pub iBitmap: super::UINT,
     pub hIcon: super::HICON,
-    pub szTip: [u16; 260],
+    pub szTip: [super::WCHAR; 260],
     pub dwFlags: THUMBBUTTONFLAGS,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for THUMBBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type THUMBBUTTONFLAGS = u32;
-pub type THUMBBUTTONMASK = u32;
+pub type THUMBBUTTONFLAGS = i32;
+pub type THUMBBUTTONMASK = i32;
+pub const TOID_NULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub type TRANSFER_ADVISE_STATE = u32;
 pub type TRANSFER_SOURCE_FLAGS = u32;
-pub const TSF_ALLOW_DECRYPTION: TRANSFER_SOURCE_FLAGS = 4;
-pub const TSF_COPY_CREATION_TIME: TRANSFER_SOURCE_FLAGS = 16;
-pub const TSF_COPY_HARD_LINK: TRANSFER_SOURCE_FLAGS = 256;
-pub const TSF_COPY_LOCALIZED_NAME: TRANSFER_SOURCE_FLAGS = 512;
-pub const TSF_COPY_WRITE_TIME: TRANSFER_SOURCE_FLAGS = 32;
-pub const TSF_DELETE_RECYCLE_IF_POSSIBLE: TRANSFER_SOURCE_FLAGS = 128;
-pub const TSF_FAIL_EXIST: TRANSFER_SOURCE_FLAGS = 0;
-pub const TSF_MOVE_AS_COPY_DELETE: TRANSFER_SOURCE_FLAGS = 1024;
-pub const TSF_NORMAL: TRANSFER_SOURCE_FLAGS = 0;
-pub const TSF_NO_SECURITY: TRANSFER_SOURCE_FLAGS = 8;
-pub const TSF_OVERWRITE_EXIST: TRANSFER_SOURCE_FLAGS = 2;
-pub const TSF_RENAME_EXIST: TRANSFER_SOURCE_FLAGS = 1;
-pub const TSF_SUSPEND_SHELLEVENTS: TRANSFER_SOURCE_FLAGS = 2048;
-pub const TSF_USE_FULL_ACCESS: TRANSFER_SOURCE_FLAGS = 64;
-pub const TS_INDETERMINATE: TRANSFER_ADVISE_STATE = 4;
-pub const TS_NONE: TRANSFER_ADVISE_STATE = 0;
-pub const TS_PERFORMING: TRANSFER_ADVISE_STATE = 1;
-pub const TS_PREPARING: TRANSFER_ADVISE_STATE = 2;
+pub const TSF_ALLOW_DECRYPTION: _TRANSFER_SOURCE_FLAGS = 4;
+pub const TSF_COPY_CREATION_TIME: _TRANSFER_SOURCE_FLAGS = 16;
+pub const TSF_COPY_HARD_LINK: _TRANSFER_SOURCE_FLAGS = 256;
+pub const TSF_COPY_LOCALIZED_NAME: _TRANSFER_SOURCE_FLAGS = 512;
+pub const TSF_COPY_WRITE_TIME: _TRANSFER_SOURCE_FLAGS = 32;
+pub const TSF_DELETE_RECYCLE_IF_POSSIBLE: _TRANSFER_SOURCE_FLAGS = 128;
+pub const TSF_FAIL_EXIST: _TRANSFER_SOURCE_FLAGS = 0;
+pub const TSF_MOVE_AS_COPY_DELETE: _TRANSFER_SOURCE_FLAGS = 1024;
+pub const TSF_NORMAL: _TRANSFER_SOURCE_FLAGS = 0;
+pub const TSF_NO_SECURITY: _TRANSFER_SOURCE_FLAGS = 8;
+pub const TSF_OVERWRITE_EXIST: _TRANSFER_SOURCE_FLAGS = 2;
+pub const TSF_RENAME_EXIST: _TRANSFER_SOURCE_FLAGS = 1;
+pub const TSF_SUSPEND_SHELLEVENTS: _TRANSFER_SOURCE_FLAGS = 2048;
+pub const TSF_USE_FULL_ACCESS: _TRANSFER_SOURCE_FLAGS = 64;
+pub const TS_INDETERMINATE: _TRANSFER_ADVISE_STATE = 4;
+pub const TS_NONE: _TRANSFER_ADVISE_STATE = 0;
+pub const TS_PERFORMING: _TRANSFER_ADVISE_STATE = 1;
+pub const TS_PREPARING: _TRANSFER_ADVISE_STATE = 2;
 pub const TaskbarList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
 pub const UserNotification: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
-pub type _SVGIO = u32;
+pub type _BROWSERFRAMEOPTIONS = i32;
+pub type _EXPCMDFLAGS = i32;
+pub type _EXPCMDSTATE = i32;
+pub type _EXPLORERPANESTATE = i32;
+pub type _EXPPS = i32;
+pub type _FILEOPENDIALOGOPTIONS = i32;
+pub type _KF_DEFINITION_FLAGS = i32;
+pub type _KF_REDIRECTION_CAPABILITIES = i32;
+pub type _KF_REDIRECT_FLAGS = i32;
+pub type _NMCII_FLAGS = i32;
+pub type _NMCSAEI_FLAGS = i32;
+pub type _NSTCITEMSTATE = i32;
+pub type _NSTCROOTSTYLE = i32;
+pub type _NSTCSTYLE = i32;
+pub type _OPPROGDLGF = i32;
+pub type _PDMODE = i32;
+pub type _PROPERTYUI_FLAGS = i32;
+pub type _PROPERTYUI_FORMAT_FLAGS = i32;
+pub type _PROPERTYUI_NAME_FLAGS = i32;
+pub type _SHCONTF = i32;
+pub type _SHGDNF = i32;
+pub type _SICHINTF = i32;
+pub type _SIIGBF = i32;
+pub type _SPBEGINF = i32;
+pub type _SPINITF = i32;
+pub type _SVGIO = i32;
 pub type _SVSIF = i32;
+pub type _TRANSFER_ADVISE_STATE = i32;
+pub type _TRANSFER_SOURCE_FLAGS = i32;
 pub type tagBANDSITECID = i32;
 pub type tagDESKBANDCID = i32;
 pub type tagMENUBANDHANDLERCID = i32;

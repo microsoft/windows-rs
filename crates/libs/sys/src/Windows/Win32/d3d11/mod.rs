@@ -1,203 +1,96 @@
-#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef"))]
-windows_link::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : u32, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "windef"))]
-windows_link::link!("d3d11.dll" "system" fn D3D11CreateDeviceAndSwapChain(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : u32, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, pswapchaindesc : *const super::DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut *mut core::ffi::c_void, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "d3dcommon")]
-windows_link::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : *mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const *mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut *mut core::ffi::c_void, ppimmediatecontext : *mut *mut core::ffi::c_void, pchosenfeaturelevel : *mut super::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "d3dcommon", feature = "minwindef"))]
-windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : super::LPCVOID, srcdatasize : usize, ptrace : *mut core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+windows_link::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : super::UINT, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : super::UINT, sdkversion : super::UINT, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("d3d11.dll" "system" fn D3D11CreateDeviceAndSwapChain(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : super::UINT, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : super::UINT, sdkversion : super::UINT, pswapchaindesc : *const super::DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut *mut core::ffi::c_void, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+windows_link::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : *mut core::ffi::c_void, flags : super::UINT, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : super::UINT, ppcommandqueues : *const *mut core::ffi::c_void, numqueues : super::UINT, nodemask : super::UINT, ppdevice : *mut *mut core::ffi::c_void, ppimmediatecontext : *mut *mut core::ffi::c_void, pchosenfeaturelevel : *mut super::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : super::LPCVOID, srcdatasize : super::SIZE_T, ptrace : *mut core::ffi::c_void, startstep : super::UINT, numsteps : super::UINT, flags : super::UINT, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type APP_DEPRECATED_HRESULT = windows_sys::core::HRESULT;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_BLEND_DESC {
-    pub Base: D3D11_BLEND_DESC,
-}
+pub struct CD3D11_BLEND_DESC(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_BLEND_DESC1 {
-    pub Base: D3D11_BLEND_DESC1,
-}
+pub struct CD3D11_BLEND_DESC1(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_BOX {
-    pub Base: D3D11_BOX,
-}
+pub struct CD3D11_BOX(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_BUFFER_DESC {
-    pub Base: D3D11_BUFFER_DESC,
-}
+pub struct CD3D11_BUFFER_DESC(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_COUNTER_DESC {
-    pub Base: D3D11_COUNTER_DESC,
-}
+pub struct CD3D11_COUNTER_DESC(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_DEFAULT(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_DEPTH_STENCIL_DESC {
-    pub Base: D3D11_DEPTH_STENCIL_DESC,
-}
-#[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy)]
-pub struct CD3D11_DEPTH_STENCIL_VIEW_DESC {
-    pub Base: D3D11_DEPTH_STENCIL_VIEW_DESC,
-}
-#[cfg(feature = "dxgi")]
-impl Default for CD3D11_DEPTH_STENCIL_VIEW_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub struct CD3D11_DEPTH_STENCIL_DESC(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_QUERY_DESC {
-    pub Base: D3D11_QUERY_DESC,
-}
+pub struct CD3D11_DEPTH_STENCIL_VIEW_DESC(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_QUERY_DESC1 {
-    pub Base: D3D11_QUERY_DESC1,
-}
+pub struct CD3D11_QUERY_DESC(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_RASTERIZER_DESC {
-    pub Base: D3D11_RASTERIZER_DESC,
-}
+pub struct CD3D11_QUERY_DESC1(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_RASTERIZER_DESC1 {
-    pub Base: D3D11_RASTERIZER_DESC1,
-}
+pub struct CD3D11_RASTERIZER_DESC(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_RASTERIZER_DESC2 {
-    pub Base: D3D11_RASTERIZER_DESC2,
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
-pub struct CD3D11_RECT {
-    pub Base: D3D11_RECT,
-}
-#[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy)]
-pub struct CD3D11_RENDER_TARGET_VIEW_DESC {
-    pub Base: D3D11_RENDER_TARGET_VIEW_DESC,
-}
-#[cfg(feature = "dxgi")]
-impl Default for CD3D11_RENDER_TARGET_VIEW_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy)]
-pub struct CD3D11_RENDER_TARGET_VIEW_DESC1 {
-    pub Base: D3D11_RENDER_TARGET_VIEW_DESC1,
-}
-#[cfg(feature = "dxgi")]
-impl Default for CD3D11_RENDER_TARGET_VIEW_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub struct CD3D11_RASTERIZER_DESC1(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_SAMPLER_DESC {
-    pub Base: D3D11_SAMPLER_DESC,
-}
+pub struct CD3D11_RASTERIZER_DESC2(pub u8);
 #[repr(C)]
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
-#[derive(Clone, Copy)]
-pub struct CD3D11_SHADER_RESOURCE_VIEW_DESC {
-    pub Base: D3D11_SHADER_RESOURCE_VIEW_DESC,
-}
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
-impl Default for CD3D11_SHADER_RESOURCE_VIEW_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
-#[derive(Clone, Copy)]
-pub struct CD3D11_SHADER_RESOURCE_VIEW_DESC1 {
-    pub Base: D3D11_SHADER_RESOURCE_VIEW_DESC1,
-}
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
-impl Default for CD3D11_SHADER_RESOURCE_VIEW_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_TEXTURE1D_DESC {
-    pub Base: D3D11_TEXTURE1D_DESC,
-}
+pub struct CD3D11_RECT(pub u8);
 #[repr(C)]
-#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_TEXTURE2D_DESC {
-    pub Base: D3D11_TEXTURE2D_DESC,
-}
+pub struct CD3D11_RENDER_TARGET_VIEW_DESC(pub u8);
 #[repr(C)]
-#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_TEXTURE2D_DESC1 {
-    pub Base: D3D11_TEXTURE2D_DESC1,
-}
+pub struct CD3D11_RENDER_TARGET_VIEW_DESC1(pub u8);
 #[repr(C)]
-#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_TEXTURE3D_DESC {
-    pub Base: D3D11_TEXTURE3D_DESC,
-}
+pub struct CD3D11_SAMPLER_DESC(pub u8);
 #[repr(C)]
-#[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_TEXTURE3D_DESC1 {
-    pub Base: D3D11_TEXTURE3D_DESC1,
-}
+pub struct CD3D11_SHADER_RESOURCE_VIEW_DESC(pub u8);
 #[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy)]
-pub struct CD3D11_UNORDERED_ACCESS_VIEW_DESC {
-    pub Base: D3D11_UNORDERED_ACCESS_VIEW_DESC,
-}
-#[cfg(feature = "dxgi")]
-impl Default for CD3D11_UNORDERED_ACCESS_VIEW_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_SHADER_RESOURCE_VIEW_DESC1(pub u8);
 #[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy)]
-pub struct CD3D11_UNORDERED_ACCESS_VIEW_DESC1 {
-    pub Base: D3D11_UNORDERED_ACCESS_VIEW_DESC1,
-}
-#[cfg(feature = "dxgi")]
-impl Default for CD3D11_UNORDERED_ACCESS_VIEW_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_TEXTURE1D_DESC(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_TEXTURE2D_DESC(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_TEXTURE2D_DESC1(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_TEXTURE3D_DESC(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_TEXTURE3D_DESC1(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_UNORDERED_ACCESS_VIEW_DESC(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CD3D11_UNORDERED_ACCESS_VIEW_DESC1(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CD3D11_VIEWPORT {
-    pub Base: D3D11_VIEWPORT,
-}
+pub struct CD3D11_VIEWPORT(pub u8);
 pub const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: i32 = 65535;
 pub type D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG = i32;
 pub const D3D11_1_CREATE_DEVICE_CONTEXT_STATE_SINGLETHREADED: D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG = 1;
@@ -208,13 +101,16 @@ pub const D3D11_4_VIDEO_DECODER_HISTOGRAM_OFFSET_ALIGNMENT: i32 = 256;
 pub const D3D11_4_VIDEO_DECODER_MAX_HISTOGRAM_COMPONENTS: i32 = 4;
 pub const D3D11_8BIT_INDEX_STRIP_CUT_VALUE: i32 = 255;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AES_CTR_IV {
-    pub IV: u64,
-    pub Count: u64,
+    pub IV: super::UINT64,
+    pub Count: super::UINT64,
 }
 pub const D3D11_ANISOTROPIC_FILTERING_BIT: i32 = 64;
 pub const D3D11_APPEND_ALIGNED_ELEMENT: u32 = 4294967295;
+pub const D3D11_APPNAME_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("Name");
+pub const D3D11_APPSIZE_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("Size");
 pub const D3D11_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: i32 = 9;
 pub const D3D11_ASYNC_GETDATA_DONOTFLUSH: D3D11_ASYNC_GETDATA_FLAG = 1;
 pub type D3D11_ASYNC_GETDATA_FLAG = i32;
@@ -223,7 +119,7 @@ pub const D3D11_AUTHENTICATED_CHANNEL_DRIVER_HARDWARE: D3D11_AUTHENTICATED_CHANN
 pub const D3D11_AUTHENTICATED_CHANNEL_DRIVER_SOFTWARE: D3D11_AUTHENTICATED_CHANNEL_TYPE = 2;
 pub type D3D11_AUTHENTICATED_CHANNEL_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
@@ -231,7 +127,7 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
 }
 pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
@@ -242,41 +138,41 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
 pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a);
 pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
-    pub StartSequenceQuery: u32,
-    pub StartSequenceConfigure: u32,
+    pub StartSequenceQuery: super::UINT,
+    pub StartSequenceConfigure: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INPUT {
     pub omac: D3D11_OMAC,
     pub ConfigureType: windows_sys::core::GUID,
     pub hChannel: super::HANDLE,
-    pub SequenceNumber: u32,
+    pub SequenceNumber: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     pub omac: D3D11_OMAC,
     pub ConfigureType: windows_sys::core::GUID,
     pub hChannel: super::HANDLE,
-    pub SequenceNumber: u32,
+    pub SequenceNumber: super::UINT,
     pub ReturnCode: windows_sys::core::HRESULT,
 }
 pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub Protections: D3D11_AUTHENTICATED_PROTECTION_FLAGS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -284,7 +180,7 @@ impl Default for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
 }
 pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
@@ -294,41 +190,49 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
 }
 pub type D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_AUTHENTICATED_PROTECTION_FLAGS {
-    pub Flags: __MIDL___MIDL_itf_d3d11_0000_0034_0001,
-    pub Value: u32,
+    pub Flags: D3D11_AUTHENTICATED_PROTECTION_FLAGS___MIDL___MIDL_itf_d3d11_0000_0034_0001,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct D3D11_AUTHENTICATED_PROTECTION_FLAGS___MIDL___MIDL_itf_d3d11_0000_0034_0001 {
+    pub _bitfield: u32,
+}
 pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-    pub EncryptionGuidCount: u32,
+    pub EncryptionGuidCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
-    pub EncryptionGuidIndex: u32,
+    pub EncryptionGuidIndex: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-    pub EncryptionGuidIndex: u32,
+    pub EncryptionGuidIndex: super::UINT,
     pub EncryptionGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
@@ -338,7 +242,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
 }
 pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
@@ -346,14 +250,14 @@ pub struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
 }
 pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DecoderHandle: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
@@ -362,7 +266,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
     pub DeviceHandle: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
@@ -371,7 +275,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
 pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0);
 pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
@@ -380,27 +284,27 @@ pub struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
 pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7);
 pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_INPUT {
     pub QueryType: windows_sys::core::GUID,
     pub hChannel: super::HANDLE,
-    pub SequenceNumber: u32,
+    pub SequenceNumber: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT {
     pub omac: D3D11_OMAC,
     pub QueryType: windows_sys::core::GUID,
     pub hChannel: super::HANDLE,
-    pub SequenceNumber: u32,
+    pub SequenceNumber: super::UINT,
     pub ReturnCode: windows_sys::core::HRESULT,
 }
 pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7);
 pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
@@ -408,42 +312,42 @@ pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
     pub CryptoSessionHandle: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::HANDLE,
     pub CryptoSessionHandle: super::HANDLE,
-    pub OutputIDCount: u32,
+    pub OutputIDCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DeviceHandle: super::HANDLE,
     pub CryptoSessionHandle: super::HANDLE,
-    pub OutputIDIndex: u32,
+    pub OutputIDIndex: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::HANDLE,
     pub CryptoSessionHandle: super::HANDLE,
-    pub OutputIDIndex: u32,
-    pub OutputID: u64,
+    pub OutputIDIndex: super::UINT,
+    pub OutputID: super::UINT64,
 }
 pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub ProtectionFlags: D3D11_AUTHENTICATED_PROTECTION_FLAGS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -452,35 +356,35 @@ impl Default for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac);
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-    pub RestrictedSharedResourceProcessCount: u32,
+    pub RestrictedSharedResourceProcessCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
-    pub ProcessIndex: u32,
+    pub ProcessIndex: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-    pub ProcessIndex: u32,
+    pub ProcessIndex: super::UINT,
     pub ProcessIdentifier: D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE,
     pub ProcessHandle: super::HANDLE,
 }
 pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-    pub UnrestrictedProtectedSharedResourceCount: u32,
+    pub UnrestrictedProtectedSharedResourceCount: super::UINT,
 }
 pub const D3D11_BIND_CONSTANT_BUFFER: D3D11_BIND_FLAG = 4;
 pub const D3D11_BIND_DECODER: D3D11_BIND_FLAG = 512;
@@ -496,24 +400,28 @@ pub const D3D11_BIND_VIDEO_ENCODER: D3D11_BIND_FLAG = 1024;
 pub type D3D11_BLEND = i32;
 pub const D3D11_BLEND_BLEND_FACTOR: D3D11_BLEND = 14;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_BLEND_DESC {
     pub AlphaToCoverageEnable: windows_sys::core::BOOL,
     pub IndependentBlendEnable: windows_sys::core::BOOL,
     pub RenderTarget: [D3D11_RENDER_TARGET_BLEND_DESC; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BLEND_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_BLEND_DESC1 {
     pub AlphaToCoverageEnable: windows_sys::core::BOOL,
     pub IndependentBlendEnable: windows_sys::core::BOOL,
     pub RenderTarget: [D3D11_RENDER_TARGET_BLEND_DESC1; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BLEND_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -542,106 +450,126 @@ pub const D3D11_BLEND_SRC_ALPHA_SAT: D3D11_BLEND = 11;
 pub const D3D11_BLEND_SRC_COLOR: D3D11_BLEND = 3;
 pub const D3D11_BLEND_ZERO: D3D11_BLEND = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_BOX {
-    pub left: u32,
-    pub top: u32,
-    pub front: u32,
-    pub right: u32,
-    pub bottom: u32,
-    pub back: u32,
+    pub left: super::UINT,
+    pub top: super::UINT,
+    pub front: super::UINT,
+    pub right: super::UINT,
+    pub bottom: super::UINT,
+    pub back: super::UINT,
 }
+pub const D3D11_BREAKON_CATEGORY: windows_sys::core::PCSTR = windows_sys::core::s!("BreakOn_CATEGORY_%s");
+pub const D3D11_BREAKON_ID_DECIMAL: windows_sys::core::PCSTR = windows_sys::core::s!("BreakOn_ID_%d");
+pub const D3D11_BREAKON_ID_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("BreakOn_ID_%s");
+pub const D3D11_BREAKON_SEVERITY: windows_sys::core::PCSTR = windows_sys::core::s!("BreakOn_SEVERITY_%s");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_BUFFEREX_SRV {
-    pub FirstElement: u32,
-    pub NumElements: u32,
-    pub Flags: u32,
+    pub FirstElement: super::UINT,
+    pub NumElements: super::UINT,
+    pub Flags: super::UINT,
 }
 pub type D3D11_BUFFEREX_SRV_FLAG = i32;
 pub const D3D11_BUFFEREX_SRV_FLAG_RAW: D3D11_BUFFEREX_SRV_FLAG = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_BUFFER_DESC {
-    pub ByteWidth: u32,
+    pub ByteWidth: super::UINT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
-    pub StructureByteStride: u32,
+    pub BindFlags: super::UINT,
+    pub CPUAccessFlags: super::UINT,
+    pub MiscFlags: super::UINT,
+    pub StructureByteStride: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_BUFFER_RTV {
     pub Anonymous: D3D11_BUFFER_RTV_0,
     pub Anonymous2: D3D11_BUFFER_RTV_1,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BUFFER_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_BUFFER_RTV_0 {
-    pub FirstElement: u32,
-    pub ElementOffset: u32,
+    pub FirstElement: super::UINT,
+    pub ElementOffset: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BUFFER_RTV_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_BUFFER_RTV_1 {
-    pub NumElements: u32,
-    pub ElementWidth: u32,
+    pub NumElements: super::UINT,
+    pub ElementWidth: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BUFFER_RTV_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_BUFFER_SRV {
     pub Anonymous: D3D11_BUFFER_SRV_0,
     pub Anonymous2: D3D11_BUFFER_SRV_1,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BUFFER_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_BUFFER_SRV_0 {
-    pub FirstElement: u32,
-    pub ElementOffset: u32,
+    pub FirstElement: super::UINT,
+    pub ElementOffset: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BUFFER_SRV_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_BUFFER_SRV_1 {
-    pub NumElements: u32,
-    pub ElementWidth: u32,
+    pub NumElements: super::UINT,
+    pub ElementWidth: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_BUFFER_SRV_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_BUFFER_UAV {
-    pub FirstElement: u32,
-    pub NumElements: u32,
-    pub Flags: u32,
+    pub FirstElement: super::UINT,
+    pub NumElements: super::UINT,
+    pub Flags: super::UINT,
 }
 pub type D3D11_BUFFER_UAV_FLAG = i32;
 pub const D3D11_BUFFER_UAV_FLAG_APPEND: D3D11_BUFFER_UAV_FLAG = 2;
@@ -665,15 +593,16 @@ pub const D3D11_CENTER_MULTISAMPLE_PATTERN: D3D11_STANDARD_MULTISAMPLE_QUALITY_L
 pub type D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG = i32;
 pub const D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_TILED_RESOURCE: D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_CLASS_INSTANCE_DESC {
-    pub InstanceId: u32,
-    pub InstanceIndex: u32,
-    pub TypeId: u32,
-    pub ConstantBuffer: u32,
-    pub BaseConstantBufferOffset: u32,
-    pub BaseTexture: u32,
-    pub BaseSampler: u32,
+    pub InstanceId: super::UINT,
+    pub InstanceIndex: super::UINT,
+    pub TypeId: super::UINT,
+    pub ConstantBuffer: super::UINT,
+    pub BaseConstantBufferOffset: super::UINT,
+    pub BaseTexture: super::UINT,
+    pub BaseSampler: super::UINT,
     pub Created: windows_sys::core::BOOL,
 }
 pub const D3D11_CLEAR_DEPTH: D3D11_CLEAR_FLAG = 1;
@@ -734,12 +663,14 @@ pub const D3D11_COMPARISON_NEVER: D3D11_COMPARISON_FUNC = 1;
 pub const D3D11_COMPARISON_NOT_EQUAL: D3D11_COMPARISON_FUNC = 6;
 pub const D3D11_COMPUTE_SHADER: D3D11_SHADER_TYPE = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_COMPUTE_SHADER_TRACE_DESC {
-    pub Invocation: u64,
-    pub ThreadIDInGroup: [u32; 3],
-    pub ThreadGroupID: [u32; 3],
+    pub Invocation: super::UINT64,
+    pub ThreadIDInGroup: [super::UINT; 3],
+    pub ThreadGroupID: [super::UINT; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_COMPUTE_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -781,18 +712,20 @@ pub type D3D11_COPY_FLAGS = i32;
 pub const D3D11_COPY_NO_OVERWRITE: D3D11_COPY_FLAGS = 1;
 pub type D3D11_COUNTER = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_COUNTER_DESC {
     pub Counter: D3D11_COUNTER,
-    pub MiscFlags: u32,
+    pub MiscFlags: super::UINT,
 }
 pub const D3D11_COUNTER_DEVICE_DEPENDENT_0: D3D11_COUNTER = 1073741824;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_COUNTER_INFO {
     pub LastDeviceDependentCounter: D3D11_COUNTER,
-    pub NumSimultaneousCounters: u32,
-    pub NumDetectableParallelUnits: u8,
+    pub NumSimultaneousCounters: super::UINT,
+    pub NumDetectableParallelUnits: super::UINT8,
 }
 pub type D3D11_COUNTER_TYPE = i32;
 pub const D3D11_COUNTER_TYPE_FLOAT32: D3D11_COUNTER_TYPE = 0;
@@ -812,7 +745,7 @@ pub const D3D11_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS: D3D11_CR
 pub const D3D11_CREATE_DEVICE_SINGLETHREADED: D3D11_CREATE_DEVICE_FLAG = 1;
 pub const D3D11_CREATE_DEVICE_SWITCH_TO_REF: D3D11_CREATE_DEVICE_FLAG = 4;
 pub const D3D11_CREATE_DEVICE_VIDEO_SUPPORT: D3D11_CREATE_DEVICE_FLAG = 2048;
-pub type D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS = u32;
+pub type D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS = i32;
 pub const D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAG_NONE: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS = 0;
 pub type D3D11_CRYPTO_SESSION_STATUS = i32;
 pub const D3D11_CRYPTO_SESSION_STATUS_KEY_AND_CONTENT_LOST: D3D11_CRYPTO_SESSION_STATUS = 2;
@@ -989,34 +922,35 @@ pub struct D3D11_DEPTH_STENCILOP_DESC {
     pub StencilFunc: D3D11_COMPARISON_FUNC,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_DEPTH_STENCIL_DESC {
     pub DepthEnable: windows_sys::core::BOOL,
     pub DepthWriteMask: D3D11_DEPTH_WRITE_MASK,
     pub DepthFunc: D3D11_COMPARISON_FUNC,
     pub StencilEnable: windows_sys::core::BOOL,
-    pub StencilReadMask: u8,
-    pub StencilWriteMask: u8,
+    pub StencilReadMask: super::UINT8,
+    pub StencilWriteMask: super::UINT8,
     pub FrontFace: D3D11_DEPTH_STENCILOP_DESC,
     pub BackFace: D3D11_DEPTH_STENCILOP_DESC,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_DEPTH_STENCIL_VIEW_DESC {
     pub Format: super::DXGI_FORMAT,
     pub ViewDimension: D3D11_DSV_DIMENSION,
-    pub Flags: u32,
+    pub Flags: super::UINT,
     pub Anonymous: D3D11_DEPTH_STENCIL_VIEW_DESC_0,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_DEPTH_STENCIL_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D11_TEX1D_DSV,
@@ -1026,7 +960,7 @@ pub union D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D11_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_DSV,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1040,26 +974,29 @@ pub const D3D11_DEVICE_CONTEXT_IMMEDIATE: D3D11_DEVICE_CONTEXT_TYPE = 0;
 pub type D3D11_DEVICE_CONTEXT_TYPE = i32;
 pub const D3D11_DOMAIN_SHADER: D3D11_SHADER_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_DOMAIN_SHADER_TRACE_DESC {
-    pub Invocation: u64,
+    pub Invocation: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
-    pub IndexCountPerInstance: u32,
-    pub InstanceCount: u32,
-    pub StartIndexLocation: u32,
-    pub BaseVertexLocation: i32,
-    pub StartInstanceLocation: u32,
+    pub IndexCountPerInstance: super::UINT,
+    pub InstanceCount: super::UINT,
+    pub StartIndexLocation: super::UINT,
+    pub BaseVertexLocation: super::INT,
+    pub StartInstanceLocation: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
-    pub VertexCountPerInstance: u32,
-    pub InstanceCount: u32,
-    pub StartVertexLocation: u32,
-    pub StartInstanceLocation: u32,
+    pub VertexCountPerInstance: super::UINT,
+    pub InstanceCount: super::UINT,
+    pub StartVertexLocation: super::UINT,
+    pub StartInstanceLocation: super::UINT,
 }
 pub type D3D11_DSV_DIMENSION = i32;
 pub const D3D11_DSV_DIMENSION_TEXTURE1D: D3D11_DSV_DIMENSION = 1;
@@ -1096,12 +1033,14 @@ pub const D3D11_DS_INPUT_PRIMITIVE_ID_REGISTER_READ_PORTS: i32 = 1;
 pub const D3D11_DS_OUTPUT_REGISTER_COMPONENTS: i32 = 4;
 pub const D3D11_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: i32 = 32;
 pub const D3D11_DS_OUTPUT_REGISTER_COUNT: i32 = 32;
+pub const D3D11_ENABLE_BREAK_ON_MESSAGE: windows_sys::core::PCSTR = windows_sys::core::s!("EnableBreakOnMessage");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_ENCRYPTED_BLOCK_INFO {
-    pub NumEncryptedBytesAtBeginning: u32,
-    pub NumBytesInSkipPattern: u32,
-    pub NumBytesInEncryptPattern: u32,
+    pub NumEncryptedBytesAtBeginning: super::UINT,
+    pub NumBytesInSkipPattern: super::UINT,
+    pub NumBytesInEncryptPattern: super::UINT,
 }
 pub type D3D11_FEATURE = i32;
 pub const D3D11_FEATURE_ARCHITECTURE_INFO: D3D11_FEATURE = 6;
@@ -1220,24 +1159,25 @@ pub struct D3D11_FEATURE_DATA_DOUBLES {
     pub DoublePrecisionFloatShaderOps: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT {
     pub InFormat: super::DXGI_FORMAT,
-    pub OutFormatSupport: u32,
+    pub OutFormatSupport: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
     pub InFormat: super::DXGI_FORMAT,
-    pub OutFormatSupport2: u32,
+    pub OutFormatSupport2: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-    pub MaxGPUVirtualAddressBitsPerResource: u32,
-    pub MaxGPUVirtualAddressBitsPerProcess: u32,
+    pub MaxGPUVirtualAddressBitsPerResource: super::UINT,
+    pub MaxGPUVirtualAddressBitsPerProcess: super::UINT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1245,15 +1185,17 @@ pub struct D3D11_FEATURE_DATA_MARKER_SUPPORT {
     pub Profile: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_FEATURE_DATA_SHADER_CACHE {
-    pub SupportFlags: u32,
+    pub SupportFlags: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
-    pub PixelShaderMinPrecision: u32,
-    pub AllOtherShaderStagesMinPrecision: u32,
+    pub PixelShaderMinPrecision: super::UINT,
+    pub AllOtherShaderStagesMinPrecision: super::UINT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1262,13 +1204,13 @@ pub struct D3D11_FEATURE_DATA_THREADING {
     pub DriverCommandLists: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
     pub DecoderDesc: D3D11_VIDEO_DECODER_DESC,
     pub Components: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS,
-    pub BinCount: u32,
-    pub CounterBitDepth: u32,
+    pub BinCount: super::UINT,
+    pub CounterBitDepth: super::UINT,
 }
 pub const D3D11_FEATURE_DISPLAYABLE: D3D11_FEATURE = 20;
 pub const D3D11_FEATURE_DOUBLES: D3D11_FEATURE = 1;
@@ -1281,7 +1223,7 @@ pub const D3D11_FEATURE_SHADER_MIN_PRECISION_SUPPORT: D3D11_FEATURE = 8;
 pub const D3D11_FEATURE_THREADING: D3D11_FEATURE = 0;
 pub type D3D11_FEATURE_VIDEO = i32;
 pub const D3D11_FEATURE_VIDEO_DECODER_HISTOGRAM: D3D11_FEATURE_VIDEO = 0;
-pub type D3D11_FENCE_FLAG = u32;
+pub type D3D11_FENCE_FLAG = i32;
 pub const D3D11_FENCE_FLAG_NONE: D3D11_FENCE_FLAG = 0;
 pub const D3D11_FENCE_FLAG_NON_MONITORED: D3D11_FENCE_FLAG = 8;
 pub const D3D11_FENCE_FLAG_SHARED: D3D11_FENCE_FLAG = 2;
@@ -1346,6 +1288,8 @@ pub const D3D11_FLOAT_TO_SRGB_OFFSET: f32 = 0.055;
 pub const D3D11_FLOAT_TO_SRGB_SCALE_1: f32 = 12.92;
 pub const D3D11_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055;
 pub const D3D11_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308;
+pub const D3D11_FORCE_DEBUGGABLE: windows_sys::core::PCSTR = windows_sys::core::s!("ForceDebuggable");
+pub const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: windows_sys::core::PCSTR = windows_sys::core::s!("ForceShaderSkipOptimization");
 pub type D3D11_FORMAT_SUPPORT = i32;
 pub type D3D11_FORMAT_SUPPORT2 = i32;
 pub const D3D11_FORMAT_SUPPORT2_DISPLAYABLE: D3D11_FORMAT_SUPPORT2 = 65536;
@@ -1397,48 +1341,49 @@ pub const D3D11_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
 pub const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
-#[cfg(feature = "d3dcommon")]
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_FUNCTION_DESC {
-    pub Version: u32,
+    pub Version: super::UINT,
     pub Creator: windows_sys::core::PCSTR,
-    pub Flags: u32,
-    pub ConstantBuffers: u32,
-    pub BoundResources: u32,
-    pub InstructionCount: u32,
-    pub TempRegisterCount: u32,
-    pub TempArrayCount: u32,
-    pub DefCount: u32,
-    pub DclCount: u32,
-    pub TextureNormalInstructions: u32,
-    pub TextureLoadInstructions: u32,
-    pub TextureCompInstructions: u32,
-    pub TextureBiasInstructions: u32,
-    pub TextureGradientInstructions: u32,
-    pub FloatInstructionCount: u32,
-    pub IntInstructionCount: u32,
-    pub UintInstructionCount: u32,
-    pub StaticFlowControlCount: u32,
-    pub DynamicFlowControlCount: u32,
-    pub MacroInstructionCount: u32,
-    pub ArrayInstructionCount: u32,
-    pub MovInstructionCount: u32,
-    pub MovcInstructionCount: u32,
-    pub ConversionInstructionCount: u32,
-    pub BitwiseInstructionCount: u32,
+    pub Flags: super::UINT,
+    pub ConstantBuffers: super::UINT,
+    pub BoundResources: super::UINT,
+    pub InstructionCount: super::UINT,
+    pub TempRegisterCount: super::UINT,
+    pub TempArrayCount: super::UINT,
+    pub DefCount: super::UINT,
+    pub DclCount: super::UINT,
+    pub TextureNormalInstructions: super::UINT,
+    pub TextureLoadInstructions: super::UINT,
+    pub TextureCompInstructions: super::UINT,
+    pub TextureBiasInstructions: super::UINT,
+    pub TextureGradientInstructions: super::UINT,
+    pub FloatInstructionCount: super::UINT,
+    pub IntInstructionCount: super::UINT,
+    pub UintInstructionCount: super::UINT,
+    pub StaticFlowControlCount: super::UINT,
+    pub DynamicFlowControlCount: super::UINT,
+    pub MacroInstructionCount: super::UINT,
+    pub ArrayInstructionCount: super::UINT,
+    pub MovInstructionCount: super::UINT,
+    pub MovcInstructionCount: super::UINT,
+    pub ConversionInstructionCount: super::UINT,
+    pub BitwiseInstructionCount: super::UINT,
     pub MinFeatureLevel: super::D3D_FEATURE_LEVEL,
-    pub RequiredFeatureFlags: u64,
+    pub RequiredFeatureFlags: super::UINT64,
     pub Name: windows_sys::core::PCSTR,
-    pub FunctionParameterCount: i32,
+    pub FunctionParameterCount: super::INT,
     pub HasReturn: windows_sys::core::BOOL,
     pub Has10Level9VertexShader: windows_sys::core::BOOL,
     pub Has10Level9PixelShader: windows_sys::core::BOOL,
 }
 pub const D3D11_GEOMETRY_SHADER: D3D11_SHADER_TYPE = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_GEOMETRY_SHADER_TRACE_DESC {
-    pub Invocation: u64,
+    pub Invocation: super::UINT64,
 }
 pub const D3D11_GS_INPUT_INSTANCE_ID_READS_PER_INST: i32 = 2;
 pub const D3D11_GS_INPUT_INSTANCE_ID_READ_PORTS: i32 = 1;
@@ -1501,9 +1446,10 @@ pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READ_PORTS: i32 = 1;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_SCALAR_COMPONENTS: i32 = 128;
 pub const D3D11_HULL_SHADER: D3D11_SHADER_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_HULL_SHADER_TRACE_DESC {
-    pub Invocation: u64,
+    pub Invocation: super::UINT64,
 }
 pub const D3D11_IA_DEFAULT_INDEX_BUFFER_OFFSET_IN_BYTES: i32 = 0;
 pub const D3D11_IA_DEFAULT_PRIMITIVE_TOPOLOGY: i32 = 0;
@@ -1517,35 +1463,38 @@ pub const D3D11_IA_VERTEX_ID_BIT_COUNT: i32 = 32;
 pub const D3D11_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: i32 = 32;
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: i32 = 128;
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: i32 = 32;
+pub const D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE: windows_sys::core::PCSTR = windows_sys::core::s!("InfoQueueStorageFilterOverride");
 pub const D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_INFO_QUEUE_FILTER {
     pub AllowList: D3D11_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D11_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_INFO_QUEUE_FILTER_DESC {
-    pub NumCategories: u32,
+    pub NumCategories: super::UINT,
     pub pCategoryList: *mut D3D11_MESSAGE_CATEGORY,
-    pub NumSeverities: u32,
+    pub NumSeverities: super::UINT,
     pub pSeverityList: *mut D3D11_MESSAGE_SEVERITY,
-    pub NumIDs: u32,
+    pub NumIDs: super::UINT,
     pub pIDList: *mut D3D11_MESSAGE_ID,
 }
 pub type D3D11_INPUT_CLASSIFICATION = i32;
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_sys::core::PCSTR,
-    pub SemanticIndex: u32,
+    pub SemanticIndex: super::UINT,
     pub Format: super::DXGI_FORMAT,
-    pub InputSlot: u32,
-    pub AlignedByteOffset: u32,
+    pub InputSlot: super::UINT,
+    pub AlignedByteOffset: super::UINT,
     pub InputSlotClass: D3D11_INPUT_CLASSIFICATION,
-    pub InstanceDataStepRate: u32,
+    pub InstanceDataStepRate: super::UINT,
 }
 pub const D3D11_INPUT_PER_INSTANCE_DATA: D3D11_INPUT_CLASSIFICATION = 1;
 pub const D3D11_INPUT_PER_VERTEX_DATA: D3D11_INPUT_CLASSIFICATION = 0;
@@ -1555,35 +1504,40 @@ pub const D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295;
 pub const D3D11_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295;
 pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb1170d8a_628d_4da3_ad3b_82ddb08b4970);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
-    pub HWProtectionFunctionID: u32,
+    pub HWProtectionFunctionID: super::UINT,
     pub pInputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA,
     pub pOutputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA,
     pub Status: windows_sys::core::HRESULT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
-    pub PrivateDataSize: u32,
-    pub HWProtectionDataSize: u32,
-    pub pbInput: [u8; 4],
+    pub PrivateDataSize: super::UINT,
+    pub HWProtectionDataSize: super::UINT,
+    pub pbInput: [super::BYTE; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
-    pub PrivateDataSize: u32,
-    pub MaxHWProtectionDataSize: u32,
-    pub HWProtectionDataSize: u32,
-    pub TransportTime: u64,
-    pub ExecutionTime: u64,
-    pub pbOutput: [u8; 4],
+    pub PrivateDataSize: super::UINT,
+    pub MaxHWProtectionDataSize: super::UINT,
+    pub HWProtectionDataSize: super::UINT,
+    pub TransportTime: super::UINT64,
+    pub ExecutionTime: super::UINT64,
+    pub pbOutput: [super::BYTE; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1591,11 +1545,12 @@ impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
 }
 pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_LIBRARY_DESC {
     pub Creator: windows_sys::core::PCSTR,
-    pub Flags: u32,
-    pub FunctionCount: u32,
+    pub Flags: super::UINT,
+    pub FunctionCount: super::UINT,
 }
 pub const D3D11_LINEAR_GAMMA: f32 = 1.0;
 pub type D3D11_LOGIC_OP = i32;
@@ -1619,11 +1574,12 @@ pub const D3D11_MAG_FILTER_SHIFT: i32 = 2;
 pub const D3D11_MAJOR_VERSION: i32 = 11;
 pub type D3D11_MAP = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_MAPPED_SUBRESOURCE {
     pub pData: *mut core::ffi::c_void,
-    pub RowPitch: u32,
-    pub DepthPitch: u32,
+    pub RowPitch: super::UINT,
+    pub DepthPitch: super::UINT,
 }
 pub type D3D11_MAP_FLAG = i32;
 pub const D3D11_MAP_FLAG_DO_NOT_WAIT: D3D11_MAP_FLAG = 1048576;
@@ -1639,13 +1595,14 @@ pub const D3D11_MAX_MULTISAMPLE_SAMPLE_COUNT: i32 = 32;
 pub const D3D11_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D11_MAX_TEXTURE_DIMENSION_2_TO_EXP: i32 = 17;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_MESSAGE {
     pub Category: D3D11_MESSAGE_CATEGORY,
     pub Severity: D3D11_MESSAGE_SEVERITY,
     pub ID: D3D11_MESSAGE_ID,
     pub pDescription: *const i8,
-    pub DescriptionByteLength: usize,
+    pub DescriptionByteLength: super::SIZE_T,
 }
 pub type D3D11_MESSAGE_CATEGORY = i32;
 pub const D3D11_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D11_MESSAGE_CATEGORY = 0;
@@ -3015,52 +2972,61 @@ pub const D3D11_MIP_LOD_BIAS_MIN: f32 = -16.0;
 pub const D3D11_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 8;
 pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
+pub const D3D11_MUTE_CATEGORY: windows_sys::core::PCSTR = windows_sys::core::s!("Mute_CATEGORY_%s");
+pub const D3D11_MUTE_DEBUG_OUTPUT: windows_sys::core::PCSTR = windows_sys::core::s!("MuteDebugOutput");
+pub const D3D11_MUTE_ID_DECIMAL: windows_sys::core::PCSTR = windows_sys::core::s!("Mute_ID_%d");
+pub const D3D11_MUTE_ID_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("Mute_ID_%s");
+pub const D3D11_MUTE_SEVERITY: windows_sys::core::PCSTR = windows_sys::core::s!("Mute_SEVERITY_%s");
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_OMAC {
-    pub Omac: [u8; 16],
+    pub Omac: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_OMAC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_PACKED_MIP_DESC {
-    pub NumStandardMips: u8,
-    pub NumPackedMips: u8,
-    pub NumTilesForPackedMips: u32,
-    pub StartTileIndexInOverallResource: u32,
+    pub NumStandardMips: super::UINT8,
+    pub NumPackedMips: super::UINT8,
+    pub NumTilesForPackedMips: super::UINT,
+    pub StartTileIndexInOverallResource: super::UINT,
 }
 pub const D3D11_PACKED_TILE: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "d3dcommon")]
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_PARAMETER_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub SemanticName: windows_sys::core::PCSTR,
     pub Type: super::D3D_SHADER_VARIABLE_TYPE,
     pub Class: super::D3D_SHADER_VARIABLE_CLASS,
-    pub Rows: u32,
-    pub Columns: u32,
+    pub Rows: super::UINT,
+    pub Columns: super::UINT,
     pub InterpolationMode: super::D3D_INTERPOLATION_MODE,
     pub Flags: super::D3D_PARAMETER_FLAGS,
-    pub FirstInRegister: u32,
-    pub FirstInComponent: u32,
-    pub FirstOutRegister: u32,
-    pub FirstOutComponent: u32,
+    pub FirstInRegister: super::UINT,
+    pub FirstInComponent: super::UINT,
+    pub FirstOutRegister: super::UINT,
+    pub FirstOutComponent: super::UINT,
 }
 pub const D3D11_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 15;
 pub const D3D11_PIXEL_SHADER: D3D11_SHADER_TYPE = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_PIXEL_SHADER_TRACE_DESC {
-    pub Invocation: u64,
-    pub X: i32,
-    pub Y: i32,
-    pub SampleMask: u64,
+    pub Invocation: super::UINT64,
+    pub X: super::INT,
+    pub Y: super::INT,
+    pub SampleMask: super::UINT64,
 }
 pub const D3D11_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 16;
 #[cfg(feature = "d3dcommon")]
@@ -3095,43 +3061,48 @@ pub const D3D11_PS_OUTPUT_REGISTER_COUNT: i32 = 8;
 pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5;
 pub type D3D11_QUERY = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_QUERY_DATA_PIPELINE_STATISTICS {
-    pub IAVertices: u64,
-    pub IAPrimitives: u64,
-    pub VSInvocations: u64,
-    pub GSInvocations: u64,
-    pub GSPrimitives: u64,
-    pub CInvocations: u64,
-    pub CPrimitives: u64,
-    pub PSInvocations: u64,
-    pub HSInvocations: u64,
-    pub DSInvocations: u64,
-    pub CSInvocations: u64,
+    pub IAVertices: super::UINT64,
+    pub IAPrimitives: super::UINT64,
+    pub VSInvocations: super::UINT64,
+    pub GSInvocations: super::UINT64,
+    pub GSPrimitives: super::UINT64,
+    pub CInvocations: super::UINT64,
+    pub CPrimitives: super::UINT64,
+    pub PSInvocations: super::UINT64,
+    pub HSInvocations: super::UINT64,
+    pub DSInvocations: super::UINT64,
+    pub CSInvocations: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_QUERY_DATA_SO_STATISTICS {
-    pub NumPrimitivesWritten: u64,
-    pub PrimitivesStorageNeeded: u64,
+    pub NumPrimitivesWritten: super::UINT64,
+    pub PrimitivesStorageNeeded: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
-    pub Frequency: u64,
+    pub Frequency: super::UINT64,
     pub Disjoint: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_QUERY_DESC {
     pub Query: D3D11_QUERY,
-    pub MiscFlags: u32,
+    pub MiscFlags: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_QUERY_DESC1 {
     pub Query: D3D11_QUERY,
-    pub MiscFlags: u32,
+    pub MiscFlags: super::UINT,
     pub ContextType: D3D11_CONTEXT_TYPE,
 }
 pub const D3D11_QUERY_EVENT: D3D11_QUERY = 0;
@@ -3155,54 +3126,59 @@ pub const D3D11_QUERY_TIMESTAMP_DISJOINT: D3D11_QUERY = 3;
 pub type D3D11_RAISE_FLAG = i32;
 pub const D3D11_RAISE_FLAG_DRIVER_INTERNAL_ERROR: D3D11_RAISE_FLAG = 1;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RASTERIZER_DESC {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
     pub FrontCounterClockwise: windows_sys::core::BOOL,
-    pub DepthBias: i32,
-    pub DepthBiasClamp: f32,
-    pub SlopeScaledDepthBias: f32,
+    pub DepthBias: super::INT,
+    pub DepthBiasClamp: super::FLOAT,
+    pub SlopeScaledDepthBias: super::FLOAT,
     pub DepthClipEnable: windows_sys::core::BOOL,
     pub ScissorEnable: windows_sys::core::BOOL,
     pub MultisampleEnable: windows_sys::core::BOOL,
     pub AntialiasedLineEnable: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RASTERIZER_DESC1 {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
     pub FrontCounterClockwise: windows_sys::core::BOOL,
-    pub DepthBias: i32,
-    pub DepthBiasClamp: f32,
-    pub SlopeScaledDepthBias: f32,
+    pub DepthBias: super::INT,
+    pub DepthBiasClamp: super::FLOAT,
+    pub SlopeScaledDepthBias: super::FLOAT,
     pub DepthClipEnable: windows_sys::core::BOOL,
     pub ScissorEnable: windows_sys::core::BOOL,
     pub MultisampleEnable: windows_sys::core::BOOL,
     pub AntialiasedLineEnable: windows_sys::core::BOOL,
-    pub ForcedSampleCount: u32,
+    pub ForcedSampleCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RASTERIZER_DESC2 {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
     pub FrontCounterClockwise: windows_sys::core::BOOL,
-    pub DepthBias: i32,
-    pub DepthBiasClamp: f32,
-    pub SlopeScaledDepthBias: f32,
+    pub DepthBias: super::INT,
+    pub DepthBiasClamp: super::FLOAT,
+    pub SlopeScaledDepthBias: super::FLOAT,
     pub DepthClipEnable: windows_sys::core::BOOL,
     pub ScissorEnable: windows_sys::core::BOOL,
     pub MultisampleEnable: windows_sys::core::BOOL,
     pub AntialiasedLineEnable: windows_sys::core::BOOL,
-    pub ForcedSampleCount: u32,
+    pub ForcedSampleCount: super::UINT,
     pub ConservativeRaster: D3D11_CONSERVATIVE_RASTERIZATION_MODE,
 }
 pub const D3D11_RAW_UAV_SRV_BYTE_ALIGNMENT: i32 = 16;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type D3D11_RECT = super::RECT;
+pub const D3D11_REGKEY_PATH: windows_sys::core::PCSTR = windows_sys::core::s!("Software\\Microsoft\\Direct3D");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC {
     pub BlendEnable: windows_sys::core::BOOL,
@@ -3212,9 +3188,10 @@ pub struct D3D11_RENDER_TARGET_BLEND_DESC {
     pub SrcBlendAlpha: D3D11_BLEND,
     pub DestBlendAlpha: D3D11_BLEND,
     pub BlendOpAlpha: D3D11_BLEND_OP,
-    pub RenderTargetWriteMask: u8,
+    pub RenderTargetWriteMask: super::UINT8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC1 {
     pub BlendEnable: windows_sys::core::BOOL,
@@ -3226,24 +3203,24 @@ pub struct D3D11_RENDER_TARGET_BLEND_DESC1 {
     pub DestBlendAlpha: D3D11_BLEND,
     pub BlendOpAlpha: D3D11_BLEND_OP,
     pub LogicOp: D3D11_LOGIC_OP,
-    pub RenderTargetWriteMask: u8,
+    pub RenderTargetWriteMask: super::UINT8,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_RENDER_TARGET_VIEW_DESC {
     pub Format: super::DXGI_FORMAT,
     pub ViewDimension: D3D11_RTV_DIMENSION,
     pub Anonymous: D3D11_RENDER_TARGET_VIEW_DESC_0,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_RENDER_TARGET_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3D11_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_RTV,
@@ -3255,28 +3232,28 @@ pub union D3D11_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D11_TEX3D_RTV,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_RENDER_TARGET_VIEW_DESC1 {
     pub Format: super::DXGI_FORMAT,
     pub ViewDimension: D3D11_RTV_DIMENSION,
     pub Anonymous: D3D11_RENDER_TARGET_VIEW_DESC1_0,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_RENDER_TARGET_VIEW_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_RTV,
@@ -3288,7 +3265,7 @@ pub union D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D11_TEX3D_RTV,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3327,12 +3304,13 @@ pub const D3D11_RESOURCE_DIMENSION_TEXTURE2D: D3D11_RESOURCE_DIMENSION = 3;
 pub const D3D11_RESOURCE_DIMENSION_TEXTURE3D: D3D11_RESOURCE_DIMENSION = 4;
 pub const D3D11_RESOURCE_DIMENSION_UNKNOWN: D3D11_RESOURCE_DIMENSION = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RESOURCE_FLAGS {
-    pub BindFlags: u32,
-    pub MiscFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub StructureByteStride: u32,
+    pub BindFlags: super::UINT,
+    pub MiscFlags: super::UINT,
+    pub CPUAccessFlags: super::UINT,
+    pub StructureByteStride: super::UINT,
 }
 pub const D3D11_RESOURCE_MISC_BUFFER_ALLOW_RAW_VIEWS: D3D11_RESOURCE_MISC_FLAG = 32;
 pub const D3D11_RESOURCE_MISC_BUFFER_STRUCTURED: D3D11_RESOURCE_MISC_FLAG = 64;
@@ -3358,7 +3336,7 @@ pub const D3D11_RESOURCE_MISC_TILE_POOL: D3D11_RESOURCE_MISC_FLAG = 131072;
 #[cfg(feature = "d3dcommon")]
 pub type D3D11_RESOURCE_RETURN_TYPE = super::D3D_RESOURCE_RETURN_TYPE;
 pub const D3D11_RLDO_DETAIL: D3D11_RLDO_FLAGS = 2;
-pub type D3D11_RLDO_FLAGS = u32;
+pub type D3D11_RLDO_FLAGS = i32;
 pub const D3D11_RLDO_IGNORE_INTERNAL: D3D11_RLDO_FLAGS = 4;
 pub const D3D11_RLDO_SUMMARY: D3D11_RLDO_FLAGS = 1;
 pub type D3D11_RTV_DIMENSION = i32;
@@ -3372,19 +3350,21 @@ pub const D3D11_RTV_DIMENSION_TEXTURE2DMSARRAY: D3D11_RTV_DIMENSION = 7;
 pub const D3D11_RTV_DIMENSION_TEXTURE3D: D3D11_RTV_DIMENSION = 8;
 pub const D3D11_RTV_DIMENSION_UNKNOWN: D3D11_RTV_DIMENSION = 0;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_SAMPLER_DESC {
     pub Filter: D3D11_FILTER,
     pub AddressU: D3D11_TEXTURE_ADDRESS_MODE,
     pub AddressV: D3D11_TEXTURE_ADDRESS_MODE,
     pub AddressW: D3D11_TEXTURE_ADDRESS_MODE,
-    pub MipLODBias: f32,
-    pub MaxAnisotropy: u32,
+    pub MipLODBias: super::FLOAT,
+    pub MaxAnisotropy: super::UINT,
     pub ComparisonFunc: D3D11_COMPARISON_FUNC,
-    pub BorderColor: [f32; 4],
-    pub MinLOD: f32,
-    pub MaxLOD: f32,
+    pub BorderColor: [super::FLOAT; 4],
+    pub MinLOD: super::FLOAT,
+    pub MaxLOD: super::FLOAT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for D3D11_SAMPLER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3396,74 +3376,74 @@ pub type D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER = i32;
 pub const D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER_0: D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER = 0;
 pub const D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER_1: D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER = 1;
 #[repr(C)]
-#[cfg(feature = "d3dcommon")]
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SHADER_BUFFER_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub Type: super::D3D_CBUFFER_TYPE,
-    pub Variables: u32,
-    pub Size: u32,
-    pub uFlags: u32,
+    pub Variables: super::UINT,
+    pub Size: super::UINT,
+    pub uFlags: super::UINT,
 }
 pub const D3D11_SHADER_CACHE_SUPPORT_AUTOMATIC_DISK_CACHE: D3D11_SHADER_CACHE_SUPPORT_FLAGS = 2;
 pub const D3D11_SHADER_CACHE_SUPPORT_AUTOMATIC_INPROC_CACHE: D3D11_SHADER_CACHE_SUPPORT_FLAGS = 1;
 pub type D3D11_SHADER_CACHE_SUPPORT_FLAGS = i32;
 pub const D3D11_SHADER_CACHE_SUPPORT_NONE: D3D11_SHADER_CACHE_SUPPORT_FLAGS = 0;
 #[repr(C)]
-#[cfg(feature = "d3dcommon")]
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SHADER_DESC {
-    pub Version: u32,
+    pub Version: super::UINT,
     pub Creator: windows_sys::core::PCSTR,
-    pub Flags: u32,
-    pub ConstantBuffers: u32,
-    pub BoundResources: u32,
-    pub InputParameters: u32,
-    pub OutputParameters: u32,
-    pub InstructionCount: u32,
-    pub TempRegisterCount: u32,
-    pub TempArrayCount: u32,
-    pub DefCount: u32,
-    pub DclCount: u32,
-    pub TextureNormalInstructions: u32,
-    pub TextureLoadInstructions: u32,
-    pub TextureCompInstructions: u32,
-    pub TextureBiasInstructions: u32,
-    pub TextureGradientInstructions: u32,
-    pub FloatInstructionCount: u32,
-    pub IntInstructionCount: u32,
-    pub UintInstructionCount: u32,
-    pub StaticFlowControlCount: u32,
-    pub DynamicFlowControlCount: u32,
-    pub MacroInstructionCount: u32,
-    pub ArrayInstructionCount: u32,
-    pub CutInstructionCount: u32,
-    pub EmitInstructionCount: u32,
+    pub Flags: super::UINT,
+    pub ConstantBuffers: super::UINT,
+    pub BoundResources: super::UINT,
+    pub InputParameters: super::UINT,
+    pub OutputParameters: super::UINT,
+    pub InstructionCount: super::UINT,
+    pub TempRegisterCount: super::UINT,
+    pub TempArrayCount: super::UINT,
+    pub DefCount: super::UINT,
+    pub DclCount: super::UINT,
+    pub TextureNormalInstructions: super::UINT,
+    pub TextureLoadInstructions: super::UINT,
+    pub TextureCompInstructions: super::UINT,
+    pub TextureBiasInstructions: super::UINT,
+    pub TextureGradientInstructions: super::UINT,
+    pub FloatInstructionCount: super::UINT,
+    pub IntInstructionCount: super::UINT,
+    pub UintInstructionCount: super::UINT,
+    pub StaticFlowControlCount: super::UINT,
+    pub DynamicFlowControlCount: super::UINT,
+    pub MacroInstructionCount: super::UINT,
+    pub ArrayInstructionCount: super::UINT,
+    pub CutInstructionCount: super::UINT,
+    pub EmitInstructionCount: super::UINT,
     pub GSOutputTopology: super::D3D_PRIMITIVE_TOPOLOGY,
-    pub GSMaxOutputVertexCount: u32,
+    pub GSMaxOutputVertexCount: super::UINT,
     pub InputPrimitive: super::D3D_PRIMITIVE,
-    pub PatchConstantParameters: u32,
-    pub cGSInstanceCount: u32,
-    pub cControlPoints: u32,
+    pub PatchConstantParameters: super::UINT,
+    pub cGSInstanceCount: super::UINT,
+    pub cControlPoints: super::UINT,
     pub HSOutputPrimitive: super::D3D_TESSELLATOR_OUTPUT_PRIMITIVE,
     pub HSPartitioning: super::D3D_TESSELLATOR_PARTITIONING,
     pub TessellatorDomain: super::D3D_TESSELLATOR_DOMAIN,
-    pub cBarrierInstructions: u32,
-    pub cInterlockedInstructions: u32,
-    pub cTextureStoreInstructions: u32,
+    pub cBarrierInstructions: super::UINT,
+    pub cInterlockedInstructions: super::UINT,
+    pub cTextureStoreInstructions: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "d3dcommon")]
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SHADER_INPUT_BIND_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub Type: super::D3D_SHADER_INPUT_TYPE,
-    pub BindPoint: u32,
-    pub BindCount: u32,
-    pub uFlags: u32,
+    pub BindPoint: super::UINT,
+    pub BindCount: super::UINT,
+    pub uFlags: super::UINT,
     pub ReturnType: super::D3D_RESOURCE_RETURN_TYPE,
     pub Dimension: super::D3D_SRV_DIMENSION,
-    pub NumSamples: u32,
+    pub NumSamples: super::UINT,
 }
 pub const D3D11_SHADER_MAJOR_VERSION: i32 = 5;
 pub const D3D11_SHADER_MAX_INSTANCES: i32 = 65535;
@@ -3475,21 +3455,21 @@ pub const D3D11_SHADER_MIN_PRECISION_10_BIT: D3D11_SHADER_MIN_PRECISION_SUPPORT 
 pub const D3D11_SHADER_MIN_PRECISION_16_BIT: D3D11_SHADER_MIN_PRECISION_SUPPORT = 2;
 pub type D3D11_SHADER_MIN_PRECISION_SUPPORT = i32;
 #[repr(C)]
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_SHADER_RESOURCE_VIEW_DESC {
     pub Format: super::DXGI_FORMAT,
     pub ViewDimension: D3D11_SRV_DIMENSION,
     pub Anonymous: D3D11_SHADER_RESOURCE_VIEW_DESC_0,
 }
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_SRV,
@@ -3504,28 +3484,28 @@ pub union D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCubeArray: D3D11_TEXCUBE_ARRAY_SRV,
     pub BufferEx: D3D11_BUFFEREX_SRV,
 }
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     pub Format: super::DXGI_FORMAT,
     pub ViewDimension: D3D11_SRV_DIMENSION,
     pub Anonymous: D3D11_SHADER_RESOURCE_VIEW_DESC1_0,
 }
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_SRV,
@@ -3540,25 +3520,28 @@ pub union D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub TextureCubeArray: D3D11_TEXCUBE_ARRAY_SRV,
     pub BufferEx: D3D11_BUFFEREX_SRV,
 }
-#[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_SHADER_TRACE_DESC {
     pub Type: D3D11_SHADER_TYPE,
-    pub Flags: u32,
+    pub Flags: super::UINT,
     pub Anonymous: D3D11_SHADER_TRACE_DESC_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_SHADER_TRACE_DESC_0 {
     pub VertexShaderTraceDesc: D3D11_VERTEX_SHADER_TRACE_DESC,
@@ -3568,6 +3551,7 @@ pub union D3D11_SHADER_TRACE_DESC_0 {
     pub PixelShaderTraceDesc: D3D11_PIXEL_SHADER_TRACE_DESC,
     pub ComputeShaderTraceDesc: D3D11_COMPUTE_SHADER_TRACE_DESC,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_SHADER_TRACE_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3602,30 +3586,31 @@ pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_NON_UAV_DEVICEMEMORY: D3D11_SHADER
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_UAV_DEVICEMEMORY: D3D11_SHADER_TRACKING_RESOURCE_TYPE = 1;
 pub type D3D11_SHADER_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "d3dcommon")]
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SHADER_TYPE_DESC {
     pub Class: super::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::D3D_SHADER_VARIABLE_TYPE,
-    pub Rows: u32,
-    pub Columns: u32,
-    pub Elements: u32,
-    pub Members: u32,
-    pub Offset: u32,
+    pub Rows: super::UINT,
+    pub Columns: super::UINT,
+    pub Elements: super::UINT,
+    pub Members: super::UINT,
+    pub Offset: super::UINT,
     pub Name: windows_sys::core::PCSTR,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SHADER_VARIABLE_DESC {
     pub Name: windows_sys::core::PCSTR,
-    pub StartOffset: u32,
-    pub Size: u32,
-    pub uFlags: u32,
-    pub DefaultValue: *mut core::ffi::c_void,
-    pub StartTexture: u32,
-    pub TextureSize: u32,
-    pub StartSampler: u32,
-    pub SamplerSize: u32,
+    pub StartOffset: super::UINT,
+    pub Size: super::UINT,
+    pub uFlags: super::UINT,
+    pub DefaultValue: super::LPVOID,
+    pub StartTexture: super::UINT,
+    pub TextureSize: super::UINT,
+    pub StartSampler: super::UINT,
+    pub SamplerSize: super::UINT,
 }
 pub type D3D11_SHADER_VERSION_TYPE = i32;
 pub type D3D11_SHARED_RESOURCE_TIER = i32;
@@ -3643,17 +3628,17 @@ pub const D3D11_SHVER_PIXEL_SHADER: D3D11_SHADER_VERSION_TYPE = 0;
 pub const D3D11_SHVER_RESERVED0: D3D11_SHADER_VERSION_TYPE = 65520;
 pub const D3D11_SHVER_VERTEX_SHADER: D3D11_SHADER_VERSION_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "d3dcommon")]
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_sys::core::PCSTR,
-    pub SemanticIndex: u32,
-    pub Register: u32,
+    pub SemanticIndex: super::UINT,
+    pub Register: super::UINT,
     pub SystemValueType: super::D3D_NAME,
     pub ComponentType: super::D3D_REGISTER_COMPONENT_TYPE,
-    pub Mask: u8,
-    pub ReadWriteMask: u8,
-    pub Stream: u32,
+    pub Mask: super::BYTE,
+    pub ReadWriteMask: super::BYTE,
+    pub Stream: super::UINT,
     pub MinPrecision: super::D3D_MIN_PRECISION,
 }
 pub const D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT: i32 = 8;
@@ -3662,14 +3647,15 @@ pub const D3D11_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: i32 = 512;
 pub const D3D11_SO_BUFFER_SLOT_COUNT: i32 = 4;
 pub const D3D11_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SO_DECLARATION_ENTRY {
-    pub Stream: u32,
+    pub Stream: super::UINT,
     pub SemanticName: windows_sys::core::PCSTR,
-    pub SemanticIndex: u32,
-    pub StartComponent: u8,
-    pub ComponentCount: u8,
-    pub OutputSlot: u8,
+    pub SemanticIndex: super::UINT,
+    pub StartComponent: super::BYTE,
+    pub ComponentCount: super::BYTE,
+    pub OutputSlot: super::BYTE,
 }
 pub const D3D11_SO_NO_RASTERIZED_STREAM: u32 = 4294967295;
 pub const D3D11_SO_OUTPUT_COMPONENT_COUNT: i32 = 128;
@@ -3708,19 +3694,21 @@ pub const D3D11_STENCIL_OP_REPLACE: D3D11_STENCIL_OP = 3;
 pub const D3D11_STENCIL_OP_ZERO: D3D11_STENCIL_OP = 2;
 pub const D3D11_SUBPIXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
-    pub SysMemPitch: u32,
-    pub SysMemSlicePitch: u32,
+    pub SysMemPitch: super::UINT,
+    pub SysMemSlicePitch: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_SUBRESOURCE_TILING {
-    pub WidthInTiles: u32,
-    pub HeightInTiles: u16,
-    pub DepthInTiles: u16,
-    pub StartTileIndexInOverallResource: u32,
+    pub WidthInTiles: super::UINT,
+    pub HeightInTiles: super::UINT16,
+    pub DepthInTiles: super::UINT16,
+    pub StartTileIndexInOverallResource: super::UINT,
 }
 pub const D3D11_SUBTEXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
 #[cfg(feature = "d3dcommon")]
@@ -3737,311 +3725,348 @@ pub type D3D11_TESSELLATOR_OUTPUT_PRIMITIVE = super::D3D_TESSELLATOR_OUTPUT_PRIM
 #[cfg(feature = "d3dcommon")]
 pub type D3D11_TESSELLATOR_PARTITIONING = super::D3D_TESSELLATOR_PARTITIONING;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_ARRAY_DSV {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_ARRAY_RTV {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_ARRAY_SRV {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_ARRAY_UAV {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_DSV {
-    pub MipSlice: u32,
+    pub MipSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_RTV {
-    pub MipSlice: u32,
+    pub MipSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_SRV {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX1D_UAV {
-    pub MipSlice: u32,
+    pub MipSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2DMS_ARRAY_DSV {
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2DMS_ARRAY_RTV {
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2DMS_ARRAY_SRV {
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2DMS_DSV {
-    pub UnusedField_NothingToDefine: u32,
+    pub UnusedField_NothingToDefine: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2DMS_RTV {
-    pub UnusedField_NothingToDefine: u32,
+    pub UnusedField_NothingToDefine: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2DMS_SRV {
-    pub UnusedField_NothingToDefine: u32,
+    pub UnusedField_NothingToDefine: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_DSV {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_RTV {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_RTV1 {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
-    pub PlaneSlice: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
+    pub PlaneSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_SRV {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_SRV1 {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
-    pub PlaneSlice: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
+    pub PlaneSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_UAV {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_UAV1 {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
-    pub PlaneSlice: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
+    pub PlaneSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_ARRAY_VPOV {
-    pub MipSlice: u32,
-    pub FirstArraySlice: u32,
-    pub ArraySize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstArraySlice: super::UINT,
+    pub ArraySize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_DSV {
-    pub MipSlice: u32,
+    pub MipSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_RTV {
-    pub MipSlice: u32,
+    pub MipSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_RTV1 {
-    pub MipSlice: u32,
-    pub PlaneSlice: u32,
+    pub MipSlice: super::UINT,
+    pub PlaneSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_SRV {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_SRV1 {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
-    pub PlaneSlice: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
+    pub PlaneSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_UAV {
-    pub MipSlice: u32,
+    pub MipSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_UAV1 {
-    pub MipSlice: u32,
-    pub PlaneSlice: u32,
+    pub MipSlice: super::UINT,
+    pub PlaneSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_VDOV {
-    pub ArraySlice: u32,
+    pub ArraySlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_VPIV {
-    pub MipSlice: u32,
-    pub ArraySlice: u32,
+    pub MipSlice: super::UINT,
+    pub ArraySlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX2D_VPOV {
-    pub MipSlice: u32,
+    pub MipSlice: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX3D_RTV {
-    pub MipSlice: u32,
-    pub FirstWSlice: u32,
-    pub WSize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstWSlice: super::UINT,
+    pub WSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX3D_SRV {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEX3D_UAV {
-    pub MipSlice: u32,
-    pub FirstWSlice: u32,
-    pub WSize: u32,
+    pub MipSlice: super::UINT,
+    pub FirstWSlice: super::UINT,
+    pub WSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEXCUBE_ARRAY_SRV {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
-    pub First2DArrayFace: u32,
-    pub NumCubes: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
+    pub First2DArrayFace: super::UINT,
+    pub NumCubes: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEXCUBE_SRV {
-    pub MostDetailedMip: u32,
-    pub MipLevels: u32,
+    pub MostDetailedMip: super::UINT,
+    pub MipLevels: super::UINT,
 }
 pub const D3D11_TEXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEXTURE1D_DESC {
-    pub Width: u32,
-    pub MipLevels: u32,
-    pub ArraySize: u32,
+    pub Width: super::UINT,
+    pub MipLevels: super::UINT,
+    pub ArraySize: super::UINT,
     pub Format: super::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: super::UINT,
+    pub CPUAccessFlags: super::UINT,
+    pub MiscFlags: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEXTURE2D_DESC {
-    pub Width: u32,
-    pub Height: u32,
-    pub MipLevels: u32,
-    pub ArraySize: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub MipLevels: super::UINT,
+    pub ArraySize: super::UINT,
     pub Format: super::DXGI_FORMAT,
     pub SampleDesc: super::DXGI_SAMPLE_DESC,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: super::UINT,
+    pub CPUAccessFlags: super::UINT,
+    pub MiscFlags: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEXTURE2D_DESC1 {
-    pub Width: u32,
-    pub Height: u32,
-    pub MipLevels: u32,
-    pub ArraySize: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub MipLevels: super::UINT,
+    pub ArraySize: super::UINT,
     pub Format: super::DXGI_FORMAT,
     pub SampleDesc: super::DXGI_SAMPLE_DESC,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: super::UINT,
+    pub CPUAccessFlags: super::UINT,
+    pub MiscFlags: super::UINT,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEXTURE3D_DESC {
-    pub Width: u32,
-    pub Height: u32,
-    pub Depth: u32,
-    pub MipLevels: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Depth: super::UINT,
+    pub MipLevels: super::UINT,
     pub Format: super::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: super::UINT,
+    pub CPUAccessFlags: super::UINT,
+    pub MiscFlags: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TEXTURE3D_DESC1 {
-    pub Width: u32,
-    pub Height: u32,
-    pub Depth: u32,
-    pub MipLevels: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Depth: super::UINT,
+    pub MipLevels: super::UINT,
     pub Format: super::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: super::UINT,
+    pub CPUAccessFlags: super::UINT,
+    pub MiscFlags: super::UINT,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 pub type D3D11_TEXTURECUBE_FACE = i32;
@@ -4067,12 +4092,13 @@ pub const D3D11_TILED_RESOURCES_TIER_1: D3D11_TILED_RESOURCES_TIER = 1;
 pub const D3D11_TILED_RESOURCES_TIER_2: D3D11_TILED_RESOURCES_TIER = 2;
 pub const D3D11_TILED_RESOURCES_TIER_3: D3D11_TILED_RESOURCES_TIER = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TILED_RESOURCE_COORDINATE {
-    pub X: u32,
-    pub Y: u32,
-    pub Z: u32,
-    pub Subresource: u32,
+    pub X: super::UINT,
+    pub Y: super::UINT,
+    pub Z: super::UINT,
+    pub Subresource: super::UINT,
 }
 pub type D3D11_TILE_COPY_FLAG = i32;
 pub const D3D11_TILE_COPY_LINEAR_BUFFER_TO_SWIZZLED_TILED_RESOURCE: D3D11_TILE_COPY_FLAG = 2;
@@ -4085,20 +4111,22 @@ pub const D3D11_TILE_RANGE_NULL: D3D11_TILE_RANGE_FLAG = 1;
 pub const D3D11_TILE_RANGE_REUSE_SINGLE_TILE: D3D11_TILE_RANGE_FLAG = 4;
 pub const D3D11_TILE_RANGE_SKIP: D3D11_TILE_RANGE_FLAG = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TILE_REGION_SIZE {
-    pub NumTiles: u32,
+    pub NumTiles: super::UINT,
     pub bUseBox: windows_sys::core::BOOL,
-    pub Width: u32,
-    pub Height: u16,
-    pub Depth: u16,
+    pub Width: super::UINT,
+    pub Height: super::UINT16,
+    pub Depth: super::UINT16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TILE_SHAPE {
-    pub WidthInTexels: u32,
-    pub HeightInTexels: u32,
-    pub DepthInTexels: u32,
+    pub WidthInTexels: super::UINT,
+    pub HeightInTexels: super::UINT,
+    pub DepthInTexels: super::UINT,
 }
 pub type D3D11_TRACE_COMPONENT_MASK = u8;
 pub const D3D11_TRACE_COMPONENT_W: i32 = 8;
@@ -4150,24 +4178,28 @@ pub const D3D11_TRACE_OUTPUT_NULL_REGISTER: D3D11_TRACE_REGISTER_TYPE = 0;
 pub const D3D11_TRACE_OUTPUT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 6;
 pub const D3D11_TRACE_RASTERIZER: D3D11_TRACE_REGISTER_TYPE = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_TRACE_REGISTER {
     pub RegType: D3D11_TRACE_REGISTER_TYPE,
     pub Anonymous: D3D11_TRACE_REGISTER_0,
-    pub OperandIndex: u8,
-    pub Flags: u8,
+    pub OperandIndex: super::UINT8,
+    pub Flags: super::UINT8,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_TRACE_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_TRACE_REGISTER_0 {
-    pub Index1D: u16,
-    pub Index2D: [u16; 2],
+    pub Index1D: super::UINT16,
+    pub Index2D: [super::UINT16; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_TRACE_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4178,25 +4210,26 @@ pub type D3D11_TRACE_REGISTER_TYPE = i32;
 pub const D3D11_TRACE_RESOURCE: D3D11_TRACE_REGISTER_TYPE = 11;
 pub const D3D11_TRACE_SAMPLER: D3D11_TRACE_REGISTER_TYPE = 10;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_TRACE_STATS {
     pub TraceDesc: D3D11_SHADER_TRACE_DESC,
-    pub NumInvocationsInStamp: u8,
-    pub TargetStampIndex: u8,
-    pub NumTraceSteps: u32,
+    pub NumInvocationsInStamp: super::UINT8,
+    pub TargetStampIndex: super::UINT8,
+    pub NumTraceSteps: super::UINT,
     pub InputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
     pub OutputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
-    pub NumTemps: u16,
-    pub MaxIndexableTempIndex: u16,
-    pub IndexableTempSize: [u16; 4096],
-    pub ImmediateConstantBufferSize: u16,
-    pub PixelPosition: [[u32; 2]; 4],
-    pub PixelCoverageMask: [u64; 4],
-    pub PixelDiscardedMask: [u64; 4],
-    pub PixelCoverageMaskAfterShader: [u64; 4],
-    pub PixelCoverageMaskAfterA2CSampleMask: [u64; 4],
-    pub PixelCoverageMaskAfterA2CSampleMaskDepth: [u64; 4],
-    pub PixelCoverageMaskAfterA2CSampleMaskDepthStencil: [u64; 4],
+    pub NumTemps: super::UINT16,
+    pub MaxIndexableTempIndex: super::UINT16,
+    pub IndexableTempSize: [super::UINT16; 4096],
+    pub ImmediateConstantBufferSize: super::UINT16,
+    pub PixelPosition: [[super::UINT; 2]; 4],
+    pub PixelCoverageMask: [super::UINT64; 4],
+    pub PixelDiscardedMask: [super::UINT64; 4],
+    pub PixelCoverageMaskAfterShader: [super::UINT64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMask: [super::UINT64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMaskDepth: [super::UINT64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMaskDepthStencil: [super::UINT64; 4],
     pub PSOutputsDepth: windows_sys::core::BOOL,
     pub PSOutputsMask: windows_sys::core::BOOL,
     pub GSInputPrimitive: D3D11_TRACE_GS_INPUT_PRIMITIVE,
@@ -4204,21 +4237,23 @@ pub struct D3D11_TRACE_STATS {
     pub HSOutputPatchConstantMask: [D3D11_TRACE_COMPONENT_MASK; 32],
     pub DSInputPatchConstantMask: [D3D11_TRACE_COMPONENT_MASK; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_TRACE_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_TRACE_STEP {
-    pub ID: u32,
+    pub ID: super::UINT,
     pub InstructionActive: windows_sys::core::BOOL,
-    pub NumRegistersWritten: u8,
-    pub NumRegistersRead: u8,
+    pub NumRegistersWritten: super::UINT8,
+    pub NumRegistersRead: super::UINT8,
     pub MiscOperations: D3D11_TRACE_MISC_OPERATIONS_MASK,
-    pub OpcodeType: u32,
-    pub CurrentGlobalCycle: u64,
+    pub OpcodeType: super::UINT,
+    pub CurrentGlobalCycle: super::UINT64,
 }
 pub const D3D11_TRACE_STREAM: D3D11_TRACE_REGISTER_TYPE = 14;
 pub const D3D11_TRACE_TEMP_REGISTER: D3D11_TRACE_REGISTER_TYPE = 4;
@@ -4226,11 +4261,13 @@ pub const D3D11_TRACE_THIS_POINTER: D3D11_TRACE_REGISTER_TYPE = 15;
 pub const D3D11_TRACE_THREAD_GROUP_SHARED_MEMORY: D3D11_TRACE_REGISTER_TYPE = 24;
 pub const D3D11_TRACE_UNORDERED_ACCESS_VIEW: D3D11_TRACE_REGISTER_TYPE = 23;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_TRACE_VALUE {
-    pub Bits: [u32; 4],
+    pub Bits: [super::UINT; 4],
     pub ValidMask: D3D11_TRACE_COMPONENT_MASK,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_TRACE_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4245,22 +4282,23 @@ pub const D3D11_UAV_DIMENSION_TEXTURE2DARRAY: D3D11_UAV_DIMENSION = 5;
 pub const D3D11_UAV_DIMENSION_TEXTURE3D: D3D11_UAV_DIMENSION = 8;
 pub const D3D11_UAV_DIMENSION_UNKNOWN: D3D11_UAV_DIMENSION = 0;
 pub const D3D11_UNBOUND_MEMORY_ACCESS_RESULT: i32 = 0;
+pub const D3D11_UNMUTE_SEVERITY_INFO: windows_sys::core::PCSTR = windows_sys::core::s!("Unmute_SEVERITY_INFO");
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC {
     pub Format: super::DXGI_FORMAT,
     pub ViewDimension: D3D11_UAV_DIMENSION,
     pub Anonymous: D3D11_UNORDERED_ACCESS_VIEW_DESC_0,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_UAV,
@@ -4270,28 +4308,28 @@ pub union D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2DArray: D3D11_TEX2D_ARRAY_UAV,
     pub Texture3D: D3D11_TEX3D_UAV,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     pub Format: super::DXGI_FORMAT,
     pub ViewDimension: D3D11_UAV_DIMENSION,
     pub Anonymous: D3D11_UNORDERED_ACCESS_VIEW_DESC1_0,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_UAV,
@@ -4301,7 +4339,7 @@ pub union D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     pub Texture2DArray: D3D11_TEX2D_ARRAY_UAV1,
     pub Texture3D: D3D11_TEX3D_UAV,
 }
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4317,9 +4355,10 @@ pub const D3D11_VDOV_DIMENSION_TEXTURE2D: D3D11_VDOV_DIMENSION = 1;
 pub const D3D11_VDOV_DIMENSION_UNKNOWN: D3D11_VDOV_DIMENSION = 0;
 pub const D3D11_VERTEX_SHADER: D3D11_SHADER_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VERTEX_SHADER_TRACE_DESC {
-    pub Invocation: u64,
+    pub Invocation: super::UINT64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4359,66 +4398,71 @@ pub struct D3D11_VIDEO_COLOR_YCbCrA {
     pub A: f32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
-    pub Caps: u32,
-    pub KeyExchangeTypeCount: u32,
-    pub BlockAlignmentSize: u32,
-    pub ProtectedMemorySize: u64,
+    pub Caps: super::UINT,
+    pub KeyExchangeTypeCount: super::UINT,
+    pub BlockAlignmentSize: super::UINT,
+    pub ProtectedMemorySize: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     pub pCryptoSession: *mut core::ffi::c_void,
-    pub BlobSize: u32,
+    pub BlobSize: super::UINT,
     pub pBlob: *mut core::ffi::c_void,
     pub pKeyInfoId: *mut windows_sys::core::GUID,
-    pub PrivateDataSize: u32,
+    pub PrivateDataSize: super::UINT,
     pub pPrivateData: *mut core::ffi::c_void,
 }
 pub const D3D11_VIDEO_DECODER_BUFFER_BITSTREAM: D3D11_VIDEO_DECODER_BUFFER_TYPE = 6;
 pub const D3D11_VIDEO_DECODER_BUFFER_DEBLOCKING_CONTROL: D3D11_VIDEO_DECODER_BUFFER_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
-    pub BufferIndex: u32,
-    pub DataOffset: u32,
-    pub DataSize: u32,
-    pub FirstMBaddress: u32,
-    pub NumMBsInBuffer: u32,
-    pub Width: u32,
-    pub Height: u32,
-    pub Stride: u32,
-    pub ReservedBits: u32,
+    pub BufferIndex: super::UINT,
+    pub DataOffset: super::UINT,
+    pub DataSize: super::UINT,
+    pub FirstMBaddress: super::UINT,
+    pub NumMBsInBuffer: super::UINT,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Stride: super::UINT,
+    pub ReservedBits: super::UINT,
     pub pIV: *mut core::ffi::c_void,
-    pub IVSize: u32,
+    pub IVSize: super::UINT,
     pub PartialEncryption: windows_sys::core::BOOL,
     pub EncryptedBlockInfo: D3D11_ENCRYPTED_BLOCK_INFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
-    pub DataOffset: u32,
-    pub DataSize: u32,
+    pub DataOffset: super::UINT,
+    pub DataSize: super::UINT,
     pub pIV: *mut core::ffi::c_void,
-    pub IVSize: u32,
+    pub IVSize: super::UINT,
     pub pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
-    pub SubSampleMappingCount: u32,
+    pub SubSampleMappingCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
-    pub DataOffset: u32,
-    pub DataSize: u32,
+    pub DataOffset: super::UINT,
+    pub DataSize: super::UINT,
     pub pIV: *mut core::ffi::c_void,
-    pub IVSize: u32,
+    pub IVSize: super::UINT,
     pub pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
-    pub SubSampleMappingCount: u32,
-    pub cBlocksStripeEncrypted: u32,
-    pub cBlocksStripeClear: u32,
+    pub SubSampleMappingCount: super::UINT,
+    pub cBlocksStripeEncrypted: super::UINT,
+    pub cBlocksStripeClear: super::UINT,
 }
 pub const D3D11_VIDEO_DECODER_BUFFER_FILM_GRAIN: D3D11_VIDEO_DECODER_BUFFER_TYPE = 8;
 pub const D3D11_VIDEO_DECODER_BUFFER_HUFFMAN_TABLE: D3D11_VIDEO_DECODER_BUFFER_TYPE = 9;
@@ -4436,50 +4480,52 @@ pub const D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE_REQUIRED: D3D11_VIDEO_DECODER_CAPS
 pub const D3D11_VIDEO_DECODER_CAPS_NON_REAL_TIME: D3D11_VIDEO_DECODER_CAPS = 2;
 pub const D3D11_VIDEO_DECODER_CAPS_UNSUPPORTED: D3D11_VIDEO_DECODER_CAPS = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_CONFIG {
     pub guidConfigBitstreamEncryption: windows_sys::core::GUID,
     pub guidConfigMBcontrolEncryption: windows_sys::core::GUID,
     pub guidConfigResidDiffEncryption: windows_sys::core::GUID,
-    pub ConfigBitstreamRaw: u32,
-    pub ConfigMBcontrolRasterOrder: u32,
-    pub ConfigResidDiffHost: u32,
-    pub ConfigSpatialResid8: u32,
-    pub ConfigResid8Subtraction: u32,
-    pub ConfigSpatialHost8or9Clipping: u32,
-    pub ConfigSpatialResidInterleaved: u32,
-    pub ConfigIntraResidUnsigned: u32,
-    pub ConfigResidDiffAccelerator: u32,
-    pub ConfigHostInverseScan: u32,
-    pub ConfigSpecificIDCT: u32,
-    pub Config4GroupedCoefs: u32,
-    pub ConfigMinRenderTargetBuffCount: u16,
-    pub ConfigDecoderSpecific: u16,
+    pub ConfigBitstreamRaw: super::UINT,
+    pub ConfigMBcontrolRasterOrder: super::UINT,
+    pub ConfigResidDiffHost: super::UINT,
+    pub ConfigSpatialResid8: super::UINT,
+    pub ConfigResid8Subtraction: super::UINT,
+    pub ConfigSpatialHost8or9Clipping: super::UINT,
+    pub ConfigSpatialResidInterleaved: super::UINT,
+    pub ConfigIntraResidUnsigned: super::UINT,
+    pub ConfigResidDiffAccelerator: super::UINT,
+    pub ConfigHostInverseScan: super::UINT,
+    pub ConfigSpecificIDCT: super::UINT,
+    pub Config4GroupedCoefs: super::UINT,
+    pub ConfigMinRenderTargetBuffCount: super::USHORT,
+    pub ConfigDecoderSpecific: super::USHORT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_DESC {
     pub Guid: windows_sys::core::GUID,
-    pub SampleWidth: u32,
-    pub SampleHeight: u32,
+    pub SampleWidth: super::UINT,
+    pub SampleHeight: super::UINT,
     pub OutputFormat: super::DXGI_FORMAT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_EXTENSION {
-    pub Function: u32,
+    pub Function: super::UINT,
     pub pPrivateInputData: *mut core::ffi::c_void,
-    pub PrivateInputDataSize: u32,
+    pub PrivateInputDataSize: super::UINT,
     pub pPrivateOutputData: *mut core::ffi::c_void,
-    pub PrivateOutputDataSize: u32,
-    pub ResourceCount: u32,
+    pub PrivateOutputDataSize: super::UINT,
+    pub ResourceCount: super::UINT,
     pub ppResourceList: *mut *mut core::ffi::c_void,
 }
 pub type D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = i32;
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_A: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = 3;
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_B: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = 2;
-pub type D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS = u32;
+pub type D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS = i32;
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_A: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS = 8;
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_B: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS = 4;
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_G: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS = 2;
@@ -4494,32 +4540,37 @@ pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_U: D3D11_VIDEO_DECODER_HISTOGR
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_V: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = 2;
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_Y: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     pub DecodeProfile: windows_sys::core::GUID,
     pub ViewDimension: D3D11_VDOV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
     pub Texture2D: D3D11_TEX2D_VDOV,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
-    pub ClearSize: u32,
-    pub EncryptedSize: u32,
+    pub ClearSize: super::UINT,
+    pub EncryptedSize: super::UINT,
 }
 pub type D3D11_VIDEO_FRAME_FORMAT = i32;
 pub const D3D11_VIDEO_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST: D3D11_VIDEO_FRAME_FORMAT = 2;
@@ -4545,44 +4596,46 @@ pub const D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_RESIZE: D3D11_V
 pub const D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_ROTATION: D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS = 1;
 pub const D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_TRIPLE_BUFFER_OUTPUT: D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_PROCESSOR_CAPS {
-    pub DeviceCaps: u32,
-    pub FeatureCaps: u32,
-    pub FilterCaps: u32,
-    pub InputFormatCaps: u32,
-    pub AutoStreamCaps: u32,
-    pub StereoCaps: u32,
-    pub RateConversionCapsCount: u32,
-    pub MaxInputStreams: u32,
-    pub MaxStreamStates: u32,
+    pub DeviceCaps: super::UINT,
+    pub FeatureCaps: super::UINT,
+    pub FilterCaps: super::UINT,
+    pub InputFormatCaps: super::UINT,
+    pub AutoStreamCaps: super::UINT,
+    pub StereoCaps: super::UINT,
+    pub RateConversionCapsCount: super::UINT,
+    pub MaxInputStreams: super::UINT,
+    pub MaxStreamStates: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
     pub InputFrameFormat: D3D11_VIDEO_FRAME_FORMAT,
     pub InputFrameRate: super::DXGI_RATIONAL,
-    pub InputWidth: u32,
-    pub InputHeight: u32,
+    pub InputWidth: super::UINT,
+    pub InputHeight: super::UINT,
     pub OutputFrameRate: super::DXGI_RATIONAL,
-    pub OutputWidth: u32,
-    pub OutputHeight: u32,
+    pub OutputWidth: super::UINT,
+    pub OutputHeight: super::UINT,
     pub Usage: D3D11_VIDEO_USAGE,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     pub CustomRate: super::DXGI_RATIONAL,
-    pub OutputFrames: u32,
+    pub OutputFrames: super::UINT,
     pub InputInterlaced: windows_sys::core::BOOL,
-    pub InputFramesOrFields: u32,
+    pub InputFramesOrFields: super::UINT,
 }
 pub type D3D11_VIDEO_PROCESSOR_DEVICE_CAPS = i32;
 pub const D3D11_VIDEO_PROCESSOR_DEVICE_CAPS_LINEAR_SPACE: D3D11_VIDEO_PROCESSOR_DEVICE_CAPS = 1;
@@ -4638,22 +4691,26 @@ pub type D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT = i32;
 pub const D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT_INPUT: D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT = 1;
 pub const D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT_OUTPUT: D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
-    pub FourCC: u32,
+    pub FourCC: super::UINT,
     pub ViewDimension: D3D11_VPIV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
     pub Texture2D: D3D11_TEX2D_VPIV,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4679,22 +4736,26 @@ pub const D3D11_VIDEO_PROCESSOR_OUTPUT_RATE_CUSTOM: D3D11_VIDEO_PROCESSOR_OUTPUT
 pub const D3D11_VIDEO_PROCESSOR_OUTPUT_RATE_HALF: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE = 1;
 pub const D3D11_VIDEO_PROCESSOR_OUTPUT_RATE_NORMAL: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     pub ViewDimension: D3D11_VPOV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
     pub Texture2D: D3D11_TEX2D_VPOV,
     pub Texture2DArray: D3D11_TEX2D_ARRAY_VPOV,
 }
+#[cfg(feature = "shared")]
 impl Default for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4708,13 +4769,14 @@ pub const D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_DEINTERLACE_MOTION_COMPENSATION: 
 pub const D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_FRAME_RATE_CONVERSION: D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS = 32;
 pub const D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_INVERSE_TELECINE: D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
-    pub PastFrames: u32,
-    pub FutureFrames: u32,
-    pub ProcessorCaps: u32,
-    pub ITelecineCaps: u32,
-    pub CustomRateCount: u32,
+    pub PastFrames: super::UINT,
+    pub FutureFrames: super::UINT,
+    pub ProcessorCaps: super::UINT,
+    pub ITelecineCaps: super::UINT,
+    pub CustomRateCount: super::UINT,
 }
 pub type D3D11_VIDEO_PROCESSOR_ROTATION = i32;
 pub const D3D11_VIDEO_PROCESSOR_ROTATION_180: D3D11_VIDEO_PROCESSOR_ROTATION = 2;
@@ -4741,13 +4803,14 @@ pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_ROW_INTERLEAVED: D3D11_VIDEO_PROCE
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_SEPARATE: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT = 3;
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_VERTICAL: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub Enable: windows_sys::core::BOOL,
-    pub OutputIndex: u32,
-    pub InputFrameOrField: u32,
-    pub PastFrames: u32,
-    pub FutureFrames: u32,
+    pub OutputIndex: super::UINT,
+    pub InputFrameOrField: super::UINT,
+    pub PastFrames: super::UINT,
+    pub FutureFrames: super::UINT,
     pub ppPastSurfaces: *mut *mut core::ffi::c_void,
     pub pInputSurface: *mut core::ffi::c_void,
     pub ppFutureSurfaces: *mut *mut core::ffi::c_void,
@@ -4756,20 +4819,20 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub ppFutureSurfacesRight: *mut *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
     pub Enable: windows_sys::core::BOOL,
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: super::DXGI_FORMAT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIDEO_SAMPLE_DESC {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: super::DXGI_FORMAT,
     pub ColorSpace: super::DXGI_COLOR_SPACE_TYPE,
 }
@@ -4778,14 +4841,15 @@ pub const D3D11_VIDEO_USAGE_OPTIMAL_QUALITY: D3D11_VIDEO_USAGE = 2;
 pub const D3D11_VIDEO_USAGE_OPTIMAL_SPEED: D3D11_VIDEO_USAGE = 1;
 pub const D3D11_VIDEO_USAGE_PLAYBACK_NORMAL: D3D11_VIDEO_USAGE = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIEWPORT {
-    pub TopLeftX: f32,
-    pub TopLeftY: f32,
-    pub Width: f32,
-    pub Height: f32,
-    pub MinDepth: f32,
-    pub MaxDepth: f32,
+    pub TopLeftX: super::FLOAT,
+    pub TopLeftY: super::FLOAT,
+    pub Width: super::FLOAT,
+    pub Height: super::FLOAT,
+    pub MinDepth: super::FLOAT,
+    pub MaxDepth: super::FLOAT,
 }
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: i32 = 15;
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: i32 = 16;
@@ -4809,27 +4873,109 @@ pub const D3D11_VS_OUTPUT_REGISTER_COUNT: i32 = 32;
 pub const D3D11_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: i32 = 10;
 pub const D3D11_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: i32 = 25;
 pub const D3D11_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: i32 = 25;
-pub const D3D_RETURN_PARAMETER_INDEX: i32 = -1;
-pub const D3D_SHADER_REQUIRES_11_1_DOUBLE_EXTENSIONS: i32 = 32;
-pub const D3D_SHADER_REQUIRES_11_1_SHADER_EXTENSIONS: i32 = 64;
-pub const D3D_SHADER_REQUIRES_64_UAVS: i32 = 8;
-pub const D3D_SHADER_REQUIRES_DOUBLES: i32 = 1;
-pub const D3D_SHADER_REQUIRES_EARLY_DEPTH_STENCIL: i32 = 2;
-pub const D3D_SHADER_REQUIRES_LEVEL_9_COMPARISON_FILTERING: i32 = 128;
-pub const D3D_SHADER_REQUIRES_MINIMUM_PRECISION: i32 = 16;
-pub const D3D_SHADER_REQUIRES_TILED_RESOURCES: i32 = 256;
-pub const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: i32 = 4;
 pub const DXGI_DEBUG_D3D11: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b99317b_ac39_4aa6_bb0b_baa04784798f);
-#[cfg(feature = "d3dcommon")]
-pub type PFN_D3D11ON12_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32, param2: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const *mut core::ffi::c_void, numqueues: u32, param6: u32, param7: *mut *mut core::ffi::c_void, param8: *mut *mut core::ffi::c_void, param9: *mut super::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef"))]
-pub type PFN_D3D11_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut *mut core::ffi::c_void, param8: *mut super::D3D_FEATURE_LEVEL, param9: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "windef"))]
-pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::DXGI_SWAP_CHAIN_DESC, param8: *mut *mut core::ffi::c_void, param9: *mut *mut core::ffi::c_void, param10: *mut super::D3D_FEATURE_LEVEL, param11: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub const IID_ID3D11Asynchronous: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b35d0cd_1e15_4258_9c98_1b1333f6dd3b);
+pub const IID_ID3D11AuthenticatedChannel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3015a308_dcbd_47aa_a747_192486d14d4a);
+pub const IID_ID3D11BlendState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75b68faa_347d_4159_8f45_a0640f01cd9a);
+pub const IID_ID3D11BlendState1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc86fabe_da55_401d_85e7_e3c9de2877e9);
+pub const IID_ID3D11Buffer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48570b85_d1ee_4fcd_a250_eb350722b037);
+pub const IID_ID3D11ClassInstance: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb);
+pub const IID_ID3D11ClassLinkage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xddf57cba_9543_46e4_a12b_f207a0fe7fed);
+pub const IID_ID3D11CommandList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa24bc4d1_769e_43f7_8013_98ff566c18e2);
+pub const IID_ID3D11ComputeShader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f5b196e_c2bd_495e_bd01_1fded38e4969);
+pub const IID_ID3D11Counter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e8c49fb_a371_4770_b440_29086022b741);
+pub const IID_ID3D11CryptoSession: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b32f9ad_bdcc_40a6_a39d_d5c865845720);
+pub const IID_ID3D11Debug: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x79cf2233_7536_4948_9d36_1e4692dc5760);
+pub const IID_ID3D11DepthStencilState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1);
+pub const IID_ID3D11DepthStencilView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9fdac92a_1876_48c3_afad_25b94f84a9b6);
+pub const IID_ID3D11Device: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdb6f6ddb_ac77_4e88_8253_819df9bbf140);
+pub const IID_ID3D11Device1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686);
+pub const IID_ID3D11Device2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841);
+pub const IID_ID3D11Device3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa05c8c37_d2c6_4732_b3a0_9ce0b0dc9ae6);
+pub const IID_ID3D11Device4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8992ab71_02e6_4b8d_ba48_b056dcda42c4);
+pub const IID_ID3D11Device5: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8ffde202_a0e7_45df_9e01_e837801b5ea0);
+pub const IID_ID3D11DeviceChild: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae);
+pub const IID_ID3D11DeviceContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc0bfa96c_e089_44fb_8eaf_26f8796190da);
+pub const IID_ID3D11DeviceContext1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1);
+pub const IID_ID3D11DeviceContext2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x420d5b32_b90c_4da4_bef0_359f6a24a83a);
+pub const IID_ID3D11DeviceContext3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f);
+pub const IID_ID3D11DeviceContext4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x917600da_f58c_4c33_98d8_3e15b390fa24);
+pub const IID_ID3D11DomainShader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf582c508_0f36_490c_9977_31eece268cfa);
+pub const IID_ID3D11Fence: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaffde9d1_1df7_4bb7_8a34_0f46251dab80);
+pub const IID_ID3D11FunctionLinkingGraph: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54133220_1ce8_43d3_8236_9855c5ceecff);
+pub const IID_ID3D11FunctionParameterReflection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x42757488_334f_47fe_982e_1a65d08cc462);
+pub const IID_ID3D11FunctionReflection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x207bcecb_d683_4a06_a8a3_9b149b9f73a4);
+pub const IID_ID3D11GeometryShader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38325b96_effb_4022_ba02_2e795b70275c);
+pub const IID_ID3D11HullShader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e5c6061_628a_4c8e_8264_bbe45cb3d5dd);
+pub const IID_ID3D11InfoQueue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6543dbb6_1b48_42f5_ab82_e97ec74326f6);
+pub const IID_ID3D11InputLayout: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7);
+pub const IID_ID3D11LibraryReflection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6);
+pub const IID_ID3D11Linker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
+pub const IID_ID3D11LinkingNode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
+pub const IID_ID3D11Module: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcac701ee_80fc_4122_8242_10b39c8cec34);
+pub const IID_ID3D11ModuleInstance: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x469e07f7_045a_48d5_aa12_68a478cdf75d);
+pub const IID_ID3D11Multithread: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
+pub const IID_ID3D11On12Device: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x85611e73_70a9_490e_9614_a9e302777904);
+pub const IID_ID3D11On12Device1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
+pub const IID_ID3D11On12Device2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc90f331_4740_43fa_866e_67f12cb58223);
+pub const IID_ID3D11PixelShader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea82e40d_51dc_4f33_93d4_db7c9125ae8c);
+pub const IID_ID3D11Predicate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9eb576dd_9f77_4d86_81aa_8bab5fe490e2);
+pub const IID_ID3D11Query: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd6c00747_87b7_425e_b84d_44d108560afd);
+pub const IID_ID3D11Query1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x631b4766_36dc_461d_8db6_c47e13e60916);
+pub const IID_ID3D11RasterizerState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7);
+pub const IID_ID3D11RasterizerState1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1217d7a6_5039_418c_b042_9cbe256afd6e);
+pub const IID_ID3D11RasterizerState2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6fbd02fb_209f_46c4_b059_2ed15586a6ac);
+pub const IID_ID3D11RefDefaultTrackingOptions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03916615_c644_418c_9bf4_75db5be63ca0);
+pub const IID_ID3D11RefTrackingOptions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x193dacdf_0db2_4c05_a55c_ef06cac56fd9);
+pub const IID_ID3D11RenderTargetView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdfdba067_0b8d_4865_875b_d7b4516cc164);
+pub const IID_ID3D11RenderTargetView1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xffbe2e23_f011_418a_ac56_5ceed7c5b94b);
+pub const IID_ID3D11Resource: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc8e63f3_d12b_4952_b47b_5e45026a862d);
+pub const IID_ID3D11SamplerState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda6fea51_564c_4487_9810_f0d0f9b4e3a5);
+pub const IID_ID3D11ShaderReflection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d536ca1_0cca_4956_a837_786963755584);
+pub const IID_ID3D11ShaderReflectionConstantBuffer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8);
+pub const IID_ID3D11ShaderReflectionType: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e6ffa6a_9bae_4613_a51e_91652d508c21);
+pub const IID_ID3D11ShaderReflectionVariable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x51f23923_f3e5_4bd1_91cb_606177d8db4c);
+pub const IID_ID3D11ShaderResourceView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2);
+pub const IID_ID3D11ShaderResourceView1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x91308b87_9040_411d_8c67_c39253ce3802);
+pub const IID_ID3D11SwitchToRef: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
+pub const IID_ID3D11Texture1D: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c);
+pub const IID_ID3D11Texture2D: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f15aaf2_d208_4e89_9ab4_489535d34f9c);
+pub const IID_ID3D11Texture2D1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x51218251_1e33_4617_9ccb_4d3a4367e7bb);
+pub const IID_ID3D11Texture3D: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x037e866e_f56d_4357_a8af_9dabbe6e250e);
+pub const IID_ID3D11Texture3D1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c711683_2853_4846_9bb0_f3e60639e46a);
+pub const IID_ID3D11TracingDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1911c771_1587_413e_a7e0_fb26c3de0268);
+pub const IID_ID3D11UnorderedAccessView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x28acf509_7f5c_48f6_8611_f316010a6380);
+pub const IID_ID3D11UnorderedAccessView1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b3b6153_a886_4544_ab37_6537c8500403);
+pub const IID_ID3D11VertexShader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3b301d64_d678_4289_8897_22f8928b72f3);
+pub const IID_ID3D11VideoContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4);
+pub const IID_ID3D11VideoContext1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa7f026da_a5f8_4487_a564_15e34357651e);
+pub const IID_ID3D11VideoContext2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4e7374c_6243_4d1b_ae87_52b4f740e261);
+pub const IID_ID3D11VideoContext3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e);
+pub const IID_ID3D11VideoDecoder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c);
+pub const IID_ID3D11VideoDecoderOutputView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc2931aea_2a85_4f20_860f_fba1fd256e18);
+pub const IID_ID3D11VideoDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x10ec4d5b_975a_4689_b9e4_d0aac30fe333);
+pub const IID_ID3D11VideoDevice1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29da1d51_1321_4454_804b_f5fc9f861f0f);
+pub const IID_ID3D11VideoDevice2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x59c0cb01_35f0_4a70_8f67_87905c906a53);
+pub const IID_ID3D11VideoProcessor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c);
+pub const IID_ID3D11VideoProcessorEnumerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x31627037_53ab_4200_9061_05faa9ab45f9);
+pub const IID_ID3D11VideoProcessorEnumerator1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x465217f2_5568_43cf_b5b9_f61d54531ca1);
+pub const IID_ID3D11VideoProcessorInputView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5);
+pub const IID_ID3D11VideoProcessorOutputView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa048285e_25a9_4527_bd93_d68b68c44254);
+pub const IID_ID3D11View: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1);
+pub const IID_ID3DDeviceContextState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11);
+pub const IID_ID3DUserDefinedAnnotation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2daad8b_03d4_4dbf_95eb_32ab4b63d0ab);
+pub type LPD3D11FUNCTIONPARAMETERREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11FUNCTIONREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11LIBRARYREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTIONCONSTANTBUFFER = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTIONTYPE = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTIONVARIABLE = *mut core::ffi::c_void;
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+pub type PFN_D3D11ON12_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::UINT, param2: *const super::D3D_FEATURE_LEVEL, featurelevels: super::UINT, param4: *const *mut core::ffi::c_void, numqueues: super::UINT, param6: super::UINT, param7: *mut *mut core::ffi::c_void, param8: *mut *mut core::ffi::c_void, param9: *mut super::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
+pub type PFN_D3D11_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: super::UINT, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: super::UINT, param6: super::UINT, param7: *mut *mut core::ffi::c_void, param8: *mut super::D3D_FEATURE_LEVEL, param9: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: super::UINT, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: super::UINT, param6: super::UINT, param7: *const super::DXGI_SWAP_CHAIN_DESC, param8: *mut *mut core::ffi::c_void, param9: *mut *mut core::ffi::c_void, param10: *mut super::D3D_FEATURE_LEVEL, param11: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const _FACD3D11: i32 = 2172;
 pub const _FACD3D11DEBUG: i32 = 2173;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct __MIDL___MIDL_itf_d3d11_0000_0034_0001 {
-    pub _bitfield: u32,
-}

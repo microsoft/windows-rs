@@ -1,108 +1,120 @@
-windows_link::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceA(lpnetresource : LPNETRESOURCEA, lpnetconnectinfostruct : LPNETCONNECTINFOSTRUCT) -> u32);
-windows_link::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceW(lpnetresource : LPNETRESOURCEW, lpnetconnectinfostruct : LPNETCONNECTINFOSTRUCT) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : LPNETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : u32) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : LPNETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : super::PBYTE, cbuseoptions : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : super::PBYTE, cbuseoptions : u32) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetAddConnectionA(lpremotename : windows_sys::core::PCSTR, lppassword : windows_sys::core::PCSTR, lplocalname : windows_sys::core::PCSTR) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetAddConnectionW(lpremotename : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, lplocalname : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_sys::core::PCSTR, dwflags : u32, fforce : windows_sys::core::BOOL) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_sys::core::PCWSTR, dwflags : u32, fforce : windows_sys::core::BOOL) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_sys::core::PCSTR, fforce : windows_sys::core::BOOL) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_sys::core::PCWSTR, fforce : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("mpr.dll" "system" fn WNetCloseEnum(henum : super::HANDLE) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog(hwnd : super::HWND, dwtype : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog1A(lpconndlgstruct : LPCONNECTDLGSTRUCTA) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog1W(lpconndlgstruct : LPCONNECTDLGSTRUCTW) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog(hwnd : super::HWND, dwtype : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog1A(lpconndlgstruct : LPDISCDLGSTRUCTA) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog1W(lpconndlgstruct : LPDISCDLGSTRUCTW) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("mpr.dll" "system" fn WNetEnumResourceA(henum : super::HANDLE, lpccount : super::LPDWORD, lpbuffer : *mut core::ffi::c_void, lpbuffersize : super::LPDWORD) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("mpr.dll" "system" fn WNetEnumResourceW(henum : super::HANDLE, lpccount : super::LPDWORD, lpbuffer : *mut core::ffi::c_void, lpbuffersize : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetConnectionA(lplocalname : windows_sys::core::PCSTR, lpremotename : windows_sys::core::PSTR, lpnlength : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetConnectionW(lplocalname : windows_sys::core::PCWSTR, lpremotename : windows_sys::core::PWSTR, lpnlength : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetLastErrorA(lperror : super::LPDWORD, lperrorbuf : windows_sys::core::PSTR, nerrorbufsize : u32, lpnamebuf : windows_sys::core::PSTR, nnamebufsize : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetLastErrorW(lperror : super::LPDWORD, lperrorbuf : windows_sys::core::PWSTR, nerrorbufsize : u32, lpnamebuf : windows_sys::core::PWSTR, nnamebufsize : u32) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetGetNetworkInformationA(lpprovider : windows_sys::core::PCSTR, lpnetinfostruct : LPNETINFOSTRUCT) -> u32);
-windows_link::link!("mpr.dll" "system" fn WNetGetNetworkInformationW(lpprovider : windows_sys::core::PCWSTR, lpnetinfostruct : LPNETINFOSTRUCT) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetProviderNameA(dwnettype : u32, lpprovidername : windows_sys::core::PSTR, lpbuffersize : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetProviderNameW(dwnettype : u32, lpprovidername : windows_sys::core::PWSTR, lpbuffersize : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetResourceInformationA(lpnetresource : LPNETRESOURCEA, lpbuffer : *mut core::ffi::c_void, lpcbbuffer : super::LPDWORD, lplpsystem : *mut windows_sys::core::PSTR) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetResourceInformationW(lpnetresource : LPNETRESOURCEW, lpbuffer : *mut core::ffi::c_void, lpcbbuffer : super::LPDWORD, lplpsystem : *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetResourceParentA(lpnetresource : LPNETRESOURCEA, lpbuffer : *mut core::ffi::c_void, lpcbbuffer : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetResourceParentW(lpnetresource : LPNETRESOURCEW, lpbuffer : *mut core::ffi::c_void, lpcbbuffer : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetUniversalNameA(lplocalpath : windows_sys::core::PCSTR, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpbuffersize : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetUniversalNameW(lplocalpath : windows_sys::core::PCWSTR, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, lpbuffersize : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetUserA(lpname : windows_sys::core::PCSTR, lpusername : windows_sys::core::PSTR, lpnlength : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("mpr.dll" "system" fn WNetGetUserW(lpname : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PWSTR, lpnlength : super::LPDWORD) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("mpr.dll" "system" fn WNetOpenEnumA(dwscope : u32, dwtype : u32, dwusage : u32, lpnetresource : LPNETRESOURCEA, lphenum : super::LPHANDLE) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("mpr.dll" "system" fn WNetOpenEnumW(dwscope : u32, dwtype : u32, dwusage : u32, lpnetresource : LPNETRESOURCEW, lphenum : super::LPHANDLE) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : super::PBYTE, cbuseoptions : u32, lpaccessname : windows_sys::core::PSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : super::PBYTE, cbuseoptions : u32, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpuserid : windows_sys::core::PCSTR, dwflags : u32, lpaccessname : windows_sys::core::PSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpuserid : windows_sys::core::PCWSTR, dwflags : u32, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceA(lpnetresource : LPNETRESOURCEA, lpnetconnectinfostruct : LPNETCONNECTINFOSTRUCT) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceW(lpnetresource : LPNETRESOURCEW, lpnetconnectinfostruct : LPNETCONNECTINFOSTRUCT) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : LPNETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : LPNETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnectionA(lpremotename : windows_sys::core::PCSTR, lppassword : windows_sys::core::PCSTR, lplocalname : windows_sys::core::PCSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetAddConnectionW(lpremotename : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, lplocalname : windows_sys::core::PCWSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_sys::core::PCSTR, dwflags : super::DWORD, fforce : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_sys::core::PCWSTR, dwflags : super::DWORD, fforce : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_sys::core::PCSTR, fforce : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_sys::core::PCWSTR, fforce : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("mpr.dll" "system" fn WNetCloseEnum(henum : super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog(hwnd : super::HWND, dwtype : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog1A(lpconndlgstruct : LPCONNECTDLGSTRUCTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetConnectionDialog1W(lpconndlgstruct : LPCONNECTDLGSTRUCTW) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog(hwnd : super::HWND, dwtype : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog1A(lpconndlgstruct : LPDISCDLGSTRUCTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetDisconnectDialog1W(lpconndlgstruct : LPDISCDLGSTRUCTW) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("mpr.dll" "system" fn WNetEnumResourceA(henum : super::HANDLE, lpccount : super::LPDWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("mpr.dll" "system" fn WNetEnumResourceW(henum : super::HANDLE, lpccount : super::LPDWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetConnectionA(lplocalname : windows_sys::core::PCSTR, lpremotename : windows_sys::core::PSTR, lpnlength : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetConnectionW(lplocalname : windows_sys::core::PCWSTR, lpremotename : windows_sys::core::PWSTR, lpnlength : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetLastErrorA(lperror : super::LPDWORD, lperrorbuf : windows_sys::core::PSTR, nerrorbufsize : super::DWORD, lpnamebuf : windows_sys::core::PSTR, nnamebufsize : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetLastErrorW(lperror : super::LPDWORD, lperrorbuf : windows_sys::core::PWSTR, nerrorbufsize : super::DWORD, lpnamebuf : windows_sys::core::PWSTR, nnamebufsize : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetGetNetworkInformationA(lpprovider : windows_sys::core::PCSTR, lpnetinfostruct : LPNETINFOSTRUCT) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("mpr.dll" "system" fn WNetGetNetworkInformationW(lpprovider : windows_sys::core::PCWSTR, lpnetinfostruct : LPNETINFOSTRUCT) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetProviderNameA(dwnettype : super::DWORD, lpprovidername : windows_sys::core::PSTR, lpbuffersize : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetProviderNameW(dwnettype : super::DWORD, lpprovidername : windows_sys::core::PWSTR, lpbuffersize : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetResourceInformationA(lpnetresource : LPNETRESOURCEA, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD, lplpsystem : *mut windows_sys::core::PSTR) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetResourceInformationW(lpnetresource : LPNETRESOURCEW, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD, lplpsystem : *mut windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetResourceParentA(lpnetresource : LPNETRESOURCEA, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetResourceParentW(lpnetresource : LPNETRESOURCEW, lpbuffer : super::LPVOID, lpcbbuffer : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetUniversalNameA(lplocalpath : windows_sys::core::PCSTR, dwinfolevel : super::DWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetUniversalNameW(lplocalpath : windows_sys::core::PCWSTR, dwinfolevel : super::DWORD, lpbuffer : super::LPVOID, lpbuffersize : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetUserA(lpname : windows_sys::core::PCSTR, lpusername : windows_sys::core::PSTR, lpnlength : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetGetUserW(lpname : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PWSTR, lpnlength : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetOpenEnumA(dwscope : super::DWORD, dwtype : super::DWORD, dwusage : super::DWORD, lpnetresource : LPNETRESOURCEA, lphenum : super::LPHANDLE) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("mpr.dll" "system" fn WNetOpenEnumW(dwscope : super::DWORD, dwtype : super::DWORD, dwusage : super::DWORD, lpnetresource : LPNETRESOURCEW, lphenum : super::LPHANDLE) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD, lpaccessname : windows_sys::core::PSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, dwflags : super::DWORD, lpuseoptions : super::PBYTE, cbuseoptions : super::DWORD, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpuserid : windows_sys::core::PCSTR, dwflags : super::DWORD, lpaccessname : windows_sys::core::PSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::HWND, lpnetresource : LPNETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpuserid : windows_sys::core::PCWSTR, dwflags : super::DWORD, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : super::LPDWORD, lpresult : super::LPDWORD) -> super::DWORD);
 pub const CONNDLG_CONN_POINT: i32 = 2;
 pub const CONNDLG_HIDE_BOX: i32 = 8;
 pub const CONNDLG_NOT_PERSIST: i32 = 32;
 pub const CONNDLG_PERSIST: i32 = 16;
 pub const CONNDLG_RO_PATH: i32 = 1;
 pub const CONNDLG_USE_MRU: i32 = 4;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type CONNECTDLGSTRUCT = CONNECTDLGSTRUCTA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CONNECTDLGSTRUCTA {
-    pub cbStructure: u32,
+    pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
     pub lpConnRes: LPNETRESOURCEA,
-    pub dwFlags: u32,
-    pub dwDevNum: u32,
+    pub dwFlags: super::DWORD,
+    pub dwDevNum: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CONNECTDLGSTRUCTW {
-    pub cbStructure: u32,
+    pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
     pub lpConnRes: LPNETRESOURCEW,
-    pub dwFlags: u32,
-    pub dwDevNum: u32,
+    pub dwFlags: super::DWORD,
+    pub dwDevNum: super::DWORD,
 }
 pub const CONNECT_CMD_SAVECRED: i32 = 4096;
 pub const CONNECT_COMMANDLINE: i32 = 2048;
@@ -123,98 +135,108 @@ pub const CONNECT_TEMPORARY: i32 = 4;
 pub const CONNECT_UPDATE_PROFILE: i32 = 1;
 pub const CONNECT_UPDATE_RECENT: i32 = 2;
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: i32 = 65536;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type DISCDLGSTRUCT = DISCDLGSTRUCTA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DISCDLGSTRUCTA {
-    pub cbStructure: u32,
+    pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
     pub lpLocalName: windows_sys::core::PSTR,
     pub lpRemoteName: windows_sys::core::PSTR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DISCDLGSTRUCTW {
-    pub cbStructure: u32,
+    pub cbStructure: super::DWORD,
     pub hwndOwner: super::HWND,
     pub lpLocalName: windows_sys::core::PWSTR,
     pub lpRemoteName: windows_sys::core::PWSTR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 pub const DISC_NO_FORCE: i32 = 64;
 pub const DISC_UPDATE_PROFILE: i32 = 1;
-#[cfg(feature = "windef")]
-pub type LPCONNECTDLGSTRUCT = LPCONNECTDLGSTRUCTA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPCONNECTDLGSTRUCT = *mut CONNECTDLGSTRUCTA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCONNECTDLGSTRUCTA = *mut CONNECTDLGSTRUCTA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCONNECTDLGSTRUCTW = *mut CONNECTDLGSTRUCTW;
-#[cfg(feature = "windef")]
-pub type LPDISCDLGSTRUCT = LPDISCDLGSTRUCTA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPDISCDLGSTRUCT = *mut DISCDLGSTRUCTA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDISCDLGSTRUCTA = *mut DISCDLGSTRUCTA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDISCDLGSTRUCTW = *mut DISCDLGSTRUCTW;
+#[cfg(feature = "shared")]
 pub type LPNETCONNECTINFOSTRUCT = *mut NETCONNECTINFOSTRUCT;
+#[cfg(feature = "shared")]
 pub type LPNETINFOSTRUCT = *mut NETINFOSTRUCT;
-pub type LPNETRESOURCE = LPNETRESOURCEA;
+#[cfg(feature = "shared")]
+pub type LPNETRESOURCE = *mut NETRESOURCEA;
+#[cfg(feature = "shared")]
 pub type LPNETRESOURCEA = *mut NETRESOURCEA;
+#[cfg(feature = "shared")]
 pub type LPNETRESOURCEW = *mut NETRESOURCEW;
-pub type LPREMOTE_NAME_INFO = LPREMOTE_NAME_INFOA;
+pub type LPREMOTE_NAME_INFO = *mut REMOTE_NAME_INFOA;
 pub type LPREMOTE_NAME_INFOA = *mut REMOTE_NAME_INFOA;
 pub type LPREMOTE_NAME_INFOW = *mut REMOTE_NAME_INFOW;
-pub type LPUNIVERSAL_NAME_INFO = LPUNIVERSAL_NAME_INFOA;
+pub type LPUNIVERSAL_NAME_INFO = *mut UNIVERSAL_NAME_INFOA;
 pub type LPUNIVERSAL_NAME_INFOA = *mut UNIVERSAL_NAME_INFOA;
 pub type LPUNIVERSAL_NAME_INFOW = *mut UNIVERSAL_NAME_INFOW;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NETCONNECTINFOSTRUCT {
-    pub cbStructure: u32,
-    pub dwFlags: u32,
-    pub dwSpeed: u32,
-    pub dwDelay: u32,
-    pub dwOptDataSize: u32,
+    pub cbStructure: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwSpeed: super::DWORD,
+    pub dwDelay: super::DWORD,
+    pub dwOptDataSize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NETINFOSTRUCT {
-    pub cbStructure: u32,
-    pub dwProviderVersion: u32,
-    pub dwStatus: u32,
-    pub dwCharacteristics: u32,
-    pub dwHandle: usize,
-    pub wNetType: u16,
-    pub dwPrinters: u32,
-    pub dwDrives: u32,
+    pub cbStructure: super::DWORD,
+    pub dwProviderVersion: super::DWORD,
+    pub dwStatus: super::DWORD,
+    pub dwCharacteristics: super::DWORD,
+    pub dwHandle: super::ULONG_PTR,
+    pub wNetType: super::WORD,
+    pub dwPrinters: super::DWORD,
+    pub dwDrives: super::DWORD,
 }
 pub const NETINFO_DISKRED: i32 = 4;
 pub const NETINFO_DLL16: i32 = 1;
 pub const NETINFO_PRINTERRED: i32 = 8;
 pub const NETPROPERTY_PERSISTENT: i32 = 1;
+#[cfg(feature = "shared")]
 pub type NETRESOURCE = NETRESOURCEA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NETRESOURCEA {
-    pub dwScope: u32,
-    pub dwType: u32,
-    pub dwDisplayType: u32,
-    pub dwUsage: u32,
+    pub dwScope: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwDisplayType: super::DWORD,
+    pub dwUsage: super::DWORD,
     pub lpLocalName: windows_sys::core::PSTR,
     pub lpRemoteName: windows_sys::core::PSTR,
     pub lpComment: windows_sys::core::PSTR,
     pub lpProvider: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NETRESOURCEW {
-    pub dwScope: u32,
-    pub dwType: u32,
-    pub dwDisplayType: u32,
-    pub dwUsage: u32,
+    pub dwScope: super::DWORD,
+    pub dwType: super::DWORD,
+    pub dwDisplayType: super::DWORD,
+    pub dwUsage: super::DWORD,
     pub lpLocalName: windows_sys::core::PWSTR,
     pub lpRemoteName: windows_sys::core::PWSTR,
     pub lpComment: windows_sys::core::PWSTR,

@@ -1,53 +1,62 @@
-#[cfg(feature = "guiddef")]
-windows_link::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : super::LPGUID) -> u32);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : super::ULONG, activityid : super::LPGUID) -> super::ULONG);
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> super::BOOLEAN);
-#[cfg(all(feature = "evntrace", feature = "guiddef"))]
-windows_link::link!("advapi32.dll" "system" fn EventRegister(providerid : super::LPCGUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : PREGHANDLE) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : REGHANDLE, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventUnregister(reghandle : REGHANDLE) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
-#[cfg(feature = "guiddef")]
-windows_link::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
-windows_link::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "guiddef")]
-windows_link::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : super::UCHAR, keyword : super::ULONGLONG) -> super::BOOLEAN);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn EventRegister(providerid : super::LPCGUID, enablecallback : PENABLECALLBACK, callbackcontext : super::PVOID, reghandle : PREGHANDLE) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : REGHANDLE, informationclass : EVENT_INFO_CLASS, eventinformation : super::PVOID, informationlength : super::ULONG) -> super::ULONG);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn EventUnregister(reghandle : REGHANDLE) -> super::ULONG);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, userdatacount : super::ULONG, userdata : PEVENT_DATA_DESCRIPTOR) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, filter : super::ULONG64, flags : super::ULONG, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : super::ULONG, userdata : PEVENT_DATA_DESCRIPTOR) -> super::ULONG);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : super::UCHAR, keyword : super::ULONGLONG, string : windows_sys::core::PCWSTR) -> super::ULONG);
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : super::ULONG, userdata : PEVENT_DATA_DESCRIPTOR) -> super::ULONG);
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: i32 = 3;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: i32 = 5;
 pub const EVENT_ACTIVITY_CTRL_GET_ID: i32 = 1;
 pub const EVENT_ACTIVITY_CTRL_GET_SET_ID: i32 = 4;
 pub const EVENT_ACTIVITY_CTRL_SET_ID: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EVENT_DATA_DESCRIPTOR {
-    pub Ptr: u64,
-    pub Size: u32,
+    pub Ptr: super::ULONGLONG,
+    pub Size: super::ULONG,
     pub Anonymous: EVENT_DATA_DESCRIPTOR_0,
 }
+#[cfg(feature = "shared")]
 impl Default for EVENT_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union EVENT_DATA_DESCRIPTOR_0 {
-    pub Reserved: u32,
+    pub Reserved: super::ULONG,
     pub Anonymous: EVENT_DATA_DESCRIPTOR_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for EVENT_DATA_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_DATA_DESCRIPTOR_0_0 {
-    pub Type: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u16,
+    pub Type: super::UCHAR,
+    pub Reserved1: super::UCHAR,
+    pub Reserved2: super::USHORT,
 }
 pub const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: i32 = 1;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_NONE: i32 = 0;
@@ -55,77 +64,81 @@ pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: i32 = 2;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: i32 = 4;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_DESCRIPTOR {
-    pub Id: u16,
-    pub Version: u8,
-    pub Channel: u8,
-    pub Level: u8,
-    pub Opcode: u8,
-    pub Task: u16,
-    pub Keyword: u64,
+    pub Id: super::USHORT,
+    pub Version: super::UCHAR,
+    pub Channel: super::UCHAR,
+    pub Level: super::UCHAR,
+    pub Opcode: super::UCHAR,
+    pub Task: super::USHORT,
+    pub Keyword: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_FILTER_DESCRIPTOR {
-    pub Ptr: u64,
-    pub Size: u32,
-    pub Type: u32,
+    pub Ptr: super::ULONGLONG,
+    pub Size: super::ULONG,
+    pub Type: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EVENT_FILTER_EVENT_ID {
     pub FilterIn: super::BOOLEAN,
-    pub Reserved: u8,
-    pub Count: u16,
-    pub Events: [u16; 1],
+    pub Reserved: super::UCHAR,
+    pub Count: super::USHORT,
+    pub Events: [super::USHORT; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for EVENT_FILTER_EVENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EVENT_FILTER_EVENT_NAME {
-    pub MatchAnyKeyword: u64,
-    pub MatchAllKeyword: u64,
-    pub Level: u8,
+    pub MatchAnyKeyword: super::ULONGLONG,
+    pub MatchAllKeyword: super::ULONGLONG,
+    pub Level: super::UCHAR,
     pub FilterIn: super::BOOLEAN,
-    pub NameCount: u16,
-    pub Names: [u8; 1],
+    pub NameCount: super::USHORT,
+    pub Names: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for EVENT_FILTER_EVENT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EVENT_FILTER_HEADER {
-    pub Id: u16,
-    pub Version: u8,
-    pub Reserved: [u8; 5],
-    pub InstanceId: u64,
-    pub Size: u32,
-    pub NextOffset: u32,
+    pub Id: super::USHORT,
+    pub Version: super::UCHAR,
+    pub Reserved: [super::UCHAR; 5],
+    pub InstanceId: super::ULONGLONG,
+    pub Size: super::ULONG,
+    pub NextOffset: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for EVENT_FILTER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_FILTER_LEVEL_KW {
-    pub MatchAnyKeyword: u64,
-    pub MatchAllKeyword: u64,
-    pub Level: u8,
+    pub MatchAnyKeyword: super::ULONGLONG,
+    pub MatchAllKeyword: super::ULONGLONG,
+    pub Level: super::UCHAR,
     pub FilterIn: super::BOOLEAN,
 }
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
@@ -161,17 +174,23 @@ pub const MAX_EVENT_FILTER_EVENT_NAME_SIZE: i32 = 4096;
 pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
 pub const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
 pub const MaxEventInfo: EVENT_INFO_CLASS = 5;
+#[cfg(feature = "shared")]
 pub type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
-#[cfg(all(feature = "evntrace", feature = "guiddef"))]
-pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: super::LPCGUID, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: super::PEVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: super::LPCGUID, isenabled: super::ULONG, level: super::UCHAR, matchanykeyword: super::ULONGLONG, matchallkeyword: super::ULONGLONG, filterdata: PEVENT_FILTER_DESCRIPTOR, callbackcontext: super::PVOID)>;
+#[cfg(feature = "shared")]
 pub type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PEVENT_FILTER_DESCRIPTOR = *mut EVENT_FILTER_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PEVENT_FILTER_EVENT_ID = *mut EVENT_FILTER_EVENT_ID;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PEVENT_FILTER_EVENT_NAME = *mut EVENT_FILTER_EVENT_NAME;
+#[cfg(feature = "shared")]
 pub type PEVENT_FILTER_HEADER = *mut EVENT_FILTER_HEADER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PEVENT_FILTER_LEVEL_KW = *mut EVENT_FILTER_LEVEL_KW;
 pub type PREGHANDLE = *mut u64;
 pub type REGHANDLE = u64;

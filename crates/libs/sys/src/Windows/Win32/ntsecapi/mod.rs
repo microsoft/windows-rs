@@ -1,142 +1,159 @@
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::PSID, psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::HANDLE, psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::PSID, psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::HANDLE, psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("advapi32.dll" "system" fn AuditEnumerateCategories(ppauditcategoriesarray : *mut *mut windows_sys::core::GUID, pdwcountreturned : super::PULONG) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn AuditEnumeratePerUserPolicy(ppauditsidarray : *mut PPOLICY_AUDIT_SID_ARRAY) -> super::BOOLEAN);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("advapi32.dll" "system" fn AuditEnumerateSubCategories(pauditcategoryguid : *const windows_sys::core::GUID, bretrieveallsubcategories : super::BOOLEAN, ppauditsubcategoriesarray : *mut *mut windows_sys::core::GUID, pdwcountreturned : super::PULONG) -> super::BOOLEAN);
-windows_link::link!("advapi32.dll" "system" fn AuditFree(buffer : *const core::ffi::c_void));
 #[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn AuditFree(buffer : super::PVOID));
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid : POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid : *mut windows_sys::core::GUID) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid : *const windows_sys::core::GUID, pauditcategoryid : PPOLICY_AUDIT_EVENT_TYPE) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn AuditLookupCategoryNameA(pauditcategoryguid : *const windows_sys::core::GUID, ppszcategoryname : *mut windows_sys::core::PSTR) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn AuditLookupCategoryNameW(pauditcategoryguid : *const windows_sys::core::GUID, ppszcategoryname : *mut windows_sys::core::PWSTR) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameA(pauditsubcategoryguid : *const windows_sys::core::GUID, ppszsubcategoryname : *mut windows_sys::core::PSTR) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameW(pauditsubcategoryguid : *const windows_sys::core::GUID, ppszsubcategoryname : *mut windows_sys::core::PWSTR) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclA(objecttypename : windows_sys::core::PCSTR, acl : *mut super::PACL) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclW(objecttypename : windows_sys::core::PCWSTR, acl : *mut super::PACL) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::PSID, psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::PSID, psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn AuditQuerySecurity(securityinformation : super::SECURITY_INFORMATION, ppsecuritydescriptor : *mut super::PSECURITY_DESCRIPTOR) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_sys::core::GUID, dwpolicycount : super::ULONG, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> super::BOOLEAN);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn AuditSetGlobalSaclA(objecttypename : windows_sys::core::PCSTR, acl : super::PACL) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn AuditSetGlobalSaclW(objecttypename : windows_sys::core::PCWSTR, acl : super::PACL) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::PSID, pauditpolicy : PCAUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::PSID, pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : super::ULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> super::BOOLEAN);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : PCAUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> super::BOOLEAN);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : super::PLSA_UNICODE_STRING, countofrights : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaCallAuthenticationPackage(lsahandle : super::HANDLE, authenticationpackage : u32, protocolsubmitbuffer : *const core::ffi::c_void, submitbufferlength : u32, protocolreturnbuffer : *mut *mut core::ffi::c_void, returnbufferlength : super::PULONG, protocolstatus : super::PNTSTATUS) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : super::ULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : super::PLSA_UNICODE_STRING, countofrights : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn LsaCallAuthenticationPackage(lsahandle : super::HANDLE, authenticationpackage : super::ULONG, protocolsubmitbuffer : super::PVOID, submitbufferlength : super::ULONG, protocolreturnbuffer : *mut super::PVOID, returnbufferlength : super::PULONG, protocolstatus : super::PNTSTATUS) -> windows_sys::core::NTSTATUS);
 windows_link::link!("advapi32.dll" "system" fn LsaClose(objecthandle : LSA_HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("secur32.dll" "system" fn LsaConnectUntrusted(lsahandle : super::PHANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 windows_link::link!("advapi32.dll" "system" fn LsaCreateTrustedDomainEx(policyhandle : LSA_HANDLE, trusteddomaininformation : PTRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation : PTRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess : super::ACCESS_MASK, trusteddomainhandle : PLSA_HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn LsaDeleteTrustedDomain(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("secur32.dll" "system" fn LsaDeregisterLogonProcess(lsahandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 windows_link::link!("advapi32.dll" "system" fn LsaEnumerateAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : *mut super::PLSA_UNICODE_STRING, countofrights : super::PULONG) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-windows_link::link!("advapi32.dll" "system" fn LsaEnumerateAccountsWithUserRight(policyhandle : LSA_HANDLE, userright : super::PLSA_UNICODE_STRING, buffer : *mut *mut core::ffi::c_void, countreturned : super::PULONG) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaEnumerateAccountsWithUserRight(policyhandle : LSA_HANDLE, userright : super::PLSA_UNICODE_STRING, buffer : *mut super::PVOID, countreturned : super::PULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 windows_link::link!("secur32.dll" "system" fn LsaEnumerateLogonSessions(logonsessioncount : super::PULONG, logonsessionlist : *mut super::PLUID) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomains(policyhandle : LSA_HANDLE, enumerationcontext : PLSA_ENUMERATION_HANDLE, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : super::PULONG) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomainsEx(policyhandle : LSA_HANDLE, enumerationcontext : PLSA_ENUMERATION_HANDLE, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : super::PULONG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn LsaFreeMemory(buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-windows_link::link!("secur32.dll" "system" fn LsaFreeReturnBuffer(buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaGetAppliedCAPIDs(systemname : super::PLSA_UNICODE_STRING, capids : *mut *mut super::PSID, capidcount : super::PULONG) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaGetLogonSessionData(logonid : super::PLUID, pplogonsessiondata : *mut PSECURITY_LOGON_SESSION_DATA) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaLogonUser(lsahandle : super::HANDLE, originname : super::PLSA_STRING, logontype : SECURITY_LOGON_TYPE, authenticationpackage : u32, authenticationinformation : *const core::ffi::c_void, authenticationinformationlength : u32, localgroups : super::PTOKEN_GROUPS, sourcecontext : super::PTOKEN_SOURCE, profilebuffer : *mut *mut core::ffi::c_void, profilebufferlength : super::PULONG, logonid : super::PLUID, token : super::PHANDLE, quotas : super::PQUOTA_LIMITS, substatus : super::PNTSTATUS) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaLookupAuthenticationPackage(lsahandle : super::HANDLE, packagename : super::PLSA_STRING, authenticationpackage : super::PULONG) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupNames(policyhandle : LSA_HANDLE, count : u32, names : super::PLSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut PLSA_TRANSLATED_SID) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupNames2(policyhandle : LSA_HANDLE, flags : u32, count : u32, names : super::PLSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut super::PLSA_TRANSLATED_SID2) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupSids(policyhandle : LSA_HANDLE, count : u32, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : u32, count : u32, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn LsaNtStatusToWinError(status : windows_sys::core::NTSTATUS) -> u32);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaOpenPolicy(systemname : super::PLSA_UNICODE_STRING, objectattributes : super::PLSA_OBJECT_ATTRIBUTES, desiredaccess : super::ACCESS_MASK, policyhandle : PLSA_HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaOpenTrustedDomainByName(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, desiredaccess : super::ACCESS_MASK, trusteddomainhandle : PLSA_HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::PSID, capidcount : u32, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : super::PULONG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn LsaQueryDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION2) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn LsaQueryInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomains(policyhandle : LSA_HANDLE, enumerationcontext : PLSA_ENUMERATION_HANDLE, buffer : *mut super::PVOID, preferedmaximumlength : super::ULONG, countreturned : super::PULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomainsEx(policyhandle : LSA_HANDLE, enumerationcontext : PLSA_ENUMERATION_HANDLE, buffer : *mut super::PVOID, preferedmaximumlength : super::ULONG, countreturned : super::PULONG) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfo(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "lsalookup")]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaFreeMemory(buffer : super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("secur32.dll" "system" fn LsaFreeReturnBuffer(buffer : super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaGetAppliedCAPIDs(systemname : super::PLSA_UNICODE_STRING, capids : *mut *mut super::PSID, capidcount : super::PULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("secur32.dll" "system" fn LsaGetLogonSessionData(logonid : super::PLUID, pplogonsessiondata : *mut PSECURITY_LOGON_SESSION_DATA) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("secur32.dll" "system" fn LsaLogonUser(lsahandle : super::HANDLE, originname : super::PLSA_STRING, logontype : SECURITY_LOGON_TYPE, authenticationpackage : super::ULONG, authenticationinformation : super::PVOID, authenticationinformationlength : super::ULONG, localgroups : super::PTOKEN_GROUPS, sourcecontext : super::PTOKEN_SOURCE, profilebuffer : *mut super::PVOID, profilebufferlength : super::PULONG, logonid : super::PLUID, token : super::PHANDLE, quotas : super::PQUOTA_LIMITS, substatus : super::PNTSTATUS) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("secur32.dll" "system" fn LsaLookupAuthenticationPackage(lsahandle : super::HANDLE, packagename : super::PLSA_STRING, authenticationpackage : super::PULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupNames(policyhandle : LSA_HANDLE, count : super::ULONG, names : super::PLSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut PLSA_TRANSLATED_SID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupNames2(policyhandle : LSA_HANDLE, flags : super::ULONG, count : super::ULONG, names : super::PLSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut super::PLSA_TRANSLATED_SID2) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupSids(policyhandle : LSA_HANDLE, count : super::ULONG, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : super::ULONG, count : super::ULONG, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn LsaNtStatusToWinError(status : windows_sys::core::NTSTATUS) -> super::ULONG);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaOpenPolicy(systemname : super::PLSA_UNICODE_STRING, objectattributes : super::PLSA_OBJECT_ATTRIBUTES, desiredaccess : super::ACCESS_MASK, policyhandle : PLSA_HANDLE) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaOpenTrustedDomainByName(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, desiredaccess : super::ACCESS_MASK, trusteddomainhandle : PLSA_HANDLE) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::PSID, capidcount : super::ULONG, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : super::PULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *mut super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION2) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *mut super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfo(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 windows_link::link!("secur32.dll" "system" fn LsaRegisterLogonProcess(logonprocessname : super::PLSA_STRING, lsahandle : super::PHANDLE, securitymode : PLSA_OPERATIONAL_MODE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("secur32.dll" "system" fn LsaRegisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, allrights : super::BOOLEAN, userrights : super::PLSA_UNICODE_STRING, countofrights : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, allrights : super::BOOLEAN, userrights : super::PLSA_UNICODE_STRING, countofrights : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 windows_link::link!("advapi32.dll" "system" fn LsaRetrievePrivateData(policyhandle : LSA_HANDLE, keyname : super::PLSA_UNICODE_STRING, privatedata : *mut super::PLSA_UNICODE_STRING) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "lsalookup")]
-windows_link::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : super::PLSA_UNICODE_STRING, capdncount : u32, flags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn LsaSetDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, foresttrustinfo : PLSA_FOREST_TRUST_INFORMATION, checkonly : super::BOOLEAN, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : PLSA_FOREST_TRUST_INFORMATION2, checkonly : super::BOOLEAN, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn LsaSetInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "lsalookup")]
-windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : super::PLSA_UNICODE_STRING, capdncount : super::ULONG, flags : super::ULONG) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "lsalookup")]
+windows_link::link!("advapi32.dll" "system" fn LsaSetDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, foresttrustinfo : PLSA_FOREST_TRUST_INFORMATION, checkonly : super::BOOLEAN, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : PLSA_FOREST_TRUST_INFORMATION2, checkonly : super::BOOLEAN, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaSetInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : super::PLSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : super::PVOID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 windows_link::link!("advapi32.dll" "system" fn LsaStorePrivateData(policyhandle : LSA_HANDLE, keyname : super::PLSA_UNICODE_STRING, privatedata : super::PLSA_UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("secur32.dll" "system" fn LsaUnregisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" "SystemFunction041" fn RtlDecryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("advapi32.dll" "system" "SystemFunction040" fn RtlEncryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "winnt")]
-windows_link::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> super::BOOLEAN);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" "SystemFunction041" fn RtlDecryptMemory(memory : super::PVOID, memorysize : super::ULONG, optionflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" "SystemFunction040" fn RtlEncryptMemory(memory : super::PVOID, memorysize : super::ULONG, optionflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : super::PVOID, randombufferlength : super::ULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn SystemFunction036(randombuffer : super::PVOID, randombufferlength : super::ULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn SystemFunction040(memory : super::PVOID, memorysize : super::ULONG, optionflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn SystemFunction041(memory : super::PVOID, memorysize : super::ULONG, optionflags : super::ULONG) -> windows_sys::core::NTSTATUS);
 pub const AUDIT_ENUMERATE_USERS: i32 = 16;
 pub const AUDIT_GENERIC_ALL: i32 = 983167;
 pub const AUDIT_GENERIC_EXECUTE: i32 = 131072;
 pub const AUDIT_GENERIC_READ: i32 = 131162;
 pub const AUDIT_GENERIC_WRITE: i32 = 131109;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIT_POLICY_INFORMATION {
     pub AuditSubCategoryGuid: windows_sys::core::GUID,
-    pub AuditingInformation: u32,
+    pub AuditingInformation: super::ULONG,
     pub AuditCategoryGuid: windows_sys::core::GUID,
 }
 pub const AUDIT_QUERY_MISC_POLICY: i32 = 64;
@@ -238,31 +255,31 @@ pub const Audit_System_SecurityStateChange: windows_sys::core::GUID = windows_sy
 pub const Audit_System_SecuritySubsystemExtension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0cce9211_69ae_11d9_bed3_505054503030);
 pub const Batch: SECURITY_LOGON_TYPE = 4;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct CENTRAL_ACCESS_POLICY {
     pub CAPID: super::PSID,
     pub Name: super::LSA_UNICODE_STRING,
     pub Description: super::LSA_UNICODE_STRING,
     pub ChangeId: super::LSA_UNICODE_STRING,
-    pub Flags: u32,
-    pub CAPECount: u32,
+    pub Flags: super::ULONG,
+    pub CAPECount: super::ULONG,
     pub CAPEs: *mut PCENTRAL_ACCESS_POLICY_ENTRY,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct CENTRAL_ACCESS_POLICY_ENTRY {
     pub Name: super::LSA_UNICODE_STRING,
     pub Description: super::LSA_UNICODE_STRING,
     pub ChangeId: super::LSA_UNICODE_STRING,
-    pub LengthAppliesTo: u32,
+    pub LengthAppliesTo: super::ULONG,
     pub AppliesTo: super::PUCHAR,
-    pub LengthSD: u32,
+    pub LengthSD: super::ULONG,
     pub SD: super::PSECURITY_DESCRIPTOR,
-    pub LengthStagedSD: u32,
+    pub LengthStagedSD: super::ULONG,
     pub StagedSD: super::PSECURITY_DESCRIPTOR,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: i32 = 1;
 pub const CENTRAL_ACCESS_POLICY_STAGED_FLAG: i32 = 65536;
@@ -279,16 +296,16 @@ pub const DOMAIN_LOCKOUT_ADMINS: i32 = 8;
 pub const DOMAIN_NO_LM_OWF_CHANGE: i32 = 64;
 pub const DOMAIN_PASSWORD_COMPLEX: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOMAIN_PASSWORD_INFORMATION {
-    pub MinPasswordLength: u16,
-    pub PasswordHistoryLength: u16,
-    pub PasswordProperties: u32,
+    pub MinPasswordLength: super::USHORT,
+    pub PasswordHistoryLength: super::USHORT,
+    pub PasswordProperties: super::ULONG,
     pub MaxPasswordAge: super::LARGE_INTEGER,
     pub MinPasswordAge: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOMAIN_PASSWORD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -311,14 +328,14 @@ pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1;
 pub const Interactive: SECURITY_LOGON_TYPE = 2;
 pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0;
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA {
-    pub SinceLastUsed: u64,
+    pub SinceLastUsed: super::ULONG64,
     pub DomainName: super::UNICODE_STRING,
     pub ProxyServerName: super::UNICODE_STRING,
     pub ProxyServerVdir: super::UNICODE_STRING,
-    pub ProxyServerPort: u16,
+    pub ProxyServerPort: super::USHORT,
     pub LogonId: super::LUID,
     pub CredUserName: super::UNICODE_STRING,
     pub CredDomainName: super::UNICODE_STRING,
@@ -327,26 +344,26 @@ pub struct KDC_PROXY_CACHE_ENTRY_DATA {
 pub const KERBEROS_REVISION: i32 = 6;
 pub const KERBEROS_VERSION: i32 = 5;
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: super::UNICODE_STRING,
     pub KdcAddress: super::UNICODE_STRING,
-    pub AddressType: u32,
-    pub DcFlags: u32,
+    pub AddressType: super::ULONG,
+    pub DcFlags: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: super::UNICODE_STRING,
     pub KdcAddress: super::UNICODE_STRING,
-    pub AddressType: u32,
+    pub AddressType: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -354,79 +371,81 @@ pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub DomainName: super::UNICODE_STRING,
     pub Password: super::UNICODE_STRING,
     pub LogonId: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX {
     pub Credentials: KERB_ADD_CREDENTIALS_REQUEST,
-    pub PrincipalNameCount: u32,
+    pub PrincipalNameCount: super::ULONG,
     pub PrincipalNames: [super::UNICODE_STRING; 1],
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_ADD_CREDENTIALS_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_AUTH_DATA {
-    pub Type: u32,
-    pub Length: u32,
+    pub Type: super::ULONG,
+    pub Length: super::ULONG,
     pub Data: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA {
-    pub DiscoveryTime: u64,
+    pub DiscoveryTime: super::ULONG64,
     pub RealmName: super::UNICODE_STRING,
     pub KdcAddress: super::UNICODE_STRING,
-    pub AddressType: u32,
-    pub Flags: u32,
-    pub DcFlags: u32,
-    pub CacheFlags: u32,
+    pub AddressType: super::ULONG,
+    pub Flags: super::ULONG,
+    pub DcFlags: super::ULONG,
+    pub CacheFlags: super::ULONG,
     pub KdcName: super::UNICODE_STRING,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CERTIFICATE_HASHINFO {
-    pub StoreNameLength: u16,
-    pub HashLength: u16,
+    pub StoreNameLength: super::USHORT,
+    pub HashLength: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CERTIFICATE_INFO {
-    pub CertInfoSize: u32,
-    pub InfoType: u32,
+    pub CertInfoSize: super::ULONG,
+    pub InfoType: super::ULONG,
 }
 pub type KERB_CERTIFICATE_INFO_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CERTIFICATE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub DomainName: super::UNICODE_STRING,
     pub UserName: super::UNICODE_STRING,
     pub Pin: super::UNICODE_STRING,
-    pub Flags: u32,
-    pub CspDataLength: u32,
+    pub Flags: super::ULONG,
+    pub CspDataLength: super::ULONG,
     pub CspData: super::PUCHAR,
 }
 pub const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
 pub const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub UserPrincipalName: super::UNICODE_STRING,
     pub DomainName: super::UNICODE_STRING,
-    pub CertificateLength: u32,
+    pub CertificateLength: super::ULONG,
     pub Certificate: super::PUCHAR,
 }
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
@@ -434,21 +453,21 @@ pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: i32 = 4;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON {
     pub Logon: KERB_CERTIFICATE_LOGON,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CHANGEMACHINEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub ForcePasswordChange: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -483,7 +502,7 @@ pub const KERB_CHECKSUM_SHA256: i32 = -139;
 pub const KERB_CHECKSUM_SHA384: i32 = -140;
 pub const KERB_CHECKSUM_SHA512: i32 = -141;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -501,61 +520,66 @@ pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
 }
 pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Version: u32,
-    pub Length: u32,
-    pub Data: [u32; 1],
+    pub Version: super::ULONG,
+    pub Length: super::ULONG,
+    pub Data: [super::ULONG; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CRYPTO_KEY {
-    pub KeyType: i32,
-    pub Length: u32,
+    pub KeyType: super::LONG,
+    pub Length: super::ULONG,
     pub Value: super::PUCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CRYPTO_KEY32 {
-    pub KeyType: i32,
-    pub Length: u32,
-    pub Offset: u32,
+    pub KeyType: super::LONG,
+    pub Length: super::ULONG,
+    pub Offset: super::ULONG,
 }
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_DECRYPT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
-    pub Flags: u32,
-    pub CryptoType: i32,
-    pub KeyUsage: i32,
+    pub Flags: super::ULONG,
+    pub CryptoType: super::LONG,
+    pub KeyUsage: super::LONG,
     pub Key: KERB_CRYPTO_KEY,
-    pub EncryptedDataSize: u32,
-    pub InitialVectorSize: u32,
+    pub EncryptedDataSize: super::ULONG,
+    pub InitialVectorSize: super::ULONG,
     pub InitialVector: super::PUCHAR,
     pub EncryptedData: super::PUCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KERB_DECRYPT_RESPONSE {
-    pub DecryptedData: [u8; 1],
+    pub DecryptedData: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KERB_DECRYPT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -603,21 +627,21 @@ pub const KERB_ETYPE_RSA_PUB_MD5: i32 = 11;
 pub const KERB_ETYPE_RSA_PUB_SHA1: i32 = 12;
 pub const KERB_ETYPE_RSA_SHA1_CMS: i32 = 11;
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_EXTERNAL_NAME {
-    pub NameType: i16,
-    pub NameCount: u16,
+    pub NameType: super::SHORT,
+    pub NameCount: super::USHORT,
     pub Names: [super::UNICODE_STRING; 1],
 }
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 impl Default for KERB_EXTERNAL_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_EXTERNAL_TICKET {
     pub ServiceName: PKERB_EXTERNAL_NAME,
@@ -627,24 +651,24 @@ pub struct KERB_EXTERNAL_TICKET {
     pub TargetDomainName: super::UNICODE_STRING,
     pub AltTargetDomainName: super::UNICODE_STRING,
     pub SessionKey: KERB_CRYPTO_KEY,
-    pub TicketFlags: u32,
-    pub Flags: u32,
+    pub TicketFlags: super::ULONG,
+    pub Flags: super::ULONG,
     pub KeyExpirationTime: super::LARGE_INTEGER,
     pub StartTime: super::LARGE_INTEGER,
     pub EndTime: super::LARGE_INTEGER,
     pub RenewUntil: super::LARGE_INTEGER,
     pub TimeSkew: super::LARGE_INTEGER,
-    pub EncodedTicketSize: u32,
+    pub EncodedTicketSize: super::ULONG,
     pub EncodedTicket: super::PUCHAR,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_EXTERNAL_TICKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -653,12 +677,12 @@ pub struct KERB_INTERACTIVE_LOGON {
     pub Password: super::UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_INTERACTIVE_PROFILE {
     pub MessageType: KERB_PROFILE_BUFFER_TYPE,
-    pub LogonCount: u16,
-    pub BadPasswordCount: u16,
+    pub LogonCount: super::USHORT,
+    pub BadPasswordCount: super::USHORT,
     pub LogonTime: super::LARGE_INTEGER,
     pub LogoffTime: super::LARGE_INTEGER,
     pub KickOffTime: super::LARGE_INTEGER,
@@ -671,16 +695,16 @@ pub struct KERB_INTERACTIVE_PROFILE {
     pub ProfilePath: super::UNICODE_STRING,
     pub HomeDirectoryDrive: super::UNICODE_STRING,
     pub LogonServer: super::UNICODE_STRING,
-    pub UserFlags: u32,
+    pub UserFlags: super::ULONG,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_INTERACTIVE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
     pub Logon: KERB_INTERACTIVE_LOGON,
@@ -690,21 +714,21 @@ pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: i32 = 1;
 pub const KERB_LOGON_FLAG_REDIRECTED: i32 = 2;
 pub type KERB_LOGON_SUBMIT_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_NET_ADDRESS {
-    pub Family: u32,
-    pub Length: u32,
+    pub Family: super::ULONG,
+    pub Length: super::ULONG,
     pub Address: super::PCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KERB_NET_ADDRESSES {
-    pub Number: u32,
+    pub Number: super::ULONG,
     pub Addresses: [KERB_NET_ADDRESS; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KERB_NET_ADDRESSES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -719,36 +743,37 @@ pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfPurged: u32,
+    pub CountOfPurged: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub TicketTemplate: KERB_TICKET_CACHE_INFO_EX,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_PURGE_TKT_CACHE_EX_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -762,120 +787,121 @@ pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfEntries: u32,
+    pub CountOfEntries: super::ULONG,
     pub Entries: PKERB_BINDING_CACHE_ENTRY_DATA,
 }
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub DomainName: super::UNICODE_STRING,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
-    pub ExtendedPolicies: u32,
-    pub DsFlags: u32,
+    pub Flags: super::ULONG,
+    pub ExtendedPolicies: super::ULONG,
+    pub DsFlags: super::ULONG,
 }
 pub const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfEntries: u32,
+    pub CountOfEntries: super::ULONG,
     pub Entries: PKDC_PROXY_CACHE_ENTRY_DATA,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfCreds: u32,
+    pub CountOfCreds: super::ULONG,
     pub Creds: PKERB_S4U2PROXY_CRED,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfTickets: u32,
+    pub CountOfTickets: super::ULONG,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX2; 1],
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfTickets: u32,
+    pub CountOfTickets: super::ULONG,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX3; 1],
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfTickets: u32,
+    pub CountOfTickets: super::ULONG,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX; 1],
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CountOfTickets: u32,
+    pub CountOfTickets: super::ULONG,
     pub Tickets: [KERB_TICKET_CACHE_INFO; 1],
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -884,48 +910,50 @@ impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
 pub const KERB_REFRESH_POLICY_KDC: i32 = 2;
 pub const KERB_REFRESH_POLICY_KERBEROS: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_REFRESH_POLICY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_REFRESH_POLICY_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const KERB_REFRESH_SCCRED_GETTGT: i32 = 1;
 pub const KERB_REFRESH_SCCRED_RELEASE: i32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_REFRESH_SCCRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CredentialBlob: super::UNICODE_STRING,
     pub LogonId: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const KERB_REQUEST_ADD_CREDENTIAL: i32 = 1;
 pub const KERB_REQUEST_CRED_LOCAL_ACCOUNT: i32 = 8;
 pub const KERB_REQUEST_REMOVE_CREDENTIAL: i32 = 4;
 pub const KERB_REQUEST_REPLACE_CREDENTIAL: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub UserName: super::UNICODE_STRING,
     pub DomainName: super::UNICODE_STRING,
     pub Password: super::UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_KEY_TAB_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub KeyTabLength: u32,
+    pub KeyTabLength: super::ULONG,
     pub KeyTab: super::PUCHAR,
 }
 pub const KERB_RETRIEVE_TICKET_AS_KERB_CRED: i32 = 8;
@@ -937,39 +965,39 @@ pub const KERB_RETRIEVE_TICKET_USE_CACHE_ONLY: i32 = 2;
 pub const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: i32 = 4;
 pub const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: i32 = 16;
 #[repr(C)]
-#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
     pub TargetName: super::UNICODE_STRING,
-    pub TicketFlags: u32,
-    pub CacheOptions: u32,
-    pub EncryptionType: i32,
+    pub TicketFlags: super::ULONG,
+    pub CacheOptions: super::ULONG,
+    pub EncryptionType: super::LONG,
     pub CredentialsHandle: super::SecHandle,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_RETRIEVE_TKT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub ServerName: super::UNICODE_STRING,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub LastStatus: windows_sys::core::NTSTATUS,
     pub Expiry: super::LARGE_INTEGER,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -977,18 +1005,18 @@ impl Default for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
 }
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_S4U2PROXY_CRED {
     pub UserName: super::UNICODE_STRING,
     pub DomainName: super::UNICODE_STRING,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub LastStatus: windows_sys::core::NTSTATUS,
     pub Expiry: super::LARGE_INTEGER,
-    pub CountOfEntries: u32,
+    pub CountOfEntries: super::ULONG,
     pub Entries: PKERB_S4U2PROXY_CACHE_ENTRY_INFO,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_S4U2PROXY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -996,24 +1024,24 @@ impl Default for KERB_S4U2PROXY_CRED {
 }
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub ClientUpn: super::UNICODE_STRING,
     pub ClientRealm: super::UNICODE_STRING,
 }
 pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
     pub CredentialsHandle: super::SecHandle,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub AccountRealm: super::UNICODE_STRING,
     pub AccountName: super::UNICODE_STRING,
     pub Password: super::UNICODE_STRING,
@@ -1021,16 +1049,16 @@ pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub ClientName: super::UNICODE_STRING,
     pub Impersonating: super::BOOLEAN,
     pub KdcAddress: super::UNICODE_STRING,
-    pub KdcAddressType: u32,
+    pub KdcAddressType: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SETPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
     pub CredentialsHandle: super::SecHandle,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub DomainName: super::UNICODE_STRING,
     pub AccountName: super::UNICODE_STRING,
     pub Password: super::UNICODE_STRING,
@@ -1038,48 +1066,48 @@ pub struct KERB_SETPASSWORD_REQUEST {
 pub const KERB_SETPASS_USE_CREDHANDLE: i32 = 2;
 pub const KERB_SETPASS_USE_LOGONID: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SMART_CARD_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Pin: super::UNICODE_STRING,
-    pub CspDataLength: u32,
+    pub CspDataLength: super::ULONG,
     pub CspData: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_SMART_CARD_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
-    pub CertificateSize: u32,
+    pub CertificateSize: super::ULONG,
     pub CertificateData: super::PUCHAR,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_SMART_CARD_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
     pub Logon: KERB_SMART_CARD_LOGON,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SUBMIT_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub Key: KERB_CRYPTO_KEY32,
-    pub KerbCredSize: u32,
-    pub KerbCredOffset: u32,
+    pub KerbCredSize: super::ULONG,
+    pub KerbCredOffset: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_TICKET_CACHE_INFO {
     pub ServerName: super::UNICODE_STRING,
@@ -1087,17 +1115,17 @@ pub struct KERB_TICKET_CACHE_INFO {
     pub StartTime: super::LARGE_INTEGER,
     pub EndTime: super::LARGE_INTEGER,
     pub RenewTime: super::LARGE_INTEGER,
-    pub EncryptionType: i32,
-    pub TicketFlags: u32,
+    pub EncryptionType: super::LONG,
+    pub TicketFlags: super::ULONG,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_TICKET_CACHE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_TICKET_CACHE_INFO_EX {
     pub ClientName: super::UNICODE_STRING,
@@ -1107,17 +1135,17 @@ pub struct KERB_TICKET_CACHE_INFO_EX {
     pub StartTime: super::LARGE_INTEGER,
     pub EndTime: super::LARGE_INTEGER,
     pub RenewTime: super::LARGE_INTEGER,
-    pub EncryptionType: i32,
-    pub TicketFlags: u32,
+    pub EncryptionType: super::LONG,
+    pub TicketFlags: super::ULONG,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_TICKET_CACHE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub ClientName: super::UNICODE_STRING,
@@ -1127,19 +1155,19 @@ pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub StartTime: super::LARGE_INTEGER,
     pub EndTime: super::LARGE_INTEGER,
     pub RenewTime: super::LARGE_INTEGER,
-    pub EncryptionType: i32,
-    pub TicketFlags: u32,
-    pub SessionKeyType: u32,
-    pub BranchId: u32,
+    pub EncryptionType: super::LONG,
+    pub TicketFlags: super::ULONG,
+    pub SessionKeyType: super::ULONG,
+    pub BranchId: super::ULONG,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_TICKET_CACHE_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub ClientName: super::UNICODE_STRING,
@@ -1149,14 +1177,14 @@ pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub StartTime: super::LARGE_INTEGER,
     pub EndTime: super::LARGE_INTEGER,
     pub RenewTime: super::LARGE_INTEGER,
-    pub EncryptionType: i32,
-    pub TicketFlags: u32,
-    pub SessionKeyType: u32,
-    pub BranchId: u32,
-    pub CacheFlags: u32,
+    pub EncryptionType: super::LONG,
+    pub TicketFlags: super::ULONG,
+    pub SessionKeyType: super::ULONG,
+    pub BranchId: super::ULONG,
+    pub CacheFlags: super::ULONG,
     pub KdcCalled: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_TICKET_CACHE_INFO_EX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1179,31 +1207,31 @@ pub const KERB_TICKET_FLAGS_renewable: i32 = 8388608;
 pub const KERB_TICKET_FLAGS_reserved: u32 = 2147483648;
 pub const KERB_TICKET_FLAGS_reserved1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
-    pub Flags: u32,
-    pub ServiceTicketLength: u32,
-    pub TicketGrantingTicketLength: u32,
+    pub Flags: super::ULONG,
+    pub ServiceTicketLength: super::ULONG,
+    pub TicketGrantingTicketLength: super::ULONG,
     pub ServiceTicket: super::PUCHAR,
     pub TicketGrantingTicket: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_TICKET_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub SessionKey: KERB_CRYPTO_KEY,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for KERB_TICKET_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_UNLOCK_LOGON {
     pub Logon: KERB_TICKET_LOGON,
@@ -1211,13 +1239,13 @@ pub struct KERB_TICKET_UNLOCK_LOGON {
 }
 pub const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TRANSFER_CRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub OriginLogonId: super::LUID,
     pub DestinationLogonId: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const KERB_TRANSFER_CRED_WITH_TICKETS: i32 = 1;
 pub const KERB_USE_DEFAULT_TICKET_FLAGS: i32 = 0;
@@ -1314,7 +1342,6 @@ pub const LOGON_SERVER_TRUST_ACCOUNT: i32 = 128;
 pub const LOGON_SUBAUTH_SESSION_KEY: i32 = 64;
 pub const LOGON_USED_LM_PASSWORD: i32 = 8;
 pub const LOGON_WINLOGON: i32 = 32768;
-pub type LPCAUDIT_POLICY_INFORMATION = PAUDIT_POLICY_INFORMATION;
 pub const LSAD_AES_BLOCK_SIZE: i32 = 16;
 pub const LSAD_AES_CRYPT_SHA512_HASH_SIZE: i32 = 64;
 pub const LSAD_AES_KEY_SIZE: i32 = 16;
@@ -1322,15 +1349,15 @@ pub const LSAD_AES_SALT_SIZE: i32 = 16;
 pub const LSASETCAPS_RELOAD_FLAG: i32 = 1;
 pub const LSASETCAPS_VALID_FLAG_MASK: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LSA_AUTH_INFORMATION {
     pub LastUpdateTime: super::LARGE_INTEGER,
-    pub AuthType: u32,
-    pub AuthInfoLength: u32,
+    pub AuthType: super::ULONG,
+    pub AuthInfoLength: super::ULONG,
     pub AuthInfo: super::PUCHAR,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for LSA_AUTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1344,31 +1371,31 @@ pub struct LSA_ENUMERATION_INFORMATION {
     pub Sid: super::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_FOREST_TRUST_BINARY_DATA {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub Buffer: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_FOREST_TRUST_COLLISION_INFORMATION {
-    pub RecordCount: u32,
+    pub RecordCount: super::ULONG,
     pub Entries: *mut PLSA_FOREST_TRUST_COLLISION_RECORD,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD {
-    pub Index: u32,
+    pub Index: super::ULONG,
     pub Type: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub Name: super::LSA_UNICODE_STRING,
 }
 pub type LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
     pub Sid: super::PSID,
@@ -1376,65 +1403,65 @@ pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
     pub NetbiosName: super::LSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_FOREST_TRUST_INFORMATION {
-    pub RecordCount: u32,
+    pub RecordCount: super::ULONG,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_FOREST_TRUST_INFORMATION2 {
-    pub RecordCount: u32,
+    pub RecordCount: super::ULONG,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD2,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct LSA_FOREST_TRUST_RECORD {
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
     pub Time: super::LARGE_INTEGER,
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD_0,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for LSA_FOREST_TRUST_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union LSA_FOREST_TRUST_RECORD_0 {
     pub TopLevelName: super::LSA_UNICODE_STRING,
     pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
     pub Data: LSA_FOREST_TRUST_BINARY_DATA,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for LSA_FOREST_TRUST_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct LSA_FOREST_TRUST_RECORD2 {
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
     pub Time: super::LARGE_INTEGER,
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD2_0,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for LSA_FOREST_TRUST_RECORD2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union LSA_FOREST_TRUST_RECORD2_0 {
     pub TopLevelName: super::LSA_UNICODE_STRING,
@@ -1442,7 +1469,7 @@ pub union LSA_FOREST_TRUST_RECORD2_0 {
     pub BinaryData: LSA_FOREST_TRUST_BINARY_DATA,
     pub ScannerInfo: LSA_FOREST_TRUST_SCANNER_INFO,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for LSA_FOREST_TRUST_RECORD2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1450,7 +1477,7 @@ impl Default for LSA_FOREST_TRUST_RECORD2_0 {
 }
 pub type LSA_FOREST_TRUST_RECORD_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_FOREST_TRUST_SCANNER_INFO {
     pub DomainSid: super::PSID,
@@ -1460,14 +1487,14 @@ pub struct LSA_FOREST_TRUST_SCANNER_INFO {
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535;
 pub type LSA_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LSA_LAST_INTER_LOGON_INFO {
     pub LastSuccessfulLogon: super::LARGE_INTEGER,
     pub LastFailedLogon: super::LARGE_INTEGER,
-    pub FailedAttemptCountSinceLastSuccessfulLogon: u32,
+    pub FailedAttemptCountSinceLastSuccessfulLogon: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for LSA_LAST_INTER_LOGON_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1488,12 +1515,12 @@ pub const LSA_TLN_DISABLED_ADMIN: i32 = 2;
 pub const LSA_TLN_DISABLED_CONFLICT: i32 = 4;
 pub const LSA_TLN_DISABLED_NEW: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_TRANSLATED_SID {
     pub Use: super::SID_NAME_USE,
-    pub RelativeId: u32,
-    pub DomainIndex: i32,
+    pub RelativeId: super::ULONG,
+    pub DomainIndex: super::LONG,
 }
 pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 3;
 pub const MAXIMUM_CAPES_PER_CAP: i32 = 127;
@@ -1511,14 +1538,15 @@ pub const MSV1_0_AV_FLAG_FORCE_GUEST: i32 = 1;
 pub const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: i32 = 2;
 pub const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_AV_PAIR {
-    pub AvId: u16,
-    pub AvLen: u16,
+    pub AvId: super::USHORT,
+    pub AvLen: super::USHORT,
 }
 pub const MSV1_0_CHALLENGE_LENGTH: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -1529,14 +1557,14 @@ pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub Impersonating: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_CHANGEPASSWORD_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub PasswordInfoValid: super::BOOLEAN,
     pub DomainPasswordInfo: DOMAIN_PASSWORD_INFORMATION,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MSV1_0_CHANGEPASSWORD_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1546,10 +1574,12 @@ pub const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: i32 = 262144;
 pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: i32 = 2;
 pub const MSV1_0_CLEARTEXT_PASSWORD_SUPPLIED: i32 = 16384;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_CREDENTIAL_KEY {
-    pub Data: [u8; 20],
+    pub Data: [super::UCHAR; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for MSV1_0_CREDENTIAL_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1573,7 +1603,7 @@ pub const MSV1_0_CRED_VERSION_V3: i32 = 4;
 pub const MSV1_0_DISABLE_PERSONAL_FALLBACK: i32 = 4096;
 pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_INTERACTIVE_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1582,12 +1612,12 @@ pub struct MSV1_0_INTERACTIVE_LOGON {
     pub Password: super::UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
-    pub LogonCount: u16,
-    pub BadPasswordCount: u16,
+    pub LogonCount: super::USHORT,
+    pub BadPasswordCount: super::USHORT,
     pub LogonTime: super::LARGE_INTEGER,
     pub LogoffTime: super::LARGE_INTEGER,
     pub KickOffTime: super::LARGE_INTEGER,
@@ -1600,9 +1630,9 @@ pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub ProfilePath: super::UNICODE_STRING,
     pub HomeDirectoryDrive: super::UNICODE_STRING,
     pub LogonServer: super::UNICODE_STRING,
-    pub UserFlags: u32,
+    pub UserFlags: super::ULONG,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_INTERACTIVE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1610,12 +1640,14 @@ impl Default for MSV1_0_INTERACTIVE_PROFILE {
 }
 pub const MSV1_0_INTERNET_DOMAIN: i32 = 524288;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
-    pub Version: u32,
-    pub EncryptedCredsSize: u32,
-    pub EncryptedCreds: [u8; 1],
+    pub Version: super::ULONG,
+    pub EncryptedCredsSize: super::ULONG,
+    pub EncryptedCreds: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1623,39 +1655,39 @@ impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
 }
 pub const MSV1_0_LANMAN_SESSION_KEY_LENGTH: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_LM20_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: super::UNICODE_STRING,
     pub UserName: super::UNICODE_STRING,
     pub Workstation: super::UNICODE_STRING,
-    pub ChallengeToClient: [u8; 8],
+    pub ChallengeToClient: [super::UCHAR; 8],
     pub CaseSensitiveChallengeResponse: super::STRING,
     pub CaseInsensitiveChallengeResponse: super::STRING,
-    pub ParameterControl: u32,
+    pub ParameterControl: super::ULONG,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_LM20_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
     pub KickOffTime: super::LARGE_INTEGER,
     pub LogoffTime: super::LARGE_INTEGER,
-    pub UserFlags: u32,
-    pub UserSessionKey: [u8; 16],
+    pub UserFlags: super::ULONG,
+    pub UserSessionKey: [super::UCHAR; 16],
     pub LogonDomainName: super::UNICODE_STRING,
-    pub LanmanSessionKey: [u8; 8],
+    pub LanmanSessionKey: [super::UCHAR; 8],
     pub LogonServer: super::UNICODE_STRING,
     pub UserParameters: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_LM20_LOGON_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1675,18 +1707,20 @@ pub const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u32 = 44;
 pub const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u64 = 44;
 pub const MSV1_0_NTLM3_OWF_LENGTH: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_NTLM3_RESPONSE {
-    pub Response: [u8; 16],
-    pub RespType: u8,
-    pub HiRespType: u8,
-    pub Flags: u16,
-    pub MsgWord: u32,
-    pub TimeStamp: u64,
-    pub ChallengeFromClient: [u8; 8],
-    pub AvPairsOff: u32,
-    pub Buffer: [u8; 1],
+    pub Response: [super::UCHAR; 16],
+    pub RespType: super::UCHAR,
+    pub HiRespType: super::UCHAR,
+    pub Flags: super::USHORT,
+    pub MsgWord: super::ULONG,
+    pub TimeStamp: super::ULONGLONG,
+    pub ChallengeFromClient: [super::UCHAR; 8],
+    pub AvPairsOff: super::ULONG,
+    pub Buffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MSV1_0_NTLM3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1701,37 +1735,39 @@ pub const MSV1_0_PACKAGE_NAMEW_LENGTH: u32 = 74;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const MSV1_0_PACKAGE_NAMEW_LENGTH: u64 = 74;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: super::UNICODE_STRING,
     pub PackageName: super::UNICODE_STRING,
-    pub DataLength: u32,
+    pub DataLength: super::ULONG,
     pub LogonData: super::PUCHAR,
-    pub Pad: u32,
+    pub Pad: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_PASSTHROUGH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub Pad: u32,
-    pub DataLength: u32,
+    pub Pad: super::ULONG,
+    pub DataLength: super::ULONG,
     pub ValidationData: super::PUCHAR,
 }
 pub type MSV1_0_PROFILE_BUFFER_TYPE = i32;
 pub type MSV1_0_PROTOCOL_MESSAGE_TYPE = i32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    pub Version: u32,
-    pub Flags: u32,
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
     pub CredentialKey: MSV1_0_CREDENTIAL_KEY,
     pub CredentialKeyType: MSV1_0_CREDENTIAL_KEY_TYPE,
-    pub EncryptedCredsSize: u32,
-    pub EncryptedCreds: [u8; 1],
+    pub EncryptedCredsSize: super::ULONG,
+    pub EncryptedCreds: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1742,11 +1778,11 @@ pub const MSV1_0_RETURN_PROFILE_PATH: i32 = 512;
 pub const MSV1_0_RETURN_USER_PARAMETERS: i32 = 8;
 pub const MSV1_0_S4U2SELF: i32 = 131072;
 #[repr(C)]
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_S4U_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub UserPrincipalName: super::UNICODE_STRING,
     pub DomainName: super::UNICODE_STRING,
 }
@@ -1761,78 +1797,84 @@ pub const MSV1_0_SUBAUTHENTICATION_FLAGS: u32 = 4278190080;
 pub const MSV1_0_SUBAUTHENTICATION_KEY: windows_sys::core::PCSTR = windows_sys::core::s!("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0");
 pub const MSV1_0_SUBAUTHENTICATION_VALUE: windows_sys::core::PCSTR = windows_sys::core::s!("Auth");
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_SUBAUTH_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: super::UNICODE_STRING,
     pub UserName: super::UNICODE_STRING,
     pub Workstation: super::UNICODE_STRING,
-    pub ChallengeToClient: [u8; 8],
+    pub ChallengeToClient: [super::UCHAR; 8],
     pub AuthenticationInfo1: super::STRING,
     pub AuthenticationInfo2: super::STRING,
-    pub ParameterControl: u32,
-    pub SubAuthPackageId: u32,
+    pub ParameterControl: super::ULONG,
+    pub SubAuthPackageId: super::ULONG,
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_SUBAUTH_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_SUBAUTH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub SubAuthPackageId: u32,
-    pub SubAuthInfoLength: u32,
+    pub SubAuthPackageId: super::ULONG,
+    pub SubAuthInfoLength: super::ULONG,
     pub SubAuthSubmitBuffer: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_SUBAUTH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub SubAuthInfoLength: u32,
+    pub SubAuthInfoLength: super::ULONG,
     pub SubAuthReturnBuffer: super::PUCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL {
-    pub Version: u32,
-    pub Flags: u32,
-    pub LmPassword: [u8; 16],
-    pub NtPassword: [u8; 16],
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
+    pub LmPassword: [super::UCHAR; 16],
+    pub NtPassword: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
-    pub Version: u32,
-    pub Flags: u32,
-    pub NtPassword: [u8; 16],
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
+    pub NtPassword: [super::UCHAR; 16],
     pub CredentialKey: MSV1_0_CREDENTIAL_KEY,
 }
+#[cfg(feature = "shared")]
 impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
-    pub Version: u32,
-    pub Flags: u32,
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
     pub CredentialKeyType: MSV1_0_CREDENTIAL_KEY_TYPE,
-    pub NtPassword: [u8; 16],
+    pub NtPassword: [super::UCHAR; 16],
     pub CredentialKey: MSV1_0_CREDENTIAL_KEY,
-    pub ShaPassword: [u8; 20],
+    pub ShaPassword: [super::UCHAR; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1893,41 +1935,45 @@ pub const MsvAvRestrictions: MSV1_0_AVID = 8;
 pub const MsvAvTargetName: MSV1_0_AVID = 9;
 pub const MsvAvTimestamp: MSV1_0_AVID = 7;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct NEGOTIATE_CALLER_NAME_REQUEST {
-    pub MessageType: u32,
+    pub MessageType: super::ULONG,
     pub LogonId: super::LUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NEGOTIATE_CALLER_NAME_RESPONSE {
-    pub MessageType: u32,
+    pub MessageType: super::ULONG,
     pub CallerName: windows_sys::core::PWSTR,
 }
 pub const NEGOTIATE_MAX_PREFIX: i32 = 32;
 pub type NEGOTIATE_MESSAGES = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NEGOTIATE_PACKAGE_PREFIX {
-    pub PackageId: usize,
-    pub PackageDataA: *mut core::ffi::c_void,
-    pub PackageDataW: *mut core::ffi::c_void,
-    pub PrefixLen: usize,
-    pub Prefix: [u8; 32],
+    pub PackageId: super::ULONG_PTR,
+    pub PackageDataA: super::PVOID,
+    pub PackageDataW: super::PVOID,
+    pub PrefixLen: super::ULONG_PTR,
+    pub Prefix: [super::UCHAR; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for NEGOTIATE_PACKAGE_PREFIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NEGOTIATE_PACKAGE_PREFIXES {
-    pub MessageType: u32,
-    pub PrefixCount: u32,
-    pub Offset: u32,
-    pub Pad: u32,
+    pub MessageType: super::ULONG,
+    pub PrefixCount: super::ULONG,
+    pub Offset: super::ULONG,
+    pub Pad: super::ULONG,
 }
 pub const NegCallPackageMax: NEGOTIATE_MESSAGES = 4;
 pub const NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = 0;
@@ -1937,17 +1983,17 @@ pub const NegTransferCredentials: NEGOTIATE_MESSAGES = 2;
 pub const Network: SECURITY_LOGON_TYPE = 3;
 pub const NetworkCleartext: SECURITY_LOGON_TYPE = 8;
 pub const NewCredentials: SECURITY_LOGON_TYPE = 9;
+#[cfg(feature = "shared")]
 pub type PAUDIT_POLICY_INFORMATION = *mut AUDIT_POLICY_INFORMATION;
-pub type PCAUDIT_POLICY_INFORMATION = PAUDIT_POLICY_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PCCENTRAL_ACCESS_POLICY = *const CENTRAL_ACCESS_POLICY;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PCCENTRAL_ACCESS_POLICY_ENTRY = *const CENTRAL_ACCESS_POLICY_ENTRY;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PCENTRAL_ACCESS_POLICY = *mut CENTRAL_ACCESS_POLICY;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PCENTRAL_ACCESS_POLICY_ENTRY = *mut CENTRAL_ACCESS_POLICY_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOMAIN_PASSWORD_INFORMATION = *mut DOMAIN_PASSWORD_INFORMATION;
 pub const PER_USER_AUDIT_FAILURE_EXCLUDE: i32 = 8;
 pub const PER_USER_AUDIT_FAILURE_INCLUDE: i32 = 4;
@@ -1955,255 +2001,278 @@ pub const PER_USER_AUDIT_NONE: i32 = 16;
 pub const PER_USER_AUDIT_SUCCESS_EXCLUDE: i32 = 2;
 pub const PER_USER_AUDIT_SUCCESS_INCLUDE: i32 = 1;
 pub const PER_USER_POLICY_UNCHANGED: i32 = 0;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKDC_PROXY_CACHE_ENTRY_DATA = *mut KDC_PROXY_CACHE_ENTRY_DATA;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_ADD_CREDENTIALS_REQUEST = *mut KERB_ADD_CREDENTIALS_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_ADD_CREDENTIALS_REQUEST_EX = *mut KERB_ADD_CREDENTIALS_REQUEST_EX;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKERB_AUTH_DATA = *mut KERB_AUTH_DATA;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_BINDING_CACHE_ENTRY_DATA = *mut KERB_BINDING_CACHE_ENTRY_DATA;
+#[cfg(feature = "shared")]
 pub type PKERB_CERTIFICATE_HASHINFO = *mut KERB_CERTIFICATE_HASHINFO;
+#[cfg(feature = "shared")]
 pub type PKERB_CERTIFICATE_INFO = *mut KERB_CERTIFICATE_INFO;
 pub type PKERB_CERTIFICATE_INFO_TYPE = *mut KERB_CERTIFICATE_INFO_TYPE;
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 pub type PKERB_CERTIFICATE_LOGON = *mut KERB_CERTIFICATE_LOGON;
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 pub type PKERB_CERTIFICATE_S4U_LOGON = *mut KERB_CERTIFICATE_S4U_LOGON;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_CERTIFICATE_UNLOCK_LOGON = *mut KERB_CERTIFICATE_UNLOCK_LOGON;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PKERB_CHANGEMACHINEPASSWORD_REQUEST = *mut KERB_CHANGEMACHINEPASSWORD_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_CHANGEPASSWORD_REQUEST = *mut KERB_CHANGEPASSWORD_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST = *mut KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST;
 pub type PKERB_CLOUD_KERBEROS_DEBUG_DATA = *mut KERB_CLOUD_KERBEROS_DEBUG_DATA;
 pub type PKERB_CLOUD_KERBEROS_DEBUG_DATA_V0 = *mut KERB_CLOUD_KERBEROS_DEBUG_DATA_V0;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_CLOUD_KERBEROS_DEBUG_REQUEST = *mut KERB_CLOUD_KERBEROS_DEBUG_REQUEST;
+#[cfg(feature = "shared")]
 pub type PKERB_CLOUD_KERBEROS_DEBUG_RESPONSE = *mut KERB_CLOUD_KERBEROS_DEBUG_RESPONSE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKERB_CRYPTO_KEY = *mut KERB_CRYPTO_KEY;
+#[cfg(feature = "shared")]
 pub type PKERB_CRYPTO_KEY32 = *mut KERB_CRYPTO_KEY32;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PKERB_DECRYPT_REQUEST = *mut KERB_DECRYPT_REQUEST;
+#[cfg(feature = "shared")]
 pub type PKERB_DECRYPT_RESPONSE = *mut KERB_DECRYPT_RESPONSE;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_EXTERNAL_NAME = *mut KERB_EXTERNAL_NAME;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_EXTERNAL_TICKET = *mut KERB_EXTERNAL_TICKET;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_INTERACTIVE_LOGON = *mut KERB_INTERACTIVE_LOGON;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_INTERACTIVE_PROFILE = *mut KERB_INTERACTIVE_PROFILE;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_INTERACTIVE_UNLOCK_LOGON = *mut KERB_INTERACTIVE_UNLOCK_LOGON;
 pub type PKERB_LOGON_SUBMIT_TYPE = *mut KERB_LOGON_SUBMIT_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_NET_ADDRESS = *mut KERB_NET_ADDRESS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_NET_ADDRESSES = *mut KERB_NET_ADDRESSES;
 pub type PKERB_PROFILE_BUFFER_TYPE = *mut KERB_PROFILE_BUFFER_TYPE;
 pub type PKERB_PROTOCOL_MESSAGE_TYPE = *mut KERB_PROTOCOL_MESSAGE_TYPE;
 pub type PKERB_PURGE_BINDING_CACHE_REQUEST = *mut KERB_PURGE_BINDING_CACHE_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_PURGE_KDC_PROXY_CACHE_REQUEST = *mut KERB_PURGE_KDC_PROXY_CACHE_REQUEST;
+#[cfg(feature = "shared")]
 pub type PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE = *mut KERB_PURGE_KDC_PROXY_CACHE_RESPONSE;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_PURGE_TKT_CACHE_EX_REQUEST = *mut KERB_PURGE_TKT_CACHE_EX_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_PURGE_TKT_CACHE_REQUEST = *mut KERB_PURGE_TKT_CACHE_REQUEST;
 pub type PKERB_QUERY_BINDING_CACHE_REQUEST = *mut KERB_QUERY_BINDING_CACHE_REQUEST;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_QUERY_BINDING_CACHE_RESPONSE = *mut KERB_QUERY_BINDING_CACHE_RESPONSE;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST;
+#[cfg(feature = "shared")]
 pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_QUERY_KDC_PROXY_CACHE_REQUEST = *mut KERB_QUERY_KDC_PROXY_CACHE_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE = *mut KERB_QUERY_KDC_PROXY_CACHE_RESPONSE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_REQUEST = *mut KERB_QUERY_S4U2PROXY_CACHE_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE = *mut KERB_QUERY_S4U2PROXY_CACHE_RESPONSE;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_QUERY_TKT_CACHE_EX2_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX2_RESPONSE;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_QUERY_TKT_CACHE_EX3_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX3_RESPONSE;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_QUERY_TKT_CACHE_EX_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX_RESPONSE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_QUERY_TKT_CACHE_REQUEST = *mut KERB_QUERY_TKT_CACHE_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_QUERY_TKT_CACHE_RESPONSE = *mut KERB_QUERY_TKT_CACHE_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PKERB_REFRESH_POLICY_REQUEST = *mut KERB_REFRESH_POLICY_REQUEST;
+#[cfg(feature = "shared")]
 pub type PKERB_REFRESH_POLICY_RESPONSE = *mut KERB_REFRESH_POLICY_RESPONSE;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_REFRESH_SCCRED_REQUEST = *mut KERB_REFRESH_SCCRED_REQUEST;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_RETRIEVE_KEY_TAB_REQUEST = *mut KERB_RETRIEVE_KEY_TAB_REQUEST;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKERB_RETRIEVE_KEY_TAB_RESPONSE = *mut KERB_RETRIEVE_KEY_TAB_RESPONSE;
-#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PKERB_RETRIEVE_TKT_REQUEST = *mut KERB_RETRIEVE_TKT_REQUEST;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_RETRIEVE_TKT_RESPONSE = *mut KERB_RETRIEVE_TKT_RESPONSE;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_S4U2PROXY_CACHE_ENTRY_INFO = *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_S4U2PROXY_CRED = *mut KERB_S4U2PROXY_CRED;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PKERB_S4U_LOGON = *mut KERB_S4U_LOGON;
-#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PKERB_SETPASSWORD_EX_REQUEST = *mut KERB_SETPASSWORD_EX_REQUEST;
-#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PKERB_SETPASSWORD_REQUEST = *mut KERB_SETPASSWORD_REQUEST;
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 pub type PKERB_SMART_CARD_LOGON = *mut KERB_SMART_CARD_LOGON;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_SMART_CARD_PROFILE = *mut KERB_SMART_CARD_PROFILE;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_SMART_CARD_UNLOCK_LOGON = *mut KERB_SMART_CARD_UNLOCK_LOGON;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_SUBMIT_TKT_REQUEST = *mut KERB_SUBMIT_TKT_REQUEST;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_TICKET_CACHE_INFO = *mut KERB_TICKET_CACHE_INFO;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_TICKET_CACHE_INFO_EX = *mut KERB_TICKET_CACHE_INFO_EX;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_TICKET_CACHE_INFO_EX2 = *mut KERB_TICKET_CACHE_INFO_EX2;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_TICKET_CACHE_INFO_EX3 = *mut KERB_TICKET_CACHE_INFO_EX3;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKERB_TICKET_LOGON = *mut KERB_TICKET_LOGON;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PKERB_TICKET_PROFILE = *mut KERB_TICKET_PROFILE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PKERB_TICKET_UNLOCK_LOGON = *mut KERB_TICKET_UNLOCK_LOGON;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKERB_TRANSFER_CRED_REQUEST = *mut KERB_TRANSFER_CRED_REQUEST;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub MessageType: PKU2U_LOGON_SUBMIT_TYPE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub UserPrincipalName: super::UNICODE_STRING,
     pub DomainName: super::UNICODE_STRING,
-    pub CertificateLength: u32,
+    pub CertificateLength: super::ULONG,
     pub Certificate: super::PUCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PKU2U_CERT_BLOB {
-    pub CertOffset: u32,
-    pub CertLength: u16,
+    pub CertOffset: super::ULONG,
+    pub CertLength: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PKU2U_CREDUI_CONTEXT {
-    pub Version: u64,
-    pub cbHeaderLength: u16,
-    pub cbStructureLength: u32,
-    pub CertArrayCount: u16,
-    pub CertArrayOffset: u32,
+    pub Version: super::ULONG64,
+    pub cbHeaderLength: super::USHORT,
+    pub cbStructureLength: super::ULONG,
+    pub CertArrayCount: super::USHORT,
+    pub CertArrayOffset: super::ULONG,
 }
 pub const PKU2U_CREDUI_CONTEXT_VERSION: i64 = 4707459272237270339;
 pub type PKU2U_LOGON_SUBMIT_TYPE = i32;
 pub const PKU2U_PACKAGE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("pku2u");
 pub const PKU2U_PACKAGE_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("pku2u");
 pub const PKU2U_PACKAGE_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("pku2u");
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PLSA_AUTH_INFORMATION = *mut LSA_AUTH_INFORMATION;
 pub type PLSA_ENUMERATION_HANDLE = *mut u32;
 #[cfg(feature = "winnt")]
 pub type PLSA_ENUMERATION_INFORMATION = *mut LSA_ENUMERATION_INFORMATION;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PLSA_FOREST_TRUST_BINARY_DATA = *mut LSA_FOREST_TRUST_BINARY_DATA;
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_COLLISION_INFORMATION = *mut LSA_FOREST_TRUST_COLLISION_INFORMATION;
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_COLLISION_RECORD = *mut LSA_FOREST_TRUST_COLLISION_RECORD;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_DOMAIN_INFO = *mut LSA_FOREST_TRUST_DOMAIN_INFO;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_INFORMATION = *mut LSA_FOREST_TRUST_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_INFORMATION2 = *mut LSA_FOREST_TRUST_INFORMATION2;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_RECORD = *mut LSA_FOREST_TRUST_RECORD;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_RECORD2 = *mut LSA_FOREST_TRUST_RECORD2;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PLSA_FOREST_TRUST_SCANNER_INFO = *mut LSA_FOREST_TRUST_SCANNER_INFO;
 pub type PLSA_HANDLE = *mut *mut core::ffi::c_void;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PLSA_LAST_INTER_LOGON_INFO = *mut LSA_LAST_INTER_LOGON_INFO;
 pub type PLSA_OPERATIONAL_MODE = *mut u32;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PLSA_TRANSLATED_SID = *mut LSA_TRANSLATED_SID;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_AV_PAIR = *mut MSV1_0_AV_PAIR;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PMSV1_0_CHANGEPASSWORD_REQUEST = *mut MSV1_0_CHANGEPASSWORD_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMSV1_0_CHANGEPASSWORD_RESPONSE = *mut MSV1_0_CHANGEPASSWORD_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_CREDENTIAL_KEY = *mut MSV1_0_CREDENTIAL_KEY;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PMSV1_0_INTERACTIVE_LOGON = *mut MSV1_0_INTERACTIVE_LOGON;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_INTERACTIVE_PROFILE = *mut MSV1_0_INTERACTIVE_PROFILE;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_LM20_LOGON = *mut MSV1_0_LM20_LOGON;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_LM20_LOGON_PROFILE = *mut MSV1_0_LM20_LOGON_PROFILE;
 pub type PMSV1_0_LOGON_SUBMIT_TYPE = *mut MSV1_0_LOGON_SUBMIT_TYPE;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_NTLM3_RESPONSE = *mut MSV1_0_NTLM3_RESPONSE;
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 pub type PMSV1_0_PASSTHROUGH_REQUEST = *mut MSV1_0_PASSTHROUGH_REQUEST;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PMSV1_0_PASSTHROUGH_RESPONSE = *mut MSV1_0_PASSTHROUGH_RESPONSE;
 pub type PMSV1_0_PROFILE_BUFFER_TYPE = *mut MSV1_0_PROFILE_BUFFER_TYPE;
 pub type PMSV1_0_PROTOCOL_MESSAGE_TYPE = *mut MSV1_0_PROTOCOL_MESSAGE_TYPE;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL;
-#[cfg(feature = "winternl")]
+#[cfg(all(feature = "shared", feature = "winternl"))]
 pub type PMSV1_0_S4U_LOGON = *mut MSV1_0_S4U_LOGON;
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_SUBAUTH_LOGON = *mut MSV1_0_SUBAUTH_LOGON;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PMSV1_0_SUBAUTH_REQUEST = *mut MSV1_0_SUBAUTH_REQUEST;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PMSV1_0_SUBAUTH_RESPONSE = *mut MSV1_0_SUBAUTH_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 = *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2;
+#[cfg(feature = "shared")]
 pub type PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 = *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNEGOTIATE_CALLER_NAME_REQUEST = *mut NEGOTIATE_CALLER_NAME_REQUEST;
+#[cfg(feature = "shared")]
 pub type PNEGOTIATE_CALLER_NAME_RESPONSE = *mut NEGOTIATE_CALLER_NAME_RESPONSE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNEGOTIATE_PACKAGE_PREFIX = *mut NEGOTIATE_PACKAGE_PREFIX;
+#[cfg(feature = "shared")]
 pub type PNEGOTIATE_PACKAGE_PREFIXES = *mut NEGOTIATE_PACKAGE_PREFIXES;
 pub const POLICY_ALL_ACCESS: i32 = 987135;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_AUDIT_CATEGORIES_INFO {
-    pub MaximumCategoryCount: u32,
+    pub MaximumCategoryCount: super::ULONG,
     pub SubCategoriesInfo: PPOLICY_AUDIT_SUBCATEGORIES_INFO,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_AUDIT_EVENTS_INFO {
     pub AuditingMode: super::BOOLEAN,
     pub EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
-    pub MaximumAuditEventCount: u32,
+    pub MaximumAuditEventCount: super::ULONG,
 }
 pub const POLICY_AUDIT_EVENT_FAILURE: i32 = 2;
 pub const POLICY_AUDIT_EVENT_MASK: i32 = 7;
@@ -2213,84 +2282,85 @@ pub const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1;
 pub type POLICY_AUDIT_EVENT_TYPE = i32;
 pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_AUDIT_FULL_QUERY_INFO {
     pub ShutDownOnFull: super::BOOLEAN,
     pub LogIsFull: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_AUDIT_FULL_SET_INFO {
     pub ShutDownOnFull: super::BOOLEAN,
 }
 pub const POLICY_AUDIT_LOG_ADMIN: i32 = 512;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POLICY_AUDIT_LOG_INFO {
-    pub AuditLogPercentFull: u32,
-    pub MaximumLogSize: u32,
+    pub AuditLogPercentFull: super::ULONG,
+    pub MaximumLogSize: super::ULONG,
     pub AuditRetentionPeriod: super::LARGE_INTEGER,
     pub AuditLogFullShutdownInProgress: super::BOOLEAN,
     pub TimeToShutdown: super::LARGE_INTEGER,
-    pub NextAuditRecordId: u32,
+    pub NextAuditRecordId: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for POLICY_AUDIT_LOG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_AUDIT_SID_ARRAY {
-    pub UsersCount: u32,
+    pub UsersCount: super::ULONG,
     pub UserSidArray: *mut super::PSID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_AUDIT_SUBCATEGORIES_INFO {
-    pub MaximumSubCategoryCount: u32,
+    pub MaximumSubCategoryCount: super::ULONG,
     pub EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
 }
 pub const POLICY_CREATE_ACCOUNT: i32 = 16;
 pub const POLICY_CREATE_PRIVILEGE: i32 = 64;
 pub const POLICY_CREATE_SECRET: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POLICY_DEFAULT_QUOTA_INFO {
     pub QuotaLimits: super::QUOTA_LIMITS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for POLICY_DEFAULT_QUOTA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_DOMAIN_EFS_INFO {
-    pub InfoLength: u32,
+    pub InfoLength: super::ULONG,
     pub EfsBlob: super::PUCHAR,
 }
 pub type POLICY_DOMAIN_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
-    pub AuthenticationOptions: u32,
+    pub AuthenticationOptions: super::ULONG,
     pub MaxServiceTicketAge: super::LARGE_INTEGER,
     pub MaxTicketAge: super::LARGE_INTEGER,
     pub MaxRenewAge: super::LARGE_INTEGER,
     pub MaxClockSkew: super::LARGE_INTEGER,
     pub Reserved: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2308,28 +2378,28 @@ pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_MACHINE_ACCT_INFO {
-    pub Rid: u32,
+    pub Rid: super::ULONG,
     pub Sid: super::PSID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_MACHINE_ACCT_INFO2 {
-    pub Rid: u32,
+    pub Rid: super::ULONG,
     pub Sid: super::PSID,
     pub ObjectGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POLICY_MODIFICATION_INFO {
     pub ModifiedId: super::LARGE_INTEGER,
     pub DatabaseCreationTime: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for POLICY_MODIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2338,13 +2408,13 @@ impl Default for POLICY_MODIFICATION_INFO {
 pub const POLICY_NOTIFICATION: i32 = 4096;
 pub type POLICY_NOTIFICATION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_PD_ACCOUNT_INFO {
     pub Name: super::LSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_PRIMARY_DOMAIN_INFO {
     pub Name: super::LSA_UNICODE_STRING,
@@ -2352,7 +2422,7 @@ pub struct POLICY_PRIMARY_DOMAIN_INFO {
 }
 pub const POLICY_READ: i32 = 131078;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct POLICY_REPLICA_SOURCE_INFO {
     pub ReplicaSource: super::LSA_UNICODE_STRING,
@@ -2365,92 +2435,97 @@ pub const POLICY_TRUST_ADMIN: i32 = 8;
 pub const POLICY_VIEW_AUDIT_INFORMATION: i32 = 2;
 pub const POLICY_VIEW_LOCAL_INFORMATION: i32 = 1;
 pub const POLICY_WRITE: i32 = 133112;
-#[cfg(all(feature = "minwindef", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
 pub type PPKU2U_CERTIFICATE_S4U_LOGON = *mut PKU2U_CERTIFICATE_S4U_LOGON;
+#[cfg(feature = "shared")]
 pub type PPKU2U_CERT_BLOB = *mut PKU2U_CERT_BLOB;
+#[cfg(feature = "shared")]
 pub type PPKU2U_CREDUI_CONTEXT = *mut PKU2U_CREDUI_CONTEXT;
 pub type PPKU2U_LOGON_SUBMIT_TYPE = *mut PKU2U_LOGON_SUBMIT_TYPE;
+#[cfg(feature = "shared")]
 pub type PPOLICY_AUDIT_CATEGORIES_INFO = *mut POLICY_AUDIT_CATEGORIES_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPOLICY_AUDIT_EVENTS_INFO = *mut POLICY_AUDIT_EVENTS_INFO;
 pub type PPOLICY_AUDIT_EVENT_OPTIONS = *mut u32;
 pub type PPOLICY_AUDIT_EVENT_TYPE = *mut POLICY_AUDIT_EVENT_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPOLICY_AUDIT_FULL_QUERY_INFO = *mut POLICY_AUDIT_FULL_QUERY_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPOLICY_AUDIT_FULL_SET_INFO = *mut POLICY_AUDIT_FULL_SET_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOLICY_AUDIT_LOG_INFO = *mut POLICY_AUDIT_LOG_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOLICY_AUDIT_SID_ARRAY = *mut POLICY_AUDIT_SID_ARRAY;
+#[cfg(feature = "shared")]
 pub type PPOLICY_AUDIT_SUBCATEGORIES_INFO = *mut POLICY_AUDIT_SUBCATEGORIES_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOLICY_DEFAULT_QUOTA_INFO = *mut POLICY_DEFAULT_QUOTA_INFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PPOLICY_DOMAIN_EFS_INFO = *mut POLICY_DOMAIN_EFS_INFO;
 pub type PPOLICY_DOMAIN_INFORMATION_CLASS = *mut POLICY_DOMAIN_INFORMATION_CLASS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOLICY_DOMAIN_KERBEROS_TICKET_INFO = *mut POLICY_DOMAIN_KERBEROS_TICKET_INFO;
 pub type PPOLICY_INFORMATION_CLASS = *mut POLICY_INFORMATION_CLASS;
 pub type PPOLICY_LSA_SERVER_ROLE = *mut POLICY_LSA_SERVER_ROLE;
 pub type PPOLICY_LSA_SERVER_ROLE_INFO = *mut POLICY_LSA_SERVER_ROLE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOLICY_MACHINE_ACCT_INFO = *mut POLICY_MACHINE_ACCT_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOLICY_MACHINE_ACCT_INFO2 = *mut POLICY_MACHINE_ACCT_INFO2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOLICY_MODIFICATION_INFO = *mut POLICY_MODIFICATION_INFO;
 pub type PPOLICY_NOTIFICATION_INFORMATION_CLASS = *mut POLICY_NOTIFICATION_INFORMATION_CLASS;
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 pub type PPOLICY_PD_ACCOUNT_INFO = *mut POLICY_PD_ACCOUNT_INFO;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PPOLICY_PRIMARY_DOMAIN_INFO = *mut POLICY_PRIMARY_DOMAIN_INFO;
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 pub type PPOLICY_REPLICA_SOURCE_INFO = *mut POLICY_REPLICA_SOURCE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSAM_INIT_NOTIFICATION_ROUTINE = Option<unsafe extern "C" fn() -> super::BOOLEAN>;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PSAM_PASSWORD_FILTER_ROUTINE = Option<unsafe extern "C" fn(accountname: PUNICODE_STRING, fullname: PUNICODE_STRING, password: PUNICODE_STRING, setoperation: super::BOOLEAN) -> super::BOOLEAN>;
-#[cfg(feature = "lsalookup")]
-pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = Option<unsafe extern "C" fn(username: PUNICODE_STRING, relativeid: u32, newpassword: PUNICODE_STRING) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PSAM_PASSWORD_FILTER_ROUTINE = Option<unsafe extern "C" fn(accountname: super::PUNICODE_STRING, fullname: super::PUNICODE_STRING, password: super::PUNICODE_STRING, setoperation: super::BOOLEAN) -> super::BOOLEAN>;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = Option<unsafe extern "C" fn(username: super::PUNICODE_STRING, relativeid: super::ULONG, newpassword: super::PUNICODE_STRING) -> windows_sys::core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PSECURITY_LOGON_SESSION_DATA = *mut SECURITY_LOGON_SESSION_DATA;
 pub type PSECURITY_LOGON_TYPE = *mut SECURITY_LOGON_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSE_ADT_ACCESS_REASON = *mut SE_ADT_ACCESS_REASON;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSE_ADT_CLAIMS = *mut SE_ADT_CLAIMS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSE_ADT_OBJECT_TYPE = *mut SE_ADT_OBJECT_TYPE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSE_ADT_PARAMETER_ARRAY = *mut SE_ADT_PARAMETER_ARRAY;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSE_ADT_PARAMETER_ARRAY_ENTRY = *mut SE_ADT_PARAMETER_ARRAY_ENTRY;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSE_ADT_PARAMETER_ARRAY_EX = *mut SE_ADT_PARAMETER_ARRAY_EX;
 pub type PSE_ADT_PARAMETER_TYPE = *mut SE_ADT_PARAMETER_TYPE;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PSTRING = *mut super::LSA_STRING;
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 pub type PTRUSTED_CONTROLLERS_INFO = *mut TRUSTED_CONTROLLERS_INFO;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PTRUSTED_DOMAIN_AUTH_INFORMATION = *mut TRUSTED_DOMAIN_AUTH_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PTRUSTED_DOMAIN_FULL_INFORMATION = *mut TRUSTED_DOMAIN_FULL_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PTRUSTED_DOMAIN_FULL_INFORMATION2 = *mut TRUSTED_DOMAIN_FULL_INFORMATION2;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PTRUSTED_DOMAIN_INFORMATION_BASIC = super::PLSA_TRUST_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PTRUSTED_DOMAIN_INFORMATION_BASIC = *mut super::LSA_TRUST_INFORMATION;
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PTRUSTED_DOMAIN_INFORMATION_EX = *mut TRUSTED_DOMAIN_INFORMATION_EX;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PTRUSTED_DOMAIN_INFORMATION_EX2 = *mut TRUSTED_DOMAIN_INFORMATION_EX2;
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 pub type PTRUSTED_DOMAIN_NAME_INFO = *mut TRUSTED_DOMAIN_NAME_INFO;
+#[cfg(feature = "shared")]
 pub type PTRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES = *mut TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES;
 pub type PTRUSTED_INFORMATION_CLASS = *mut TRUSTED_INFORMATION_CLASS;
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 pub type PTRUSTED_PASSWORD_INFO = *mut TRUSTED_PASSWORD_INFO;
+#[cfg(feature = "shared")]
 pub type PTRUSTED_POSIX_OFFSET_INFO = *mut TRUSTED_POSIX_OFFSET_INFO;
-#[cfg(feature = "lsalookup")]
-pub type PUNICODE_STRING = *mut super::LSA_UNICODE_STRING;
 pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = 14;
 pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = 5;
 pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = 2;
@@ -2492,22 +2567,22 @@ pub const SAM_INIT_NOTIFICATION_ROUTINE: windows_sys::core::PCSTR = windows_sys:
 pub const SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: windows_sys::core::PCSTR = windows_sys::core::s!("PasswordChangeNotify");
 pub const SAM_PASSWORD_FILTER_ROUTINE: windows_sys::core::PCSTR = windows_sys::core::s!("PasswordFilter");
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SECURITY_LOGON_SESSION_DATA {
-    pub Size: u32,
+    pub Size: super::ULONG,
     pub LogonId: super::LUID,
     pub UserName: super::LSA_UNICODE_STRING,
     pub LogonDomain: super::LSA_UNICODE_STRING,
     pub AuthenticationPackage: super::LSA_UNICODE_STRING,
-    pub LogonType: u32,
-    pub Session: u32,
+    pub LogonType: super::ULONG,
+    pub Session: super::ULONG,
     pub Sid: super::PSID,
     pub LogonTime: super::LARGE_INTEGER,
     pub LogonServer: super::LSA_UNICODE_STRING,
     pub DnsDomainName: super::LSA_UNICODE_STRING,
     pub Upn: super::LSA_UNICODE_STRING,
-    pub UserFlags: u32,
+    pub UserFlags: super::ULONG,
     pub LastLogonInfo: LSA_LAST_INTER_LOGON_INFO,
     pub LogonScript: super::LSA_UNICODE_STRING,
     pub ProfilePath: super::LSA_UNICODE_STRING,
@@ -2519,7 +2594,7 @@ pub struct SECURITY_LOGON_SESSION_DATA {
     pub PasswordCanChange: super::LARGE_INTEGER,
     pub PasswordMustChange: super::LARGE_INTEGER,
 }
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 impl Default for SECURITY_LOGON_SESSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2527,83 +2602,89 @@ impl Default for SECURITY_LOGON_SESSION_DATA {
 }
 pub type SECURITY_LOGON_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SE_ADT_ACCESS_REASON {
     pub AccessMask: super::ACCESS_MASK,
-    pub AccessReasons: [u32; 32],
-    pub ObjectTypeIndex: u32,
-    pub AccessGranted: u32,
+    pub AccessReasons: [super::ULONG; 32],
+    pub ObjectTypeIndex: super::ULONG,
+    pub AccessGranted: super::ULONG,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SE_ADT_ACCESS_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SE_ADT_CLAIMS {
-    pub Length: u32,
+    pub Length: super::ULONG,
     pub Claims: super::PCLAIMS_BLOB,
 }
 pub const SE_ADT_OBJECT_ONLY: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SE_ADT_OBJECT_TYPE {
     pub ObjectType: windows_sys::core::GUID,
-    pub Flags: u16,
-    pub Level: u16,
+    pub Flags: super::USHORT,
+    pub Level: super::USHORT,
     pub AccessMask: super::ACCESS_MASK,
 }
 pub const SE_ADT_PARAMETERS_SELF_RELATIVE: i32 = 1;
 pub const SE_ADT_PARAMETERS_SEND_TO_LSA: i32 = 2;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SE_ADT_PARAMETER_ARRAY {
-    pub CategoryId: u32,
-    pub AuditId: u32,
-    pub ParameterCount: u32,
-    pub Length: u32,
-    pub FlatSubCategoryId: u16,
-    pub Type: u16,
-    pub Flags: u32,
+    pub CategoryId: super::ULONG,
+    pub AuditId: super::ULONG,
+    pub ParameterCount: super::ULONG,
+    pub Length: super::ULONG,
+    pub FlatSubCategoryId: super::USHORT,
+    pub Type: super::USHORT,
+    pub Flags: super::ULONG,
     pub Parameters: [SE_ADT_PARAMETER_ARRAY_ENTRY; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SE_ADT_PARAMETER_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SE_ADT_PARAMETER_ARRAY_ENTRY {
     pub Type: SE_ADT_PARAMETER_TYPE,
-    pub Length: u32,
-    pub Data: [usize; 2],
-    pub Address: *mut core::ffi::c_void,
+    pub Length: super::ULONG,
+    pub Data: [super::ULONG_PTR; 2],
+    pub Address: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SE_ADT_PARAMETER_ARRAY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SE_ADT_PARAMETER_ARRAY_EX {
-    pub CategoryId: u32,
-    pub AuditId: u32,
-    pub Version: u32,
-    pub ParameterCount: u32,
-    pub Length: u32,
-    pub FlatSubCategoryId: u16,
-    pub Type: u16,
-    pub Flags: u32,
+    pub CategoryId: super::ULONG,
+    pub AuditId: super::ULONG,
+    pub Version: super::ULONG,
+    pub ParameterCount: super::ULONG,
+    pub Length: super::ULONG,
+    pub FlatSubCategoryId: super::USHORT,
+    pub Type: super::USHORT,
+    pub Flags: super::ULONG,
     pub Parameters: [SE_ADT_PARAMETER_ARRAY_ENTRY; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SE_ADT_PARAMETER_ARRAY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2613,8 +2694,18 @@ pub const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: i32 = 4;
 pub const SE_ADT_PARAMETER_GENERIC_AUDIT: i32 = 8;
 pub type SE_ADT_PARAMETER_TYPE = i32;
 pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: i32 = 16;
+pub const SE_BATCH_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeBatchLogonRight");
+pub const SE_DENY_BATCH_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeDenyBatchLogonRight");
+pub const SE_DENY_INTERACTIVE_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeDenyInteractiveLogonRight");
+pub const SE_DENY_NETWORK_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeDenyNetworkLogonRight");
+pub const SE_DENY_REMOTE_INTERACTIVE_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeDenyRemoteInteractiveLogonRight");
+pub const SE_DENY_SERVICE_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeDenyServiceLogonRight");
+pub const SE_INTERACTIVE_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeInteractiveLogonRight");
 pub const SE_MAX_AUDIT_PARAMETERS: i32 = 32;
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: i32 = 28;
+pub const SE_NETWORK_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeNetworkLogonRight");
+pub const SE_REMOTE_INTERACTIVE_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeRemoteInteractiveLogonRight");
+pub const SE_SERVICE_LOGON_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SeServiceLogonRight");
 pub const SeAdtParmTypeAccessMask: SE_ADT_PARAMETER_TYPE = 7;
 pub const SeAdtParmTypeAccessReason: SE_ADT_PARAMETER_TYPE = 29;
 pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = 32;
@@ -2653,25 +2744,25 @@ pub const SeAdtParmTypeUlongNoConv: SE_ADT_PARAMETER_TYPE = 27;
 pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = 19;
 pub const Service: SECURITY_LOGON_TYPE = 5;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_CONTROLLERS_INFO {
-    pub Entries: u32,
+    pub Entries: super::ULONG,
     pub Names: super::PLSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
-    pub IncomingAuthInfos: u32,
+    pub IncomingAuthInfos: super::ULONG,
     pub IncomingAuthenticationInformation: PLSA_AUTH_INFORMATION,
     pub IncomingPreviousAuthenticationInformation: PLSA_AUTH_INFORMATION,
-    pub OutgoingAuthInfos: u32,
+    pub OutgoingAuthInfos: super::ULONG,
     pub OutgoingAuthenticationInformation: PLSA_AUTH_INFORMATION,
     pub OutgoingPreviousAuthenticationInformation: PLSA_AUTH_INFORMATION,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX,
@@ -2679,62 +2770,64 @@ pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION2 {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX2,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
 }
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type TRUSTED_DOMAIN_INFORMATION_BASIC = super::LSA_TRUST_INFORMATION;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub Name: super::LSA_UNICODE_STRING,
     pub FlatName: super::LSA_UNICODE_STRING,
     pub Sid: super::PSID,
-    pub TrustDirection: u32,
-    pub TrustType: u32,
-    pub TrustAttributes: u32,
+    pub TrustDirection: super::ULONG,
+    pub TrustType: super::ULONG,
+    pub TrustAttributes: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
     pub Name: super::LSA_UNICODE_STRING,
     pub FlatName: super::LSA_UNICODE_STRING,
     pub Sid: super::PSID,
-    pub TrustDirection: u32,
-    pub TrustType: u32,
-    pub TrustAttributes: u32,
-    pub ForestTrustLength: u32,
+    pub TrustDirection: super::ULONG,
+    pub TrustType: super::ULONG,
+    pub TrustAttributes: super::ULONG,
+    pub ForestTrustLength: super::ULONG,
     pub ForestTrustInfo: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_DOMAIN_NAME_INFO {
     pub Name: super::LSA_UNICODE_STRING,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-    pub SupportedEncryptionTypes: u32,
+    pub SupportedEncryptionTypes: super::ULONG,
 }
 pub type TRUSTED_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
+#[cfg(all(feature = "lsalookup", feature = "shared", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_PASSWORD_INFO {
     pub Password: super::LSA_UNICODE_STRING,
     pub OldPassword: super::LSA_UNICODE_STRING,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTED_POSIX_OFFSET_INFO {
-    pub Offset: u32,
+    pub Offset: super::ULONG,
 }
 pub const TRUST_ATTRIBUTES_USER: u32 = 4278190080;
 pub const TRUST_ATTRIBUTES_VALID: u32 = 4278452223;

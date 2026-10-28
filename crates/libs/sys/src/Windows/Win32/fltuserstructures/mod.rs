@@ -1,94 +1,108 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Flags: u32,
+    pub NextEntryOffset: super::ULONG,
+    pub Flags: super::ULONG,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
     pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    pub FrameID: u32,
-    pub NumberOfInstances: u32,
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
-    pub FilterAltitudeLength: u16,
-    pub FilterAltitudeBufferOffset: u16,
+    pub FrameID: super::ULONG,
+    pub NumberOfInstances: super::ULONG,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBufferOffset: super::USHORT,
+    pub FilterAltitudeLength: super::USHORT,
+    pub FilterAltitudeBufferOffset: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBufferOffset: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Flags: u32,
+    pub NextEntryOffset: super::ULONG,
+    pub Flags: super::ULONG,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
     pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    pub Flags: u32,
-    pub FrameID: u32,
-    pub NumberOfInstances: u32,
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
-    pub FilterAltitudeLength: u16,
-    pub FilterAltitudeBufferOffset: u16,
+    pub Flags: super::ULONG,
+    pub FrameID: super::ULONG,
+    pub NumberOfInstances: super::ULONG,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBufferOffset: super::USHORT,
+    pub FilterAltitudeLength: super::USHORT,
+    pub FilterAltitudeBufferOffset: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    pub Flags: u32,
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
-    pub FilterAltitudeLength: u16,
-    pub FilterAltitudeBufferOffset: u16,
+    pub Flags: super::ULONG,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBufferOffset: super::USHORT,
+    pub FilterAltitudeLength: super::USHORT,
+    pub FilterAltitudeBufferOffset: super::USHORT,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILTER_FULL_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub FrameID: u32,
-    pub NumberOfInstances: u32,
-    pub FilterNameLength: u16,
-    pub FilterNameBuffer: [u16; 1],
+    pub NextEntryOffset: super::ULONG,
+    pub FrameID: super::ULONG,
+    pub NumberOfInstances: super::ULONG,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBuffer: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILTER_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -96,10 +110,11 @@ impl Default for FILTER_FULL_INFORMATION {
 }
 pub type FILTER_INFORMATION_CLASS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTER_MESSAGE_HEADER {
-    pub ReplyLength: u32,
-    pub MessageId: u64,
+    pub ReplyLength: super::ULONG,
+    pub MessageId: super::ULONGLONG,
 }
 #[cfg(target_arch = "x86")]
 pub const FILTER_NAME_MAX_BYTES: u32 = 510;
@@ -107,17 +122,20 @@ pub const FILTER_NAME_MAX_BYTES: u32 = 510;
 pub const FILTER_NAME_MAX_BYTES: u64 = 510;
 pub const FILTER_NAME_MAX_CHARS: i32 = 255;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTER_REPLY_HEADER {
     pub Status: windows_sys::core::NTSTATUS,
-    pub MessageId: u64,
+    pub MessageId: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILTER_VOLUME_BASIC_INFORMATION {
-    pub FilterVolumeNameLength: u16,
-    pub FilterVolumeName: [u16; 1],
+    pub FilterVolumeNameLength: super::USHORT,
+    pub FilterVolumeName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILTER_VOLUME_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -125,15 +143,17 @@ impl Default for FILTER_VOLUME_BASIC_INFORMATION {
 }
 pub type FILTER_VOLUME_INFORMATION_CLASS = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Flags: u32,
-    pub FrameID: u32,
+    pub NextEntryOffset: super::ULONG,
+    pub Flags: super::ULONG,
+    pub FrameID: super::ULONG,
     pub FileSystemType: FLT_FILESYSTEM_TYPE,
-    pub FilterVolumeNameLength: u16,
-    pub FilterVolumeName: [u16; 1],
+    pub FilterVolumeNameLength: super::USHORT,
+    pub FilterVolumeName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILTER_VOLUME_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -185,82 +205,87 @@ pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = 2;
 pub const FilterFullInformation: FILTER_INFORMATION_CLASS = 0;
 pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = 0;
 pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = 1;
-#[cfg(feature = "winnt")]
-pub type HFILTER = super::HANDLE;
-#[cfg(feature = "winnt")]
-pub type HFILTER_INSTANCE = super::HANDLE;
-#[cfg(feature = "winnt")]
-pub type HFILTER_VOLUME = super::HANDLE;
+pub type HFILTER = *mut core::ffi::c_void;
+pub type HFILTER_INSTANCE = *mut core::ffi::c_void;
+pub type HFILTER_VOLUME = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Flags: u32,
+    pub NextEntryOffset: super::ULONG,
+    pub Flags: super::ULONG,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
     pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    pub Flags: u32,
-    pub FrameID: u32,
+    pub Flags: super::ULONG,
+    pub FrameID: super::ULONG,
     pub VolumeFileSystemType: FLT_FILESYSTEM_TYPE,
-    pub InstanceNameLength: u16,
-    pub InstanceNameBufferOffset: u16,
-    pub AltitudeLength: u16,
-    pub AltitudeBufferOffset: u16,
-    pub VolumeNameLength: u16,
-    pub VolumeNameBufferOffset: u16,
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
-    pub SupportedFeatures: u32,
+    pub InstanceNameLength: super::USHORT,
+    pub InstanceNameBufferOffset: super::USHORT,
+    pub AltitudeLength: super::USHORT,
+    pub AltitudeBufferOffset: super::USHORT,
+    pub VolumeNameLength: super::USHORT,
+    pub VolumeNameBufferOffset: super::USHORT,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBufferOffset: super::USHORT,
+    pub SupportedFeatures: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    pub Flags: u32,
-    pub AltitudeLength: u16,
-    pub AltitudeBufferOffset: u16,
-    pub VolumeNameLength: u16,
-    pub VolumeNameBufferOffset: u16,
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
-    pub SupportedFeatures: u32,
+    pub Flags: super::ULONG,
+    pub AltitudeLength: super::USHORT,
+    pub AltitudeBufferOffset: super::USHORT,
+    pub VolumeNameLength: super::USHORT,
+    pub VolumeNameBufferOffset: super::USHORT,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBufferOffset: super::USHORT,
+    pub SupportedFeatures: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INSTANCE_BASIC_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub InstanceNameLength: u16,
-    pub InstanceNameBufferOffset: u16,
+    pub NextEntryOffset: super::ULONG,
+    pub InstanceNameLength: super::USHORT,
+    pub InstanceNameBufferOffset: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INSTANCE_FULL_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub InstanceNameLength: u16,
-    pub InstanceNameBufferOffset: u16,
-    pub AltitudeLength: u16,
-    pub AltitudeBufferOffset: u16,
-    pub VolumeNameLength: u16,
-    pub VolumeNameBufferOffset: u16,
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
+    pub NextEntryOffset: super::ULONG,
+    pub InstanceNameLength: super::USHORT,
+    pub InstanceNameBufferOffset: super::USHORT,
+    pub AltitudeLength: super::USHORT,
+    pub AltitudeBufferOffset: super::USHORT,
+    pub VolumeNameLength: super::USHORT,
+    pub VolumeNameBufferOffset: super::USHORT,
+    pub FilterNameLength: super::USHORT,
+    pub FilterNameBufferOffset: super::USHORT,
 }
 pub type INSTANCE_INFORMATION_CLASS = i32;
 #[cfg(target_arch = "x86")]
@@ -269,32 +294,44 @@ pub const INSTANCE_NAME_MAX_BYTES: u32 = 510;
 pub const INSTANCE_NAME_MAX_BYTES: u64 = 510;
 pub const INSTANCE_NAME_MAX_CHARS: i32 = 255;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INSTANCE_PARTIAL_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub InstanceNameLength: u16,
-    pub InstanceNameBufferOffset: u16,
-    pub AltitudeLength: u16,
-    pub AltitudeBufferOffset: u16,
+    pub NextEntryOffset: super::ULONG,
+    pub InstanceNameLength: super::USHORT,
+    pub InstanceNameBufferOffset: super::USHORT,
+    pub AltitudeLength: super::USHORT,
+    pub AltitudeBufferOffset: super::USHORT,
 }
 pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = 3;
 pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = 0;
 pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = 2;
 pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = 1;
+#[cfg(feature = "shared")]
 pub type PFILTER_AGGREGATE_BASIC_INFORMATION = *mut FILTER_AGGREGATE_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILTER_AGGREGATE_STANDARD_INFORMATION = *mut FILTER_AGGREGATE_STANDARD_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILTER_FULL_INFORMATION = *mut FILTER_FULL_INFORMATION;
 pub type PFILTER_INFORMATION_CLASS = *mut FILTER_INFORMATION_CLASS;
+#[cfg(feature = "shared")]
 pub type PFILTER_MESSAGE_HEADER = *mut FILTER_MESSAGE_HEADER;
+#[cfg(feature = "shared")]
 pub type PFILTER_REPLY_HEADER = *mut FILTER_REPLY_HEADER;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILTER_VOLUME_BASIC_INFORMATION = *mut FILTER_VOLUME_BASIC_INFORMATION;
 pub type PFILTER_VOLUME_INFORMATION_CLASS = *mut FILTER_VOLUME_INFORMATION_CLASS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILTER_VOLUME_STANDARD_INFORMATION = *mut FILTER_VOLUME_STANDARD_INFORMATION;
 pub type PFLT_FILESYSTEM_TYPE = *mut FLT_FILESYSTEM_TYPE;
+#[cfg(feature = "shared")]
 pub type PINSTANCE_AGGREGATE_STANDARD_INFORMATION = *mut INSTANCE_AGGREGATE_STANDARD_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PINSTANCE_BASIC_INFORMATION = *mut INSTANCE_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PINSTANCE_FULL_INFORMATION = *mut INSTANCE_FULL_INFORMATION;
 pub type PINSTANCE_INFORMATION_CLASS = *mut INSTANCE_INFORMATION_CLASS;
+#[cfg(feature = "shared")]
 pub type PINSTANCE_PARTIAL_INFORMATION = *mut INSTANCE_PARTIAL_INFORMATION;
 #[cfg(target_arch = "x86")]
 pub const VOLUME_NAME_MAX_BYTES: u32 = 2048;

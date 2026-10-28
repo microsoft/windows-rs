@@ -1,7 +1,7 @@
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type BASEBROWSERDATA = BASEBROWSERDATALH;
-#[repr(C)]
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::HWND,
@@ -12,7 +12,7 @@ pub struct BASEBROWSERDATALH {
     pub _pautoSS: *mut core::ffi::c_void,
     pub _eSecureLockIcon: i32,
     pub _bitfield: u32,
-    pub _uActivateState: u32,
+    pub _uActivateState: super::UINT,
     pub _pidlViewState: super::LPCITEMIDLIST,
     pub _pctView: *mut core::ffi::c_void,
     pub _pidlCur: super::LPITEMIDLIST,
@@ -27,41 +27,10 @@ pub struct BASEBROWSERDATALH {
     pub _pszTitlePending: windows_sys::core::PWSTR,
     pub _fIsViewMSHTML: windows_sys::core::BOOL,
     pub _fPrivacyImpacted: windows_sys::core::BOOL,
-    pub _clsidView: windows_sys::core::GUID,
-    pub _clsidViewPending: windows_sys::core::GUID,
+    pub _clsidView: super::CLSID,
+    pub _clsidViewPending: super::CLSID,
     pub _hwndFrame: super::HWND,
-    pub _lPhishingFilterStatus: i32,
-}
-#[repr(C)]
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
-pub struct BASEBROWSERDATAXP {
-    pub _hwnd: super::HWND,
-    pub _ptl: *mut core::ffi::c_void,
-    pub _phlf: *mut core::ffi::c_void,
-    pub _pautoWB2: *mut core::ffi::c_void,
-    pub _pautoEDS: *mut core::ffi::c_void,
-    pub _pautoSS: *mut core::ffi::c_void,
-    pub _eSecureLockIcon: i32,
-    pub _bitfield: u32,
-    pub _uActivateState: u32,
-    pub _pidlViewState: super::LPCITEMIDLIST,
-    pub _pctView: *mut core::ffi::c_void,
-    pub _pidlCur: super::LPITEMIDLIST,
-    pub _psv: *mut core::ffi::c_void,
-    pub _psf: *mut core::ffi::c_void,
-    pub _hwndView: super::HWND,
-    pub _pszTitleCur: windows_sys::core::PWSTR,
-    pub _pidlPending: super::LPITEMIDLIST,
-    pub _psvPending: *mut core::ffi::c_void,
-    pub _psfPending: *mut core::ffi::c_void,
-    pub _hwndViewPending: super::HWND,
-    pub _pszTitlePending: windows_sys::core::PWSTR,
-    pub _fIsViewMSHTML: windows_sys::core::BOOL,
-    pub _fPrivacyImpacted: windows_sys::core::BOOL,
-    pub _clsidView: windows_sys::core::GUID,
-    pub _clsidViewPending: windows_sys::core::GUID,
-    pub _hwndFrame: super::HWND,
+    pub _lPhishingFilterStatus: super::LONG,
 }
 pub type BNSTATE = i32;
 pub const BNS_BEGIN_NAVIGATE: BNSTATE = 1;
@@ -83,13 +52,13 @@ pub const BSF_THEATERMODE: i32 = 2;
 pub const BSF_TOPBROWSER: i32 = 2048;
 pub const BSF_TRUSTEDFORACTIVEX: i32 = 131072;
 pub const BSF_UISETBYAUTOMATION: i32 = 256;
-#[repr(C)]
-#[cfg(feature = "shobjidl_core")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "shobjidl_core"))]
 #[derive(Clone, Copy, Default)]
 pub struct FOLDERSETDATA {
     pub _fs: super::FOLDERSETTINGS,
     pub _vidRestore: super::SHELLVIEWID,
-    pub _dwViewPriority: u32,
+    pub _dwViewPriority: super::DWORD,
 }
 pub const HLNF_ALLOW_AUTONAVIGATE: i32 = 536870912;
 pub const HLNF_CALLERUNTRUSTED: i32 = 2097152;
@@ -101,18 +70,17 @@ pub const HLNF_TRUSTFIRSTDOWNLOAD: i32 = 16777216;
 pub const HLNF_UNTRUSTEDFORDOWNLOAD: i32 = 33554432;
 pub type IEPDNFLAGS = i32;
 pub const IEPDN_BINDINGUI: IEPDNFLAGS = 1;
-pub const ITB_VIEW: u32 = 4294967295;
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-pub type LPBASEBROWSERDATA = *mut BASEBROWSERDATA;
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[cfg(feature = "shared")]
+pub const ITB_VIEW: super::UINT = 4294967295;
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+pub type LPBASEBROWSERDATA = *mut BASEBROWSERDATALH;
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type LPBASEBROWSERDATALH = *mut BASEBROWSERDATALH;
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-pub type LPBASEBROWSERDATAXP = *mut BASEBROWSERDATAXP;
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-pub type LPCBASEBROWSERDATA = *const BASEBROWSERDATA;
-#[cfg(feature = "shobjidl_core")]
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "guiddef", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+pub type LPCBASEBROWSERDATA = *const BASEBROWSERDATALH;
+#[cfg(all(feature = "shared", feature = "shobjidl_core"))]
 pub type LPFOLDERSETDATA = *mut FOLDERSETDATA;
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
 pub type LPTOOLBARITEM = *mut TOOLBARITEM;
 pub const SBSC_HIDE: SHELLBROWSERSHOWCONTROL = 0;
 pub const SBSC_QUERY: SHELLBROWSERSHOWCONTROL = 3;
@@ -146,8 +114,8 @@ pub const TLMENUF_INCLUDECURRENT: i32 = 1;
 pub const TLOG_BACK: i32 = -1;
 pub const TLOG_CURRENT: i32 = 0;
 pub const TLOG_FORE: i32 = 1;
-#[repr(C)]
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TOOLBARITEM {
     pub ptbar: *mut core::ffi::c_void,

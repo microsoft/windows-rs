@@ -1,27 +1,38 @@
-windows_link::link!("netapi32.dll" "system" fn NetAddAlternateComputerName(server : windows_sys::core::PCWSTR, alternatename : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : PNETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut super::PBYTE, pdwpackagebindatasize : *mut u32, pppackagetextdata : *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : windows_sys::core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : u32, entrycount : super::PDWORD, computernames : *mut *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetAddAlternateComputerName(server : windows_sys::core::PCWSTR, alternatename : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : super::ULONG) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : PNETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut super::PBYTE, pdwpackagebindatasize : *mut super::DWORD, pppackagetextdata : *mut windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : windows_sys::core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : super::ULONG, entrycount : super::PDWORD, computernames : *mut *mut windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 windows_link::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : PDSREG_JOIN_INFO));
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 windows_link::link!("netapi32.dll" "system" fn NetGetAadJoinInformation(pcsztenantid : windows_sys::core::PCWSTR, ppjoininfo : *mut PDSREG_JOIN_INFO) -> windows_sys::core::HRESULT);
-windows_link::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : windows_sys::core::PCWSTR, lpnamebuffer : *mut windows_sys::core::PWSTR, buffertype : PNETSETUP_JOIN_STATUS) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetGetJoinableOUs(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, oucount : *mut u32, ous : *mut *mut windows_sys::core::PWSTR) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, fjoinoptions : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetProvisionComputerAccount(lpdomain : windows_sys::core::PCWSTR, lpmachinename : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpdcname : windows_sys::core::PCWSTR, dwoptions : u32, pprovisionbindata : *mut super::PBYTE, pdwprovisionbindatasize : *mut u32, pprovisiontextdata : *mut windows_sys::core::PWSTR) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetRemoveAlternateComputerName(server : windows_sys::core::PCWSTR, alternatename : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetRenameMachineInDomain(lpserver : windows_sys::core::PCWSTR, lpnewmachinename : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, frenameoptions : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const u8, cbprovisionbindatasize : u32, dwoptions : u32, lpwindowspath : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const u8, dwpackagebindatasize : u32, dwprovisionoptions : u32, lpwindowspath : windows_sys::core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetSetPrimaryComputerName(server : windows_sys::core::PCWSTR, primaryname : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetUnjoinDomain(lpserver : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, funjoinoptions : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetValidateName(lpserver : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, nametype : NETSETUP_NAME_TYPE) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : windows_sys::core::PCWSTR, lpnamebuffer : *mut windows_sys::core::PWSTR, buffertype : PNETSETUP_JOIN_STATUS) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetGetJoinableOUs(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, oucount : *mut super::DWORD, ous : *mut *mut windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, fjoinoptions : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetProvisionComputerAccount(lpdomain : windows_sys::core::PCWSTR, lpmachinename : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpdcname : windows_sys::core::PCWSTR, dwoptions : super::DWORD, pprovisionbindata : *mut super::PBYTE, pdwprovisionbindatasize : *mut super::DWORD, pprovisiontextdata : *mut windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetRemoveAlternateComputerName(server : windows_sys::core::PCWSTR, alternatename : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : super::ULONG) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetRenameMachineInDomain(lpserver : windows_sys::core::PCWSTR, lpnewmachinename : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, frenameoptions : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const super::BYTE, cbprovisionbindatasize : super::DWORD, dwoptions : super::DWORD, lpwindowspath : windows_sys::core::PCWSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const super::BYTE, dwpackagebindatasize : super::DWORD, dwprovisionoptions : super::DWORD, lpwindowspath : windows_sys::core::PCWSTR, pvreserved : super::PVOID) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetSetPrimaryComputerName(server : windows_sys::core::PCWSTR, primaryname : windows_sys::core::PCWSTR, domainaccount : windows_sys::core::PCWSTR, domainaccountpassword : windows_sys::core::PCWSTR, reserved : super::ULONG) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetUnjoinDomain(lpserver : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, funjoinoptions : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn NetValidateName(lpserver : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, nametype : NETSETUP_NAME_TYPE) -> super::DWORD);
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
@@ -70,20 +81,21 @@ pub const NETSETUP_NO_ACCT_REUSE: i32 = 131072;
 pub const NETSETUP_NO_NETLOGON_CACHE: i32 = 8192;
 pub const NETSETUP_PROCESS_OFFLINE_FLAGS: i32 = 17569;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NETSETUP_PROVISIONING_PARAMS {
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub lpDomain: windows_sys::core::PCWSTR,
     pub lpHostName: windows_sys::core::PCWSTR,
     pub lpMachineAccountOU: windows_sys::core::PCWSTR,
     pub lpDcName: windows_sys::core::PCWSTR,
-    pub dwProvisionOptions: u32,
+    pub dwProvisionOptions: super::DWORD,
     pub aCertTemplateNames: *mut windows_sys::core::PCWSTR,
-    pub cCertTemplateNames: u32,
+    pub cCertTemplateNames: super::DWORD,
     pub aMachinePolicyNames: *mut windows_sys::core::PCWSTR,
-    pub cMachinePolicyNames: u32,
+    pub cMachinePolicyNames: super::DWORD,
     pub aMachinePolicyPaths: *mut windows_sys::core::PCWSTR,
-    pub cMachinePolicyPaths: u32,
+    pub cMachinePolicyPaths: super::DWORD,
     pub lpNetbiosName: windows_sys::core::PWSTR,
     pub lpSiteName: windows_sys::core::PWSTR,
     pub lpPrimaryDNSDomain: windows_sys::core::PWSTR,
@@ -117,11 +129,12 @@ pub const NetSetupUnknown: NETSETUP_NAME_TYPE = 0;
 pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = 0;
 pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = 2;
 pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = 2;
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 pub type PDSREG_JOIN_INFO = *mut DSREG_JOIN_INFO;
 pub type PDSREG_JOIN_TYPE = *mut DSREG_JOIN_TYPE;
 pub type PDSREG_USER_INFO = *mut DSREG_USER_INFO;
 pub type PNETSETUP_JOIN_STATUS = *mut NETSETUP_JOIN_STATUS;
 pub type PNETSETUP_NAME_TYPE = *mut NETSETUP_NAME_TYPE;
+#[cfg(feature = "shared")]
 pub type PNETSETUP_PROVISIONING_PARAMS = *mut NETSETUP_PROVISIONING_PARAMS;
 pub type PNET_COMPUTER_NAME_TYPE = *mut NET_COMPUTER_NAME_TYPE;

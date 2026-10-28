@@ -1,25 +1,9 @@
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserFree(param0 : *mut u32, param1 : *mut super::HMONITOR));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserFree64(param0 : *mut u32, param1 : *mut super::HMONITOR));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HMONITOR) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HMONITOR) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HMONITOR_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HMONITOR) -> *mut u8);
 #[cfg(feature = "propsys")]
 windows_link::link!("shell32.dll" "system" fn SHAddDefaultPropertiesByExt(pszext : windows_sys::core::PCWSTR, ppropstore : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shobjidl_core")]
 windows_link::link!("shell32.dll" "system" fn SHCreateDefaultPropertiesOp(psi : *mut core::ffi::c_void, ppfileop : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shobjidl_core", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHSetDefaultProperties(hwnd : super::HWND, psi : *mut core::ffi::c_void, dwfileopflags : u32, pfops : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHSetDefaultProperties(hwnd : super::HWND, psi : *mut core::ffi::c_void, dwfileopflags : super::DWORD, pfops : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ACDD_VISIBLE: i32 = 1;
 pub const AccessibilityDockingService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
 pub const AlphabeticalCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
@@ -29,17 +13,17 @@ pub type CDBE_ACTIONS = u32;
 pub const CDBE_RET_DEFAULT: tagCDBURNINGEXTENSIONRET = 0;
 pub const CDBE_RET_DONTRUNOTHEREXTS: tagCDBURNINGEXTENSIONRET = 1;
 pub const CDBE_RET_STOPWIZARD: tagCDBURNINGEXTENSIONRET = 2;
-pub const CDBE_TYPE_ALL: CDBE_ACTIONS = 4294967295;
-pub const CDBE_TYPE_DATA: CDBE_ACTIONS = 2;
-pub const CDBE_TYPE_MUSIC: CDBE_ACTIONS = 1;
+pub const CDBE_TYPE_ALL: _CDBE_ACTIONS = -1;
+pub const CDBE_TYPE_DATA: _CDBE_ACTIONS = 2;
+pub const CDBE_TYPE_MUSIC: _CDBE_ACTIONS = 1;
 pub const CDBurn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
 pub const DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = 1;
-pub type DSH_FLAGS = u32;
+pub type DSH_FLAGS = i32;
 pub const DesktopGadget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
 pub const DocPropShellExtension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
 pub const ExecuteFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
 pub const ExplorerBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
-pub type FOLDERVIEWOPTIONS = u32;
+pub type FOLDERVIEWOPTIONS = i32;
 pub const FSCopyHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
 pub const FVO_CUSTOMORDERING: FOLDERVIEWOPTIONS = 4;
 pub const FVO_CUSTOMPOSITION: FOLDERVIEWOPTIONS = 2;
@@ -64,11 +48,11 @@ pub const InternetPrintOrdering: windows_sys::core::GUID = windows_sys::core::GU
 pub type LPVIEWSETTINGS = *mut i8;
 pub const MergedCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
-#[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]
+#[cfg(all(feature = "commctrl", feature = "shared", feature = "shobjidl_core"))]
 #[derive(Clone, Copy, Default)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: *mut core::ffi::c_void,
-    pub uItemState: u32,
+    pub uItemState: super::UINT,
     pub nstcis: super::NSTCITEMSTATE,
     pub pszText: windows_sys::core::PCWSTR,
     pub iImage: i32,
@@ -78,28 +62,28 @@ pub struct NSTCCUSTOMDRAW {
 }
 pub const NSTCDHPOS_ONTOP: i32 = -1;
 pub type NSTCECLICKTYPE = u32;
-pub const NSTCECT_BUTTON: NSTCECLICKTYPE = 3;
-pub const NSTCECT_DBLCLICK: NSTCECLICKTYPE = 4;
-pub const NSTCECT_LBUTTON: NSTCECLICKTYPE = 1;
-pub const NSTCECT_MBUTTON: NSTCECLICKTYPE = 2;
-pub const NSTCECT_RBUTTON: NSTCECLICKTYPE = 3;
+pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = 3;
+pub const NSTCECT_DBLCLICK: _NSTCECLICKTYPE = 4;
+pub const NSTCECT_LBUTTON: _NSTCECLICKTYPE = 1;
+pub const NSTCECT_MBUTTON: _NSTCECLICKTYPE = 2;
+pub const NSTCECT_RBUTTON: _NSTCECLICKTYPE = 3;
 pub type NSTCEHITTEST = u32;
-pub const NSTCEHT_NOWHERE: NSTCEHITTEST = 1;
-pub const NSTCEHT_ONITEM: NSTCEHITTEST = 70;
-pub const NSTCEHT_ONITEMBUTTON: NSTCEHITTEST = 16;
-pub const NSTCEHT_ONITEMICON: NSTCEHITTEST = 2;
-pub const NSTCEHT_ONITEMINDENT: NSTCEHITTEST = 8;
-pub const NSTCEHT_ONITEMLABEL: NSTCEHITTEST = 4;
-pub const NSTCEHT_ONITEMRIGHT: NSTCEHITTEST = 32;
-pub const NSTCEHT_ONITEMSTATEICON: NSTCEHITTEST = 64;
-pub const NSTCEHT_ONITEMTABBUTTON: NSTCEHITTEST = 4096;
+pub const NSTCEHT_NOWHERE: _NSTCEHITTEST = 1;
+pub const NSTCEHT_ONITEM: _NSTCEHITTEST = 70;
+pub const NSTCEHT_ONITEMBUTTON: _NSTCEHITTEST = 16;
+pub const NSTCEHT_ONITEMICON: _NSTCEHITTEST = 2;
+pub const NSTCEHT_ONITEMINDENT: _NSTCEHITTEST = 8;
+pub const NSTCEHT_ONITEMLABEL: _NSTCEHITTEST = 4;
+pub const NSTCEHT_ONITEMRIGHT: _NSTCEHITTEST = 32;
+pub const NSTCEHT_ONITEMSTATEICON: _NSTCEHITTEST = 64;
+pub const NSTCEHT_ONITEMTABBUTTON: _NSTCEHITTEST = 4096;
 pub const NSTCS2_ALLMASK: NSTCSTYLE2 = 7;
 pub const NSTCS2_DEFAULT: NSTCSTYLE2 = 0;
 pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = 4;
 pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = 8;
 pub const NSTCS2_INTERRUPTNOTIFICATIONS: NSTCSTYLE2 = 1;
 pub const NSTCS2_SHOWNULLSPACEMENU: NSTCSTYLE2 = 2;
-pub type NSTCSTYLE2 = u32;
+pub type NSTCSTYLE2 = i32;
 pub const NTSCS2_NEVERINSERTNONENUMERATED: NSTCSTYLE2 = 32;
 pub const NTSCS2_NOSINGLETONAUTOEXPAND: NSTCSTYLE2 = 16;
 pub const NamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
@@ -126,12 +110,12 @@ pub const SHPWHF_NORECOMPRESS: i32 = 1;
 pub const SHPWHF_USEMRU: i32 = 8;
 pub const SHPWHF_VALIDATEVIAWEBFOLDERS: i32 = 65536;
 pub const SID_SCommandBarState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb99eaa5c_3850_4400_bc33_2ce534048bf8);
-pub const SV3CVW3_DEFAULT: SV3CVW3_FLAGS = 0;
+pub const SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = 0;
 pub type SV3CVW3_FLAGS = u32;
-pub const SV3CVW3_FORCEFOLDERFLAGS: SV3CVW3_FLAGS = 4;
-pub const SV3CVW3_FORCEVIEWMODE: SV3CVW3_FLAGS = 2;
-pub const SV3CVW3_NONINTERACTIVE: SV3CVW3_FLAGS = 1;
-pub type SYNC_ENGINE_STATE_FLAGS = u32;
+pub const SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = 4;
+pub const SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = 2;
+pub const SV3CVW3_NONINTERACTIVE: _SV3CVW3_FLAGS = 1;
+pub type SYNC_ENGINE_STATE_FLAGS = i32;
 pub const StartMenuPin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
 pub const StorageProviderBanners: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
 pub const TimeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe);
@@ -146,9 +130,13 @@ pub const VPCF_SUBTEXT: VPCOLORFLAGS = 4;
 pub const VPCF_TEXT: VPCOLORFLAGS = 1;
 pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = 5;
 pub type VPCOLORFLAGS = i32;
-pub type VPWATERMARKFLAGS = u32;
+pub type VPWATERMARKFLAGS = i32;
 pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = 1;
 pub const VPWF_DEFAULT: VPWATERMARKFLAGS = 0;
 pub const VirtualDesktopManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 pub const WebWizardHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
+pub type _CDBE_ACTIONS = i32;
+pub type _NSTCECLICKTYPE = i32;
+pub type _NSTCEHITTEST = i32;
+pub type _SV3CVW3_FLAGS = i32;
 pub type tagCDBURNINGEXTENSIONRET = i32;

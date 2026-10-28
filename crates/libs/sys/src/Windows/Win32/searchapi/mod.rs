@@ -1,7 +1,8 @@
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AUTHENTICATION_INFO {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub atAuthenticationType: AUTH_TYPE,
     pub pcwszUser: windows_sys::core::PCWSTR,
     pub pcwszPassword: windows_sys::core::PCWSTR,
@@ -40,18 +41,19 @@ pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = 1;
 pub const FF_SUPPRESSINDEXING: FOLLOW_FLAGS = 2;
 pub type FOLLOW_FLAGS = i32;
 pub const FilterRegistration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
-#[repr(C)]
-#[cfg(feature = "minwindef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct INCREMENTAL_ACCESS_INFO {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub ftLastModifiedTime: super::FILETIME,
 }
 pub type ITEMID = i32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ITEM_INFO {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub pcwszFromEMail: windows_sys::core::PCWSTR,
     pub pcwszApplicationName: windows_sys::core::PCWSTR,
     pub pcwszCatalogName: windows_sys::core::PCWSTR,
@@ -69,14 +71,15 @@ pub type PROXY_ACCESS = i32;
 pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = 1;
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0;
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = 2;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PROXY_INFO {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub pcwszUserAgent: windows_sys::core::PCWSTR,
     pub paUseProxy: PROXY_ACCESS,
     pub fLocalBypass: windows_sys::core::BOOL,
-    pub dwPortNumber: u32,
+    pub dwPortNumber: super::DWORD,
     pub pcwszProxyName: windows_sys::core::PCWSTR,
     pub pcwszBypassList: windows_sys::core::PCWSTR,
 }
@@ -97,13 +100,13 @@ pub const SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = 262144;
 pub const SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = 524288;
 pub const SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = 4194304;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::PROPVARIANT,
     pub lcid: super::LCID,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SEARCH_COLUMN_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -115,7 +118,7 @@ pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = 0;
 pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2;
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1;
 #[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
@@ -125,9 +128,10 @@ pub struct SEARCH_ITEM_CHANGE {
     pub lpwszOldURL: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
-    pub dwDocID: u32,
+    pub dwDocID: super::DWORD,
     pub hrIndexingStatus: windows_sys::core::HRESULT,
 }
 #[repr(C)]
@@ -148,12 +152,13 @@ pub type SEARCH_TERM_EXPANSION = i32;
 pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = 0;
 pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1;
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TIMEOUT_INFO {
-    pub dwSize: u32,
-    pub dwConnectTimeout: u32,
-    pub dwDataTimeout: u32,
+    pub dwSize: super::DWORD,
+    pub dwConnectTimeout: super::DWORD,
+    pub dwDataTimeout: super::DWORD,
 }
 pub const eAUTH_TYPE_ANONYMOUS: AUTH_TYPE = 0;
 pub const eAUTH_TYPE_BASIC: AUTH_TYPE = 2;

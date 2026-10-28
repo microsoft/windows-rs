@@ -1,88 +1,110 @@
-windows_link::link!("bcrypt.dll" "system" fn BCryptAddContextFunction(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, dwposition : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptCloseAlgorithmProvider(halgorithm : BCRYPT_ALG_HANDLE, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContextFunction(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_FUNCTION_CONFIG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptCreateContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptCreateHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : super::PUCHAR, cbhashobject : u32, pbsecret : super::PUCHAR, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptCreateMultiHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, nhashes : u32, pbhashobject : super::PUCHAR, cbhashobject : u32, pbsecret : super::PUCHAR, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptDecapsulate(hkey : BCRYPT_KEY_HANDLE, pbciphertext : super::PUCHAR, cbciphertext : u32, pbsecretkey : super::PUCHAR, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptDecrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : u32, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDeleteContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKey(hsharedsecret : BCRYPT_SECRET_HANDLE, pwszkdf : windows_sys::core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyCapi(hhash : BCRYPT_HASH_HANDLE, htargetalg : BCRYPT_ALG_HANDLE, pbderivedkey : super::PUCHAR, cbderivedkey : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyPBKDF2(hprf : BCRYPT_ALG_HANDLE, pbpassword : super::PUCHAR, cbpassword : u32, pbsalt : super::PUCHAR, cbsalt : u32, citerations : u64, pbderivedkey : super::PUCHAR, cbderivedkey : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptAddContextFunction(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR, dwposition : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptCloseAlgorithmProvider(halgorithm : BCRYPT_ALG_HANDLE, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContext(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContextFunction(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_FUNCTION_CONFIG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptCreateContext(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptCreateHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : super::PUCHAR, cbhashobject : super::ULONG, pbsecret : super::PUCHAR, cbsecret : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptCreateMultiHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, nhashes : super::ULONG, pbhashobject : super::PUCHAR, cbhashobject : super::ULONG, pbsecret : super::PUCHAR, cbsecret : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDecapsulate(hkey : BCRYPT_KEY_HANDLE, pbciphertext : super::PUCHAR, cbciphertext : super::ULONG, pbsecretkey : super::PUCHAR, cbsecretkey : super::ULONG, pcbsecretkey : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDecrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : super::ULONG, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : super::ULONG, pboutput : super::PUCHAR, cboutput : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDeleteContext(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKey(hsharedsecret : BCRYPT_SECRET_HANDLE, pwszkdf : windows_sys::core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyCapi(hhash : BCRYPT_HASH_HANDLE, htargetalg : BCRYPT_ALG_HANDLE, pbderivedkey : super::PUCHAR, cbderivedkey : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyPBKDF2(hprf : BCRYPT_ALG_HANDLE, pbpassword : super::PUCHAR, cbpassword : super::ULONG, pbsalt : super::PUCHAR, cbsalt : super::ULONG, citerations : super::ULONGLONG, pbderivedkey : super::PUCHAR, cbderivedkey : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptDestroyHash(hhash : BCRYPT_HASH_HANDLE) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptDestroyKey(hkey : BCRYPT_KEY_HANDLE) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptDestroySecret(hsecret : BCRYPT_SECRET_HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateHash(hhash : BCRYPT_HASH_HANDLE, phnewhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : super::PUCHAR, cbhashobject : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateKey(hkey : BCRYPT_KEY_HANDLE, phnewkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptEncapsulate(hkey : BCRYPT_KEY_HANDLE, pbsecretkey : super::PUCHAR, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : super::PUCHAR, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptEncrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : u32, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEnumAlgorithms(dwalgoperations : u32, palgcount : *mut u32, ppalglist : *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctionProviders(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctions(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTIONS) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContexts(dwtable : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXTS) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEnumProviders(pszalgid : windows_sys::core::PCWSTR, pimplcount : *mut u32, ppimpllist : *mut *mut BCRYPT_PROVIDER_NAME, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEnumRegisteredProviders(pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_PROVIDERS) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptExportKey(hkey : BCRYPT_KEY_HANDLE, hexportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptFinalizeKeyPair(hkey : BCRYPT_KEY_HANDLE, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptFinishHash(hhash : BCRYPT_HASH_HANDLE, pboutput : super::PUCHAR, cboutput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptFreeBuffer(pvbuffer : *const core::ffi::c_void));
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : super::PUCHAR, cbbuffer : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptGenerateKeyPair(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, dwlength : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptGenerateSymmetricKey(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : u32, pbsecret : super::PUCHAR, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateHash(hhash : BCRYPT_HASH_HANDLE, phnewhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : super::PUCHAR, cbhashobject : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateKey(hkey : BCRYPT_KEY_HANDLE, phnewkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEncapsulate(hkey : BCRYPT_KEY_HANDLE, pbsecretkey : super::PUCHAR, cbsecretkey : super::ULONG, pcbsecretkey : *mut super::ULONG, pbciphertext : super::PUCHAR, cbciphertext : super::ULONG, pcbciphertext : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEncrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : super::ULONG, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : super::ULONG, pboutput : super::PUCHAR, cboutput : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEnumAlgorithms(dwalgoperations : super::ULONG, palgcount : *mut super::ULONG, ppalglist : *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctionProviders(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR, pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctions(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTIONS) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContexts(dwtable : super::ULONG, pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_CONTEXTS) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEnumProviders(pszalgid : windows_sys::core::PCWSTR, pimplcount : *mut super::ULONG, ppimpllist : *mut *mut BCRYPT_PROVIDER_NAME, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEnumRegisteredProviders(pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_PROVIDERS) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptExportKey(hkey : BCRYPT_KEY_HANDLE, hexportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pboutput : super::PUCHAR, cboutput : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptFinalizeKeyPair(hkey : BCRYPT_KEY_HANDLE, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptFinishHash(hhash : BCRYPT_HASH_HANDLE, pboutput : super::PUCHAR, cboutput : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptFreeBuffer(pvbuffer : super::PVOID));
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : super::PUCHAR, cbbuffer : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGenerateKeyPair(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, dwlength : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGenerateSymmetricKey(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : super::ULONG, pbsecret : super::PUCHAR, cbsecret : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptGetFipsAlgorithmMode(pfenabled : *mut super::BOOLEAN) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptGetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptHash(halgorithm : BCRYPT_ALG_HANDLE, pbsecret : super::PUCHAR, cbsecret : u32, pbinput : super::PUCHAR, cbinput : u32, pboutput : super::PUCHAR, cboutput : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptHashData(hhash : BCRYPT_HASH_HANDLE, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptImportKey(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : u32, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptImportKeyPair(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptKeyDerivation(hkey : BCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptOpenAlgorithmProvider(phalgorithm : *mut BCRYPT_ALG_HANDLE, pszalgid : windows_sys::core::PCWSTR, pszimplementation : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptProcessMultiOperations(hobject : BCRYPT_HANDLE, operationtype : BCRYPT_MULTI_OPERATION_TYPE, poperations : *const core::ffi::c_void, cboperations : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextConfiguration(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionConfiguration(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionProperty(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, pcbvalue : *mut u32, ppbvalue : *mut super::PUCHAR) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptQueryProviderRegistration(pszprovider : windows_sys::core::PCWSTR, dwmode : u32, dwinterface : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_PROVIDER_REG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pboutput : super::PUCHAR, cboutput : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptHash(halgorithm : BCRYPT_ALG_HANDLE, pbsecret : super::PUCHAR, cbsecret : super::ULONG, pbinput : super::PUCHAR, cbinput : super::ULONG, pboutput : super::PUCHAR, cboutput : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptHashData(hhash : BCRYPT_HASH_HANDLE, pbinput : super::PUCHAR, cbinput : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptImportKey(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : super::ULONG, pbinput : super::PUCHAR, cbinput : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptImportKeyPair(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptKeyDerivation(hkey : BCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptOpenAlgorithmProvider(phalgorithm : *mut BCRYPT_ALG_HANDLE, pszalgid : windows_sys::core::PCWSTR, pszimplementation : windows_sys::core::PCWSTR, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptProcessMultiOperations(hobject : BCRYPT_HANDLE, operationtype : BCRYPT_MULTI_OPERATION_TYPE, poperations : super::PVOID, cboperations : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextConfiguration(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionConfiguration(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR, pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTION_CONFIG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionProperty(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, pcbvalue : *mut super::ULONG, ppbvalue : *mut super::PUCHAR) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptQueryProviderRegistration(pszprovider : windows_sys::core::PCWSTR, dwmode : super::ULONG, dwinterface : super::ULONG, pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_PROVIDER_REG) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptRegisterConfigChangeNotify(phevent : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptRemoveContextFunction(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptResolveProviders(pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR, dwmode : u32, dwflags : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_PROVIDER_REFS) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptSecretAgreement(hprivkey : BCRYPT_KEY_HANDLE, hpubkey : BCRYPT_KEY_HANDLE, phagreedsecret : *mut BCRYPT_SECRET_HANDLE, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, cbvalue : u32, pbvalue : super::PUCHAR) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : super::PUCHAR, cbinput : u32, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptRemoveContextFunction(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptResolveProviders(pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR, dwmode : super::ULONG, dwflags : super::ULONG, pcbbuffer : *mut super::ULONG, ppbuffer : *mut PCRYPT_PROVIDER_REFS) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "shared")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptSecretAgreement(hprivkey : BCRYPT_KEY_HANDLE, hpubkey : BCRYPT_KEY_HANDLE, phagreedsecret : *mut BCRYPT_SECRET_HANDLE, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : super::ULONG, pszcontext : windows_sys::core::PCWSTR, dwinterface : super::ULONG, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, cbvalue : super::ULONG, pbvalue : super::PUCHAR) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : super::PUCHAR, cbinput : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : super::PUCHAR, cbinput : super::ULONG, pboutput : super::PUCHAR, cboutput : super::ULONG, pcbresult : *mut super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptUnregisterConfigChangeNotify(hevent : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "minwindef")]
-windows_link::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : super::PUCHAR, cbhash : u32, pbsignature : super::PUCHAR, cbsignature : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : super::PUCHAR, cbhash : super::ULONG, pbsignature : super::PUCHAR, cbsignature : super::ULONG, dwflags : super::ULONG) -> windows_sys::core::NTSTATUS);
 pub const BCRYPTBUFFER_VERSION: i32 = 0;
 pub const BCRYPT_3DES_112_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("3DES_112");
 pub const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 369 as _;
@@ -104,11 +126,12 @@ pub const BCRYPT_AES_GMAC_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::co
 pub const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 273 as _;
 pub const BCRYPT_AES_WRAP_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("Rfc3565KeyWrapBlob");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_ALGORITHM_IDENTIFIER {
     pub pszName: windows_sys::core::PWSTR,
-    pub dwClass: u32,
-    pub dwFlags: u32,
+    pub dwClass: super::ULONG,
+    pub dwFlags: super::ULONG,
 }
 pub const BCRYPT_ALGORITHM_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("AlgorithmName");
 pub type BCRYPT_ALG_HANDLE = *mut core::ffi::c_void;
@@ -116,27 +139,28 @@ pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: i32 = 8;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-    pub cbSize: u32,
-    pub dwInfoVersion: u32,
+    pub cbSize: super::ULONG,
+    pub dwInfoVersion: super::ULONG,
     pub pbNonce: super::PUCHAR,
-    pub cbNonce: u32,
+    pub cbNonce: super::ULONG,
     pub pbAuthData: super::PUCHAR,
-    pub cbAuthData: u32,
+    pub cbAuthData: super::ULONG,
     pub pbTag: super::PUCHAR,
-    pub cbTag: u32,
+    pub cbTag: super::ULONG,
     pub pbMacContext: super::PUCHAR,
-    pub cbMacContext: u32,
-    pub cbAAD: u32,
-    pub cbData: u64,
-    pub dwFlags: u32,
+    pub cbMacContext: super::ULONG,
+    pub cbAAD: super::ULONG,
+    pub cbData: super::ULONGLONG,
+    pub dwFlags: super::ULONG,
 }
 pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: i32 = 1;
 pub const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: i32 = 1;
 pub const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: i32 = 2;
 pub const BCRYPT_AUTH_TAG_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("AuthTagLength");
+#[cfg(feature = "shared")]
 pub type BCRYPT_AUTH_TAG_LENGTHS_STRUCT = BCRYPT_KEY_LENGTHS_STRUCT;
 pub const BCRYPT_BLOCK_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("BlockLength");
 pub const BCRYPT_BLOCK_PADDING: i32 = 1;
@@ -172,19 +196,21 @@ pub const BCRYPT_DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = 513 as _;
 pub const BCRYPT_DH_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("DH");
 pub const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = 641 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_DH_KEY_BLOB {
-    pub dwMagic: u32,
-    pub cbKey: u32,
+    pub dwMagic: super::ULONG,
+    pub cbKey: super::ULONG,
 }
 pub const BCRYPT_DH_PARAMETERS: windows_sys::core::PCWSTR = windows_sys::core::w!("DHParameters");
 pub const BCRYPT_DH_PARAMETERS_MAGIC: i32 = 1297107012;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_DH_PARAMETER_HEADER {
-    pub cbLength: u32,
-    pub dwMagic: u32,
-    pub cbKeyLength: u32,
+    pub cbLength: super::ULONG,
+    pub dwMagic: super::ULONG,
+    pub cbKeyLength: super::ULONG,
 }
 pub const BCRYPT_DH_PRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("DHPRIVATEBLOB");
 pub const BCRYPT_DH_PRIVATE_MAGIC: i32 = 1448101956;
@@ -193,30 +219,34 @@ pub const BCRYPT_DH_PUBLIC_MAGIC: i32 = 1112557636;
 pub const BCRYPT_DSA_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("DSA");
 pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 721 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_KEY_BLOB {
-    pub dwMagic: u32,
-    pub cbKey: u32,
-    pub Count: [u8; 4],
-    pub Seed: [u8; 20],
-    pub q: [u8; 20],
+    pub dwMagic: super::ULONG,
+    pub cbKey: super::ULONG,
+    pub Count: [super::UCHAR; 4],
+    pub Seed: [super::UCHAR; 20],
+    pub q: [super::UCHAR; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for BCRYPT_DSA_KEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_KEY_BLOB_V2 {
-    pub dwMagic: u32,
-    pub cbKey: u32,
+    pub dwMagic: super::ULONG,
+    pub cbKey: super::ULONG,
     pub hashAlgorithm: HASHALGORITHM_ENUM,
     pub standardVersion: DSAFIPSVERSION_ENUM,
-    pub cbSeedLength: u32,
-    pub cbGroupSize: u32,
-    pub Count: [u8; 4],
+    pub cbSeedLength: super::ULONG,
+    pub cbGroupSize: super::ULONG,
+    pub Count: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for BCRYPT_DSA_KEY_BLOB_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -226,32 +256,36 @@ pub const BCRYPT_DSA_PARAMETERS: windows_sys::core::PCWSTR = windows_sys::core::
 pub const BCRYPT_DSA_PARAMETERS_MAGIC: i32 = 1297109828;
 pub const BCRYPT_DSA_PARAMETERS_MAGIC_V2: i32 = 843927620;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER {
-    pub cbLength: u32,
-    pub dwMagic: u32,
-    pub cbKeyLength: u32,
-    pub Count: [u8; 4],
-    pub Seed: [u8; 20],
-    pub q: [u8; 20],
+    pub cbLength: super::ULONG,
+    pub dwMagic: super::ULONG,
+    pub cbKeyLength: super::ULONG,
+    pub Count: [super::UCHAR; 4],
+    pub Seed: [super::UCHAR; 20],
+    pub q: [super::UCHAR; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for BCRYPT_DSA_PARAMETER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
-    pub cbLength: u32,
-    pub dwMagic: u32,
-    pub cbKeyLength: u32,
+    pub cbLength: super::ULONG,
+    pub dwMagic: super::ULONG,
+    pub cbKeyLength: super::ULONG,
     pub hashAlgorithm: HASHALGORITHM_ENUM,
     pub standardVersion: DSAFIPSVERSION_ENUM,
-    pub cbSeedLength: u32,
-    pub cbGroupSize: u32,
-    pub Count: [u8; 4],
+    pub cbSeedLength: super::ULONG,
+    pub cbGroupSize: super::ULONG,
+    pub Count: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -264,24 +298,26 @@ pub const BCRYPT_DSA_PUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core:
 pub const BCRYPT_DSA_PUBLIC_MAGIC: i32 = 1112560452;
 pub const BCRYPT_DSA_PUBLIC_MAGIC_V2: i32 = 843206724;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_ECCFULLKEY_BLOB {
-    pub dwMagic: u32,
-    pub dwVersion: u32,
+    pub dwMagic: super::ULONG,
+    pub dwVersion: super::ULONG,
     pub dwCurveType: ECC_CURVE_TYPE_ENUM,
     pub dwCurveGenerationAlgId: ECC_CURVE_ALG_ID_ENUM,
-    pub cbFieldLength: u32,
-    pub cbSubgroupOrder: u32,
-    pub cbCofactor: u32,
-    pub cbSeed: u32,
+    pub cbFieldLength: super::ULONG,
+    pub cbSubgroupOrder: super::ULONG,
+    pub cbCofactor: super::ULONG,
+    pub cbSeed: super::ULONG,
 }
 pub const BCRYPT_ECCFULLPRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCFULLPRIVATEBLOB");
 pub const BCRYPT_ECCFULLPUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCFULLPUBLICBLOB");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_ECCKEY_BLOB {
-    pub dwMagic: u32,
-    pub cbKey: u32,
+    pub dwMagic: super::ULONG,
+    pub cbKey: super::ULONG,
 }
 pub const BCRYPT_ECCPRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCPRIVATEBLOB");
 pub const BCRYPT_ECCPUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCPUBLICBLOB");
@@ -303,9 +339,10 @@ pub const BCRYPT_ECC_CURVE_BRAINPOOLP512T1: windows_sys::core::PCWSTR = windows_
 pub const BCRYPT_ECC_CURVE_EC192WAPI: windows_sys::core::PCWSTR = windows_sys::core::w!("ec192wapi");
 pub const BCRYPT_ECC_CURVE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCCurveName");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_ECC_CURVE_NAMES {
-    pub dwEccCurveNames: u32,
+    pub dwEccCurveNames: super::ULONG,
     pub pEccCurveNames: *mut windows_sys::core::PWSTR,
 }
 pub const BCRYPT_ECC_CURVE_NAME_LIST: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCCurveNameList");
@@ -412,10 +449,11 @@ pub const BCRYPT_HMAC_SHA3_512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1025 as _;
 pub const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = 209 as _;
 pub const BCRYPT_INITIALIZATION_VECTOR: windows_sys::core::PCWSTR = windows_sys::core::w!("IV");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_INTERFACE_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
+    pub MajorVersion: super::USHORT,
+    pub MinorVersion: super::USHORT,
 }
 pub const BCRYPT_IS_IFX_TPM_WEAK_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("IsIfxTpmWeakKey");
 pub const BCRYPT_IS_KEYED_HASH: windows_sys::core::PCWSTR = windows_sys::core::w!("IsKeyedHash");
@@ -429,17 +467,19 @@ pub const BCRYPT_KDF_TLS_PRF: windows_sys::core::PCWSTR = windows_sys::core::w!(
 pub const BCRYPT_KEM_CIPHERTEXT_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("KEMCiphertextLength");
 pub const BCRYPT_KEM_SHARED_SECRET_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("KEMSharedSecretLength");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_KEY_BLOB {
-    pub Magic: u32,
+    pub Magic: super::ULONG,
 }
 pub const BCRYPT_KEY_DATA_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("KeyDataBlob");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
-    pub dwMagic: u32,
-    pub dwVersion: u32,
-    pub cbKeyData: u32,
+    pub dwMagic: super::ULONG,
+    pub dwVersion: super::ULONG,
+    pub cbKeyData: super::ULONG,
 }
 pub const BCRYPT_KEY_DATA_BLOB_MAGIC: i32 = 1296188491;
 pub const BCRYPT_KEY_DATA_BLOB_VERSION1: i32 = 1;
@@ -451,11 +491,12 @@ pub type BCRYPT_KEY_HANDLE = *mut core::ffi::c_void;
 pub const BCRYPT_KEY_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("KeyLength");
 pub const BCRYPT_KEY_LENGTHS: windows_sys::core::PCWSTR = windows_sys::core::w!("KeyLengths");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
-    pub dwMinLength: u32,
-    pub dwMaxLength: u32,
-    pub dwIncrement: u32,
+    pub dwMinLength: super::ULONG,
+    pub dwMaxLength: super::ULONG,
+    pub dwIncrement: super::ULONG,
 }
 pub const BCRYPT_KEY_OBJECT_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("KeyObjectLength");
 pub const BCRYPT_KEY_STRENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("KeyStrength");
@@ -489,11 +530,12 @@ pub const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1153 as _;
 pub const BCRYPT_MLKEM_DECAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("MLKEMPRIVATEBLOB");
 pub const BCRYPT_MLKEM_ENCAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("MLKEMPUBLICBLOB");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_MLKEM_KEY_BLOB {
-    pub dwMagic: u32,
-    pub cbParameterSet: u32,
-    pub cbKey: u32,
+    pub dwMagic: super::ULONG,
+    pub cbParameterSet: super::ULONG,
+    pub cbKey: super::ULONG,
 }
 pub const BCRYPT_MLKEM_PARAMETER_SET_1024: windows_sys::core::PCWSTR = windows_sys::core::w!("1024");
 pub const BCRYPT_MLKEM_PARAMETER_SET_512: windows_sys::core::PCWSTR = windows_sys::core::w!("512");
@@ -506,46 +548,47 @@ pub const BCRYPT_MLKEM_PUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::cor
 pub const BCRYPT_MLKEM_PUBLIC_MAGIC: i32 = 1347112013;
 pub const BCRYPT_MULTI_FLAG: i32 = 64;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
-    pub iHash: u32,
+    pub iHash: super::ULONG,
     pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
     pub pbBuffer: super::PUCHAR,
-    pub cbBuffer: u32,
+    pub cbBuffer: super::ULONG,
 }
 pub const BCRYPT_MULTI_OBJECT_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("MultiObjectLength");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-    pub cbPerObject: u32,
-    pub cbPerElement: u32,
+    pub cbPerObject: super::ULONG,
+    pub cbPerElement: super::ULONG,
 }
 pub type BCRYPT_MULTI_OPERATION_TYPE = i32;
 pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = 0;
 pub const BCRYPT_NO_KEY_VALIDATION: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
     pub pbLabel: super::PUCHAR,
-    pub cbLabel: u32,
+    pub cbLabel: super::ULONG,
 }
 pub const BCRYPT_OBJECT_ALIGNMENT: i32 = 16;
 pub const BCRYPT_OBJECT_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("ObjectLength");
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_OID {
-    pub cbOID: u32,
+    pub cbOID: super::ULONG,
     pub pbOID: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_OID_LIST {
-    pub dwOIDCount: u32,
+    pub dwOIDCount: super::ULONG,
     pub pOIDs: *mut BCRYPT_OID,
 }
 pub const BCRYPT_OPAQUE_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("OpaqueKeyBlob");
@@ -563,12 +606,13 @@ pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 817 as _;
 pub const BCRYPT_PCP_PLATFORM_TYPE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_PLATFORM_TYPE");
 pub const BCRYPT_PCP_PROVIDER_VERSION_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_PROVIDER_VERSION");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_PKCS11_RSA_AES_WRAP_BLOB {
-    pub dwMagic: u32,
-    pub cbKey: u32,
-    pub cbPaddingAlgId: u32,
-    pub cbPaddingLabel: u32,
+    pub dwMagic: super::ULONG,
+    pub cbKey: super::ULONG,
+    pub cbPaddingAlgId: super::ULONG,
+    pub cbPaddingLabel: super::ULONG,
 }
 pub const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: i32 = 1464877394;
 pub const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PKCS11RsaAesWrapBlob");
@@ -578,18 +622,19 @@ pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_PQDSA_KEY_BLOB {
-    pub dwMagic: u32,
-    pub cbParameterSet: u32,
-    pub cbKey: u32,
+    pub dwMagic: super::ULONG,
+    pub cbParameterSet: super::ULONG,
+    pub cbKey: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_PQDSA_PADDING_INFO {
     pub pbCtx: super::PUCHAR,
-    pub cbCtx: u32,
+    pub cbCtx: super::ULONG,
     pub pszPrehashAlgId: windows_sys::core::PCWSTR,
 }
 pub const BCRYPT_PQDSA_PRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PQDSAPRIVATEBLOB");
@@ -607,10 +652,11 @@ pub struct BCRYPT_PROVIDER_NAME {
 }
 pub const BCRYPT_PROV_DISPATCH: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_PSS_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
-    pub cbSalt: u32,
+    pub cbSalt: super::ULONG,
 }
 pub const BCRYPT_PUBLIC_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PUBLICBLOB");
 pub const BCRYPT_PUBLIC_KEY_FLAG: i32 = 1;
@@ -631,14 +677,15 @@ pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: i32 = 1;
 pub const BCRYPT_RSAFULLPRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("RSAFULLPRIVATEBLOB");
 pub const BCRYPT_RSAFULLPRIVATE_MAGIC: i32 = 859919186;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_RSAKEY_BLOB {
-    pub Magic: u32,
-    pub BitLength: u32,
-    pub cbPublicExp: u32,
-    pub cbModulus: u32,
-    pub cbPrime1: u32,
-    pub cbPrime2: u32,
+    pub Magic: super::ULONG,
+    pub BitLength: super::ULONG,
+    pub cbPublicExp: super::ULONG,
+    pub cbModulus: super::ULONG,
+    pub cbPrime1: super::ULONG,
+    pub cbPrime2: super::ULONG,
 }
 pub const BCRYPT_RSAPRIVATE_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("RSAPRIVATEBLOB");
 pub const BCRYPT_RSAPRIVATE_MAGIC: i32 = 843141970;
@@ -707,74 +754,84 @@ pub const BCRYPT_XMSS_PUBLIC_MAGIC: i32 = 1263553880;
 pub const BCRYPT_XTS_AES_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("XTS-AES");
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = 897 as _;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCryptBuffer {
-    pub cbBuffer: u32,
-    pub BufferType: u32,
-    pub pvBuffer: *mut core::ffi::c_void,
+    pub cbBuffer: super::ULONG,
+    pub BufferType: super::ULONG,
+    pub pvBuffer: super::PVOID,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct BCryptBufferDesc {
-    pub ulVersion: u32,
-    pub cBuffers: u32,
+    pub ulVersion: super::ULONG,
+    pub cBuffers: super::ULONG,
     pub pBuffers: PBCryptBuffer,
 }
 pub const CRYPT_ALL_FUNCTIONS: i32 = 1;
 pub const CRYPT_ALL_PROVIDERS: i32 = 2;
 pub const CRYPT_ANY: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_CONTEXTS {
-    pub cContexts: u32,
+    pub cContexts: super::ULONG,
     pub rgpszContexts: *mut windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_CONTEXT_CONFIG {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
+    pub dwFlags: super::ULONG,
+    pub dwReserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
-    pub cFunctions: u32,
+    pub cFunctions: super::ULONG,
     pub rgpszFunctions: *mut windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
+    pub dwFlags: super::ULONG,
+    pub dwReserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    pub cProviders: u32,
+    pub cProviders: super::ULONG,
     pub rgpszProviders: *mut windows_sys::core::PWSTR,
 }
 pub const CRYPT_DEFAULT_CONTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("Default");
 pub const CRYPT_DOMAIN: i32 = 2;
 pub const CRYPT_EXCLUSIVE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_IMAGE_REF {
     pub pszImage: windows_sys::core::PWSTR,
-    pub dwFlags: u32,
+    pub dwFlags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: windows_sys::core::PWSTR,
-    pub cInterfaces: u32,
+    pub cInterfaces: super::ULONG,
     pub rgpInterfaces: *mut PCRYPT_INTERFACE_REG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_INTERFACE_REG {
-    pub dwInterface: u32,
-    pub dwFlags: u32,
-    pub cFunctions: u32,
+    pub dwInterface: super::ULONG,
+    pub dwFlags: super::ULONG,
+    pub cFunctions: super::ULONG,
     pub rgpszFunctions: *mut windows_sys::core::PWSTR,
 }
 pub const CRYPT_KM: i32 = 2;
@@ -787,42 +844,44 @@ pub const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295;
 pub const CRYPT_PRIORITY_TOP: i32 = 0;
 pub const CRYPT_PROCESS_ISOLATE: i32 = 65536;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: windows_sys::core::PWSTR,
-    pub cbValue: u32,
+    pub cbValue: super::ULONG,
     pub pbValue: super::PUCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_PROVIDERS {
-    pub cProviders: u32,
+    pub cProviders: super::ULONG,
     pub rgpszProviders: *mut windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_PROVIDER_REF {
-    pub dwInterface: u32,
+    pub dwInterface: super::ULONG,
     pub pszFunction: windows_sys::core::PWSTR,
     pub pszProvider: windows_sys::core::PWSTR,
-    pub cProperties: u32,
+    pub cProperties: super::ULONG,
     pub rgpProperties: *mut PCRYPT_PROPERTY_REF,
     pub pUM: PCRYPT_IMAGE_REF,
     pub pKM: PCRYPT_IMAGE_REF,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_PROVIDER_REFS {
-    pub cProviders: u32,
+    pub cProviders: super::ULONG,
     pub rgpProviders: *mut PCRYPT_PROVIDER_REF,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CRYPT_PROVIDER_REG {
-    pub cAliases: u32,
+    pub cAliases: super::ULONG,
     pub rgpszAliases: *mut windows_sys::core::PWSTR,
     pub pUM: PCRYPT_IMAGE_REG,
     pub pKM: PCRYPT_IMAGE_REG,
@@ -870,61 +929,85 @@ pub const LEGACY_RSAPUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core::
 pub const MAX_HYBRID_KEY_EXCHANGE_BLOBS: i32 = 4;
 pub const MS_PLATFORM_CRYPTO_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft Platform Crypto Provider");
 pub const MS_PRIMITIVE_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft Primitive Provider");
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO = *mut BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_DH_KEY_BLOB = *mut BCRYPT_DH_KEY_BLOB;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_DSA_KEY_BLOB = *mut BCRYPT_DSA_KEY_BLOB;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_DSA_KEY_BLOB_V2 = *mut BCRYPT_DSA_KEY_BLOB_V2;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_ECCFULLKEY_BLOB = *mut BCRYPT_ECCFULLKEY_BLOB;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_ECCKEY_BLOB = *mut BCRYPT_ECCKEY_BLOB;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_INTERFACE_VERSION = *mut BCRYPT_INTERFACE_VERSION;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_KEY_DATA_BLOB_HEADER = *mut BCRYPT_KEY_DATA_BLOB_HEADER;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_MLKEM_KEY_BLOB = *mut BCRYPT_MLKEM_KEY_BLOB;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_PKCS11_RSA_AES_WRAP_BLOB = *mut BCRYPT_PKCS11_RSA_AES_WRAP_BLOB;
+#[cfg(feature = "shared")]
 pub type PBCRYPT_PQDSA_KEY_BLOB = *mut BCRYPT_PQDSA_KEY_BLOB;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBCryptBuffer = *mut BCryptBuffer;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBCryptBufferDesc = *mut BCryptBufferDesc;
+#[cfg(feature = "shared")]
 pub type PCRYPT_CONTEXTS = *mut CRYPT_CONTEXTS;
+#[cfg(feature = "shared")]
 pub type PCRYPT_CONTEXT_CONFIG = *mut CRYPT_CONTEXT_CONFIG;
+#[cfg(feature = "shared")]
 pub type PCRYPT_CONTEXT_FUNCTIONS = *mut CRYPT_CONTEXT_FUNCTIONS;
+#[cfg(feature = "shared")]
 pub type PCRYPT_CONTEXT_FUNCTION_CONFIG = *mut CRYPT_CONTEXT_FUNCTION_CONFIG;
+#[cfg(feature = "shared")]
 pub type PCRYPT_CONTEXT_FUNCTION_PROVIDERS = *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS;
+#[cfg(feature = "shared")]
 pub type PCRYPT_IMAGE_REF = *mut CRYPT_IMAGE_REF;
+#[cfg(feature = "shared")]
 pub type PCRYPT_IMAGE_REG = *mut CRYPT_IMAGE_REG;
+#[cfg(feature = "shared")]
 pub type PCRYPT_INTERFACE_REG = *mut CRYPT_INTERFACE_REG;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCRYPT_PROPERTY_REF = *mut CRYPT_PROPERTY_REF;
+#[cfg(feature = "shared")]
 pub type PCRYPT_PROVIDERS = *mut CRYPT_PROVIDERS;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCRYPT_PROVIDER_REF = *mut CRYPT_PROVIDER_REF;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCRYPT_PROVIDER_REFS = *mut CRYPT_PROVIDER_REFS;
+#[cfg(feature = "shared")]
 pub type PCRYPT_PROVIDER_REG = *mut CRYPT_PROVIDER_REG;
-pub type PNTSTATUS = *mut windows_sys::core::NTSTATUS;
+#[cfg(feature = "shared")]
 pub type PSSL_ECCKEY_BLOB = *mut SSL_ECCKEY_BLOB;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PTLS_HYBRID_KEYEXCHANGE_BLOB = *mut TLS_HYBRID_KEYEXCHANGE_BLOB;
+#[cfg(feature = "shared")]
 pub type PTLS_KEM_CIPHERTEXT_BLOB = *mut TLS_KEM_CIPHERTEXT_BLOB;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SSL_ECCKEY_BLOB {
-    pub dwCurveType: u32,
-    pub cbKey: u32,
+    pub dwCurveType: super::ULONG,
+    pub cbKey: super::ULONG,
 }
 pub const SSL_ECCPUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("SSLECCPUBLICBLOB");
 pub const TLS_13_PRE_SHARED_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("TLS13PRESHAREDKEY");
 pub const TLS_HYBRID_KEYEXCHANGE: windows_sys::core::PCWSTR = windows_sys::core::w!("TLS_HYBRID_KEYEXCHANGE");
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct TLS_HYBRID_KEYEXCHANGE_BLOB {
-    pub dwMagic: u32,
-    pub dwKeyType: u32,
-    pub NumBlobs: u8,
+    pub dwMagic: super::ULONG,
+    pub dwKeyType: super::ULONG,
+    pub NumBlobs: super::UCHAR,
     pub rgwszBlobTypes: [windows_sys::core::PCWSTR; 4],
     pub rgbBlobs: [super::PUCHAR; 4],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for TLS_HYBRID_KEYEXCHANGE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -933,9 +1016,10 @@ impl Default for TLS_HYBRID_KEYEXCHANGE_BLOB {
 pub const TLS_HYBRID_KEYEXCHANGE_MAGIC: i32 = 1213418580;
 pub const TLS_KEM_CIPHERTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("TLS_KEM_CIPHER_TEXT");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TLS_KEM_CIPHERTEXT_BLOB {
-    pub dwMagic: u32,
-    pub cbLength: u32,
+    pub dwMagic: super::ULONG,
+    pub cbLength: super::ULONG,
 }
 pub const TLS_KEM_CIPHERTEXT_MAGIC: i32 = 1129008205;

@@ -1,10 +1,12 @@
-windows_link::link!("windowscodecs.dll" "system" fn WICConvertBitmapSource(dstformat : REFWICPixelFormatGUID, pisrc : *mut core::ffi::c_void, ppidst : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSection(width : u32, height : u32, pixelformat : REFWICPixelFormatGUID, hsection : super::HANDLE, stride : u32, offset : u32, ppibitmap : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSectionEx(width : u32, height : u32, pixelformat : REFWICPixelFormatGUID, hsection : super::HANDLE, stride : u32, offset : u32, desiredaccesslevel : WICSectionAccessLevel, ppibitmap : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_sys::core::GUID, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_sys::core::GUID, pwzschema : windows_sys::core::PCWSTR, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("windowscodecs.dll" "system" fn WICConvertBitmapSource(dstformat : *const windows_sys::core::GUID, pisrc : *mut core::ffi::c_void, ppidst : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSection(width : super::UINT, height : super::UINT, pixelformat : *const windows_sys::core::GUID, hsection : super::HANDLE, stride : super::UINT, offset : super::UINT, ppibitmap : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("windowscodecs.dll" "system" fn WICCreateBitmapFromSectionEx(width : super::UINT, height : super::UINT, pixelformat : *const windows_sys::core::GUID, hsection : super::HANDLE, stride : super::UINT, offset : super::UINT, desiredaccesslevel : WICSectionAccessLevel, ppibitmap : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_sys::core::GUID, cchname : super::UINT, wzname : *mut super::WCHAR, pcchactual : *mut super::UINT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_sys::core::GUID, pwzschema : windows_sys::core::PCWSTR, cchname : super::UINT, wzname : *mut super::WCHAR, pcchactual : *mut super::UINT) -> windows_sys::core::HRESULT);
 windows_link::link!("windowscodecs.dll" "system" fn WICMapShortNameToGuid(wzname : windows_sys::core::PCWSTR, pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 pub const CATID_WICBitmapDecoders: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ed96837_96f0_4812_b211_f13c24117ed3);
 pub const CATID_WICBitmapEncoders: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac757296_3522_4e11_9862_c17be5a1767e);
@@ -156,8 +158,8 @@ pub const GUID_WICPixelFormat96bppRGBFixedPoint: windows_sys::core::GUID = windo
 pub const GUID_WICPixelFormat96bppRGBFloat: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3fed78f_e8db_4acf_84c1_e97f6136b327);
 pub const GUID_WICPixelFormatBlackWhite: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc905);
 pub const GUID_WICPixelFormatDontCare: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc900);
-pub type PFNProgressNotification = Option<unsafe extern "system" fn(pvdata: *mut core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> windows_sys::core::HRESULT>;
-pub type REFWICPixelFormatGUID = *const windows_sys::core::GUID;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PFNProgressNotification = Option<unsafe extern "system" fn(pvdata: super::LPVOID, uframenum: super::ULONG, operation: WICProgressOperation, dblprogress: f64) -> windows_sys::core::HRESULT>;
 pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = 2;
 pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = 1;
 pub type WIC8BIMIptcDigestProperties = i32;
@@ -249,35 +251,37 @@ pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3;
 pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7;
 pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WICBitmapPattern {
     pub Position: super::ULARGE_INTEGER,
-    pub Length: u32,
-    pub Pattern: *mut u8,
-    pub Mask: *mut u8,
+    pub Length: super::ULONG,
+    pub Pattern: *mut super::BYTE,
+    pub Mask: *mut super::BYTE,
     pub EndOfStream: windows_sys::core::BOOL,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WICBitmapPattern {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WICBitmapPlane {
     pub Format: WICPixelFormatGUID,
-    pub pbBuffer: *mut u8,
-    pub cbStride: u32,
-    pub cbBufferSize: u32,
+    pub pbBuffer: *mut super::BYTE,
+    pub cbStride: super::UINT,
+    pub cbBufferSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WICBitmapPlaneDescription {
     pub Format: WICPixelFormatGUID,
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
 }
 pub type WICBitmapToneMappingMode = i32;
 pub const WICBitmapToneMappingMode_D2D: WICBitmapToneMappingMode = 2;
@@ -323,23 +327,23 @@ pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1;
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0;
 pub type WICDdsDimension = i32;
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WICDdsFormatInfo {
     pub DxgiFormat: super::DXGI_FORMAT,
-    pub BytesPerBlock: u32,
-    pub BlockWidth: u32,
-    pub BlockHeight: u32,
+    pub BytesPerBlock: super::UINT,
+    pub BlockWidth: super::UINT,
+    pub BlockHeight: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WICDdsParameters {
-    pub Width: u32,
-    pub Height: u32,
-    pub Depth: u32,
-    pub MipLevels: u32,
-    pub ArraySize: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Depth: super::UINT,
+    pub MipLevels: super::UINT,
+    pub ArraySize: super::UINT,
     pub DxgiFormat: super::DXGI_FORMAT,
     pub Dimension: WICDdsDimension,
     pub AlphaMode: WICDdsAlphaMode,
@@ -413,16 +417,16 @@ pub const WICHeifOrientation: WICHeifProperties = 1;
 pub type WICHeifProperties = i32;
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647;
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct WICImageParameters {
     pub PixelFormat: super::D2D1_PIXEL_FORMAT,
-    pub DpiX: f32,
-    pub DpiY: f32,
-    pub Top: f32,
-    pub Left: f32,
-    pub PixelWidth: u32,
-    pub PixelHeight: u32,
+    pub DpiX: super::FLOAT,
+    pub DpiY: super::FLOAT,
+    pub Top: super::FLOAT,
+    pub Left: super::FLOAT,
+    pub PixelWidth: super::UINT32,
+    pub PixelHeight: super::UINT32,
 }
 pub type WICInProcPointer = *mut u8;
 pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = 2147483647;
@@ -433,16 +437,17 @@ pub type WICJpegCommentProperties = i32;
 pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = 2147483647;
 pub const WICJpegCommentText: WICJpegCommentProperties = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WICJpegFrameHeader {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub TransferMatrix: WICJpegTransferMatrix,
     pub ScanType: WICJpegScanType,
-    pub cComponents: u32,
-    pub ComponentIdentifiers: u32,
-    pub SampleFactors: u32,
-    pub QuantizationTableIndices: u32,
+    pub cComponents: super::UINT,
+    pub ComponentIdentifiers: super::DWORD,
+    pub SampleFactors: super::DWORD,
+    pub QuantizationTableIndices: super::DWORD,
 }
 pub type WICJpegIndexingOptions = i32;
 pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = 0;
@@ -452,16 +457,17 @@ pub type WICJpegLuminanceProperties = i32;
 pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = 2147483647;
 pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WICJpegScanHeader {
-    pub cComponents: u32,
-    pub RestartInterval: u32,
-    pub ComponentSelectors: u32,
-    pub HuffmanTableIndices: u32,
-    pub StartSpectralSelection: u8,
-    pub EndSpectralSelection: u8,
-    pub SuccessiveApproximationHigh: u8,
-    pub SuccessiveApproximationLow: u8,
+    pub cComponents: super::UINT,
+    pub RestartInterval: super::UINT,
+    pub ComponentSelectors: super::DWORD,
+    pub HuffmanTableIndices: super::DWORD,
+    pub StartSpectralSelection: super::BYTE,
+    pub EndSpectralSelection: super::BYTE,
+    pub SuccessiveApproximationHigh: super::BYTE,
+    pub SuccessiveApproximationLow: super::BYTE,
 }
 pub type WICJpegScanType = i32;
 pub const WICJpegScanTypeInterleaved: WICJpegScanType = 0;
@@ -574,16 +580,17 @@ pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = 2147483647;
 pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = 2147483647;
 pub type WICRawCapabilities = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WICRawCapabilitiesInfo {
-    pub cbSize: u32,
-    pub CodecMajorVersion: u32,
-    pub CodecMinorVersion: u32,
+    pub cbSize: super::UINT,
+    pub CodecMajorVersion: super::UINT,
+    pub CodecMinorVersion: super::UINT,
     pub ExposureCompensationSupport: WICRawCapabilities,
     pub ContrastSupport: WICRawCapabilities,
     pub RGBWhitePointSupport: WICRawCapabilities,
     pub NamedWhitePointSupport: WICRawCapabilities,
-    pub NamedWhitePointSupportMask: u32,
+    pub NamedWhitePointSupportMask: super::UINT,
     pub KelvinWhitePointSupport: WICRawCapabilities,
     pub GammaSupport: WICRawCapabilities,
     pub TintSupport: WICRawCapabilities,
@@ -623,11 +630,13 @@ pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = 1;
 pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = 2;
 pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WICRawToneCurve {
-    pub cPoints: u32,
+    pub cPoints: super::UINT,
     pub aPoints: [WICRawToneCurvePoint; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for WICRawToneCurve {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -640,12 +649,13 @@ pub struct WICRawToneCurvePoint {
     pub Output: f64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WICRect {
-    pub X: i32,
-    pub Y: i32,
-    pub Width: i32,
-    pub Height: i32,
+    pub X: super::INT,
+    pub Y: super::INT,
+    pub Width: super::INT,
+    pub Height: super::INT,
 }
 pub type WICSectionAccessLevel = i32;
 pub const WICSectionAccessLevelRead: WICSectionAccessLevel = 1;

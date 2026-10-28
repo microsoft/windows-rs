@@ -398,9 +398,9 @@ pub const OrderedSubsetContentRequired: SPMATCHINGMODE = 7;
 pub const PA_Ipa: PHONETICALPHABET = 0;
 pub const PA_Sapi: PHONETICALPHABET = 2;
 pub const PA_Ups: PHONETICALPHABET = 1;
-pub type PCSPPHONEID = windows_sys::core::PCWSTR;
+pub type PCSPPHONEID = *const u16;
 pub type PHONETICALPHABET = i32;
-pub type PSPPHONEID = windows_sys::core::PWSTR;
+pub type PSPPHONEID = *mut u16;
 pub const SAFT11kHz16BitMono: SpeechAudioFormatType = 10;
 pub const SAFT11kHz16BitStereo: SpeechAudioFormatType = 11;
 pub const SAFT11kHz8BitMono: SpeechAudioFormatType = 8;
@@ -558,29 +558,32 @@ pub const SPAS_PAUSE: SPAUDIOSTATE = 2;
 pub const SPAS_RUN: SPAUDIOSTATE = 3;
 pub const SPAS_STOP: SPAUDIOSTATE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPAUDIOBUFFERINFO {
-    pub ulMsMinNotification: u32,
-    pub ulMsBufferSize: u32,
-    pub ulMsEventBias: u32,
+    pub ulMsMinNotification: super::ULONG,
+    pub ulMsBufferSize: super::ULONG,
+    pub ulMsEventBias: super::ULONG,
 }
 pub type SPAUDIOOPTIONS = i32;
 pub type SPAUDIOSTATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
-    pub cbNonBlockingIO: u32,
+    pub cbNonBlockingIO: super::ULONG,
     pub State: SPAUDIOSTATE,
-    pub CurSeekPos: u64,
-    pub CurDevicePos: u64,
-    pub dwAudioLevel: u32,
-    pub dwReserved2: u32,
+    pub CurSeekPos: super::ULONGLONG,
+    pub CurDevicePos: super::ULONGLONG,
+    pub dwAudioLevel: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPBINARYGRAMMAR {
-    pub ulTotalSerializedSize: u32,
+    pub ulTotalSerializedSize: super::ULONG,
 }
 pub type SPBOOKMARKOPTIONS = i32;
 pub const SPBO_AHEAD: SPBOOKMARKOPTIONS = 2;
@@ -624,17 +627,19 @@ pub const SPDF_RULE: SPVALUETYPE = 4;
 pub const SPDICTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("*");
 pub type SPDISPLAYATTRIBUTES = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPDISPLAYPHRASE {
-    pub ulNumTokens: u32,
+    pub ulNumTokens: super::ULONG,
     pub pTokens: *mut SPDISPLAYTOKEN,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPDISPLAYTOKEN {
-    pub pszLexical: *const u16,
-    pub pszDisplay: *const u16,
-    pub bDisplayAttributes: u8,
+    pub pszLexical: *const super::WCHAR,
+    pub pszDisplay: *const super::WCHAR,
+    pub bDisplayAttributes: super::BYTE,
 }
 pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = 5;
 pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = 1;
@@ -701,34 +706,35 @@ pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = 4;
 pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = 1;
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = 0;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPEVENT {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
 }
 pub type SPEVENTENUM = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPEVENTEX {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
-    pub ullAudioTimeOffset: u64,
+    pub ullAudioTimeOffset: super::ULONGLONG,
 }
 pub type SPEVENTLPARAMTYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPEVENTSOURCEINFO {
-    pub ullEventInterest: u64,
-    pub ullQueuedInterest: u64,
-    pub ulCount: u32,
+    pub ullEventInterest: super::ULONGLONG,
+    pub ullQueuedInterest: super::ULONGLONG,
+    pub ulCount: super::ULONG,
 }
 pub const SPFEI_ALL_EVENTS: u64 = 17293822569102704639;
 pub const SPFEI_ALL_SR_EVENTS: u64 = 18014390993289216;
@@ -798,76 +804,78 @@ pub const SPMIN_VOLUME: SPVLIMITS = 0;
 pub const SPMMSYS_AUDIO_IN_TOKEN_ID: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\");
 pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\");
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPNORMALIZATIONLIST {
-    pub ulSize: u32,
-    pub ppszzNormalizedList: *mut *mut u16,
+    pub ulSize: super::ULONG,
+    pub ppszzNormalizedList: *mut *mut super::WCHAR,
 }
 #[cfg(feature = "minwindef")]
 pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::WPARAM, lparam: super::LPARAM)>;
 pub type SPPARTOFSPEECH = i32;
 pub type SPPHONEID = u16;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE {
-    pub Base: SPPHRASE_53,
+    pub base: SPPHRASE_53,
     pub SemanticTagFormat: SPSEMANTICFORMAT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEELEMENT {
-    pub ulAudioTimeOffset: u32,
-    pub ulAudioSizeTime: u32,
-    pub ulAudioStreamOffset: u32,
-    pub ulAudioSizeBytes: u32,
-    pub ulRetainedStreamOffset: u32,
-    pub ulRetainedSizeBytes: u32,
+    pub ulAudioTimeOffset: super::ULONG,
+    pub ulAudioSizeTime: super::ULONG,
+    pub ulAudioStreamOffset: super::ULONG,
+    pub ulAudioSizeBytes: super::ULONG,
+    pub ulRetainedStreamOffset: super::ULONG,
+    pub ulRetainedSizeBytes: super::ULONG,
     pub pszDisplayText: windows_sys::core::PCWSTR,
     pub pszLexicalForm: windows_sys::core::PCWSTR,
     pub pszPronunciation: *const SPPHONEID,
-    pub bDisplayAttributes: u8,
+    pub bDisplayAttributes: super::BYTE,
     pub RequiredConfidence: i8,
     pub ActualConfidence: i8,
-    pub Reserved: u8,
+    pub Reserved: super::BYTE,
     pub SREngineConfidence: f32,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASEPROPERTY {
     pub pszName: windows_sys::core::PCWSTR,
     pub Anonymous: SPPHRASEPROPERTY_0,
     pub pszValue: windows_sys::core::PCWSTR,
     pub vValue: super::VARIANT,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
+    pub ulFirstElement: super::ULONG,
+    pub ulCountOfElements: super::ULONG,
     pub pNextSibling: *const Self,
     pub pFirstChild: *const Self,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union SPPHRASEPROPERTY_0 {
-    pub ulId: u32,
+    pub ulId: super::ULONG,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: super::byte,
@@ -876,53 +884,55 @@ pub struct SPPHRASEPROPERTY_0_0 {
 }
 pub type SPPHRASEPROPERTYUNIONTYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEREPLACEMENT {
-    pub bDisplayAttributes: u8,
+    pub bDisplayAttributes: super::BYTE,
     pub pszReplacementText: windows_sys::core::PCWSTR,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
+    pub ulFirstElement: super::ULONG,
+    pub ulCountOfElements: super::ULONG,
 }
 pub type SPPHRASERNG = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASERULE {
     pub pszName: windows_sys::core::PCWSTR,
-    pub ulId: u32,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
+    pub ulId: super::ULONG,
+    pub ulFirstElement: super::ULONG,
+    pub ulCountOfElements: super::ULONG,
     pub pNextSibling: *const Self,
     pub pFirstChild: *const Self,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE_50 {
-    pub cbSize: u32,
-    pub LangID: u16,
-    pub wHomophoneGroupId: u16,
-    pub ullGrammarID: u64,
-    pub ftStartTime: u64,
-    pub ullAudioStreamPosition: u64,
-    pub ulAudioSizeBytes: u32,
-    pub ulRetainedSizeBytes: u32,
-    pub ulAudioSizeTime: u32,
+    pub cbSize: super::ULONG,
+    pub LangID: super::WORD,
+    pub wHomophoneGroupId: super::WORD,
+    pub ullGrammarID: super::ULONGLONG,
+    pub ftStartTime: super::ULONGLONG,
+    pub ullAudioStreamPosition: super::ULONGLONG,
+    pub ulAudioSizeBytes: super::ULONG,
+    pub ulRetainedSizeBytes: super::ULONG,
+    pub ulAudioSizeTime: super::ULONG,
     pub Rule: SPPHRASERULE,
     pub pProperties: *const SPPHRASEPROPERTY,
     pub pElements: *const SPPHRASEELEMENT,
-    pub cReplacements: u32,
+    pub cReplacements: super::ULONG,
     pub pReplacements: *const SPPHRASEREPLACEMENT,
     pub SREngineID: windows_sys::core::GUID,
-    pub ulSREnginePrivateDataSize: u32,
-    pub pSREnginePrivateData: *const u8,
+    pub ulSREnginePrivateDataSize: super::ULONG,
+    pub pSREnginePrivateData: *const super::BYTE,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE_53 {
-    pub Base: SPPHRASE_50,
+    pub base: SPPHRASE_50,
     pub pSML: windows_sys::core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
@@ -930,15 +940,15 @@ pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = 1;
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = 0;
 pub type SPPRONUNCIATIONFLAGS = i32;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPROPERTYINFO {
     pub pszName: windows_sys::core::PCWSTR,
-    pub ulId: u32,
+    pub ulId: super::ULONG,
     pub pszValue: windows_sys::core::PCWSTR,
     pub vValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -979,13 +989,15 @@ pub const SPRAF_Root: SPCFGRULEATTRIBUTES = 64;
 pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = 1;
 pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = 131072;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SPRECOCONTEXTSTATUS {
     pub eInterference: SPINTERFERENCE,
-    pub szRequestTypeOfUI: [u16; 255],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub szRequestTypeOfUI: [super::WCHAR; 255],
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SPRECOCONTEXTSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -993,30 +1005,32 @@ impl Default for SPRECOCONTEXTSTATUS {
 }
 pub type SPRECOEVENTFLAGS = i32;
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct SPRECOGNIZERSTATUS {
     pub AudioStatus: SPAUDIOSTATUS,
-    pub ullRecognitionStreamPos: u64,
-    pub ulStreamNumber: u32,
-    pub ulNumActive: u32,
-    pub clsidEngine: windows_sys::core::GUID,
-    pub cLangIDs: u32,
-    pub aLangID: [u16; 20],
-    pub ullRecognitionStreamTime: u64,
+    pub ullRecognitionStreamPos: super::ULONGLONG,
+    pub ulStreamNumber: super::ULONG,
+    pub ulNumActive: super::ULONG,
+    pub clsidEngine: super::CLSID,
+    pub cLangIDs: super::ULONG,
+    pub aLangID: [super::WORD; 20],
+    pub ullRecognitionStreamTime: super::ULONGLONG,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl Default for SPRECOGNIZERSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::FILETIME,
-    pub ullLength: u64,
-    pub dwTickCount: u32,
-    pub ullStart: u64,
+    pub ullLength: super::ULONGLONG,
+    pub dwTickCount: super::DWORD,
+    pub ullStart: super::ULONGLONG,
 }
 pub type SPRECOSTATE = i32;
 pub const SPREF_AutoPause: SPRECOEVENTFLAGS = 1;
@@ -1043,11 +1057,12 @@ pub const SPRS_DONE: SPRUNSTATE = 1;
 pub const SPRS_INACTIVE: SPRULESTATE = 0;
 pub const SPRS_IS_SPEAKING: SPRUNSTATE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPRULE {
     pub pszRuleName: windows_sys::core::PCWSTR,
-    pub ulRuleId: u32,
-    pub dwAttributes: u32,
+    pub ulRuleId: super::ULONG,
+    pub dwAttributes: super::DWORD,
 }
 pub type SPRULESTATE = i32;
 pub const SPRULETRANS_DICTATION: SPSTATEHANDLE = -3 as _;
@@ -1055,9 +1070,10 @@ pub const SPRULETRANS_TEXTBUFFER: SPSTATEHANDLE = -1 as _;
 pub const SPRULETRANS_WILDCARD: SPSTATEHANDLE = -2 as _;
 pub type SPRUNSTATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPSEMANTICERRORINFO {
-    pub ulLineNumber: u32,
+    pub ulLineNumber: super::ULONG,
     pub pszScriptLine: windows_sys::core::PWSTR,
     pub pszSource: windows_sys::core::PWSTR,
     pub pszDescription: windows_sys::core::PWSTR,
@@ -1065,32 +1081,36 @@ pub struct SPSEMANTICERRORINFO {
 }
 pub type SPSEMANTICFORMAT = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPSERIALIZEDEVENT {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub SerializedwParam: u32,
-    pub SerializedlParam: i32,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
+    pub SerializedwParam: super::ULONG,
+    pub SerializedlParam: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPSERIALIZEDEVENT64 {
-    pub _bitfield: SPEVENTENUM,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub SerializedwParam: u64,
-    pub SerializedlParam: i64,
+    pub _bitfield: i32,
+    pub ulStreamNum: super::ULONG,
+    pub ullAudioStreamOffset: super::ULONGLONG,
+    pub SerializedwParam: super::ULONGLONG,
+    pub SerializedlParam: super::LONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPSERIALIZEDPHRASE {
-    pub ulSerializedSize: u32,
+    pub ulSerializedSize: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPSERIALIZEDRESULT {
-    pub ulSerializedSize: u32,
+    pub ulSerializedSize: super::ULONG,
 }
 pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = 10;
 pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = 11;
@@ -1165,19 +1185,21 @@ pub const SPSF_Text: SPSTREAMFORMAT = 1;
 pub const SPSF_TrueSpeech_8kHz1BitMono: SPSTREAMFORMAT = 40;
 pub const SPSFunction: SpeechPartOfSpeech = 16384;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut Self,
-    pub LangID: u16,
+    pub LangID: super::WORD,
     pub shType: SPSHORTCUTTYPE,
     pub pszDisplay: windows_sys::core::PWSTR,
     pub pszSpoken: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPSHORTCUTPAIRLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
+    pub ulSize: super::ULONG,
+    pub pvBuffer: *mut super::BYTE,
     pub pFirstShortcutPair: *mut SPSHORTCUTPAIR,
 }
 pub type SPSHORTCUTTYPE = i32;
@@ -1207,12 +1229,13 @@ pub type SPSTREAMFORMATTYPE = i32;
 pub const SPSUnknown: SpeechPartOfSpeech = 0;
 pub const SPSVerb: SpeechPartOfSpeech = 8192;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPTEXTSELECTIONINFO {
-    pub ulStartActiveOffset: u32,
-    pub cchActiveChars: u32,
-    pub ulStartSelection: u32,
-    pub cchSelection: u32,
+    pub ulStartActiveOffset: super::ULONG,
+    pub cchActiveChars: super::ULONG,
+    pub ulStartSelection: super::ULONG,
+    pub cchSelection: super::ULONG,
 }
 pub const SPTOKENKEY_ATTRIBUTES: windows_sys::core::PCWSTR = windows_sys::core::w!("Attributes");
 pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: windows_sys::core::PCWSTR = windows_sys::core::w!("LatencyTruncateThreshold");
@@ -1246,21 +1269,22 @@ pub type SPVISEMES = i32;
 pub type SPVLIMITS = i32;
 pub const SPVOICECATEGORY_TTSRATE: windows_sys::core::PCWSTR = windows_sys::core::w!("DefaultTTSRate");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPVOICESTATUS {
-    pub ulCurrentStream: u32,
-    pub ulLastStreamQueued: u32,
+    pub ulCurrentStream: super::ULONG,
+    pub ulLastStreamQueued: super::ULONG,
     pub hrLastResult: windows_sys::core::HRESULT,
-    pub dwRunningState: u32,
-    pub ulInputWordPos: u32,
-    pub ulInputWordLen: u32,
-    pub ulInputSentPos: u32,
-    pub ulInputSentLen: u32,
-    pub lBookmarkId: i32,
+    pub dwRunningState: super::DWORD,
+    pub ulInputWordPos: super::ULONG,
+    pub ulInputWordLen: super::ULONG,
+    pub ulInputSentPos: super::ULONG,
+    pub ulInputSentLen: super::ULONG,
+    pub lBookmarkId: super::LONG,
     pub PhonemeId: SPPHONEID,
     pub VisemeId: SPVISEMES,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1273,16 +1297,17 @@ pub const SPVPRI_ALERT: SPVPRIORITY = 1;
 pub const SPVPRI_NORMAL: SPVPRIORITY = 0;
 pub const SPVPRI_OVER: SPVPRIORITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
-    pub LangID: u16,
-    pub wReserved: u16,
+    pub LangID: super::WORD,
+    pub wReserved: super::WORD,
     pub EmphAdj: i32,
     pub RateAdj: i32,
-    pub Volume: u32,
+    pub Volume: super::ULONG,
     pub PitchAdj: SPVPITCH,
-    pub SilenceMSecs: u32,
+    pub SilenceMSecs: super::ULONG,
     pub pPhoneIds: *mut SPPHONEID,
     pub ePartOfSpeech: SPPARTOFSPEECH,
     pub Context: SPVCONTEXT,
@@ -1291,43 +1316,48 @@ pub const SPWF_INPUT: SPSTREAMFORMATTYPE = 0;
 pub const SPWF_SRENGINE: SPSTREAMFORMATTYPE = 1;
 pub const SPWILDCARD: windows_sys::core::PCWSTR = windows_sys::core::w!("...");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPWORD {
     pub pNextWord: *mut Self,
-    pub LangID: u16,
-    pub wReserved: u16,
+    pub LangID: super::WORD,
+    pub wReserved: super::WORD,
     pub eWordType: SPWORDTYPE,
     pub pszWord: windows_sys::core::PWSTR,
     pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPWORDLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
+    pub ulSize: super::ULONG,
+    pub pvBuffer: *mut super::BYTE,
     pub pFirstWord: *mut SPWORD,
 }
 pub type SPWORDPRONOUNCEABLE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SPWORDPRONUNCIATION {
     pub pNextWordPronunciation: *mut Self,
     pub eLexiconType: SPLEXICONTYPE,
-    pub LangID: u16,
-    pub wPronunciationFlags: u16,
+    pub LangID: super::WORD,
+    pub wPronunciationFlags: super::WORD,
     pub ePartOfSpeech: SPPARTOFSPEECH,
     pub szPronunciation: [SPPHONEID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SPWORDPRONUNCIATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SPWORDPRONUNCIATIONLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
+    pub ulSize: super::ULONG,
+    pub pvBuffer: *mut super::BYTE,
     pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
 }
 pub type SPWORDTYPE = i32;
@@ -1529,6 +1559,8 @@ pub const SpTextSelectionInformation: windows_sys::core::GUID = windows_sys::cor
 pub const SpUnCompressedLexicon: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
 pub const SpVoice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
 pub const SpWaveFormatEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
+#[cfg(feature = "shared")]
+pub const SpeechAllElements: super::LONG = 0xFFFFFFFF_u32 as _;
 pub type SpeechAudioFormatType = i32;
 pub type SpeechAudioState = i32;
 pub type SpeechBookmarkOptions = i32;
@@ -1567,6 +1599,14 @@ pub type SpeechVoiceSpeakFlags = i32;
 pub type SpeechWordPronounceable = i32;
 pub type SpeechWordType = i32;
 pub const Speech_Default_Weight: f32 = 1.0;
+#[cfg(feature = "shared")]
+pub const Speech_Max_Pron_Length: super::LONG = 0x180_u32 as _;
+#[cfg(feature = "shared")]
+pub const Speech_Max_Word_Length: super::LONG = 0x80_u32 as _;
+#[cfg(feature = "shared")]
+pub const Speech_StreamPos_Asap: super::LONG = 0x0_u32 as _;
+#[cfg(feature = "shared")]
+pub const Speech_StreamPos_RealTime: super::LONG = 0xFFFFFFFF_u32 as _;
 pub const Subsequence: SPMATCHINGMODE = 1;
 pub const SubsequenceContentRequired: SPMATCHINGMODE = 5;
 pub const _SAPI_VER: i32 = 84;

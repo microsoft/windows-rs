@@ -1,10 +1,16 @@
 windows_link::link!("xinput1_4.dll" "system" fn XInputEnable(enable : windows_sys::core::BOOL));
-windows_link::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_sys::core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_sys::core::PWSTR, pcapturecount : *mut u32) -> u32);
-windows_link::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : u32, devtype : u8, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> u32);
-windows_link::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : u32, dwflags : u32, pcapabilities : *mut XINPUT_CAPABILITIES) -> u32);
-windows_link::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : PXINPUT_KEYSTROKE) -> u32);
-windows_link::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : u32, pstate : *mut XINPUT_STATE) -> u32);
-windows_link::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : u32, pvibration : *const XINPUT_VIBRATION) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : super::DWORD, prenderdeviceid : windows_sys::core::PWSTR, prendercount : *mut super::UINT, pcapturedeviceid : windows_sys::core::PWSTR, pcapturecount : *mut super::UINT) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : super::DWORD, devtype : super::BYTE, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : super::DWORD, dwflags : super::DWORD, pcapabilities : *mut XINPUT_CAPABILITIES) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : super::DWORD, dwreserved : super::DWORD, pkeystroke : PXINPUT_KEYSTROKE) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : super::DWORD, pstate : *mut XINPUT_STATE) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : super::DWORD, pvibration : *const XINPUT_VIBRATION) -> super::DWORD);
 pub const BATTERY_DEVTYPE_GAMEPAD: i32 = 0;
 pub const BATTERY_DEVTYPE_HEADSET: i32 = 1;
 pub const BATTERY_LEVEL_EMPTY: i32 = 0;
@@ -16,11 +22,17 @@ pub const BATTERY_TYPE_DISCONNECTED: i32 = 0;
 pub const BATTERY_TYPE_NIMH: i32 = 3;
 pub const BATTERY_TYPE_UNKNOWN: i32 = 255;
 pub const BATTERY_TYPE_WIRED: i32 = 1;
+#[cfg(feature = "shared")]
 pub type PXINPUT_BATTERY_INFORMATION = *mut XINPUT_BATTERY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PXINPUT_CAPABILITIES = *mut XINPUT_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PXINPUT_GAMEPAD = *mut XINPUT_GAMEPAD;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PXINPUT_KEYSTROKE = *mut XINPUT_KEYSTROKE;
+#[cfg(feature = "shared")]
 pub type PXINPUT_STATE = *mut XINPUT_STATE;
+#[cfg(feature = "shared")]
 pub type PXINPUT_VIBRATION = *mut XINPUT_VIBRATION;
 pub const VK_PAD_A: i32 = 22528;
 pub const VK_PAD_B: i32 = 22529;
@@ -55,17 +67,19 @@ pub const VK_PAD_START: i32 = 22548;
 pub const VK_PAD_X: i32 = 22530;
 pub const VK_PAD_Y: i32 = 22531;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XINPUT_BATTERY_INFORMATION {
-    pub BatteryType: u8,
-    pub BatteryLevel: u8,
+    pub BatteryType: super::BYTE,
+    pub BatteryLevel: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XINPUT_CAPABILITIES {
-    pub Type: u8,
-    pub SubType: u8,
-    pub Flags: u16,
+    pub Type: super::BYTE,
+    pub SubType: super::BYTE,
+    pub Flags: super::WORD,
     pub Gamepad: XINPUT_GAMEPAD,
     pub Vibration: XINPUT_VIBRATION,
 }
@@ -91,15 +105,16 @@ pub const XINPUT_DLL_A: windows_sys::core::PCSTR = windows_sys::core::s!("xinput
 pub const XINPUT_DLL_W: windows_sys::core::PCWSTR = windows_sys::core::w!("xinput1_4.dll");
 pub const XINPUT_FLAG_GAMEPAD: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XINPUT_GAMEPAD {
-    pub wButtons: u16,
-    pub bLeftTrigger: u8,
-    pub bRightTrigger: u8,
-    pub sThumbLX: i16,
-    pub sThumbLY: i16,
-    pub sThumbRX: i16,
-    pub sThumbRY: i16,
+    pub wButtons: super::WORD,
+    pub bLeftTrigger: super::BYTE,
+    pub bRightTrigger: super::BYTE,
+    pub sThumbLX: super::SHORT,
+    pub sThumbLY: super::SHORT,
+    pub sThumbRX: super::SHORT,
+    pub sThumbRY: super::SHORT,
 }
 pub const XINPUT_GAMEPAD_A: i32 = 4096;
 pub const XINPUT_GAMEPAD_B: i32 = 8192;
@@ -119,28 +134,31 @@ pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: i32 = 30;
 pub const XINPUT_GAMEPAD_X: i32 = 16384;
 pub const XINPUT_GAMEPAD_Y: i32 = 32768;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct XINPUT_KEYSTROKE {
-    pub VirtualKey: u16,
-    pub Unicode: u16,
-    pub Flags: u16,
-    pub UserIndex: u8,
-    pub HidCode: u8,
+    pub VirtualKey: super::WORD,
+    pub Unicode: super::WCHAR,
+    pub Flags: super::WORD,
+    pub UserIndex: super::BYTE,
+    pub HidCode: super::BYTE,
 }
 pub const XINPUT_KEYSTROKE_KEYDOWN: i32 = 1;
 pub const XINPUT_KEYSTROKE_KEYUP: i32 = 2;
 pub const XINPUT_KEYSTROKE_REPEAT: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XINPUT_STATE {
-    pub dwPacketNumber: u32,
+    pub dwPacketNumber: super::DWORD,
     pub Gamepad: XINPUT_GAMEPAD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XINPUT_VIBRATION {
-    pub wLeftMotorSpeed: u16,
-    pub wRightMotorSpeed: u16,
+    pub wLeftMotorSpeed: super::WORD,
+    pub wRightMotorSpeed: super::WORD,
 }
 pub const XUSER_INDEX_ANY: i32 = 255;
 pub const XUSER_MAX_COUNT: i32 = 4;

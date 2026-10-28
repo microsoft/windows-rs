@@ -13,11 +13,13 @@ pub const AUDIOPOSTURE_ORIENTATION_ROTATED180DEGREESCOUNTERCLOCKWISE: AUDIOPOSTU
 pub const AUDIOPOSTURE_ORIENTATION_ROTATED270DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = 3;
 pub const AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     pub ResourceGroupAcquired: windows_sys::core::BOOL,
-    pub ResourceGroupName: [u16; 256],
+    pub ResourceGroupName: [super::WCHAR; 256],
 }
+#[cfg(feature = "winnt")]
 impl Default for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -58,24 +60,28 @@ pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: windows_sys::core::GUID = window
 pub type CAPTURE_MEMORY_ALLOCATION_FLAGS = i32;
 pub const CASCADE_FORM: KSDS3D_HRTF_FILTER_METHOD = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CC_BYTE_PAIR {
-    pub Decoded: [u8; 2],
-    pub Reserved: u16,
+    pub Decoded: [super::BYTE; 2],
+    pub Reserved: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for CC_BYTE_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CC_HW_FIELD {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
-    pub fieldFlags: u32,
-    pub PictureNumber: i64,
+    pub fieldFlags: super::ULONG,
+    pub PictureNumber: super::LONGLONG,
     pub Lines: [CC_BYTE_PAIR; 12],
 }
+#[cfg(feature = "shared")]
 impl Default for CC_HW_FIELD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -94,118 +100,131 @@ pub type CONSTRICTOR_OPTION = i32;
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = 0;
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = 1;
 pub const ConstantBitRate: VIDEOENCODER_BITRATE_MODE = 0;
-pub const DDPF_FOURCC: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDPIXELFORMAT {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwFourCC: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwFourCC: super::DWORD,
     pub Anonymous: DDPIXELFORMAT_0,
     pub Anonymous2: DDPIXELFORMAT_1,
     pub Anonymous3: DDPIXELFORMAT_2,
     pub Anonymous4: DDPIXELFORMAT_3,
     pub Anonymous5: DDPIXELFORMAT_4,
 }
+#[cfg(feature = "shared")]
 impl Default for DDPIXELFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_0 {
-    pub dwRGBBitCount: u32,
-    pub dwYUVBitCount: u32,
-    pub dwZBufferBitDepth: u32,
-    pub dwAlphaBitDepth: u32,
+    pub dwRGBBitCount: super::DWORD,
+    pub dwYUVBitCount: super::DWORD,
+    pub dwZBufferBitDepth: super::DWORD,
+    pub dwAlphaBitDepth: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDPIXELFORMAT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_1 {
-    pub dwRBitMask: u32,
-    pub dwYBitMask: u32,
+    pub dwRBitMask: super::DWORD,
+    pub dwYBitMask: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDPIXELFORMAT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_2 {
-    pub dwGBitMask: u32,
-    pub dwUBitMask: u32,
+    pub dwGBitMask: super::DWORD,
+    pub dwUBitMask: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDPIXELFORMAT_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_3 {
-    pub dwBBitMask: u32,
-    pub dwVBitMask: u32,
+    pub dwBBitMask: super::DWORD,
+    pub dwVBitMask: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDPIXELFORMAT_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DDPIXELFORMAT_4 {
-    pub dwRGBAlphaBitMask: u32,
-    pub dwYUVAlphaBitMask: u32,
-    pub dwRGBZBitMask: u32,
-    pub dwYUVZBitMask: u32,
+    pub dwRGBAlphaBitMask: super::DWORD,
+    pub dwYUVAlphaBitMask: super::DWORD,
+    pub dwRGBZBitMask: super::DWORD,
+    pub dwYUVZBitMask: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for DDPIXELFORMAT_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DDVIDEOPORTCONNECT {
-    pub dwSize: u32,
-    pub dwPortWidth: u32,
+    pub dwSize: super::DWORD,
+    pub dwPortWidth: super::DWORD,
     pub guidTypeID: windows_sys::core::GUID,
-    pub dwFlags: u32,
-    pub dwReserved1: usize,
+    pub dwFlags: super::DWORD,
+    pub dwReserved1: super::ULONG_PTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVCAPS {
-    pub CanRecord: i32,
-    pub CanRecordStrobe: i32,
-    pub HasAudio: i32,
-    pub HasVideo: i32,
-    pub UsesFiles: i32,
-    pub CanSave: i32,
-    pub DeviceType: i32,
-    pub TCRead: i32,
-    pub TCWrite: i32,
-    pub CTLRead: i32,
-    pub IndexRead: i32,
-    pub Preroll: i32,
-    pub Postroll: i32,
-    pub SyncAcc: i32,
-    pub NormRate: i32,
-    pub CanPreview: i32,
-    pub CanMonitorSrc: i32,
-    pub CanTest: i32,
-    pub VideoIn: i32,
-    pub AudioIn: i32,
-    pub Calibrate: i32,
-    pub SeekType: i32,
-    pub SimulatedHardware: i32,
+    pub CanRecord: super::LONG,
+    pub CanRecordStrobe: super::LONG,
+    pub HasAudio: super::LONG,
+    pub HasVideo: super::LONG,
+    pub UsesFiles: super::LONG,
+    pub CanSave: super::LONG,
+    pub DeviceType: super::LONG,
+    pub TCRead: super::LONG,
+    pub TCWrite: super::LONG,
+    pub CTLRead: super::LONG,
+    pub IndexRead: super::LONG,
+    pub Preroll: super::LONG,
+    pub Postroll: super::LONG,
+    pub SyncAcc: super::LONG,
+    pub NormRate: super::LONG,
+    pub CanPreview: super::LONG,
+    pub CanMonitorSrc: super::LONG,
+    pub CanTest: super::LONG,
+    pub VideoIn: super::LONG,
+    pub AudioIn: super::LONG,
+    pub Calibrate: super::LONG,
+    pub SeekType: super::LONG,
+    pub SimulatedHardware: super::LONG,
 }
 #[cfg(feature = "devpropdef")]
 pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
@@ -215,45 +234,53 @@ pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::DEVPROPKEY = super::DEV
 pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
 pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DS3DVECTOR {
     pub Anonymous: DS3DVECTOR_0,
     pub Anonymous2: DS3DVECTOR_1,
     pub Anonymous3: DS3DVECTOR_2,
 }
+#[cfg(feature = "minwindef")]
 impl Default for DS3DVECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DS3DVECTOR_0 {
-    pub x: f32,
-    pub dvX: f32,
+    pub x: super::FLOAT,
+    pub dvX: super::FLOAT,
 }
+#[cfg(feature = "minwindef")]
 impl Default for DS3DVECTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DS3DVECTOR_1 {
-    pub y: f32,
-    pub dvY: f32,
+    pub y: super::FLOAT,
+    pub dvY: super::FLOAT,
 }
+#[cfg(feature = "minwindef")]
 impl Default for DS3DVECTOR_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub union DS3DVECTOR_2 {
-    pub z: f32,
-    pub dvZ: f32,
+    pub z: super::FLOAT,
+    pub dvZ: super::FLOAT,
 }
+#[cfg(feature = "minwindef")]
 impl Default for DS3DVECTOR_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -277,36 +304,40 @@ pub const EVENTSETID_VIDEODECODER: windows_sys::core::GUID = windows_sys::core::
 pub const FLOAT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = 0;
 pub const FULL_FILTER: KSDS3D_HRTF_FILTER_QUALITY = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
-    pub Size: u32,
-    pub PrimaryChannelCount: u32,
-    pub PrimaryChannelStartPosition: u32,
-    pub PrimaryChannelMask: u32,
-    pub InterleavedChannelCount: u32,
-    pub InterleavedChannelStartPosition: u32,
-    pub InterleavedChannelMask: u32,
+    pub Size: super::ULONG,
+    pub PrimaryChannelCount: super::DWORD,
+    pub PrimaryChannelStartPosition: super::DWORD,
+    pub PrimaryChannelMask: super::DWORD,
+    pub InterleavedChannelCount: super::DWORD,
+    pub InterleavedChannelStartPosition: super::DWORD,
+    pub InterleavedChannelMask: super::DWORD,
 }
 pub const JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY: i32 = 2;
 pub const JACKDESC2_PRESENCE_DETECT_CAPABILITY: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAC3_ALTERNATE_AUDIO {
     pub fStereo: windows_sys::core::BOOL,
-    pub DualMode: u32,
+    pub DualMode: super::ULONG,
 }
 pub const KSAC3_ALTERNATE_AUDIO_1: i32 = 1;
 pub const KSAC3_ALTERNATE_AUDIO_2: i32 = 2;
 pub const KSAC3_ALTERNATE_AUDIO_BOTH: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAC3_BIT_STREAM_MODE {
-    pub BitStreamMode: i32,
+    pub BitStreamMode: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAC3_DIALOGUE_LEVEL {
-    pub DialogueLevel: u32,
+    pub DialogueLevel: super::ULONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -341,14 +372,14 @@ pub const KSATTRIBUTEID_AUDIOLOOPBACK_TAPPOINT: windows_sys::core::GUID = window
 pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
 pub const KSATTRIBUTEID_VIDEOFORMAT_DX12: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc9d87b5_0b02_438e_89b0_e241fce889ad);
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT {
     pub AttributeHeader: super::KSATTRIBUTE,
     pub TapPoint: AUDIOLOOPBACK_TAPPOINT_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     pub AttributeHeader: super::KSATTRIBUTE,
@@ -409,17 +440,19 @@ pub const KSAUDFNAME_WAVE_MUTE: windows_sys::core::GUID = windows_sys::core::GUI
 pub const KSAUDFNAME_WAVE_OUT_MIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
 pub const KSAUDFNAME_WAVE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
-    pub MinBufferBytes: u32,
-    pub MaxBufferBytes: u32,
+    pub MinBufferBytes: super::ULONG,
+    pub MaxBufferBytes: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIOENGINE_DESCRIPTOR {
-    pub nHostPinId: u32,
-    pub nOffloadPinId: u32,
-    pub nLoopbackPinId: u32,
+    pub nHostPinId: super::UINT,
+    pub nOffloadPinId: super::UINT,
+    pub nLoopbackPinId: super::UINT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -429,73 +462,82 @@ pub struct KSAUDIOENGINE_DEVICECONTROLS {
     pub PeakMeter: EDeviceControlUseType,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIOENGINE_VOLUMELEVEL {
-    pub TargetVolume: i32,
+    pub TargetVolume: super::LONG,
     pub CurveType: AUDIO_CURVE_TYPE,
-    pub CurveDuration: u64,
+    pub CurveDuration: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_DESCRIPTOR {
     pub ClassId: windows_sys::core::GUID,
-    pub InstanceId: u32,
-    pub VersionMajor: u32,
-    pub VersionMinor: u32,
-    pub Name: [u16; 128],
+    pub InstanceId: super::ULONG,
+    pub VersionMajor: super::ULONG,
+    pub VersionMinor: super::ULONG,
+    pub Name: [super::WCHAR; 128],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSAUDIOMODULE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_NOTIFICATION {
     pub Anonymous: KSAUDIOMODULE_NOTIFICATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIOMODULE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union KSAUDIOMODULE_NOTIFICATION_0 {
     pub ProviderId: KSAUDIOMODULE_NOTIFICATION_0_0,
-    pub Alignment: i64,
+    pub Alignment: super::LONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIOMODULE_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIOMODULE_NOTIFICATION_0_0 {
     pub DeviceId: windows_sys::core::GUID,
     pub ClassId: windows_sys::core::GUID,
-    pub InstanceId: u32,
-    pub Reserved: u32,
+    pub InstanceId: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_PROPERTY {
     pub Property: super::KSPROPERTY,
     pub ClassId: windows_sys::core::GUID,
-    pub InstanceId: u32,
+    pub InstanceId: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSAUDIOMODULE_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIO_CHANNEL_CONFIG {
-    pub ActiveSpeakerPositions: i32,
+    pub ActiveSpeakerPositions: super::LONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -506,126 +548,142 @@ pub struct KSAUDIO_COPY_PROTECTION {
 pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: i32 = 2147483647;
 pub const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIO_DYNAMIC_RANGE {
-    pub QuietCompression: u32,
-    pub LoudCompression: u32,
+    pub QuietCompression: super::ULONG,
+    pub LoudCompression: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIO_MICROPHONE_COORDINATES {
-    pub usType: u16,
-    pub wXCoord: i16,
-    pub wYCoord: i16,
-    pub wZCoord: i16,
-    pub wVerticalAngle: i16,
-    pub wHorizontalAngle: i16,
+    pub usType: super::USHORT,
+    pub wXCoord: super::SHORT,
+    pub wYCoord: super::SHORT,
+    pub wZCoord: super::SHORT,
+    pub wVerticalAngle: super::SHORT,
+    pub wHorizontalAngle: super::SHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_MIC_ARRAY_GEOMETRY {
-    pub usVersion: u16,
-    pub usMicArrayType: u16,
-    pub wVerticalAngleBegin: i16,
-    pub wVerticalAngleEnd: i16,
-    pub wHorizontalAngleBegin: i16,
-    pub wHorizontalAngleEnd: i16,
-    pub usFrequencyBandLo: u16,
-    pub usFrequencyBandHi: u16,
-    pub usNumberOfMicrophones: u16,
+    pub usVersion: super::USHORT,
+    pub usMicArrayType: super::USHORT,
+    pub wVerticalAngleBegin: super::SHORT,
+    pub wVerticalAngleEnd: super::SHORT,
+    pub wHorizontalAngleBegin: super::SHORT,
+    pub wHorizontalAngleEnd: super::SHORT,
+    pub usFrequencyBandLo: super::USHORT,
+    pub usFrequencyBandHi: super::USHORT,
+    pub usNumberOfMicrophones: super::USHORT,
     pub KsMicCoord: [KSAUDIO_MICROPHONE_COORDINATES; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIO_MIC_ARRAY_GEOMETRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_MIXCAP_TABLE {
-    pub InputChannels: u32,
-    pub OutputChannels: u32,
+    pub InputChannels: super::ULONG,
+    pub OutputChannels: super::ULONG,
     pub Capabilities: [KSAUDIO_MIX_CAPS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIO_MIXCAP_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIO_MIXLEVEL {
     pub Mute: windows_sys::core::BOOL,
-    pub Level: i32,
+    pub Level: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_MIX_CAPS {
     pub Mute: windows_sys::core::BOOL,
-    pub Minimum: i32,
-    pub Maximum: i32,
+    pub Minimum: super::LONG,
+    pub Maximum: super::LONG,
     pub Anonymous: KSAUDIO_MIX_CAPS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIO_MIX_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union KSAUDIO_MIX_CAPS_0 {
-    pub Reset: i32,
-    pub Resolution: i32,
+    pub Reset: super::LONG,
+    pub Resolution: super::LONG,
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIO_MIX_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
-    pub MinPacketPeriodInHns: u32,
-    pub PacketSizeFileAlignment: u32,
-    pub Reserved: u32,
-    pub NumProcessingModeConstraints: u32,
+    pub MinPacketPeriodInHns: super::ULONG,
+    pub PacketSizeFileAlignment: super::ULONG,
+    pub Reserved: super::ULONG,
+    pub NumProcessingModeConstraints: super::ULONG,
     pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIO_PACKETSIZE_CONSTRAINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
-    pub MinPacketPeriodInHns: u32,
-    pub PacketSizeFileAlignment: u32,
-    pub MaxPacketSizeInBytes: u32,
-    pub NumProcessingModeConstraints: u32,
+    pub MinPacketPeriodInHns: super::ULONG,
+    pub PacketSizeFileAlignment: super::ULONG,
+    pub MaxPacketSizeInBytes: super::ULONG,
+    pub NumProcessingModeConstraints: super::ULONG,
     pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
     pub ProcessingMode: windows_sys::core::GUID,
-    pub SamplesPerProcessingPacket: u32,
-    pub ProcessingPacketDurationInHns: u32,
+    pub SamplesPerProcessingPacket: super::ULONG,
+    pub ProcessingPacketDurationInHns: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIO_POSITION {
     pub PlayOffset: super::DWORDLONG,
     pub WriteOffset: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSAUDIO_POSITIONEX {
     pub TimerFrequency: super::LARGE_INTEGER,
@@ -633,17 +691,18 @@ pub struct KSAUDIO_POSITIONEX {
     pub Position: KSAUDIO_POSITION,
     pub TimeStamp2: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSAUDIO_POSITIONEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSAUDIO_PRESENTATION_POSITION {
-    pub u64PositionInBlocks: u64,
-    pub u64QPCPosition: u64,
+    pub u64PositionInBlocks: super::UINT64,
+    pub u64QPCPosition: super::UINT64,
 }
 pub const KSAUDIO_QUALITY_ADVANCED: i32 = 3;
 pub const KSAUDIO_QUALITY_BASIC: i32 = 2;
@@ -704,7 +763,7 @@ pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_OFF: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_ULTRALOWLIGHT: i32 = 8;
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     pub Resolution: super::SIZE,
@@ -713,22 +772,23 @@ pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     pub SubType: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
-    pub Numerator: i32,
-    pub Denominator: i32,
+    pub Numerator: super::LONG,
+    pub Denominator: super::LONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: i32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_SHALLOWFOCUS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
-    pub PitchAngle: i32,
-    pub YawAngle: i32,
-    pub Flag: u32,
-    pub Reserved: u32,
+    pub PitchAngle: super::LONG,
+    pub YawAngle: super::LONG,
+    pub Flag: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808;
 pub const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: i64 = 4611686018427387904;
@@ -736,43 +796,47 @@ pub const KSCAMERA_EXTENDEDPROP_CAPS_MASK: u64 = 18374686479671623680;
 pub const KSCAMERA_EXTENDEDPROP_CAPS_RESERVED: u64 = 18374686479671623680;
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
-    pub ResolutionX: i32,
-    pub ResolutionY: i32,
-    pub PorchTop: i32,
-    pub PorchLeft: i32,
-    pub PorchBottom: i32,
-    pub PorchRight: i32,
-    pub NonUpscalingWindowSize: i32,
-    pub MinWindowSize: i32,
-    pub MaxWindowSize: i32,
-    pub Reserved: i32,
+    pub ResolutionX: super::LONG,
+    pub ResolutionY: super::LONG,
+    pub PorchTop: super::LONG,
+    pub PorchLeft: super::LONG,
+    pub PorchBottom: super::LONG,
+    pub PorchRight: super::LONG,
+    pub NonUpscalingWindowSize: super::LONG,
+    pub MinWindowSize: super::LONG,
+    pub MaxWindowSize: super::LONG,
+    pub Reserved: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
-    pub Size: u32,
-    pub Count: u32,
+    pub Size: super::ULONG,
+    pub Count: super::ULONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MASK: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
-    pub OriginX: i32,
-    pub OriginY: i32,
-    pub WindowSize: i32,
-    pub Reserved: u32,
+    pub OriginX: super::LONG,
+    pub OriginY: super::LONG,
+    pub WindowSize: super::LONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
-    pub Mode: u32,
-    pub Min: i32,
-    pub Max: i32,
-    pub Value: i32,
-    pub Reserved: u64,
+    pub Mode: super::ULONG,
+    pub Min: super::LONG,
+    pub Max: super::LONG,
+    pub Value: super::LONG,
+    pub Reserved: super::ULONGLONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP: i32 = 16;
 pub const KSCAMERA_EXTENDEDPROP_EVCOMP_HALFSTEP: i32 = 8;
@@ -795,21 +859,24 @@ pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PREVIEW: i32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_SMILE: i32 = 16;
 pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_VIDEO: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
-    pub NormalizedFocalLengthX: u32,
-    pub NormalizedFocalLengthY: u32,
-    pub Flag: u32,
-    pub Reserved: u32,
+    pub NormalizedFocalLengthX: super::ULONG,
+    pub NormalizedFocalLengthY: super::ULONG,
+    pub Flag: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
-    pub DefaultDiagonalFieldOfViewInDegrees: u16,
-    pub DiscreteFoVStopsCount: u16,
-    pub DiscreteFoVStops: [u16; 360],
-    pub Reserved: u32,
+    pub DefaultDiagonalFieldOfViewInDegrees: super::WORD,
+    pub DiscreteFoVStopsCount: super::WORD,
+    pub DiscreteFoVStops: [super::WORD; 360],
+    pub Reserved: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -859,14 +926,15 @@ pub const KSCAMERA_EXTENDEDPROP_FOCUS_UNLOCK: i32 = 1024;
 pub const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_OFF: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_ON: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_HEADER {
-    pub Version: u32,
-    pub PinId: u32,
-    pub Size: u32,
-    pub Result: u32,
-    pub Flags: u64,
-    pub Capability: u64,
+    pub Version: super::ULONG,
+    pub PinId: super::ULONG,
+    pub Size: super::ULONG,
+    pub Result: super::ULONG,
+    pub Flags: super::ULONGLONG,
+    pub Capability: super::ULONGLONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_ON: i32 = 1;
@@ -887,10 +955,11 @@ pub const KSCAMERA_EXTENDEDPROP_ISO_800: i32 = 64;
 pub const KSCAMERA_EXTENDEDPROP_ISO_AUTO: i32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_ISO_MANUAL: i64 = 36028797018963968;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_METADATAINFO {
-    pub BufferAlignment: i32,
-    pub MaxMetadataBufferSize: u32,
+    pub BufferAlignment: super::LONG,
+    pub MaxMetadataBufferSize: super::ULONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED: i32 = 256;
 pub const KSCAMERA_EXTENDEDPROP_METADATA_MEMORYTYPE_MASK: i32 = 255;
@@ -920,12 +989,13 @@ pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_VIDEO: i32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_OFF: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_ON: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_PHOTOMODE {
-    pub RequestedHistoryFrames: u32,
-    pub MaxHistoryFrames: u32,
-    pub SubMode: u32,
-    pub Reserved: u32,
+    pub RequestedHistoryFrames: super::ULONG,
+    pub MaxHistoryFrames: super::ULONG,
+    pub SubMode: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE: i32 = 1;
@@ -937,11 +1007,12 @@ pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_4X: i32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_8X: i32 = 4;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_DISABLE: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_PROFILE {
     pub ProfileId: windows_sys::core::GUID,
-    pub Index: u32,
-    pub Reserved: u32,
+    pub Index: super::UINT32,
+    pub Reserved: super::UINT32,
 }
 pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC: i32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_MASK: i32 = 3;
@@ -951,63 +1022,67 @@ pub type KSCAMERA_EXTENDEDPROP_ROITYPE = i32;
 pub const KSCAMERA_EXTENDEDPROP_ROITYPE_FACE: KSCAMERA_EXTENDEDPROP_ROITYPE = 1;
 pub const KSCAMERA_EXTENDEDPROP_ROITYPE_UNKNOWN: KSCAMERA_EXTENDEDPROP_ROITYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
-    pub ControlId: u32,
-    pub MaxNumberOfROIs: u32,
-    pub Capability: u64,
+    pub ControlId: super::ULONG,
+    pub MaxNumberOfROIs: super::ULONG,
+    pub Capability: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
-    pub Size: u32,
-    pub ConfigCapCount: u32,
-    pub Reserved: u64,
+    pub Size: super::ULONG,
+    pub ConfigCapCount: super::ULONG,
+    pub Reserved: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
-    pub Reserved: u64,
+    pub Reserved: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
-    pub Reserved: u64,
+    pub Reserved: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
     pub Region: super::RECT,
-    pub Flags: u64,
-    pub Weight: i32,
-    pub RegionOfInterestType: i32,
+    pub Flags: super::ULONGLONG,
+    pub Weight: super::LONG,
+    pub RegionOfInterestType: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
-    pub ControlId: u32,
-    pub ROICount: u32,
-    pub Result: u32,
-    pub Reserved: u32,
+    pub ControlId: super::ULONG,
+    pub ROICount: super::ULONG,
+    pub Result: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
-    pub Size: u32,
-    pub ControlCount: u32,
-    pub Reserved: u64,
+    pub Size: super::ULONG,
+    pub ControlCount: super::ULONG,
+    pub Reserved: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
-    pub Reserved: u64,
+    pub Reserved: super::ULONGLONG,
 }
 pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_BACKLIT: i32 = 1024;
@@ -1025,29 +1100,29 @@ pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SUNSET: i32 = 64;
 pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_DISABLED: i32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_ENABLED: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_VALUE {
     pub Value: KSCAMERA_EXTENDEDPROP_VALUE_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSCAMERA_EXTENDEDPROP_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KSCAMERA_EXTENDEDPROP_VALUE_0 {
     pub dbl: f64,
-    pub ull: u64,
-    pub ul: u32,
+    pub ull: super::ULONGLONG,
+    pub ul: super::ULONG,
     pub ratio: super::ULARGE_INTEGER,
-    pub l: i32,
-    pub ll: i64,
+    pub l: super::LONG,
+    pub ll: super::LONGLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSCAMERA_EXTENDEDPROP_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1063,17 +1138,17 @@ pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_LOCK: i32 = 4;
 pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MANUAL: i32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MASK: i32 = 7;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-    pub Mode: u32,
-    pub Min: i32,
-    pub Max: i32,
-    pub Step: i32,
+    pub Mode: super::ULONG,
+    pub Min: super::LONG,
+    pub Max: super::LONG,
+    pub Step: super::LONG,
     pub VideoProc: KSCAMERA_EXTENDEDPROP_VALUE,
-    pub Reserved: u64,
+    pub Reserved: super::ULONGLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1104,49 +1179,51 @@ pub const KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT: i32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: i32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
-    pub PhotoResWidth: u32,
-    pub PhotoResHeight: u32,
-    pub PreviewFPSNum: u32,
-    pub PreviewFPSDenom: u32,
-    pub CaptureFPSNum: u32,
-    pub CaptureFPSDenom: u32,
+    pub PhotoResWidth: super::ULONG,
+    pub PhotoResHeight: super::ULONG,
+    pub PreviewFPSNum: super::ULONG,
+    pub PreviewFPSDenom: super::ULONG,
+    pub CaptureFPSNum: super::ULONG,
+    pub CaptureFPSDenom: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub MaskCoverageBoundingBox: super::RECT,
     pub MaskResolution: super::SIZE,
     pub ForegroundBoundingBox: super::RECT,
-    pub MaskData: [u8; 1],
+    pub MaskData: [super::BYTE; 1],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_METADATA_CAPTURESTATS {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
-    pub Flags: u32,
-    pub Reserved: u32,
-    pub ExposureTime: u64,
-    pub ExposureCompensationFlags: u64,
-    pub ExposureCompensationValue: i32,
-    pub IsoSpeed: u32,
-    pub FocusState: u32,
-    pub LensPosition: u32,
-    pub WhiteBalance: u32,
-    pub Flash: u32,
-    pub FlashPower: u32,
-    pub ZoomFactor: u32,
-    pub SceneMode: u64,
-    pub SensorFramerate: u64,
+    pub Flags: super::ULONG,
+    pub Reserved: super::ULONG,
+    pub ExposureTime: super::ULONGLONG,
+    pub ExposureCompensationFlags: super::ULONGLONG,
+    pub ExposureCompensationValue: super::LONG,
+    pub IsoSpeed: super::ULONG,
+    pub FocusState: super::ULONG,
+    pub LensPosition: super::ULONG,
+    pub WhiteBalance: super::ULONG,
+    pub Flash: super::ULONG,
+    pub FlashPower: super::ULONG,
+    pub ZoomFactor: super::ULONG,
+    pub SceneMode: super::ULONGLONG,
+    pub SensorFramerate: super::ULONGLONG,
 }
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION: i32 = 2;
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURETIME: i32 = 1;
@@ -1160,72 +1237,81 @@ pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SENSORFRAMERATE: i32 = 1024;
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_WHITEBALANCE: i32 = 32;
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ZOOMFACTOR: i32 = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_METADATA_DIGITALWINDOW {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Window: KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_METADATA_FRAMEILLUMINATION {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub Flags: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_METADATA_ITEMHEADER {
-    pub MetadataId: u32,
-    pub Size: u32,
+    pub MetadataId: super::ULONG,
+    pub Size: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
-    pub PhotoConfirmationIndex: u32,
-    pub Reserved: u32,
+    pub PhotoConfirmationIndex: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub type KSCAMERA_MetadataId = i32;
 pub const KSCAMERA_PERFRAMESETTING_AUTO: i64 = 4294967296;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
-    pub Size: u32,
-    pub ItemCount: u32,
-    pub Flags: u64,
+    pub Size: super::ULONG,
+    pub ItemCount: super::ULONG,
+    pub Flags: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
-    pub Size: u32,
-    pub Type: u32,
-    pub Flags: u64,
+    pub Size: super::ULONG,
+    pub Type: super::ULONG,
+    pub Flags: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
-    pub Size: u32,
-    pub Reserved: u32,
+    pub Size: super::ULONG,
+    pub Reserved: super::ULONG,
     pub Id: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
-    pub Size: u32,
-    pub Id: u32,
-    pub ItemCount: u32,
-    pub Reserved: u32,
+    pub Size: super::ULONG,
+    pub Id: super::ULONG,
+    pub ItemCount: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PERFRAMESETTING_HEADER {
-    pub Size: u32,
-    pub FrameCount: u32,
+    pub Size: super::ULONG,
+    pub FrameCount: super::ULONG,
     pub Id: windows_sys::core::GUID,
-    pub Flags: u64,
-    pub LoopCount: u32,
-    pub Reserved: u32,
+    pub Flags: super::ULONGLONG,
+    pub LoopCount: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const KSCAMERA_PERFRAMESETTING_ITEM_CUSTOM: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 7;
 pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_COMPENSATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 3;
@@ -1233,94 +1319,107 @@ pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_TIME: KSCAMERA_PERFRAMESETTING_
 pub const KSCAMERA_PERFRAMESETTING_ITEM_FLASH: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 2;
 pub const KSCAMERA_PERFRAMESETTING_ITEM_FOCUS: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
-    pub Size: u32,
-    pub Type: u32,
-    pub Flags: u64,
+    pub Size: super::ULONG,
+    pub Type: super::ULONG,
+    pub Flags: super::ULONGLONG,
 }
 pub const KSCAMERA_PERFRAMESETTING_ITEM_ISO: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 4;
 pub const KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 6;
 pub type KSCAMERA_PERFRAMESETTING_ITEM_TYPE = i32;
 pub const KSCAMERA_PERFRAMESETTING_MANUAL: i64 = 8589934592;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
     pub ReferenceGuid: windows_sys::core::GUID,
-    pub Reserved: u32,
-    pub ProfileCount: u32,
+    pub Reserved: super::UINT32,
+    pub ProfileCount: super::UINT32,
     pub Profiles: PKSCAMERA_PROFILE_INFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_INFO {
     pub ProfileId: windows_sys::core::GUID,
-    pub Index: u32,
-    pub PinCount: u32,
+    pub Index: super::UINT32,
+    pub PinCount: super::UINT32,
     pub Pins: PKSCAMERA_PROFILE_PININFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO {
     pub Resolution: KSCAMERA_PROFILE_MEDIAINFO_0,
     pub MaxFrameRate: KSCAMERA_PROFILE_MEDIAINFO_1,
-    pub Flags: u64,
-    pub Data0: u32,
-    pub Data1: u32,
-    pub Data2: u32,
-    pub Data3: u32,
+    pub Flags: super::ULONGLONG,
+    pub Data0: super::UINT32,
+    pub Data1: super::UINT32,
+    pub Data2: super::UINT32,
+    pub Data3: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
-    pub X: u32,
-    pub Y: u32,
+    pub X: super::UINT32,
+    pub Y: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
-    pub Numerator: u32,
-    pub Denominator: u32,
+    pub Numerator: super::UINT32,
+    pub Denominator: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_PININFO {
     pub PinCategory: windows_sys::core::GUID,
     pub Anonymous: KSCAMERA_PROFILE_PININFO_0,
-    pub MediaInfoCount: u32,
+    pub MediaInfoCount: super::UINT32,
     pub MediaInfos: PKSCAMERA_PROFILE_MEDIAINFO,
 }
+#[cfg(feature = "shared")]
 impl Default for KSCAMERA_PROFILE_PININFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union KSCAMERA_PROFILE_PININFO_0 {
     pub Anonymous: KSCAMERA_PROFILE_PININFO_0_0,
-    pub Reserved: u32,
+    pub Reserved: super::UINT32,
 }
+#[cfg(feature = "shared")]
 impl Default for KSCAMERA_PROFILE_PININFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_PININFO_0_0 {
-    pub PinIndex: u16,
-    pub ProfileSensorType: u16,
+    pub PinIndex: super::USHORT,
+    pub ProfileSensorType: super::USHORT,
 }
 pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const KSCATEGORY_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
 pub const KSCATEGORY_CROSSBAR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_DRM_DESCRAMBLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
 pub const KSCATEGORY_ENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
 pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
 pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
 pub const KSCATEGORY_MULTIPLEXER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
 pub const KSCATEGORY_NETWORK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
 pub const KSCATEGORY_REALTIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
+pub const KSCATEGORY_SYNTHESIZER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
 pub const KSCATEGORY_TEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
 pub const KSCATEGORY_TOPOLOGY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
 pub const KSCATEGORY_TVAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
@@ -1338,13 +1437,13 @@ pub const KSCameraProfileSensorType_Infrared: i32 = 2;
 pub const KSCameraProfileSensorType_PoseTracking: i32 = 8;
 pub const KSCameraProfileSensorType_RGB: i32 = 1;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_DSOUND {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub BufferDesc: KSDSOUND_BUFFERDESC,
 }
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 impl Default for KSDATAFORMAT_DSOUND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1474,210 +1573,229 @@ pub const KSDATAFORMAT_TYPE_TEXT: windows_sys::core::GUID = windows_sys::core::G
 pub const KSDATAFORMAT_TYPE_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
 pub const KSDATAFORMAT_TYPE_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[repr(C, packed(1))]
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_WAVEFORMATEX {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub WaveFormatEx: super::WAVEFORMATEX,
 }
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 impl Default for KSDATAFORMAT_WAVEFORMATEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub WaveFormatExt: super::WAVEFORMATEXTENSIBLE,
 }
-#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 impl Default for KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSDATARANGE_AUDIO {
     pub DataRange: super::KSDATARANGE,
-    pub MaximumChannels: u32,
-    pub MinimumBitsPerSample: u32,
-    pub MaximumBitsPerSample: u32,
-    pub MinimumSampleFrequency: u32,
-    pub MaximumSampleFrequency: u32,
+    pub MaximumChannels: super::ULONG,
+    pub MinimumBitsPerSample: super::ULONG,
+    pub MaximumBitsPerSample: super::ULONG,
+    pub MinimumSampleFrequency: super::ULONG,
+    pub MaximumSampleFrequency: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSDATARANGE_AUDIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSDATARANGE_MUSIC {
     pub DataRange: super::KSDATARANGE,
     pub Technology: windows_sys::core::GUID,
-    pub Channels: u32,
-    pub Notes: u32,
-    pub ChannelMask: u32,
+    pub Channels: super::ULONG,
+    pub Notes: super::ULONG,
+    pub ChannelMask: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSDATARANGE_MUSIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSDEVICE_PROFILE_INFO {
-    pub Type: u32,
-    pub Size: u32,
+    pub Type: super::UINT32,
+    pub Size: super::UINT32,
     pub Anonymous: KSDEVICE_PROFILE_INFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for KSDEVICE_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union KSDEVICE_PROFILE_INFO_0 {
     pub Camera: KSDEVICE_PROFILE_INFO_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for KSDEVICE_PROFILE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSDEVICE_PROFILE_INFO_0_0 {
     pub Info: KSCAMERA_PROFILE_INFO,
-    pub Reserved: u32,
-    pub ConcurrencyCount: u32,
+    pub Reserved: super::UINT32,
+    pub ConcurrencyCount: super::UINT32,
     pub Concurrency: PKSCAMERA_PROFILE_CONCURRENCYINFO,
 }
 pub const KSDEVICE_PROFILE_TYPE_CAMERA: i32 = 1;
 pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: i32 = 0;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSDISPLAYCHANGE {
-    pub PelsWidth: u32,
-    pub PelsHeight: u32,
-    pub BitsPerPel: u32,
-    pub DeviceID: [u16; 1],
+    pub PelsWidth: super::ULONG,
+    pub PelsHeight: super::ULONG,
+    pub BitsPerPel: super::ULONG,
+    pub DeviceID: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSDISPLAYCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSDS3D_BUFFER_ALL {
     pub Position: DS3DVECTOR,
     pub Velocity: DS3DVECTOR,
-    pub InsideConeAngle: u32,
-    pub OutsideConeAngle: u32,
+    pub InsideConeAngle: super::ULONG,
+    pub OutsideConeAngle: super::ULONG,
     pub ConeOrientation: DS3DVECTOR,
-    pub ConeOutsideVolume: i32,
-    pub MinDistance: f32,
-    pub MaxDistance: f32,
-    pub Mode: u32,
+    pub ConeOutsideVolume: super::LONG,
+    pub MinDistance: super::FLOAT,
+    pub MaxDistance: super::FLOAT,
+    pub Mode: super::ULONG,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for KSDS3D_BUFFER_ALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSDS3D_BUFFER_CONE_ANGLES {
-    pub InsideConeAngle: u32,
-    pub OutsideConeAngle: u32,
+    pub InsideConeAngle: super::ULONG,
+    pub OutsideConeAngle: super::ULONG,
 }
 pub const KSDS3D_COEFF_COUNT: KSDS3D_HRTF_COEFF_FORMAT = 2;
 pub const KSDS3D_FILTER_METHOD_COUNT: KSDS3D_HRTF_FILTER_METHOD = 2;
 pub const KSDS3D_FILTER_QUALITY_COUNT: KSDS3D_HRTF_FILTER_QUALITY = 2;
 pub type KSDS3D_HRTF_COEFF_FORMAT = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSDS3D_HRTF_FILTER_FORMAT_MSG {
     pub FilterMethod: KSDS3D_HRTF_FILTER_METHOD,
     pub CoeffFormat: KSDS3D_HRTF_COEFF_FORMAT,
     pub Version: KSDS3D_HRTF_FILTER_VERSION,
-    pub Reserved: u32,
+    pub Reserved: super::ULONG,
 }
 pub type KSDS3D_HRTF_FILTER_METHOD = i32;
 pub type KSDS3D_HRTF_FILTER_QUALITY = i32;
 pub type KSDS3D_HRTF_FILTER_VERSION = i32;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSDS3D_HRTF_INIT_MSG {
-    pub Size: u32,
+    pub Size: super::ULONG,
     pub Quality: KSDS3D_HRTF_FILTER_QUALITY,
-    pub SampleRate: f32,
-    pub MaxFilterSize: u32,
-    pub FilterTransientMuteLength: u32,
-    pub FilterOverlapBufferLength: u32,
-    pub OutputOverlapBufferLength: u32,
-    pub Reserved: u32,
+    pub SampleRate: super::FLOAT,
+    pub MaxFilterSize: super::ULONG,
+    pub FilterTransientMuteLength: super::ULONG,
+    pub FilterOverlapBufferLength: super::ULONG,
+    pub OutputOverlapBufferLength: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSDS3D_HRTF_PARAMS_MSG {
-    pub Size: u32,
-    pub Enabled: u32,
+    pub Size: super::ULONG,
+    pub Enabled: super::ULONG,
     pub SwapChannels: windows_sys::core::BOOL,
     pub ZeroAzimuth: windows_sys::core::BOOL,
     pub CrossFadeOutput: windows_sys::core::BOOL,
-    pub FilterSize: u32,
+    pub FilterSize: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSDS3D_ITD_PARAMS {
-    pub Channel: i32,
-    pub VolSmoothScale: f32,
-    pub TotalDryAttenuation: f32,
-    pub TotalWetAttenuation: f32,
-    pub SmoothFrequency: i32,
-    pub Delay: i32,
+    pub Channel: super::LONG,
+    pub VolSmoothScale: super::FLOAT,
+    pub TotalDryAttenuation: super::FLOAT,
+    pub TotalWetAttenuation: super::FLOAT,
+    pub SmoothFrequency: super::LONG,
+    pub Delay: super::LONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSDS3D_ITD_PARAMS_MSG {
-    pub Enabled: u32,
+    pub Enabled: super::ULONG,
     pub LeftParams: KSDS3D_ITD_PARAMS,
     pub RightParams: KSDS3D_ITD_PARAMS,
-    pub Reserved: u32,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct KSDS3D_LISTENER_ALL {
     pub Position: DS3DVECTOR,
     pub Velocity: DS3DVECTOR,
     pub OrientFront: DS3DVECTOR,
     pub OrientTop: DS3DVECTOR,
-    pub DistanceFactor: f32,
-    pub RolloffFactor: f32,
-    pub DopplerFactor: f32,
+    pub DistanceFactor: super::FLOAT,
+    pub RolloffFactor: super::FLOAT,
+    pub DopplerFactor: super::FLOAT,
 }
+#[cfg(feature = "minwindef")]
 impl Default for KSDS3D_LISTENER_ALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct KSDS3D_LISTENER_ORIENTATION {
     pub Front: DS3DVECTOR,
     pub Top: DS3DVECTOR,
 }
+#[cfg(feature = "minwindef")]
 impl Default for KSDS3D_LISTENER_ORIENTATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1687,11 +1805,11 @@ pub const KSDSOUND_3D_MODE_DISABLE: i32 = 2;
 pub const KSDSOUND_3D_MODE_HEADRELATIVE: i32 = 1;
 pub const KSDSOUND_3D_MODE_NORMAL: i32 = 0;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSDSOUND_BUFFERDESC {
-    pub Flags: u32,
-    pub Control: u32,
+    pub Flags: super::ULONG,
+    pub Control: super::ULONG,
     pub WaveFormatEx: super::WAVEFORMATEX,
 }
 pub const KSDSOUND_BUFFER_CTRL_3D: i32 = 1;
@@ -1713,6 +1831,7 @@ pub const KSEVENTSETID_ExtendedCameraControl: windows_sys::core::GUID = windows_
 pub const KSEVENTSETID_LoopedStreaming: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
 pub const KSEVENTSETID_SoundDetector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
 pub const KSEVENTSETID_Telephony: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
+pub const KSEVENTSETID_VIDCAPNotify: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
 pub const KSEVENTSETID_VIDCAPTOSTI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
 pub const KSEVENTSETID_VIDCAP_TVAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
 pub const KSEVENTSETID_VPNotify: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
@@ -1747,14 +1866,14 @@ pub type KSEVENT_TUNER = i32;
 pub const KSEVENT_TUNER_CHANGED: KSEVENT_TUNER = 0;
 pub const KSEVENT_TUNER_INITIATE_SCAN: KSEVENT_TUNER = 1;
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSEVENT_TUNER_INITIATE_SCAN_S {
     pub EventData: super::KSEVENTDATA,
-    pub StartFrequency: u32,
-    pub EndFrequency: u32,
+    pub StartFrequency: super::ULONG,
+    pub EndFrequency: super::ULONG,
 }
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSEVENT_TUNER_INITIATE_SCAN_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1773,13 +1892,15 @@ pub const KSEVENT_VPNOTIFY_FORMATCHANGE: KSEVENT_VPNOTIFY = 0;
 pub type KSEVENT_VPVBINOTIFY = i32;
 pub const KSEVENT_VPVBINOTIFY_FORMATCHANGE: KSEVENT_VPVBINOTIFY = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSGOP_USERDATA {
-    pub sc: u32,
-    pub reserved1: u32,
-    pub cFields: u8,
-    pub l21Data: [i8; 3],
+    pub sc: super::ULONG,
+    pub reserved1: super::ULONG,
+    pub cFields: super::BYTE,
+    pub l21Data: [super::CHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for KSGOP_USERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1791,10 +1912,11 @@ pub const KSINTERFACE_MEDIA_MUSIC: KSINTERFACE_MEDIA = 0;
 pub const KSINTERFACE_MEDIA_WAVE_BUFFERED: KSINTERFACE_MEDIA = 1;
 pub const KSINTERFACE_MEDIA_WAVE_QUEUED: KSINTERFACE_MEDIA = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSJACK_DESCRIPTION {
-    pub ChannelMapping: u32,
-    pub Color: u32,
+    pub ChannelMapping: super::DWORD,
+    pub Color: super::DWORD,
     pub ConnectionType: EPcxConnectionType,
     pub GeoLocation: EPcxGeoLocation,
     pub GenLocation: EPcxGenLocation,
@@ -1802,34 +1924,36 @@ pub struct KSJACK_DESCRIPTION {
     pub IsConnected: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSJACK_DESCRIPTION2 {
-    pub DeviceStateInfo: u32,
-    pub JackCapabilities: u32,
+    pub DeviceStateInfo: super::DWORD,
+    pub JackCapabilities: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSJACK_DESCRIPTION3 {
-    pub ConfigId: u32,
+    pub ConfigId: super::ULONG,
 }
 pub type KSJACK_SINK_CONNECTIONTYPE = i32;
 pub const KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT: KSJACK_SINK_CONNECTIONTYPE = 1;
 pub const KSJACK_SINK_CONNECTIONTYPE_HDMI: KSJACK_SINK_CONNECTIONTYPE = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSJACK_SINK_INFORMATION {
     pub ConnType: KSJACK_SINK_CONNECTIONTYPE,
-    pub ManufacturerId: u16,
-    pub ProductId: u16,
-    pub AudioLatency: u16,
+    pub ManufacturerId: super::WORD,
+    pub ProductId: super::WORD,
+    pub AudioLatency: super::WORD,
     pub HDCPCapable: windows_sys::core::BOOL,
     pub AICapable: windows_sys::core::BOOL,
-    pub SinkDescriptionLength: u8,
-    pub SinkDescription: [u16; 32],
+    pub SinkDescriptionLength: super::UCHAR,
+    pub SinkDescription: [super::WCHAR; 32],
     pub PortId: super::LUID,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSJACK_SINK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1856,19 +1980,20 @@ pub const KSMICARRAY_MICTYPE_SUBCARDIOID: KSMICARRAY_MICTYPE = 1;
 pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = 3;
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = 15;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSMIDILOOPED_BUFFER {
-    pub BufferAddress: *mut core::ffi::c_void,
-    pub ActualBufferSize: u32,
+    pub BufferAddress: super::PVOID,
+    pub ActualBufferSize: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSMIDILOOPED_BUFFER_PROPERTY {
     pub Property: super::KSPROPERTY,
-    pub RequestedBufferSize: u32,
+    pub RequestedBufferSize: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSMIDILOOPED_BUFFER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1888,40 +2013,43 @@ pub struct KSMIDILOOPED_EVENT2 {
     pub ReadEvent: super::HANDLE,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KSMIDILOOPED_REGISTERS {
-    pub WritePosition: *mut core::ffi::c_void,
-    pub ReadPosition: *mut core::ffi::c_void,
+    pub WritePosition: super::PVOID,
+    pub ReadPosition: super::PVOID,
 }
 pub const KSMPEGVIDMODE_LTRBOX: i32 = 2;
 pub const KSMPEGVIDMODE_PANSCAN: i32 = 1;
 pub const KSMPEGVIDMODE_SCALE: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSMPEGVID_RECT {
-    pub StartX: u32,
-    pub StartY: u32,
-    pub EndX: u32,
-    pub EndY: u32,
+    pub StartX: super::ULONG,
+    pub StartY: super::ULONG,
+    pub EndX: super::ULONG,
+    pub EndY: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSMULTIPLE_DATA_PROP {
     pub Property: super::KSPROPERTY,
     pub MultipleItem: super::KSMULTIPLE_ITEM,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSMULTIPLE_DATA_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSMUSICFORMAT {
-    pub TimeDeltaMs: u32,
-    pub ByteCount: u32,
+    pub TimeDeltaMs: super::ULONG,
+    pub ByteCount: super::ULONG,
 }
 pub const KSMUSIC_TECHNOLOGY_FMSYNTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
 pub const KSMUSIC_TECHNOLOGY_PORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
@@ -1935,14 +2063,14 @@ pub const KSNODEPIN_STANDARD_OUT: i32 = 0;
 pub const KSNODEPIN_SUM_MUX_IN: i32 = 1;
 pub const KSNODEPIN_SUM_MUX_OUT: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY {
     pub Property: super::KSPROPERTY,
-    pub NodeId: u32,
-    pub Reserved: u32,
+    pub NodeId: super::ULONG,
+    pub Reserved: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSNODEPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1950,15 +2078,15 @@ impl Default for KSNODEPROPERTY {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
-    pub ListenerId: *mut core::ffi::c_void,
-    pub Reserved: u32,
+    pub ListenerId: super::PVOID,
+    pub Reserved: super::ULONG,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1966,43 +2094,43 @@ impl Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
-    pub ListenerId: *mut core::ffi::c_void,
+    pub ListenerId: super::PVOID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_CHANNEL {
     pub NodeProperty: KSNODEPROPERTY,
-    pub Channel: i32,
-    pub Reserved: u32,
+    pub Channel: super::LONG,
+    pub Reserved: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSNODEPROPERTY_AUDIO_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     pub NodeProperty: KSNODEPROPERTY,
-    pub DevSpecificId: u32,
-    pub DeviceInfo: u32,
-    pub Length: u32,
+    pub DevSpecificId: super::ULONG,
+    pub DeviceInfo: super::ULONG,
+    pub Length: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2010,16 +2138,16 @@ impl Default for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
-    pub AppContext: *mut core::ffi::c_void,
-    pub Length: u32,
-    pub Reserved: u32,
+    pub AppContext: super::PVOID,
+    pub Length: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2027,15 +2155,15 @@ impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
-    pub AppContext: *mut core::ffi::c_void,
-    pub Length: u32,
+    pub AppContext: super::PVOID,
+    pub Length: super::ULONG,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2044,6 +2172,7 @@ impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
 pub const KSNODETYPE_1394_DA_STREAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_3D_EFFECTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const KSNODETYPE_ADC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
 pub const KSNODETYPE_AGC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
 pub const KSNODETYPE_ANALOG_CONNECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
@@ -2083,6 +2212,8 @@ pub const KSNODETYPE_HANDSET: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const KSNODETYPE_HDMI_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
 pub const KSNODETYPE_HEADPHONES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_HEADSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEADSET_MICROPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEADSET_SPEAKERS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_INPUT_UNDEFINED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
@@ -2092,6 +2223,7 @@ pub const KSNODETYPE_LOUDNESS: windows_sys::core::GUID = windows_sys::core::GUID
 pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_MICROPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_MICROPHONE_ARRAY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE_ARRAY_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
 pub const KSNODETYPE_MIDI_ELEMENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
 pub const KSNODETYPE_MIDI_JACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
 pub const KSNODETYPE_MINIDISK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
@@ -2122,6 +2254,7 @@ pub const KSNODETYPE_SRC: windows_sys::core::GUID = windows_sys::core::GUID::fro
 pub const KSNODETYPE_STEREO_WIDE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
 pub const KSNODETYPE_SUM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
 pub const KSNODETYPE_SUPERMIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SURROUND_ENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
 pub const KSNODETYPE_SYNTHESIZER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_TELEPHONE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_TELEPHONY_BIDI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
@@ -2157,23 +2290,26 @@ pub const KSPROPERTY_AC3_ROOM_TYPE: KSPROPERTY_AC3 = 7;
 pub type KSPROPERTY_ALLOCATOR_CONTROL = i32;
 pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS: KSPROPERTY_ALLOCATOR_CONTROL = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
-    pub InterleavedCapSupported: u32,
+    pub InterleavedCapSupported: super::ULONG,
 }
 pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE: KSPROPERTY_ALLOCATOR_CONTROL = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
-    pub InterleavedCapPossible: u32,
+    pub InterleavedCapPossible: super::ULONG,
 }
 pub const KSPROPERTY_ALLOCATOR_CONTROL_HONOR_COUNT: KSPROPERTY_ALLOCATOR_CONTROL = 0;
 pub const KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE: KSPROPERTY_ALLOCATOR_CONTROL = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
-    pub CX: u32,
-    pub CY: u32,
+    pub CX: super::ULONG,
+    pub CY: super::ULONG,
 }
 pub const KSPROPERTY_ATN_READER: KSPROPERTY_TIMECODE = 1;
 pub type KSPROPERTY_AUDDECOUT = i32;
@@ -2368,22 +2504,23 @@ pub const KSPROPERTY_CAMERACONTROL_FLASH_OFF: i32 = 0;
 pub const KSPROPERTY_CAMERACONTROL_FLASH_ON: i32 = 1;
 pub const KSPROPERTY_CAMERACONTROL_FLASH_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_FLASH = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_CAMERACONTROL_FLASH_S {
-    pub Flash: u32,
-    pub Capabilities: u32,
+    pub Flash: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
 pub const KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH: KSPROPERTY_VIDCAP_CAMERACONTROL = 18;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     pub Property: super::KSPROPERTY,
-    pub lOcularFocalLength: i32,
-    pub lObjectiveFocalLengthMin: i32,
-    pub lObjectiveFocalLengthMax: i32,
+    pub lOcularFocalLength: super::LONG,
+    pub lObjectiveFocalLengthMin: super::LONG,
+    pub lObjectiveFocalLengthMax: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2395,40 +2532,56 @@ pub type KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY = i32;
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: i32 = 1;
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
-    pub Capabilities: u32,
-    pub Reserved0: u32,
+    pub Capabilities: super::ULONG,
+    pub Reserved0: super::ULONG,
 }
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD: i32 = 2;
 pub const KSPROPERTY_CAMERACONTROL_IRIS: KSPROPERTY_VIDCAP_CAMERACONTROL = 5;
 pub const KSPROPERTY_CAMERACONTROL_IRIS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = 15;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     pub NodeProperty: KSNODEPROPERTY,
-    pub lOcularFocalLength: i32,
-    pub lObjectiveFocalLengthMin: i32,
-    pub lObjectiveFocalLengthMax: i32,
+    pub lOcularFocalLength: super::LONG,
+    pub lObjectiveFocalLengthMin: super::LONG,
+    pub lObjectiveFocalLengthMax: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct KSPROPERTY_CAMERACONTROL_NODE_S {
+    pub NodeProperty: super::KSP_NODE,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
+}
+#[cfg(all(feature = "ks", feature = "shared"))]
+impl Default for KSPROPERTY_CAMERACONTROL_NODE_S {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_NODE_S2 {
     pub NodeProperty: super::KSP_NODE,
-    pub Value1: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
-    pub Value2: i32,
+    pub Value1: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
+    pub Value2: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CAMERACONTROL_NODE_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2453,7 +2606,7 @@ pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_AUTO: i32 = 1;
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_MANUAL: i32 = 2;
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST = 0;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub FocusRect: super::RECT,
@@ -2462,20 +2615,20 @@ pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub AutoWhitebalanceLock: windows_sys::core::BOOL,
     pub Anonymous: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
-    pub Capabilities: u32,
-    pub Configuration: u32,
+    pub Capabilities: super::ULONG,
+    pub Configuration: super::ULONG,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2484,31 +2637,31 @@ impl Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
 pub const KSPROPERTY_CAMERACONTROL_ROLL: KSPROPERTY_VIDCAP_CAMERACONTROL = 2;
 pub const KSPROPERTY_CAMERACONTROL_ROLL_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = 12;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_S {
     pub Property: super::KSPROPERTY,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CAMERACONTROL_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_S2 {
     pub Property: super::KSPROPERTY,
-    pub Value1: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
-    pub Value2: i32,
+    pub Value1: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
+    pub Value2: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CAMERACONTROL_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2516,16 +2669,16 @@ impl Default for KSPROPERTY_CAMERACONTROL_S2 {
 }
 pub const KSPROPERTY_CAMERACONTROL_SCANMODE: KSPROPERTY_VIDCAP_CAMERACONTROL = 7;
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_S_EX {
     pub Property: super::KSPROPERTY,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
     pub FocusRect: super::RECT,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KSPROPERTY_CAMERACONTROL_S_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2541,10 +2694,11 @@ pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_LOW: i32 = 3;
 pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_MEDIUM: i32 = 2;
 pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_OFF: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
-    pub VideoStabilizationMode: u32,
-    pub Capabilities: u32,
+    pub VideoStabilizationMode: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
 pub type KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE = i32;
 pub const KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE = 0;
@@ -2553,18 +2707,18 @@ pub const KSPROPERTY_CAMERACONTROL_ZOOM_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTRO
 pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_CLEAR: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = 0;
 pub type KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = i32;
 pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_SET: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = 1;
-pub type KSPROPERTY_COMPOSIT_ON = windows_sys::core::BOOL;
+pub type KSPROPERTY_COMPOSIT_ON = i32;
 pub type KSPROPERTY_COPYPROT = i32;
 pub const KSPROPERTY_COPY_MACROVISION: KSPROPERTY_COPYPROT = 5;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_ACTIVE_S {
     pub Property: super::KSPROPERTY,
-    pub IndexInputPin: u32,
-    pub Active: u32,
+    pub IndexInputPin: super::ULONG,
+    pub Active: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CROSSBAR_ACTIVE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2573,14 +2727,14 @@ impl Default for KSPROPERTY_CROSSBAR_ACTIVE_S {
 pub const KSPROPERTY_CROSSBAR_CAN_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = 2;
 pub const KSPROPERTY_CROSSBAR_CAPS: KSPROPERTY_VIDCAP_CROSSBAR = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_CAPS_S {
     pub Property: super::KSPROPERTY,
-    pub NumberOfInputs: u32,
-    pub NumberOfOutputs: u32,
+    pub NumberOfInputs: super::ULONG,
+    pub NumberOfOutputs: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CROSSBAR_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2589,17 +2743,17 @@ impl Default for KSPROPERTY_CROSSBAR_CAPS_S {
 pub const KSPROPERTY_CROSSBAR_INPUT_ACTIVE: KSPROPERTY_VIDCAP_CROSSBAR = 4;
 pub const KSPROPERTY_CROSSBAR_PININFO: KSPROPERTY_VIDCAP_CROSSBAR = 1;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_PININFO_S {
     pub Property: super::KSPROPERTY,
     pub Direction: super::KSPIN_DATAFLOW,
-    pub Index: u32,
-    pub PinType: u32,
-    pub RelatedPinIndex: u32,
+    pub Index: super::ULONG,
+    pub PinType: super::ULONG,
+    pub RelatedPinIndex: super::ULONG,
     pub Medium: super::KSPIN_MEDIUM,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CROSSBAR_PININFO_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2607,15 +2761,15 @@ impl Default for KSPROPERTY_CROSSBAR_PININFO_S {
 }
 pub const KSPROPERTY_CROSSBAR_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = 3;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_ROUTE_S {
     pub Property: super::KSPROPERTY,
-    pub IndexInputPin: u32,
-    pub IndexOutputPin: u32,
-    pub CanRoute: u32,
+    pub IndexInputPin: super::ULONG,
+    pub IndexOutputPin: super::ULONG,
+    pub CanRoute: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_CROSSBAR_ROUTE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2649,15 +2803,15 @@ pub type KSPROPERTY_DRMAUDIOSTREAM = i32;
 pub const KSPROPERTY_DRMAUDIOSTREAM_CONTENTID: KSPROPERTY_DRMAUDIOSTREAM = 0;
 pub const KSPROPERTY_DROPPEDFRAMES_CURRENT: KSPROPERTY_VIDCAP_DROPPEDFRAMES = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     pub Property: super::KSPROPERTY,
-    pub PictureNumber: i64,
-    pub DropCount: i64,
-    pub AverageFrameSize: u32,
+    pub PictureNumber: super::LONGLONG,
+    pub DropCount: super::LONGLONG,
+    pub AverageFrameSize: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2680,29 +2834,29 @@ pub const KSPROPERTY_EXTDEVICE_ID: KSPROPERTY_EXTDEVICE = 0;
 pub const KSPROPERTY_EXTDEVICE_PORT: KSPROPERTY_EXTDEVICE = 3;
 pub const KSPROPERTY_EXTDEVICE_POWER_STATE: KSPROPERTY_EXTDEVICE = 2;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTDEVICE_S {
     pub Property: super::KSPROPERTY,
     pub u: KSPROPERTY_EXTDEVICE_S_0,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSPROPERTY_EXTDEVICE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTDEVICE_S_0 {
     pub Capabilities: DEVCAPS,
-    pub DevPort: u32,
-    pub PowerState: u32,
-    pub pawchString: [u16; 260],
-    pub NodeUniqueID: [u32; 2],
+    pub DevPort: super::ULONG,
+    pub PowerState: super::ULONG,
+    pub pawchString: [super::WCHAR; 260],
+    pub NodeUniqueID: [super::DWORD; 2],
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSPROPERTY_EXTDEVICE_S_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2720,55 +2874,55 @@ pub const KSPROPERTY_EXTXPORT_INPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = 1;
 pub const KSPROPERTY_EXTXPORT_LOAD_MEDIUM: KSPROPERTY_EXTXPORT = 3;
 pub const KSPROPERTY_EXTXPORT_MEDIUM_INFO: KSPROPERTY_EXTXPORT = 4;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S {
     pub NodeProperty: super::KSP_NODE,
     pub u: KSPROPERTY_EXTXPORT_NODE_S_0,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_EXTXPORT_NODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
-    pub Capabilities: u32,
-    pub SignalMode: u32,
-    pub LoadMedium: u32,
+    pub Capabilities: super::ULONG,
+    pub SignalMode: super::ULONG,
+    pub LoadMedium: super::ULONG,
     pub MediumInfo: MEDIUM_INFO,
     pub XPrtState: TRANSPORT_STATE,
     pub Timecode: KSPROPERTY_EXTXPORT_NODE_S_0_0,
-    pub dwTimecode: u32,
-    pub dwAbsTrackNumber: u32,
+    pub dwTimecode: super::DWORD,
+    pub dwAbsTrackNumber: super::DWORD,
     pub RawAVC: KSPROPERTY_EXTXPORT_NODE_S_0_1,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
+    pub frame: super::BYTE,
+    pub second: super::BYTE,
+    pub minute: super::BYTE,
+    pub hour: super::BYTE,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
-    pub PayloadSize: u32,
-    pub Payload: [u8; 512],
+    pub PayloadSize: super::ULONG,
+    pub Payload: [super::BYTE; 512],
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2777,55 +2931,55 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
 pub const KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = 2;
 pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = 9;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_S {
     pub Property: super::KSPROPERTY,
     pub u: KSPROPERTY_EXTXPORT_S_0,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_EXTXPORT_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTXPORT_S_0 {
-    pub Capabilities: u32,
-    pub SignalMode: u32,
-    pub LoadMedium: u32,
+    pub Capabilities: super::ULONG,
+    pub SignalMode: super::ULONG,
+    pub LoadMedium: super::ULONG,
     pub MediumInfo: MEDIUM_INFO,
     pub XPrtState: TRANSPORT_STATE,
     pub Timecode: KSPROPERTY_EXTXPORT_S_0_0,
-    pub dwTimecode: u32,
-    pub dwAbsTrackNumber: u32,
+    pub dwTimecode: super::DWORD,
+    pub dwAbsTrackNumber: super::DWORD,
     pub RawAVC: KSPROPERTY_EXTXPORT_S_0_1,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_EXTXPORT_S_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_EXTXPORT_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
+    pub frame: super::BYTE,
+    pub second: super::BYTE,
+    pub minute: super::BYTE,
+    pub hour: super::BYTE,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
-    pub PayloadSize: u32,
-    pub Payload: [u8; 512],
+    pub PayloadSize: super::ULONG,
+    pub Payload: [super::BYTE; 512],
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_EXTXPORT_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2869,11 +3023,13 @@ pub type KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES = i32;
 pub const KSPROPERTY_MPEG4_MEDIATYPE_SD_BOX: KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES = 1;
 pub const KSPROPERTY_NETWORKCAMERACONTROL_EVENTTOPICS_XML: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = 3;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
-    pub EventFilter: [u16; 1],
+    pub EventFilter: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2881,10 +3037,11 @@ impl Default for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
 }
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
-    pub MetadataItems: u32,
-    pub Size: u32,
+    pub MetadataItems: super::ULONG,
+    pub Size: super::ULONG,
     pub PTZStatus: windows_sys::core::BOOL,
     pub Events: windows_sys::core::BOOL,
     pub Analytics: windows_sys::core::BOOL,
@@ -2894,9 +3051,10 @@ pub type KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = i32;
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO: KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = 0;
 pub const KSPROPERTY_NETWORKCAMERACONTROL_NTP: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
-    pub Size: u32,
+    pub Size: super::ULONG,
     pub Type: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE,
 }
 pub type KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = i32;
@@ -2933,15 +3091,15 @@ pub const KSPROPERTY_RTAUDIO_SETWRITEPACKET: KSPROPERTY_RTAUDIO = 12;
 pub const KSPROPERTY_RTAUDIO_UNREGISTER_NOTIFICATION_EVENT: KSPROPERTY_RTAUDIO = 7;
 pub const KSPROPERTY_RTC_READER: KSPROPERTY_TIMECODE = 2;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_SELECTOR_NODE_S {
     pub NodeProperty: super::KSP_NODE,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_SELECTOR_NODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2949,15 +3107,15 @@ impl Default for KSPROPERTY_SELECTOR_NODE_S {
 }
 pub const KSPROPERTY_SELECTOR_NUM_SOURCES: KSPROPERTY_VIDCAP_SELECTOR = 1;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_SELECTOR_S {
     pub Property: super::KSPROPERTY,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_SELECTOR_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2972,23 +3130,26 @@ pub const KSPROPERTY_SOUNDDETECTOR_RESET: KSPROPERTY_SOUNDDETECTOR = 5;
 pub const KSPROPERTY_SOUNDDETECTOR_STREAMINGSUPPORT: KSPROPERTY_SOUNDDETECTOR = 6;
 pub const KSPROPERTY_SOUNDDETECTOR_SUPPORTEDPATTERNS: KSPROPERTY_SOUNDDETECTOR = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_SPHLI {
-    pub HLISS: u16,
-    pub Reserved: u16,
-    pub StartPTM: u32,
-    pub EndPTM: u32,
-    pub StartX: u16,
-    pub StartY: u16,
-    pub StopX: u16,
-    pub StopY: u16,
+    pub HLISS: super::USHORT,
+    pub Reserved: super::USHORT,
+    pub StartPTM: super::ULONG,
+    pub EndPTM: super::ULONG,
+    pub StartX: super::USHORT,
+    pub StartY: super::USHORT,
+    pub StopX: super::USHORT,
+    pub StopY: super::USHORT,
     pub ColCon: KS_COLCON,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_SPPAL {
     pub sppal: [KS_DVD_YUV; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for KSPROPERTY_SPPAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3006,13 +3167,13 @@ pub type KSPROPERTY_TELEPHONY_TOPOLOGY = i32;
 pub const KSPROPERTY_TELEPHONY_VOLUME: KSPROPERTY_TELEPHONY_TOPOLOGY = 1;
 pub type KSPROPERTY_TIMECODE = i32;
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TIMECODE_NODE_S {
     pub NodeProperty: super::KSP_NODE,
     pub TimecodeSamp: TIMECODE_SAMPLE,
 }
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TIMECODE_NODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3020,13 +3181,13 @@ impl Default for KSPROPERTY_TIMECODE_NODE_S {
 }
 pub const KSPROPERTY_TIMECODE_READER: KSPROPERTY_TIMECODE = 0;
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TIMECODE_S {
     pub Property: super::KSPROPERTY,
     pub TimecodeSamp: TIMECODE_SAMPLE,
 }
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TIMECODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3038,16 +3199,16 @@ pub const KSPROPERTY_TOPOLOGYNODE_RESET: KSPROPERTY_TOPOLOGYNODE = 2;
 pub type KSPROPERTY_TUNER = i32;
 pub const KSPROPERTY_TUNER_CAPS: KSPROPERTY_TUNER = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_CAPS_S {
     pub Property: super::KSPROPERTY,
-    pub ModesSupported: u32,
+    pub ModesSupported: super::ULONG,
     pub VideoMedium: super::KSPIN_MEDIUM,
     pub TVAudioMedium: super::KSPIN_MEDIUM,
     pub RadioAudioMedium: super::KSPIN_MEDIUM,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3055,19 +3216,19 @@ impl Default for KSPROPERTY_TUNER_CAPS_S {
 }
 pub const KSPROPERTY_TUNER_FREQUENCY: KSPROPERTY_TUNER = 4;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_FREQUENCY_S {
     pub Property: super::KSPROPERTY,
-    pub Frequency: u32,
-    pub LastFrequency: u32,
-    pub TuningFlags: u32,
-    pub VideoSubChannel: u32,
-    pub AudioSubChannel: u32,
-    pub Channel: u32,
-    pub Country: u32,
+    pub Frequency: super::ULONG,
+    pub LastFrequency: super::ULONG,
+    pub TuningFlags: super::ULONG,
+    pub VideoSubChannel: super::ULONG,
+    pub AudioSubChannel: super::ULONG,
+    pub Channel: super::ULONG,
+    pub Country: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_FREQUENCY_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3075,13 +3236,13 @@ impl Default for KSPROPERTY_TUNER_FREQUENCY_S {
 }
 pub const KSPROPERTY_TUNER_IF_MEDIUM: KSPROPERTY_TUNER = 7;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_IF_MEDIUM_S {
     pub Property: super::KSPROPERTY,
     pub IFMedium: super::KSPIN_MEDIUM,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_IF_MEDIUM_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3089,13 +3250,13 @@ impl Default for KSPROPERTY_TUNER_IF_MEDIUM_S {
 }
 pub const KSPROPERTY_TUNER_INPUT: KSPROPERTY_TUNER = 5;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_INPUT_S {
     pub Property: super::KSPROPERTY,
-    pub InputIndex: u32,
+    pub InputIndex: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_INPUT_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3107,20 +3268,20 @@ pub const KSPROPERTY_TUNER_MODE_AM_RADIO: KSPROPERTY_TUNER_MODES = 4;
 pub const KSPROPERTY_TUNER_MODE_ATSC: KSPROPERTY_TUNER_MODES = 16;
 pub const KSPROPERTY_TUNER_MODE_CAPS: KSPROPERTY_TUNER = 1;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_MODE_CAPS_S {
     pub Property: super::KSPROPERTY,
-    pub Mode: u32,
-    pub StandardsSupported: u32,
-    pub MinFrequency: u32,
-    pub MaxFrequency: u32,
-    pub TuningGranularity: u32,
-    pub NumberOfInputs: u32,
-    pub SettlingTime: u32,
-    pub Strategy: u32,
+    pub Mode: super::ULONG,
+    pub StandardsSupported: super::ULONG,
+    pub MinFrequency: super::ULONG,
+    pub MaxFrequency: super::ULONG,
+    pub TuningGranularity: super::ULONG,
+    pub NumberOfInputs: super::ULONG,
+    pub SettlingTime: super::ULONG,
+    pub Strategy: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_MODE_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3129,13 +3290,13 @@ impl Default for KSPROPERTY_TUNER_MODE_CAPS_S {
 pub const KSPROPERTY_TUNER_MODE_DSS: KSPROPERTY_TUNER_MODES = 8;
 pub const KSPROPERTY_TUNER_MODE_FM_RADIO: KSPROPERTY_TUNER_MODES = 2;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_MODE_S {
     pub Property: super::KSPROPERTY,
-    pub Mode: u32,
+    pub Mode: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_MODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3144,15 +3305,15 @@ impl Default for KSPROPERTY_TUNER_MODE_S {
 pub const KSPROPERTY_TUNER_MODE_TV: KSPROPERTY_TUNER_MODES = 1;
 pub const KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS: KSPROPERTY_TUNER = 11;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     pub Property: super::KSPROPERTY,
     pub NetworkType: windows_sys::core::GUID,
-    pub BufferSize: u32,
-    pub NetworkTunerCapabilities: *mut core::ffi::c_void,
+    pub BufferSize: super::ULONG,
+    pub NetworkTunerCapabilities: super::PVOID,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3160,16 +3321,16 @@ impl Default for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
 }
 pub const KSPROPERTY_TUNER_SCAN_CAPS: KSPROPERTY_TUNER = 8;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_SCAN_CAPS_S {
     pub Property: super::KSPROPERTY,
     pub fSupportsHardwareAssistedScanning: windows_sys::core::BOOL,
-    pub SupportedBroadcastStandards: u32,
-    pub GUIDBucket: *mut core::ffi::c_void,
-    pub lengthofBucket: u32,
+    pub SupportedBroadcastStandards: super::ULONG,
+    pub GUIDBucket: super::PVOID,
+    pub lengthofBucket: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSPROPERTY_TUNER_SCAN_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3177,14 +3338,14 @@ impl Default for KSPROPERTY_TUNER_SCAN_CAPS_S {
 }
 pub const KSPROPERTY_TUNER_SCAN_STATUS: KSPROPERTY_TUNER = 9;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_SCAN_STATUS_S {
     pub Property: super::KSPROPERTY,
     pub LockStatus: TunerLockType,
-    pub CurrentFrequency: u32,
+    pub CurrentFrequency: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_SCAN_STATUS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3193,26 +3354,26 @@ impl Default for KSPROPERTY_TUNER_SCAN_STATUS_S {
 pub const KSPROPERTY_TUNER_STANDARD: KSPROPERTY_TUNER = 3;
 pub const KSPROPERTY_TUNER_STANDARD_MODE: KSPROPERTY_TUNER = 10;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STANDARD_MODE_S {
     pub Property: super::KSPROPERTY,
     pub AutoDetect: windows_sys::core::BOOL,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_STANDARD_MODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STANDARD_S {
     pub Property: super::KSPROPERTY,
-    pub Standard: u32,
+    pub Standard: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_STANDARD_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3220,16 +3381,16 @@ impl Default for KSPROPERTY_TUNER_STANDARD_S {
 }
 pub const KSPROPERTY_TUNER_STATUS: KSPROPERTY_TUNER = 6;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STATUS_S {
     pub Property: super::KSPROPERTY,
-    pub CurrentFrequency: u32,
-    pub PLLOffset: u32,
-    pub SignalStrength: u32,
-    pub Busy: u32,
+    pub CurrentFrequency: super::ULONG,
+    pub PLLOffset: super::ULONG,
+    pub SignalStrength: super::ULONG,
+    pub Busy: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TUNER_STATUS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3237,15 +3398,15 @@ impl Default for KSPROPERTY_TUNER_STATUS_S {
 }
 pub const KSPROPERTY_TVAUDIO_CAPS: KSPROPERTY_VIDCAP_TVAUDIO = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TVAUDIO_CAPS_S {
     pub Property: super::KSPROPERTY,
-    pub Capabilities: u32,
+    pub Capabilities: super::ULONG,
     pub InputMedium: super::KSPIN_MEDIUM,
     pub OutputMedium: super::KSPIN_MEDIUM,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TVAUDIO_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3254,13 +3415,13 @@ impl Default for KSPROPERTY_TVAUDIO_CAPS_S {
 pub const KSPROPERTY_TVAUDIO_CURRENTLY_AVAILABLE_MODES: KSPROPERTY_VIDCAP_TVAUDIO = 2;
 pub const KSPROPERTY_TVAUDIO_MODE: KSPROPERTY_VIDCAP_TVAUDIO = 1;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_TVAUDIO_S {
     pub Property: super::KSPROPERTY,
-    pub Mode: u32,
+    pub Mode: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_TVAUDIO_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3270,26 +3431,26 @@ pub type KSPROPERTY_VBICAP = i32;
 pub const KSPROPERTY_VBICAP_PROPERTIES_PROTECTION: KSPROPERTY_VBICAP = 1;
 pub type KSPROPERTY_VBICODECFILTERING = i32;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     pub Property: super::KSPROPERTY,
     pub Substreams: VBICODECFILTERING_CC_SUBSTREAMS,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     pub Property: super::KSPROPERTY,
     pub Substreams: VBICODECFILTERING_NABTS_SUBSTREAMS,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3298,13 +3459,13 @@ impl Default for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
 pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = 2;
 pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = 1;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     pub Property: super::KSPROPERTY,
     pub Scanlines: VBICODECFILTERING_SCANLINES,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3312,78 +3473,78 @@ impl Default for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
 }
 pub const KSPROPERTY_VBICODECFILTERING_STATISTICS: KSPROPERTY_VBICODECFILTERING = 5;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     pub Property: super::KSPROPERTY,
     pub Statistics: VBICODECFILTERING_STATISTICS_CC_PIN,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     pub Property: super::KSPROPERTY,
     pub Statistics: VBICODECFILTERING_STATISTICS_CC,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     pub Property: super::KSPROPERTY,
     pub Statistics: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     pub Property: super::KSPROPERTY,
     pub Statistics: VBICODECFILTERING_STATISTICS_COMMON,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     pub Property: super::KSPROPERTY,
     pub Statistics: VBICODECFILTERING_STATISTICS_NABTS_PIN,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     pub Property: super::KSPROPERTY,
     pub Statistics: VBICODECFILTERING_STATISTICS_NABTS,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3403,18 +3564,18 @@ pub type KSPROPERTY_VIDCAP_VIDEOENCODER = i32;
 pub type KSPROPERTY_VIDCAP_VIDEOPROCAMP = i32;
 pub const KSPROPERTY_VIDEOCOMPRESSION_GETINFO: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub DefaultKeyFrameRate: i32,
-    pub DefaultPFrameRate: i32,
-    pub DefaultQuality: i32,
-    pub NumberOfQualitySettings: i32,
-    pub Capabilities: i32,
+    pub StreamIndex: super::ULONG,
+    pub DefaultKeyFrameRate: super::LONG,
+    pub DefaultPFrameRate: super::LONG,
+    pub DefaultQuality: super::LONG,
+    pub NumberOfQualitySettings: super::LONG,
+    pub Capabilities: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3426,29 +3587,29 @@ pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_KEYFRAME: KSPROPERTY_VIDCAP_VIDEO
 pub const KSPROPERTY_VIDEOCOMPRESSION_PFRAMES_PER_KEYFRAME: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = 2;
 pub const KSPROPERTY_VIDEOCOMPRESSION_QUALITY: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = 3;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_S {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub Value: i32,
+    pub StreamIndex: super::ULONG,
+    pub Value: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOCOMPRESSION_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_S1 {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub Value: i32,
-    pub Flags: u32,
+    pub StreamIndex: super::ULONG,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOCOMPRESSION_S1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3457,17 +3618,17 @@ impl Default for KSPROPERTY_VIDEOCOMPRESSION_S1 {
 pub const KSPROPERTY_VIDEOCOMPRESSION_WINDOWSIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = 6;
 pub const KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCONTROL = 1;
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub RangeIndex: u32,
+    pub StreamIndex: super::ULONG,
+    pub RangeIndex: super::ULONG,
     pub Dimensions: super::SIZE,
-    pub CurrentActualFrameRate: i64,
-    pub CurrentMaxAvailableFrameRate: i64,
+    pub CurrentActualFrameRate: super::LONGLONG,
+    pub CurrentMaxAvailableFrameRate: super::LONGLONG,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3475,14 +3636,14 @@ impl Default for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
 }
 pub const KSPROPERTY_VIDEOCONTROL_CAPS: KSPROPERTY_VIDCAP_VIDEOCONTROL = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_CAPS_S {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub VideoControlCaps: u32,
+    pub StreamIndex: super::ULONG,
+    pub VideoControlCaps: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOCONTROL_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3490,15 +3651,15 @@ impl Default for KSPROPERTY_VIDEOCONTROL_CAPS_S {
 }
 pub const KSPROPERTY_VIDEOCONTROL_FRAME_RATES: KSPROPERTY_VIDCAP_VIDEOCONTROL = 2;
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub RangeIndex: u32,
+    pub StreamIndex: super::ULONG,
+    pub RangeIndex: super::ULONG,
     pub Dimensions: super::SIZE,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3506,14 +3667,14 @@ impl Default for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
 }
 pub const KSPROPERTY_VIDEOCONTROL_MODE: KSPROPERTY_VIDCAP_VIDEOCONTROL = 3;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_MODE_S {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub Mode: i32,
+    pub StreamIndex: super::ULONG,
+    pub Mode: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOCONTROL_MODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3521,16 +3682,16 @@ impl Default for KSPROPERTY_VIDEOCONTROL_MODE_S {
 }
 pub const KSPROPERTY_VIDEODECODER_CAPS: KSPROPERTY_VIDCAP_VIDEODECODER = 0;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_CAPS_S {
     pub Property: super::KSPROPERTY,
-    pub StandardsSupported: u32,
-    pub Capabilities: u32,
-    pub SettlingTime: u32,
-    pub HSyncPerVSync: u32,
+    pub StandardsSupported: super::ULONG,
+    pub Capabilities: super::ULONG,
+    pub SettlingTime: super::ULONG,
+    pub HSyncPerVSync: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEODECODER_CAPS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3538,13 +3699,13 @@ impl Default for KSPROPERTY_VIDEODECODER_CAPS_S {
 }
 pub const KSPROPERTY_VIDEODECODER_OUTPUT_ENABLE: KSPROPERTY_VIDCAP_VIDEODECODER = 3;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_S {
     pub Property: super::KSPROPERTY,
-    pub Value: u32,
+    pub Value: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEODECODER_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3554,29 +3715,29 @@ pub const KSPROPERTY_VIDEODECODER_STANDARD: KSPROPERTY_VIDCAP_VIDEODECODER = 1;
 pub const KSPROPERTY_VIDEODECODER_STATUS: KSPROPERTY_VIDCAP_VIDEODECODER = 2;
 pub const KSPROPERTY_VIDEODECODER_STATUS2: KSPROPERTY_VIDCAP_VIDEODECODER = 5;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_STATUS2_S {
     pub Property: super::KSPROPERTY,
-    pub NumberOfLines: u32,
-    pub SignalLocked: u32,
-    pub ChromaLock: u32,
+    pub NumberOfLines: super::ULONG,
+    pub SignalLocked: super::ULONG,
+    pub ChromaLock: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEODECODER_STATUS2_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_STATUS_S {
     pub Property: super::KSPROPERTY,
-    pub NumberOfLines: u32,
-    pub SignalLocked: u32,
+    pub NumberOfLines: super::ULONG,
+    pub SignalLocked: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEODECODER_STATUS_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3587,15 +3748,15 @@ pub const KSPROPERTY_VIDEOENCODER_CAPS: KSPROPERTY_VIDCAP_VIDEOENCODER = 0;
 pub const KSPROPERTY_VIDEOENCODER_CC_ENABLE: KSPROPERTY_VIDCAP_VIDEOENCODER = 3;
 pub const KSPROPERTY_VIDEOENCODER_COPYPROTECTION: KSPROPERTY_VIDCAP_VIDEOENCODER = 2;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOENCODER_S {
     pub Property: super::KSPROPERTY,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOENCODER_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3614,31 +3775,31 @@ pub const KSPROPERTY_VIDEOPROCAMP_GAIN: KSPROPERTY_VIDCAP_VIDEOPROCAMP = 9;
 pub const KSPROPERTY_VIDEOPROCAMP_GAMMA: KSPROPERTY_VIDCAP_VIDEOPROCAMP = 5;
 pub const KSPROPERTY_VIDEOPROCAMP_HUE: KSPROPERTY_VIDCAP_VIDEOPROCAMP = 2;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S {
     pub NodeProperty: super::KSP_NODE,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOPROCAMP_NODE_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     pub NodeProperty: super::KSP_NODE,
-    pub Value1: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
-    pub Value2: i32,
+    pub Value1: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
+    pub Value2: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3646,31 +3807,31 @@ impl Default for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
 }
 pub const KSPROPERTY_VIDEOPROCAMP_POWERLINE_FREQUENCY: KSPROPERTY_VIDCAP_VIDEOPROCAMP = 13;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_S {
     pub Property: super::KSPROPERTY,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
+    pub Value: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOPROCAMP_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_S2 {
     pub Property: super::KSPROPERTY,
-    pub Value1: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
-    pub Value2: i32,
+    pub Value1: super::LONG,
+    pub Flags: super::ULONG,
+    pub Capabilities: super::ULONG,
+    pub Value2: super::LONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSPROPERTY_VIDEOPROCAMP_S2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3749,157 +3910,163 @@ pub const KSPROPSETID_VPVBIConfig: windows_sys::core::GUID = windows_sys::core::
 pub const KSPROPSETID_VramCapture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
 pub const KSPROPSETID_Wave: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_BUFFER {
-    pub BufferAddress: *mut core::ffi::c_void,
-    pub ActualBufferSize: u32,
+    pub BufferAddress: super::PVOID,
+    pub ActualBufferSize: super::ULONG,
     pub CallMemoryBarrier: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_BUFFER32 {
-    pub BufferAddress: u32,
-    pub ActualBufferSize: u32,
+    pub BufferAddress: super::ULONG,
+    pub ActualBufferSize: super::ULONG,
     pub CallMemoryBarrier: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY {
     pub Property: super::KSPROPERTY,
-    pub BaseAddress: *mut core::ffi::c_void,
-    pub RequestedBufferSize: u32,
+    pub BaseAddress: super::PVOID,
+    pub RequestedBufferSize: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSRTAUDIO_BUFFER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY32 {
     pub Property: super::KSPROPERTY,
-    pub BaseAddress: u32,
-    pub RequestedBufferSize: u32,
+    pub BaseAddress: super::ULONG,
+    pub RequestedBufferSize: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSRTAUDIO_BUFFER_PROPERTY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     pub Property: super::KSPROPERTY,
-    pub BaseAddress: *mut core::ffi::c_void,
-    pub RequestedBufferSize: u32,
-    pub NotificationCount: u32,
+    pub BaseAddress: super::PVOID,
+    pub RequestedBufferSize: super::ULONG,
+    pub NotificationCount: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     pub Property: super::KSPROPERTY,
-    pub BaseAddress: u32,
-    pub RequestedBufferSize: u32,
-    pub NotificationCount: u32,
+    pub BaseAddress: super::ULONG,
+    pub RequestedBufferSize: super::ULONG,
+    pub NotificationCount: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_GETREADPACKET_INFO {
-    pub PacketNumber: u32,
-    pub Flags: u32,
-    pub PerformanceCounterValue: u64,
+    pub PacketNumber: super::ULONG,
+    pub Flags: super::DWORD,
+    pub PerformanceCounterValue: super::ULONG64,
     pub MoreData: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_HWLATENCY {
-    pub FifoSize: u32,
-    pub ChipsetDelay: u32,
-    pub CodecDelay: u32,
+    pub FifoSize: super::ULONG,
+    pub ChipsetDelay: super::ULONG,
+    pub CodecDelay: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_HWREGISTER {
-    pub Register: *mut core::ffi::c_void,
-    pub Width: u32,
-    pub Numerator: u64,
-    pub Denominator: u64,
-    pub Accuracy: u32,
+    pub Register: super::PVOID,
+    pub Width: super::ULONG,
+    pub Numerator: super::ULONGLONG,
+    pub Denominator: super::ULONGLONG,
+    pub Accuracy: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_HWREGISTER32 {
-    pub Register: u32,
-    pub Width: u32,
-    pub Numerator: u64,
-    pub Denominator: u64,
-    pub Accuracy: u32,
+    pub Register: super::ULONG,
+    pub Width: super::ULONG,
+    pub Numerator: super::ULONGLONG,
+    pub Denominator: super::ULONGLONG,
+    pub Accuracy: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY {
     pub Property: super::KSPROPERTY,
-    pub BaseAddress: *mut core::ffi::c_void,
+    pub BaseAddress: super::PVOID,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSRTAUDIO_HWREGISTER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY32 {
     pub Property: super::KSPROPERTY,
-    pub BaseAddress: u32,
+    pub BaseAddress: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSRTAUDIO_HWREGISTER_PROPERTY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     pub Property: super::KSPROPERTY,
     pub NotificationEvent: super::HANDLE,
 }
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     pub Property: super::KSPROPERTY,
-    pub NotificationEvent: u32,
+    pub NotificationEvent: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3914,33 +4081,34 @@ pub struct KSRTAUDIO_PACKETVREGISTER {
     pub CompletedPacketHash: super::PULONG64,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     pub Property: super::KSPROPERTY,
-    pub BaseAddress: *mut core::ffi::c_void,
+    pub BaseAddress: super::PVOID,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_SETWRITEPACKET_INFO {
-    pub PacketNumber: u32,
-    pub Flags: u32,
-    pub EosPacketLength: u32,
+    pub PacketNumber: super::ULONG,
+    pub Flags: super::DWORD,
+    pub EosPacketLength: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSSOUNDDETECTORPROPERTY {
     pub Property: super::KSPROPERTY,
     pub EventId: windows_sys::core::GUID,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSSOUNDDETECTORPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3965,122 +4133,132 @@ pub struct KSTELEPHONY_PROVIDERCHANGE {
     pub ProviderChangeOp: TELEPHONY_PROVIDERCHANGEOP,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KSTOPOLOGY_ENDPOINTID {
-    pub TopologyName: [u16; 260],
-    pub PinId: u32,
+    pub TopologyName: [super::WCHAR; 260],
+    pub PinId: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KSTOPOLOGY_ENDPOINTID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSTOPOLOGY_ENDPOINTIDPAIR {
     pub RenderEndpoint: KSTOPOLOGY_ENDPOINTID,
     pub CaptureEndpoint: KSTOPOLOGY_ENDPOINTID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSVPMAXPIXELRATE {
     pub Size: KS_AMVPSIZE,
-    pub MaxPixelsPerSecond: u32,
-    pub Reserved: u32,
+    pub MaxPixelsPerSecond: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSVPSIZE_PROP {
     pub Property: super::KSPROPERTY,
     pub Size: KS_AMVPSIZE,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSVPSIZE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSVPSURFACEPARAMS {
-    pub dwPitch: u32,
-    pub dwXOrigin: u32,
-    pub dwYOrigin: u32,
+    pub dwPitch: super::DWORD,
+    pub dwXOrigin: super::DWORD,
+    pub dwYOrigin: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KSWAVETABLE_WAVE_DESC {
     pub Identifier: super::KSIDENTIFIER,
-    pub Size: u32,
+    pub Size: super::ULONG,
     pub Looped: windows_sys::core::BOOL,
-    pub LoopPoint: u32,
+    pub LoopPoint: super::ULONG,
     pub InROM: windows_sys::core::BOOL,
-    pub Format: super::KSDATARANGE,
+    pub Format: super::KSDATAFORMAT,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KSWAVETABLE_WAVE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KSWAVE_BUFFER {
-    pub Attributes: u32,
-    pub BufferSize: u32,
-    pub BufferAddress: *mut core::ffi::c_void,
+    pub Attributes: super::ULONG,
+    pub BufferSize: super::ULONG,
+    pub BufferAddress: super::PVOID,
 }
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: i32 = 1;
 pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSWAVE_COMPATCAPS {
-    pub ulDeviceType: u32,
+    pub ulDeviceType: super::ULONG,
 }
 pub const KSWAVE_COMPATCAPS_INPUT: i32 = 0;
 pub const KSWAVE_COMPATCAPS_OUTPUT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSWAVE_INPUT_CAPABILITIES {
-    pub MaximumChannelsPerConnection: u32,
-    pub MinimumBitsPerSample: u32,
-    pub MaximumBitsPerSample: u32,
-    pub MinimumSampleFrequency: u32,
-    pub MaximumSampleFrequency: u32,
-    pub TotalConnections: u32,
-    pub ActiveConnections: u32,
+    pub MaximumChannelsPerConnection: super::ULONG,
+    pub MinimumBitsPerSample: super::ULONG,
+    pub MaximumBitsPerSample: super::ULONG,
+    pub MinimumSampleFrequency: super::ULONG,
+    pub MaximumSampleFrequency: super::ULONG,
+    pub TotalConnections: super::ULONG,
+    pub ActiveConnections: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSWAVE_OUTPUT_CAPABILITIES {
-    pub MaximumChannelsPerConnection: u32,
-    pub MinimumBitsPerSample: u32,
-    pub MaximumBitsPerSample: u32,
-    pub MinimumSampleFrequency: u32,
-    pub MaximumSampleFrequency: u32,
-    pub TotalConnections: u32,
-    pub StaticConnections: u32,
-    pub StreamingConnections: u32,
-    pub ActiveConnections: u32,
-    pub ActiveStaticConnections: u32,
-    pub ActiveStreamingConnections: u32,
-    pub Total3DConnections: u32,
-    pub Static3DConnections: u32,
-    pub Streaming3DConnections: u32,
-    pub Active3DConnections: u32,
-    pub ActiveStatic3DConnections: u32,
-    pub ActiveStreaming3DConnections: u32,
-    pub TotalSampleMemory: u32,
-    pub FreeSampleMemory: u32,
-    pub LargestFreeContiguousSampleMemory: u32,
+    pub MaximumChannelsPerConnection: super::ULONG,
+    pub MinimumBitsPerSample: super::ULONG,
+    pub MaximumBitsPerSample: super::ULONG,
+    pub MinimumSampleFrequency: super::ULONG,
+    pub MaximumSampleFrequency: super::ULONG,
+    pub TotalConnections: super::ULONG,
+    pub StaticConnections: super::ULONG,
+    pub StreamingConnections: super::ULONG,
+    pub ActiveConnections: super::ULONG,
+    pub ActiveStaticConnections: super::ULONG,
+    pub ActiveStreamingConnections: super::ULONG,
+    pub Total3DConnections: super::ULONG,
+    pub Static3DConnections: super::ULONG,
+    pub Streaming3DConnections: super::ULONG,
+    pub Active3DConnections: super::ULONG,
+    pub ActiveStatic3DConnections: super::ULONG,
+    pub ActiveStreaming3DConnections: super::ULONG,
+    pub TotalSampleMemory: super::ULONG,
+    pub FreeSampleMemory: super::ULONG,
+    pub LargestFreeContiguousSampleMemory: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KSWAVE_VOLUME {
-    pub LeftAttenuation: i32,
-    pub RightAttenuation: i32,
+    pub LeftAttenuation: super::LONG,
+    pub RightAttenuation: super::LONG,
 }
 pub const KS_47NABTS_SCALER: f64 = 4.714286312925246;
 pub const KS_AMCONTROL_COLORINFO_PRESENT: i32 = 128;
@@ -4089,38 +4267,39 @@ pub const KS_AMCONTROL_PAD_TO_4x3: i32 = 2;
 pub const KS_AMCONTROL_USED: i32 = 1;
 pub type KS_AMPixAspectRatio = i32;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KS_AMVPDATAINFO {
-    pub dwSize: u32,
-    pub dwMicrosecondsPerField: u32,
+    pub dwSize: super::DWORD,
+    pub dwMicrosecondsPerField: super::DWORD,
     pub amvpDimInfo: KS_AMVPDIMINFO,
-    pub dwPictAspectRatioX: u32,
-    pub dwPictAspectRatioY: u32,
+    pub dwPictAspectRatioX: super::DWORD,
+    pub dwPictAspectRatioY: super::DWORD,
     pub bEnableDoubleClock: windows_sys::core::BOOL,
     pub bEnableVACT: windows_sys::core::BOOL,
     pub bDataIsInterlaced: windows_sys::core::BOOL,
-    pub lHalfLinesOdd: i32,
+    pub lHalfLinesOdd: super::LONG,
     pub bFieldPolarityInverted: windows_sys::core::BOOL,
-    pub dwNumLinesInVREF: u32,
-    pub lHalfLinesEven: i32,
-    pub dwReserved1: u32,
+    pub dwNumLinesInVREF: super::DWORD,
+    pub lHalfLinesEven: super::LONG,
+    pub dwReserved1: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KS_AMVPDIMINFO {
-    pub dwFieldWidth: u32,
-    pub dwFieldHeight: u32,
-    pub dwVBIWidth: u32,
-    pub dwVBIHeight: u32,
+    pub dwFieldWidth: super::DWORD,
+    pub dwFieldHeight: super::DWORD,
+    pub dwVBIWidth: super::DWORD,
+    pub dwVBIHeight: super::DWORD,
     pub rcValidRegion: super::RECT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_AMVPSIZE {
-    pub dwWidth: u32,
-    pub dwHeight: u32,
+    pub dwWidth: super::DWORD,
+    pub dwHeight: super::DWORD,
 }
 pub const KS_AMVP_BEST_BANDWIDTH: KS_AMVP_SELECTFORMATBY = 1;
 pub const KS_AMVP_DO_NOT_CARE: KS_AMVP_SELECTFORMATBY = 0;
@@ -4133,11 +4312,11 @@ pub const KS_AMVP_MODE_SKIPODD: KS_AMVP_MODE = 4;
 pub const KS_AMVP_MODE_WEAVE: KS_AMVP_MODE = 0;
 pub type KS_AMVP_SELECTFORMATBY = i32;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_AM_ExactRateChange {
     pub OutputZeroTime: super::REFERENCE_TIME,
-    pub Rate: i32,
+    pub Rate: super::LONG,
 }
 pub type KS_AM_MaxFullDataRate = i32;
 pub type KS_AM_PROPERTY_TS_RATE_CHANGE = i32;
@@ -4146,22 +4325,22 @@ pub const KS_AM_RATE_MaxFullDataRate: KS_AM_PROPERTY_TS_RATE_CHANGE = 3;
 pub const KS_AM_RATE_SimpleRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = 1;
 pub const KS_AM_RATE_Step: KS_AM_PROPERTY_TS_RATE_CHANGE = 4;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_AM_SimpleRateChange {
     pub StartTime: super::REFERENCE_TIME,
-    pub Rate: i32,
+    pub Rate: super::LONG,
 }
 pub type KS_AM_Step = u32;
 pub const KS_AM_UseNewCSSKey: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
-    pub dwActiveWidth: u32,
-    pub dwActiveHeight: u32,
+    pub dwActiveWidth: super::DWORD,
+    pub dwActiveHeight: super::DWORD,
     pub AvgTimePerFrame: super::REFERENCE_TIME,
 }
 pub type KS_AnalogVideoStandard = i32;
@@ -4190,19 +4369,20 @@ pub const KS_AnalogVideo_SECAM_L: KS_AnalogVideoStandard = 262144;
 pub const KS_AnalogVideo_SECAM_L1: KS_AnalogVideoStandard = 524288;
 pub const KS_AnalogVideo_SECAM_Mask: i32 = 1044480;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_BITMAPINFOHEADER {
-    pub biSize: u32,
-    pub biWidth: i32,
-    pub biHeight: i32,
-    pub biPlanes: u16,
-    pub biBitCount: u16,
-    pub biCompression: u32,
-    pub biSizeImage: u32,
-    pub biXPelsPerMeter: i32,
-    pub biYPelsPerMeter: i32,
-    pub biClrUsed: u32,
-    pub biClrImportant: u32,
+    pub biSize: super::DWORD,
+    pub biWidth: super::LONG,
+    pub biHeight: super::LONG,
+    pub biPlanes: super::WORD,
+    pub biBitCount: super::WORD,
+    pub biCompression: super::DWORD,
+    pub biSizeImage: super::DWORD,
+    pub biXPelsPerMeter: super::LONG,
+    pub biYPelsPerMeter: super::LONG,
+    pub biClrUsed: super::DWORD,
+    pub biClrImportant: super::DWORD,
 }
 pub const KS_BI_BITFIELDS: i32 = 3;
 pub const KS_BI_JPEG: i32 = 4;
@@ -4232,6 +4412,7 @@ pub const KS_CC_SUBSTREAM_SERVICE_T3: i32 = 1024;
 pub const KS_CC_SUBSTREAM_SERVICE_T4: i32 = 2048;
 pub const KS_CC_SUBSTREAM_SERVICE_XDS: i32 = 4096;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_COLCON {
     pub _bitfield1: u8,
@@ -4241,9 +4422,10 @@ pub struct KS_COLCON {
 }
 pub const KS_COPYPROTECT_RestrictDuplication: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_COPY_MACROVISION {
-    pub MACROVISIONLevel: u32,
+    pub MACROVISIONLevel: super::ULONG,
 }
 pub type KS_COPY_MACROVISION_LEVEL = i32;
 pub type KS_CameraControlAsyncOperation = i32;
@@ -4254,244 +4436,244 @@ pub const KS_CompressionCaps_CanKeyFrame: KS_CompressionCaps = 4;
 pub const KS_CompressionCaps_CanQuality: KS_CompressionCaps = 1;
 pub const KS_CompressionCaps_CanWindow: KS_CompressionCaps = 16;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_H264VIDEOINFO {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub H264VideoInfoHeader: KS_H264VIDEOINFO,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KS_DATAFORMAT_H264VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_IMAGEINFO {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub ImageInfoHeader: KS_BITMAPINFOHEADER,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KS_DATAFORMAT_IMAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub MpegVideoInfoHeader2: KS_MPEGVIDEOINFO2,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VBIINFOHEADER {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for KS_DATAFORMAT_VBIINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub VideoInfoHeader2: KS_VIDEOINFOHEADER2,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
-    pub DataFormat: super::KSDATARANGE,
+    pub DataFormat: super::KSDATAFORMAT,
     pub VideoInfo: KS_VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: super::KSDATARANGE,
     pub AnalogVideoInfo: KS_ANALOGVIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_ANALOGVIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_H264_VIDEO {
     pub DataRange: super::KSDATARANGE,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub StreamDescriptionFlags: u32,
-    pub MemoryAllocationFlags: u32,
+    pub StreamDescriptionFlags: super::DWORD,
+    pub MemoryAllocationFlags: super::DWORD,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_H264VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_H264_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_IMAGE {
     pub DataRange: super::KSDATARANGE,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub ImageInfoHeader: KS_BITMAPINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub DataRange: super::KSDATARANGE,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub StreamDescriptionFlags: u32,
-    pub MemoryAllocationFlags: u32,
+    pub StreamDescriptionFlags: super::DWORD,
+    pub MemoryAllocationFlags: super::DWORD,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEG1VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_MPEG1_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub DataRange: super::KSDATARANGE,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub StreamDescriptionFlags: u32,
-    pub MemoryAllocationFlags: u32,
+    pub StreamDescriptionFlags: super::DWORD,
+    pub MemoryAllocationFlags: super::DWORD,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEGVIDEOINFO2,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_MPEG2_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO {
     pub DataRange: super::KSDATARANGE,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub StreamDescriptionFlags: u32,
-    pub MemoryAllocationFlags: u32,
+    pub StreamDescriptionFlags: super::DWORD,
+    pub MemoryAllocationFlags: super::DWORD,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO2 {
     pub DataRange: super::KSDATARANGE,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub StreamDescriptionFlags: u32,
-    pub MemoryAllocationFlags: u32,
+    pub StreamDescriptionFlags: super::DWORD,
+    pub MemoryAllocationFlags: super::DWORD,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER2,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub DataRange: super::KSDATARANGE,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub StreamDescriptionFlags: u32,
-    pub MemoryAllocationFlags: u32,
+    pub StreamDescriptionFlags: super::DWORD,
+    pub MemoryAllocationFlags: super::DWORD,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfo: KS_VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO_PALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_VBI {
     pub DataRange: super::KSDATARANGE,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub StreamDescriptionFlags: u32,
-    pub MemoryAllocationFlags: u32,
+    pub StreamDescriptionFlags: super::DWORD,
+    pub MemoryAllocationFlags: super::DWORD,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO_VBI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4504,62 +4686,73 @@ pub const KS_DVDCOPYSTATE_DONE: KS_DVDCOPYSTATE = 4;
 pub const KS_DVDCOPYSTATE_INITIALIZE: KS_DVDCOPYSTATE = 0;
 pub const KS_DVDCOPYSTATE_INITIALIZE_TITLE: KS_DVDCOPYSTATE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_BUSKEY {
-    pub BusKey: [u8; 5],
-    pub Reserved: [u8; 1],
+    pub BusKey: [super::BYTE; 5],
+    pub Reserved: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KS_DVDCOPY_BUSKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_CHLGKEY {
-    pub ChlgKey: [u8; 10],
-    pub Reserved: [u8; 2],
+    pub ChlgKey: [super::BYTE; 10],
+    pub Reserved: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for KS_DVDCOPY_CHLGKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_DISCKEY {
-    pub DiscKey: [u8; 2048],
+    pub DiscKey: [super::BYTE; 2048],
 }
+#[cfg(feature = "shared")]
 impl Default for KS_DVDCOPY_DISCKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_REGION {
-    pub Reserved: u8,
-    pub RegionData: u8,
-    pub Reserved2: [u8; 2],
+    pub Reserved: super::UCHAR,
+    pub RegionData: super::UCHAR,
+    pub Reserved2: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for KS_DVDCOPY_REGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_DVDCOPY_SET_COPY_STATE {
-    pub DVDCopyState: u32,
+    pub DVDCopyState: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_TITLEKEY {
-    pub KeyFlags: u32,
-    pub ReservedNT: [u32; 2],
-    pub TitleKey: [u8; 6],
-    pub Reserved: [u8; 2],
+    pub KeyFlags: super::ULONG,
+    pub ReservedNT: [super::ULONG; 2],
+    pub TitleKey: [super::UCHAR; 6],
+    pub Reserved: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for KS_DVDCOPY_TITLEKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4577,116 +4770,119 @@ pub const KS_DVD_SECTOR_NOT_PROTECTED: i32 = 0;
 pub const KS_DVD_SECTOR_PROTECTED: i32 = 32;
 pub const KS_DVD_SECTOR_PROTECT_MASK: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_DVD_YCrCb {
-    pub Reserved: u8,
-    pub Y: u8,
-    pub Cr: u8,
-    pub Cb: u8,
+    pub Reserved: super::UCHAR,
+    pub Y: super::UCHAR,
+    pub Cr: super::UCHAR,
+    pub Cb: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_DVD_YUV {
-    pub Reserved: u8,
-    pub Y: u8,
-    pub V: u8,
-    pub U: u8,
+    pub Reserved: super::UCHAR,
+    pub Y: super::UCHAR,
+    pub V: super::UCHAR,
+    pub U: super::UCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KS_FRAME_INFO {
-    pub ExtendedHeaderSize: u32,
-    pub dwFrameFlags: u32,
-    pub PictureNumber: i64,
-    pub DropCount: i64,
+    pub ExtendedHeaderSize: super::ULONG,
+    pub dwFrameFlags: super::DWORD,
+    pub PictureNumber: super::LONGLONG,
+    pub DropCount: super::LONGLONG,
     pub hDirectDraw: super::HANDLE,
     pub hSurfaceHandle: super::HANDLE,
     pub DirectDrawRect: super::RECT,
     pub Anonymous: KS_FRAME_INFO_0,
-    pub Reserved2: u32,
+    pub Reserved2: super::DWORD,
     pub Anonymous2: KS_FRAME_INFO_1,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for KS_FRAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KS_FRAME_INFO_0 {
-    pub lSurfacePitch: i32,
-    pub Reserved1: u32,
+    pub lSurfacePitch: super::LONG,
+    pub Reserved1: super::DWORD,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for KS_FRAME_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KS_FRAME_INFO_1 {
     pub Anonymous: KS_FRAME_INFO_1_0,
-    pub FrameCompletionNumber: u64,
+    pub FrameCompletionNumber: super::ULONGLONG,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for KS_FRAME_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KS_FRAME_INFO_1_0 {
-    pub Reserved3: u32,
-    pub Reserved4: u32,
+    pub Reserved3: super::DWORD,
+    pub Reserved4: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_H264VIDEOINFO {
-    pub wWidth: u16,
-    pub wHeight: u16,
-    pub wSARwidth: u16,
-    pub wSARheight: u16,
-    pub wProfile: u16,
-    pub bLevelIDC: u8,
-    pub wConstrainedToolset: u16,
-    pub bmSupportedUsages: u32,
-    pub bmCapabilities: u16,
-    pub bmSVCCapabilities: u32,
-    pub bmMVCCapabilities: u32,
-    pub dwFrameInterval: u32,
-    pub bMaxCodecConfigDelay: u8,
-    pub bmSupportedSliceModes: u8,
-    pub bmSupportedSyncFrameTypes: u8,
-    pub bResolutionScaling: u8,
-    pub bSimulcastSupport: u8,
-    pub bmSupportedRateControlModes: u8,
-    pub wMaxMBperSecOneResolutionNoScalability: u16,
-    pub wMaxMBperSecTwoResolutionsNoScalability: u16,
-    pub wMaxMBperSecThreeResolutionsNoScalability: u16,
-    pub wMaxMBperSecFourResolutionsNoScalability: u16,
-    pub wMaxMBperSecOneResolutionTemporalScalability: u16,
-    pub wMaxMBperSecTwoResolutionsTemporalScalablility: u16,
-    pub wMaxMBperSecThreeResolutionsTemporalScalability: u16,
-    pub wMaxMBperSecFourResolutionsTemporalScalability: u16,
-    pub wMaxMBperSecOneResolutionTemporalQualityScalability: u16,
-    pub wMaxMBperSecTwoResolutionsTemporalQualityScalability: u16,
-    pub wMaxMBperSecThreeResolutionsTemporalQualityScalablity: u16,
-    pub wMaxMBperSecFourResolutionsTemporalQualityScalability: u16,
-    pub wMaxMBperSecOneResolutionTemporalSpatialScalability: u16,
-    pub wMaxMBperSecTwoResolutionsTemporalSpatialScalability: u16,
-    pub wMaxMBperSecThreeResolutionsTemporalSpatialScalablity: u16,
-    pub wMaxMBperSecFourResolutionsTemporalSpatialScalability: u16,
-    pub wMaxMBperSecOneResolutionFullScalability: u16,
-    pub wMaxMBperSecTwoResolutionsFullScalability: u16,
-    pub wMaxMBperSecThreeResolutionsFullScalability: u16,
-    pub wMaxMBperSecFourResolutionsFullScalability: u16,
+    pub wWidth: super::WORD,
+    pub wHeight: super::WORD,
+    pub wSARwidth: super::WORD,
+    pub wSARheight: super::WORD,
+    pub wProfile: super::WORD,
+    pub bLevelIDC: super::BYTE,
+    pub wConstrainedToolset: super::WORD,
+    pub bmSupportedUsages: super::DWORD,
+    pub bmCapabilities: super::WORD,
+    pub bmSVCCapabilities: super::DWORD,
+    pub bmMVCCapabilities: super::DWORD,
+    pub dwFrameInterval: super::DWORD,
+    pub bMaxCodecConfigDelay: super::BYTE,
+    pub bmSupportedSliceModes: super::BYTE,
+    pub bmSupportedSyncFrameTypes: super::BYTE,
+    pub bResolutionScaling: super::BYTE,
+    pub bSimulcastSupport: super::BYTE,
+    pub bmSupportedRateControlModes: super::BYTE,
+    pub wMaxMBperSecOneResolutionNoScalability: super::WORD,
+    pub wMaxMBperSecTwoResolutionsNoScalability: super::WORD,
+    pub wMaxMBperSecThreeResolutionsNoScalability: super::WORD,
+    pub wMaxMBperSecFourResolutionsNoScalability: super::WORD,
+    pub wMaxMBperSecOneResolutionTemporalScalability: super::WORD,
+    pub wMaxMBperSecTwoResolutionsTemporalScalablility: super::WORD,
+    pub wMaxMBperSecThreeResolutionsTemporalScalability: super::WORD,
+    pub wMaxMBperSecFourResolutionsTemporalScalability: super::WORD,
+    pub wMaxMBperSecOneResolutionTemporalQualityScalability: super::WORD,
+    pub wMaxMBperSecTwoResolutionsTemporalQualityScalability: super::WORD,
+    pub wMaxMBperSecThreeResolutionsTemporalQualityScalablity: super::WORD,
+    pub wMaxMBperSecFourResolutionsTemporalQualityScalability: super::WORD,
+    pub wMaxMBperSecOneResolutionTemporalSpatialScalability: super::WORD,
+    pub wMaxMBperSecTwoResolutionsTemporalSpatialScalability: super::WORD,
+    pub wMaxMBperSecThreeResolutionsTemporalSpatialScalablity: super::WORD,
+    pub wMaxMBperSecFourResolutionsTemporalSpatialScalability: super::WORD,
+    pub wMaxMBperSecOneResolutionFullScalability: super::WORD,
+    pub wMaxMBperSecTwoResolutionsFullScalability: super::WORD,
+    pub wMaxMBperSecThreeResolutionsFullScalability: super::WORD,
+    pub wMaxMBperSecFourResolutionsFullScalability: super::WORD,
 }
 pub const KS_INTERLACE_1FieldPerSample: i32 = 2;
 pub const KS_INTERLACE_DisplayModeBobOnly: i32 = 0;
@@ -4707,15 +4903,15 @@ pub const KS_MACROVISION_LEVEL2: KS_COPY_MACROVISION_LEVEL = 2;
 pub const KS_MACROVISION_LEVEL3: KS_COPY_MACROVISION_LEVEL = 3;
 pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_MPEG1VIDEOINFO {
     pub hdr: KS_VIDEOINFOHEADER,
-    pub dwStartTimeCode: u32,
-    pub cbSequenceHeader: u32,
-    pub bSequenceHeader: [u8; 1],
+    pub dwStartTimeCode: super::DWORD,
+    pub cbSequenceHeader: super::DWORD,
+    pub bSequenceHeader: [super::BYTE; 1],
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KS_MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4743,27 +4939,28 @@ pub const KS_MPEG2_LetterboxAnalogOut: i32 = 32;
 pub const KS_MPEG2_SourceIsLetterboxed: i32 = 8;
 pub const KS_MPEG2_WidescreenAnalogOut: i32 = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_MPEGAUDIOINFO {
-    pub dwFlags: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
+    pub dwFlags: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
+    pub dwReserved3: super::DWORD,
 }
 pub const KS_MPEGAUDIOINFO_27MhzTimebase: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_MPEGVIDEOINFO2 {
     pub hdr: KS_VIDEOINFOHEADER2,
-    pub dwStartTimeCode: u32,
-    pub cbSequenceHeader: u32,
-    pub dwProfile: u32,
-    pub dwLevel: u32,
-    pub dwFlags: u32,
-    pub bSequenceHeader: [u32; 1],
+    pub dwStartTimeCode: super::DWORD,
+    pub cbSequenceHeader: super::DWORD,
+    pub dwProfile: super::DWORD,
+    pub dwLevel: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub bSequenceHeader: [super::DWORD; 1],
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KS_MPEGVIDEOINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4814,12 +5011,13 @@ pub const KS_PixAspectRatio_NTSC4x3: KS_AMPixAspectRatio = 0;
 pub const KS_PixAspectRatio_PAL16x9: KS_AMPixAspectRatio = 3;
 pub const KS_PixAspectRatio_PAL4x3: KS_AMPixAspectRatio = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_RGBQUAD {
-    pub rgbBlue: u8,
-    pub rgbGreen: u8,
-    pub rgbRed: u8,
-    pub rgbReserved: u8,
+    pub rgbBlue: super::BYTE,
+    pub rgbGreen: super::BYTE,
+    pub rgbRed: super::BYTE,
+    pub rgbReserved: super::BYTE,
 }
 pub const KS_SECURE_CAMERA_SCENARIO_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
 #[cfg(target_arch = "x86")]
@@ -4834,18 +5032,21 @@ pub const KS_SIZE_MASKS: u64 = 12;
 pub const KS_SIZE_PALETTE: u32 = 1024;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KS_SIZE_PALETTE: u64 = 1024;
-pub const KS_SIZE_PREHEADER: i32 = 48;
+#[cfg(feature = "shared")]
+pub const KS_SIZE_PREHEADER: super::LONG = 0x30_u32 as _;
 pub const KS_StreamingHint_CompQuality: KS_VideoStreamingHints = 2048;
 pub const KS_StreamingHint_CompWindowSize: KS_VideoStreamingHints = 4096;
 pub const KS_StreamingHint_FrameInterval: KS_VideoStreamingHints = 256;
 pub const KS_StreamingHint_KeyFrameRate: KS_VideoStreamingHints = 512;
 pub const KS_StreamingHint_PFrameRate: KS_VideoStreamingHints = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KS_TRUECOLORINFO {
-    pub dwBitMasks: [u32; 3],
+    pub dwBitMasks: [super::DWORD; 3],
     pub bmiColors: [KS_RGBQUAD; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for KS_TRUECOLORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4871,12 +5072,13 @@ pub const KS_TVAUDIO_PRESET_STEREO: i32 = 512;
 pub const KS_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 1;
 pub const KS_TVTUNER_CHANGE_END_TUNE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_TVTUNER_CHANGE_INFO {
-    pub dwFlags: u32,
-    pub dwCountryCode: u32,
-    pub dwAnalogVideoStandard: u32,
-    pub dwChannel: u32,
+    pub dwFlags: super::DWORD,
+    pub dwCountryCode: super::DWORD,
+    pub dwAnalogVideoStandard: super::DWORD,
+    pub dwChannel: super::DWORD,
 }
 pub const KS_VBICAP_PROTECTION_MV_DETECTED: i32 = 4;
 pub const KS_VBICAP_PROTECTION_MV_HARDWARE: i32 = 2;
@@ -4884,19 +5086,20 @@ pub const KS_VBICAP_PROTECTION_MV_PRESENT: i32 = 1;
 pub const KS_VBIDATARATE_CC: i32 = 503493;
 pub const KS_VBIDATARATE_NABTS: i32 = 5727272;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_VBIINFOHEADER {
-    pub StartLine: u32,
-    pub EndLine: u32,
-    pub SamplingFrequency: u32,
-    pub MinLineStartTime: u32,
-    pub MaxLineStartTime: u32,
-    pub ActualLineStartTime: u32,
-    pub ActualLineEndTime: u32,
-    pub VideoStandard: u32,
-    pub SamplesPerLine: u32,
-    pub StrideInBytes: u32,
-    pub BufferSize: u32,
+    pub StartLine: super::ULONG,
+    pub EndLine: super::ULONG,
+    pub SamplingFrequency: super::ULONG,
+    pub MinLineStartTime: super::ULONG,
+    pub MaxLineStartTime: super::ULONG,
+    pub ActualLineStartTime: super::ULONG,
+    pub ActualLineEndTime: super::ULONG,
+    pub VideoStandard: super::ULONG,
+    pub SamplesPerLine: super::ULONG,
+    pub StrideInBytes: super::ULONG,
+    pub BufferSize: super::ULONG,
 }
 pub const KS_VBISAMPLINGRATE_47X_NABTS: i32 = 27000000;
 pub const KS_VBISAMPLINGRATE_4X_NABTS: i32 = 22909088;
@@ -4909,13 +5112,14 @@ pub const KS_VBI_FLAG_MV_PRESENT: i32 = 256;
 pub const KS_VBI_FLAG_TVTUNER_CHANGE: i32 = 16;
 pub const KS_VBI_FLAG_VBIINFOHEADER_CHANGE: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KS_VBI_FRAME_INFO {
-    pub ExtendedHeaderSize: u32,
-    pub dwFrameFlags: u32,
-    pub PictureNumber: i64,
-    pub DropCount: i64,
-    pub dwSamplingFrequency: u32,
+    pub ExtendedHeaderSize: super::ULONG,
+    pub dwFrameFlags: super::DWORD,
+    pub PictureNumber: super::LONGLONG,
+    pub DropCount: super::LONGLONG,
+    pub dwSamplingFrequency: super::DWORD,
     pub TvTunerChangeInfo: KS_TVTUNER_CHANGE_INFO,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
@@ -4924,79 +5128,79 @@ pub const KS_VIDEODECODER_FLAGS_CAN_DISABLE_OUTPUT: KS_VIDEODECODER_FLAGS = 1;
 pub const KS_VIDEODECODER_FLAGS_CAN_INDICATE_LOCKED: KS_VIDEODECODER_FLAGS = 4;
 pub const KS_VIDEODECODER_FLAGS_CAN_USE_VCR_LOCKING: KS_VIDEODECODER_FLAGS = 2;
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_VIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
+    pub dwBitRate: super::DWORD,
+    pub dwBitErrorRate: super::DWORD,
     pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: KS_BITMAPINFOHEADER,
     pub Anonymous: KS_VIDEOINFO_0,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KS_VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFO_0 {
     pub bmiColors: [KS_RGBQUAD; 256],
-    pub dwBitMasks: [u32; 3],
+    pub dwBitMasks: [super::DWORD; 3],
     pub TrueColorInfo: KS_TRUECOLORINFO,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KS_VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
+    pub dwBitRate: super::DWORD,
+    pub dwBitErrorRate: super::DWORD,
     pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_VIDEOINFOHEADER2 {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
+    pub dwBitRate: super::DWORD,
+    pub dwBitErrorRate: super::DWORD,
     pub AvgTimePerFrame: super::REFERENCE_TIME,
-    pub dwInterlaceFlags: u32,
-    pub dwCopyProtectFlags: u32,
-    pub dwPictAspectRatioX: u32,
-    pub dwPictAspectRatioY: u32,
+    pub dwInterlaceFlags: super::DWORD,
+    pub dwCopyProtectFlags: super::DWORD,
+    pub dwPictAspectRatioX: super::DWORD,
+    pub dwPictAspectRatioY: super::DWORD,
     pub Anonymous: KS_VIDEOINFOHEADER2_0,
-    pub dwReserved2: u32,
+    pub dwReserved2: super::DWORD,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KS_VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFOHEADER2_0 {
-    pub dwControlFlags: u32,
-    pub dwReserved1: u32,
+    pub dwControlFlags: super::DWORD,
+    pub dwReserved1: super::DWORD,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for KS_VIDEOINFOHEADER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5026,11 +5230,11 @@ pub const KS_VIDEO_FLAG_P_FRAME: i32 = 16;
 pub const KS_VIDEO_FLAG_REPEAT_FIELD: i32 = 64;
 pub const KS_VIDEO_FLAG_WEAVE: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
     pub guid: windows_sys::core::GUID,
-    pub VideoStandard: u32,
+    pub VideoStandard: super::ULONG,
     pub InputSize: super::SIZE,
     pub MinCroppingSize: super::SIZE,
     pub MaxCroppingSize: super::SIZE,
@@ -5046,10 +5250,10 @@ pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
     pub StretchTapsY: i32,
     pub ShrinkTapsX: i32,
     pub ShrinkTapsY: i32,
-    pub MinFrameInterval: i64,
-    pub MaxFrameInterval: i64,
-    pub MinBitsPerSecond: i32,
-    pub MaxBitsPerSecond: i32,
+    pub MinFrameInterval: super::LONGLONG,
+    pub MaxFrameInterval: super::LONGLONG,
+    pub MinBitsPerSecond: super::LONG,
+    pub MaxBitsPerSecond: super::LONG,
 }
 pub const KS_VideoControlFlag_ExternalTriggerEnable: KS_VideoControlFlags = 4;
 pub const KS_VideoControlFlag_FlipHorizontal: KS_VideoControlFlags = 1;
@@ -5072,29 +5276,32 @@ pub const KS_iRED: i32 = 0;
 pub const KS_iTRUECOLOR: i32 = 16;
 pub const LIGHT_FILTER: KSDS3D_HRTF_FILTER_QUALITY = 1;
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LOOPEDSTREAMING_POSITION_EVENT_DATA {
     pub KsEventData: super::KSEVENTDATA,
     pub Position: super::DWORDLONG,
 }
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 impl Default for LOOPEDSTREAMING_POSITION_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type LPDDPIXELFORMAT = *mut DDPIXELFORMAT;
+#[cfg(feature = "shared")]
 pub type LPDDVIDEOPORTCONNECT = *mut DDVIDEOPORTCONNECT;
 pub const MAX_NABTS_VBI_LINES_PER_FIELD: i32 = 11;
 pub const MAX_RESOURCEGROUPID_LENGTH: i32 = 256;
 pub const MAX_SINK_DESCRIPTION_NAME_LENGTH: i32 = 32;
 pub const MAX_WST_VBI_LINES_PER_FIELD: i32 = 17;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MEDIUM_INFO {
     pub MediaPresent: windows_sys::core::BOOL,
-    pub MediaType: u32,
+    pub MediaType: super::ULONG,
     pub RecordInhibit: windows_sys::core::BOOL,
 }
 pub const MetadataId_BackgroundSegmentationMask: KSCAMERA_MetadataId = 8;
@@ -5109,36 +5316,42 @@ pub const MetadataId_Standard_End: KSCAMERA_MetadataId = 8;
 pub const MetadataId_Standard_Start: KSCAMERA_MetadataId = 1;
 pub const MetadataId_UsbVideoHeader: KSCAMERA_MetadataId = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NABTSFEC_BUFFER {
-    pub dataSize: u32,
-    pub groupID: u16,
-    pub Reserved: u16,
-    pub data: [u8; 448],
+    pub dataSize: super::ULONG,
+    pub groupID: super::USHORT,
+    pub Reserved: super::USHORT,
+    pub data: [super::UCHAR; 448],
 }
+#[cfg(feature = "shared")]
 impl Default for NABTSFEC_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NABTS_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
-    pub PictureNumber: i64,
+    pub PictureNumber: super::LONGLONG,
     pub NabtsLines: [NABTS_BUFFER_LINE; 11],
 }
+#[cfg(feature = "shared")]
 impl Default for NABTS_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NABTS_BUFFER_LINE {
-    pub Confidence: u8,
-    pub Bytes: [u8; 36],
+    pub Confidence: super::BYTE,
+    pub Bytes: [super::BYTE; 36],
 }
+#[cfg(feature = "shared")]
 impl Default for NABTS_BUFFER_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5148,15 +5361,22 @@ pub const NABTS_BUFFER_PICTURENUMBER_SUPPORT: i32 = 1;
 pub const NABTS_BYTES_PER_LINE: i32 = 36;
 pub const NABTS_LINES_PER_BUNDLE: i32 = 16;
 pub const NABTS_PAYLOAD_PER_LINE: i32 = 28;
+#[cfg(feature = "winnt")]
 pub type PAUDIORESOURCEMANAGEMENT_RESOURCEGROUP = *mut AUDIORESOURCEMANAGEMENT_RESOURCEGROUP;
 pub type PCAPTURE_MEMORY_ALLOCATION_FLAGS = *mut CAPTURE_MEMORY_ALLOCATION_FLAGS;
+#[cfg(feature = "shared")]
 pub type PCC_BYTE_PAIR = *mut CC_BYTE_PAIR;
+#[cfg(feature = "shared")]
 pub type PCC_HW_FIELD = *mut CC_HW_FIELD;
+#[cfg(feature = "shared")]
 pub type PDEVCAPS = *mut DEVCAPS;
+#[cfg(feature = "minwindef")]
 pub type PDS3DVECTOR = *mut DS3DVECTOR;
+pub const PINNAME_CAPTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
 pub const PINNAME_DISPLAYPORT_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
 pub const PINNAME_HDMI_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
 pub const PINNAME_IMAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
+pub const PINNAME_PREVIEW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
 pub const PINNAME_SPDIF_IN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
 pub const PINNAME_SPDIF_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
 pub const PINNAME_VIDEO_ANALOGVIDEOIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
@@ -5173,408 +5393,511 @@ pub const PINNAME_VIDEO_TIMECODE: windows_sys::core::GUID = windows_sys::core::G
 pub const PINNAME_VIDEO_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
 pub const PINNAME_VIDEO_VIDEOPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
 pub const PINNAME_VIDEO_VIDEOPORT_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
+#[cfg(feature = "shared")]
 pub type PKSAC3_ALTERNATE_AUDIO = *mut KSAC3_ALTERNATE_AUDIO;
+#[cfg(feature = "shared")]
 pub type PKSAC3_BIT_STREAM_MODE = *mut KSAC3_BIT_STREAM_MODE;
+#[cfg(feature = "shared")]
 pub type PKSAC3_DIALOGUE_LEVEL = *mut KSAC3_DIALOGUE_LEVEL;
 pub type PKSAC3_DOWNMIX = *mut KSAC3_DOWNMIX;
 pub type PKSAC3_ERROR_CONCEALMENT = *mut KSAC3_ERROR_CONCEALMENT;
 pub type PKSAC3_ROOM_TYPE = *mut KSAC3_ROOM_TYPE;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT = *mut KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE = *mut KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE;
+#[cfg(feature = "shared")]
 pub type PKSAUDIOENGINE_BUFFER_SIZE_RANGE = *mut KSAUDIOENGINE_BUFFER_SIZE_RANGE;
+#[cfg(feature = "shared")]
 pub type PKSAUDIOENGINE_DESCRIPTOR = *mut KSAUDIOENGINE_DESCRIPTOR;
 pub type PKSAUDIOENGINE_DEVICECONTROLS = *mut KSAUDIOENGINE_DEVICECONTROLS;
+#[cfg(feature = "shared")]
 pub type PKSAUDIOENGINE_VOLUMELEVEL = *mut KSAUDIOENGINE_VOLUMELEVEL;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSAUDIOMODULE_DESCRIPTOR = *mut KSAUDIOMODULE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PKSAUDIOMODULE_NOTIFICATION = *mut KSAUDIOMODULE_NOTIFICATION;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSAUDIOMODULE_PROPERTY = *mut KSAUDIOMODULE_PROPERTY;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_CHANNEL_CONFIG = *mut KSAUDIO_CHANNEL_CONFIG;
 pub type PKSAUDIO_COPY_PROTECTION = *mut KSAUDIO_COPY_PROTECTION;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_DYNAMIC_RANGE = *mut KSAUDIO_DYNAMIC_RANGE;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_MICROPHONE_COORDINATES = *mut KSAUDIO_MICROPHONE_COORDINATES;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_MIC_ARRAY_GEOMETRY = *mut KSAUDIO_MIC_ARRAY_GEOMETRY;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_MIXCAP_TABLE = *mut KSAUDIO_MIXCAP_TABLE;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_MIXLEVEL = *mut KSAUDIO_MIXLEVEL;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_MIX_CAPS = *mut KSAUDIO_MIX_CAPS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_POSITION = *mut KSAUDIO_POSITION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSAUDIO_POSITIONEX = *mut KSAUDIO_POSITIONEX;
+#[cfg(feature = "shared")]
 pub type PKSAUDIO_PRESENTATION_POSITION = *mut KSAUDIO_PRESENTATION_POSITION;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_CAMERAOFFSET = *mut KSCAMERA_EXTENDEDPROP_CAMERAOFFSET;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_EVCOMPENSATION = *mut KSCAMERA_EXTENDEDPROP_EVCOMPENSATION;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW = *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_HEADER = *mut KSCAMERA_EXTENDEDPROP_HEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_METADATAINFO = *mut KSCAMERA_EXTENDEDPROP_METADATAINFO;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_PHOTOMODE = *mut KSCAMERA_EXTENDEDPROP_PHOTOMODE;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_PROFILE = *mut KSCAMERA_EXTENDEDPROP_PROFILE;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER = *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_EXPOSURE = *mut KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_FOCUS = *mut KSCAMERA_EXTENDEDPROP_ROI_FOCUS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_INFO = *mut KSCAMERA_EXTENDEDPROP_ROI_INFO;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL = *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER = *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE = *mut KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSCAMERA_EXTENDEDPROP_VALUE = *mut KSCAMERA_EXTENDEDPROP_VALUE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING = *mut KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_MAXVIDEOFPS_FORPHOTORES = *mut KSCAMERA_MAXVIDEOFPS_FORPHOTORES;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK = *mut KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_METADATA_CAPTURESTATS = *mut KSCAMERA_METADATA_CAPTURESTATS;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_METADATA_DIGITALWINDOW = *mut KSCAMERA_METADATA_DIGITALWINDOW;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_METADATA_FRAMEILLUMINATION = *mut KSCAMERA_METADATA_FRAMEILLUMINATION;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_METADATA_ITEMHEADER = *mut KSCAMERA_METADATA_ITEMHEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_METADATA_PHOTOCONFIRMATION = *mut KSCAMERA_METADATA_PHOTOCONFIRMATION;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PERFRAMESETTING_CAP_HEADER = *mut KSCAMERA_PERFRAMESETTING_CAP_HEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER = *mut KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PERFRAMESETTING_CUSTOM_ITEM = *mut KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PERFRAMESETTING_FRAME_HEADER = *mut KSCAMERA_PERFRAMESETTING_FRAME_HEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PERFRAMESETTING_HEADER = *mut KSCAMERA_PERFRAMESETTING_HEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PERFRAMESETTING_ITEM_HEADER = *mut KSCAMERA_PERFRAMESETTING_ITEM_HEADER;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PROFILE_CONCURRENCYINFO = *mut KSCAMERA_PROFILE_CONCURRENCYINFO;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PROFILE_INFO = *mut KSCAMERA_PROFILE_INFO;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PROFILE_MEDIAINFO = *mut KSCAMERA_PROFILE_MEDIAINFO;
+#[cfg(feature = "shared")]
 pub type PKSCAMERA_PROFILE_PININFO = *mut KSCAMERA_PROFILE_PININFO;
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 pub type PKSDATAFORMAT_DSOUND = *mut KSDATAFORMAT_DSOUND;
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 pub type PKSDATAFORMAT_WAVEFORMATEX = *mut KSDATAFORMAT_WAVEFORMATEX;
-#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "shared"))]
 pub type PKSDATAFORMAT_WAVEFORMATEXTENSIBLE = *mut KSDATAFORMAT_WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSDATARANGE_AUDIO = *mut KSDATARANGE_AUDIO;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSDATARANGE_MUSIC = *mut KSDATARANGE_MUSIC;
+#[cfg(feature = "shared")]
 pub type PKSDEVICE_PROFILE_INFO = *mut KSDEVICE_PROFILE_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSDISPLAYCHANGE = *mut KSDISPLAYCHANGE;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKSDS3D_BUFFER_ALL = *mut KSDS3D_BUFFER_ALL;
+#[cfg(feature = "shared")]
 pub type PKSDS3D_BUFFER_CONE_ANGLES = *mut KSDS3D_BUFFER_CONE_ANGLES;
+#[cfg(feature = "shared")]
 pub type PKSDS3D_HRTF_FILTER_FORMAT_MSG = *mut KSDS3D_HRTF_FILTER_FORMAT_MSG;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKSDS3D_HRTF_INIT_MSG = *mut KSDS3D_HRTF_INIT_MSG;
+#[cfg(feature = "shared")]
 pub type PKSDS3D_HRTF_PARAMS_MSG = *mut KSDS3D_HRTF_PARAMS_MSG;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKSDS3D_ITD_PARAMS = *mut KSDS3D_ITD_PARAMS;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PKSDS3D_ITD_PARAMS_MSG = *mut KSDS3D_ITD_PARAMS_MSG;
+#[cfg(feature = "minwindef")]
 pub type PKSDS3D_LISTENER_ALL = *mut KSDS3D_LISTENER_ALL;
+#[cfg(feature = "minwindef")]
 pub type PKSDS3D_LISTENER_ORIENTATION = *mut KSDS3D_LISTENER_ORIENTATION;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PKSDSOUND_BUFFERDESC = *mut KSDSOUND_BUFFERDESC;
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSEVENT_TUNER_INITIATE_SCAN_S = *mut KSEVENT_TUNER_INITIATE_SCAN_S;
+#[cfg(feature = "shared")]
 pub type PKSGOP_USERDATA = *mut KSGOP_USERDATA;
+#[cfg(feature = "shared")]
 pub type PKSJACK_DESCRIPTION = *mut KSJACK_DESCRIPTION;
+#[cfg(feature = "shared")]
 pub type PKSJACK_DESCRIPTION2 = *mut KSJACK_DESCRIPTION2;
+#[cfg(feature = "shared")]
 pub type PKSJACK_DESCRIPTION3 = *mut KSJACK_DESCRIPTION3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSJACK_SINK_INFORMATION = *mut KSJACK_SINK_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSMIDILOOPED_BUFFER = *mut KSMIDILOOPED_BUFFER;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSMIDILOOPED_BUFFER_PROPERTY = *mut KSMIDILOOPED_BUFFER_PROPERTY;
 #[cfg(feature = "winnt")]
 pub type PKSMIDILOOPED_EVENT = *mut KSMIDILOOPED_EVENT;
 #[cfg(feature = "winnt")]
 pub type PKSMIDILOOPED_EVENT2 = *mut KSMIDILOOPED_EVENT2;
+#[cfg(feature = "winnt")]
 pub type PKSMIDILOOPED_REGISTERS = *mut KSMIDILOOPED_REGISTERS;
+#[cfg(feature = "shared")]
 pub type PKSMPEGVID_RECT = *mut KSMPEGVID_RECT;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSMULTIPLE_DATA_PROP = *mut KSMULTIPLE_DATA_PROP;
+#[cfg(feature = "shared")]
 pub type PKSMUSICFORMAT = *mut KSMUSICFORMAT;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSNODEPROPERTY = *mut KSNODEPROPERTY;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSNODEPROPERTY_AUDIO_3D_LISTENER = *mut KSNODEPROPERTY_AUDIO_3D_LISTENER;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSNODEPROPERTY_AUDIO_CHANNEL = *mut KSNODEPROPERTY_AUDIO_CHANNEL;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSNODEPROPERTY_AUDIO_DEV_SPECIFIC = *mut KSNODEPROPERTY_AUDIO_DEV_SPECIFIC;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSNODEPROPERTY_AUDIO_PROPERTY = *mut KSNODEPROPERTY_AUDIO_PROPERTY;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_CAMERACONTROL_FLASH_S = *mut KSPROPERTY_CAMERACONTROL_FLASH_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S = *mut KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S;
-#[repr(C)]
-#[cfg(feature = "ks")]
-#[derive(Clone, Copy)]
-pub struct PKSPROPERTY_CAMERACONTROL_NODE_S {
-    pub NodeProperty: super::KSP_NODE,
-    pub Value: i32,
-    pub Flags: u32,
-    pub Capabilities: u32,
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CAMERACONTROL_NODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
+pub type PKSPROPERTY_CAMERACONTROL_NODE_S = KSPROPERTY_CAMERACONTROL_NODE_S;
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CAMERACONTROL_NODE_S2 = *mut KSPROPERTY_CAMERACONTROL_NODE_S2;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S = *mut KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CAMERACONTROL_S = *mut KSPROPERTY_CAMERACONTROL_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CAMERACONTROL_S2 = *mut KSPROPERTY_CAMERACONTROL_S2;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKSPROPERTY_CAMERACONTROL_S_EX = *mut KSPROPERTY_CAMERACONTROL_S_EX;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S = *mut KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S;
-pub type PKSPROPERTY_COMPOSIT_ON = *mut windows_sys::core::BOOL;
-#[cfg(feature = "ks")]
+pub type PKSPROPERTY_COMPOSIT_ON = *mut i32;
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CROSSBAR_ACTIVE_S = *mut KSPROPERTY_CROSSBAR_ACTIVE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CROSSBAR_CAPS_S = *mut KSPROPERTY_CROSSBAR_CAPS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CROSSBAR_PININFO_S = *mut KSPROPERTY_CROSSBAR_PININFO_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_CROSSBAR_ROUTE_S = *mut KSPROPERTY_CROSSBAR_ROUTE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_DROPPEDFRAMES_CURRENT_S = *mut KSPROPERTY_DROPPEDFRAMES_CURRENT_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSPROPERTY_EXTDEVICE_S = *mut KSPROPERTY_EXTDEVICE_S;
 pub type PKSPROPERTY_EXTENSION_UNIT = *mut KSPROPERTY_EXTENSION_UNIT;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_EXTXPORT_NODE_S = *mut KSPROPERTY_EXTXPORT_NODE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_EXTXPORT_S = *mut KSPROPERTY_EXTXPORT_S;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO = *mut KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO = *mut KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER = *mut KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_SELECTOR_NODE_S = *mut KSPROPERTY_SELECTOR_NODE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_SELECTOR_S = *mut KSPROPERTY_SELECTOR_S;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_SPHLI = *mut KSPROPERTY_SPHLI;
+#[cfg(feature = "shared")]
 pub type PKSPROPERTY_SPPAL = *mut KSPROPERTY_SPPAL;
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TIMECODE_NODE_S = *mut KSPROPERTY_TIMECODE_NODE_S;
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TIMECODE_S = *mut KSPROPERTY_TIMECODE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_CAPS_S = *mut KSPROPERTY_TUNER_CAPS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_FREQUENCY_S = *mut KSPROPERTY_TUNER_FREQUENCY_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_IF_MEDIUM_S = *mut KSPROPERTY_TUNER_IF_MEDIUM_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_INPUT_S = *mut KSPROPERTY_TUNER_INPUT_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_MODE_CAPS_S = *mut KSPROPERTY_TUNER_MODE_CAPS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_MODE_S = *mut KSPROPERTY_TUNER_MODE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S = *mut KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSPROPERTY_TUNER_SCAN_CAPS_S = *mut KSPROPERTY_TUNER_SCAN_CAPS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_SCAN_STATUS_S = *mut KSPROPERTY_TUNER_SCAN_STATUS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_STANDARD_MODE_S = *mut KSPROPERTY_TUNER_STANDARD_MODE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_STANDARD_S = *mut KSPROPERTY_TUNER_STANDARD_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TUNER_STATUS_S = *mut KSPROPERTY_TUNER_STATUS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TVAUDIO_CAPS_S = *mut KSPROPERTY_TVAUDIO_CAPS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_TVAUDIO_S = *mut KSPROPERTY_TVAUDIO_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S = *mut KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S = *mut KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_SCANLINES_S = *mut KSPROPERTY_VBICODECFILTERING_SCANLINES_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S;
 pub type PKSPROPERTY_VIDCAP_SELECTOR = *mut KSPROPERTY_VIDCAP_SELECTOR;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOCOMPRESSION_GETINFO_S = *mut KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOCOMPRESSION_S = *mut KSPROPERTY_VIDEOCOMPRESSION_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOCOMPRESSION_S1 = *mut KSPROPERTY_VIDEOCOMPRESSION_S1;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S = *mut KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOCONTROL_CAPS_S = *mut KSPROPERTY_VIDEOCONTROL_CAPS_S;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKSPROPERTY_VIDEOCONTROL_FRAME_RATES_S = *mut KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOCONTROL_MODE_S = *mut KSPROPERTY_VIDEOCONTROL_MODE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEODECODER_CAPS_S = *mut KSPROPERTY_VIDEODECODER_CAPS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEODECODER_S = *mut KSPROPERTY_VIDEODECODER_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEODECODER_STATUS2_S = *mut KSPROPERTY_VIDEODECODER_STATUS2_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEODECODER_STATUS_S = *mut KSPROPERTY_VIDEODECODER_STATUS_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOENCODER_S = *mut KSPROPERTY_VIDEOENCODER_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOPROCAMP_NODE_S = *mut KSPROPERTY_VIDEOPROCAMP_NODE_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOPROCAMP_NODE_S2 = *mut KSPROPERTY_VIDEOPROCAMP_NODE_S2;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOPROCAMP_S = *mut KSPROPERTY_VIDEOPROCAMP_S;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSPROPERTY_VIDEOPROCAMP_S2 = *mut KSPROPERTY_VIDEOPROCAMP_S2;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSRTAUDIO_BUFFER = *mut KSRTAUDIO_BUFFER;
+#[cfg(feature = "shared")]
 pub type PKSRTAUDIO_BUFFER32 = *mut KSRTAUDIO_BUFFER32;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSRTAUDIO_BUFFER_PROPERTY = *mut KSRTAUDIO_BUFFER_PROPERTY;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSRTAUDIO_BUFFER_PROPERTY32 = *mut KSRTAUDIO_BUFFER_PROPERTY32;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION = *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 = *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32;
+#[cfg(feature = "shared")]
 pub type PKSRTAUDIO_GETREADPACKET_INFO = *mut KSRTAUDIO_GETREADPACKET_INFO;
+#[cfg(feature = "shared")]
 pub type PKSRTAUDIO_HWLATENCY = *mut KSRTAUDIO_HWLATENCY;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSRTAUDIO_HWREGISTER = *mut KSRTAUDIO_HWREGISTER;
+#[cfg(feature = "shared")]
 pub type PKSRTAUDIO_HWREGISTER32 = *mut KSRTAUDIO_HWREGISTER32;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSRTAUDIO_HWREGISTER_PROPERTY = *mut KSRTAUDIO_HWREGISTER_PROPERTY;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSRTAUDIO_HWREGISTER_PROPERTY32 = *mut KSRTAUDIO_HWREGISTER_PROPERTY32;
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY = *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 = *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32;
 #[cfg(feature = "basetsd")]
 pub type PKSRTAUDIO_PACKETVREGISTER = *mut KSRTAUDIO_PACKETVREGISTER;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PKSRTAUDIO_PACKETVREGISTER_PROPERTY = *mut KSRTAUDIO_PACKETVREGISTER_PROPERTY;
+#[cfg(feature = "shared")]
 pub type PKSRTAUDIO_SETWRITEPACKET_INFO = *mut KSRTAUDIO_SETWRITEPACKET_INFO;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSSOUNDDETECTORPROPERTY = *mut KSSOUNDDETECTORPROPERTY;
 pub type PKSTELEPHONY_CALLCONTROL = *mut KSTELEPHONY_CALLCONTROL;
 pub type PKSTELEPHONY_CALLINFO = *mut KSTELEPHONY_CALLINFO;
 pub type PKSTELEPHONY_PROVIDERCHANGE = *mut KSTELEPHONY_PROVIDERCHANGE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSTOPOLOGY_ENDPOINTID = *mut KSTOPOLOGY_ENDPOINTID;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSTOPOLOGY_ENDPOINTIDPAIR = *mut KSTOPOLOGY_ENDPOINTIDPAIR;
+#[cfg(feature = "shared")]
 pub type PKSVPMAXPIXELRATE = *mut KSVPMAXPIXELRATE;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSVPSIZE_PROP = *mut KSVPSIZE_PROP;
+#[cfg(feature = "shared")]
 pub type PKSVPSURFACEPARAMS = *mut KSVPSURFACEPARAMS;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKSWAVETABLE_WAVE_DESC = *mut KSWAVETABLE_WAVE_DESC;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKSWAVE_BUFFER = *mut KSWAVE_BUFFER;
+#[cfg(feature = "shared")]
 pub type PKSWAVE_COMPATCAPS = *mut KSWAVE_COMPATCAPS;
+#[cfg(feature = "shared")]
 pub type PKSWAVE_INPUT_CAPABILITIES = *mut KSWAVE_INPUT_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PKSWAVE_OUTPUT_CAPABILITIES = *mut KSWAVE_OUTPUT_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PKSWAVE_VOLUME = *mut KSWAVE_VOLUME;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_AMVPDATAINFO = *mut KS_AMVPDATAINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_AMVPDIMINFO = *mut KS_AMVPDIMINFO;
+#[cfg(feature = "shared")]
 pub type PKS_AMVPSIZE = *mut KS_AMVPSIZE;
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 pub type PKS_AM_ExactRateChange = *mut KS_AM_ExactRateChange;
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 pub type PKS_AM_SimpleRateChange = *mut KS_AM_SimpleRateChange;
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_ANALOGVIDEOINFO = *mut KS_ANALOGVIDEOINFO;
+#[cfg(feature = "shared")]
 pub type PKS_BITMAPINFOHEADER = *mut KS_BITMAPINFOHEADER;
+#[cfg(feature = "shared")]
 pub type PKS_COLCON = *mut KS_COLCON;
+#[cfg(feature = "shared")]
 pub type PKS_COPY_MACROVISION = *mut KS_COPY_MACROVISION;
 pub type PKS_COPY_MACROVISION_LEVEL = *mut KS_COPY_MACROVISION_LEVEL;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKS_DATAFORMAT_H264VIDEOINFO = *mut KS_DATAFORMAT_H264VIDEOINFO;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKS_DATAFORMAT_IMAGEINFO = *mut KS_DATAFORMAT_IMAGEINFO;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATAFORMAT_MPEGVIDEOINFO2 = *mut KS_DATAFORMAT_MPEGVIDEOINFO2;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PKS_DATAFORMAT_VBIINFOHEADER = *mut KS_DATAFORMAT_VBIINFOHEADER;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFOHEADER = *mut KS_DATAFORMAT_VIDEOINFOHEADER;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFOHEADER2 = *mut KS_DATAFORMAT_VIDEOINFOHEADER2;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFO_PALETTE = *mut KS_DATAFORMAT_VIDEOINFO_PALETTE;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_ANALOGVIDEO = *mut KS_DATARANGE_ANALOGVIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_H264_VIDEO = *mut KS_DATARANGE_H264_VIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_IMAGE = *mut KS_DATARANGE_IMAGE;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_MPEG1_VIDEO = *mut KS_DATARANGE_MPEG1_VIDEO;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_MPEG2_VIDEO = *mut KS_DATARANGE_MPEG2_VIDEO;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO = *mut KS_DATARANGE_VIDEO;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO2 = *mut KS_DATARANGE_VIDEO2;
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO_PALETTE = *mut KS_DATARANGE_VIDEO_PALETTE;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO_VBI = *mut KS_DATARANGE_VIDEO_VBI;
+#[cfg(feature = "shared")]
 pub type PKS_DVDCOPY_BUSKEY = *mut KS_DVDCOPY_BUSKEY;
+#[cfg(feature = "shared")]
 pub type PKS_DVDCOPY_CHLGKEY = *mut KS_DVDCOPY_CHLGKEY;
+#[cfg(feature = "shared")]
 pub type PKS_DVDCOPY_DISCKEY = *mut KS_DVDCOPY_DISCKEY;
+#[cfg(feature = "shared")]
 pub type PKS_DVDCOPY_REGION = *mut KS_DVDCOPY_REGION;
+#[cfg(feature = "shared")]
 pub type PKS_DVDCOPY_SET_COPY_STATE = *mut KS_DVDCOPY_SET_COPY_STATE;
+#[cfg(feature = "shared")]
 pub type PKS_DVDCOPY_TITLEKEY = *mut KS_DVDCOPY_TITLEKEY;
+#[cfg(feature = "shared")]
 pub type PKS_DVD_YCrCb = *mut KS_DVD_YCrCb;
+#[cfg(feature = "shared")]
 pub type PKS_DVD_YUV = *mut KS_DVD_YUV;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PKS_FRAME_INFO = *mut KS_FRAME_INFO;
+#[cfg(feature = "shared")]
 pub type PKS_H264VIDEOINFO = *mut KS_H264VIDEOINFO;
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_MPEG1VIDEOINFO = *mut KS_MPEG1VIDEOINFO;
+#[cfg(feature = "shared")]
 pub type PKS_MPEGAUDIOINFO = *mut KS_MPEGAUDIOINFO;
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_MPEGVIDEOINFO2 = *mut KS_MPEGVIDEOINFO2;
+#[cfg(feature = "shared")]
 pub type PKS_RGBQUAD = *mut KS_RGBQUAD;
+#[cfg(feature = "shared")]
 pub type PKS_TRUECOLORINFO = *mut KS_TRUECOLORINFO;
+#[cfg(feature = "shared")]
 pub type PKS_TVTUNER_CHANGE_INFO = *mut KS_TVTUNER_CHANGE_INFO;
+#[cfg(feature = "shared")]
 pub type PKS_VBIINFOHEADER = *mut KS_VBIINFOHEADER;
+#[cfg(feature = "shared")]
 pub type PKS_VBI_FRAME_INFO = *mut KS_VBI_FRAME_INFO;
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_VIDEOINFO = *mut KS_VIDEOINFO;
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_VIDEOINFOHEADER = *mut KS_VIDEOINFOHEADER;
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_VIDEOINFOHEADER2 = *mut KS_VIDEOINFOHEADER2;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PKS_VIDEO_STREAM_CONFIG_CAPS = *mut KS_VIDEO_STREAM_CONFIG_CAPS;
-#[cfg(all(feature = "ks", feature = "winnt"))]
+#[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
 pub type PLOOPEDSTREAMING_POSITION_EVENT_DATA = *mut LOOPEDSTREAMING_POSITION_EVENT_DATA;
+#[cfg(feature = "shared")]
 pub type PMEDIUM_INFO = *mut MEDIUM_INFO;
+#[cfg(feature = "shared")]
 pub type PNABTSFEC_BUFFER = *mut NABTSFEC_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNABTS_BUFFER = *mut NABTS_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNABTS_BUFFER_LINE = *mut NABTS_BUFFER_LINE;
 pub const PROPSETID_ALLOCATOR_CONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
 pub const PROPSETID_EXT_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
@@ -5595,50 +5918,74 @@ pub const PROPSETID_VIDCAP_VIDEOCONTROL: windows_sys::core::GUID = windows_sys::
 pub const PROPSETID_VIDCAP_VIDEODECODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
 pub const PROPSETID_VIDCAP_VIDEOENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
 pub const PROPSETID_VIDCAP_VIDEOPROCAMP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
+#[cfg(feature = "shared")]
 pub type PSECURE_BUFFER_INFO = *mut SECURE_BUFFER_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTIMECODE = *mut TIMECODE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTIMECODE_SAMPLE = *mut TIMECODE_SAMPLE;
+#[cfg(feature = "shared")]
 pub type PTRANSPORTAUDIOPARMS = *mut TRANSPORTAUDIOPARMS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTRANSPORTBASICPARMS = *mut TRANSPORTBASICPARMS;
+#[cfg(feature = "shared")]
 pub type PTRANSPORTSTATUS = *mut TRANSPORTSTATUS;
+#[cfg(feature = "shared")]
 pub type PTRANSPORTVIDEOPARMS = *mut TRANSPORTVIDEOPARMS;
+#[cfg(feature = "shared")]
 pub type PTRANSPORT_STATE = *mut TRANSPORT_STATE;
+#[cfg(feature = "shared")]
 pub type PTUNER_ANALOG_CAPS_S = *mut TUNER_ANALOG_CAPS_S;
+#[cfg(feature = "shared")]
 pub type PUMPDATAFORMAT = *mut UMPDATAFORMAT;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PVBICAP_PROPERTIES_PROTECTION_S = *mut VBICAP_PROPERTIES_PROTECTION_S;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_CC_SUBSTREAMS = *mut VBICODECFILTERING_CC_SUBSTREAMS;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_NABTS_SUBSTREAMS = *mut VBICODECFILTERING_NABTS_SUBSTREAMS;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_SCANLINES = *mut VBICODECFILTERING_SCANLINES;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_CC = *mut VBICODECFILTERING_STATISTICS_CC;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_CC_PIN = *mut VBICODECFILTERING_STATISTICS_CC_PIN;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_COMMON = *mut VBICODECFILTERING_STATISTICS_COMMON;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_COMMON_PIN = *mut VBICODECFILTERING_STATISTICS_COMMON_PIN;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_NABTS = *mut VBICODECFILTERING_STATISTICS_NABTS;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_NABTS_PIN = *mut VBICODECFILTERING_STATISTICS_NABTS_PIN;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_TELETEXT = *mut VBICODECFILTERING_STATISTICS_TELETEXT;
+#[cfg(feature = "shared")]
 pub type PVBICODECFILTERING_STATISTICS_TELETEXT_PIN = *mut VBICODECFILTERING_STATISTICS_TELETEXT_PIN;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PVIDEOFORMAT_DX12 = *mut VIDEOFORMAT_DX12;
+#[cfg(feature = "shared")]
 pub type PVRAM_SURFACE_INFO = *mut VRAM_SURFACE_INFO;
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 pub type PVRAM_SURFACE_INFO_PROPERTY_S = *mut VRAM_SURFACE_INFO_PROPERTY_S;
-#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type PWAVEFORMATEXTENSIBLE_IEC61937 = *mut WAVEFORMATEXTENSIBLE_IEC61937;
+#[cfg(feature = "shared")]
 pub type PWNF_KSCAMERA_STREAMSTATE_INFO = *mut WNF_KSCAMERA_STREAMSTATE_INFO;
+#[cfg(feature = "shared")]
 pub type PWST_BUFFER = *mut WST_BUFFER;
+#[cfg(feature = "shared")]
 pub type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SECURE_BUFFER_INFO {
     pub guidBufferIdentifier: windows_sys::core::GUID,
-    pub cbBufferSize: u32,
-    pub cbCaptured: u32,
-    pub ullReserved: [u64; 16],
+    pub cbBufferSize: super::DWORD,
+    pub cbCaptured: super::DWORD,
+    pub ullReserved: [super::ULONGLONG; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for SECURE_BUFFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5646,11 +5993,32 @@ impl Default for SECURE_BUFFER_INFO {
 }
 pub const SHORT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOUNDDETECTOR_PATTERNHEADER {
-    pub Size: u32,
+    pub Size: super::ULONG,
     pub PatternType: windows_sys::core::GUID,
 }
+pub const SPEAKER_ALL: u32 = 2147483648;
+pub const SPEAKER_BACK_CENTER: i32 = 256;
+pub const SPEAKER_BACK_LEFT: i32 = 16;
+pub const SPEAKER_BACK_RIGHT: i32 = 32;
+pub const SPEAKER_FRONT_CENTER: i32 = 4;
+pub const SPEAKER_FRONT_LEFT: i32 = 1;
+pub const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
+pub const SPEAKER_FRONT_RIGHT: i32 = 2;
+pub const SPEAKER_FRONT_RIGHT_OF_CENTER: i32 = 128;
+pub const SPEAKER_LOW_FREQUENCY: i32 = 8;
+pub const SPEAKER_RESERVED: i32 = 2147221504;
+pub const SPEAKER_SIDE_LEFT: i32 = 512;
+pub const SPEAKER_SIDE_RIGHT: i32 = 1024;
+pub const SPEAKER_TOP_BACK_CENTER: i32 = 65536;
+pub const SPEAKER_TOP_BACK_LEFT: i32 = 32768;
+pub const SPEAKER_TOP_BACK_RIGHT: i32 = 131072;
+pub const SPEAKER_TOP_CENTER: i32 = 2048;
+pub const SPEAKER_TOP_FRONT_CENTER: i32 = 8192;
+pub const SPEAKER_TOP_FRONT_LEFT: i32 = 4096;
+pub const SPEAKER_TOP_FRONT_RIGHT: i32 = 16384;
 pub type TELEPHONY_CALLCONTROLOP = i32;
 pub const TELEPHONY_CALLCONTROLOP_DISABLE: TELEPHONY_CALLCONTROLOP = 0;
 pub const TELEPHONY_CALLCONTROLOP_ENABLE: TELEPHONY_CALLCONTROLOP = 1;
@@ -5668,283 +6036,304 @@ pub const TELEPHONY_PROVIDERCHANGEOP_BEGIN: TELEPHONY_PROVIDERCHANGEOP = 1;
 pub const TELEPHONY_PROVIDERCHANGEOP_CANCEL: TELEPHONY_PROVIDERCHANGEOP = 2;
 pub const TELEPHONY_PROVIDERCHANGEOP_END: TELEPHONY_PROVIDERCHANGEOP = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: super::DWORDLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for TIMECODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TIMECODE_0 {
-    pub wFrameRate: u16,
-    pub wFrameFract: u16,
-    pub dwFrames: u32,
+    pub wFrameRate: super::WORD,
+    pub wFrameFract: super::WORD,
+    pub dwFrames: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TIMECODE_SAMPLE {
-    pub qwTick: i64,
+    pub qwTick: super::LONGLONG,
     pub timecode: TIMECODE,
-    pub dwUser: u32,
-    pub dwFlags: u32,
+    pub dwUser: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for TIMECODE_SAMPLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRANSPORTAUDIOPARMS {
-    pub EnableOutput: i32,
-    pub EnableRecord: i32,
-    pub EnableSelsync: i32,
-    pub Input: i32,
-    pub MonitorSource: i32,
+    pub EnableOutput: super::LONG,
+    pub EnableRecord: super::LONG,
+    pub EnableSelsync: super::LONG,
+    pub Input: super::LONG,
+    pub MonitorSource: super::LONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TRANSPORTBASICPARMS {
-    pub TimeFormat: i32,
-    pub TimeReference: i32,
-    pub Superimpose: i32,
-    pub EndStopAction: i32,
-    pub RecordFormat: i32,
-    pub StepFrames: i32,
-    pub SetpField: i32,
-    pub Preroll: i32,
-    pub RecPreroll: i32,
-    pub Postroll: i32,
-    pub EditDelay: i32,
-    pub PlayTCDelay: i32,
-    pub RecTCDelay: i32,
-    pub EditField: i32,
-    pub FrameServo: i32,
-    pub ColorFrameServo: i32,
-    pub ServoRef: i32,
-    pub WarnGenlock: i32,
-    pub SetTracking: i32,
+    pub TimeFormat: super::LONG,
+    pub TimeReference: super::LONG,
+    pub Superimpose: super::LONG,
+    pub EndStopAction: super::LONG,
+    pub RecordFormat: super::LONG,
+    pub StepFrames: super::LONG,
+    pub SetpField: super::LONG,
+    pub Preroll: super::LONG,
+    pub RecPreroll: super::LONG,
+    pub Postroll: super::LONG,
+    pub EditDelay: super::LONG,
+    pub PlayTCDelay: super::LONG,
+    pub RecTCDelay: super::LONG,
+    pub EditField: super::LONG,
+    pub FrameServo: super::LONG,
+    pub ColorFrameServo: super::LONG,
+    pub ServoRef: super::LONG,
+    pub WarnGenlock: super::LONG,
+    pub SetTracking: super::LONG,
     pub VolumeName: [super::TCHAR; 40],
-    pub Ballistic: [i32; 20],
-    pub Speed: i32,
-    pub CounterFormat: i32,
-    pub TunerChannel: i32,
-    pub TunerNumber: i32,
-    pub TimerEvent: i32,
-    pub TimerStartDay: i32,
-    pub TimerStartTime: i32,
-    pub TimerStopDay: i32,
-    pub TimerStopTime: i32,
+    pub Ballistic: [super::LONG; 20],
+    pub Speed: super::LONG,
+    pub CounterFormat: super::LONG,
+    pub TunerChannel: super::LONG,
+    pub TunerNumber: super::LONG,
+    pub TimerEvent: super::LONG,
+    pub TimerStartDay: super::LONG,
+    pub TimerStartTime: super::LONG,
+    pub TimerStopDay: super::LONG,
+    pub TimerStopTime: super::LONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for TRANSPORTBASICPARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRANSPORTSTATUS {
-    pub Mode: i32,
-    pub LastError: i32,
-    pub RecordInhibit: i32,
-    pub ServoLock: i32,
-    pub MediaPresent: i32,
-    pub MediaLength: i32,
-    pub MediaSize: i32,
-    pub MediaTrackCount: i32,
-    pub MediaTrackLength: i32,
-    pub MediaTrackSide: i32,
-    pub MediaType: i32,
-    pub LinkMode: i32,
-    pub NotifyOn: i32,
+    pub Mode: super::LONG,
+    pub LastError: super::LONG,
+    pub RecordInhibit: super::LONG,
+    pub ServoLock: super::LONG,
+    pub MediaPresent: super::LONG,
+    pub MediaLength: super::LONG,
+    pub MediaSize: super::LONG,
+    pub MediaTrackCount: super::LONG,
+    pub MediaTrackLength: super::LONG,
+    pub MediaTrackSide: super::LONG,
+    pub MediaType: super::LONG,
+    pub LinkMode: super::LONG,
+    pub NotifyOn: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRANSPORTVIDEOPARMS {
-    pub OutputMode: i32,
-    pub Input: i32,
+    pub OutputMode: super::LONG,
+    pub Input: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRANSPORT_STATE {
-    pub Mode: u32,
-    pub State: u32,
+    pub Mode: super::ULONG,
+    pub State: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TUNER_ANALOG_CAPS_S {
-    pub Mode: u32,
-    pub StandardsSupported: u32,
-    pub MinFrequency: u32,
-    pub MaxFrequency: u32,
-    pub TuningGranularity: u32,
-    pub SettlingTime: u32,
-    pub ScanSensingRange: u32,
-    pub FineTuneSensingRange: u32,
+    pub Mode: super::ULONG,
+    pub StandardsSupported: super::ULONG,
+    pub MinFrequency: super::ULONG,
+    pub MaxFrequency: super::ULONG,
+    pub TuningGranularity: super::ULONG,
+    pub SettlingTime: super::ULONG,
+    pub ScanSensingRange: super::ULONG,
+    pub FineTuneSensingRange: super::ULONG,
 }
 pub type TunerLockType = i32;
 pub const Tuner_LockType_Locked: TunerLockType = 2;
 pub const Tuner_LockType_None: TunerLockType = 0;
 pub const Tuner_LockType_Within_Scan_Sensing_Range: TunerLockType = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct UMPDATAFORMAT {
-    pub Position: i64,
-    pub ByteCount: u32,
+    pub Position: super::LONGLONG,
+    pub ByteCount: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct VBICAP_PROPERTIES_PROTECTION_S {
     pub Property: super::KSPROPERTY,
-    pub StreamIndex: u32,
-    pub Status: u32,
+    pub StreamIndex: super::ULONG,
+    pub Status: super::ULONG,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for VBICAP_PROPERTIES_PROTECTION_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_CC_SUBSTREAMS {
-    pub SubstreamMask: u32,
+    pub SubstreamMask: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_NABTS_SUBSTREAMS {
-    pub SubstreamMask: [u32; 128],
+    pub SubstreamMask: [super::DWORD; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for VBICODECFILTERING_NABTS_SUBSTREAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_SCANLINES {
-    pub DwordBitArray: [u32; 32],
+    pub DwordBitArray: [super::DWORD; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for VBICODECFILTERING_SCANLINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_CC {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_CC_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_COMMON {
-    pub InputSRBsProcessed: u32,
-    pub OutputSRBsProcessed: u32,
-    pub SRBsIgnored: u32,
-    pub InputSRBsMissing: u32,
-    pub OutputSRBsMissing: u32,
-    pub OutputFailures: u32,
-    pub InternalErrors: u32,
-    pub ExternalErrors: u32,
-    pub InputDiscontinuities: u32,
-    pub DSPFailures: u32,
-    pub TvTunerChanges: u32,
-    pub VBIHeaderChanges: u32,
-    pub LineConfidenceAvg: u32,
-    pub BytesOutput: u32,
+    pub InputSRBsProcessed: super::DWORD,
+    pub OutputSRBsProcessed: super::DWORD,
+    pub SRBsIgnored: super::DWORD,
+    pub InputSRBsMissing: super::DWORD,
+    pub OutputSRBsMissing: super::DWORD,
+    pub OutputFailures: super::DWORD,
+    pub InternalErrors: super::DWORD,
+    pub ExternalErrors: super::DWORD,
+    pub InputDiscontinuities: super::DWORD,
+    pub DSPFailures: super::DWORD,
+    pub TvTunerChanges: super::DWORD,
+    pub VBIHeaderChanges: super::DWORD,
+    pub LineConfidenceAvg: super::DWORD,
+    pub BytesOutput: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
-    pub SRBsProcessed: u32,
-    pub SRBsIgnored: u32,
-    pub SRBsMissing: u32,
-    pub InternalErrors: u32,
-    pub ExternalErrors: u32,
-    pub Discontinuities: u32,
-    pub LineConfidenceAvg: u32,
-    pub BytesOutput: u32,
+    pub SRBsProcessed: super::DWORD,
+    pub SRBsIgnored: super::DWORD,
+    pub SRBsMissing: super::DWORD,
+    pub InternalErrors: super::DWORD,
+    pub ExternalErrors: super::DWORD,
+    pub Discontinuities: super::DWORD,
+    pub LineConfidenceAvg: super::DWORD,
+    pub BytesOutput: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_NABTS {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
-    pub FECBundleBadLines: u32,
-    pub FECQueueOverflows: u32,
-    pub FECCorrectedLines: u32,
-    pub FECUncorrectableLines: u32,
-    pub BundlesProcessed: u32,
-    pub BundlesSent2IP: u32,
-    pub FilteredLines: u32,
+    pub FECBundleBadLines: super::DWORD,
+    pub FECQueueOverflows: super::DWORD,
+    pub FECCorrectedLines: super::DWORD,
+    pub FECUncorrectableLines: super::DWORD,
+    pub BundlesProcessed: super::DWORD,
+    pub BundlesSent2IP: super::DWORD,
+    pub FilteredLines: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_NABTS_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
 pub type VIDEOENCODER_BITRATE_MODE = i32;
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct VIDEOFORMAT_DX12 {
     pub Header: super::KSATTRIBUTE,
-    pub resourceLayout: u32,
-    pub resourceFlags: u32,
+    pub resourceLayout: super::ULONG,
+    pub resourceFlags: super::ULONG,
     pub customLayout: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct VRAM_SURFACE_INFO {
-    pub hSurface: usize,
-    pub VramPhysicalAddress: i64,
-    pub cbCaptured: u32,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwLinearSize: u32,
-    pub lPitch: i32,
-    pub ullReserved: [u64; 16],
+    pub hSurface: super::UINT_PTR,
+    pub VramPhysicalAddress: super::LONGLONG,
+    pub cbCaptured: super::DWORD,
+    pub dwWidth: super::DWORD,
+    pub dwHeight: super::DWORD,
+    pub dwLinearSize: super::DWORD,
+    pub lPitch: super::LONG,
+    pub ullReserved: [super::ULONGLONG; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for VRAM_SURFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct VRAM_SURFACE_INFO_PROPERTY_S {
     pub Property: super::KSPROPERTY,
     pub pVramSurfaceInfo: PVRAM_SURFACE_INFO,
 }
-#[cfg(feature = "ks")]
+#[cfg(all(feature = "ks", feature = "shared"))]
 impl Default for VRAM_SURFACE_INFO_PROPERTY_S {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5953,45 +6342,50 @@ impl Default for VRAM_SURFACE_INFO_PROPERTY_S {
 pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = 1;
 pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = 2;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct WAVEFORMATEXTENSIBLE_IEC61937 {
     pub FormatExt: super::WAVEFORMATEXTENSIBLE,
-    pub dwEncodedSamplesPerSec: u32,
-    pub dwEncodedChannelCount: u32,
-    pub dwAverageBytesPerSec: u32,
+    pub dwEncodedSamplesPerSec: super::DWORD,
+    pub dwEncodedChannelCount: super::DWORD,
+    pub dwAverageBytesPerSec: super::DWORD,
 }
-#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 impl Default for WAVEFORMATEXTENSIBLE_IEC61937 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WNF_KSCAMERA_STREAMSTATE_INFO {
-    pub ProcessId: u32,
-    pub SessionId: u32,
-    pub StreamState: u32,
-    pub Reserved: u32,
+    pub ProcessId: super::ULONG,
+    pub SessionId: super::ULONG,
+    pub StreamState: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WST_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub WstLines: [WST_BUFFER_LINE; 17],
 }
+#[cfg(feature = "shared")]
 impl Default for WST_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WST_BUFFER_LINE {
-    pub Confidence: u8,
-    pub Bytes: [u8; 42],
+    pub Confidence: super::BYTE,
+    pub Bytes: [super::BYTE; 42],
 }
+#[cfg(feature = "shared")]
 impl Default for WST_BUFFER_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

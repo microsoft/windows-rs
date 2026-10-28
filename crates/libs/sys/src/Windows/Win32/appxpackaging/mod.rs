@@ -7,7 +7,7 @@ pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_
 pub type APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = i32;
 pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 0;
 pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 1;
-pub type APPX_CAPABILITIES = u32;
+pub type APPX_CAPABILITIES = i32;
 pub const APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = 1024;
 pub const APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = 7;
 pub const APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = 8;
@@ -34,32 +34,33 @@ pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = 0;
 pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1;
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
-    pub count: u32,
+    pub count: super::UINT32,
     pub plainTextFiles: *mut windows_sys::core::PCWSTR,
 }
-pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = u32;
+pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = i32;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = 1;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2;
 #[repr(C)]
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "shared", feature = "urlmon"))]
 #[derive(Clone, Copy, Default)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    pub keyLength: u32,
+    pub keyLength: super::UINT32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub useDiffusion: windows_sys::core::BOOL,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "shared", feature = "urlmon"))]
 #[derive(Clone, Copy, Default)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    pub keyLength: u32,
+    pub keyLength: super::UINT32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
-    pub options: u32,
+    pub options: super::DWORD,
 }
 pub type APPX_FOOTPRINT_FILE_TYPE = i32;
 pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = 1;
@@ -68,12 +69,13 @@ pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = 4
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0;
 pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct APPX_KEY_INFO {
-    pub keyLength: u32,
-    pub keyIdLength: u32,
-    pub key: *mut u8,
-    pub keyId: *mut u8,
+    pub keyLength: super::UINT32,
+    pub keyIdLength: super::UINT32,
+    pub key: *mut super::BYTE,
+    pub keyId: *mut super::BYTE,
 }
 pub type APPX_PACKAGE_ARCHITECTURE = i32;
 pub type APPX_PACKAGE_ARCHITECTURE2 = i32;
@@ -89,7 +91,7 @@ pub const APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = 12;
 pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = 11;
 pub const APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = 9;
 pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = 0;
-pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = u32;
+pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = i32;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 2;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 0;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 1;

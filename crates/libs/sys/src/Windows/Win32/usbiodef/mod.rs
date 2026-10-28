@@ -21,6 +21,7 @@ pub const HCD_GET_STATS_1: i32 = 255;
 pub const HCD_GET_STATS_2: i32 = 266;
 pub const HCD_TRACE_READ_REQUEST: i32 = 275;
 pub const HCD_USER_REQUEST: i32 = 270;
+#[cfg(feature = "winnt")]
 pub type PUSB_IDLE_CALLBACK_INFO = *mut USB_IDLE_CALLBACK_INFO;
 pub const USB_CYCLE_PORT: i32 = 7;
 pub const USB_DIAG_IGNORE_HUBS_OFF: i32 = 263;
@@ -57,12 +58,14 @@ pub const USB_GET_TOPOLOGY_ADDRESS: i32 = 271;
 pub const USB_GET_TRANSPORT_CHARACTERISTICS: i32 = 281;
 pub const USB_GET_TT_DEVICE_HANDLE: i32 = 270;
 pub const USB_HUB_CYCLE_PORT: i32 = 273;
-pub type USB_IDLE_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void)>;
+#[cfg(feature = "winnt")]
+pub type USB_IDLE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID)>;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
-    pub IdleContext: *mut core::ffi::c_void,
+    pub IdleContext: super::PVOID,
 }
 pub const USB_IDLE_NOTIFICATION: i32 = 9;
 pub const USB_IDLE_NOTIFICATION_EX: i32 = 272;

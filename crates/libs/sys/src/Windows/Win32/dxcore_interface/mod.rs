@@ -8,25 +8,29 @@ pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_GPU: windows_sys::core::GUID = windows_
 pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_MEDIA_ACCELERATOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66bdb96a_050b_44c7_a4fd_d144ce0ab443);
 pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_NPU: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd46140c4_add7_451b_9e56_06fe8c3b58ed);
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreAdapterEngineIndex {
-    pub physicalAdapterIndex: u32,
-    pub engineIndex: u32,
+    pub physicalAdapterIndex: super::uint32_t,
+    pub engineIndex: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreAdapterMemoryBudget {
-    pub budget: u64,
-    pub currentUsage: u64,
-    pub availableForReservation: u64,
-    pub currentReservation: u64,
+    pub budget: super::uint64_t,
+    pub currentUsage: super::uint64_t,
+    pub availableForReservation: super::uint64_t,
+    pub currentReservation: super::uint64_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    pub nodeIndex: u32,
+    pub nodeIndex: super::uint32_t,
     pub segmentGroup: DXCoreSegmentGroup,
 }
+#[cfg(feature = "stdint")]
 impl Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -41,16 +45,18 @@ impl DXCoreAdapterPreference {
     pub const HighPerformance: Self = Self(2);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreAdapterProcessSetQueryInput {
-    pub arraySize: u32,
-    pub processIds: *mut u32,
+    pub arraySize: super::uint32_t,
+    pub processIds: *mut super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreAdapterProcessSetQueryOutput {
-    pub processesWritten: u32,
-    pub processesTotal: u32,
+    pub processesWritten: super::uint32_t,
+    pub processesTotal: super::uint32_t,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
@@ -93,52 +99,59 @@ impl DXCoreAdapterState {
     pub const SingleAdapterHybridMode: Self = Self(11);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreEngineNamePropertyInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
-    pub engineNameLength: u32,
+    pub engineNameLength: super::uint32_t,
     pub engineName: *mut u16,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreEngineNamePropertyOutput {
-    pub engineNameLength: u32,
+    pub engineNameLength: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreEngineQueryInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
-    pub processId: u32,
+    pub processId: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreEngineQueryOutput {
-    pub runningTime: u64,
+    pub runningTime: super::uint64_t,
     pub processQuerySucceeded: bool,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreFrequencyQueryOutput {
-    pub frequency: u64,
-    pub maxFrequency: u64,
-    pub maxOverclockedFrequency: u64,
+    pub frequency: super::uint64_t,
+    pub maxFrequency: super::uint64_t,
+    pub maxOverclockedFrequency: super::uint64_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreHardwareID {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSysID: u32,
-    pub revision: u32,
+    pub vendorID: super::uint32_t,
+    pub deviceID: super::uint32_t,
+    pub subSysID: super::uint32_t,
+    pub revision: super::uint32_t,
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreHardwareIDParts {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSystemID: u32,
-    pub subVendorID: u32,
-    pub revisionID: u32,
+    pub vendorID: super::uint32_t,
+    pub deviceID: super::uint32_t,
+    pub subSystemID: super::uint32_t,
+    pub subVendorID: super::uint32_t,
+    pub revisionID: super::uint32_t,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
@@ -151,11 +164,13 @@ impl DXCoreHardwareTypeFilterFlags {
     pub const MediaAccelerator: Self = Self(8);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy)]
 pub struct DXCoreMemoryQueryInput {
-    pub physicalAdapterIndex: u32,
+    pub physicalAdapterIndex: super::uint32_t,
     pub memoryType: DXCoreMemoryType,
 }
+#[cfg(feature = "stdint")]
 impl Default for DXCoreMemoryQueryInput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -169,10 +184,11 @@ impl DXCoreMemoryType {
     pub const Shared: Self = Self(1);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreMemoryUsage {
-    pub committed: u64,
-    pub resident: u64,
+    pub committed: super::uint64_t,
+    pub resident: super::uint64_t,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
@@ -184,18 +200,21 @@ impl DXCoreNotificationType {
     pub const AdapterHardwareContentProtectionTeardown: Self = Self(3);
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy)]
 pub struct DXCoreProcessMemoryQueryInput {
-    pub physicalAdapterIndex: u32,
+    pub physicalAdapterIndex: super::uint32_t,
     pub memoryType: DXCoreMemoryType,
-    pub processId: u32,
+    pub processId: super::uint32_t,
 }
+#[cfg(feature = "stdint")]
 impl Default for DXCoreProcessMemoryQueryInput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "stdint")]
 #[derive(Clone, Copy, Default)]
 pub struct DXCoreProcessMemoryQueryOutput {
     pub memoryUsage: DXCoreMemoryUsage,
@@ -233,5 +252,10 @@ impl DXCoreWorkload {
     pub const Media: Self = Self(2);
     pub const MachineLearning: Self = Self(3);
 }
+pub const IID_IDXCoreAdapter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
+pub const IID_IDXCoreAdapter1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0783366_cfa3_43be_9d79_55b2da97c63c);
+pub const IID_IDXCoreAdapterFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
+pub const IID_IDXCoreAdapterFactory1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5682e19_6d21_401c_827a_9a51a4ea35d7);
+pub const IID_IDXCoreAdapterList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: *mut core::ffi::c_void, context: *const core::ffi::c_void)>;
 pub const _FACDXCORE: i32 = 2176;

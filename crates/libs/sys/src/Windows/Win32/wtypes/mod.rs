@@ -1,224 +1,271 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BSTRBLOB {
-    pub cbSize: u32,
-    pub pData: *mut u8,
+    pub cbSize: super::ULONG,
+    pub pData: *mut super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CLIPDATA {
-    pub cbSize: u32,
-    pub ulClipFmt: i32,
-    pub pClipData: *mut u8,
+    pub cbSize: super::ULONG,
+    pub ulClipFmt: super::LONG,
+    pub pClipData: *mut super::BYTE,
 }
 pub type CLIPFORMAT = u16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CSPLATFORM {
-    pub dwPlatformId: u32,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
-    pub dwProcessorArch: u32,
+    pub dwPlatformId: super::DWORD,
+    pub dwVersionHi: super::DWORD,
+    pub dwVersionLo: super::DWORD,
+    pub dwProcessorArch: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union CY {
     pub Anonymous: CY_0,
-    pub int64: i64,
+    pub int64: super::LONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for CY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CY_0 {
-    pub Lo: u32,
-    pub Hi: i32,
+    pub Lo: super::ULONG,
+    pub Hi: super::LONG,
 }
 pub type DATE = f64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DECIMAL {
-    pub wReserved: u16,
+    pub wReserved: super::USHORT,
     pub Anonymous: DECIMAL_0,
-    pub Hi32: u32,
+    pub Hi32: super::ULONG,
     pub Anonymous2: DECIMAL_1,
 }
+#[cfg(feature = "shared")]
 impl Default for DECIMAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
-    pub signscale: u16,
+    pub signscale: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for DECIMAL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DECIMAL_0_0 {
-    pub scale: u8,
-    pub sign: u8,
+    pub scale: super::BYTE,
+    pub sign: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
-    pub Lo64: u64,
+    pub Lo64: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DECIMAL_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DECIMAL_1_0 {
-    pub Lo32: u32,
-    pub Mid32: u32,
+    pub Lo32: super::ULONG,
+    pub Mid32: super::ULONG,
 }
-pub const DECIMAL_NEG: u8 = 128;
+#[cfg(feature = "shared")]
+pub const DECIMAL_NEG: super::BYTE = 128;
 pub type DVASPECT = i32;
 pub const DVASPECT_CONTENT: DVASPECT = 1;
 pub const DVASPECT_DOCPRINT: DVASPECT = 8;
 pub const DVASPECT_ICON: DVASPECT = 4;
 pub const DVASPECT_THUMBNAIL: DVASPECT = 2;
 #[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct GDI_NONREMOTE {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0002,
+    pub fContext: super::LONG,
+    pub u: GDI_NONREMOTE___MIDL_IWinTypes_0002,
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for GDI_NONREMOTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union GDI_NONREMOTE___MIDL_IWinTypes_0002 {
+    pub hInproc: super::LONG,
+    pub hRemote: *mut super::DWORD_BLOB,
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for GDI_NONREMOTE___MIDL_IWinTypes_0002 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type HCONTEXT = *mut core::ffi::c_void;
 pub type HMETAFILEPICT = *mut core::ffi::c_void;
-pub type LPBSTR = *mut windows_sys::core::BSTR;
+pub type LPBSTR = *mut *mut u16;
+#[cfg(feature = "shared")]
 pub type LPBSTRBLOB = *mut BSTRBLOB;
+#[cfg(feature = "shared")]
 pub type LPCY = *mut CY;
+#[cfg(feature = "shared")]
 pub type LPDECIMAL = *mut DECIMAL;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_sys::core::GUID,
-    pub pid: u32,
+    pub pid: super::DWORD,
 }
 pub type PROPID = u32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QUERYCONTEXT {
-    pub dwContext: u32,
+    pub dwContext: super::DWORD,
     pub Platform: CSPLATFORM,
     pub Locale: super::LCID,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
+    pub dwVersionHi: super::DWORD,
+    pub dwVersionLo: super::DWORD,
 }
 pub const ROTFLAGS_ALLOWANYCLIENT: i32 = 2;
 pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: i32 = 1;
 pub const ROT_COMPARE_MAX: i32 = 2048;
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RemHBITMAP {
-    pub cbData: u32,
+    pub cbData: super::ULONG,
     pub data: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for RemHBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RemHBRUSH {
-    pub cbData: u32,
+    pub cbData: super::ULONG,
     pub data: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for RemHBRUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RemHENHMETAFILE {
-    pub cbData: u32,
+    pub cbData: super::ULONG,
     pub data: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for RemHENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RemHGLOBAL {
-    pub fNullHGlobal: i32,
-    pub cbData: u32,
+    pub fNullHGlobal: super::LONG,
+    pub cbData: super::ULONG,
     pub data: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for RemHGLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RemHMETAFILEPICT {
-    pub mm: i32,
-    pub xExt: i32,
-    pub yExt: i32,
-    pub cbData: u32,
+    pub mm: super::LONG,
+    pub xExt: super::LONG,
+    pub yExt: super::LONG,
+    pub cbData: super::ULONG,
     pub data: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for RemHMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RemHPALETTE {
-    pub cbData: u32,
+    pub cbData: super::ULONG,
     pub data: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for RemHPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct RemotableHandle {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0009,
+    pub fContext: super::LONG,
+    pub u: RemotableHandle___MIDL_IWinTypes_0009,
 }
+#[cfg(feature = "shared")]
 impl Default for RemotableHandle {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union RemotableHandle___MIDL_IWinTypes_0009 {
+    pub hInproc: super::LONG,
+    pub hRemote: super::LONG,
+}
+#[cfg(feature = "shared")]
+impl Default for RemotableHandle___MIDL_IWinTypes_0009 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -305,310 +352,300 @@ pub const VT_VOID: VARENUM = 24;
 pub const WDT_INPROC64_CALL: i32 = 1349805143;
 pub const WDT_INPROC_CALL: i32 = 1215587415;
 pub const WDT_REMOTE_CALL: i32 = 1383359575;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0001 {
-    pub dwValue: u32,
-    pub pwszName: *mut u16,
-}
-impl Default for __MIDL_IWinTypes_0001 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0002 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::DWORD_BLOB,
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for __MIDL_IWinTypes_0002 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0003 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::FLAGGED_BYTE_BLOB,
-    pub hInproc64: i64,
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for __MIDL_IWinTypes_0003 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0004 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::BYTE_BLOB,
-    pub hInproc64: i64,
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for __MIDL_IWinTypes_0004 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0005 {
-    pub hInproc: i32,
-    pub hRemote: *mut remoteMETAFILEPICT,
-    pub hInproc64: i64,
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for __MIDL_IWinTypes_0005 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0006 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::BYTE_BLOB,
-    pub hInproc64: i64,
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for __MIDL_IWinTypes_0006 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "rpc")]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0007 {
-    pub hInproc: i32,
-    pub hRemote: *mut userBITMAP,
-    pub hInproc64: i64,
-}
-#[cfg(feature = "rpc")]
-impl Default for __MIDL_IWinTypes_0007 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "wingdi")]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0008 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::LOGPALETTE,
-    pub hInproc64: i64,
-}
-#[cfg(feature = "wingdi")]
-impl Default for __MIDL_IWinTypes_0008 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union __MIDL_IWinTypes_0009 {
-    pub hInproc: i32,
-    pub hRemote: i32,
-}
-impl Default for __MIDL_IWinTypes_0009 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
-pub union __MIDL___MIDL_itf_wtypes_0000_0001_0005 {
-    pub clsid: windows_sys::core::GUID,
-    pub pFileExt: super::LPOLESTR,
-    pub pMimeType: super::LPOLESTR,
-    pub pProgId: super::LPOLESTR,
-    pub pFileName: super::LPOLESTR,
-    pub ByName: __MIDL___MIDL_itf_wtypes_0000_0001_0005_0,
-    pub ByObjectId: __MIDL___MIDL_itf_wtypes_0000_0001_0005_1,
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for __MIDL___MIDL_itf_wtypes_0000_0001_0005 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Default)]
-pub struct __MIDL___MIDL_itf_wtypes_0000_0001_0005_0 {
-    pub pPackageName: super::LPOLESTR,
-    pub PolicyId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Default)]
-pub struct __MIDL___MIDL_itf_wtypes_0000_0001_0005_1 {
-    pub ObjectId: windows_sys::core::GUID,
-    pub PolicyId: windows_sys::core::GUID,
-}
 pub const __REQUIRED_RPCNDR_H_VERSION__: i32 = 501;
 pub const __REQUIRED_RPCSAL_H_VERSION__: i32 = 100;
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct remoteMETAFILEPICT {
-    pub mm: i32,
-    pub xExt: i32,
-    pub yExt: i32,
+    pub mm: super::LONG,
+    pub xExt: super::LONG,
+    pub yExt: super::LONG,
     pub hMF: *mut userHMETAFILE,
 }
 #[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct uCLSSPEC {
-    pub tyspec: u32,
-    pub tagged_union: __MIDL___MIDL_itf_wtypes_0000_0001_0005,
+    pub tyspec: super::DWORD,
+    pub tagged_union: uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005,
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
 impl Default for uCLSSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005 {
+    pub clsid: super::CLSID,
+    pub pFileExt: super::LPOLESTR,
+    pub pMimeType: super::LPOLESTR,
+    pub pProgId: super::LPOLESTR,
+    pub pFileName: super::LPOLESTR,
+    pub ByName: uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005_0,
+    pub ByObjectId: uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005_1,
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
+impl Default for uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
+pub struct uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005_0 {
+    pub pPackageName: super::LPOLESTR,
+    pub PolicyId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
+pub struct uCLSSPEC___MIDL___MIDL_itf_wtypes_0000_0001_0005_1 {
+    pub ObjectId: windows_sys::core::GUID,
+    pub PolicyId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct userBITMAP {
-    pub bmType: i32,
-    pub bmWidth: i32,
-    pub bmHeight: i32,
-    pub bmWidthBytes: i32,
-    pub bmPlanes: u16,
-    pub bmBitsPixel: u16,
-    pub cbSize: u32,
+    pub bmType: super::LONG,
+    pub bmWidth: super::LONG,
+    pub bmHeight: super::LONG,
+    pub bmWidthBytes: super::LONG,
+    pub bmPlanes: super::WORD,
+    pub bmBitsPixel: super::WORD,
+    pub cbSize: super::ULONG,
     pub pBuffer: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for userBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct userCLIPFORMAT {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0001,
+    pub fContext: super::LONG,
+    pub u: userCLIPFORMAT___MIDL_IWinTypes_0001,
 }
+#[cfg(feature = "shared")]
 impl Default for userCLIPFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "rpc")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union userCLIPFORMAT___MIDL_IWinTypes_0001 {
+    pub dwValue: super::DWORD,
+    pub pwszName: *mut u16,
+}
+#[cfg(feature = "shared")]
+impl Default for userCLIPFORMAT___MIDL_IWinTypes_0001 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct userHBITMAP {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0007,
+    pub fContext: super::LONG,
+    pub u: userHBITMAP___MIDL_IWinTypes_0007,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for userHBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union userHBITMAP___MIDL_IWinTypes_0007 {
+    pub hInproc: super::LONG,
+    pub hRemote: *mut userBITMAP,
+    pub hInproc64: i64,
+}
+#[cfg(all(feature = "rpc", feature = "shared"))]
+impl Default for userHBITMAP___MIDL_IWinTypes_0007 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHENHMETAFILE {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0006,
+    pub fContext: super::LONG,
+    pub u: userHENHMETAFILE___MIDL_IWinTypes_0006,
 }
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 impl Default for userHENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union userHENHMETAFILE___MIDL_IWinTypes_0006 {
+    pub hInproc: super::LONG,
+    pub hRemote: *mut super::BYTE_BLOB,
+    pub hInproc64: i64,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+impl Default for userHENHMETAFILE___MIDL_IWinTypes_0006 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHGLOBAL {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0003,
+    pub fContext: super::LONG,
+    pub u: userHGLOBAL___MIDL_IWinTypes_0003,
 }
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 impl Default for userHGLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union userHGLOBAL___MIDL_IWinTypes_0003 {
+    pub hInproc: super::LONG,
+    pub hRemote: *mut super::FLAGGED_BYTE_BLOB,
+    pub hInproc64: i64,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+impl Default for userHGLOBAL___MIDL_IWinTypes_0003 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHMETAFILE {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0004,
+    pub fContext: super::LONG,
+    pub u: userHMETAFILE___MIDL_IWinTypes_0004,
 }
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 impl Default for userHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union userHMETAFILE___MIDL_IWinTypes_0004 {
+    pub hInproc: super::LONG,
+    pub hRemote: *mut super::BYTE_BLOB,
+    pub hInproc64: i64,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+impl Default for userHMETAFILE___MIDL_IWinTypes_0004 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userHMETAFILEPICT {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0005,
+    pub fContext: super::LONG,
+    pub u: userHMETAFILEPICT___MIDL_IWinTypes_0005,
 }
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 impl Default for userHMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union userHMETAFILEPICT___MIDL_IWinTypes_0005 {
+    pub hInproc: super::LONG,
+    pub hRemote: *mut remoteMETAFILEPICT,
+    pub hInproc64: i64,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
+impl Default for userHMETAFILEPICT___MIDL_IWinTypes_0005 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct userHPALETTE {
-    pub fContext: i32,
-    pub u: __MIDL_IWinTypes_0008,
+    pub fContext: super::LONG,
+    pub u: userHPALETTE___MIDL_IWinTypes_0008,
 }
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 impl Default for userHPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "wtypesbase")]
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+#[derive(Clone, Copy)]
+pub union userHPALETTE___MIDL_IWinTypes_0008 {
+    pub hInproc: super::LONG,
+    pub hRemote: *mut super::LOGPALETTE,
+    pub hInproc64: i64,
+}
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+impl Default for userHPALETTE___MIDL_IWinTypes_0008 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub type wireBSTR = *mut super::FLAGGED_WORD_BLOB;
+#[cfg(feature = "shared")]
 pub type wireCLIPFORMAT = *mut userCLIPFORMAT;
+#[cfg(feature = "shared")]
 pub type wireHACCEL = *mut RemotableHandle;
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub type wireHBITMAP = *mut userHBITMAP;
+#[cfg(feature = "shared")]
 pub type wireHBRUSH = *mut RemotableHandle;
+#[cfg(feature = "shared")]
 pub type wireHDC = *mut RemotableHandle;
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 pub type wireHENHMETAFILE = *mut userHENHMETAFILE;
+#[cfg(feature = "shared")]
 pub type wireHFONT = *mut RemotableHandle;
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 pub type wireHGLOBAL = *mut userHGLOBAL;
+#[cfg(feature = "shared")]
 pub type wireHICON = *mut RemotableHandle;
+#[cfg(feature = "shared")]
 pub type wireHMENU = *mut RemotableHandle;
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 pub type wireHMETAFILE = *mut userHMETAFILE;
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 pub type wireHMETAFILEPICT = *mut userHMETAFILEPICT;
+#[cfg(feature = "shared")]
 pub type wireHMONITOR = *mut RemotableHandle;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 pub type wireHPALETTE = *mut userHPALETTE;
+#[cfg(feature = "shared")]
 pub type wireHRGN = *mut RemotableHandle;
+#[cfg(feature = "shared")]
 pub type wireHWND = *mut RemotableHandle;

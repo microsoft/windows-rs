@@ -19,9 +19,10 @@ pub const CARET_NULL: CARET_FLAGS = 64;
 pub const CARET_ROTATE90: CARET_FLAGS = 128;
 pub const CARET_RTL: CARET_FLAGS = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGENOTIFY {
-    pub dwChangeType: u32,
+    pub dwChangeType: super::DWORD,
     pub pvCookieData: *mut core::ffi::c_void,
 }
 pub type CHANGETYPE = i32;
@@ -29,7 +30,6 @@ pub const CN_GENERIC: CHANGETYPE = 0;
 pub const CN_NEWREDO: CHANGETYPE = 4;
 pub const CN_NEWUNDO: CHANGETYPE = 2;
 pub const CN_TEXTCHANGED: CHANGETYPE = 1;
-pub type PCreateTextServices = Option<unsafe extern "system" fn(punkouter: *mut core::ffi::c_void, pitexthost: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type PShutdownTextServices = Option<unsafe extern "system" fn(ptextservices: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const S_MSG_KEY_IGNORED: windows_sys::core::HRESULT = 0x40201_u32 as _;
 pub const TXES_ISDIALOG: i32 = 1;

@@ -1,15 +1,15 @@
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn DdeSetQualityOfService(hwndclient : super::HWND, pqosnew : *const super::SECURITY_QUALITY_OF_SERVICE, pqosprev : super::PSECURITY_QUALITY_OF_SERVICE) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn FreeDDElParam(msg : u32, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn FreeDDElParam(msg : super::UINT, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ImpersonateDdeClientWindow(hwndclient : super::HWND, hwndserver : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn PackDDElParam(msg : u32, uilo : usize, uihi : usize) -> super::LPARAM);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn ReuseDDElParam(lparam : super::LPARAM, msgin : u32, msgout : u32, uilo : usize, uihi : usize) -> super::LPARAM);
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
-windows_link::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::LPARAM, puilo : super::PUINT_PTR, puihi : super::PUINT_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn PackDDElParam(msg : super::UINT, uilo : super::UINT_PTR, uihi : super::UINT_PTR) -> super::LPARAM);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn ReuseDDElParam(lparam : super::LPARAM, msgin : super::UINT, msgout : super::UINT, uilo : super::UINT_PTR, uihi : super::UINT_PTR) -> super::LPARAM);
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn UnpackDDElParam(msg : super::UINT, lparam : super::LPARAM, puilo : super::PUINT_PTR, puihi : super::PUINT_PTR) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DDEACK {
@@ -22,12 +22,14 @@ pub struct DDEADVISE {
     pub cfFormat: i16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
-    pub Value: [u8; 1],
+    pub Value: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DDEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -40,24 +42,28 @@ pub struct DDELN {
     pub cfFormat: i16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
-    pub Value: [u8; 1],
+    pub Value: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DDEPOKE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
-    pub rgb: [u8; 1],
+    pub rgb: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DDEUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

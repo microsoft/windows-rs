@@ -83,6 +83,7 @@ pub type WBEM_COMPARISON_FLAG = i32;
 pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = 0;
 pub type WBEM_COMPILER_OPTIONS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
@@ -90,7 +91,7 @@ pub struct WBEM_COMPILE_STATUS_INFO {
     pub ObjectNum: i32,
     pub FirstLine: i32,
     pub LastLine: i32,
-    pub dwOutFlags: u32,
+    pub dwOutFlags: super::DWORD,
 }
 pub type WBEM_CONDITION_FLAG_TYPE = i32;
 pub type WBEM_CONNECT_OPTIONS = i32;

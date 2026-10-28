@@ -1,4 +1,5 @@
-windows_link::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const super::IID, punkouter : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ILDI_PURGE: i32 = 1;
 pub const ILDI_QUERYACCESS: i32 = 8;
 pub const ILDI_RESETACCESS: i32 = 4;
@@ -21,9 +22,10 @@ pub const ILR_VERTICAL_BOTTOM: i32 = 32;
 pub const ILR_VERTICAL_CENTER: i32 = 16;
 pub const ILR_VERTICAL_TOP: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGELISTSTATS {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub cAlloc: i32,
     pub cUsed: i32,
     pub cStandby: i32,
